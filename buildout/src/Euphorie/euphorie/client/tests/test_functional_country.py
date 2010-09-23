@@ -6,6 +6,8 @@ from euphorie.client.tests.utils import addSurvey
 
 class CountryTests(EuphorieFunctionalTestCase):
     def register(self, browser):
+        # If this getLink failed the translations may not be compiled yet. This
+        # can happen if you run tests without ever having started Zope.
         browser.getLink("Registreer").click()
         browser.getControl(name="email").value="guest"
         browser.getControl(name="password1:utf8:ustring").value="guest"
