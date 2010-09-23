@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class python:'help' + webhelpers.extra_css()">
+    <h1 tal:content="view/document/title">Privacy statement</h1>
+
+    <p tal:replace="structure view/document/getText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a mollis erat. Curabitur vestibulum feugiat placerat. Nunc dapibus turpis id diam lobortis aliquam. Nullam porttitor sem a massa congue rutrum. Integer aliquet, dui ut feugiat elementum, sapien dolor posuere ipsum, a pharetra risus ipsum malesuada massa. Fusce vel arcu id magna lacinia suscipit. In vitae ligula convallis tortor cursus semper sed vitae massa. Nulla magna est, semper ullamcorper consequat a, sollicitudin vitae ipsum. Ut eget turpis condimentum sapien varius tempus ut nec leo. Sed ac magna faucibus dui congue interdum sed volutpat mi. Praesent euismod mattis dapibus.</p>
+
+    <ol id="steps">
+      <li id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2" tal:define="url python:webhelpers.survey_url(phase='identification')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li id="step-3" tal:define="url python:webhelpers.survey_url(phase='evaluation')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li id="step-4" tal:define="url python:webhelpers.survey_url(phase='actionplan')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li id="step-5" tal:define="url python:webhelpers.survey_url(phase='report')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

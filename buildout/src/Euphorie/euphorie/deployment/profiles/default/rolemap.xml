@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="Sharing page: Delegate roles" acquire="False">
+    </permission>
+    <permission name="Content rules: Manage rules" acquire="False">
+    </permission>
+  </permissions>
+</rolemap>

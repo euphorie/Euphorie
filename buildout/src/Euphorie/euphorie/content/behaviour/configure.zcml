@@ -1,0 +1,53 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="euphorie">
+
+    <subscriber handler=".publish.CheckObjectRemoval" />
+    <subscriber handler=".publish.ObjectPublished" />
+    <adapter name="Description" factory=".richdescription.Description" />
+    <adapter
+        factory=".maxdepth.SurveyDepthConstructionFilter"
+        name="euphorie.module"
+        />
+    <adapter
+        factory=".maxdepth.SurveyDepthConstructionFilter"
+        name="euphorie.risk"
+        />
+
+    <plone:behavior
+        title="Rich text description"
+        description="Use a rich text description for content types."
+        provides=".richdescription.IRichDescription"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <plone:behavior
+        title="Support deprecation"
+        description="Allow objects to be marked as deprecated"
+        provides=".deprecation.IDeprecatable"
+        factory=".deprecation.WorkflowDeprecatable"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <plone:behavior
+        title="Prevent deletion after publication"
+        description="Once an object has been published forbid removal"
+        provides=".publish.IPublishRemovalProtection"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <plone:behavior
+        title="Root node for unique id generation"
+        description="Generated unique ids are only unique within this context"
+        provides=".uniqueid.IIdGenerationRoot"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <plone:behavior
+        title="Unique id for content"
+        description="Automatically generate unique ids for content"
+        provides=".uniqueid.INameFromUniqueId"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+</configure>

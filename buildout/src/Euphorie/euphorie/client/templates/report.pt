@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class python:'report' + webhelpers.extra_css()">
+    <h1 i18n:translate="header_reporting">Reporting</h1>
+
+    <p i18n:translate="report_intro">
+    Now that you have finished identifying all the risks in your organisation
+    and created an action plan you can create a report which lists all your
+    results. You can, if desired, add some extra comments that should be
+    included in this report in the field below.
+    </p>
+
+    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+      <fieldset class="concise" id="comments">
+        <label for="comment" class="superImpose" i18n:translate="label_report_comment">
+          Please leave any extra comments that should be included in the report
+          in this field.
+        </label>
+        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5"
+                  tal:content="context/report_comment"></textarea>
+      </fieldset>
+
+      <p class="buttonBar">
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ol id="steps">
+      <li class="complete" id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='identification')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='evaluation')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='actionplan')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li class="current active" id="step-5">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='report')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#identification" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

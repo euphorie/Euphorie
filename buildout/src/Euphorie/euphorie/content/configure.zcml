@@ -1,0 +1,147 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           xmlns:z3c="http://namespaces.zope.org/z3c"
+           i18n_domain="euphorie">
+
+    <i18n:registerTranslations directory="locales"/>
+
+    <include package="plone.app.folder" />
+    <include package="plone.app.z3cform" />
+    <include package="collective.autopermission" />
+    <include package="plone.namedfile" />
+    <include package="plone.formwidget.namedfile" />
+    <include package="plone.directives.dexterity" />
+    <include package="plone.app.dexterity" />
+    <include package="plone.app.vocabularies" />
+    <include package="htmllaundry" />
+
+    <permission
+        id="euphorie.content.AddNewSector"
+        title="Euphorie: Add new Sector"
+        />
+
+    <permission
+        id="euphorie.content.AddNewRIEContent"
+        title="Euphorie: Add new RIE Content"
+        />
+
+    <permission
+        id="euphorie.content.DeletePublishedContent"
+        title="Euphorie: Delete published content"
+        />
+
+    <browser:resourceDirectory
+      name="farbtastic"
+      directory="farbtastic"
+      />
+
+    <browser:page
+        for=".country.ICountry"
+        name="upload"
+        class=".upload.ImportSectorView"
+        permission="euphorie.content.AddNewSector"
+        />
+
+    <browser:page
+        for=".surveygroup.ISurveyGroup"
+        name="upload"
+        class=".upload.ImportSurveyView"
+        permission="euphorie.content.AddNewRIEContent"
+        />
+
+    <grok:grok package="." />
+
+    <five:registerClass
+        class=".fti.ConditionalDexterityFTI"
+        meta_type="Conditional Dexterity FTI"
+        addview="plone.dexterity.fti"
+        permission="cmf.ManagePortal"
+        icon="plone.dexterity.fti.gif"
+        global="False"
+        />
+
+    <subscriber handler=".login.SectorLoginHandler" />
+
+    <utility
+        component=".survey.TemplateSurveyVocabularyFactory"
+        name="euphorie.content.survey.templates"
+        />
+
+    <class class=".colour.ColourWidget">
+      <require permission="zope.Public"
+        interface=".colour.IColourWidget"
+        />
+    </class>
+    <adapter factory=".colour.ColourFieldWidget" />
+    <z3c:widgetTemplate
+        mode="input"
+        widget=".colour.IColourWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="colour_input.pt"
+        />
+
+    <adapter factory=".sector.SectorLocalRolesProvider" />
+    <adapter
+        factory=".sector.SectorUserProvider"
+        provides="Products.membrane.interfaces.user.IMembraneUserObject"
+        />
+    <adapter factory=".sector.SectorUserAuthentication" />
+    <adapter factory=".sector.SectorUserChanger" />
+    <adapter factory=".sector.SectorUserProperties" />
+
+    <adapter factory=".risk.InformationLinkFactory"
+      name="euphorie.content.risk.IInformationLink" />
+
+    <adapter
+         for=".surveygroup.ISurveyGroup
+              Products.CMFDefault.interfaces.ICMFDefaultSkin
+              plone.dexterity.interfaces.IDexterityFTI"
+         provides="zope.publisher.interfaces.browser.IBrowserPage"
+         factory=".survey.AddView"
+         name="euphorie.survey"
+         />
+    <class class=".survey.AddView">
+      <require
+           permission="euphorie.content.AddNewRIEContent"
+           interface="zope.publisher.interfaces.browser.IBrowserPage"
+           />
+    </class>
+
+    <adapter
+         for=".sector.ISector
+              Products.CMFDefault.interfaces.ICMFDefaultSkin
+              plone.dexterity.interfaces.IDexterityFTI"
+         provides="zope.publisher.interfaces.browser.IBrowserPage"
+         factory=".surveygroup.AddView"
+         name="euphorie.surveygroup"
+         />
+    <class class=".surveygroup.AddView">
+      <require
+           permission="euphorie.content.AddNewRIEContent"
+           interface="zope.publisher.interfaces.browser.IBrowserPage"
+           />
+    </class>
+
+    <include package=".behaviour" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="Euphorie content types"
+        directory="profiles/default"
+        description="RIE related content types"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        />
+
+    <browser:page
+        name="clean-content"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="cmf.ManagePortal"
+        class=".upgrade.CleanupContent"
+        />
+
+</configure>

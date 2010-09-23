@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="euphorie">
+<body>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main">
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+    <h1 class="documentFirstHeading" tal:content="context/title" />
+
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+    <p tal:replace="structure context/description">Module description</p>
+
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+
+    <h2 i18n:translate="header_information">Information</h2>
+
+    <p i18n:translate="info_module_optional"
+    tal:condition="context/optional">This module is optional.</p>
+    <p i18n:translate="info_not_module_optional"
+    tal:condition="not:context/optional">This module is mandatory.</p>
+
+    <tal:block define="children view/modules">
+      <h2 i18n:translate="header_modules">Modules</h2>
+
+      <p tal:condition="not:python:children" i18n:translate="module_has_no_modules">
+        This module has no submodules. You can add <a href="#" i18n:name="add_link"
+      tal:attributes="href view/add_module_url"><i18n:span translate="add_sub_module">add
+      a submodule</i18n:span></a>.
+      </p>
+
+      <ol tal:condition="python:children">
+        <li tal:repeat="child children">
+          <a tal:attributes="href child/url" tal:content="child/title">Do you have a mobile van?</a>
+        </li>
+      </ol>
+
+      <p tal:condition="python:children" i18n:translate="module_modules_footer">
+        You can also add <a href="#" i18n:name="add_link"
+      tal:attributes="href view/add_module_url"><i18n:span translate="add_sub_module">add
+      a new submodule</i18n:span></a>.
+      </p>
+    </tal:block>
+
+    <tal:block define="children view/risks">
+      <h2 i18n:translate="header_risks">Risks</h2>
+
+      <p tal:condition="not:python:children" i18n:translate="module_has_no_risks">
+        This module has no risks. You can add <a href="#" i18n:name="add_link"
+      tal:attributes="href view/add_risk_url"><i18n:span translate="add_riskk">add
+      a risk</i18n:span></a>.
+      </p>
+
+      <ol tal:condition="python:children">
+        <li tal:repeat="child children">
+          <a tal:attributes="href child/url" tal:content="child/title">Do you have a mobile van?</a>
+        </li>
+      </ol>
+
+      <p tal:condition="python:children" i18n:translate="module_risk_footer">
+        You can also add <a href="#" i18n:name="add_link"
+      tal:attributes="href view/add_risk_url"><i18n:span translate="add_sub_module">add
+      a new risk</i18n:span></a>.
+      </p>
+    </tal:block>
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+  </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+
+

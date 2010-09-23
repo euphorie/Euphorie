@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <tal:block condition="not:view/download"><metal:css use-macro="webhelpers/macros/javascript"/></tal:block>
+  </head>
+  <body class="report" tal:define="survey_url python:webhelpers.survey_url(phase='actionplan')"
+        tal:attributes="class python:'report' + webhelpers.extra_css()">
+    <h1 tal:content="view/report_title">Action plan report</h1>
+
+    <div class="buttonBar super" tal:condition="not:view/download">
+      <a class="button-medium printButton jsOnly" i18n:translate="button_print">Print</a>
+      <a class="button-medium" tal:attributes="href python:view.url(name='download')" i18n:translate="button_download">Download</a>
+    </div>
+
+    <div class="notice introduction">
+      <p i18n:translate="plan_report_intro_1">By filling in this list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan.</p>
+
+      <p i18n:translate="plan_report_intro_2">The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects have been completed and perhaps new subjects need to be added.</p>
+    </div>
+
+    <div class="notice comments" tal:condition="context/report_comment" tal:content="context/report_comment">
+      Extra remarks for this particular survey.
+    </div>
+
+    <tal:block repeat="node view/nodes">
+      <tal:module condition="python:node.type!='risk'">
+        <tal:tag replace="structure python:'&lt;h%s&gt;' % (node.depth+1)"/><a tal:attributes="href python:'%s/%s' % (survey_url, '/'.join(node.short_path))" tal:content="string:${node/number} ${node/title}">1.2 Section title</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+      </tal:module>
+
+      <tal:risk condition="python:node.type=='risk'">
+        <tal:block define="zodbnode python:view.getZodbNode(node); title python:view.title(node, zodbnode); image_url python:view.imageUrl(zodbnode);
+                           status python:view.risk_status(node, zodbnode)">
+          <div class="warning" tal:attributes="class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status]"
+               tal:define="show_negate_warning python:view.show_negate_warning(node, zodbnode)"
+               tal:omit-tag="python:status=='unanswered'">
+            <h4><strong class="icon warning" tal:condition="python:not show_negate_warning and status=='present'">⚠</strong><a tal:attributes="href python:'%s/%s' % (survey_url, '/'.join(node.short_path))" tal:content="string:${node/number} ${title}">1.2.3 A risk title</a></h4>
+
+            <p class="negation" tal:condition="show_negate_warning"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+            <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered"> This risk still needs to be inventorised </p>
+
+            <p class="priority-high" tal:condition="node/priority" tal:attributes="class string:priority-${node/priority}" i18n:translate="report_risk_priority"
+                >This is a <strong i18n:name="priority"><tal:span i18n:translate="report_priority"><tal:span i18n:name="level"><tal:span i18n:translate="" tal:replace="node/priority">medium</tal:span></tal:span> priority</tal:span></strong> risk.</p>
+
+            <img alt="" tal:condition="image_url" tal:attributes="src image_url; class python:view.random() and 'floatBefore' or 'floatAfter'" class="floatBefore" />
+            <p tal:replace="structure zodbnode/description">
+              This is a description of the risk.
+            </p>
+          </div>
+        </tal:block>
+
+        <tal:plan repeat="actionplan node/action_plans">
+          <h5 i18n:translate="header_measure">Measure <tal:span i18n:name="index" content="repeat/actionplan/number">1</tal:span></h5>
+          <dl tal:condition="python:actionplan.action_plan or actionplan.prevention_plan or actionplan.requirements">
+            <tal:block condition="actionplan/action_plan">
+              <dt i18n:translate="report_measure_actionplan">Action plan:</dt>
+              <dd tal:content="actionplan/action_plan">Plan tetx here.</dd>
+            </tal:block>
+            <tal:block condition="actionplan/prevention_plan">
+              <dt i18n:translate="report_measure_preventionplan">Prevention plan:</dt>
+              <dd tal:content="actionplan/prevention_plan">Plan text here.</dd>
+            </tal:block>
+            <tal:block condition="actionplan/requirements">
+              <dt i18n:translate="report_measure_requirements">Requirements:</dt>
+              <dd tal:content="actionplan/requirements">Plan text here.</dd>
+            </tal:block>
+          </dl>
+
+          <p class="discrete" tal:condition="python:actionplan.responsible or actionplan.planning_start or actionplan.planning_end or actionplan.budget">
+            <tal:block condition="python:actionplan.responsible and not (actionplan.planning_start or actionplan.planning_end)"
+              i18n:translate="report_measure_responsible"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_start and not actionplan.planning_end"
+              i18n:translate="report_measure_responsible_and_start"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which starts on <tal:span i18n:name="start" content="python:webhelpers.formatDate(actionplan.planning_start)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_end and not actionplan.planning_start"
+              i18n:translate="report_measure_responsible_and_end"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which ends on <tal:span i18n:name="end" content="python:webhelpers.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_start and not (actionplan.responsible or actionplan.planning_end)"
+              i18n:translate="report_measure_start_only">This task starts
+              on <tal:span i18n:name="start" content="python:webhelpers.formatDate(actionplan.planning_start)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_end and not (actionplan.responsible or actionplan.planning_start)"
+              i18n:translate="report_measure_end_only">This task ends
+              on <tal:span i18n:name="end" content="python:webhelpers.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_start and actionplan.planning_end and not actionplan.responsible"
+              i18n:translate="report_measure_start_and_stop">This task starts
+              on <tal:span i18n:name="start" content="python:webhelpers.formatDate(actionplan.planning_start)">14 April 2010</tal:span> and
+              ends on <tal:span i18n:name="end" content="python:webhelpers.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_start and actionplan.planning_end"
+              i18n:translate="report_measure_full"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which starts on <tal:span i18n:name="start" content="python:webhelpers.formatDate(actionplan.planning_start)">14 April 2010</tal:span> and
+              ends on <tal:span i18n:name="end" content="python:webhelpers.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+              <tal:block condition="actionplan/budget" i18n:translate="report_measure_budget">There is a budget of
+            <strong i18n:name="amount">€&nbsp;<tal:span replace="actionplan/budget">30</tal:span></strong> for this
+            measure.</tal:block>
+          </p>
+        </tal:plan>
+
+        <blockquote class="comments" tal:condition="python:node.comment and node.comment.strip()"><p tal:content="node/comment">
+          Here are the comments the user has added to this risk.
+        </p></blockquote>
+      </tal:risk>
+    </tal:block>
+
+    <ol id="steps">
+      <li class="complete" id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='identification')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='evaluation')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='actionplan')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li class="complete current" id="step-5">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='report')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>
+

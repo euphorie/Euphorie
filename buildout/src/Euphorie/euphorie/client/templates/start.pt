@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=yes"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class python:'start' + webhelpers.extra_css()">
+    <h1 tal:content="context/title">
+      Fine dining
+    </h1>
+
+    <tal:block condition="not:view/has_introduction">
+      <h2 i18n:translate="header_risk_aware">Are you aware of all the risks?</h2>
+      <p i18n:translate="intro_risk_aware">Including the risks to your employees and your equipment?  What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment consists of two parts: a <em>list</em> with all the risks to your company and an <em>action plan</em> to deal with them. These two components allow you to limit the risks to your employees and your company, and therefore also the financial risk.</p>
+
+      <h2 i18n:translate="header_not_complicated">The assessment is not complicated.</h2>
+      <p i18n:translate="intro_not_complicated">Complicated? Not really. It just takes a bit of time. However, the RA is important. So important that the government has made it compulsory for almost all entrepreneurs with employees.</p>
+    </tal:block>
+    <p tal:condition="view/has_introduction" tal:replace="structure context/introduction">
+      Introduction text for this sector.
+    </p>
+
+    <form method="post" tal:attributes="action request/URL">
+      <p class="buttonBar">
+        <a href="#" i18n:translate="label_previous" tal:attributes="href webhelpers/session_overview_url" class="floatBefore button-medium back">Previous</a>
+        <button class="floatAfter" type="submit" i18n:translate="label_start_survey">Start</button>
+      </p>
+    </form>
+    <ol id="steps">
+      <li class="active current" id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+      </li>
+      <li id="step-3">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+      </li>
+      <li id="step-4">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+      </li>
+      <li id="step-5">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#preparation" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

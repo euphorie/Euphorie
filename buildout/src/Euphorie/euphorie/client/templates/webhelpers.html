@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie">
+
+  <metal:css define-macro="css">
+    <tal:block condition="webhelpers/debug_mode">
+      <link rel="stylesheet" type="text/css" media="all" href="style/main/screen.css" tal:attributes="href client/++resource++euphorie.style/screen.css" />
+      <tal:iefixstart replace="structure string:&lt;!--[if lte IE 6]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie6.css" tal:attributes="href client/++resource++euphorie.style/screen-ie6.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+      <tal:iefixstart replace="structure string:&lt;!--[if IE 7]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie7.css" tal:attributes="href client/++resource++euphorie.style/screen-ie7.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+      <tal:iefixstart replace="structure string:&lt;!--[if IE 8]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie8.css" tal:attributes="href client/++resource++euphorie.style/screen-ie8.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+      <link rel="stylesheet" type="text/css" media="all" href="style/main/screen.css" tal:attributes="href client/++resource++euphorie.style/screen.min.css" />
+      <tal:iefixstart replace="structure string:&lt;!--[if lte IE 6]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie6.css" tal:attributes="href client/++resource++euphorie.style/screen-ie6.min.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+      <tal:iefixstart replace="structure string:&lt;!--[if IE 7]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie7.css" tal:attributes="href client/++resource++euphorie.style/screen-ie7.min.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+      <tal:iefixstart replace="structure string:&lt;!--[if IE 8]&gt;" />
+        <link rel="stylesheet" type="text/css" media="all" href="style/main/screen-ie8.css" tal:attributes="href client/++resource++euphorie.style/screen-ie8.min.css" />
+      <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+    </tal:block>
+
+    <tal:block define="logo webhelpers/sector_logo; colours webhelpers/sector_colours"
+               condition="python:logo or colours">
+      <tal:pain replace="structure string:&lt;"/>style type="text/css"<tal:pain replace="structure string:&gt;"/>
+        <tal:block condition="python:logo">#navigation li#home {
+          background: url(<tal:block replace="logo"/>) no-repeat;
+        }</tal:block>
+        <tal:block condition="python:colours">
+          #navigation li a {
+              color: <tal:block replace="colours/main_foreground"/>;
+              background-color: <tal:block replace="colours/main_background"/>;
+          }
+          h1 {
+              background-color: <tal:block replace="colours/main_background"/>;
+          }
+          #steps li.complete,
+	  #steps li.current {
+              color: <tal:block replace="colours/support_foreground"/>;
+              background-color: <tal:block replace="colours/support_background"/>;
+          }
+          #steps li.complete a,
+	  #steps li.current a {
+              color: <tal:block replace="colours/support_foreground"/>;
+	  }
+
+          #steps li a,
+          #steps li a:hover {
+              color: <tal:block replace="colours/main_foreground"/>;
+          }
+	 
+
+        </tal:block>
+      <tal:pain replace="structure string:&lt;"/>/style<tal:pain replace="structure string:&gt;"/>
+    </tal:block>
+    <meta name="viewport" content="width=device-width, user-scalable=yes"/>
+  </metal:css>
+
+  <metal:javascript define-macro="javascript">
+    <tal:iefixstart replace="structure string:&lt;!--[if IE]&gt;" /><script type="text/javascript" src="libraries/excanvas.min.js"
+            tal:attributes="src client/++resource++euphorie.libraries/excanvas.min.js">
+    </script><tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
+
+    <tal:block condition="webhelpers/debug_mode">
+      <script type="text/javascript" src="libraries/jquery-1.3.2.min.js"
+              tal:attributes="src client/++resource++euphorie.libraries/jquery-1.3.2.min.js">
+      </script>
+      <script type="text/javascript" src="libraries/jquery-ui-1.7.2.min.js"
+              tal:attributes="src client/++resource++euphorie.libraries/jquery-ui-1.7.2.min.js">
+      </script>
+      <script type="text/javascript" src="libraries/css_browser_selector.js"
+              tal:attributes="src client/++resource++euphorie.libraries/css_browser_selector.js">
+      </script>
+      <script type="text/javascript" src="libraries/jquery.hoverIntent.js"
+              tal:attributes="src client/++resource++euphorie.libraries/jquery.hoverIntent.js">
+      </script>
+      <script type="text/javascript" src="libraries/jquery.bt.js"
+              tal:attributes="src client/++resource++euphorie.libraries/jquery.bt.js">
+      </script>
+      <script type="text/javascript" src="libraries/jcarousellite_1.0.1.js"
+              tal:attributes="src client/++resource++euphorie.libraries/jcarousellite_1.0.1.js">
+      </script>
+      <script type="text/javascript" src="behaviour/markup.js"
+              tal:attributes="src client/++resource++euphorie.behaviour/markup.js">
+      </script>
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+      <script type="text/javascript" src="behaviour/markup.js"
+              tal:attributes="src client/++resource++euphorie.behaviour/common.min.js">
+      </script>
+    </tal:block>
+  </metal:javascript>
+
+  <metal:survey define-macro="survey_tree">
+    <ol tal:condition="exists:tree" tal:attributes="class python:tree['leaf_module'] and 'microns' or None">
+      <li tal:repeat="item tree/children"
+          tal:attributes="class item/class">
+        <a href="#" tal:attributes="href item/url">
+          <strong class="counter" tal:content="string:${item/number}">1.1</strong>
+          <span tal:replace="item/title">Kitchen equipment</span>
+        </a>
+        <tal:subtree condition="python:item['children']" define="tree python:item">
+          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+        </tal:subtree>
+      </li>
+    </ol>
+  </metal:survey>
+
+  <metal:appendix define-macro="appendix">
+    <p id="appendix">
+      <tal:block repeat="page webhelpers/appendix"
+      ><a tal:attributes="href page/url" tal:content="page/title">Lorem Ipsum</a> |</tal:block>
+      <tal:span i18n:translate="appendix_authors">Developed by <a i18n:name="TNO" href="http://www.tno.nl">TNO</a>, <a i18n:name="Syslab" href="http://www.syslab.com">Syslab</a> and <a i18n:name="Simplon" href="http://www.simplon.biz">Simplon</a>. Designed by <a i18n:name="Cornae" href="http://www.cornae.com">Cornae</a>.</tal:span>
+    </p>
+  </metal:appendix>
+
+  <metal:riskinfo define-macro="risk_info">
+    <img alt="" tal:condition="exists:view/image_url"
+         tal:attributes="src view/image_url" class="floatBefore" />
+    <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description">
+      <h2 tal:condition="not:view/risk_present" tal:content="risk/title">Title</h2>
+      <tal:block condition="view/risk_present">
+        <h2 tal:condition="use_problem_description"
+            tal:content="risk/problem_description">The fridges are checked daily.</h2>
+        <tal:block condition="not:use_problem_description">
+          <h2 tal:content="risk/title">The fridges are checked daily.</h2>
+          <p class="negation"><em><strong class="icon warning">⚠</strong><i18n:span translate="warn_risk_present">You responded negative to the above statement.</i18n:span></em></p>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+    <p class="description" tal:replace="structure risk/description">
+      The temperature in a fridge is critical to storing food. If the
+      temperature is too high or fluctuates too much food can start
+      rotting quickly.
+    </p>
+    <tal:block condition="python:getattr(risk, 'links', [])">
+      <h4 i18n:translate="header_more_information">More information</h4>
+      <ul>
+        <li tal:repeat="link risk/links"><a href="#"
+          tal:attributes="href link/url" tal:content="link/title">Branch magazine, edition 2009-08</a></li>
+      </ul>
+    </tal:block>
+
+    <tal:block condition="risk/legal_reference">
+      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+
+      <p tal:content="structure risk/legal_reference">
+        The requirements for fridges are defined in section 13.1 section a
+        of the health code.
+      </p> 
+    </tal:block>
+  </metal:riskinfo>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="euphorie"
+      id="homepage"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_tool">Euphorie risk assessment tool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:define="client_url webhelpers/client_url">
+    <h1 class="carousel">
+      <span lang="bg" xml:lang="bg">Добре дошли</span><br />
+      <span lang="es" xml:lang="es">Benvenida</span><br />
+      <span lang="cs" xml:lang="cs">Vítáme vás</span><br />
+      <span lang="da" xml:lang="da">Velkommen</span><br />
+      <span lang="de" xml:lang="de">Wilkommen</span><br />
+      <span lang="el" xml:lang="el">Καλώς Ορίσατε</span><br />
+      <span lang="en" xml:lang="en">Welcome</span><br />
+      <span lang="fr" xml:lang="fr">Bienvenue</span><br />
+      <span lang="it" xml:lang="it">Benvenuto</span><br />
+      <span lang="lv" xml:lang="lv">Laipni lūdzam</span><br />
+      <span lang="lt" xml:lang="lt">Sveiki atvykę</span><br />
+      <span lang="hu" xml:lang="hu">Üdvözlet</span><br />
+      <span lang="mt" xml:lang="mt">Merħba</span><br />
+      <span lang="nl" xml:lang="nl">Welkom</span><br />
+      <span lang="pl" xml:lang="pl">Witamy</span><br />
+      <span lang="pt" xml:lang="pt">Bem-vindos</span><br />
+      <span lang="ro" xml:lang="ro">Ghini vinit</span><br />
+      <span lang="sk" xml:lang="sk">Vitajte</span><br />
+      <span lang="sl" xml:lang="sl">Pozdravljeni</span>
+      <span lang="fi" xml:lang="fi">Tervetuloa</span><br />
+      <span lang="sv" xml:lang="sv">Välkommen</span><br />
+    </h1>
+    <ul class="countries">
+      <li class="at">
+        <a href="#" tal:attributes="xhref string:${client_url}/at/?language=de-AT">Deutsch</a>
+        <a href="#" tal:attributes="xhref string:${client_url}/at/?language=sl-AT">Slovenščina</a>
+        <a href="#" tal:attributes="xhref string:${client_url}/at/?language=hu-AT">Magyar nyelv</a>
+      </li>
+      <li class="be">
+        <a href="#" tal:attributes="xhref string:${client_url}/be/?language=fr-BE">Français</a>
+        <a href="#" tal:attributes="xhref string:${client_url}/be/?language=nl-BE">Nederlands</a>
+      </li>
+      <li class="bg">
+        <a href="#" tal:attributes="xhref string:${client_url}/bg/?language=bg-BG">Български език</a>
+      </li>
+      <li class="cy">
+        <a href="#" tal:attributes="xhref string:${client_url}/cy/?language=el-CY">Ελληvικά</a>
+      </li>
+      <li class="cz">
+        <a href="#" tal:attributes="xhref string:${client_url}/cz/?language=cs-CZ">Čeština</a>
+      </li>
+      <li class="dk">
+        <a href="#" tal:attributes="xhref string:${client_url}/dk/?language=da-DK">Dansk</a>
+      </li>
+      <li class="ee">
+        <a href="#" tal:attributes="xhref string:${client_url}/ee/?language=et-EE">Eesti keel</a>
+      </li>
+      <li class="fi">
+        <a href="#" tal:attributes="xhref string:${client_url}/fi/?language=fi-FI">Suomi</a>
+      </li>
+      <li class="fr">
+        <a href="#" tal:attributes="xhref string:${client_url}/fr/?language=fr-FR">Français</a>
+      </li>
+      <li class="de">
+        <a href="#" tal:attributes="xhref string:${client_url}/de/?language=de-DE">Deutsch</a>
+      </li>
+      <li class="gr">
+        <a href="#" tal:attributes="xhref string:${client_url}/gr/?language=el-EL">Ελληνικά</a>
+      </li>
+      <li class="hu">
+        <a href="#" tal:attributes="xhref string:${client_url}/hu/?language=hu-HU">Magyarország</a>
+      </li>
+      <li class="ie">
+        <a href="#" tal:attributes="xhref string:${client_url}/ie/?language=en-IE">English</a>
+      </li>
+      <li class="it">
+        <a href="#" tal:attributes="xhref string:${client_url}/it/?language=it-IT">Italiano</a>
+      </li>
+      <li class="lv">
+        <a href="#" tal:attributes="xhref string:${client_url}/lv/?language=lv-LV">Latviešu valoda</a>
+      </li>
+      <li class="lt">
+        <a href="#" tal:attributes="xhref string:${client_url}/lt/?language=lt-LT">Lietuvių kalba</a>
+      </li>
+      <li class="lu">
+        <a href="#" tal:attributes="xhref string:${client_url}/lu/?language=de-LU">Deutsch</a>
+        <a href="#" tal:attributes="xhref string:${client_url}/lu/?language=fr-LU">Français</a>
+      </li>
+      <li class="mt">
+        <a href="#" tal:attributes="xhref string:${client_url}/mt/?language=en-MT">English</a>
+        <a href="#" tal:attributes="xhref string:${client_url}/mt/?language=mt-MT">Malti</a>
+      </li>
+      <li class="nl">
+        <a href="#" tal:attributes="href string:${client_url}/nl/?language=nl-NL">Nederlands</a>
+      </li>
+      <li class="pl">
+        <a href="#" tal:attributes="xhref string:${client_url}/pl/?language=pl-PL">Język Polski</a>
+      </li>
+      <li class="pt">
+        <a href="#" tal:attributes="xhref string:${client_url}/pt/?language=pt-PT">Português</a>
+      </li>
+      <li class="ro">
+        <a href="#" tal:attributes="xhref string:${client_url}/ro/?language=ro-RO">Limba Română</a>
+      </li>
+      <li class="si">
+        <a href="#" tal:attributes="xhref string:${client_url}/si/?language=sl-SL">Slovenščina</a>
+      </li>
+      <li class="sk">
+        <a href="#" tal:attributes="xhref string:${client_url}/sk/?language=sk-SK">Slovenský jazyks</a>
+      </li>
+      <li class="es">
+        <a href="#" tal:attributes="xhref string:${client_url}/es/?language=es-ES">Español</a>
+      </li>
+      <li class="se">
+        <a href="#" tal:attributes="xhref string:${client_url}/se/?language=sv-SE">Svenska</a>
+      </li>
+      <li class="gb">
+        <a href="#" tal:attributes="href string:${client_url}/gb/?language=en-GB">English</a>
+      </li>
+    </ul>
+
+    <ul id="navigation">
+      <li id="home">
+        <a href="/" lang="bg" xml:lang="bg">Европейска агенция<br />
+        за безопасност и здраве<br />
+        при работа</a><br />
+        <a href="/" lang="es" xml:lang="es">Agencia Europea para<br />
+        la Seguridad y la Salud<br />
+        en el Trabajo<br /></a>
+        <a href="/" lang="cz" xml:lang="cz">Evropská agentura pro<br />
+        bezpečnost a ochranu<br />
+        zdraví při práci</a><br />
+      <a href="/" lang="da" xml:lang="da">Den Europæiske<br/>
+        Arbejdsmiljøagentur</a><br />
+        <a href="/" lang="de" xml:lang="de">Europäische Agentur für<br />
+        Sicherheit und Gesundheitsschutz<br />
+        am Arbeitsplatz</a><br />
+        <a href="/" lang="el" xml:lang="el">Ευρωπαϊκός Οργανισμός<br />
+        για την Ασφάλεια και την<br />
+        Υγεία στην Εργασία</a><br />
+        <a href="/" lang="en" xml:lang="en">European Agency<br />
+        for Safety and Health<br />
+        at Work</a><br />
+        <a href="/" lang="fr" xml:lang="fr">Agence européenne pour<br />
+        la sécurité et la santé<br />
+        au travail</a><br />
+        <a href="/" lang="it" xml:lang="it">Agenzia europea per<br />
+        la sicurezza e la salute<br />
+        sul lavoro</a><br />
+        <a href="/" lang="lv" xml:lang="lv">Eiropas Darba<br />
+        drošības un veselības<br />
+        aizsardzības aģentūra</a><br />
+        <a href="/" lang="lt" xml:lang="lt">Europos darbuotojų<br />
+        saugos ir sveikatos<br />
+        agentūra</a><br />
+        <a href="/" lang="hu" xml:lang="hu">Európai Munkahelyi<br />
+        Biztonsági és Egészségvédelmi<br />
+        Ügynökség</a><br />
+        <a href="/" lang="mt" xml:lang="mt">L-Aġenzija Ewropea<br />
+        għasgurtà u s-Saħħa<br />
+        fuq il-post taxgħol</a><br />
+        <a href="/" lang="nl" xml:lang="nl">Europees Agentschap voor<br />
+        veiligheid en gezondheid<br />
+        op het werk</a><br />
+        <a href="/" lang="pl" xml:lang="pl">Europejska Agencja<br />
+        Bezpieczeństwa<br />
+        i Zdrowia w Pracy</a><br />
+        <a href="/" lang="pt" xml:lang="pt">Agência Europeia para<br />
+        a Segurança e Saúde<br />
+        no Trabalho</a><br />
+        <a href="/" lang="ro" xml:lang="ro">Agenţia Europeană pentru<br />
+        Securitate şi Sănătate<br />
+        la Locul de Muncă</a><br />
+        <a href="/" lang="sk" xml:lang="sk">Európska agentúra pre<br />
+        bezpečnosť a ochranu<br />
+        zdravia pri práci</a><br />
+        <a href="/" lang="sl" xml:lang="sl">Európska agentúra pre<br />
+        bezpečnosť a ochranu<br />
+        zdravia pri práci</a><br />
+        <a href="/" lang="fi" xml:lang="fi">Euroopan<br />
+        työturvallisuus- ja<br />
+        työterveysvirasto</a><br />
+        <a href="/" lang="sv" xml:lang="sv">Europeiska<br />
+        arbetsmiljöbyrån</a><br />
+      </li>
+    </ul>
+  </body>
+   <script type="text/javascript">
+// <![CDATA[
+    function beforeTitleSwap(title, index) {
+        var total = $("#home > a").size();
+        var newindex = (index+1)%total;
+        var newtitle = $("#home > a:eq("+newindex+")");
+        index = index%total;
+
+        document.title=newtitle.text();
+
+        $("#home > a:eq("+index+")").fadeOut(200, function() {
+            newtitle.fadeIn(200);
+        });
+    }
+
+    $(document).ready(function() {
+      document.title=$("#home > a:first").text();
+      $("#home > a:not(:first)").hide();
+      $("h1")
+          .wrapInner("<div/>")
+          .jCarouselLite({auto: 1000,
+                          speed: 800,
+                          circular: true,
+                          visible: 1,
+                          listSelector: "div",
+                          itemSelector: "span",
+                          easing: "easeOutElastic",
+                          beforeStart: beforeTitleSwap
+                          });
+    });
+// ]]>
+  </script>
+</html>
+

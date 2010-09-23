@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="Support" />
+    <role name="Sector" />
+  </roles>
+  <permissions>
+    <permission name="Euphorie: Add new Sector" acquire="True">
+      <role name="Manager" />
+      <role name="Support" />
+    </permission>
+    <permission name="Euphorie: Add new RIE Content" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="Support" />
+    </permission>
+    <permission name="Euphorie: Delete published content" acquire="True">
+      <role name="Manager" />
+    </permission>
+  </permissions>
+</rolemap>

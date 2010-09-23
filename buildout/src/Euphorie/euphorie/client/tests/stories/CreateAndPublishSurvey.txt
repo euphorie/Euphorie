@@ -1,0 +1,58 @@
+Creating and publishing a survey
+================================
+
+Before we can start we must set up our test environment:
+
+>>> from euphorie.content.tests import utils
+>>> sector=utils.createSector(portal, u"HISWA")
+>>> from Products.Five.testbrowser import Browser
+>>> browser=Browser()
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=()
+
+Before we can do anything we must login with the sector account:
+
+>>> browser.open(portal.absolute_url())
+>>> browser.getLink("Log in").click()
+>>> browser.getControl(name="__ac_name").value="HISWA"
+>>> browser.getControl(name="__ac_password").value="HISWA"
+>>> browser.getControl(name="submit").click()
+
+We are now at the homepage for the sector:
+
+>>> browser.url
+'http://nohost/plone/sectors/nl/HISWA'
+
+We can now create a survey and an initial version:
+
+>>> browser.open("http://nohost/plone/sectors/nl/HISWA/++add++euphorie.surveygroup")
+>>> browser.getControl(name="form.widgets.title").value="Harbours"
+>>> browser.getControl(name="form.widgets.language:list").value=["nl"]
+>>> browser.getControl(name="form.widgets.classification_code").value="A.1.2.3"
+>>> browser.getControl("Save").click()
+
+>>> browser.getLink("Add Survey version").click()
+>>> browser.getControl(name="form.widgets.title").value="Initial version"
+>>> browser.getControl(name="form.widgets.introduction").value="<p>Welcome to HISWA Harbours</p>"
+>>> browser.getControl("Save").click()
+>>> version_url=browser.url
+
+Now that we have created a survey we can publish it:
+
+>>> browser.getLink("publish").click()
+
+We can add a risk and re-publish:
+
+>>> browser.getLink("add a module").click()
+>>> browser.getControl(name="form.widgets.title").value="Crane handling"
+>>> browser.getControl(name="form.widgets.description").value="<p>Everything about cranes</p>"
+>>> browser.getControl(name="form.widgets.title").value="Crane handling"
+>>> browser.getControl("Save").click()
+>>> browser.getLink("add a risk").click()
+>>> browser.getControl(name="form.widgets.title").value="Are all cranes secured?"
+>>> browser.getControl(name="form.widgets.problem_description").value="Not all cranes are secured."
+>>> browser.getControl(name="form.widgets.description").value="<p>Unsecured cranes add many risks.</p>"
+>>> browser.getControl("Save").click()
+>>> browser.open(version_url)
+>>> browser.getLink("publish").click()
+

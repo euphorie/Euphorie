@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body class="actionplan"
+        tal:define="risk nocall:view/risk;
+                    data view/data"
+        tal:attributes="class python:'actionplan' + webhelpers.extra_css()">
+
+    <h1 tal:content="view/title">Fridges and freezers</h1>
+   <form method="post">
+
+    <div class="warning last span-15" tal:define="show_statement python:True">
+      <metal:call use-macro="webhelpers/index/macros/risk_info" />
+      <fieldset tal:define="value data/priority">
+        <label i18n:translate="risk_priority">This is a <select name="priority" i18n:name="priority">
+          <option value="low"
+                  tal:attributes="selected python:value=='low' and 'selected' or None"
+                  i18n:translate="risk_priority_low">low priority risk</option>
+          <option value="medium"
+                  tal:attributes="selected python:value=='medium' and 'selected' or None"
+                  i18n:translate="risk_priority_medium">medium priority risk</option>
+          <option value="high"
+                  tal:attributes="selected python:value=='high' and 'selected' or None"
+                  i18n:translate="risk_priority_high">high priority risk</option>
+          </select> .
+        </label>
+      </fieldset>
+     </div>
+
+      <dl class="accordion" id="ActionPlanItemForm">
+        <tal:repeat repeat="actionplan data/action_plans">
+          <dt i18n:translate="header_measure" tal:attributes="class python:exists('actionplan/errors') and 'error' or None">Measure <tal:span i18n:name="index" content="repeat/actionplan/number">1</tal:span></dt>
+          <dd tal:define="errors python:exists('actionplan/errors') and actionplan['errors'] or {};
+                         number repeat/actionplan/number"
+              tal:attributes="class python:errors and 'error' or None">
+            <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_tooltip">You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this.</a>
+            <div class="span-7 colborder">
+              <fieldset class="condensed">
+                <legend>Description of the measure</legend>
+                <label for="actionplan-1" class="superImpose" i18n:translate="label_measure_action_plan">Action plan</label>
+                <textarea id="actionplan-1" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" tal:content="actionplan/action_plan|nothing"></textarea>
+                <hr/>
+                <label for="preventionplan-1" class="superImpose" i18n:translate="label_measure_prevention_plan">Prevention plan</label>
+                <textarea id="preventionplan-1" name="measure.prevention_plan:utf8:ustring:records" rows="3" tal:content="actionplan/prevention_plan|nothing"></textarea>
+                <hr/>
+                <label for="requirements-1" class="superImpose" i18n:translate="label_measure_requirements">Requirements</label>
+                <textarea id="requirements-1" name="measure.requirements:utf8:ustring:records" rows="3" tal:content="actionplan/requirements|nothing"></textarea>
+              </fieldset>
+            </div>
+            <div class="span-7 last">
+              <fieldset class="condensed">
+                <label><tal:span i18n:translate="label_action_plan_responsible">Who is responsible?</tal:span>
+                  <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_responsible_tooltip">Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out.</a>
+                  <input type="text" name="measure.responsible:utf8:ustring:records" tal:attributes="value actionplan/responsible|nothing"/>
+                </label>
+
+                <label tal:attributes="id string:label-budget-${number};
+                                       class python:exists('errors/budget') and 'error' or None"><tal:span i18n:translate="label_action_plan_budget">Budget (in Euro)</tal:span>
+                  <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_budget_tooltip">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</a>
+
+                  <input type="text" name="measure.budget:records" tal:attributes="id string:input-budget-${number}; value actionplan/budget|nothing"/>
+                  <p tal:attributes="class string:focustip error target-id-input-budget-${number}" tal:condition="exists:errors/budget" i18n:translate="error_invalid_budget">
+                    Please enter the budget in whole Euros.</p>
+                </label>
+                <fieldset class="condensed"
+                  tal:define="error  python:exists('errors/planning_start_day') or exists('errors/planning_start_year')"
+                  tal:attributes="class python:'condensed' + (error and ' error' or '')">
+                  <legend i18n:translate="label_action_plan_start">Planning start</legend>
+
+                  <ol class="date-eu">
+                    <li class="day" tal:attributes="class python:'day' + (exists('errors/planning_start_day') and ' error' or '')">
+                      <label for="label-planning-start-day-1" i18n:translate="label_day">Day</label>
+                        <input type="text" name="measure.planning_start_day:records" id="planning-start-day-1" maxlength="2"
+                        tal:attributes="id string:planning-start-day-${number}; value actionplan/planning_start_day|actionplan/planning_start/day|nothing"/>
+                        <p tal:attributes="class string:focustip error target-id-planning-start-day-${number}" tal:condition="exists:errors/planning_start_day" i18n:translate="error_invalid_day">
+                          Please enter a valid day of month.</p>
+                    </li>
+                    <li class="month">
+                      <label for="planning-start-month-1" i18n:translate="label_month">Month</label>
+                      <select name="measure.planning_start_month:records" id="planning-start-month-1"
+                              tal:define="value actionplan/planning_start_month|actionplan/planning_start/month|nothing">
+                        <option value="1" tal:attributes="selected python:str(value)=='1' and 'selected' or None" i18n:translate="">January</option>
+                        <option value="2" tal:attributes="selected python:str(value)=='2' and 'selected' or None" i18n:translate="">February</option>
+                        <option value="3" tal:attributes="selected python:str(value)=='3' and 'selected' or None" i18n:translate="">March</option>
+                        <option value="4" tal:attributes="selected python:str(value)=='4' and 'selected' or None" i18n:translate="">April</option>
+                        <option value="5" tal:attributes="selected python:str(value)=='5' and 'selected' or None" i18n:translate="">May</option>
+                        <option value="6" tal:attributes="selected python:str(value)=='6' and 'selected' or None" i18n:translate="">June</option>
+                        <option value="7" tal:attributes="selected python:str(value)=='7' and 'selected' or None" i18n:translate="">July</option>
+                        <option value="8" tal:attributes="selected python:str(value)=='8' and 'selected' or None" i18n:translate="">August</option>
+                        <option value="9" tal:attributes="selected python:str(value)=='9' and 'selected' or None" i18n:translate="">September</option>
+                        <option value="10" tal:attributes="selected python:str(value)=='10' and 'selected' or None" i18n:translate="">October</option>
+                        <option value="11" tal:attributes="selected python:str(value)=='11' and 'selected' or None" i18n:translate="">November</option>
+                        <option value="12" tal:attributes="selected python:str(value)=='12' and 'selected' or None" i18n:translate="">December</option>
+                      </select>
+                    </li>
+                    <li class="year" tal:attributes="class python:'year' + (exists('errors/planning_start_year') and ' error' or '')">
+                      <label for="planning-start-year-1" i18n:translate="label_year">Year</label>
+                      <input type="text" name="measure.planning_start_year:records" id="planning-start-year-1" maxlength="4"
+                             tal:attributes="id string:planning-start-year-${number}; value actionplan/planning_start_year|actionplan/planning_start/year|nothing"/>
+                      <p tal:attributes="class string:focustip error target-id-planning-start-year-${number}" tal:condition="exists:errors/planning_start_year" i18n:translate="error_invalid_year">
+                        Please enter a year.</p>
+                    </li>
+                  </ol>
+                </fieldset>
+
+                <fieldset class="condensed"
+                  tal:define="error  python:exists('errors/planning_end_day') or exists('errors/planning_end_year')"
+                  tal:attributes="class python:'condensed' + (error and ' error' or '')">
+                  <legend i18n:translate="label_action_plan_end">Planning end</legend>
+
+                  <ol class="date-eu">
+                    <li class="day" tal:attributes="class python:'day' + (exists('errors/planning_end_day') and ' error' or '')">
+                      <label for="label-planning-end-day-1" i18n:translate="label_day">Day</label>
+                        <input type="text" name="measure.planning_end_day:records" id="planning-end-day-1" maxlength="2"
+                        tal:attributes="id string:planning-end-day-${number}; value actionplan/planning_end_day|actionplan/planning_end/day|nothing"/>
+                        <p tal:attributes="class string:focustip error target-id-planning-end-day-${number}" tal:condition="exists:errors/planning_end_day" i18n:translate="error_invalid_day">
+                          Please enter a valid day of month.</p>
+                    </li>
+                    <li class="month">
+                      <label for="planning-end-month-1" i18n:translate="label_month">Month</label>
+                      <select name="measure.planning_end_month:records" id="planning-end-month-1"
+                              tal:define="value actionplan/planning_end_month|actionplan/planning_end/month|nothing">
+                        <option value="1" tal:attributes="selected python:str(value)=='1' and 'selected' or None" i18n:translate="">January</option>
+                        <option value="2" tal:attributes="selected python:str(value)=='2' and 'selected' or None" i18n:translate="">February</option>
+                        <option value="3" tal:attributes="selected python:str(value)=='3' and 'selected' or None" i18n:translate="">March</option>
+                        <option value="4" tal:attributes="selected python:str(value)=='4' and 'selected' or None" i18n:translate="">April</option>
+                        <option value="5" tal:attributes="selected python:str(value)=='5' and 'selected' or None" i18n:translate="">May</option>
+                        <option value="6" tal:attributes="selected python:str(value)=='6' and 'selected' or None" i18n:translate="">June</option>
+                        <option value="7" tal:attributes="selected python:str(value)=='7' and 'selected' or None" i18n:translate="">July</option>
+                        <option value="8" tal:attributes="selected python:str(value)=='8' and 'selected' or None" i18n:translate="">August</option>
+                        <option value="9" tal:attributes="selected python:str(value)=='9' and 'selected' or None" i18n:translate="">September</option>
+                        <option value="10" tal:attributes="selected python:str(value)=='10' and 'selected' or None" i18n:translate="">October</option>
+                        <option value="11" tal:attributes="selected python:str(value)=='11' and 'selected' or None" i18n:translate="">November</option>
+                        <option value="12" tal:attributes="selected python:str(value)=='12' and 'selected' or None" i18n:translate="">December</option>
+                      </select>
+                    </li>
+                    <li class="year" tal:attributes="class python:'year' + (exists('errors/planning_end_year') and ' error' or '')">
+                      <label for="planning-end-year-1" i18n:translate="label_day">Day</label>
+                      <input type="text" name="measure.planning_end_year:records" id="planning-end-year-1" maxlength="4"
+                             tal:attributes="id string:planning-end-year-${number}; value actionplan/planning_end_year|actionplan/planning_end/year|nothing"/>
+                      <p tal:attributes="class string:focustip error target-id-planning-end-year-${number}" tal:condition="exists:errors/planning_end_year" i18n:translate="error_invalid_year">
+                        Please enter a year.</p>
+                    </li>
+                  </ol>
+                </fieldset>
+              </fieldset>
+
+
+            </div>
+          </dd>
+        </tal:repeat>
+      </dl>
+      <div class="buttonBar jsOnly">
+        <button type="button" id="addMeasureButton" i18n:translate="label_add_measure">Add another measure</button>
+      </div>
+
+      <tal:block condition="python:view.solutions">
+        <h4 i18n:translate="header_common_solutions">Common solutions</h4>
+        <p i18n:translate="help_common_solutions">There are known common
+        approaches to this risk. You can create a new measure based on these
+        approaches.</p>
+
+        <ul>
+          <li tal:repeat="solution view/solutions"><button class="commonMeasureButton small" type="button"
+            tal:attributes="value string:common-solution-${repeat/solution/number}">Use</button>
+            <p tal:replace="structure solution/description">Arrange for a maintenance contract.</p></li>
+        </ul>
+      </tal:block>
+
+
+      <p class="buttonBar">
+        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+
+      <fieldset class="concise" id="comments">
+        <label for="comment" class="superImpose span-14" i18n:translate="label_comment">
+          Please leave any comments you may have on the question above in this field. These comments will be used in the action plan.
+        </label>
+        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5" tal:content="data/comment"></textarea>
+      </fieldset>
+    </form>
+
+    <div style="display: none" tal:repeat="solution view/solutions"
+         tal:attributes="id string:common-solution-${repeat/solution/number}">
+      <input type="hidden" name="action_plan"
+         tal:condition="solution/action_plan" tal:attributes="value solution/action_plan"/>
+      <input type="hidden" name="prevention_plan"
+         tal:condition="solution/prevention_plan" tal:attributes="value solution/prevention_plan"/>
+      <input type="hidden" name="requirements"
+         tal:condition="solution/requirements" tal:attributes="value solution/requirements"/>
+    </div>
+
+    <dl style="display: none" id="measureTemplate">
+      <dt><tal:span i18n:translate="measure_template_title">Measure 2</tal:span>
+           <button class="small removeButton" i18n:translate="label_remove">Remove</button></dt>
+      <dd>
+        <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_tooltip">You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this.</a>
+        <div class="span-7 colborder">
+          <fieldset class="condensed">
+            <legend>Description of the measure</legend>
+            <label for="actionplan-2" class="superImpose" i18n:translate="label_measure_action_plan">Action plan</label>
+            <textarea id="actionplan-2" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" ></textarea>
+            <hr/>
+            <label for="preventionplan-2" class="superImpose" i18n:translate="label_measure_prevention_plan">Prevention plan</label>
+            <textarea id="preventionplan-2" name="measure.prevention_plan:utf8:ustring:records" rows="3" ></textarea>
+            <hr/>
+            <label for="requirements-2" class="superImpose" i18n:translate="label_measure_requirements">Requirements</label>
+            <textarea id="requirements-2" name="measure.requirements:utf8:ustring::records" rows="3" ></textarea>
+          </fieldset>
+        </div>
+        <div class="span-7 last">
+          <fieldset class="condensed">
+            <label><tal:span i18n:translate="label_action_plan_responsible">Who is responsible?</tal:span>
+              <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_responsible_tooltip">Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out.</a>
+              <input type="text" name="measure.responsible:utf8:ustring:records"/>
+            </label>
+
+            <label><tal:span i18n:translate="label_action_plan_budget">Budget (in Euro)</tal:span>
+              <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_budget_tooltip">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</a>
+              <input type="text" name="measure.budget:records"/>
+            </label>
+            <fieldset class="condensed">
+              <legend i18n:translate="label_action_plan_start">Planning start</legend>
+
+              <ol class="date-eu">
+                <li class="day">
+                  <label for="planning-start-day-2" i18n:translate="label_day">Day</label>
+                  <input name="measure.planning_start_day:records" id="planning-start-day-2" type="text" maxlength="2"/>
+                  </li>
+                <li class="month">
+                  <label for="planning-start-month-2" i18n:translate="label_month">Month</label>
+                  <select name="measure.planning_start_month:records" id="planning-start-month-2">
+                    <option value="01" i18n:translate="">January</option>
+                    <option value="02" i18n:translate="">February</option>
+                    <option value="03" i18n:translate="">March</option>
+                    <option value="04" i18n:translate="">April</option>
+                    <option value="05" i18n:translate="">May</option>
+                    <option value="06" i18n:translate="">June</option>
+                    <option value="07" i18n:translate="">July</option>
+                    <option value="08" i18n:translate="">August</option>
+                    <option value="09" i18n:translate="">September</option>
+                    <option value="10" i18n:translate="">October</option>
+                    <option value="11" i18n:translate="">November</option>
+                    <option value="12" i18n:translate="">December</option>
+                  </select>
+                </li>
+                <li class="year">
+                  <label for="planning-start-year-2" i18n:translate="label_year">Year</label>
+                  <input type="text" name="measure.planning_start_year:records" id="planning-start-year-2" maxlength="4"/>
+                </li>
+              </ol>
+            </fieldset>
+
+            <fieldset class="condensed">
+              <legend i18n:translate="label_action_plan_end">Planning end</legend>
+
+              <ol class="date-eu">
+                <li class="day">
+                  <label for="planning-end-day-1" i18n:translate="label_day">Day</label>
+                  <input name="measure.planning_end_day:records" id="planning-end-day-1" type="text" maxlength="2"/>
+                </li>
+                <li class="month">
+                  <label for="planning-end-month-1" i18n:translate="label_month">Month</label>
+                  <select name="measure.planning_end_month:records" id="planning-end-month-1">
+                    <option value="01" i18n:translate="">January</option>
+                    <option value="02" i18n:translate="">February</option>
+                    <option value="03" i18n:translate="">March</option>
+                    <option value="04" i18n:translate="">April</option>
+                    <option value="05" i18n:translate="">May</option>
+                    <option value="06" i18n:translate="">June</option>
+                    <option value="07" i18n:translate="">July</option>
+                    <option value="08" i18n:translate="">August</option>
+                    <option value="09" i18n:translate="">September</option>
+                    <option value="10" i18n:translate="">October</option>
+                    <option value="11" i18n:translate="">November</option>
+                    <option value="12" i18n:translate="">December</option>
+                  </select>
+                </li>
+                <li class="year">
+                  <label for="planning-end-year-1" i18n:translate="label_year">Year</label>
+                  <input name="measure.planning_end.year:records" id="planning-end-year-1" type="text" maxlength="4"/>
+                </li>
+              </ol>
+            </fieldset>
+          </fieldset>
+        </div>
+      </dd>
+    </dl>
+
+    <ol id="steps">
+      <li class="complete" id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='identification')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='evaluation')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="current active" id="step-4">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='actionplan')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+        <tal:block define="tree view/tree">
+          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+        </tal:block>
+      </li>
+      <li id="step-5">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='report')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+  <script type="text/javascript">
+// <![CDATA[
+function findActive(measures) {
+    var items = $.map(measures.find("dt"),
+        function(a) { return $(a).hasClass("ui-state-active"); });
+    var active = $.inArray(true, items);
+
+    return active;
+}
+
+
+function EnforceMeasurementStyling() {
+    var headers = $("#ActionPlanItemForm dt");
+    var measures = $("#ActionPlanItemForm dd");
+    var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
+    var i;
+
+    for (i=0; i<headers.length; i++) {
+        headers.eq(i).text(title.replace(/[0-9]+/, i+1));
+        measures.eq(i).find("fieldset:first *").each(function() {
+            var el=$(this);
+            var buf = el.attr("id");
+            if (buf) {
+                el.attr("id", buf.replace(/[0-9]+/, i+1));
+            }
+            buf=el.attr("for");
+            if (buf) {
+                el.attr("for", buf.replace(/[0-9]+/, i+1));
+            }
+        });
+    }
+
+    headers.find("button").remove();
+    if (headers.length>1) {
+        var button = $("#measureTemplate dt .removeButton");
+        button.clone(true).appendTo(headers);
+        $(".removeButton").unbind(".euphorie").bind("click.euphorie", removeButtonHandler);
+    }
+}
+
+
+function removeButtonHandler() {
+    var measures = $("#ActionPlanItemForm");
+    var measures_count = measures.find("dt").length-1;
+    var active = findActive(measures);
+    var header = $(this).parents("dt");
+
+    if (active>=measures_count-1) {
+      active-=1;
+    }
+
+    $(header).add($(header).next("dd")).remove();
+
+    measures
+        .accordion("destroy")
+        .accordion({active: active});
+
+    EnforceMeasurementStyling();
+};
+
+
+function AddMeasurement() {
+    var measures = $("#ActionPlanItemForm");
+    var measures_count = measures.find("dt").length;
+    var active = findActive(measures);
+
+    $("#measureTemplate")
+        .find("> *")
+        .clone(true)
+        .find(".clicktip")
+            .each(function() {
+                var id = assertId(this);
+                $(this)
+                    .unbind("click")
+                    .bt({trigger: "click",
+                            fill: "#8293ab",
+                            strokeStyle: "#8293ab",
+                            contentSelector: "$('#" + id + "').html()"
+                            })
+                    .click(function() { return false; });
+            }).end()
+        .appendTo(measures);
+
+    measures
+        .accordion("destroy")
+        .accordion({active: active})
+        .accordion("activate", measures_count);
+
+    EnforceMeasurementStyling();
+
+    $("label.superImpose", measures).each(setupSuperimpose);
+}
+
+
+function MeasureHasData(m) {
+    var data = $.map($(m).find(":input:not(select)"),
+                               function(i) { return Boolean($(i).val()); });
+    return $.inArray(true, data)!=-1;
+}
+
+
+$("#addMeasureButton").live("click", AddMeasurement);
+
+$(".commonMeasureButton").live("click", function() {
+    var measures = $("#ActionPlanItemForm");
+    var active = findActive(measures);
+    var active = measures.find("dd").eq(active);
+    var newmeasure;
+
+    if (!MeasureHasData(active)) {
+        newmeasure=active;
+    } else {
+        AddMeasurement();
+        newmeasure = $("#ActionPlanItemForm dd:last");
+    }
+
+    var sourcedata = $("#"+$(this).val()+" :input");
+    var el, value, selector;
+
+    for (var i in sourcedata) {
+        el=sourcedata.eq(i);
+        if (el.val()) {
+            selector=":input[name^=measure."+el.attr("name")+"]";
+            newmeasure.find(selector).val(el.val());
+        }
+    }
+
+    $("label.superImpose", newmeasure).each(setupSuperimpose);
+});
+
+
+$(document).ready(function() {
+    EnforceMeasurementStyling();
+});
+// ]]>
+  </script>
+</html>

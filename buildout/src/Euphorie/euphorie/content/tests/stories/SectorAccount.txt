@@ -1,0 +1,69 @@
+Sectors act as accounts
+=======================
+
+Before we can start we must set up our test environment:
+
+>>> from Products.Five.testbrowser import Browser
+>>> browser=Browser()
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=()
+
+When we first visit the Plone site we are not logged in. Lets start
+by logging in as the site owner:
+
+>>> from Products.PloneTestCase.setup import portal_owner
+>>> from Products.PloneTestCase.setup import default_password
+>>> browser.open(portal.absolute_url())
+>>> browser.getLink("Log in").click()
+>>> browser.getControl(name="__ac_name").value=portal_owner
+>>> browser.getControl(name="__ac_password").value=default_password
+>>> browser.getControl(name="submit").click()
+
+We are now logged in and have returned to the front page:
+
+>>> browser.url==portal.absolute_url()
+True
+>>> "You are now logged in" in browser.contents
+True
+
+First we must create a new sector container:
+
+>>> browser.getLink(id="euphorie-sectorcontainer").click()
+>>> browser.getControl(name="title").value="Sectors"
+>>> browser.getControl("Save").click()
+
+And then the country:
+
+>>> browser.getLink(id="euphorie-country").click()
+>>> browser.getControl(name="form.widgets.title").value="The Netherlands"
+>>> browser.getControl("Save").click()
+
+Next we can create the sector:
+
+>>> browser.getLink("Add Sector").click()
+>>> browser.getControl(name="form.widgets.title").value="Fine Dining"
+>>> browser.getControl(name="form.widgets.password").value="s3cr3t"
+>>> browser.getControl(name="form.widgets.contact_name").value="John Doe"
+>>> browser.getControl(name="form.widgets.contact_email").value="john@example.com"
+>>> browser.getControl(name="form.buttons.save").click()
+>>> browser.url
+'http://nohost/plone/sectors/the-netherlands/fine-dining...'
+
+Now that the sector has been created we can logout the portal owner:
+
+>>> browser.getLink("Log out").click()
+
+We can now login using the new sector account. Logging in as a sector will
+also automatically redirect to the homepage of the sector:
+
+>>> browser.open(portal.absolute_url())
+>>> browser.getLink("Log in").click()
+>>> browser.getControl(name="__ac_name").value="fine-dining"
+>>> browser.getControl(name="__ac_password").value="s3cr3t"
+>>> browser.getControl(name="submit").click()
+>>> "Log out" in browser.contents
+True
+>>> browser.url
+'http://nohost/plone/sectors/the-netherlands/fine-dining'
+
+

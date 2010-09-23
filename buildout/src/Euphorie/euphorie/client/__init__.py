@@ -1,0 +1,26 @@
+import mimetypes
+mimetypes.add_type("image/svg+xml", ".svg")
+
+from zope.i18nmessageid import MessageFactory as mf
+MessageFactory = mf("euphorie")
+del mf
+
+
+def initialize(context):
+    from AccessControl.Permissions import manage_users as ManageUsers
+    from Products.PluggableAuthService.PluggableAuthService import registerMultiPlugin
+    from euphorie.client import authentication
+
+    registerMultiPlugin(authentication.EuphorieAccountPlugin.meta_type)
+    context.registerClass(authentication.EuphorieAccountPlugin,
+                          permission=ManageUsers,
+                                constructors=
+                                        (authentication.manage_addEuphorieAccountPlugin,
+                                        authentication.addEuphorieAccountPlugin),
+                                visibility=None)
+
+
+    # Instruct the email module to use quoted printable for UT8
+    import email.Charset
+    email.Charset.add_charset("utf-8", email.Charset.QP, email.Charset.QP, "utf-8")
+

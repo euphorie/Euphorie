@@ -1,0 +1,13 @@
+<tal:root i18n:domain="euphorie"
+><tal:span i18n:translate="reminder_email_header">Dear user,</tal:span>
+
+<tal:span i18n:translate="reminder_email_intro"
+>You have requested a password reminder for the OIRAT website. Your login
+information is:</tal:span>
+
+  <tal:span i18n:translate="reminder_email_login">Email</tal:span>: <tal:span replace="options/loginname">john@example.com</tal:span>
+  <tal:span i18n:translate="reminder_email_password">Password</tal:span>: <tal:span replace="options/password">jane</tal:span>
+
+-- 
+<tal:span i18n:translate="reminder_email_footer" >xxxx</tal:span>
+</tal:root>

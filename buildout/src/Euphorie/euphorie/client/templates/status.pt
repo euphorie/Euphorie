@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class python:'status' + webhelpers.extra_css()">
+    <h1 i18n:translate="title_status">Status</h1>
+    <h2 i18n:translate="header_questions_answered">Questions answered per module</h2>
+    <dl class="status" tal:define="status python:view.status">
+      <tal:repeat repeat="module status">
+        <dt><a tal:attributes="href module/url" tal:content="module/title">Module name</a></dt>
+        <dd>
+          <p tal:condition="python: 'ok' in module"
+             tal:attributes="style string:width: ${module/ok/width}px"
+             class="range answered" i18n:translate="status_answered"><span i18n:name="count" tal:replace="module/ok/count">3</span> questions were answersed</p>
+          <p tal:condition="python: 'risk' in module"
+             tal:attributes="style string:width: ${module/risk/width}px"
+             class="range risk" i18n:translate="status_risk"><span i18n:name="count" tal:replace="module/risk/count">3</span> answers indicated a risk</p>
+          <p tal:condition="python: 'postponed' in module"
+             tal:attributes="style string:width: ${module/postponed/width}px"
+             class="range postponed" i18n:translate="status_postponed"><span i18n:name="count" tal:replace="module/postponed/count">3</span> questions were postponed</p>
+        </dd>
+      </tal:repeat>
+    </dl>
+
+    <ol id="steps">
+      <li id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='identification')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li id="step-3">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='evaluation')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li id="step-4">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='actionplan')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li id="step-5">
+        <a href="#" tal:attributes="href python:webhelpers.survey_url(phase='report')">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#identification" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>
