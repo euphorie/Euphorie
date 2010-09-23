@@ -100,32 +100,6 @@ class FindPreviousQuestionTests(DatabaseTests):
 
 
 
-class IdentificationNavigationTests(DatabaseTests):
-    """Test if the filter determining which modules and risks to show during
-    the identification phase are correct.
-    """
-    def filter(self):
-        from euphorie.client.risk import IdentificationView
-        return IdentificationView.question_filter
-
-    def testShowRisk(self):
-        (session, survey)=createSurvey()
-        mod1=model.Module(title=u"Module 1", module_id="1", zodb_path="1", skip_children=False)
-        survey.addChild(mod1)
-        q11=model.Risk(title=u"Risk 1.1", risk_id="1", zodb_path="1/1")
-        mod1.addChild(q11)
-        self.failUnless(navigation.FindNextQuestion(mod1, survey, self.filter()) is q11)
-
-    def testSkipTop5Risk(self):
-        (session, survey)=createSurvey()
-        mod1=model.Module(title=u"Module 1", module_id="1", zodb_path="1", skip_children=False)
-        survey.addChild(mod1)
-        q11=model.Risk(title=u"Risk 1.1", risk_id="1", zodb_path="1/1", risk_type="top5")
-        mod1.addChild(q11)
-        self.assertEqual(navigation.FindNextQuestion(mod1, survey, self.filter()), None)
-
-
-
 class EvaluationNavigationTests(DatabaseTests):
     """Test if the filter determining which modules and risks to show during
     the evaluation phase are correct.
