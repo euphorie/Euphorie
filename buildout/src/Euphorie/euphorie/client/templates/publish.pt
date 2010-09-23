@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      metal:use-macro="context/@@layout/macros/layout">
+  <head>
+  </head>
+  <body>
+    <metal:title fill-slot="title" i18n:translate="header_publish">Publish survey</metal:title>
+    <metal:content fill-slot="content">
+      <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
+        <p i18n:translate="intro_publish_first_time"
+        tal:condition="not:view/is_surveygroup_published">Are you sure you want to publish this survey? After
+        publication the survey will appear in the online client and be accessible by all users.</p>
+        <tal:block condition="view/is_surveygroup_published">
+          <p i18n:translate="intro_publish_survey_published"
+          tal:condition="view/is_this_survey_published">Are you sure you want to republish this survey? This will
+          make all changes made public.</p>
+          <p i18n:translate="intro_publish_other_survey_published"
+          tal:condition="not:view/is_this_survey_published">Are you sure you want to publish this survey version? This will
+          replace the current version.</p>
+        </tal:block>
+
+        <p i18n:translate="help_publish_url">After publication the survey will be available at
+        <strong i18n:name="url">${view/client_url}</strong>.</p>
+
+        <div class="buttonBar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
+          <tal:action repeat="action actions" replace="structure action/render" />
+        </div>
+      </form>
+    </metal:content>
+  </body>
+</html>
+      
+
+

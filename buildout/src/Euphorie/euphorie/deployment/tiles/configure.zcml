@@ -1,0 +1,63 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="euphorie">
+
+  <include package="plone.tiles" file="meta.zcml" />
+  <include package="plone.tiles" />
+
+  <plone:tile
+    name="euphorie.addbar"
+    title="Content add bar"
+    description="Button bar to add and edit content"
+    add_permission="cmf.ManagePortal"
+    class=".addbar.AddBarTile"
+    template="templates/addbar.pt"
+    permission="zope2.View"
+    />
+
+  <plone:tile
+    name="euphorie.versions"
+    title="Survey versions"
+    description="Survey version management portlet"
+    add_permission="cmf.ManagePortal"
+    class=".versions.SurveyVersions"
+    template="templates/versions.pt"
+    permission="zope2.View"
+    />
+
+  <plone:tile
+    name="euphorie.scripts"
+    title="Javascript utilities"
+    description="Various javascript utility methods"
+    add_permission="cmf.ManagePortal"
+    class=".scripts.Scripts"
+    template="templates/scripts.pt"
+    permission="zope.Public"
+    />
+
+
+  <plone:tile
+    name="euphorie.usermgmt.navtree"
+    title="User management navigation tree"
+    description="Navigation tree for sector management"
+    add_permission="cmf.ManagePortal"
+    class=".navigation.UserManagementNavtree"
+    template="templates/usermgmt-tree.pt"
+    permission="euphorie.content.ManageCountry"
+    />
+
+
+  <configure package="plonetheme.nuplone.tiles">
+    <plone:tile
+       name="tabs"
+       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+       class="euphorie.deployment.tiles.tabs.SiteRootTabsTile"
+       template="templates/tabs.pt"
+       permission="zope.Public"
+       />
+   </configure>
+
+</configure>
+

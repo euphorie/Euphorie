@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body tal:define="module nocall:view/module" class="actionplan ${webhelpers/extra_css}">
+    <h1>${view/title}</h1>
+
+    <img alt="" class="floatBefore" tal:define="images module/@@images; scale python:getattr(module, 'scale', None) and images.scale('image', width=150, height=500, direction='thumbnail')"
+    tal:condition="scale" src="${scale/url}" width="${scale/width}" height="${scale/height}"/>
+
+    <p tal:replace="structure module/description">
+      This is a description of the module.
+
+      Nam eget tincidunt arcu. Suspendisse potenti. Nulla gravida rutrum
+      turpis, nec aliquam turpis hendrerit eget. In viverra velit at erat
+      commodo sed pellentesque sem fringilla. Vivamus mattis convallis tellus a
+      malesuada. Vivamus luctus nunc eu sapien viverra vel semper nibh auctor.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Quisque arcu diam, lobortis a dapibus non,
+      vulputate sit amet justo. Cum sociis natoque penatibus et magnis dis
+      parturient montes, nascetur ridiculus mus. Nunc pellentesque nibh sed
+      orci tempor viverra.  Nullam ullamcorper sollicitudin erat nec egestas.
+      Phasellus pulvinar elementum elit, sit amet malesuada magna tincidunt
+      ut.</p>
+
+    <p tal:condition="view/use_solution_direction" tal:replace="structure module/solution_direction">
+      This module has a solution direction. This is it.
+    </p>
+    <p class="buttonBar">
+      <a class="button-medium floatBefore back" href="${view/previous_url}" i18n:translate="label_previous">Previous</a>
+      <a class="button-medium floatAfter" href="${view/next_url}" i18n:translate="label_next">Next</a>
+    </p>
+
+    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
+      <li class="complete" id="step-1">
+        <a href="${survey_url}/start">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="${survey_url}/identification">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="${survey_url}/evaluation">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="active current" id="step-4">
+        <a href="${survey_url}/actionplan">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+        <tal:block define="tree view/tree">
+          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+        </tal:block>
+      </li>
+      <li id="step-5">
+        <a href="${survey_url}/report">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>
+      
+
+

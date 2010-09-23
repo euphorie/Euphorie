@@ -1,0 +1,31 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:meta="http://xml.zope.org/namespaces/meta"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     meta:interpolation="false"
+     i18n:domain="euphorie"
+     tal:omit-tag="">
+  <script type="text/javascript">
+var twisty_title = '<tal:span i18n:translate="title_toggle_navtree">Show older versions</tal:span>',
+    twisty_text = '<tal:span i18n:translate="text_toggle_navtree">Toggle</tal:span>';
+//  <![CDATA[
+$(document).ready(function() {
+
+    $(".navigationTree-folderish > li:has(ul)").each(function() {
+      $("<span>").addClass("toggle").attr("title", twisty_title).text(twisty_text).prependTo(this);
+    });
+});
+
+$(".navigationTree-folderish .toggle").live("click", function() {
+    var $toggle = $(this);
+
+    $toggle.toggleClass("open");
+    if ($toggle.hasClass("open")) {
+      $toggle.parent().find(">ul").slideDown();
+    } else {
+      $toggle.parent().find(">ul").slideUp();
+    }
+});
+// ]]>
+  </script>
+</div>

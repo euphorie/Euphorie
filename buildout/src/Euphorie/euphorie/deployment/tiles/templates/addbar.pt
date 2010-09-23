@@ -1,0 +1,12 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:meta="http://xml.zope.org/namespaces/meta"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     meta:interpolation="true"
+     i18n:domain="euphorie"
+     tal:omit-tag=""
+><div class="buttonBar">
+  <a class="button floatBefore" tal:condition="view/can_edit" href="${context/absolute_url}/@@edit" i18n:translate="button_edit">Edit</a>
+  <a class="button floatAfter" tal:repeat="factory view/actions"
+    href="${factory/url}" title="${factory/description}" i18n:translate="button_add_factory">Add <tal:span i18n:name="typename">${factory/title}</tal:span></a>
+</div></div>

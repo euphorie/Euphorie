@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="CountryManager" />
+    <role name="Sector" />
+  </roles>
+  <permissions>
+    <permission name="CMFEditions: Apply version control" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="CMFEditions: Access previous versions" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="CMFEditions: Revert to previous versions" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="CMFEditions: Save new version" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="Euphorie: Manage country" acquire="True">
+      <role name="Manager" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="Euphorie: Add new RIE Content" acquire="True">
+      <role name="Manager" />
+      <role name="Sector" />
+      <role name="CountryManager" />
+    </permission>
+    <permission name="Euphorie: Delete published content" acquire="True">
+      <role name="CountryManager" />
+      <role name="Manager" />
+    </permission>
+  </permissions>
+</rolemap>

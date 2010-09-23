@@ -1,0 +1,57 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:condition="python:view.surveys"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      id="portletVersioning" class="portlet contextual"
+      tal:define="tools nocall:context/@@tools">
+  <h3 i18n:translate="portlet_header_versions">Versions</h3>
+
+  <div class="portletContent">
+    <form tal:repeat="group view/surveys" action="${group/url}/@@version-command" method="post">
+      <fieldset class="version">
+        <legend>${group/title}</legend>
+
+        <fieldset class="headerButtons">
+          <button class="micro dependsOn-survey dependsAction-enable" title="Create a duplicate of the selected survey" i18n:attributes="title help_add_version;" type="submit" name="action" value="clone" i18n:translate="button_add_version">Duplicate</button>
+          <button class="micro dependsOn-survey dependsAction-enable" title="Publish the selected survey live with its latest changes." i18n:attributes="title help_publish;" disabled="disabled" type="submit" name="action" value="publish" i18n:translate="button_publish">Publish</button>
+        </fieldset>
+
+        <ul class="radioList surveyVersions">
+          <li tal:repeat="survey group/surveys" class="${python:' '.join(filter(None, ['current' if survey.current else None, 'published' if survey.published else None]))}">
+            <em tal:condition="python:survey.current and not survey.published" class="sample current" i18n:translate="label_current">Current</em>
+            <em tal:condition="python:not survey.current and survey.published" class="sample published" i18n:translate="label_published">Published</em>
+            <em tal:condition="python:survey.current and survey.published" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
+            <input type="radio" name="survey" value="${survey/id}" checked="${python:'checked' if survey.published else None}"/>
+            <label><a href="${survey/url}">${survey/title}</a></label>
+            <a class="floatAfter" target="_blank" href="${survey/url}/@@preview" i18n:translate="button_preview">Preview</a>
+            <a class="floatAfter" href="${survey/url}" i18n:translate="button_edit">Edit</a>
+            <a tal:condition="survey/modified" class="button icon upload floatAfter" href="${survey/url}/@@publish" i18n:translate="button_updated">Updated</a>
+            <ul tal:condition="python:survey['versions']" class="surveyRevisions" style="display: none">
+              <li tal:repeat="version survey/versions">${python:tools.formatDate(version["timestamp"])}
+              <!-- <a class="floatAfter" href="#" i18n:translate="button_view">View</a> --> </li>
+            </ul>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+
+    <form action="${view/action_url}">
+      <p class="buttonBar top">
+        <button class="micro" title="Start to write a new survey. You will be asked whether you want to start off with a copy of an existing survey." i18n:attributes="title help_create_new_version;" type="submit" name="action" value="new" i18n:translate="button_create_new">Create new survey</button>
+      </p>
+    </form>
+
+    <div class="legend">
+      <h5 i18n:translate="header_legend">Legend</h5>
+      <ul class="legend">
+        <li class="published" i18n:translate="legend_published"><em class="sample published" i18n:name="label" i18n:translate="label_published">Published</em> Version that is currently online</li>
+        <li class="current" i18n:translate="legend_current"><em class="sample current" i18n:name="label" i18n:translate="label_current">Current</em> Version you are currently reviewing</li>
+      </ul>
+      <p><em class="button icon upload" i18n:name="label" i18n:translate="label_update">Update</em> = This version has changes that are currently unpublished. Click the update icon to bring all the changes live</p>
+    </div>
+  </div>
+</div>

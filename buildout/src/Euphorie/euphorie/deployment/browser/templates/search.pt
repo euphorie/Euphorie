@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <h1 metal:fill-slot="title" i18n:translate="header_search">Search</h1>
+    <metal:content fill-slot="content">
+      <form method="GET" action="${context/absolute_url}/@@search">
+        <fieldset>
+          <label><input name="q" value="${request/form/q|nothing}"/></label>
+        </fieldset>
+        <div class="buttonBar">
+          <button type="submit" i18n:translate="button_search">Search</button>
+        </div>
+      </form>
+
+      <tal:block condition="python:view.did_search">
+        <h2 i18n:translate="header_search_results">Search results</h2>
+
+        <p class="message notice" tal:condition="python:not view.results" i18n:translate="search_no_results">No items found.</p>
+        <tal:block condition="python:view.results">
+          <p i18n:translate="search_result_intro"><tal:span i18n:name="number">${python:len(view.results)}</tal:span> results found.</p>
+          <ul tal:define="tools nocall:context/@@tools">
+            <li tal:repeat="result view/results"><a href="${result/getURL}">${result/Title}</a>. <em class="discrete" i18n:translate="search_result_relevance">Relevance: <tal:span i18n:name="percentage">${python:tools.formatPercentage(result.data_record_normalized_score_)}</tal:span></em></li>
+          </ul>
+        </tal:block>
+      </tal:block>
+    </metal:content>
+  </body>
+</html>

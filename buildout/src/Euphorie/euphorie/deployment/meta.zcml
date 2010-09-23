@@ -1,0 +1,30 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="euphorie">
+
+  <!-- Disable automatic redirection tracking -->
+  <exclude package="plone.app.redirector" file="events.zcml" />
+
+  <!-- Disable content rules -->
+  <exclude package="plone.contentrules" />
+  <exclude package="plone.app.contentrules" />
+
+  <!-- Plone wants to use the content rules permission, so make sure that
+       does exist -->
+  <permission
+      id="plone.app.contentrules.ManageContentRules"
+      title="Content rules: Manage rules"
+      />
+
+  <!-- Likewise for this view, which is used in an action expression -->
+  <browser:page
+      for="*"
+      name="plone_contentrules_info"
+      class="plone.app.contentrules.browser.info.ContentRulesInfo"
+      allowed_interface="plone.app.contentrules.browser.interfaces.IContentRulesInfo"
+      permission="zope.Public"
+      />
+
+</configure>
+

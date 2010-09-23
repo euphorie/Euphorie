@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<site>
+  <property name="euphorie_secret" type="string">secret</property>
+</site>

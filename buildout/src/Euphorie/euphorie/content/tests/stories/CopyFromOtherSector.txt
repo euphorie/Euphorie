@@ -1,0 +1,63 @@
+Copying content from another survey
+===================================
+
+Before we can start we must set up our test environment:
+
+>>> from zExceptions import Unauthorized
+>>> from Products.Five.testbrowser import Browser
+>>> browser=Browser()
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=("Unauthorized")
+
+Lets create a sector with a minimal survey:
+
+>>> from euphorie.content.tests.utils import createSector
+>>> from euphorie.content.tests.utils import addSurvey
+>>> from euphorie.content.tests.utils import EMPTY_SURVEY
+>>> self.loginAsPortalOwner()
+>>> sector1=createSector(portal, "one", title=u"Sector one")
+>>> _=addSurvey(sector1)
+
+And a second sector with an empty survey:
+
+>>> sector2=createSector(portal, "two", title=u"Sector two", login="two", password="two")
+>>> _=addSurvey(sector2, EMPTY_SURVEY)
+
+We can now login using the second survey:
+
+>>> browser.open("%s/@@login" % portal.absolute_url())
+>>> browser.getControl(name="__ac_name").value="two"
+>>> browser.getControl(name="__ac_password").value="two"
+>>> browser.getForm(id="loginForm").submit()
+
+
+Copy module from other sector
+-----------------------------
+
+Before we can copy content from another sector we first have to find it.
+
+>>> browser.getLink("Surveys").click()
+>>> browser.getLink("Netherlands").click()
+>>> browser.getLink("Sector one").click()
+>>> browser.getLink("Standard version").click()
+
+We've found the survey. Lets look at the module and copy it:
+
+>>> browser.getLink("Module one").click()
+>>> browser.open("%s/@@copy" % browser.url)
+>>> browser.contents
+'...Copied...'
+
+
+Paste module in own survey
+--------------------------
+
+Lets go back to our own survey now:
+
+>>> browser.getLink("OiRA").click()
+>>> browser.getLink("Standard version").click()
+>>> browser.open("%s/@@paste" % browser.url)
+>>> browser.contents
+'...Pasted...
+...Module one...'
+

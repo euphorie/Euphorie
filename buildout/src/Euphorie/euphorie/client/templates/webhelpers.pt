@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie">
+
+  <metal:css define-macro="css" meta:interpolation="true" tal:define="base_url client/++resource++euphorie.style">
+    <tal:block condition="webhelpers/debug_mode">
+      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.css" />
+      <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie6.css"/> <![endif]-->
+      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.css"/> <![endif]-->
+      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/main/screen-ie8.css" /> <![endif]-->
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.min.css" />
+      <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie6.min.css"/> <![endif]-->
+      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.min.css"/> <![endif]-->
+      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/main/screen-ie8.min.css" /> <![endif]-->
+    </tal:block>
+    <link tal:define="sector_url webhelpers/sector_url" tal:condition="sector_url" rel="stylesheet" type="text/css" media="all" href="${sector_url}/@@sector.css" />
+  </metal:css>
+
+  <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.libraries">
+    <!--[if IE]> <script type="text/javascript" src="${lib_url}/excanvas.min.js"></script> <![endif]-->
+    <tal:block condition="webhelpers/debug_mode">
+      <script type="text/javascript" src="${lib_url}/jquery-1.3.2.min.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery-ui-1.7.2.min.js"></script>
+      <script type="text/javascript" src="${lib_url}/css_browser_selector.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery.hoverIntent.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery.bt.js"></script>
+      <script type="text/javascript" src="${lib_url}/jcarousellite_1.0.1.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery.numeric.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery.scrollTo.js"></script>
+      <script type="text/javascript" src="${lib_url}/jquery.localscroll.js"></script>
+      <script type="text/javascript" src="${lib_url}/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+      <script type="text/javascript" src="${lib_url}/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+      <script type="text/javascript" src="${client/++resource++euphorie.behaviour}/markup.js"></script>
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+      <script type="text/javascript" src="${client/++resource++euphorie.behaviour}/common.min.js"></script>
+    </tal:block>
+  </metal:javascript>
+
+  <metal:survey define-macro="survey_tree" meta:interpolation="true">
+    <ol tal:condition="exists:tree" class="${python:'microns' if tree['leaf_module'] else None}">
+      <li tal:repeat="item tree/children" class="${item/class}">
+        <a href="${item/url}"><strong class="counter">${item/number}</strong> ${item/title}</a>
+        <tal:subtree condition="python:item['children']" define="tree python:item">
+          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+        </tal:subtree>
+      </li>
+    </ol>
+  </metal:survey>
+
+  <metal:appendix define-macro="appendix">
+    <p id="appendix">
+      <tal:block repeat="page webhelpers/appendix"
+      ><a href="${page/url}">${page/title}</a> |</tal:block>
+      <tal:span i18n:translate="appendix_authors">Developed by <a i18n:name="TNO" href="http://www.tno.nl">TNO</a>, <a i18n:name="Syslab" href="http://www.syslab.com">Syslab</a> and <a i18n:name="Simplon" href="http://www.simplon.biz">Simplon B.V.</a>. Designed by <a i18n:name="Cornae" href="http://www.cornae.com">Cornae</a>.</tal:span>
+    </p>
+  </metal:appendix>
+
+  <metal:riskinfo define-macro="risk_info" meta:interpolation="true">
+    <p class="gallery" tal:define="images risk/@@images" tal:condition="python:risk.image is not None">
+      <a rel="fancybox" title="${risk/caption|nothing}" href="${risk/absolute_url}/@@download/image/${risk/image/filename}"
+        tal:define="scale python:images.scale('image', width=150, height=500, direction='thumbnail')"
+        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
+      <a rel="fancybox" title="${risk/caption2|nothing}" href="${risk/absolute_url}/@@download/image2/${risk/image2/filename}"
+        tal:define="scale python:images.scale('image2', width=120, height=172, direction='thumbnail')"
+        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
+      <a rel="fancybox" title="${risk/caption3|nothing}" href="${risk/absolute_url}/@@download/image3/${risk/image3/filename}"
+        tal:define="scale python:images.scale('image3', width=120, height=172, direction='thumbnail')"
+        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
+      <a rel="fancybox" title="${risk/caption4|nothing}" href="${risk/absolute_url}/@@download/image4/${risk/image4/filename}"
+        tal:define="scale python:images.scale('image4', width=120, height=172, direction='thumbnail')"
+        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
+    </p>
+    <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description">
+      <tal:block condition="not:view/risk_present">
+        <h2 tal:content="risk/title"></h2>
+        <p tal:condition="python:risk.type=='top5'" i18n:translate="top5_risk_not_present">
+        This risk is not present in your organisation, but since the sector organisation considers this one of the top 5 most
+        critical risks it must be included in this report.</p>
+      </tal:block>
+      <tal:block condition="view/risk_present">
+        <h2 tal:condition="use_problem_description"
+            tal:content="risk/problem_description">The fridges are checked daily.</h2>
+        <tal:block condition="not:use_problem_description">
+          <h2 tal:content="risk/title">The fridges are checked daily.</h2>
+          <p class="negation"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+    <p class="description" tal:replace="structure risk/description">
+      The temperature in a fridge is critical to storing food. If the
+      temperature is too high or fluctuates too much food can start
+      rotting quickly.
+    </p>
+    <tal:block condition="risk/legal_reference">
+      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+
+      <p tal:content="structure risk/legal_reference">
+        The requirements for fridges are defined in section 13.1 section a
+        of the health code.
+      </p> 
+    </tal:block>
+  </metal:riskinfo>
+</html>
