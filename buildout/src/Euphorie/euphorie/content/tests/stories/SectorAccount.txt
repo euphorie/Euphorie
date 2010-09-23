@@ -1,0 +1,62 @@
+Sectors act as accounts
+=======================
+
+Before we can start we must set up our test environment:
+
+>>> from zExceptions import Unauthorized
+>>> from Products.Five.testbrowser import Browser
+>>> browser=Browser()
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=("Unauthorized")
+
+When we first visit the Plone site we are not logged in. Lets start
+by logging in as the site owner:
+
+>>> from Products.PloneTestCase.setup import portal_owner
+>>> from Products.PloneTestCase.setup import default_password
+>>> browser.open(portal.absolute_url()+"/@@login")
+>>> browser.getControl(name="__ac_name").value=portal_owner
+>>> browser.getControl(name="__ac_password").value=default_password
+>>> browser.getForm(id="loginForm").submit()
+
+We are now logged as site administrator in and are at the country
+listing:
+
+>>> browser.url==portal.absolute_url()+"/sectors/"
+True
+>>> "You have been logged in." in browser.contents
+True
+
+Lets go to the user management screen and add a user:
+
+>>> browser.getLink("User management").click()
+>>> browser.getLink("Add new sector").click()
+>>> browser.getControl(name="form.widgets.title").value="Fine Dining"
+>>> browser.getControl(name="form.widgets.login").value="dining"
+>>> browser.getControl(name="form.widgets.password").value="s3cr3t"
+>>> browser.getControl(name="form.widgets.password.confirm").value="s3cr3t"
+>>> browser.getControl(name="form.widgets.contact_name").value="John Doe"
+>>> browser.getControl(name="form.widgets.contact_email").value="john@example.com"
+>>> browser.getControl(name="form.buttons.save").click()
+>>> browser.url
+'http://nohost/plone/sectors/at/fine-dining'
+
+Now that the sector has been created we can logout the portal owner:
+
+>>> try:
+...    browser.open(portal.absolute_url()+"/@@logout")
+... except Unauthorized:
+...     pass
+
+We can now login using the new sector account. Logging in as a sector will
+also automatically redirect to the homepage of the sector:
+
+>>> browser.open(portal.absolute_url()+"/@@login")
+>>> browser.getControl(name="__ac_name").value="dining"
+>>> browser.getControl(name="__ac_password").value="s3cr3t"
+>>> browser.getForm(id="loginForm").submit()
+>>> "You have been logged in." in browser.contents
+True
+>>> browser.url
+'http://nohost/plone/sectors/at/fine-dining'
+

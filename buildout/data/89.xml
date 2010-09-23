@@ -1,0 +1,753 @@
+<sector xmlns:rie="http://xml.simplon.biz/rie/euphorie-export/1.0" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+  <title>VOBN; Betonmortelfabrikanten in Nederland.</title>
+  <account login="betonmortel" password="beton!"/>
+  <contact>
+    <name>betonmortel</name>
+    <email>bogaerdt@aboma.nl</email>
+  </contact>
+  <survey>
+    <title>RI&amp;E Betonmortelfabrikanten</title>
+    <language>nl</language>
+    <country>nl</country>
+    <classification-code>2663</classification-code>
+    <description>&lt;h3&gt;Welkom&lt;/h3&gt;&lt;p&gt;Deze digitale risico-inventarisatie is bedoeld voor ondernemingen van betonmortelfabrikanten in Nederland. Dit is een practische risicoinventarisatie gericht op de branche. Dat wil zeggen dat een aantal risco's bekend is en er gekeken wordt of de juiste maatreglen zijn getroffen. Oftewel nagaan of uw bedrijf werkt volgens de actuele inzichten en stand der techniek. &lt;/p&gt;&lt;p&gt;Het doel van de risico inventarisatie is dat het u en uw medewerkers bewust maakt van de arbeidsomstandigheden in uw bedrijf&lt;/p&gt;</description>
+    <evaluation-optional>yes</evaluation-optional>
+    <module rie:id="M-4971" optional="no">
+      <title>Arbozorg en organisatie van arbeid</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5212" optional="no">
+        <title>Arbobeleid</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24827" type="risk">
+          <title>De werkgever beschikt over een beleidsverklaring.</title>
+          <description>&lt;p&gt;Beschrijf de doelstelling en de zorgplicht van de werkgever t.a.v. zijn medewerkers over veiligheid, gezondheid, welzijn en milieu (VGWM). De verklaring dient ondertekend te zijn en bekend te worden gemaakt.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24828" type="risk">
+          <title>De taakomschrijving van elke functionaris ligt vast.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24829" type="risk">
+          <title>Er is en VGWM handboek beschikbaar.</title>
+          <description>&lt;p&gt;Geef in een systeem aan hoe het VGWM beleid is geregeld en informeer al uw medewerkers. Instructie wordt vastgelegd bij de introductie van nieuwe medewerkers.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24833" type="risk">
+          <title>De arbodienst meldt beroepsziekten aan het Nederlands Centrum voor Beroepsziekten (NCvB)</title>
+          <description>&lt;p&gt;Een broepsziekte is een klinisch waarneembare aandoening met een duidelijk effect op het welbevinden en het functioneren van de zieke werknemer.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24834" type="risk">
+          <title>Er is een bedrijfsreglement t.a.v. agressie, geweld en sexuele intimidatie.</title>
+          <description>&lt;p&gt;Stel een bedrijfsreglement op t.a.v. agressie, geweld en sexuele intimidatie. Doe dit eventueel in overleg met uw arbodienst. Benoem een vertrouwenspersoon. E&#233;n van de collega's in het bedrijf kan de vaste vertrouwenspersoon zijn. Het kunnen praten over onzekerheid als gevolg van ongewenst gedrag en het krijgen van hulp bij het bespreekbaar maken ervan met de &#8216;dader&#8217;, voorkomt dat seksuele intimidatie lang voortduurt en helpt om ongewenst gedrag snel te stoppen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24835" type="risk">
+          <title>Er is een rookbeleid.</title>
+          <description>&lt;p&gt;Werknemers hebben recht op een rookvrije werkplek. De Tabakswet schrijft niet voor dat bedrijven voor 100% rookvrij moeten zijn. De werkgever kan voor rokers ook speciale rookruimten cre&#235;ren, die zijn uitgerust met passende voorzieningen om de rook af te zuigen dan wel te ontdoen van schadelijke elementen. Deze ruimten mogen geen rook naar andere ruimten doorlaten. Voor mensen die in de buitenlucht werken hoeft de werkgever geen maatregelen te treffen om overlast door rook van anderen tegen te gaan.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-25732" type="risk">
+          <title>Er is een beleid geformuleerd om derden (leveranciers, bezoekers, etc.) te beschermen</title>
+          <description>&lt;p&gt;Conform Arbowet artikel 10 dient een werkgever rekening te houden met derden. Derden kennen de gevaren op de locatie waar zij bezoekend zijn niet. Zorg ervoor dat bezoekers zich melden, wijs hen op gevaren en maatregelen ter bescherming&#160;en reik ze zonodig persoonlijke beschermingsmiddelen uit.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5213" optional="no">
+        <title>RI&amp;E</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24846" type="risk">
+          <title>Er is een plan van aanpak opgesteld</title>
+          <description>&lt;p&gt;Het opstellen van een plan van aanpak kan gedaan worden m.b.v. dit instrument. Na het beantwoorden van de vragen kunt u het plan van aanpak in gaan vullen. Het opstellen van een plan van aanpak is de verantwoordelijkheid van de hoofdonderneming die arbozaken in de portefeuille heeft.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24847" type="risk">
+          <title>Het plan van aanpak wordt jaarlijks geactualiseerd.</title>
+          <description>&lt;p&gt;Het plan van aanpak dient een voortschrijdend karakter te hebben.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24848" type="risk">
+          <title>Er is een verantwoordelijke benoemd voor het plan van aanpak.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5215" optional="no">
+        <title>Verzuimbeleid</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24836" type="risk">
+          <title>De risicogroepen zijn bekend.</title>
+          <description>&lt;p&gt;Geef aan of er zijn: leerlingen, zwangere medewerksters, vakantiewerkers, ouderen, gehandicapten, onervaren medewerkers, personeel in besloten ruimtes, medewerkers die de Nederlandse taal niet beheersen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24837" type="risk">
+          <title>Er zijn afspraken gemaakt met betrekking tot risicogroepen.</title>
+          <description>&lt;p&gt;Voorbeelden van voorschriften/maatregelen zijn:&lt;/p&gt;&lt;p&gt;Jongeren onder de 18 jaar mogen de volgende werkzaamheden niet verrichten of alleen onder toezicht van een deskundige: werken met gevaarlijke stoffen, werken met schadelijke trillingen, het dragen van zware lasten, werken met gevaarlijke machines, werken in besloten ruimtes, werken met explosiegevaar, werken met elektriciteit (meer dan 42 volt wisselspanning). &lt;/p&gt;&lt;p&gt;Voor medewerkers die de Nederlandse taal niet of slecht beheersen (schrijven danwel spreken) kan worden overwogen in de eigen taal een instructie op te stellen. Laat deze medewerkers deelnemen aan taalcursussen. &lt;/p&gt;&lt;p&gt;Wanneer er geregeld gewerkt wordt met onderaannemers of zelfstandigen, moeten er afspraken worden gemaakt tussen de partijen op het gebied van arbeidsomstandigheden. Deze dienen schriftelijk te worden vastgelegd. Maak afspraken met het uitzendbureau wie verantwoordelijk is voor de verstrekking van persoonlijke beschermingsmiddelen (PBM) en het verzorgen van instructie. De inlenende partij geeft de werkgever van de inleenkrachten (uitzendkrachten, onderaannemers) de RIE. &lt;/p&gt;&lt;p&gt;Laat nieuwe en onervaren medewerkers onder toezicht werken van een ervaren collega. &lt;/p&gt;&lt;p&gt;Zie extra informatie met betrekking tot jeugdigen op &lt;a href="http://www.gietbouw.nl" rel="nofollow" target="_blank"&gt;www.gietbouw.nl&lt;/a&gt;, dossier Branche RIE&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24838" type="risk">
+          <title>Er is een maatwerk of vangnetregeling met betrekking tot verzuimbegeleiding en preventietaken.</title>
+          <description>&lt;p&gt;Op grond van de Arbowet moet de werkgever zich bij de uitvoering van de volgende taken laten bijstaan door een &#233;&#233;n of meer (in- of externe) gecertificeerde arbodeskundigen&#160;&lt;em&gt;(maatwerkregeling)&lt;/em&gt; &#243;f een arbodienst &lt;em&gt;(vangnetregeling): &lt;/em&gt;&lt;/p&gt;&lt;p&gt;- toesting en advisering in het kader van de risico-inventarisatie en -evaluatie; &lt;/p&gt;&lt;p&gt;- houden van arbeidsomstandighedenspreekuur; &lt;/p&gt;&lt;p&gt;- arbeidsgezondheidskundig onderzoek; &lt;/p&gt;&lt;p&gt;- aanstellingskeuring; &lt;/p&gt;&lt;p&gt;- verzuimbegeleiding. &lt;/p&gt;&lt;p&gt;De beslissing over de vraag of van het alternatief voor een arbodienst gebruik gemaakt wordt, moet samen met de werknemers (CAO, OndernemingsRaad -OR-, PersoneelsVertegenwoordiging -PVT-) genomen worden. Bij geen overeenstemming valt een bedrijf automatisch in de vangnetregeling.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24839" type="risk">
+          <title>Er is een preventiemedewerker aangesteld.</title>
+          <description>&lt;p&gt;Een werkgever met meer dan 15 werknemers moet preventietaken toewijzen aan &#233;&#233;n of meer medewerkers. Bij minder dan 15 werknemers mag de werkgever zelf de preventietaken uitvoeren. De werkgever hoeft geen speciale werknemer aan te trekken hiervoor. Preventie kan een onderdeel zijn van de taak van de werknemer zelf of van de taak van meer werknemers. Voor het gemak wordt in dit instrument steeds gesproken over preventiemedewerker. &lt;/p&gt;&lt;p&gt;Preventietaken zijn: het meewerken aan of het opstellen van een RIE, uitvoeren van maatregelen uit het Plan van Aanpak, het geven van voorlichting, het signaleren van risico's en het treffen van maatregelen tegen die risico's. &lt;/p&gt;&lt;p&gt;De preventiemedewerker(s) - het aantal hangt af van preventietaken en de organisatie- hebben kennis en ervaring, de middelen en de tijd zodat zij de werkgever goed kunnen bijstaan bij de preventietaken. De preventiemedewerker werkt hierbij samen met de OR, de PVT of de medewerkers die het betreft.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24840" type="risk">
+          <title>Medewerkers krijgen een arbeidsgezondheidskundig onderzoek (PAGO) aangeboden.</title>
+          <description>&lt;p&gt;PAGO-keuringen dienen te zijn geregeld via de CAO. Indien dit niet via de CAO geregeld is, dienen er afspraken gemaakt te ziojn met uw arbodienst. laat u adviseren of er risicovolle beroepen zijn waarbij eventueel aanvullende eisen gesteld zijn zoals b.v. bij het werken in verontreinigde grond en asbest.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24841" type="risk">
+          <title>Medewerkers zijn bekend met het Arbeidsomstandighedenspreekuur.</title>
+          <description>&lt;p&gt;Maak aan alle (nieuwe) medewerkers bekend dat gebruik gemaakt kan worden van het arbeidsomstandighedenspreekuur.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24843" type="risk">
+          <title>Er is een verzuimreglement.</title>
+          <description>&lt;p&gt;Bijvoorbeeld: een medewerker moet zich telefonisch voor 9:00 uur ziek melden bij de leidinggevende.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24844" type="risk">
+          <title>Verzuimgegevens worden geregistreerd.</title>
+          <description>&lt;p&gt;Registreer de gegevens van verzuim of laat dit doen door uw arbodienst.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24845" type="risk">
+          <title>Er wordt een verzuimanalyse opgesteld aan de hand van de verzuimgegevens.</title>
+          <description>&lt;p&gt;Analyse van de verzuimgegevens biedt de mogelijkheid verzuimoorzaken te herkennen en waar mogelijk actief te bestrijden. Let op: indien kort frequent verzuim groter is dan 1, is dit mogelijk een probleem. Houdt bij het bespreken van dit onderwerp rekening met het mogelijk arbeidsgerelateerd zijn van het verzuim. &lt;/p&gt;&lt;p&gt;Het berekenen van verzuimcijfers op individu- en afdelingsniveau kan een beter inzicht geven in de oorzaken van het verzuim.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5216" optional="no">
+        <title>Samenwerking en overleg</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24849" type="risk">
+          <title>Er is een ondernemingsraad (OR) of een personeelsvertegenwoordiging.</title>
+          <description>&lt;p&gt;In de Arbowet en de wet op de Ondernemingsraden staat dat afspraken gemaakt moeten worden over ondermeer:&lt;/p&gt;&lt;p&gt;- de inschakeling van de arbodienst &lt;/p&gt;&lt;p&gt;- de RIE en de rapportage Plan van Aanpak &lt;/p&gt;&lt;p&gt;- de inschakeling van bedrijfshulpverleners (BHV-ers) &lt;/p&gt;&lt;p&gt;- de verzuimregels. &lt;/p&gt;&lt;p&gt;Een OR (ondernemingsraad) is verplicht vanaf 50 werknemers. &lt;/p&gt;&lt;p&gt;Tussen 10 en 50 werknemers kan de werkgever een PVT (personeelsvertegenwoordiging) instellen. Als de meerderheid van de werknemers dit wil, dan moet de werkgever een PVT instellen. &lt;/p&gt;&lt;p&gt;Bij minder dan 10 werknemers kan de werkgever een PVT instellen (niet verplicht). &lt;/p&gt;&lt;p&gt;Als er geen medezeggenschapsorgaan is, dan wordt het overleg met de belanghebbende werknemers gevoerd.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24855" type="risk">
+          <title>Er is een managementvergadering of werkoverleg.</title>
+          <description>&lt;p&gt;Voer een overleg in waarbij veiligheid, gezondheid, welzijn en milieu (VGWM) als vast agendapunt besproken wordt. Zorg ervoor dat 2 tot 6 keer per jaar overleg met de directie wordt gevoerd. Maak een beknopt verslag aan de hand van de agenda.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24858" type="risk">
+          <title>Er is regelmatig overleg over arbo en verzuim.</title>
+          <description>&lt;p&gt;Door arbeidsomstandigheden en verzuim regelmatig te bespreken kunnen er gericht oplossingen gezocht worden en wordt er voortdurend gewerkt aan verbetering van arbo. Zorg ervoor dat dit een vast agendapunt is op de vergadering. Voer dit overleg in en betrek anderen voor draagvlak en betrokkenheid. Verslaglegging is gewenst.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5217" optional="no">
+        <title>Toezicht op risicovolle zaken.</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24861" type="risk">
+          <title>Leidinggevende voeren werkplekinspecties uit.</title>
+          <description>&lt;p&gt;Laat leidinggevenden werkplekinspecties of observatierondes uitvoeren aan de hand van een controlelijst.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24862" type="risk">
+          <title>Er is een planning voor deze werkplekinspecties.</title>
+          <description>&lt;p&gt;Streef&#160;een frequentie van 2x per jaar per installatie. In de inspecties dient onder andere gelet te worden op; risicovolle taken, naleving veiligheidsregels, gebruik van PBM, orde/netheid, gevaarlijke situaties, status van reddingsmiddelen, status en juist gebruik van gereedschappen en equipment, omgang met gevaarlijke of milieubelastende stoffen. Bezoek ook bouwlocaties om risicovolle taken aldaar te beoordelen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24863" type="risk">
+          <title>De uitgevoerde inspecties worden vastgelegd en geanalyseerd.</title>
+          <description>&lt;p&gt;De uitgevoerde inspecties of observatierondes worden vastgelegd. Verwerk knelpunten in het Plan van Aanpak.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24864" type="risk">
+          <title>Er is een sanctiebeleid aanwezig en vastgelegd.</title>
+          <description>&lt;p&gt;Het opvolgen van arboinstructies is in het belang van de werknemer zelf (bescherming), van zijn omgeving en van zijn werkgever (o.a. aansprakelijkheid). Als iemand zijn taken niet veilig uitvoert kan met een sanctiebeleid corrigerend worden gehandeld. Zorg ervoor dat het sanctiebeleid is afgesproken tussen werkgever en werknemersvertegenwoordiging (OR, PVT). Een sanctiebeleid is vastgelegd.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5218" optional="no">
+        <title>Milieu</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24866" type="risk">
+          <title>Afval wordt gescheiden.</title>
+          <description>&lt;p&gt;Scheid afval bijv. in metaal, papier, afgewerkte olie, poetslappen, e.d. Doe dit op kantoor, bij de installatie(s) en in de werkplaats.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24867" type="risk">
+          <title>Olie is op lekbakken geplaatst.</title>
+          <description>&lt;p&gt;Bewaar olie en verwante producten op lekbakken. De grootte van de lekbak wordt bepaald door de grootste inhoudsmaat plus 10%. Is de lekbak buiten opgesteld, dan met een afdak. Zie ook PGS 15 (Publicatiereeks Gevaarlijke Stoffen) en &lt;a href="http://www.vrom.nl/" rel="nofollow" target="_blank"&gt;www.vrom.nl&lt;/a&gt;&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-25733" type="risk">
+          <title>Er zijn maatregelen genomen om emissies naar de lucht, naar de omgeving en naar het oppervlaktewater te voorkomen / beperken.</title>
+          <description>&lt;p&gt;Er zijn meerdere aspecten waarbij arbeidsomstandigheden en milieu elkaar overlappen. Zorg dat u kunt voldoen aan de eisen die de handhavende instantie op het gebied van milieu (meestal de Provincie) aan uw bedrijf stellen. Vaak heeft het arboaspect hierbij ook invulling gekregen. Als u voldoet aan de eisen van de milieuwetgeving, kunt u deze vraag met "ja" beantwoorden.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5219" optional="no">
+      <title>Melden en registreren van ongevallen en bedrijfshulpverlening (BHV).</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5220" optional="no">
+        <title>Ongevalsmelding, -rapportage en -registratie</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24873" type="risk">
+          <title>Elke locatie heeft een meldingsprocedure voor ongevallen.</title>
+          <description>&lt;p&gt;Er is een wettelijke verplichting in het bedrijf een ongeval te melden aan de bedrijfshulpverlener(s). Een ernstig ongeval dient te worden gemeld aan de OR/PVT of belanghebbende werknemers. &lt;/p&gt;&lt;p&gt;Een alarmkaart is hierbij een nuttig hulpmiddel. Een dergelijke kaart dient op meerdere plaatsen (alle werklocaties, zoals kantoor, installatie, werkplaatsen, e.d.) opgehangen te worden in de nabijheid van een telefoon. &lt;/p&gt;&lt;p&gt;Zie ook &lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24887" type="risk">
+          <title>Bij ongevallen en bijna ongevallen worden de ongevallenformulieren ingevuld.</title>
+          <description>&lt;p&gt;Gebruik een standaard ongevalsrapport. &lt;/p&gt;&lt;p&gt;Zie ook &lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24889" type="risk">
+          <title>Er is een ongevallenregistratie en -analyse aanwezig.</title>
+          <description>&lt;p&gt;Het bijhouden van een ongevallenregister kan zich beperken tot gegevens over datum, functie van getroffene, afdeling, korte toedracht, letsel en/of schade en verwijzing naar het nummer van het ongevalsrapport. Dit register maakt deel uit van de RIE en de werkgever dient minimaal jaarlijks te rapporteren over de voortgang van het Plan van Aanpak. &lt;/p&gt;&lt;p&gt;Zie ook &lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24891" type="risk">
+          <title>Ernstige arbeidsongevallen worden direct gemeld bij de Arbeidsinspectie.</title>
+          <description>&lt;p&gt;Een ongeval dient direct te worden gemeld aan de&#160;Arbeidsinspectie indien het ernstig letsel betreft&#160;(ziekenhuisopname -ook psychiatrisch-&#160;of blijvend letsel) of bij dodelijke afloop. Na de telefonische melding dient zo spoedig mogelijk daarna ook een schriftelijke melding te worden gedaan. Vermeld daarbij de gegevens van de werkgever (naam, adres, registratienummer KvK, aantal werkzame personen), de getroffene (naam, adres, geboortedatum, geslacht, nationaliteit, vorm dienstverband, datum indiensttreding), het letsel (plaats, soort, ziekenhuisopname / blijvend letsel / dodelijke afloop, vermoedelijke verzuimduur),&#160;de omstandigheden van het ongeval (plaats, adres, datum en tijdstip, aard, werkzaamheden v&#243;&#243;r het ongeval, betrokken arbeidsmiddelen en/of stoffen) en de naam en telefoonnummer van de melder.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5222" optional="no">
+        <title>Bedrijfshulpverlening (BHV)</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24895" type="risk">
+          <title>Er is een bedrijfshulpverleningsplan.</title>
+          <description>&lt;p&gt;Op basis van dit plan en het goed functioneren ervan is de werkgever of de BHV-er degene die bij bijv. brand zeker weet of de brandweer nog naar mogelijke slachtoffers moet zoeken en welke wegen de brandweer kan volgen aan de hand van de plattegrond. Het plan bevat onder meer wie de leiding geeft aan de BHV, wie de BHV-ers zijn, dienstroosters van de BHV-ers, plattegronden van het bedrijf met daarop aangegeven vluchtwegen, de plaats van de blusmiddelen, verzamelplaatsen van de mensen die het pand verlaten, eventuele plattegronden voor de brandweer.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24898" type="risk">
+          <title>Er zijn EHBO-middelen beschikbaar.</title>
+          <description>&lt;p&gt;Plaats op herkenbare en toegankelijke plekken verbandtrommels. De genormaliseerde aanduiding voor een EHBO-post is een wit kruis op een groen veld. De EHBO-middelen dienen te worden afgestemd op de aard en de risico's van het werk. Ze dienen te worden beschermd tegen vervuiling. Waar verdrinkingsgevaar bestaat, dienen middelen aanwezig te zijn voor het redden van drenkelingen; ze moeten op een goed zichtbare en toegankelijke plaats beschikbaar te zijn. Denk hierbij bijvoorbeeld aan een reddingsboei met lijn of een reddingsstok met haak.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24899" type="risk">
+          <title>Er zijn gekeurde brandblusmiddelen beschikbaar.</title>
+          <description>&lt;p&gt;Kleine blusmiddelen zijn ontworpen om brand in een beginstadium snel te blussen. Aan de hand van brandklassen kan een blusmiddel worden aanbevolen. &lt;/p&gt;&lt;p&gt;&#160;Klasse A (branden van vaste stoffen die onder gloeivorming verbranden, zoals hout, papier, textiel): slanghaspel, sproeischuim, poederblusser (ABC-poeder). &lt;/p&gt;&lt;p&gt;&#160;Klasse B (branden van vloeibare stoffen (zoals benzine, verf, teer, olie): sproeischuim, poederblusser, CO2-blusser. &lt;/p&gt;&lt;p&gt;&#160;Klasse C (branden van gassen zoals propaan, butaan): poederblusser, CO2-blusser.&lt;/p&gt;&lt;p&gt;&#160;Klasse D (branden van metalen, zoals magnesium, aluminium): poederblusser).&lt;/p&gt;&lt;p&gt;&#160;Brandblusmiddelen zijn mobiel of geplaatst op een vaste (stationaire) plek. De stationaire blussers hangen op strategische plaatsen, zoals naast uitgangen van kantoren, werkplaatsen, in de nabijheid van flessengas, opslagruimte met (brand)gevaarlijke producten.&lt;/p&gt;&lt;p&gt;&#160;Zorg voor een jaarlijkse keuring.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-25734" type="risk">
+          <title>Op de werkplekken is op relevante plaatsen noodverlichting aanwezig.</title>
+          <description>&lt;p&gt;Op plaatsen waar gewerkt wordt met kunstlicht, is&#160;het nodig&#160;dat bij stroomuitval noodverlichting (automatisch) in werking wordt gesteld. Dit kan bijvoorbeeld gecombineerd worden uitgevoerd met de groene "nood-uit"-bordjes die boven (nood)uitgangen worden aangebracht. Deze bordjes beschikken vaak over een accu die bij stroomuitval ervoor zorgt dat deze verlichting blijft branden. &lt;/p&gt;&lt;p&gt;Uiteraard worden nooduitgangen en vluchtwegen vrijgehouden van obstakels.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5223" optional="no">
+      <title>Opleidingen, voorlichting en instructies.</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5224" optional="no">
+        <title>Opleidingen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24900" type="risk">
+          <title>Voor iedere medewerker is een opleidingsplan aanwezig op basis van de functie.</title>
+          <description>&lt;p&gt;Op basis van de functie kan een overzicht met benodigde opleidingen (vakopleiding, arbo-opleiding) worden opgesteld. Per medewerker kan dan gekeken worden in hoeverre aan deze functie-eis kan worden voldaan en dus ook welke opleidingen nog gevolgd moeten worden.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24901" type="risk">
+          <title>Medewerkers krijgen informatie over hun functioneren en wat hun werk voor het bedrijf oplevert.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5225" optional="no">
+        <title>Voorlichting en instructies</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24902" type="risk">
+          <title>Medewerkers worden voorgelicht over de risico's die aan het werk verbonden zijn.</title>
+          <description>&lt;p&gt;Onderwerpen die behandeld kunnen worden, zijn: veiligheid van machines, fysieke belasting, lawaaiblootstelling, gebruik van gevaarlijke stoffen, beeldschermwerk, gebruik PBM, etc. &lt;/p&gt;&lt;p&gt;De medewerkers moeten in elk geval voor aanvang van deze werkzaamheden deze voorlichting en instructie hebben gehad. Voorlichting en instructie worden periodiek of zoveel eerder als nodig herhaald en&#160;schriftelijk vastgelegd. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5226" optional="no">
+      <title>Arbeidsmiddelen</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5227" optional="no">
+        <title>Aankoop, gebruik en keuring arbeidsmiddelen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24903" type="risk">
+          <title>Bij aankoop wordt zoveel mogelijk rekening gehouden met arbo-aspecten.</title>
+          <description>&lt;p&gt;Houdt bij inkoop en huur van materieel rekening met arbo-aspecten. Neem hiervoor bepalingen op in contracten. Maak waar mogelijk gebruik van de farbo-regeling (subsidieregeling van het ministerie van SZW voor aanschaf van arbeidsmiddelen die de kans op gezondheidsklachten verkleint). Zie &lt;a href="http://www.minszw.nl/" rel="nofollow" target="_blank"&gt;www.minszw.nl&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;Alle machines die na 1 januari 1995 binnen de EU zijn gefabriceerd of na genoemde datum worden ingevoerd, moeten zijn voorzien van een CE-markering. Alle andere machines vallen onder de bepalingen in hoofdstuk 7 van het Arbobesluit. CE-markering houdt in dat: &lt;/p&gt;&lt;p&gt;- een CE-sticker met machineaanduiding is aangebracht op het arbeidsmiddel; &lt;/p&gt;&lt;p&gt;- een conformiteitsverklaring aanwezig is; &lt;/p&gt;&lt;p&gt;- een gebruikshandleiding aanwezig is in de Nederlandse taal; &lt;/p&gt;&lt;p&gt;- een technisch constructiedossier aanwezig is bij de leverancier / fabrikant.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24904" type="risk">
+          <title>De medewerkers zijn ge&#239;nstrueerd over juist gebruik van de arbeidsmiddelen.</title>
+          <description>&lt;p&gt;Leg de instructie schriftelijk vast. Gebruik de gebruikshandleiding of instructiekaarten.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24905" type="risk">
+          <title>Er is een uniek systeem voor het periodiek keuren en onderhouden van arbeidsmiddelen.</title>
+          <description>&lt;p&gt;Kritieke apparatuur dient in goede conditie te blijven. In beginsel dienen alle arbeidsmiddelen periodiek (jaarlijks en onderbouwd kan hiervan worden afgeweken) gekeurd te worden. Voorbeelden zijn: hijsgereedschappen, transportbanden, draagbaar klimmaterieel, elektrisch handgereedschap, etc. &lt;/p&gt;&lt;p&gt;Controleer of arbeidsmiddelen die niet meer worden gebruikt op een zodanige manier buiten gebruik zijn gesteld (demontage, slopen), dat zij niet zo eenvoudig opnieuw in gebruik genomen kunnen worden.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24907" type="risk">
+          <title>De keuringen en het onderhoud worden uniek geregistreerd.</title>
+          <description>&lt;p&gt;Leg in een register vast of de periodieke keuringen en onderhoud plaats hebben gevonden. Nadere informatie over keuren van arbeidsmiddelen (en keuringslijsten) kunt u vinden op &lt;a href="http://www.arbouw.nl" rel="nofollow" target="_blank"&gt;www.arbouw.nl&lt;/a&gt;&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24910" type="risk">
+          <title>Als eigen personeel arbeidsmiddelen keurt, dan is de inspecteur opgeleid en deskundig.</title>
+          <description>&lt;p&gt;Zelf keuren van arbeidsmiddelen is geen verplichting. Ook externe deskundige mogen worden ingeschakeld. Het voordeel van zelf keuren is dat er meer betrokkenheid ontstaat bij de goede zorg voor de arbeidsmiddelen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5228" optional="no">
+        <title>Veiligheidstechnisch</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24912" type="risk">
+          <title>Het grondverzetmaterieel is in goede staat.</title>
+          <description>&lt;p&gt;Het (grondverzet)materieel moet regelmatig (meestal jaarlijks) worden gekeurd. Dit moet schriftelijk worden vastgelegd en bewaard. Verder dienen er geluidsstickers en keuringsstickers aangebracht te zijn op de machine. Andere veiligheidsaspecten: &lt;/p&gt;&lt;p&gt;- er moet voldoende uitzicht zijn; &lt;/p&gt;&lt;p&gt;- er dient een achteruitrijsignalering of -beveiliging te zijn; &lt;/p&gt;&lt;p&gt;- zorg voor correct onderhoud van de overdrukfilterinstallatie, inclusief de overdruk-indicatiemeter en doorslag van de filter; &lt;/p&gt;&lt;p&gt;- let op het correcte gebruik van machines door voldoende deskundige en bij voorkeur opgeleide werknemers. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24915" type="risk">
+          <title>Er wordt met veilig hijsgereedschap en veilig elektrisch gereedschap gewerkt.</title>
+          <description>&lt;p&gt;Van deze gereedschappen dienen keuringsbewijzen of certificaten aanwezig te zijn. Verder: &lt;/p&gt;&lt;p&gt;- Maak vooraf keuze inzake de inzet en de kwaliteit van het benodigde materieel; &lt;/p&gt;&lt;p&gt;- controleer geregeld voor het ingebruiknemen; &lt;/p&gt;&lt;p&gt;- sla de gereedschappen gekeurd op en regel uitgifte via registratie. &lt;/p&gt;&lt;p&gt;Specifiek voor hijsgereedschappen geldt nog: &lt;/p&gt;&lt;p&gt;- geef instructie over spreidhoeken, belasting&#160;en aanslaan van lasten; &lt;/p&gt;&lt;p&gt;- let op toelaatbare belasting; &lt;/p&gt;&lt;p&gt;- let op (sticker)aanduiding met toelaatbare belasting. &lt;/p&gt;&lt;p&gt;Zie bijvoorbeeld verder Abomafoon 3.18 (www.abomafoon.nl)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24918" type="risk">
+          <title>Er wordt zo min mogelijk gebruik gemaakt van trappen en ladders.</title>
+          <description>&lt;p&gt;In juli 2006 is een Europese Richtlijn in Nederland van kracht geworden die voorschrijft dat het werken op ladders dient te worden teruggedrongen. Werk daarom zo min mogelijk op ladders (korte gebruiksduur). Zie bijvoorbeeld verder Abomafoon 5.13 (&lt;a href="http://www.abomafoon.nl/" rel="nofollow" target="_blank"&gt;www.abomafoon.nl&lt;/a&gt;).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24919" type="risk">
+          <title>De installatie wordt goed onderhouden.</title>
+          <description>&lt;p&gt;Ga uit van werkinstructies (zie &lt;/p&gt;&lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;&lt;p&gt;, dossier Branche RIE)&#160;en vaste onderhoudsschema's.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25484" type="risk">
+          <title>Als er gewerkt wordt in besloten ruimtes, dan wordt er volgens werkinstructie of werkvergunning gewerkt.</title>
+          <description>&lt;p&gt;Werken in besloten ruimtes dient veilig te gebeuren vanwege de vele risico's. Werken gebeurt dan door ge&#239;nstrueerde personen. Voorbeeld-werkinstructies: zie &lt;/p&gt;&lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;&lt;p&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5229" optional="no">
+      <title>Persoonlijke beschermingsmiddelen</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5230" optional="no">
+        <title>Keuze, instructie en beheren van persoonlijke beschermingsmiddelen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24921" type="risk">
+          <title>De juiste (op de risico's afgestemde) PBM's worden gratis ter beschikking gesteld, onderhouden en vervangen.</title>
+          <description>&lt;p&gt;Op basis van de RIE krijgt de werkgever inzicht in de risicovolle situaties in zijn bedrijf. Indien het niet mogelijk is het risico weg te nemen (bronaanpak) &#243;f te kiezen voor collectieve maatregelen, dan is het beschikbaar stellen en laten gebruiken van PBM aan de orde. Er dient een inventarisatie gemaakt te worden van de PBM die verstrekt moeten worden.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24924" type="risk">
+          <title>Er is vastgelegd wie wanneer welke PBM heeft gekregen.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24926" type="risk">
+          <title>Iedere medewerker heeft voorlichting en instructie over het gebruik van de PBM's gehad.</title>
+          <description>&lt;p&gt;De effectiviteit van PBM hangt voor een groot deel af van een goede instructie. Op de bij ontvangst getekende PBM-verklaring kan tevens de gegeven instructie worden gespecificeerd (over de werkzaamheden/situaties waarbij ze gebruikt moeten worden, het juiste gebruik en onderhoud van de middelen). &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24928" type="risk">
+          <title>Er is een vervangingstreglement  voor de PBM's aanwezig.</title>
+          <description>&lt;p&gt;Vermissing, tekortkomingen of beschadigingen dienen onmiddelijk aan de leidinggevende gemeld te worden.&lt;/p&gt;&lt;p&gt;&#160;Slechts voor enkele middelen geldt een maximale levensduur of een termijn voor tussentijdse inspectie. Dit zijn onder andere de veiligheidshelm, persoonlijke valbescherming, otoplastieken, sommige adembeschermingsmiddelen.&lt;/p&gt;&lt;p&gt;&#160;Maak aantekening van opnieuw verstrekte middelen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5231" optional="no">
+      <title>Welzijn / werkdruk</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5232" optional="no">
+        <title>Werk, rust- en reistijden</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24929" type="risk">
+          <title>Werk- en rusttijden zijn vastgelegd conform de Arbeidstijdenwet.</title>
+          <description>&lt;p&gt;In de Arbeidstijdenwet staan regels over de lengte van een werkdag, een werkweek en pauzes. Dit zijn standaardregels. In een CAO of door overleg met de OR of PVT kan hiervan worden afgeweken; de overlegruimte. Deze afwijkingen op de standaardregels (dus ook bij overwerk) worden schriftelijk vastgelegd. &lt;/p&gt;&lt;p&gt;&#160;Per dienst mag maximaal 12 uur worden gewerkt, dus 60 uur per week. Over gemiddeld 4 weken mag niet meer dan 55 uur per week worden gewerkt. Over gemiddeld 16 weken mag niet meer dan 48 uur per week worden gewerkt. &lt;/p&gt;&lt;p&gt;&#160;Voor 's nachts werken in op zondagen en voor jeugdigen gelden bijzondere regels. Zie verder &lt;a href="http://www.minszw.nl" rel="nofollow" target="_blank"&gt;www.minszw.nl&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;Verder: zie CAO Mortel, zie ook &#160;&lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24930" type="risk">
+          <title>Reistijden zijn niet langer dan 2 uur.</title>
+          <description>&lt;p&gt;Verder: zie CAO Mortel, zie ook &#160;&lt;a href="http://www.gietbouwcentrum.nl/" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;. Voor chauffeurs geldt het Arbeidstijdenbesluit Vervoer.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5236" optional="no">
+      <title>Gevaarlijke stoffen</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5237" optional="no">
+        <title>Gevaarlijke stoffen, algemeen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24940" type="risk">
+          <title>Gevaarlijke stoffen worden geregistreerd.</title>
+          <description>&lt;p&gt;Bij het werken met gevaarlijke stoffen is inzicht nodig in de gevaren van de stoffen. Bij aanwezigheid van gevaarlijke stoffen moeten de aard, de mate en de duur van de blootstelling worden beoordeeld. Een eerste start hiervoor is vaak het verzamelen van productveiligheidsbladen en het opstellen van een gevaarlijke stoffen register (zie ook &lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;), dossier Branche RIE. Ook PISA kan goede informatie bieden (zie ook &lt;a href="http://www.arbouw.nl/" rel="nofollow" target="_blank"&gt;www.arbouw.nl&lt;/a&gt;).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24941" type="risk">
+          <title>Alle verpakkingen hebben een etiket met inhoudsvermelding en gevarensymbolen.</title>
+          <description>&lt;p&gt;De verpakking is deugdelijk en niet beschadigd. De etiketten zijn correct, duidelijk en goed leesbaar. Op de etiketten staat de chemische naam van de stof, de naam en het adres van de fabrikant of&#160;de importeur, de gevarencategorie en de R-&#160;en S-zinnen. Bij het overpakken wordt het originele etiket gebruikt.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24942" type="risk">
+          <title>Van alle stoffen zijn productveiligheidsbladen beschikbaar.</title>
+          <description>&lt;p&gt;Belangrijke informatie over het product is te vinden op het productveiligheidsblad of veiligheidsinformatieblad. De fabrikant of leverancier is verplicht ze u aan te leveren.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24943" type="risk">
+          <title>Er worden bij het werken met gevaarlijke stoffen maatregelen genomen die de gevaren van deze stoffen voorkomen of verminderen.</title>
+          <description>&lt;p&gt;Aanpak van de gevaren van gevaarlijke stoffen ligt wettelijk vast; de arbeidshygi&#235;nische strategie. In eerste instantie treft u maatregelen aan de bron. Dat wil zeggen dat er gezocht wordt naar vervangende ongevaarlijke stoffen. &lt;/p&gt;&lt;p&gt;&#160;Wanneer dit redelijkerwijs niet mogelijk is en/of niet doeltreffend is, moet een niveau lager worden gekozen. Diverse vormen van bescherming zijn dan achtereenvolgens mogelijk, zoals afzuigen, ventilatie&#160;en afschermen of taakroulatie. Zorg voor voldoende toevoer van niet verontreinigde lucht bij afzuiging. &lt;/p&gt;&lt;p&gt;&#160;Uiteindelijk komt men uit bij het laagste beheersniveau: persoonlijke beschermingsmiddelen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24944" type="risk">
+          <title>Medewerkers hebben voorlichting en instructie gekregen over het werken met gevaarlijke stoffen.</title>
+          <description>&lt;p&gt;Belangrijke onderwerpen zijn: mogelijke gezondheidsrisico's, te verwachten blootstelling, maatregelen om blootstelling te voorkomen of te beperken, arbeidsgezondheidskundig onderzoek.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24963" type="risk">
+          <title>Er is bij het gebruiken van printers en kopieermachines rekening gehouden met het beperken en het vrijkomen van ozon, stofverspreiding, warmteoverlast en geluidshinder.</title>
+          <description>&lt;p&gt;Bij gebruik van printers, fax en fotokopieerapparatuur kunnen gevaarlijke stoffen, zoals ozon, toner- en papierstof in de werkruimte komen. Ook veroorzaakt de apparatuur warmte en geluidhinder. Met moderne apparatuur is de warmteafgifte lager en zal de ozonconcentratie bij normaal gebruik (tot 5.000 afdrukken per maand) in een normaal geventileerde ruimte niet tot boven de MAC-waarde voor ozon komen. Bij een productie van 5.000 tot 50.000 afdrukken per maand moet het apparaat in een aparte ruimte of goed geventileerde gang worden geplaatst. Indien meer dan 50.000 afdrukken per maand worden gemaakt, moet de apparatuur in een aparte ruimte worden geplaatst, bij voorkeur met bronafzuiging (0,15 m3/uur per Watt opgenomen vermogen).&lt;/p&gt;&lt;p&gt;&#160;De gezondheidskundige grenswaarde bedraagt 0,12 mg/m3/60min.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24964" type="risk">
+          <title>De opslagvoorzieningen voor gevaarlijke stoffen voldoen aan de daaraan gestelde eisen.</title>
+          <description>&lt;p&gt;Gevaarlijke stoffen zijn herkenbaar aan het oranje gevaarsymbool. Gevaarlijke stoffen moeten zodanig zijn opgeslagen dat bij een calamiteit, zoals bij brand, het effect van de calamiteit zoveel mogelijk wordt beperkt. De opslag moet ook voorkomen dat bij een lekkende verpakking de gevaarlijke stoffen niet met andere stoffen kunnen reageren. Op de werkplek moet de hoeveelheid gevaarlijke stoffen tot het strikt noodzakelijke worden beperkt. In de praktijk betekent dat: niet meer dan de dagvoorraad. Stoffen die zodanig met elkaar kunnen reageren, dat daardoor gevaar kan ontstaan, mogen niet bij elkaar worden opgeslagen. Informatie over de manier waarop producten of stoffen mogen worden opgeslagen, kunt u vinden in de veiligheidsinformatiebladen. Zie ook PGS 15 (www.vrom.nl).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24965" type="risk">
+          <title>Er worden beheersmaatregelen getroffen om legionellabesmetting te voorkomen.</title>
+          <description>&lt;p&gt;Risicofactoren voor de vermeerdering van legionella zijn: een watertemperatuur tussen de 20 en 55 graden Celsius, lange verblijftijden van water en&#160;de aanwezigheid van een biofilm. Bij verneveling van dit besmette water met een temperatuur tussen 20 en 55 graden kan legionellabesmetting optreden. Potentieel gevaarlijke situaties zijn waterslangen en -leidingen, koelwatersystemen, brandhaspels, warmwatersproeiers, luchtbehandelingssystemen, luchtbevochtigers, fonteinen, douches en zonneboilers. &lt;/p&gt;&lt;p&gt;Om langdurige stilstand van water te voorkomen, wordt geadviseerd de leidingen tenminste tweemaal per week door te spoelen of anders de leiding te verzegelen (zodat deze alleen in geval van nood kan worden gebruikt).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24966" type="risk">
+          <title>De blootstelling aan lasrook wordt zoveel mogelijk beperkt.</title>
+          <description>&lt;p&gt;Lasrook dient te worden afgezogen afhankelijk van de instelduur en het lasproces. Een en ander is te beoordelen via de website &lt;/p&gt;&lt;a href="http://www.lasrookonline.nl/" rel="nofollow" target="_blank"&gt;www.lasrookonline.nl&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24967" type="risk">
+          <title>Bij blootstelling aan kankerverwekkende stoffen worden de juiste maatregelen getroffen.</title>
+          <description>&lt;p&gt;Kankerverwekkende stoffen zijn onder andere: kwartsstof, DieselMotorEmissie (DME). Zie ook de volgende punten in deze RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5238" optional="no">
+        <title>Kwartsstof</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24969" type="risk">
+          <title>De mate van kwartsstofblootstelling is bekend.</title>
+          <description>&lt;p&gt;Om erachter te komen &#243;f en in welke mate de werknemers worden blootgesteld aan kwartsstof, is het raadzaam metingen te laten uitvoeren tijdens de normale werkzaamheden. Ook kan gewerkt worden met het&#160;VOBN analysemodel Kwartsstof. Zie hiervoor &lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24968" type="risk">
+          <title>De blootstelling aan kwartsstof wordt zoveel mogelijk beperkt.</title>
+          <description>&lt;p&gt;Vanaf 1 januari 2001 is de MAC-waarde van respirabel kwartsstof 0,075 mg/m3. Zie ook de Lijst kankerverwekkende stoffen en processen van het Ministerie van SZW (&lt;a href="http://www.minszw.nl/" rel="nofollow" target="_blank"&gt;www.minszw.nl&lt;/a&gt;). Om blootstelling aan kwartsstof te voorkomen zijn er voor veel werkzaamheden beheersmaatregelen vastgesteld. Meest belangrijke is dat aan de stand der techniek wordt voldaan. Een aantal specifieke maatregelen is ook terug te vinden op &lt;a href="http://www.tno.nl/" rel="nofollow" target="_blank"&gt;www.tno.nl&lt;/a&gt;. Daar waar de techniek niet ver genoeg is ontwikkeld, moet vooralsnog worden volstaan met het gebruik van ademhalingsbeschermingsmiddelen. Let erop dat minimaal P3 kwaliteit gebruikt wordt. &lt;/p&gt;&lt;p&gt;Maak cabines van truckmixers e.d. en laboratoriumruimtes regelmatig schoon met een stofzuiger met H-filter. &lt;/p&gt;&lt;p&gt;Voor overige adviezen zie VOBN analysemodel Kwartsstof (&lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5239" optional="no">
+        <title>Diesel Motor Emissie</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24970" type="risk">
+          <title>De blootstelling aan DME wordt zoveel mogelijk beperkt.</title>
+          <description>&lt;p&gt;Uitgangspunt is dat aantoonbaar moet worden gemaakt dat DME wordt voorkomen of geminimaliseerd. Dit kan door DME veroorzakende arbeidsmiddelen (voertuigen) uit omsloten ruimtes te weren &#243;f de DME direct naar buiten de ruimte af te voeren. Denk hierbij ook aan de laadstations met slechts een open zijde. Ook het toepassen van een roetfilter (met een gravimetrische afvangrendement van tenminste 70% is toegestaan. Motoren die voldoen aan de Euronorm 4 en 5, hoeven niet aanvullend te worden uitgevoerd met een roetfilter. Er is nog geen wettelijke grenswaarde vastgesteld, maar wel -uit onderzoek gebleken- verbodniveau. Deze is vastgesteld op 50 microgram elementair koolstof (EC) per m3 lucht. De streefwaarde wordt bereikt bij een beroepsmatige blootstelling aan een DME-concentratie van 0,16 microgram EC per m3 lucht.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24971" type="risk">
+          <title>De mate van DME-blootstelling is bekend.</title>
+          <description>&lt;p&gt;Uit eigen onderzoek kan blijken dat bij de normale bedrijfsvoering die grens niet wordt overschreden. Zie verder ook &lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5242" optional="no">
+      <title>Fysieke en fysische belasting</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5243" optional="no">
+        <title>Fysieke belasting</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24983" type="risk">
+          <title>Er zijn adequate maatregelen aanwezig om de negatieve effecten van fysiek belastend werk te beperken.</title>
+          <description>&lt;p&gt;Fysiek belastend werk is:&lt;/p&gt;&lt;p&gt;- zwaar tillen&lt;/p&gt;&lt;p&gt;- duwen en trekken van zware lasten&lt;/p&gt;&lt;p&gt;- werken in ongunstige houding&lt;/p&gt;&lt;p&gt;- kortcyclisch werken (als een handeling binnen een tijdsbestek van 90 seconden wordt herhaald en dit langdurig - 1 uur achtereen of twee uur per dag- kan worden genoemd)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5244" optional="no">
+        <title>Geluidsbelasting</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24984" type="risk">
+          <title>De werkplekken met geluidsniveaus hoger dan 80 dB(A) zijn bekend.</title>
+          <description>&lt;p&gt;Geluidsniveau boven een dagdosis van 80 dB(A) moeten in kaart zijn gebracht. Een geluidsniveau van meer dan 80 dB(A) is te herkennen wanneer men op een afstand van 1 m elkaar niet zonder stemverhef kan verstaan. &lt;/p&gt;&lt;p&gt;Als dat het geval is, dient verder een (indicatieve) geluidsmeting gedaan te worden. &lt;/p&gt;&lt;p&gt;Voor VOBN leden is het instrument "Geluidsbelasting medewerkers betonmortelcentrale" beschikbaar via &lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt;, dossier Branche RIE. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24985" type="risk">
+          <title>Medewerkers krijgen passende gehoorbeschermingsmiddelen aangeboden.</title>
+          <description>&lt;p&gt;Vanaf een dagdosis van 80 dB(A) is de werkgever verplicht passende gehoorbescherming aan te bieden. De wet schrijft tevens voor dat de betrokken medewerkers de gelegenheid krijgen een oordeel over de keuze van de soort gehoorbescherming kenbaar te maken. Vanaf een dagdosis van 85 dB(A) zijn de werknemers verplicht de gehoorbescherming te dragen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24986" type="risk">
+          <title>Plaatsen waar sprake is van een geluidsniveau van 85 dB(A) of meer zijn afgebakend of gemarkeerd.</title>
+          <description>&lt;p&gt;Markeren kan bijvoorbeeld door lijnen op de vloer aan te brengen en pictogramborden op te hangen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24987" type="risk">
+          <title>Bij werkzaamheden waarbij de dagdosis hoger is dan 85 dB(A) worden maatregelen genomen om de geluidsbelasting te verlagen.</title>
+          <description>&lt;p&gt;Komt het geluid boven de 85 dB(A) dan is de werkgever verplicht technische of organisatorische maatregelen te treffen om het geluidsniveau terug te brengen. Hierbij dient de arbeidshygi&#235;nische strategie gevolgd te worden: &lt;/p&gt;&lt;p&gt;1.&#160; Bronaanpak (stillere machines) &lt;/p&gt;&lt;p&gt;2. geluidsisolatie of geluidsabsorptie toepassen &lt;/p&gt;&lt;p&gt;3. afstand tot de bron vergroten of taakroulatie invoeren &lt;/p&gt;&lt;p&gt;4. PBM (laten) gebruiken. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24988" type="risk">
+          <title>Medewerkers hebben voorlichting en instructie gekregen over preventie van gehoorschade.</title>
+          <description>&lt;p&gt;Vanaf 85 DB(A) is voorlichting en instructie verplicht. Bij het ministerie van SZW (&lt;a href="http://www.minszw.nl/" rel="nofollow" target="_blank"&gt;www.minszw.nl&lt;/a&gt;) kunnen een werkgever-folder en een werknemer-folder gratis opgevraagd worden die gaan over blootstelling aan hoge geluidsniveau's.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+        <risk rie:id="R-24989" type="risk">
+          <title>Medewerkers krijgen een audiometrisch onderzoek aangeboden.</title>
+          <description>&lt;p&gt;Een&#160;richtlijn voor de frequentie van het audiometrisch onderzoek is als volgt bij een dagdosis van: &lt;/p&gt;&lt;p&gt;80-90 dB(A): 1 keer per 4 jaar; &lt;/p&gt;&lt;p&gt;90-95 dB(A): 1 keer per 2 jaar;&#160;&lt;/p&gt;&lt;p&gt;meer dan&#160;95 dB(A): 1 keer per jaar. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5245" optional="no">
+        <title>Overige fysieke en fysische belasting</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24990" type="risk">
+          <title>De klimaatomstandigheden zijn goed.</title>
+          <description>&lt;p&gt;Op grond van het Arbobesluit moet een werkgever er voor zorgen dat het werkklimaat:&#160;&lt;/p&gt;&lt;p&gt;- geen schade veroorzaakt aan de gezondheid van werknemers; &lt;/p&gt;&lt;p&gt;- zoveel mogelijk behaaglijk en gelijkmatig is; &lt;/p&gt;&lt;p&gt;- geen hinderlijke tocht veroorzaakt. &lt;/p&gt;&lt;p&gt;Hierbij moet rekening gehouden worden met de aard van de werkzaamheden en de bijbehorende fysieke belasting. Indien het klimaat toch schade aan de gezondheid kan veroorzaken, moet de werkgever doeltreffende persoonlijke beschermingsmiddelen verstrekken. Kleding valt in dit verband ook hieronder. Helpt dat ook onvoldoende, dan moet de duur van de werkzaamheden in het ongunstige klimaat worden beperkt. &lt;/p&gt;&lt;p&gt;Denk daarbij niet alleen aan tocht en koude, maar ook aan warmte, &#160;verse lucht en direct zonlicht.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24991" type="risk">
+          <title>De blootstelling aan trillingen wordt beperkt.</title>
+          <description>&lt;p&gt;Breng de aard, de mate en de duur van de trillingen in kaart. &lt;/p&gt;&lt;p&gt;Lichaamstrillingen kunnen onder meer rugaandoeningen en bewegingsziekten veroorzaken. Het beperken van trillingen kan bijv. door vlakke vloeren, een trillingsisolerende stoel bij heftrucks, truckmixers&#160;en vrachtwagens, isolatie of demping van de trilling, en bediening op afstand. &lt;/p&gt;&lt;p&gt;De grenswaarde voor lichaamstrillingen op een werkplek is 1,15 m/sec2 (die mag niet worden overschreden). De actiewaarde bedraagt 0,5 m/sec2 (hierboven moet de werkgever maatregelen treffen). &lt;/p&gt;&lt;p&gt;Hand-arm-trillingen kunnen "witte vingers" ("white fingers syndome") veroorzaken. Hand-arm-trillingen komen met name voor bij gebruik van hak- en breekhamers. &lt;/p&gt;&lt;p&gt;De grenswaarde voor hand-arm-trillingen op een werkplek is 5 m/sec2 (die mag niet worden overschreden). De actiewaarde bedraagt 2,5 m/sec2 (hierboven moet de werkgever maatregelen treffen).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24992" type="risk">
+          <title>Er is vastgesteld of medewerkers blootgesteld worden aan ioniserende of niet-ioniserende straling.</title>
+          <description>&lt;p&gt;Ioniserende straling komt voor bij gebruik van nucleaire meetapparatuur (bijvoorbeeld vulhoogte- en diktemeters).&lt;/p&gt;&lt;p&gt;Niet-ioniserende straling komt voor bij gebruik van lasapparatuur en laserapparatuur. Daarnaast komt het ook voor door UV-straling (bij zonlicht) en&#160;infraroodstraling (bij open vuur en hete voorwerpen)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24993" type="risk">
+          <title>Er is voldoende licht aanwezig.</title>
+          <description>&lt;p&gt;Arbeidsplaatsen en de directe toegangen zijn gedurende de aanwezigheid van medewerkers door daglicht, kunstlicht of beide doelmatig verlicht. &lt;/p&gt;&lt;p&gt;Daglichttoetreding dient 1/20 van het vloeroppervlak te bedragen. Uitzicht is geen wettelijke bepaling (meer), maar het heeft invloed op het welzijnsaspect. &lt;/p&gt;&lt;p&gt;Werken bij te weinig licht kan klachten veroorzaken. &lt;/p&gt;&lt;p&gt;Noodverlichting is 10 tot 20 lux. &lt;/p&gt;&lt;p&gt;Ori&#235;ntatieverlichting of ruimtes waar men kort verblijft, waar je de weg of spullen moet vinden, dienen een verlichtingsniveau van 10 tot 200 lux te hebben. &lt;/p&gt;&lt;p&gt;Werkruimtes zoals kantoren, werkplaatsen e.d. dienen minimaal 200 lux te hebben. Bij beeldschermwerk wordt een lichtsterkte van 400 tot 800 lux aanbevolen. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5246" optional="no">
+      <title>Terrein en gebouwen</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5247" optional="no">
+        <title>Terrein algemeen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24994" type="risk">
+          <title>Het terrein is een veilige werkomgeving.</title>
+          <description>&lt;p&gt;Zorg voor: &lt;/p&gt;&lt;p&gt;- een terreinafzetting met hekken en bebording bij ingangen; &lt;/p&gt;&lt;p&gt;- voldoende verlichting; &lt;/p&gt;&lt;p&gt;- een ordelijk en begaanbaar terrein; &lt;/p&gt;&lt;p&gt;- een scheiding van aan- en afvoerroutes; &lt;/p&gt;&lt;p&gt;- een scheiding tussen voertuigen en lopend verkeer; &lt;/p&gt;&lt;p&gt;- een alarmprocedure (zonodig in overleg met politie en brandweer). &lt;/p&gt;&lt;p&gt;Zorg er tevens voor dat achteruitrijden wordt voorkomen en dat een snelheidsbeperking van kracht is voor voertuigen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24995" type="risk">
+          <title>Er is voldoende vrije bewegingsruimte rondom de machines.</title>
+          <description>&lt;p&gt;Onvoldoende bewegingsruimte kan ongevallen in de hand werken. Streef naar 60 cm ruimte rondom objecten.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24996" type="risk">
+          <title>Er wordt bij voorkeur met minimaal 2 personen onderhoud en werkzaamheden verricht aan de machines.</title>
+          <description>&lt;p&gt;Werk niet alleen met machines en installatie-onderdelen. Maak afspraken over toezicht en hulpverlening.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24997" type="risk">
+          <title>Er is vastgelegd wie met welke machine mag werken.</title>
+          <description>&lt;p&gt;Maak op basis van ervaring en deskundigheid afspraken met alle werknemers over wie, onder welke voorwaarden aan machines mogen werken.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-24998" type="risk">
+          <title>De werf is ordelijk, netjes en goed bereikbaar.</title>
+          <description>&lt;p&gt;Zorg voor een ordelijke en overzichtelijke terreinindeling. Let op goede bereikbaarheid voor zwaar materieel (vrachtwagens, wielladers, truckmixers). Zorg voor een zodanige terreinindeling dat achteruitrijden zoveel mogelijk wordt voorkomen. Daar waar dat niet mogelijk is, dient lopend verkeer afgeschermd of gescheiden te worden van het rijdende verkeer. Breng bebording aan voor de rijroutes (niet alleen bij de ingang naar het terrein)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5248" optional="no">
+        <title>Gebouwen en opstallen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-24999" type="risk">
+          <title>De beeldschermwerkplekken zijn in orde.</title>
+          <description>&lt;p&gt;Wanneer meer dan twee uur per dag beeldschermwerk wordt verricht, is het noodzakelijk dat de werkplek aan de bepalingen van het arbobesluit voldoet. &lt;/p&gt;&lt;p&gt;Zie ook &lt;a href="http://www.gietbouwcentrum.nl" rel="nofollow" target="_blank"&gt;www.gietbouwcentrum.nl&lt;/a&gt; voor een nadere inventarisatielijst. Zie voor nadere informatie eventueel ook Arbo-informatieblad 2 (verkrijgbaar via SDU).&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25000" type="risk">
+          <title>Er zijn voldoende eetmogelijkheden en ontspanningsruimten.</title>
+          <description>&lt;p&gt;Het bedrijf kan beschikken over een schone ruimte, zoals kantoor, eet- en ontspanningsruimte. &lt;/p&gt;&lt;p&gt;De pauzeruimte is makkelijk toegankelijk. &lt;/p&gt;&lt;p&gt;De pauzeruimte is geschikt voor het aantal medewerkers, ruim bemeten en uitgerust met stoelen en tafels. &lt;/p&gt;&lt;p&gt;Er zijn voldoende maatregelen getroffen om de niet-roker te beschermen tegen hinder van tabaksrook.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25001" type="risk">
+          <title>Toiletten en sanitair zijn in orde.</title>
+          <description>&lt;p&gt;Het is minimaal mogelijk handen en gezicht te kunnen reinigen. Bij bepaalde werkzaamheden of wanneer gewerkt wordt met gevaarlijke stoffen, dienen douches aanwezig te zijn. &lt;/p&gt;&lt;p&gt;Er zijn toiletten voor mannen en vrouwen. Voor mannen mag een deel van de toiletten urinoirs zijn (1 toilet voor iedere 25 of minder aanwezige mannen). &lt;/p&gt;&lt;p&gt;Sanitaire voorzieningen en toiletten worden regelmatig schoongemaakt.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25002" type="risk">
+          <title>Het laadstation is een veilige werkomgeving.</title>
+          <description>&lt;p&gt;- Voorkom aanrijdgevaar. Chauffeurs van truckmixers blijven zomogelijk in de cabine bij het laden. &lt;/p&gt;&lt;p&gt;- Voorkom stofvorming. Deuren en ramen blijven gesloten of vervuiling van de cabine met&#160;kwartsstof te voorkomen (zie ook 7.2). &lt;/p&gt;&lt;p&gt;- Beperk blootstelling aan DME (zie ook 7.3)&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25003" type="risk">
+          <title>De werkplaats is een veilige werkomgeving.</title>
+          <description>&lt;p&gt;Zorg bij machines voor werkschakelaars, nulstandbeveiliging, geremde motoren, noodstoppen en afschermingen. &lt;/p&gt;&lt;p&gt;Zorg bij een heftruck voor periodieke keuringen. De heftruckchauffeur heeft aantoonbaar voorlichting en instructie -en zonodig opleiding-. &lt;/p&gt;&lt;p&gt;Zorg dat de werkplaats vrij is van obstakels. &lt;/p&gt;&lt;p&gt;Zorg ervoor dat de werkplaats vrij is van van -overbodige- gevaarlijke stoffen voordat de monteur deze betreedt. &lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25004" type="risk">
+          <title>De elektrische installatie is in orde.</title>
+          <description>&lt;p&gt;Voor het installeren en onderhouden van elektrische installaties zijn strikte eisen geformuleerd in e normen NEN1010 en NEN3140. Een belangrijke eis betreft de deskundigheid van degene die de elektrotechnische werkzaamheden uitvoert. Ook kan de verzekeraar eisen stellen voor aanleg en inspectie van een elektrische installatie. Kleine elektrotechnische werkzaamheden mag u zelf uitvoeren. Bij een calamiteit kan het soms wenselijk zijn de gastoevoer of de elektriciteit snel te kunnen afsluiten. Wijs de hoofdschakelaar daarom duidelijk aan en houdt de directe&#160;omgeving van schakelkasten daarom vrij van opslag.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-5363" optional="no">
+      <title>Bijzondere risico's (geen productie)</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <module rie:id="M-5364" optional="no">
+        <title>Transporteren van betonmortel</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-25467" type="risk">
+          <title>De toegang tot het voertuig is veilig en fysiek niet ongemakkelijk</title>
+          <description>&lt;p&gt;De treden naar cabine en bedieningsplaats zijn stroef. Er zijn handgrepen. Voor het openen van het voertuig is geringe kracht voldoende.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25468" type="risk">
+          <title>De zitplaats is geschikt en passend voor de chauffeur</title>
+          <description>&lt;p&gt;De zitplaats van de chauffeurs kan gemakkelijk worden bereikt. De chauffeurs hebben voldoende ruimte als ze achter het stuur zitten. De chauffeursstoelen zijn individueel voldoende instelbaar en voldoen aan de richtlijnen voor een goede stoel. De chauffeurs kunnen een comfortabele zithouding aannemen zonder gebruik te maken van attributen zoals een kralenkussen, schapenvacht, extra kusentje, etc. De chauffeursstoelen worden regelmatig/periodiek gecontroleerd en onderhouden. De chauffeurs hebben voorlichting en instructie gehad over een goed zithouding en het goed instellen van de chauffeursstoel.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25470" type="risk">
+          <title>De bedieningsmiddelen en instrumenten zijn goed bereikbaar en bedienbaar.</title>
+          <description>&lt;p&gt;De bedieningsmiddelen zijn onder alle omstandigheden gemakkelijk te bereiken voor (alle) chauffeurs. Er is een goede grip op het stuur, ook bij transpiratie. Het stuur is verstelbaar. Het voertuig is voorzien van stuurbekrachtiging. De audio- en navigatie-installatie kunnen bij het rijden eenvoudig worden bediend. De chauffeur kan handsfree telefoneren. Het klimaat is comfortabel instelbaar op de bestuurdersplaats.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25478" type="risk">
+          <title>Het zicht en uitzicht is voldoende</title>
+          <description>&lt;p&gt;Het zicht op de instrumenten is in alle situaties (overdag, 's avonds, 's nachts) voldoende. De chauffeur heeft altijd goed zicht op de buitenspiegels en het navigatiesysteem. Het voertuig is uitgerust met extra buitenspiegels of achteruitrijcamera's waardoor er geen dode hoek ontstaat.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25479" type="risk">
+          <title>Rij- en rusttijden vallen binnen wet- en regelgeving</title>
+          <description>&lt;p&gt;Het werk wordt zo gepland dat chauffeurs zich kunnen houden aan het Arbeidstijdenbesluit (ATB) Vervoer voor wat betreft de rijtijden.&#160;Het werk wordt zo gepland dat chauffeurs zelden of nooit&#160;het Arbeidstijdenbesluit (ATB) Vervoer voor wat betreft de rusttijden overschrijden. Bij het plannen van het werk wordt rekening gehouden met extra taken voor de chauffeur, buiten het rijden en rusten, zoals; vertraging door de verkeerssituatie (files), het (klein) onderhoud aan het voertuig, het schoonmaken van de mixer en het voertuig.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+      <module rie:id="M-5365" optional="no">
+        <title>Afleveren van betonmortel op bouwplaatsen</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <risk rie:id="R-25480" type="risk">
+          <title>Er wordt rekening gehouden met aanrijdingsgevaar</title>
+          <description>&lt;p&gt;Bij het betreden (oprijden) en verlaten van bouwplaatsen &#233;n bij het rijden op de bouwlocatie wordt rekening gehouden met aanrijdingsgevaar. Er wordt stapvoets tot langzaam gereden (tot maximaal de aangegeven maximale rijsnelheid). Bij onoverzichtelijke in-/uitgangen en opstellocaties wordt zo nodig gereden/gemanoeuvreerd op aanwijzing van een "aanwijzer", logistieke medewerker&#160;of verkeersregelaar van de bouwplaats.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25481" type="risk">
+          <title>Chauffeurs beschikken over passende PBM en dragen deze waar nodig</title>
+          <description>&lt;p&gt;Persoonlijke beschermingsmiddelen zoals werkkleding, reflectererend veiligheidsvest of -jas, veiligheidslaarzen/-schoenen, handschoenen, gehoorbescherming, veiligheidsbril en gelaatsscherm zijn in voldoende mate beschikbaar voor en passend/afgestemd op&#160;chauffeurs. De PBM worden gedragen wanneer dit op bouwplaatsen staat aangegeven middels borden of wanneer de aard van de werkzaamheden dit vraagt.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+        <risk rie:id="R-25482" type="risk">
+          <title>Chauffeurs kunnen op bouwplaatsen veilig werken</title>
+          <description>&lt;p&gt;Chauffeurs worden op bouwplaatsen blootgesteld aan aanrijdingsgevaar, geluid door truckmixer of betonpomp, kunnen getroffen worden door vallende voorwerpen, kunnen struikelen, uitglijden, bekneld raken. Ze zijn bekendgemaakt met deze risico's middels voorlichting en instructie. Chauffeurs&#160;weten hoe ze zich hiertegen kunnen beschermen door een correcte opstelplaats, werkpositie en het dragen van passende en geschikte Persoonlijke Beschermingsmiddelen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method default-probability="0" default-frequency="0" default-effect="0">calculated</evaluation-method>
+        </risk>
+      </module>
+    </module>
+  </survey>
+</sector>
+

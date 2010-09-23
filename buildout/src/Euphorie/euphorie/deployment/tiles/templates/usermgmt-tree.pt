@@ -1,0 +1,10 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag=""
+      meta:interpolation="true">
+  <ul id="navigation" class="navigation">
+    <li tal:repeat="country view/countries" class="${python:'current' if country['current'] else None}"><a href="${country/url}/@@manage-users">${country/title}</a></li>
+  </ul>
+</div>
+

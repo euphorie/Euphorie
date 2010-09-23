@@ -1,0 +1,17 @@
+<tal:root xmlns:meta="http://xml.zope.org/namespaces/meta"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          i18n:domain="euphorie"
+          meta:interpolation="true"
+><tal:span i18n:translate="reminder_email_header">Dear user,</tal:span>
+
+<tal:span i18n:translate="reminder_email_intro"
+>You have requested a password reminder for the OiRA website. Your login
+information is:</tal:span>
+
+  <tal:span i18n:translate="reminder_email_login">Email</tal:span>:    <tal:span replace="options/loginname">john@example.com</tal:span>
+  <tal:span i18n:translate="reminder_email_password">Password</tal:span>: <tal:span replace="options/password">jane</tal:span>
+
+-- 
+<tal:span i18n:translate="reminder_email_footer" ></tal:span>
+</tal:root>

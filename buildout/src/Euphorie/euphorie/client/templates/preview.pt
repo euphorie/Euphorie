@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      metal:use-macro="context/@@layout/macros/layout">
+  <head>
+  </head>
+  <body>
+    <metal:title fill-slot="title" i18n:translate="header_preview">Preview survey</metal:title>
+    <metal:content fill-slot="content">
+      <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
+        <p i18n:translate="intro_preview">Are you sure you want to create a preview of this survey?
+        You can give the URL for the preview to others so they can test the survey. To access
+        the preview a standard OiRA client login is required.
+        </p>
+
+        <p i18n:translate="help_preview_url">The preview will be available at
+        <strong i18n:name="url">${view/preview_url}</strong>.</p>
+
+        <div class="buttonBar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
+          <tal:action repeat="action actions" replace="structure action/render" />
+        </div>
+      </form>
+    </metal:content>
+  </body>
+</html>
+      
+
+
+

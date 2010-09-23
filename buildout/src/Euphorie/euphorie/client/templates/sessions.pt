@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      id="sessions"
+      meta:interpolation="true"
+      tal:define="webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools; client nocall:request/client">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body tal:define="sessions view/sessions">
+    <h1 i18n:translate="header_session">Session</h1>
+    
+    <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
+    
+    <tal:block condition="python:sessions">
+      <h2 i18n:translate="header_select_session">Select an earlier session to complete or review</h2>
+      <table id="sessionList">
+        <tbody>
+          <tr tal:repeat="session sessions">
+            <td><form method="post" action="${request/URL}" class="startSessionForm">
+                <input type="hidden" name="action" value="continue"/>
+                <input type="hidden" name="session" value="${session/id}"/>
+                <button class="link" type="submit">${session/title}</button>,
+                <tal:span i18n:translate="lable_session_modified">saved on
+                <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
+            <td class="actions span-4">
+              <form method="post" action="${context/absolute_url}/@@json-rename-session" class="renameSessionForm jsOnly">
+                <input type="hidden" name="id" value="${session/id}" />
+                <button type="button" class="small rename floatAfter" i18n:translate="label_rename">Rename</button>
+              </form>
+              <form method="post" action="delete-session" class="removeSessionForm">
+                <input type="hidden" name="json_url" value="${context/absolute_url}/@@json-delete-session"/>
+                <input type="hidden" name="id" value="${session/id}" />
+                <button type="button" class="small delete floatAfter" i18n:translate="label_delete">Delete</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 i18n:translate="header_or">or…</h2>
+    </tal:block>
+
+    <form method="post" action="${request/URL}">
+      <input type="hidden" name="action" value="new"/>
+      <fieldset class="concise">
+        <label><tal:span i18n:translate="label_select_new_session">Start a new session in the following field</tal:span> 
+          <select name="survey">
+            <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
+          </select>
+        </label>
+        <label><tal:span i18n:translate="label_session_title">You may enter a name for this survey that will make it easier for you to find your session back if you wish to continue at a later time</tal:span>
+          <a class="icon info clicktip" href="${webhelpers/help_url}#sessions" i18n:translate="session_title_tooltip">Once you have started an RA, you will be able to stop before the end.  Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names.</a>
+          <input type="text" name="title:utf8:ustring"/></label>
+      </fieldset>
+      <p class="buttonBar">
+        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ol id="steps">
+      <li id="step-1">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+      </li>
+      <li id="step-2">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+      </li>
+      <li id="step-3">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+      </li>
+      <li id="step-4">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+      </li>
+      <li id="step-5">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_tool">OiRA</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/help_url}#sessions" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:appendix use-macro="webhelpers/macros/appendix"/>
+    <metal:javascript use-macro="webhelpers/macros/javascript"/>
+    <script type="text/javascript" meta:interpolation="false">
+var confirm_text = "<tal:span i18n:translate=''>Are you sure you want to delete this session? This action can not be reverted.</tal:span>";
+// <![CDATA[
+$(document).ready(function() {
+    $("form.renameSessionForm button").click(function() {
+        var renamebutton = this,
+            action = $(renamebutton.form).attr("action"),
+            $row = $(renamebutton).closest("tr"),
+            $startform = $row.find("form.startSessionForm"),
+            $startbutton = $startform.find("button"),
+            $input;
+
+        renamebutton.disabled="disabled";
+        $startform
+            .bind("submit.rename", function() {
+                $.ajax({url: action,
+                        cache: false,
+                        data: { "title:utf8:ustring": $input.val(),
+                                id: renamebutton.form.id.value },
+                        dataType: "json",
+                        success: function(data, status) {
+                            $input.remove();
+                            $startbutton.text($input.val()).show();
+                            $startform.unbind("submit.rename");
+                            renamebutton.disabled=null;
+                        }
+                        });
+                return false;
+            });
+
+        $startbutton.hide();
+        $input=$("<input/>")
+            .attr("type", "text")
+            .attr("name", "title")
+            .addClass("span-5")
+            .val($startbutton.text())
+            .insertAfter($startbutton)
+            .keyup(function(event) {
+                if (event.which==27) {
+                    $input.remove();
+                    $startbutton.show();
+                    $startform.unbind("submit.rename");
+                    renamebutton.disabled=null;
+                }
+             })
+            .focus();
+    });
+
+    $("form.removeSessionForm button").click(function() {
+        var button = this;
+
+        if (!confirm(confirm_text)) {
+            return false;
+        }
+
+        $.ajax({type: "POST",
+                url: this.form.json_url.value,
+                cache: false,
+                dataType: "json",
+                data: { id: this.form.id.value },
+                success: function(data, status) {
+                    if (data.result==="ok") {
+                        $(button).parents("tr").remove();
+                        if ($("#sessionList tr").length===0) {
+                            $("h2").remove();
+                            $("#sessionList").remove();
+                        }
+                    }
+                }
+                });
+
+        return false;
+    });
+});
+// ]]>
+    </script>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>
+

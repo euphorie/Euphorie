@@ -1,0 +1,67 @@
+Creating and publishing a survey
+================================
+
+Before we can start we must set up our test environment:
+
+>>> from zExceptions import Unauthorized
+>>> from Products.Five.testbrowser import Browser
+>>> browser=Browser()
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=("Unauthorized")
+
+Lets create an initial sector and login:
+
+>>> from euphorie.content.tests.utils import createSector
+>>> sector=createSector(portal, u"Bouw", "bouw", "bouw")
+>>> browser.open("%s/@@login" % portal.absolute_url())
+>>> browser.getControl(name="__ac_name").value="bouw"
+>>> browser.getControl(name="__ac_password").value="bouw"
+>>> browser.getForm(id="loginForm").submit()
+
+Create a new sector
+-------------------
+
+The sectors homepage has a link to create a new sector:
+
+>>> browser.getLink("add a new survey").click()
+>>> browser.getControl(name="form.widgets.title").value="Example survey"
+>>> browser.getControl(name="form.buttons.save").click()
+>>> "Item created" in browser.contents
+True
+
+Lets add a profile question:
+
+>>> browser.getLink("Add Profile question").click()
+>>> browser.getControl(name="form.widgets.title").value="Profile question title"
+>>> browser.getControl(name="form.widgets.description").value="Description of the profile question"
+>>> browser.getControl(name="form.buttons.save").click()
+
+Add a module and risk:
+
+>>> browser.getLink("Add Module").click()
+>>> browser.getControl(name="form.widgets.title").value="Module title"
+>>> browser.getControl(name="form.widgets.description").value="Module description"
+>>> browser.getControl(name="form.buttons.save").click()
+
+>>> browser.getLink("Add Risk").click()
+>>> browser.getControl(name="form.widgets.title").value="Risk title"
+>>> browser.getControl(name="form.widgets.problem_description").value="There is a risk present"
+>>> browser.getControl(name="form.widgets.description").value="Description of the risk"
+>>> browser.getControl(name="form.buttons.save").click()
+
+Publish survey
+--------------
+
+Now that we have a minimal survey we can publish it. Unfortunately mechanize does
+not handle button values correctly, so we use the publish URL directly:
+
+>>> browser.getLink("Example survey").click()
+>>> browser.open("%s/@@publish" % browser.url)
+
+We must confirm we want to publish:
+
+>>> browser.contents
+'...Are you sure you want to publish this survey?...'
+>>> browser.getControl(name="form.buttons.button_publish").click()
+>>> browser.contents
+'...Succesfully published the survey...'

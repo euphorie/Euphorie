@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      id="homepage"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body tal:define="client_url webhelpers/client_url">
+    <h1 class="carousel">
+      <span lang="bg" xml:lang="bg">Добре дошли</span><br />
+      <span lang="es" xml:lang="es">Benvenida</span><br />
+      <span lang="cs" xml:lang="cs">Vítáme vás</span><br />
+      <span lang="da" xml:lang="da">Velkommen</span><br />
+      <span lang="de" xml:lang="de">Wilkommen</span><br />
+      <span lang="el" xml:lang="el">Καλώς Ορίσατε</span><br />
+      <span lang="en" xml:lang="en">Welcome</span><br />
+      <span lang="fr" xml:lang="fr">Bienvenue</span><br />
+      <span lang="it" xml:lang="it">Benvenuto</span><br />
+      <span lang="lv" xml:lang="lv">Laipni lūdzam</span><br />
+      <span lang="lt" xml:lang="lt">Sveiki atvykę</span><br />
+      <span lang="hu" xml:lang="hu">Üdvözlet</span><br />
+      <span lang="mt" xml:lang="mt">Merħba</span><br />
+      <span lang="nl" xml:lang="nl">Welkom</span><br />
+      <span lang="pl" xml:lang="pl">Witamy</span><br />
+      <span lang="pt" xml:lang="pt">Bem-vindos</span><br />
+      <span lang="ro" xml:lang="ro">Ghini vinit</span><br />
+      <span lang="sk" xml:lang="sk">Vitajte</span><br />
+      <span lang="sl" xml:lang="sl">Pozdravljeni</span>
+      <span lang="fi" xml:lang="fi">Tervetuloa</span><br />
+      <span lang="sv" xml:lang="sv">Välkommen</span><br />
+    </h1>
+    <ul class="countries">
+      <li class="at">
+        <a href="${client_url}/at/?language=de-AT">Deutsch</a>
+        <a href="${client_url}/at/?language=sl-AT">Slovenščina</a>
+        <a href="${client_url}/at/?language=hu-AT">Magyar nyelv</a>
+      </li>
+      <li class="be">
+        <a href="${client_url}/be/?language=fr-BE">Français</a>
+        <a href="${client_url}/be/?language=nl-BE">Nederlands</a>
+      </li>
+      <li class="bg">
+        <a href="${client_url}/bg/?language=bg-BG">Български език</a>
+      </li>
+      <li class="cy">
+        <a href="${client_url}/cy/?language=el-CY">Ελληvικά</a>
+      </li>
+      <li class="cz">
+        <a href="${client_url}/cz/?language=cs-CZ">Čeština</a>
+      </li>
+      <li class="dk">
+        <a href="${client_url}/dk/?language=da-DK">Dansk</a>
+      </li>
+      <li class="ee">
+        <a href="${client_url}/ee/?language=et-EE">Eesti keel</a>
+      </li>
+      <li class="fi">
+        <a href="${client_url}/fi/?language=fi-FI">Suomi</a>
+      </li>
+      <li class="fr">
+        <a href="${client_url}/fr/?language=fr-FR">Français</a>
+      </li>
+      <li class="de">
+        <a href="${client_url}/de/?language=de-DE">Deutsch</a>
+      </li>
+      <li class="gr">
+        <a href="${client_url}/gr/?language=el-EL">Ελληνικά</a>
+      </li>
+      <li class="hu">
+        <a href="${client_url}/hu/?language=hu-HU">Magyarország</a>
+      </li>
+      <li class="ie">
+        <a href="${client_url}/ie/?language=en-IE">English</a>
+      </li>
+      <li class="it">
+        <a href="${client_url}/it/?language=it-IT">Italiano</a>
+      </li>
+      <li class="lv">
+        <a href="${client_url}/lv/?language=lv-LV">Latviešu valoda</a>
+      </li>
+      <li class="lt">
+        <a href="${client_url}/lt/?language=lt-LT">Lietuvių kalba</a>
+      </li>
+      <li class="lu">
+        <a href="${client_url}/lu/?language=de-LU">Deutsch</a>
+        <a href="${client_url}/lu/?language=fr-LU">Français</a>
+      </li>
+      <li class="mt">
+        <a href="${client_url}/mt/?language=en-MT">English</a>
+        <a href="${client_url}/mt/?language=mt-MT">Malti</a>
+      </li>
+      <li class="nl">
+        <a href="${client_url}/nl/?language=nl-NL">Nederlands</a>
+      </li>
+      <li class="pl">
+        <a href="${client_url}/pl/?language=pl-PL">Język Polski</a>
+      </li>
+      <li class="pt">
+        <a href="${client_url}/pt/?language=pt-PT">Português</a>
+      </li>
+      <li class="ro">
+        <a href="${client_url}/ro/?language=ro-RO">Limba Română</a>
+      </li>
+      <li class="si">
+        <a href="${client_url}/si/?language=sl-SL">Slovenščina</a>
+      </li>
+      <li class="sk">
+        <a href="${client_url}/sk/?language=sk-SK">Slovenský jazyks</a>
+      </li>
+      <li class="es">
+        <a href="${client_url}/es/?language=es-ES">Español</a>
+      </li>
+      <li class="se">
+        <a href="${client_url}/se/?language=sv-SE">Svenska</a>
+      </li>
+      <li class="gb">
+        <a href="${client_url}/gb/?language=en-GB">English</a>
+      </li>
+    </ul>
+
+    <ul id="navigation">
+      <li id="home"><a href="/">OiRA</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+   <script type="text/javascript">
+// <![CDATA[
+    $(document).ready(function() {
+      $("h1")
+          .wrapInner("<div/>")
+          .jCarouselLite({auto: 1000,
+                          speed: 800,
+                          circular: true,
+                          visible: 1,
+                          listSelector: "div",
+                          itemSelector: "span",
+                          easing: "easeOutElastic",
+                          });
+    });
+// ]]>
+  </script>
+  <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>
+

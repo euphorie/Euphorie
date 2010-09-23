@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+  <bindings>
+    <type type_id="euphorie.clientcountry"/>
+    <type type_id="euphorie.clientsector"/>
+  </bindings>
+</object>
+
