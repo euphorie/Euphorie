@@ -1,5 +1,5 @@
 :mod:`euphorie.client.client`
-============================
+=============================
 
 .. module:: euphorie.client.client
 
