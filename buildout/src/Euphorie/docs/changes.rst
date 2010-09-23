@@ -109,7 +109,7 @@ Changelog
   [wichert]
 
 - Add a new about page to the client. This fixes 
-  `ticket 152 <http://code.simplon.biz/tracker/euphorie/ticket/153>`_.
+  `ticket 153 <http://code.simplon.biz/tracker/euphorie/ticket/153>`_.
   [cornae, thomas, wichert].
 
 - Correct test for duplicate logins when creating new sectors or country
