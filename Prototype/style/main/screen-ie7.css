@@ -1,0 +1,165 @@
+@font-face {
+	font-family: "Abadi MT Condensed Light";
+    font-style:  normal;
+    font-weight: normal;
+    src: url(ABADIMT0.eot);
+}
+
+#steps {
+	position: absolute;
+	left: 180px;
+}
+
+#steps li li.active,
+#steps li li.current {
+	border-top: none #322f2e;
+	border-bottom: none #82807e;
+	height: auto;
+	background: url(ie-steps-deep.png) repeat-y 0 bottom;
+	padding-top: 1px;
+}
+
+#steps li li.active>a,
+#steps li li.current>a {
+	background: url(ie-steps-deep.png) repeat-y 0 top;	
+}
+
+#steps li li li.active,
+#steps li li li.current {
+	border-top: none #322f2e;
+	border-bottom: none #82807e;
+	height: auto;
+	background: url(ie-steps-deeper.png) repeat-y 0 bottom;
+	padding-top: 1px;
+}
+
+#steps li li li.active>a,
+#steps li li li.current>a {
+	background: url(ie-steps-deeper.png) repeat-y 0 top;	
+}
+
+button.small,
+.button-small {
+	padding-top: 4px;
+	padding-bottom: 1px;
+}
+
+/* @group Global Navigation
+ */
+
+#navigation li
+ {
+	background: url(ie-globalNavigation.png) no-repeat right;
+	float: left;
+}
+
+#navigation li a
+ {
+	background: url(ie-globalNavigation.png) no-repeat 0 1px;
+	float: left;
+	margin-right: 12px;
+	padding-right: 0;
+	padding-bottom: 1px;
+	line-height: 22px;
+	padding-top: 0;
+}
+
+#navigation li#home a {
+	background-image: none;
+	margin-right: 0;
+	font: normal 14px/15px "Abadi-CL";
+
+}
+
+
+
+/* @end */
+
+/* The next line prevents IE7 from making the ul too wide and to position it underneath p.question */
+
+.radioList {
+	width: 100%;
+}
+
+.radioList li label input {
+	margin-top: -2px;
+}
+
+button {
+	width: auto;
+	overflow: visible;
+}
+
+.comprehensive,
+.comprehensive fieldset,
+.concise fieldset.comprehensive,
+.compact fieldset.comprehensive {
+	margin-bottom: 10px;
+	float: left;
+}
+
+fieldset.concise,
+form.concise fieldset {
+	float: left;
+}
+
+.icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	text-indent: -1000px;
+	background-image: url(icons.png);
+	margin-top: -2px;
+	position: relative;
+	top: -1px;
+}
+
+/* @group Accordion */
+
+dl.accordion dt {
+	height: 20px;
+}
+
+dl.accordion dt button {
+	position: relative;
+	top: -17px;
+	visibility: hidden;
+}
+
+dl.accordion dt:hover button,
+dl.accordion dt.ui-state-active button {
+	visibility: visible;
+}
+
+
+
+/* @end */
+
+dl.accordion .colborder hr {
+	display: block;
+	height: 0;
+	margin: 0;
+	border-style: none;
+	visibility: hidden;
+}
+
+/* @group Comments */
+
+#comments textarea {
+	display: block;
+	width: 99%;
+}
+
+
+
+/* @end */
+
+.report p.priority-high {
+	line-height: 12px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.report p.priority-high strong {
+	width: 60px;
+}
