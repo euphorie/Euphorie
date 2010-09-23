@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="Sharing page: Delegate roles" acquire="False">
+    </permission>
+    <permission name="Content rules: Manage rules" acquire="False">
+    </permission>
+    <permission name="Copy or Move" acquire="False">
+    </permission>
+    <permission name="View" acquire="False">
+      <role name="Authenticated" />
+    </permission>
+    <permission name="Public, everyone can access" acquire="True">
+      <role name="Anonymous" />
+    </permission>
+  </permissions>
+</rolemap>

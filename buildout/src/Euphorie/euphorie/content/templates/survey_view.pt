@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body> 
+    <metal:title fill-slot="title">${view/group/title}</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
+      <h2 i18n:translate="header_information">Information</h2>
+
+      <dl class="grid span-9">
+        <dt i18n:translate="label_evaluation_phase">Evaluation phase</dt>
+        <dd tal:condition="context/evaluation_optional" i18n:translate="optional">Optional</dd>
+        <dd tal:condition="not:context/evaluation_optional" i18n:translate="mandatory">Mandatory</dd>
+        <dt i18n:translate="label_classification_code">Classification code</dt>
+        <dd tal:condition="context/classification_code">${context/classification_code}</dd>
+        <dd tal:condition="not:context/classification_code"><em i18n:translate="not_set">Not set</em></dd>
+        <dt i18n:translate="label_language">Language</dt>
+        <dd tal:condition="context/language">${python:tools.languageName(context.language, context.language)}</dd>
+        <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
+      </dl>
+
+      <tal:block define="children view/profile_questions">
+        <h2 i18n:translate="header_profile_questions">Profile questions</h2>
+
+        <p tal:condition="not:python:children" i18n:translate="no_profile_questions">This survey has no profile questions.</p>
+
+        <tal:children condition="python:children">
+          <ol class="${python:'sortable' if can_edit and len(children)&gt;1 else None}">
+            <li tal:repeat="child children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
+          </ol>
+        </tal:children>
+      </tal:block>
+
+    <tal:block define="children view/modules">
+      <h2 i18n:translate="header_modules">Modules</h2>
+
+      <p tal:condition="not:python:children" i18n:translate="no_modules">This survey has no modules.</p>
+
+      <tal:children condition="python:children">
+        <ol class="${python:'sortable' if can_edit and len(children)&gt;1 else None}" tal:condition="python:children">
+          <li tal:repeat="child children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
+        </ol>
+      </tal:children>
+    </tal:block>
+    </metal:content>
+  </body>
+</html>
+

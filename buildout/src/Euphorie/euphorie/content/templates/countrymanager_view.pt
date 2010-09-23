@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/title}</metal:title>
+    <tal:block metal:fill-slot="pagetitle">
+      <h1>${context/title}</h1>
+      <em class="discrete" i18n:translate="notice_country_manager">Country manager for <tal:span i18n:name="country">${context/aq_parent/title}</tal:span>.</em>
+    </tal:block>
+    <metal:content fill-slot="content">
+      <dl class="grid span-11">
+        <dt i18n:translate="email">Email address</dt>
+        <dd>${context/contact_email}</dd>
+      </dl>
+    </metal:content>
+  </body>
+</html>
+

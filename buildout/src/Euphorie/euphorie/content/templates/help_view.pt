@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title" i18n:translate="title_client_help">Client help text</metal:title>
+
+    <metal:content fill-slot="content">
+      <h2 i18n:translate="help_header_introduction" id="introduction">Introduction</h2>
+      <p tal:replace="structure context/introduction"/>
+
+      <h2 id="authentication" i18n:translate="help_header_authentication">Authentication</h2>
+      <p tal:replace="structure context/authentication"/>
+
+      <h2 id="sessions" i18n:translate="help_header_sessions">Sessions</h2>
+      <p tal:replace="structure context/sessions"/>
+
+      <h2 id="start" i18n:translate="help_header_start">Preparation</h2>
+      <p tal:replace="structure context/preparation"/>
+
+      <h2 id="identification" i18n:translate="help_header_identification">Identification</h2>
+      <p tal:replace="structure context/identification"/>
+
+      <h2 id="evaluation" i18n:translate="help_header_evaluation">Evaluation</h2>
+      <p tal:replace="structure context/evaluation"/>
+
+      <h2 id="actionplan" i18n:translate="help_header_actionplan">Action Plan</h2>
+      <p tal:replace="structure context/actionplan"/>
+
+      <h2 id="report" i18n:translate="help_header_report">Report</h2>
+      <p tal:replace="structure context/report"/>
+
+      <h2 id="finalwords" i18n:translate="help_header_finalwords">Final words</h2>
+      <p tal:replace="structure context/finalwords"/>
+    </metal:content>
+  </body>
+</html>
+

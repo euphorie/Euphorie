@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="tools context/@@tools;
+                  images context/@@images;
+                  logo_scale python:images.scale('logo', height=100, direction='up')">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      Colour preview
+    </title>
+    <script type="text/javascript" src="${tools/portal/++resource++NuPlone.libraries}/css_browser_selector.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="${tools/portal/++resource++NuPlone.style}/client/screen.css" />
+    <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie6.css" /> <![endif]-->
+    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie7.css" /> <![endif]-->
+    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie8.css" /> <![endif]-->
+
+    <style type="text/css" tal:condition="python:logo_scale">
+      #navigation li#home {
+          background: url(${logo_scale/url}) no-repeat;
+      }
+    </style>
+
+     <style type="text/css"> 
+     </style>
+  </head>
+  <body class="status${python:' alien' if logo_scale else ''}">
+    <h1>
+      Lorem ipsum
+    </h1>
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </p>
+    <ol id="steps">
+      <li id="step-1" class="complete">
+        <a href="#" i18n:translate="label_identification">Identification</a>
+      </li>
+      <li id="step-2">
+        <a href="#" i18n:translate="label_evaluation">Evaluation</a>
+      </li>
+      <li id="step-3" i18n:translate="label_action_plan">
+        <a href="#">Action Plan</a>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home">
+        <a href="#" tal:condition="python:not logo_scale" i18n:translate="titld_tool">OiRA</a>
+        <a href="#" tal:condition="python:logo_scale">${context/title}</a>
+      </li>
+      <li>
+        <a i18n:translate="navigation_help" href="#">Help</a>
+      </li>
+      <li>
+        <a i18n:translate="navigation_status" href="#">Status</a>
+      </li>
+    </ul>
+    <p id="appendix">
+      <tal:span i18n:translate="appendix_produced_by">Produced by <a i18n:name="EU-OSHA" href="#">EU-OSHA</a>.</tal:span> |
+      <a href="#" i18n:translate="appendix_about">About</a>
+    </p>
+  </body>
+</html>

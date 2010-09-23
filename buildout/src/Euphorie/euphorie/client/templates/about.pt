@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      id="about"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:define="media_url client/++resource++euphorie.media">
+    <h1 i18n:translate="title_about">About</h1>
+
+    <h3 i18n:translate="header_what_is_oira">
+      What is the OiRA (Online Interactive Risk Assessment) project
+    </h3>
+
+    <p><img alt="" class="floatAfter" src="${media_url}/info.png" />
+    <tal:span i18n:translate="about_paragraph_1">Experience shows that <strong
+      i18n:name="key" i18n:translate="about_paragraph_1_key">proper risk
+      assessment is the key to healthy workplaces</strong>. This is why
+    EU-OSHA developed an <strong i18n:name="easy"
+      i18n:translate="about_paragraph_1_easy">easy-to-use and cost-free web
+      application</strong> (the “OiRA” - Online interactive Risk Assessment)
+    that can help micro and small organisations to put in place a <strong
+      i18n:name="step" i18n:translate="about_paragraph_1_step">step-by-step
+      risk assessment process</strong> – starting with the
+    <strong i18n:name="identification"
+      i18n:translate="about_paragraph_1_identification">identification</strong>
+    and <strong i18n:name="evaluation"
+      i18n:translate="about_paragraph_1_evaluation">evaluation</strong> of
+    workplace risks, through decision making on <strong
+      i18n:name="preventive_actions"
+      i18n:translate="about_paragraph_1_preventive_actions">preventive
+      actions</strong> and the taking of action, to monitoring and <strong
+      i18n:name="reporting"
+      i18n:translate="about_paragraph_1_reporting">reporting</strong>.
+    </tal:span>
+    </p>
+
+    <p i18n:translate="about_paragraph_2">
+      The OiRA web application gives access to the sectoral Risk Assessment
+      tools created and maintained by sectoral organisations at national level.
+    </p>
+
+    <h3 i18n:translate="header_why_oira">Why the OiRA project</h3>
+    <p><img alt="" class="floatAfter" src="${media_url}/question-mark.png" /><tal:span i18n:translate="about_paragraph_3">
+    The <strong i18n:name="agency" i18n:translate="about_paragraph3_agency">European Community Strategy on Health and Safety at Work 2007-2012</strong> calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that <strong i18n:name="smb" i18n:translate="about_partners_3_smb">micro and small enterprises have some shortcomings</strong> when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome.</tal:span>
+    </p>
+    <p>
+      <strong><a class="external-link" href="http://www.oira.osha.europa.eu/">More information about the OiRA project</a></strong>
+    </p>
+    <h2 i18n:translate="header_project_phases">Project Phases</h2>
+    <h3 i18n:translate="header_devel_phase">Development and pilot phase – 2009-2011</h3>
+    <p>
+      <img alt="Project" class="floatBefore" src="${media_url}/project.png" />
+    </p>
+    <p i18n:translate="devel_phase">
+      After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services.
+    </p>
+    <h3 i18n:translate="header_launch">Official launch of the project – September 2011</h3>
+    <p i18n:translate="phase_launch">
+      The official launch of the tool is planned for September 2011, once the objectives of the testing phase have been reached and once the OiRA website, the OiRA training scheme and OiRA help desk will be ready.
+    </p>
+    <h2 i18n:translate="header_development_partners">Development partners</h2>
+    <p>
+    <img alt="" class="floatAfter" src="${media_url}/partner.png" />
+    <tal:span i18n:translate="about_partners_1">The OiRA project and its related web application has been developed by the <a href="http://osha.europa.eu/" i18n:name="eu-osha">EU-OSHA</a> based on the Dutch RA-instrument (called <a class="external-link" href="http://www.rie.nl/" i18n:name="RIE">RI&amp;E</a>), which, financed by the Dutch government, was initially developed by TNO in collaboration with the employers organisation for small and medium-sized enterprises MKB-Nederland and the Dutch Ministry for Employment. Further development of the application was realised with input and participation of trade unions FNV, CNV and MHP.</tal:span>
+    </p>
+    <p i18n:translate="about_partners_2">
+      The following technical partners contributed to the development of the OiRA project:
+    </p>
+    <ul>
+      <li>
+        <a class="external-link" href="http://www.tno.nl/">TNO</a> / <tal:span i18n:translate="">The Netherlands</tal:span>
+      </li>
+      <li>
+        <a class="external-link" href="http://www.simplon.biz/">Simplon</a> / <tal:span i18n:translate="">The Netherlands</tal:span>
+      </li>
+      <li>
+        <a class="external-link" href="http://www.cornae.com/">Cornelis G.A. Kolbach</a> / <tal:span i18n:translate="">The Netherlands</tal:span>
+      </li>
+      <li>
+        <a class="external-link" href="http://syslab.com/">Syslab.com</a> / <tal:span i18n:translate="">Germany</tal:span>
+      </li>
+    </ul>
+    <p i18n:translate="about_partners_3">
+      The Agency was also given strategic and expert advice by a Steering Committee in the development and implementation of the OiRA project. Members and alternates of the Steering Committee were appointed by the interest groups at the Board, by the Commission and by EU-OSHA.
+    </p>
+    <h2>
+      <strong i18n:translate="header_licenses">Licenses</strong>
+    </h2>
+    <p i18n:translate="about_licenses_1">
+     The source code of the OiRA application is <a i18n:name="GPL" href="http://www.gnu.org/licenses/gpl.html">GPL</a> licensed.
+    </p>
+    <p>
+    <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license"><img class="floatBefore" alt="Creative Commons License" i18n:attributes="alt" src="http://i.creativecommons.org/l/by-sa/2.5/88x31.png" /></a> <tal:span i18n:translate="about_licenses_2">The content of OiRA sectoral tools is licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license" i18n:name="license" i18n:translate="">Creative Commons Attribution-ShareAlike 2.5 Generic License</a></tal:span>.
+    </p>
+    <p i18n:translate="about_licenses_3">
+      The OiRA sectoral tools can be used for free by all users.
+    </p>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_tool">OiRA</a></li>
+      <li><a href="${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>

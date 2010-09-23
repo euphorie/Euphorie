@@ -1,0 +1,78 @@
+from Acquisition import aq_inner
+from zope.interface import implements
+from five import grok
+from plone.directives import dexterity
+from plone.directives import form
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.sector import ISector
+
+grok.templatedir("templates")
+
+class ICountry(form.Schema, IBasic):
+    """Country grouping in the online client.
+    """
+
+
+class Country(dexterity.Container):
+    """A country folder."""
+    implements(ICountry)
+
+    def _canCopy(self, op=0):
+        """Tell Zope2 that this object can not be copied."""
+        return False
+
+
+class View(grok.View):
+    grok.context(ICountry)
+    grok.require("zope2.View")
+    grok.layer(NuPloneSkin)
+    grok.template("country_view")
+    grok.name("nuplone-view")
+
+    def update(self):
+        super(View, self).update()
+        names=self.request.locale.displayNames.territories
+        self.title=names.get(self.context.id.upper(), self.context.title)
+
+        self.sectors=[dict(id=sector.id,
+                           title=sector.title,
+                           url=sector.absolute_url())
+                      for sector in self.context.values()
+                      if ISector.providedBy(sector)]
+        self.sectors.sort(key=lambda s: s["title"].lower())
+
+
+
+class ManageUsers(grok.View):
+    grok.context(ICountry)
+    grok.require("euphorie.content.ManageCountry")
+    grok.layer(NuPloneSkin)
+    grok.template("user_mgmt")
+    grok.name("manage-users")
+
+    def update(self):
+        from euphorie.content.countrymanager import ICountryManager
+        super(ManageUsers, self).update()
+        names=self.request.locale.displayNames.territories
+        country=aq_inner(self.context)
+        self.title=names.get(country.id.upper(), country.title)
+        self.sectors=[dict(id=sector.id,
+                           login=sector.login,
+                           password=sector.password,
+                           title=sector.title,
+                           url=sector.absolute_url(),
+                           locked=sector.locked)
+                      for sector in country.values()
+                      if ISector.providedBy(sector)]
+        self.sectors.sort(key=lambda s: s["title"].lower())
+
+        self.managers=[dict(id=manager.id,
+                           login=manager.login,
+                           title=manager.title,
+                           url=manager.absolute_url(),
+                           locked=manager.locked)
+                      for manager in country.values()
+                      if ICountryManager.providedBy(manager)]
+        self.managers.sort(key=lambda s: s["title"].lower())
+

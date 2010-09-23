@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:content fill-slot="content">
+      <h2 i18n:translate="header_sector_survey_list">Surveys</h2>
+
+      <p tal:condition="python:not view.surveys" i18n:translate="no_surveys_present">
+      There are no surveys present. You can <a href="#" i18n:name="add_link"
+        tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
+        a new survey</tal:span></a>.
+      </p>
+
+      <tal:group repeat="group view/surveys">
+        <h5>${group/title}</h5>
+        <ul tal:condition="python:view.surveys" class="surveyVersions">
+            <li tal:repeat="survey group/surveys" class="${python:'current' if survey.current else None}">
+              <label><a href="${survey/url}">${survey/title}</a></label>
+            </li>
+        </ul>
+      </tal:group>
+
+      <p tal:condition="python:view.surveys" i18n:translate="survey_list_footer">
+      You can also <a href="#" i18n:name="add_link"
+        tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
+        a new survey</tal:span></a>.
+      </p>
+    </metal:content>
+  </body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title" i18n:translate="header_user_management">Manage users in <tal:span i18n:name="country">${view/title}</tal:span></metal:title>
+    <div class="buttonBar" metal:fill-slot="buttonbar">
+      <a class="button floatAfter" href="${tools/context_url}/++add++euphorie.sector" i18n:translate="button_add_sector">Add new sector</a>
+      <a class="button floatAfter" href="${tools/context_url}/++add++euphorie.countrymanager" i18n:translate="button_add_country_manager">Add country manager</a>
+    </div>
+    <metal:content fill-slot="content">
+
+      <h2 i18n:translate="header_sectors">Sectors</h2>
+
+      <p class="message notice" tal:condition="not:view/sectors" i18n:translate="country_no_sectors">There are no sectors for this country.</p>
+
+      <table tal:condition="view/sectors">
+        <thead>
+          <tr><th>Sector</th> <th>Login</th> <th>Password</th> <th class="actions">&nbsp;</th></tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="sector view/sectors">
+            <td><a href="${sector/url}">${sector/title}</a></td>
+            <td>${sector/login}</td>
+            <td>${sector/password}</td>
+            <td class="actions"><form method="post" action="${sector/url}/@@lock">
+                <tal:csrf replace="structure context/@@authenticator/authenticator"/>
+                <a href="${sector/url}/@@edit" class="micro floatAfter function button" i18n:translate="button_edit">Edit</a>
+                <button tal:condition="not:sector/locked" class="micro floatAfter function" type="submit" name="action" value="lock" i18n:translate="button_lock">Lock</button>
+                <button tal:condition="sector/locked" class="micro floatAfter function" type="submit" name="action" value="unlock" i18n:translate="button_unlock">Unlock</button>
+            </form></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 i18n:translate="header_country_managers">Country managers</h2>
+
+      <p class="message notice" tal:condition="not:view/managers" i18n:translate="country_no_managers">There are no country managers for this country.</p>
+
+      <table tal:condition="view/managers">
+        <thead>
+          <tr><th>Name</th> <th>Login</th> <th class="actions">&nbsp;</th></tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="manager view/managers">
+            <td>${manager/title}</td>
+            <td>${manager/login}</td>
+            <td><form method="post" action="${manager/url}/@@lock">
+                <tal:csrf replace="structure context/@@authenticator/authenticator"/>
+                <a href="${manager/url}/@@edit" class="micro floatAfter function button" i18n:translate="button_edit">Edit</a>
+                <button tal:condition="not:manager/locked" class="micro floatAfter function" type="submit" name="action" value="lock" i18n:translate="button_lock">Lock</button>
+                <button tal:condition="manager/locked" class="micro floatAfter function" type="submit" name="action" value="unlock" i18n:translate="button_unlock">Unlock</button>
+            </form></td>
+          </tr>
+        </tbody>
+      </table>
+    </metal:content>
+  </body>
+</html>

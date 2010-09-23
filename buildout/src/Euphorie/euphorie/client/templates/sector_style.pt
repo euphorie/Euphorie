@@ -1,0 +1,32 @@
+<tal:block xmlns:meta="http://xml.zope.org/namespaces/meta"
+           xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+           xmlns:tal="http://xml.zope.org/namespaces/tal"
+           i18n:domain="euphorie"
+           meta:interpolation="true"
+           tal:define="logo view/logo; colours view/colours"
+><tal:block condition="python:logo">#navigation li#home {
+    background: url(${view/logo/url}) no-repeat;
+}</tal:block>
+<tal:block condition="python:colours">
+#navigation li a {
+    color: ${colours/main_foreground};
+    background-color: ${colours/main_background};
+}
+h1 {
+    background-color: ${colours/main_background};
+}
+#steps li.complete,
+#steps li.current {
+    color: ${colours/support_foreground};
+    background-color: ${colours/support_background};
+}
+#steps li.complete a,
+#steps li.current a {
+     color: ${colours/support_foreground};
+}
+
+#steps li a,
+#steps li a:hover {
+    color: ${colours/main_foreground};
+} </tal:block>
+</tal:block>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+
+    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
+      <div class="introduction">
+        <img tal:define="images context/@@images; scale python:images.scale('image', height=510, width=510, direction='thumbnail');"
+           tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" class="floatAfter"/>
+        <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
+      </div>
+
+      <h2 i18n:translate="header_information">Information</h2>
+      <p tal:condition="not:context/optional" i18n:translate="module_mandatory">This module is mandatory.</p>
+      <p tal:condition="context/optional" i18n:translate="module_optional">This module is optional.</p>
+
+      <tal:block condition="python:view.modules">
+        <h2 i18n:translate="header_submodules">Submodules</h2>
+        <ol class="${python:'sortable' if can_edit and len(view.modules)&gt;1 else None}" tal:condition="python:view.modules">
+          <li tal:repeat="module view/modules" id="child-${module/id}"><a tal:attributes="href module/url" tal:content="module/title">Module title</a></li>
+        </ol>
+      </tal:block>
+
+      <tal:block condition="python:view.risks">
+        <h2 i18n:translate="header_risks">Risks</h2>
+        <ol class="${python:'sortable' if can_edit and len(view.risks)&gt;1 else None}" tal:condition="python:view.risks">
+          <li tal:repeat="risk view/risks" id="child-${risk/id}"><a tal:attributes="href risk/url" tal:content="risk/title">Risk title</a></li>
+        </ol>
+      </tal:block>
+    </metal:content>
+  </body>
+</html>

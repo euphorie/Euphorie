@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title" i18n:translate="title_country_documentation">Documentation</metal:title>
+    <metal:content fill-slot="content" tal:define="children context/values">
+      <p class="introduction" i18n:translate="intro_documenation">Here you can manage the documentation
+        for the <em i18n:name="client" i18n:translate="intro_documenation_client">online client</em>.</p>
+
+      <p i18n:translate="documentation_appendix">Pages created in the <a
+        i18n:name="appendix" href="${context/absolute_url}/appendix"
+        i18n:translate="documentation_appendix_appendix">appendix</a> folder are
+      available via links in the footer of the online client.</p>
+
+      <p i18n:translate="documentation_online_help">The <a
+        i18n:name="online_help" i18n:translate="documentation_online_help_online_help"
+        href="${context/absolute_url}/help">online help</a> text can also be modified.</p>
+    </metal:content>
+  </body>
+</html>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+    <metal:content fill-slot="content" tal:define="children context/values">
+      <div class="introduction" tal:content="structure context/description"/>
+      <tal:body replace="structure context/body"/>
+
+      <ul tal:define="children context/values" tal:condition="python:children">
+        <li tal:repeat="child children"><a href="${child/absolute_url}">${child/title|child/id}</a></li>
+      </ul>
+    </metal:content>
+  </body>
+</html>
+

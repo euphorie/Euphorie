@@ -1,0 +1,122 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:db="http://namespaces.zope.org/db"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="euphorie">
+
+    <five:registerPackage package="." initialize=".initialize" />
+     
+    <include package="euphorie.content" />
+
+    <permission
+        id="euphorie.client.PublishSurvey"
+        title="Euphorie: Publish a Survey"
+        />
+
+    <permission
+        id="euphorie.client.ViewSurvey"
+        title="Euphorie: View a Survey"
+        />
+
+    <interface
+        interface=".interfaces.IClientSkinLayer"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="Euphorie"
+        />
+
+    <grok:grok package="." />
+
+    <browser:defaultView
+      for=".client.IClient"
+      name="view"
+      />
+
+    <adapter
+        factory=".client.ClientPublishTraverser"
+        provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <adapter
+        factory=".survey.SurveyPublishTraverser"
+        provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <browser:defaultView
+        for="Products.CMFCore.interfaces.IContentish"
+        layer=".interfaces.IClientSkinLayer"
+        name="index_html"
+        />
+
+    <browser:defaultView
+        for=".survey.PathGhost"
+        layer=".interfaces.IClientSkinLayer"
+        name="index_html"
+        />
+
+    <browser:defaultView
+        for=".model.BaseObject"
+        layer=".interfaces.IClientSkinLayer"
+        name="index_html"
+        />
+
+    <browser:defaultView
+        for="Products.CMFCore.interfaces.IFolderish"
+        layer=".interfaces.IClientSkinLayer"
+        name="index_html"
+        />
+      
+    <browser:page
+        for="*"
+        layer=".client.IClientSkinLayer"
+        class="plonetheme.nuplone.skin.tools.Tools"
+        name="tools"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="*"
+        layer=".client.IClientSkinLayer"
+        class=".utils.WebHelpers"
+        name="webhelpers"
+        template="templates/webhelpers.pt"
+        permission="zope2.View"
+        />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="Euphorie online client"
+        directory="profiles/default"
+        description="The online risk assessment client interface for an Euphorie website"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        />
+
+    <genericsetup:importStep
+        name="euphorie.client"
+        title="Euphorie client configuration"
+        description="Install and enable the PAS plugin" 
+        handler=".setuphandlers.setupVarious"
+        />
+
+    <browser:resourceDirectory
+        name="euphorie.media"
+        directory="templates/media"
+       />
+
+    <browser:resourceDirectory
+        name="euphorie.style"
+        directory="templates/style/main"
+       />
+
+    <browser:resourceDirectory
+        name="euphorie.libraries"
+        directory="templates/libraries"
+       />
+
+    <browser:resourceDirectory
+        name="euphorie.behaviour"
+        directory="templates/behaviour"
+       />
+
+</configure>

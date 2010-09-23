@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <style>
+      ol.toc:before { content: "<tal:span i18n:translate='toc_header'>Contents</tal:span>"; }
+    </style>
+  </head>
+  <body class="report ${webhelpers/extra_css}"
+        tal:define="survey_url python:webhelpers.survey_url(phase='actionplan');
+                    company view/session/company;">
+    <h1>${view/report_title}</h1>
+
+    <div class="buttonBar super" tal:condition="not:view/download">
+      <a class="button-medium" href="${python:view.url(name='download')}" i18n:translate="button_download">Download</a>
+    </div>
+
+    <div class="notice introduction">
+      <p i18n:translate="plan_report_intro_1">By filling in the list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan. The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects might have been completed and perhaps new subjects need to be added.</p>
+      <p i18n:translate="plan_report_intro_2">Your answers and report were <strong i18n:name="automatically_saved"><tal:span i18n:translate="plan_report_intro_2_automatically_saved">automatically saved</tal:span></strong> and may be found back or deleted at any time via the <a href="#" i18n:name="preparation_step" i18n:translate="plan_report_intro_2_preparation_step">preparation step</a>.</p>
+    </div>
+
+    <div class="notice comments" tal:condition="view/session/report_comment" tal:content="view/session/report_comment">
+      Extra remarks for this particular survey.
+    </div>
+
+    <dl class="grid companyDetails span-15">
+      <dt i18n:translate="label_company_title">Bedrijfsnaam</dt>
+      <dd><em tal:condition="not:company/title" i18n:translate="missing_data">Not provided</em>${company/title}</dd>
+      <dt i18n:translate="label_address_postal">Postal address</dt>
+      <dd tal:define="valid python:company.address_postal_address or company.address_postal_postal or company.address_postal_city">
+        <em tal:condition="not:valid" i18n:translate="missing_data">Not provided</em><address tal:condition="valid">
+          ${company/address_postal_address}<br/>
+          ${company/address_postal_postal} ${company/address_postal_city}
+        </address>
+      </dd>
+      <dt i18n:translate="label_address_visit">Visitor's address</dt>
+      <dd tal:define="valid python:company.address_visit_address or company.address_visit_postal or company.address_visit_city">
+        <em tal:condition="not:valid" i18n:translate="missing_data">Not provided</em><address tal:condition="valid">
+          ${company/address_visit_address}<br/>
+          ${company/address_visit_postal} ${company/address_visit_city}
+        </address>
+      </dd>
+      <dt i18n:translate="label_email">Email address</dt>
+      <dd><em tal:condition="not:company/email" i18n:translate="missing_data">Not provided</em>${company/email}</dd>
+      <dt i18n:translate="label_telephone">Telephone number</dt>
+      <dd><em tal:condition="not:company/phone" i18n:translate="missing_data">Not provided</em>${company/phone}</dd>
+      <dt i18n:translate="label_activity">Activity</dt>
+      <dd><em tal:condition="not:company/activity" i18n:translate="missing_data">Not provided</em>${company/activity}</dd>
+      <dt i18n:translate="label_submitter_name">Name submitter</dt>
+      <dd><em tal:condition="not:company/submitter_name" i18n:translate="missing_data">Not provided</em>${company/submitter_name}</dd>
+      <dt i18n:translate="label_submitter_function">Function submitter</dt>
+      <dd><em tal:condition="not:company/submitter_function" i18n:translate="missing_data">Not provided</em>${company/submitter_function}</dd>
+      <dt i18n:translate="label_department">Department</dt>
+      <dd><em tal:condition="not:company/department" i18n:translate="missing_data">Not provided</em>${company/department}</dd>
+      <dt i18n:translate="label_location">Location</dt>
+      <dd><em tal:condition="not:company/location" i18n:translate="missing_data">Not provided</em>${company/location}</dd>
+      <dt i18n:translate="label_submit_date_report">Submitted on</dt>
+      <dd><em tal:condition="not:company/submit_date" i18n:translate="missing_data">Not provided</em>${python:tools.formatDate(company.submit_date) if company.submit_date else None}</dd>
+      <dt i18n:translate="label_email">Email address</dt>
+      <dd><em tal:condition="not:company/email" i18n:translate="missing_data">Not provided</em>${company/email}</dd>
+      <dt i18n:translate="label_employee_numbers">Number of employees</dt>
+      <dd><em tal:condition="not:company/employees" i18n:translate="missing_data">Not provided</em>
+        <tal:span condition="python:company.employees=='40h'" i18n:translate="employee_numbers_max_40_hours">40 hours or less of paid work</tal:span>
+        <tal:span condition="python:company.employees=='max25'" i18n:translate="employee_numbers_below_25">25 employees or less</tal:span>
+        <tal:span condition="python:company.employees=='over25'" i18n:translate="employee_numbers_above_25">More than 25 employees</tal:span>
+      </dd>
+      <dt i18n:translate="label_absentee_percentage">Absentee percentage</dt>
+      <dd><em tal:condition="not:company/absentee_percentage" i18n:translate="missing_data">Not provided</em><tal:span condition="company/absentee_percentage">${python:tools.formatPercentage(company.absentee_percentage)}</tal:span></dd>
+      <dt i18n:translate="label_accidents">Number of accidents last year</dt>
+      <dd><em tal:condition="not:company/accidents" i18n:translate="missing_data">Not provided</em>${company/accidents}</dd>
+      <dt i18n:translate="label_incapacitated_workers">Number of incapacitated workers last year</dt>
+      <dd><em tal:condition="not:company/incapacitated_workers" i18n:translate="missing_data">Not provided</em>${company/incapacitated_workers}</dd>
+      <dt i18n:translate="label_arbo_expert">Arbo export</dt>
+      <dd><em tal:condition="not:company/arbo_expert" i18n:translate="missing_data">Not provided</em>${company/arbo_expert}</dd>
+    </dl>
+
+    <ol class="toc">
+      <tal:node repeat="node view/nodes">
+        <li tal:condition="python:node.depth==1 and node.type!='risk'"><a href="#node-${node/id}">${node/title}</a></li>
+      </tal:node>
+    </ol>
+
+    <tal:block repeat="node view/nodes">
+      <tal:module condition="python:node.type!='risk'">
+        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}"</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+      </tal:module>
+
+      <tal:risk condition="python:node.type=='risk'">
+      <tal:block define="zodbnode python:view.getZodbNode(node);
+                         title python:view.title(node, zodbnode);
+                         images zodbnode/@@images;
+                         scale python:images.scale('image', width=150, height=500, direction='thumbnail');
+                         status python:view.risk_status(node, zodbnode)">
+        <div class="warning" tal:attributes="class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status]"
+                 tal:define="show_negate_warning python:view.show_negate_warning(node, zodbnode)"
+                 tal:omit-tag="python:status=='unanswered'">
+          <h4><strong class="icon warning" tal:condition="python:not show_negate_warning and status=='present'">⚠</strong><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${title}</a> 
+            <sup tal:condition="python:status=='not-present' and node.risk_type=='top5'"><a href="#top5-footnote">*</a></sup></h4>
+
+          <p class="negation" tal:condition="show_negate_warning"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+          <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered"> This risk still needs to be inventorised </p>
+
+            <p tal:condition="node/priority" class="priority-${node/priority}" i18n:translate="risk_priority"
+            >This is a <strong i18n:name="priority">
+                <tal:span tal:condition="python:node.priority=='low'" i18n:translate="risk_priority_low">low priority risk</tal:span>
+                <tal:span tal:condition="python:node.priority=='medium'" i18n:translate="risk_priority_medium">medium priority risk</tal:span>
+                <tal:span tal:condition="python:node.priority=='high'" i18n:translate="risk_priority_high">high priority risk</tal:span
+                ></strong> .</p>
+
+            <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
+            <p tal:replace="structure zodbnode/description">
+              This is a description of the risk.
+            </p>
+          </div>
+        </tal:block>
+
+        <tal:plan repeat="actionplan node/action_plans">
+          <h5 i18n:translate="header_measure">Measure <tal:span i18n:name="index" content="repeat/actionplan/number">1</tal:span></h5>
+          <dl tal:condition="python:actionplan.action_plan or actionplan.prevention_plan or actionplan.requirements">
+            <tal:block condition="actionplan/action_plan">
+              <dt i18n:translate="report_measure_actionplan">Action plan:</dt>
+              <dd tal:content="actionplan/action_plan">Plan tetx here.</dd>
+            </tal:block>
+            <tal:block condition="actionplan/prevention_plan">
+              <dt i18n:translate="report_measure_preventionplan">Prevention plan:</dt>
+              <dd tal:content="actionplan/prevention_plan">Plan text here.</dd>
+            </tal:block>
+            <tal:block condition="actionplan/requirements">
+              <dt i18n:translate="report_measure_requirements">Requirements:</dt>
+              <dd tal:content="actionplan/requirements">Plan text here.</dd>
+            </tal:block>
+          </dl>
+
+          <p class="discrete" tal:condition="python:actionplan.responsible or actionplan.planning_start or actionplan.planning_end or actionplan.budget">
+            <tal:block condition="python:actionplan.responsible and not (actionplan.planning_start or actionplan.planning_end)"
+              i18n:translate="report_measure_responsible"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_start and not actionplan.planning_end"
+              i18n:translate="report_measure_responsible_and_start"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which starts on <tal:span i18n:name="start" content="python:tools.formatDate(actionplan.planning_start)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_end and not actionplan.planning_start"
+              i18n:translate="report_measure_responsible_and_end"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which ends on <tal:span i18n:name="end" content="python:tools.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_start and not (actionplan.responsible or actionplan.planning_end)"
+              i18n:translate="report_measure_start_only">This task starts
+              on <tal:span i18n:name="start" content="python:tools.formatDate(actionplan.planning_start)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_end and not (actionplan.responsible or actionplan.planning_start)"
+              i18n:translate="report_measure_end_only">This task ends
+              on <tal:span i18n:name="end" content="python:tools.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.planning_start and actionplan.planning_end and not actionplan.responsible"
+              i18n:translate="report_measure_start_and_stop">This task starts
+              on <tal:span i18n:name="start" content="python:tools.formatDate(actionplan.planning_start)">14 April 2010</tal:span> and
+              ends on <tal:span i18n:name="end" content="python:tools.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+            <tal:block condition="python:actionplan.responsible and actionplan.planning_start and actionplan.planning_end"
+              i18n:translate="report_measure_full"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
+              which starts on <tal:span i18n:name="start" content="python:tools.formatDate(actionplan.planning_start)">14 April 2010</tal:span> and
+              ends on <tal:span i18n:name="end" content="python:tools.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
+              <tal:block condition="actionplan/budget" i18n:translate="report_measure_budget">There is a budget of
+            <strong i18n:name="amount">€&nbsp;<tal:span replace="actionplan/budget">30</tal:span></strong> for this
+            measure.</tal:block>
+          </p>
+        </tal:plan>
+
+        <blockquote class="comments" tal:condition="python:node.comment and node.comment.strip()"><p tal:content="node/comment">
+          Here are the comments the user has added to this risk.
+        </p></blockquote>
+      </tal:risk>
+    </tal:block>
+
+    <hr/>
+
+    <p id="top5-footnote" class="discrete">*) <tal:span i18n:translate="top5_risk_not_present">
+    This risk is not present in your organisation, but since the sector organisation considers this one of the top 5 most
+    critical risks it must be included in this report.</tal:span></p>
+
+    <ul class="discrete">
+      <li tal:condition="python:isinstance(getattr(context, 'published', None), tuple)" i18n:translate="report_survey_revision">This report was based on the survey '<tal:span i18n:name="title">${python:context.published[1]}</tal:span>' of revision date <tal:span i18n:name="date">${python:tools.formatDate(context.published[2])}</tal:span>.</li>
+      <li tal:condition="company/works_council_approval" i18n:translate="report_works_council_approved">
+      The works council has approved this report on <strong class="date" i18n:name="date">${python:tools.formatDate(company.works_council_approval)}</strong>.
+      </li><li tal:condition="not:company/works_council_approval" i18n:translate="report_works_council_not_approved">
+      The works council has not approved this report.
+      </li>
+    </ul>
+
+    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
+      <li class="complete" id="step-1">
+        <a href="${survey_url}/start">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="${survey_url}/identification">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="${survey_url}/evaluation">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="${survey_url}/actionplan">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li class="active current" id="step-5">
+        <a href="${survey_url}/report">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <tal:block condition="not:view/download">
+      <metal:css use-macro="webhelpers/macros/javascript"/>
+      <tal:analytics replace="tile:client-analytics"/>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $.localScroll();
+        });
+      </script>
+    </tal:block>
+  </body>
+</html>
+

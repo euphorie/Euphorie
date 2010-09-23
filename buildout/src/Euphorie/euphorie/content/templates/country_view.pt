@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${view/title}</metal:title>
+    <metal:content fill-slot="content">
+      <div class="introduction">
+        <p i18n:translate="intro_select_sector">Select a sector for which you would like to view or copy a survey.</p>
+      </div>
+
+      <p class="message notice" tal:condition="not:view/sectors" i18n:translate="message_no_sectors">
+        There are no sectors for this country.
+      </p>
+
+      <ul tal:condition="view/sectors">
+        <li tal:repeat="sector view/sectors">
+          <a href="${sector/url}">${sector/title}</a>
+        </li>
+      </ul>  
+    </metal:content>
+  </body>
+</html>
+

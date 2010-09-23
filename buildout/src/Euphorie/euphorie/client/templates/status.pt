@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body class="status ${webhelpers/extra_css}">
+    <h1 i18n:translate="title_status">Status</h1>
+    <h2 i18n:translate="header_questions_answered">Questions answered per module</h2>
+    <dl class="status" tal:define="status python:view.status">
+      <tal:repeat repeat="module status">
+        <dt><a href="${module/url}">${module/title}</a></dt>
+        <dd>
+          <p tal:condition="python: 'ok' in module" style="width: ${module/ok/width}px"
+             class="range answered" i18n:translate="status_answered"><span i18n:name="count" tal:replace="module/ok/count">3</span> questions were answersed</p>
+          <p tal:condition="python: 'risk' in module" style="width: ${module/risk/width}px"
+             class="range risk" i18n:translate="status_risk"><span i18n:name="count" tal:replace="module/risk/count">3</span> answers indicated a risk</p>
+          <p tal:condition="python: 'postponed' in module" style="width: ${module/postponed/width}px"
+             class="range postponed" i18n:translate="status_postponed"><span i18n:name="count" tal:replace="module/postponed/count">3</span> questions were postponed</p>
+        </dd>
+      </tal:repeat>
+    </dl>
+
+    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
+      <li id="step-1">
+        <a href="${survey_url}/start">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2">
+        <a href="${survey_url}/identification">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li id="step-3">
+        <a href="${survey_url}/evaluation">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li id="step-4">
+        <a href="${survey_url}/actionplan">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li id="step-5">
+        <a href="${survey_url}/report">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#identification" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>

@@ -1,0 +1,952 @@
+<sector xmlns:rie="http://xml.simplon.biz/rie/euphorie-export/1.0" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+  <title>Ambulante handel</title>
+  <account login="markthandel" password=""/>
+  <contact>
+    <name>markthandel</name>
+    <email>PAL.Bloemen@commit.nl</email>
+  </contact>
+  <survey>
+    <title>Ambulante handel</title>
+    <language>nl</language>
+    <country>nl</country>
+    <classification-code>5262</classification-code>
+    <description>&lt;p&gt;&lt;strong&gt;Alvorens door te gaan gelieve onderstaande tekst aandachtig door te lezen!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;strong&gt;Welkom&lt;/strong&gt;&lt;br/&gt;Welkom bij de speciaal voor de Ambulante Handel ontwikkelde digitale vragenlijst, waarmee u de Risico- Inventarisatie en -Evaluatie (RI&amp;amp;E) binnen uw onderneming kunt uitvoeren. Deze inventarisatie beperkt zich tot werkzaamheden rondom de marktplaats. Vaste winkelruimtes, verwerkingsplaatsen of magazijnen zijn niet opgenomen. Voor deze ruimtes adviseren wij u om de RI&amp;amp;E Aardappelen, Groenten &amp;amp; Fruit (AGF), de RI&amp;amp;E Bloemen of de RI&amp;amp;E Vis te gebruiken.&lt;/p&gt;&lt;p&gt;Met een RI&amp;amp;E worden risico's in uw onderneming op het gebied van veiligheid, gezondheid en welzijn in kaart gebracht. De inventarisatie maakt duidelijk wat op het gebied van risicobeheersing rondom arbeidsomstandigheden de sterke en zwakke punten zijn van uw onderneming. Aan de hand van de inventarisatie stelt u een plan van aanpak op. In het plan van aanpak wordt beschreven welke maatregelen genomen worden om de geconstateerde aandachtspunten verder te verbeteren of te beheersen.&lt;/p&gt;&lt;p&gt;Risicobeheersing behoort een onderdeel te zijn van de normale bedrijfsvoering. De RI&amp;amp;E is een goede stap om het proces van risicobeheersing m.b.t. arbeidsomstandigheden en ziekteverzuim inzichtelijk te krijgen. Niet voor niets is er ook een wettelijke verplichting om een RI&amp;amp;E uit te voeren en te beschikken over een actueel plan van aanpak. &lt;br/&gt;&lt;strong&gt;Niet alleen een wettelijke verplichting, maar ook nog zinvol!&lt;/strong&gt; Wanneer medewerkers ziek worden, langdurig uitvallen of wellicht arbeidsongeschikt raken is niet alleen sprake van persoonlijk leed en ongemak. Het kost ook nog eens veel geld. Een zieke medewerker kost u ca. &#8364;200 per dag! Uit onderzoek is gebleken dat u uw jaarlijkse verzuimkosten globaal kunt berekenen aan de hand van onderstaand rekensommetje:&lt;br/&gt;Verzuimpercentage x Loonsom x 2,5 = Jaarlijkse kosten ziekteverzuim&lt;/p&gt;&lt;p&gt;Preventieve aandacht voor goede arbeidsomstandigheden met als doel verzuim te voorkomen of snel en adequaat te reageren bij zieke medewerkers kan veel geld opleveren. Naast de financi&#235;le opbrengsten levert de RI&amp;amp;E u het volgende op:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;motivatie- en prestatieverbetering, doordat arbeidsbelasting en individuele belastbaarheid goed op elkaar zijn afgestemd; &lt;br/&gt;imagoverbetering. Bij een onderneming waar goede arbeidsomstandigheden heersen en personeelsproblemen vlot worden opgelost, komen mensen graag werken. De concurrentiepositie verbetert; &lt;/li&gt;&lt;li&gt;verlaging van ongevalrisico&#8217;s, minder persoonlijk leed door ongevallen; &lt;/li&gt;&lt;li&gt;vermijden van claims door slachtoffers van arbeidsgebonden aandoeningen of ongevallen, die uw onderneming onzorgvuldig beleid verwijten en u voor de gevolgen aansprakelijk stellen; &lt;/li&gt;&lt;li&gt;vermijden van boetes door de arbeidsinspectie vanwege overtreding van de Arbo-wet.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Oftewel: Actief aan de slag met uw arbo- en verzuimbeleid loont! Een RI&amp;amp;E is de eerste stap om te weten:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;hoe uw organisatie en medewerkers ervoor staan; &lt;/li&gt;&lt;li&gt;wat de risicogebieden in uw organisatie zijn; &lt;/li&gt;&lt;li&gt;hoe u die risico&#8217;s (eenvoudig) kunt beperken; &lt;/li&gt;&lt;li&gt;hoe u zich kunt indekken tegen claims. &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;In de Ambulante Handel is een Arboplusconvenant afgesloten. Hierdoor is er in de Ambulante Handel extra aandacht voor arbeidsomstandigheden. Er is een nulmeting verricht naar de belangrijkste risico&#8217;s binnen de branche. Uit dit onderzoek kwam naar boven dat binnen de Ambulante Handel de volgende risico&#8217;s met name voorkomen:&lt;/p&gt;&lt;ol start="1"&gt;&lt;li&gt;Lichamelijke belasting &lt;/li&gt;&lt;li&gt;Klimaat &lt;/li&gt;&lt;li&gt;Sociale veiligheid &lt;/li&gt;&lt;li&gt;Gebrek aan voorlichting &lt;/li&gt;&lt;li&gt;Werkdruk&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Deze RI&amp;amp;E gaat nader in op deze risico&#8217;s. In de RI&amp;amp;E komen ook nog andere onderwerpen aan bod, welke in meer of mindere mate binnen uw onderneming een rol kunnen spelen.&lt;br/&gt;In het kader van het Arboplusconvenant Ambulante Handel is er een oplossingenboek en een instructiewaaier ontwikkeld voor en over de belangrijkste risico&#8217;s. In dit oplossingenboek zijn alle recente brancheoplossingen en &#8211;eisen verwerkt. In de instructiewaaier staan tips. Het oplossingenboek en de instructiewaaier maken integraal deel uit van de branche RI&amp;amp;E Ambulante Handel. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;In vijf stappen maakt u voor uw bedrijf een RI&amp;amp;E en een Plan van Aanpak.&lt;/strong&gt; Daarmee voldoet u aan de RI&amp;amp;E-plicht uit de Arbo-wet. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stap 1. Inventarisatie&lt;/strong&gt; &lt;br/&gt;Door de vragen uit deze RI&amp;amp;E in te vullen brengt u de risico&#8217;s op het gebied van Veiligheid, Gezondheid en Welzijn binnen uw bedrijf in beeld. U begint met het inventariseren van de knelpunten en risico&#8217;s in uw bedrijf. Dit doet u door stellingen te beantwoorden die u worden voorgelegd. Daarbij moet u aangeven of deze op uw bedrijf van toepassing zijn of niet. Als u het antwoord niet direct weet, kunt u een stelling &#8220;parkeren&#8221; en deze later beantwoorden. Het is van belang dat u de toelichting bij de vragen goed leest, omdat daar staat hoe een en ander geregeld moet/kan zijn. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stap 2. Evaluatie&lt;/strong&gt; &lt;br/&gt;Bij sommige risico's moet u een prioriteit/waarde toekennen (hoog, midden of laag risico). Bij sommige risico's (Top 5 risico's en beleidsvragen) is dit niet mogelijk. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stap 3. Plan van Aanpak&lt;/strong&gt; &lt;br/&gt;Na het inventariseren en het evalueren, moet er een plan van aanpak gemaakt worden, waarin u aangeeft hoe en wanneer u de risico&#8217;s voor uw personeel en uw bedrijf gaat beperken en terugdringen. In dit RI&amp;amp;E instrument worden mogelijke oplossingen aangegeven. Deze kunt u gebruiken bij het opstellen van uw eigen plan van aanpak. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stap 4 Toetsing&lt;/strong&gt; &lt;br/&gt;Dit RI&amp;amp;E-instrument is erkend door het Arbo Platform Nederland, dat is goed nieuws voor bedrijven met maximaal 25 medewerkers. Deze erkenning komt voort uit het feit dat deze RI&amp;amp;E is goedgekeurd door de vakbonden en werkgeversorganisaties. Hierdoor geldt voor onderstaande bedrijven een vrijstelling of lichtere toets door een arbodienst:&lt;br/&gt;Werkgevers die niet meer dan 40 uur per week, door &#233;&#233;n of meer werknemers gezamenlijk, werk laten verrichten, moeten wel een RI&amp;amp;E hebben maar hoeven geen toets door de deskundige of arbodienst te laten verrichten. Bedrijven die maximaal 25 werknemers in dienst hebben behoeven de RI&amp;amp;E niet te laten goedkeuren omdat over dit digitale RI&amp;amp;E instrument overeenstemming is tussen werkgevers en werknemersvertegenwoordigingen.&lt;br/&gt;Voor meer informatie rondom de toetsing, klik &lt;a href="http://www.rie.nl/contentpage.php?branche_id=-1&amp;amp;id=580" rel="nofollow" target="_blank"&gt;hier.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stap 5. Uitvoeringen en onderhoud&lt;/strong&gt; &lt;br/&gt;U overlegt de voortgang van de uitvoering jaarlijks met uw werknemers, de Ondernemingsraad of Personeelsvertegenwoordiging. Als u aanpassingen in het bedrijf aanbrengt, moet u de RI&amp;amp;E ook aanpassen. Nieuwe werkzaamheden, verhuizing naar een ander bedrijfspand, nieuwe apparatuur, nieuwe manier van werken, reorganisatie? Veranderingen in uw bedrijf betekenen een aanpassing van de RI&amp;amp;E of het opnieuw moeten uitvoeren van de RI&amp;amp;E. (Nb. Deze RI&amp;amp;E zal regelmatig geactualiseerd worden. Wij raden u daarom aan om minimaal &#233;&#233;n keer in de twee jaar deze RI&amp;amp;E nog een keer in te vullen.) &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Wie vult deze RI&amp;amp;E in?&lt;/strong&gt; &lt;br/&gt;U vult deze RI&amp;amp;E samen, c.q. in overleg met uw medewerkers in. Om een juist beeld te geven van de risico&#8217;s binnen het bedrijf is de inbreng van werknemers en de preventiemedewerker onmisbaar. Betrek, indien aanwezig, de Ondernemingsraad of Personeelsvertegenwoordiging er ook bij. Zij moeten instemmen met de RI&amp;amp;E en het Plan van Aanpak. Overigens blijft de werkgever verantwoordelijk voor het naar waarheid invullen van de RI&amp;amp;E. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;De Voorbereiding&lt;/strong&gt; &lt;br/&gt;Op de volgende pagina begint u met een korte voorbereiding. Als eerste wordt u gevraagd uw profiel te bepalen. Dit is voor deze RI&amp;amp;E niet nodig omdat wij er voor gekozen hebben om selectievragen in te voegen. Indien een onderwerp of item in uw onderneming niet van toepassing is wordt de rest van de vragen automatisch overgeslagen.&lt;br/&gt;Vervolgens kunt u ervoor kiezen om de vragenlijsten af te drukken. Dit kan handig zijn voor een totaal overzicht of om samen met medewerkers te bespreken. &lt;br/&gt;Als u uitleg nodig heeft bij bepaalde onderdelen dan kunt u op de knop &#8220;help&#8221; klikken. Dan verschijnt er een venster met uitleg. U kunt dit helpdocument ook in zijn geheel uitprinten.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt; &lt;br/&gt;Samenstellers zijn zich volledig bewust van hun taak een zo betrouwbaar mogelijk product te verzorgen. Niettemin kunnen zij geen aansprakelijkheid aanvaarden voor onjuistheden die eventueel in dit product voorkomen of voor eventuele schade voortvloeiend uit het gebruik van deze RI&amp;amp;E. &lt;/p&gt;</description>
+    <evaluation-optional>yes</evaluation-optional>
+    <module rie:id="M-4394" optional="no">
+      <title>De standplaats</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22078" type="top5">
+        <title>De infrastructuur van uw standplaats is goed geregeld.</title>
+        <description>&lt;p&gt;Denk hierbij aan de toegankelijkheid voor het in- en uitladen van goederen; de parkeermogelijkheden; aansluitingen voor elektra en/of water; de ondergrond; afwateringsmogelijkheden; etc.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Niet elk terrein is hetzelfde. Indien u op een of meerdere marktterreinen een knelpunt signaleert, beschrijf dan onder opmerkingen tegen welke problemen u aanloopt en waar die problemen zich voordoen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12204">
+            <description>&lt;p&gt;Oplossing 1 Bespreek dit probleem in eerste instantie met uw vaste contactpersoon (bijv. marktmeester) Indien geen goede oplossing geboden kan worden, informeer dan ook uw branchevereniging over dit knelpunt. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bespreek dit probleem in eerste instantie met uw vaste contactpersoon (bijv. marktmeester) Indien geen goede oplossing geboden kan worden, informeer dan ook uw branchevereniging over dit knelpunt. &lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12205">
+            <description>&lt;p&gt;Oplossing 2 Ga na welke mogelijkheden u zelf heeft om probleem te beperken. Bijvoorbeeld extra of andere transportmiddelen; aanschaf matten of vlonders; etc.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Ga na welke mogelijkheden u zelf heeft om probleem te beperken. Bijvoorbeeld extra of andere transportmiddelen; aanschaf matten of vlonders; etc.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22079" type="top5">
+        <title>Rondom uw standplaats is voldoende ruimte en zijn geen gevaren aanwezig voor letsel/ongevallen van klanten of personeel.</title>
+        <description>&lt;p&gt;Voldoende ruimte rondom de kraam biedt optimale mogelijkheden om aan- en afvoer van twee kanten te doen. Ook tussentijds aanvullen kan makkelijker. Denk daarnaast vooral aan uitstekende delen waar klanten of personeel tegen aan kunnen lopen, losse (elektriciteit)kabels, losse tegels, stormlijnen, luifels, etc., maar ook oneffenheden en hellende ondergrond.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Indien u op een of meerdere marktterreinen een knelpunt signaleert, beschrijf dan onder opmerkingen welke problemen u gesignaleerd heeft en waar die problemen zich voordoen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12206">
+            <description>&lt;p&gt;Oplossing 1 Wanneer u bepaalde knelpunten signaleert bekijk dan eerst in hoeverre u deze zelf kunt oplossen. Wanneer u dit niet zelf kunt verhelpen bespreek dit knelpunt dan met uw vaste aanspreekpunt (marktmeester)&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Wanneer u bepaalde knelpunten signaleert bekijk dan eerst in hoeverre u deze zelf kunt oplossen. Wanneer u dit niet zelf kunt verhelpen bespreek dit knelpunt dan met uw vaste aanspreekpunt (marktmeester)&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22080" type="risk">
+        <title>De hoogte van de kraam, verkoopwagen is (overal) hoog genoeg, waardoor iedereen ongehinderd kan lopen.</title>
+        <description>&lt;p&gt;Als de kraam, verkoopwagen ergens te laag is hebben langere mensen voortdurende de neiging maar iets gebukt te gaan lopen. Een werkhoogte van 200 cm zorgt er voor dat iedere verkopende goed rechtop kan werken en af en toe zijn rug kan strekken.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12207">
+            <description>&lt;p&gt;Oplossing 1 Zorg voor minimaal 200 cm werkhoogte.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Zorg voor minimaal 200 cm werkhoogte.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22081" type="top5">
+        <title>Er zijn aantoonbare maatregelen genomen om problemen t.g.v. ongunstige klimaatomstandigheden te voorkomen.</title>
+        <description>&lt;p&gt;Onder aantoonbare maatregelen wordt verstaan:&#160; &lt;/p&gt;&lt;ul&gt;&lt;li&gt;windafscherming (3 zijden winddicht), waterdicht afdak, &lt;/li&gt;&lt;li&gt;zonwering, &lt;/li&gt;&lt;li&gt;gebruik rubber matten of vlonders bij temperaturen onder de 12 graden, &lt;/li&gt;&lt;li&gt;gebruik straalkachel (geen LPG) en &lt;/li&gt;&lt;li&gt;goede schoeisel- en kledingvoorschriften.&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12208">
+            <description>&lt;p&gt;Oplossing 1 Bij koude en wind, marktkraam aan zij- en achterkant goed dichtmaken (3 zijden dicht); Waterdicht afdak; Aanschaf warmtebron (kachel/heater), NIET op LPG; Rubber matten of vlonders bij temperaturen onder de 12 graden; Opstellen schoeisel- en kledingsvoorschriften.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bij koude en wind, marktkraam aan zij- en achterkant goed dichtmaken (3 zijden dicht); Waterdicht afdak; Aanschaf warmtebron (kachel/heater), NIET op LPG; Rubber matten of vlonders bij temperaturen onder de 12 graden; Opstellen schoeisel- en kledingvoorschriften.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22084" type="risk">
+        <title>Er zijn adequate afspraken gemaakt over het dragen van werkkleding, schoeisel en/of beschermingsmiddelen.</title>
+        <description>&lt;p&gt;Niet alleen voor bescherming tegen ongunstige weersinvloeden, maar ook in het kader van veiligheidsoverwegingen is het belangrijk hierover goede afspraken te maken. Denk hierbij aan het dragen van warm en stevig schoeisel, het dragen van thermische onderkleding of het gebruik van handschoenen tegen snijrisico&#8217;s e.d. Zorg dat iedereen aantoonbaar ge&#239;nformeerd is over de voorschriften.&lt;br/&gt;Indien vanuit veiligheidsoverwegingen kledingsvoorschriften gelden dan dient men deze gratis te verstrekken of beschikbaar te stellen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12209">
+            <description>&lt;p&gt;Oplossing 1 Kledingsvoorschriften opstellen; Afspraken maken over aanschaf of beschikbaar stellen van werkkleding.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Kledingvoorschriften opstellen; Afspraken maken over aanschaf of beschikbaar stellen van werkkleding.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22085" type="risk">
+        <title>Ladders en/of opstapjes worden aantoonbaar gecontroleerd op gebreken.</title>
+        <description>&lt;p&gt;Er gebeuren nogal eens ongelukken met ladders en trapjes doordat er iets aan kapot is. Klimmateriaal moet daarom minimaal jaarlijks gecontroleerd worden op gebreken. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;De stelregel is: Is er iets aan de ladder of het opstapje kapot of verbogen, laat dit dan direct door een deskundige repareren of koop een nieuwe.&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12210">
+            <description>&lt;p&gt;Oplossing 1 Zorg dat het aanwezige klimmateriaal minimaal jaarlijks gekeurd wordt.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Zorg dat het aanwezige klimmateriaal minimaal jaarlijks gekeurd wordt.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12211">
+            <description>&lt;p&gt;Oplossing 2 Aanschaf nieuw klimmateriaal.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Aanschaf nieuw klimmateriaal.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22086" type="policy">
+        <title>Met de medewerkers is afgesproken waar men naar het toilet kan.</title>
+        <description>&lt;p&gt;Wanneer er geen toiletwagen aanwezig is, maak dan afspraken met uw medewerkers waar men wel terecht kan. Denk hierbij aan een nabijgelegen horecagelegenheid. Als stelregel geldt dat er binnen 100 meter een toilet beschikbaar is.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12212">
+            <description>&lt;p&gt;Oplossing 1 Medewerkers informeren waar men gebruik kan maken van de sanitaire voorzieningen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Medewerkers informeren waar men gebruik kan maken van de sanitaire voorzieningen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22087" type="policy">
+        <title>Er zijn altijd voldoende bedrijfshulpverleners beschikbaar.</title>
+        <description>&lt;p&gt;De bedrijfshulpverlening moet zodanig georganiseerd zijn dat binnen enkele minuten na het plaatsvinden van een ongeval of brand, de bedrijfshulpverleningstaken op een adequate wijze kunnen worden vervuld. &lt;/p&gt;&lt;p&gt;Onder adequate bedrijfshulpverlening wordt verstaan dat de bedrijfshulpverleners:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Eerste hulp moeten kunnen bieden, ook aan klanten;&lt;/li&gt;&lt;li&gt;Moeten kunnen omgaan met blusmiddelen;&lt;/li&gt;&lt;li&gt;De medewerkers instructie geven hoe te handelen in geval van nood;&lt;/li&gt;&lt;li&gt;Zorgen voor de organisatie tijdens een calamiteit (o.a. contact leggen met hulpverlenende instanties);&lt;/li&gt;&lt;li&gt;Preventieve taken, zoals het inspecteren van verbandtrommels.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Het is wettelijk toegestaan om de taken op het gebied van bedrijfshulpverlening gezamenlijk te organiseren. Op de grotere marktplaatsen kan het zijn dat dit via de gemeente of marktbeheerder geregeld is. Op kleinere standplaatsen kunt u hierover met collega-ondernemers of aangrenzende bedrijven afspraken maken. Indien u gebruik kunt maken van BHV-ers in de directe omgeving is het dus niet noodzakelijk om eigen bedrijfshulpverleners op te leiden. Voorwaarde is wel dat u hierover goede afspraken gemaakt heeft en dat deze afspraken bij iedereen bekend zijn.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12213">
+            <description>&lt;p&gt;Oplossing 1 Met collega-ondernemers en/of marktbeheerder afspraken maken over hoe eerste hulp wordt verleend bij calamiteiten of &#233;&#233;n of meerdere medewerkers opleiden tot bedrijfshulpverlener.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Met collega-ondernemers en/of marktbeheerder afspraken maken over hoe eerste hulp wordt verleend bij calamiteiten of &#233;&#233;n of meerdere medewerkers opleiden tot bedrijfshulpverlener.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22088" type="policy">
+        <title>Er zijn instructies opgesteld, waarop op eenvoudige wijze is aangegeven wat te doen indien zich een ongeval of brand voordoet.</title>
+        <description>&lt;p&gt;Het is belangrijk dat alle medewerkers weten hoe te handelen in geval van een ongeval of brand. &#201;&#233;n A4-tje met daarop de belangrijkste aandachtspunten is veelal voldoende.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12214">
+            <description>&lt;p&gt;Oplossing 1 Op schrift stellen wat personeel moet doen in geval van een calamiteit.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Op schrift stellen wat personeel moet doen in geval van een calamiteit.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22089" type="policy">
+        <title>Belangrijke telefoonnummers die men in noodsituaties moet gebruiken liggen binnen handbereik op een voor iedereen bekende plek.</title>
+        <description></description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12215">
+            <description>&lt;p&gt;Oplossing 1 Lijst met belangrijke telefoonnummers opstellen en binnen handbereik leggen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Lijst met belangrijke telefoonnummers opstellen en binnen handbereik leggen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22090" type="policy">
+        <title>Ongevallen met ernstige gevolgen worden meteen gemeld bij de Arbeidsinspectie.</title>
+        <description>&lt;p&gt;Onder een &#8220;ernstig ongeval&#8221; wordt verstaan lichamelijk of geestelijk letsel dat binnen 24 uur leidt tot opname in een ziekenhuis of letsel dat de dood tot gevolg heeft. De Arbeidsinspectie zal veelal een ongevalonderzoek uitvoeren.&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12216">
+            <description>&lt;p&gt;Oplossing 1 In geval van een ernstig ongeval deze binnen 24 uur melden aan Arbeidsinspectie.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 In geval van een ernstig ongeval deze binnen 24 uur melden aan Arbeidsinspectie.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22091" type="policy">
+        <title>Bij verhoogde kans op brandgevaar, (geldt in ieder geval bij bakken en braden) is in de marktkraam of marktwagen een brandblusser (geen water!) aanwezig.</title>
+        <description></description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12217">
+            <description>&lt;p&gt;Oplossing 1 Aanschaf blusmiddel.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;1 Aanschaf blusmiddel.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22092" type="policy">
+        <title>Er is een onderhoudscontract voor de blusmiddelen.</title>
+        <description>&lt;p&gt;Het onderhoud van blustoestellen moet uitgevoerd worden door een gespecialiseerd bedrijf of brandweerkorps. Dit onderhoud moet jaarlijks uitgevoerd worden.&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12218">
+            <description>&lt;p&gt;Oplossing 1 Jaarlijks onderhoud van blusmiddelen regelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Jaarlijks onderhoud van blusmiddelen regelen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22093" type="policy">
+        <title>Een goedgekeurde verbandtrommel ligt binnen handbereik.</title>
+        <description>&lt;p&gt;Een goedgekeurde trommel kunt u herkennen aan de tekst &#8221;Goedgekeurd door&#8221; en het logo van het oranje kruis.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Binnen de ambulante handel is het raadzaam om in ieder geval in de bedrijfswagen zo&#8217;n verbandtrommel beschikbaar te hebben. Wanneer de bedrijfswagen niet in de nabijheid van de standplaats kan staan, is het noodzakelijk om op de standplaats een verbandtrommel te hebben.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12219">
+            <description>&lt;p&gt;Oplossing 1 Aanschaf verbandtrommel(s).&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Aanschaf verbandtrommel(s).&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12220">
+            <description>&lt;p&gt;Oplossing 2 Altijd een verbandtrommel binnen handbereik.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Altijd een verbandtrommel binnen handbereik.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22094" type="policy">
+        <title>De verbandmiddelen worden regelmatig (minimaal jaarlijks) gecontroleerd op houdbaarheid en volledigheid.</title>
+        <description>&lt;p&gt;Steriele middelen hebben een uiterste gebruiksdatum. Na het verstrijken van deze datum zijn niet alle middelen meer gegarandeerd steriel. Controleer de trommels regelmatig op de vervaldata en vervang deze op tijd.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12221">
+            <description>&lt;p&gt;Oplossing 1 Periodieke controle van verbandtrommel(s) regelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Periodieke controle van verbandtrommel(s) regelen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <module rie:id="M-4397" optional="true">
+        <title>Verkoop van eet- en/of drinkwaren</title>
+        <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+        <question>U handelt in eet- en/of drinkwaren.</question>
+        <risk rie:id="R-22083" type="policy">
+          <title>U werkt aantoonbaar conform de hygi&#235;necode voor ambulante handel, dan wel conform de regels van de hygi&#235;necode van uw eigen branche.</title>
+          <description>&lt;p&gt;De adviescommissie Markt-, Straat- en Rivierenhandel (MSR) van het Hoofdbedrijfschap Detailhandel heeft speciaal voor de ambulante handelaren de "Hygi&#235;necode Ambulante Handel eet- en Drinkwaren" uitgegeven. Deze code is een eenvoudige handleiding met praktische tips en aanbevelingen om hygi&#235;nisch &#233;n effici&#235;nt te kunnen werken vanuit een ambulant verkooppunt. De nieuwe hygi&#235;necode is bestemd voor de gehele ambulante handel in verse producten en voedingsmiddelen. Wel moeten de werkzaamheden zich beperken tot zogenoemde eenvoudige handelingen die op de verkoopplaats worden verricht. Hieronder verstaan we: het bereiden, behandelen, verpakken of bewaren van eet- of drinkwaren gericht op de onmiddellijke verkoop. Doet u meer dan dat, dan voldoet deze code niet en moet u zich blijven houden aan de regels van de hygi&#235;necode voor de branche waarin u werkt.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Door te werken conform de voorschriften uit deze code en de tabellen bij te houden maakt u aantoonbaar dat u conform deze code werkt. U voldoet hiermee aan de warenwetregeling Hygi&#235;ne van levensmiddelen. U kunt de hygi&#235;necode &lt;/p&gt;&lt;a href="http://www.hbd.nl/index.cfm/24,0,74,77,html" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;&lt;p&gt; downloaden.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12222">
+              <description>&lt;p&gt;Oplossing 1 Hygi&#235;necode downloaden via www.hbd.nl/index.cfm/10,640,19,html.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Hygi&#235;necode downloaden via &lt;/p&gt;&lt;a href="http://www.hbd.nl/index.cfm/10,640,19,html" rel="nofollow" target="_blank"&gt;www.hbd.nl/index.cfm/10,640,19,html&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+        <risk rie:id="R-22095" type="policy">
+          <title>Medewerkers zijn ge&#239;nformeerd en ge&#239;nstrueerd over de hygi&#235;necode.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12223">
+              <description>&lt;p&gt;Oplossing 1 Medewerkers informeren en instrueren.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Medewerkers informeren en instrueren.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+        <risk rie:id="R-22096" type="policy">
+          <title>Bij verhoogde kans op brandgevaar, (geldt in ieder geval bij bakken en braden) is in de marktkraam of markt wagen een brandblusser (geen water!) aanwezig.</title>
+          <description></description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12224">
+              <description>&lt;p&gt;Oplossing 1 Aanschaf blusmiddel.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Aanschaf blusmiddel.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+      </module>
+      <module rie:id="M-4398" optional="true">
+        <title>Werken met arbeidsmiddelen</title>
+        <description>&lt;p&gt;Hierbij moet u denken aan o.a. snijmachines, gasinstallaties, ovens en frituurinstallaties. In het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt; staan handige tips rondom het thema snijrisico&#8217;s.&lt;/p&gt;</description>
+        <question>Er wordt gebruik gemaakt van specifieke arbeidsmiddelen.</question>
+        <risk rie:id="R-22098" type="policy">
+          <title>De aanwezige arbeidsmiddelen voldoen aan de gestelde veiligheidseisen.</title>
+          <description>&lt;p&gt;Alle machines/apparatuur aangeschaft na 1 januari 1995 moeten zijn voorzien van een CE-keurmerk. De leverancier is hiervoor verantwoordelijk. Met een CE-keurmerk geeft de leverancier aan dat hij in het ontwerp rekening heeft gehouden met veiligheidsaspecten. Voor machines zijn deze veiligheidsaspecten beschreven in de machinerichtlijnen. Een oudere machine (van v&#243;&#243;r 1995) is niet per definitie onveilig. Het is belangrijk om in dit geval navraag te doen of de machine nog voldoet aan de meest recente eisen.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12225">
+              <description>&lt;p&gt;Oplossing 1 Beschrijf in uw plan van aanpak bij welke machines gebreken geconstateerd zijn en geef aan welke maatregelen en per wanneer getroffen gaan worden.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Beschrijf in uw plan van aanpak bij welke machines gebreken geconstateerd zijn en geef aan welke maatregelen er per wanneer getroffen gaan worden.&lt;/p&gt;</action-plan>
+            </solution>
+            <solution rie:id="O-12226">
+              <description>&lt;p&gt;Oplossing 2 Informeer bij uw leverancier in hoeverre de aanwezige machines voldoen aan de huidige veiligheidseisen. Indien bepaalde machines niet aan de noodzakelijke veiligheidseisen voldoen, geeft dan aan voor welke machines dit geldt, welke - en per wanneer maatregelen getroffen gaan worden.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 2 Informeer bij uw leverancier in hoeverre de aanwezige machines voldoen aan de huidige veiligheidseisen. Indien bepaalde machines niet aan de noodzakelijke veiligheidseisen voldoen, geeft dan aan voor welke machines dit geldt, welke - en per wanneer maatregelen getroffen gaan worden.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+        <risk rie:id="R-22099" type="policy">
+          <title>De medewerkers die met de aanwezige arbeidsmiddelen werken zijn voldoende opgeleid c.q. deskundig.</title>
+          <description>&lt;p&gt;Het is belangrijk dat medewerkers die met arbeidsmiddelen werken bekend zijn met de risico&#8217;s van deze arbeidsmiddelen en werken conform de instructies.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;In geval van een ongeval moet de werkgever kunnen aantonen dat medewerkers ook daadwerkelijk voldoende opgeleid c.q. deskundig zijn.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Bij elk arbeidsmiddel, aangeschaft na 1995, moet een in het Nederlands opgestelde gebruikershandleiding aanwezig zijn. Deze kunt u uitstekend gebruiken om medewerkers te instrueren. Mocht deze gebruikershandleiding ontbreken informeer hier dan naar bij de leverancier.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12229">
+              <description>&lt;p&gt;Oplossing 1 Medewerkers voorlichten en instrueren over het veilig gebruik van de aanwezige arbeidsmiddelen. Gebruik het oplossingenboek voor tips rondom het thema snijrisico&#8217;s.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Medewerkers voorlichten en instrueren over het veilig gebruik van de aanwezige arbeidsmiddelen. Gebruik het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt; voor tips rondom het thema snijrisico&#8217;s.&lt;/p&gt;</action-plan>
+            </solution>
+            <solution rie:id="O-12230">
+              <description>&lt;p&gt;Oplossing 2 Instructies opnemen in huishoudelijk reglement.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 2 Instructies opnemen in huishoudelijk reglement.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+        <risk rie:id="R-22100" type="policy">
+          <title>De arbeidsmiddelen worden aantoonbaar periodiek gecontroleerd door een deskundige.</title>
+          <description>&lt;p&gt;Door het gebruik gaat elk arbeidsmiddel in kwaliteit achteruit. Dit betekent dat elk arbeidsmiddel regelmatig onderhouden en gecontroleerd moet worden. De resultaten van die controle moeten schriftelijk vastgelegd worden. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;De controle en het onderhoud moeten minimaal &#233;&#233;nmaal per jaar plaatsvinden. Dit moet gedaan worden door iemand die (aantoonbaar) &#8216;voldoende&#8217; deskundig is. Dit mag iemand van het eigen bedrijf zijn, maar het kan ook iemand van een gespecialiseerd bedrijf zijn.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;In geval van een calamiteit met een arbeidsmiddel, moet u kunnen aantonen dat het arbeidsmiddel periodiek door een deskundige is gecontroleerd.&lt;/p&gt;</description>
+          <show-not-applicable>no</show-not-applicable>
+          <evaluation-method>direct</evaluation-method>
+          <solutions>
+            <solution rie:id="O-12228">
+              <description>&lt;p&gt;Oplossing 1 Periodiek onderhoud regelen en de resultaten vastleggen.&lt;/p&gt;</description>
+              <action-plan>&lt;p&gt;Oplossing 1 Periodiek onderhoud regelen en de resultaten vastleggen.&lt;/p&gt;</action-plan>
+            </solution>
+          </solutions>
+        </risk>
+      </module>
+    </module>
+    <module rie:id="M-4399" optional="no">
+      <title>Lichamelijke belasting</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22101" type="top5">
+        <title>Er zijn aantoonbare maatregelen getroffen om het tillen of dragen van zware lasten zoveel mogelijk te voorkomen.</title>
+        <description>&lt;p&gt;Het tillen of dragen van kratten, rollen stof, is een belangrijk aandachtspunt binnen de ambulante handel. Het werken op een hellende ondergrond is belastend voor rug en benen door de ongelijke belasting. 1cm hoogteverschil bij staand werk is reeds belastend.&lt;br/&gt;Regelmatig zwaar tillen en dragen leidt tot overbelasting van rugspieren en tussenwervelgewrichten. Fysieke belasting als gevolg van tillen of dragen vraagt daarom om een actieve aanpak. In een ideale situatie bedraagt het maximaal te tillen gewicht voor 1 persoon 23 kilo. Van de ideale tilsituatie is echter vrijwel nooit sprake. Dan moet de last namelijk recht voor het lichaam worden getild, op tafelhoogte staan, bijna tegen het lichaam aan getild worden en gemakkelijk vast te houden zijn. Omdat dit vrijwel nooit voorkomt is in de meeste situaties &#8211; ook in de branche &#8211; het maximum tilgewicht al veel eerder bereikt. Zeker omdat ook het aantal keren dat gedragen of getild moet worden van invloed is. Twintig keer per dag een gewicht van meer dan 10 kilo moeten tillen of dragen kan evenzeer tot overbelasting leiden.&lt;br/&gt;Wanneer &#233;&#233;n van onderstaande situaties voorkomt, is veelal sprake van normoverschrijdende tilhandelingen:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Meerdere malen per dag goederen &#8805; 25 kg tillen, of &lt;/li&gt;&lt;li&gt;meerdere keren per dag gewichten &amp;gt;10 kg in ongemakkelijke houdingen tillen. Bijvoorbeeld: met een gebogen en/of gedraaide rug; met de handen op of boven schouderhoogte; knielend, met gebogen knie&#235;n of staand op een been (deze houdingen komen voor bij laden en lossen wanneer geen laadklep aanwezig is of tillen laag bij de grond) of &lt;/li&gt;&lt;li&gt;enkele malen per dag meer dan 12 keer per uur gewichten van meer dan 3 kg tillen.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Werken met tilhulpmiddelen, zware lasten samen tillen of dragen, en aandacht voor goede werkhoudingen kunnen al gauw een groot verschil maken in de dagelijkse belasting. Hieronder staan maatregelen beschreven die u kunt nemen om aantoonbaar bezig te zijn met het beperken van tillen, dragen van zware lasten.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Maak een overzicht van taken waarbij zwaar wordt getild en bekijk welke mogelijkheden er zijn om zwaar tillen en dragen te voorkomen. &lt;/li&gt;&lt;li&gt;Zorg ervoor dat medewerkers als ze alleen zijn, zo minimaal mogelijk&#160;lasten van 23 kilo of meer tillen of dragen. &lt;/li&gt;&lt;li&gt;Zorg ervoor dat twee medewerkers samen, zo minimaal mogelijk&#160;meer dan 50 kilo tillen of dragen. &lt;/li&gt;&lt;li&gt;Betrek medewerkers bij het zoeken naar werkbare oplossingen. &lt;/li&gt;&lt;li&gt;Zorg er voor dat er achter en rondom het verkooppunt voldoende ruimte is. Dan kan veilig en met zo gunstig mogelijke werkhoudingen gewerkt worden. Er hoeft niet onnodig gebukt, geschoven etc te worden. Er kunnen enkele passen gezet worden (dit voorkomt torsie van de rug) en men kan elkaar passeren. &lt;/li&gt;&lt;li&gt;Schaf tilmiddelen aan om lichamelijke belasting te voorkomen, bijvoorbeeld een steekwagen, palletwagen, hondjes. Zie ook het &lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&#160;of kijk op de site &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; &#160;&lt;/li&gt;&lt;li&gt;Instrueer medewerkers over de manier waarop ze op de minst belastende manier kunnen tillen of dragen&#160; Er is een speciale training fysieke belasting ontwikkeld. Voor meer informatie hierover, klik &lt;a href="www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12231">
+            <description>&lt;p&gt;Oplossing 1 Maak een overzicht van taken waarbij zwaar wordt getild en bekijk welke mogelijkheden er zijn om zwaar tillen en dragen te voorkomen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Maak een overzicht van taken waarbij zwaar wordt getild en bekijk welke mogelijkheden er zijn om zwaar tillen en dragen te voorkomen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12232">
+            <description>&lt;p&gt;Oplossing 2 Zorg ervoor dat medewerkers alleen zo veel mogelijk geen lasten van 23 kilo of meer tillen of dragen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Zorg ervoor dat medewerkers als ze alleen zijn, zo minimaal&#160;mogelijk&#160; lasten van 23 kilo of meer tillen of dragen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12233">
+            <description>&lt;p&gt;Oplossing 3 Zorg ervoor dat twee medewerkers zo veel mogelijk samen niet meer dan 50 kilo tillen of dragen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Zorg ervoor dat twee medewerkers samen, zo minimaal&#160;mogelijk&#160; meer dan 50 kilo tillen of dragen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12234">
+            <description>&lt;p&gt;Oplossing 4 Betrek medewerkers bij het zoeken naar werkbare oplossingen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 4 Betrek medewerkers bij het zoeken naar werkbare oplossingen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12235">
+            <description>&lt;p&gt;Oplossing 5 Houd bij de aanschaf van gereedschap en materialen rekening met het gewicht en ondergrond.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 5 Houd bij de aanschaf van gereedschap en materialen rekening met het gewicht en ondergrond.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12236">
+            <description>&lt;p&gt;Oplossing 6 Schaf tilmiddelen aan om lichamelijk belasting te voorkomen, bijvoorbeeld een steekwagen, palletwagen, hondjes. Zie tevens het oplossingenboek.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 6 Schaf tilmiddelen aan om lichamelijk belasting te voorkomen, bijvoorbeeld een steekwagen, palletwagen, hondjes. Zie tevens het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12237">
+            <description>&lt;p&gt;Oplossing 7 Instrueer medewerkers over de manier waarop ze op de minst belastende manier kunnen tillen of dragen. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op www.handigopjewerk.nl of via de CVAH.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 7 Instrueer medewerkers over de manier waarop ze op de minst belastende manier kunnen tillen of dragen. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt; of via de &lt;/p&gt;&lt;a href="www.cvah.nl" rel="nofollow" target="_blank"&gt;CVAH&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22102" type="top5">
+        <title>Er zijn aantoonbare maatregelen getroffen om het (handmatig) duwen en trekken van zware lasten zoveel mogelijk te voorkomen.</title>
+        <description>&lt;p&gt;Het handmatig verplaatsen van kar of wagen is te zwaar en gebeurt veelal in ongunstige houding. Door te zorgen voor een verplaatsingshulpmiddel wordt dit voorkomen en kan de kar, wagen optimaal verplaatst worden.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Afhankelijk van de kracht die nodig is om de last in beweging te brengen en te houden, kan bepaald worden of de lasten te zwaar zijn om handmatig te verplaatsen. Met een unster of klokweegschaal kan de trekkracht bepaald worden. Gemiddeld genomen moet deze onder de 20 kg. blijven.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Zeker in situaties waarbij frequent zware goederen verplaatst moeten worden is het zinvol kritisch te beoordelen in hoeverre de huidige situatie normoverschrijdend is. Niet gladde vloeren, hellende vloeren, oneffenheden, drempels of slecht onderhouden wielen, hebben een negatief effect op de trek- en duwkrachten.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Bij oneffenheden en/of hellende ondergrond kan het gebruik van bepaalde hulpmiddelen voor transport juist belastend zijn. Houd bij de aanschaf van hulpmiddelen rekening met dit risico en zorg voor goede werkinstructies.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Duwen heeft de voorkeur boven trekken, omdat bij duwen gebruik gemaakt kan worden van het eigen lichaamsgewicht, in een gunstigere werkhouding.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12238">
+            <description>&lt;p&gt;Oplossing 1 Bespreek met elkaar in hoeverre er sprake is van normoverschrijdende trek- of duwhandelingen. Bepaal aan de hand hiervan welke verbeteringen mogelijk zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bespreek met elkaar in hoeverre er sprake is van normoverschrijdende trek- of duwhandelingen. Bepaal aan de hand hiervan welke verbeteringen mogelijk zijn.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12239">
+            <description>&lt;p&gt;Oplossing 2 Bij oneffenheden en/of hellende ondergrond kan het gebruik van bepaalde hulpmiddelen voor transport juist belastend zijn. Houd bij de aanschaf van hulpmiddelen rekening met dit risico en zorg voor goede werkinstructies.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Bij oneffenheden en/of hellende ondergrond kan het gebruik van bepaalde hulpmiddelen voor transport juist belastend zijn. Houd bij de aanschaf van hulpmiddelen rekening met dit risico en zorg voor goede werkinstructies.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12240">
+            <description>&lt;p&gt;Oplossing 3 Zorg voor gladde vloeren, bij voorkeur niet hellend, geen drempels, goed onderhouden wielen, goede handvatten aan de karren en goede werkhoudinginstructies. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Zorg voor gladde vloeren, bij voorkeur niet hellend, geen drempels, goed onderhouden wielen, goede handvatten aan de karren en goede werkhoudinginstructies. &lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12241">
+            <description>&lt;p&gt;Oplossing 4 Schakel een deskundige in om u te ondersteunen bij het nemen van of adviseren over verbetermaatregelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 4 Schakel een deskundige in om u te ondersteunen bij het nemen van of adviseren over verbetermaatregelen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22103" type="top5">
+        <title>Ongunstige werkhoudingen zoals in de toelichting beschreven, worden voorkomen.</title>
+        <description>&lt;p&gt;Werkhoudingen die lang moeten worden volgehouden, kunnen leiden tot spier- en gewrichtsklachten. Dit komt voor bij:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Gedraaide rughouding;&lt;/li&gt;&lt;li&gt;Geregeld langer dan 1 uur achtereen stilstaan;&lt;/li&gt;&lt;li&gt;Langer dan 2 uur per dag gebogen, gehurkt of geknield werken;&lt;/li&gt;&lt;li&gt;Werkhoogte te hoog of te laag doordat de, werkvlakhoogte niet afgestemd is op de lichaamslengte van de medewerker;&lt;/li&gt;&lt;li&gt;Reiken boven schouder- en onder knieniveau;&lt;/li&gt;&lt;li&gt;Staan op 1 been of meer dan 1 uur onafgebroken staan.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Deze ongunstige werkhoudingen kunnen voorkomen/beperkt worden door:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Het anders plannen van het werk (zo veel mogelijk voorbereidende werkzaamheden verrichten in een &#8216;gewone&#8217; lichaamshouding);&lt;/li&gt;&lt;li&gt;Het aanschaffen van hulpmiddelen (bijvoorbeeld om wat hoger te staan, en zo een beter bereik te hebben); &lt;/li&gt;&lt;li&gt;Instructie van medewerkers. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op&#160; &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; of via de &lt;a href="http://www.cvah.nl/" rel="nofollow" target="_blank"&gt;CVAH&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12242">
+            <description>&lt;p&gt;Oplossing 1 Het anders plannen van het werk (zo veel mogelijk voorbereidende werkzaamheden verrichten in een &#8216;gewone&#8217; lichaamshouding). &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Het anders plannen van het werk (zo veel mogelijk voorbereidende werkzaamheden verrichten in een &#8216;gewone&#8217; lichaamshouding). &lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12243">
+            <description>&lt;p&gt;Oplossing 2 Het aanschaffen van hulpmiddelen (bijvoorbeeld om wat hoger te staan, en zo een beter bereik te hebben).&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Het aanschaffen van hulpmiddelen (bijvoorbeeld om wat hoger te staan, en zo een beter bereik te hebben).&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12244">
+            <description>&lt;p&gt;Oplossing 3 Instructie aan medewerkers.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Instructie aan medewerkers.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22104" type="top5">
+        <title>Er wordt voorkomen dat men regelmatig ver moet reiken.</title>
+        <description>&lt;p&gt;Bij ver reiken (&amp;gt; 60 cm, gerekend vanaf de schouder) ontstaat automatisch een gebogen rughouding, al of niet in combinatie met staan op &#233;&#233;n been. Ver reiken in combinatie met tillen van goederen is zeer belastend voor de rug. Dit komt vooral voor wanneer goederen ver uitgestald worden in vitrines of kramen.&lt;br/&gt;Wanneer de verkoper te hoog staat ten opzichte van de koper wordt voortdurend voorovergebogen gewerkt. In combinatie met reiken is dit onverantwoord belastend. Een hoogteverschil van 35 cm (twee treden) is daarom het maximum.&lt;br/&gt;Mogelijke verbeteringen zijn:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;diepte uitstalling beperken (kraam maximaal 120 cm diep en transacties laten plaatsvinden over minder dan 90 cm); &lt;/li&gt;&lt;li&gt;stimuleren zelfbediening bij goederen/producten die ver weg liggen; &lt;/li&gt;&lt;li&gt;bij een verkoopwagen de kassa onderdeel van de inrichting maken; &lt;/li&gt;&lt;li&gt;kratten schuin plaatsen; &lt;/li&gt;&lt;li&gt;gebruik maken van vleestang. &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Zie tevens het &lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt; of kijk op &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12245">
+            <description>&lt;p&gt;Oplossing 1 Denk aan een van de volgende mogelijkheden: Diepte uitstalling beperken (maximaal 120 cm en transacties laten plaatsvinden binnen 90 cm reikwijdte); Maximaal hoogteverschil in een verkoopwagen van 35 cm (twee treden); Stimuleren zelfbediening bij goederen/producten die ver weg liggen; Kratten schuin plaatsen; Gebruik maken van vleestang; Zie voor meer tips het oplossingenboek en de instructiewaaier.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Denk aan een van de volgende mogelijkheden: Diepte uitstalling beperken (maximaal 120 cm en transacties laten plaatsvinden binnen 90 cm reikwijdte); Maximaal hoogteverschil in een verkoopwagen van 35 cm (twee treden); Stimuleren zelfbediening bij goederen/producten die ver weg liggen; Kratten schuin plaatsen; Gebruik maken van vleestang; Zie voor meer tips het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt; en de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/index.php?id=91" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22105" type="top5">
+        <title>Er is een zit- of steungelegenheid aanwezig.</title>
+        <description>&lt;p&gt;Langdurig (stil)staan (langer dan 1 uur aaneengesloten of meer dan 4 uur per dag) is erg vermoeiend. Dit aandachtspunt kan eenvoudig opgelost worden door plaatsen van een stoel, kruk of stasteun. In een marktkraam of verkoopwagen wordt dit veelal als een sta in de weg gezien. Een goed alternatief hier is het gebruik van een ingebouwde, of aan een wand bevestigde, opklapbare kruk.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12246">
+            <description>&lt;p&gt;Oplossing 1 Aanschaf zit- of steungelegenheid.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Aanschaf zit- of steungelegenheid.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22106" type="top5">
+        <title>Er zijn aantoonbaar maatregelen genomen om lichamelijke klachten door repeterende handeling te voorkomen.</title>
+        <description>&lt;p&gt;Lang achter elkaar dezelfde beweging maken met armen en handen kan leiden tot spier-, pees- en gewrichtsklachten. Om dit te voorkomen zijn goede en lichte hulpmiddelen en afwisseling in werkzaamheden belangrijk. &lt;br/&gt;Hieronder staan maatregelen beschreven die u kunt nemen om aantoonbaar bezig te zijn met het beperken van repeterende handelingen.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Maak een overzicht van werkzaamheden met repeterende bewegingen. Bekijk welke mogelijkheden er zijn om problemen en klachten in de toekomst te voorkomen.&lt;/li&gt;&lt;li&gt;Betrek medewerkers bij het zoeken naar oplossingen, bespreek het oplossingenboek met elkaar.&lt;/li&gt;&lt;li&gt;Zorg voor ergonomisch (licht en gemakkelijk te bedienen) gereedschappen en hulpmiddelen.&lt;/li&gt;&lt;li&gt;Zorg voor voldoende afwisseling van taken.&lt;/li&gt;&lt;li&gt;Instrueer medewerkers over de manier waarop ze belasting kunnen voorkomen. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; of via de &lt;a href="www.cvah.nl" rel="nofollow" target="_blank"&gt;CVAH&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;Herhaal deze instructie regelmatig.&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12247">
+            <description>&lt;p&gt;Oplossing 1 Maak een overzicht van werkzaamheden met repeterende bewegingen. Bepaal op basis hiervan (in samenspraak met de medewerkers) welke verbeter maatregelen mogelijk zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Maak een overzicht van werkzaamheden met repeterende bewegingen. Bepaal op basis hiervan (in samenspraak met de medewerkers) welke verbetermaatregelen mogelijk zijn.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12248">
+            <description>&lt;p&gt;Oplossing 2 Betrek medewerkers bij het zoeken naar oplossingen, bespreek oplossingenboek.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Betrek medewerkers bij het zoeken naar oplossingen, bespreek het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12249">
+            <description>&lt;p&gt;Oplossing 3 Zorg voor ergonomisch (licht en gemakkelijk te bedienen) gereedschappen en hulpmiddelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Zorg voor ergonomisch (licht en gemakkelijk te bedienen) gereedschappen en hulpmiddelen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12250">
+            <description>&lt;p&gt;Oplossing 4 Zorg voor voldoende afwisseling van taken.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 4 Zorg voor voldoende afwisseling van taken.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12251">
+            <description>&lt;p&gt;Oplossing 5 Instrueer medewerkers over de manier waarop ze belasting kunnen voorkomen. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op www.handigopjewerk.nl; Herhaal deze instructie regelmatig.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 5 Instrueer medewerkers over de manier waarop ze belasting kunnen voorkomen. Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt;. Herhaal deze instructie regelmatig.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22107" type="top5">
+        <title>De medewerkers zijn van oordeel dat zij beschikken over voldoende en adequate hulpmiddelen.</title>
+        <description>&lt;p&gt;Door gebruik van hulpmiddelen kan de lichamelijke belasting afnemen en kan het werkproces versneld worden. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;Bij hulpmiddelen is de toepasbaarheid in afwijkende situaties en de benodigde extra tijd voor bediening een belangrijk aandachtspunt. Het is belangrijk deze praktijksituaties met elkaar te bespreken en gezamenlijk naar mogelijke oplossingen te zoeken. Bespreek bijvoorbeeld het &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;oplossingenboek&lt;/a&gt;&lt;p&gt; met elkaar. Er staan handige tips, voorbeelden en hulpmiddelen in, die kunnen bijdragen de lichamelijke belasting te verbeteren.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12252">
+            <description>&lt;p&gt;Oplossing 1 In samenspraak met medewerkers nagaan welke hulpmiddelen wenselijk zijn; Oplossingenboek bekijken.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 In samenspraak met medewerkers nagaan welke hulpmiddelen wenselijk zijn; &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/arbothem/arboconv/sektdoku/detailhandel_voeding_en_genot/oplossingenboek%20ambulante%20handel.pdf" rel="nofollow" target="_blank"&gt;Oplossingenboek&lt;/a&gt;&lt;p&gt; bekijken.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22108" type="policy">
+        <title>Het voorkomen van ongunstige fysieke belasting is een belangrijk aandachtspunt binnen het bedrijfsbeleid.</title>
+        <description>&lt;p&gt;Lichamelijke klachten vormen een belangrijke oorzaak van verzuim in de branche. Zij zorgen ook voor een aanzienlijk deel van het langdurig verzuim en de instroom in de WIA. Juist in de uitvoerende functies hebben medewerkers te maken met fysieke belasting: regelmatig zwaar tillen&#160; en verplaatsen, werken in ongunstige houdingen. Fysieke belasting vraagt daarom om een actieve en systematische aanpak.&lt;br/&gt;Te nemen maatregelen:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Zorg er bij de aanschaf van hulpmiddelen, gereedschappen en machines voor dat deze bijdragen aan het voorkomen van fysieke belasting.&lt;/li&gt;&lt;li&gt;Maak van het voorkomen van fysieke belasting een vast agendapunt op werkoverleg.&lt;/li&gt;&lt;li&gt;Onderzoek of fysieke belasting ook te voorkomen is door een betere planning van het werkproces.&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12253">
+            <description>&lt;p&gt;Oplossing 1 Maak van het voorkomen van fysieke belasting een vast agendapunt op werkoverleg.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Maak van het voorkomen van fysieke belasting een vast agendapunt op werkoverleg.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12254">
+            <description>&lt;p&gt;Oplossing 2 Zorg er bij de aanschaf van hulpmiddelen, gereedschappen en machines voor dat deze bijdragen aan het voorkomen van fysieke belasting.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Zorg er bij de aanschaf van hulpmiddelen, gereedschappen en machines voor dat deze bijdragen aan het voorkomen van fysieke belasting.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12255">
+            <description>&lt;p&gt;Oplossing 3 Onderzoek of fysieke belasting ook te voorkomen is door een betere planning van het werkproces.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Onderzoek of fysieke belasting ook te voorkomen is door een betere planning van het werkproces.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22109" type="top5">
+        <title>Medewerkers, hebben specifieke voorlichting gekregen over de risico&#8217;s van lichamelijk belastende werkzaamheden.</title>
+        <description>&lt;p&gt;E&#233;n van de meest voorkomende oorzaken van ziekteverzuim en arbeidsongeschiktheid binnen de ambulante handel, zijn klachten aan het houdings- en bewegingsapparaat. Het is dan ook niet voor niets dat er een wettelijke verplichting geldt om medewerkers die lichamelijk zwaar&#160;werk verrichten voor te lichten over de risico&#8217;s. &lt;br/&gt;Bij het geven van voorlichting en instructies is het belangrijk om de huidige ongunstige werkhoudingen onder de aandacht te brengen en gezamenlijk naar oplossingen of verbeteringen te zoeken. Het gaat erom dat medewerkers zich bewust zijn van de risico&#8217;s die men loopt en hun verantwoordelijkheid nemen om hier ook bewust naar te handelen. &lt;/p&gt;&lt;p&gt;Bespreek de knelpunten en aandachtspunten &#233;&#233;n of twee keer per jaar in een werkoverleg. Nodig eventueel een deskundige uit, die dit onderwerp behandelt.&lt;br/&gt;Oorzaken van ongunstige werkhouding zijn veelal een combinatie van drie factoren. De aard van de werkzaamheden; de inrichting van de werkplekken en de beschikbare hulpmiddelen en de kennis en kunde van de medewerker. &lt;/p&gt;&lt;p&gt;Indien sprake is van ongunstige werkhoudingen is het belangrijk om kritisch naar al deze drie factoren te kijken.&lt;br/&gt;Er is een speciale training fysieke belasting ontwikkeld. Meer informatie hierover kunt u vinden op&#160; &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; of via de &lt;a href="www.cvah.nl" rel="nofollow" target="_blank"&gt;CVAH&lt;/a&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12256">
+            <description>&lt;p&gt;Oplossing 1 Medewerkers laten deelnemen aan de speciaal voor de branche ontwikkelde training fysieke belasting. Meer informatie hierover kunt u vinden op www.handigopjewerk.nl&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Medewerkers laten deelnemen aan de speciaal voor de branche ontwikkelde training fysieke belasting. Meer informatie hierover kunt u vinden op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22110" type="top5">
+        <title>De medewerkers zijn tevreden over het ergonomische ontwerp van de bedrijfswagen.</title>
+        <description>&lt;p&gt;Vooral het ergonomische ontwerp van de bedrijfswagen speelt een belangrijke rol in het beperken van de lichamelijke belasting. Denk hierbij aan de volgende aspecten:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;aanwezigheid van een laadklep of laadrails (voorkomt veelal handmatig tillen);&lt;/li&gt;&lt;li&gt;aanwezigheid extra laad-/losdeuren (goederen beter bereikbaar);&lt;/li&gt;&lt;li&gt;plaats waar hulpmiddelen (steekwagen e.d.) kunnen staan, zodat deze altijd goed bereikbaar zijn;&lt;/li&gt;&lt;li&gt;hoogte van de laadruimte en breedte van het laadruim;&lt;/li&gt;&lt;li&gt;plaats waar gereedschappen en materialen goed opgeborgen kunnen worden.&lt;/li&gt;&lt;/ul&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12257">
+            <description>&lt;p&gt;Oplossing 1 Beschrijf in uw plan van aanpak welke aandachtspunten geconstateerd zijn en geef aan op welke wijze u deze aandachtspunten gaat verbeteren.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Beschrijf in uw plan van aanpak welke aandachtspunten geconstateerd zijn en geef aan op welke wijze u deze aandachtspunten gaat verbeteren.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22111" type="risk">
+        <title>De gebruikers zijn tevreden over het zitcomfort van de chauffeursstoel.</title>
+        <description>&lt;p&gt;Klachten over het zitcomfort van de chauffeursstoel zijn een belangrijke reden om de huidige stoel goed "onder de loep" te nemen.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Een goede chauffeursstoel is in te stellen op de bouw van de chauffeur. Er zijn veel goede chauffeursstoelen in de handel. Indien u meer specifieke informatie wenst over chauffeursstoelen kunt u contact opnemen met de servicedesk van BGZ-wegvervoer (0900-4636249).&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12258">
+            <description>&lt;p&gt;Oplossing 1 Aanschaf chauffeursstoel. Voor specifieke informatie over chauffeursstoelen kunt u contact opnemen met de servicedesk van BGZ wegvervoer, 0900 4636249&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Aanschaf chauffeursstoel. Voor specifieke informatie over chauffeursstoelen kunt u contact opnemen met de servicedesk van BGZ wegvervoer, 0900 4636249&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22112" type="policy">
+        <title>De bedrijfswagen beschikt over een voorziening voor handsfree telefoneren.</title>
+        <description>&lt;p&gt;Bellen in de auto is wettelijk verboden. Indien medewerkers vanuit de bedrijfswagen mobiel bereikbaar moeten zijn, dient er een handsfree set of carkit te zijn. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;Indien geen carkit aanwezig is, maar medewerkers beschikken wel over een mobiel toestel, maak dan duidelijke afspraken over uitzetten of niet aannemen van dit toestel, wanneer men aan het rijden is.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12259">
+            <description>&lt;p&gt;Oplossing 1 Aanschaf carkit.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Aanschaf carkit.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12260">
+            <description>&lt;p&gt;Oplossing 2 Bij het ontbreken van handsfree middelen, de medewerkers instrueren dat men tijdens het rijden niet mobiel mag bellen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Bij het ontbreken van handsfree middelen, de medewerkers instrueren dat men tijdens het rijden niet mobiel mag bellen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+    <module rie:id="M-4400" optional="no">
+      <title>Sociale veiligheid</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22113" type="top5">
+        <title>Er zijn concrete maatregelen genomen om de kans op diefstal en overvallen zoveel mogelijk te beperken en/of er wordt gehandeld conform het protocol Veiligheid (Bijlage 4 CAO).</title>
+        <description>&lt;p&gt;Voorbeelden van concrete maatregelen zijn o.a.:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;spreek klanten aan (maak contact met de klant); &lt;/li&gt;&lt;li&gt;voorkom dat grote hoeveelheden contanten zichtbaar zijn; &lt;/li&gt;&lt;li&gt;room kassa&#8217;s regelmatig af en/of maak gebruik van een afroomkluis (kan verankerd worden aan de verkoopwagen of de vrachtwagen.); &lt;/li&gt;&lt;li&gt;de buit minimaliseren, bijvoorbeeld door gebruik te maken van een mobiel PIN apparaat, groot geld onbereikbaar maken; &lt;/li&gt;&lt;li&gt;kraam aan drie kanten dicht houden.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Voor een directe link naar uw CAO klik &lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12261">
+            <description>&lt;p&gt;Oplossing 1 Bespreek dit onderwerp met elkaar. Zorg dat voor iedereen duidelijk is welke preventieve maatregelen genomen moeten worden en hoe men in voorkomende situaties het beste kan handelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bespreek dit onderwerp met elkaar. Zorg dat voor iedereen duidelijk is welke preventieve maatregelen genomen moeten worden en hoe men in voorkomende situaties het beste kan handelen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12262">
+            <description>&lt;p&gt;Oplossing 2 Stel instructies op waarin is vastgelegd hoe medewerkers moeten handelen in voorkomende situaties. Deze instructies kunt u bijvoorbeeld in een huishoudelijk reglement opnemen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Stel instructies op waarin is vastgelegd hoe medewerkers moeten handelen in voorkomende situaties. Deze instructies kunt u bijvoorbeeld in een huishoudelijk reglement opnemen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12263">
+            <description>&lt;p&gt;Oplossing 3 Schakel bij een overval of lijfelijke agressie altijd deskundige hulp in. Bijvoorbeeld via uw brancheorganisatie, arbodienst, Bureau slachtofferhulp of D.O.E.N.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Schakel bij een overval of lijfelijke agressie altijd deskundige hulp in. Bijvoorbeeld via uw brancheorganisatie, arbodienst, Bureau slachtofferhulp of D.O.E.N.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12264">
+            <description>&lt;p&gt;Oplossing 4 In situaties waarbij verbale agressie een rol speelde, is het belangrijk dat de medewerker hierover met de collega&#8217;s of leidinggevende kan praten. Belangrijk is dat betrokkene zich gesteund voelt. Maak hierover goede afspraken met elkaar.&lt;/p&gt;</description>
+            <action-plan/>
+          </solution>
+          <solution rie:id="O-12266">
+            <description>&lt;p&gt;Oplossing 5 Medewerkers laten deelnemen aan een training over dit onderwerp. Voor het trainingsaanbod verwijzen wij naar www.handigopjewerk.nl.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 5 Medewerkers laten deelnemen aan een training over dit onderwerp. Voor het trainingsaanbod verwijzen wij naar &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12267">
+            <description>&lt;p&gt;Oplossing 6 Op basis van de instructiewaaier nagaan of nog extra maatregelen noodzakelijk/mogelijk zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 6 Op basis van de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier &lt;/a&gt;&lt;p&gt;nagaan of nog extra maatregelen noodzakelijk/mogelijk zijn.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22114" type="top5">
+        <title>Er zijn concrete afspraken gemaakt rondom agressie en criminaliteit van klanten.</title>
+        <description>&lt;p&gt;Het gaat hier om agressie en geweld van klanten naar het eigen personeel. Hieronder wordt naast fysiek geweld, diefstal en een overval ook verstaan seksuele intimidatie, vandalisme en discriminatie.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Vooral diefstal en agressie zijn belangrijke risico's binnen de branche. Het is daarom essentieel dat in samenwerking met de medewerkers enerzijds afspraken gemaakt worden over wat men kan doen om de kans te verkleinen en anderzijds over hoe te handelen in voorkomende situaties.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Op de site van het HBD is informatie beschikbaar over het onderwerp criminaliteit. Voor een directe link klik &lt;/p&gt;&lt;a href="http://www.hbd.nl/index.cfm/12,html" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;&lt;p&gt;. Daarnaast zijn er speciale cursussen die via uw brancheorganisatie georganiseerd worden. Meer informatie hierover kunt u vinden op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt;. Daarnaast staan er nog tips in de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12268">
+            <description>&lt;p&gt;Oplossing 1 Op basis van de instructiewaaier nagaan of nog extra maatregelen noodzakelijk/mogelijk zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Op basis van de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier &lt;/a&gt;&lt;p&gt;nagaan of nog extra maatregelen noodzakelijk/mogelijk zijn.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22115" type="policy">
+        <title>Medewerkers weten hoe zij vals geld kunnen herkennen.</title>
+        <description>&lt;br/&gt;&lt;p&gt;Informeer en instrueer uw medewerkers op welke wijze zij vals geld kunnen herkennen.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Er is recent een nieuw apparaat ontwikkeld waarmee eenvoudig en snel valse bankbiljetten te herkennen zijn.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12269">
+            <description>&lt;p&gt;Oplossing 1 Informeer en instrueer medewerkers op welke wijze vals geld te herkennen is.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Informeer en instrueer medewerkers op welke wijze vals geld te herkennen is.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12270">
+            <description>&lt;p&gt;Oplossing 2 Aanschaf apparatuur waarmee valse biljetten te herkennen zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Aanschaf apparatuur waarmee valse biljetten te herkennen zijn.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22116" type="policy">
+        <title>Er zijn afspraken gemaakt over interne ongewenste gedragingen.</title>
+        <description>&lt;p&gt;Ongewenst gedrag gaat over (seksuele) intimidatie, pesten, agressie en geweld, discriminatie, diefstal en gebruik van alcohol en drugs. Het is belangrijk hierover met elkaar goede afspraken te maken. Wees hierover duidelijk: wat kan wel en wanneer wordt de grens overschreden? Kijk voor meer informatie op de site &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12271">
+            <description>&lt;p&gt;Oplossing 1 Afspraken over maken en deze vastleggen in bijvoorbeeld een huishoudelijk reglement en onderwerp in werkoverleg bespreken. Maak hier een verslag van.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Afspraken over maken en deze vastleggen in bijvoorbeeld een huishoudelijk reglement en onderwerp in werkoverleg bespreken. Maak hier een verslag van.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22117" type="policy">
+        <title>Alle medewerkers kennen de afspraken over interne ongewenste gedragingen.</title>
+        <description>&lt;p&gt;Bij die afspraken (op papier) wordt ook aandacht besteed aan de eventuele sancties als iemand zich niet aan de regels houdt.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12272">
+            <description>&lt;p&gt;Oplossing 1 Afspraken over maken en deze vastleggen in bijvoorbeeld een huishoudelijk reglement en onderwerp in werkoverleg bespreken. Maak hier een verslag van.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Afspraken over maken en deze vastleggen in bijvoorbeeld een huishoudelijk reglement en onderwerp in werkoverleg bespreken. Maak hier een verslag van.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22118" type="policy">
+        <title>Er zijn afspraken gemaakt bij wie men terecht kan in voorkomende situaties; er is een vertrouwenspersoon aangewezen.</title>
+        <description>&lt;p&gt;Medewerkers moeten de mogelijkheid hebben om vertrouwelijk met iemand te kunnen praten wanneer men te maken heeft met ongewenste omgangsvormen. Wijs een vertrouwenspersoon aan binnen uw onderneming en informeer uw medewerkers over de rol van deze vertrouwenspersoon. Ook kunt u hierover met uw arbodienst afspraken maken. Voor meer informatie over dit onderwerp ga naar &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12273">
+            <description>&lt;p&gt;Oplossing 1 Afspraken maken bij wie/waar men terecht kan in geval van ongewenste omgangsvormen. Zie tevens de instructiewaaier.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Afspraken maken bij wie/waar men terecht kan in geval van ongewenste omgangsvormen. Zie tevens de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+    <module rie:id="M-4401" optional="no">
+      <title>Samenwerking, werkinhoud en werkdruk, werk- en rustijden</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22119" type="top5">
+        <title>Er is een gestructureerde vorm van werkoverleg.</title>
+        <description>&lt;p&gt;Gestructureerd werkoverleg (minimaal 2 maal per jaar) is iets anders dan &#8220;tussen de bedrijven door overleg hebben&#8221;. Door periodiek met elkaar om de tafel te zitten komt vaak meer los dan tijdens het tussen de bedrijven door overleggen. In dit werkoverleg kan gesproken worden over bijvoorbeeld bedrijfsresultaten, nieuwe werkzaamheden, acties of nieuwe producten, hoe gaat de onderlinge samenwerking, planning van werk, ziekteverzuim, etc. Een werkoverleg kan ook uitstekend gebruikt worden voor het geven van voorlichting en instructies over veilig en verstandig werken.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;In de CAO ambulante handel staat over werkoverleg het volgende beschreven: "De werkgever wordt dringend aanbevolen het werkoverleg goed te structureren en zodanig te organiseren dat alle medewerkers daar aan deel kunnen nemen en het onderwerp arbeidsomstandigheden, en in het bijzonder werkdruk, als vast agendapunt op te nemen". In bijlage 6 van deze CAO treft u een handleiding aan over de wijze waarop aan het werkoverleg vorm kan worden gegeven. Voor een directe link naar uw CAO klik &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Meer informatie kunt u tevens vinden in de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pd" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt; of op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12274">
+            <description>&lt;p&gt;Oplossing 1 Voer periodiek overleg in en notuleer de belangrijkste zaken uit het overleg en wie aanwezig was.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Voer periodiek overleg in en notuleer de belangrijkste zaken uit het overleg en wie aanwezig was.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12275">
+            <description>&lt;p&gt;Oplossing 2 Organiseer een periodiek werkoverleg waarin ook onderwerpen die betrekking hebben op de arbeidsomstandigheden en het verzuim besproken worden. Meer informatie kunt u vinden in de instructiewaaier. Tevens is in bijlage 6 van de CAO ambulante handel een handleiding werkoverleg opgenomen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Organiseer een periodiek werkoverleg waarin ook onderwerpen die betrekking hebben op de arbeidsomstandigheden en het verzuim besproken worden. Meer informatie kunt u vinden in de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt;. Tevens is in bijlage 6 van de &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007%28versie%20maart%202006%29.pdf" rel="nofollow" target="_blank"&gt;CAO ambulante handel &lt;/a&gt;&lt;p&gt;een handleiding werkoverleg opgenomen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22120" type="policy">
+        <title>Jaarlijks worden functioneringsgesprekken gehouden.</title>
+        <description>&lt;p&gt;Voor elke onderneming, groot of klein, geldt dat het functioneringsgesprek een prachtig middel is om eens &#233;&#233;n op &#233;&#233;n stil te staan bij iemands behoeften, toekomstplannen, mogelijkheden, en om te praten over wat goed gaat en wat niet.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12276">
+            <description>&lt;p&gt;Oplossing 1 Invoeren functioneringsgesprekken.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Invoeren functioneringsgesprekken.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22121" type="policy">
+        <title>Tijdelijk en nieuw personeel wordt goed ingewerkt.</title>
+        <description>&lt;p&gt;Dit is zowel belangrijk voor de nieuwe/tijdelijke medewerkers als voor de collega&#8217;s. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;Een goed hulpmiddel is het samenstellen van een inwerkschema. Zorg ervoor dat tijdelijk en nieuw personeel ingewerkt kan worden op rustige momenten.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12277">
+            <description>&lt;p&gt;Oplossing 1 Ontwikkelen van een inwerkschema.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Ontwikkelen van een inwerkschema.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22122" type="top5">
+        <title>Er zijn adequate (aantoonbare) maatregelen getroffen om te voorkomen dat het werktempo, het werkaanbod of de tijdsdruk structureel te hoog is.</title>
+        <description>&lt;p&gt;Een belangrijke oorzaak van verzuim is psychische belasting. Als het werktempo lange tijd en structureel te hoog is kan dit leiden tot psychische belasting, die zich uit in vermoeidheid, uitputting of stress. Bovendien kan het eventuele lichamelijke klachten verergeren (ook het lichaam kan niet meer tot rust komen). Onder tijdsdruk worden er meer fouten gemaakt, die kunnen leiden tot ergernis en stress (en kosten!). Redenen voldoende om werkdruk aan te pakken.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Oplossingen voor te grote tijdsdruk kunnen zijn: beter plannen, zorgen voor goed materiaal waardoor verstoringen zo min mogelijk optreden, en goede communicatie tussen medewerkers en leiding over het werk en de wijze waarop dat&#160; moet worden uitgevoerd. Zie tevens &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12278">
+            <description>&lt;p&gt;Oplossing 1 Bespreek met medewerkers, bijvoorbeeld in een werkoverleg waar het gevoel van een hoog werktempo/ werkhoeveelheid vandaan komt aan de hand van concrete gevallen en situaties.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bespreek met medewerkers, bijvoorbeeld in een werkoverleg waar het gevoel van een hoog werktempo/ werkhoeveelheid vandaan komt aan de hand van concrete gevallen en situaties.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12279">
+            <description>&lt;p&gt;Oplossing 2 Draag zorg voor goed materiaal, waardoor verstoringen zo min mogelijk optreden.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Draag zorg voor goed materiaal, waardoor verstoringen zo min mogelijk optreden.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12280">
+            <description>&lt;p&gt;Oplossing 3 Draag zorg voor goede communicatie tussen medewerkers en leiding over het werk en de wijze waarop deze moet worden uitgevoerd. Werkoverleg speelt hierin een belangrijke rol. Zie tevens www.handigopjewerk.nl of bijlage 6 van de CAO, waarin een handleiding werkoverleg staat.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Draag zorg voor goede communicatie tussen medewerkers en leiding over het werk en de wijze waarop deze moet worden uitgevoerd. Werkoverleg speelt hierin een belangrijke rol. Zie tevens &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt; of bijlage 6 van de &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;CAO&lt;/a&gt;&lt;p&gt;, waarin een handleiding werkoverleg staat.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22123" type="policy">
+        <title>Over een periode van 6 maanden is de gemiddelde arbeidstijd maximaal 38 uur.</title>
+        <problem-description>In de periode van 6 maanden (= 26 weken) wordt er in totaal niet meer dan 988 uur (26x38) gewerkt.</problem-description>
+        <description></description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12281">
+            <description>&lt;p&gt;Oplossing 1 Zie erop toe dat over een periode van 6 maanden de gemiddelde arbeidstijd maximaal 38 uur is.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Zie erop toe dat over een periode van 6 maanden de gemiddelde arbeidstijd maximaal 38 uur per week is.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22124" type="policy">
+        <title>De arbeidstijd is ten hoogste tien uur per dag en 45 uur per week.</title>
+        <description></description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12282">
+            <description>&lt;p&gt;Oplossing 1 Voorkom werkdagen van meer dan 10 uur.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Voorkom werkdagen van meer dan 10 uur.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22125" type="policy">
+        <title>Structureel overwerk wordt voorkomen.</title>
+        <description>&lt;p&gt;Van overwerk is sprake indien de medewerker na overleg met de werkgever opdracht heeft gekregen op extra uren arbeid te verrichten, waardoor de maximale dagelijkse arbeidstijd van 9 uur of de wekelijkse arbeidstijd van gemiddeld 38 uur in vier weken wordt overschreden.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12283">
+            <description>&lt;p&gt;Oplossing 1 Voorkom structureel overwerk, bijvoorbeeld door inhuren extra personeel. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Voorkom structureel overwerk, bijvoorbeeld door inhuren extra personeel. &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22126" type="policy">
+        <title>Medewerkers kunnen op gezette tijden pauzeren.</title>
+        <description>&lt;p&gt;In de CAO, artikel 8 is geregeld dat als er langer dan 5,5 uur gewerkt wordt er een pauze van 30 minuten aaneengesloten noodzakelijk is. Wanneer er 8 uur gewerkt wordt dan is die pauze minstens 45 minuten, waarvan 30 minuten aaneengesloten. Voor een directe link naar uw CAO klik &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12284">
+            <description>&lt;p&gt;Oplossing 1 Regel de pauzes conform CAO, artikel 8 &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Regel de pauzes conform CAO, artikel 8 &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22127" type="policy">
+        <title>De afwijkende regels voor jongeren onder 18 jaar worden toegepast.</title>
+        <description>&lt;ul&gt;&lt;li&gt;Werktijden jeugdigen van 16 en 17 jaar niet werken tussen 22.00 en 06.00 of 23.00 en 07.00;&lt;/li&gt;&lt;li&gt;maximale arbeidsduur van 9 uur;&lt;/li&gt;&lt;li&gt;maximale arbeidstijd per week 45 uur;&lt;/li&gt;&lt;li&gt;werken op zaterdag &#232;n zondag niet toegestaan, wel zaterdag &#243;f zondag;&lt;/li&gt;&lt;li&gt;30 minuten pauze na 4.5 uur arbeid;&lt;/li&gt;&lt;li&gt;bij arbeidsduur langer dan 8 uur, 45 minuten pauze, waarvan 30 minuten aaneengesloten.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Voor meer informatie klik &lt;a href="http://arbeidsinspectie.szw.nl/index.cfm?fuseaction=dsp_document&amp;amp;link_id=95514" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;.&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12286">
+            <description>&lt;p&gt;Oplossing 1 Afwijkende regels voor jeugdigen toepassen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 &lt;/p&gt;&lt;a href="http://arbeidsinspectie.szw.nl/index.cfm?fuseaction=dsp_rubriek&amp;amp;rubriek_id=20043&amp;amp;menu_item=749" rel="nofollow" target="_blank"&gt;Afwijkende regels &lt;/a&gt;&lt;p&gt;voor jeugdigen toepassen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22128" type="policy">
+        <title>De afwijkende regels voor zwangere en pas bevallen vrouwen worden toegepast.</title>
+        <description>&lt;p&gt;Het werk voor zwangere en pas bevallen vrouwen moet zodanig zijn ingericht dat rekening wordt gehouden met hun specifieke omstandigheden. Een zwangere vrouw heeft recht op extra pauzes en is in principe niet verplicht om over te werken. Ook heeft een zwangere vrouw het recht om te werken in een evenwichtig arbeids- en rusttijdenpatroon. &lt;/p&gt;&lt;br/&gt;&lt;p&gt;Vanaf 4 weken voor de vermoedelijke datum van bevalling tot 12 weken na de bevalling mag de vrouwelijke medewerker geen arbeid verrichten. Gedurende de eerste negen maanden na de geboorte mag de vrouw het werk onderbreken voor het geven van borstvoeding of om te kolven. De werkgever moet hiervoor een geschikte ruimte ter beschikking stellen. De vrouw heeft recht op het geven van borstvoeding of om te kolven zo vaak en zo lang als nodig is, maar in totaal maximaal een kwart van de arbeidstijd. De werkgever is verplicht deze tijd door te betalen.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;FNV Bondgenoten heeft een handige brochure uitgegeven &#8220;Werk en Zwangerschap&#8221; Zie hiervoor &lt;/p&gt;&lt;a href="http://www.arbobondgenoten.nl/" rel="nofollow" target="_blank"&gt;www.arbobondgenoten.nl&lt;/a&gt;&lt;p&gt; of bel de arbotelefoon 030-2738738&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12287">
+            <description>&lt;p&gt;Oplossing 1 Afwijkende regels voor zwangeren en pas bevallen vrouwen regelen conform wetgeving.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Afwijkende regels voor zwangeren en pas bevallen vrouwen regelen conform &lt;/p&gt;&lt;a href="http://home.szw.nl/navigatie/rubriek/dsp_rubriek.cfm?link_id=2105&amp;amp;doctype_id=15" rel="nofollow" target="_blank"&gt;wetgeving&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22129" type="policy">
+        <title>Er wordt bij het verdelen van taken aandacht besteed aan kwetsbare groepen.</title>
+        <description>&lt;p&gt;Denk hierbij aan zwangeren die langdurig moeten staan of onervaren krachten die alleen werken, c.q. een te grote verantwoordelijkheid krijgen. Onder kwetsbare groepen vallen ook oproepkrachten, uitzendkrachten, gehandicapten, jongeren onder de 18 jaar, en medewerkers die de Nederlandse taal niet beheersen.&lt;/p&gt;</description>
+        <show-not-applicable>yes</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12288">
+            <description>&lt;p&gt;Oplossing 1 Werk aanpassen aan de risicogroep.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Werk aanpassen aan de risicogroep.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+    <module rie:id="M-4402" optional="no">
+      <title>Voorlichting</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22130" type="top5">
+        <title>Medewerkers zijn ge&#239;nstrueerd over de aard van de werkzaamheden en de hieraan verbonden risico&#8217;s (zie hiervoor de toelichting) en deze zijn schriftelijk vastgelegd.</title>
+        <description>&lt;p&gt;Voorlichting en instructies zijn &#233;&#233;n van de belangrijkste preventieve maatregelen om verzuim en ongevallen te voorkomen. Ook in het kader van aansprakelijkheid is het noodzakelijk dat medewerkers aantoonbaar ge&#239;nformeerd en ge&#239;nstrueerd zijn over de aard van de werkzaamheden en de hieraan verbonden (mogelijke) risico&#8217;s.&lt;br/&gt;Tijdens het invullen van deze RI&amp;amp;E zijn al verschillende voorlichtingsonderwerpen aan bod gekomen. Wij hebben deze en enkele nieuwe voorlichtingsonderwerpen hieronder onder elkaar gezet. Wanneer u deze voorlichtingsonderwerpen nog niet als een aandachtspunt genoteerd heeft, kunt u deze onderwerpen in uw plan van aanpak als maatregel opnemen:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Hoe te handelen in geval van diefstal, agressie of overval;&lt;/li&gt;&lt;li&gt;Hoe te handelen in geval van een brand of EHBO calamiteit;&lt;/li&gt;&lt;li&gt;Hoe gaan we om met ziekmeldingen (wat doet de onderneming en wat wordt er van de medewerker verwacht.);&lt;/li&gt;&lt;li&gt;Bij wie kan ik terecht met vragen of klachten rondom de arbeidsomstandigheden;&lt;/li&gt;&lt;li&gt;Hoe kunnen we de kans op klachten aan het houdings- en bewegingsapparaat zo goed mogelijk beheersen (inrichting werkplekken, gebruik hulpmiddelen en werkmethoden);&lt;/li&gt;&lt;li&gt;Veilig werken op ladders en/of trappen;&lt;/li&gt;&lt;li&gt;Veilig werken met de aanwezige arbeidsmiddelen.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Een groot deel van deze onderwerpen kunt u in bijvoorbeeld een huishoudelijk- of bedrijfsreglement vastleggen. Daarnaast lenen deze ontwerpen zich ook om periodiek in een werkoverleg te bespreken. &lt;br/&gt;Er zijn speciaal voor de branche diverse trainingen ontwikkeld. Daarnaast zijn er diverse documenten (huishoudelijk reglement, instructiekaarten, etc.) ontwikkeld. Nadere informatie kunt u vinden op &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; &lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12289">
+            <description>&lt;p&gt;Oplossing 1 Belangrijke onderwerpen vastleggen in bijvoorbeeld een huishoudelijk- of bedrijfsreglement. Voorbeelden zijn te vinden op www.handigopjewerk.nl&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Belangrijke onderwerpen vastleggen in bijvoorbeeld een huishoudelijk- of bedrijfsreglement. Voorbeelden zijn te vinden op &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12290">
+            <description>&lt;p&gt;Oplossing 2 Onderwerpen periodiek in een werkoverleg bespreken (beschrijf welke).&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Onderwerpen periodiek in een werkoverleg bespreken (beschrijf welke).&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12291">
+            <description>&lt;p&gt;Oplossing 3 Uitnodigen arbodeskundige voor voorlichting (Beschrijf de onderwerpen).&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Uitnodigen arbodeskundige voor voorlichting (Beschrijf de onderwerpen).&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22131" type="top5">
+        <title>Er wordt op toegezien dat iedereen zijn werk op een juiste en veilige manier doet.</title>
+        <description>&lt;p&gt;Dat kan de werkgever doen, maar ook collega&#8217;s kunnen elkaar daarbij helpen. Het toezicht houden gaat ver. Om aansprakelijkheid te kunnen ontlopen moet een werkgever kunnen aantonen dat hij er alles aan gedaan heeft om een ongeval te voorkomen. Dit betekent dat de medewerkers weten wat de risico&#8217;s zijn, hoe ze daarmee moeten omgaan en dat ze verplicht zijn (arbo)instructies op te volgen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12292">
+            <description>&lt;p&gt;Oplossing 1 Spreek medewerkers aan op onjuist gedrag.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Spreek medewerkers aan op onjuist gedrag.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12293">
+            <description>&lt;p&gt;Oplossing 2 Doe aan dossiervorming wanneer onjuist gedrag meerdere malen voorkomt.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Doe aan dossiervorming wanneer onjuist gedrag meerdere malen voorkomt.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+    <module rie:id="M-4403" optional="no">
+      <title>De organisatie van preventie en ziekteverzuim</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22132" type="policy">
+        <title>De organisatie heeft de preventietaken toegewezen.</title>
+        <description>&lt;p&gt;Een werkgever met m&#233;&#233;r dan 25 medewerkers moet preventietaken toewijzen aan &#233;&#233;n of meer medewerkers. Een werkgever met ten hoogste 25 medewerkers mag de preventietaken zelf uitvoeren. &lt;br/&gt;De werkgever hoeft geen speciale medewerker aan te trekken voor uitvoering van&#160; preventietaken. Preventie kan een onderdeel zijn van de taak van de werkgever zelf of van de taak van &#233;&#233;n of meer medewerkers. Voor het gemak wordt echter in dit instrument steeds gesproken over preventiemedewerker. De preventiemedewerker houdt zich bezig met de veiligheid en gezondheid op de werkvloer. Hij of zij moet dus kennis hebben van de arbo-risico&#8217;s binnen het bedrijf.&lt;br/&gt;De preventietaken zijn in ieder geval:&lt;/p&gt;&lt;ol start="1"&gt;&lt;li&gt;Het meewerken aan of het opstellen van een RI&amp;amp;E.&lt;/li&gt;&lt;li&gt;Het uitvoeren van of meewerken aan de maatregelen uit het plan van aanpak.&lt;/li&gt;&lt;li&gt;Het signaleren van risico's en het treffen van verbetermaatregelen, of het adviseren&#160; van de OR / personeelsvertegenwoordiging / medewerkers over de mogelijk te nemen verbetermaatregelen tegen die risico&#8217;s.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Ook het geven van voorlichting over specifieke bedrijfsrisico&#8217;s en een vraagbaak voor medewerkers, kan als een taak/rol van de preventiemedewerker gezien worden.&lt;br/&gt;In de stellingen binnen deze module wordt nog nader ingegaan op de taken/rol van de preventiemedewerker.&lt;br/&gt;De risico-inventarisatie en &#8211;evaluatie van het bedrijf en het bijbehorende plan van aanpak vormen de basis voor wat de preventiemedewerker moet weten. Wanneer er uit uw RI&amp;amp;E bijvoorbeeld naar voren komt dat er de nodige risico&#8217;s/aandachtspunten spelen rondom fysieke belasting of sociale veiligheid, dan kan het wenselijk zijn de preventiemedewerker hier een opleiding of cursus in te laten volgen. Informeer bij uw brancheorganisatie naar het cursusaanbod of kijk op &lt;a href="http://www.handigopjewerk.nl" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;. &lt;br/&gt;U kunt er ook voor kiezen om voor deze specifieke deskundigheid een externe deskundige in te schakelen. Het heeft echter de voorkeur er naar te streven de gewenste deskundigheid zoveel mogelijk binnen uw onderneming te regelen.&lt;br/&gt;Werkgevers die hun preventietaken goed uitvoeren besparen doorgaans aanzienlijk op de kosten van ongevallen, verzuim en stressproblemen. &lt;/p&gt;&lt;p&gt;Investeringen in arbeidsomstandigheden en in het personeel renderen meestal goed als het gaat om de sfeer en productiviteit van de onderneming.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12294">
+            <description>&lt;p&gt;Oplossing 1 Maak binnen het bedrijf kenbaar wie de preventiemedewerker binnen de organisatie is en welke taken/werkzaamheden hij/zij heeft.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Maak binnen het bedrijf kenbaar wie de preventiemedewerker binnen de organisatie is en welke taken/werkzaamheden hij/zij heeft.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22133" type="policy">
+        <title>Naast de preventiemedewerker zijn ook andere medewerkers betrokken bij het opstellen van de RI&amp;E.</title>
+        <description>&lt;p&gt;Om een zo goed mogelijk beeld te krijgen van de risico&#8217;s binnen een onderneming is het belangrijk de medewerkers hier zoveel mogelijk in te betrekken. U kunt dit bijvoorbeeld doen door eerst door enkele medewerkers zelfstandig deze vragenlijst in te laten vullen. Ook kunt u er voor kiezen om de vragen in een werkoverleg gezamenlijk in te vullen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12295">
+            <description>&lt;p&gt;Oplossing 1 Geef in het plan van aanpak aan wie de preventiemedewerker binnen de organisatie is, welke taken/werkzaamheden hij/zij heeft en hoeveel tijd hiervoor beschikbaar is. Niet alle preventieve taken hoeven door de preventiemedewerker gedaan te worden. Ook andere medewerkers of de werkgever kunnen taken op zich nemen. Daarnaast blijft ook de mogelijkheid bestaan om externe deskundigen in te schakelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Geef in het plan van aanpak aan wie de preventiemedewerker binnen de organisatie is, welke taken/werkzaamheden hij/zij heeft en hoeveel tijd hiervoor beschikbaar is. Niet alle preventieve taken hoeven door de preventiemedewerker gedaan te worden. Ook andere medewerkers of de werkgever kunnen taken op zich nemen. Daarnaast blijft ook de mogelijkheid bestaan om externe deskundigen in te schakelen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22134" type="policy">
+        <title>De preventiemedewerker kent de arborisico&#8217;s in de onderneming en weet hoe hij/zij de risico&#8217;s kan voorkomen.</title>
+        <description>&lt;p&gt;Van belang is dat de preventiemedewerker voldoende deskundigheid heeft om de concrete maatregelen uit het Plan van Aanpak te kunnen (laten) uitvoeren. Hoewel de wet niet expliciet aangeeft waaraan een preventiemedewerker moet voldoen, lijkt het logisch dat een medewerker over de volgende minimale vaardigheden beschikt:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Het kunnen verstrekken van informatie en het geven van voorlichting.&lt;/li&gt;&lt;li&gt;De bekendste arbeidsrisico&#8217;s in de branche kennen en deze in de onderneming kunnen herkennen.&lt;/li&gt;&lt;li&gt;Het kennen van verbetermogelijkheden en deze in de onderneming ook voorstellen.&lt;/li&gt;&lt;li&gt;Arbomaatregelen kunnen (laten) uitvoeren.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;De ingevulde RI&amp;amp;E kan aanwijzingen geven over de nodige aanvullende deskundigheid. Voor inhoudelijke aanvullende ondersteuning kan de medewerker met preventietaken de werkgever adviseren interne dan wel externe arbo-expertise in te huren.&lt;br/&gt;Er zijn diverse scholingsmogelijkheden voor de preventiemedewerker. Informeer hiernaar bij uw brancheorganisatie of kijk op &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;. Deelname aan een training &#8220;preventiemedewerker&#8221; is niet verplicht. Het is vooral zinvol wanneer u met de nodige vragen of onduidelijkheden zit rondom een goed arbo- en verzuimbeleid.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12296">
+            <description>&lt;p&gt;Oplossing 1 Bepaal in onderling overleg in hoeverre en welke extra deskundigheid gewenst is. Maak hierover vervolgens concrete afspraken en beschrijf deze afspraken in het plan van aanpak. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Bepaal in onderling overleg in hoeverre en welke extra deskundigheid gewenst is. Maak hierover vervolgens concrete afspraken en beschrijf deze afspraken in het plan van aanpak. &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22135" type="policy">
+        <title>Jaarlijks wordt het plan van aanpak geactualiseerd en wordt nagegaan of de RI&amp;E nog actueel is.</title>
+        <description>&lt;p&gt;Jaarlijks moet de voortgang van het plan van aanpak op schrift worden gezet en besproken met het personeel. Daarnaast moet nagegaan worden in hoeverre de huidige RI&amp;amp;E nog actueel is. Een RI&amp;amp;E is niet meer actueel als er zich bijvoorbeeld veranderingen hebben voorgedaan. Voorbeelden van verandering zijn gewijzigde manieren van werken of technische vernieuwingen, zoals:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Uitbreiding van het dienstenpakket.&lt;/li&gt;&lt;li&gt;Aanschaf markwagen.&lt;/li&gt;&lt;li&gt;Een ingrijpende wijziging van taken van medewerkers.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Bij een kleine verandering is een gedeeltelijke vernieuwing van de RI&amp;amp;E, voor dat deel dat veranderd is, vaak voldoende.&lt;br/&gt;Aangezien er regelmatig wetswijzigingen plaatsvinden en ontwikkelingen rondom goede arbeidsomstandigheden niet stilstaan, zal dit instrument regelmatig aangevuld of geactualiseerd worden. Wij adviseren u daarom om tenminste &#233;&#233;n maal per twee jaar de meest recente versie opnieuw in te vullen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12297">
+            <description>&lt;p&gt;Oplossing 1 Leg vast wanneer u het plan van aanpak actualiseert en geef aan wie hierbij betrokken zijn.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Leg vast wanneer u het plan van aanpak actualiseert en geef aan wie hierbij betrokken zijn.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22136" type="top5">
+        <title>De regels ten aanzien van een ziekmelding zijn schriftelijk gecommuniceerd met de medewerkers.</title>
+        <description>&lt;p&gt;Het is belangrijk dat medewerkers goed ge&#239;nformeerd zijn over wat er van hen verwacht wordt bij een ziekmelding en wat zij mogen verwachten van de onderneming. U kunt deze afspraken het beste schriftelijk vastleggen.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;In de CAO ambulante handel is in bijlage 5 een voorbeeld verzuimreglement opgenomen. Voor een directe link naar uw CAO klik &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pd" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt;&lt;p&gt;.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;In de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt; en op de site &lt;/p&gt;&lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;p&gt; is eveneens veel informatie te vinden.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12298">
+            <description>&lt;p&gt;Oplossing 1 Opstellen verzuimreglement. In CAO, bijlage 5 is een voorbeeld opgenomen. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Opstellen verzuimreglement. In &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;CAO&lt;/a&gt;&lt;p&gt;, bijlage 5 is een voorbeeld opgenomen. &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22137" type="top5">
+        <title>Er zijn afspraken gemaakt over de begeleiding van de arbeidsongeschikte medewerker binnen de onderneming en de wijze waarop dit gebeurt.</title>
+        <description>&lt;p&gt;Het is bekend wie er wanneer, binnen de onderneming, contact opneemt met de zieke/arbeidsongeschikte medewerker, en hoe de terugkeer wordt geregeld. In de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt; staan tips.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12299">
+            <description>&lt;p&gt;Oplossing 1 Maak goede afspraken over wie binnen de organisatie contact houdt met arbeidsongeschikte medewerkers. Leg deze afspraken bij voorkeur vast in een verzuimreglement . In CAO, bijlage 5 is een voorbeeld van een verzuimreglement opgenomen. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Maak goede afspraken over wie binnen de organisatie contact houdt met zieke/arbeidsongeschikte medewerkers. Leg deze afspraken bij voorkeur vast in een verzuimreglement . In &lt;/p&gt;&lt;a href="http://www.cvah.nl/index.cfm/34,106,25,18,pdf/CAO-2006-2007(versie%20maart%202006).pdf" rel="nofollow" target="_blank"&gt;CAO&lt;/a&gt;&lt;p&gt;, bijlage 5 is een voorbeeld van een verzuimreglement opgenomen. &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22138" type="top5">
+        <title>Vanuit de onderneming wordt minimaal &#233;&#233;n keer per week contact gehouden met de arbeidsongeschikte medewerker.</title>
+        <description>&lt;p&gt;Een goede begeleiding van zieke/arbeidsongeschikte medewerkers is van belang om de verzuimduur te bekorten en om medewerkers weer aan het werk te helpen in het eigen of in aangepast werk.&lt;br/&gt;Per 1-1-2003 geldt de "Wet structuur uitvoeringsorganisatie werk en inkomen" (Wet SUWI), waarin bepaald is dat wanneer binnen het eigen bedrijf geen passend werk mogelijk is, er gezocht moeten worden naar mogelijkheden buiten het eigen bedrijf. &lt;/p&gt;&lt;p&gt;Leg deze zaken vast in het verzuimreglement en maak uw medewerkers hierop attent. Meer informatie hierover kunt u vinden op &lt;a href="http://www.uwv.nl/" rel="nofollow" target="_blank"&gt;www.uwv.nl&lt;/a&gt;&lt;br/&gt;Ook op de site &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt; is veel informatie te vinden.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12300">
+            <description>&lt;p&gt;Oplossing 1 Neem in uw verzuimreglement de  interne &#8221;spelregels&#8221; rondom uw verzuimbeleid op. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Neem in uw verzuimreglement de&#160; interne &#8221;spelregels&#8221; rondom uw verzuimbeleid op. &lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22139" type="policy">
+        <title>Het verzuim wordt binnen de onderneming geregistreerd en periodiek geanalyseerd.</title>
+        <description>&lt;p&gt;Door het verzuim binnen de organisatie te registreren en te analyseren krijgt u inzicht in het verzuim en hoe dit kan worden verminderd of voorkomen. De oorzaken van verzuim en de relatie tussen verzuim en arbeidsomstandigheden wordt hierdoor in beeld gebracht. In de &lt;/p&gt;&lt;a href="http://toolkit.typotycoon.nl/fileadmin/formulieren/downloads/Instructiewaaier_Ambulante_handel.pdf" rel="nofollow" target="_blank"&gt;instructiewaaier&lt;/a&gt;&lt;p&gt; staan tips.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12301">
+            <description>&lt;p&gt;Oplossing 1 Verzuim registreren en periodiek analyseren.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Verzuim registreren en periodiek analyseren.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+      <risk rie:id="R-22140" type="policy">
+        <title>U laat zich bij uw wettelijke taken, zoals beschreven in de toelichting, bijstaan door &#233;&#233;n of meer gecertificeerde deskundigen (maatwerkregeling) of door een gecertificeerde arbodienst (vangnetregeling).</title>
+        <description>&lt;p&gt;Voor de volgende vijf onderwerpen dient u zich te laten bijstaan:&lt;/p&gt;&lt;ol start="1"&gt;&lt;li&gt;Ziekteverzuimbegeleiding.&lt;/li&gt;&lt;li&gt;Arbeidsomstandighedenspreekuur (medewerkers kunnen hier zaken over hun arbeidsomstandigheden bespreken, dus ook als ze niet ziek zijn).&lt;/li&gt;&lt;li&gt;Periodiek arbeidsgezondheidskundig onderzoek (PAGO).&lt;/li&gt;&lt;li&gt;Advies over, en toetsing van de RI&amp;amp;E.&lt;/li&gt;&lt;li&gt;Aanstellingskeuringen (indien dit is toegestaan). &lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Iedere organisatie kan sinds 1 juli 2005 een keuze maken. U kunt kiezen voor de zogenaamde standaardregeling of voor de maatwerkregeling. Als u kiest voor de standaardregeling dan verandert er niks ten opzichte van de huidige situatie. Want u houdt dan het bestaande contract met de huidige arbodienst, of u kiest voor een andere arbodienst. &lt;br/&gt;Kiest u voor de maatwerkregeling dan bent niet verplicht de bijstand af te nemen van een arbodienst, deze dienstverlening mag ook door anderen (tenminste een geregistreerde bedrijfsarts) worden verleend. &lt;/p&gt;&lt;p&gt;Voor meer informatie over de onderwerpen rondom toetsing van de RI&amp;amp;E en de begrippen maatwerk- en vangnetregeling klik &lt;a href="http://www.rie.nl/contentpage.php?branche_id=-1&amp;amp;id=632" rel="nofollow" target="_blank"&gt;hier&lt;/a&gt; of kijk op de site &lt;a href="http://www.handigopjewerk.nl/" rel="nofollow" target="_blank"&gt;www.handigopjewerk.nl&lt;/a&gt;&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12302">
+            <description>&lt;p&gt;Oplossing 1 Verzuimbegeleiding regelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1 Verzuimbegeleiding regelen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12303">
+            <description>&lt;p&gt;Oplossing 2 Afspraken rondom arbospreekuur regelen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 2 Afspraken rondom arbospreekuur regelen.&lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12304">
+            <description>&lt;p&gt;Oplossing 3 Noodzaak PAGO vastleggen en bespreken. &lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 3 Noodzaak PAGO vastleggen en bespreken. PAGO wil zeggen dat medewerkers met een bepaalde regelmaat een onderzoek krijgen. Het onderzoek houdt verband met de risico's tijdens het werk. Uit de RI&amp;amp;E volgt welke risico's er zijn. &lt;/p&gt;</action-plan>
+          </solution>
+          <solution rie:id="O-12305">
+            <description>&lt;p&gt;Oplossing 4 Bij bedrijfsarts noodzaak, mogelijkheden aanstellingskeuringen bespreken en vastleggen.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 4 Bij bedrijfsarts noodzaak en mogelijkheden van aanstellingskeuringen bespreken en vastleggen.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+    <module rie:id="M-4404" optional="no">
+      <title>Overige risico's</title>
+      <description>&lt;p&gt;&lt;strong&gt;U kunt nu informatie opgeven over dit onderwerp.&lt;/strong&gt;.&lt;/p&gt;</description>
+      <risk rie:id="R-22142" type="risk">
+        <title>Alle gesignaleerde risico&#8217;s/aandachtspunten zijn in deze vragenlijst opgenomen.</title>
+        <description>&lt;p&gt;Wanneer naar uw mening of die van medewerkers bepaalde risico's niet zijn opgenomen vul dan NEE in en onder "uw opmerkingen" welke risico's nog nader ge&#239;nventariseerd moeten worden, c.q. verder geconstateerd zijn. &lt;/p&gt;&lt;p&gt;Neem desgewenst contact op met een arbodeskundige om u hierbij te ondersteunen.&lt;/p&gt;</description>
+        <show-not-applicable>no</show-not-applicable>
+        <evaluation-method>direct</evaluation-method>
+        <solutions>
+          <solution rie:id="O-12306">
+            <description>&lt;p&gt;Oplossing 1. Beschrijf welke maatregelen u gaat nemen. Schakel desgewenst een deskundige in om u te adviseren.&lt;/p&gt;</description>
+            <action-plan>&lt;p&gt;Oplossing 1. Beschrijf welke maatregelen u gaat nemen. Schakel desgewenst een deskundige in om u te adviseren.&lt;/p&gt;</action-plan>
+          </solution>
+        </solutions>
+      </risk>
+    </module>
+  </survey>
+</sector>
+

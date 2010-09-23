@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/aq_parent/title}</metal:title>
+    <metal:content fill-slot="content">
+      <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
+        <fieldset>
+          <tal:widget replace="structure view/widgets/title/render"/>
+          <tal:widget replace="structure view/widgets/problem_description/render"/>
+          <tal:widget replace="structure view/widgets/description/render"/>
+          <tal:widget replace="structure view/widgets/legal_reference/render"/>
+
+          <fieldset tal:define="group python:view.groups[0]">
+            <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
+            <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
+            <tal:widget repeat="widget group/widgets/values" replace="structure widget/render"/>
+          </fieldset>
+          <fieldset tal:define="group python:view.groups[1]">
+            <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
+            <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
+            <tal:widget repeat="widget group/widgets/values" replace="structure widget/render"/>
+          </fieldset>
+          <fieldset tal:define="group python:view.groups[2]">
+            <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
+            <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
+            <tal:widget repeat="widget group/widgets/values" replace="structure widget/render"/>
+          </fieldset>
+          <fieldset tal:define="group python:view.groups[3]">
+            <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
+            <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
+
+            <fieldset>
+              <h5 i18n:translate="header_secondary_images_1">Secondary image 1</h5>
+              <tal:widget replace="structure group/widgets/image2/render"/>
+              <tal:widget replace="structure group/widgets/caption2/render"/>
+            </fieldset>
+
+            <fieldset>
+              <h5 i18n:translate="header_secondary_images_2">Secondary image 2</h5>
+              <tal:widget replace="structure group/widgets/image3/render"/>
+              <tal:widget replace="structure group/widgets/caption3/render"/>
+            </fieldset>
+
+            <fieldset>
+              <h5 i18n:translate="header_secondary_images_3">Secondary image 3</h5>
+              <tal:widget replace="structure group/widgets/image4/render"/>
+              <tal:widget replace="structure group/widgets/caption4/render"/>
+            </fieldset>
+          </fieldset>
+        </fieldset>
+
+        <div class="buttonBar">
+          <button name="form.buttons.save" type="submit" i18n:translate="button_save">Save</button>
+          <button name="form.buttons.cancel" type="submit" i18n:translate="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </metal:content>
+  </body>
+</html>

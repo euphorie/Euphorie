@@ -1,0 +1,40 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="euphorie">
+
+  <include package="plonetheme.nuplone" />
+  <include package="euphorie.content" />
+  <include package="euphorie.client" />
+  <include package=".tiles" />
+  <include package=".upgrade" />
+
+  <i18n:registerTranslations directory="locales"/>
+
+  <utility
+       factory=".products.HideEuphorieProducts"
+       name="euphorie.deployment"
+       />
+
+  <grok:grok package="." />
+
+  <genericsetup:registerProfile
+       name="default"
+       title="Euphorie website"
+       directory="profiles/default"
+       description="Setup a standard Euphorie website"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+  <genericsetup:importStep
+       name="euphorie.deployment"
+       title="Euphorie Deployment configuration"
+       description="Configure various aspects of Plone and setup initial content"
+       handler=".setuphandlers.setupVarious"
+       >
+       <depends name="languagetool" />
+  </genericsetup:importStep>
+
+</configure>

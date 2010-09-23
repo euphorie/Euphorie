@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body class="error ${webhelpers/extra_css}">
+    <h1 i18n:translate="title_error">Error</h1>
+
+    <p class="error" i18n:translate="expl_error">
+      Something bad happened.
+    </p>
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>

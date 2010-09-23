@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:omit-tag="">
+  <p i18n:translate="intro_add_survey">
+    The form will allow you to create a new survey revision.
+  </p>
+
+  <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}"
+        tal:define="surveys view/surveys">
+    <fieldset>
+      <tal:widget replace="structure view/widgets/title/render" />
+      <fieldset class="comprehensive radioList" tal:define="value python:request.form.get('survey', surveys[0]['id'])">
+        <legend i18n:translate="label_survey_base">Choose a base revision</legend>
+        <label tal:repeat="survey surveys"><input type="radio" name="survey" value="${survey/id}" checked="${python:'checked' if value==survey['id'] else None}" /> ${survey/title}</label> 
+      </fieldset>
+    </fieldset>
+    <div class="buttonBar">
+      <button name="form.buttons.save" type="submit" i18n:translate="button_create">Create</button>
+      <button name="form.buttons.cancel" type="submit" i18n:translate="button_cancel">Cancel</button>
+    </div>
+  </form>
+</html>
