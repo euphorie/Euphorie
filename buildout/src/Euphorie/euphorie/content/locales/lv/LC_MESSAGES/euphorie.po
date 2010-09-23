@@ -1,0 +1,650 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./upload.py:56
+msgid "A RIE model in standard XML format."
+msgstr ""
+
+#: ./sector.py:56
+msgid "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
+msgstr ""
+
+#. Default: "A folder for all ocumentation for a specific language."
+#: ./profiles/default/types/euphorie.documentation.xml
+msgid "A folder for all ocumentation for a specific language."
+msgstr ""
+
+#. Default: "A folder for all sectors in a country."
+#: ./profiles/default/types/euphorie.country.xml
+msgid "A folder for all sectors in a country."
+msgstr ""
+
+#. Default: "A folder which can contain sectors."
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "A folder which can contain sectors."
+msgstr ""
+
+#: ./risk.py:157
+msgid "A list of links to webpages which provide more information on this risk."
+msgstr ""
+
+#. Default: "A module is grouping of risks"
+#: ./profiles/default/types/euphorie.module.xml
+msgid "A module is grouping of risks"
+msgstr ""
+
+#. Default: "A profile question is used to create optional or repetabled modules"
+#: ./profiles/default/types/euphorie.profilequestion.xml
+msgid "A profile question is used to create optional or repetabled modules"
+msgstr ""
+
+#. Default: "A risk."
+#: ./profiles/default/types/euphorie.risk.xml
+msgid "A risk."
+msgstr ""
+
+#. Default: "A sector is national organisation for a specific type of industry."
+#: ./profiles/default/types/euphorie.sector.xml
+msgid "A sector is national organisation for a specific type of industry."
+msgstr ""
+
+#: ./behaviour/richdescription.py:31
+msgid "A short summary of the content."
+msgstr ""
+
+#. Default: "A solution."
+#: ./profiles/default/types/euphorie.solution.xml
+msgid "A solution."
+msgstr ""
+
+#. Default: "A survey."
+#: ./profiles/default/types/euphorie.surveygroup.xml
+msgid "A survey."
+msgstr ""
+
+#. Default: "A version of a survey."
+#: ./profiles/default/types/euphorie.survey.xml
+msgid "A version of a survey."
+msgstr ""
+
+#: ./help.py:55
+msgid "Action plan"
+msgstr ""
+
+#. Default: "Active"
+#: ./profiles/default/workflows/sector/definition.xml
+msgid "Active"
+msgstr ""
+
+#: ./module.py:35
+msgid "Allow users to skip this module and everything inside it."
+msgstr ""
+
+#: ./help.py:70
+msgid "Any final words that should be shown at the end of the help. This information is not linked directly."
+msgstr ""
+
+#: ./help.py:18
+msgid "Authentication"
+msgstr ""
+
+#: ./sector.py:55
+msgid "Classification code"
+msgstr ""
+
+#: ./solution.py:55
+msgid "Common solution"
+msgstr ""
+
+#: ./sector.py:62
+msgid "Contact"
+msgstr ""
+
+#: ./sector.py:68
+msgid "Contact email address"
+msgstr ""
+
+#. Default: "Country Folder"
+#: ./profiles/default/types/euphorie.country.xml
+msgid "Country Folder"
+msgstr ""
+
+#: ./risk.py:131
+msgid "Default effect"
+msgstr ""
+
+#: ./risk.py:119
+msgid "Default frequency"
+msgstr ""
+
+#: ./risk.py:107
+msgid "Default probability"
+msgstr ""
+
+#: ./solution.py:31
+msgid "Describe the action that can be taken to remove this risk. This information will be copied to the measure."
+msgstr ""
+
+#: ./help.py:63
+msgid "Describe the reporting options. This page is linked from reports page."
+msgstr ""
+
+#: ./module.py:26
+msgid "Describe the risk. Include any relevant information that may be helpful for users."
+msgstr ""
+
+#: ./help.py:27
+msgid "Describe the session handling. This text is linked from the session overview page."
+msgstr ""
+
+#: ./solution.py:23
+msgid "Describe the solution. Include any relevant information that may be helpful for users."
+msgstr ""
+
+#: ./solution.py:45
+msgid "Describe the standard requirements for the action plan and prevention plan. This information will be copied to the measure."
+msgstr ""
+
+#: ./help.py:19
+msgid "Describe the user handling. This text is linked from the login, password reminder and registration pages."
+msgstr ""
+
+#: ./solution.py:38
+msgid "Describe what can be done to prevent this risk from (re)occuring. This information will be copied to the measure."
+msgstr ""
+
+#: ./risk.py:150
+msgid "Describe, and optionally link to, any relevant laws and policies."
+msgstr ""
+
+#: ./module.py:25
+msgid "Description"
+msgstr ""
+
+#: ./help.py:56
+msgid "Document the action plan phase. This information is linked from all action plan related pages"
+msgstr ""
+
+#: ./help.py:49
+msgid "Document the evaluation phase. This information is linked from all evaluation related pages"
+msgstr ""
+
+#: ./help.py:34
+msgid "Document the first steps in a survey, including how to configure a profile (if needed). This page is linked from the survey start page."
+msgstr ""
+
+#: ./help.py:42
+msgid "Document the inventory phase. This information is linked from all inventory related pages"
+msgstr ""
+
+#. Default: "Documentation Folder"
+#: ./profiles/default/types/euphorie.documentation.xml
+msgid "Documentation Folder"
+msgstr ""
+
+#. Default: "Edit"
+#: ./profiles/default/types/euphorie.country.xml
+#: ./profiles/default/types/euphorie.documentation.xml
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "Edit"
+msgstr ""
+
+#: ./sector.py:69
+msgid "Email address for the person or organisation responsible for maintaining this sector."
+msgstr ""
+
+#: ./help.py:48
+msgid "Evaluation"
+msgstr ""
+
+#: ./survey.py:64
+msgid "Evaluation may be skipped"
+msgstr ""
+
+#: ./risk.py:98
+msgid "Evaluation method"
+msgstr ""
+
+#: ./help.py:69
+msgid "Final words"
+msgstr ""
+
+#: ./behaviour/publish.py:39
+msgid "Flag indicating if this object has ever been published. Published objects can not be deleted, only marked as deprecated."
+msgstr ""
+
+#. Default: "Folder Listing"
+#: ./profiles/default/types/euphorie.country.xml
+#: ./profiles/default/types/euphorie.documentation.xml
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "Folder Listing"
+msgstr ""
+
+#: ./survey.py:57
+msgid "Generic information about this survey or sector. Users can access this through the `branch information' button in the client."
+msgstr ""
+
+#: ./help.py:12
+msgid "Generic introduction for the client. This text is not associated with specific pages."
+msgstr ""
+
+#: ./help.py:82
+msgid "Help"
+msgstr ""
+
+#: ./behaviour/uniqueid.py:42
+msgid "Identifier"
+msgstr ""
+
+#: ./risk.py:73
+msgid "If a risk is present this problem description shown during the evaluation and action plan phases. If not given the risk description is used instead."
+msgstr ""
+
+#: ./module.py:46
+msgid "Image"
+msgstr ""
+
+#: ./risk.py:108
+msgid "Indicate how likely occurence of this risk is in a normal situation."
+msgstr ""
+
+#: ./risk.py:120
+msgid "Indicate how often this risk occurs in a normal situation."
+msgstr ""
+
+#: ./risk.py:132
+msgid "Indicate the effects of this risk occuring in a normal situation."
+msgstr ""
+
+#: ./survey.py:56
+msgid "Information"
+msgstr ""
+
+#: ./risk.py:156
+msgid "Information links"
+msgstr ""
+
+#: ./help.py:11
+msgid "Introduction"
+msgstr ""
+
+#: ./help.py:41
+msgid "Inventory"
+msgstr ""
+
+#: ./surveygroup.py:24
+msgid "Language"
+msgstr ""
+
+#: ./risk.py:149
+msgid "Legal and policy references."
+msgstr ""
+
+#: ./risk.py:161
+msgid "Link"
+msgstr ""
+
+#: ./sector.py:42
+msgid "Name"
+msgstr ""
+
+#: ./risk.py:93
+msgid "Offer a `not applicable' option in addition to the standard yes/no/park options."
+msgstr ""
+
+#. Default: "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+#: ./profiles/default/workflows/sector/definition.xml
+msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+msgstr ""
+
+#: ./sector.py:50
+msgid "Password"
+msgstr ""
+
+#: ./upload.py:77
+msgid "Please upload a valid XML file"
+msgstr ""
+
+#: ./help.py:33
+msgid "Preparation"
+msgstr ""
+
+#: ./solution.py:37
+msgid "Prevention plan"
+msgstr ""
+
+#: ./risk.py:72
+msgid "Problem description"
+msgstr ""
+
+#: ./behaviour/publish.py:38
+msgid "Published"
+msgstr ""
+
+#: ./module.py:40
+msgid "Question"
+msgstr ""
+
+#: ./upload.py:51
+msgid "RIE import"
+msgstr ""
+
+#: ./upload.py:66
+msgid "RIE model import"
+msgstr ""
+
+#. Default: "References"
+#: ./profiles/default/types/euphorie.country.xml
+#: ./profiles/default/types/euphorie.documentation.xml
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "References"
+msgstr ""
+
+#: ./help.py:62
+msgid "Reports"
+msgstr ""
+
+#: ./solution.py:44
+msgid "Requirements"
+msgstr ""
+
+#. Default: "Sector Folder"
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "Sector Folder"
+msgstr ""
+
+#: ./sector.py:75
+msgid "Sector logo"
+msgstr ""
+
+#. Default: "Sector workflow"
+#: ./profiles/default/workflows/sector/definition.xml
+msgid "Sector workflow"
+msgstr ""
+
+#: ./survey.py:181
+msgid "Select a generic survey as base for this survey."
+msgstr ""
+
+#: ./profilequestion.py:38
+msgid "Select the profile type"
+msgstr ""
+
+#: ./risk.py:82
+msgid "Select the risk type"
+msgstr ""
+
+#: ./help.py:26
+msgid "Sessions"
+msgstr ""
+
+#: ./risk.py:92
+msgid "Show `not applicable' evaluation option"
+msgstr ""
+
+#: ./module.py:52
+msgid "Solution direction"
+msgstr ""
+
+#: ./surveygroup.py:17
+msgid "Standard survey"
+msgstr ""
+
+#: ./risk.py:58
+msgid "Statement"
+msgstr ""
+
+#: ./upload.py:81
+msgid "Succesfully imported the RIE"
+msgstr ""
+
+#: ./behaviour/richdescription.py:30
+msgid "Summary"
+msgstr ""
+
+#. Default: "Survey"
+#: ./profiles/default/types/euphorie.surveygroup.xml
+msgid "Survey"
+msgstr ""
+
+#: ./survey.py:180
+msgid "Template"
+msgstr ""
+
+#. Default: "The One And Only state"
+#: ./profiles/default/workflows/sector/definition.xml
+msgid "The One And Only state"
+msgstr ""
+
+#. Default: "The help text for the client."
+#: ./profiles/default/types/euphorie.help.xml
+msgid "The help text for the client."
+msgstr ""
+
+#: ./sector.py:63
+msgid "The name of the person or organisation responsible for maintaining this sector."
+msgstr ""
+
+#: ./sector.py:43
+msgid "The name of the sector will also be used to generate the login name for the sector account."
+msgstr ""
+
+#: ./module.py:41
+msgid "The question to ask users if this module is optional. This has to be a yes/no question."
+msgstr ""
+
+#: ./sector.py:76
+msgid "The sector logo will be shown instead of the agency logo."
+msgstr ""
+
+#: ./surveygroup.py:15
+msgid "The title of this survey. This title is used in the survey overview in the clients."
+msgstr ""
+
+#: ./module.py:47
+msgid "This image will be shown along with the description"
+msgstr ""
+
+#: ./module.py:53
+msgid "This information will be shown to users when they enter this module while working on the action plan."
+msgstr ""
+
+#: ./risk.py:59
+msgid "This is a short statement about a possible risk."
+msgstr ""
+
+#: ./behaviour/uniqueid.py:43
+msgid "This is a unique identifier for this object."
+msgstr ""
+
+#: ./survey.py:48
+msgid "This is the title of this survey version. This name is never shown to users."
+msgstr ""
+
+#: ./module.py:34
+msgid "This module is optional"
+msgstr ""
+
+#: ./survey.py:65
+msgid "This option allows uses to skip the evaluation phase."
+msgstr ""
+
+#: ./survey.py:47
+msgid "Title"
+msgstr ""
+
+#: ./upload.py:50
+msgid "Title of imported survey version"
+msgstr ""
+
+#: ./profilequestion.py:37
+msgid "Type"
+msgstr ""
+
+#: ./risk.py:23
+msgid "URL"
+msgstr ""
+
+#: ./upload.py:68
+msgid "Upload"
+msgstr ""
+
+#. Default: "View"
+#: ./profiles/default/types/euphorie.country.xml
+#: ./profiles/default/types/euphorie.documentation.xml
+#: ./profiles/default/types/euphorie.sectorcontainer.xml
+msgid "View"
+msgstr ""
+
+#: ./upload.py:55
+msgid "XML file"
+msgstr ""
+
+#. Default: "add a module"
+#: ./survey_templates/view.pt:63
+msgid "add_module"
+msgstr ""
+
+#. Default: "add a profile question"
+#: ./survey_templates/view.pt:41
+msgid "add_profile"
+msgstr ""
+
+#. Default: "add a risk"
+#: ./module_templates/view.pt:58
+msgid "add_riskk"
+msgstr ""
+
+#. Default: "add a submodule"
+#: ./module_templates/view.pt:36
+msgid "add_sub_module"
+msgstr ""
+
+#. Default: "add a new survey"
+#: ./sector_templates/view.pt:45
+msgid "add_survey"
+msgstr ""
+
+#. Default: "Information"
+#: ./module_templates/view.pt:24
+msgid "header_information"
+msgstr ""
+
+#. Default: "Modules"
+#: ./module_templates/view.pt:32
+msgid "header_modules"
+msgstr ""
+
+#. Default: "Profile questions"
+#: ./survey_templates/view.pt:37
+msgid "header_profile_questions"
+msgstr ""
+
+#. Default: "Risks"
+#: ./module_templates/view.pt:54
+msgid "header_risks"
+msgstr ""
+
+#. Default: "The evaluation phase may be skipped for this survey."
+#: ./survey_templates/view.pt:29
+msgid "info_evaluation_optional"
+msgstr ""
+
+#. Default: "This module is optional."
+#: ./module_templates/view.pt:26
+msgid "info_module_optional"
+msgstr ""
+
+#. Default: "The evaluation phase is mandatory for this survey."
+#: ./survey_templates/view.pt:32
+msgid "info_not_evaluation_optional"
+msgstr ""
+
+#. Default: "This module is mandatory."
+#: ./module_templates/view.pt:28
+msgid "info_not_module_optional"
+msgstr ""
+
+#. Default: "You can ${link} this survey version to make it available for users."
+#: ./survey_templates/view.pt:23
+msgid "info_publish"
+msgstr ""
+
+#. Default: "This module has no submodules. You can add ${add_link}."
+#: ./module_templates/view.pt:35
+msgid "module_has_no_modules"
+msgstr ""
+
+#. Default: "This module has no risks. You can add ${add_link}."
+#: ./module_templates/view.pt:57
+msgid "module_has_no_risks"
+msgstr ""
+
+#. Default: "You can also add ${add_link}."
+#: ./module_templates/view.pt:47
+msgid "module_modules_footer"
+msgstr ""
+
+#. Default: "You can also add ${add_link}."
+#: ./module_templates/view.pt:69
+msgid "module_risk_footer"
+msgstr ""
+
+#. Default: "You can also add ${add_link}."
+#: ./survey_templates/view.pt:74
+msgid "modules_footer"
+msgstr ""
+
+#. Default: "This survey has no modules. You can add ${add_link}."
+#: ./survey_templates/view.pt:62
+msgid "no_modules"
+msgstr ""
+
+#. Default: "This model has no profile questions. You can add ${add_link}."
+#: ./survey_templates/view.pt:40
+msgid "no_profile_questions"
+msgstr ""
+
+#. Default: "None"
+#: ./survey.py:171
+msgid "no_survey_skeleton"
+msgstr ""
+
+#. Default: "This survey has no versions. Please ${add_link}."
+#: ./surveygroup_templates/view.pt:35
+msgid "no_survey_versions_present"
+msgstr ""
+
+#. Default: "There are no surveys present. You can ${add_link}."
+#: ./sector_templates/view.pt:44
+msgid "no_surveys_present"
+msgstr ""
+
+#. Default: "You can also add ${add_link}."
+#: ./survey_templates/view.pt:52
+msgid "profile_questions_footer"
+msgstr ""
+
+#. Default: "publish"
+#: ./survey_templates/view.pt:24
+msgid "publish_link"
+msgstr ""
+
+#. Default: "You can also ${add_link}."
+#: ./sector_templates/view.pt:56
+msgid "survey_list_footer"
+msgstr ""
+

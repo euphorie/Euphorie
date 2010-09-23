@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+  <object name="euphorie_custom" meta_type="Filesystem Directory View"
+    directory="euphorie.deployment:skins/euphorie_custom"/>
+  <skin-path name="*">
+    <layer name="euphorie_custom" insert-after="custom" />
+  </skin-path>
+</object>
+

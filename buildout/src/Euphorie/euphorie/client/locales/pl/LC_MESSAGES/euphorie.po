@@ -1,0 +1,971 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2009-11-16 15:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./login.py:152
+msgid "An account with this email address already exists."
+msgstr ""
+
+#: ./login.py:126
+msgid "An email with a password reminder has been sent to your address."
+msgstr ""
+
+#: ./login.py:106
+msgid "An error occured while sending the password reminder"
+msgstr ""
+
+#. Default: "April"
+#: ./templates/risk_actionplan.pt:96
+msgid "April"
+msgstr ""
+
+#. Default: "August"
+#: ./templates/risk_actionplan.pt:100
+msgid "August"
+msgstr ""
+
+#. Default: "Country information and grouping for the client."
+#: ./profiles/default/types/euphorie.clientcountry.xml
+msgid "Country information and grouping for the client."
+msgstr ""
+
+#. Default: "December"
+#: ./templates/risk_actionplan.pt:104
+msgid "December"
+msgstr ""
+
+#. Default: "February"
+#: ./templates/risk_actionplan.pt:94
+msgid "February"
+msgstr ""
+
+#: ./risk.py:191
+msgid "Invalid day of month"
+msgstr ""
+
+#. Default: "January"
+#: ./templates/risk_actionplan.pt:93
+msgid "January"
+msgstr ""
+
+#. Default: "July"
+#: ./templates/risk_actionplan.pt:99
+msgid "July"
+msgstr ""
+
+#. Default: "June"
+#: ./templates/risk_actionplan.pt:98
+msgid "June"
+msgstr ""
+
+#. Default: "March"
+#: ./templates/risk_actionplan.pt:95
+msgid "March"
+msgstr ""
+
+#. Default: "May"
+#: ./templates/risk_actionplan.pt:97
+msgid "May"
+msgstr ""
+
+#. Default: "November"
+#: ./templates/risk_actionplan.pt:103
+msgid "November"
+msgstr ""
+
+#: ./login.py:100
+msgid "OIRAT registration reminder"
+msgstr ""
+
+#. Default: "October"
+#: ./templates/risk_actionplan.pt:102
+msgid "October"
+msgstr ""
+
+#: ./login.py:144
+msgid "Passwords do not match"
+msgstr ""
+
+#: ./login.py:142
+msgid "Please enter a password"
+msgstr ""
+
+#: ./login.py:87
+msgid "Please enter your email address"
+msgstr ""
+
+#. Default: "Sector information and grouping for the client."
+#: ./profiles/default/types/euphorie.clientsector.xml
+msgid "Sector information and grouping for the client."
+msgstr ""
+
+#. Default: "September"
+#: ./templates/risk_actionplan.pt:101
+msgid "September"
+msgstr ""
+
+#: ./publish.py:124
+msgid "Succesfully published the survey"
+msgstr ""
+
+#. Default: "The online client."
+#: ./profiles/default/types/euphorie.client.xml
+msgid "The online client."
+msgstr ""
+
+#: ./login.py:93
+msgid "Unkown email address"
+msgstr ""
+
+#. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
+#: ./templates/risk_actionplan.pt:70
+msgid "actionplan_measure_budget_tooltip"
+msgstr ""
+
+#. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
+#: ./templates/risk_actionplan.pt:64
+msgid "actionplan_measure_responsible_tooltip"
+msgstr ""
+
+#. Default: "You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this."
+#: ./templates/risk_actionplan.pt:47
+msgid "actionplan_measure_tooltip"
+msgstr ""
+
+#. Default: "European Agency<br /> for Safety and Health<br /> at Work"
+#: ./templates/login.pt:45
+#: ./templates/register.pt:41
+#: ./templates/reminder.pt:42
+msgid "agency_name"
+msgstr ""
+
+#. Default: "Developed by ${TNO}, ${Syslab} and ${Simplon}. Designed by ${Cornae}."
+#: ./templates/webhelpers.html:125
+msgid "appendix_authors"
+msgstr ""
+
+#. Default: "Download"
+#: ./templates/report_actionplan.pt:17
+#: ./templates/report_inventory.pt:17
+msgid "button_download"
+msgstr ""
+
+#. Default: "Print"
+#: ./templates/report_actionplan.pt:16
+#: ./templates/report_inventory.pt:16
+msgid "button_print"
+msgstr ""
+
+#. Default: "%B %d, %Y at %I:%M %p"
+#: ./utils.py:260
+msgid "date_format_long"
+msgstr ""
+
+#. Default: "%B %d, %Y"
+#: ./utils.py:251
+msgid "date_format_short"
+msgstr ""
+
+#. Default: "Weak severity"
+#: ./templates/risk_evaluation.pt:59
+msgid "effect_injury_no_absence"
+msgstr ""
+
+#. Default: "Significant severity"
+#: ./templates/risk_evaluation.pt:62
+msgid "effect_injury_with_absence"
+msgstr ""
+
+#. Default: "High (very high) severity"
+#: ./templates/risk_evaluation.pt:65
+msgid "effect_permanent_damage"
+msgstr ""
+
+#. Default: "Please enter the budget in whole Euros."
+#: ./templates/risk_actionplan.pt:73
+msgid "error_invalid_budget"
+msgstr ""
+
+#. Default: "Please enter a valid day of month."
+#: ./templates/risk_actionplan.pt:86
+msgid "error_invalid_day"
+msgstr ""
+
+#. Default: "Please enter a year."
+#: ./templates/risk_actionplan.pt:111
+msgid "error_invalid_year"
+msgstr ""
+
+#. Default: "You have identified the magnitude of risk for each of the bottlenecks. During the action plan phase you can determine the priority of each of the bottlenecks and how you are going to tackle the bottleneck. The programme may offer a suggestion you can use, or you can add your own measures."
+#: ./templates/actionplan.pt:16
+msgid "expl_actionplan_1"
+msgstr ""
+
+#. Default: "Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements)."
+#: ./templates/actionplan.pt:23
+msgid "expl_actionplan_2"
+msgstr ""
+
+#. Default: "Something bad happened."
+#: ./templates/error.pt:14
+msgid "expl_error"
+msgstr ""
+
+#. Default: "This survey has been updated. Before you can continue any changes made in the survey will have to be merged in your session."
+#: ./templates/updated.pt:14
+msgid "expl_update"
+msgstr ""
+
+#. Default: "Action plan ${title}.doc"
+#: ./survey.py:556
+msgid "filename_actionplan_report"
+msgstr ""
+
+#. Default: "Inventory ${title}.doc"
+#: ./survey.py:459
+msgid "filename_inventory_report"
+msgstr ""
+
+#. Default: "Almost never"
+#: ./templates/risk_evaluation.pt:44
+msgid "frequency_almost_never"
+msgstr ""
+
+#. Default: "Constantly"
+#: ./templates/risk_evaluation.pt:50
+msgid "frequency_constantly"
+msgstr ""
+
+#. Default: "Regularly"
+#: ./templates/risk_evaluation.pt:47
+msgid "frequency_regularly"
+msgstr ""
+
+#. Default: "Common solutions"
+#: ./templates/risk_actionplan.pt:169
+msgid "header_common_solutions"
+msgstr ""
+
+#. Default: "Legal and policy references"
+#: ./templates/webhelpers.html:157
+msgid "header_legal_references"
+msgstr ""
+
+#. Default: "Login"
+#: ./templates/login.pt:26
+msgid "header_login"
+msgstr ""
+
+#. Default: "Measure ${index}"
+#: ./templates/report_actionplan.pt:53
+#: ./templates/risk_actionplan.pt:43
+msgid "header_measure"
+msgstr ""
+
+#. Default: "More information"
+#: ./templates/webhelpers.html:149
+msgid "header_more_information"
+msgstr ""
+
+#. Default: "The assessment is not complicated."
+#: ./templates/start.pt:21
+msgid "header_not_complicated"
+msgstr ""
+
+#. Default: "or…"
+#: ./templates/sessions.pt:36
+#: ./templates/survey_sessions.pt:33
+msgid "header_or"
+msgstr ""
+
+#. Default: "Password reminder"
+#: ./templates/reminder.pt:26
+msgid "header_password_reminder"
+msgstr ""
+
+#. Default: "Questions answered per module"
+#: ./templates/status.pt:13
+msgid "header_questions_answered"
+msgstr ""
+
+#. Default: "Register"
+#: ./templates/register.pt:12
+msgid "header_register"
+msgstr ""
+
+#. Default: "Are you aware of all the risks?"
+#: ./templates/start.pt:18
+msgid "header_risk_aware"
+msgstr ""
+
+#. Default: "What is the severity of the damage ?"
+#: ./templates/risk_evaluation.pt:55
+msgid "header_risk_effect"
+msgstr ""
+
+#. Default: "How often are people exposed to this risk?"
+#: ./templates/risk_evaluation.pt:40
+msgid "header_risk_frequency"
+msgstr ""
+
+#. Default: "What is the chance of this risk occurring?"
+#: ./templates/risk_evaluation.pt:25
+msgid "header_risk_probability"
+msgstr ""
+
+#. Default: "Select an earlier session to complete or review"
+#: ./templates/sessions.pt:19
+#: ./templates/survey_sessions.pt:16
+msgid "header_select_session"
+msgstr ""
+
+#. Default: "Session"
+#: ./templates/sessions.pt:12
+#: ./templates/survey_sessions.pt:13
+msgid "header_session"
+msgstr ""
+
+#. Default: "Welcome"
+#: ./templates/login.pt:12
+#: ./templates/reminder.pt:12
+msgid "header_welcome"
+msgstr ""
+
+#. Default: "There are known common approaches to this risk. You can create a new measure based on these approaches."
+#: ./templates/risk_actionplan.pt:170
+msgid "help_common_solutions"
+msgstr ""
+
+#. Default: "Action Plan"
+#: ./templates/help.pt:20
+msgid "help_header_actionplan"
+msgstr ""
+
+#. Default: "Authentication"
+#: ./templates/help.pt:15
+msgid "help_header_authentication"
+msgstr ""
+
+#. Default: "Evaluation"
+#: ./templates/help.pt:19
+msgid "help_header_evaluation"
+msgstr ""
+
+#. Default: "Final words"
+#: ./templates/help.pt:22
+msgid "help_header_finalwords"
+msgstr ""
+
+#. Default: "Introduction"
+#: ./templates/help.pt:14
+msgid "help_header_introduction"
+msgstr ""
+
+#. Default: "Inventory"
+#: ./templates/help.pt:18
+msgid "help_header_inventory"
+msgstr ""
+
+#. Default: "Report"
+#: ./templates/help.pt:21
+msgid "help_header_report"
+msgstr ""
+
+#. Default: "Sessions"
+#: ./templates/help.pt:16
+msgid "help_header_sessions"
+msgstr ""
+
+#. Default: "Preparation"
+#: ./templates/help.pt:17
+msgid "help_header_start"
+msgstr ""
+
+#. Default: "You have indicated that there are possible risks in your organisation. During this evaluation phase you can assess the magnitude of risk for each bottleneck."
+#: ./templates/evaluation.pt:16
+msgid "help_risks_present"
+msgstr ""
+
+#. Default: "You can also skip this phase and proceed directly to the ${link} phase."
+#: ./templates/evaluation.pt:24
+msgid "help_skip_evaluation"
+msgstr ""
+
+#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder} of your login information."
+#: ./templates/login.pt:15
+msgid "incorrect_login"
+msgstr ""
+
+#. Default: "You can print the ${list-of-risks}."
+#: ./templates/inventory.pt:17
+msgid "intro_inventory"
+msgstr ""
+
+#. Default: "Complicated? Not really. It just takes a bit of time. However, the RA is important. So important that the government has made it compulsory for almost all entrepreneurs with employees."
+#: ./templates/start.pt:22
+msgid "intro_not_complicated"
+msgstr ""
+
+#. Default: "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment consists of two parts: a <em>list</em> with all the risks to your company and an <em>action plan</em> to deal with them. These two components allow you to limit the risks to your employees and your company, and therefore also the financial risk."
+#: ./templates/start.pt:19
+msgid "intro_risk_aware"
+msgstr ""
+
+#. Default: "Action Plan"
+#: ./templates/actionplan.pt:56
+#: ./templates/appendix.pt:38
+#: ./templates/evaluation.pt:55
+msgid "iphone_label_action_plan"
+msgstr ""
+
+#. Default: "Evaluation"
+#: ./templates/actionplan.pt:50
+#: ./templates/appendix.pt:32
+#: ./templates/evaluation.pt:49
+msgid "iphone_label_evaluation"
+msgstr ""
+
+#. Default: "Inventory"
+#: ./templates/actionplan.pt:44
+#: ./templates/appendix.pt:26
+#: ./templates/evaluation.pt:43
+msgid "iphone_label_inventory"
+msgstr ""
+
+#. Default: "Preparation"
+#: ./templates/actionplan.pt:38
+#: ./templates/appendix.pt:20
+#: ./templates/evaluation.pt:37
+msgid "iphone_label_preparation"
+msgstr ""
+
+#. Default: "Report"
+#: ./templates/actionplan.pt:62
+#: ./templates/appendix.pt:44
+#: ./templates/evaluation.pt:61
+msgid "iphone_report"
+msgstr ""
+
+#. Default: "Update"
+#: ./templates/updated.pt:66
+msgid "label_accept update"
+msgstr ""
+
+#. Default: "Action Plan"
+#: ./templates/actionplan.pt:55
+#: ./templates/appendix.pt:37
+#: ./templates/evaluation.pt:54
+msgid "label_action_plan"
+msgstr ""
+
+#. Default: "Budget (in Euro)"
+#: ./templates/risk_actionplan.pt:69
+msgid "label_action_plan_budget"
+msgstr ""
+
+#. Default: "Planning end"
+#: ./templates/risk_actionplan.pt:120
+msgid "label_action_plan_end"
+msgstr ""
+
+#. Default: "Who is responsible?"
+#: ./templates/risk_actionplan.pt:63
+msgid "label_action_plan_responsible"
+msgstr ""
+
+#. Default: "Planning start"
+#: ./templates/risk_actionplan.pt:79
+msgid "label_action_plan_start"
+msgstr ""
+
+#. Default: "Add another measure"
+#: ./templates/risk_actionplan.pt:165
+msgid "label_add_measure"
+msgstr ""
+
+#. Default: "Add"
+#: ./templates/profile.pt:51
+#: ./templates/updated.pt:57
+msgid "label_add_profile_module"
+msgstr ""
+
+#. Default: "Change country/language"
+#: ./templates/login.pt:34
+msgid "label_change_country"
+msgstr ""
+
+#. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+#: ./templates/risk_actionplan.pt:188
+#: ./templates/risk_evaluation.pt:92
+#: ./templates/risk_inventory.pt:41
+msgid "label_comment"
+msgstr ""
+
+#. Default: "Continue"
+#: ./templates/profile.pt:60
+msgid "label_continue"
+msgstr ""
+
+#. Default: "Create action plan"
+#: ./templates/actionplan.pt:31
+msgid "label_create_action_plan"
+msgstr ""
+
+#. Default: "Day"
+#: ./templates/risk_actionplan.pt:83
+msgid "label_day"
+msgstr ""
+
+#. Default: "Delete"
+#: ./templates/sessions.pt:32
+#: ./templates/survey_sessions.pt:29
+msgid "label_delete"
+msgstr ""
+
+#. Default: "Email address"
+#: ./templates/login.pt:30
+#: ./templates/register.pt:26
+#: ./templates/reminder.pt:31
+msgid "label_email"
+msgstr ""
+
+#. Default: "Evaluation"
+#: ./templates/actionplan.pt:49
+#: ./templates/appendix.pt:31
+#: ./templates/evaluation.pt:48
+msgid "label_evaluation"
+msgstr ""
+
+#. Default: "action plan"
+#: ./templates/evaluation.pt:25
+msgid "label_evaluation_action_plan"
+msgstr ""
+
+#. Default: "I forgot my password"
+#: ./templates/login.pt:31
+msgid "label_forgot_password"
+msgstr ""
+
+#. Default: "Identification"
+#: ./templates/actionplan.pt:43
+#: ./templates/appendix.pt:25
+#: ./templates/evaluation.pt:42
+msgid "label_inventory"
+msgstr ""
+
+#. Default: "Login"
+#: ./templates/login.pt:33
+msgid "label_login"
+msgstr ""
+
+#. Default: "Action plan"
+#: ./templates/risk_actionplan.pt:51
+msgid "label_measure_action_plan"
+msgstr ""
+
+#. Default: "Prevention plan"
+#: ./templates/risk_actionplan.pt:54
+msgid "label_measure_prevention_plan"
+msgstr ""
+
+#. Default: "Requirements"
+#: ./templates/risk_actionplan.pt:57
+msgid "label_measure_requirements"
+msgstr ""
+
+#. Default: "Month"
+#: ./templates/risk_actionplan.pt:90
+msgid "label_month"
+msgstr ""
+
+#. Default: "Desired password"
+#: ./templates/register.pt:28
+msgid "label_new_password"
+msgstr ""
+
+#. Default: "Next"
+#: ./templates/module_actionplan.pt:38
+#: ./templates/module_evaluation.pt:28
+#: ./templates/module_inventory.pt:41
+msgid "label_next"
+msgstr ""
+
+#. Default: "No"
+#: ./templates/module_inventory.pt:35
+#: ./templates/risk_inventory.pt:25
+msgid "label_no"
+msgstr ""
+
+#. Default: "Not applicable"
+#: ./templates/risk_inventory.pt:27
+msgid "label_not_applicable"
+msgstr ""
+
+#. Default: "Password (${forgot_link})"
+#: ./templates/login.pt:31
+msgid "label_password"
+msgstr ""
+
+#. Default: "Again password"
+#: ./templates/register.pt:30
+msgid "label_password_confirm"
+msgstr ""
+
+#. Default: "Preparation"
+#: ./templates/actionplan.pt:37
+#: ./templates/appendix.pt:19
+#: ./templates/evaluation.pt:36
+msgid "label_preparation"
+msgstr ""
+
+#. Default: "Previous"
+#: ./templates/module_actionplan.pt:37
+#: ./templates/module_evaluation.pt:27
+#: ./templates/module_inventory.pt:40
+msgid "label_previous"
+msgstr ""
+
+#. Default: "<a href=\"${DYNAMIC_CONTENT}\">Privacy statement</a>"
+#: ./templates/register.pt:32
+msgid "label_privacy_statement"
+msgstr ""
+
+#. Default: "register"
+#: ./templates/login.pt:38
+msgid "label_register"
+msgstr ""
+
+#. Default: "Remove"
+#: ./templates/risk_actionplan.pt:207
+msgid "label_remove"
+msgstr ""
+
+#. Default: "Report"
+#: ./templates/actionplan.pt:61
+#: ./templates/appendix.pt:43
+#: ./templates/evaluation.pt:60
+msgid "label_report"
+msgstr ""
+
+#. Default: "Run evaluation"
+#: ./templates/evaluation.pt:29
+msgid "label_run_evaluation"
+msgstr ""
+
+#. Default: "Start a new session in the following field"
+#: ./templates/sessions.pt:42
+msgid "label_select_new_session"
+msgstr ""
+
+#. Default: "You may enter a name for this survey that will make it easier for you to find your session back if you wish to continue at a later time"
+#: ./templates/sessions.pt:49
+#: ./templates/survey_sessions.pt:39
+msgid "label_session_title"
+msgstr ""
+
+#. Default: "Start Inventory"
+#: ./templates/inventory.pt:21
+msgid "label_start_inventory"
+msgstr ""
+
+#. Default: "Start"
+#: ./templates/start.pt:31
+msgid "label_start_survey"
+msgstr ""
+
+#. Default: "Year"
+#: ./templates/risk_actionplan.pt:108
+msgid "label_year"
+msgstr ""
+
+#. Default: "Yes"
+#: ./templates/module_inventory.pt:32
+#: ./templates/risk_inventory.pt:23
+msgid "label_yes"
+msgstr ""
+
+#. Default: "saved on ${date}"
+#: ./templates/sessions.pt:27
+#: ./templates/survey_sessions.pt:24
+msgid "lable_session_modified"
+msgstr ""
+
+#. Default: "list of all risks"
+#: ./templates/inventory.pt:17
+msgid "list_of_risks"
+msgstr ""
+
+#. Default: "Your registration is a private matter. All your data is stored to be accessed only by you."
+#: ./templates/login.pt:39
+msgid "login_tooltip"
+msgstr ""
+
+#. Default: "Measure 2"
+#: ./templates/risk_actionplan.pt:206
+msgid "measure_template_title"
+msgstr ""
+
+#. Default: "Help"
+#: ./templates/actionplan.pt:69
+#: ./templates/appendix.pt:52
+#: ./templates/evaluation.pt:68
+msgid "navigation_help"
+msgstr ""
+
+#. Default: "Logout"
+#: ./templates/actionplan.pt:68
+#: ./templates/appendix.pt:51
+#: ./templates/evaluation.pt:67
+msgid "navigation_logout"
+msgstr ""
+
+#. Default: "Status"
+#: ./templates/actionplan.pt:70
+#: ./templates/evaluation.pt:69
+#: ./templates/help.pt:89
+msgid "navigation_status"
+msgstr ""
+
+#. Default: "By filling in this list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan."
+#: ./templates/report_actionplan.pt:21
+msgid "plan_report_intro_1"
+msgstr ""
+
+#. Default: "The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects have been completed and perhaps new subjects need to be added."
+#: ./templates/report_actionplan.pt:23
+msgid "plan_report_intro_2"
+msgstr ""
+
+#. Default: "High"
+#: ./templates/risk_evaluation.pt:81
+msgid "priority_high"
+msgstr ""
+
+#. Default: "Low"
+#: ./templates/risk_evaluation.pt:75
+msgid "priority_low"
+msgstr ""
+
+#. Default: "Medium"
+#: ./templates/risk_evaluation.pt:78
+msgid "priority_medium"
+msgstr ""
+
+#. Default: "Big"
+#: ./templates/risk_evaluation.pt:35
+msgid "probability_high"
+msgstr ""
+
+#. Default: "Small"
+#: ./templates/risk_evaluation.pt:29
+msgid "probability_low"
+msgstr ""
+
+#. Default: "Medium"
+#: ./templates/risk_evaluation.pt:32
+msgid "probability_medium"
+msgstr ""
+
+#. Default: "Don't have an account? Then please ${register_link} first."
+#: ./templates/login.pt:38
+msgid "register_teaser"
+msgstr ""
+
+#. Default: "xxxx"
+#: ./templates/reminder-email.pt:12
+msgid "reminder_email_footer"
+msgstr ""
+
+#. Default: "Dear user,"
+#: ./templates/reminder-email.pt:2
+msgid "reminder_email_header"
+msgstr ""
+
+#. Default: "You have requested a password reminder for the OIRAT website. Your login information is:"
+#: ./templates/reminder-email.pt:4
+msgid "reminder_email_intro"
+msgstr ""
+
+#. Default: "Email"
+#: ./templates/reminder-email.pt:8
+msgid "reminder_email_login"
+msgstr ""
+
+#. Default: "Password"
+#: ./templates/reminder-email.pt:9
+msgid "reminder_email_password"
+msgstr ""
+
+#. Default: "Action plan:"
+#: ./templates/report_actionplan.pt:56
+msgid "report_measure_actionplan"
+msgstr ""
+
+#. Default: "There is a budget of ${amount} for this measure."
+#: ./templates/report_actionplan.pt:93
+msgid "report_measure_budget"
+msgstr ""
+
+#. Default: "This task ends on ${end}."
+#: ./templates/report_actionplan.pt:83
+msgid "report_measure_end_only"
+msgstr ""
+
+#. Default: "${responsible} is responsible for this task which starts on ${start} and ends on ${end}."
+#: ./templates/report_actionplan.pt:91
+msgid "report_measure_full"
+msgstr ""
+
+#. Default: "Prevention plan:"
+#: ./templates/report_actionplan.pt:60
+msgid "report_measure_preventionplan"
+msgstr ""
+
+#. Default: "Requirements:"
+#: ./templates/report_actionplan.pt:64
+msgid "report_measure_requirements"
+msgstr ""
+
+#. Default: "${responsible} is responsible for this task."
+#: ./templates/report_actionplan.pt:71
+msgid "report_measure_responsible"
+msgstr ""
+
+#. Default: "${responsible} is responsible for this task which ends on ${end}."
+#: ./templates/report_actionplan.pt:77
+msgid "report_measure_responsible_and_end"
+msgstr ""
+
+#. Default: "${responsible} is responsible for this task which starts on ${start}."
+#: ./templates/report_actionplan.pt:74
+msgid "report_measure_responsible_and_start"
+msgstr ""
+
+#. Default: "This task starts on ${start} and ends on ${end}."
+#: ./templates/report_actionplan.pt:87
+msgid "report_measure_start_and_stop"
+msgstr ""
+
+#. Default: "This task starts on ${start}."
+#: ./templates/report_actionplan.pt:80
+msgid "report_measure_start_only"
+msgstr ""
+
+#. Default: "${level} priority"
+#: ./templates/report_actionplan.pt:43
+msgid "report_priority"
+msgstr ""
+
+#. Default: "This is a ${priority} risk."
+#: ./templates/report_actionplan.pt:43
+msgid "report_risk_priority"
+msgstr ""
+
+#. Default: "request an e-mail reminder"
+#: ./templates/login.pt:15
+msgid "request_an_email_reminder"
+msgstr ""
+
+#. Default: "This is a ${priority} ."
+#: ./templates/risk_actionplan.pt:26
+msgid "risk_priority"
+msgstr ""
+
+#. Default: "high priority risk"
+#: ./templates/risk_actionplan.pt:33
+msgid "risk_priority_high"
+msgstr ""
+
+#. Default: "low priority risk"
+#: ./templates/risk_actionplan.pt:27
+msgid "risk_priority_low"
+msgstr ""
+
+#. Default: "medium priority risk"
+#: ./templates/risk_actionplan.pt:30
+msgid "risk_priority_medium"
+msgstr ""
+
+#. Default: "This risk still needs to be inventorised"
+#: ./templates/report_actionplan.pt:40
+#: ./templates/report_inventory.pt:33
+msgid "risk_unanswered"
+msgstr ""
+
+#. Default: "Once you have started an RA, you will be able to stop before the end. Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names."
+#: ./templates/sessions.pt:50
+#: ./templates/survey_sessions.pt:40
+msgid "session_title_tooltip"
+msgstr ""
+
+#. Default: "${count} questions were answersed"
+#: ./templates/status.pt:20
+msgid "status_answered"
+msgstr ""
+
+#. Default: "${count} questions were postponed"
+#: ./templates/status.pt:26
+msgid "status_postponed"
+msgstr ""
+
+#. Default: "${count} answers indicated a risk"
+#: ./templates/status.pt:23
+msgid "status_risk"
+msgstr ""
+
+#. Default: "European Agency for Safety and Health at Work"
+#: ./templates/actionplan.pt:6
+#: ./templates/appendix.pt:6
+#: ./templates/error.pt:6
+msgid "title_agency"
+msgstr ""
+
+#. Default: "Error"
+#: ./templates/error.pt:12
+msgid "title_error"
+msgstr ""
+
+#. Default: "Help"
+#: ./templates/help.pt:12
+msgid "title_help"
+msgstr ""
+
+#. Default: "Status"
+#: ./templates/status.pt:12
+msgid "title_status"
+msgstr ""
+
+#. Default: "Euphorie risk assessment tool"
+#: ./templates/frontpage.pt:11
+msgid "title_tool"
+msgstr ""
+
+#. Default: "Survey was updated"
+#: ./templates/updated.pt:12
+msgid "title_updated"
+msgstr ""
+
+#. Default: "Please verify if the profile is still accurate."
+#: ./templates/updated.pt:19
+msgid "verify_profile"
+msgstr ""
+
+#. Default: "You responded negative to the above statement."
+#: ./templates/report_actionplan.pt:39
+#: ./templates/report_inventory.pt:32
+#: ./templates/webhelpers.html:139
+msgid "warn_risk_present"
+msgstr ""
+

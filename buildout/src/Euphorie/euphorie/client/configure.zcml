@@ -1,0 +1,104 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:db="http://namespaces.zope.org/db"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="euphorie">
+
+    <five:registerPackage package="." initialize=".initialize" />
+     
+    <include package="collective.autopermission" />
+    <include package="euphorie.content" />
+
+    <i18n:registerTranslations directory="locales"/>
+
+    <permission
+        id="euphorie.client.PublishSurvey"
+        title="Euphorie: Publish a Survey"
+        />
+
+    <permission
+        id="euphorie.client.ViewSurvey"
+        title="Euphorie: View a Survey"
+        />
+
+    <grok:grok package="." />
+
+    <adapter
+        factory=".client.ClientLocalRolesProvider"
+        />
+
+    <adapter
+        factory=".client.ClientUserProvider"
+        provides="Products.membrane.interfaces.user.IMembraneUserObject"
+        />
+
+    <adapter
+        factory=".client.ClientPublishTraverser"
+        provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <adapter
+        factory=".survey.SurveyPublishTraverser"
+        provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <browser:page
+        for="*"
+        layer=".client.IClientSkinLayer"
+        class=".utils.WebHelpers"
+        name="webhelpers"
+        template="templates/webhelpers.html"
+        permission="zope2.View"
+        />
+
+
+    <browser:page
+        for="euphorie.content.survey.ISurvey"
+        name="publish"
+        class=".publish.PublishSurvey"
+        template="templates/publish.html"
+        permission="euphorie.client.PublishSurvey"
+        />
+
+    <browser:page
+        for="euphorie.content.survey.ISurvey"
+        name="preview"
+        class=".publish.PreviewSurvey"
+        template="templates/publish.html"
+        permission="euphorie.client.PublishSurvey"
+        />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="Euphorie online client"
+        directory="profiles/default"
+        description="The online risk assessment client interface for an Euphorie website"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        />
+
+    <genericsetup:importStep
+        name="euphorie.client"
+        title="Euphorie client configuration"
+        description="Install and enable the PAS plugin" 
+        handler=".setuphandlers.setupVarious"
+        />
+
+    <browser:resourceDirectory
+        name="euphorie.style"
+        directory="templates/style/main"
+       />
+
+    <browser:resourceDirectory
+        name="euphorie.libraries"
+        directory="templates/libraries"
+       />
+
+    <browser:resourceDirectory
+        name="euphorie.behaviour"
+        directory="templates/behaviour"
+       />
+
+</configure>

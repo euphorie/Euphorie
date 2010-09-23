@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class webhelpers/extra_css">
+    <h1 i18n:translate="title_updated">Survey was updated</h1>
+
+    <p class="notice" i18n:translate="expl_update">
+      This survey has been updated. Before you can continue any changes made
+      in the survey will have to be merged in your session.
+    </p>
+
+    <p tal:condition="python:view.profile" i18n:translate="verify_profile">Please
+    verify if the profile is still accurate.</p>
+
+    <form method="post">
+      <fieldset class="concise" tal:condition="python:view.profile">
+        <tal:block repeat="question view/profile">
+          <tal:block condition="python:question['type']=='optional'">
+            <input type="hidden" name="1:bool:default" value=""
+                   tal:attributes="name string:${question/id}:boolean:default" />
+            <label><span tal:replace="question/title">Online delivery</span>
+              <input type="checkbox" name="1:bool" value="on"
+                     tal:attributes="name string:${question/id}:boolean; checked python:question['value'] and 'checked' or None" />
+            </label>
+          </tal:block>
+
+          <tal:block condition="python:question['type']=='repeat'">
+            <fieldset class="comprehensive">
+              <legend tal:content="question/title">Restaurants</legend>
+              <ol>
+                <tal:block condition="python:not question['value']">
+                  <li><input type="text" name="2:list"
+                             tal:attributes="name string:${question/id}:utext:list"/>
+                  </li>
+                  <noscript>
+                    <li><input type="text" name="2:list"
+                               tal:attributes="name string:${question/id}:utext:list"/>
+                    </li>
+                    <li><input type="text" name="2:list"
+                               tal:attributes="name string:${question/id}:utext:list"/>
+                    </li>
+                  </noscript>
+                </tal:block>
+                <tal:block condition="python:not question['value']">
+                  <li tal:repeat="title question/value"><input type="text" name="2:list"
+                  tal:attributes="name string:${question/id}:utext:list; value title"/>
+                  </li>
+                </tal:block>
+              </ol>
+              <button class="2:utext:list addButton jsOnly" type="button" value="2:utext:list"
+                      i18n:translate="label_add_profile_module"
+                      tal:attributes="value string:${question/id}:utext:list;
+                                      class string:${question/id}:utext:list addButton jsOnly">Add</button>
+            </fieldset>
+          </tal:block>
+        </tal:block>
+      </fieldset>
+      <p class="buttonBar">
+        <button type="submit" i18n:translate="label_accept update">Update</button>
+      </p>
+    </form>
+
+    <ol id="steps">
+      <li id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+      </li>
+      <li id="step-3">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+      </li>
+      <li id="step-4">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+      </li>
+      <li id="step-5">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+      </li>
+    </ol>
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#identification" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+  <script type="text/javascript" defer="1">
+    // <![CDATA[
+    $(document).ready(function() {
+        $(".addButton").click(function() {
+            var button = $(this);
+            var field = button.attr("class").split(" ")[0];
+            var list = button.prev("ol");
+            var li = $("<li/>");
+
+            $("<input type='text'/>")
+                .attr("name", field)
+                .appendTo(li);
+            li.appendTo(list)
+              .find("input").get(0).focus();
+        });
+
+    });
+    // ]]>
+  </script>
+</html>

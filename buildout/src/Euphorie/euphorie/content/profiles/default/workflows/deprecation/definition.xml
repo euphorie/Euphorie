@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="deprecation"
+             title="Deprecation workflow"
+             description="A simple workflow for items which can be deprecated. This workflow does not manage any permissions."
+             state_variable="review_state" initial_state="current">
+ <permission>Euphorie: Add new RIE Content</permission>
+ <state state_id="current" title="Active">
+  <exit-transition transition_id="deprecate"/>
+ </state>
+ <state state_id="deprecated" title="Deprecated">
+  <exit-transition transition_id="reinstate"/>
+  <permission-map name="Euphorie: Add new RIE Content"
+                  acquired="False">
+  </permission-map>
+ </state>
+ <transition transition_id="deprecate" title="Deprecate"
+             new_state="deprecated" trigger="USER"
+             before_script="" after_script="">
+  <description>Mark an object as deprecated, hiding it from all clients.</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=deprecate"
+          category="workflow">Mark as deprecated</action>
+  <guard>
+   <guard-permission>Modify portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="reinstate" title="Reinstante"
+             new_state="current" trigger="USER" before_script=""
+             after_script="">
+  <description>Remove the deprecated flag from this object.</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=reinstate"
+          category="workflow">Reinstate</action>
+  <guard>
+   <guard-permission>Modify portal content</guard-permission>
+  </guard>
+ </transition>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Previous transition
+</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition
+</description>
+  <default>
+   
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comment about the last transition
+</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history
+</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>When the previous transition was performed
+</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+</dc-workflow>

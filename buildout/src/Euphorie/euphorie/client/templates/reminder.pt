@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie" id="login"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body>
+    <h1 i18n:translate="header_welcome">Welcome</h1>
+
+    <p tal:define="country webhelpers/country" class="country gb" id="country"
+      tal:attributes="class string:country ${country}" tal:content="country">
+      United Kingdom
+    </p>
+
+    <p class="error" tal:condition="view/error|nothing" tal:content="view/error">
+      Invalid login
+    </p>
+
+    <p class="notice" tal:condition="view/notice|nothing" tal:content="view/notice">
+      An email with a password reminder has been sent to your address.
+    </p>
+
+    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="came_from"
+        tal:condition="request/came_from|nothing"
+        tal:attributes="value request/came_from"/>
+      <h2 i18n:translate="header_password_reminder">
+        Password reminder
+      </h2>
+
+      <fieldset class="concise">
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input type="text" name="loginname" tal:attributes="value request/loginname|nothing"/></label>
+      </fieldset>
+
+      <p class="buttonBar">
+        <a href="#" tal:attributes="href view/back_url" i18n:translate="label_previous" class="floatBefore button-medium back">Previous</a>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ul id="navigation">
+      <li id="home">
+        <a href="#" tal:attributes="href webhelpers/client_url" i18n:translate="agency_name">
+          European Agency<br />
+          for Safety and Health<br />
+          at Work</a>
+      </li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

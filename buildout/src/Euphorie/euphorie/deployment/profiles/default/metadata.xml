@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1</version>
+  <dependencies>
+    <dependency>profile-euphorie.content:default</dependency>
+    <dependency>profile-euphorie.client:default</dependency>
+  </dependencies>
+</metadata>

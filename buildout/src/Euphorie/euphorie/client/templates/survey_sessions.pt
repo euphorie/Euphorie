@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie" id="sessions"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:define="sessions view/sessions"
+        tal:attributes="class python:'report' + webhelpers.extra_css()">
+    <h1 i18n:translate="header_session">Session</h1>
+
+    <tal:block condition="python:sessions">
+      <h2 i18n:translate="header_select_session">Select an earlier session to complete or review</h2>
+      <table id="sessionList">
+        <tr tal:repeat="session sessions">
+          <td><form method="post">
+              <input type="hidden" name="action" value="continue"/>
+              <input type="hidden" name="session" tal:attributes="value session/id"/>
+              <button class="link" type="submit" tal:content="session/title">Lorem ipsum dolor sit</button>,
+              <tal:span i18n:translate="lable_session_modified">saved on
+              <tal:block i18n:name="date" content="python:webhelpers.formatDateTime(session['modified'])">16 August 2009</tal:block></tal:span></form></td>
+          <td class="actions span-2">
+            <form method="post" action="delete-session" class="removeSessionForm">
+              <input type="hidden" name="json_url" tal:attributes="value string:${context/absolute_url}/@@json-delete-session"/>
+              <input type="hidden" name="id" tal:attributes="value session/id" />
+              <button type="submit" class="small" i18n:translate="label_delete">Delete</button>
+            </form></td>
+        </tr>
+      </table>
+      <h2 i18n:translate="header_or">or…</h2>
+    </tal:block>
+
+    <form method="post">
+      <input type="hidden" name="action" value="new"/>
+      <fieldset class="concise">
+        <label><tal:span i18n:translate="label_session_title">You may enter a name for this survey that will make it easier for you to find your session back if you wish to continue at a later time</tal:span>
+          <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#sessions" i18n:translate="session_title_tooltip">Once you have started an RA, you will be able to stop before the end.  Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names.</a>
+          <input type="text" name="title:utf8:ustring"/></label>
+      </fieldset>
+      <p class="buttonBar">
+        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ol id="steps">
+      <li class="active current" id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+      </li>
+      <li id="step-3">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+      </li>
+      <li id="step-4">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+      </li>
+      <li id="step-5">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home">
+        <a href="#" tal:attributes="href webhelpers/client_url" i18n:translate="agency_name">
+          European Agency<br />
+          for Safety and Health<br />
+          at Work</a>
+      </li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#sessions" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+  <script type="text/javascript">
+// <![CDATA[
+$("form.removeSessionForm button").live("click", function() {
+    var button = this;
+
+    $.ajax({type: "POST",
+            url: this.form.json_url.value,
+            cache: false,
+            dataType: "json",
+            data: { id: this.form.id.value },
+            success: function(data, status) {
+                if (data.result==="ok") {
+                    $(button).parents("tr").remove();
+                    if ($("#sessionList tr").length===0) {
+                        $("h2").remove();
+                        $("#sessionList").remove();
+                    }
+                }
+            }
+            });
+
+    return false;
+});
+// ]]>
+  </script>
+</html>
+

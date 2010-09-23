@@ -1,0 +1,34 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:cmf="http://namespaces.zope.org/cmf"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           i18n_domain="euphorie">
+
+  <include package="euphorie.content" />
+  <include package="euphorie.client" />
+
+  <cmf:registerDirectory name="euphorie_custom" />
+
+  <utility
+       factory=".products.HideEuphorieProducts"
+       name="euphorie.deployment"
+       />
+
+  <genericsetup:registerProfile
+       name="default"
+       title="Euphorie website"
+       directory="profiles/default"
+       description="Setup a standard Euphorie website"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+  <genericsetup:importStep
+       name="euphorie.deployment"
+       title="Euphorie Deployment configuration"
+       description="Configure various aspects of Plone and setup initial content"
+       handler=".setuphandlers.setupVarious"
+       >
+       <depends name="languagetool" />
+  </genericsetup:importStep>
+
+</configure>

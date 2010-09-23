@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie" id="login"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body class="login" tal:define="webhelpers nocall:context/@@webhelpers">
+    <h1 i18n:translate="header_welcome">Welcome</h1>
+
+    <p class="warning" tal:condition="view/error|nothing" i18n:translate="incorrect_login">
+      Your login name and/or password were entered incorrectly. Please check and try again or <a i18n:name="request_an_email_reminder" href="#" tal:attributes="href view/reminder_url"><tal:span i18n:translate="request_an_email_reminder">request an e-mail reminder</tal:span></a> of your login information.
+    </p>
+    
+    <p tal:define="country webhelpers/country" class="country gb" id="country"
+      tal:attributes="class string:country ${country}" tal:content="country">
+      United Kingdom
+    </p>
+    
+    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="came_from"
+        tal:condition="request/came_from|nothing"
+        tal:attributes="value request/came_from"/>
+      <h2 i18n:translate="header_login">
+        Login
+      </h2>
+      <fieldset class="concise">
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="autofocus" tabindex="1" type="text" name="__ac_name" tal:attributes="value request/__ac_name|nothing"/></label>
+        <label><tal:span i18n:translate="label_password">Password (<a i18n:name="forgot_link" href="#" tal:attributes="href view/reminder_url" i18n:translate="label_forgot_password">I forgot my password</a>)</tal:span> <input tabindex="2" type="password" name="__ac_password:utf8:ustring"/></label>
+        <p class="buttonBar">
+          <button tabindex="4" type="submit" name="next" value="next" class="next floatAfter" i18n:translate="label_login">Login</button>
+          <button type="submit" name="next" value="previous" i18n:translate="label_change_country" class="floatBefore back">Change country/language</button>
+        </p>
+      </fieldset>
+
+      <p><tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="@@register" tal:attributes="href view/register_url">register</a> first.</tal:span>
+      <a href="#" class="icon info clicktip" tal:attributes="href string:${webhelpers/help_url}#authentication" i18n:translate="login_tooltip">Your registration is a private matter. All your data is stored to be accessed only by you.</a>
+      </p>
+    </form>
+
+    <ul id="navigation">
+      <li id="home">
+        <a href="#" tal:attributes="href webhelpers/client_url" i18n:translate="agency_name">
+          European Agency<br />
+          for Safety and Health<br />
+          at Work</a>
+      </li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

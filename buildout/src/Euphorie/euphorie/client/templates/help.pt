@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:tal="http://xml.zope.org/namespaces/tal" i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers">
+  <head tal:define="client nocall:request/client">
+    <title i18n:translate="title_agency">European Agency for Safety and Health at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+  </head>
+  <body tal:attributes="class python:'help' + webhelpers.extra_css()">
+    <h1 i18n:translate="title_help">Help</h1>
+    <ul class="TableOfContents">
+      <li><a href="#introduction" i18n:translate="help_header_introduction">Introduction</a></li>
+      <li><a href="#authentication" i18n:translate="help_header_authentication">Authentication</a></li>
+      <li><a href="#sessions" i18n:translate="help_header_sessions">Sessions</a></li>
+      <li><a href="#start" i18n:translate="help_header_start">Preparation</a></li>
+      <li><a href="#identification" i18n:translate="help_header_identification">Identification</a></li>
+      <li><a href="#evaluation" i18n:translate="help_header_evaluation">Evaluation</a></li>
+      <li><a href="#actionplan" i18n:translate="help_header_actionplan">Action Plan</a></li>
+      <li><a href="#report" i18n:translate="help_header_report">Report</a></li>
+      <li><a href="#finalwords" i18n:translate="help_header_finalwords">Final words</a></li>
+    </ul>
+
+    <h2 i18n:translate="help_header_introduction" id="introduction">Introduction</h2>
+    <p tal:replace="structure view/help/introduction" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a mollis erat. Curabitur vestibulum feugiat placerat. Nunc dapibus turpis id diam lobortis aliquam. Nullam porttitor sem a massa congue rutrum. Integer aliquet, dui ut feugiat elementum, sapien dolor posuere ipsum, a pharetra risus ipsum malesuada massa. Fusce vel arcu id magna lacinia suscipit. In vitae ligula convallis tortor cursus semper sed vitae massa. Nulla magna est, semper ullamcorper consequat a, sollicitudin vitae ipsum. Ut eget turpis condimentum sapien varius tempus ut nec leo. Sed ac magna faucibus dui congue interdum sed volutpat mi. Praesent euismod mattis dapibus.</p>
+
+    <h2 id="authentication" i18n:translate="help_header_authentication">Authentication</h2>
+    <p tal:replace="structure view/help/authentication" >Vivamus at augue neque, sed feugiat purus. Mauris hendrerit cursus ligula ut tincidunt. Ut sit amet justo nec est lobortis mollis vel eu orci. Vivamus eu sapien massa. Suspendisse sagittis mi ut elit porta sodales. Morbi fringilla luctus sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna sed urna sodales rutrum. Vestibulum rhoncus lobortis neque, at pulvinar nulla dignissim eget. Donec blandit ullamcorper molestie. Praesent scelerisque rutrum luctus. Vivamus ut massa lectus, vitae tincidunt libero. Ut ultrices lobortis nunc nec consequat. Nam sit amet ipsum lectus. Nam tincidunt dapibus urna vitae tristique. Maecenas eu tortor ac nunc cursus placerat. Duis luctus dictum euismod.</p>
+
+    <h2 id="sessions" i18n:translate="help_header_sessions">Sessions</h2>
+    <p tal:replace="structure view/help/sessions">Donec est augue, porttitor sed fringilla ut, consectetur vel nunc. Nam massa nibh, sodales eget convallis a, porttitor sed felis. Donec in sapien nisi, eu sodales augue. In justo velit, interdum vitae rhoncus at, mattis et turpis. Vivamus non elit dolor. Aenean vulputate ornare aliquet. Ut luctus consectetur ligula at molestie. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean volutpat congue velit, ut viverra massa mollis at. Nulla et lacus felis. Aliquam erat volutpat. Aenean porttitor, eros vitae posuere sollicitudin, turpis eros tristique lacus, luctus placerat orci erat et dui. Pellentesque tristique sollicitudin justo lacinia suscipit. Suspendisse aliquam cursus tristique. Nulla vitae velit sed justo placerat vehicula. Etiam nec dui et quam dictum sagittis.</p>
+
+    <h2 id="start" i18n:translate="help_header_start">Preparation</h2>
+    <p tal:replace="structure view/help/preparation">Aliquam vel purus libero. Integer nec erat vel lorem dapibus feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet posuere nibh. Fusce ligula nisl, aliquet sed sagittis ut, semper sed diam. Mauris malesuada, metus at posuere imperdiet, sapien ante pharetra eros, ut volutpat diam ligula dictum metus. Sed eget elit eu sem vulputate ultricies. Nulla pretium mauris at lacus semper ultricies molestie id sem. Sed mi nunc, bibendum ac luctus a, blandit vitae mi. Donec non malesuada ipsum. Sed vitae ipsum sed nunc scelerisque vestibulum eu in dolor. Duis vel dolor vel magna ultrices mattis quis a metus. Ut ut volutpat nisi. Curabitur in nulla nulla. Sed ut est id urna dignissim auctor. Nullam ullamcorper sagittis viverra. Suspendisse potenti. Aenean nec metus justo. Phasellus arcu nulla, iaculis eget sollicitudin et, egestas nec neque.</p>
+
+    <h2 id="identification" i18n:translate="help_header_identification">Identification</h2>
+    <p tal:replace="structure view/help/identification">Mauris vitae malesuada tortor. Phasellus convallis ligula et sapien vulputate mattis semper tortor ullamcorper. Quisque eu nisl sed ante commodo bibendum. Quisque quis massa eget lectus condimentum consectetur. Sed consectetur venenatis urna, a bibendum nunc semper sit amet. Curabitur sapien magna, varius ac egestas nec, ultricies vitae nibh. Mauris non elementum elit. Mauris euismod adipiscing feugiat. Aenean vitae ante dolor, a lobortis neque. Maecenas varius leo sed felis imperdiet eu molestie felis ultrices. Cras suscipit molestie leo ac laoreet. Suspendisse molestie, justo ac posuere eleifend, sem urna dictum magna, sit amet ornare est augue id odio. In eget lacus tellus, vel ultricies lacus. Proin vitae eros sed orci elementum cursus. Aliquam turpis neque, commodo ac lacinia at, dictum in felis. Duis venenatis, mi ac congue ornare, nulla elit laoreet purus, a suscipit odio velit in urna.</p>
+
+    <h2 id="evaluation" i18n:translate="help_header_evaluation">Evaluation</h2>
+    <p tal:replace="structure view/help/evaluation">Nulla diam arcu, blandit rutrum pellentesque vitae, vulputate eu enim. Proin pulvinar ligula sed eros hendrerit rhoncus. Donec non lectus risus. Aenean nunc velit, fringilla vel sodales non, vulputate vitae arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam venenatis scelerisque magna vitae posuere. Quisque rutrum placerat odio et cursus. Curabitur tempus dictum vulputate. Cras justo risus, interdum ut venenatis non, pellentesque quis turpis. Nam nisi erat, cursus aliquet convallis sit amet, aliquet sed dui. Phasellus suscipit pharetra massa, et egestas erat luctus nec.</p>
+
+    <h2 id="actionplan" i18n:translate="help_header_actionplan">Action Plan</h2>
+    <p tal:replace="structure view/help/actionplan">Curabitur id leo leo. Cras tellus nisl, molestie et pretium vitae, porttitor at massa. Phasellus et accumsan lacus. Nulla tortor dolor, fermentum vel facilisis sollicitudin, sollicitudin at ligula. Integer ipsum dolor, tempor sed lacinia vitae, consectetur et arcu. Morbi at enim felis, id aliquet diam. Sed placerat odio varius arcu pharetra pharetra. Donec eget purus et nisl sagittis cursus quis at risus. Nulla facilisi. Donec mattis orci sit amet magna porttitor ut lacinia risus elementum. Donec facilisis facilisis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam aliquet consequat tellus, eget egestas ligula viverra at. Sed sit amet diam justo.</p>
+
+    <h2 id="report" i18n:translate="help_header_report">Report</h2>
+    <p tal:replace="structure view/help/report">In eu felis mauris, at ornare neque. Sed volutpat justo sit amet ligula ultrices sodales. Donec sollicitudin ante et mauris iaculis consequat. Fusce laoreet tristique lacinia. Fusce feugiat tempor lobortis. Suspendisse eu mauris urna, eget tristique nisl. Sed suscipit elementum libero hendrerit tincidunt. Suspendisse potenti. Quisque vitae est elit. In hac habitasse platea dictumst. Praesent ullamcorper, orci eget consequat eleifend, urna sapien mattis massa, non interdum urna dolor sit amet quam. Integer orci velit, congue fringilla bibendum vel, iaculis sed nisl. Duis mauris mi, vulputate in vehicula et, mattis in libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper lacus sagittis magna consequat in viverra mi scelerisque.</p>
+
+    <h2 id="finalwords" i18n:translate="help_header_finalwords">Final words</h2>
+    <p tal:replace="structure view/help/finalwords">Aliquam cursus tincidunt enim. Mauris sed diam felis. Curabitur bibendum tempor nibh eu blandit. Nam eu ante ac mi lobortis lobortis tincidunt a lectus. Cras non lorem est, eget sagittis dui. Aliquam erat volutpat. Nulla a tincidunt eros. Praesent fringilla sollicitudin lacus, dignissim tristique erat porttitor eu. Nulla vulputate bibendum diam, in sagittis neque pulvinar vel. Sed cursus vehicula dui eu consectetur. Nullam vel est purus, a placerat libero.</p>
+
+    <ol id="steps">
+      <li id="step-1">
+        <a href="#" tal:attributes="href webhelpers/session_overview_url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li id="step-2" tal:define="url python:webhelpers.survey_url(phase='identification')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li id="step-3" tal:define="url python:webhelpers.survey_url(phase='evaluation')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li id="step-4" tal:define="url python:webhelpers.survey_url(phase='actionplan')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li id="step-5" tal:define="url python:webhelpers.survey_url(phase='report')">
+        <a href="#" tal:attributes="href url" tal:omit-tag="not:url">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="/" tal:attributes="href webhelpers/client_url" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="#" tal:attributes="href string:${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+  </body>
+</html>

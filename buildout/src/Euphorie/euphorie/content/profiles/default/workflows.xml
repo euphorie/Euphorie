@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+  <object name="deprecation" meta_type="Workflow"/>
+  <object name="sector" meta_type="Workflow"/>
+  <bindings>
+    <type type_id="euphorie.module">
+      <bound-workflow workflow_id="deprecation"/>
+    </type>
+    <type type_id="euphorie.profilequestion">
+      <bound-workflow workflow_id="deprecation"/>
+    </type>
+    <type type_id="euphorie.risk">
+      <bound-workflow workflow_id="deprecation"/>
+    </type>
+    <type type_id="euphorie.solution">
+      <bound-workflow workflow_id="deprecation"/>
+    </type>
+    <type type_id="euphorie.sector">
+      <bound-workflow workflow_id="sector"/>
+    </type>
+    <type type_id="euphorie.country"/>
+    <type type_id="euphorie.surveygroup"/>
+    <type type_id="euphorie.survey"/>
+  </bindings>
+</object>
