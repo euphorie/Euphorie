@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body class="report ${webhelpers/extra_css}"
+    tal:define="company view/session/company">
+    <h1 i18n:translate="hader_company_details">Company details</h1>
+
+    <p class="message error" tal:condition="view/errors" i18n:translate="warn_fix_errors">Please fix the indicated errors.</p>
+ 
+    <p i18n:translate="company_details_intro">Please fill out your company details on this form. The data on this form will also appear in the report.</p>
+
+    <form method="post" class="concise" action="${request/URL}">
+      <fieldset>
+        <label><tal:span i18n:translate="label_company_title">Company name</tal:span> <input type="text" name="title" maxlength="128" value="${request/form/title|company/title}"/></label> 
+        
+        <fieldset class="comprehensive inputList">
+          <legend i18n:translate="label_address_visit">Visitor's address</legend> 
+          <label class="superImpose" for="visit-address" i18n:translate="label_address">Address</label><input class="span-5" id="visit-address" name="address_visit_address" type="text"  value="${request/form/address_visit_address|company/address_visit_address}"/> <br/>
+          <label class="superImpose" for="visit-postal" i18n:translate="label_postal">Postal Code</label><input class="span-5" id="visit-postal" name="address_visit_postal" maxlength="16" type="text" value="${request/form/address_visit_postal|company/address_visit_postal}" /><br/>
+          <label class="superImpose" for="visit-city" i18n:translate="label_city">City</label><input class="span-5" id="visit-city" name="address_visit_city" maxlength="64" type="text" value="${request/form/address_visit_city|company/address_visit_city}" />
+        </fieldset>
+        
+        <fieldset class="comprehensive inputList">
+          <legend i18n:translate="label_address_postal">Postal address</legend> 
+          <label class="superImpose" for="postal-address" i18n:translate="label_address">Address</label><input class="span-5" id="postal-address" name="address_postal_address" type="text"  value="${request/form/address_postal_address|company/address_postal_address}"/> <br/>
+          <label class="superImpose" for="postal-postal" i18n:translate="label_postal">Postal Code</label><input class="span-5" id="postal-postal" name="address_postal_postal" maxlength="16" type="text" value="${request/form/address_postal_postal|company/address_postal_postal}" /><br/>
+          <label class="superImpose" for="postal-city" i18n:translate="label_city">City</label><input class="span-5" id="postal-city" name="address_postal_city" type="text"  maxlength="64" value="${request/form/address_postal_city|company/address_postal_city}" />
+        </fieldset>
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input type="text" class="span-6" name="email" maxlength="128" value="${request/form/email|company/email}"/></label> 
+        <label><tal:span i18n:translate="label_telephone">Telephone number</tal:span> <input type="text" name="phone" maxlength="32" value="${request/form/phone|company/phone}"/></label> 
+        <label><tal:span i18n:translate="label_activity">Activity</tal:span> <input type="text" name="activity" maxlength="64" value="${request/form/activity|company/activity}"/></label> 
+        <label><tal:span i18n:translate="label_submitter_name">Name submitter</tal:span> <input type="text" name="submitter_name" maxlength="64" value="${request/form/submitter_name|company/submitter_name}" /></label> 
+        <label><tal:span i18n:translate="label_submitter_function">Function submitter</tal:span> <input type="text"  name="submitter_function" maxlength="64" value="${request/form/submitter_function|company/submitter_function}"/></label> 
+        <label><tal:span i18n:translate="label_department">Department</tal:span> <input type="text" name="department" maxlength="64" value="${request/form/department|company/department}"/></label> 
+        <label><tal:span i18n:translate="label_location">Location</tal:span> <input type="text" name="location" maxlength="64" value="${request/form/location|company/location}"/></label> 
+        <fieldset class="comprehensive date-eu">
+          <legend><tal:span i18n:translate="label_submit_date">Date</tal:span> (<span class="discrete" i18n:translate="label_submit_date_data_collected">date on which data was collected</span>)</legend>
+          <label for="submit_date_day" i18n:translate="label_day">Day</label>
+            <input class="day numeric" type="text" name="submit_date_day" id="submit_date_day" maxlength="2" value="${request/form/submit_date_day|company/submit_date/day|nothing}"/>
+            <em class="message warning" tal:condition="view/errors/works_council_approval_day|nothing" i18n:translate="error_invalid_day">Invalid day</em>
+  
+            <label for="submit_date_month" i18n:translate="label_month">Month</label> 
+            <select class="month" name="submit_date_month" id="submit_date_month" tal:define="value request/form/submit_date_month|company/submit_date/month|nothing">
+              <option tal:repeat="month webhelpers/months"
+                  value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
+            </select>
+ 
+            <label for="submit_date_year" i18n:translate="label_year">Year</label>
+            <input class="year numeric" type="text" name="submit_date_year" id="submit_date_year" maxlength="4" value="${request/form/submit_date_year|company/submit_date/year|nothing}" />
+            <em class="message warning" tal:condition="view/errors/works_council_approval_year|nothing" i18n:translate="error_invalid_year">Invalid year</em>
+        </fieldset>
+        
+        <fieldset class="comprehensive radioList" tal:define="value request/form/employees|company/employees">
+          <legend i18n:translate="label_employee_numbers">Number of employees</legend>
+          <label><input type="radio" name="employees" value="40h" selected="${python:'selected' if value=='40h' else None}"/> <tal:span i18n:translate="employee_numbers_max_40_hours">40 hours or less of paid work</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="all_employees_combined)">all employees combined</tal:span>)</span></label>
+          <label><input type="radio" name="employees" value="max25" selected="${python:'selected' if value=='max25' else None}"/> <tal:span i18n:translate="employee_numbers_below_25">25 employees or less</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="employees_not_fte">please count using people, not FTEs</tal:span>)</span></label>
+          <label><input type="radio" name="employees" value="over25" selected="${python:'selected' if value=='over25' else None}"/> <tal:span i18n:translate="employee_numbers_above_25">More than 25 employees</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="employees_not_fte">please count using people, not FTEs</tal:span>)</span></label>
+        </fieldset>
+
+        <label><tal:span i18n:translate="label_absentee_percentage">Absentee percentage</tal:span> <input type="text" class="span-1 numeric" name="absentee_percentage" value="${request/form/absentee_percentage|company/absentee_percentage}"/></label> 
+        <label><tal:span i18n:translate="label_accidents">Number of accidents last year</tal:span> <input type="text" class="span-1 numeric" name="accidents" value="${request/form/accidents|company/accidents}" /></label> 
+        <label><tal:span i18n:translate="label_incapacitated_workers">Number of incapacitated workers last year</tal:span> <input type="text" class="span-2 numeric" name="incapacitated_workers" value="${request/form/incapacitated_workers|company/incapacitated_workers}"/></label> 
+        <label><tal:span i18n:translate="label_arbo_expert">Arbo expert</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="label_arbo_expert_info">name, contact person, address, email</tal:span>) </span> <input type="text" name="arbo_expert" maxlength="128" value="${request/form/arbo_expert|company/arbo_expert}"/></label> 
+        <hr/>
+        <label><tal:span i18n:translate="label_works_council_approved">Approved by works council</tal:span>  <input type="checkbox" name="works_council" value="yes" id="works_council" checked="${python:'checked' if request.form.get('works_council', company.works_council_approval) else None}" /></label>
+        <fieldset class="comprehensive date-eu dependsOn-works_council" >
+            <legend i18n:translate="label_works_council_approval_date">Date of works council approval</legend>
+
+            <label for="works_council_approval_day" i18n:translate="label_day">Day</label> 
+            <input class="day numeric" type="text" name="works_council_approval_day" id="works_council_approval_day" maxlength="2" value="${request/form/works_council_approval_day|company/works_council_approval/day|nothing}"/>
+            <em class="message warning" tal:condition="view/errors/works_council_approval_day|nothing" i18n:translate="error_invalid_day">Invalid day</em>
+  
+            <label for="works_council_approval_month" i18n:translate="label_month">Month</label> 
+            <select class="month" name="works_council_approval_month" id="works_council_approval_month" tal:define="value request/form/works_council_approval_month|company/works_council_approval/month|nothing">
+              <option tal:repeat="month webhelpers/months"
+                  value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
+            </select>
+ 
+            <label for="works_council_approval_year" i18n:translate="label_year">Year</label>
+            <input class="year numeric" type="text" name="works_council_approval_year" id="works_council_approval_year" maxlength="4" value="${request/form/works_council_approval_year|company/works_council_approval/year|nothing}" />
+            <em class="message warning" tal:condition="view/errors/works_council_approval_year|nothing" i18n:translate="error_invalid_year">Invalid year</em>
+        </fieldset>
+      </fieldset>
+      
+      <p class="buttonBar">
+        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
+      <li class="complete" id="step-1">
+        <a href="${survey_url}/start">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="${survey_url}/identification">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="${survey_url}/evaluation">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="${survey_url}/actionplan">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li class="active current" id="step-5">
+        <a href="${survey_url}/report">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie" id="login"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body>
+    <h1 i18n:translate="header_welcome">Welcome</h1>
+
+    <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
+    <p class="error" tal:condition="view/error|nothing">${view/error}</p>
+    <p class="notice" tal:condition="view/notice|nothing">${view/notice}</p>
+
+    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}/@@reminder">
+      <input type="hidden" name="came_from" value="${view/back_url}"/>
+      <h2 i18n:translate="header_password_reminder">
+        Password reminder
+      </h2>
+
+      <fieldset class="concise">
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input type="text" name="loginname" value="${request/loginname|nothing}"/></label>
+      </fieldset>
+
+      <p class="buttonBar">
+        <a href="${view/back_url}" i18n:translate="label_previous" class="floatBefore button-medium back">Previous</a>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+      </p>
+    </form>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_tool">OiRA</a></li>
+      <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>

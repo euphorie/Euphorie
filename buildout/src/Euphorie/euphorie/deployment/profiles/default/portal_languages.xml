@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<object>
+ <default_language value="en"/>
+ <use_path_negotiation value="False"/>
+ <use_cookie_negotiation value="True"/>
+ <authenticated_users_only value="False"/>
+ <use_request_negotiation value="False"/>
+ <use_cctld_negotiation value="False"/>
+ <use_combined_language_codes value="True"/>
+ <use_subdomain_negotiation value="False"/>
+ <use_content_negotiation value="False"/>
+ <display_flags value="False"/>
+ <start_neutral value="False"/>
+ <supported_langs>
+   <element value="bg"/>
+   <element value="cs"/>
+   <element value="da"/>
+   <element value="de"/>
+   <element value="el"/>
+   <element value="en"/>
+   <element value="es"/>
+   <element value="eu"/>
+   <element value="fr"/>
+   <element value="hu"/>
+   <element value="it"/>
+   <element value="lt"/>
+   <element value="lv"/>
+   <element value="mt"/>
+   <element value="nl"/>
+   <element value="pl"/>
+   <element value="pt"/>
+   <element value="ro"/>
+   <element value="sk"/>
+   <element value="sl"/>
+   <element value="sv"/>
+ </supported_langs>
+</object>
+
+

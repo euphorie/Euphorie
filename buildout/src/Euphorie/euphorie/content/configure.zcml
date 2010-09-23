@@ -1,0 +1,122 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:z3c="http://namespaces.zope.org/z3c"
+           i18n_domain="euphorie">
+
+    <include package="plone.app.folder" />
+    <include package="plone.app.z3cform" />
+    <include package="plone.namedfile" />
+    <include package="plone.formwidget.namedfile" />
+    <include package="plone.directives.dexterity" />
+    <include package="plone.app.dexterity" />
+    <include package="plone.app.vocabularies" />
+    <include package="plone.uuid" />
+    <include package="htmllaundry" />
+
+    <permission
+        id="euphorie.content.ManageCountry"
+        title="Euphorie: Manage country"
+        />
+
+    <permission
+        id="euphorie.content.AddNewRIEContent"
+        title="Euphorie: Add new RIE Content"
+        />
+
+    <permission
+        id="euphorie.content.DeletePublishedContent"
+        title="Euphorie: Delete published content"
+        />
+
+    <browser:page
+        for=".country.ICountry"
+        name="upload"
+        class=".upload.ImportSectorView"
+        permission="euphorie.content.ManageCountry"
+        />
+
+    <browser:page
+        for=".sector.ISector"
+        name="upload"
+        class=".upload.ImportSurveyView"
+        permission="euphorie.content.AddNewRIEContent"
+        />
+
+    <grok:grok package="." />
+
+    <five:registerClass
+        class=".fti.ConditionalDexterityFTI"
+        meta_type="Conditional Dexterity FTI"
+        addview="plone.dexterity.fti"
+        permission="cmf.ManagePortal"
+        icon="plone.dexterity.fti.gif"
+        global="False"
+        />
+
+    <subscriber handler=".login.SectorLoginHandler" />
+
+    <adapter
+      factory=".user.UserProvider"
+      provides="Products.membrane.interfaces.user.IMembraneUserObject"
+      />
+
+    <adapter
+      for=".countrymanager.ICountryManager"
+      factory=".user.UserProvider"
+      provides="Products.membrane.interfaces.user.IMembraneUserObject"
+      />
+
+    <adapter
+      factory=".countrymanager.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".help.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".module.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".page.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".profilequestion.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".risk.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".sector.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".survey.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <include package=".behaviour" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="Euphorie content types"
+        directory="profiles/default"
+        description="Content types for defining sectors and surveys"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        />
+
+    <browser:page
+        name="clean-content"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="cmf.ManagePortal"
+        class=".upgrade.CleanupContent"
+        />
+
+</configure>

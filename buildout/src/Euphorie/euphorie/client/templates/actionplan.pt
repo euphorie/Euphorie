@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+  <head>
+    <title i18n:translate="title_tool">OiRA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body class="actionplan ${webhelpers/extra_css}">
+    <h1>${context/title}</h1>
+
+    <tal:block condition="view/next_url">
+      <p i18n:translate="expl_actionplan_1">
+        You have identified the magnitude of risk for each of the bottlenecks.
+        During the action plan phase you can determine the priority of each of
+        the bottlenecks and how you are going to tackle the bottleneck. The
+        programme may offer a suggestion you can use, or you can add your
+        own measures.</p>
+
+      <p i18n:translate="expl_actionplan_2">
+        Removing the causes (tackling the source) is the preferred
+        method: that way, the risk can no longer arise. You then write down what
+        tasks have to be carried out in order for the risk to be removed, as well
+        as the knowledge and experience that are needed for those tasks to be
+        carried out (prevention plan and requirements).</p>
+    </tal:block>
+    <tal:block condition="not:view/next_url">
+      <p i18n:translate="expl_actionplan_empty">
+        You have identified the magnitude of risk for each of the bottlenecks.
+        There are no risks which need require any attention during this phase,
+        so please proceed directly to the report.</p>
+    </tal:block>
+
+    <p class="buttonBar">
+      <a tal:condition="view/next_url" class="button-medium" href="${view/next_url}" i18n:translate="label_create_action_plan">Create action plan</a>
+      <a tal:condition="not:view/next_url" class="button-medium" href="${python:webhelpers.survey_url(phase='report')}" i18n:translate="label_jump_to_report">Go to report</a>
+    </p>
+		
+    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
+      <li class="complete" id="step-1">
+        <a href="${survey_url}/start">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="${survey_url}/identification">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="${survey_url}/evaluation">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+        </a>
+      </li>
+      <li class="active current" id="step-4">
+        <a href="${survey_url}/actionplan">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+        </a>
+      </li>
+      <li id="step-5">
+        <a href="${survey_url}/report">
+          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+  </body>
+</html>
