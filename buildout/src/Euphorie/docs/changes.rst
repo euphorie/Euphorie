@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0, Unreleased
----------------
+2.0rc1, September 23, 2010
+--------------------------
 
 - Improve IE8 rendering in the client.
   [cornae]
