@@ -4,7 +4,8 @@ Changelog
 2.0, Unreleased
 ---------------
 
-- ...
+- added french translations
+  [pilz]
 
 
 2.0rc1, September 23, 2010
