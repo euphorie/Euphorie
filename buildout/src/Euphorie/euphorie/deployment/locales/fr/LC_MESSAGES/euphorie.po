@@ -579,7 +579,6 @@ msgid "iphone_label_action_plan"
 msgstr "Plan d'action"
 
 #. Default: Action Plan
-#. Default:
 #: euphorie/client/templates/actionplan.pt:67
 #: euphorie/client/templates/appendix.pt:42
 #: euphorie/client/templates/evaluation.pt:62
@@ -604,8 +603,7 @@ msgstr "Plan d'action"
 #: euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
 msgstr ""
-"Plan d'action\n"
-"Par défaut :"
+"Plan d'action"
 
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:62
