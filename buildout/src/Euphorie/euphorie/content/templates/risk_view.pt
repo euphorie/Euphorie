@@ -36,8 +36,8 @@
         <dt i18n:translate="label_problem_description">Inversed statement</dt>
         <dd tal:content="context/problem_description">Er bestaat geen mogelijkheid om gebruik te maken van rechte spuitlansen van verschillende lengte.</dd>
         <dt i18n:translate="risk_show_na">Show '<em i18n:name="na" i18n:translate="risk_show_na_na">not applicable</em>'</dt>
-        <dd tal:condition="context/show_notapplicable" i18n:translate="no">Yes</dd>
-        <dd tal:condition="not:context/show_notapplicable" i18n:translate="yes">No</dd>
+        <dd tal:condition="context/show_notapplicable" i18n:translate="yes">Yes</dd>
+        <dd tal:condition="not:context/show_notapplicable" i18n:translate="no">No</dd>
         <tal:block condition="python:context.type=='risk'">
           <dt i18n:translate="label_evaluation_method">Evaluation method</dt>
           <dd tal:content="view/evaluation_method">Calculated</dd>

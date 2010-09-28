@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2010-09-21 16:58+0200\n"
+"POT-Creation-Date: 2010-09-28 17:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,37 +59,37 @@ msgid "error_email_in_use"
 msgstr ""
 
 #. Default: Cancel
-#: euphorie/client/publish.py:203 euphorie/client/publish.py:252
-#: euphorie/content/templates/risk_edit.pt:60
-#: euphorie/content/templates/settings.pt:80
-#: euphorie/content/templates/survey_add.pt:24
-#: euphorie/content/templates/surveygroup_add.pt:80
+#: euphorie/client/publish.py:202 euphorie/client/publish.py:251
+#: euphorie/content/templates/risk_edit.pt:62
+#: euphorie/content/templates/settings.pt:82
+#: euphorie/content/templates/survey_add.pt:26
+#: euphorie/content/templates/surveygroup_add.pt:82
 msgid "button_cancel"
 msgstr ""
 
 #. Default: Publish
-#: euphorie/client/publish.py:209
+#: euphorie/client/publish.py:208
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr ""
 
-#: euphorie/client/publish.py:213
+#: euphorie/client/publish.py:212
 msgid "Succesfully published the survey"
 msgstr ""
 
 #. Default: Create preview
 #. Default: Preview
-#: euphorie/client/publish.py:258
+#: euphorie/client/publish.py:257
 #: euphorie/deployment/tiles/templates/versions.pt:30
 msgid "button_preview"
 msgstr ""
 
-#: euphorie/client/publish.py:262
+#: euphorie/client/publish.py:261
 msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
 msgstr ""
 
-#: euphorie/client/risk.py:185 euphorie/client/risk.py:191
-#: euphorie/client/risk.py:203 euphorie/client/risk.py:209
+#: euphorie/client/risk.py:180 euphorie/client/risk.py:186
+#: euphorie/client/risk.py:198 euphorie/client/risk.py:204
 #: euphorie/client/survey.py:443 euphorie/client/survey.py:449
 #: euphorie/client/survey.py:465 euphorie/client/survey.py:471
 msgid "Invalid day of month"
@@ -729,55 +729,55 @@ msgstr ""
 
 #. Default: Final words
 #: euphorie/client/templates/help.pt:54 euphorie/client/templates/help.pt:27
-#: euphorie/content/templates/help_view.pt:37
+#: euphorie/content/templates/help_view.pt:39
 msgid "help_header_finalwords"
 msgstr ""
 
 #. Default: Report
 #: euphorie/client/templates/help.pt:51 euphorie/client/templates/help.pt:26
-#: euphorie/content/templates/help_view.pt:34
+#: euphorie/content/templates/help_view.pt:36
 msgid "help_header_report"
 msgstr ""
 
 #. Default: Action Plan
 #: euphorie/client/templates/help.pt:48 euphorie/client/templates/help.pt:25
-#: euphorie/content/templates/help_view.pt:31
+#: euphorie/content/templates/help_view.pt:33
 msgid "help_header_actionplan"
 msgstr ""
 
 #. Default: Evaluation
 #: euphorie/client/templates/help.pt:45 euphorie/client/templates/help.pt:24
-#: euphorie/content/templates/help_view.pt:28
+#: euphorie/content/templates/help_view.pt:30
 msgid "help_header_evaluation"
 msgstr ""
 
 #. Default: Identification
 #: euphorie/client/templates/help.pt:42 euphorie/client/templates/help.pt:23
-#: euphorie/content/templates/help_view.pt:25
+#: euphorie/content/templates/help_view.pt:27
 msgid "help_header_identification"
 msgstr ""
 
 #. Default: Preparation
 #: euphorie/client/templates/help.pt:39 euphorie/client/templates/help.pt:22
-#: euphorie/content/templates/help_view.pt:22
+#: euphorie/content/templates/help_view.pt:24
 msgid "help_header_start"
 msgstr ""
 
 #. Default: Sessions
 #: euphorie/client/templates/help.pt:36 euphorie/client/templates/help.pt:21
-#: euphorie/content/templates/help_view.pt:19
+#: euphorie/content/templates/help_view.pt:21
 msgid "help_header_sessions"
 msgstr ""
 
 #. Default: Authentication
 #: euphorie/client/templates/help.pt:33 euphorie/client/templates/help.pt:20
-#: euphorie/content/templates/help_view.pt:16
+#: euphorie/content/templates/help_view.pt:18
 msgid "help_header_authentication"
 msgstr ""
 
 #. Default: Introduction
 #: euphorie/client/templates/help.pt:30 euphorie/client/templates/help.pt:19
-#: euphorie/content/templates/help_view.pt:13
+#: euphorie/content/templates/help_view.pt:15
 msgid "help_header_introduction"
 msgstr ""
 
@@ -943,7 +943,7 @@ msgstr ""
 #. Default: Preview survey
 #. Default: Preview
 #: euphorie/client/templates/preview.pt:14
-#: euphorie/content/templates/settings.pt:18
+#: euphorie/content/templates/settings.pt:20
 msgid "header_preview"
 msgstr ""
 
@@ -2011,7 +2011,7 @@ msgstr ""
 
 #. Default: Problem description
 #. Default: Inversed statement
-#: euphorie/content/risk.py:48 euphorie/content/templates/risk_view.pt:34
+#: euphorie/content/risk.py:48 euphorie/content/templates/risk_view.pt:36
 msgid "label_problem_description"
 msgstr ""
 
@@ -2034,7 +2034,7 @@ msgstr ""
 
 #. Default: Legal and policy references.
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:67 euphorie/content/templates/risk_view.pt:58
+#: euphorie/content/risk.py:67 euphorie/content/templates/risk_view.pt:60
 msgid "label_legal_reference"
 msgstr ""
 
@@ -2066,7 +2066,7 @@ msgid "intro_evaluation"
 msgstr ""
 
 #. Default: Risk type
-#: euphorie/content/risk.py:96 euphorie/content/templates/risk_view.pt:32
+#: euphorie/content/risk.py:96 euphorie/content/templates/risk_view.pt:34
 msgid "label_risk_type"
 msgstr ""
 
@@ -2094,7 +2094,7 @@ msgid "risktype_top5"
 msgstr ""
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:114 euphorie/content/templates/risk_view.pt:40
+#: euphorie/content/risk.py:114 euphorie/content/templates/risk_view.pt:42
 msgid "label_evaluation_method"
 msgstr ""
 
@@ -2114,7 +2114,7 @@ msgid "evalmethod_calculated"
 msgstr ""
 
 #. Default: Default priority
-#: euphorie/content/risk.py:128 euphorie/content/templates/risk_view.pt:43
+#: euphorie/content/risk.py:128 euphorie/content/templates/risk_view.pt:45
 msgid "label_default_priority"
 msgstr ""
 
@@ -2131,7 +2131,7 @@ msgstr ""
 
 #. Default: Default probability
 #. Default: Default probabilty
-#: euphorie/content/risk.py:144 euphorie/content/templates/risk_view.pt:47
+#: euphorie/content/risk.py:144 euphorie/content/templates/risk_view.pt:49
 msgid "label_default_probability"
 msgstr ""
 
@@ -2147,7 +2147,7 @@ msgid "no default"
 msgstr ""
 
 #. Default: Default frequency
-#: euphorie/content/risk.py:160 euphorie/content/templates/risk_view.pt:49
+#: euphorie/content/risk.py:160 euphorie/content/templates/risk_view.pt:51
 msgid "label_default_frequency"
 msgstr ""
 
@@ -2214,17 +2214,17 @@ msgid "label_contact_name"
 msgstr ""
 
 #. Default: Logo
-#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:39
+#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:41
 msgid "label_logo"
 msgstr ""
 
 #. Default: Main colour
-#: euphorie/content/sector.py:76 euphorie/content/templates/settings.pt:30
+#: euphorie/content/sector.py:76 euphorie/content/templates/settings.pt:32
 msgid "label_main_colour"
 msgstr ""
 
 #. Default: Support colour
-#: euphorie/content/sector.py:80 euphorie/content/templates/settings.pt:34
+#: euphorie/content/sector.py:80 euphorie/content/templates/settings.pt:36
 msgid "label_support_colour"
 msgstr ""
 
@@ -2253,9 +2253,9 @@ msgstr ""
 
 #. Default: Version name
 #. Default: Title
-#. Default: Title of imported survey version
+#. Default: Name for survey version
 #: euphorie/content/survey.py:45 euphorie/content/survey.py:164
-#: euphorie/content/upload.py:81
+#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
 msgid "label_survey_title"
 msgstr ""
 
@@ -2289,12 +2289,12 @@ msgid "help_evaluation_optional"
 msgstr ""
 
 #. Default: Language
-#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:22
+#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr ""
 
 #. Default: Classification code
-#: euphorie/content/survey.py:80 euphorie/content/templates/survey_view.pt:19
+#: euphorie/content/survey.py:80 euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr ""
 
@@ -2339,7 +2339,6 @@ msgstr ""
 
 #. Default: Title of imported survey.
 #: euphorie/content/upload.py:74 euphorie/content/upload.py:93
-#: euphorie/content/upload.py:100
 msgid "label_surveygroup_title"
 msgstr ""
 
@@ -2405,7 +2404,7 @@ msgid "label_contact_email"
 msgstr ""
 
 #. Default: Password
-#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:60
+#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:62
 msgid "label_password"
 msgstr ""
 
@@ -2576,448 +2575,458 @@ msgid "titld_tool"
 msgstr ""
 
 #. Default: There are no sectors for this country.
-#: euphorie/content/templates/country_view.pt:16
+#: euphorie/content/templates/country_view.pt:18
 msgid "message_no_sectors"
 msgstr ""
 
 #. Default: Select a sector for which you would like to view or copy a survey.
-#: euphorie/content/templates/country_view.pt:13
+#: euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
 msgstr ""
 
 #. Default: Email address
-#: euphorie/content/templates/countrymanager_view.pt:17
+#: euphorie/content/templates/countrymanager_view.pt:19
 msgid "email"
 msgstr ""
 
 #. Default: Country manager for ${country}.
-#: euphorie/content/templates/countrymanager_view.pt:13
+#: euphorie/content/templates/countrymanager_view.pt:15
 msgid "notice_country_manager"
 msgstr ""
 
 #. Default: The ${online_help} text can also be modified.
-#: euphorie/content/templates/documentation_view.pt:20
+#: euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help"
 msgstr ""
 
 #. Default: online help
-#: euphorie/content/templates/documentation_view.pt:20
+#: euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help_online_help"
 msgstr ""
 
 #. Default: Pages created in the ${appendix} folder are available via links in the
 #. footer of the online client.
-#: euphorie/content/templates/documentation_view.pt:15
+#: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
 
 #. Default: appendix
-#: euphorie/content/templates/documentation_view.pt:15
+#: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix_appendix"
 msgstr ""
 
 #. Default: Here you can manage the documentation for the ${client}.
-#: euphorie/content/templates/documentation_view.pt:12
+#: euphorie/content/templates/documentation_view.pt:14
 msgid "intro_documenation"
 msgstr ""
 
 #. Default: online client
-#: euphorie/content/templates/documentation_view.pt:13
+#: euphorie/content/templates/documentation_view.pt:15
 msgid "intro_documenation_client"
 msgstr ""
 
 #. Default: Documentation
-#: euphorie/content/templates/documentation_view.pt:10
+#: euphorie/content/templates/documentation_view.pt:12
 msgid "title_country_documentation"
 msgstr ""
 
 #. Default: This folder is empty.
-#: euphorie/content/templates/folder_view.pt:15
+#: euphorie/content/templates/folder_view.pt:17
 msgid "folder_no_children"
 msgstr ""
 
 #. Default: Client help text
-#: euphorie/content/templates/help_view.pt:10
+#: euphorie/content/templates/help_view.pt:12
 msgid "title_client_help"
 msgstr ""
 
 #. Default: Risks
-#: euphorie/content/templates/module_view.pt:32
-#: euphorie/content/templates/profilequestion_view.pt:30
+#: euphorie/content/templates/module_view.pt:34
+#: euphorie/content/templates/profilequestion_view.pt:32
 msgid "header_risks"
 msgstr ""
 
 #. Default: Submodules
-#: euphorie/content/templates/module_view.pt:25
-#: euphorie/content/templates/profilequestion_view.pt:23
+#: euphorie/content/templates/module_view.pt:27
+#: euphorie/content/templates/profilequestion_view.pt:25
 msgid "header_submodules"
 msgstr ""
 
 #. Default: This module is optional.
-#: euphorie/content/templates/module_view.pt:22
+#: euphorie/content/templates/module_view.pt:24
 msgid "module_optional"
 msgstr ""
 
 #. Default: This module is mandatory.
-#: euphorie/content/templates/module_view.pt:21
+#: euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
 msgstr ""
 
 #. Default: Information
-#: euphorie/content/templates/module_view.pt:20
-#: euphorie/content/templates/profilequestion_view.pt:18
-#: euphorie/content/templates/survey_view.pt:13
+#: euphorie/content/templates/module_view.pt:22
+#: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/survey_view.pt:15
 msgid "header_information"
 msgstr ""
 
 #. Default: This is a repeatable profile item.
-#: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/profilequestion_view.pt:22
 msgid "profilequestion_type_repeat"
 msgstr ""
 
 #. Default: This is an optional profile item.
-#: euphorie/content/templates/profilequestion_view.pt:19
+#: euphorie/content/templates/profilequestion_view.pt:21
 msgid "profilequestion_type_optional"
 msgstr ""
 
 #. Default: Save
-#: euphorie/content/templates/risk_edit.pt:59
+#: euphorie/content/templates/risk_edit.pt:61
 msgid "button_save"
 msgstr ""
 
 #. Default: Secondary image 3
-#: euphorie/content/templates/risk_edit.pt:51
+#: euphorie/content/templates/risk_edit.pt:53
 msgid "header_secondary_images_3"
 msgstr ""
 
 #. Default: Secondary image 2
-#: euphorie/content/templates/risk_edit.pt:45
+#: euphorie/content/templates/risk_edit.pt:47
 msgid "header_secondary_images_2"
 msgstr ""
 
 #. Default: Secondary image 1
-#: euphorie/content/templates/risk_edit.pt:39
+#: euphorie/content/templates/risk_edit.pt:41
 msgid "header_secondary_images_1"
 msgstr ""
 
-#: euphorie/content/templates/risk_edit.pt:35
-#: euphorie/content/templates/risk_edit.pt:30
-#: euphorie/content/templates/risk_edit.pt:25
-#: euphorie/content/templates/risk_edit.pt:20
+#: euphorie/content/templates/risk_edit.pt:37
+#: euphorie/content/templates/risk_edit.pt:32
+#: euphorie/content/templates/risk_edit.pt:27
+#: euphorie/content/templates/risk_edit.pt:22
 msgid "Group name"
 msgstr ""
 
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:65
+#: euphorie/content/templates/risk_view.pt:67
 msgid "risk_solution_header"
 msgstr ""
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:62
+#: euphorie/content/templates/risk_view.pt:64
 msgid "header_solutions"
 msgstr ""
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/templates/risk_view.pt:53
 msgid "label_default_effect"
 msgstr ""
 
 #. Default: No
-#: euphorie/content/templates/risk_view.pt:38
-msgid "yes"
-msgstr ""
-
-#. Default: Yes
-#: euphorie/content/templates/risk_view.pt:37
+#: euphorie/content/templates/risk_view.pt:40
 msgid "no"
 msgstr ""
 
+#. Default: Yes
+#: euphorie/content/templates/risk_view.pt:39
+msgid "yes"
+msgstr ""
+
 #. Default: Show '${na}'
-#: euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/templates/risk_view.pt:38
 msgid "risk_show_na"
 msgstr ""
 
 #. Default: not applicable
-#: euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/templates/risk_view.pt:38
 msgid "risk_show_na_na"
 msgstr ""
 
 #. Default: You can also ${add_link}.
-#: euphorie/content/templates/sector_view.pt:29
+#: euphorie/content/templates/sector_view.pt:31
 msgid "survey_list_footer"
 msgstr ""
 
 #. Default: add a new survey
-#: euphorie/content/templates/sector_view.pt:31
-#: euphorie/content/templates/sector_view.pt:16
+#: euphorie/content/templates/sector_view.pt:33
+#: euphorie/content/templates/sector_view.pt:18
 msgid "add_survey"
 msgstr ""
 
 #. Default: There are no surveys present. You can ${add_link}.
-#: euphorie/content/templates/sector_view.pt:14
+#: euphorie/content/templates/sector_view.pt:16
 msgid "no_surveys_present"
 msgstr ""
 
 #. Default: Surveys
-#: euphorie/content/templates/sector_view.pt:12
+#: euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
 msgstr ""
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
-#: euphorie/content/templates/sectorcontainer_view.pt:13
+#: euphorie/content/templates/sectorcontainer_view.pt:15
 msgid "message_choose_country"
 msgstr ""
 
 #. Default: Sectors
-#: euphorie/content/templates/sectorcontainer_view.pt:10
+#: euphorie/content/templates/sectorcontainer_view.pt:12
 msgid "title_sectors"
 msgstr ""
 
 #. Default: Save changes
-#: euphorie/content/templates/settings.pt:79
+#: euphorie/content/templates/settings.pt:81
 msgid "button_save_changes"
 msgstr ""
 
-#: euphorie/content/templates/settings.pt:70
-#: euphorie/content/templates/settings.pt:62
-#: euphorie/content/templates/settings.pt:41
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:72
+#: euphorie/content/templates/settings.pt:64
+#: euphorie/content/templates/settings.pt:43
+#: euphorie/content/templates/settings.pt:29
 msgid "Information"
 msgstr ""
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: euphorie/content/templates/settings.pt:70
+#: euphorie/content/templates/settings.pt:72
 msgid "help_sector_contactperson"
 msgstr ""
 
 #. Default: Contact person
-#: euphorie/content/templates/settings.pt:68
+#: euphorie/content/templates/settings.pt:70
 msgid "label_contact_person"
 msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: euphorie/content/templates/settings.pt:62
+#: euphorie/content/templates/settings.pt:64
 msgid "help_sector_password"
 msgstr ""
 
 #. Default: You may get the best results if you upload a logo as a ${transparent}
 #. PNG file of at least 100 pixels in height. Uploading larger images is fine, the
 #. logo will be scaled down to the right size automatically.
-#: euphorie/content/templates/settings.pt:55
+#: euphorie/content/templates/settings.pt:57
 msgid "logo_instructions"
 msgstr ""
 
 #. Default: transparent
-#: euphorie/content/templates/settings.pt:56
+#: euphorie/content/templates/settings.pt:58
 msgid "logo_instructions_transparent"
 msgstr ""
 
 #. Default: My own
-#: euphorie/content/templates/settings.pt:50
+#: euphorie/content/templates/settings.pt:52
 msgid "logo_my_own"
 msgstr ""
 
 #. Default: Which logo you would like to display in the top left corner?
-#: euphorie/content/templates/settings.pt:43
+#: euphorie/content/templates/settings.pt:45
 msgid "label_logo_selection"
 msgstr ""
 
 #. Default: The logo will appear on both the client side app that your user group
 #. will see as well as on this editor environment in the top left corner. The new
 #. logo will only become visible after you've saved your changes.'
-#: euphorie/content/templates/settings.pt:41
+#: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"
 msgstr ""
 
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: euphorie/content/templates/settings.pt:28
+#: euphorie/content/templates/settings.pt:30
 msgid "help_colour_picker"
 msgstr ""
 
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the text
 #. on each button legible.
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:29
 msgid "help_sector_colours"
 msgstr ""
 
 #. Default: Restore to original colours
-#: euphorie/content/templates/settings.pt:25
+#: euphorie/content/templates/settings.pt:27
 msgid "button_reset_colours"
 msgstr ""
 
 #. Default: Colour scheme
-#: euphorie/content/templates/settings.pt:25
+#: euphorie/content/templates/settings.pt:27
 msgid "header_colour_scheme"
 msgstr ""
 
 #. Default: Please provide a description of your sector
-#: euphorie/content/templates/settings.pt:14
+#: euphorie/content/templates/settings.pt:16
 msgid "label_sector_description"
 msgstr ""
 
 #. Default: Settings
-#: euphorie/content/templates/settings.pt:10
+#: euphorie/content/templates/settings.pt:12
 msgid "header_settings"
 msgstr ""
 
 #. Default: Create
-#: euphorie/content/templates/survey_add.pt:23
-#: euphorie/content/templates/surveygroup_add.pt:79
+#: euphorie/content/templates/survey_add.pt:25
+#: euphorie/content/templates/surveygroup_add.pt:81
 msgid "button_create"
 msgstr ""
 
 #. Default: Choose a base revision
-#: euphorie/content/templates/survey_add.pt:18
+#: euphorie/content/templates/survey_add.pt:20
 msgid "label_survey_base"
 msgstr ""
 
 #. Default: The form will allow you to create a new survey revision.
-#: euphorie/content/templates/survey_add.pt:9
+#: euphorie/content/templates/survey_add.pt:11
 msgid "intro_add_survey"
 msgstr ""
 
 #. Default: This survey has no modules.
-#: euphorie/content/templates/survey_view.pt:42
+#: euphorie/content/templates/survey_view.pt:44
 msgid "no_modules"
 msgstr ""
 
 #. Default: Modules
-#: euphorie/content/templates/survey_view.pt:40
+#: euphorie/content/templates/survey_view.pt:42
 msgid "header_modules"
 msgstr ""
 
 #. Default: This survey has no profile questions.
-#: euphorie/content/templates/survey_view.pt:30
+#: euphorie/content/templates/survey_view.pt:32
 msgid "no_profile_questions"
 msgstr ""
 
 #. Default: Profile questions
-#: euphorie/content/templates/survey_view.pt:28
+#: euphorie/content/templates/survey_view.pt:30
 msgid "header_profile_questions"
 msgstr ""
 
 #. Default: Not set
-#: euphorie/content/templates/survey_view.pt:24
-#: euphorie/content/templates/survey_view.pt:21
+#: euphorie/content/templates/survey_view.pt:26
+#: euphorie/content/templates/survey_view.pt:23
 msgid "not_set"
 msgstr ""
 
 #. Default: Mandatory
-#: euphorie/content/templates/survey_view.pt:18
+#: euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
 msgstr ""
 
 #. Default: Optional
-#: euphorie/content/templates/survey_view.pt:17
+#: euphorie/content/templates/survey_view.pt:19
 msgid "optional"
 msgstr ""
 
 #. Default: Evaluation phase
-#: euphorie/content/templates/survey_view.pt:16
+#: euphorie/content/templates/survey_view.pt:18
 msgid "label_evaluation_phase"
 msgstr ""
 
 #. Default: Choose a revision of the selected survey
-#: euphorie/content/templates/surveygroup_add.pt:71
-#: euphorie/content/templates/surveygroup_add.pt:35
+#: euphorie/content/templates/surveygroup_add.pt:73
+#: euphorie/content/templates/surveygroup_add.pt:37
 msgid "label_choose_survey"
 msgstr ""
 
 #. Default: Choose a survey
-#: euphorie/content/templates/surveygroup_add.pt:52
-#: euphorie/content/templates/surveygroup_add.pt:26
+#: euphorie/content/templates/surveygroup_add.pt:54
+#: euphorie/content/templates/surveygroup_add.pt:28
 msgid "label_choose_surveygroup"
 msgstr ""
 
 #. Default: Choose a country
-#: euphorie/content/templates/surveygroup_add.pt:45
+#: euphorie/content/templates/surveygroup_add.pt:47
 msgid "label_choose_country"
 msgstr ""
 
 #. Default: Base my new survey on an existing survey of another organisation
-#: euphorie/content/templates/surveygroup_add.pt:19
+#: euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr ""
 
 #. Default: Base my new survey on an existing survey of my organisation
-#: euphorie/content/templates/surveygroup_add.pt:18
+#: euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr ""
 
 #. Default: Create a new survey from scratch
-#: euphorie/content/templates/surveygroup_add.pt:17
+#: euphorie/content/templates/surveygroup_add.pt:19
 msgid "survey_source_scratch"
 msgstr ""
 
 #. Default: How would you like to start
-#: euphorie/content/templates/surveygroup_add.pt:16
+#: euphorie/content/templates/surveygroup_add.pt:18
 msgid "label_survey_source"
 msgstr ""
 
 #. Default: The form will allow you to create a new survey.
-#: euphorie/content/templates/surveygroup_add.pt:9
+#: euphorie/content/templates/surveygroup_add.pt:11
 msgid "intro_add_surveygroup"
 msgstr ""
 
 #. Default: Unlock
-#: euphorie/content/templates/user_mgmt.pt:56
-#: euphorie/content/templates/user_mgmt.pt:34
+#: euphorie/content/templates/user_mgmt.pt:58
+#: euphorie/content/templates/user_mgmt.pt:36
 msgid "button_unlock"
 msgstr ""
 
 #. Default: Lock
-#: euphorie/content/templates/user_mgmt.pt:55
-#: euphorie/content/templates/user_mgmt.pt:33
+#: euphorie/content/templates/user_mgmt.pt:57
+#: euphorie/content/templates/user_mgmt.pt:35
 msgid "button_lock"
 msgstr ""
 
 #. Default: Edit
-#: euphorie/content/templates/user_mgmt.pt:54
-#: euphorie/content/templates/user_mgmt.pt:32
+#: euphorie/content/templates/user_mgmt.pt:56
+#: euphorie/content/templates/user_mgmt.pt:34
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:31
 msgid "button_edit"
 msgstr ""
 
 #. Default: There are no country managers for this country.
-#: euphorie/content/templates/user_mgmt.pt:42
+#: euphorie/content/templates/user_mgmt.pt:44
 msgid "country_no_managers"
 msgstr ""
 
 #. Default: Country managers
-#: euphorie/content/templates/user_mgmt.pt:40
+#: euphorie/content/templates/user_mgmt.pt:42
 msgid "header_country_managers"
 msgstr ""
 
 #. Default: There are no sectors for this country.
-#: euphorie/content/templates/user_mgmt.pt:19
+#: euphorie/content/templates/user_mgmt.pt:21
 msgid "country_no_sectors"
 msgstr ""
 
 #. Default: Sectors
-#: euphorie/content/templates/user_mgmt.pt:17
+#: euphorie/content/templates/user_mgmt.pt:19
 msgid "header_sectors"
 msgstr ""
 
 #. Default: Add country manager
-#: euphorie/content/templates/user_mgmt.pt:13
+#: euphorie/content/templates/user_mgmt.pt:15
 msgid "button_add_country_manager"
 msgstr ""
 
 #. Default: Add new sector
-#: euphorie/content/templates/user_mgmt.pt:12
+#: euphorie/content/templates/user_mgmt.pt:14
 msgid "button_add_sector"
 msgstr ""
 
 #. Default: Manage users in ${country}
-#: euphorie/content/templates/user_mgmt.pt:10
+#: euphorie/content/templates/user_mgmt.pt:12
 msgid "header_user_management"
+msgstr ""
+
+#. Default: XML export
+#: euphorie/deployment/browser/sitemenu.py:37
+msgid "menu_export"
+msgstr ""
+
+#. Default: Import survey
+#: euphorie/deployment/browser/sitemenu.py:40
+msgid "menu_import"
 msgstr ""
 
 #. Default: Relevance: ${percentage}

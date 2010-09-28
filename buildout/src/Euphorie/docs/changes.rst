@@ -4,6 +4,10 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- Fix accidental yes/no swap in translations. This fixes
+  `TNO ticket 121 <http://code.simplon.biz/tracker/tno-euphorie/ticket/121>`_
+  [wichert]
+
 - added french translations
   [pilz]
 

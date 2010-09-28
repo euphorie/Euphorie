@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2010-09-21 16:59+0200\n"
+"PO-Revision-Date: 2010-09-28 17:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -59,32 +59,32 @@ msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mail adres"
 
 #. Default: Cancel
-#: euphorie/client/publish.py:203 euphorie/client/publish.py:252
-#: euphorie/content/templates/risk_edit.pt:60
-#: euphorie/content/templates/settings.pt:80
-#: euphorie/content/templates/survey_add.pt:24
-#: euphorie/content/templates/surveygroup_add.pt:80
+#: euphorie/client/publish.py:202 euphorie/client/publish.py:251
+#: euphorie/content/templates/risk_edit.pt:62
+#: euphorie/content/templates/settings.pt:82
+#: euphorie/content/templates/survey_add.pt:26
+#: euphorie/content/templates/surveygroup_add.pt:82
 msgid "button_cancel"
 msgstr "Annuleren"
 
 #. Default: Publish
-#: euphorie/client/publish.py:209
+#: euphorie/client/publish.py:208
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publiceer"
 
-#: euphorie/client/publish.py:213
+#: euphorie/client/publish.py:212
 msgid "Succesfully published the survey"
 msgstr "De RI&E is succesvol gepubliceerd"
 
 #. Default: Create preview
 #. Default: Preview
-#: euphorie/client/publish.py:258
+#: euphorie/client/publish.py:257
 #: euphorie/deployment/tiles/templates/versions.pt:30
 msgid "button_preview"
 msgstr "Preview"
 
-#: euphorie/client/publish.py:262
+#: euphorie/client/publish.py:261
 msgid ""
 "Succesfully created a preview for the survey. It can be accessed at "
 "${url} ."
@@ -92,8 +92,8 @@ msgstr ""
 "De preview voor de RI&E is succesvol gecreëerd. U kunt deze bekijken op "
 "${url} ."
 
-#: euphorie/client/risk.py:185 euphorie/client/risk.py:191
-#: euphorie/client/risk.py:203 euphorie/client/risk.py:209
+#: euphorie/client/risk.py:180 euphorie/client/risk.py:186
+#: euphorie/client/risk.py:198 euphorie/client/risk.py:204
 #: euphorie/client/survey.py:443 euphorie/client/survey.py:449
 #: euphorie/client/survey.py:465 euphorie/client/survey.py:471
 msgid "Invalid day of month"
@@ -828,55 +828,55 @@ msgstr ""
 
 #. Default: Final words
 #: euphorie/client/templates/help.pt:54 euphorie/client/templates/help.pt:27
-#: euphorie/content/templates/help_view.pt:37
+#: euphorie/content/templates/help_view.pt:39
 msgid "help_header_finalwords"
 msgstr "Tot slot"
 
 #. Default: Report
 #: euphorie/client/templates/help.pt:51 euphorie/client/templates/help.pt:26
-#: euphorie/content/templates/help_view.pt:34
+#: euphorie/content/templates/help_view.pt:36
 msgid "help_header_report"
 msgstr "Rapport"
 
 #. Default: Action Plan
 #: euphorie/client/templates/help.pt:48 euphorie/client/templates/help.pt:25
-#: euphorie/content/templates/help_view.pt:31
+#: euphorie/content/templates/help_view.pt:33
 msgid "help_header_actionplan"
 msgstr "Plan van aanpak"
 
 #. Default: Evaluation
 #: euphorie/client/templates/help.pt:45 euphorie/client/templates/help.pt:24
-#: euphorie/content/templates/help_view.pt:28
+#: euphorie/content/templates/help_view.pt:30
 msgid "help_header_evaluation"
 msgstr "Evaluatie"
 
 #. Default: Identification
 #: euphorie/client/templates/help.pt:42 euphorie/client/templates/help.pt:23
-#: euphorie/content/templates/help_view.pt:25
+#: euphorie/content/templates/help_view.pt:27
 msgid "help_header_identification"
 msgstr "Inventarisatie"
 
 #. Default: Preparation
 #: euphorie/client/templates/help.pt:39 euphorie/client/templates/help.pt:22
-#: euphorie/content/templates/help_view.pt:22
+#: euphorie/content/templates/help_view.pt:24
 msgid "help_header_start"
 msgstr "Voorbereiding"
 
 #. Default: Sessions
 #: euphorie/client/templates/help.pt:36 euphorie/client/templates/help.pt:21
-#: euphorie/content/templates/help_view.pt:19
+#: euphorie/content/templates/help_view.pt:21
 msgid "help_header_sessions"
 msgstr "RI&E's"
 
 #. Default: Authentication
 #: euphorie/client/templates/help.pt:33 euphorie/client/templates/help.pt:20
-#: euphorie/content/templates/help_view.pt:16
+#: euphorie/content/templates/help_view.pt:18
 msgid "help_header_authentication"
 msgstr "Authenticatie"
 
 #. Default: Introduction
 #: euphorie/client/templates/help.pt:30 euphorie/client/templates/help.pt:19
-#: euphorie/content/templates/help_view.pt:13
+#: euphorie/content/templates/help_view.pt:15
 msgid "help_header_introduction"
 msgstr "Inleiding"
 
@@ -1063,15 +1063,15 @@ msgstr ""
 #: euphorie/client/templates/preview.pt:17
 msgid "intro_preview"
 msgstr ""
-"Weet u zeker dat u een preview wilt creëren? U kunt de link van de"
-"preview ook aan anderen doorgeven zodat zij de RI&E kunnen bekijken of"
-"testen. Voor het openen van de preview is een inlogaccount van de"
-"gebruikerssite nodig."
+"Weet u zeker dat u een preview wilt creëren? U kunt de link van depreview"
+" ook aan anderen doorgeven zodat zij de RI&E kunnen bekijken oftesten. "
+"Voor het openen van de preview is een inlogaccount van degebruikerssite "
+"nodig."
 
 #. Default: Preview survey
 #. Default: Preview
 #: euphorie/client/templates/preview.pt:14
-#: euphorie/content/templates/settings.pt:18
+#: euphorie/content/templates/settings.pt:20
 msgid "header_preview"
 msgstr "Preview"
 
@@ -1113,8 +1113,8 @@ msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
 #: euphorie/client/templates/publish.pt:24
 msgid "intro_publish_other_survey_published"
 msgstr ""
-"Weet u zeker dat u dieze R&IE versie wil herpubliceren? De huidige RI&E-"
-"versie zal dan vervangen worden door deze versie."
+"Weet u zeker dat u dieze R&IE versie wil herpubliceren? De huidige "
+"RI&E-versie zal dan vervangen worden door deze versie."
 
 #. Default: Are you sure you want to republish this survey? This will make all
 #. changes made public.
@@ -1127,8 +1127,8 @@ msgstr "Weet u zeker dat u deze RI&E revisie wil publiceren?"
 #: euphorie/client/templates/publish.pt:17
 msgid "intro_publish_first_time"
 msgstr ""
-"Weet u zeker dat u deze RI&E wil publiceren? Na publicatie zal de RI&E in"
-"de online client verschijnen en voor iedereen bruikbaar zijn."
+"Weet u zeker dat u deze RI&E wil publiceren? Na publicatie zal de RI&E "
+"inde online client verschijnen en voor iedereen bruikbaar zijn."
 
 #. Default: Publish survey
 #: euphorie/client/templates/publish.pt:14
@@ -2310,7 +2310,7 @@ msgstr ""
 
 #. Default: Problem description
 #. Default: Inversed statement
-#: euphorie/content/risk.py:48 euphorie/content/templates/risk_view.pt:34
+#: euphorie/content/risk.py:48 euphorie/content/templates/risk_view.pt:36
 msgid "label_problem_description"
 msgstr "Probleemstelling"
 
@@ -2342,7 +2342,7 @@ msgstr ""
 
 #. Default: Legal and policy references.
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:67 euphorie/content/templates/risk_view.pt:58
+#: euphorie/content/risk.py:67 euphorie/content/templates/risk_view.pt:60
 msgid "label_legal_reference"
 msgstr "Wet- en regelgeving"
 
@@ -2377,7 +2377,7 @@ msgstr ""
 "vindt u in de handleiding bij Documenten."
 
 #. Default: Risk type
-#: euphorie/content/risk.py:96 euphorie/content/templates/risk_view.pt:32
+#: euphorie/content/risk.py:96 euphorie/content/templates/risk_view.pt:34
 msgid "label_risk_type"
 msgstr "Type risico"
 
@@ -2409,7 +2409,7 @@ msgid "risktype_top5"
 msgstr "Top 5 risico"
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:114 euphorie/content/templates/risk_view.pt:40
+#: euphorie/content/risk.py:114 euphorie/content/templates/risk_view.pt:42
 msgid "label_evaluation_method"
 msgstr "Evaluatiemethode"
 
@@ -2429,7 +2429,7 @@ msgid "evalmethod_calculated"
 msgstr "Berekend"
 
 #. Default: Default priority
-#: euphorie/content/risk.py:128 euphorie/content/templates/risk_view.pt:43
+#: euphorie/content/risk.py:128 euphorie/content/templates/risk_view.pt:45
 msgid "label_default_priority"
 msgstr "Standaard prioriteit"
 
@@ -2448,7 +2448,7 @@ msgstr "Geen standaard"
 
 #. Default: Default probability
 #. Default: Default probabilty
-#: euphorie/content/risk.py:144 euphorie/content/templates/risk_view.pt:47
+#: euphorie/content/risk.py:144 euphorie/content/templates/risk_view.pt:49
 msgid "label_default_probability"
 msgstr "Standaard kans"
 
@@ -2467,7 +2467,7 @@ msgid "no default"
 msgstr "Geen standaard"
 
 #. Default: Default frequency
-#: euphorie/content/risk.py:160 euphorie/content/templates/risk_view.pt:49
+#: euphorie/content/risk.py:160 euphorie/content/templates/risk_view.pt:51
 msgid "label_default_frequency"
 msgstr "Standaard frequentie"
 
@@ -2539,17 +2539,17 @@ msgid "label_contact_name"
 msgstr "Naam contactpersoon"
 
 #. Default: Logo
-#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:39
+#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:41
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
-#: euphorie/content/sector.py:76 euphorie/content/templates/settings.pt:30
+#: euphorie/content/sector.py:76 euphorie/content/templates/settings.pt:32
 msgid "label_main_colour"
 msgstr "Hoofdkleur"
 
 #. Default: Support colour
-#: euphorie/content/sector.py:80 euphorie/content/templates/settings.pt:34
+#: euphorie/content/sector.py:80 euphorie/content/templates/settings.pt:36
 msgid "label_support_colour"
 msgstr "Steunkleur"
 
@@ -2565,8 +2565,8 @@ msgstr ""
 #: euphorie/content/solution.py:41
 msgid "help_measure_prevention_plan"
 msgstr ""
-"Beschrijf wat u kunt doen om te voorkomen dat dit risico "
-"(nogmaals) voorkomt. Deze informatie wordt gekopieerd naar de maatregel."
+"Beschrijf wat u kunt doen om te voorkomen dat dit risico (nogmaals) "
+"voorkomt. Deze informatie wordt gekopieerd naar de maatregel."
 
 #. Default: Describe the standard requirements for the action plan and
 #. prevention
@@ -2584,9 +2584,9 @@ msgstr "Standaard maatregel"
 
 #. Default: Version name
 #. Default: Title
-#. Default: Title of imported survey version
+#. Default: Name for survey version
 #: euphorie/content/survey.py:45 euphorie/content/survey.py:164
-#: euphorie/content/upload.py:81
+#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
 msgid "label_survey_title"
 msgstr "Titel"
 
@@ -2632,12 +2632,12 @@ msgstr ""
 "overslaan en doorgaan met het Plan van aanpak."
 
 #. Default: Language
-#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:22
+#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr "Taal"
 
 #. Default: Classification code
-#: euphorie/content/survey.py:80 euphorie/content/templates/survey_view.pt:19
+#: euphorie/content/survey.py:80 euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr "Classificatie code"
 
@@ -2687,7 +2687,6 @@ msgstr "Als u geen titel opgeeft, wordt deze uit de import gehaald."
 
 #. Default: Title of imported survey.
 #: euphorie/content/upload.py:74 euphorie/content/upload.py:93
-#: euphorie/content/upload.py:100
 msgid "label_surveygroup_title"
 msgstr "Titel van geïmporteerde RI&E"
 
@@ -2753,7 +2752,7 @@ msgid "label_contact_email"
 msgstr "E-mailadres"
 
 #. Default: Password
-#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:60
+#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:62
 msgid "label_password"
 msgstr "Wachtwoord"
 
@@ -2847,8 +2846,8 @@ msgstr "Pagina"
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repeatable modules"
 msgstr ""
-"Een profielvraag wordt gebruikt om een optionele of herhaalbare module "
-"te creëren."
+"Een profielvraag wordt gebruikt om een optionele of herhaalbare module te"
+" creëren."
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -2923,227 +2922,226 @@ msgstr ""
 #. Default: OiRA
 #: euphorie/content/templates/colour-preview.pt:52
 #, fuzzy
-#| msgid "title_tool"
 msgid "titld_tool"
 msgstr "OiRA"
 
 #. Default: There are no sectors for this country.
-#: euphorie/content/templates/country_view.pt:16
+#: euphorie/content/templates/country_view.pt:18
 msgid "message_no_sectors"
 msgstr "Er zijn geen branches of sectoren voor dit land."
 
 #. Default: Select a sector for which you would like to view or copy a survey.
-#: euphorie/content/templates/country_view.pt:13
+#: euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
 msgstr "Selecteer een branche waarvan u een RI&E wilt bekijken of kopiëren."
 
 #. Default: Email address
-#: euphorie/content/templates/countrymanager_view.pt:17
+#: euphorie/content/templates/countrymanager_view.pt:19
 msgid "email"
 msgstr "E-mailadres"
 
 #. Default: Country manager for ${country}.
-#: euphorie/content/templates/countrymanager_view.pt:13
+#: euphorie/content/templates/countrymanager_view.pt:15
 msgid "notice_country_manager"
 msgstr "Landmanager"
 
 #. Default: The ${online_help} text can also be modified.
-#: euphorie/content/templates/documentation_view.pt:20
+#: euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help"
 msgstr "De ${online_help} tekst kan aangepast worden."
 
 #. Default: online help
-#: euphorie/content/templates/documentation_view.pt:20
+#: euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help_online_help"
 msgstr "Online help"
 
 #. Default: Pages created in the ${appendix} folder are available via links in
 #. the
 #. footer of the online client.
-#: euphorie/content/templates/documentation_view.pt:15
+#: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
 "Pagina's die gemaakt zijn in de ${appendix} map zijn opvraagbaar via de "
 "linken in de voettekst van de online client."
 
 #. Default: appendix
-#: euphorie/content/templates/documentation_view.pt:15
+#: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix_appendix"
 msgstr "appendix"
 
 #. Default: Here you can manage the documentation for the ${client}.
-#: euphorie/content/templates/documentation_view.pt:12
+#: euphorie/content/templates/documentation_view.pt:14
 msgid "intro_documenation"
 msgstr "Hier kunt u de documentatie voor de ${client} beheren."
 
 #. Default: online client
-#: euphorie/content/templates/documentation_view.pt:13
+#: euphorie/content/templates/documentation_view.pt:15
 msgid "intro_documenation_client"
 msgstr "online client"
 
 #. Default: Documentation
-#: euphorie/content/templates/documentation_view.pt:10
+#: euphorie/content/templates/documentation_view.pt:12
 msgid "title_country_documentation"
 msgstr "Documentatie"
 
 #. Default: This folder is empty.
-#: euphorie/content/templates/folder_view.pt:15
+#: euphorie/content/templates/folder_view.pt:17
 msgid "folder_no_children"
 msgstr "Er staan geen documenten in deze map."
 
 #. Default: Client help text
-#: euphorie/content/templates/help_view.pt:10
+#: euphorie/content/templates/help_view.pt:12
 msgid "title_client_help"
 msgstr "Client helptekst"
 
 #. Default: Risks
-#: euphorie/content/templates/module_view.pt:32
-#: euphorie/content/templates/profilequestion_view.pt:30
+#: euphorie/content/templates/module_view.pt:34
+#: euphorie/content/templates/profilequestion_view.pt:32
 msgid "header_risks"
 msgstr "Risico's"
 
 #. Default: Submodules
-#: euphorie/content/templates/module_view.pt:25
-#: euphorie/content/templates/profilequestion_view.pt:23
+#: euphorie/content/templates/module_view.pt:27
+#: euphorie/content/templates/profilequestion_view.pt:25
 msgid "header_submodules"
 msgstr "Submodules"
 
 #. Default: This module is optional.
-#: euphorie/content/templates/module_view.pt:22
+#: euphorie/content/templates/module_view.pt:24
 msgid "module_optional"
 msgstr "Deze module is optioneel."
 
 #. Default: This module is mandatory.
-#: euphorie/content/templates/module_view.pt:21
+#: euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
 msgstr "Deze module is verplicht."
 
 #. Default: Information
-#: euphorie/content/templates/module_view.pt:20
-#: euphorie/content/templates/profilequestion_view.pt:18
-#: euphorie/content/templates/survey_view.pt:13
+#: euphorie/content/templates/module_view.pt:22
+#: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/survey_view.pt:15
 msgid "header_information"
 msgstr "Informatie"
 
 #. Default: This is a repeatable profile item.
-#: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/profilequestion_view.pt:22
 msgid "profilequestion_type_repeat"
 msgstr "Dit is een herhaalbaar profielonderdeel."
 
 #. Default: This is an optional profile item.
-#: euphorie/content/templates/profilequestion_view.pt:19
+#: euphorie/content/templates/profilequestion_view.pt:21
 msgid "profilequestion_type_optional"
 msgstr "Dit is een optioneel profielonderdeel."
 
 #. Default: Save
-#: euphorie/content/templates/risk_edit.pt:59
+#: euphorie/content/templates/risk_edit.pt:61
 msgid "button_save"
 msgstr "Bewaren"
 
 #. Default: Secondary image 3
-#: euphorie/content/templates/risk_edit.pt:51
+#: euphorie/content/templates/risk_edit.pt:53
 msgid "header_secondary_images_3"
 msgstr "Overige afbeeldingen, 3"
 
 #. Default: Secondary image 2
-#: euphorie/content/templates/risk_edit.pt:45
+#: euphorie/content/templates/risk_edit.pt:47
 msgid "header_secondary_images_2"
 msgstr "Overige afbeeldingen, 2"
 
 #. Default: Secondary image 1
-#: euphorie/content/templates/risk_edit.pt:39
+#: euphorie/content/templates/risk_edit.pt:41
 msgid "header_secondary_images_1"
 msgstr "Overige afbeeldingen, 1"
 
-#: euphorie/content/templates/risk_edit.pt:35
-#: euphorie/content/templates/risk_edit.pt:30
-#: euphorie/content/templates/risk_edit.pt:25
-#: euphorie/content/templates/risk_edit.pt:20
+#: euphorie/content/templates/risk_edit.pt:37
+#: euphorie/content/templates/risk_edit.pt:32
+#: euphorie/content/templates/risk_edit.pt:27
+#: euphorie/content/templates/risk_edit.pt:22
 msgid "Group name"
 msgstr ""
 
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:65
+#: euphorie/content/templates/risk_view.pt:67
 msgid "risk_solution_header"
 msgstr "Maatregel ${number}"
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:62
+#: euphorie/content/templates/risk_view.pt:64
 msgid "header_solutions"
 msgstr "Standaard maatregelen"
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/templates/risk_view.pt:53
 msgid "label_default_effect"
 msgstr "Standaard effect"
 
 #. Default: No
-#: euphorie/content/templates/risk_view.pt:38
-msgid "yes"
-msgstr "Ja"
-
-#. Default: Yes
-#: euphorie/content/templates/risk_view.pt:37
+#: euphorie/content/templates/risk_view.pt:40
 msgid "no"
 msgstr "Nee"
 
+#. Default: Yes
+#: euphorie/content/templates/risk_view.pt:39
+msgid "yes"
+msgstr "Ja"
+
 #. Default: Show '${na}'
-#: euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/templates/risk_view.pt:38
 msgid "risk_show_na"
 msgstr "Toon '${na}' optie"
 
 #. Default: not applicable
-#: euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/templates/risk_view.pt:38
 msgid "risk_show_na_na"
 msgstr "niet van toepassing"
 
 #. Default: You can also ${add_link}.
-#: euphorie/content/templates/sector_view.pt:29
+#: euphorie/content/templates/sector_view.pt:31
 msgid "survey_list_footer"
 msgstr "U kunt ook ${add_link}."
 
 #. Default: add a new survey
-#: euphorie/content/templates/sector_view.pt:31
-#: euphorie/content/templates/sector_view.pt:16
+#: euphorie/content/templates/sector_view.pt:33
+#: euphorie/content/templates/sector_view.pt:18
 msgid "add_survey"
 msgstr "een nieuwe RI&E toevoegen"
 
 #. Default: There are no surveys present. You can ${add_link}.
-#: euphorie/content/templates/sector_view.pt:14
+#: euphorie/content/templates/sector_view.pt:16
 msgid "no_surveys_present"
 msgstr "Er zijn geen RI&E's beschikbaar. U kunt ${add_link}."
 
 #. Default: Surveys
-#: euphorie/content/templates/sector_view.pt:12
+#: euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
 msgstr "RI&E's"
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
-#: euphorie/content/templates/sectorcontainer_view.pt:13
+#: euphorie/content/templates/sectorcontainer_view.pt:15
 msgid "message_choose_country"
 msgstr "Selecteer een land waarvan u een RI&E wil bekijken of kopiëren."
 
 #. Default: Sectors
-#: euphorie/content/templates/sectorcontainer_view.pt:10
+#: euphorie/content/templates/sectorcontainer_view.pt:12
 msgid "title_sectors"
 msgstr "Branches"
 
 #. Default: Save changes
-#: euphorie/content/templates/settings.pt:79
+#: euphorie/content/templates/settings.pt:81
 msgid "button_save_changes"
 msgstr "Bewaar wijzigingen"
 
-#: euphorie/content/templates/settings.pt:70
-#: euphorie/content/templates/settings.pt:62
-#: euphorie/content/templates/settings.pt:41
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:72
+#: euphorie/content/templates/settings.pt:64
+#: euphorie/content/templates/settings.pt:43
+#: euphorie/content/templates/settings.pt:29
 msgid "Information"
 msgstr "Informatie"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: euphorie/content/templates/settings.pt:70
+#: euphorie/content/templates/settings.pt:72
 msgid "help_sector_contactperson"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -3151,13 +3149,13 @@ msgstr ""
 "zodat de tekst op de knoppen leesbaar blijft."
 
 #. Default: Contact person
-#: euphorie/content/templates/settings.pt:68
+#: euphorie/content/templates/settings.pt:70
 msgid "label_contact_person"
 msgstr "Contactpersoon"
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: euphorie/content/templates/settings.pt:62
+#: euphorie/content/templates/settings.pt:64
 msgid "help_sector_password"
 msgstr "Met dit wachtwoord kunt u inloggen op de beheeromgeving."
 
@@ -3166,7 +3164,7 @@ msgstr "Met dit wachtwoord kunt u inloggen op de beheeromgeving."
 #. PNG file of at least 100 pixels in height. Uploading larger images is fine,
 #. the
 #. logo will be scaled down to the right size automatically.
-#: euphorie/content/templates/settings.pt:55
+#: euphorie/content/templates/settings.pt:57
 msgid "logo_instructions"
 msgstr ""
 "Neem voor het beste resultaat een ${transparent} PNG bestand van "
@@ -3174,17 +3172,17 @@ msgstr ""
 "juiste grootte geschaald."
 
 #. Default: transparent
-#: euphorie/content/templates/settings.pt:56
+#: euphorie/content/templates/settings.pt:58
 msgid "logo_instructions_transparent"
 msgstr "transparant"
 
 #. Default: My own
-#: euphorie/content/templates/settings.pt:50
+#: euphorie/content/templates/settings.pt:52
 msgid "logo_my_own"
 msgstr "Mijn logo"
 
 #. Default: Which logo you would like to display in the top left corner?
-#: euphorie/content/templates/settings.pt:43
+#: euphorie/content/templates/settings.pt:45
 msgid "label_logo_selection"
 msgstr "Welk logo wilt u linksboven tonen?"
 
@@ -3193,7 +3191,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #. will see as well as on this editor environment in the top left corner. The
 #. new
 #. logo will only become visible after you've saved your changes.'
-#: euphorie/content/templates/settings.pt:41
+#: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"
 msgstr ""
 "Het logo zal zowel in de client RI&E als ook in de beheer RI&E linksboven"
@@ -3203,7 +3201,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: euphorie/content/templates/settings.pt:28
+#: euphorie/content/templates/settings.pt:30
 msgid "help_colour_picker"
 msgstr ""
 "Het kleurenpalet hieronder kunt u gebruiken om de kleuren van uw "
@@ -3214,7 +3212,7 @@ msgstr ""
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text
 #. on each button legible.
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:29
 msgid "help_sector_colours"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -3222,178 +3220,190 @@ msgstr ""
 "zodat de tekst op de knoppen leesbaar blijft."
 
 #. Default: Restore to original colours
-#: euphorie/content/templates/settings.pt:25
+#: euphorie/content/templates/settings.pt:27
 msgid "button_reset_colours"
 msgstr "Gebruik de standaard kleuren"
 
 #. Default: Colour scheme
-#: euphorie/content/templates/settings.pt:25
+#: euphorie/content/templates/settings.pt:27
 msgid "header_colour_scheme"
 msgstr "Kleurinstellingen"
 
 #. Default: Please provide a description of your sector
-#: euphorie/content/templates/settings.pt:14
+#: euphorie/content/templates/settings.pt:16
 msgid "label_sector_description"
 msgstr "Omschrijving van de branche"
 
 #. Default: Settings
-#: euphorie/content/templates/settings.pt:10
+#: euphorie/content/templates/settings.pt:12
 msgid "header_settings"
 msgstr "Instellingen"
 
 #. Default: Create
-#: euphorie/content/templates/survey_add.pt:23
-#: euphorie/content/templates/surveygroup_add.pt:79
+#: euphorie/content/templates/survey_add.pt:25
+#: euphorie/content/templates/surveygroup_add.pt:81
 msgid "button_create"
 msgstr "Voeg toe"
 
 #. Default: Choose a base revision
-#: euphorie/content/templates/survey_add.pt:18
+#: euphorie/content/templates/survey_add.pt:20
 msgid "label_survey_base"
 msgstr "Kies een basis versie"
 
 #. Default: The form will allow you to create a new survey revision.
-#: euphorie/content/templates/survey_add.pt:9
+#: euphorie/content/templates/survey_add.pt:11
 msgid "intro_add_survey"
 msgstr "Via dit formulier kunt u een nieuwe RI&E maken."
 
 #. Default: This survey has no modules.
-#: euphorie/content/templates/survey_view.pt:42
+#: euphorie/content/templates/survey_view.pt:44
 msgid "no_modules"
 msgstr "Deze RI&E heeft geen modules."
 
 #. Default: Modules
-#: euphorie/content/templates/survey_view.pt:40
+#: euphorie/content/templates/survey_view.pt:42
 msgid "header_modules"
 msgstr "Modules"
 
 #. Default: This survey has no profile questions.
-#: euphorie/content/templates/survey_view.pt:30
+#: euphorie/content/templates/survey_view.pt:32
 msgid "no_profile_questions"
 msgstr "Deze RI&E heeft geen profielvragen."
 
 #. Default: Profile questions
-#: euphorie/content/templates/survey_view.pt:28
+#: euphorie/content/templates/survey_view.pt:30
 msgid "header_profile_questions"
 msgstr "Profielvragen"
 
 #. Default: Not set
-#: euphorie/content/templates/survey_view.pt:24
-#: euphorie/content/templates/survey_view.pt:21
+#: euphorie/content/templates/survey_view.pt:26
+#: euphorie/content/templates/survey_view.pt:23
 msgid "not_set"
 msgstr "Niet opgegeven"
 
 #. Default: Mandatory
-#: euphorie/content/templates/survey_view.pt:18
+#: euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
 msgstr "Verplicht"
 
 #. Default: Optional
-#: euphorie/content/templates/survey_view.pt:17
+#: euphorie/content/templates/survey_view.pt:19
 msgid "optional"
 msgstr "Optioneel"
 
 #. Default: Evaluation phase
-#: euphorie/content/templates/survey_view.pt:16
+#: euphorie/content/templates/survey_view.pt:18
 msgid "label_evaluation_phase"
 msgstr "Evaluatie fase"
 
 #. Default: Choose a revision of the selected survey
-#: euphorie/content/templates/surveygroup_add.pt:71
-#: euphorie/content/templates/surveygroup_add.pt:35
+#: euphorie/content/templates/surveygroup_add.pt:73
+#: euphorie/content/templates/surveygroup_add.pt:37
 msgid "label_choose_survey"
 msgstr "Kies een versie van deze RI&E."
 
 #. Default: Choose a survey
-#: euphorie/content/templates/surveygroup_add.pt:52
-#: euphorie/content/templates/surveygroup_add.pt:26
+#: euphorie/content/templates/surveygroup_add.pt:54
+#: euphorie/content/templates/surveygroup_add.pt:28
 msgid "label_choose_surveygroup"
 msgstr "Kies een RI&E"
 
 #. Default: Choose a country
-#: euphorie/content/templates/surveygroup_add.pt:45
+#: euphorie/content/templates/surveygroup_add.pt:47
 msgid "label_choose_country"
 msgstr "Kies een land"
 
 #. Default: Base my new survey on an existing survey of another organisation
-#: euphorie/content/templates/surveygroup_add.pt:19
+#: euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr "Baseer mijn RI&E op een bestaande RI&E van een andere organisatie."
 
 #. Default: Base my new survey on an existing survey of my organisation
-#: euphorie/content/templates/surveygroup_add.pt:18
+#: euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr "Baseer mijn RI&E op een bestaande RI&E van mijn organisatie."
 
 #. Default: Create a new survey from scratch
-#: euphorie/content/templates/surveygroup_add.pt:17
+#: euphorie/content/templates/surveygroup_add.pt:19
 msgid "survey_source_scratch"
 msgstr "Begin met een lege RI&E."
 
 #. Default: How would you like to start
-#: euphorie/content/templates/surveygroup_add.pt:16
+#: euphorie/content/templates/surveygroup_add.pt:18
 msgid "label_survey_source"
 msgstr "Hoe wilt u beginnen"
 
 #. Default: The form will allow you to create a new survey.
-#: euphorie/content/templates/surveygroup_add.pt:9
+#: euphorie/content/templates/surveygroup_add.pt:11
 msgid "intro_add_surveygroup"
 msgstr "Via dit formulier kunt u een nieuwe RI&E maken."
 
 #. Default: Unlock
-#: euphorie/content/templates/user_mgmt.pt:56
-#: euphorie/content/templates/user_mgmt.pt:34
+#: euphorie/content/templates/user_mgmt.pt:58
+#: euphorie/content/templates/user_mgmt.pt:36
 msgid "button_unlock"
 msgstr "Activeren"
 
 #. Default: Lock
-#: euphorie/content/templates/user_mgmt.pt:55
-#: euphorie/content/templates/user_mgmt.pt:33
+#: euphorie/content/templates/user_mgmt.pt:57
+#: euphorie/content/templates/user_mgmt.pt:35
 msgid "button_lock"
 msgstr "Blokkeren"
 
 #. Default: Edit
-#: euphorie/content/templates/user_mgmt.pt:54
-#: euphorie/content/templates/user_mgmt.pt:32
+#: euphorie/content/templates/user_mgmt.pt:56
+#: euphorie/content/templates/user_mgmt.pt:34
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:31
 msgid "button_edit"
 msgstr "Wijzig"
 
 #. Default: There are no country managers for this country.
-#: euphorie/content/templates/user_mgmt.pt:42
+#: euphorie/content/templates/user_mgmt.pt:44
 msgid "country_no_managers"
 msgstr "Er zijn geen landbeheerders voor dit land."
 
 #. Default: Country managers
-#: euphorie/content/templates/user_mgmt.pt:40
+#: euphorie/content/templates/user_mgmt.pt:42
 msgid "header_country_managers"
 msgstr "Landbeheerders"
 
 #. Default: There are no sectors for this country.
-#: euphorie/content/templates/user_mgmt.pt:19
+#: euphorie/content/templates/user_mgmt.pt:21
 msgid "country_no_sectors"
 msgstr "Er zijn geen branches in dit land"
 
 #. Default: Sectors
-#: euphorie/content/templates/user_mgmt.pt:17
+#: euphorie/content/templates/user_mgmt.pt:19
 msgid "header_sectors"
 msgstr "Branches"
 
 #. Default: Add country manager
-#: euphorie/content/templates/user_mgmt.pt:13
+#: euphorie/content/templates/user_mgmt.pt:15
 msgid "button_add_country_manager"
 msgstr "Nieuwe landbeheerder toevoegen"
 
 #. Default: Add new sector
-#: euphorie/content/templates/user_mgmt.pt:12
+#: euphorie/content/templates/user_mgmt.pt:14
 msgid "button_add_sector"
 msgstr "Nieuwe branche toevoegen"
 
 #. Default: Manage users in ${country}
-#: euphorie/content/templates/user_mgmt.pt:10
+#: euphorie/content/templates/user_mgmt.pt:12
 msgid "header_user_management"
 msgstr "Beheer gebruikers voor ${country}"
+
+#. Default: XML export
+#: euphorie/deployment/browser/sitemenu.py:37
+#, fuzzy
+#| msgid "label_report"
+msgid "menu_export"
+msgstr "Rapport"
+
+#. Default: Import survey
+#: euphorie/deployment/browser/sitemenu.py:40
+msgid "menu_import"
+msgstr ""
 
 #. Default: Relevance: ${percentage}
 #: euphorie/deployment/browser/templates/search.pt:28
@@ -3468,8 +3478,9 @@ msgstr "Toon oudere versies"
 #. Click the update icon to bring all the changes live
 #: euphorie/deployment/tiles/templates/versions.pt:54
 msgid "legend_updated"
-msgstr "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op Publiceer om deze zichtbaar te maken voor de invuller (client)."
-
+msgstr ""
+"Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
+"Publiceer om deze zichtbaar te maken voor de invuller (client)."
 
 #. Default: Update
 #: euphorie/deployment/tiles/templates/versions.pt:54
@@ -3545,10 +3556,4 @@ msgstr "Nieuwe versie"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versies"
-
-#~ msgid "header_toc"
-#~ msgstr "Inhoudsopgave"
-
-#~ msgid "button_print"
-#~ msgstr "Afdrukken"
 
