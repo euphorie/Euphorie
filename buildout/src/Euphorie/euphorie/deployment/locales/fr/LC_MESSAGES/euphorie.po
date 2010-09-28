@@ -3164,12 +3164,12 @@ msgstr "Effet par défaut"
 #. Default: No
 #: euphorie/content/templates/risk_view.pt:38
 msgid "yes"
-msgstr "Oui"
+msgstr "Non"
 
 #. Default: Yes
 #: euphorie/content/templates/risk_view.pt:37
 msgid "no"
-msgstr "Non"
+msgstr "Oui"
 
 #. Default: Show '${na}'
 #: euphorie/content/templates/risk_view.pt:36
