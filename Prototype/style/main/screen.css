@@ -1419,6 +1419,25 @@ div.warning strong {
 	font-weight: bold;
 }
 
+.report p.notice a, 
+.report p.error a, 
+.report p.success a, 
+.report p.warning a,
+.report p.notice strong, 
+.report p.error strong, 
+.report p.success strong, 
+.report p.warning strong,
+.report div.notice a, 
+.report div.error a, 
+.report div.success a, 
+.report div.warning a,
+.report div.notice strong, 
+.report div.error strong, 
+.report div.success strong, 
+.report div.warning strong {
+	color: #113779;
+}
+
 p.notice img, 
 p.error img, 
 p.success img, 
