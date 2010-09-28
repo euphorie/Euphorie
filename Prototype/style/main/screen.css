@@ -1737,6 +1737,10 @@ textarea {
 	padding-top: 6px;
 }
 
+select {
+	max-width: 300px;
+}
+
 input[type="checkbox"] {
 	width: 14px;
 	border-style: none;
