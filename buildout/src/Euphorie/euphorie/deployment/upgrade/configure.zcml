@@ -11,7 +11,7 @@
 
     <genericsetup:upgradeStep
       title="Correct survey workflow"
-      description="Fix problems with copying and pasting of published surveys"
+      description="Fix problems with copying and pasting of published surveys. This step may take a (very) long time."
       handler=".v2.resetSurveyWorkflow"
       />
 
