@@ -1418,23 +1418,9 @@ div.warning strong {
 	color: white;
 	font-weight: bold;
 }
-
-.report p.notice a, 
-.report p.error a, 
-.report p.success a, 
-.report p.warning a,
-.report p.notice strong, 
-.report p.error strong, 
-.report p.success strong, 
-.report p.warning strong,
-.report div.notice a, 
-.report div.error a, 
-.report div.success a, 
-.report div.warning a,
-.report div.notice strong, 
-.report div.error strong, 
-.report div.success strong, 
-.report div.warning strong {
+ 
+.report p.warning a, 
+.report div.warning a {
 	color: #113779;
 }
 
