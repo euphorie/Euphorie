@@ -3,14 +3,19 @@
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   i18n_domain="plone">
 
-  <!--
   <genericsetup:upgradeSteps
     source="2"
     destination="3"
     profile="euphorie.deployment:default"
     >
+
+    <genericsetup:upgradeStep
+      title="Correct survey workflow"
+      description="Fix problems with copying and pasting of published surveys"
+      handler=".v2.resetSurveyWorkflow"
+      />
+
   </genericsetup:upgradeSteps>
-  -->
 
 </configure>
 
