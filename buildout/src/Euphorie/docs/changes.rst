@@ -4,6 +4,12 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- ...
+
+
+2.0rc2, September 29, 2010
+--------------------------
+
 - Add ``Copy or Move`` permission information to the published state of 
   the survey workflow. This fixes
   `TNO ticket 124 <http://code.simplon.biz/tracker/tno-euphorie/ticket/124>`_
