@@ -29,6 +29,12 @@
      Published surveys.
    </description>
   <exit-transition transition_id="update"/>
+  <permission-map name="Copy or Move" acquired="True">
+    <permission-role>Authenticated</permission-role>
+    <permission-role>Sector</permission-role>
+    <permission-role>CountryManager</permission-role>
+    <permission-role>Manager</permission-role>
+  </permission-map>
   <permission-map name="Delete objects" acquired="False">
     <permission-role>Manager</permission-role>
   </permission-map>

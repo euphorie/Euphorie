@@ -4,6 +4,11 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- Add ``Copy or Move`` permission information to the published state of 
+  the survey workflow. This fixes
+  `TNO ticket 124 <http://code.simplon.biz/tracker/tno-euphorie/ticket/124>`_
+  [wichert]
+
 - Correct link colour in the reports. This fixes 
   `TNO ticket 104 <http://code.simplon.biz/tracker/tno-euphorie/ticket/104>`_
   [cornae]
