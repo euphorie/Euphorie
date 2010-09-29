@@ -4,7 +4,9 @@ Changelog
 2.0, Unreleased
 ---------------
 
-- ...
+- Fix bug in upgrade step for migration to 2.0rc2 which broke updating of
+  security settings for existing content.
+  [wichert]
 
 
 2.0rc2, September 29, 2010
