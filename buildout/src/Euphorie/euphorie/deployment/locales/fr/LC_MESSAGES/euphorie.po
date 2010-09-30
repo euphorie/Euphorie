@@ -189,6 +189,11 @@ msgstr "Informations secteur et regroupement pour le client. "
 msgid "navigation_help"
 msgstr "Aide"
 
+#. Default: More information about the OiRA project (in English)
+#: euphorie/client/templates.about.pt:58
+msgid "about_oiraproject"
+msgstr "Plus d'informations sur le projet Oira (en anglais)"
+
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: euphorie/client/templates/about.pt:106
 msgid "about_licenses_3"
