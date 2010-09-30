@@ -23,16 +23,23 @@ grok.templatedir("templates")
 class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     """Survey Profile question.
 
-    A profile question is used to determine if parts of a RIE should
+    A profile question is used to determine if parts of a survey should
     be skipped, or repeated multiple times.
     """
+    question = schema.TextLine(
+            title = _("label_profilequestion_question", default=u"Question"),
+            description = _("help_profilequestion_question",
+                default=u"The question to ask users n the profile screen."),
+            required = True)
+    form.order_after(question="title")
+
     description = HtmlText(
             title = _("label_module_description", u"Description"),
             description = _("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."))
     form.widget(description=WysiwygFieldWidget)
-    form.order_after(description="title")
+    form.order_after(description="question")
 
     type = schema.Choice(
             title = _("label_profile_type", default=u"Type"),
@@ -49,6 +56,7 @@ class ProfileQuestion(dexterity.Container):
     implements(IProfileQuestion, IQuestionContainer)
 
     optional = False
+    question = None
 
 
 

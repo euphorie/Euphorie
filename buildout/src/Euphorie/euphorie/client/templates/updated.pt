@@ -30,7 +30,7 @@
           <tal:block define="answer python:view.current_profile.get(question['id'])">
             <tal:block condition="python:question['type']=='optional'">
               <input type="hidden" value="" name="${question/id}:boolean:default" />
-              <label><span tal:replace="question/title">Online delivery</span>
+              <label><span tal:replace="question/question">Online delivery</span>
                 <input type="checkbox" value="on" name="${question/id}:boolean"
                 checked="${python:'checked' if answer else None}" />
               </label>
@@ -38,7 +38,7 @@
 
             <tal:block condition="python:question['type']=='repeat'">
               <fieldset class="comprehensive">
-                <legend tal:content="question/title">Restaurants</legend>
+                <legend tal:content="question/question">Restaurants</legend>
                 <ol>
                   <tal:block condition="python:not answer">
                     <li><input type="text" name="${question/id}:utext:list"/>

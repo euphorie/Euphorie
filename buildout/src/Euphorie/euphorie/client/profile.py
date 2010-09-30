@@ -219,7 +219,7 @@ class Profile(grok.View):
         - ``type``: question type, one of `repeat` or `optional`
         """
         return [dict(id=child.id,
-                     title=child.title,
+                     question=child.question or child.title,
                      type=child.type)
                 for child in self.context.ProfileQuestions()]
 

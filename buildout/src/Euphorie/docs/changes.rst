@@ -4,6 +4,11 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- Add missing question field to profile questions, and update the XML export
+  code to export it. The XML import code and format specification already
+  described this field.
+  [wichert]
+
 - Fix bug in upgrade step for migration to 2.0rc2 which broke updating of
   security settings for existing content.
   [wichert]

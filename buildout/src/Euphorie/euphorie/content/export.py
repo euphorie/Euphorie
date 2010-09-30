@@ -62,6 +62,8 @@ class ExportSurvey(grok.View):
         node=etree.SubElement(parent, "profile-question", 
                 type=getToken(IProfileQuestion["type"], profile.type))
         etree.SubElement(node, "title").text=profile.title
+        # Use title if question is not available (Euphorie < 2.0rc2 data)
+        etree.SubElement(node, "question").text=profile.question or profile.title
         etree.SubElement(node, "description").text=profile.description
 
         for child in profile.values():

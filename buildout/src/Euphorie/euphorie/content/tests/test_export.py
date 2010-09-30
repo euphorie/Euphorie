@@ -386,6 +386,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.profilequestion import ProfileQuestion
         profile=ProfileQuestion()
         profile.title=u"Office buildings"
+        profile.question=u"Do you have an office buildings?"
         profile.description=u"<p>Owning property brings risks.</p>"
         profile.type="optional"
         root=self.root()
@@ -395,6 +396,25 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <profile-question type="optional">\n'
                 '    <title>Office buildings</title>\n'
+                '    <question>Do you have an office buildings?</question>\n'
+                '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
+                '  </profile-question>\n'
+                '</root>\n')
+
+    def testProfileQuestion_WithoutQuestion(self):
+        from euphorie.content.profilequestion import ProfileQuestion
+        profile=ProfileQuestion()
+        profile.title=u"Office buildings"
+        profile.description=u"<p>Owning property brings risks.</p>"
+        profile.type="optional"
+        root=self.root()
+        view=ExportSurvey(None, None)
+        view.exportProfileQuestion(root, profile)
+        self.assertEqual(etree.tostring(root, pretty_print=True),
+                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+                '  <profile-question type="optional">\n'
+                '    <title>Office buildings</title>\n'
+                '    <question>Office buildings</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
                 '  </profile-question>\n'
                 '</root>\n')
@@ -404,6 +424,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.risk import Risk
         profile=ProfileQuestion()
         profile.title=u"Office buildings"
+        profile.question=u"Do you have an office buildings?"
         profile.description=u"<p>Owning property brings risks.</p>"
         profile.type="optional"
         risk=Risk()
@@ -421,6 +442,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <profile-question type="optional">\n'
                 '    <title>Office buildings</title>\n'
+                '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
                 '    <risk type="top5">\n'
                 '      <title>Can your windows be locked?</title>\n'
@@ -436,6 +458,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.module import Module
         profile=ProfileQuestion()
         profile.title=u"Office buildings"
+        profile.question=u"Do you have an office buildings?"
         profile.description=u"<p>Owning property brings risks.</p>"
         profile.type="optional"
         module=Module()
@@ -451,6 +474,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <profile-question type="optional">\n'
                 '    <title>Office buildings</title>\n'
+                '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
                 '    <module optional="false">\n'
                 '      <title>Office buildings</title>\n'
@@ -510,6 +534,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         survey.language="en-GB"
         profile=ProfileQuestion()
         profile.title=u"Office buildings"
+        profile.question=u"Do you have an office buildings?"
         profile.description=u"<p>Owning property brings risks.</p>"
         profile.type="optional"
         survey["1"]=profile
@@ -524,6 +549,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '    <profile-question type="optional">\n'
                 '      <title>Office buildings</title>\n'
+                '      <question>Do you have an office buildings?</question>\n'
                 '      <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
                 '    </profile-question>\n'
                 '  </survey>\n'
