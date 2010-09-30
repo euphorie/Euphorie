@@ -379,7 +379,7 @@ msgstr "les micro et petites entreprises rencontrent certaines difficultés"
 #: euphorie/client/templates/about.pt:55
 msgid "about_paragraph3_agency"
 msgstr ""
-"Sratégie de la Communauté européenne sur la Santé et la Sécurité au "
+"Stratégie de la Communauté Eeuropéenne sur la Santé et la Sécurité au "
 "Travail 2007-2012"
 
 #. Default: Why the OiRA project
@@ -1422,7 +1422,6 @@ msgstr "Mesure ${index}"
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
 msgstr ""
-"Il s'agit d'un ${priority} .\n"
 "Il s'agit d'un ${priority} ."
 
 #. Default: high priority risk
@@ -1483,7 +1482,6 @@ msgstr "Non fourni"
 #: euphorie/client/templates/report_company.pt:75
 msgid "label_arbo_expert"
 msgstr ""
-"Expert Santé et Sécurité\n"
 "Expert Santé et Sécurité"
 
 #. Default: Number of incapacitated workers last year
@@ -1587,7 +1585,6 @@ msgstr "Adresse postale"
 #: euphorie/client/templates/report_company.pt:26
 msgid "label_company_title"
 msgstr ""
-"Bedrijfsnaam\n"
 "Nom de l'entreprise"
 
 #. Default: Your answers and report were ${automatically_saved} and may be
