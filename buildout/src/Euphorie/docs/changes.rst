@@ -4,17 +4,30 @@ Changelog
 2.0, Unreleased
 ---------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *4*. Please use the upgrade
+feature in portal_setup to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add missing question field to profile questions, and update the XML export
+  code to export it. The XML import code and format specification already
+  described this field.
+  [wichert]
+
+Bugfixes
+~~~~~~~~
+
 - Add publish permission to country managers. This fixes
   `TNO ticket 126 <http://code.simplon.biz/tracker/tno-euphorie/ticket/126>`_
   [wichert]
 
 - Declare dependency for question field in the module edit screen: it should
   only be shown for optional modules.
-  [wichert]
-
-- Add missing question field to profile questions, and update the XML export
-  code to export it. The XML import code and format specification already
-  described this field.
   [wichert]
 
 - Fix bug in upgrade step for migration to 2.0rc2 which broke updating of
@@ -24,6 +37,16 @@ Changelog
 
 2.0rc2, September 29, 2010
 --------------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *3*. Please use the upgrade
+feature in portal_setup to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
+Bugfixes
+~~~~~~~~
 
 - Add ``Copy or Move`` permission information to the published state of 
   the survey workflow. This fixes
@@ -38,7 +61,7 @@ Changelog
   `TNO ticket 121 <http://code.simplon.biz/tracker/tno-euphorie/ticket/121>`_
   [wichert]
 
-- added french translations
+- Add french translations
   [pilz]
 
 
