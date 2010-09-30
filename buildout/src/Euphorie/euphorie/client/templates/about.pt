@@ -55,7 +55,7 @@
     The <strong i18n:name="agency" i18n:translate="about_paragraph3_agency">European Community Strategy on Health and Safety at Work 2007-2012</strong> calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that <strong i18n:name="smb" i18n:translate="about_partners_3_smb">micro and small enterprises have some shortcomings</strong> when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome.</tal:span>
     </p>
     <p>
-      <strong><a class="external-link" href="http://www.oira.osha.europa.eu/">More information about the OiRA project</a></strong>
+      <strong><a class="external-link" href="http://www.oira.osha.europa.eu/" i18n:translate="about_oiraproject">More information about the OiRA project (in English)</a></strong>
     </p>
     <h2 i18n:translate="header_project_phases">Project Phases</h2>
     <h3 i18n:translate="header_devel_phase">Development and pilot phase – 2009-2011</h3>
