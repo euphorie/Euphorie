@@ -53,6 +53,7 @@
       </li>
       <li class="cy">
         <a href="${client_url}/cy/?language=el-CY">Ελληvικά</a>
+        <a href="${client_url}/cy/?language=en-CY">English</a>
       </li>
       <li class="cz">
         <a href="${client_url}/cz/?language=cs-CZ">Čeština</a>
