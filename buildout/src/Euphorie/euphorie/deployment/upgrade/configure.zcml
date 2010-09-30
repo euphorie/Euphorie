@@ -17,5 +17,18 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="3"
+    destination="4"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Correct publish permissions"
+      description="Fix problems with country managers not being able to publish surveys."
+      handler=".v2.resetPublishPermission"
+      />
+
+  </genericsetup:upgradeSteps>
 </configure>
 

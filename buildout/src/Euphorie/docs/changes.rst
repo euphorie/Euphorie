@@ -4,6 +4,10 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- Add publish permission to country managers. This fixes
+  `TNO ticket 126 <http://code.simplon.biz/tracker/tno-euphorie/ticket/126>`_
+  [wichert]
+
 - Declare dependency for question field in the module edit screen: it should
   only be shown for optional modules.
   [wichert]

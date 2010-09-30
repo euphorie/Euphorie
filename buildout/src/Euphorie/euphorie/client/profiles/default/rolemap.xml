@@ -5,6 +5,7 @@
   </roles>
   <permissions>
     <permission name="Euphorie: Publish a Survey" acquire="True">
+      <role name="CountryManager" />
       <role name="Manager" />
       <role name="Sector" />
     </permission>
