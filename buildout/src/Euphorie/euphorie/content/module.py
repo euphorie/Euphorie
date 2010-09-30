@@ -6,6 +6,7 @@ from zope import schema
 from five import grok
 from plone.directives import form
 from plone.directives import dexterity
+from plonetheme.nuplone.z3cform.directives import depends
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from htmllaundry.z3cform import HtmlText
@@ -45,6 +46,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
             required = False,
             default = False)
 
+    depends("question", "optional", "on")
     question = schema.TextLine(
             title = _("label_module_question", default=u"Question"),
             description = _("help_module_question",

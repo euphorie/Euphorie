@@ -4,6 +4,10 @@ Changelog
 2.0, Unreleased
 ---------------
 
+- Declare dependency for question field in the module edit screen: it should
+  only be shown for optional modules.
+  [wichert]
+
 - Add missing question field to profile questions, and update the XML export
   code to export it. The XML import code and format specification already
   described this field.
