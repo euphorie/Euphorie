@@ -3122,15 +3122,6 @@ button,
 	display: none;
 }
 
-#steps,
-#navigation,
-button,
-#appendix,
-.report .introduction,
-.buttonBar {
-	display: none;
-}
-
 body {
 	background-image: none;70
 	width: auto;
