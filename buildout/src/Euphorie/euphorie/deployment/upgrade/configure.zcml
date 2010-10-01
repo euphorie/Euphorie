@@ -29,6 +29,12 @@
       handler=".v2.resetPublishPermission"
       />
 
+    <genericsetup:upgradeStep
+      title="Migrate company detail data"
+      description="Migrate the company data to split out NL-specific and generic company information"
+      handler=".v2.migrateCompanyTable"
+      />
+
   </genericsetup:upgradeSteps>
 </configure>
 
