@@ -14,6 +14,12 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Replace the collected company details with more generic information. The
+  previous list is still used in the `Dutch RI&E site <http://instrumenten.rie.nl>`_
+  and is now implemented in `tno.euphorie <http//pypi.python.org/pypi/tno.euphorie/>`_.
+  This fixes `ticket 142 <http://code.simplon.biz/tracker/euphorie/ticket/142>`_.
+  [wichert]
+
 - Add missing question field to profile questions, and update the XML export
   code to export it. The XML import code and format specification already
   described this field.

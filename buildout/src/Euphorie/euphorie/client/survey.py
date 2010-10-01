@@ -3,8 +3,6 @@ Survey views
 ============
 """
 
-import calendar
-import datetime
 import logging
 import random
 import Acquisition
@@ -407,71 +405,47 @@ class ReportView(grok.View):
 class CompanyForm(formapi.Form):
     """A single action plan item."""
 
-    fields = dict(title=unicode,
-                  address_visit_address=unicode,
-                  address_visit_postal=unicode,
-                  address_visit_city=unicode,
-                  address_postal_address=unicode,
-                  address_postal_postal=unicode,
-                  address_postal_city=unicode,
-                  email=str,
-                  phone=str,
-                  activity=unicode,
-                  submitter_name=unicode,
-                  submitter_function=unicode,
-                  department=unicode,
-                  location=unicode,
-                  submit_date_day=int,
-                  submit_date_month=int,
-                  submit_date_year=int,
+    fields = dict(country=str,
                   employees=str,
-                  absentee_percentage=int,
-                  accidents=int,
-                  incapacitated_workers=int,
-                  arbo_expert=unicode,
-                  works_council=bool,
-                  works_council_approval_day=int,
-                  works_council_approval_month=int,
-                  works_council_approval_year=int)
+                  conductor=str,
+                  referer=str)
 
-    @formapi.validator("submit_date_day")
-    def valid_submit_date(self):
-        day=self.data["submit_date_day"]
-        if day is None:
-            return
-        if not 1<=day<=31:
-            yield _(u"Invalid day of month")
-
-        try:
-            (__, maxday)=calendar.monthrange(self.data["submit_date_year"],
-                                            self.data["submit_date_month"])
-            if day>maxday:
-                yield _(u"Invalid day of month")
-        except TypeError:
-            # Invalid year most likely
-            pass
-
-
-    @formapi.validator("works_council_approval_day")
-    def valid_works_council_approval_day(self):
-        if not self.data["works_council"]:
-            # Do not validate of works council did not approve
+    @formapi.validator("country")
+    def valid_country(self):
+        country=self.data["country"]
+        if country is None:
             return
 
-        day=self.data["works_council_approval_day"]
-        if day is None:
-            return
-        if not 1<=day<=31:
-            yield _(u"Invalid day of month")
+        request=utils.getRequest()
+        if country.upper() not in request.locale.displayNames.territories:
+            yield _(u"Unknown country or region")
 
-        try:
-            (__, maxday)=calendar.monthrange(self.data["works_council_approval_year"],
-                                            self.data["works_council_approval_month"])
-            if day>maxday:
-                yield _(u"Invalid day of month")
-        except TypeError:
-            # Invalid year most likely
-            pass
+    @formapi.validator("employees")
+    def valid_employees(self):
+        employees=self.data["employees"]
+        if employees is None:
+            return
+        if employees not in ["1-9", "10-49", "50-249", "250+"]:
+            yield _(u"Invalid number of employees")
+
+    @formapi.validator("conductor")
+    def valid_conductor(self):
+        conductor=self.data["conductor"]
+        if conductor is None:
+            return
+        if conductor not in ["staff", "third-party", "both"]:
+            yield _(u"Please select an option.")
+
+    @formapi.validator("referer")
+    def valid_referer(self):
+        referer=self.data["referer"]
+        if referer is None:
+            return
+        if referer not in ["employers-organisation", "trade-union",
+                "national-public-institution", "eu-institution",
+                "health-safety-experts", "other"]:
+            yield _(u"Please select an option.")
+
 
 
 class ReportCompanyDetails(grok.View):
@@ -488,11 +462,18 @@ class ReportCompanyDetails(grok.View):
     grok.template("report_company")
     grok.name("company")
 
+    def countries(self):
+        names=[dict(id=key.lower(), title=value)
+               for (key,value) in  self.request.locale.displayNames.territories.items()]
+        names.sort(key=lambda c: c["title"])
+        return names
+
+
     def update(self):
         self.session=session=SessionManager.session
 
         if session.company is None:
-            session.company=model.Company(submit_date=datetime.date.today())
+            session.company=model.Company()
 
         self.errors={}
         if self.request.environ["REQUEST_METHOD"]=="POST":
@@ -503,28 +484,8 @@ class ReportCompanyDetails(grok.View):
             if not form.validate():
                 self.errors=form.errors._dict
             else:
-                for key in [ "title", "address_visit_address",
-                             "address_visit_postal", "address_visit_city",
-                             "address_postal_address", "address_postal_postal",
-                             "address_postal_city", "email", "phone",
-                             "activity", "submitter_name",
-                             "submitter_function", "department", "location",
-                             "employees", "absentee_percentage", "accidents",
-                             "incapacitated_workers", "arbo_expert"]:
+                for key in [ "country", "employees", "conductor", "referer"]:
                     setattr(company, key, form.data[key])
-
-                if reply.get("works_council"):
-                    try:
-                        company.works_council_approval=datetime.date(form.data["works_council_approval_year"],
-                                form.data["works_council_approval_month"], form.data["works_council_approval_day"])
-                    except TypeError:
-                        pass
-                if form.data["submit_date_day"] and form.data["submit_date_year"]:
-                    try:
-                        company.submit_date=datetime.date(form.data["submit_date_year"],
-                                form.data["submit_date_month"], form.data["submit_date_day"])
-                    except TypeError:
-                        pass
 
                 if reply["next"]=="previous":
                     url="%s/report" % self.request.survey.absolute_url()

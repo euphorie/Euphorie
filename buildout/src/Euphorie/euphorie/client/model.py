@@ -372,27 +372,12 @@ class Company(BaseObject):
             cascade="all,delete-orphan", single_parent=True,
             backref=orm.backref("company", uselist=False, cascade="all"))
 
-    title = schema.Column(types.Unicode(128))
-    address_visit_address = schema.Column(types.UnicodeText())
-    address_visit_postal = schema.Column(types.Unicode(16))
-    address_visit_city = schema.Column(types.Unicode(64))
-    address_postal_address = schema.Column(types.UnicodeText())
-    address_postal_postal = schema.Column(types.Unicode(16))
-    address_postal_city = schema.Column(types.Unicode(64))
-    email = schema.Column(types.String(128))
-    phone = schema.Column(types.String(32))
-    activity = schema.Column(types.Unicode(64))
-    submitter_name = schema.Column(types.Unicode(64))
-    submitter_function = schema.Column(types.Unicode(64))
-    department = schema.Column(types.Unicode(64))
-    location = schema.Column(types.Unicode(64))
-    submit_date = schema.Column(types.Date(), default=functions.now())
-    employees = schema.Column(Enum([None, "40h", "max25", "over25"]))
-    absentee_percentage = schema.Column(types.Integer())
-    accidents = schema.Column(types.Integer())
-    incapacitated_workers = schema.Column(types.Integer())
-    arbo_expert = schema.Column(types.Unicode(128))
-    works_council_approval = schema.Column(types.Date())
+    country = schema.Column(types.String(3))
+    employees = schema.Column(Enum([None, "1-9", "10-49", "50-249", "250+"]))
+    conductor = schema.Column(Enum([None, "staff", "third-party", "both"]))
+    referer = schema.Column(Enum([None, "employers-organisation",
+        "trade-union", "national-public-institution", "eu-institution",
+        "health-safety-experts", "other"]))
 
 
 
@@ -464,6 +449,7 @@ if not _instrumented:
     for cls in [ SurveyTreeItem, SurveySession, Module, Risk,
                  ActionPlan, Account, Company ]:
         declarative.instrument_declarative(cls, metadata._decl_registry, metadata)
+    _instrumented = True
 
 
 parent=orm.aliased(SurveyTreeItem)

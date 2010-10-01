@@ -23,74 +23,37 @@
 
     <form method="post" class="concise" action="${request/URL}">
       <fieldset>
-        <label><tal:span i18n:translate="label_company_title">Company name</tal:span> <input type="text" name="title" maxlength="128" value="${request/form/title|company/title}"/></label> 
-        
-        <fieldset class="comprehensive inputList">
-          <legend i18n:translate="label_address_visit">Visitor's address</legend> 
-          <label class="superImpose" for="visit-address" i18n:translate="label_address">Address</label><input class="span-5" id="visit-address" name="address_visit_address" type="text"  value="${request/form/address_visit_address|company/address_visit_address}"/> <br/>
-          <label class="superImpose" for="visit-postal" i18n:translate="label_postal">Postal Code</label><input class="span-5" id="visit-postal" name="address_visit_postal" maxlength="16" type="text" value="${request/form/address_visit_postal|company/address_visit_postal}" /><br/>
-          <label class="superImpose" for="visit-city" i18n:translate="label_city">City</label><input class="span-5" id="visit-city" name="address_visit_city" maxlength="64" type="text" value="${request/form/address_visit_city|company/address_visit_city}" />
-        </fieldset>
-        
-        <fieldset class="comprehensive inputList">
-          <legend i18n:translate="label_address_postal">Postal address</legend> 
-          <label class="superImpose" for="postal-address" i18n:translate="label_address">Address</label><input class="span-5" id="postal-address" name="address_postal_address" type="text"  value="${request/form/address_postal_address|company/address_postal_address}"/> <br/>
-          <label class="superImpose" for="postal-postal" i18n:translate="label_postal">Postal Code</label><input class="span-5" id="postal-postal" name="address_postal_postal" maxlength="16" type="text" value="${request/form/address_postal_postal|company/address_postal_postal}" /><br/>
-          <label class="superImpose" for="postal-city" i18n:translate="label_city">City</label><input class="span-5" id="postal-city" name="address_postal_city" type="text"  maxlength="64" value="${request/form/address_postal_city|company/address_postal_city}" />
-        </fieldset>
-        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input type="text" class="span-6" name="email" maxlength="128" value="${request/form/email|company/email}"/></label> 
-        <label><tal:span i18n:translate="label_telephone">Telephone number</tal:span> <input type="text" name="phone" maxlength="32" value="${request/form/phone|company/phone}"/></label> 
-        <label><tal:span i18n:translate="label_activity">Activity</tal:span> <input type="text" name="activity" maxlength="64" value="${request/form/activity|company/activity}"/></label> 
-        <label><tal:span i18n:translate="label_submitter_name">Name submitter</tal:span> <input type="text" name="submitter_name" maxlength="64" value="${request/form/submitter_name|company/submitter_name}" /></label> 
-        <label><tal:span i18n:translate="label_submitter_function">Function submitter</tal:span> <input type="text"  name="submitter_function" maxlength="64" value="${request/form/submitter_function|company/submitter_function}"/></label> 
-        <label><tal:span i18n:translate="label_department">Department</tal:span> <input type="text" name="department" maxlength="64" value="${request/form/department|company/department}"/></label> 
-        <label><tal:span i18n:translate="label_location">Location</tal:span> <input type="text" name="location" maxlength="64" value="${request/form/location|company/location}"/></label> 
-        <fieldset class="comprehensive date-eu">
-          <legend><tal:span i18n:translate="label_submit_date">Date</tal:span> (<span class="discrete" i18n:translate="label_submit_date_data_collected">date on which data was collected</span>)</legend>
-          <label for="submit_date_day" i18n:translate="label_day">Day</label>
-            <input class="day numeric" type="text" name="submit_date_day" id="submit_date_day" maxlength="2" value="${request/form/submit_date_day|company/submit_date/day|nothing}"/>
-            <em class="message warning" tal:condition="view/errors/works_council_approval_day|nothing" i18n:translate="error_invalid_day">Invalid day</em>
-  
-            <label for="submit_date_month" i18n:translate="label_month">Month</label> 
-            <select class="month" name="submit_date_month" id="submit_date_month" tal:define="value request/form/submit_date_month|company/submit_date/month|nothing">
-              <option tal:repeat="month webhelpers/months"
-                  value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
-            </select>
- 
-            <label for="submit_date_year" i18n:translate="label_year">Year</label>
-            <input class="year numeric" type="text" name="submit_date_year" id="submit_date_year" maxlength="4" value="${request/form/submit_date_year|company/submit_date/year|nothing}" />
-            <em class="message warning" tal:condition="view/errors/works_council_approval_year|nothing" i18n:translate="error_invalid_year">Invalid year</em>
-        </fieldset>
+        <label><tal:span i18n:translate="label_company_country">Your country</tal:span>
+          <select name="country" tal:define="value python:request.form.get('country') or company.country or webhelpers.country()">
+            <option tal:repeat="country view/countries" value="${country/id}" selected="${python:'selected' if value==country['id'] else None}">${country/title}</option>
+          </select>
+        </label>
         
         <fieldset class="comprehensive radioList" tal:define="value request/form/employees|company/employees">
           <legend i18n:translate="label_employee_numbers">Number of employees</legend>
-          <label><input type="radio" name="employees" value="40h" selected="${python:'selected' if value=='40h' else None}"/> <tal:span i18n:translate="employee_numbers_max_40_hours">40 hours or less of paid work</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="all_employees_combined)">all employees combined</tal:span>)</span></label>
-          <label><input type="radio" name="employees" value="max25" selected="${python:'selected' if value=='max25' else None}"/> <tal:span i18n:translate="employee_numbers_below_25">25 employees or less</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="employees_not_fte">please count using people, not FTEs</tal:span>)</span></label>
-          <label><input type="radio" name="employees" value="over25" selected="${python:'selected' if value=='over25' else None}"/> <tal:span i18n:translate="employee_numbers_above_25">More than 25 employees</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="employees_not_fte">please count using people, not FTEs</tal:span>)</span></label>
+          <label><input type="radio" name="employees" value="1-9" selected="${python:'selected' if value=='1-9' else None}"/> <tal:span i18n:translate="employee_numbers_1_to_9">1 to 9 employees</tal:span></label>
+          <label><input type="radio" name="employees" value="10-49" selected="${python:'selected' if value=='10-49' else None}"/> <tal:span i18n:translate="employee_numbers_10_to_49">10 to 49 employees</tal:span></label> 
+          <label><input type="radio" name="employees" value="50-249" selected="${python:'selected' if value=='50-249' else None}"/> <tal:span i18n:translate="employee_numbers_50_to_249">50 to 249 employees</tal:span></label>
+          <label><input type="radio" name="employees" value="250+" selected="${python:'selected' if value=='250+' else None}"/> <tal:span i18n:translate="employee_numbers_250_or_more">250 or more employees</tal:span></label>
         </fieldset>
 
-        <label><tal:span i18n:translate="label_absentee_percentage">Absentee percentage</tal:span> <input type="text" class="span-1 numeric" name="absentee_percentage" value="${request/form/absentee_percentage|company/absentee_percentage}"/></label> 
-        <label><tal:span i18n:translate="label_accidents">Number of accidents last year</tal:span> <input type="text" class="span-1 numeric" name="accidents" value="${request/form/accidents|company/accidents}" /></label> 
-        <label><tal:span i18n:translate="label_incapacitated_workers">Number of incapacitated workers last year</tal:span> <input type="text" class="span-2 numeric" name="incapacitated_workers" value="${request/form/incapacitated_workers|company/incapacitated_workers}"/></label> 
-        <label><tal:span i18n:translate="label_arbo_expert">Arbo expert</tal:span> <br/><span class="discrete">(<tal:span i18n:translate="label_arbo_expert_info">name, contact person, address, email</tal:span>) </span> <input type="text" name="arbo_expert" maxlength="128" value="${request/form/arbo_expert|company/arbo_expert}"/></label> 
-        <hr/>
-        <label><tal:span i18n:translate="label_works_council_approved">Approved by works council</tal:span>  <input type="checkbox" name="works_council" value="yes" id="works_council" checked="${python:'checked' if request.form.get('works_council', company.works_council_approval) else None}" /></label>
-        <fieldset class="comprehensive date-eu dependsOn-works_council" >
-            <legend i18n:translate="label_works_council_approval_date">Date of works council approval</legend>
+        <fieldset class="comprehensive radioList" tal:define="value request/form/conductor|company/conductor">
+          <legend i18n:translate="label_conductor">The risk assessment was conducted by</legend>
+          <label><input type="radio" name="conductor" value="staff" selected="${python:'selected' if value=='staff' else None}"/> <tal:span i18n:translate="conductor_staff">own staff</tal:span></label>
+          <label><input type="radio" name="conductor" value="third-party" selected="${python:'selected' if value=='third-party' else None}"/> <tal:span i18n:translate="conductor_third_party">an external consultant or service provider</tal:span></label>
+          <label><input type="radio" name="conductor" value="both" selected="${python:'selected' if value=='both' else None}"/> <tal:span i18n:translate="conductor_both">both own stsaff and an external consultant or service provider</tal:span></label>
+        </fieldset>
 
-            <label for="works_council_approval_day" i18n:translate="label_day">Day</label> 
-            <input class="day numeric" type="text" name="works_council_approval_day" id="works_council_approval_day" maxlength="2" value="${request/form/works_council_approval_day|company/works_council_approval/day|nothing}"/>
-            <em class="message warning" tal:condition="view/errors/works_council_approval_day|nothing" i18n:translate="error_invalid_day">Invalid day</em>
-  
-            <label for="works_council_approval_month" i18n:translate="label_month">Month</label> 
-            <select class="month" name="works_council_approval_month" id="works_council_approval_month" tal:define="value request/form/works_council_approval_month|company/works_council_approval/month|nothing">
-              <option tal:repeat="month webhelpers/months"
-                  value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
-            </select>
- 
-            <label for="works_council_approval_year" i18n:translate="label_year">Year</label>
-            <input class="year numeric" type="text" name="works_council_approval_year" id="works_council_approval_year" maxlength="4" value="${request/form/works_council_approval_year|company/works_council_approval/year|nothing}" />
-            <em class="message warning" tal:condition="view/errors/works_council_approval_year|nothing" i18n:translate="error_invalid_year">Invalid year</em>
+        <fieldset class="comprehensive radioList" tal:define="value request/form/referer|company/referer">
+          <legend i18n:translate="label_referer">Through which channel did you learn about this tool?</legend>
+          <label><input type="radio" name="referer" value="employers-organisation" selected="${python:'selected' if value=='employers-organisation' else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
+          <label><input type="radio" name="referer" value="trade-union" selected="${python:'selected' if value=='trade-union' else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
+          <label><input type="radio" name="referer" value="national-public-institution" selected="${python:'selected' if value=='national-public-institution' else None}"/> <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br/>
+            <span class="discrete">(<tal:span i18n:translate="info_referer_national_public_institution">Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc.</tal:span>)</span></label>
+          <label><input type="radio" name="referer" value="eu-institution" selected="${python:'selected' if value=='eu-institution' else None}"/> <tal:span i18n:translate="referer_eu_institution">an European institution/administrator</tal:span><br/>
+            <span class="discrete">(<tal:span i18n:translate="info_referer_eu_institution">The European Agency for Safety and Health at Work, European social partners, etc.</tal:span>)</span></label>
+          <label><input type="radio" name="referer" value="health-safety-experts" selected="${python:'selected' if value=='health-safety-experts' else None}"/> <tal:span i18n:translate="referer_health_safety_export">health and safety experts</tal:span></label>
+          <label><input type="radio" name="referer" value="other" selected="${python:'selected' if value=='other' else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
         </fieldset>
       </fieldset>
       

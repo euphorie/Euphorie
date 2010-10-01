@@ -36,54 +36,27 @@
     </div>
 
     <dl class="grid companyDetails span-15">
-      <dt i18n:translate="label_company_title">Bedrijfsnaam</dt>
-      <dd><em tal:condition="not:company/title" i18n:translate="missing_data">Not provided</em>${company/title}</dd>
-      <dt i18n:translate="label_address_postal">Postal address</dt>
-      <dd tal:define="valid python:company.address_postal_address or company.address_postal_postal or company.address_postal_city">
-        <em tal:condition="not:valid" i18n:translate="missing_data">Not provided</em><address tal:condition="valid">
-          ${company/address_postal_address}<br/>
-          ${company/address_postal_postal} ${company/address_postal_city}
-        </address>
-      </dd>
-      <dt i18n:translate="label_address_visit">Visitor's address</dt>
-      <dd tal:define="valid python:company.address_visit_address or company.address_visit_postal or company.address_visit_city">
-        <em tal:condition="not:valid" i18n:translate="missing_data">Not provided</em><address tal:condition="valid">
-          ${company/address_visit_address}<br/>
-          ${company/address_visit_postal} ${company/address_visit_city}
-        </address>
-      </dd>
-      <dt i18n:translate="label_email">Email address</dt>
-      <dd><em tal:condition="not:company/email" i18n:translate="missing_data">Not provided</em>${company/email}</dd>
-      <dt i18n:translate="label_telephone">Telephone number</dt>
-      <dd><em tal:condition="not:company/phone" i18n:translate="missing_data">Not provided</em>${company/phone}</dd>
-      <dt i18n:translate="label_activity">Activity</dt>
-      <dd><em tal:condition="not:company/activity" i18n:translate="missing_data">Not provided</em>${company/activity}</dd>
-      <dt i18n:translate="label_submitter_name">Name submitter</dt>
-      <dd><em tal:condition="not:company/submitter_name" i18n:translate="missing_data">Not provided</em>${company/submitter_name}</dd>
-      <dt i18n:translate="label_submitter_function">Function submitter</dt>
-      <dd><em tal:condition="not:company/submitter_function" i18n:translate="missing_data">Not provided</em>${company/submitter_function}</dd>
-      <dt i18n:translate="label_department">Department</dt>
-      <dd><em tal:condition="not:company/department" i18n:translate="missing_data">Not provided</em>${company/department}</dd>
-      <dt i18n:translate="label_location">Location</dt>
-      <dd><em tal:condition="not:company/location" i18n:translate="missing_data">Not provided</em>${company/location}</dd>
-      <dt i18n:translate="label_submit_date_report">Submitted on</dt>
-      <dd><em tal:condition="not:company/submit_date" i18n:translate="missing_data">Not provided</em>${python:tools.formatDate(company.submit_date) if company.submit_date else None}</dd>
-      <dt i18n:translate="label_email">Email address</dt>
-      <dd><em tal:condition="not:company/email" i18n:translate="missing_data">Not provided</em>${company/email}</dd>
+      <dt i18n:translate="label_company_country">Country</dt>
+      <dd tal:condition="not:company/country"><em i18n:translate="missing_data">Not provided</em></dd>
+      <dd tal:condition="company/country">${python:request.locale.displayNames.territories.get(company.country.upper(), company.country)}</dd>
+
       <dt i18n:translate="label_employee_numbers">Number of employees</dt>
       <dd><em tal:condition="not:company/employees" i18n:translate="missing_data">Not provided</em>
-        <tal:span condition="python:company.employees=='40h'" i18n:translate="employee_numbers_max_40_hours">40 hours or less of paid work</tal:span>
-        <tal:span condition="python:company.employees=='max25'" i18n:translate="employee_numbers_below_25">25 employees or less</tal:span>
-        <tal:span condition="python:company.employees=='over25'" i18n:translate="employee_numbers_above_25">More than 25 employees</tal:span>
+        <tal:span condition="python:company.employees=='1-9'" i18n:translate="employee_numbers_1_to_9">1 to 9 employees</tal:span>
+        <tal:span condition="python:company.employees=='10-49'" i18n:translate="employee_numbers_10_to_49">10 to 49 employees</tal:span>
+        <tal:span condition="python:company.employees=='50-249'" i18n:translate="employee_numbers_50_to_249">50 to 249 employees</tal:span>
+        <tal:span condition="python:company.employees=='250+'" i18n:translate="employee_numbers_250_or_more">250 or more employees</tal:span>
       </dd>
-      <dt i18n:translate="label_absentee_percentage">Absentee percentage</dt>
-      <dd><em tal:condition="not:company/absentee_percentage" i18n:translate="missing_data">Not provided</em><tal:span condition="company/absentee_percentage">${python:tools.formatPercentage(company.absentee_percentage)}</tal:span></dd>
-      <dt i18n:translate="label_accidents">Number of accidents last year</dt>
-      <dd><em tal:condition="not:company/accidents" i18n:translate="missing_data">Not provided</em>${company/accidents}</dd>
-      <dt i18n:translate="label_incapacitated_workers">Number of incapacitated workers last year</dt>
-      <dd><em tal:condition="not:company/incapacitated_workers" i18n:translate="missing_data">Not provided</em>${company/incapacitated_workers}</dd>
-      <dt i18n:translate="label_arbo_expert">Arbo export</dt>
-      <dd><em tal:condition="not:company/arbo_expert" i18n:translate="missing_data">Not provided</em>${company/arbo_expert}</dd>
+
+      <dt i18n:translate="label_referer">Through which channel did you learn about this tool?</dt>
+      <dd><em tal:condition="not:company/referer" i18n:translate="missing_data">Not provided</em>
+        <tal:span condition="python:company.referer=='employers-organisation'" i18n:translate="referer_employers_organisation">an employers' organisation</tal:span>
+        <tal:span condition="python:company.referer=='trade-union'" i18n:translate="referer_trade_union">a trade union organisation</tal:span>
+        <tal:span condition="python:company.referer=='national-public-institution'" i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span>
+        <tal:span condition="python:company.referer=='eu-institution'" i18n:translate="referer_eu_institution">an European institution/administrator</tal:span>
+        <tal:span condition="python:company.referer=='health-safety-experts'" i18n:translate="referer_health_safety_export">health and safety experts</tal:span>
+        <tal:span condition="python:company.referer=='other'" i18n:translate="referer_other">other channel</tal:span>
+      </dd>
     </dl>
 
     <ol class="toc">
@@ -94,7 +67,7 @@
 
     <tal:block repeat="node view/nodes">
       <tal:module condition="python:node.type!='risk'">
-        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}"</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
       </tal:module>
 
       <tal:risk condition="python:node.type=='risk'">
@@ -186,11 +159,6 @@
 
     <ul class="discrete">
       <li tal:condition="python:isinstance(getattr(context, 'published', None), tuple)" i18n:translate="report_survey_revision">This report was based on the survey '<tal:span i18n:name="title">${python:context.published[1]}</tal:span>' of revision date <tal:span i18n:name="date">${python:tools.formatDate(context.published[2])}</tal:span>.</li>
-      <li tal:condition="company/works_council_approval" i18n:translate="report_works_council_approved">
-      The works council has approved this report on <strong class="date" i18n:name="date">${python:tools.formatDate(company.works_council_approval)}</strong>.
-      </li><li tal:condition="not:company/works_council_approval" i18n:translate="report_works_council_not_approved">
-      The works council has not approved this report.
-      </li>
     </ul>
 
     <ol id="steps" tal:define="survey_url webhelpers/survey_url">
