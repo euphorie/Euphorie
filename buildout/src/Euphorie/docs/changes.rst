@@ -22,6 +22,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix handling of partial date fields in company details forms.
+  [wichert]
+
 - Add publish permission to country managers. This fixes
   `TNO ticket 126 <http://code.simplon.biz/tracker/tno-euphorie/ticket/126>`_
   [wichert]

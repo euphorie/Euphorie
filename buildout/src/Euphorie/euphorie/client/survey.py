@@ -514,11 +514,17 @@ class ReportCompanyDetails(grok.View):
                     setattr(company, key, form.data[key])
 
                 if reply.get("works_council"):
-                    company.works_council_approval=datetime.date(form.data["works_council_approval_year"],
-                            form.data["works_council_approval_month"], form.data["works_council_approval_day"])
+                    try:
+                        company.works_council_approval=datetime.date(form.data["works_council_approval_year"],
+                                form.data["works_council_approval_month"], form.data["works_council_approval_day"])
+                    except TypeError:
+                        pass
                 if form.data["submit_date_day"] and form.data["submit_date_year"]:
-                    company.submit_date=datetime.date(form.data["submit_date_year"],
-                            form.data["submit_date_month"], form.data["submit_date_day"])
+                    try:
+                        company.submit_date=datetime.date(form.data["submit_date_year"],
+                                form.data["submit_date_month"], form.data["submit_date_day"])
+                    except TypeError:
+                        pass
 
                 if reply["next"]=="previous":
                     url="%s/report" % self.request.survey.absolute_url()
