@@ -497,7 +497,7 @@ class ReportCompanyDetails(grok.View):
         self.errors={}
         if self.request.environ["REQUEST_METHOD"]=="POST":
             reply=dict([(key,value) for (key,value) in self.request.form.items()
-                        if value and value.strip()])
+                        if value and (not isinstance(value, basestring) or value.strip())])
             company=session.company
             form=CompanyForm(params=reply)
             if not form.validate():

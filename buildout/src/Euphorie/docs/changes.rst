@@ -22,6 +22,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Handle multiple buttons as returned by IE correctly in the company detail
+  form. This could lead to site errors before.
+  [wichert]
+
 - Fix handling of partial date fields in company details forms.
   [wichert]
 
