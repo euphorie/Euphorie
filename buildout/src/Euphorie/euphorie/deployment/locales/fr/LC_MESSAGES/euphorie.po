@@ -1630,6 +1630,11 @@ msgstr ""
 " nouveaux\n"
 "points doivent être ajoutés."
 
+#. Default: Print
+#: euphorie/client/templates/report_actionplan.pt:24
+msgid "button_print"
+msgstr "Imprimer"
+
 #. Default: Download
 #: euphorie/client/templates/report_actionplan.pt:25
 #: euphorie/client/templates/report_identification.pt:24
