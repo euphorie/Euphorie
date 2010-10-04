@@ -98,6 +98,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
   
     *Exemple*: 
       Sous-module 1: *Tenue de travail*
+  
       Sous-module 2: *Contact avec de l’eau et des produits cosmétiques*
     
     .. image:: ../images/creation/risk.png 
@@ -107,6 +108,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
     
       *Exemple*: 
         *1.1 La station de shampooing est ajustable*
+  
         *2.1 Équipement de protection adéquat, comme p. ex. des gants de protection jetables, a été acquis*
       
       .. image:: ../images/creation/solution.png 
@@ -116,6 +118,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
       
         *Exemple*: 
           *1.1 Faire des pauses régulières pour pouvoir récupérer du travail physique*
+  
           *2.1 Utiliser des produits sans poussière*
 
 Le système offre aussi la possibilité de:
