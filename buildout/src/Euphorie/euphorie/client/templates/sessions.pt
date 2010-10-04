@@ -50,7 +50,7 @@
     <form method="post" action="${request/URL}">
       <input type="hidden" name="action" value="new"/>
       <fieldset class="concise">
-        <label><tal:span i18n:translate="label_select_new_session">Start a new session in the following field</tal:span> 
+        <label><tal:span i18n:translate="label_select_new_session">Start a new session using the following OiRA tool</tal:span> 
           <select name="survey">
             <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
           </select>
