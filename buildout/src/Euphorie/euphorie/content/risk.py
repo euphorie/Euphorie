@@ -194,6 +194,9 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     image = filefield.NamedBlobImage(
             title = _("label_image", default=u"Image file"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
     caption = schema.TextLine(
             title = _("label_caption", default=u"Image caption"),
@@ -205,6 +208,9 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     image2 = filefield.NamedBlobImage(
             title = _("label_image", default=u"Image file"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
     caption2 = schema.TextLine(
             title = _("label_caption", default=u"Image caption"),
@@ -212,6 +218,9 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     image3 = filefield.NamedBlobImage(
             title = _("label_image", default=u"Image file"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
     caption3 = schema.TextLine(
             title = _("label_caption", default=u"Image caption"),
@@ -219,6 +228,9 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     image4 = filefield.NamedBlobImage(
             title = _("label_image", default=u"Image file"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
     caption4 = schema.TextLine(
             title = _("label_caption", default=u"Image caption"),

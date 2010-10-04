@@ -2824,7 +2824,8 @@ msgid "label_logo_selection"
 msgstr ""
 
 #. Default: The logo will appear on both the client side app that your user group
-#. will see as well as on this editor environment in the top left corner. The new
+#. will see as well as on this editor environment in the top left corner. Make sure 
+#. your image is of format png, jpg or gif and does not contain any special characters. The new
 #. logo will only become visible after you've saved your changes.'
 #: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"

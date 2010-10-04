@@ -40,7 +40,7 @@
 
           <dt i18n:translate="label_logo">Logo</dt>
           <dd class="section" tal:define="widget view/widgets/logo">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on both the client side app that your user group will see as well as on this editor environment in the top left corner. The new logo will only become visible after you've saved your changes.'</dfn>
+            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on both the client side app that your user group will see as well as on this editor environment in the top left corner. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes.</dfn>
             <fieldset class="comprehensive">
               <legend i18n:translate="label_logo_selection">Which logo you would like to display in the top left corner?</legend>
               <ul class="radioList">

@@ -70,6 +70,9 @@ class ISector(form.Schema, IUser, IBasic):
 
     logo = filefield.NamedBlobImage(
             title = _("label_logo", default=u"Logo"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
 
     main_colour = colour.Colour(

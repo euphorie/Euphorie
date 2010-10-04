@@ -3358,18 +3358,19 @@ msgstr "Mon propre logo"
 msgid "label_logo_selection"
 msgstr "Quel logo souhaitez-vous afficher en haut à gauche ? "
 
-#. Default: The logo will appear on both the client side app that your user
-#. group
-#. will see as well as on this editor environment in the top left corner. The
-#. new
-#. logo will only become visible after you've saved your changes.'
+#. Default: The logo will appear on both the client side app that your user 
+#. group will see as well as on this editor environment in the top left corner. 
+#. Make sure your image is of format png, jpg or gif and does not contain any 
+#. special characters. The new logo will only become visible after you've saved 
+#. your changes.
 #: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"
 msgstr ""
 "Le logo apparaîtra dans l’application client visible par votre groupe "
 "d’utilisateurs\n"
-"ainsi que dans cet environnement d'édition en haut à gauche.  Le nouveau\n"
-"logo ne deviendra visible que lorsque vous aurez 'sauvegardé vos "
+"ainsi que dans cet environnement d'édition en haut à gauche. Assurez-vous "
+"que votre image est au format png, jpg ou gif et ne contient pas de caractères"
+" spéciaux.Le nouveau logo ne deviendra visible que lorsque vous aurez 'sauvegardé vos "
 "modifications.'"
 
 #. Default: Please use the colour pickers below to select your organisation's

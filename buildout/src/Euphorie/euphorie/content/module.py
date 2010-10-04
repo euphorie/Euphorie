@@ -56,6 +56,9 @@ class IModule(form.Schema, IRichDescription, IBasic):
 
     image = filefield.NamedBlobImage(
             title = _("label_image", default=u"Image"),
+            description = _("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format png, jpg "
+                        u"or gif and does not contain any special characters."),
             required = False)
 
     solution_direction = HtmlText(
