@@ -28,6 +28,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix creation of report downloads for sessions with non-ASCII characters in
+  their title. This fixes `ticket 156
+  <http://code.simplon.biz/tracker/euphorie/ticket/156>`_.
+  [wichert]
+
 - Handle multiple buttons as returned by IE correctly in the company detail
   form. This could lead to site errors before.
   [wichert]

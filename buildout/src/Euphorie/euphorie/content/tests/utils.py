@@ -13,6 +13,7 @@ EMPTY_SURVEY = \
 
 BASIC_SURVEY = \
         """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+             <title>ICT</title>
              <survey>
               <title>Software development</title>
               <module optional="no">

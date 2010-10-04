@@ -368,7 +368,7 @@ class IdentificationReport(grok.View):
                          mapping=dict(title=dbsession.title))
             filename=translate(filename, context=self.request)
             self.request.response.setHeader("Content-Disposition",
-                                u"attachment; filename=\"%s\"" % filename)
+                                "attachment; filename=\"%s\"" % filename.encode("utf-8"))
             self.request.response.setHeader("Content-Type", "application/msword")
             return self
         else:
@@ -562,6 +562,8 @@ class ActionPlanReportView(grok.View):
 
         session=Session()
         self.session=SessionManager.session
+        if self.session.company is None:
+            self.session.company=model.Company()
         query=session.query(model.SurveyTreeItem)\
                 .filter(model.SurveyTreeItem.session==self.session)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
@@ -589,7 +591,7 @@ class ActionPlanReportDownload(ActionPlanReportView):
                    mapping=dict(title=self.session.title))
         filename=translate(filename, context=self.request)
         self.request.response.setHeader("Content-Disposition",
-                            u"attachment; filename=\"%s\"" % filename)
+                            "attachment; filename=\"%s\"" % filename.encode("utf-8"))
         self.request.response.setHeader("Content-Type", "application/msword")
         return self
 
