@@ -103,7 +103,7 @@ The system offers a way to group topics, subtopics and types of risks together. 
     *Example*: 
       Sub-module 1: *Working posture*
       
-      Sub-module 2: *Contact with water and cosmetic products *
+      Sub-module 2: *Contact with water and cosmetic products*
     
     .. image:: images/creation/risk.png 
       :align: left
