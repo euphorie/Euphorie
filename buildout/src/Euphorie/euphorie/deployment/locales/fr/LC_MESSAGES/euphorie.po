@@ -2062,7 +2062,7 @@ msgstr ""
 #: euphorie/client/templates/survey_sessions.pt:49
 msgid "label_session_title"
 msgstr ""
-"Entrez un titre pour votre évaluation des risques"
+"Entrez un titre pour votre project d'évaluation des risques"
 
 #. Default: Start a new session in the following field
 #: euphorie/client/templates/sessions.pt:53
