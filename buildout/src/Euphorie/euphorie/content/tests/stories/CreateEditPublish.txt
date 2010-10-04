@@ -32,7 +32,8 @@ True
 Lets add a profile question:
 
 >>> browser.getLink("Add Profile question").click()
->>> browser.getControl(name="form.widgets.title").value="Profile question title"
+>>> browser.getControl(name="form.widgets.title").value="Profile title"
+>>> browser.getControl(name="form.widgets.question").value="Profile question"
 >>> browser.getControl(name="form.widgets.description").value="Description of the profile question"
 >>> browser.getControl(name="form.buttons.save").click()
 
