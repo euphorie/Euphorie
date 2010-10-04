@@ -1,204 +1,194 @@
+=====================================================
 Guide de création d'un outil d'évaluation des risques  
 =====================================================
 
-Vous cherchez à développer le contenu de l'outil numérique d'évaluation des risques spécifique à votre domaine d'activité et à le proposer aux entreprises de votre secteur.
+1. Introduction
+===============
 
-Avant de vous lancer dans la création d'un outil d'évaluation des risques, il est conseillé de commencer par réfléchir à certaines questions.  Cela vous fera gagner du temps car vous n'aurez pas à apporter de nombreuses modifications par la suite. Les utilisateurs finaux de l'outil gagneront eux aussi du temps en pratique. Les aspects suivants méritent réflexion.
+Votre but est de créer le contenu de l’outil d’évaluation des risques on-line et interactif pour des entreprises dans votre domaine et de leur offrir cet outil qui est spécifique au domaine.
 
-1. La structure et le contenu de l'outil d'évaluation des risques relativement à l'utilisateur final:
+L’outil d’évaluation des risques on-line et interactif prépare une approche par étapes de l’évaluation des risques et se compose de 5 étapes:
 
-   1. l’outil d’évaluation des risques va être utilisé par un entrepreneur ou le collaborateur d'une entreprise. La structure de l'outil doit donc être aussi adaptée que possible aux modes de réflexion et aux activités quotidiennes des collaborateurs de ces entreprises; 
-   2. le langage de l'outil doit être facile à comprendre par tous. 
+  * **Préparation** > le domaine introduit les utilisateurs finaux (entreprises) à l’évaluation des risques
 
-2. La structure d'un outil d'évaluation des risques relativement à son usage. Par structure, il faut entendre:
+  * **Identification** > l’utilisateur final passe les périls/problèmes en revue et répond OUI ou NON 
 
-   1. l'élaboration d'un profil dans l'outil. Un profil détermine les modules auxquels l'utilisateur aura accès (l'utilisateur coche en effet certaines cases concernant l'usage de l'outil d'évaluation des risques lorsqu’il commence à le remplir); 
-   2. une seule entreprise avec plusieurs lieux d'implantation. Cette option permet de créer des profils pour chaque lieu d'implantation; 
-   3. divers types de modules. En indiquant qu'un module est un «module de stratégie», un «module d'inspection» ou un «module de questions aux employés», seuls les modules requis sont affichés; 
-   4. les modules qui commencent par une question de sélection. Les questions de sélection déterminent si le contenu du module concerne ou non l'entreprise en question; 
-   5. les modules avec des séries de questions axées sur un sujet particulier. Un module peut contenir des sous-modules.
+  * **Évaluation** > les utilisateurs finaux évaluent les risques pour chaque problème/péril aperçu
 
-La structure et le contenu de l'outil d'évaluation des risques relativement à l'utilisateur final
--------------------------------------------------------------------------------------------------
+  * **Plan d’action** > l’utilisateur final remplit un plan d’action avec des mesures pour maîtriser tous les risques cités	
 
-La structure relativement à l'utilisateur final 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  * **Rapport** > le plan d’action devient un rapport qui peut être téléchargé et imprimé 
 
-Qui est l'utilisateur final et que cela signifie-t-il pour la structure de l'outil d'évaluation des risques? Il est important de tenir compte de la tendance de l'utilisateur final à réfléchir selon les processus propres à son métier. Il pense dans son propre langage et fait donc référence aux choses par des termes qu'il connaît bien: essayez d'en tenir compte autant que possible.
+1.1 Considérez votre utilisateur final
+--------------------------------------
 
-Dans la pratique, ce langage est souvent différent de celui de la personne qui crée le contenu des outils d'évaluation des risques. Le mode de réflexion de cette personne est lui aussi influencé par des processus propres à son métier, et le langage qu’elle utilise lui est propre.
+Il est important de **considérer votre utilisateur final: les micro et les petites entreprises (employeur et ouvrier(s)) et la structure** de l’outil d’évaluation de risques doit être aussi adaptée que possible aux activités quotidiennes des entreprises; l’utilisateur final réfléchit et agit selon les processus propres à son métier.
 
-L'utilisateur final est essentiel: il doit pouvoir utiliser l'outil d'évaluation des risques à ses propres fins sans aucun problème ni aucune difficulté d'interprétation. Voici quelques exemples:
+La manière de penser de l’expert est souvent différent de la pratique de l’utilisateur final. Ce dernier pense selon des processus propres à son métier, et le langage qu’il utilise lui est propre. Voici quelques exemples:
 
-* l'utilisateur final pense au travail physique, tandis que l'expert pense à la charge physique; 
-* l'utilisateur final pense au travail sous la chaleur ou dans le froid, tandis que l'expert pense à l'environnement thermique; 
-* l'expert pense à la sécurité et crée un module contenant tout ce qui concerne ce domaine. L'utilisateur final peut envisager, par exemple, d’ouvrir ou de fermer un magasin, et de réfléchir à ce que cela implique. Il peut également réfléchir à la façon de prendre en charge un client agressif. 
+  * l’expert pense à la charge de travail physique, *tandis que l’utilisateur final pense au travail physique*
 
-Il est important de structurer l'outil de telle sorte qu'il corresponde à la manière dont l'utilisateur final type pense et agit. Cela rend le contenu reconnaissable et facilite l'exécution d'un plan d'action. 
+  * l’expert pense à l’environnement thermique, tandis que *l’utilisateur final pense au travail sous la chaleur/dans le froid*
 
-Une structure bien pensée s'avère avantageuse par la suite. Veillez donc à classifier les rubriques dans un ordre correspondant aux besoins des utilisateurs finaux. Veuillez noter que ces classifications diffèrent généralement de la manière dont les experts pourraient normalement les envisager. L'outil de base à partir duquel vous pouvez créer des variations contient les modules suivants. Dans le manuel consacré au système de gestion du contenu (SGC), vous trouverez de plus amples renseignements sur le contenu et sur la manière de l'utiliser comme base.
+  * l’expert pense à la sécurité et crée un module contenant tout ce qui concerne ce domaine; *l’utilisateur final peut envisager, par exemple, d’ouvrir ou de fermer un magasin, et de réfléchir à ce que cela implique. Il peut également réfléchir à la façon de prendre en charge un client agressif.*
 
-1. Chaque bâtiment
-2. Quelques bâtiments 
-3. Aire de stockage / entrepôt 
-4. Travail de bureau 
-5. Livraison et enlèvement des matériaux 
-6. Travail physique 
-7. Travail sur site 
-8. Travail avec les clients 
-9. Bruit 
-10. Climat: chaleur, rayonnement, froid, plein air 
-11. Vibrations 
-12. Substances dangereuses en tant que matières premières 
-13. Substances dangereuses résultant du travail / pendant le travail 
-14. Hauteurs / espaces confinés / espaces fermés 
-15. Outils / machines / modes de transport 
-16. En cas d'urgence 
-17. Temps de travail et de repos 
-18. Tâches / fonctions des employés 
-19. Comportement indésirable des employés 
-20. Accords de base concernant la santé et la sécurité au travail 
-21. Informations 
-22. Accords relatifs à l'absence au travail 
-23. Accidents 
-24. Progression du plan d'action 
-25. Organisation des mesures préventives
 
-    * Obligations de prévention
+1.2 Utilisez un langage facile à comprendre par tous
+----------------------------------------------------
 
-26. Programme sur mesure / programme de protection
+**En structurant le contenu de l’outil d’évaluation des risques de manière qu’il soit conforme avec la manière de penser et d’agir de l’utilisateur final moyen** on fait le contenu reconnaissable et il est plus facile d’effectuer un plan d’action pour maîtriser les risques avec des mesures faisables.
 
-    * Programme sur mesure 
-    * Programme de protection
+Un autre aspect décisif est le langage utilisé. Le **langage** doit être facile à comprendre sans avoir besoin d’interprétation, et il doit se référer à des choses par des noms qui sont familiers et commun aux entreprises.
 
+Des phrases courtes (au mieux ne pas plus que dix mots) et un langage de tous les jours pouvant être facilement lu par des non-initiés, éviteront de développer une certaine aversion de la part de l’utilisateur final. Elles lui permettront de dresser un inventaire et d’utiliser correctement l’outil d’évaluation des risques. 
 
-Le contenu relativement à l'utilisateur final 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Au début de l’outil vous avez l’occasion d’écrire un bref texte introductoire, envoyant un **message** positif et encourageant portant sur: 
 
-Le langage 
-++++++++++
+  * **l’importance** de l’évaluation des risques
 
-Le contenu de l'outil doit être facile à comprendre par tous. Cela signifie que vous devez réfléchir attentivement - sans perdre l'utilisateur final de vue - au type de langage utilisé. Il est important d'utiliser un langage parlé plutôt qu'écrit. L'utilisateur final doit pouvoir comprendre immédiatement ce qui est écrit et être capable de réagir en conséquence. En outre, il est conseillé d'éviter les phrases de plus de dix mots. Ne perdez pas de vue les besoins de l'utilisateur final! Des phrases courtes, dans un langage de tous les jours pouvant être facilement lu par des non-initiés, éviteront de développer une certaine aversion de la part de l'utilisateur final. Elles lui permettront de dresser un inventaire et d'utiliser correctement l'outil d'évaluation des risques.
+  * le fait que l’évaluation des risques **ne soit pas forcément compliquée** (pour contribuer à la démystification de l’évaluation des risques)
 
-Questions/propositions 
-++++++++++++++++++++++ 
+  * le fait que l’outil a été conçu spécifiquement pour **réaliser les besoins des entreprises** dans ce domaine 
 
-L'outil fonctionne avec des «propositions» plutôt qu'avec des «questions». La structure du contenu de l'outil d'évaluation des risques repose sur des propositions. 
+Il est important que le texte ne soit pas trop long, car autrement il pourrait décourager l’utilisateur final d’utiliser l’outil.
 
-* Une situation (la proposition) est «régulière» ou «irrégulière»; la réponse est un «oui» ou un «non» clair. 
-* Si une situation (la proposition) n'est pas régulière, l'objet (la proposition) est inclus dans le plan d'action. 
 
-Le texte de la proposition dans la situation donnée (régulière ou non) est le même que le texte dans le plan d'action. Elle devient alors la situation à atteindre. Lorsqu'une réponse a déjà été donnée à une situation particulière, la formulation est familière. 
+2. Équipe
+=========
 
-En plus d'être connu de l'utilisateur final, cela a pour autre avantage, du point de vue de la personne chargée de l'élaboration du contenu, que la situation n'a besoin d'être décrite qu'une seule fois. Si des changements (réglementaires) doivent être apportés à l'outil ultérieurement, ils n'auront besoin d'être mis en œuvre qu'une seule fois.
+Bien qu’il soit important de maintenir l’équipe projet maîtrisable à propos de la taille, il doit se composer préférablement de:
 
-Il est également possible de sélectionner une option différente dans l'instrument:
+  * représentant(s) de la/des chambre(s) syndical(es)
 
-* phase d'identification: des déclarations/questions dont la réponse peut être «oui» ou «non»; 
-* phase d'évaluation: une déclaration qui peut être évaluée; 
-* phase du plan d'action: la même déclaration mais à la forme négative.
+  * représentant(s) du/des syndicat(s)
 
-Par exemple, «le bâtiment n'est pas sans amiante.»
+  * le développeur de l’outil d’évaluation des risques on-line et interactif
 
-Dans les deux cas, il est possible de clarifier les déclarations. Par exemple, il peut s'agir d'une explication des raisons pour lesquelles il est important de faire attention à une rubrique et/ou de ce qui peut être fait pour résoudre un problème. Des photographies, diagrammes et liens peuvent aussi être joints à chaque rubrique.
+  * un expert en matière de santé et sécurité au travail (avec connaissance de et affinité avec le domaine)
 
-Éviter les déclarations négatives dans les propositions 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  * utilisateurs finaux
+  
+    * quelques membres du domaine : management ou personnel d’entreprises
+   
+    * quelques employés de l’entreprise, p. ex. fonctionnaires des syndicats
 
-En principe, les seules réponses possibles aux propositions sont «oui» et «non». Par conséquent, il est important d’éviter les déclarations négatives dans les propositions. Par exemple: «il n'y a pas d'amiante dans le bâtiment». Dans la pratique, l'utilisateur final ne sera pas sûr si son «oui» ou «non» sera interprété comme un accord ou un désaccord avec la proposition. On ne pourra donc pas établir clairement s'il y a ou non de l'amiante dans le bâtiment. Une reformulation de la proposition sans utiliser de négative donnerait «le bâtiment est sans amiante». «Oui» - la situation est régulière et ne figurera pas dans le plan d'action. «Non» - la situation est irrégulière (autrement dit, il y a de l'amiante dans le bâtiment) et diverses situations pourront figurer dans le plan d'action.
 
+3. Structure 
+============
 
-La structure de l'outil d'évaluation des risques relativement à son usage 
--------------------------------------------------------------------------
+3.1 Structurez le contenu hiérarchiquement
+------------------------------------------
 
-Cette section traite des aspects suivants:
+Avant de commencer de créer un outil d’évaluation des risques on-line et interactif nous recommandons de considérer le nombre d’affaires que vous voulez aborder. Une structure bien pensée s’avère avantageusement par la suite. Veillez donc à classifier les rubriques dans un ordre correspondant aux besoins des utilisateurs finaux. 
 
-1. création d'un profil dans l'outil. Le profil détermine quels modules concerneront l'utilisateur de l'outil d'évaluation des risques (parce que l'utilisateur répond à certaines questions lors du lancement de l'outil numérique d'évaluation des risques); 
-2. savoir indiquer des lieux d'implantation multiples pour une même entreprise. Cette option permet de créer des profils pour chaque lieu d'implantation; 
-3. les divers types de modules. Indiquer qu'un module est un «module de stratégie», un «module d'inspection» ou un «module de questions aux employés» signifie que seuls les modules requis sont affichés dans les lieux d'implantation où ils sont requis; 
-4. les modules qui commencent par une question de filtrage. Les questions de filtrage déterminent si le contenu du module concerne l'entreprise en question; 
-5. les modules avec des séries de questions axées sur un sujet particulier. Un module peut contenir des sous-modules.
+Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des types de risque en un groupe. L’objectif principal de ce groupement est de le faire plus simple/plus logique pour l’utilisateur final d’achever l’outil d’évaluation des risques. Votre outil d’évaluation des risques se composera donc de:
+ 
+.. image:: ../images/creation/module.png 
+  :align: left
+  :height: 32 px
+**MODULES** = rubriques (lieux, activités, ...)
+  
+  *Exemple*: 
+    Module 1: *Shampouiner des cheveux*  (domaine coiffeur)
+  
+  .. image:: ../images/creation/submodule.png 
+    :align: left
+    :height: 32 px
+  **SOUS-MODULES** (ne pas obligatoire) = sous-rubriques
+  
+    *Exemple*: 
+      Sous-module 1: *Tenue de travail*
+      Sous-module 2: *Contact avec de l’eau et des produits cosmétiques*
+    
+    .. image:: ../images/creation/risk.png 
+      :align: left
+      :height: 32 px
+    **RISQUES** = déclarations concernant une situation qui est régulière
+    
+      *Exemple*: 
+        *1.1 La station de shampooing est ajustable*
+        *2.1 Équipement de protection adéquat, comme p. ex. des gants de protection jetables, a été acquis*
+      
+      .. image:: ../images/creation/solution.png 
+        :align: left
+        :height: 32 px
+      **SOLUTIONS** = mesures préventives recommandées par l’expert pour résoudre le problème 
+      
+        *Exemple*: 
+          *1.1 Faire des pauses régulières pour pouvoir récupérer du travail physique*
+          *2.1 Utiliser des produits sans poussière*
 
+Le système offre aussi la possibilité de:
 
-Le profil 
-~~~~~~~~~
+  * passer un module/un set complet de modules si le contenu ne s’applique pas à l’activité de l’entreprise (cette caractéristique s’appelle « Question de profilage optionnel »)
 
-Lorsque vous utilisez une question de profilage, vous examinez divers aspects des entreprises et de leurs activités éventuelles. L'utilisateur final de l'outil répond à plusieurs questions avant d'appliquer l'outil d'évaluation des risques. Les réponses à ces questions déterminent à quels modules l'utilisateur final aura ou non accès. Voici un exemple dans le secteur de la poissonnerie.
+  * répéter quelques modules, au cas où des entreprises ont plusieurs sièges (cette caractéristique s’appelle « Question de profilage répétable »).
 
-* Possédez-vous un magasin? 
-* Possédez-vous un étal de marché? 
-* Possédez-vous un véhicule de vente ambulante?
+3.2 Regardez le risque comme une déclaration positive (proposition)
+-------------------------------------------------------------------
 
-Des situations analogues peuvent se produire dans votre secteur d'activité. Il est également possible que certaines des entreprises transportent elles-mêmes leurs marchandises jusqu'à leurs clients, tandis que d'autres confient ces activités à des sous-traitants. Lorsque la pertinence du profil est établie à l'avance, l'utilisateur final n'a pas besoin de se préoccuper des modules qui ne concernent pas son entreprise.
+Dès que vous ayez choisi la structure principale de l’outil d’évaluation des risques vous pouvez commencer à identifier et à expliquer les risques différents. 
 
-Une entreprise avec plusieurs lieux d'implantation 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Le système fonctionne avec des **déclarations positives ou des propositions** et ne pas avec des questions sur les risques. C’est-à-dire le système indique si une **situation « est régulière » (l’objectif à atteindre) ou « n’est pas régulière ».**  
 
-Si un secteur d'activité est caractérisé par le fait que les entreprises ont plusieurs lieux d'implantation, il convient de l'indiquer au préalable dans l'instrument. Si vous désignez les lieux par leurs noms respectifs (lieu A, lieu B), l'utilisateur peut alors regrouper les évaluations des risques pour chaque lieu en une seule évaluation des risques.
+.. pull-quote::
 
-Pour chaque lieu, l'utilisateur peut indiquer les activités effectuées en répondant aux questions de profilage. Seuls les modules concernant chaque lieu seront présents.
+  Exemple: Une bonne illumination est disponible.
 
-Divers types de modules 
-~~~~~~~~~~~~~~~~~~~~~~~ 
+La réponse de l’utilisateur final sera soit un « oui » explicite soit « non ». Si l’utilisateur final répond par « non » (= la situation n’est pas régulière), le problème (= la description négative de la « situation régulière ») est automatiquement inclut dans l’étape du plan d’action et l’utilisateur final doit proposer une mesure pour maîtriser le risque.
 
-Il existe trois types de modules:
+3.3 Considérez les types de risques différents
+----------------------------------------------
 
-1. les modules comprenant des questions administrative 
-2. les modules comprenant des questions d'inspection 
-3. les modules comprenant des questions aux employés
+Vous avez le choix entre 3 types de risques (déclarations positives) :
 
-Modules comprenant des questions administratives 
-++++++++++++++++++++++++++++++++++++++++++++++++ 
+  * **les 5 risques placés en tête**: se réfère à un risque considéré par le domaine d’être parmi les 5 risques placés en tête du domaine. 
+  
+    .. pull-quote::
+  
+      Exemple: Travailler en hauteur dans le domaine de construction. L’échafaudage est installé sur un sous-sol solide.
 
-Les questions administratives concernent les «accords de base». Voici un exemple de question administrative: «Lors de l’achat de matériel, les exigences en matière de santé et sécurité au travail sont-elles prises en compte?» Il est possible de répondre à ce type de questions depuis un bureau, pour ainsi dire. Si une entreprise possède plusieurs lieux d'implantation, il est possible de stipuler que les questions de ce type (dans une rubrique «Accords de base concernant la santé et la sécurité au travail», par exemple) ne nécessitent qu'une seule réponse de l'entreprise, celle du siège social.
+  * **risque**: se réfère à des déclarations à propos des risques existants au lieu de travail ou associés avec le travail effectué. En ce qui concerne le type antérieur (5 placés en tête) : pour identifier et évaluer de tels risques il est souvent nécessaire d’analyser le lieu de travail (parcourir le lieu de travail et regarder à ce qui pourrait causer dommage, consulter les ouvriers, …).
 
-Modules comprenant des questions d'inspection 
-+++++++++++++++++++++++++++++++++++++++++++++ 
+    .. pull-quote:: 
+    
+      Exemple: Toutes les chaises de bureau sont ajustables.
 
-Ces modules contiennent des questions concernant les risques réels et sont liés au travail effectué. Afin de pouvoir répondre aux questions de ces modules, il est souvent nécessaire d'inspecter le lieu travail. Le travail physique et le travail de bureau sont deux exemples de ce type de module. Dans le cas d'entreprises avec plusieurs lieux d'implantation, des questions de profilage peuvent être utilisées pour établir le type de travail effectué sur chacun des sites. Par exemple, si l'un d'eux n'a pas d'entrepôt, le module consacré aux entrepôts ne figurera pas pour ce lieu.
+  * **principe**: se réfère à des accords, des déroulements et des décisions du management à propos des intérêts de sécurité et santé au travail. Il est possible de répondre à ce type de questions depuis un bureau (il n’y a pas besoin d’analyser le lieu de travail). 
 
-Modules comprenant des questions de l'employeur 
-+++++++++++++++++++++++++++++++++++++++++++++++ 
+    .. pull-quote:: 
+  
+      Exemple: On demande régulièrement les producteurs à propos des produits alternatifs et sûrs. 
 
-Ce type de module diffère totalement des modules décrits précédemment. Il est possible d'indiquer dans l'outil d'évaluation des risques que certaines questions doivent être posées spécifiquement aux employés dans les cas où ils sont exposés à des risques majeurs. Leurs réponses peuvent être utilisées aux fins d'une évaluation des risques de qualité. Étant donné que ce type de module est différent des autres, il ne figure pas dans la liste de base des modules, mais apparaît avant le début de l'inventaire.
+Nous recommandons de grouper les déclarations de principe dans des modules séparés. 
 
-Les modules comprenant les questions administratives et les questions d'inspection comportent une description générale de leur contenu. Dès que l'utilisateur final commence à répondre aux questions, le contenu est immédiatement reconnaissable.
 
-Questions de filtrage 
-~~~~~~~~~~~~~~~~~~~~~
+3.4 Évaluation du risque déterminée à l’avance 
+----------------------------------------------
 
-Une question de filtrage est la première question d'un module. Elle détermine si une situation est pertinente. Si la réponse à la question est «non», les questions suivantes du module ne sont pas affichées. Les modules comportant des questions de filtrage peuvent également être utiles dans certaines situations. Exemple de question de filtrage: «il y a un entrepôt ou une aire de stockage». Cela empêche l'utilisateur final d'avoir à répondre à des questions dans des modules qui ne s'appliquent pas à son entreprise.
+Pour chaque type de « risque » vous avez le choix entre 2 méthodes d’évaluation:
 
-Il est possible de travailler avec à la fois des questions de profilage et des questions de filtrage. 
+  * **Estimative** : choisissez **la priorité standard** (**haute**, **moyenne** ou **basse**) qui se présentera à l’utilisateur final dans l’étape d’évaluation (c’est-à-dire que vous ne donnerez pas des instructions à l’utilisateur final pendant l’étape d’évaluation). 
 
-Modules principaux et sous-modules 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  * **Calculée** : choisissez **la probabilité, la fréquence et la sévérité** standard. L’outil d’évaluation des risques on-line et interactif calculera automatiquement la priorité en utilisant un logarithme déterminé à l’avance. Vous pouvez aussi choisir les options « ne pas automatique ».
 
-Un autre moyen d’établir une structure consiste à utiliser des modules principaux contenant des sous-modules. Le plus important est de veiller à ce que l'utilisateur final n'ait aucun mal à effectuer l'évaluation des risques. Vous pouvez commencer les sous-modules avec une question de filtrage afin de déterminer si le sous-module est pertinent.
+L’utilisateur final aura néanmoins toujours la libre disposition de décliner votre estimation.
 
-Par exemple::
+Pour les types de risques suivants on n’a pas besoin de déterminer l’évaluation et les utilisateurs finaux n’auront pas non plus besoin de les évaluer dans l’étape « Évaluation » :
 
-  Module principal:                                    Bâtiment 
-    Sous-module:                                       Chaque bâtiment et les questions concernant ce bâtiment 
-    Sous-module:                                       Certains bâtiments 
-    En commençant par une question de filtrage:        Le public est accueilli dans le bâtiment et les 
-                                                       questions concernant l'accueil du public 
-    Sous-module:                                       Certains bâtiments 
-    En commençant par une question de filtrage:        Il y a des escaliers, des escaliers roulants, des 
-                                                       ascenseurs dans le bâtiment, suivie des questions 
-                                                       portant sur ce sujet 
-    Sous-module:                                       Certains bâtiments 
-    Sous-module avec une question de filtrage:         Il y a des cuisines dans le bâtiment, suivie des 
-                                                       questions portant sur ce sujet
+  * risques en tête (considéré automatiquement comme « priorité haute » et indiqué comme « haute » dans le plan d’action)
 
+  * Stratégie (pour être précis il ne s’agit pas d’un risque)
 
-Pour finir 
-----------
 
-Vous avez maintenant une idée de la méthode à suivre pour élaborer le contenu de l'outil numérique d'évaluation des risques. En mettant au point une structure: 
+3.5 Proposez des solutions
+--------------------------
 
-* adaptée à la manière dont l'utilisateur final pense et agit; 
-* comprenant tous les thèmes qui, du point de vue de la santé et de la sécurité au travail, doivent figurer dans la structure, et de telle manière que l'utilisateur final puisse facilement les comprendre, vous aiderez l'utilisateur final à terminer l'outil numérique d'évaluation des risques. 
+Le domaine est généralement bien renseigné à propos des risques qui sont les plus susceptibles d’occasionner des accidents et maladies au travail. Pour aider l’utilisateur final à trouver des solutions pour ces risques vous pouvez inclure les solutions recommandées par le domaine/les experts. Lors du travail au plan d’action, l’utilisateur final aura la possibilité de choisir les solutions et de les retoucher (modifier le texte) selon la situation qui règne dans leur entreprise.
 
-L'outil numérique d'évaluation des risques peut être utilisé à d'autres fins également, par exemple pour fournir des explications et des solutions plus détaillées, des liens vers des sites internet ou pour ajouter des photographies.  Pour en savoir plus sur ces autres usages, veuillez vous reporter au manuel consacré au système de gestion du contenu.
+
+.. note::
+
+  Tous les documents requis sont disponible sur le site Web de la communauté de l’outil d’évaluation des risques on-line et interactif http://www.oira.osha.europa.eu/documentation
+
 
