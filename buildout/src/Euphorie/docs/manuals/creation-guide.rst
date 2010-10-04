@@ -88,6 +88,7 @@ The system offers a way to group topics, subtopics and types of risks together. 
 .. image:: images/creation/module.png 
   :align: left
   :height: 32 px
+  
 **MODULES** = subjects  (locations, activities, …)
   
   *Example*: 
@@ -96,6 +97,7 @@ The system offers a way to group topics, subtopics and types of risks together. 
   .. image:: images/creation/submodule.png 
     :align: left
     :height: 32 px
+    
   **SUB-MODULES** (not compulsory) = sub-subjects
   
     *Example*: 
@@ -106,6 +108,7 @@ The system offers a way to group topics, subtopics and types of risks together. 
     .. image:: images/creation/risk.png 
       :align: left
       :height: 32 px
+      
     **RISKS** = statements about a situation which is in order
     
       *Example*: 
@@ -116,6 +119,7 @@ The system offers a way to group topics, subtopics and types of risks together. 
       .. image:: images/creation/solution.png 
         :align: left
         :height: 32 px
+        
       **SOLUTIONS** = preventive measures to solve the problem recommended by the expert
       
         *Example*: 

@@ -89,6 +89,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
 .. image:: ../images/creation/module.png 
   :align: left
   :height: 32 px
+  
 **MODULES** = rubriques (lieux, activités, ...)
   
   *Exemple*: 
@@ -97,6 +98,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
   .. image:: ../images/creation/submodule.png 
     :align: left
     :height: 32 px
+    
   **SOUS-MODULES** (ne pas obligatoire) = sous-rubriques
   
     *Exemple*: 
@@ -107,6 +109,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
     .. image:: ../images/creation/risk.png 
       :align: left
       :height: 32 px
+      
     **RISQUES** = déclarations concernant une situation qui est régulière
     
       *Exemple*: 
@@ -117,6 +120,7 @@ Le système offre un moyen pour réunir des rubriques, des sous-rubriques et des
       .. image:: ../images/creation/solution.png 
         :align: left
         :height: 32 px
+        
       **SOLUTIONS** = mesures préventives recommandées par l’expert pour résoudre le problème 
       
         *Exemple*: 
