@@ -2,6 +2,9 @@
 A Guide to creating a Risk Assessment tool
 ==========================================
 
+.. image:: images/creation/demoscreen.png 
+  :width: 600 px
+
 1.Introduction
 ==============
 

@@ -2,6 +2,9 @@
 Guide de création d'un outil d'évaluation des risques  
 =====================================================
 
+.. image:: ../images/creation/demoscreen.png 
+  :width: 600 px
+  
 1. Introduction
 ===============
 
