@@ -29,7 +29,10 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     question = schema.TextLine(
             title = _("label_profilequestion_question", default=u"Question"),
             description = _("help_profilequestion_question",
-                default=u"The question to ask users n the profile screen."),
+                default=u"If this will be an optional question, it must be "
+                         "put as a question and be answerable with YES or NO."
+                         "If this will be a repeatable question, it must be"
+                         "put as a prompt to fill in multiple values."),
             required = True)
     form.order_after(question="title")
 
