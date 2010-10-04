@@ -16,9 +16,12 @@ from euphorie.content.risk import IRisk
 from euphorie.content.utils import StripMarkup
 from euphorie.content.module import IModule
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
 
 grok.templatedir("templates")
+
+TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget", klass="span-7")
 
 class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     """Survey Profile question.
@@ -26,6 +29,8 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     A profile question is used to determine if parts of a survey should
     be skipped, or repeated multiple times.
     """
+    form.widget(title="euphorie.content.profilequestion.TextSpan7")
+
     question = schema.TextLine(
             title = _("label_profilequestion_question", default=u"Question"),
             description = _("help_profilequestion_question",
@@ -34,6 +39,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
                          "If this will be a repeatable question, it must be"
                          "put as a prompt to fill in multiple values."),
             required = True)
+    form.widget(question="euphorie.content.profilequestion.TextSpan7")
     form.order_after(question="title")
 
     description = HtmlText(

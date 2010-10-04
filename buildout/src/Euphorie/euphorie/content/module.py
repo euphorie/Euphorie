@@ -19,15 +19,19 @@ from euphorie.content.risk import IRisk
 from euphorie.content.utils import StripMarkup
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
 
 grok.templatedir("templates")
+
+TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget", klass="span-7")
 
 class IModule(form.Schema, IRichDescription, IBasic):
     """Survey Module.
 
     A module is (hierarchical) grouping in a survey.
     """
+    form.widget(title="euphorie.content.profilequestion.TextSpan7")
 
     description = HtmlText(
             title = _("label_module_description", u"Description"),
