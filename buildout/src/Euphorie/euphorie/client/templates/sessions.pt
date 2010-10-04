@@ -55,7 +55,7 @@
             <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
           </select>
         </label>
-        <label><tal:span i18n:translate="label_session_title">You may enter a name for this survey that will make it easier for you to find your session back if you wish to continue at a later time</tal:span>
+        <label><tal:span i18n:translate="label_session_title">Enter a title for your Risk Assessment</tal:span>
           <a class="icon info clicktip" href="${webhelpers/help_url}#sessions" i18n:translate="session_title_tooltip">Once you have started an RA, you will be able to stop before the end.  Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names.</a>
           <input type="text" name="title:utf8:ustring"/></label>
       </fieldset>

@@ -1696,8 +1696,7 @@ msgstr ""
 msgid "session_title_tooltip"
 msgstr ""
 
-#. Default: You may enter a name for this survey that will make it easier for you
-#. to find your session back if you wish to continue at a later time
+#. Default: Enter a title for your Risk Assessment
 #: euphorie/client/templates/sessions.pt:58
 #: euphorie/client/templates/survey_sessions.pt:49
 msgid "label_session_title"
