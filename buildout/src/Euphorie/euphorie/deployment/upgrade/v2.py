@@ -35,6 +35,7 @@ def migrateCompanyTable(context):
     from euphorie.deployment.upgrade.utils import TableExists
     from euphorie.client import model
     from zope.sqlalchemy import datamanager
+    import transaction
 
     session=Session()
     if ColumnExists(session, "company", "referer"):
@@ -45,8 +46,9 @@ def migrateCompanyTable(context):
         session.execute("ALTER TABLE company RENAME TO dutch_company")
         session.execute("ALTER SEQUENCE company_id_seq RENAME TO dutch_company_id_seq")
         session.execute("ALTER INDEX ix_company_session_id RENAME TO ix_dutch_company_session_id")
+        model.metadata.create_all(session.bind, checkfirst=True)
+        datamanager.mark_changed(session)
+        transaction.get().commit()
 
     log.info("Creating new company table")
-    model.metadata.create_all(session.bind, checkfirst=True)
-    datamanager.mark_changed(session)
 
