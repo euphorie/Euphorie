@@ -14,6 +14,9 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Update the French translation of the survey creation guide.
+  [pilz] 
+
 - Replace the collected company details with more generic information. The
   previous list is still used in the `Dutch RI&E site <http://instrumenten.rie.nl>`_
   and is now implemented in `tno.euphorie <http//pypi.python.org/pypi/tno.euphorie/>`_.
@@ -27,6 +30,12 @@ Feature changes
 
 Bugfixes
 ~~~~~~~~
+
+- Use longer input boxes for title and question fields in the CMS.
+  [pilz]
+
+- Improve various texts.
+  [pilz]
 
 - Fix creation of report downloads for sessions with non-ASCII characters in
   their title. This fixes `ticket 156
