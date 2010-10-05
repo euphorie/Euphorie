@@ -1702,7 +1702,7 @@ msgstr ""
 msgid "label_session_title"
 msgstr ""
 
-#. Default: Start a new session using the following OiRA tool
+#. Default: Start a new session choosing one of the following sectoral tools
 #: euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
 msgstr ""

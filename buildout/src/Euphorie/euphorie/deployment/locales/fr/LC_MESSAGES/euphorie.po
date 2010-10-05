@@ -2067,7 +2067,7 @@ msgstr ""
 #. Default: Start a new session in the following field
 #: euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
-msgstr "Démarrer une nouvelle session en utilisant l'outil suivant Oira"
+msgstr "Démarrer une nouvelle session parmi les outils sectoriels suivants"
 
 #. Default: or…
 #: euphorie/client/templates/sessions.pt:47

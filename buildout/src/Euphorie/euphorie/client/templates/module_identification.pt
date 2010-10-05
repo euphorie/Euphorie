@@ -17,7 +17,7 @@
     <h1>${module/title}</h1>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
-      <img alt="" class="floatBefore" tal:define="images module/@@images; scale python:getattr(module, 'scale', None) and images.scale('image', width=150, height=500, direction='thumbnail')"
+      <img alt="" class="floatBefore" tal:define="images module/@@images; scale python:images.scale('image', width=150, height=500, direction='thumbnail')"
       tal:condition="scale" src="${scale/url}" width="${scale/width}" height="${scale/height}"/>
 
       <p tal:content="structure module/description">
