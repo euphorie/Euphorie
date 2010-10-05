@@ -4,6 +4,10 @@ Changelog
 2.0, Unreleased
 ---------------
 
+
+2.0rc3, October 5, 2010
+-----------------------
+
 Upgrade notes
 ~~~~~~~~~~~~~
 
