@@ -148,10 +148,10 @@ class SurveyImporter(object):
         risk.problem_description=el_unicode(node, "problem-description")
         risk.legal_reference=el_unicode(node, "legal-reference")
         risk.show_notapplicable=el_bool(node, "show-not-applicable")
+        risk.external_id=attr_unicode(node, "external-id")
         if risk.type=="risk":
             em=getattr(node, "evaluation-method")
             risk.evaluation_method=em.text
-            risk.external_id=attr_unicode(node, "external-id")
             if risk.evaluation_method=="calculated":
                 risk.default_probability=attr_vocabulary(em, "default-probability",
                         IRisk["default_probability"])
