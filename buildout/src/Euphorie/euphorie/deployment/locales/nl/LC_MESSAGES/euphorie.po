@@ -1242,7 +1242,7 @@ msgstr "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date
 msgid "top5_risk_not_present"
 msgstr ""
 "Dit risico is niet aanwezig in uw organisatie, maar aangezien het een "
-"top-5 risico is het wel opgenomen in de raportage."
+"top-5 risico is het wel opgenomen in de rapportage."
 
 #. Default: There is a budget of ${amount} for this measure.
 #: euphorie/client/templates/report_actionplan.pt:168

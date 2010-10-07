@@ -7,10 +7,15 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Fix spelling error in Dutch translation. This fixes `TNO ticket 131
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/131>`_.
+  [wichert]
+
 - Correct bad image scaling test when displaying a module in the client, which
   prevented images from being visible in action plan and evaluation phases. This
   fixes `TNO ticket 135 <http://code.simplon.biz/tracker/tno-euphorie/ticket/135>`_.
   [wichert]
+
 
 2.0rc3, October 5, 2010
 -----------------------
