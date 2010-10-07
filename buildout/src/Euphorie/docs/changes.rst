@@ -4,7 +4,11 @@ Changelog
 2.0, Unreleased
 ---------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Fix javascript syntax on the client frontpage which broke IE7.
+  [wichert]
 
 
 2.0rc4, October 7, 2010
