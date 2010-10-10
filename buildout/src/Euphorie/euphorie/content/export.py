@@ -43,6 +43,8 @@ class ExportSurvey(grok.View):
 
     def exportSurvey(self, parent, survey):
         node=etree.SubElement(parent, "survey")
+        if getattr(survey, "external_id", None):
+            node.attrib["external-id"]=survey.external_id
         etree.SubElement(node, "title").text=aq_parent(survey).title
         if StripMarkup(survey.introduction):
             etree.SubElement(node, "introduction").text=survey.introduction
@@ -61,6 +63,8 @@ class ExportSurvey(grok.View):
     def exportProfileQuestion(self, parent, profile):
         node=etree.SubElement(parent, "profile-question", 
                 type=getToken(IProfileQuestion["type"], profile.type))
+        if getattr(profile, "external_id", None):
+            node.attrib["external-id"]=profile.external_id
         etree.SubElement(node, "title").text=profile.title
         # Use title if question is not available (Euphorie < 2.0rc2 data)
         etree.SubElement(node, "question").text=profile.question or profile.title
@@ -75,6 +79,8 @@ class ExportSurvey(grok.View):
 
     def exportModule(self, parent, module):
         node=etree.SubElement(parent, "module", optional="true" if module.optional else "false")
+        if getattr(module, "external_id", None):
+            node.attrib["external-id"]=module.external_id
         etree.SubElement(node, "title").text=module.title
         etree.SubElement(node, "description").text=module.description
         if module.optional:
@@ -93,6 +99,8 @@ class ExportSurvey(grok.View):
 
     def exportRisk(self, parent, risk):
         node=etree.SubElement(parent, "risk", type=risk.type)
+        if getattr(risk, "external_id", None):
+            node.attrib["external-id"]=risk.external_id
         etree.SubElement(node, "title").text=risk.title
         etree.SubElement(node, "problem-description").text=risk.problem_description
         etree.SubElement(node, "description").text=risk.description
@@ -130,6 +138,8 @@ class ExportSurvey(grok.View):
 
     def exportSolution(self, parent, solution):
         node=etree.SubElement(parent, "solution")
+        if getattr(solution, "external_id", None):
+            node.attrib["external-id"]=solution.external_id
         etree.SubElement(node, "description").text=solution.description
         etree.SubElement(node, "action-plan").text=solution.action_plan
         if solution.prevention_plan:
