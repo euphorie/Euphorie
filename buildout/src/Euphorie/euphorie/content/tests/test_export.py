@@ -484,9 +484,13 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '</root>\n')
 
     def testSurvey_Minimal(self):
+        from euphorie.content.surveygroup import SurveyGroup
         from euphorie.content.survey import Survey
-        survey=Survey()
-        survey.title=u"Generic sector"
+        surveygroup=SurveyGroup()
+        surveygroup.title=u"Generic sector"
+        surveygroup["standard"]=Survey()
+        survey=surveygroup["standard"] # Acquisition wrap
+        survey.title=u"Standard"
         survey.introduction=None
         survey.classification_code=None
         survey.evaluation_optional=False
@@ -504,9 +508,13 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '</root>\n')
 
     def testSurvey_IntroductionNoText(self):
+        from euphorie.content.surveygroup import SurveyGroup
         from euphorie.content.survey import Survey
-        survey=Survey()
-        survey.title=u"Generic sector"
+        surveygroup=SurveyGroup()
+        surveygroup.title=u"Generic sector"
+        surveygroup["standard"]=Survey()
+        survey=surveygroup["standard"] # Acquisition wrap
+        survey.title=u"Standard"
         survey.introduction=u"<p><br/></p>"
         survey.classification_code=None
         survey.evaluation_optional=False
@@ -524,9 +532,13 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '</root>\n')
         
     def testSurvey_WithProfileQuestion(self):
+        from euphorie.content.surveygroup import SurveyGroup
         from euphorie.content.survey import Survey
         from euphorie.content.profilequestion import ProfileQuestion
-        survey=Survey()
+        surveygroup=SurveyGroup()
+        surveygroup.title=u"Generic sector"
+        surveygroup["standard"]=Survey()
+        survey=surveygroup["standard"] # Acquisition wrap
         survey.title=u"Generic sector"
         survey.introduction=None
         survey.classification_code=None
@@ -556,9 +568,13 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '</root>\n')
 
     def testSurvey_WithModule(self):
+        from euphorie.content.surveygroup import SurveyGroup
         from euphorie.content.survey import Survey
         from euphorie.content.module import Module
-        survey=Survey()
+        surveygroup=SurveyGroup()
+        surveygroup.title=u"Generic sector"
+        surveygroup["standard"]=Survey()
+        survey=surveygroup["standard"] # Acquisition wrap
         survey.title=u"Generic sector"
         survey.introduction=None
         survey.classification_code=None
@@ -590,16 +606,17 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.surveygroup import SurveyGroup
         from euphorie.content.survey import Survey
         from zope.publisher.browser import TestRequest
-        group=SurveyGroup()
-        group.id="mysector"
-        survey=Survey()
+        surveygroup=SurveyGroup()
+        surveygroup.id="mysector"
+        surveygroup.title=u"Generic sector"
+        surveygroup["standard"]=Survey()
+        survey=surveygroup["standard"] # Acquisition wrap
         survey.id="dummy"
-        survey.title=u"Generic sector"
+        survey.title=u"Standard"
         survey.introduction=None
         survey.classification_code=None
         survey.evaluation_optional=False
         survey.language="en-GB"
-        survey=survey.__of__(group)
         view=ExportSurvey(survey, TestRequest())
         output=view()
         response=view.request.response

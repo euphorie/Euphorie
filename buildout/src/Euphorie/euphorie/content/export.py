@@ -43,7 +43,7 @@ class ExportSurvey(grok.View):
 
     def exportSurvey(self, parent, survey):
         node=etree.SubElement(parent, "survey")
-        etree.SubElement(node, "title").text=survey.title
+        etree.SubElement(node, "title").text=aq_parent(survey).title
         if StripMarkup(survey.introduction):
             etree.SubElement(node, "introduction").text=survey.introduction
         if survey.classification_code:

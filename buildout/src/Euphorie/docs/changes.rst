@@ -7,6 +7,10 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- When creating a XML export of a survey use the title of the survey group
+  instead of the survey version.
+  [wichert]
+
 - Fix javascript syntax on the client frontpage which broke IE7.
   [wichert]
 
