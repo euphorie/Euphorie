@@ -67,6 +67,7 @@ class ProfileQuestion(dexterity.Container):
 
     optional = False
     question = None
+    image = None
 
 
 

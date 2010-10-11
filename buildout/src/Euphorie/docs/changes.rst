@@ -7,6 +7,10 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Fix rendering of profile questions in the client. This was caused by a bad
+  fix for `TNO ticket 135`_.
+  [wichert]
+
 - When creating a XML export of a survey use the title of the survey group
   instead of the survey version.
   [wichert]
