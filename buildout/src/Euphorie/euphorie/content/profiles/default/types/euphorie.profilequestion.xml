@@ -5,9 +5,12 @@
 
  <!-- Basic information -->
  <property name="title" i18n:translate="">Profile question</property>
- <property name="description" i18n:translate="description_profilequestion">The basic architecture of an Online interactive Risk Assessment consists of profile questions, modules and potentially sub-modules and risks (positive statements).
+ <property name="description" i18n:translate="description_profilequestion">The basic architecture of an Online interactive Risk Assessment consists of:
+ - profile questions (questions defining the company profile)
+ - modules and potentially sub-modules
+ - risks (positive statements)
  Profile questions are used to determine whether particular modules apply to the end user at all (OPTIONAL), or whether they should be repeated a number of times (REPEATABLE).
- Such questions are asked BEFORE starting the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end user enters a number in response to a repeatable profile question then the corresponding module will be repeated the specified number of times.
+ Such questions are asked BEFORE starting the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times.
  </property>
  <property name="content_icon">document_icon.gif</property>
  <property name="global_allow">False</property>

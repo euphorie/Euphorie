@@ -18,6 +18,9 @@ Bugfixes
 - Fix javascript syntax on the client frontpage which broke IE7.
   [wichert]
 
+- Added translation for the profile content type description
+  [pilz]
+
 
 2.0rc4, October 7, 2010
 -----------------------

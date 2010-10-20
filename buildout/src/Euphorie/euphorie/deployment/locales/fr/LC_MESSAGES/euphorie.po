@@ -3741,3 +3741,16 @@ msgstr "Créer un double"
 msgid "portlet_header_versions"
 msgstr "Versions"
 
+#. Default: The basic architecture of an Online interactive Risk Assessment consists of:
+#. - profile questions (questions defining the company profile)
+#. - modules and potentially sub-modules
+#. - risks (positive statements)
+#. Profile questions are used to determine whether particular modules apply to the end user at all (OPTIONAL), or whether they should be repeated a number of times (REPEATABLE).
+#. Such questions are asked BEFORE starting the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times.
+#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
+msgid "description_profilequestion"
+msgstr "La structure de base de l'outil d'évaluation interactif en ligne comprend des: "
+"- questions profil (des questions permettant de définir le profil de l'entreprise) "
+"- modules (et éventuellement des sous-modules) "
+"- risques (propositions positives) dans les modules. "
+"Les questions profil sont utilisées pour déterminer si des modules spécifiques sont pertinents pour l'utilisateur final (optionnel), ou si ces modules doivent apparaître un certain nombre de fois (répétable). Ces questions sont posées AVANT de commencer l'identification et l'évaluation des risques. Si l'utilisateur final ne confirme pas (en cliquant dans la case) qu'une question profil est pertinente, le module correspondant sera évité. Si l'utilisateur final spécifie plus d'une option en réponse à une question profil répétable, le module correspondant apparaîtra répété le même nombre de fois."
