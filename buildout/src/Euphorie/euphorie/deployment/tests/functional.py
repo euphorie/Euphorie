@@ -1,5 +1,4 @@
 import os.path
-from Testing.ZopeTestCase import installPackage
 from Testing.ZopeTestCase import installProduct
 from collective.testcaselayer import ptc
 from Products.PloneTestCase import PloneTestCase
@@ -15,6 +14,7 @@ class EuphorieTestLayer(ptc.BasePTCLayer):
     def afterSetUp(self):
         from Products.Five import zcml
         from Products.Five import fiveconfigure
+        from Testing.ZopeTestCase import installPackage
         import euphorie.deployment
         import euphorie.client.tests
 
