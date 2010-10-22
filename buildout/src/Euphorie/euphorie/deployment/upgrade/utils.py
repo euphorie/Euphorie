@@ -8,16 +8,19 @@ def TableExists(session, table):
     return bool(row)
 
 
-def ColumnExists(session, table, column):
-    stmt ="""SELECT attname
-             FROM pg_attribute
-             WHERE attrelid=(SELECT oid
-                             FROM pg_class
-                             WHERE relname='%(table)s') AND
-                                   attname='%(column)s';"""
 
+def ColumnExists(session, table, column):
+    return bool(ColumnType(session, table, column))
+
+
+
+def ColumnType(session, table, column):
+    stmt = """SELECT pg_catalog.format_type(atttypid, atttypmod)
+              FROM pg_attribute
+              WHERE attrelid=(SELECT oid FROM pg_class WHERE relname='%(table)s') AND
+                    attname='%(column)s';"""
     row = session.execute(stmt % dict(table=table, column=column)).scalar()
-    return bool(row)
+    return row
 
 
 def AddColumn(session, klass, col):
