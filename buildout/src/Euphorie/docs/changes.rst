@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.0, Unreleased
----------------
+2.0, October 22, 2010
+---------------------
 
-- ...
+No changes.
 
 
 2.0rc5, October 11, 2010
