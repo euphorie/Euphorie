@@ -36,7 +36,7 @@
     </div>
 
     <dl class="grid companyDetails span-15">
-      <dt i18n:translate="label_company_country">Country</dt>
+      <dt i18n:translate="label_country">Country</dt>
       <dd tal:condition="not:company/country"><em i18n:translate="missing_data">Not provided</em></dd>
       <dd tal:condition="company/country">${python:request.locale.displayNames.territories.get(company.country.upper(), company.country)}</dd>
 
@@ -53,7 +53,7 @@
         <tal:span condition="python:company.referer=='employers-organisation'" i18n:translate="referer_employers_organisation">an employers' organisation</tal:span>
         <tal:span condition="python:company.referer=='trade-union'" i18n:translate="referer_trade_union">a trade union organisation</tal:span>
         <tal:span condition="python:company.referer=='national-public-institution'" i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span>
-        <tal:span condition="python:company.referer=='eu-institution'" i18n:translate="referer_eu_institution">an European institution/administrator</tal:span>
+        <tal:span condition="python:company.referer=='eu-institution'" i18n:translate="referer_eu_institution">an European institution/administration</tal:span>
         <tal:span condition="python:company.referer=='health-safety-experts'" i18n:translate="referer_health_safety_export">health and safety experts</tal:span>
         <tal:span condition="python:company.referer=='other'" i18n:translate="referer_other">other channel</tal:span>
       </dd>

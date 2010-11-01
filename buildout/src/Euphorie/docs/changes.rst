@@ -4,6 +4,15 @@ Changelog
 2.1 - Unreleased
 ----------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Update Dutch translations.
+  [wichert]
+
+Bugfixes
+~~~~~~~~
+
 - Rewrite client company form to use z3c.form instead of repoze.formapi.
   [wichert]
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2010-09-28 17:59+0200\n"
+"PO-Revision-Date: 2010-11-01 16:52+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -16,6 +16,108 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
+
+#. Default: Your country
+#: euphorie/client/company.py:20 euphorie/client/templates/report_company.pt:26
+msgid "label_company_country"
+msgstr "Wijzig land/taal"
+
+#. Default: Number of employees
+#: euphorie/client/company.py:24
+#: euphorie/client/templates/report_actionplan.pt:43
+msgid "label_employee_numbers"
+msgstr "Aantal werknemers"
+
+#. Default: 1 to 9 employees
+#: euphorie/client/company.py:27
+#: euphorie/client/templates/report_actionplan.pt:45
+msgid "employee_numbers_1_to_9"
+msgstr "1 tot 9 werknemers"
+
+#. Default: 10 to 49 employees
+#: euphorie/client/company.py:29
+#: euphorie/client/templates/report_actionplan.pt:46
+msgid "employee_numbers_10_to_49"
+msgstr "10 tot 49 werknemers"
+
+#. Default: 50 to 249 employees
+#: euphorie/client/company.py:31
+#: euphorie/client/templates/report_actionplan.pt:47
+msgid "employee_numbers_50_to_249"
+msgstr "50 tot 249 werknemers"
+
+#. Default: 250 or more employees
+#: euphorie/client/company.py:33
+#: euphorie/client/templates/report_actionplan.pt:48
+msgid "employee_numbers_250_or_more"
+msgstr "250 of meer medewerkers"
+
+#. Default: The risk assessment was conducted by
+#: euphorie/client/company.py:38
+msgid "label_conductor"
+msgstr "De RI&E is afgenomen door"
+
+#. Default: own staff
+#: euphorie/client/company.py:41
+msgid "conductor_staff"
+msgstr "eigen personeel"
+
+#. Default: an external consultant or service provider
+#: euphorie/client/company.py:44
+msgid "conductor_third_party"
+msgstr "een externe expert"
+
+#. Default: both own staff and an external consultant or service provider
+#: euphorie/client/company.py:47
+msgid "conductor_both"
+msgstr "zowel eigen personeel als een externe expert"
+
+#. Default: Through which channel did you learn about this tool?
+#: euphorie/client/company.py:53
+#: euphorie/client/templates/report_actionplan.pt:51
+#: euphorie/client/templates/report_company.pt:37
+msgid "label_referer"
+msgstr "Hoe bent u bij deze site gevonden?"
+
+#. Default: an employers' organisation
+#: euphorie/client/company.py:56
+#: euphorie/client/templates/report_actionplan.pt:53
+#: euphorie/client/templates/report_company.pt:38
+msgid "referer_employers_organisation"
+msgstr "een werkgeversorganisatie"
+
+#. Default: a trade union organisation
+#: euphorie/client/company.py:59
+#: euphorie/client/templates/report_actionplan.pt:54
+#: euphorie/client/templates/report_company.pt:39
+msgid "referer_trade_union"
+msgstr "een vakbond"
+
+#. Default: a national public institution/administration
+#: euphorie/client/company.py:62
+#: euphorie/client/templates/report_actionplan.pt:55
+#: euphorie/client/templates/report_company.pt:40
+msgid "referer_national_public_institution"
+msgstr "een nationale publieke instelling"
+
+#. Default: an European institution/administration
+#: euphorie/client/company.py:65
+#: euphorie/client/templates/report_actionplan.pt:56
+#: euphorie/client/templates/report_company.pt:42
+msgid "referer_eu_institution"
+msgstr "een Europese instelling"
+
+#. Default: health and safety experts
+#: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:44
+msgid "referer_health_safety_expert"
+msgstr "arbo-experts"
+
+#. Default: other channel
+#: euphorie/client/company.py:71
+#: euphorie/client/templates/report_actionplan.pt:58
+#: euphorie/client/templates/report_company.pt:45
+msgid "referer_other"
+msgstr "overig"
 
 #: euphorie/client/login.py:97
 msgid "Please enter your email address"
@@ -94,18 +196,16 @@ msgstr ""
 
 #: euphorie/client/risk.py:180 euphorie/client/risk.py:186
 #: euphorie/client/risk.py:198 euphorie/client/risk.py:204
-#: euphorie/client/survey.py:443 euphorie/client/survey.py:449
-#: euphorie/client/survey.py:465 euphorie/client/survey.py:471
 msgid "Invalid day of month"
 msgstr "Ongeldige dag van de maand"
 
 #. Default: Identification ${title}.doc
-#: euphorie/client/survey.py:368
+#: euphorie/client/survey.py:363
 msgid "filename_identification_report"
 msgstr "Inventarisatie ${title}.doc"
 
 #. Default: Action plan ${title}.doc
-#: euphorie/client/survey.py:620
+#: euphorie/client/survey.py:494
 msgid "filename_actionplan_report"
 msgstr "Plan van aanpak ${title}.doc"
 
@@ -140,7 +240,7 @@ msgstr "Plan van aanpak ${title}.doc"
 #: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:83
 #: euphorie/client/templates/survey_sessions.pt:13
-#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:236
+#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
 msgid "title_tool"
 msgstr "OiRA"
 
@@ -171,8 +271,8 @@ msgstr "Branche-informatie en groepen voor de gebruiker"
 #: euphorie/client/templates/register.pt:42
 #: euphorie/client/templates/reminder.pt:41
 #: euphorie/client/templates/report.pt:78
-#: euphorie/client/templates/report_actionplan.pt:232
-#: euphorie/client/templates/report_company.pt:140
+#: euphorie/client/templates/report_actionplan.pt:201
+#: euphorie/client/templates/report_company.pt:93
 #: euphorie/client/templates/report_identification.pt:101
 #: euphorie/client/templates/risk_actionplan.pt:268
 #: euphorie/client/templates/risk_evaluation.pt:122
@@ -296,6 +396,11 @@ msgstr ""
 msgid "header_project_phases"
 msgstr ""
 
+#. Default: More information about the OiRA project (in English)
+#: euphorie/client/templates/about.pt:58
+msgid "about_oiraproject"
+msgstr ""
+
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate
 #. risk assessment. Since the adoption of the European Framework directive in
@@ -401,8 +506,8 @@ msgstr "Over"
 #: euphorie/client/templates/module_evaluation.pt:74
 #: euphorie/client/templates/module_identification.pt:86
 #: euphorie/client/templates/report.pt:79
-#: euphorie/client/templates/report_actionplan.pt:233
-#: euphorie/client/templates/report_company.pt:141
+#: euphorie/client/templates/report_actionplan.pt:202
+#: euphorie/client/templates/report_company.pt:94
 #: euphorie/client/templates/report_identification.pt:102
 #: euphorie/client/templates/risk_actionplan.pt:269
 #: euphorie/client/templates/risk_evaluation.pt:123
@@ -420,8 +525,8 @@ msgstr "Status"
 #: euphorie/client/templates/module_identification.pt:84
 #: euphorie/client/templates/profile.pt:93
 #: euphorie/client/templates/report.pt:77
-#: euphorie/client/templates/report_actionplan.pt:231
-#: euphorie/client/templates/report_company.pt:139
+#: euphorie/client/templates/report_actionplan.pt:200
+#: euphorie/client/templates/report_company.pt:92
 #: euphorie/client/templates/report_identification.pt:100
 #: euphorie/client/templates/risk_actionplan.pt:267
 #: euphorie/client/templates/risk_evaluation.pt:121
@@ -442,8 +547,8 @@ msgstr "RI&E's"
 #: euphorie/client/templates/module_identification.pt:83
 #: euphorie/client/templates/profile.pt:92
 #: euphorie/client/templates/report.pt:76
-#: euphorie/client/templates/report_actionplan.pt:230
-#: euphorie/client/templates/report_company.pt:138
+#: euphorie/client/templates/report_actionplan.pt:199
+#: euphorie/client/templates/report_company.pt:91
 #: euphorie/client/templates/report_identification.pt:99
 #: euphorie/client/templates/risk_actionplan.pt:266
 #: euphorie/client/templates/risk_evaluation.pt:120
@@ -466,8 +571,8 @@ msgstr "Uitloggen"
 #: euphorie/client/templates/module_identification.pt:76
 #: euphorie/client/templates/profile.pt:86
 #: euphorie/client/templates/report.pt:69
-#: euphorie/client/templates/report_actionplan.pt:223
-#: euphorie/client/templates/report_company.pt:131
+#: euphorie/client/templates/report_actionplan.pt:192
+#: euphorie/client/templates/report_company.pt:84
 #: euphorie/client/templates/report_identification.pt:92
 #: euphorie/client/templates/risk_actionplan.pt:259
 #: euphorie/client/templates/risk_evaluation.pt:113
@@ -490,8 +595,8 @@ msgstr "Rapport"
 #: euphorie/client/templates/module_identification.pt:75
 #: euphorie/client/templates/profile.pt:85
 #: euphorie/client/templates/report.pt:68
-#: euphorie/client/templates/report_actionplan.pt:222
-#: euphorie/client/templates/report_company.pt:130
+#: euphorie/client/templates/report_actionplan.pt:191
+#: euphorie/client/templates/report_company.pt:83
 #: euphorie/client/templates/report_identification.pt:91
 #: euphorie/client/templates/risk_actionplan.pt:258
 #: euphorie/client/templates/risk_evaluation.pt:112
@@ -514,8 +619,8 @@ msgstr "Rapport"
 #: euphorie/client/templates/module_identification.pt:70
 #: euphorie/client/templates/profile.pt:82
 #: euphorie/client/templates/report.pt:63
-#: euphorie/client/templates/report_actionplan.pt:217
-#: euphorie/client/templates/report_company.pt:125
+#: euphorie/client/templates/report_actionplan.pt:186
+#: euphorie/client/templates/report_company.pt:78
 #: euphorie/client/templates/report_identification.pt:86
 #: euphorie/client/templates/risk_actionplan.pt:250
 #: euphorie/client/templates/risk_evaluation.pt:107
@@ -539,8 +644,8 @@ msgstr "Plan van aanpak"
 #: euphorie/client/templates/module_identification.pt:69
 #: euphorie/client/templates/profile.pt:81
 #: euphorie/client/templates/report.pt:62
-#: euphorie/client/templates/report_actionplan.pt:216
-#: euphorie/client/templates/report_company.pt:124
+#: euphorie/client/templates/report_actionplan.pt:185
+#: euphorie/client/templates/report_company.pt:77
 #: euphorie/client/templates/report_identification.pt:85
 #: euphorie/client/templates/risk_actionplan.pt:249
 #: euphorie/client/templates/risk_evaluation.pt:106
@@ -564,8 +669,8 @@ msgstr "Plan van aanpak"
 #: euphorie/client/templates/module_identification.pt:64
 #: euphorie/client/templates/profile.pt:78
 #: euphorie/client/templates/report.pt:57
-#: euphorie/client/templates/report_actionplan.pt:211
-#: euphorie/client/templates/report_company.pt:119
+#: euphorie/client/templates/report_actionplan.pt:180
+#: euphorie/client/templates/report_company.pt:72
 #: euphorie/client/templates/report_identification.pt:80
 #: euphorie/client/templates/risk_actionplan.pt:244
 #: euphorie/client/templates/risk_evaluation.pt:98
@@ -588,8 +693,8 @@ msgstr "Evaluatie"
 #: euphorie/client/templates/module_identification.pt:63
 #: euphorie/client/templates/profile.pt:77
 #: euphorie/client/templates/report.pt:56
-#: euphorie/client/templates/report_actionplan.pt:210
-#: euphorie/client/templates/report_company.pt:118
+#: euphorie/client/templates/report_actionplan.pt:179
+#: euphorie/client/templates/report_company.pt:71
 #: euphorie/client/templates/report_identification.pt:79
 #: euphorie/client/templates/risk_actionplan.pt:243
 #: euphorie/client/templates/risk_evaluation.pt:97
@@ -613,8 +718,8 @@ msgstr "Evaluatie"
 #: euphorie/client/templates/module_identification.pt:55
 #: euphorie/client/templates/profile.pt:74
 #: euphorie/client/templates/report.pt:51
-#: euphorie/client/templates/report_actionplan.pt:205
-#: euphorie/client/templates/report_company.pt:113
+#: euphorie/client/templates/report_actionplan.pt:174
+#: euphorie/client/templates/report_company.pt:66
 #: euphorie/client/templates/report_identification.pt:74
 #: euphorie/client/templates/risk_actionplan.pt:238
 #: euphorie/client/templates/risk_evaluation.pt:92
@@ -637,8 +742,8 @@ msgstr "Inventarisatie"
 #: euphorie/client/templates/module_identification.pt:54
 #: euphorie/client/templates/profile.pt:73
 #: euphorie/client/templates/report.pt:50
-#: euphorie/client/templates/report_actionplan.pt:204
-#: euphorie/client/templates/report_company.pt:112
+#: euphorie/client/templates/report_actionplan.pt:173
+#: euphorie/client/templates/report_company.pt:65
 #: euphorie/client/templates/report_identification.pt:73
 #: euphorie/client/templates/risk_actionplan.pt:237
 #: euphorie/client/templates/risk_evaluation.pt:91
@@ -662,8 +767,8 @@ msgstr "Inventarisatie"
 #: euphorie/client/templates/module_identification.pt:49
 #: euphorie/client/templates/profile.pt:69
 #: euphorie/client/templates/report.pt:45
-#: euphorie/client/templates/report_actionplan.pt:199
-#: euphorie/client/templates/report_company.pt:107
+#: euphorie/client/templates/report_actionplan.pt:168
+#: euphorie/client/templates/report_company.pt:60
 #: euphorie/client/templates/report_identification.pt:68
 #: euphorie/client/templates/risk_actionplan.pt:232
 #: euphorie/client/templates/risk_evaluation.pt:86
@@ -686,8 +791,8 @@ msgstr "Voorbereiding"
 #: euphorie/client/templates/module_identification.pt:48
 #: euphorie/client/templates/profile.pt:68
 #: euphorie/client/templates/report.pt:44
-#: euphorie/client/templates/report_actionplan.pt:198
-#: euphorie/client/templates/report_company.pt:106
+#: euphorie/client/templates/report_actionplan.pt:167
+#: euphorie/client/templates/report_company.pt:59
 #: euphorie/client/templates/report_identification.pt:67
 #: euphorie/client/templates/risk_actionplan.pt:231
 #: euphorie/client/templates/risk_evaluation.pt:85
@@ -976,9 +1081,6 @@ msgstr "Ik ben mijn wachtwoord vergeten."
 #: euphorie/client/templates/login.pt:32
 #: euphorie/client/templates/register.pt:27
 #: euphorie/client/templates/reminder.pt:30
-#: euphorie/client/templates/report_actionplan.pt:70
-#: euphorie/client/templates/report_actionplan.pt:54
-#: euphorie/client/templates/report_company.pt:41
 msgid "label_email"
 msgstr "E-mailadres"
 
@@ -1014,7 +1116,7 @@ msgstr "Welkom"
 #: euphorie/client/templates/register.pt:36
 #: euphorie/client/templates/reminder.pt:35
 #: euphorie/client/templates/report.pt:37
-#: euphorie/client/templates/report_company.pt:99
+#: euphorie/client/templates/report_company.pt:52
 #: euphorie/client/templates/risk_actionplan.pt:144
 #: euphorie/client/templates/risk_evaluation.pt:70
 #: euphorie/client/templates/risk_identification.pt:30
@@ -1029,7 +1131,7 @@ msgstr "Volgende"
 #: euphorie/client/templates/module_identification.pt:40
 #: euphorie/client/templates/register.pt:35
 #: euphorie/client/templates/reminder.pt:34
-#: euphorie/client/templates/report_company.pt:98
+#: euphorie/client/templates/report_company.pt:51
 #: euphorie/client/templates/risk_actionplan.pt:143
 #: euphorie/client/templates/risk_evaluation.pt:69
 #: euphorie/client/templates/risk_identification.pt:29
@@ -1218,26 +1320,16 @@ msgstr ""
 msgid "header_reporting"
 msgstr "Rapportage"
 
-#. Default: The works council has not approved this report.
-#: euphorie/client/templates/report_actionplan.pt:190
-msgid "report_works_council_not_approved"
-msgstr "De OR heeft dit rapport nog niet goedgekeurd."
-
-#. Default: The works council has approved this report on ${date}.
-#: euphorie/client/templates/report_actionplan.pt:188
-msgid "report_works_council_approved"
-msgstr "De OR heeft dit rapport goedgekeurd op ${date}."
-
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/templates/report_actionplan.pt:187
+#: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/templates/report_actionplan.pt:182
+#: euphorie/client/templates/report_actionplan.pt:156
 #: euphorie/client/templates/webhelpers.pt:89
 msgid "top5_risk_not_present"
 msgstr ""
@@ -1245,36 +1337,36 @@ msgstr ""
 "top-5 risico is het wel opgenomen in de rapportage."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/templates/report_actionplan.pt:168
+#: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr "Er is een budget van € ${amount} voor deze maatregel."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}
 #. and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:164
+#: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
 "${responsible} is verantwoordelijk voor deze maatregel, beginnend op "
 "${start} en eindigend op ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:160
+#: euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:157
+#: euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr "Deze maatregel eindigt op ${end}."
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/templates/report_actionplan.pt:154
+#: euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr "Deze maatregel begint op ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:151
+#: euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr ""
 "${responsible} is verantwoordeljk voor deze maatregel, eindigend op "
@@ -1282,221 +1374,108 @@ msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: euphorie/client/templates/report_actionplan.pt:148
+#: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr ""
 "${responsible} is verantwoordelijk voor deze maatregel, beginnend op "
 "${start}."
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/templates/report_actionplan.pt:146
+#: euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr "${responsible} is verantwoordelijk voor deze maatregel."
 
 #. Default: Requirements:
-#: euphorie/client/templates/report_actionplan.pt:140
+#: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: Prevention plan:
-#: euphorie/client/templates/report_actionplan.pt:136
+#: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr "Preventieplan"
 
 #. Default: Action plan:
-#: euphorie/client/templates/report_actionplan.pt:132
+#: euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr "Plan van aanpak"
 
 #. Default: Measure ${index}
-#: euphorie/client/templates/report_actionplan.pt:129
+#: euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:36
 msgid "header_measure"
 msgstr "Maatregel ${index}"
 
 #. Default: This is a ${priority} .
-#: euphorie/client/templates/report_actionplan.pt:114
+#: euphorie/client/templates/report_actionplan.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
 msgstr "Dit is een ${priority}."
 
 #. Default: high priority risk
-#: euphorie/client/templates/report_actionplan.pt:118
+#: euphorie/client/templates/report_actionplan.pt:92
 #: euphorie/client/templates/risk_actionplan.pt:28
 msgid "risk_priority_high"
 msgstr "risico met hoge prioriteit"
 
 #. Default: medium priority risk
-#: euphorie/client/templates/report_actionplan.pt:117
+#: euphorie/client/templates/report_actionplan.pt:91
 #: euphorie/client/templates/risk_actionplan.pt:27
 msgid "risk_priority_medium"
 msgstr "risico met gemiddelde prioriteit"
 
 #. Default: low priority risk
-#: euphorie/client/templates/report_actionplan.pt:116
+#: euphorie/client/templates/report_actionplan.pt:90
 #: euphorie/client/templates/risk_actionplan.pt:26
 msgid "risk_priority_low"
 msgstr "risico met lage prioriteit"
 
 #. Default: This risk still needs to be inventorised
-#: euphorie/client/templates/report_actionplan.pt:112
+#: euphorie/client/templates/report_actionplan.pt:86
 #: euphorie/client/templates/report_identification.pt:49
 msgid "risk_unanswered"
 msgstr "Dit risico is nog niet beoordeeld."
 
 #. Default: You responded negative to the above statement.
-#: euphorie/client/templates/report_actionplan.pt:111
+#: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:48
 #: euphorie/client/templates/webhelpers.pt:98
 msgid "warn_risk_present"
 msgstr "U heeft 'nee' ingevuld bij bovenstaande risico."
 
-#. Default: Not provided
-#: euphorie/client/templates/report_actionplan.pt:85
-#: euphorie/client/templates/report_actionplan.pt:83
-#: euphorie/client/templates/report_actionplan.pt:81
-#: euphorie/client/templates/report_actionplan.pt:79
-#: euphorie/client/templates/report_actionplan.pt:73
-#: euphorie/client/templates/report_actionplan.pt:71
-#: euphorie/client/templates/report_actionplan.pt:69
-#: euphorie/client/templates/report_actionplan.pt:67
-#: euphorie/client/templates/report_actionplan.pt:65
-#: euphorie/client/templates/report_actionplan.pt:63
-#: euphorie/client/templates/report_actionplan.pt:61
-#: euphorie/client/templates/report_actionplan.pt:59
+#. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
-#: euphorie/client/templates/report_actionplan.pt:55
-#: euphorie/client/templates/report_actionplan.pt:49
-#: euphorie/client/templates/report_actionplan.pt:42
-#: euphorie/client/templates/report_actionplan.pt:39
+msgid "referer_health_safety_export"
+msgstr ""
+
+#. Default: Not provided
+#: euphorie/client/templates/report_actionplan.pt:52
+#: euphorie/client/templates/report_actionplan.pt:44
+#: euphorie/client/templates/report_actionplan.pt:40
 msgid "missing_data"
 msgstr "Niet ingevuld"
 
-#. Default: Arbo export
-#. Default: Arbo expert
-#: euphorie/client/templates/report_actionplan.pt:84
-#: euphorie/client/templates/report_company.pt:75
-msgid "label_arbo_expert"
-msgstr "Gegevens arbodienst/-deskundige"
-
-#. Default: Number of incapacitated workers last year
-#: euphorie/client/templates/report_actionplan.pt:82
-#: euphorie/client/templates/report_company.pt:74
-msgid "label_incapacitated_workers"
-msgstr "Aantal mensen in de WIA vorig jaar"
-
-#. Default: Number of accidents last year
-#: euphorie/client/templates/report_actionplan.pt:80
-#: euphorie/client/templates/report_company.pt:73
-msgid "label_accidents"
-msgstr "Aantal ongevallen vorig jaar"
-
-#. Default: Absentee percentage
-#: euphorie/client/templates/report_actionplan.pt:78
-#: euphorie/client/templates/report_company.pt:72
-msgid "label_absentee_percentage"
-msgstr "Verzuimpercentage"
-
-#. Default: More than 25 employees
-#: euphorie/client/templates/report_actionplan.pt:76
-#: euphorie/client/templates/report_company.pt:69
-msgid "employee_numbers_above_25"
-msgstr "Meer dan 25 werknemers"
-
-#. Default: 25 employees or less
-#: euphorie/client/templates/report_actionplan.pt:75
-#: euphorie/client/templates/report_company.pt:68
-msgid "employee_numbers_below_25"
-msgstr "Maximaal 25 werknemers"
-
-#. Default: 40 hours or less of paid work
-#: euphorie/client/templates/report_actionplan.pt:74
-#: euphorie/client/templates/report_company.pt:67
-msgid "employee_numbers_max_40_hours"
-msgstr "Maximaal 40 uur betaalde arbeid per week "
-
-#. Default: Number of employees
-#: euphorie/client/templates/report_actionplan.pt:72
-#: euphorie/client/templates/report_company.pt:66
-msgid "label_employee_numbers"
-msgstr "Aantal werknemers"
-
-#. Default: Submitted on
-#: euphorie/client/templates/report_actionplan.pt:68
-msgid "label_submit_date_report"
-msgstr "Ingevuld op"
-
-#. Default: Location
-#: euphorie/client/templates/report_actionplan.pt:66
-#: euphorie/client/templates/report_company.pt:47
-msgid "label_location"
-msgstr "Lokatie"
-
-#. Default: Department
-#: euphorie/client/templates/report_actionplan.pt:64
-#: euphorie/client/templates/report_company.pt:46
-msgid "label_department"
-msgstr "Afdeling"
-
-#. Default: Function submitter
-#: euphorie/client/templates/report_actionplan.pt:62
-#: euphorie/client/templates/report_company.pt:45
-msgid "label_submitter_function"
-msgstr "Functie invuller"
-
-#. Default: Name submitter
-#: euphorie/client/templates/report_actionplan.pt:60
-#: euphorie/client/templates/report_company.pt:44
-msgid "label_submitter_name"
-msgstr "Naam invuller"
-
-#. Default: Activity
-#: euphorie/client/templates/report_actionplan.pt:58
-#: euphorie/client/templates/report_company.pt:43
-msgid "label_activity"
-msgstr "Bedrijfsactiviteit"
-
-#. Default: Telephone number
-#: euphorie/client/templates/report_actionplan.pt:56
-#: euphorie/client/templates/report_company.pt:42
-msgid "label_telephone"
-msgstr "Telefoonnummer"
-
-#. Default: Visitor's address
-#: euphorie/client/templates/report_actionplan.pt:47
-#: euphorie/client/templates/report_company.pt:29
-msgid "label_address_visit"
-msgstr "Bezoekadres bedrijf"
-
-#. Default: Postal address
-#: euphorie/client/templates/report_actionplan.pt:40
-#: euphorie/client/templates/report_company.pt:36
-msgid "label_address_postal"
-msgstr "Postadres bedrijf"
-
-#. Default: Bedrijfsnaam
-#. Default: Company name
-#: euphorie/client/templates/report_actionplan.pt:38
-#: euphorie/client/templates/report_company.pt:26
-msgid "label_company_title"
-msgstr "Bedrijfsnaam"
+#. Default: Country
+#: euphorie/client/templates/report_actionplan.pt:39
+msgid "label_country"
+msgstr "Land"
 
 #. Default: Your answers and report were ${automatically_saved} and may be
 #. found
 #. back or deleted at any time via the ${preparation_step}.
-#: euphorie/client/templates/report_actionplan.pt:30
+#: euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_2"
 msgstr ""
 "Uw antwoorden en het rapport zijn ${automatically_saved} en zijn terug te"
 " vinden of te verwijderen via het ${preparation_step}."
 
 #. Default: preparation step
-#: euphorie/client/templates/report_actionplan.pt:30
+#: euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_2_preparation_step"
 msgstr "voorbereidingsscherm"
 
 #. Default: automatically saved
-#: euphorie/client/templates/report_actionplan.pt:30
+#: euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_2_automatically_saved"
 msgstr "automatisch opgeslagen"
 
@@ -1507,7 +1486,7 @@ msgstr "automatisch opgeslagen"
 #. written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/templates/report_actionplan.pt:29
+#: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
 "Door het invullen van de vragenlijst heeft u een Risico-inventarisatie "
@@ -1523,6 +1502,11 @@ msgstr ""
 "onderwerpen uit het Plan van aanpak met investeringen te laten samen "
 "vallen kunnen deze vaak zonder extra geld worden opgelost."
 
+#. Default: Print
+#: euphorie/client/templates/report_actionplan.pt:26
+msgid "button_print"
+msgstr "Print"
+
 #. Default: Download
 #: euphorie/client/templates/report_actionplan.pt:25
 #: euphorie/client/templates/report_identification.pt:24
@@ -1535,121 +1519,34 @@ msgstr "Download"
 msgid "toc_header"
 msgstr "Inhoudsopgave"
 
-#. Default: Invalid year
-#: euphorie/client/templates/report_company.pt:93
-#: euphorie/client/templates/report_company.pt:62
-#: euphorie/client/templates/risk_actionplan.pt:117
-#: euphorie/client/templates/risk_actionplan.pt:91
-msgid "error_invalid_year"
-msgstr "Ongeldig jaar"
+#. Default: The European Agency for Safety and Health at Work, European social
+#. partners, etc.
+#: euphorie/client/templates/report_company.pt:43
+msgid "info_referer_eu_institution"
+msgstr ""
 
-#. Default: Year
-#: euphorie/client/templates/report_company.pt:91
-#: euphorie/client/templates/report_company.pt:60
-#: euphorie/client/templates/risk_actionplan.pt:219
-#: euphorie/client/templates/risk_actionplan.pt:202
-#: euphorie/client/templates/risk_actionplan.pt:87
-msgid "label_year"
-msgstr "Jaar"
-
-#. Default: Month
-#: euphorie/client/templates/report_company.pt:85
-#: euphorie/client/templates/report_company.pt:54
-#: euphorie/client/templates/risk_actionplan.pt:214
-#: euphorie/client/templates/risk_actionplan.pt:197
-#: euphorie/client/templates/risk_actionplan.pt:106
-#: euphorie/client/templates/risk_actionplan.pt:80
-msgid "label_month"
-msgstr "Maand"
-
-#. Default: Invalid day
-#: euphorie/client/templates/report_company.pt:83
-#: euphorie/client/templates/report_company.pt:52
-#: euphorie/client/templates/risk_actionplan.pt:104
-#: euphorie/client/templates/risk_actionplan.pt:78
-msgid "error_invalid_day"
-msgstr "Ongeldige dag"
-
-#. Default: Day
-#: euphorie/client/templates/report_company.pt:81
-#: euphorie/client/templates/report_company.pt:50
-#: euphorie/client/templates/risk_actionplan.pt:211
-#: euphorie/client/templates/risk_actionplan.pt:194
-#: euphorie/client/templates/risk_actionplan.pt:113
-#: euphorie/client/templates/risk_actionplan.pt:100
-#: euphorie/client/templates/risk_actionplan.pt:74
-msgid "label_day"
-msgstr "Dag"
-
-#. Default: Date of works council approval
-#: euphorie/client/templates/report_company.pt:79
-msgid "label_works_council_approval_date"
-msgstr "Datum van akkoord OR/medewerkersvertegenwoordiging"
-
-#. Default: Approved by works council
-#: euphorie/client/templates/report_company.pt:77
-msgid "label_works_council_approved"
-msgstr "Akkoord OR/medewerkersvertegenwoordiging"
-
-#. Default: name, contact person, address, email
-#: euphorie/client/templates/report_company.pt:75
-msgid "label_arbo_expert_info"
-msgstr "naam, contactpersoon, adres, postcode, plaats, e-mail"
-
-#. Default: please count using people, not FTEs
-#: euphorie/client/templates/report_company.pt:69
-#: euphorie/client/templates/report_company.pt:68
-msgid "employees_not_fte"
-msgstr "let op het gaat hier niet om FTE’s, maar om daadwerkelijke personen"
-
-#. Default: all employees combined
-#: euphorie/client/templates/report_company.pt:67
-msgid "all_employees_combined)"
-msgstr "alle werknemers samen"
-
-#. Default: date on which data was collected
-#: euphorie/client/templates/report_company.pt:49
-msgid "label_submit_date_data_collected"
-msgstr "Datum waarop de gegevens verzameld zijn"
-
-#. Default: Date
-#: euphorie/client/templates/report_company.pt:49
-msgid "label_submit_date"
-msgstr "Datum"
-
-#. Default: City
-#: euphorie/client/templates/report_company.pt:39
-#: euphorie/client/templates/report_company.pt:32
-msgid "label_city"
-msgstr "Plaats"
-
-#. Default: Postal Code
-#: euphorie/client/templates/report_company.pt:38
-#: euphorie/client/templates/report_company.pt:31
-msgid "label_postal"
-msgstr "Postcode"
-
-#. Default: Address
-#: euphorie/client/templates/report_company.pt:37
-#: euphorie/client/templates/report_company.pt:30
-msgid "label_address"
-msgstr "Adres"
+#. Default: Ministry, Labour Inspectorate, National Institute for Safety and
+#. Health
+#. at Work, etc.
+#: euphorie/client/templates/report_company.pt:41
+msgid "info_referer_national_public_institution"
+msgstr ""
 
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
-#: euphorie/client/templates/report_company.pt:22
+#: euphorie/client/templates/report_company.pt:21
 msgid "company_details_intro"
 msgstr ""
 "Vul uw bedrijfsgegevens in op dit formulier. Deze gegevens worden "
 "gebruikt in het plan van aanpak."
 
 #. Default: Please fix the indicated errors.
-#: euphorie/client/templates/report_company.pt:20
+#: euphorie/client/templates/report_company.pt:19
 msgid "warn_fix_errors"
 msgstr "Los de gemarkeerde problemen eerst op."
 
 #. Default: Company details
-#: euphorie/client/templates/report_company.pt:18
+#: euphorie/client/templates/report_company.pt:17
 msgid "hader_company_details"
 msgstr "Bedrijfsgegevens"
 
@@ -1660,6 +1557,30 @@ msgid ""
 msgstr ""
 "Weet u zeker dat u deze maatregel wil verwijderen? Dit kan niet "
 "teruggedraaid worden."
+
+#. Default: Year
+#: euphorie/client/templates/risk_actionplan.pt:219
+#: euphorie/client/templates/risk_actionplan.pt:202
+#: euphorie/client/templates/risk_actionplan.pt:87
+msgid "label_year"
+msgstr "Jaar"
+
+#. Default: Month
+#: euphorie/client/templates/risk_actionplan.pt:214
+#: euphorie/client/templates/risk_actionplan.pt:197
+#: euphorie/client/templates/risk_actionplan.pt:106
+#: euphorie/client/templates/risk_actionplan.pt:80
+msgid "label_month"
+msgstr "Maand"
+
+#. Default: Day
+#: euphorie/client/templates/risk_actionplan.pt:211
+#: euphorie/client/templates/risk_actionplan.pt:194
+#: euphorie/client/templates/risk_actionplan.pt:113
+#: euphorie/client/templates/risk_actionplan.pt:100
+#: euphorie/client/templates/risk_actionplan.pt:74
+msgid "label_day"
+msgstr "Dag"
 
 #. Default: Planning end
 #: euphorie/client/templates/risk_actionplan.pt:208
@@ -1806,6 +1727,18 @@ msgstr "Standaard maatregelen"
 msgid "label_add_measure"
 msgstr "Nieuwe maatregel toevoegen"
 
+#. Default: Invalid year
+#: euphorie/client/templates/risk_actionplan.pt:117
+#: euphorie/client/templates/risk_actionplan.pt:91
+msgid "error_invalid_year"
+msgstr "Ongeldig jaar"
+
+#. Default: Invalid day
+#: euphorie/client/templates/risk_actionplan.pt:104
+#: euphorie/client/templates/risk_actionplan.pt:78
+msgid "error_invalid_day"
+msgstr "Ongeldige dag"
+
 #. Default: Please enter the budget in whole Euros.
 #: euphorie/client/templates/risk_actionplan.pt:66
 msgid "error_invalid_budget"
@@ -1931,9 +1864,7 @@ msgstr ""
 "opslaan en dan is het handig als u de titel weet van degene waarbij u "
 "verder wilt gaan met invullen/wijzigen."
 
-#. Default: You may enter a name for this survey that will make it easier for
-#. you
-#. to find your session back if you wish to continue at a later time
+#. Default: Enter a title for your Risk Assessment
 #: euphorie/client/templates/sessions.pt:58
 #: euphorie/client/templates/survey_sessions.pt:49
 msgid "label_session_title"
@@ -1941,7 +1872,7 @@ msgstr ""
 "Hier kunt u een naam opgeven. Dit maakt het eenvoudiger om later verder "
 "te gaan met deze RI&E."
 
-#. Default: Start a new session in the following field
+#. Default: Start a new session choosing one of the following sectoral tools
 #: euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
 msgstr "Start een nieuwe RI&E in de volgende branche"
@@ -2213,40 +2144,40 @@ msgstr ""
 "geen directe link naar deze tekst."
 
 #. Default: Description
-#: euphorie/content/module.py:32 euphorie/content/page.py:19
-#: euphorie/content/profilequestion.py:30 euphorie/content/solution.py:23
+#: euphorie/content/module.py:37 euphorie/content/page.py:19
+#: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:23
 msgid "label_module_description"
 msgstr "Beschrijving"
 
 #. Default: Include any relevant information that may be helpful for users.
-#: euphorie/content/module.py:33 euphorie/content/page.py:20
-#: euphorie/content/profilequestion.py:31 euphorie/content/solution.py:24
+#: euphorie/content/module.py:38 euphorie/content/page.py:20
+#: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:24
 msgid "help_module_description"
 msgstr ""
 "Noteer hier alle relevantie informatie die nuttig kan zijn voor de "
 "gebruikers."
 
 #. Default: This module is optional
-#: euphorie/content/module.py:41
+#: euphorie/content/module.py:46
 msgid "label_module_optional"
 msgstr "Deze module is optioneel"
 
 #. Default: Allow users to skip this module and everything inside it.
-#: euphorie/content/module.py:42
+#: euphorie/content/module.py:47
 msgid "help_module_optional"
 msgstr ""
 "Optioneel betekent een filtervraag: gebruikers kunnen deze module en alle"
 " vragen in deze module overslaan indien zij kiezen voor antwoord Nee."
 
 #. Default: Question
-#: euphorie/content/module.py:49
+#: euphorie/content/module.py:55
 msgid "label_module_question"
 msgstr "Vraagstelling"
 
 #. Default: The question to ask users if this module is optional. This has to
 #. be a
 #. yes/no question.
-#: euphorie/content/module.py:50
+#: euphorie/content/module.py:56
 msgid "help_module_question"
 msgstr ""
 "Indien Optioneel is gekozen plaatst u hier de vraag waarmee gebruikers "
@@ -2255,20 +2186,31 @@ msgstr ""
 
 #. Default: Image
 #. Default: Image file
-#: euphorie/content/module.py:56 euphorie/content/risk.py:196
-#: euphorie/content/risk.py:207 euphorie/content/risk.py:214
-#: euphorie/content/risk.py:221
+#: euphorie/content/module.py:62 euphorie/content/risk.py:196
+#: euphorie/content/risk.py:210 euphorie/content/risk.py:220
+#: euphorie/content/risk.py:230
 msgid "label_image"
 msgstr "Afbeelding"
 
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif
+#. and
+#. does not contain any special characters.
+#: euphorie/content/module.py:63 euphorie/content/risk.py:197
+#: euphorie/content/risk.py:211 euphorie/content/risk.py:221
+#: euphorie/content/risk.py:231 euphorie/content/sector.py:73
+msgid "help_image_upload"
+msgstr ""
+"Upload een afbeelding. Let erop dat de afbeeling een PNG, JPG of GIF\"\n"
+"\"formaat heeft."
+
 #. Default: Introduction action plan
-#: euphorie/content/module.py:60
+#: euphorie/content/module.py:69
 msgid "label_solution_direction"
 msgstr "Oplossingsrichting"
 
 #. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
-#: euphorie/content/module.py:61
+#: euphorie/content/module.py:70
 msgid "help_solution_direction"
 msgstr ""
 "Plaats hier eventueel een (algemene) tekst over de globale "
@@ -2281,18 +2223,34 @@ msgstr ""
 msgid "label_body"
 msgstr "Pagina inhoud"
 
+#. Default: Question
+#: euphorie/content/profilequestion.py:35
+msgid "label_profilequestion_question"
+msgstr "Vraagstelling"
+
+#. Default: If this is to be an "optional" profile question, it must be
+#. formulated
+#. as a question and be answerable with YES or NO. If this is to be a
+#. "repeatable"
+#. profile question (statement), it must be formulated as a prompt to fill in
+#. multiple values.
+#: euphorie/content/profilequestion.py:36
+#, fuzzy
+msgid "help_profilequestion_question"
+msgstr "Dit is een optioneel profielonderdeel."
+
 #. Default: Type
-#: euphorie/content/profilequestion.py:38
+#: euphorie/content/profilequestion.py:55
 msgid "label_profile_type"
 msgstr "Type"
 
 #. Default: Optional
-#: euphorie/content/profilequestion.py:40
+#: euphorie/content/profilequestion.py:57
 msgid "profile_optional"
 msgstr "Optioneel"
 
 #. Default: Repeatable
-#: euphorie/content/profilequestion.py:41
+#: euphorie/content/profilequestion.py:58
 msgid "profile_repeat"
 msgstr "Herhaalbaar"
 
@@ -2523,13 +2481,13 @@ msgstr ""
 "voor de gebruikers dan de andere afbeeldingen."
 
 #. Default: Image caption
-#: euphorie/content/risk.py:199 euphorie/content/risk.py:210
-#: euphorie/content/risk.py:217 euphorie/content/risk.py:224
+#: euphorie/content/risk.py:202 euphorie/content/risk.py:216
+#: euphorie/content/risk.py:226 euphorie/content/risk.py:236
 msgid "label_caption"
 msgstr "Onderschrift"
 
 #. Default: Secondary images
-#: euphorie/content/risk.py:203
+#: euphorie/content/risk.py:206
 msgid "header_secondary_images"
 msgstr "Overige afbeeldingen "
 
@@ -2544,12 +2502,12 @@ msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
-#: euphorie/content/sector.py:76 euphorie/content/templates/settings.pt:32
+#: euphorie/content/sector.py:79 euphorie/content/templates/settings.pt:32
 msgid "label_main_colour"
 msgstr "Hoofdkleur"
 
 #. Default: Support colour
-#: euphorie/content/sector.py:80 euphorie/content/templates/settings.pt:36
+#: euphorie/content/sector.py:83 euphorie/content/templates/settings.pt:36
 msgid "label_support_colour"
 msgstr "Steunkleur"
 
@@ -2843,11 +2801,26 @@ msgstr "Een pagina met tekst"
 msgid "Page"
 msgstr "Pagina"
 
+#. Default: The basic architecture of an Online interactive Risk Assessment
+#. consists of: - profile questions (questions defining the company profile) -
+#. modules and potentially sub-modules - risks (positive statements) Profile
+#. questions are used to determine whether particular modules apply to the end
+#. user
+#. at all (OPTIONAL), or whether they should be repeated a number of times
+#. (REPEATABLE). Such questions are asked BEFORE starting the risk
+#. identification
+#. and evaluation. If the end-user does not confirm that an optional profile
+#. question is relevant (by ticking the box), then the corresponding module
+#. will be
+#. skipped entirely. If the end-user enters more than one option to a
+#. repeatable
+#. profile question then the corresponding module will be repeated the
+#. specified
+#. number of times.
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid "A profile question is used to create optional or repeatable modules"
-msgstr ""
-"Een profielvraag wordt gebruikt om een optionele of herhaalbare module te"
-" creëren."
+#, fuzzy
+msgid "description_profilequestion"
+msgstr "Profielvragen"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -2921,7 +2894,6 @@ msgstr ""
 
 #. Default: OiRA
 #: euphorie/content/templates/colour-preview.pt:52
-#, fuzzy
 msgid "titld_tool"
 msgstr "OiRA"
 
@@ -3188,9 +3160,11 @@ msgstr "Welk logo wilt u linksboven tonen?"
 
 #. Default: The logo will appear on both the client side app that your user
 #. group
-#. will see as well as on this editor environment in the top left corner. The
-#. new
-#. logo will only become visible after you've saved your changes.'
+#. will see as well as on this editor environment in the top left corner. Make
+#. sure
+#. your image is of format png, jpg or gif and does not contain any special
+#. characters. The new logo will only become visible after you've saved your
+#. changes.
 #: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"
 msgstr ""
@@ -3395,10 +3369,8 @@ msgstr "Beheer gebruikers voor ${country}"
 
 #. Default: XML export
 #: euphorie/deployment/browser/sitemenu.py:37
-#, fuzzy
-#| msgid "label_report"
 msgid "menu_export"
-msgstr "Rapport"
+msgstr "XML-export"
 
 #. Default: Import survey
 #: euphorie/deployment/browser/sitemenu.py:40
