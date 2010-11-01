@@ -22,6 +22,24 @@ class RegisterTests(EuphorieTestCase):
         self.assertEqual(view._tryRegistration(), False)
         self.failUnless("email" in view.errors)
 
+    def testBasicEmailVerification(self):
+        view=self.portal.client.restrictedTraverse("register")
+        view.errors={}
+        view.request.form["email"]="wichert"
+        view.request.form["password1"]="secret"
+        view.request.form["password2"]="secret"
+        self.assertEqual(view._tryRegistration(), False)
+        self.failUnless("email" in view.errors)
+
+        view.errors.clear()
+        view.request.form["email"]="wichert@wiggy net"
+        self.assertEqual(view._tryRegistration(), False)
+        self.failUnless("email" in view.errors)
+
+        view.errors.clear()
+        view.request.form["email"]="wichert@wiggy.net"
+        self.assertNotEqual(view._tryRegistration(), False)
+
 
 
 class ReminderTests(EuphorieFunctionalTestCase):
@@ -79,7 +97,7 @@ class ReminderTests(EuphorieFunctionalTestCase):
             self.assertEqual(args[1], ["jane@example.com"])
             msg=email.message_from_string(args[2])
             subject=make_header(decode_header(msg["Subject"]))
-            self.assertEqual(unicode(subject), u"OIRAT registration reminder")
+            self.assertEqual(unicode(subject), u"OiRA registration reminder")
             body=msg.get_payload(0)
             body=body.get_payload(decode=True).decode(body.get_content_charset("utf-8"))
             self.failUnless(u"Øle" in body)

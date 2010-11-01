@@ -1,5 +1,6 @@
 import cgi
 import logging
+import re
 import socket
 import smtplib
 import urllib
@@ -26,6 +27,10 @@ from euphorie.client.session import SessionManager
 from euphorie.client.country import IClientCountry
 
 log=logging.getLogger(__name__)
+
+# I know this is a stupid regular expression, but it Works For Us(tm)
+EMAIL_RE = re.compile(r"[_a-z0-9+-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})",
+        re.IGNORECASE)
 
 grok.templatedir("templates")
 
@@ -113,6 +118,7 @@ class Reminder(grok.View):
 
         try:
             mailhost.send(mail, account.email, site.email_from_address, immediate=True)
+            log.info("Send password reminder to %s", account.email)
         except MailHostError, e:
             log.error("MailHost error sending password reminder to %s: %s", account.email, e)
             self.error=_(u"An error occured while sending the password reminder")
@@ -154,6 +160,8 @@ class Register(grok.View):
         loginname=reply.get("email")
         if not loginname:
             self.errors["email"]=_("error_missing_email", default=u"Please enter your email address")
+        elif not EMAIL_RE.match(loginname):
+            self.errors["email"]=_("error_invalid_email", default=u"Please enter a valid email address")
         if not reply.get("password1"):
             self.errors["password"]=_("error_missing_password", default=u"Please enter a password")
         elif reply.get("password1")!=reply.get("password2"):
@@ -178,6 +186,7 @@ class Register(grok.View):
         account=model.Account(loginname=reply.get("email"),
                               password=reply.get("password1"))
         Session().add(account)
+        log.info("Registered new account %s", loginname)
         return account
 
 

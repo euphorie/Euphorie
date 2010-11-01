@@ -10,6 +10,12 @@ Feature changes
 - Update Dutch translations.
   [wichert]
 
+- Perform basic verification of email addresses in the client registration
+  logic. This fixes `TNO ticket 147
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/147>`_.
+  [wichert]
+
+
 Bugfixes
 ~~~~~~~~
 
