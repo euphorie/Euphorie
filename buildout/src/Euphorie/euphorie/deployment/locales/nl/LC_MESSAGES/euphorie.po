@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2010-11-01 16:52+0100\n"
+"PO-Revision-Date: 2010-11-01 17:05+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -119,44 +119,44 @@ msgstr "arbo-experts"
 msgid "referer_other"
 msgstr "overig"
 
-#: euphorie/client/login.py:97
+#: euphorie/client/login.py:98
 msgid "Please enter your email address"
 msgstr "Vul uw e-mail adres in"
 
-#: euphorie/client/login.py:103
+#: euphorie/client/login.py:104
 msgid "Unknown email address"
 msgstr "Onbekend e-mail adres"
 
 #: euphorie/client/login.py:110
-msgid "OIRAT registration reminder"
+msgid "OiRA registration reminder"
 msgstr "RI&E registratie herinnering"
 
-#: euphorie/client/login.py:116 euphorie/client/login.py:120
-#: euphorie/client/login.py:124
+#: euphorie/client/login.py:118 euphorie/client/login.py:122
+#: euphorie/client/login.py:126
 msgid "An error occured while sending the password reminder"
 msgstr "Er is een fout opgetreden bij het versturen van de wachtwoord herinnering."
 
-#: euphorie/client/login.py:138
+#: euphorie/client/login.py:140
 msgid "An email with a password reminder has been sent to your address."
 msgstr "Er is een e-mail met wachtwoord herinnering verstuurd."
 
 #. Default: Please enter your email address
-#: euphorie/client/login.py:154
+#: euphorie/client/login.py:156
 msgid "error_missing_email"
 msgstr "Vul hier uw e-mail adres in"
 
 #. Default: Please enter a password
-#: euphorie/client/login.py:156
+#: euphorie/client/login.py:158
 msgid "error_missing_password"
 msgstr "Vul uw wachtwoord in"
 
 #. Default: Passwords do not match
-#: euphorie/client/login.py:158
+#: euphorie/client/login.py:160
 msgid "error_password_mismatch"
 msgstr "Wachtwoorden komen niet overeen"
 
 #. Default: An account with this email address already exists.
-#: euphorie/client/login.py:166 euphorie/client/login.py:172
+#: euphorie/client/login.py:168 euphorie/client/login.py:174
 msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mail adres"
 

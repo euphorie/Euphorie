@@ -11,6 +11,7 @@ from AccessControl import getSecurityManager
 from z3c.saconfig import Session
 from five import grok
 from zope.interface import Interface
+from zope.i18n import translate
 from zope.component import getUtility
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -106,8 +107,9 @@ class Reminder(grok.View):
         site=getUtility(ISiteRoot)
         mailhost=getToolByName(self.context, "MailHost")
         body=self.email_template(loginname=account.loginname, password=account.password)
-        mail=CreateEmailTo(site.email_from_name, site.email_from_address, account.email,
-                _(u"OIRAT registration reminder"), body)
+        subject=translate(_(u"OiRA registration reminder"), context=self.request)
+        mail=CreateEmailTo(site.email_from_name, site.email_from_address,
+                account.email, subject, body)
 
         try:
             mailhost.send(mail, account.email, site.email_from_address, immediate=True)

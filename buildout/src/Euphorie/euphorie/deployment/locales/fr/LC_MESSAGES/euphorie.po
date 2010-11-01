@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2010-11-01 16:52+0100\n"
+"PO-Revision-Date: 2010-11-01 17:05+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -127,46 +127,46 @@ msgstr ""
 msgid "referer_other"
 msgstr "Baser ma nouvelle enquête sur l’enquête d’une autre organisation"
 
-#: euphorie/client/login.py:97
+#: euphorie/client/login.py:98
 msgid "Please enter your email address"
 msgstr "Veuillez saisir votre adresse e-mail"
 
-#: euphorie/client/login.py:103
+#: euphorie/client/login.py:104
 msgid "Unknown email address"
 msgstr "Adresse e-mail inconnue "
 
 #: euphorie/client/login.py:110
-msgid "OIRAT registration reminder"
-msgstr "Rappel d’inscription OIRAT"
+msgid "OiRA registration reminder"
+msgstr "Rappel d’inscription OiRA"
 
-#: euphorie/client/login.py:116 euphorie/client/login.py:120
-#: euphorie/client/login.py:124
+#: euphorie/client/login.py:118 euphorie/client/login.py:122
+#: euphorie/client/login.py:126
 msgid "An error occured while sending the password reminder"
 msgstr "Une erreur s’est produite lors de l’envoi du rappel du mot de passe"
 
-#: euphorie/client/login.py:138
+#: euphorie/client/login.py:140
 msgid "An email with a password reminder has been sent to your address."
 msgstr ""
 "Un e-mail contenant un rappel du mot de passe a été envoyé à votre "
 "adresse."
 
 #. Default: Please enter your email address
-#: euphorie/client/login.py:154
+#: euphorie/client/login.py:156
 msgid "error_missing_email"
 msgstr "Veuillez saisir votre adresse e-mail"
 
 #. Default: Please enter a password
-#: euphorie/client/login.py:156
+#: euphorie/client/login.py:158
 msgid "error_missing_password"
 msgstr "Veuillez saisir un mot de passe "
 
 #. Default: Passwords do not match
-#: euphorie/client/login.py:158
+#: euphorie/client/login.py:160
 msgid "error_password_mismatch"
 msgstr "Les mots de passe ne correspondent pas "
 
 #. Default: An account with this email address already exists.
-#: euphorie/client/login.py:166 euphorie/client/login.py:172
+#: euphorie/client/login.py:168 euphorie/client/login.py:174
 msgid "error_email_in_use"
 msgstr "Il existe déjà un compte associé à cette adresse e-mail."
 
@@ -1569,7 +1569,6 @@ msgstr "Non fourni"
 #. Default: Country
 #: euphorie/client/templates/report_actionplan.pt:39
 #, fuzzy
-#| msgid "label_choose_country"
 msgid "label_country"
 msgstr "Choisir un pays"
 

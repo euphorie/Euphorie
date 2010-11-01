@@ -13,6 +13,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Translate subject of password reminer email. This fixes
+  `TNO ticket 148 <http://code.simplon.biz/tracker/tno-euphorie/ticket/148>`_.
+  [wichert]
+
 - Rewrite client company form to use z3c.form instead of repoze.formapi.
   [wichert]
 
