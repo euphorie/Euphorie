@@ -4,8 +4,8 @@ Changelog
 2.1 - Unreleased
 ----------------
 
-- ...
-
+- Rewrite client company form to use z3c.form instead of repoze.formapi.
+  [wichert]
 
 
 2.0, October 22, 2010

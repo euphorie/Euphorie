@@ -3,7 +3,6 @@ Survey views
 ============
 """
 
-import logging
 import random
 import Acquisition
 from Acquisition import aq_inner
@@ -33,9 +32,7 @@ from euphorie.client import utils
 from euphorie.client import MessageFactory as _
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 import OFS.Traversable
-from repoze import formapi
 
-log=logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
@@ -376,6 +373,7 @@ class IdentificationReport(grok.View):
             raise NotFound(self, name, request)
 
 
+
 class ReportView(grok.View):
     """Intro page for report phase.
 
@@ -399,99 +397,6 @@ class ReportView(grok.View):
             url="%s/report/company" % self.request.survey.absolute_url()
             self.request.response.redirect(url)
             return
-
-
-
-class CompanyForm(formapi.Form):
-    """A single action plan item."""
-
-    fields = dict(country=str,
-                  employees=str,
-                  conductor=str,
-                  referer=str)
-
-    @formapi.validator("country")
-    def valid_country(self):
-        country=self.data["country"]
-        if country is None:
-            return
-
-        request=utils.getRequest()
-        if country.upper() not in request.locale.displayNames.territories:
-            yield _(u"Unknown country or region")
-
-    @formapi.validator("employees")
-    def valid_employees(self):
-        employees=self.data["employees"]
-        if employees is None:
-            return
-        if employees not in ["1-9", "10-49", "50-249", "250+"]:
-            yield _(u"Invalid number of employees")
-
-    @formapi.validator("conductor")
-    def valid_conductor(self):
-        conductor=self.data["conductor"]
-        if conductor is None:
-            return
-        if conductor not in ["staff", "third-party", "both"]:
-            yield _(u"Please select an option.")
-
-    @formapi.validator("referer")
-    def valid_referer(self):
-        referer=self.data["referer"]
-        if referer is None:
-            return
-        if referer not in ["employers-organisation", "trade-union",
-                "national-public-institution", "eu-institution",
-                "health-safety-experts", "other"]:
-            yield _(u"Please select an option.")
-
-
-
-class ReportCompanyDetails(grok.View):
-    """Intro page for report phase.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
-    the *inventory* component of the URL.
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("report_company")
-    grok.name("company")
-
-    def countries(self):
-        names=[dict(id=key.lower(), title=value)
-               for (key,value) in  self.request.locale.displayNames.territories.items()]
-        names.sort(key=lambda c: c["title"])
-        return names
-
-
-    def update(self):
-        self.session=session=SessionManager.session
-
-        if session.company is None:
-            session.company=model.Company()
-
-        self.errors={}
-        if self.request.environ["REQUEST_METHOD"]=="POST":
-            reply=dict([(key,value) for (key,value) in self.request.form.items()
-                        if value and (not isinstance(value, basestring) or value.strip())])
-            company=session.company
-            form=CompanyForm(params=reply)
-            if not form.validate():
-                self.errors=form.errors._dict
-            else:
-                for key in [ "country", "employees", "conductor", "referer"]:
-                    setattr(company, key, form.data[key])
-
-                if reply["next"]=="previous":
-                    url="%s/report" % self.request.survey.absolute_url()
-                else:
-                    url="%s/report/view" % self.request.survey.absolute_url()
-                self.request.response.redirect(url)
 
 
 

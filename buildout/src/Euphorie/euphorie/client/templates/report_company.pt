@@ -13,53 +13,43 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
-  <body class="report ${webhelpers/extra_css}"
-    tal:define="company view/session/company">
+  <body class="report ${webhelpers/extra_css}" tal:define="company view/session/company">
     <h1 i18n:translate="hader_company_details">Company details</h1>
 
-    <p class="message error" tal:condition="view/errors" i18n:translate="warn_fix_errors">Please fix the indicated errors.</p>
+    <p class="message error" tal:condition="view/status" i18n:translate="warn_fix_errors">Please fix the indicated errors.</p>
  
     <p i18n:translate="company_details_intro">Please fill out your company details on this form. The data on this form will also appear in the report.</p>
 
-    <form method="post" class="concise" action="${request/URL}">
+    <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}" class="concise">
       <fieldset>
-        <label><tal:span i18n:translate="label_company_country">Your country</tal:span>
-          <select name="country" tal:define="value python:request.form.get('country') or company.country or webhelpers.country()">
+        <label tal:define="widget view/widgets/country; value widget/value">
+          <tal:span i18n:translate="label_company_country">Your country</tal:span>
+          <select name="${widget/name}" tal:define="value python:value or webhelpers.country()">
             <option tal:repeat="country view/countries" value="${country/id}" selected="${python:'selected' if value==country['id'] else None}">${country/title}</option>
           </select>
+          <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         </label>
         
-        <fieldset class="comprehensive radioList" tal:define="value request/form/employees|company/employees">
-          <legend i18n:translate="label_employee_numbers">Number of employees</legend>
-          <label><input type="radio" name="employees" value="1-9" selected="${python:'selected' if value=='1-9' else None}"/> <tal:span i18n:translate="employee_numbers_1_to_9">1 to 9 employees</tal:span></label>
-          <label><input type="radio" name="employees" value="10-49" selected="${python:'selected' if value=='10-49' else None}"/> <tal:span i18n:translate="employee_numbers_10_to_49">10 to 49 employees</tal:span></label> 
-          <label><input type="radio" name="employees" value="50-249" selected="${python:'selected' if value=='50-249' else None}"/> <tal:span i18n:translate="employee_numbers_50_to_249">50 to 249 employees</tal:span></label>
-          <label><input type="radio" name="employees" value="250+" selected="${python:'selected' if value=='250+' else None}"/> <tal:span i18n:translate="employee_numbers_250_or_more">250 or more employees</tal:span></label>
-        </fieldset>
+        <tal:widget replace="structure view/widgets/employees/render" />
+        <tal:widget replace="structure view/widgets/conductor/render" />
 
-        <fieldset class="comprehensive radioList" tal:define="value request/form/conductor|company/conductor">
-          <legend i18n:translate="label_conductor">The risk assessment was conducted by</legend>
-          <label><input type="radio" name="conductor" value="staff" selected="${python:'selected' if value=='staff' else None}"/> <tal:span i18n:translate="conductor_staff">own staff</tal:span></label>
-          <label><input type="radio" name="conductor" value="third-party" selected="${python:'selected' if value=='third-party' else None}"/> <tal:span i18n:translate="conductor_third_party">an external consultant or service provider</tal:span></label>
-          <label><input type="radio" name="conductor" value="both" selected="${python:'selected' if value=='both' else None}"/> <tal:span i18n:translate="conductor_both">both own stsaff and an external consultant or service provider</tal:span></label>
-        </fieldset>
-
-        <fieldset class="comprehensive radioList" tal:define="value request/form/referer|company/referer">
+        <fieldset class="comprehensive radioList" tal:define="widget view/widgets/referer; value widget/value">
           <legend i18n:translate="label_referer">Through which channel did you learn about this tool?</legend>
-          <label><input type="radio" name="referer" value="employers-organisation" selected="${python:'selected' if value=='employers-organisation' else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
-          <label><input type="radio" name="referer" value="trade-union" selected="${python:'selected' if value=='trade-union' else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
-          <label><input type="radio" name="referer" value="national-public-institution" selected="${python:'selected' if value=='national-public-institution' else None}"/> <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br/>
+          <label><input type="radio" name="${widget/name}" value="employers-organisation" selected="${python:'selected' if value=='employers-organisation' else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="trade-union" selected="${python:'selected' if value=='trade-union' else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="national-public-institution" selected="${python:'selected' if value=='national-public-institution' else None}"/> <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br/>
             <span class="discrete">(<tal:span i18n:translate="info_referer_national_public_institution">Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc.</tal:span>)</span></label>
-          <label><input type="radio" name="referer" value="eu-institution" selected="${python:'selected' if value=='eu-institution' else None}"/> <tal:span i18n:translate="referer_eu_institution">an European institution/administrator</tal:span><br/>
+          <label><input type="radio" name="${widget/name}" value="eu-institution" selected="${python:'selected' if value=='eu-institution' else None}"/> <tal:span i18n:translate="referer_eu_institution">an European institution/administration</tal:span><br/>
             <span class="discrete">(<tal:span i18n:translate="info_referer_eu_institution">The European Agency for Safety and Health at Work, European social partners, etc.</tal:span>)</span></label>
-          <label><input type="radio" name="referer" value="health-safety-experts" selected="${python:'selected' if value=='health-safety-experts' else None}"/> <tal:span i18n:translate="referer_health_safety_export">health and safety experts</tal:span></label>
-          <label><input type="radio" name="referer" value="other" selected="${python:'selected' if value=='other' else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="health-safety-experts" selected="${python:'selected' if value=='health-safety-experts' else None}"/> <tal:span i18n:translate="referer_health_safety_expert">health and safety experts</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="other" selected="${python:'selected' if value=='other' else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
+          <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         </fieldset>
       </fieldset>
       
       <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+        <button type="submit" name="form.buttons.previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
+        <button type="submit" name="form.buttons.next" i18n:translate="label_next" class="next floatAfter">Next</button>
       </p>
     </form>
 
