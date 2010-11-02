@@ -20,6 +20,7 @@ from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from plonetheme.nuplone.utils import getPortal
+from plone.scale.storage import AnnotationStorage
 
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
@@ -72,6 +73,9 @@ def CopyToClient(survey, preview=False):
     target=cl_country[sector.id]
     target.title=sector.title
     target.logo=sector.logo
+    # Clear any scaled logos
+    AnnotationStorage(target).storage.clear()
+
     target.main_background_colour=getattr(sector, "main_colour", None)
     if target.main_background_colour:
         target.main_foreground_colour=utils.MatchColour(target.main_background_colour, 0.0, 0.6, 0.3)

@@ -19,6 +19,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Purge cached scaled logos when publishing a survey and updating the sector logo.
+  This fixes `TNO ticket 136 <http://code.simplon.biz/tracker/tno-euphorie/ticket/136>`_.
+  [wichert]
+
 - Translate subject of password reminer email. This fixes
   `TNO ticket 148 <http://code.simplon.biz/tracker/tno-euphorie/ticket/148>`_.
   [wichert]

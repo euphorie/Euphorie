@@ -1,4 +1,4 @@
-# vi: coding=utf-8
+# vim: fileencoding=utf-8
 
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
@@ -55,6 +55,30 @@ class PublicationTests(EuphorieTestCase):
         view=self.survey.restrictedTraverse("@@publish")
         view.publish()
         self.assertEqual(getattr(self.client.nl.dining, "old_object", False), False)
+
+    def testPublishUpdatesLogo(self):
+        from plone.namedfile.file import NamedBlobImage
+        white_gif="GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff" \
+               "\xff\xff!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00" \
+               "\x00\x01\x00\x01\x00\x00\x02\x01L\x00;"
+        black_gif="GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00" \
+               "\x00\x00!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00" \
+               "\x00\x01\x00\x01\x00\x00\x02\x01L\x00;"
+        self.createSurvey()
+        self.sector.logo=NamedBlobImage(data=white_gif, contentType="image/gif", filename="white.gif")
+        view=self.survey.restrictedTraverse("@@publish")
+        view.publish()
+        client_sector=self.client.nl["dining"]
+        self.assertEqual(client_sector.logo.data, white_gif)
+        white_scale=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up").data.data
+
+        self.sector.logo=NamedBlobImage(data=black_gif, contentType="image/gif", filename="black.gif")
+        view.publish()
+        logo=self.client.nl["dining"].logo
+        self.assertEqual(self.client.nl["dining"].logo.data, black_gif)
+        rendered_logo=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up")
+        black_scale=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up").data.data
+        self.assertNotEqual(white_scale, black_scale)
 
 
 
