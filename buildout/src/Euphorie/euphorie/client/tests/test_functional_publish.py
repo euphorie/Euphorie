@@ -57,6 +57,7 @@ class PublicationTests(EuphorieTestCase):
         self.assertEqual(getattr(self.client.nl.dining, "old_object", False), False)
 
     def testPublishUpdatesLogo(self):
+        # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/136
         from plone.namedfile.file import NamedBlobImage
         white_gif="GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff" \
                "\xff\xff!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00" \
