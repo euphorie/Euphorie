@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2010-11-01 17:05+0100\n"
+"PO-Revision-Date: 2010-11-05 10:38+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -127,51 +127,58 @@ msgstr ""
 msgid "referer_other"
 msgstr "Baser ma nouvelle enquête sur l’enquête d’une autre organisation"
 
-#: euphorie/client/login.py:98
+#: euphorie/client/login.py:103
 msgid "Please enter your email address"
 msgstr "Veuillez saisir votre adresse e-mail"
 
-#: euphorie/client/login.py:104
+#: euphorie/client/login.py:109
 msgid "Unknown email address"
 msgstr "Adresse e-mail inconnue "
 
-#: euphorie/client/login.py:110
+#: euphorie/client/login.py:115
 msgid "OiRA registration reminder"
 msgstr "Rappel d’inscription OiRA"
 
-#: euphorie/client/login.py:118 euphorie/client/login.py:122
-#: euphorie/client/login.py:126
+#: euphorie/client/login.py:124 euphorie/client/login.py:128
+#: euphorie/client/login.py:132
 msgid "An error occured while sending the password reminder"
 msgstr "Une erreur s’est produite lors de l’envoi du rappel du mot de passe"
 
-#: euphorie/client/login.py:140
+#: euphorie/client/login.py:146
 msgid "An email with a password reminder has been sent to your address."
 msgstr ""
 "Un e-mail contenant un rappel du mot de passe a été envoyé à votre "
 "adresse."
 
 #. Default: Please enter your email address
-#: euphorie/client/login.py:156
+#: euphorie/client/login.py:162
 msgid "error_missing_email"
 msgstr "Veuillez saisir votre adresse e-mail"
 
+#. Default: Please enter a valid email address
+#: euphorie/client/login.py:164
+#, fuzzy
+#| msgid "error_invalid_xml"
+msgid "error_invalid_email"
+msgstr "Veuillez télécharger un fichier XML valide"
+
 #. Default: Please enter a password
-#: euphorie/client/login.py:158
+#: euphorie/client/login.py:166
 msgid "error_missing_password"
 msgstr "Veuillez saisir un mot de passe "
 
 #. Default: Passwords do not match
-#: euphorie/client/login.py:160
+#: euphorie/client/login.py:168
 msgid "error_password_mismatch"
 msgstr "Les mots de passe ne correspondent pas "
 
 #. Default: An account with this email address already exists.
-#: euphorie/client/login.py:168 euphorie/client/login.py:174
+#: euphorie/client/login.py:176 euphorie/client/login.py:182
 msgid "error_email_in_use"
 msgstr "Il existe déjà un compte associé à cette adresse e-mail."
 
 #. Default: Cancel
-#: euphorie/client/publish.py:202 euphorie/client/publish.py:251
+#: euphorie/client/publish.py:206 euphorie/client/publish.py:255
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:82
 #: euphorie/content/templates/survey_add.pt:26
@@ -180,25 +187,25 @@ msgid "button_cancel"
 msgstr "Annuler "
 
 #. Default: Publish
-#: euphorie/client/publish.py:208
+#: euphorie/client/publish.py:212
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publier"
 
-#: euphorie/client/publish.py:212
+#: euphorie/client/publish.py:216
 msgid "Succesfully published the survey"
 msgstr "L'enquête a bien été publiée"
 
 #. Default: Create preview
 #. Default: Preview
-#: euphorie/client/publish.py:257
+#: euphorie/client/publish.py:261
 #: euphorie/deployment/tiles/templates/versions.pt:30
 msgid "button_preview"
 msgstr ""
 "Créer un aperçu\n"
 "Aperçu"
 
-#: euphorie/client/publish.py:261
+#: euphorie/client/publish.py:265
 msgid ""
 "Succesfully created a preview for the survey. It can be accessed at "
 "${url} ."
