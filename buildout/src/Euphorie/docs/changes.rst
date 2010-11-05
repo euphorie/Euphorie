@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.1 - Unreleased
-----------------
+2.1 - November 6, 2010
+----------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
