@@ -1141,7 +1141,7 @@ h1 {
 	padding-top: 204px;
 	padding-bottom: 5px;
 	padding-left: 170px;
-	background: #031c48 url(header.png) no-repeat 0 0;
+	background: #362137 url(header.png) no-repeat 0 0;
 	font: lighter 35px "Abadi MT Condensed Light", Geneva, Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -2334,13 +2334,17 @@ body.alien #navigation li#home a {
 	width: 300px;
 	height: 50px;
 	overflow: hidden;
-	padding: 53px 0 0 78px;
+	padding: 45px 0 0 18px;
 	text-shadow: 0 1px 2px black;
 	letter-spacing: 0;
-	font: normal 54px/62px "Abadi MT Condensed LIght";
 	background-color: transparent;	position: absolute;
 	top: 0;
 	left: 0;
+	font: normal 10px/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#navigation li#home a strong {
+	display: none;
 }
 
 
@@ -2763,7 +2767,7 @@ ol {
 	font-size: 12px;
 	float: left;
 	padding: 10px 5px 20px 40px;
-	color: #565b7d;
+	color: #3e273f;
 	width: 113px;
 }
 
@@ -2795,7 +2799,7 @@ ol {
 	text-decoration: none;
 	padding: 10px 5px 20px 40px;
 	font-size: 12px;
-	color: #7e8ca2;
+	color: #8b5c8f;
 	text-shadow: rgba(0,0,0,0.83) 0 1px 0;
 	font-weight: bold;
 	margin: -10px -5px -20px -40px;
@@ -2808,7 +2812,7 @@ ol {
 }
 
 #steps li a:hover{
-	color: #8e9fb8;
+	color: #f9aaff;
 }
 
 .deCornae>#steps>li>a:hover{
@@ -2816,7 +2820,7 @@ ol {
 }
 
 #steps li.complete {
-	background: #e69d17 url(tabs.png) -632px -170px;
+	background: #996699 url(tabs.png) -632px -170px;
 }
 
 .deCornae #steps li.complete {
@@ -2824,14 +2828,14 @@ ol {
 }
 
 #steps li.complete a {
-	color: #6d4803;
+	color: #3e273f;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current {
-	color: #6d4803;
+	color: #3e273f;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
-	background: #e69d17 url(tabs.png) -316px -170px;
+	background: #996699 url(tabs.png) -316px -170px;
 	height: 20px;
 }
 
@@ -2862,13 +2866,13 @@ ol {
 
 #steps li.current a,
 #steps li.current a strong {
-	color: #6d4803;
+	color: #393354;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current a:hover,
 #steps li.complete a:hover {
-	color: #412b02;
+	color: #3e273f;
 }
 
 .deCornae #steps li.current a:hover,
