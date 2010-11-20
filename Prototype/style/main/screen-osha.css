@@ -1,0 +1,45 @@
+h1 {
+	background-color: #003399;
+}
+
+#steps li.complete,
+#steps li.current {
+	background-color: #996699;
+}
+
+#steps li {
+	font-size: 12px;
+	float: left;
+	padding: 10px 5px 20px 40px;
+	color: #4b68a2;
+	width: 113px;
+}
+
+#steps li.complete a,
+#steps li.current a,
+#steps li.current a strong {
+	color: #3d293d;
+}
+
+#steps li.current a:hover,
+#steps li.complete a:hover {
+	color: #000;
+}
+
+#steps li a {
+	width: 113px;
+	display: block;
+	text-decoration: none;
+	padding: 10px 5px 20px 40px;
+	font-size: 12px;
+	color: #8fa1c5;
+	text-shadow: rgba(0,0,0,0.83) 0 1px 0;
+	font-weight: bold;
+	margin: -10px -5px -20px -40px;
+	position: relative;
+	-webkit-transition: color 0.2s;
+}
+
+#steps li a:hover{
+	color: #8e9fb8;
+}
