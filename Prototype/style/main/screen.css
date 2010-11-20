@@ -349,9 +349,18 @@ body,
 
 a[rel="fancybox"] {
 	position: relative;
+	display: inline-block;
 }
 
-a[rel="fancybox"]:after {
+a[rel="fancybox"].floatBefore {
+	margin-right: 10px;
+}
+
+a[rel="fancybox"].floatAfter {
+	margin-left: 10px;
+}
+
+a[rel="fancybox"]:before {
 	position: absolute;
 	right: 0;
 	bottom: 1px;
@@ -373,7 +382,7 @@ a[rel="fancybox"]:after {
 	border-radius: 12px;
 }
 
-a[rel="fancybox"]:hover:after {
+a[rel="fancybox"]:hover:before {
 	-webkit-transform: scale(1);	
 	-moz-transform: scale(1);	
 	transform: scale(1);
