@@ -1141,7 +1141,7 @@ h1 {
 	padding-top: 204px;
 	padding-bottom: 5px;
 	padding-left: 170px;
-	background: #362137 url(header.png) no-repeat 0 0;
+	background: #031c48 url(header.png) no-repeat 0 0;
 	font: lighter 35px "Abadi MT Condensed Light", Geneva, Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -2345,7 +2345,7 @@ body.alien #navigation li#home a {
 
 #navigation li#home a strong {
 	display: none;
-}
+	}
 
 
 
@@ -2767,7 +2767,7 @@ ol {
 	font-size: 12px;
 	float: left;
 	padding: 10px 5px 20px 40px;
-	color: #3e273f;
+	color: #565b7d;
 	width: 113px;
 }
 
@@ -2799,7 +2799,7 @@ ol {
 	text-decoration: none;
 	padding: 10px 5px 20px 40px;
 	font-size: 12px;
-	color: #8b5c8f;
+	color: #7e8ca2;
 	text-shadow: rgba(0,0,0,0.83) 0 1px 0;
 	font-weight: bold;
 	margin: -10px -5px -20px -40px;
@@ -2812,7 +2812,7 @@ ol {
 }
 
 #steps li a:hover{
-	color: #f9aaff;
+	color: #8e9fb8;
 }
 
 .deCornae>#steps>li>a:hover{
@@ -2820,7 +2820,7 @@ ol {
 }
 
 #steps li.complete {
-	background: #996699 url(tabs.png) -632px -170px;
+	background: #e69d17 url(tabs.png) -632px -170px;
 }
 
 .deCornae #steps li.complete {
@@ -2828,14 +2828,14 @@ ol {
 }
 
 #steps li.complete a {
-	color: #3e273f;
+	color: #6d4803;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current {
-	color: #3e273f;
+	color: #6d4803;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
-	background: #996699 url(tabs.png) -316px -170px;
+	background: #e69d17 url(tabs.png) -316px -170px;
 	height: 20px;
 }
 
@@ -2866,13 +2866,13 @@ ol {
 
 #steps li.current a,
 #steps li.current a strong {
-	color: #393354;
+	color: #6d4803;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current a:hover,
 #steps li.complete a:hover {
-	color: #3e273f;
+	color: #412b02;
 }
 
 .deCornae #steps li.current a:hover,
