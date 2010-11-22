@@ -2,11 +2,9 @@
 A Guide to creating a Risk Assessment tool
 ==========================================
 
-.. image:: images/creation/demoscreen.png 
-  :width: 600 px
 
-1.Introduction
-==============
+1. Introduction
+===============
 
 Your goal is to create the content of the OiRA tool for enterprises in your sector, and to offer this sector-specific tool to them.
 The OiRA tool promotes a stepwise approach to risk assessment and is made up of 5 steps:
