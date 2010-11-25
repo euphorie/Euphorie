@@ -89,7 +89,7 @@
     </ol>
 
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_tool">OiRA</a></li>
+      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_logo"><strong>OiRA</strong><br/>Online interactive<br/>Risk Assessment</a></li>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/help_url}#sessions" i18n:translate="navigation_help">Help</a></li>
     </ul>

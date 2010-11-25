@@ -262,7 +262,7 @@
     </ol>
 
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}" tal:content="structure webhelpers/sector_title">Name of sector</a></li>
+      <li id="home"><a href="${webhelpers/client_url}"><strong>OiRA</strong><br/><span tal:replace="structure webhelpers/sector_title">Name of sector</span></a></li>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
       <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>
