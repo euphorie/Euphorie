@@ -4,7 +4,8 @@ Changelog
 2.2 - Unreleased
 ----------------
 
-- ...
+- Fixed the logo markup according to Cornelis' requirements to match the final OiRA logo
+  [pilz] 
 
 
 2.1 - November 6, 2010
