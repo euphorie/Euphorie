@@ -135,9 +135,9 @@ Once you have decided about the main structure of the risk assessment tool you c
  
 The system works with **affirmative statements**; that is, it states **whether a situation is ‘in order’ (the goal to be attained) or ‘not in order’;**
  
- .. note:
+ .. note::
 
-   Example: *Good lighting is present.*
+   Example: Good lighting is present.
 
 The end-user answer is either a clear ‘yes’ or ‘no’. If the end-user answers with NO (= the situation is not in order), then the problem is automatically included in the action plan step and the end-user will have to propose a measure to tackle the risk.
 
@@ -150,7 +150,7 @@ You can choose from 3 types of risks:
 
     .. note::
     
-      Example: *Working at height in the construction sector: the scaffold is erected on a firm foundation*
+      Example: Working at height in the construction sector: the scaffold is erected on a firm foundation
 
 
   * risk: refers to existing risks at the workplace or linked to the work carried out.
