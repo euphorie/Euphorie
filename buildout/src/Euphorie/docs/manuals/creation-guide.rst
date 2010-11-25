@@ -148,14 +148,14 @@ You can choose from 3 types of risks:
 
   * priority risk: refers to a risk considered by the sector to be among the high risks in the sector. 
 
-    .. note:
+    .. note::
     
       Example: *Working at height in the construction sector: the scaffold is erected on a firm foundation*
 
 
   * risk: refers to existing risks at the workplace or linked to the work carried out.
 
-    .. note:
+    .. note::
 
       Example: All office chairs are adjustable
 
@@ -163,7 +163,7 @@ To identify and evaluate the above two types of risk it is often necessary to ex
 
  * policy: refers to agreements, procedures, and management decisions regarding OSH issues. 
 
-    .. note:
+    .. example::
     
       Example: Manufacturers are regularly asked about alternative safe products 
 
