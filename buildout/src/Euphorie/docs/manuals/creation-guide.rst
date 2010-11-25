@@ -163,7 +163,7 @@ To identify and evaluate the above two types of risk it is often necessary to ex
 
  * policy: refers to agreements, procedures, and management decisions regarding OSH issues. 
 
-    .. example::
+    .. note::
     
       Example: Manufacturers are regularly asked about alternative safe products 
 
