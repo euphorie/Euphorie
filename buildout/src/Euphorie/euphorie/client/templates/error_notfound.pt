@@ -20,7 +20,7 @@
       The page you requested could not be found.
     </p>
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}"><strong>OiRA</strong><br/><span tal:replace="structure webhelpers/sector_title">Name of sector</span></a></li>
+      <li id="home"><a href="${webhelpers/client_url}"><span tal:replace="structure webhelpers/sector_title">Name of sector</span></a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
