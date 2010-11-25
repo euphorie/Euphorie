@@ -72,7 +72,7 @@
     </ol>
 
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}">${webhelpers/sector_title}</a></li>
+      <li id="home"><a href="${webhelpers/client_url}"><span tal:replace="structure webhelpers/sector_title">Name of sector</span></a></li>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
       <li><a href="${webhelpers/help_url}#evaluation" i18n:translate="navigation_help">Help</a></li>
