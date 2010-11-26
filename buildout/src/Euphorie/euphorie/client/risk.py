@@ -189,6 +189,15 @@ class ActionPlanItemForm(formapi.Form):
             pass
 
 
+    @formapi.validator("planning_start_year")
+    def valid_start_year(self):
+        year=self.data["planning_start_year"]
+        if year is None:
+            return
+
+        if year<1900:
+            yield _(u"Please enter a year after 1900")
+
     @formapi.validator("planning_end_day")
     def valid_end_day(self):
         day=self.data["planning_end_day"]
@@ -206,6 +215,14 @@ class ActionPlanItemForm(formapi.Form):
             # Invalid year most likely
             pass
 
+    @formapi.validator("planning_end_year")
+    def valid_end_year(self):
+        year=self.data["planning_end_year"]
+        if year is None:
+            return
+
+        if year<1900:
+            yield _(u"Please enter a year after 1900")
 
 
 

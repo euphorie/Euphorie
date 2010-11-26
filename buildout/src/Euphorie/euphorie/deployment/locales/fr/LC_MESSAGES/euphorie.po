@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2010-11-05 10:38+0100\n"
+"PO-Revision-Date: 2010-11-26 11:32+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -158,7 +158,6 @@ msgstr "Veuillez saisir votre adresse e-mail"
 #. Default: Please enter a valid email address
 #: euphorie/client/login.py:164
 #, fuzzy
-#| msgid "error_invalid_xml"
 msgid "error_invalid_email"
 msgstr "Veuillez télécharger un fichier XML valide"
 
@@ -214,9 +213,13 @@ msgstr ""
 "l'adresse ${url} ."
 
 #: euphorie/client/risk.py:180 euphorie/client/risk.py:186
-#: euphorie/client/risk.py:198 euphorie/client/risk.py:204
+#: euphorie/client/risk.py:207 euphorie/client/risk.py:213
 msgid "Invalid day of month"
 msgstr "Jour du mois invalide"
+
+#: euphorie/client/risk.py:199 euphorie/client/risk.py:225
+msgid "Please enter a year after 1900"
+msgstr ""
 
 #. Default: Identification ${title}.doc
 #: euphorie/client/survey.py:363
@@ -229,38 +232,17 @@ msgid "filename_actionplan_report"
 msgstr "Plan d'action ${title}.doc"
 
 #. Default: OiRA
+#. Default: Online interactiveRisk Assessment
 #: euphorie/client/utils.py:123 euphorie/client/templates/about.pt:111
-#: euphorie/client/templates/about.pt:13
-#: euphorie/client/templates/actionplan.pt:12
-#: euphorie/client/templates/appendix.pt:12
-#: euphorie/client/templates/error.pt:12
-#: euphorie/client/templates/error_notfound.pt:12
-#: euphorie/client/templates/evaluation.pt:12
-#: euphorie/client/templates/frontpage.pt:13
-#: euphorie/client/templates/help.pt:12
-#: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:46 euphorie/client/templates/login.pt:13
-#: euphorie/client/templates/module_actionplan.pt:12
-#: euphorie/client/templates/module_evaluation.pt:12
-#: euphorie/client/templates/module_identification.pt:12
+#: euphorie/client/templates/frontpage.pt:132
+#: euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/register.pt:41
-#: euphorie/client/templates/register.pt:12
 #: euphorie/client/templates/reminder.pt:40
-#: euphorie/client/templates/reminder.pt:12
-#: euphorie/client/templates/report.pt:12
-#: euphorie/client/templates/report_actionplan.pt:12
-#: euphorie/client/templates/report_company.pt:12
-#: euphorie/client/templates/report_identification.pt:12
-#: euphorie/client/templates/risk_actionplan.pt:12
-#: euphorie/client/templates/risk_evaluation.pt:12
-#: euphorie/client/templates/risk_identification.pt:12
 #: euphorie/client/templates/sessions.pt:92
-#: euphorie/client/templates/sessions.pt:13
-#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:83
-#: euphorie/client/templates/survey_sessions.pt:13
-#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
-msgid "title_tool"
+#, fuzzy
+#| msgid "title_tool"
+msgid "title_logo"
 msgstr "OiRA"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -587,6 +569,36 @@ msgstr ""
 #: euphorie/client/templates/about.pt:19
 msgid "title_about"
 msgstr "À propos"
+
+#. Default: OiRA
+#: euphorie/client/templates/about.pt:13
+#: euphorie/client/templates/actionplan.pt:12
+#: euphorie/client/templates/appendix.pt:12
+#: euphorie/client/templates/error.pt:12
+#: euphorie/client/templates/error_notfound.pt:12
+#: euphorie/client/templates/evaluation.pt:12
+#: euphorie/client/templates/frontpage.pt:13
+#: euphorie/client/templates/help.pt:12
+#: euphorie/client/templates/identification.pt:12
+#: euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/module_actionplan.pt:12
+#: euphorie/client/templates/module_evaluation.pt:12
+#: euphorie/client/templates/module_identification.pt:12
+#: euphorie/client/templates/register.pt:12
+#: euphorie/client/templates/reminder.pt:12
+#: euphorie/client/templates/report.pt:12
+#: euphorie/client/templates/report_actionplan.pt:12
+#: euphorie/client/templates/report_company.pt:12
+#: euphorie/client/templates/report_identification.pt:12
+#: euphorie/client/templates/risk_actionplan.pt:12
+#: euphorie/client/templates/risk_evaluation.pt:12
+#: euphorie/client/templates/risk_identification.pt:12
+#: euphorie/client/templates/sessions.pt:13
+#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
+#: euphorie/client/templates/survey_sessions.pt:13
+#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
+msgid "title_tool"
+msgstr "OiRA"
 
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
@@ -1850,7 +1862,7 @@ msgstr "Solutions habituelles"
 msgid "label_add_measure"
 msgstr "Ajouter une autre mesure"
 
-#. Default: Invalid year
+#. Default: Please enter a valid year after 1900
 #: euphorie/client/templates/risk_actionplan.pt:117
 #: euphorie/client/templates/risk_actionplan.pt:91
 msgid "error_invalid_year"

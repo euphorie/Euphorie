@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 2.1\n"
+"Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2010-11-05 10:38+0100\n"
+"POT-Creation-Date: 2010-11-26 11:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,8 +185,12 @@ msgid "Succesfully created a preview for the survey. It can be accessed at ${url
 msgstr ""
 
 #: euphorie/client/risk.py:180 euphorie/client/risk.py:186
-#: euphorie/client/risk.py:198 euphorie/client/risk.py:204
+#: euphorie/client/risk.py:207 euphorie/client/risk.py:213
 msgid "Invalid day of month"
+msgstr ""
+
+#: euphorie/client/risk.py:199 euphorie/client/risk.py:225
+msgid "Please enter a year after 1900"
 msgstr ""
 
 #. Default: Identification ${title}.doc
@@ -200,34 +204,14 @@ msgid "filename_actionplan_report"
 msgstr ""
 
 #. Default: OiRA
+#. Default: Online interactiveRisk Assessment
 #: euphorie/client/utils.py:123 euphorie/client/templates/about.pt:111
-#: euphorie/client/templates/about.pt:13 euphorie/client/templates/actionplan.pt:12
-#: euphorie/client/templates/appendix.pt:12 euphorie/client/templates/error.pt:12
-#: euphorie/client/templates/error_notfound.pt:12
-#: euphorie/client/templates/evaluation.pt:12
-#: euphorie/client/templates/frontpage.pt:13 euphorie/client/templates/help.pt:12
-#: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:46 euphorie/client/templates/login.pt:13
-#: euphorie/client/templates/module_actionplan.pt:12
-#: euphorie/client/templates/module_evaluation.pt:12
-#: euphorie/client/templates/module_identification.pt:12
+#: euphorie/client/templates/frontpage.pt:132 euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/register.pt:41
-#: euphorie/client/templates/register.pt:12
 #: euphorie/client/templates/reminder.pt:40
-#: euphorie/client/templates/reminder.pt:12 euphorie/client/templates/report.pt:12
-#: euphorie/client/templates/report_actionplan.pt:12
-#: euphorie/client/templates/report_company.pt:12
-#: euphorie/client/templates/report_identification.pt:12
-#: euphorie/client/templates/risk_actionplan.pt:12
-#: euphorie/client/templates/risk_evaluation.pt:12
-#: euphorie/client/templates/risk_identification.pt:12
 #: euphorie/client/templates/sessions.pt:92
-#: euphorie/client/templates/sessions.pt:13 euphorie/client/templates/start.pt:12
-#: euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:83
-#: euphorie/client/templates/survey_sessions.pt:13
-#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
-msgid "title_tool"
+msgid "title_logo"
 msgstr ""
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -454,6 +438,32 @@ msgstr ""
 #. Default: About
 #: euphorie/client/templates/about.pt:19
 msgid "title_about"
+msgstr ""
+
+#. Default: OiRA
+#: euphorie/client/templates/about.pt:13 euphorie/client/templates/actionplan.pt:12
+#: euphorie/client/templates/appendix.pt:12 euphorie/client/templates/error.pt:12
+#: euphorie/client/templates/error_notfound.pt:12
+#: euphorie/client/templates/evaluation.pt:12
+#: euphorie/client/templates/frontpage.pt:13 euphorie/client/templates/help.pt:12
+#: euphorie/client/templates/identification.pt:12
+#: euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/module_actionplan.pt:12
+#: euphorie/client/templates/module_evaluation.pt:12
+#: euphorie/client/templates/module_identification.pt:12
+#: euphorie/client/templates/register.pt:12
+#: euphorie/client/templates/reminder.pt:12 euphorie/client/templates/report.pt:12
+#: euphorie/client/templates/report_actionplan.pt:12
+#: euphorie/client/templates/report_company.pt:12
+#: euphorie/client/templates/report_identification.pt:12
+#: euphorie/client/templates/risk_actionplan.pt:12
+#: euphorie/client/templates/risk_evaluation.pt:12
+#: euphorie/client/templates/risk_identification.pt:12
+#: euphorie/client/templates/sessions.pt:13 euphorie/client/templates/start.pt:12
+#: euphorie/client/templates/status.pt:12
+#: euphorie/client/templates/survey_sessions.pt:13
+#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
+msgid "title_tool"
 msgstr ""
 
 #. Default: Status
@@ -1503,7 +1513,7 @@ msgstr ""
 msgid "label_add_measure"
 msgstr ""
 
-#. Default: Invalid year
+#. Default: Please enter a valid year after 1900
 #: euphorie/client/templates/risk_actionplan.pt:117
 #: euphorie/client/templates/risk_actionplan.pt:91
 msgid "error_invalid_year"
