@@ -28,3 +28,35 @@ class ReportTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.headers.type, "application/msword")
         self.assertEqual(browser.headers.get("Content-Disposition"),
                 'attachment; filename="Action plan Sessi\xc3\xb8n.doc"')
+
+
+    def testInvalidDateDoesNotBreakRendering(self):
+        import datetime
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from z3c.saconfig import Session
+        from euphorie.client import model
+        
+        # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/150
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        browser=Browser()
+        survey_url=self.portal.client.nl["ict"]["software-development"].absolute_url()
+        browser.open(survey_url)
+        registerUserInClient(browser)
+        # Create a new survey session
+        browser.getControl(name="title:utf8:ustring").value=u"Sessiøn".encode("utf-8")
+        browser.getControl(name="next", index=1).click()
+        # Start the survey
+        browser.getForm().submit()
+        browser.getLink("Start Risk Identification").click()
+        # Update the risk
+        risk=Session.query(model.Risk).first()
+        risk.identification="no"
+        risk.action_plans.append(model.ActionPlan(
+            action_plan=u"Do something awesome",
+            planning_start=datetime.date(1,2,3)))
+        # Render the report
+        browser.handleErrors=False
+        browser.open("http://nohost/plone/client/nl/ict/software-development/report/view")
+        # No errors = success
+

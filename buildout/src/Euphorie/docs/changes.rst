@@ -4,9 +4,14 @@ Changelog
 2.2 - Unreleased
 ----------------
 
+- Require NuPlone 1.0b5 or later so ``formatDate`` does not raise exceptions for
+  pre-1900 dates. This fixes `TNO ticket 150
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
+  [wichert]
+
+
 - Do not accept pre-1900 dates in the action plan, since they break rendering of the report.
-  This prevents `TNO ticket 150
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_ from occuring.
+  This prevents `TNO ticket 150`_ from occuring.
   [wichert]
 
 - Fixed the logo markup according to Cornelis' requirements to match the final OiRA logo

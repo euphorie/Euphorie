@@ -7,7 +7,7 @@ from euphorie.client.tests.utils import registerUserInClient
 
 
 class RiskTests(EuphorieFunctionalTestCase):
-    def testInvalidDateDoesNotBreakRendering(self):
+    def testPreventEarlyDate(self):
         from euphorie.content.tests.utils import BASIC_SURVEY
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/150
         self.loginAsPortalOwner()
@@ -22,7 +22,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
-        # Identify the survey
+        # Identify the risk
         browser.getControl("next").click()
         browser.getControl(name="answer").value=["no"]
         browser.getControl("next").click()
