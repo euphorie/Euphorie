@@ -129,7 +129,7 @@
     </ul>
 
     <ul id="navigation">
-      <li id="home"><a href="/" i18n:translate="title_logo"><strong>OiRA</strong><br/>Online interactive<br/>Risk Assessment</a></li>
+      <li id="home"><a href="/" i18n:translate="title_logo"><strong i18n:name="tool_name" i18n:translate="title_tool">OiRA</strong><br/>Online interactive<br i18n:name="newline"/>Risk Assessment</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/javascript"/>
    <script type="text/javascript">

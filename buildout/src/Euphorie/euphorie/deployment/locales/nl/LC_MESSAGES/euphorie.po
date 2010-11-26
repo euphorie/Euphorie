@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2010-11-26 11:32+0100\n"
+"PO-Revision-Date: 2010-11-26 13:33+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -219,17 +219,39 @@ msgid "filename_actionplan_report"
 msgstr "Plan van aanpak ${title}.doc"
 
 #. Default: OiRA
-#. Default: Online interactiveRisk Assessment
 #: euphorie/client/utils.py:123 euphorie/client/templates/about.pt:111
+#: euphorie/client/templates/about.pt:13
+#: euphorie/client/templates/actionplan.pt:12
+#: euphorie/client/templates/appendix.pt:12
+#: euphorie/client/templates/error.pt:12
+#: euphorie/client/templates/error_notfound.pt:12
+#: euphorie/client/templates/evaluation.pt:12
 #: euphorie/client/templates/frontpage.pt:132
-#: euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/frontpage.pt:13
+#: euphorie/client/templates/help.pt:12
+#: euphorie/client/templates/identification.pt:12
+#: euphorie/client/templates/login.pt:46 euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/module_actionplan.pt:12
+#: euphorie/client/templates/module_evaluation.pt:12
+#: euphorie/client/templates/module_identification.pt:12
 #: euphorie/client/templates/register.pt:41
+#: euphorie/client/templates/register.pt:12
 #: euphorie/client/templates/reminder.pt:40
+#: euphorie/client/templates/reminder.pt:12
+#: euphorie/client/templates/report.pt:12
+#: euphorie/client/templates/report_actionplan.pt:12
+#: euphorie/client/templates/report_company.pt:12
+#: euphorie/client/templates/report_identification.pt:12
+#: euphorie/client/templates/risk_actionplan.pt:12
+#: euphorie/client/templates/risk_evaluation.pt:12
+#: euphorie/client/templates/risk_identification.pt:12
 #: euphorie/client/templates/sessions.pt:92
+#: euphorie/client/templates/sessions.pt:13
+#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:83
-#, fuzzy
-#| msgid "title_tool"
-msgid "title_logo"
+#: euphorie/client/templates/survey_sessions.pt:13
+#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
+msgid "title_tool"
 msgstr "OiRA"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -273,6 +295,17 @@ msgstr "Branche-informatie en groepen voor de gebruiker"
 msgid "navigation_help"
 msgstr "Help"
 
+#. Default: ${tool_name}Online interactive${newline}Risk Assessment
+#: euphorie/client/templates/about.pt:111
+#: euphorie/client/templates/frontpage.pt:132
+#: euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/register.pt:41
+#: euphorie/client/templates/reminder.pt:40
+#: euphorie/client/templates/sessions.pt:92
+#: euphorie/client/templates/survey_sessions.pt:83
+msgid "title_logo"
+msgstr "${tool_name}Online interactieve${newline}Risico Analyse"
+
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: euphorie/client/templates/about.pt:106
 msgid "about_licenses_3"
@@ -281,15 +314,15 @@ msgstr "Deze OiRA branche RI&E's zijn gratis voor alle gebruikers."
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
 #: euphorie/client/templates/about.pt:104
 msgid "about_licenses_2"
-msgstr ""
+msgstr "De inhoud van de RI&E's zijn gelicenceerd onder de ${license}"
 
 #: euphorie/client/templates/about.pt:104
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
-msgstr ""
+msgstr "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 
 #: euphorie/client/templates/about.pt:104
 msgid "Creative Commons License"
-msgstr ""
+msgstr "Creative Commons License"
 
 #. Default: The source code of the OiRA application is ${GPL} licensed.
 #: euphorie/client/templates/about.pt:100
@@ -326,6 +359,8 @@ msgstr "Nederland"
 #: euphorie/client/templates/about.pt:77
 msgid "about_partners_2"
 msgstr ""
+"De volgende technische partners hebben bijgedragen bij de ontwikkeling "
+"van het OiRA project:"
 
 #. Default: The OiRA project and its related web application has been developed
 #. by
@@ -345,7 +380,7 @@ msgstr ""
 #. Default: Development partners
 #: euphorie/client/templates/about.pt:72
 msgid "header_development_partners"
-msgstr ""
+msgstr "ontwikkelingspartners"
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the
@@ -355,11 +390,14 @@ msgstr ""
 #: euphorie/client/templates/about.pt:69
 msgid "phase_launch"
 msgstr ""
+"De officiële lancering van dit hulpmiddel zal plaatsvinden in september "
+"2011, als de doelstellingen van de testfase zijn bereiken en de OiRA "
+"website, het trainingsrooster en de OiRA helpdesk beschikbaar zijn."
 
 #. Default: Official launch of the project – September 2011
 #: euphorie/client/templates/about.pt:68
 msgid "header_launch"
-msgstr ""
+msgstr "Officiële lancering van het project - September 2011"
 
 #. Default: After the technical development of the tool in 2009, in 2010 (until
 #. the
@@ -377,17 +415,17 @@ msgstr ""
 #. Default: Development and pilot phase – 2009-2011
 #: euphorie/client/templates/about.pt:61
 msgid "header_devel_phase"
-msgstr ""
+msgstr "Ontwikkeling en pilotfase - 2009-2011"
 
 #. Default: Project Phases
 #: euphorie/client/templates/about.pt:60
 msgid "header_project_phases"
-msgstr ""
+msgstr "Projectfasen"
 
 #. Default: More information about the OiRA project (in English)
 #: euphorie/client/templates/about.pt:58
 msgid "about_oiraproject"
-msgstr ""
+msgstr "Meer informatie over het OiRA project (engelstalig)"
 
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate
@@ -484,36 +522,6 @@ msgstr ""
 #: euphorie/client/templates/about.pt:19
 msgid "title_about"
 msgstr "Over"
-
-#. Default: OiRA
-#: euphorie/client/templates/about.pt:13
-#: euphorie/client/templates/actionplan.pt:12
-#: euphorie/client/templates/appendix.pt:12
-#: euphorie/client/templates/error.pt:12
-#: euphorie/client/templates/error_notfound.pt:12
-#: euphorie/client/templates/evaluation.pt:12
-#: euphorie/client/templates/frontpage.pt:13
-#: euphorie/client/templates/help.pt:12
-#: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:13
-#: euphorie/client/templates/module_actionplan.pt:12
-#: euphorie/client/templates/module_evaluation.pt:12
-#: euphorie/client/templates/module_identification.pt:12
-#: euphorie/client/templates/register.pt:12
-#: euphorie/client/templates/reminder.pt:12
-#: euphorie/client/templates/report.pt:12
-#: euphorie/client/templates/report_actionplan.pt:12
-#: euphorie/client/templates/report_company.pt:12
-#: euphorie/client/templates/report_identification.pt:12
-#: euphorie/client/templates/risk_actionplan.pt:12
-#: euphorie/client/templates/risk_evaluation.pt:12
-#: euphorie/client/templates/risk_identification.pt:12
-#: euphorie/client/templates/sessions.pt:13
-#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
-#: euphorie/client/templates/survey_sessions.pt:13
-#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
-msgid "title_tool"
-msgstr "OiRA"
 
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
@@ -2253,9 +2261,12 @@ msgstr "Vraagstelling"
 #. profile question (statement), it must be formulated as a prompt to fill in
 #. multiple values.
 #: euphorie/content/profilequestion.py:36
-#, fuzzy
 msgid "help_profilequestion_question"
-msgstr "Dit is een optioneel profielonderdeel."
+msgstr ""
+"Als dit een 'optionele' profielvraag is, dan moet hij geformuleerd zijn "
+"in een vraag die met JA of NEE te beantwoorden is. Bij een herhaalbare "
+"vraag moet dit geformuleerd zijn als een vraag die meerdere antwoorden "
+"kan hebben."
 
 #. Default: Type
 #: euphorie/content/profilequestion.py:55

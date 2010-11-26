@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2010-11-26 11:32+0100\n"
+"PO-Revision-Date: 2010-11-26 13:33+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -232,17 +232,39 @@ msgid "filename_actionplan_report"
 msgstr "Plan d'action ${title}.doc"
 
 #. Default: OiRA
-#. Default: Online interactiveRisk Assessment
 #: euphorie/client/utils.py:123 euphorie/client/templates/about.pt:111
+#: euphorie/client/templates/about.pt:13
+#: euphorie/client/templates/actionplan.pt:12
+#: euphorie/client/templates/appendix.pt:12
+#: euphorie/client/templates/error.pt:12
+#: euphorie/client/templates/error_notfound.pt:12
+#: euphorie/client/templates/evaluation.pt:12
 #: euphorie/client/templates/frontpage.pt:132
-#: euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/frontpage.pt:13
+#: euphorie/client/templates/help.pt:12
+#: euphorie/client/templates/identification.pt:12
+#: euphorie/client/templates/login.pt:46 euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/module_actionplan.pt:12
+#: euphorie/client/templates/module_evaluation.pt:12
+#: euphorie/client/templates/module_identification.pt:12
 #: euphorie/client/templates/register.pt:41
+#: euphorie/client/templates/register.pt:12
 #: euphorie/client/templates/reminder.pt:40
+#: euphorie/client/templates/reminder.pt:12
+#: euphorie/client/templates/report.pt:12
+#: euphorie/client/templates/report_actionplan.pt:12
+#: euphorie/client/templates/report_company.pt:12
+#: euphorie/client/templates/report_identification.pt:12
+#: euphorie/client/templates/risk_actionplan.pt:12
+#: euphorie/client/templates/risk_evaluation.pt:12
+#: euphorie/client/templates/risk_identification.pt:12
 #: euphorie/client/templates/sessions.pt:92
+#: euphorie/client/templates/sessions.pt:13
+#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:83
-#, fuzzy
-#| msgid "title_tool"
-msgid "title_logo"
+#: euphorie/client/templates/survey_sessions.pt:13
+#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
+msgid "title_tool"
 msgstr "OiRA"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -285,6 +307,18 @@ msgstr "Informations secteur et regroupement pour le client. "
 #: euphorie/content/templates/colour-preview.pt:56
 msgid "navigation_help"
 msgstr "Aide"
+
+#. Default: ${tool_name}Online interactive${newline}Risk Assessment
+#: euphorie/client/templates/about.pt:111
+#: euphorie/client/templates/frontpage.pt:132
+#: euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/register.pt:41
+#: euphorie/client/templates/reminder.pt:40
+#: euphorie/client/templates/sessions.pt:92
+#: euphorie/client/templates/survey_sessions.pt:83
+#, fuzzy
+msgid "title_logo"
+msgstr "OiRA"
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: euphorie/client/templates/about.pt:106
@@ -569,36 +603,6 @@ msgstr ""
 #: euphorie/client/templates/about.pt:19
 msgid "title_about"
 msgstr "À propos"
-
-#. Default: OiRA
-#: euphorie/client/templates/about.pt:13
-#: euphorie/client/templates/actionplan.pt:12
-#: euphorie/client/templates/appendix.pt:12
-#: euphorie/client/templates/error.pt:12
-#: euphorie/client/templates/error_notfound.pt:12
-#: euphorie/client/templates/evaluation.pt:12
-#: euphorie/client/templates/frontpage.pt:13
-#: euphorie/client/templates/help.pt:12
-#: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:13
-#: euphorie/client/templates/module_actionplan.pt:12
-#: euphorie/client/templates/module_evaluation.pt:12
-#: euphorie/client/templates/module_identification.pt:12
-#: euphorie/client/templates/register.pt:12
-#: euphorie/client/templates/reminder.pt:12
-#: euphorie/client/templates/report.pt:12
-#: euphorie/client/templates/report_actionplan.pt:12
-#: euphorie/client/templates/report_company.pt:12
-#: euphorie/client/templates/report_identification.pt:12
-#: euphorie/client/templates/risk_actionplan.pt:12
-#: euphorie/client/templates/risk_evaluation.pt:12
-#: euphorie/client/templates/risk_identification.pt:12
-#: euphorie/client/templates/sessions.pt:13
-#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
-#: euphorie/client/templates/survey_sessions.pt:13
-#: euphorie/client/templates/updated.pt:12 euphorie/content/sector.py:239
-msgid "title_tool"
-msgstr "OiRA"
 
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
