@@ -83,6 +83,7 @@ Le système offre la possibilité de réunir des rubriques, des sous-rubriques e
 .. image:: ../images/creation/module.png 
   :align: left
   :height: 32 px
+  
 **MODULES** = rubriques (lieux, activités, ...)
   
   *Exemple*: 
@@ -91,6 +92,7 @@ Le système offre la possibilité de réunir des rubriques, des sous-rubriques e
   .. image:: ../images/creation/submodule.png 
     :align: left
     :height: 32 px
+    
   **SOUS-MODULES** (facultatif) = sous-rubriques
   
     *Exemple*: 
@@ -101,6 +103,7 @@ Le système offre la possibilité de réunir des rubriques, des sous-rubriques e
     .. image:: ../images/creation/risk.png 
       :align: left
       :height: 32 px
+      
     **RISQUES** = déclarations concernant une situation qui est régulière
     
       *Exemple*: 
@@ -111,6 +114,7 @@ Le système offre la possibilité de réunir des rubriques, des sous-rubriques e
       .. image:: ../images/creation/solution.png 
         :align: left
         :height: 32 px
+        
       **SOLUTIONS** = mesures préventives recommandées par l’expert pour résoudre le problème 
       
         *Exemple*: 
@@ -125,7 +129,7 @@ Le système offre aussi la possibilité de:
   * répéter certains modules, au cas où des entreprises ont plusieurs implantations
 
 3.2 Définissez les risques par des déclarations positives (affirmation)
--------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 Dès que vous avez défini la trame principale de l'outil d'évaluation des risques vous pouvez commencer à identifier et à expliquer différents les risques. 
 
@@ -161,6 +165,8 @@ Pour identifier et évaluer  de tels risques il est souvent nécessaire de faire
     .. note:: 
   
       Exemple: On demande régulièrement aux fournisseurs des produits alternatifs et sûrs. 
+      
+Il est possible de répondre à ce type de questions depuis un bureau (il n’y a pas besoin d’analyser le lieu de travail).
 
 3.4 Paramétrez  l'évaluation des risques 
 ----------------------------------------------
