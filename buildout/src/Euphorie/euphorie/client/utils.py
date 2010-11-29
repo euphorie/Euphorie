@@ -58,23 +58,20 @@ class WebHelpers(BrowserView):
     found as an attribute on the request. This is normally setup by the
     :py:class:`euphorie.client.survey.SurveyPublishTraverser` traverser.
     """
+    sector = None
+
+    def __init__(self, context, request):
+        super(WebHelpers, self).__init__(context, request)
+        for obj in aq_chain(aq_inner(self.context)):
+            if IClientSector.providedBy(obj):
+                self.sector=obj
+                break
+        self.debug_mode=Globals.DevelopmentMode
 
 
     @property
     def macros(self):
         return self.index.macros
-
-
-    def _sector(self):
-        for obj in aq_chain(aq_inner(self.context)):
-            if IClientSector.providedBy(obj):
-                return obj
-        else:
-            return None
-
-
-    def debug_mode(self):
-        return Globals.DevelopmentMode
 
 
     def country(self):
@@ -86,9 +83,13 @@ class WebHelpers(BrowserView):
             return None
 
 
+    def logoMode(self):
+        return "alien" if "alien" in self.extra_css else "native"
+
+
     @reify
     def extra_css(self):
-        sector=self._sector()
+        sector=self.sector
         if sector is None:
             return u""
 
@@ -116,7 +117,7 @@ class WebHelpers(BrowserView):
         """Return the title to use for the current sector. If the current
         context is not in a sector return the agency name instead.
         """
-        sector=self._sector()
+        sector=self.sector
         if sector is not None and getattr(aq_base(sector), "logo", None) is not None:
             return sector.Title()
         else:
@@ -168,7 +169,7 @@ class WebHelpers(BrowserView):
     @reify
     def country_url(self):
         """Return the absolute URL for country page."""
-        sector=self._sector()
+        sector=self.sector
         if sector is not None:
             return aq_parent(sector).absolute_url()
 
@@ -190,7 +191,7 @@ class WebHelpers(BrowserView):
     def sector_url(self):
         """Return the URL for the current survey.
         """
-        sector=self._sector()
+        sector=self.sector
         if sector is None:
             return None
 

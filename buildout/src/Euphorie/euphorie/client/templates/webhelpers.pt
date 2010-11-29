@@ -8,6 +8,16 @@
       meta:interpolation="true"
       i18n:domain="euphorie">
 
+  <metal:home define-macro="homelink" meta:interpolation="true" tal:define="logo_mode webhelpers/logoMode">
+    <li id="home">
+      <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='alien'">${webhelpers/sector/title}</a>
+      <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='native'">
+        <strong i18n:name="tool_name" i18n:translate="title_tool">OiRA</strong><br/>
+        <span tal:omit-tag="" i18n:translate="oira_name_line_1">Online interactive</span><br/>
+        <span tal:omit-tag="" i18n:translate="oira_name_line_2">Risk Assessment</span></a>
+    </li>
+  </metal:home>
+
   <metal:css define-macro="css" meta:interpolation="true" tal:define="base_url client/++resource++euphorie.style">
     <tal:block condition="webhelpers/debug_mode">
       <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.css" />

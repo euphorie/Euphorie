@@ -195,7 +195,7 @@
     </ol>
 
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}"><span tal:replace="structure webhelpers/sector_title">Name of sector</span></a></li>
+      <metal:home use-macro="webhelpers/homelink"/>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
       <li><a href="${webhelpers/help_url}#actionplan" i18n:translate="navigation_help">Help</a></li>

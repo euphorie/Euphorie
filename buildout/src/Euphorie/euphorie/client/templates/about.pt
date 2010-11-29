@@ -108,7 +108,7 @@
     </p>
 
     <ul id="navigation">
-      <li id="home"><a href="${webhelpers/client_url}" i18n:translate="title_logo"><strong i18n:name="tool_name" i18n:translate="title_tool">OiRA</strong><br/>Online interactive<br i18n:name="newline"/>Risk Assessment</a></li>
+      <metal:home use-macro="webhelpers/homelink"/>
       <li><a href="${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
