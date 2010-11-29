@@ -5,7 +5,6 @@ from zope.annotation.interfaces import IAttributeAnnotatable
 from euphorie.content.behaviour.uniqueid import UniqueNameChooser
 from euphorie.content.behaviour.uniqueid import IIdGenerationRoot
 from euphorie.content.behaviour.uniqueid import INameFromUniqueId
-from euphorie.content.behaviour.publish import ObjectPublished
 from euphorie.content.behaviour.richdescription import Description
 from zope.component.testing import PlacelessSetup
 from zope.interface import implements
@@ -74,17 +73,41 @@ class MockContainer(dict):
             setattr(self, key, value)
 
 
-class ObjectPublishedTests(unittest.TestCase):
-    def testNoPublishedFlag(self):
+class HandleWorkflowTransitionTests(unittest.TestCase):
+    def handleWorklowTransition(self, obj, event):
+        from euphorie.content.behaviour.publish import handleWorklowTransition
+        handleWorklowTransition(obj, event)
+
+    def testPublishTransitionNoFlagPresent(self):
         survey=Mock()
-        ObjectPublished(survey, None)
+        event=Mock()
+        event.action="publish"
+        self.handleWorklowTransition(survey, event)
         self.assertEqual(survey.published, True)
 
-    def testPublishedFlagPresenet(self):
+    def testPublishTransitionFlagPresent(self):
         survey=Mock()
         survey.published=False
-        ObjectPublished(survey, None)
+        event=Mock()
+        event.action="publish"
+        self.handleWorklowTransition(survey, event)
         self.assertEqual(survey.published, True)
+
+    def testDoNothingOnOtherTransition(self):
+        survey=Mock()
+        survey.published=False
+        event=Mock()
+        event.action="update"
+        self.handleWorklowTransition(survey, event)
+        self.assertEqual(survey.published, False)
+
+    def testRetract(self):
+        survey=Mock()
+        survey.published=True
+        event=Mock()
+        event.action="retract"
+        self.handleWorklowTransition(survey, event)
+        self.assertEqual(survey.published, False)
 
 
 

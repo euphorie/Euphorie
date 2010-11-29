@@ -2,12 +2,10 @@
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="euphorie">
 
-    <subscriber handler=".publish.CheckObjectRemoval" />
-    <subscriber handler=".publish.ObjectPublished" />
     <adapter name="Description" factory=".richdescription.Description" />
 
     <plone:behavior
-        title="Ditry tree root"
+        title="Dirty tree root"
         description="This makes objects keep track of changes in child objects."
         provides=".dirtytree.IDirtyTreeRoot"
         for="plone.dexterity.interfaces.IDexterityContent"

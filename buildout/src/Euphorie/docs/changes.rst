@@ -10,6 +10,11 @@ Feature changes
 - Switch the client to the new OiRA logo.
   [cornae,pilz,wichert] 
 
+- When making a copy of a survey reset its workflow state back to *draft*. This
+  allows deleting of content in a new survey that is based on a published survey.
+  This is part of `TNO ticket 124`_.
+  [wichert]
+
 Bugfixes
 ~~~~~~~~
 

@@ -146,13 +146,18 @@ class AddForm(dexterity.AddForm):
         copy.title=title
         target._setObject(copy.id, copy)
 
+        if hasattr(copy, "published"):
+            delattr(copy, "published")
         copy=target[copy.id] # Acquisition-wrap
         copy.wl_clearLocks()
         copy._postCopy(target, op=0)
-# XXX Reset workflow state to allow deletion of content again
+
+        wt=getToolByName(copy, "portal_workflow")
+        if wt.getInfoFor(copy, "review_state")=="published":
+            wt.doActionFor(copy, "retract")
+
         notify(ObjectClonedEvent(target[copy.id]))
         return copy
-
 
 
     def createAndAdd(self, data):

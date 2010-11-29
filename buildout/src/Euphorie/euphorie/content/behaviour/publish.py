@@ -15,8 +15,9 @@ from AccessControl import Unauthorized
 from OFS.interfaces import IObjectWillBeRemovedEvent
 from OFS.interfaces import IObjectClonedEvent
 from OFS.event import ObjectClonedEvent
-from zope.component import adapter
 from zope.interface import implements
+from five import grok
+from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import _checkPermission
 from zope import schema
 from euphorie.content import MessageFactory as _
@@ -42,7 +43,7 @@ class IPublishRemovalProtection(form.Schema):
     form.omitted("published")
 
 
-@adapter(IPublishRemovalProtection, IObjectWillBeRemovedEvent)
+@grok.subscribe(IPublishRemovalProtection, IObjectWillBeRemovedEvent)
 def CheckObjectRemoval(obj, event):
     """Pre-removal event handler.
 
@@ -55,6 +56,7 @@ def CheckObjectRemoval(obj, event):
     deletion is allowed.
     """
 
+    # XXX: check the workflow state instead of the published flag?
     if getattr(obj, "published", False) and \
             not _checkPermission("Euphorie: Delete published content", obj):
         raise Unauthorized("Deletion of published content is not allowed")
@@ -70,12 +72,16 @@ class ObjectPublishedEvent(ObjectClonedEvent):
     implements(IObjectPublishedEvent)
 
 
-@adapter(IPublishRemovalProtection, IObjectPublishedEvent)
-def ObjectPublished(obj, event):
+@grok.subscribe(IPublishRemovalProtection, IActionSucceededEvent)
+def handleWorklowTransition(obj, event):
     """Set published flag for all items with IPublishRemovalProtection behaviour.
 
     Note that we do not have to recurse into children ourselves: the
     `IObjectPublishedEvent` event is derived from `IObjectCopiedEvent`,
     which `Products.CMFCore` re-dispatches to all children.
     """
-    obj.published=True
+    if event.action=="publish":
+        obj.published=True
+    elif event.action=="retract":
+        obj.published=False
+

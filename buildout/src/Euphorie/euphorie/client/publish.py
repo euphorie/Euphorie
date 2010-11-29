@@ -201,8 +201,6 @@ class PublishSurvey(form.Form):
         return "/".join([client_url, country.id, sector.id, surveygroup.id])
 
 
-
-
     @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
         state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")

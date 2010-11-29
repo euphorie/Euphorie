@@ -35,6 +35,7 @@ class SurveyGroupTests(EuphorieTestCase):
         self.assertFalse(surveygroup.cb_isCopyable())
 
 
+
 class HandleSurveyPublishTests(EuphorieTestCase):
     def _create(self, container, *args, **kwargs):
         newid=container.invokeFactory(*args, **kwargs)
@@ -79,6 +80,7 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         self.assertEqual(surveygroup.published, "survey")
 
 
+
 class AddFormTests(EuphorieTestCase):
     def _create(self, container, *args, **kwargs):
         newid=container.invokeFactory(*args, **kwargs)
@@ -93,6 +95,7 @@ class AddFormTests(EuphorieTestCase):
         return module
 
     def testCopyPreservesOrder(self):
+        from Acquisition import aq_parent
         from euphorie.content.surveygroup import AddForm
         original_order=[ u"one", u"two", u"three", u"four", u"five", u"six", u"seven", u"eight", u"nine", u"ten"]
         self.loginAsPortalOwner()
@@ -101,12 +104,14 @@ class AddFormTests(EuphorieTestCase):
             self._create(module, "euphorie.risk", title, title=title)
         self.assertEqual([r.title for r in module.values()], original_order)
         request=module.REQUEST
-        container=module.aq_parent
-        copy=self._create(container, "euphorie.module", "copy")
-        copy=AddForm(container, request).copyTemplate(module, copy)
-        self.assertEqual([r.title for r in copy.values()], original_order)
+        survey=aq_parent(module)
+        container=self.portal.sectors.nl.sector
+        target=self._create(container, "euphorie.surveygroup", "target")
+        copy=AddForm(container, request).copyTemplate(survey, target)
+        self.assertEqual([r.title for r in copy["module"].values()], original_order)
 
     def testReorderThenCopyTemplateKeepsOrder(self):
+        from Acquisition import aq_parent
         from plone.folder.interfaces import IExplicitOrdering
         from euphorie.content.surveygroup import AddForm
         original_order=[ u"one", u"two", u"three", u"four", u"five", u"six", u"seven", u"eight", u"nine", u"ten"]
@@ -120,8 +125,35 @@ class AddFormTests(EuphorieTestCase):
         ordering.orderObjects("title")
         self.assertEqual([r.title for r in module.values()], sorted_order)
         request=module.REQUEST
-        container=module.aq_parent
-        copy=self._create(container, "euphorie.module", "copy")
-        copy=AddForm(container, request).copyTemplate(module, copy)
-        self.assertEqual([r.title for r in copy.values()], sorted_order)
+        survey=aq_parent(module)
+        container=self.portal.sectors.nl.sector
+        target=self._create(container, "euphorie.surveygroup", "target")
+        copy=AddForm(container, request).copyTemplate(survey, target)
+        self.assertEqual([r.title for r in copy["module"].values()], sorted_order)
+
+    def testCopyClearsPublishFlag(self):
+        from Acquisition import aq_parent
+        from euphorie.content.surveygroup import AddForm
+        self.loginAsPortalOwner()
+        survey=aq_parent(self.createModule())
+        survey.published=True
+        request=survey.REQUEST
+        container=self.portal.sectors.nl.sector
+        target=self._create(container, "euphorie.surveygroup", "target")
+        copy=AddForm(container, request).copyTemplate(survey, target)
+        self.assertFalse(getattr(copy, "published", False))
+
+    def testCopyResetsWorkflow(self):
+        from Acquisition import aq_parent
+        from euphorie.content.surveygroup import AddForm
+        self.loginAsPortalOwner()
+        survey=aq_parent(self.createModule())
+        survey.published=True
+        request=survey.REQUEST
+        container=self.portal.sectors.nl.sector
+        target=self._create(container, "euphorie.surveygroup", "target")
+        copy=AddForm(container, request).copyTemplate(survey, target)
+        self.assertEqual(
+                self.portal.portal_workflow.getInfoFor(copy, "review_state"),
+                "draft")
 
