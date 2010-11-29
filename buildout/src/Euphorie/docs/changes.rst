@@ -4,6 +4,9 @@ Changelog
 2.2 - Unreleased
 ----------------
 
+Bugfixes
+~~~~~~~~
+
 - Stop declaring ``eupphorie`` to be a namespace package.
   [wichert]
 
@@ -12,13 +15,13 @@ Changelog
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
   [wichert]
 
-
 - Do not accept pre-1900 dates in the action plan, since they break rendering of the report.
   This prevents `TNO ticket 150`_ from occuring.
   [wichert]
 
 - Fixed the logo markup according to Cornelis' requirements to match the final OiRA logo
   [pilz] 
+
 
 
 2.1 - November 6, 2010

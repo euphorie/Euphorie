@@ -19,17 +19,17 @@ class WebhelperTests(unittest.TestCase):
         return WebHelpers(None, MockRequest(agent))
         
     def testIsIphone_NoUserAgent(self):
-        self.assertEqual(self._createView().is_iphone(), False)
+        self.assertEqual(self._createView().is_iphone, False)
 
     def testIsIphone_IE6(self):
         view=self._createView(agent=
             "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.1)")
-        self.assertEqual(view.is_iphone(), False)
+        self.assertEqual(view.is_iphone, False)
 
     def testIsIphone_iPhone30(self):
         view=self._createView(agent=
             "Mozilla/5.0 (iPod; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16")
-        self.assertEqual(view.is_iphone(), True)
+        self.assertEqual(view.is_iphone, True)
 
 
 

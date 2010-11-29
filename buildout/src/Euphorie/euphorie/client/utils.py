@@ -18,6 +18,7 @@ from zope.component import getUtility
 from plone.memoize.instance import memoize
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from euphorie.decorators import reify
 from euphorie.content.utils import StripMarkup
 from euphorie.client import MessageFactory as _
 from euphorie.client.sector import IClientSector
@@ -64,7 +65,6 @@ class WebHelpers(BrowserView):
         return self.index.macros
 
 
-    @memoize
     def _sector(self):
         for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
@@ -86,7 +86,7 @@ class WebHelpers(BrowserView):
             return None
 
 
-    @memoize
+    @reify
     def extra_css(self):
         sector=self._sector()
         if sector is None:
@@ -111,7 +111,7 @@ class WebHelpers(BrowserView):
         return " " + " ".join(parts)
 
 
-    @memoize
+    @reify
     def sector_title(self):
         """Return the title to use for the current sector. If the current
         context is not in a sector return the agency name instead.
@@ -123,7 +123,7 @@ class WebHelpers(BrowserView):
             return _("title_tool", default=u"OiRA")
 
 
-    @memoize
+    @reify
     def client_url(self):
         """Return the absolute URL for the client."""
         return self.request.client.absolute_url()
@@ -137,13 +137,13 @@ class WebHelpers(BrowserView):
         base_url=self.survey_url()
         if base_url is not None:
             return base_url
-        base_url=self.country_url()
+        base_url=self.country_url
         if base_url is not None:
             return base_url
-        return self.client_url()
+        return self.client_url
 
 
-    @memoize
+    @reify
     def help_url(self):
         """Return the URL to the current online help page. If we are in a
         survey the help page will be located there. Otherwise the country
@@ -151,21 +151,21 @@ class WebHelpers(BrowserView):
         return "%s/help" % self._base_url()
 
 
-    @memoize
+    @reify
     def about_url(self):
         """Return the URL to the current online about page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
         return "%s/about" % self._base_url()
 
-    @memoize
+    @reify
     def authenticated(self):
         """Check if the current user is authenticated."""
         user=getSecurityManager().getUser()
         return user is not None and user.getUserName()!="Anonymous User" 
 
     
-    @memoize
+    @reify
     def country_url(self):
         """Return the absolute URL for country page."""
         sector=self._sector()
@@ -180,13 +180,13 @@ class WebHelpers(BrowserView):
         return None
 
 
-    @memoize
+    @reify
     def session_overview_url(self):
         """Return the absolute URL for the session overview."""
-        return self.country_url()
+        return self.country_url
 
 
-    @memoize
+    @reify
     def sector_url(self):
         """Return the URL for the current survey.
         """
@@ -213,7 +213,7 @@ class WebHelpers(BrowserView):
         return url
 
 
-    @memoize
+    @reify
     def appendix(self):
         """Return a list of items to be shown in the appendix."""
         documents=getUtility(ISiteRoot).documents
@@ -242,7 +242,7 @@ class WebHelpers(BrowserView):
 
 
 
-    @memoize
+    @reify
     def is_iphone(self):
         """Check if the current request is from an iPhone or similar device
         (such as an iPod touch).

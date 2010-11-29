@@ -36,8 +36,8 @@ def testRequest():
     return request
 
 
-def registerUserInClient(browser):
-    browser.getLink("register").click()
+def registerUserInClient(browser, link="register"):
+    browser.getLink(link).click()
     browser.getControl(name="email").value="guest@example.com"
     browser.getControl(name="password1:utf8:ustring").value="guest"
     browser.getControl(name="password2:utf8:ustring").value="guest"
