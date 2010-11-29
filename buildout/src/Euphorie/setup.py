@@ -21,7 +21,7 @@ setup(name="Euphorie",
       url="http://packages.python.org/Euphorie/",
       license="GPL",
       packages=find_packages(exclude=["ez_setup"]),
-      namespace_packages=["euphorie"],
+      namespace_packages=[],
       paster_plugins=["Babel"],
       message_extractors = {"euphorie": [
             ("**.py",    "lingua_python", None),

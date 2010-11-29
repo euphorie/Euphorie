@@ -4,6 +4,9 @@ Changelog
 2.2 - Unreleased
 ----------------
 
+- Stop declaring ``eupphorie`` to be a namespace package.
+  [wichert]
+
 - Require NuPlone 1.0b5 or later so ``formatDate`` does not raise exceptions for
   pre-1900 dates. This fixes `TNO ticket 150
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
