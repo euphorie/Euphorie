@@ -1694,7 +1694,10 @@ label.error input,
 label.error textarea,
 label.error select,
 select.error,
-textarea.error {
+textarea.error,
+input[type="text"].error,
+input[type="password"].error
+ {
 	background-color: #fcc694;
 	color: #874e0b;
 	border-color: #874e0b;
