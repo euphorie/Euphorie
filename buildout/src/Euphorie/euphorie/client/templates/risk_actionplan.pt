@@ -66,16 +66,19 @@
                   <p class="focustip error target-id-input-budget-${number}" tal:condition="exists:errors/budget" i18n:translate="error_invalid_budget">
                     Please enter the budget in whole Euros.</p>
                 </label>
-                <fieldset tal:define="error python:exists('errors/planning_start_day') or exists('errors/planning_start_year')"
+                <fieldset tal:define="day_error exists:errors/planning_start_day;
+                                      year_error exists:errors/planning_start_year;
+                                      error python:day_error or year_error"
                   class="condensed${python:' error' if error else ''}">
                   <legend i18n:translate="label_action_plan_start">Planning start</legend>
 
                   <fieldset class="date-eu">
-                    <label class="${python:'error' if exists('errors/planning_start_day') else None}"
+                    <label class="${python:'error' if day_error else None}"
                       for="label-planning-start-day-${number}" i18n:translate="label_day">Day</label>
-                    <input type="text" name="measure.planning_start_day:records" id="planning-start-day-${number}" maxlength="2" class="numeric day"
+                    <input type="text" name="measure.planning_start_day:records" id="planning-start-day-${number}" maxlength="2"
+                      class="numeric day${python:' error' if day_error else ''}"
                       value="${actionplan/planning_start_day|actionplan/planning_start/day|nothing}"/>
-                    <p class="focustip error target-id-planning-start-day-${number}" tal:condition="exists:errors/planning_start_day" i18n:translate="error_invalid_day">Invalid day</p>
+                    <p class="focustip error target-id-planning-start-day-${number}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
 
                     <label for="planning-start-month-${number}" i18n:translate="label_month">Month</label>
                     <select name="measure.planning_start_month:records" id="planning-start-month-${number}" class="month"
@@ -84,24 +87,28 @@
                             value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
                     </select>
 
-                    <label class="${python:'error' if exists('errors/planning_start_year') else None}"
+                    <label class="${python:'error' if year_error else None}"
                       for="planning-start-year-1" i18n:translate="label_year">Year</label>
-                      <input type="text" name="measure.planning_start_year:records" id="planning-start-year-${number}" maxlength="4" class="numeric year"
-                          value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
+                    <input type="text" name="measure.planning_start_year:records" id="planning-start-year-${number}" maxlength="4"
+                      class="numeric year${python:' error' if day_error else ''}"
+                      value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
                       <p class="focustip error target-id-planning-start-year-${number}" tal:condition="exists:errors/planning_start_year" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
                   </fieldset>
                 </fieldset>
 
-                <fieldset tal:define="error python:exists('errors/planning_end_day') or exists('errors/planning_end_year')"
+                <fieldset tal:define="day_error exists:errors/planning_end_day;
+                                      year_error exists:errors/planning_end_year;
+                                      error python:day_error or year_error"
                   class="condensed${python:' error' if error else ''}">
                   <legend i18n:translate="label_action_plan_end">Planning end</legend>
 
                   <fieldset class="date-eu">
-                    <label class="${python:'error' if exists('errors/planning_end_day') else None}"
+                    <label class="${python:'error' if day_error else None}"
                       for="label-planning-end-day-${number}" i18n:translate="label_day">Day</label>
-                    <input type="text" name="measure.planning_end_day:records" id="planning-end-day-${number}" maxlength="2" class="numeric day"
+                    <input type="text" name="measure.planning_end_day:records" id="planning-end-day-${number}" maxlength="2"
+                      class="numeric day ${python:' error' if day_error else ''}"
                       value="${actionplan/planning_end_day|actionplan/planning_end/day|nothing}"/>
-                    <p class="focustip error target-id-planning-end-day-${number}" tal:condition="exists:errors/planning_end_day" i18n:translate="error_invalid_day">Invalid day</p>
+                    <p class="focustip error target-id-planning-end-day-${number}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
 
                     <label for="planning-end-month-${number}" i18n:translate="label_month">Month</label>
                     <select name="measure.planning_end_month:records" id="planning-end-month-${number}" class="month"
@@ -110,11 +117,12 @@
                           value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
                     </select>
 
-                    <label class="${python:'error' if exists('errors/planning_end_year') else None}"
+                    <label class="${python:'error' if year_error else None}"
                       for="planning-end-year-${number}" i18n:translate="label_day">Day</label>
-                    <input type="text" name="measure.planning_end_year:records" id="planning-end-year-${number}" maxlength="4" class="numeric year"
+                    <input type="text" name="measure.planning_end_year:records" id="planning-end-year-${number}" maxlength="4"
+                      class="numeric year${python:' error' if year_error else ''}"
                       value="${actionplan/planning_end_year|actionplan/planning_end/year|nothing}"/>
-                    <p class="focustip error target-id-planning-end-year-${number}" tal:condition="exists:errors/planning_end_year" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
+                    <p class="focustip error target-id-planning-end-year-${number}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
                   </fieldset>
                 </fieldset>
               </fieldset>
