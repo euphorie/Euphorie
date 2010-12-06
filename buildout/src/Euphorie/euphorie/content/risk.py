@@ -23,13 +23,11 @@ from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
 
-
 grok.templatedir("templates")
 
 
 TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget", klass="span-7")
 TextLines4Rows = FieldWidgetFactory("z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
-
 
 
 class IRisk(form.Schema, IRichDescription, IBasic):
@@ -101,9 +99,9 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                         u"(no need to examine the workplace). 'Top 5' is one "
                         "of the top five risks of the sector."),
             vocabulary = SimpleVocabulary([
+                            SimpleTerm(u"top5", title=_("risktype_top5", default=u"Top 5")),
                             SimpleTerm(u"risk", title=_("risktype_risk", default="Risk")),
                             SimpleTerm(u"policy", title=_("risktype_policy", default=u"Policy")),
-                            SimpleTerm(u"top5", title=_("risktype_top5", default=u"Top 5")),
                             ]),
             default = u"risk",
             required = True)
