@@ -18,6 +18,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- The survey status screen could show module titles that do not match the current
+  session. This fixes `TNO ticket 155
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
+  [wichert]
+
 - Stop declaring ``eupphorie`` to be a namespace package.
   [wichert]
 

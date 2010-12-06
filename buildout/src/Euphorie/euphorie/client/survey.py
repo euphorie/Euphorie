@@ -513,7 +513,7 @@ class Status(grok.View):
     query = """SELECT SUBSTRING(path FROM 1 FOR 3) AS module,
                       CASE WHEN EXISTS(SELECT *
                                        FROM tree AS parent_node
-                                       WHERE tree.session_id=parent_node.session_id AND
+                                       WHERE tree.session_id=%(sessionid)d AND
                                              tree.depth>parent_node.depth AND
                                              tree.path LIKE parent_node.path || '%%' AND
                                              parent_node.skip_children)
@@ -543,7 +543,8 @@ class Status(grok.View):
     def getStatus(self):
         # Note: Optional modules with a yes-answer are not distinguishable
         # from non-optional modules, and ignored.
-        query=self.query % dict(sessionid=SessionManager.id)
+        session_id=SessionManager.id
+        query=self.query % dict(sessionid=session_id)
         session=Session()
         result=session.execute(query).fetchall()
 
@@ -559,6 +560,7 @@ class Status(grok.View):
             module[row.status]=dict(count=row.count)
 
         titles=dict(session.query(model.Module.path, model.Module.title)\
+                .filter(model.Module.session_id==session_id)\
                 .filter(model.Module.path.in_(modules.keys())))
         for module in modules.values():
             module["title"]=titles[module["path"]]
