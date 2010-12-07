@@ -65,7 +65,7 @@ setup(name="Euphorie",
           "zope.i18nmessageid",
           "zope.interface",
           "zope.schema",
-          "NuPlone >=1.0b5dev",
+          "NuPlone >=1.0rc1",
           "plone.uuid",
       ],
       tests_require = [
