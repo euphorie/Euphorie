@@ -7,6 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change the ordering of the risk types as requested by OSHA ticket 2253.
+  [brand]
+
 - Switch the client to the new OiRA logo.
   [cornae,pilz,wichert] 
 
