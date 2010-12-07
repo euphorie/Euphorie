@@ -1,8 +1,18 @@
 Changelog
 =========
 
-2.2 - Unreleased
-----------------
+2.2.1 - December 7, 2010
+----------------------
+
+Bugfixes
+~~~~~~~~
+
+- Update compressed CSS.
+  [wichert]
+
+
+2.2 - December 7, 2010
+----------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
