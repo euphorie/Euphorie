@@ -4,7 +4,11 @@ Changelog
 2.3 - Unreleased
 ----------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Correct METAL macro invocation in client templates.
+  [brand]
 
 
 2.2 - December 7, 2010
@@ -20,28 +24,28 @@ Feature changes
   [cornae,pilz,wichert] 
 
 - When making a copy of a survey reset its workflow state back to *draft*. This
-  allows deleting of content in a new survey that is based on a published survey.
-  This is part of `TNO ticket 124`_.
+  allows deleting of content in a new survey that is based on a published
+  survey. This is part of `TNO ticket 124`_.
   [wichert]
 
 Bugfixes
 ~~~~~~~~
 
-- The survey status screen could show module titles that do not match the current
-  session. This fixes `TNO ticket 155
+- The survey status screen could show module titles that do not match the
+  current session. This fixes `TNO ticket 155
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
   [wichert]
 
 - Stop declaring ``eupphorie`` to be a namespace package.
   [wichert]
 
-- Require NuPlone 1.0rc1 or later so ``formatDate`` does not raise exceptions for
-  pre-1900 dates. This fixes `TNO ticket 150
+- Require NuPlone 1.0rc1 or later so ``formatDate`` does not raise exceptions
+  for pre-1900 dates. This fixes `TNO ticket 150
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
   [wichert]
 
-- Do not accept pre-1900 dates in the action plan, since they break rendering of the report.
-  This prevents `TNO ticket 150`_ from occuring.
+- Do not accept pre-1900 dates in the action plan, since they break rendering
+  of the report.  This prevents `TNO ticket 150`_ from occuring.
   [wichert]
 
 
