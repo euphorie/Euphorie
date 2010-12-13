@@ -116,7 +116,7 @@
     </ol>
 
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <metal:home use-macro="webhelpers/homelink"/>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
       <li><a href="${webhelpers/help_url}#evaluation" i18n:translate="navigation_help">Help</a></li>

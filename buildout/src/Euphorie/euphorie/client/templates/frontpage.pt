@@ -129,7 +129,7 @@
     </ul>
 
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <metal:home use-macro="webhelpers/homelink"/>
     </ul>
     <metal:css use-macro="webhelpers/macros/javascript"/>
    <script type="text/javascript">

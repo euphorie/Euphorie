@@ -43,7 +43,7 @@
     </form>
 
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <metal:home use-macro="webhelpers/homelink"/>
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
