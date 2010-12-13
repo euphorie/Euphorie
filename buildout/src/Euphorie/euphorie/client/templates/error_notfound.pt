@@ -20,7 +20,7 @@
       The page you requested could not be found.
     </p>
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/homelink"/>
+      <metal:home use-macro="webhelpers/macros/homelink"/>
     </ul>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
