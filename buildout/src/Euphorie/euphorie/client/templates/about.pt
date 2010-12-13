@@ -108,7 +108,7 @@
     </p>
 
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/homelink"/>
+      <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a href="${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
