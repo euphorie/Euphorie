@@ -1,26 +1,22 @@
+from sqlalchemy.exc import NoSuchTableError
+from sqlalchemy.schema import Table
+from sqlalchemy.schema import MetaData
 
 def TableExists(session, table):
-    stmt = """SELECT tablename
-              FROM pg_tables
-              WHERE tablename='%(table)s';"""
-
-    row = session.execute(stmt % dict(table=table)).scalar()
-    return bool(row)
+    connection=session.bind
+    return connection.dialect.has_table(connection, table)
 
 
 
 def ColumnExists(session, table, column):
-    return bool(ColumnType(session, table, column))
-
-
-
-def ColumnType(session, table, column):
-    stmt = """SELECT pg_catalog.format_type(atttypid, atttypmod)
-              FROM pg_attribute
-              WHERE attrelid=(SELECT oid FROM pg_class WHERE relname='%(table)s') AND
-                    attname='%(column)s';"""
-    row = session.execute(stmt % dict(table=table, column=column)).scalar()
-    return row
+    connection=session.bind
+    metadata=MetaData(connection)
+    table=Table(table, metadata)
+    try:
+        connection.dialect.reflecttable(connection, table, [column])
+    except NoSuchTableError:
+        return False
+    return column in table.c
 
 
 def AddColumn(session, klass, col):
