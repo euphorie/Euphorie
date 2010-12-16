@@ -9,3 +9,5 @@ buildout/src/lingua
 buildout/var/blobstorage
 buildout/var/filestorage
 buildout/var/log
+buildout/var/instance.lock
+buildout/var/instance.pid
