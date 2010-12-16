@@ -1,29 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" id="session">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
   <head>
+    <title i18n:translate="title_tool">OiRA</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>
-      —
-    </title>
-    <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen.css" /><link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-osha.css" /><!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie6.css" /> <![endif]-->
-    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
-    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
-    <link rel="icon" type="image/png" href="media/favicon.png" /><!--[if IE]>
-      <link rel="shortcut icon" type="image/x-icon" href="media/favicon-pink.ico" />
-    <![endif]-->
-
-    <meta name="viewport" content="width=320, user-scalable=yes" />
+    <metal:css use-macro="webhelpers/macros/css"/>
   </head>
   <body>
-    <h1 class="carousel">
-      Terms and conditions
-    </h1><!-- Message block below only appears in case conditions have changed since the user's last accept -->
-    <p class="message warning">
+    <h1 i18n:translate="header_terms">Terms and conditions</h1>
+
+    <p class="message warning" i18n:translate="terms_changed" tal:condition="view/terms_changed">
       The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding.
     </p>
-    <form action="session.html">
+    
+    <form action="${request/getURL}" method="POST" class="concise">
       <fieldset class="concise">
         <div id="conditions" class="conditions">
           <p>
@@ -59,40 +56,14 @@
         </p>
       </fieldset>
     </form>
-    <ol id="steps">
-      <li class="current active" id="step-1">
-        <a href="#">Voorbereiden</a>
-      </li>
-      <li id="step-2">
-        <a href="#">Inventariseren</a>
-      </li>
-      <li id="step-3">
-        <a href="#">Evalueren</a>
-      </li>
-      <li id="step-4">
-        <a href="#">Plan van aanpak</a>
-      </li>
-      <li id="step-5">
-        <a href="#">Rapporten</a>
-      </li>
-    </ol>
+
     <ul id="navigation">
-      <li id="home">
-        <a href="/" lang="de-AT" xml:lang="de-AT">Europäische Agentur für<br />
-        Sicherheit und Gesundheitsschutz<br />
-        am Arbeitsplatz</a>
-      </li>
+      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
     </ul>
-    <script type="text/javascript" src="libraries/jquery-1.3.2.min.js"> </script>
-    <script type="text/javascript" src="libraries/jquery-ui-1.7.2.min.js"> </script>
-    <script type="text/javascript" src="libraries/jcarousellite_1.0.1.js"> </script>
-    <script type="text/javascript" src="libraries/css_browser_selector.js"> </script>
-    <script type="text/javascript" src="libraries/jquery.hoverIntent.js"> </script>
-    <script type="text/javascript" src="libraries/jquery.bt.js"></script>
-    <script type="text/javascript" src="libraries/jquery.numeric.js"></script>
-    <script type="text/javascript" src="libraries/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-    <script type="text/javascript" src="behaviour/markup.js"> </script>
-    <script type="text/javascript">
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+   <script type="text/javascript" meta:interpolation="false">
 // <![CDATA[
     function updateButton() {
         var $conditions = $(this),
@@ -114,5 +85,7 @@
     });
 // ]]>
   </script>
+    <tal:block replace="tile:client-analytics"/>
   </body>
 </html>
+

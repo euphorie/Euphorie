@@ -5,6 +5,10 @@ from zope.i18nmessageid import MessageFactory as mf
 MessageFactory = mf("euphorie")
 del mf
 
+#: Version number for terms and conditions. Updating this version will
+#: require all users to (re)confirm their acceptance of the terms and
+#: conditions
+CONDITIONS_VERSION = 1
 
 def initialize(context):
     from AccessControl.Permissions import manage_users as ManageUsers
