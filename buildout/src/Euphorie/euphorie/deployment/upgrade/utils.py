@@ -13,7 +13,7 @@ def ColumnExists(session, table, column):
     metadata=MetaData(connection)
     table=Table(table, metadata)
     try:
-        connection.dialect.reflecttable(connection, table, [column])
+        connection.dialect.reflecttable(connection, table, None)
     except NoSuchTableError:
         return False
     return column in table.c
