@@ -1,0 +1,11 @@
+*.pt.py
+*.pyc
+*.mo
+buildout/.mr.developer.cfg
+buildout/bin
+buildout/develop-eggs
+buildout/parts
+buildout/src/lingua
+buildout/var/blobstorage
+buildout/var/filestorage
+buildout/var/log
