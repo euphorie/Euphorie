@@ -19,6 +19,7 @@ from zope.interface import implements
 from five import grok
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import _checkPermission
+from Products.CMFCore.utils import getToolByName
 from zope import schema
 from euphorie.content import MessageFactory as _
 from plone.directives import form
@@ -56,8 +57,9 @@ def CheckObjectRemoval(obj, event):
     deletion is allowed.
     """
 
-    # XXX: check the workflow state instead of the published flag?
-    if getattr(obj, "published", False) and \
+    wt=getToolByName(obj, "portal_workflow")
+    review_state=wt.getInfoFor(obj, "review_state")
+    if review_state=="published" and \
             not _checkPermission("Euphorie: Delete published content", obj):
         raise Unauthorized("Deletion of published content is not allowed")
 
