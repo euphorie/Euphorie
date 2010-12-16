@@ -29,6 +29,7 @@
      Published surveys.
    </description>
   <exit-transition transition_id="update"/>
+  <exit-transition transition_id="retract"/>
   <permission-map name="Copy or Move" acquired="True">
     <permission-role>Authenticated</permission-role>
     <permission-role>Sector</permission-role>

@@ -7,6 +7,10 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Fix bad workflow configuration for surveys. This is related to the fix
+  for `TNO ticket 124`_.
+  [wichert]
+
 - Correct METAL macro invocation in client templates.
   [brand]
 
