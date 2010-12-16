@@ -31,8 +31,22 @@
 
     <genericsetup:upgradeStep
       title="Migrate company detail data"
-      description="Migrate the company data to split out NL-specific and generic company information"
+      description="Migrate the company data to split out NL-specific and generic company information."
       handler=".v2.migrateCompanyTable"
+      />
+
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="4"
+    destination="5"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Update SQL account model"
+      description="Add a terms-and-conditions column to the account table." 
+      handler=".v2.addTermsAndConditionsColumn"
       />
 
   </genericsetup:upgradeSteps>

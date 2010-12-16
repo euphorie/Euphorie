@@ -52,3 +52,19 @@ def migrateCompanyTable(context):
 
     log.info("Creating new company table")
 
+
+
+def addTermsAndConditionsColumn(context):
+    from z3c.saconfig import Session
+    from euphorie.deployment.upgrade.utils import ColumnExists
+    from zope.sqlalchemy import datamanager
+    import transaction
+
+    session=Session()
+    if ColumnExists(session, "user", "tc_approved"):
+        return
+
+    log.info("Adding tc_approved column to account table")
+    session.execute("ALTER TABLE account ADD COLUMN tc_approved INT")
+    datamanager.mark_changed(session)
+    transaction.get().commit()
