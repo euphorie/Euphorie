@@ -25,6 +25,7 @@ from euphorie.client.utils import setLanguage
 from euphorie.client import model
 from euphorie.client.session import SessionManager
 from euphorie.client.country import IClientCountry
+from euphorie.client.conditions import approvedTermsAndConditions
 
 log=logging.getLogger(__name__)
 
@@ -77,7 +78,12 @@ class LoginView(grok.View):
                 pas=getToolByName(self.context, "acl_users")
                 pas.updateCredentials(self.request, self.request.response,
                         user.getId(), reply.get("__ac_password", ""))
-                self.request.response.redirect(came_from)
+
+                if not approvedTermsAndConditions(user):
+                    self.request.response.redirect(
+                        "%s/terms-and-conditions?%s" % (context.absolute_url(), urllib.urlencode({"came_from": came_from})))
+                else:
+                    self.request.response.redirect(came_from)
                 return
             self.error=True
 
@@ -199,11 +205,13 @@ class Register(grok.View):
                 pas.updateCredentials(self.request, self.request.response,
                         account.getId(), account.password)
 
+                country_url=aq_inner(self.context).absolute_url()
                 came_from=self.request.form.get("came_from")
                 if not came_from:
-                    came_from=aq_parent(aq_inner(self.context)).absolute_url()
+                    came_from=country_url
 
-                self.request.response.redirect(came_from)
+                self.request.response.redirect(
+                        "%s/terms-and-conditions?%s" % (country_url, urllib.urlencode({"came_from": came_from})))
 
 
 

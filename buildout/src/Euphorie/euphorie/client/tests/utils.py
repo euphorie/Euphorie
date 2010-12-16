@@ -3,7 +3,9 @@
 def addAccount(login="jane@example.com", password=u"Øle"):
     from z3c.saconfig import Session
     from euphorie.client import model
-    account=model.Account(loginname="jane@example.com", password=u"Øle")
+    from euphorie.client import CONDITIONS_VERSION
+    account=model.Account(loginname="jane@example.com", password=u"Øle",
+            tc_approved=CONDITIONS_VERSION)
     session=Session()
     session.add(account)
     session.flush()

@@ -4,6 +4,14 @@ Changelog
 2.3 - Unreleased
 ----------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Require users of the client to agree to the terms and conditions of the
+  site.
+  [wichert]
+
+
 Bugfixes
 ~~~~~~~~
 

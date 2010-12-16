@@ -22,6 +22,7 @@
     
     <form action="${request/getURL}" method="POST" class="concise">
       <fieldset class="concise">
+        <input type="hidden" name="came_from" value="${view/came_from}" tal:condition="view/came_from"/>
         <div id="conditions" class="conditions">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque lectus vel odio tempus vestibulum. Sed pretium eros id eros tristique varius pretium arcu commodo. Curabitur quam velit, convallis at dictum et, volutpat sed augue. Sed id tellus et dui bibendum imperdiet. Aliquam augue mi, tincidunt in vestibulum eget, volutpat eu nisl. Nam vestibulum, eros eget volutpat sagittis, nulla elit hendrerit ligula, quis elementum ligula neque non metus. Nam pulvinar aliquet facilisis. Praesent vel lacus vel quam cursus laoreet et non orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed in ullamcorper est. Donec ultrices laoreet erat nec aliquam. Vivamus porttitor nisi ut ligula mollis sodales. In interdum mattis orci, non ultrices mauris imperdiet sit amet. Ut interdum erat et augue ullamcorper vel ullamcorper arcu molestie. Etiam in ultrices dui. In placerat augue id felis vulputate accumsan. Aliquam erat volutpat. Integer fermentum, est aliquet interdum faucibus, augue arcu iaculis sapien, ac placerat massa elit sed justo. In sed tellus nunc.
