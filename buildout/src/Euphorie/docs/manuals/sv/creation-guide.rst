@@ -1,52 +1,51 @@
 =================================================
-Skapa ett riskutvärderingsverktyg – en vägledning
+Utforma ett webbaserat verktyg för riskbedömning – en vägledning
 =================================================
 
 
 1. Introduktion
 ===============
 
-Ditt mål är att skapa innehållet i OiRA-verktyget för företag inom din bransch och att erbjuda dem detta branschspecifika verktyg.
-OiRA-verktyget ger en steg-för-steg-metod för riskutvärdering som består av fem steg:
+OIRA är ett webbaserat verktyg för riskbedömning. Du kan utforma och anpassa innehållet i OiRA-verktyget för företag inom din bransch och därmed erbjuda dem ett branschspecifikt verktyg. OiRA-verktyget är en metod för riskbedömning som består av fem olika steg:
 
-  * **Förberedelse** > branschen introducerar slutanvändarna (företagen) för riskutvärderingen
+  * **Förbereda** > branschen introducerar slutanvändarna (företagen) för riskbedömningen
 
-  * **Identifiering** > slutanvändaren går igenom farorna/problemen och svarar JA eller NEJ
+  * **Identifiera** > slutanvändaren identifierar möjliga risker/problem /problemen genom att svara JA eller NEJ på ett antal frågor/påståeenden
  
-  * **Utvärdering** > slutanvändaren utvärderar riskerna med varje problem/fara som har identifierats
+  * **Värdera och bedöma** > slutanvändaren värderar och bedömer varje enskild risk som har identifierats
 
-  * **Åtgärdsplan** > slutanvändaren fyller i en åtgärdsplan som behandlar alla noterade risker
+  * **Handlingsplan** > slutanvändaren gör en handlingsplan som behandlar alla värderade risker
 
-  * **Rapport** > åtgärdsplanen blir en rapport som ska hämtas och skrivas ut
+  * **Rapport** > Handlingsplanen blir en skriftlig rapport som kan laddas ner och skrivas ut
 
 1.1 Tänk på slutanvändarna
 --------------------------
 
-Det är viktigt att **tänka på slutanvändarna: Mikro- och småföretag (arbetsgivare och medarbetare) och strukturen** för riskutvärderingsverktyget ska vara så relevanta som möjligt för företagens dagliga aktiviteter. Slutanvändaren tänker och agerar i enlighet med sina egna affärsprocesser.
+Det är viktigt att **tänka på vem slutanvändarna är (mikro/småföretag, abetsgivare/arbetstagare) och hur strukturen** för riskbedömningsverktyget ska se ut. Strukturen ska vara så relevant som möjligt för företagens dagliga aktiviteter. Ofta skiljer sig expertens tankesätt från slutanvändarens. Slutanvändaren tänker utifrån sina egna arbetsprocesser och utgår från sin verklighet. Här följer några exempel.
 Ofta skiljer sig expertens tankesätt från slutanvändarens. Slutanvändaren tänker utifrån sina egna arbetsprocesser och använder sitt eget språk. Här följer några exempel:
 
-  * experten tänker på fysisk arbetsbelastning, *slutanvändaren på fysiskt arbete*
+  * ο experten tänker på fysisk arbetsbelastning medan, *slutanvändaren tänker på kroppsligt ansträngande arbete*
 
-  * experten tänker på den termiska miljön, * slutanvändaren på att arbeta i värme/kyla*
+  * ο experten tänker på den termiska miljön, *Slutanvändaren, däremot, tänkerpå hur varmt eller kallt det får vara*
 
-  * experten tänker på säkerheten och skapar en modul som innehåller allt inom detta område, *slutanvändaren kanske tänker på att öppna och stänga en butik och allt som är förknippat med det, eller på att bemöta aggressiva kunder och hur de ska hanteras.* 
+  * ο experten tänker på säkerheten och skapar en modul som innehåller allt inom detta område, *Slutanvändaren tänker på öppning och stängning av en butik och hur aggressiva kunder bör hanteras* 
 
-1.2 Använd enkelt språk
+1.2 Använd ett enkelt språk
 -----------------------
 
-**Om innehållet i riskutvärderingsverktyget struktureras så att det motsvarar genomsnittsanvändarens uppfattningar och åtgärder** blir innehållet lätt att känna igen och då blir det enklare att genomföra en åtgärdsplan för att hantera riskerna med rimliga åtgärder.
+**Om verktyget för riskbedömning struktureras så att det motsvarar användarens vardag ** blir innehållet lätt att känna igen.  Det blir också enklare att ta fram en handlingsplan som är rimlig för den specifika arbetsplatsen.
   
-En annan viktig aspekt är språket som används. **Språket** ska vara lätt att förstå utan tolkningsbehov och terminologin ska motsvara den som är välkänd och används hos företagen.
+En annan viktig aspekt är språket som används. **Språket** ska vara lätt att förstå utan att behöva tolkas och terminologin ska  vara välkänd av företagen.
 
-Korta meningar (helst inte fler än tio ord) och tydligt vardagsspråk som är lätt att förstå för en lekman förhindrar att slutanvändaren blir negativt inställd och gör det möjligt för honom/henne att skapa en utvärdering och använda OiRA-verktyget på rätt sätt.
+Det är viktigt med korta meningar (och ett tydligt och enkelt vardagsspråk för att  r företaget ska kunna göra en riskbedömning och använda OiRA-verktyget på rätt sätt.
 
-I början av verktyget har du möjlighet att skriva en kort inledningstext som ger en positiv** och uppmuntrande** bild med avseende på:
+Du som anpassar verktyget har möjlighet att att inleda med eb  kort inledningstext.  Den bör vara  positiv och uppmuntrande och särskilt poängtera:
 
-  * **vikten** av riskutvärderingen
+  * **vikten** av riskbedömningen
 
-  * det faktum att riskutvärderingen **inte är komplicerad** (tanken är att du ska avdramatisera riskutvärderingen)
+  * det faktum att riskbedömningen  **inte är komplicerad** (tanken är att du ska avdramatisera själva riskbedömningen)
 
-  * det faktum att verktyget har utvecklats särskilt för att **uppfylla företagens behov** inom branschen 
+  * det faktum att verktyget har utvecklats särskilt för att **uppfylla företagens särskilda behov** 
 
 
 Det är viktigt att texten inte är för lång, annars kan slutanvändaren dra sig för att använda verktyget.
@@ -64,7 +63,7 @@ Det är viktigt att projektteamet har en lämplig storlek och det ska helst best
  
   * en expert på säkerhet och hälsa på arbetsplatsen (med kunskap och erfarenhet av branschen)
 
-  * slutanvändare (t.ex. ledning eller medarbetare från företag, fackföreningstjänstemän m.m.)
+  * slutanvändare (t.ex. ledning eller medarbetare från företag, skyddsombud, ...)
  
 
 3. Struktur
@@ -73,17 +72,16 @@ Det är viktigt att projektteamet har en lämplig storlek och det ska helst best
 3.1 Strukturera innehållet hierarkiskt
 --------------------------------------
 
-Innan du börjar att skapa ett OiRA-verktyg bör du fundera över hur många frågor du vill behandla. Det lönar sig på lång sikt att fundera grundligt över strukturen. Därför ska du klassificera ämnena på ett sätt som är relevant för slutanvändarna. 
+Innan du börjar att anpassa OiRA-verktyget bör du fundera över antalet frågor. Det lönar sig att fundera grundligt över strukturen. Tänk på att gruppera frågeområdena på ett sätt som är relevant för slutanvändarna. 
 
-
-I systemet kan du gruppera ämnen, underämnen och olika typer av risker. Huvudmålet med grupperingen är att göra det lättare/mer logiskt för slutanvändaren att använda sig av riskutvärderingsverktyget. Ditt riskutvärderingsverktyg kommer därför att bestå av:
+I verktyget kan du gruppera områden, underliggande områden olika typer av risker. Syftet med grupperingen är att underlätta för slutanvändaren. Ditt OiRA-verktyg kommer därför att innehålla:
  
  
 .. image:: ../images/creation/module.png 
   :align: left
   :height: 32 px
   
-**MODULER** = ämnen  (platser, aktiviteter …)
+**MODULER** = områden (platser, aktiviteter …)
   
   *Exempel*: 
     Modul 1: *Schamponering*  (frisörsalong)
@@ -92,7 +90,7 @@ I systemet kan du gruppera ämnen, underämnen och olika typer av risker. Huvudm
     :align: left
     :height: 32 px
     
-  **UNDERMODULER** (ej obligatoriska) = underämnen
+  **UNDERMODULER** (ej obligatoriska) = underliggande områden
   
     *Exempel*: 
       Undermodul 1: *Arbetsställning*
@@ -106,7 +104,7 @@ I systemet kan du gruppera ämnen, underämnen och olika typer av risker. Huvudm
     **RISKER** = påståenden om en situation som är korrekt
     
       *Exempel*: 
-        *1.1 Schamponeringsplatsen kan justeras*
+        *1.1 Platsen för schamponering  kan justeras efter behov*
         
         *2.1 Lämplig skyddsutrustning, exempelvis engångshandskar, har köpts in*
       
@@ -114,83 +112,83 @@ I systemet kan du gruppera ämnen, underämnen och olika typer av risker. Huvudm
         :align: left
         :height: 32 px
         
-      **LÖSNINGAR** = skyddsåtgärder som löser problemet – expertens rekommendation
+      **ÅTGÄRDER** = Förebyggande åtgärder som löser problemet enligt expertens rekommendationer
       
         *Exempel*: 
-          *1.1 Ta regelbundna raster för att kunna återhämta sig efter fysiskt arbete*
+          *1.1 Ta regelbundna raster för återhämtning efter fysiskt arbete*
 
-          *2.1 Använda dammfria produkter*
+          *2.1 Använd dammfria produkter*
 
 
-Systemet ger även möjlighet att:
+Verktyget ger även möjlighet att:
 
-  * hoppa över en/en uppsättning moduler om innehållet inte gäller företagets aktiviteter
+  * hoppa över en modul/en uppsättning moduler om innehållet inte är relevanta för företaget
 
   * upprepa vissa moduler för företag som bedriver verksamhet på flera platser.
 
-3.2 Betrakta risken som en bekräftande påstående
+3.2 Betrakta risken som ett påstående
 ------------------------------------------------
 
-När du har bestämt dig för huvudstrukturen för riskutvärderingsverktyget kan du börja att identifiera och förklara de olika riskerna.
+När du har bestämt dig för huvudstrukturen för verktyget kan du börja att identifiera och förklara de olika riskerna.
  
-Systemet fungerar med **bekräftande påståenden**, dvs. det anger **om en situation är korrekt (målet som ska nås) eller inte korrekt**
+Verktyget fungerar som **bekräftande påståenden**, dvs. det anger **om en situation är korrekt (målet som ska nås) eller inte**
  
- .. note::
+ ..
 
-   Exempel: Belysningen är adekvat.
+   Exempel: Belysningen är rätt utformad.
 
-Slutanvändarens svar är ett tydligt ”ja” eller ”nej”. Om slutanvändaren svarar NEJ (= situationen är inte korrekt) inkluderas problemet automatiskt i åtgärdsplanens steg och slutanvändaren måste då föreslå en åtgärd för att behandla risken.
+Slutanvändarens svar är ett tydligt ”ja” eller ”nej”. Om slutanvändaren svarar NEJ (= situationen är inte korrekt) ingår problemet automatiskt i handlingsplanen och slutanvändaren måste då föreslå en åtgärd för att behandla risken.
 
-3.3 Fundera över de olika risktyperna
+3.3 Fundera över de olika riskerna
 -----------------------------------------
 
-Du kan välja mellan tre risktyper:
+Du kan välja mellan olika typer av risker:
 
-  * prioritetsrisk: avser en risk som inom branschen betraktas som en högrisk. 
+  * Prioriterad risk: avser en risk som inom branschen betraktas som en högrisk. 
 
-    .. note::
+    ..
     
-      Exempel: Arbeta på hög höjd inom byggbranschen: Stegen står på fast underlag
+      Exempel: Arbete på hög höjd inom byggbranschen: Stegen står på ett fast underlag
 
 
-  * risk: avser befintliga risker på arbetsplatsen eller risker som är kopplade till arbetet som utförs.
+  * risk: avser aktuella risker på arbetsplatsen eller risker som är kopplade till det arbetet som utförs inom/av företaget.
 
-    .. note::
+    .. 
 
       Exempel: Alla kontorsstolar kan justeras
 
-För att identifiera och utvärdera de ovanstående två risktyperna är det ofta nödvändigt att undersöka arbetsplatsen (att göra en fysisk genomgång av arbetsplatsen och titta på vad som kan orsaka skador, tala med medarbetarna m.m.).
+För att identifiera, värdera och bedöma ovanstående risktyperna är det nödvändigt att undersöka arbetsplatsen (skyddsrond, prata med medarbetarna m.m.).
 
- * policy: avser avtal, procedurer och ledningsbeslut som rör säkerhet och hälsa på arbetsplatsen. 
+ * policy: avser avtal, procedurer/processer och ledningsbeslut som rör säkerhet och hälsa på arbetsplatsen. 
 
-    .. note::
+    .. 
     
-      Exempel: Tillverkarna tillfrågas regelbundet om alternativa säkerhetsprodukter 
+      Exempel: Tillverkare tillfrågas regelbundet om alternativa säkerhetsprodukter 
 
-Dessa policypåståenden kan bevaras från skrivbordet (inget behov av att undersöka arbetsplatsen).
+Dessa policypåståendena kan besvaras utan att behöva undersöka arbetsplatsen.
  
 
-3.4 Förinställd utvärdering av risken
+3.4 Värdering av risker
 -------------------------------------
  
-För varje ”risktyp” kan du välja mellan två utvärderingsmetoder:
+För varje  typ av risk kan du välja mellan två värderingsmetoder:
 
-  * **Uppskattad**: genom att välja mellan **hög, medel** eller **låg**. 
+  * **Uppskattat risk**: genom att välja mellan **hög, medel** eller **låg risk**. 
 
-  * **Beräknad**: genom att utvärdera **sannolikhet, frekvens** och **allvarlighetsgrad** separat. OiRA-verktyget beräknar sedan prioriteten automatiskt.
+  * **Beräknat risk**: genom att bedöma **sannolikhet, frekvens** och **allvarlighetsgrad** separat. OiRA-verktyget gör sedan en prioritering.
 
-Slutanvändarna måste inte bedöma de följande riskerna i steget ”Utvärdering”:
+Slutanvändarna behöver inte värdera de följande riskerna i steget ”värdera och bedöma riskerna”:
 
-  * Prioritetsrisker (betraktas som standard som ”hög prioritet” och visas som ”hög” i åtgärdsplanen)
+  * Prioriterade risker (betraktas alltid som ”hög prioritet” och visas som  ”hög prio” i handlingsplanen)
 
-  * Policy (noga räknat är detta inte en risk).
+  * Policy (betraktas inte som en direkt risk utan finns med som en bakomliggande orsak).
 
 
-3.5 Föreslå lösningar
+3.5 Föreslå åtgärder
 ---------------------
 
-Branschen är normalt välinformerad om de risker som med störst sannolikhet leder till arbetsskador och sjukdomar. För att kunna hjälpa slutanvändaren att hitta lösningar på riskerna kan du inkludera de lösningar som branschen/experterna rekommenderar.  Underarbetet med åtgärdsplanen kan slutanvändarna välja lösningar och omarbeta dem (modifiera nästa) enligt den situation som råder inom det egna företaget.
+Branschen är normalt välinformerad om vilka risker som med störst sannolikhet leder till arbetsskador och sjukdomar. För att kunna hjälpa slutanvändaren med att ta fram hitta förebyggande åtgärder, kan du ta med de förslag som branschen/experterna rekommenderar. I arbetet med handlingsplanen  kan slutanvändarna välja de åtgärder som passar deras situation bäst och anpassa dem till sin egen verksamhet.
 
-.. note::
+.. 
 
   Alla nödvändiga dokument är tillgängliga på OiRA:s webbplats http://www.oira.osha.europa.eu/documentation
