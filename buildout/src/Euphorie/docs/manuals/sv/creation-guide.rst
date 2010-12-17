@@ -1,6 +1,6 @@
-=================================================
+================================================================
 Utforma ett webbaserat verktyg för riskbedömning – en vägledning
-=================================================
+================================================================
 
 
 1. Introduktion
@@ -31,9 +31,9 @@ Ofta skiljer sig expertens tankesätt från slutanvändarens. Slutanvändaren t�
   * ο experten tänker på säkerheten och skapar en modul som innehåller allt inom detta område, *Slutanvändaren tänker på öppning och stängning av en butik och hur aggressiva kunder bör hanteras* 
 
 1.2 Använd ett enkelt språk
------------------------
+---------------------------
 
-**Om verktyget för riskbedömning struktureras så att det motsvarar användarens vardag ** blir innehållet lätt att känna igen.  Det blir också enklare att ta fram en handlingsplan som är rimlig för den specifika arbetsplatsen.
+**Om verktyget för riskbedömning struktureras så att det motsvarar användarens vardag** blir innehållet lätt att känna igen.  Det blir också enklare att ta fram en handlingsplan som är rimlig för den specifika arbetsplatsen.
   
 En annan viktig aspekt är språket som används. **Språket** ska vara lätt att förstå utan att behöva tolkas och terminologin ska  vara välkänd av företagen.
 
