@@ -26,7 +26,6 @@
  <!-- List of enabled behaviors -->
  <property name="behaviors">
   <element value="euphorie.content.behaviour.uniqueid.INameFromUniqueId" />
-  <element value="euphorie.content.behaviour.publish.IPublishRemovalProtection" />
  </property>
 
  <!-- View information -->

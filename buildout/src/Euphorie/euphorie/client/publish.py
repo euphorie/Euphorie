@@ -10,7 +10,7 @@ from five import grok
 from euphorie.content.survey import ISurvey
 from euphorie.client import MessageFactory as _
 from euphorie.client import utils
-from euphorie.content.behaviour.publish import ObjectPublishedEvent
+from euphorie.content.interfaces import ObjectPublishedEvent
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from z3c.appconfig.interfaces import IAppConfig

@@ -7,6 +7,11 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Allow deletion of content in published surveys. The old behaviour was
+  theoretically better, but turned out to be very confusing for users
+  for little benefit.
+  [wichert]
+
 - Require users of the client to agree to the terms and conditions of the
   site.
   [wichert]

@@ -19,13 +19,6 @@
         />
 
     <plone:behavior
-        title="Prevent deletion after publication"
-        description="Once an object has been published forbid removal"
-        provides=".publish.IPublishRemovalProtection"
-        for="plone.dexterity.interfaces.IDexterityContent"
-        />
-
-    <plone:behavior
         title="Root node for unique id generation"
         description="Generated unique ids are only unique within this context"
         provides=".uniqueid.IIdGenerationRoot"
