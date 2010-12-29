@@ -7,6 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change title of edit form for non-toplevel modules to *Edit Submodule*.
+  [wichert]
+
 - Allow deletion of content in published surveys. The old behaviour was
   theoretically better, but turned out to be very confusing for users
   for little benefit.

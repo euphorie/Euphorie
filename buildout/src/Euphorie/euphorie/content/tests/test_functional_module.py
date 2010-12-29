@@ -1,4 +1,5 @@
 from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 
 
 class ModuleTests(EuphorieTestCase):
@@ -72,4 +73,33 @@ class ConstructionFilterTests(EuphorieTestCase):
         self._create(self.module, "euphorie.risk", "risk")
         types=[fti.id for fti in self.module.allowedContentTypes()]
         self.failUnless("euphorie.module" not in types)
+
+
+class FunctionalTests(EuphorieFunctionalTestCase):
+    def _create(self, container, *args, **kwargs):
+        newid=container.invokeFactory(*args, **kwargs)
+        return getattr(container, newid)
+
+    def createStructure(self):
+        self.country=self.portal.sectors.nl
+        self.sector=self._create(self.country, "euphorie.sector", "sector")
+        self.surveygroup=self._create(self.sector, "euphorie.surveygroup", "group")
+        self.survey=self._create(self.surveygroup, "euphorie.survey", "survey")
+        self.module=self._create(self.survey, "euphorie.module", "module")
+
+    def testEditTitleForModule(self):
+        self.setRoles(["Manager"])
+        self.createStructure()
+        browser=self.adminBrowser()
+        browser.open("%s/@@edit" % self.module.absolute_url())
+        self.assertTrue("Edit Module" in browser.contents)
+
+    def testEditTitleForSubModule(self):
+        self.setRoles(["Manager"])
+        self.createStructure()
+        submodule=self._create(self.module, "euphorie.module", "module")
+        browser=self.adminBrowser()
+        browser.open("%s/@@edit" % submodule.absolute_url())
+        self.assertTrue("Edit Module" not in browser.contents)
+        self.assertTrue("Edit Submodule" in browser.contents)
 

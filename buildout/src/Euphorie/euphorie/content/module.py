@@ -1,4 +1,6 @@
 from Acquisition import aq_chain
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from zope.interface import implements
 from zope.interface import Interface
 from zope.component import getMultiAdapter
@@ -111,6 +113,26 @@ class View(grok.View):
         self.risks=[self._morph(child) for child in self.context.values()
                     if IRisk.providedBy(child)]
 
+
+
+
+class Edit(form.SchemaEditForm):
+    """Override for the standard edit form so we can change the form title
+    for submodules.
+    """
+    grok.context(IModule)
+    grok.require("cmf.ModifyPortalContent")
+    grok.layer(NuPloneSkin)
+    grok.name("edit")
+
+    @property
+    def label(self):
+        from euphorie.content.survey import ISurvey
+        container=aq_parent(aq_inner(self.context))
+        if ISurvey.providedBy(container):
+            return _(u"Edit Module")
+        else:
+            return _(u"Edit Submodule")
 
 
 
