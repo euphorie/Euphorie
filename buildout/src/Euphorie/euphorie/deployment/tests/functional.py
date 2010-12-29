@@ -78,6 +78,9 @@ class EuphorieTestCase(PloneTestCase.PloneTestCase):
 class EuphorieFunctionalTestCase(PloneTestCase.FunctionalTestCase):
     layer = EuphorieLayer
 
+    def runTest(self):
+        pass
+
     def adminBrowser(self):
         """Return a browser logged in as the site owner."""
         from Products.PloneTestCase.setup import portal_owner

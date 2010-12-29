@@ -44,4 +44,7 @@ def registerUserInClient(browser, link="register"):
     browser.getControl(name="password1:utf8:ustring").value="guest"
     browser.getControl(name="password2:utf8:ustring").value="guest"
     browser.getControl(name="next", index=1).click()
+    # XXX Why does this not always happen??
+    if "terms-and-conditions" in browser.url:
+        browser.getForm().submit()
 
