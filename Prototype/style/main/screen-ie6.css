@@ -1,10 +1,3 @@
-@font-face {
-	font-family: "Abadi MT Condensed Light";
-    font-style:  normal;
-    font-weight: normal;
-    src: url(ABADIMT0.eot);
-}
-
 h1 {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://euphorie.hosting.simplon.biz/client/++resource++euphorie.style/header.png', sizingMethod='crop');
 	background-image: none;
@@ -236,7 +229,7 @@ button.small,
 #navigation li#home a {
 	background-image: none;
 	margin-right: 0;
-	font: normal 54px/62px "Abadi-CL";
+	font: normal 54px/62px "Abadi-cl";
 
 }
 

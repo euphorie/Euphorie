@@ -1,14 +1,7 @@
 /* @group Fonts */
 
-@font-face {
-	font-family: "Abadi MT Condensed Light";
-    font-style:  normal;
-    font-weight: normal;
-    src: url(ABADIMT0.eot);
-}
-
 #navigation li#home a {
-	font: normal 14px/15px "Abadi-CL";
+	font: normal 14px/15px "Abadi-cl";
 }
 
 /* @end */
@@ -85,7 +78,7 @@ dl.accordion dt.ui-state-active button {
 #navigation li#home a {
 	background-image: none;
 	margin-right: 0;
-	font: normal 54px/62px "Abadi-CL";
+	font: normal 54px/62px "Abadi-cl";
 
 }
 
