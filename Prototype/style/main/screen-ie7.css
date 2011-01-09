@@ -105,14 +105,6 @@ form.concise fieldset {
 	float: left;
 }
 
-fieldset.comprehensive p.question,
-form.comprehensive fieldset p.question,
-form.concise fieldset.comprehensive p.question,
-form.compact fieldset.comprehensive p.question {
-	display: inline;
-	float: left;
-}
-
 .icon {
 	display: inline-block;
 	width: 16px;
