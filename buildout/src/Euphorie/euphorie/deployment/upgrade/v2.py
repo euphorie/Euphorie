@@ -68,3 +68,15 @@ def addTermsAndConditionsColumn(context):
     session.execute("ALTER TABLE account ADD COLUMN tc_approved INT")
     datamanager.mark_changed(session)
     transaction.get().commit()
+
+
+def updateSurveyWorkflow(context):
+    from Products.CMFCore.utils import getToolByName
+    siteroot=aq_parent(context)
+    log.info("Reloading content workflows.")
+    context.runImportStepFromProfile("profile-euphorie.content:default", "workflow", False)
+    log.info("Updating permissions for existing content.")
+    wt=getToolByName(siteroot, "portal_workflow")
+    count=wt.updateRoleMappings()
+    log.info("Updated permissions for %d objects.", count)
+

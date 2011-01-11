@@ -49,6 +49,13 @@
       handler=".v2.addTermsAndConditionsColumn"
       />
 
+    <genericsetup:upgradeStep
+      title="Update survey workflows"
+      description="This step will update the workflows and update the permissions of existing content. This may take a very long time."
+      handler=".v2.updateSurveyWorkflow"
+      />
+
   </genericsetup:upgradeSteps>
+
 </configure>
 
