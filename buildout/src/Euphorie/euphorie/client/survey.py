@@ -3,6 +3,7 @@ Survey views
 ============
 """
 
+import logging
 import random
 import Acquisition
 from Acquisition import aq_inner
@@ -33,6 +34,8 @@ from euphorie.client import MessageFactory as _
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 import OFS.Traversable
 
+
+log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
@@ -331,8 +334,14 @@ class IdentificationReport(grok.View):
 
 
     def getZodbNode(self, treenode):
-        return self.request.survey.restrictedTraverse(
-                treenode.zodb_path.split("/"))
+        try:
+            return self.request.survey.restrictedTraverse(
+                    treenode.zodb_path.split("/"))
+        except KeyError:
+            log.error("Caught reference in session for %s to missing node %s",
+                    "/".join(self.request.survey.getPhysicalPath()),
+                    treenode.zodb_path)
+            return None
 
 
     def update(self):

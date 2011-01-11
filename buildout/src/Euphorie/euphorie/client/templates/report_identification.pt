@@ -36,23 +36,25 @@
       </tal:module>
 
       <tal:risk condition="python:node.type=='risk'">
-      <tal:block define="zodbnode python:view.getZodbNode(node);
-                         title python:view.title(node, zodbnode);
-                         images zodbnode/@@images;
-                         scale python:images.scale('image', width=150, height='500', direction='thumbnail');
-                         status python:view.risk_status(node, zodbnode)">
-          <div class="warning" tal:attributes="class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status]"
-               tal:omit-tag="python:status=='unanswered'">
-            <h4><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${title}</a></h4>
+      <tal:block define="zodbnode python:view.getZodbNode(node)" condition="python:zodbnode is not None">
+        <tal:block define="title python:view.title(node, zodbnode);
+                           images zodbnode/@@images;
+                           scale python:images.scale('image', width=150, height='500', direction='thumbnail');
+                           status python:view.risk_status(node, zodbnode)"
+                  on-error="nothing">
+            <div class="warning" tal:attributes="class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status]"
+                 tal:omit-tag="python:status=='unanswered'">
+              <h4><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${title}</a></h4>
 
-            <p class="negation" tal:condition="python:view.show_negate_warning(node, zodbnode)"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
-            <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered"> This risk still needs to be inventorised </p>
+              <p class="negation" tal:condition="python:view.show_negate_warning(node, zodbnode)"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+              <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered"> This risk still needs to be inventorised </p>
 
-            <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
-            <p tal:replace="structure zodbnode/description">
-              This is a description of the risk.
-            </p>
-          </div>
+              <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
+              <p tal:replace="structure zodbnode/description">
+                This is a description of the risk.
+              </p>
+            </div>
+          </tal:block>
         </tal:block>
 
         <blockquote class="comments" tal:condition="python:node.comment and node.comment.strip()"><p tal:content="node/comment">
