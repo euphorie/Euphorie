@@ -210,8 +210,9 @@ class Register(grok.View):
                 if not came_from:
                     came_from=country_url
 
-                self.request.response.redirect(
-                        "%s/terms-and-conditions?%s" % (country_url, urllib.urlencode({"came_from": came_from})))
+                self.request.response.redirect(came_from)
+#                self.request.response.redirect(
+#                        "%s/terms-and-conditions?%s" % (country_url, urllib.urlencode({"came_from": came_from})))
 
 
 

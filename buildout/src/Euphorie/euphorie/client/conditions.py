@@ -9,6 +9,8 @@ grok.templatedir("templates")
 
 
 def approvedTermsAndConditions(account=None):
+    return True
+
     if account is None:
         account=getSecurityManager().getUser()
     return account.tc_approved is not None and account.tc_approved==CONDITIONS_VERSION

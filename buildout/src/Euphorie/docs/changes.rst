@@ -15,8 +15,9 @@ Feature changes
   for little benefit.
   [wichert]
 
-- Require users of the client to agree to the terms and conditions of the
-  site.
+- Add feature to require users of the client to agree to the terms and
+  conditions of the site. Disabled until the terms and conditions document
+  has been written.
   [wichert]
 
 
