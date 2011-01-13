@@ -1,0 +1,2353 @@
+# Translations template for Euphorie.
+# Copyright (C) 2010 Wichert Akkerman, Simplon
+# This file is distributed under the same license as the Euphorie project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Euphorie 2.2\n"
+"Report-Msgid-Bugs-To: wichert@wiggy.net\n"
+"POT-Creation-Date: 2010-11-29 13:39+0100\n"
+"PO-Revision-Date: 2011-01-13 09:56+0200\n"
+"Last-Translator: xl <xl@hol.gr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.5\n"
+
+#. Default: Your country
+msgid "label_company_country"
+msgstr "Η χώρα σας "
+
+#. Default: Number of employees
+msgid "label_employee_numbers"
+msgstr "Αριθμός υπαλλήλων"
+
+#. Default: 1 to 9 employees
+msgid "employee_numbers_1_to_9"
+msgstr "1 έως 9 υπάλληλοι"
+
+#. Default: 10 to 49 employees
+msgid "employee_numbers_10_to_49"
+msgstr "10 έως 49 υπάλληλοι"
+
+#. Default: 50 to 249 employees
+msgid "employee_numbers_50_to_249"
+msgstr "50 έως 249 υπάλληλοι"
+
+#. Default: 250 or more employees
+msgid "employee_numbers_250_or_more"
+msgstr "250 ή περισσότεροι υπάλληλοι"
+
+#. Default: The risk assessment was conducted by
+msgid "label_conductor"
+msgstr "Η αξιολόγηση κινδύνου πραγματοποιήθηκε από"
+
+#. Default: own staff
+msgid "conductor_staff"
+msgstr "προσωπικό εταιρείας"
+
+#. Default: an external consultant or service provider
+msgid "conductor_third_party"
+msgstr "εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
+
+#. Default: both own staff and an external consultant or service provider
+msgid "conductor_both"
+msgstr "το προσωπικό της εταιρείας και εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
+
+#. Default: Through which channel did you learn about this tool?
+msgid "label_referer"
+msgstr "Μέσω ποιου καναλιού μάθατε για αυτό το εργαλείο;"
+
+#. Default: an employers' organisation
+msgid "referer_employers_organisation"
+msgstr "οργανισμός ενός εργοδότη"
+
+#. Default: a trade union organisation
+msgid "referer_trade_union"
+msgstr "συνδικαλιστική οργάνωση"
+
+#. Default: a national public institution/administration
+msgid "referer_national_public_institution"
+msgstr "δημόσιος οργανισμός/διοίκηση της χώρας"
+
+#. Default: an European institution/administration
+msgid "referer_eu_institution"
+msgstr "ευρωπαϊκός οργανισμός/διοίκηση"
+
+#. Default: health and safety experts
+msgid "referer_health_safety_expert"
+msgstr "ειδήμων υγείας και ασφάλειας"
+
+#. Default: other channel
+msgid "referer_other"
+msgstr "άλλο κανάλι"
+
+msgid "Please enter your email address"
+msgstr "Παρακαλώ εισάγετε τη διεύθυνση email σας"
+
+msgid "Unknown email address"
+msgstr "Άγνωστη διεύθυνση email."
+
+msgid "OiRA registration reminder"
+msgstr "Υπενθύμιση εγγραφής OiRA"
+
+msgid "An error occured while sending the password reminder"
+msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
+
+msgid "An email with a password reminder has been sent to your address."
+msgstr "Ένα email με την υπενθύμιση του κωδικού πρόσβασής σας έχει σταλεί στη διεύθυνσή σας."
+
+#. Default: Please enter your email address
+msgid "error_missing_email"
+msgstr "Παρακαλώ εισάγετε τη διεύθυνση email σας."
+
+#. Default: Please enter a valid email address
+msgid "error_invalid_email"
+msgstr "Παρακαλώ εισάγετε μια αποδεκτή διεύθυνση email."
+
+#. Default: Please enter a password
+msgid "error_missing_password"
+msgstr "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης"
+
+#. Default: Passwords do not match
+msgid "error_password_mismatch"
+msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι"
+
+#. Default: An account with this email address already exists.
+msgid "error_email_in_use"
+msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύθυνση email."
+
+#. Default: Cancel
+msgid "button_cancel"
+msgstr "Άκυρο"
+
+#. Default: Publish
+msgid "button_publish"
+msgstr "Δημοσίευση"
+
+msgid "Succesfully published the survey"
+msgstr "Επιτυχής δημοσίευση της έρευνας"
+
+#. Default: Create preview
+#. Default: Preview
+msgid "button_preview"
+msgstr "Δημιουργία προεπισκόπησης Προεπιλογή: Προεπισκόπηση"
+
+msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
+msgstr "Επιτυχής δημιουργία προεπισκόπησης για την έρευνα. Διατίθεται στη διεύθυνση ${url} ."
+
+msgid "Invalid day of month"
+msgstr "Μη αποδεκτή ημέρα του μήνα"
+
+msgid "Please enter a year after 1900"
+msgstr "Παρακαλώ εισάγετε ένα έτος μεταγενέστερο του 1900"
+
+#. Default: Identification ${title}.doc
+msgid "filename_identification_report"
+msgstr "Αναγνώριση ${title}.doc"
+
+#. Default: Action plan ${title}.doc
+msgid "filename_actionplan_report"
+msgstr "Σχέδιο δράσης ${title}.doc"
+
+#. Default: OiRA
+msgid "title_tool"
+msgstr "OiRA"
+
+msgid "The online client."
+msgstr "Ο online πελάτης."
+
+msgid "Country information and grouping for the client."
+msgstr "Πληροφορίες χώρας και κατάταξη για τον πελάτη."
+
+msgid "Sector information and grouping for the client."
+msgstr "Πληροφορίες τομέα και κατάταξη για τον πελάτη."
+
+#. Default: Help
+msgid "navigation_help"
+msgstr "Βοήθεια"
+
+#. Default: The OiRA sectoral tools can be used for free by all users.
+msgid "about_licenses_3"
+msgstr "Τα εργαλεία OiRA για τους τομείς μπορούν να χρησιμοποιηθούν δωράν από όλους τους χρήστες."
+
+#. Default: The content of OiRA sectoral tools is licensed under a ${license}
+msgid "about_licenses_2"
+msgstr "Για το περιεχόμενο των εργαλείων OiRA για τους τομείς παρέχεται άδεια ${license}"
+
+msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
+msgstr "Απόδοση Creative Commons-Γενική άδεια χρήσης ShareAlike 2.5"
+
+msgid "Creative Commons License"
+msgstr "Άδεια χρήσης Creative Commons"
+
+#. Default: The source code of the OiRA application is ${GPL} licensed.
+msgid "about_licenses_1"
+msgstr "Ο πηγαίος κώδικας της εφαρμογής OiRA τελεί υπό την άδεια ${GPL}."
+
+#. Default: Licenses
+msgid "header_licenses"
+msgstr "Άδειες χρήσης"
+
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members and
+#. alternates of the Steering Committee were appointed by the interest groups
+#. at
+#. the Board, by the Commission and by EU-OSHA.
+msgid "about_partners_3"
+msgstr "The Agency was also given strategic and expert advice by a Steering Committee in the development and implementation of the OiRA project. Members and alternates of the Steering Committee were appointed by the interest groups at the Board, by the Commission and by EU-OSHA."
+
+msgid "Germany"
+msgstr "Γερμανία"
+
+msgid "The Netherlands"
+msgstr "Ολλανδία"
+
+#. Default: The following technical partners contributed to the development of
+#. the
+#. OiRA project:
+msgid "about_partners_2"
+msgstr "The following technical partners contributed to the development of the OiRA project:"
+
+#. Default: The OiRA project and its related web application has been
+#. developed by
+#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
+#. financed
+#. by the Dutch government, was initially developed by TNO in collaboration
+#. with
+#. the employers organisation for small and medium-sized enterprises MKB-
+#. Nederland
+#. and the Dutch Ministry for Employment. Further development of the
+#. application
+#. was realised with input and participation of trade unions FNV, CNV and MHP.
+msgid "about_partners_1"
+msgstr "The OiRA project and its related web application has been developed by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed by the Dutch government, was initially developed by TNO in collaboration with the employers organisation for small and medium-sized enterprises MKB-Nederland and the Dutch Ministry for Employment. Further development of the application was realised with input and participation of trade unions FNV, CNV and MHP."
+
+#. Default: Development partners
+msgid "header_development_partners"
+msgstr "Development partners"
+
+#. Default: The official launch of the tool is planned for September 2011,
+#. once the
+#. objectives of the testing phase have been reached and once the OiRA
+#. website, the
+#. OiRA training scheme and OiRA help desk will be ready.
+msgid "phase_launch"
+msgstr "The official launch of the tool is planned for September 2011, once the objectives of the testing phase have been reached and once the OiRA website, the OiRA training scheme and OiRA help desk will be ready."
+
+#. Default: Official launch of the project – September 2011
+msgid "header_launch"
+msgstr "Official launch of the project – September 2011"
+
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until the
+#. first half of 2011) the Agency is piloting the development and diffusion
+#. model
+#. at both EU level (working with the Sectoral Social Dialogue Committees) and
+#. at
+#. Member State level (with several Member States) as part of the testing of
+#. the
+#. tool and the development of appropriate support and guidance services.
+msgid "devel_phase"
+msgstr "After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services."
+
+#. Default: Development and pilot phase – 2009-2011
+msgid "header_devel_phase"
+msgstr "Development and pilot phase – 2009-2011"
+
+#. Default: Project Phases
+msgid "header_project_phases"
+msgstr "Project Phases"
+
+#. Default: More information about the OiRA project (in English)
+msgid "about_oiraproject"
+msgstr "More information about the OiRA project (in English)"
+
+#. Default: The ${agency} calls for the development of simple tools to
+#. facilitate
+#. risk assessment. Since the adoption of the European Framework directive in
+#. 1989,
+#. risk assessment has become a familiar concept for organising prevention in
+#. the
+#. workplace, and hundreds of thousands of companies all over Europe assess
+#. their
+#. risks regularly. Nevertheless, there is sufficient evidence to conclude
+#. that
+#. ${smb} when it comes to risk assessment and the adoption of a preventive
+#. policy
+#. in general which the OiRA project aims to overcome.
+msgid "about_paragraph_3"
+msgstr "The ${agency} calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that ${smb} when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome."
+
+#. Default: micro and small enterprises have some shortcomings
+msgid "about_partners_3_smb"
+msgstr "micro and small enterprises have some shortcomings"
+
+#. Default: European Community Strategy on Health and Safety at Work 2007-2012
+msgid "about_paragraph3_agency"
+msgstr "European Community Strategy on Health and Safety at Work 2007-2012"
+
+#. Default: Why the OiRA project
+msgid "header_why_oira"
+msgstr "Why the OiRA project"
+
+#. Default: The OiRA web application gives access to the sectoral Risk
+#. Assessment
+#. tools created and maintained by sectoral organisations at national level.
+msgid "about_paragraph_2"
+msgstr "The OiRA web application gives access to the sectoral Risk Assessment tools created and maintained by sectoral organisations at national level."
+
+#. Default: Experience shows that ${key}. This is why EU-OSHA developed an
+#. ${easy}
+#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and
+#. small
+#. organisations to put in place a ${step} – starting with the
+#. ${identification}
+#. and ${evaluation} of workplace risks, through decision making on
+#. ${preventive_actions} and the taking of action, to monitoring and
+#. ${reporting}.
+msgid "about_paragraph_1"
+msgstr "Experience shows that ${key}. This is why EU-OSHA developed an ${easy} (the “OiRA” - Online interactive Risk Assessment) that can help micro and small organisations to put in place a ${step} – starting with the ${identification} and ${evaluation} of workplace risks, through decision making on ${preventive_actions} and the taking of action, to monitoring and ${reporting}."
+
+#. Default: reporting
+msgid "about_paragraph_1_reporting"
+msgstr "reporting"
+
+#. Default: preventive actions
+msgid "about_paragraph_1_preventive_actions"
+msgstr "preventive actions"
+
+#. Default: evaluation
+msgid "about_paragraph_1_evaluation"
+msgstr "evaluation"
+
+#. Default: identification
+msgid "about_paragraph_1_identification"
+msgstr "identification"
+
+#. Default: step-by-step risk assessment process
+msgid "about_paragraph_1_step"
+msgstr "step-by-step risk assessment process"
+
+#. Default: easy-to-use and cost-free web application
+msgid "about_paragraph_1_easy"
+msgstr "easy-to-use and cost-free web application"
+
+#. Default: proper risk assessment is the key to healthy workplaces
+msgid "about_paragraph_1_key"
+msgstr "proper risk assessment is the key to healthy workplaces"
+
+#. Default: What is the OiRA (Online Interactive Risk Assessment) project
+msgid "header_what_is_oira"
+msgstr "What is the OiRA (Online Interactive Risk Assessment) project"
+
+#. Default: About
+msgid "title_about"
+msgstr "About"
+
+#. Default: Status
+msgid "navigation_status"
+msgstr "Status"
+
+#. Default: Surveys
+msgid "navigation_surveys"
+msgstr "Surveys"
+
+#. Default: Logout
+msgid "navigation_logout"
+msgstr "Logout"
+
+#. Default: Report
+msgid "iphone_report"
+msgstr "Report"
+
+#. Default: Report
+msgid "label_report"
+msgstr "Report"
+
+#. Default: Action Plan
+msgid "iphone_label_action_plan"
+msgstr "Action Plan"
+
+#. Default: Action Plan
+#. Default:
+msgid "label_action_plan"
+msgstr "Action Plan Default:"
+
+#. Default: Evaluation
+msgid "iphone_label_evaluation"
+msgstr "Evaluation"
+
+#. Default: Evaluation
+msgid "label_evaluation"
+msgstr "Evaluation"
+
+#. Default: Identification
+msgid "iphone_label_identification"
+msgstr "Identification"
+
+#. Default: Identification
+msgid "label_identification"
+msgstr "Identification"
+
+#. Default: Preparation
+msgid "iphone_label_preparation"
+msgstr "Preparation"
+
+#. Default: Preparation
+msgid "label_preparation"
+msgstr "Preparation"
+
+#. Default: Go to report
+msgid "label_jump_to_report"
+msgstr "Go to report"
+
+#. Default: Create action plan
+msgid "label_create_action_plan"
+msgstr "Create action plan"
+
+#. Default: You have identified the magnitude of risk for each of the
+#. bottlenecks.
+#. There are no risks which need require any attention during this phase, so
+#. please
+#. proceed directly to the report.
+msgid "expl_actionplan_empty"
+msgstr "You have identified the magnitude of risk for each of the bottlenecks. There are no risks which need require any attention during this phase, so please proceed directly to the report."
+
+#. Default: Removing the causes (tackling the source) is the preferred method:
+#. that
+#. way, the risk can no longer arise. You then write down what tasks have to
+#. be
+#. carried out in order for the risk to be removed, as well as the knowledge
+#. and
+#. experience that are needed for those tasks to be carried out (prevention
+#. plan
+#. and requirements).
+msgid "expl_actionplan_2"
+msgstr "Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements)."
+
+#. Default: You have identified the magnitude of risk for each of the
+#. bottlenecks.
+#. During the action plan phase you can determine the priority of each of the
+#. bottlenecks and how you are going to tackle the bottleneck. The programme
+#. may
+#. offer a suggestion you can use, or you can add your own measures.
+msgid "expl_actionplan_1"
+msgstr "You have identified the magnitude of risk for each of the bottlenecks. During the action plan phase you can determine the priority of each of the bottlenecks and how you are going to tackle the bottleneck. The programme may offer a suggestion you can use, or you can add your own measures."
+
+#. Default: Something bad happened.
+msgid "expl_error"
+msgstr "Something bad happened."
+
+#. Default: Error
+msgid "title_error"
+msgstr "Error"
+
+#. Default: The page you requested could not be found.
+msgid "expl_error_notfound"
+msgstr "The page you requested could not be found."
+
+#. Default: Not found
+msgid "title_error_notfound"
+msgstr "Not found"
+
+#. Default: Go to action plan
+msgid "label_jump_to_actionplan"
+msgstr "Go to action plan"
+
+#. Default: Run evaluation
+msgid "label_run_evaluation"
+msgstr "Run evaluation"
+
+#. Default: There are no risks that need to be evaluated. You can proceed
+#. directly
+#. to the action plan phase.
+msgid "help_evaluation_empty"
+msgstr "There are no risks that need to be evaluated. You can proceed directly to the action plan phase."
+
+#. Default: You can also skip this phase and proceed directly to the ${link}
+#. phase.
+msgid "help_skip_evaluation"
+msgstr "You can also skip this phase and proceed directly to the ${link} phase."
+
+#. Default: action plan
+msgid "help_skip_evaluation_link"
+msgstr "action plan"
+
+#. Default: You have indicated that there are possible risks in your
+#. organisation.
+#. During this evaluation phase you can assess the magnitude of risk for each
+#. bottleneck.
+msgid "help_risks_present"
+msgstr "You have indicated that there are possible risks in your organisation. During this evaluation phase you can assess the magnitude of risk for each bottleneck."
+
+#. Default: Final words
+msgid "help_header_finalwords"
+msgstr "Final words"
+
+#. Default: Report
+msgid "help_header_report"
+msgstr "Report"
+
+#. Default: Action Plan
+msgid "help_header_actionplan"
+msgstr "Action Plan"
+
+#. Default: Evaluation
+msgid "help_header_evaluation"
+msgstr "Evaluation"
+
+#. Default: Identification
+msgid "help_header_identification"
+msgstr "Identification"
+
+#. Default: Preparation
+msgid "help_header_start"
+msgstr "Preparation"
+
+#. Default: Sessions
+msgid "help_header_sessions"
+msgstr "Sessions"
+
+#. Default: Authentication
+msgid "help_header_authentication"
+msgstr "Authentication"
+
+#. Default: Introduction
+msgid "help_header_introduction"
+msgstr "Introduction"
+
+#. Default: Help
+msgid "title_help"
+msgstr "Help"
+
+#. Default: Start Risk Identification
+msgid "label_start_identification"
+msgstr "Start Risk Identification"
+
+#. Default: You can print the ${list-of-risks}.
+msgid "intro_identification"
+msgstr "You can print the ${list-of-risks}."
+
+#. Default: list of all risks
+msgid "list_of_risks"
+msgstr "list of all risks"
+
+#. Default: You can also distribute the list among the workers and invite them
+#. to
+#. participate in identifying the hazards/problems, evaluating the risks and
+#. deciding on preventive action. Their feedback can be taken into account
+#. when
+#. filling in this tool.
+msgid "intro_print_identification_2"
+msgstr "You can also distribute the list among the workers and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action. Their feedback can be taken into account when filling in this tool."
+
+#. Default: You may want to print out the list of risks you cannot immediately
+#. answer and look for the information at the relevant workplace (by walking
+#. around
+#. the workplace and looking at what could cause harm, or by consulting the
+#. workers
+#. about problems they have encountered). Then you can introduce the
+#. information
+#. into the tool.
+msgid "intro_print_identification_1"
+msgstr "You may want to print out the list of risks you cannot immediately answer and look for the information at the relevant workplace (by walking around the workplace and looking at what could cause harm, or by consulting the workers about problems they have encountered). Then you can introduce the information into the tool."
+
+#. Default: Your registration is a private matter. All your data is stored to
+#. be
+#. accessed only by you.
+msgid "login_tooltip"
+msgstr "Your registration is a private matter. All your data is stored to be accessed only by you."
+
+#. Default: Don't have an account? Then please ${register_link} first.
+msgid "register_teaser"
+msgstr "Don't have an account? Then please ${register_link} first."
+
+#. Default: register
+msgid "label_register"
+msgstr "register"
+
+#. Default: Change country/language
+msgid "label_change_country"
+msgstr "Change country/language"
+
+#. Default: Login
+#. Default: Login name
+msgid "label_login"
+msgstr "Login Default: Login name"
+
+#. Default: Password (${forgot_link})
+msgid "label_login_password"
+msgstr "Password (${forgot_link})"
+
+#. Default: I forgot my password
+msgid "label_forgot_password"
+msgstr "I forgot my password"
+
+#. Default: Email address
+msgid "label_email"
+msgstr "Email address"
+
+#. Default: Login
+msgid "header_login"
+msgstr "Login"
+
+#. Default: Your login name and/or password were entered incorrectly. Please
+#. check
+#. and try again or ${request_an_email_reminder} of your login information.
+msgid "incorrect_login"
+msgstr "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder} of your login information."
+
+#. Default: request an email reminder
+msgid "request_an_email_reminder"
+msgstr "request an email reminder"
+
+#. Default: Welcome
+msgid "header_welcome"
+msgstr "Welcome"
+
+#. Default: Next
+msgid "label_next"
+msgstr "Next"
+
+#. Default: Previous
+msgid "label_previous"
+msgstr "Previous"
+
+#. Default: No
+msgid "label_no"
+msgstr "No"
+
+#. Default: Yes
+msgid "label_yes"
+msgstr "Yes"
+
+#. Default: The preview will be available at ${url}.
+msgid "help_preview_url"
+msgstr "The preview will be available at ${url}."
+
+#. Default: Are you sure you want to create a preview of this survey? You can
+#. give
+#. the URL for the preview to others so they can test the survey. To access
+#. the
+#. preview a standard OiRA client login is required.
+msgid "intro_preview"
+msgstr "Are you sure you want to create a preview of this survey? You can give the URL for the preview to others so they can test the survey. To access the preview a standard OiRA client login is required."
+
+#. Default: Preview survey
+#. Default: Preview
+msgid "header_preview"
+msgstr "Preview survey Default: Preview"
+
+#. Default: Continue
+msgid "label_continue"
+msgstr "Continue"
+
+#. Default: Add
+msgid "label_add_profile_module"
+msgstr "Add"
+
+#. Default: Read the following statement(s) and tick the box if the issue is
+#. relevant to your company/organisation. If it is not, don’t tick the box and
+#. you
+#. will not be asked about things that do not apply to your situation.
+msgid "expl_profile"
+msgstr "Read the following statement(s) and tick the box if the issue is relevant to your company/organisation. If it is not, don’t tick the box and you will not be asked about things that do not apply to your situation."
+
+#. Default: Tailor the risk assessment for your organisation
+msgid "header_profile"
+msgstr "Tailor the risk assessment for your organisation"
+
+#. Default: After publication the survey will be available at ${url}.
+msgid "help_publish_url"
+msgstr "After publication the survey will be available at ${url}."
+
+#. Default: Are you sure you want to publish this survey version? This will
+#. replace
+#. the current version.
+msgid "intro_publish_other_survey_published"
+msgstr "Are you sure you want to publish this survey version? This will replace the current version."
+
+#. Default: Are you sure you want to republish this survey? This will make all
+#. changes made public.
+msgid "intro_publish_survey_published"
+msgstr "Are you sure you want to republish this survey? This will make all changes made public."
+
+#. Default: Are you sure you want to publish this survey? After publication
+#. the
+#. survey will appear in the online client and be accessible by all users.
+msgid "intro_publish_first_time"
+msgstr "Are you sure you want to publish this survey? After publication the survey will appear in the online client and be accessible by all users."
+
+#. Default: Publish survey
+msgid "header_publish"
+msgstr "Publish survey"
+
+#. Default: Privacy statement
+msgid "label_privacy_statement"
+msgstr "Privacy statement"
+
+#. Default: Again password
+msgid "label_password_confirm"
+msgstr "Again password"
+
+#. Default: Desired password
+msgid "label_new_password"
+msgstr "Desired password"
+
+#. Default: Register
+msgid "header_register"
+msgstr "Register"
+
+#. Default:
+msgid "reminder_email_footer"
+msgstr "υπενθύμιση_email_υποσέλιδο"
+
+#. Default: Password
+msgid "reminder_email_password"
+msgstr "Password"
+
+#. Default: Email
+msgid "reminder_email_login"
+msgstr "Email"
+
+#. Default: You have requested a password reminder for the OiRA website. Your
+#. login
+#. information is:
+msgid "reminder_email_intro"
+msgstr "You have requested a password reminder for the OiRA website. Your login information is:"
+
+#. Default: Dear user,
+msgid "reminder_email_header"
+msgstr "Dear user,"
+
+#. Default: Password reminder
+msgid "header_password_reminder"
+msgstr "Password reminder"
+
+#. Default: Please leave any extra comments that should be included in the
+#. report
+#. in this field.
+msgid "label_report_comment"
+msgstr "Please leave any extra comments that should be included in the report in this field."
+
+#. Default: Now that you have finished identifying all the risks in your
+#. organisation and created an action plan you can create a report which lists
+#. all
+#. your results. You can, if desired, add some extra comments that should be
+#. included in this report in the field below.
+msgid "report_intro"
+msgstr "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
+
+#. Default: Reporting
+msgid "header_reporting"
+msgstr "Reporting"
+
+#. Default: This report was based on the survey '${title}' of revision date
+#. ${date}.
+msgid "report_survey_revision"
+msgstr "This report was based on the survey '${title}' of revision date ${date}."
+
+#. Default: This risk is not present in your organisation, but since the
+#. sector
+#. organisation considers this one of the top 5 most critical risks it must be
+#. included in this report.
+msgid "top5_risk_not_present"
+msgstr "This risk is not present in your organisation, but since the sector organisation considers this one of the top 5 most critical risks it must be included in this report."
+
+#. Default: There is a budget of ${amount} for this measure.
+msgid "report_measure_budget"
+msgstr "There is a budget of ${amount} for this measure."
+
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}
+#. and ends on ${end}.
+msgid "report_measure_full"
+msgstr "${responsible} is responsible for this task which starts on ${start} and ends on ${end}."
+
+#. Default: This task starts on ${start} and ends on ${end}.
+msgid "report_measure_start_and_stop"
+msgstr "This task starts on ${start} and ends on ${end}."
+
+#. Default: This task ends on ${end}.
+msgid "report_measure_end_only"
+msgstr "This task ends on ${end}."
+
+#. Default: This task starts on ${start}.
+msgid "report_measure_start_only"
+msgstr "This task starts on ${start}."
+
+#. Default: ${responsible} is responsible for this task which ends on ${end}.
+msgid "report_measure_responsible_and_end"
+msgstr "${responsible} is responsible for this task which ends on ${end}."
+
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}.
+msgid "report_measure_responsible_and_start"
+msgstr "${responsible} is responsible for this task which starts on ${start}."
+
+#. Default: ${responsible} is responsible for this task.
+msgid "report_measure_responsible"
+msgstr "${responsible} is responsible for this task."
+
+#. Default: Requirements:
+msgid "report_measure_requirements"
+msgstr "Requirements:"
+
+#. Default: Prevention plan:
+msgid "report_measure_preventionplan"
+msgstr "Prevention plan:"
+
+#. Default: Action plan:
+msgid "report_measure_actionplan"
+msgstr "Action plan:"
+
+#. Default: Measure ${index}
+msgid "header_measure"
+msgstr "Measure ${index}"
+
+#. Default: This is a ${priority} .
+#. Default: This is a ${priority} .
+msgid "risk_priority"
+msgstr "This is a ${priority} . Default: This is a ${priority} ."
+
+#. Default: high priority risk
+msgid "risk_priority_high"
+msgstr "high priority risk"
+
+#. Default: medium priority risk
+msgid "risk_priority_medium"
+msgstr "medium priority risk"
+
+#. Default: low priority risk
+msgid "risk_priority_low"
+msgstr "low priority risk"
+
+#. Default: This risk still needs to be inventorised
+msgid "risk_unanswered"
+msgstr "This risk still needs to be inventorised"
+
+#. Default: You responded negative to the above statement.
+msgid "warn_risk_present"
+msgstr "You responded negative to the above statement."
+
+#. Default: health and safety experts
+msgid "referer_health_safety_export"
+msgstr "health and safety experts"
+
+#. Default: Not provided
+msgid "missing_data"
+msgstr "Not provided"
+
+#. Default: Country
+msgid "label_country"
+msgstr "Country"
+
+#. Default: Your answers and report were ${automatically_saved} and may be
+#. found
+#. back or deleted at any time via the ${preparation_step}.
+msgid "plan_report_intro_2"
+msgstr "Your answers and report were ${automatically_saved} and may be found back or deleted at any time via the ${preparation_step}."
+
+#. Default: preparation step
+msgid "plan_report_intro_2_preparation_step"
+msgstr "preparation step"
+
+#. Default: automatically saved
+msgid "plan_report_intro_2_automatically_saved"
+msgstr "automatically saved"
+
+#. Default: By filling in the list of questions, you have completed a risk
+#. assessment. This assessment is used to draw up an action plan. The progress
+#. of
+#. this action plan must be discussed annually and a small report must be
+#. written
+#. on the progress. Certain subjects might have been completed and perhaps new
+#. subjects need to be added.
+msgid "plan_report_intro_1"
+msgstr "By filling in the list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan. The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects might have been completed and perhaps new subjects need to be added."
+
+#. Default: Print
+msgid "button_print"
+msgstr "Print"
+
+#. Default: Download
+msgid "button_download"
+msgstr "Download"
+
+#. Default: Contents
+msgid "toc_header"
+msgstr "Contents"
+
+#. Default: The European Agency for Safety and Health at Work, European social
+#. partners, etc.
+msgid "info_referer_eu_institution"
+msgstr "The European Agency for Safety and Health at Work, European social partners, etc."
+
+#. Default: Ministry, Labour Inspectorate, National Institute for Safety and
+#. Health
+#. at Work, etc.
+msgid "info_referer_national_public_institution"
+msgstr "Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc."
+
+#. Default: Please fill out your company details on this form. The data on
+#. this
+#. form will also appear in the report.
+msgid "company_details_intro"
+msgstr "Please fill out your company details on this form. The data on this form will also appear in the report."
+
+#. Default: Please fix the indicated errors.
+msgid "warn_fix_errors"
+msgstr "Please fix the indicated errors."
+
+#. Default: Company details
+msgid "hader_company_details"
+msgstr "Company details"
+
+msgid "Are you sure you want to delete this measure? This action can not be reverted."
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μέτρο; Αυτή η ενέργεια δεν μπορεί να αντιστραφεί."
+
+#. Default: Year
+msgid "label_year"
+msgstr "Year"
+
+#. Default: Month
+msgid "label_month"
+msgstr "Month"
+
+#. Default: Day
+msgid "label_day"
+msgstr "Day"
+
+#. Default: Planning end
+msgid "label_action_plan_end"
+msgstr "Planning end"
+
+#. Default: Planning start
+msgid "label_action_plan_start"
+msgstr "Planning start"
+
+#. Default: Although some measures do not cost any money, most do. The
+#. measures
+#. should therefore be budgeted for; include them in the annual budget round
+#. if
+#. necessary.
+msgid "actionplan_measure_budget_tooltip"
+msgstr "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
+
+#. Default: Budget (in Euro)
+msgid "label_action_plan_budget"
+msgstr "Budget (in Euro)"
+
+#. Default: Appoint someone in your company to be responsible for the
+#. implementation of this measure. This person will have the authority to take
+#. the
+#. steps described in the Plan and/or the responsibility to ensure that they
+#. are
+#. carried out.
+msgid "actionplan_measure_responsible_tooltip"
+msgstr "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
+
+#. Default: Who is responsible?
+msgid "label_action_plan_responsible"
+msgstr "Who is responsible?"
+
+#. Default: Requirements
+msgid "label_measure_requirements"
+msgstr "Requirements"
+
+#. Default: Prevention plan
+msgid "label_measure_prevention_plan"
+msgstr "Prevention plan"
+
+#. Default: Action plan
+msgid "label_measure_action_plan"
+msgstr "Action plan"
+
+#. Default: You write down in the Plan what measure you will be taking in
+#. response
+#. to the risk. Removing the causes (tackling the source) is the preferred
+#. method:
+#. that way, the risk can no longer arise. You then write down what tasks have
+#. to
+#. be carried out in order for the risk to be removed, as well as the
+#. knowledge and
+#. experience that are needed for those tasks to be carried out (prevention
+#. plan
+#. and requirements). In most cases, the prevention officer will help in the
+#. implementation of the Plan: however, he must have the capability or have
+#. had the
+#. relevant training to do this.
+msgid "actionplan_measure_tooltip"
+msgstr "You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this."
+
+#. Default: Remove
+msgid "label_remove"
+msgstr "Remove"
+
+#. Default: Measure 2
+msgid "measure_template_title"
+msgstr "Measure 2"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this
+#. field. These comments will be used in the action plan.
+msgid "label_comment"
+msgstr "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+
+msgid "Use"
+msgstr "Χρήση"
+
+#. Default: There are known common approaches to this risk. You can create a
+#. new
+#. measure based on these approaches.
+msgid "help_common_solutions"
+msgstr "There are known common approaches to this risk. You can create a new measure based on these approaches."
+
+#. Default: Common solutions
+msgid "header_common_solutions"
+msgstr "Common solutions"
+
+#. Default: Add another measure
+msgid "label_add_measure"
+msgstr "Add another measure"
+
+#. Default: Please enter a valid year after 1900
+msgid "error_invalid_year"
+msgstr "Please enter a valid year after 1900"
+
+#. Default: Invalid day
+msgid "error_invalid_day"
+msgstr "Invalid day"
+
+#. Default: Please enter the budget in whole Euros.
+msgid "error_invalid_budget"
+msgstr "Please enter the budget in whole Euros."
+
+#. Default: High
+msgid "priority_high"
+msgstr "High"
+
+#. Default: Medium
+msgid "priority_medium"
+msgstr "Medium"
+
+#. Default: Low
+msgid "priority_low"
+msgstr "Low"
+
+#. Default: Select the priority of this risk
+msgid "header_risk_priority"
+msgstr "Select the priority of this risk"
+
+#. Default: High (very high) severity
+msgid "effect_permanent_damage"
+msgstr "High (very high) severity"
+
+#. Default: Significant severity
+msgid "effect_injury_with_absence"
+msgstr "Significant severity"
+
+#. Default: Weak severity
+msgid "effect_injury_no_absence"
+msgstr "Weak severity"
+
+#. Default: What is the severity of the damage ?
+msgid "header_risk_effect"
+msgstr "What is the severity of the damage ?"
+
+#. Default: Constantly
+msgid "frequency_constantly"
+msgstr "Constantly"
+
+#. Default: Regularly
+msgid "frequency_regularly"
+msgstr "Regularly"
+
+#. Default: Almost never
+msgid "frequency_almost_never"
+msgstr "Almost never"
+
+#. Default: How often are people exposed to this risk?
+msgid "header_risk_frequency"
+msgstr "How often are people exposed to this risk?"
+
+#. Default: Large
+msgid "probability_large"
+msgstr "Large"
+
+#. Default: Medium
+msgid "probability_medium"
+msgstr "Medium"
+
+#. Default: Small
+msgid "probability_small"
+msgstr "Small"
+
+#. Default: What is the chance of this risk occurring?
+msgid "header_risk_probability"
+msgstr "What is the chance of this risk occurring?"
+
+#. Default: Not applicable
+msgid "label_not_applicable"
+msgstr "Not applicable"
+
+msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την ενότητα; Αυτή η ενέργεια δεν μπορεί να αντιστραφεί."
+
+#. Default: Once you have started an RA, you will be able to stop before the
+#. end.
+#. Log out: the data will be stored. If you forgot to log out and just ended
+#. the
+#. RA, the data will be stored too. For security reasons it is better to
+#. officially
+#. log out. Of course your must remember your e-mail address, password and the
+#. title that you have given the RA. You can start the stored RA again at a
+#. later
+#. date: select the title of the RA. You can save more than one RA, provided
+#. you
+#. have given them different titles names.
+msgid "session_title_tooltip"
+msgstr "Once you have started an RA, you will be able to stop before the end. Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names."
+
+#. Default: Enter a title for your Risk Assessment
+msgid "label_session_title"
+msgstr "Enter a title for your Risk Assessment"
+
+#. Default: Start a new session choosing one of the following sectoral tools
+msgid "label_select_new_session"
+msgstr "Start a new session choosing one of the following sectoral tools"
+
+#. Default: or…
+msgid "header_or"
+msgstr "or…"
+
+#. Default: Delete
+msgid "label_delete"
+msgstr "Delete"
+
+#. Default: Rename
+msgid "label_rename"
+msgstr "Rename"
+
+#. Default: saved on ${date}
+msgid "lable_session_modified"
+msgstr "saved on ${date}"
+
+#. Default: Select an earlier session to complete or review
+msgid "header_select_session"
+msgstr "Select an earlier session to complete or review"
+
+#. Default: Session
+msgid "header_session"
+msgstr "Session"
+
+#. Default: Start
+msgid "label_start_survey"
+msgstr "Start"
+
+#. Default: Complicated? Not really. It just takes a bit of time. However, the
+#. RA
+#. is important. So important that the government has made it compulsory for
+#. almost
+#. all entrepreneurs with employees.
+msgid "intro_not_complicated"
+msgstr "Complicated? Not really. It just takes a bit of time. However, the RA is important. So important that the government has made it compulsory for almost all entrepreneurs with employees."
+
+#. Default: The assessment is not complicated.
+msgid "header_not_complicated"
+msgstr "The assessment is not complicated."
+
+#. Default: Including the risks to your employees and your equipment? What if
+#. there
+#. is an accident with one of the machines? What if an employee is exposed to
+#. hazardous substances? A risk assessment helps you to define these risks and
+#. tackle them head on. A risk assessment consists of two parts: a with all
+#. the
+#. risks to your company and an to deal with them. These two components allow
+#. you
+#. to limit the risks to your employees and your company, and therefore also
+#. the
+#. financial risk.
+msgid "intro_risk_aware"
+msgstr "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment consists of two parts: a with all the risks to your company and an to deal with them. These two components allow you to limit the risks to your employees and your company, and therefore also the financial risk."
+
+#. Default: Are you aware of all the risks?
+msgid "header_risk_aware"
+msgstr "Are you aware of all the risks?"
+
+#. Default: ${count} questions were postponed
+msgid "status_postponed"
+msgstr "${count} questions were postponed"
+
+#. Default: ${count} answers indicated a risk
+msgid "status_risk"
+msgstr "${count} answers indicated a risk"
+
+#. Default: ${count} questions were answersed
+msgid "status_answered"
+msgstr "${count} questions were answersed"
+
+#. Default: Questions answered per module
+msgid "header_questions_answered"
+msgstr "Questions answered per module"
+
+#. Default: Status
+msgid "title_status"
+msgstr "Status"
+
+#. Default: Update
+msgid "label_accept update"
+msgstr "Update"
+
+#. Default: Please verify if the profile is still accurate.
+msgid "verify_profile"
+msgstr "Please verify if the profile is still accurate."
+
+#. Default: This survey has been updated. Before you can continue any changes
+#. made
+#. in the survey will have to be merged in your session.
+msgid "expl_update"
+msgstr "This survey has been updated. Before you can continue any changes made in the survey will have to be merged in your session."
+
+#. Default: Survey was updated
+msgid "title_updated"
+msgstr "Survey was updated"
+
+#. Default: Legal and policy references
+msgid "header_legal_references"
+msgstr "Legal and policy references"
+
+#. Default: About
+msgid "appendix_about"
+msgstr "About"
+
+#. Default: Produced by ${EU-OSHA}.
+msgid "appendix_produced_by"
+msgstr "Produced by ${EU-OSHA}."
+
+#. Default: Risk Assessment
+msgid "oira_name_line_2"
+msgstr "Risk Assessment"
+
+#. Default: Online interactive
+msgid "oira_name_line_1"
+msgstr "Online interactive"
+
+msgid "The specified colour is not valid."
+msgstr "Το χρώμα που καθορίστηκε δεν είναι αποδεκτό."
+
+#. Default: Introduction
+msgid "label_help_introduction"
+msgstr "Introduction"
+
+#. Default: Generic introduction for the client. This text is not associated
+#. with
+#. specific pages.
+msgid "help_help_introduction"
+msgstr "Generic introduction for the client. This text is not associated with specific pages."
+
+#. Default: Authentication
+msgid "label_authentication"
+msgstr "Authentication"
+
+#. Default: Describe the user handling. This text is linked from the login,
+#. password reminder and registration pages.
+msgid "help_authentication"
+msgstr "Describe the user handling. This text is linked from the login, password reminder and registration pages."
+
+#. Default: Sessions
+msgid "label_sessions"
+msgstr "Sessions"
+
+#. Default: Describe the session handling. This text is linked from the
+#. session
+#. overview page.
+msgid "help_sessions"
+msgstr "Describe the session handling. This text is linked from the session overview page."
+
+#. Default: Document the first steps in a survey, including how to configure a
+#. profile (if needed). This page is linked from the survey start page.
+msgid "help_preparation"
+msgstr "Document the first steps in a survey, including how to configure a profile (if needed). This page is linked from the survey start page."
+
+#. Default: Document the identification phase. This information is linked from
+#. all
+#. identification related pages
+msgid "help_identification"
+msgstr "Document the identification phase. This information is linked from all identification related pages"
+
+#. Default: Document the evaluation phase. This information is linked from all
+#. evaluation related pages
+msgid "help_evaluation"
+msgstr "Document the evaluation phase. This information is linked from all evaluation related pages"
+
+#. Default: Action plan
+msgid "label_actionplan"
+msgstr "Action plan"
+
+#. Default: Document the action plan phase. This information is linked from
+#. all
+#. action plan related pages
+msgid "help_actionplan"
+msgstr "Document the action plan phase. This information is linked from all action plan related pages"
+
+#. Default: Reports
+msgid "label_reports"
+msgstr "Reports"
+
+#. Default: Describe the reporting options. This page is linked from report
+#. page.
+msgid "help_reports"
+msgstr "Describe the reporting options. This page is linked from report page."
+
+#. Default: Final words
+msgid "label_finalwords"
+msgstr "Final words"
+
+#. Default: Any final words that should be shown at the end of the help. This
+#. information is not linked directly.
+msgid "help_finalwords"
+msgstr "Any final words that should be shown at the end of the help. This information is not linked directly."
+
+#. Default: Description
+msgid "label_module_description"
+msgstr "Description"
+
+#. Default: Include any relevant information that may be helpful for users.
+msgid "help_module_description"
+msgstr "Include any relevant information that may be helpful for users."
+
+#. Default: This module is optional
+msgid "label_module_optional"
+msgstr "This module is optional"
+
+#. Default: Allow users to skip this module and everything inside it.
+msgid "help_module_optional"
+msgstr "Allow users to skip this module and everything inside it."
+
+#. Default: Question
+msgid "label_module_question"
+msgstr "Question"
+
+#. Default: The question to ask users if this module is optional. This has to
+#. be a
+#. yes/no question.
+msgid "help_module_question"
+msgstr "The question to ask users if this module is optional. This has to be a yes/no question."
+
+#. Default: Image
+#. Default: Image file
+msgid "label_image"
+msgstr "Image Default: Image file"
+
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif
+#. and
+#. does not contain any special characters.
+msgid "help_image_upload"
+msgstr "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters."
+
+#. Default: Introduction action plan
+msgid "label_solution_direction"
+msgstr "Introduction action plan"
+
+#. Default: This information will be shown to users when they enter this
+#. module
+#. while working on the action plan.
+msgid "help_solution_direction"
+msgstr "This information will be shown to users when they enter this module while working on the action plan."
+
+#. Default: Page content
+msgid "label_body"
+msgstr "Page content"
+
+#. Default: Question
+msgid "label_profilequestion_question"
+msgstr "Question"
+
+#. Default: If this is to be an "optional" profile question, it must be
+#. formulated
+#. as a question and be answerable with YES or NO. If this is to be a
+#. "repeatable"
+#. profile question (statement), it must be formulated as a prompt to fill in
+#. multiple values.
+msgid "help_profilequestion_question"
+msgstr "If this is to be an \"optional\" profile question, it must be formulated as a question and be answerable with YES or NO. If this is to be a \"repeatable\" profile question (statement), it must be formulated as a prompt to fill in multiple values."
+
+#. Default: Type
+msgid "label_profile_type"
+msgstr "Type"
+
+#. Default: Optional
+msgid "profile_optional"
+msgstr "Optional"
+
+#. Default: Repeatable
+msgid "profile_repeat"
+msgstr "Repeatable"
+
+#. Default: Statement
+msgid "label_statement"
+msgstr "Statement"
+
+#. Default: This is a short statement about a possible risk.
+msgid "help_statement"
+msgstr "This is a short statement about a possible risk."
+
+#. Default: Problem description
+#. Default: Inversed statement
+msgid "label_problem_description"
+msgstr "Problem description Default: Inversed statement"
+
+#. Default: This is the inverse of the statement: a short description of
+#. current
+#. (bad) situation.
+msgid "help_problem_description"
+msgstr "This is the inverse of the statement: a short description of current (bad) situation."
+
+#. Default: Description
+msgid "label_description"
+msgstr "Description"
+
+#. Default: Describe the risk. Include any relevant information that may be
+#. helpful
+#. for users.
+msgid "help_risk_description"
+msgstr "Describe the risk. Include any relevant information that may be helpful for users."
+
+#. Default: Legal and policy references.
+#. Default: Legal and policy references
+msgid "label_legal_reference"
+msgstr "Legal and policy references. Default: Legal and policy references"
+
+#. Default: Identification
+msgid "header_identification"
+msgstr "Identification"
+
+#. Default: Show `not applicable' option
+msgid "label_show_notapplicable"
+msgstr "Show `not applicable' option"
+
+#. Default: Offer a `not applicable' option in addition to the standard yes/no
+#. options.
+msgid "help_show_notapplicable"
+msgstr "Offer a `not applicable' option in addition to the standard yes/no options."
+
+#. Default: Evaluation
+msgid "header_evaluation"
+msgstr "Evaluation"
+
+#. Default: You can specify how the risks priority is evaluated. For more
+#. details
+#. see the online manual.
+msgid "intro_evaluation"
+msgstr "You can specify how the risks priority is evaluated. For more details see the online manual."
+
+#. Default: Risk type
+msgid "label_risk_type"
+msgstr "Τύπος κινδύνου"
+
+#. Default: 'Risk' is related to the workplace. 'Policy' is related to
+#. agreements,
+#. procedures and management decisions. It can be answered from behind a desk
+#. (no
+#. need to examine the workplace). 'Top 5' is one of the top five risks of the
+#. sector.
+msgid "help_risk_type"
+msgstr "Risk' is related to the workplace. 'Policy' is related to agreements, procedures and management decisions. It can be answered from behind a desk (no need to examine the workplace). 'Top 5' is one of the top five risks of the sector."
+
+#. Default: Risk
+msgid "risktype_risk"
+msgstr "Risk"
+
+#. Default: Policy
+msgid "risktype_policy"
+msgstr "Policy"
+
+#. Default: Top 5
+msgid "risktype_top5"
+msgstr "Top 5"
+
+#. Default: Evaluation method
+msgid "label_evaluation_method"
+msgstr "Evaluation method"
+
+#. Default: Select 'estimated' if calcuation is not necessary or not possible.
+msgid "help_evaluation_method"
+msgstr "Select 'estimated' if calcuation is not necessary or not possible."
+
+#. Default: Estimated
+msgid "evalmethod_direct"
+msgstr "Estimated"
+
+#. Default: Calculated
+msgid "evalmethod_calculated"
+msgstr "Calculated"
+
+#. Default: Default priority
+msgid "label_default_priority"
+msgstr "Default priority"
+
+#. Default: You can help the user by selecting a default priority. The user
+#. can
+#. still change the priority.
+msgid "help_default_priority"
+msgstr "You can help the user by selecting a default priority. The user can still change the priority."
+
+#. Default: No default
+msgid "no_default"
+msgstr "No default"
+
+#. Default: Default probability
+#. Default: Default probabilty
+msgid "label_default_probability"
+msgstr "Default probability Default: Default probabilty"
+
+#. Default: Indicate how likely occurence of this risk is in a normal
+#. situation.
+msgid "help_default_probability"
+msgstr "Indicate how likely occurence of this risk is in a normal situation."
+
+#. Default: No default
+msgid "no default"
+msgstr "No default"
+
+#. Default: Default frequency
+msgid "label_default_frequency"
+msgstr "Default frequency"
+
+#. Default: Indicate how often this risk occurs in a normal situation.
+msgid "help_default_frequency"
+msgstr "Indicate how often this risk occurs in a normal situation."
+
+#. Default: Almost never
+msgid "frequency_almostnever"
+msgstr "Almost never"
+
+#. Default: Default severity
+msgid "label_default_severity"
+msgstr "Default severity"
+
+#. Default: Indicate the severity of the manage if this risk occurs.
+msgid "help_default_severity"
+msgstr "Indicate the severity of the manage if this risk occurs."
+
+#. Default: Weak severity
+msgid "effect_weak"
+msgstr "Weak severity"
+
+#. Default: Significant severity
+msgid "effect_significant"
+msgstr "Significant severity"
+
+#. Default: High (very high) severity
+msgid "effect_high"
+msgstr "High (very high) severity"
+
+#. Default: Main image
+msgid "header_main_image"
+msgstr "Main image"
+
+#. Default: The main image will get a more prominent position in the client
+#. than
+#. the other images.
+msgid "intro_main_image"
+msgstr "The main image will get a more prominent position in the client than the other images."
+
+#. Default: Image caption
+msgid "label_caption"
+msgstr "Image caption"
+
+#. Default: Secondary images
+msgid "header_secondary_images"
+msgstr "Secondary images"
+
+#. Default: Contact name
+msgid "label_contact_name"
+msgstr "Contact name"
+
+#. Default: Logo
+msgid "label_logo"
+msgstr "Logo"
+
+#. Default: Main colour
+msgid "label_main_colour"
+msgstr "Main colour"
+
+#. Default: Support colour
+msgid "label_support_colour"
+msgstr "Support colour"
+
+#. Default: Describe the action that can be taken to remove this risk. This
+#. information will be copied to the measure.
+msgid "help_measure_action_plan"
+msgstr "Describe the action that can be taken to remove this risk. This information will be copied to the measure."
+
+#. Default: Describe what can be done to prevent this risk from (re)occuring.
+#. This
+#. information will be copied to the measure.
+msgid "help_measure_prevention_plan"
+msgstr "Describe what can be done to prevent this risk from (re)occuring. This information will be copied to the measure."
+
+#. Default: Describe the standard requirements for the action plan and
+#. prevention
+#. plan. This information will be copied to the measure.
+msgid "help_measure_requirements"
+msgstr "Describe the standard requirements for the action plan and prevention plan. This information will be copied to the measure."
+
+#. Default: Common solution
+msgid "title_common_solution"
+msgstr "Common solution"
+
+#. Default: Version name
+#. Default: Title
+#. Default: Name for survey version
+msgid "label_survey_title"
+msgstr "Version name Default: Title Default: Name for survey version"
+
+#. Default: This is the title of this survey version. This name is never shown
+#. to
+#. users.
+msgid "help_survey_title"
+msgstr "This is the title of this survey version. This name is never shown to users."
+
+#. Default: Introduction text
+msgid "label_introduction"
+msgstr "Introduction text"
+
+#. Default: The introduction text is shown when starting a new survey session.
+#. If
+#. no introduction is provided here a standard text will be shown.Please keep
+#. this
+#. text brief so it will easily fit on screens of small devices such as phones
+#. and
+#. PDAs
+msgid "help_introduction"
+msgstr "The introduction text is shown when starting a new survey session. If no introduction is provided here a standard text will be shown.Please keep this text brief so it will easily fit on screens of small devices such as phones and PDAs"
+
+#. Default: Evaluation may be skipped
+msgid "label_evaluation_optional"
+msgstr "Evaluation may be skipped"
+
+#. Default: This option allows uses to skip the evaluation phase.
+msgid "help_evaluation_optional"
+msgstr "This option allows uses to skip the evaluation phase."
+
+#. Default: Language
+msgid "label_language"
+msgstr "Language"
+
+#. Default: Classification code
+msgid "label_classification_code"
+msgstr "Classification code"
+
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
+#. national standards bodies and based on revision 2 of the NACE standard.
+msgid "help_classification_code"
+msgstr "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
+
+#. Default: You can not delete the only survey version.
+msgid "message_delete_no_last_survey"
+msgstr "You can not delete the only survey version."
+
+#. Default: Title
+msgid "label_title"
+msgstr "Title"
+
+#. Default: The title of this survey. This title is used in the survey
+#. overview in
+#. the clients.
+#. Default: If you do not specify a title it will be taken from the input.
+msgid "help_surveygroup_title"
+msgstr "The title of this survey. This title is used in the survey overview in the clients. Default: If you do not specify a title it will be taken from the input."
+
+#. Default: Standard
+msgid "survey_default_title"
+msgstr "Standard"
+
+#. Default: Title of sector.
+msgid "label_sector_title"
+msgstr "Title of sector."
+
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
+msgid "help_sector_title"
+msgstr "If you do not specify a title it will be taken from the input file."
+
+#. Default: Title of imported survey.
+msgid "label_surveygroup_title"
+msgstr "Title of imported survey."
+
+msgid "Standard"
+msgstr "Στάνταρ"
+
+#. Default: XML file
+msgid "label_upload_filename"
+msgstr "XML file"
+
+msgid "Survey import"
+msgstr "Εισαγωγή έρευνας"
+
+msgid "Import survey version"
+msgstr "Εισαγωγή έκδοσης έρευνας"
+
+msgid "Upload"
+msgstr "Ανέβασμα"
+
+#. Default: Please upload a valid XML file
+msgid "error_invalid_xml"
+msgstr "Please upload a valid XML file"
+
+#. Default: Succesfully imported the survey
+msgid "upload_success"
+msgstr "Succesfully imported the survey"
+
+#. Default: Import sector and survey
+msgid "title_import_sector_survey"
+msgstr "Import sector and survey"
+
+#. Default: Upload
+msgid "button_upload"
+msgstr "Upload"
+
+#. Default: This login name is already taken.
+msgid "error_existing_login"
+msgstr "This login name is already taken."
+
+#. Default: A login name may only consist of lowercase letters and numbers.
+msgid "error_invalid_login"
+msgstr "A login name may only consist of lowercase letters and numbers."
+
+#. Default: Name
+msgid "label_user_title"
+msgstr "Name"
+
+#. Default: Contact email address
+msgid "label_contact_email"
+msgstr "Contact email address"
+
+#. Default: Password
+msgid "label_password"
+msgstr "Password"
+
+#. Default: Account is locked
+msgid "label_account_locked"
+msgstr "Account is locked"
+
+#. Default: Account "${title}" has been locked.
+msgid "message_user_locked"
+msgstr "Account \"${title}\" has been locked."
+
+#. Default: Account "${title}" has been unlocked.
+msgid "message_user_unlocked"
+msgstr "Account \"${title}\" has been unlocked."
+
+msgid "Published"
+msgstr "Δημοσιεύτηκε"
+
+msgid "Summary"
+msgstr "Σύνοψη"
+
+msgid "A short summary of the content."
+msgstr "Σύντομη σύνοψη του περιεχομένου"
+
+msgid "Identifier"
+msgstr "Αναγνωριστικό"
+
+msgid "This is a unique identifier for this object."
+msgstr "Πρόκειται για ένα μοναδικό αναγνωριστικό αυτού του αντικειμένου."
+
+msgid "A folder for all sectors in a country."
+msgstr "Ένας φάκελος για όλους τους τομείς σε μια χώρα."
+
+msgid "Country"
+msgstr "Χώρα"
+
+msgid "A manager for sectors in a country."
+msgstr "Ένας διευθυντής για τους τομείς σε μια χώρα."
+
+msgid "Country manager"
+msgstr "Εθνικός διευθυντής"
+
+msgid "A folder for all documentation for a specific language."
+msgstr "Ένας φάκελος για όλα τα έγγραφα μιας συγκεκριμένης γλώσσας."
+
+msgid "Documentation"
+msgstr "Έγγραφα"
+
+msgid "Folder"
+msgstr "Φάκελος"
+
+msgid "The help text for the client."
+msgstr "Το κείμενο βοήθειας για τον πελάτη."
+
+msgid "Online help"
+msgstr "Online βοήθεια"
+
+msgid "A module is a grouping of risks"
+msgstr "Μια μονάδα είναι μια ταξινόμηση κινδύνων"
+
+msgid "Module"
+msgstr "Μονάδα"
+
+msgid "A page with text"
+msgstr "Μια σελίδα με κείμενο"
+
+msgid "Page"
+msgstr "Σελίδα"
+
+#. Default: The basic architecture of an Online interactive Risk Assessment
+#. consists of: - profile questions (questions defining the company profile) -
+#. modules and potentially sub-modules - risks (positive statements) Profile
+#. questions are used to determine whether particular modules apply to the end
+#. user
+#. at all (OPTIONAL), or whether they should be repeated a number of times
+#. (REPEATABLE). Such questions are asked BEFORE starting the risk
+#. identification
+#. and evaluation. If the end-user does not confirm that an optional profile
+#. question is relevant (by ticking the box), then the corresponding module
+#. will be
+#. skipped entirely. If the end-user enters more than one option to a
+#. repeatable
+#. profile question then the corresponding module will be repeated the
+#. specified
+#. number of times.
+msgid "description_profilequestion"
+msgstr "Η βασική αρχιτεκτονική μιας Online διαδραστικής αξιολόγησης κινδύνων αποτελείται από: - ερωτήσεις προφίλ (ερωτήσεις που προσδιορίζουν το προφίλ της εταιρείας) - μονάδες και πιθανόν υπο-μονάδες - κινδύνους (θετικές δηλώσεις) Οι ερωτήσεις προφίλ χρησιμοποιούνται για να προσδιοριστεί εάν κάποιες συγκεκριμένες ενότητες ισχύουν έστω και κατ' ελάχιστο για τον τελικό χρήστη (ΠΡΟΑΙΡΕΤΙΚΟ) ή εάν πρέπει να επαναλαμβάνονται κάποιες φορές (ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ). Αυτές οι ερωτήσεις τίθενται ΠΡΙΝ αρχίσει η ταυτοποίηση και αξιολόγηση κινδύνου. Εάν ο τελικός χρήστης δεν επιβεβαιώσει ότι μια προαιρετική ερώτηση προφίλ είναι σχετική (επιλέγοντας το πλαίσιο), τότε η αντίστοιχη μονάδα θα παρακαμφθεί εντελώς. Εάν ο τελικός χρήστης εισάγει περισσότερες από μια επιλογές σε μια ερώτηση προφίλ με δυνατότητα επανάληψης τότε η αντίστοιχη μονάδα θα επαναληφθεί συγκεκριμένες φορές."
+
+msgid "Profile question"
+msgstr "Ερώτηση προφίλ"
+
+msgid "A risk."
+msgstr "Ένας κίνδυνος."
+
+msgid "Risk"
+msgstr "Κίνδυνος"
+
+msgid "A sector is national organisation for a specific type of industry."
+msgstr "Ένας τομέας είναι ένας εθνικός οργανισμός για ένα συγκεκριμένο τύπο βιομηχανίας."
+
+msgid "Sector"
+msgstr "Τομέας"
+
+msgid "A folder which can contain sectors."
+msgstr "Ένας φάκελος που μπορεί να περιέχει τομείς."
+
+msgid "Sector Folder"
+msgstr "Φάκελος τομέων"
+
+msgid "A solution."
+msgstr "Μια λύση."
+
+msgid "Solution"
+msgstr "Λύση"
+
+msgid "A version of a survey."
+msgstr "Μια έκδοση της έρευνας."
+
+msgid "Survey version"
+msgstr "Έκδοση έρευνας"
+
+msgid "A survey."
+msgstr "Μια έρευνα."
+
+msgid "Survey"
+msgstr "Έρευνα"
+
+msgid "Sector workflow"
+msgstr "Ροή εργασίας τομέα"
+
+msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+msgstr "Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο χρήστη του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
+
+msgid "Active"
+msgstr "Ενεργό"
+
+msgid "The One And Only state "
+msgstr "Η Μία και Μοναδική κατάσταση"
+
+#. Default: OiRA
+msgid "titld_tool"
+msgstr "OiRA"
+
+#. Default: There are no sectors for this country.
+msgid "message_no_sectors"
+msgstr "Δεν υπάρχουν τομείς για αυτή τη χώρα."
+
+#. Default: Select a sector for which you would like to view or copy a survey.
+msgid "intro_select_sector"
+msgstr "Επιλέξτε έναν τομέα, για τον οποίο την έρευνα θέλετε να δείτε ή να αντιγράψετε."
+
+#. Default: Email address
+msgid "email"
+msgstr "Διεύθυνση email"
+
+#. Default: Country manager for ${country}.
+msgid "notice_country_manager"
+msgstr "Εθνικός διευθυντής για την ${country}."
+
+#. Default: The ${online_help} text can also be modified.
+msgid "documentation_online_help"
+msgstr "Το κείμενο ${online_help} μπορεί επίσης να τροποποιηθεί."
+
+#. Default: online help
+msgid "documentation_online_help_online_help"
+msgstr "online βοήθεια"
+
+#. Default: Pages created in the ${appendix} folder are available via links in
+#. the
+#. footer of the online client.
+msgid "documentation_appendix"
+msgstr "Οι σελίδες που δημιουργούνται στο φάκελο ${appendix} είναι διαθέσιμες μέσω συνδέσμων στο υποσέλιδο του online πελάτη."
+
+#. Default: appendix
+msgid "documentation_appendix_appendix"
+msgstr "παράρτημα"
+
+#. Default: Here you can manage the documentation for the ${client}.
+msgid "intro_documenation"
+msgstr "Εδώ μπορείτε να διαχειριστείτε τα έγγραφα για τον ${client}."
+
+#. Default: online client
+msgid "intro_documenation_client"
+msgstr "online πελάτης"
+
+#. Default: Documentation
+msgid "title_country_documentation"
+msgstr "Έγγραφα"
+
+#. Default: This folder is empty.
+msgid "folder_no_children"
+msgstr "Αυτός ο φάκελος είναι άδειος."
+
+#. Default: Client help text
+msgid "title_client_help"
+msgstr "Κείμενο βοήθειας πελάτη"
+
+#. Default: Risks
+msgid "header_risks"
+msgstr "Κίνδυνοι"
+
+#. Default: Submodules
+msgid "header_submodules"
+msgstr "Υπομονάδες"
+
+#. Default: This module is optional.
+msgid "module_optional"
+msgstr "Αυτή η μονάδα είναι προαιρετική."
+
+#. Default: This module is mandatory.
+msgid "module_mandatory"
+msgstr "Αυτή η μονάδα είναι υποχρεωτική."
+
+#. Default: Information
+msgid "header_information"
+msgstr "Πλοροφορίες"
+
+#. Default: This is a repeatable profile item.
+msgid "profilequestion_type_repeat"
+msgstr "Αυτό είναι ένα στοιχείο προφίλ με δυνατότητα επανάληψης."
+
+#. Default: This is an optional profile item.
+msgid "profilequestion_type_optional"
+msgstr "Αυτό είναι ένα προαιρετικό στοιχείο προφίλ."
+
+#. Default: Save
+msgid "button_save"
+msgstr "Αποθήκευση"
+
+#. Default: Secondary image 3
+msgid "header_secondary_images_3"
+msgstr "Δευτερεύουσα εικόνα 3"
+
+#. Default: Secondary image 2
+msgid "header_secondary_images_2"
+msgstr "Δευτερεύουσα εικόνα 2"
+
+#. Default: Secondary image 1
+msgid "header_secondary_images_1"
+msgstr "Δευτερεύουσα εικόνα 1"
+
+msgid "Group name"
+msgstr "Όνομα ομάδας"
+
+#. Default: Solution ${number}
+msgid "risk_solution_header"
+msgstr "Λύση ${number}"
+
+#. Default: Standard solutions
+msgid "header_solutions"
+msgstr "Στάνταρ λύσεις"
+
+#. Default: Default effect
+msgid "label_default_effect"
+msgstr "Προεπιλεγμένο εφέ"
+
+#. Default: No
+msgid "no"
+msgstr "Όχι"
+
+#. Default: Yes
+msgid "yes"
+msgstr "Ναι"
+
+#. Default: Show '${na}'
+msgid "risk_show_na"
+msgstr "Εμφάνιση '${na}"
+
+#. Default: not applicable
+msgid "risk_show_na_na"
+msgstr "μη διαθέσιμ."
+
+#. Default: You can also ${add_link}.
+msgid "survey_list_footer"
+msgstr "Μπορείτε επίσης να ${add_link}."
+
+#. Default: add a new survey
+msgid "add_survey"
+msgstr "προσθέστε νέα έρευνα"
+
+#. Default: There are no surveys present. You can ${add_link}.
+msgid "no_surveys_present"
+msgstr "Δεν υπάρχουν έρευνες. Μπορείτε να ${add_link}."
+
+#. Default: Surveys
+msgid "header_sector_survey_list"
+msgstr "Έρευνες"
+
+#. Default: Please choose a country of which you would like to view or copy a
+#. survey.
+msgid "message_choose_country"
+msgstr "Επιλέξτε μια χώρα για την οποία θέλετε να δείτε μια έρευνα ή να την αντιγράψετε."
+
+#. Default: Sectors
+msgid "title_sectors"
+msgstr "Τομείς"
+
+#. Default: Save changes
+msgid "button_save_changes"
+msgstr "Αποθήκευση αλλαγών"
+
+msgid "Information"
+msgstr "Πληροφορίες"
+
+#. Default: Give the name of the person responsible for the OiRA tools of this
+#. sector.
+msgid "help_sector_contactperson"
+msgstr "Αναφέρετε το όνομα του υπευθύνου για τα εργαλεία OiRA αυτού του τομέα."
+
+#. Default: Contact person
+msgid "label_contact_person"
+msgstr "Άτομο επικοινωνίας"
+
+#. Default: This is the password that you need to log on to this editor
+#. environment.
+msgid "help_sector_password"
+msgstr "Αυτός είναι ο κωδικός πρόσβασης που χρειάζεστε για να συνδεθείτε σε αυτό το περιβάλλον του editor."
+
+#. Default: You may get the best results if you upload a logo as a
+#. ${transparent}
+#. PNG file of at least 100 pixels in height. Uploading larger images is fine,
+#. the
+#. logo will be scaled down to the right size automatically.
+msgid "logo_instructions"
+msgstr "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
+
+#. Default: transparent
+msgid "logo_instructions_transparent"
+msgstr "transparent"
+
+#. Default: My own
+msgid "logo_my_own"
+msgstr "My own"
+
+#. Default: Which logo you would like to display in the top left corner?
+msgid "label_logo_selection"
+msgstr "Which logo you would like to display in the top left corner?"
+
+#. Default: The logo will appear on both the client side app that your user
+#. group
+#. will see as well as on this editor environment in the top left corner. Make
+#. sure
+#. your image is of format png, jpg or gif and does not contain any special
+#. characters. The new logo will only become visible after you've saved your
+#. changes.
+msgid "help_sector_logo"
+msgstr "The logo will appear on both the client side app that your user group will see as well as on this editor environment in the top left corner. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes."
+
+#. Default: Please use the colour pickers below to select your organisation's
+#. colours. It's best to use a darker colour for the main colour and a lighter
+#. colour for the support colour.
+msgid "help_colour_picker"
+msgstr "Please use the colour pickers below to select your organisation's colours. It's best to use a darker colour for the main colour and a lighter colour for the support colour."
+
+#. Default: The colours you select here apply only for the client side of the
+#. application. Try to pick colours that have high enough contrast to keep the
+#. text
+#. on each button legible.
+msgid "help_sector_colours"
+msgstr "The colours you select here apply only for the client side of the application. Try to pick colours that have high enough contrast to keep the text on each button legible."
+
+#. Default: Restore to original colours
+msgid "button_reset_colours"
+msgstr "Restore to original colours"
+
+#. Default: Colour scheme
+msgid "header_colour_scheme"
+msgstr "Colour scheme"
+
+#. Default: Please provide a description of your sector
+msgid "label_sector_description"
+msgstr "Please provide a description of your sector"
+
+#. Default: Settings
+msgid "header_settings"
+msgstr "Settings"
+
+#. Default: Create
+msgid "button_create"
+msgstr "Create"
+
+#. Default: Choose a base revision
+msgid "label_survey_base"
+msgstr "Choose a base revision"
+
+#. Default: The form will allow you to create a new survey revision.
+msgid "intro_add_survey"
+msgstr "The form will allow you to create a new survey revision."
+
+#. Default: This survey has no modules.
+msgid "no_modules"
+msgstr "This survey has no modules."
+
+#. Default: Modules
+msgid "header_modules"
+msgstr "Modules"
+
+#. Default: This survey has no profile questions.
+msgid "no_profile_questions"
+msgstr "This survey has no profile questions."
+
+#. Default: Profile questions
+msgid "header_profile_questions"
+msgstr "Profile questions"
+
+#. Default: Not set
+msgid "not_set"
+msgstr "Not set"
+
+#. Default: Mandatory
+msgid "mandatory"
+msgstr "Mandatory"
+
+#. Default: Optional
+msgid "optional"
+msgstr "Optional"
+
+#. Default: Evaluation phase
+msgid "label_evaluation_phase"
+msgstr "Evaluation phase"
+
+#. Default: Choose a revision of the selected survey
+msgid "label_choose_survey"
+msgstr "Choose a revision of the selected survey"
+
+#. Default: Choose a survey
+msgid "label_choose_surveygroup"
+msgstr "Choose a survey"
+
+#. Default: Choose a country
+msgid "label_choose_country"
+msgstr "Choose a country"
+
+#. Default: Base my new survey on an existing survey of another organisation
+msgid "survey_source_other"
+msgstr "Base my new survey on an existing survey of another organisation"
+
+#. Default: Base my new survey on an existing survey of my organisation
+msgid "survey_source_local"
+msgstr "Base my new survey on an existing survey of my organisation"
+
+#. Default: Create a new survey from scratch
+msgid "survey_source_scratch"
+msgstr "Create a new survey from scratch"
+
+#. Default: How would you like to start
+msgid "label_survey_source"
+msgstr "How would you like to start"
+
+#. Default: The form will allow you to create a new survey.
+msgid "intro_add_surveygroup"
+msgstr "The form will allow you to create a new survey."
+
+#. Default: Unlock
+msgid "button_unlock"
+msgstr "Unlock"
+
+#. Default: Lock
+msgid "button_lock"
+msgstr "Lock"
+
+#. Default: Edit
+msgid "button_edit"
+msgstr "Edit"
+
+#. Default: There are no country managers for this country.
+msgid "country_no_managers"
+msgstr "There are no country managers for this country."
+
+#. Default: Country managers
+msgid "header_country_managers"
+msgstr "Country managers"
+
+#. Default: There are no sectors for this country.
+msgid "country_no_sectors"
+msgstr "There are no sectors for this country."
+
+#. Default: Sectors
+msgid "header_sectors"
+msgstr "Sectors"
+
+#. Default: Add country manager
+msgid "button_add_country_manager"
+msgstr "Add country manager"
+
+#. Default: Add new sector
+msgid "button_add_sector"
+msgstr "Add new sector"
+
+#. Default: Manage users in ${country}
+msgid "header_user_management"
+msgstr "Manage users in ${country}"
+
+#. Default: XML export
+msgid "menu_export"
+msgstr "XML export"
+
+#. Default: Import survey
+msgid "menu_import"
+msgstr "Import survey"
+
+#. Default: Relevance: ${percentage}
+msgid "search_result_relevance"
+msgstr "Relevance: ${percentage}"
+
+#. Default: ${number} results found.
+msgid "search_result_intro"
+msgstr "${number} results found."
+
+#. Default: No items found.
+msgid "search_no_results"
+msgstr "No items found."
+
+#. Default: Search results
+msgid "header_search_results"
+msgstr "Search results"
+
+#. Default: Search
+msgid "button_search"
+msgstr "Search"
+
+#. Default: Search
+msgid "header_search"
+msgstr "Search"
+
+msgid "Submodule"
+msgstr "Υπομονάδα"
+
+#. Default: Surveys
+msgid "nav_surveys"
+msgstr "Surveys"
+
+#. Default: User management
+msgid "nav_usermanagement"
+msgstr "User management"
+
+#. Default: Documents
+msgid "nav_documents"
+msgstr "Documents"
+
+#. Default: Help
+msgid "nav_help"
+msgstr "Help"
+
+#. Default: Add ${typename}
+msgid "button_add_factory"
+msgstr "Add ${typename}"
+
+#. Default: Toggle
+msgid "text_toggle_navtree"
+msgstr "Toggle"
+
+#. Default: Show older versions
+msgid "title_toggle_navtree"
+msgstr "Show older versions"
+
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
+#. Click the update icon to bring all the changes live
+msgid "legend_updated"
+msgstr "${label} = This version has changes that are currently unpublished. Click the update icon to bring all the changes live"
+
+#. Default: Update
+msgid "label_update"
+msgstr "Update"
+
+#. Default: ${label} Version you are currently reviewing
+msgid "legend_current"
+msgstr "${label} Version you are currently reviewing"
+
+#. Default: Current
+msgid "label_current"
+msgstr "Current"
+
+#. Default: ${label} Version that is currently online
+msgid "legend_published"
+msgstr "${label} Version that is currently online"
+
+#. Default: Published
+msgid "label_published"
+msgstr "Published"
+
+#. Default: Legend
+msgid "header_legend"
+msgstr "Legend"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+msgid "help_create_new_version"
+msgstr "Start to write a new survey. You will be asked whether you want to start off with a copy of an existing survey."
+
+#. Default: Create new survey
+msgid "button_create_new"
+msgstr "Create new survey"
+
+#. Default: Updated
+msgid "button_updated"
+msgstr "Updated"
+
+#. Default: Current / Published
+msgid "label_current_published"
+msgstr "Current / Published"
+
+#. Default: Publish the selected survey live with its latest changes.
+msgid "help_publish"
+msgstr "Publish the selected survey live with its latest changes."
+
+#. Default: Create a duplicate of the selected survey
+msgid "help_add_version"
+msgstr "Create a duplicate of the selected survey"
+
+#. Default: Duplicate
+msgid "button_add_version"
+msgstr "Duplicate"
+
+#. Default: Versions
+msgid "portlet_header_versions"
+msgstr "Versions"
+
