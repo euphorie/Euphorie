@@ -1,0 +1,2352 @@
+# Translations template for Euphorie.
+# Copyright (C) 2010 Wichert Akkerman, Simplon
+# This file is distributed under the same license as the Euphorie project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Euphorie 2.2\n"
+"Report-Msgid-Bugs-To: wichert@wiggy.net\n"
+"POT-Creation-Date: 2010-11-29 13:39+0100\n"
+"PO-Revision-Date: 2011-01-13 10:09+0100\n"
+"Last-Translator: Robert <vansen@hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.5\n"
+
+#. Default: Your country
+msgid "label_company_country"
+msgstr "Ditt land"
+
+#. Default: Number of employees
+msgid "label_employee_numbers"
+msgstr "Antal anställda"
+
+#. Default: 1 to 9 employees
+msgid "employee_numbers_1_to_9"
+msgstr "1-9 anställda"
+
+#. Default: 10 to 49 employees
+msgid "employee_numbers_10_to_49"
+msgstr "10-49 anställda"
+
+#. Default: 50 to 249 employees
+msgid "employee_numbers_50_to_249"
+msgstr "50-249 anställda"
+
+#. Default: 250 or more employees
+msgid "employee_numbers_250_or_more"
+msgstr "250 eller fler anställda"
+
+#. Default: The risk assessment was conducted by
+msgid "label_conductor"
+msgstr "Riskbedömningen är utförd av"
+
+#. Default: own staff
+msgid "conductor_staff"
+msgstr "egen personal"
+
+#. Default: an external consultant or service provider
+msgid "conductor_third_party"
+msgstr "en extern konsult eller tjänsteleverantör"
+
+#. Default: both own staff and an external consultant or service provider
+msgid "conductor_both"
+msgstr "både egen personal och extern konsult eller tjänsteleverantör"
+
+#. Default: Through which channel did you learn about this tool?
+msgid "label_referer"
+msgstr "Hur fick du kännedom om detta verktyg?"
+
+#. Default: an employers' organisation
+msgid "referer_employers_organisation"
+msgstr "en arbetsgivarorganisation"
+
+#. Default: a trade union organisation
+msgid "referer_trade_union"
+msgstr "en facklig organisation"
+
+#. Default: a national public institution/administration
+msgid "referer_national_public_institution"
+msgstr "en  offentlig institution/förvaltning på nationell nivå"
+
+#. Default: an European institution/administration
+msgid "referer_eu_institution"
+msgstr "en EU-institution/förvaltning"
+
+#. Default: health and safety experts
+msgid "referer_health_safety_expert"
+msgstr "arbetsmiljöexperter"
+
+#. Default: other channel
+msgid "referer_other"
+msgstr "annan kanal"
+
+msgid "Please enter your email address"
+msgstr "Ange din e-postadress"
+
+msgid "Unknown email address"
+msgstr "Okänd e-postadress"
+
+msgid "OiRA registration reminder"
+msgstr "Påminnelse om OiRA-registrering"
+
+msgid "An error occured while sending the password reminder"
+msgstr "Ett fel har inträffat när lösenordspåminnelsen skulle skickas ut"
+
+msgid "An email with a password reminder has been sent to your address."
+msgstr "Ett e-postmeddelande med en lösenordspåminnelse har skickats till din e-postadress."
+
+#. Default: Please enter your email address
+msgid "error_missing_email"
+msgstr "Ange din e-postadress"
+
+#. Default: Please enter a valid email address
+msgid "error_invalid_email"
+msgstr "Ange en giltig e-postadress"
+
+#. Default: Please enter a password
+msgid "error_missing_password"
+msgstr "Ange ett lösenord"
+
+#. Default: Passwords do not match
+msgid "error_password_mismatch"
+msgstr "Lösenorden stämmer inte överens"
+
+#. Default: An account with this email address already exists.
+msgid "error_email_in_use"
+msgstr "Ett konto med denna e-postadress existerar redan."
+
+#. Default: Cancel
+msgid "button_cancel"
+msgstr "Avbryt"
+
+#. Default: Publish
+msgid "button_publish"
+msgstr "Publicera"
+
+msgid "Succesfully published the survey"
+msgstr "Undersökningen har publicerats"
+
+#. Default: Create preview
+#. Default: Preview
+msgid "button_preview"
+msgstr "Skapa standard förhandsgranskning: Förhandsgranskning "
+
+msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
+msgstr "En förhandsgranskning av undersökningen har skapats. Den finns tillgänglig på ${url}."
+
+msgid "Invalid day of month"
+msgstr "Ogiltig månadsdag"
+
+msgid "Please enter a year after 1900"
+msgstr "Ange ett årtal efter år 1900"
+
+#. Default: Identification ${title}.doc
+msgid "filename_identification_report"
+msgstr "Identifiering ${title}.doc"
+
+#. Default: Action plan ${title}.doc
+msgid "filename_actionplan_report"
+msgstr "Handlingsplan ${title}.doc"
+
+#. Default: OiRA
+msgid "title_tool"
+msgstr "OiRA"
+
+msgid "The online client."
+msgstr "Online-klient"
+
+msgid "Country information and grouping for the client."
+msgstr "Landinformation och gruppering för klienten."
+
+msgid "Sector information and grouping for the client."
+msgstr "Branschinformation och gruppering för klienten."
+
+#. Default: Help
+msgid "navigation_help"
+msgstr "Hjälp"
+
+#. Default: The OiRA sectoral tools can be used for free by all users.
+msgid "about_licenses_3"
+msgstr "De branschanpassade OiRA-verktygen får användas kostnadsfritt av alla."
+
+#. Default: The content of OiRA sectoral tools is licensed under a ${license}
+msgid "about_licenses_2"
+msgstr "Innehållet i de branschanpassade OIRA-verktygen omfattas av ${-licens}"
+
+msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
+msgstr "Creative Commons Attribution-ShareAlike 2.5 Generic License"
+
+msgid "Creative Commons License"
+msgstr "Creative Commons-license"
+
+#. Default: The source code of the OiRA application is ${GPL} licensed.
+msgid "about_licenses_1"
+msgstr "OiRA-progammets källkod omfattas av en ${GPL}-licens."
+
+#. Default: Licenses
+msgid "header_licenses"
+msgstr "Licenser"
+
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members and
+#. alternates of the Steering Committee were appointed by the interest groups
+#. at
+#. the Board, by the Commission and by EU-OSHA.
+msgid "about_partners_3"
+msgstr "Den Europeiska arbetsmiljöbyrån har också fått strategiska expertråd om utvecklingen och genomförandet  av OiRA-projektet av en styrkommitté. Styrkommitténs ledamöter och suppleanter utsågs av intressegrupperna i styrelsen, av kommissionen och av den Europeiska arbetsmiljöbyrån själv."
+
+msgid "Germany"
+msgstr "Tyskland"
+
+msgid "The Netherlands"
+msgstr "Nederländerna"
+
+#. Default: The following technical partners contributed to the development of
+#. the
+#. OiRA project:
+msgid "about_partners_2"
+msgstr "Följande tekniska sarmarbetspartners har bidragit till att utveckla OIRA-projektet:"
+
+#. Default: The OiRA project and its related web application has been
+#. developed by
+#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
+#. financed
+#. by the Dutch government, was initially developed by TNO in collaboration
+#. with
+#. the employers organisation for small and medium-sized enterprises MKB-
+#. Nederland
+#. and the Dutch Ministry for Employment. Further development of the
+#. application
+#. was realised with input and participation of trade unions FNV, CNV and MHP.
+msgid "about_partners_1"
+msgstr "OIRA-projektet och webbverktyget har utvecklats av ${eu-osha} på grundval av det nederländska RA-instrument (called ${RIE}), som finansieras av den nederländska regeringen, utvecklades ursprungligen av TNO i samarbete med arbetsgivarorganisationen för små och medelstora företag MKB-Nederland och det nederländska arbetsmarknadsministeriet. Därefter vidareutvecklades det tillsammans med arbetstagarorganisationerna FNV, CNV och MHP."
+
+#. Default: Development partners
+msgid "header_development_partners"
+msgstr "Utvecklingspartners"
+
+#. Default: The official launch of the tool is planned for September 2011,
+#. once the
+#. objectives of the testing phase have been reached and once the OiRA
+#. website, the
+#. OiRA training scheme and OiRA help desk will be ready.
+msgid "phase_launch"
+msgstr "Den officiella lanseringen av verktyget planeras ske i september 2011, när målen för testfasen har nåtts och OiRA:s webbplats, utbildningsprogram och helpdesk finns på plats."
+
+#. Default: Official launch of the project – September 2011
+msgid "header_launch"
+msgstr "Officiell lansering av projektet – september 2011"
+
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until the
+#. first half of 2011) the Agency is piloting the development and diffusion
+#. model
+#. at both EU level (working with the Sectoral Social Dialogue Committees) and
+#. at
+#. Member State level (with several Member States) as part of the testing of
+#. the
+#. tool and the development of appropriate support and guidance services.
+msgid "devel_phase"
+msgstr "Den tekniska utvecklingen av verktyget ägde rum 2009. Under 2010 (och första halvåret 2011) genomför byrån en pilotstudie för utveckling och spridning både på EU-nivå (i samarbete med de branschvisa kommittéerna för social dialog) och på medlemsstatsnivå (tillsammans med flera medlemsstater) för att testa verktyget och ta fram lämpliga stödtjänster."
+
+#. Default: Development and pilot phase – 2009-2011
+msgid "header_devel_phase"
+msgstr "Utveckling och pilotfas – 2009-2011"
+
+#. Default: Project Phases
+msgid "header_project_phases"
+msgstr "Projektfas"
+
+#. Default: More information about the OiRA project (in English)
+msgid "about_oiraproject"
+msgstr "Mer information om OiRA-projektet (på engelska)"
+
+#. Default: The ${agency} calls for the development of simple tools to
+#. facilitate
+#. risk assessment. Since the adoption of the European Framework directive in
+#. 1989,
+#. risk assessment has become a familiar concept for organising prevention in
+#. the
+#. workplace, and hundreds of thousands of companies all over Europe assess
+#. their
+#. risks regularly. Nevertheless, there is sufficient evidence to conclude
+#. that
+#. ${smb} when it comes to risk assessment and the adoption of a preventive
+#. policy
+#. in general which the OiRA project aims to overcome.
+msgid "about_paragraph_3"
+msgstr "${byrån} efterlyser utveckling av enkla verktyg som kan underlätta arbetet med riskbedömningar. Sedan EU:s ramdirektiv antogs 1989 har riskbedömning blivit ett välbekant begrepp i det förebyggande arbetet på arbetsplatserna och hundratusentals företag i hela Europa genomför regelbundet bedömningar av de risker som deras verksamhet medför. Ändå finns det fog för slutsatsen att det finns en del brister hos ${smb} när det gäller att göra riskbedömningar och vidta riskförebyggande åtgärder i allmänhet. Syftet med OiRA-projektet är att rätta till detta."
+
+#. Default: micro and small enterprises have some shortcomings
+msgid "about_partners_3_smb"
+msgstr "mikroföretag och små företag har vissa brister"
+
+#. Default: European Community Strategy on Health and Safety at Work 2007-2012
+msgid "about_paragraph3_agency"
+msgstr "EU:s arbetsmiljöstrategi för 2007-2012"
+
+#. Default: Why the OiRA project
+msgid "header_why_oira"
+msgstr "Varför OiRA-projektet?"
+
+#. Default: The OiRA web application gives access to the sectoral Risk
+#. Assessment
+#. tools created and maintained by sectoral organisations at national level.
+msgid "about_paragraph_2"
+msgstr "Webbverktyget OiRA ger tillgång till branschanpassade riskbedömningsverktyg som branschorganisationer i olika länder har skapat och administrerat."
+
+#. Default: Experience shows that ${key}. This is why EU-OSHA developed an
+#. ${easy}
+#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and
+#. small
+#. organisations to put in place a ${step} – starting with the
+#. ${identification}
+#. and ${evaluation} of workplace risks, through decision making on
+#. ${preventive_actions} and the taking of action, to monitoring and
+#. ${reporting}.
+msgid "about_paragraph_1"
+msgstr "Erfarenheten visar att ${key}. Därför har Europeiska arbetsmiljöbyrån utarbetat ett ${easy} (“OiRA” - online interactive riskassessment) som hjälper mikroföretag och små företag införa en ${step} – från ${identifiering} och ${värdering} av risker på arbetsplatserna, åtgärdsförslag om ${preventive_actions} och åtgärdsbeslut, för övervakning och ${reporting}."
+
+#. Default: reporting
+msgid "about_paragraph_1_reporting"
+msgstr "rapportering"
+
+#. Default: preventive actions
+msgid "about_paragraph_1_preventive_actions"
+msgstr "förebyggande åtgärder"
+
+#. Default: evaluation
+msgid "about_paragraph_1_evaluation"
+msgstr "värdering"
+
+#. Default: identification
+msgid "about_paragraph_1_identification"
+msgstr "identifiering"
+
+#. Default: step-by-step risk assessment process
+msgid "about_paragraph_1_step"
+msgstr "riskbedömning steg för steg"
+
+#. Default: easy-to-use and cost-free web application
+msgid "about_paragraph_1_easy"
+msgstr "användarvänligt och kostnadsfritt webbverktyg"
+
+#. Default: proper risk assessment is the key to healthy workplaces
+msgid "about_paragraph_1_key"
+msgstr "bra riskbedömningar är en viktig förutsättning för hälsosamma arbetsplatser"
+
+#. Default: What is the OiRA (Online Interactive Risk Assessment) project
+msgid "header_what_is_oira"
+msgstr "Vad är OiRA (interaktivt webbverktyg för riskbedömning)?"
+
+#. Default: About
+msgid "title_about"
+msgstr "Om"
+
+#. Default: Status
+msgid "navigation_status"
+msgstr "Status"
+
+#. Default: Surveys
+msgid "navigation_surveys"
+msgstr "Undersökningar"
+
+#. Default: Logout
+msgid "navigation_logout"
+msgstr "Logga ut"
+
+#. Default: Report
+msgid "iphone_report"
+msgstr "Rapport"
+
+#. Default: Report
+msgid "label_report"
+msgstr "Rapport"
+
+#. Default: Action Plan
+msgid "iphone_label_action_plan"
+msgstr "Handelsplan"
+
+#. Default: Action Plan
+#. Default:
+msgid "label_action_plan"
+msgstr "Handelsplan standard:"
+
+#. Default: Evaluation
+msgid "iphone_label_evaluation"
+msgstr "Utvärdering"
+
+#. Default: Evaluation
+msgid "label_evaluation"
+msgstr "Utvärdering"
+
+#. Default: Identification
+msgid "iphone_label_identification"
+msgstr "Identifiering"
+
+#. Default: Identification
+msgid "label_identification"
+msgstr "Identifiering"
+
+#. Default: Preparation
+msgid "iphone_label_preparation"
+msgstr "Förberedelse"
+
+#. Default: Preparation
+msgid "label_preparation"
+msgstr "Förberedelse"
+
+#. Default: Go to report
+msgid "label_jump_to_report"
+msgstr "Gå till rapport"
+
+#. Default: Create action plan
+msgid "label_create_action_plan"
+msgstr "Skapa handelsplan"
+
+#. Default: You have identified the magnitude of risk for each of the
+#. bottlenecks.
+#. There are no risks which need require any attention during this phase, so
+#. please
+#. proceed directly to the report.
+msgid "expl_actionplan_empty"
+msgstr "Du har identifierat riskens omfattning för varje flaskhals. Det finns inga risker som kräver uppmärksamhet under denna fas, fortsätt vidare till rapporten."
+
+#. Default: Removing the causes (tackling the source) is the preferred method:
+#. that
+#. way, the risk can no longer arise. You then write down what tasks have to
+#. be
+#. carried out in order for the risk to be removed, as well as the knowledge
+#. and
+#. experience that are needed for those tasks to be carried out (prevention
+#. plan
+#. and requirements).
+msgid "expl_actionplan_2"
+msgstr "Att radera orsakerna (angripa källan) är att föredra: på detta sätt kan ingen risk längre uppstå. Skriv sedan ner de uppgifter som måste utföras för att risken skall tas bort, samt den kunskap och erfarenhet som behövs för de arbetsuppgifter som skall utföras (plan för förebyggande och krav)."
+
+#. Default: You have identified the magnitude of risk for each of the
+#. bottlenecks.
+#. During the action plan phase you can determine the priority of each of the
+#. bottlenecks and how you are going to tackle the bottleneck. The programme
+#. may
+#. offer a suggestion you can use, or you can add your own measures.
+msgid "expl_actionplan_1"
+msgstr "Du har identifierat riskens omfattning för varje flaskhals. I handlingsplanen kan du fastställa prioritering för samtliga flaskhalsar och hur de ska hanteras. Programmet kan erbjuda förslag som du kan använda eller så kan du lägga till egna åtgärder."
+
+#. Default: Something bad happened.
+msgid "expl_error"
+msgstr "Något dåligt har inträffat."
+
+#. Default: Error
+msgid "title_error"
+msgstr "Fel"
+
+#. Default: The page you requested could not be found.
+msgid "expl_error_notfound"
+msgstr "Den begärda sidan kunde inte hittas."
+
+#. Default: Not found
+msgid "title_error_notfound"
+msgstr "Kunde inte hittas"
+
+#. Default: Go to action plan
+msgid "label_jump_to_actionplan"
+msgstr "Gå till handlingsplan"
+
+#. Default: Run evaluation
+msgid "label_run_evaluation"
+msgstr "Kör utvärdering"
+
+#. Default: There are no risks that need to be evaluated. You can proceed
+#. directly
+#. to the action plan phase.
+msgid "help_evaluation_empty"
+msgstr "Det finns inga risker för utvärdering. Du kan fortsätta direkt till handlingsplanen."
+
+#. Default: You can also skip this phase and proceed directly to the ${link}
+#. phase.
+msgid "help_skip_evaluation"
+msgstr "Du kan hoppa över denna fas och gå direkt till ${link}."
+
+#. Default: action plan
+msgid "help_skip_evaluation_link"
+msgstr "handlingsplan"
+
+#. Default: You have indicated that there are possible risks in your
+#. organisation.
+#. During this evaluation phase you can assess the magnitude of risk for each
+#. bottleneck.
+msgid "help_risks_present"
+msgstr "Du har angett att det finns möjliga risker inom din organisation. Under denna utvärderingsfas kan du bedöma i vilken omfattning risken är för varje flaskhals."
+
+#. Default: Final words
+msgid "help_header_finalwords"
+msgstr "Slutord"
+
+#. Default: Report
+msgid "help_header_report"
+msgstr "Rapport"
+
+#. Default: Action Plan
+msgid "help_header_actionplan"
+msgstr "Handlingsplan"
+
+#. Default: Evaluation
+msgid "help_header_evaluation"
+msgstr "Utvärdering"
+
+#. Default: Identification
+msgid "help_header_identification"
+msgstr "Identifiering"
+
+#. Default: Preparation
+msgid "help_header_start"
+msgstr "Förberedning"
+
+#. Default: Sessions
+msgid "help_header_sessions"
+msgstr "Sessioner"
+
+#. Default: Authentication
+msgid "help_header_authentication"
+msgstr "Autentisering"
+
+#. Default: Introduction
+msgid "help_header_introduction"
+msgstr "Introduktion"
+
+#. Default: Help
+msgid "title_help"
+msgstr "Hjälp"
+
+#. Default: Start Risk Identification
+msgid "label_start_identification"
+msgstr "Starta riskidentifiering"
+
+#. Default: You can print the ${list-of-risks}.
+msgid "intro_identification"
+msgstr "Du kan skriva ut ${list-of-risks}."
+
+#. Default: list of all risks
+msgid "list_of_risks"
+msgstr "Lista över alla risker."
+
+#. Default: You can also distribute the list among the workers and invite them
+#. to
+#. participate in identifying the hazards/problems, evaluating the risks and
+#. deciding on preventive action. Their feedback can be taken into account
+#. when
+#. filling in this tool.
+msgid "intro_print_identification_2"
+msgstr "Du kan även distribuera listan bland arbetarna och uppmana dem att delta i att identifiera risker/problem, för att bedöma risker och besluta om förebyggande åtgärder. Deras synpunkter kan beaktas när du fyller i detta verktyg."
+
+#. Default: You may want to print out the list of risks you cannot immediately
+#. answer and look for the information at the relevant workplace (by walking
+#. around
+#. the workplace and looking at what could cause harm, or by consulting the
+#. workers
+#. about problems they have encountered). Then you can introduce the
+#. information
+#. into the tool.
+msgid "intro_print_identification_1"
+msgstr "Du kanske vill skriva ut listan över risker som du inte omedelbart kan svara på och leta efter information på arbetsplatsen (genom att gå runt på arbetsplatsen och se efter vad som skulle kunna orsaka skada, eller genom samråd med arbetstagarna om problem de har stött på). Då kan du presentera informationen i verktyget."
+
+#. Default: Your registration is a private matter. All your data is stored to
+#. be
+#. accessed only by you.
+msgid "login_tooltip"
+msgstr "Din registrering är en privat angelägenhet. All din lagrade information har endast du tillgång till."
+
+#. Default: Don't have an account? Then please ${register_link} first.
+msgid "register_teaser"
+msgstr "Saknar du ett konto? Vänligen ${register_link} först."
+
+#. Default: register
+msgid "label_register"
+msgstr "Registrera"
+
+#. Default: Change country/language
+msgid "label_change_country"
+msgstr "Ändra land/språk"
+
+#. Default: Login
+#. Default: Login name
+msgid "label_login"
+msgstr "Standard login: Inloggningsnamn"
+
+#. Default: Password (${forgot_link})
+msgid "label_login_password"
+msgstr "Lösenord (${forgot_link})"
+
+#. Default: I forgot my password
+msgid "label_forgot_password"
+msgstr "Jag har glömt bort mitt lösenord"
+
+#. Default: Email address
+msgid "label_email"
+msgstr "E-postadress"
+
+#. Default: Login
+msgid "header_login"
+msgstr "Logga in"
+
+#. Default: Your login name and/or password were entered incorrectly. Please
+#. check
+#. and try again or ${request_an_email_reminder} of your login information.
+msgid "incorrect_login"
+msgstr "Ditt inloggningsnamn och/eller lösenord är felaktigt. Kontrollera och försök igen eller ${request_an_email_reminder} av din inloggningsinformation."
+
+#. Default: request an email reminder
+msgid "request_an_email_reminder"
+msgstr "begär en påminnelse via e-post"
+
+#. Default: Welcome
+msgid "header_welcome"
+msgstr "Välkommen"
+
+#. Default: Next
+msgid "label_next"
+msgstr "Nästa"
+
+#. Default: Previous
+msgid "label_previous"
+msgstr "Föregående"
+
+#. Default: No
+msgid "label_no"
+msgstr "Nej"
+
+#. Default: Yes
+msgid "label_yes"
+msgstr "Ja"
+
+#. Default: The preview will be available at ${url}.
+msgid "help_preview_url"
+msgstr "Förhandsgranskningen finns tillgänglig på ${url}."
+
+#. Default: Are you sure you want to create a preview of this survey? You can
+#. give
+#. the URL for the preview to others so they can test the survey. To access
+#. the
+#. preview a standard OiRA client login is required.
+msgid "intro_preview"
+msgstr "Är du säker på att du vill skapa en förhandsgranskning av denna undersökning? Du kan dela en förhandsvisning med andra via en webbadress så att de kan testa undersökningen. För att få tillgång till en standard OiRA-klient krävs det att du är inloggad."
+
+#. Default: Preview survey
+#. Default: Preview
+msgid "header_preview"
+msgstr "Förhandsgranska undersökning standard: Förhandsgranska"
+
+#. Default: Continue
+msgid "label_continue"
+msgstr "Fortsätt"
+
+#. Default: Add
+msgid "label_add_profile_module"
+msgstr "Lägg till"
+
+#. Default: Read the following statement(s) and tick the box if the issue is
+#. relevant to your company/organisation. If it is not, don’t tick the box and
+#. you
+#. will not be asked about things that do not apply to your situation.
+msgid "expl_profile"
+msgstr "Läs följande meddelande(n) och kryssa i rutan om problemet är relevant för ditt företag/organisation. Om det inte är relevant, kryssar du inte i rutan och du kommer inte att bli tillfrågad igen om saker som inte gäller för din situation."
+
+#. Default: Tailor the risk assessment for your organisation
+msgid "header_profile"
+msgstr "Skräddarsy riskbedömningen för din organisation"
+
+#. Default: After publication the survey will be available at ${url}.
+msgid "help_publish_url"
+msgstr "Efter publiceringen finns undersökningen tillgänglig på ${url}."
+
+#. Default: Are you sure you want to publish this survey version? This will
+#. replace
+#. the current version.
+msgid "intro_publish_other_survey_published"
+msgstr "Är du säker på att du vill publicera denna version av undersökningen? Denna åtgärd ersätter nuvarande version."
+
+#. Default: Are you sure you want to republish this survey? This will make all
+#. changes made public.
+msgid "intro_publish_survey_published"
+msgstr "Är du säker på att du vill återpublicera denna undersökning? Denna åtgärd gör alla ändringar offentliga."
+
+#. Default: Are you sure you want to publish this survey? After publication
+#. the
+#. survey will appear in the online client and be accessible by all users.
+msgid "intro_publish_first_time"
+msgstr "Är du säker på att du vill publicera denna undersökning? Efter publiceringen kommer undersökningen att visas i online-klienten och finnas tillgänglig för alla användare."
+
+#. Default: Publish survey
+msgid "header_publish"
+msgstr "Publicera undersökning "
+
+#. Default: Privacy statement
+msgid "label_privacy_statement"
+msgstr "Sekretessregler"
+
+#. Default: Again password
+msgid "label_password_confirm"
+msgstr "Bekräfta lösenord"
+
+#. Default: Desired password
+msgid "label_new_password"
+msgstr "Önskat lösenord"
+
+#. Default: Register
+msgid "header_register"
+msgstr "Registrera"
+
+#. Default:
+msgid "reminder_email_footer"
+msgstr "reminder_email_footer"
+
+#. Default: Password
+msgid "reminder_email_password"
+msgstr "Lösenord"
+
+#. Default: Email
+msgid "reminder_email_login"
+msgstr "E-postadress"
+
+#. Default: You have requested a password reminder for the OiRA website. Your
+#. login
+#. information is:
+msgid "reminder_email_intro"
+msgstr "Du har begärt en lösenordspåminnelse för OiRA:s webbplats. Din inloggningsinformation är:"
+
+#. Default: Dear user,
+msgid "reminder_email_header"
+msgstr "Bäste användare!"
+
+#. Default: Password reminder
+msgid "header_password_reminder"
+msgstr "Glömt lösenord"
+
+#. Default: Please leave any extra comments that should be included in the
+#. report
+#. in this field.
+msgid "label_report_comment"
+msgstr "Lämna gärna extra kommentarer som bör ingå i denna områdesrapport."
+
+#. Default: Now that you have finished identifying all the risks in your
+#. organisation and created an action plan you can create a report which lists
+#. all
+#. your results. You can, if desired, add some extra comments that should be
+#. included in this report in the field below.
+msgid "report_intro"
+msgstr "Nu när du är klar med att identifiera alla risker inom din organisation och skapat en handlingsplan så kan du skapa en rapport som listar alla dina resultat. Du kan, om så önskas, lägga till extra kommentarer som bör ingå i denna rapport i fältet nedan."
+
+#. Default: Reporting
+msgid "header_reporting"
+msgstr "Rapportering"
+
+#. Default: This report was based on the survey '${title}' of revision date
+#. ${date}.
+msgid "report_survey_revision"
+msgstr "Denna rapport är baserad på undersökingen '${title}' från revideringsdatum ${date}."
+
+#. Default: This risk is not present in your organisation, but since the
+#. sector
+#. organisation considers this one of the top 5 most critical risks it must be
+#. included in this report.
+msgid "top5_risk_not_present"
+msgstr "Denna risk är inte närvarande inom din organisation, men eftersom branschorganisationen anser att detta är en av de fem mest kritiska riskerna måste den ingå i denna rapport."
+
+#. Default: There is a budget of ${amount} for this measure.
+msgid "report_measure_budget"
+msgstr "Det finns en budget på ${amount} för denna åtgärd."
+
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}
+#. and ends on ${end}.
+msgid "report_measure_full"
+msgstr "${responsible} ansvarar för denna uppgift som börjar på ${start} och slutar på ${end}."
+
+#. Default: This task starts on ${start} and ends on ${end}.
+msgid "report_measure_start_and_stop"
+msgstr "Denna uppgift börjar på ${start} och slutar på ${end}."
+
+#. Default: This task ends on ${end}.
+msgid "report_measure_end_only"
+msgstr "Denna uppgift slutar på ${end}."
+
+#. Default: This task starts on ${start}.
+msgid "report_measure_start_only"
+msgstr "Denna uppgift börjar på ${start}."
+
+#. Default: ${responsible} is responsible for this task which ends on ${end}.
+msgid "report_measure_responsible_and_end"
+msgstr "${responsible} är ansvarig för denna uppgift som slutar på ${end}."
+
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}.
+msgid "report_measure_responsible_and_start"
+msgstr "${responsible} är ansvarig för denna uppgift som börjar på ${start}."
+
+#. Default: ${responsible} is responsible for this task.
+msgid "report_measure_responsible"
+msgstr "${responsible} är ansvarig för denna uppgift."
+
+#. Default: Requirements:
+msgid "report_measure_requirements"
+msgstr "Krav:"
+
+#. Default: Prevention plan:
+msgid "report_measure_preventionplan"
+msgstr "Förebyggande plan:"
+
+#. Default: Action plan:
+msgid "report_measure_actionplan"
+msgstr "Handlingsplan:"
+
+#. Default: Measure ${index}
+msgid "header_measure"
+msgstr "Åtgärd ${index}"
+
+#. Default: This is a ${priority} .
+#. Default: This is a ${priority} .
+msgid "risk_priority"
+msgstr "Detta är en ${priority} . Standard: Detta är en ${priority} ."
+
+#. Default: high priority risk
+msgid "risk_priority_high"
+msgstr "högt prioriterad risk"
+
+#. Default: medium priority risk
+msgid "risk_priority_medium"
+msgstr "medium prioriterad risk"
+
+#. Default: low priority risk
+msgid "risk_priority_low"
+msgstr "lågt prioriterad risk"
+
+#. Default: This risk still needs to be inventorised
+msgid "risk_unanswered"
+msgstr "Denna risk måste fortfarande kartläggas"
+
+#. Default: You responded negative to the above statement.
+msgid "warn_risk_present"
+msgstr "Du svarade nekande till ovanstående redovisning."
+
+#. Default: health and safety experts
+msgid "referer_health_safety_export"
+msgstr "hälso- och säkerhetsexperter"
+
+#. Default: Not provided
+msgid "missing_data"
+msgstr "Inte tillhandahållet"
+
+#. Default: Country
+msgid "label_country"
+msgstr "Land"
+
+#. Default: Your answers and report were ${automatically_saved} and may be
+#. found
+#. back or deleted at any time via the ${preparation_step}.
+msgid "plan_report_intro_2"
+msgstr "Dina svar och rapporten har ${automatically_saved} och kan hittas igen eller raderas när som helst via ${preparation_step}."
+
+#. Default: preparation step
+msgid "plan_report_intro_2_preparation_step"
+msgstr "förberedelse steg"
+
+#. Default: automatically saved
+msgid "plan_report_intro_2_automatically_saved"
+msgstr "sparat automatiskt"
+
+#. Default: By filling in the list of questions, you have completed a risk
+#. assessment. This assessment is used to draw up an action plan. The progress
+#. of
+#. this action plan must be discussed annually and a small report must be
+#. written
+#. on the progress. Certain subjects might have been completed and perhaps new
+#. subjects need to be added.
+msgid "plan_report_intro_1"
+msgstr "Genom att fylla i listan med frågor har du slutfört en riskbedömning. Denna bedömning används för att utarbeta en handlingsplan. Utvecklingen av denna plan skall diskuteras årligen och en kort rapport ska skrivas om framstegen. Kanske har vissa ämnen avslutats och nya ämnen behöver läggas till."
+
+#. Default: Print
+msgid "button_print"
+msgstr "Skriv ut"
+
+#. Default: Download
+msgid "button_download"
+msgstr "Ladda ner"
+
+#. Default: Contents
+msgid "toc_header"
+msgstr "Innehåll"
+
+#. Default: The European Agency for Safety and Health at Work, European social
+#. partners, etc.
+msgid "info_referer_eu_institution"
+msgstr "Europeiska arbetsmiljöbyrån, europeiska arbetsmarknadspartners o.s.v."
+
+#. Default: Ministry, Labour Inspectorate, National Institute for Safety and
+#. Health
+#. at Work, etc.
+msgid "info_referer_national_public_institution"
+msgstr "Departementet, Yrkesinspektionen, Nationella arbetsmiljöinstitutet o.s.v."
+
+#. Default: Please fill out your company details on this form. The data on
+#. this
+#. form will also appear in the report.
+msgid "company_details_intro"
+msgstr "Fyll i din företagsinformation i detta formulär. Uppgifterna i detta formulär kommer även att visas i rapporten."
+
+#. Default: Please fix the indicated errors.
+msgid "warn_fix_errors"
+msgstr "Korrigera angivna fel."
+
+#. Default: Company details
+msgid "hader_company_details"
+msgstr "Företagsinformation"
+
+msgid "Are you sure you want to delete this measure? This action can not be reverted."
+msgstr "Är du säker på att du vill radera denna åtgärd? Denna åtgärd kan inte återställas."
+
+#. Default: Year
+msgid "label_year"
+msgstr "År"
+
+#. Default: Month
+msgid "label_month"
+msgstr "Månad"
+
+#. Default: Day
+msgid "label_day"
+msgstr "Dag"
+
+#. Default: Planning end
+msgid "label_action_plan_end"
+msgstr "Planerat slut"
+
+#. Default: Planning start
+msgid "label_action_plan_start"
+msgstr "Planerad start"
+
+#. Default: Although some measures do not cost any money, most do. The
+#. measures
+#. should therefore be budgeted for; include them in the annual budget round
+#. if
+#. necessary.
+msgid "actionplan_measure_budget_tooltip"
+msgstr "Även fast inte alla åtgärder kostar pengar, gör de flesta det. Åtgärderna bör därför budgeteras, inkludera dem i den årliga budgeten om nödvändigt."
+
+#. Default: Budget (in Euro)
+msgid "label_action_plan_budget"
+msgstr "Budget (i euro)"
+
+#. Default: Appoint someone in your company to be responsible for the
+#. implementation of this measure. This person will have the authority to take
+#. the
+#. steps described in the Plan and/or the responsibility to ensure that they
+#. are
+#. carried out.
+msgid "actionplan_measure_responsible_tooltip"
+msgstr "Utse någon i ditt företag som ansvarar för genomförandet av denna åtgärd. Denna person kommer att ha befogenhet att vidta de åtgärder som beskrivs i planen och/eller ansvaret för att se till att de genomförs."
+
+#. Default: Who is responsible?
+msgid "label_action_plan_responsible"
+msgstr "Vem är ansvarig?"
+
+#. Default: Requirements
+msgid "label_measure_requirements"
+msgstr "Krav"
+
+#. Default: Prevention plan
+msgid "label_measure_prevention_plan"
+msgstr "Förebyggande plan"
+
+#. Default: Action plan
+msgid "label_measure_action_plan"
+msgstr "Handlingsplan"
+
+#. Default: You write down in the Plan what measure you will be taking in
+#. response
+#. to the risk. Removing the causes (tackling the source) is the preferred
+#. method:
+#. that way, the risk can no longer arise. You then write down what tasks have
+#. to
+#. be carried out in order for the risk to be removed, as well as the
+#. knowledge and
+#. experience that are needed for those tasks to be carried out (prevention
+#. plan
+#. and requirements). In most cases, the prevention officer will help in the
+#. implementation of the Plan: however, he must have the capability or have
+#. had the
+#. relevant training to do this.
+msgid "actionplan_measure_tooltip"
+msgstr "Skriv ner i planen vilken åtgärd du kommer att utföra med anledning av risken. Att ta bort orsakerna (angripa källan) är att föredra: på så sätt kan risken inte längre uppstå. Skriv sedan ner vilka uppgifter som måste utföras för att risken ska tas bort, liksom den kunskap och erfarenhet som behövs för de arbetsuppgifter som skall utföras (plan för förebyggande och krav). I de flesta fall kommer den som är ansvarig för förberedelserna att bidra till genomförandet av planen: Dock måste han/hon vara kapabel till, eller haft relevant utbildning för att göra detta.."
+
+#. Default: Remove
+msgid "label_remove"
+msgstr "Radera"
+
+#. Default: Measure 2
+msgid "measure_template_title"
+msgstr "Åtgärd 2"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this
+#. field. These comments will be used in the action plan.
+msgid "label_comment"
+msgstr "Lämna gärna synpunkter du kan ha om ovanstående fråga inom detta område. Dessa kommentarer kommer att användas i handlingsplanen."
+
+msgid "Use"
+msgstr "Använd"
+
+#. Default: There are known common approaches to this risk. You can create a
+#. new
+#. measure based on these approaches.
+msgid "help_common_solutions"
+msgstr "Det finns vanliga strategier för denna risk. Du kan skapa en ny åtgärd som bygger på dessa strategier."
+
+#. Default: Common solutions
+msgid "header_common_solutions"
+msgstr "Vanliga lösningar"
+
+#. Default: Add another measure
+msgid "label_add_measure"
+msgstr "Lägg till en annan åtgärd"
+
+#. Default: Please enter a valid year after 1900
+msgid "error_invalid_year"
+msgstr "Ange ett giltigt årtal efter år 1900"
+
+#. Default: Invalid day
+msgid "error_invalid_day"
+msgstr "Ogiltig dag"
+
+#. Default: Please enter the budget in whole Euros.
+msgid "error_invalid_budget"
+msgstr "Ange budget i euro (ental)."
+
+#. Default: High
+msgid "priority_high"
+msgstr "Hög"
+
+#. Default: Medium
+msgid "priority_medium"
+msgstr "Medium"
+
+#. Default: Low
+msgid "priority_low"
+msgstr "Låg"
+
+#. Default: Select the priority of this risk
+msgid "header_risk_priority"
+msgstr "Välj prioritet för denna risk"
+
+#. Default: High (very high) severity
+msgid "effect_permanent_damage"
+msgstr "Hög (mycket hög) allvarlighetsgrad"
+
+#. Default: Significant severity
+msgid "effect_injury_with_absence"
+msgstr "Stark allvarlighetsgrad"
+
+#. Default: Weak severity
+msgid "effect_injury_no_absence"
+msgstr "Svag allvarlighetsgrad"
+
+#. Default: What is the severity of the damage ?
+msgid "header_risk_effect"
+msgstr "Vad för slags allvarighetsgrad har skadan?"
+
+#. Default: Constantly
+msgid "frequency_constantly"
+msgstr "Konstant"
+
+#. Default: Regularly
+msgid "frequency_regularly"
+msgstr "Regelbunden"
+
+#. Default: Almost never
+msgid "frequency_almost_never"
+msgstr "Nästan aldrig"
+
+#. Default: How often are people exposed to this risk?
+msgid "header_risk_frequency"
+msgstr "Hur ofta är personer utsatta för denna risk?"
+
+#. Default: Large
+msgid "probability_large"
+msgstr "Stor"
+
+#. Default: Medium
+msgid "probability_medium"
+msgstr "Medium"
+
+#. Default: Small
+msgid "probability_small"
+msgstr "Liten"
+
+#. Default: What is the chance of this risk occurring?
+msgid "header_risk_probability"
+msgstr "Vad är chansen att denna risk uppstår?"
+
+#. Default: Not applicable
+msgid "label_not_applicable"
+msgstr "Ej tillämpligt"
+
+msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgstr "Är du säker på att du vill ta bort denna session? Denna åtgärd kan inte återställas."
+
+#. Default: Once you have started an RA, you will be able to stop before the
+#. end.
+#. Log out: the data will be stored. If you forgot to log out and just ended
+#. the
+#. RA, the data will be stored too. For security reasons it is better to
+#. officially
+#. log out. Of course your must remember your e-mail address, password and the
+#. title that you have given the RA. You can start the stored RA again at a
+#. later
+#. date: select the title of the RA. You can save more than one RA, provided
+#. you
+#. have given them different titles names.
+msgid "session_title_tooltip"
+msgstr "När du har startat ett RA-instrument, kan du stanna före den är fullbordad. Logga ut: uppgifterna kommer att lagras. Om du glömt att logga ut och just avslutat RA-instrumentet, kommer uppgifterna att lagras ändå. Av säkerhetsskäl är det bättre att logga ut. Naturligtvis måste du komma ihåg e-postadress, lösenord och den titel som du har gett RA-instrumentet. Du kan starta ett lagrat RA-instrument igen vid ett senare tillfälle: Välj titel på RA-instrumentet. Du kan spara mer än ett RA-instrument, förutsatt att de fått olika titlar."
+
+#. Default: Enter a title for your Risk Assessment
+msgid "label_session_title"
+msgstr "Ange en titel för din riskbedömning"
+
+#. Default: Start a new session choosing one of the following sectoral tools
+msgid "label_select_new_session"
+msgstr "Starta en ny session genom att välja en av följande branschverktyg"
+
+#. Default: or…
+msgid "header_or"
+msgstr "eller…"
+
+#. Default: Delete
+msgid "label_delete"
+msgstr "Radera"
+
+#. Default: Rename
+msgid "label_rename"
+msgstr "Byt namn"
+
+#. Default: saved on ${date}
+msgid "lable_session_modified"
+msgstr "Sparad ${date}"
+
+#. Default: Select an earlier session to complete or review
+msgid "header_select_session"
+msgstr "Välj en tidigare session för att slutborda eller förhandsgranska"
+
+#. Default: Session
+msgid "header_session"
+msgstr "Session"
+
+#. Default: Start
+msgid "label_start_survey"
+msgstr "Starta"
+
+#. Default: Complicated? Not really. It just takes a bit of time. However, the
+#. RA
+#. is important. So important that the government has made it compulsory for
+#. almost
+#. all entrepreneurs with employees.
+msgid "intro_not_complicated"
+msgstr "Komplicerat? Inte direkt. Det tar bara lite tid. Däremot är RA-instrumentet viktigt. Så viktigt att regeringen har gjort det obligatoriskt för nästan alla företagare som har anställda."
+
+#. Default: The assessment is not complicated.
+msgid "header_not_complicated"
+msgstr "Bedömningen är inte komplicerad."
+
+#. Default: Including the risks to your employees and your equipment? What if
+#. there
+#. is an accident with one of the machines? What if an employee is exposed to
+#. hazardous substances? A risk assessment helps you to define these risks and
+#. tackle them head on. A risk assessment consists of two parts: a with all
+#. the
+#. risks to your company and an to deal with them. These two components allow
+#. you
+#. to limit the risks to your employees and your company, and therefore also
+#. the
+#. financial risk.
+msgid "intro_risk_aware"
+msgstr "Inklusive riskerna för dina anställda och din utrustning? Vad händer om det inträffar en olycka med en av maskinerna? Vad händer om en anställd utsätts för farliga ämnen? En riskbedömning hjälper dig att definiera dessa risker och hantera dem direkt. En riskbedömning består av två delar: en med alla risker för ditt företag och en för att hantera dem. Dessa två komponenter låter dig begränsa riskerna för dina anställda och ditt företag, och därmed också den finansiella risken."
+
+#. Default: Are you aware of all the risks?
+msgid "header_risk_aware"
+msgstr "Är du medveten om alla risker?"
+
+#. Default: ${count} questions were postponed
+msgid "status_postponed"
+msgstr "${count} frågorna har skjutits upp"
+
+#. Default: ${count} answers indicated a risk
+msgid "status_risk"
+msgstr "${count} svaren indikerar en risk"
+
+#. Default: ${count} questions were answersed
+msgid "status_answered"
+msgstr "${count} frågorna har besvarats"
+
+#. Default: Questions answered per module
+msgid "header_questions_answered"
+msgstr "Besvarade frågor per modul"
+
+#. Default: Status
+msgid "title_status"
+msgstr "Status"
+
+#. Default: Update
+msgid "label_accept update"
+msgstr "Uppdatera"
+
+#. Default: Please verify if the profile is still accurate.
+msgid "verify_profile"
+msgstr "Kontrollera att profilen fortfarande är korrekt."
+
+#. Default: This survey has been updated. Before you can continue any changes
+#. made
+#. in the survey will have to be merged in your session.
+msgid "expl_update"
+msgstr "Denna undersökning har uppdaterats. Innan du kan fortsätta med eventuellt utförda ändringar måste undersökningen slås ihop med din session."
+
+#. Default: Survey was updated
+msgid "title_updated"
+msgstr "Undersökningen har uppdaterats"
+
+#. Default: Legal and policy references
+msgid "header_legal_references"
+msgstr "rättsliga och politiska referenser"
+
+#. Default: About
+msgid "appendix_about"
+msgstr "Om"
+
+#. Default: Produced by ${EU-OSHA}.
+msgid "appendix_produced_by"
+msgstr "Producerad av ${EU-OSHA}."
+
+#. Default: Risk Assessment
+msgid "oira_name_line_2"
+msgstr "Riskbedömning"
+
+#. Default: Online interactive
+msgid "oira_name_line_1"
+msgstr "Interaktiv"
+
+msgid "The specified colour is not valid."
+msgstr "Den angivna färgen är ogiltig."
+
+#. Default: Introduction
+msgid "label_help_introduction"
+msgstr "Introduktion"
+
+#. Default: Generic introduction for the client. This text is not associated
+#. with
+#. specific pages.
+msgid "help_help_introduction"
+msgstr "Generisk introduktion för klienten. Denna text är inte förknippade med specifika sidor."
+
+#. Default: Authentication
+msgid "label_authentication"
+msgstr "Autentisering"
+
+#. Default: Describe the user handling. This text is linked from the login,
+#. password reminder and registration pages.
+msgid "help_authentication"
+msgstr "Beskriv användarhantering. Denna text är länkad från din login, lösenordspåminnelse och registrering av sidor."
+
+#. Default: Sessions
+msgid "label_sessions"
+msgstr "Sessioner"
+
+#. Default: Describe the session handling. This text is linked from the
+#. session
+#. overview page.
+msgid "help_sessions"
+msgstr "Beskriv sessionshantering. Denna text är länkad från sidan för sessionens översikt"
+
+#. Default: Document the first steps in a survey, including how to configure a
+#. profile (if needed). This page is linked from the survey start page.
+msgid "help_preparation"
+msgstr "Dokumentera de första stegen i en undersökning, inklusive hur man konfigurerar en profil (om det behövs). Denna sida är länkad från undersökningens startsida"
+
+#. Default: Document the identification phase. This information is linked from
+#. all
+#. identification related pages
+msgid "help_identification"
+msgstr "Dokumentera identifieringsfas. Denna information är länkad från alla relaterade sidor för identifiering"
+
+#. Default: Document the evaluation phase. This information is linked from all
+#. evaluation related pages
+msgid "help_evaluation"
+msgstr "Dokumentera värderingsfas. Denna information är länkad från alla relaterade sidor för värdering"
+
+#. Default: Action plan
+msgid "label_actionplan"
+msgstr "Handlingsplan"
+
+#. Default: Document the action plan phase. This information is linked from
+#. all
+#. action plan related pages
+msgid "help_actionplan"
+msgstr "Dokumentera handlingsplanens fas.Denna information är länkad från alla sidor för handlingsplaner."
+
+#. Default: Reports
+msgid "label_reports"
+msgstr "Rapporter"
+
+#. Default: Describe the reporting options. This page is linked from report
+#. page.
+msgid "help_reports"
+msgstr "Beskriv rapporteringsalternativ. Denna sida är länkad från rapporteringssidan."
+
+#. Default: Final words
+msgid "label_finalwords"
+msgstr "Slutord"
+
+#. Default: Any final words that should be shown at the end of the help. This
+#. information is not linked directly.
+msgid "help_finalwords"
+msgstr "Slutord som ska visas i slutet av hjälpen. Denna information är inte direkt länkad."
+
+#. Default: Description
+msgid "label_module_description"
+msgstr "Beskrivning"
+
+#. Default: Include any relevant information that may be helpful for users.
+msgid "help_module_description"
+msgstr "Inkludera all relevant information som kan vara till hjälp för användarna."
+
+#. Default: This module is optional
+msgid "label_module_optional"
+msgstr "Denna modul är tillval"
+
+#. Default: Allow users to skip this module and everything inside it.
+msgid "help_module_optional"
+msgstr "Tillåter användare att hoppa över denna modul och allt inuti den."
+
+#. Default: Question
+msgid "label_module_question"
+msgstr "Fråga"
+
+#. Default: The question to ask users if this module is optional. This has to
+#. be a
+#. yes/no question.
+msgid "help_module_question"
+msgstr "Frågan till användare om denna modul finns som tillval. Detta måste vara en ja/nej-fråga."
+
+#. Default: Image
+#. Default: Image file
+msgid "label_image"
+msgstr "Bildstandard: Bildfil"
+
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif
+#. and
+#. does not contain any special characters.
+msgid "help_image_upload"
+msgstr "Ladda upp en bild. Se till att din bild är i formatet png, jpg eller gif och inte innehåller några specialtecken."
+
+#. Default: Introduction action plan
+msgid "label_solution_direction"
+msgstr "Introduktion handlingsplan"
+
+#. Default: This information will be shown to users when they enter this
+#. module
+#. while working on the action plan.
+msgid "help_solution_direction"
+msgstr "Denna information visas för användare som går in i denna modul under arbetet med handlingsplanen."
+
+#. Default: Page content
+msgid "label_body"
+msgstr "Sidinnehåll"
+
+#. Default: Question
+msgid "label_profilequestion_question"
+msgstr "Fråga"
+
+#. Default: If this is to be an "optional" profile question, it must be
+#. formulated
+#. as a question and be answerable with YES or NO. If this is to be a
+#. "repeatable"
+#. profile question (statement), it must be formulated as a prompt to fill in
+#. multiple values.
+msgid "help_profilequestion_question"
+msgstr "Om detta ska vara en \"tillval\", profilfråga måste den formuleras som en fråga och kunna besvaras med JA eller NEJ. Om detta ska vara en \"repeterbar \" profilfrågan (redogörelse) måste den formuleras som en uppmaning att fylla i flera värden."
+
+#. Default: Type
+msgid "label_profile_type"
+msgstr "Typ"
+
+#. Default: Optional
+msgid "profile_optional"
+msgstr "Tillval"
+
+#. Default: Repeatable
+msgid "profile_repeat"
+msgstr "Repeterbar"
+
+#. Default: Statement
+msgid "label_statement"
+msgstr "Redogörelse"
+
+#. Default: This is a short statement about a possible risk.
+msgid "help_statement"
+msgstr "Detta är en kort redgörelse om en möjlig risk."
+
+#. Default: Problem description
+#. Default: Inversed statement
+msgid "label_problem_description"
+msgstr "Problembeskrivning standard: Inverterad redogörelse"
+
+#. Default: This is the inverse of the statement: a short description of
+#. current
+#. (bad) situation.
+msgid "help_problem_description"
+msgstr "Detta är inversen av en redogörelse: en kort beskrivning av nuvarande (dålig) situation."
+
+#. Default: Description
+msgid "label_description"
+msgstr "Beskrivning"
+
+#. Default: Describe the risk. Include any relevant information that may be
+#. helpful
+#. for users.
+msgid "help_risk_description"
+msgstr "Beskriv risken. Inkludera all relevant information som kan vara användbar för andra användare."
+
+#. Default: Legal and policy references.
+#. Default: Legal and policy references
+msgid "label_legal_reference"
+msgstr "Rättsliga och politiska referenser: Standard: Rättsliga och politiska referenser"
+
+#. Default: Identification
+msgid "header_identification"
+msgstr "Identifiering"
+
+#. Default: Show `not applicable' option
+msgid "label_show_notapplicable"
+msgstr "Visa \"ej tillämpliga\" alternativ"
+
+#. Default: Offer a `not applicable' option in addition to the standard yes/no
+#. options.
+msgid "help_show_notapplicable"
+msgstr "Erbjud ett \"ej tillämpligt \" alternativ utöver det vanliga ja/nej alternativet."
+
+#. Default: Evaluation
+msgid "header_evaluation"
+msgstr "Utvärdering"
+
+#. Default: You can specify how the risks priority is evaluated. For more
+#. details
+#. see the online manual.
+msgid "intro_evaluation"
+msgstr "Du kan specificera hur riskernas prioritet utvärderas. För mer information se online-manualen."
+
+#. Default: Risk type
+msgid "label_risk_type"
+msgstr "Risktyp"
+
+#. Default: 'Risk' is related to the workplace. 'Policy' is related to
+#. agreements,
+#. procedures and management decisions. It can be answered from behind a desk
+#. (no
+#. need to examine the workplace). 'Top 5' is one of the top five risks of the
+#. sector.
+msgid "help_risk_type"
+msgstr "\"Risk\" är relaterad till arbetsplatsen. \"Politik\" är relaterat till avtal, förfaranden och ledningens beslut. De kan besvaras bakom skrivbordet (du behöver inte undersöka arbetsplatsen). \"Topp 5\" är en av de fem största branschriskerna."
+
+#. Default: Risk
+msgid "risktype_risk"
+msgstr "Risk"
+
+#. Default: Policy
+msgid "risktype_policy"
+msgstr "Policy"
+
+#. Default: Top 5
+msgid "risktype_top5"
+msgstr "Topp 5"
+
+#. Default: Evaluation method
+msgid "label_evaluation_method"
+msgstr "Utvärderingsmetod"
+
+#. Default: Select 'estimated' if calcuation is not necessary or not possible.
+msgid "help_evaluation_method"
+msgstr "Välj \"uppskattad\" om beräkningen inte är nödvändig eller möjlig."
+
+#. Default: Estimated
+msgid "evalmethod_direct"
+msgstr "Uppskattad"
+
+#. Default: Calculated
+msgid "evalmethod_calculated"
+msgstr "Calculated"
+
+#. Default: Default priority
+msgid "label_default_priority"
+msgstr "Standard prioritet"
+
+#. Default: You can help the user by selecting a default priority. The user
+#. can
+#. still change the priority.
+msgid "help_default_priority"
+msgstr "Du kan hjälpa användaren genom att välja standard prioritet. Användaren kan fortfarande ändra prioritet."
+
+#. Default: No default
+msgid "no_default"
+msgstr "Ingen standard"
+
+#. Default: Default probability
+#. Default: Default probabilty
+msgid "label_default_probability"
+msgstr "Standard sannolikhet: Standard sannolikhet"
+
+#. Default: Indicate how likely occurence of this risk is in a normal
+#. situation.
+msgid "help_default_probability"
+msgstr "Ange hur trolig förekomsten av denna risk är i en normal situation."
+
+#. Default: No default
+msgid "no default"
+msgstr "Ingen standard"
+
+#. Default: Default frequency
+msgid "label_default_frequency"
+msgstr "Standardfrekvens"
+
+#. Default: Indicate how often this risk occurs in a normal situation.
+msgid "help_default_frequency"
+msgstr "Ange hur ofta denna risk inträffar i en normal situation."
+
+#. Default: Almost never
+msgid "frequency_almostnever"
+msgstr "Nästan aldrig"
+
+#. Default: Default severity
+msgid "label_default_severity"
+msgstr "Standard allvarlighetsgrad"
+
+#. Default: Indicate the severity of the manage if this risk occurs.
+msgid "help_default_severity"
+msgstr "Ange allvarighetsgraden av att hantera denna risk om den inträffar."
+
+#. Default: Weak severity
+msgid "effect_weak"
+msgstr "Låg allvarighetsgrad"
+
+#. Default: Significant severity
+msgid "effect_significant"
+msgstr "Betydande allvarlighetsgrad"
+
+#. Default: High (very high) severity
+msgid "effect_high"
+msgstr "Hög (mycket hög) allvarlighetsgrad"
+
+#. Default: Main image
+msgid "header_main_image"
+msgstr "Huvudbild"
+
+#. Default: The main image will get a more prominent position in the client
+#. than
+#. the other images.
+msgid "intro_main_image"
+msgstr "Huvudbilden får en mer framträdande position i klienten än övriga bilder."
+
+#. Default: Image caption
+msgid "label_caption"
+msgstr "Bildtext"
+
+#. Default: Secondary images
+msgid "header_secondary_images"
+msgstr "Sekundära bilder"
+
+#. Default: Contact name
+msgid "label_contact_name"
+msgstr "Kontaktnamn"
+
+#. Default: Logo
+msgid "label_logo"
+msgstr "Logotyp"
+
+#. Default: Main colour
+msgid "label_main_colour"
+msgstr "Huvudfärg"
+
+#. Default: Support colour
+msgid "label_support_colour"
+msgstr "Stödfärg"
+
+#. Default: Describe the action that can be taken to remove this risk. This
+#. information will be copied to the measure.
+msgid "help_measure_action_plan"
+msgstr "Beskriv den åtgärd som kan vidtas för att avlägsna denna risk. Denna information kommer att kopieras till åtgärden."
+
+#. Default: Describe what can be done to prevent this risk from (re)occuring.
+#. This
+#. information will be copied to the measure.
+msgid "help_measure_prevention_plan"
+msgstr "Beskriv vad som kan göras för att förebygga denna risk från att uppstå (igen). Denna information kopieras till åtgärden."
+
+#. Default: Describe the standard requirements for the action plan and
+#. prevention
+#. plan. This information will be copied to the measure.
+msgid "help_measure_requirements"
+msgstr "Beskriv standardkraven hos handlingsplanen och planen för förebyggande. Denna information kopieras till åtgärden."
+
+#. Default: Common solution
+msgid "title_common_solution"
+msgstr "Vanlig lösning"
+
+#. Default: Version name
+#. Default: Title
+#. Default: Name for survey version
+msgid "label_survey_title"
+msgstr "Version namn standard: Namn på undersökningens version"
+
+#. Default: This is the title of this survey version. This name is never shown
+#. to
+#. users.
+msgid "help_survey_title"
+msgstr "Detta är titeln på denna version av undersökningen. Detta namn visas aldrig för användarna."
+
+#. Default: Introduction text
+msgid "label_introduction"
+msgstr "Introduktionstext"
+
+#. Default: The introduction text is shown when starting a new survey session.
+#. If
+#. no introduction is provided here a standard text will be shown.Please keep
+#. this
+#. text brief so it will easily fit on screens of small devices such as phones
+#. and
+#. PDAs
+msgid "help_introduction"
+msgstr "Introduktionstexten visas när man startar en ny undersökning. Om ingen introduktion anges visas en standardtext. Håll denna text kort så den passar in på små enheter som mobiltelefoner och handdatorer."
+
+#. Default: Evaluation may be skipped
+msgid "label_evaluation_optional"
+msgstr "Utvärderingen kan hoppas över"
+
+#. Default: This option allows uses to skip the evaluation phase.
+msgid "help_evaluation_optional"
+msgstr "Detta alternativ låter användaren hoppa över utvecklingsfasen."
+
+#. Default: Language
+msgid "label_language"
+msgstr "Språk"
+
+#. Default: Classification code
+msgid "label_classification_code"
+msgstr "Klassificeringskod"
+
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
+#. national standards bodies and based on revision 2 of the NACE standard.
+msgid "help_classification_code"
+msgstr "En kod som identifierar denna bransch. Klassificeringskoderna definieras av nationella standardiseringsorgan och grundar sig på standarden NACE rev. 2."
+
+#. Default: You can not delete the only survey version.
+msgid "message_delete_no_last_survey"
+msgstr "Du kan inte radera den enda undersökningens version."
+
+#. Default: Title
+msgid "label_title"
+msgstr "Titel"
+
+#. Default: The title of this survey. This title is used in the survey
+#. overview in
+#. the clients.
+#. Default: If you do not specify a title it will be taken from the input.
+msgid "help_surveygroup_title"
+msgstr "Titeln på denna undersökning. Denna titel används i undersökningens översikt i klienterna. Standard: Om du inte specificerar en titel den kommer att tas från indatan."
+
+#. Default: Standard
+msgid "survey_default_title"
+msgstr "Standard"
+
+#. Default: Title of sector.
+msgid "label_sector_title"
+msgstr "Bransch titel."
+
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
+msgid "help_sector_title"
+msgstr "Om du inte specificerar en titel kommer den att tas från indatafilen."
+
+#. Default: Title of imported survey.
+msgid "label_surveygroup_title"
+msgstr "Titel på importerad undersökning."
+
+msgid "Standard"
+msgstr "Standard"
+
+#. Default: XML file
+msgid "label_upload_filename"
+msgstr "XML-fil"
+
+msgid "Survey import"
+msgstr "Importera undersökning"
+
+msgid "Import survey version"
+msgstr "Importera undersökningsversion"
+
+msgid "Upload"
+msgstr "Ladda upp"
+
+#. Default: Please upload a valid XML file
+msgid "error_invalid_xml"
+msgstr "Ladda upp en giltig XML-fil"
+
+#. Default: Succesfully imported the survey
+msgid "upload_success"
+msgstr "Undersökningen har importerats"
+
+#. Default: Import sector and survey
+msgid "title_import_sector_survey"
+msgstr "Importera bransch och undersökning"
+
+#. Default: Upload
+msgid "button_upload"
+msgstr "Ladda upp"
+
+#. Default: This login name is already taken.
+msgid "error_existing_login"
+msgstr "Detta inloggningsnamn är redan taget."
+
+#. Default: A login name may only consist of lowercase letters and numbers.
+msgid "error_invalid_login"
+msgstr "Inloggningsnamnet får endast bestå av små bokstäver och siffror."
+
+#. Default: Name
+msgid "label_user_title"
+msgstr "Namn"
+
+#. Default: Contact email address
+msgid "label_contact_email"
+msgstr "E-postadress"
+
+#. Default: Password
+msgid "label_password"
+msgstr "Lösenord"
+
+#. Default: Account is locked
+msgid "label_account_locked"
+msgstr "Kontot är låst"
+
+#. Default: Account "${title}" has been locked.
+msgid "message_user_locked"
+msgstr "Kontot \"${title}\" har låsts."
+
+#. Default: Account "${title}" has been unlocked.
+msgid "message_user_unlocked"
+msgstr "Kontot \"${title}\" har låsts upp."
+
+msgid "Published"
+msgstr "Publicerad"
+
+msgid "Summary"
+msgstr "Sammanfattning"
+
+msgid "A short summary of the content."
+msgstr "En kort sammanfattning av innehållet."
+
+msgid "Identifier"
+msgstr "Identifierare"
+
+msgid "This is a unique identifier for this object."
+msgstr "Detta är en unik identifierare för det här projektet."
+
+msgid "A folder for all sectors in a country."
+msgstr "En mapp för ett lands alla branscher."
+
+msgid "Country"
+msgstr "Land"
+
+msgid "A manager for sectors in a country."
+msgstr "En branschmanager i ett land."
+
+msgid "Country manager"
+msgstr "Landschef"
+
+msgid "A folder for all documentation for a specific language."
+msgstr "En mapp för all dokumentation av ett visst språk."
+
+msgid "Documentation"
+msgstr "Dokumentation"
+
+msgid "Folder"
+msgstr "Mapp"
+
+msgid "The help text for the client."
+msgstr "Hjälptext för klienten."
+
+msgid "Online help"
+msgstr "Online-hjälp"
+
+msgid "A module is a grouping of risks"
+msgstr "En modul är en riskgruppering"
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "A page with text"
+msgstr "En sida med text"
+
+msgid "Page"
+msgstr "Sida"
+
+#. Default: The basic architecture of an Online interactive Risk Assessment
+#. consists of: - profile questions (questions defining the company profile) -
+#. modules and potentially sub-modules - risks (positive statements) Profile
+#. questions are used to determine whether particular modules apply to the end
+#. user
+#. at all (OPTIONAL), or whether they should be repeated a number of times
+#. (REPEATABLE). Such questions are asked BEFORE starting the risk
+#. identification
+#. and evaluation. If the end-user does not confirm that an optional profile
+#. question is relevant (by ticking the box), then the corresponding module
+#. will be
+#. skipped entirely. If the end-user enters more than one option to a
+#. repeatable
+#. profile question then the corresponding module will be repeated the
+#. specified
+#. number of times.
+msgid "description_profilequestion"
+msgstr "Den grundläggande strukturen för en interaktiv riskbedömning online (OiRA) består av: - profilfrågor (frågor som definierar företagets profil) - moduler och eventuella delmoduler - risker (positiva rapporter) Profilfrågorna används för att avgöra om enskilda moduler överhuvudtaget gäller för slutanvändaren (TILLVAL), eller om de bör upprepas ett antal gånger (REPETERBAR). Sådana frågor ställs INNAN en riskidentifiering och utvärdering startas. Om slutanvändaren inte bekräftar att en profilfråga (tillval) är relevant (genom att kryssa i rutan), kommer motsvarande modul att hoppas över helt. Om slutanvändaren anger mer än ett alternativ till en repeterbar profilfråga kommer motsvarande modul att upprepas ett specifikt antal gånger."
+
+msgid "Profile question"
+msgstr "Profilfråga"
+
+msgid "A risk."
+msgstr "En risk."
+
+msgid "Risk"
+msgstr "Risk"
+
+msgid "A sector is national organisation for a specific type of industry."
+msgstr "En bransch är en nationell organisation för en viss typ av industri."
+
+msgid "Sector"
+msgstr "Bransch"
+
+msgid "A folder which can contain sectors."
+msgstr "En mapp som innehåller branscher."
+
+msgid "Sector Folder"
+msgstr "Branschmapp"
+
+msgid "A solution."
+msgstr "En lösning."
+
+msgid "Solution"
+msgstr "Lösning"
+
+msgid "A version of a survey."
+msgstr "En version av en undersökning."
+
+msgid "Survey version"
+msgstr "Undersökning version"
+
+msgid "A survey."
+msgstr "En undersökning."
+
+msgid "Survey"
+msgstr "Undersökning"
+
+msgid "Sector workflow"
+msgstr "Branch arbetsflöde"
+
+msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+msgstr "En stats arbetsflöde för branschobjekt, vilket låter branschanvändaren redigera dess innehåll."
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "The One And Only state "
+msgstr "Den enda staten"
+
+#. Default: OiRA
+msgid "titld_tool"
+msgstr "OiRA"
+
+#. Default: There are no sectors for this country.
+msgid "message_no_sectors"
+msgstr "Det finns inga branscher för detta land."
+
+#. Default: Select a sector for which you would like to view or copy a survey.
+msgid "intro_select_sector"
+msgstr "Välj den bransch som du vill visa eller kopiera till en undersökning."
+
+#. Default: Email address
+msgid "email"
+msgstr "E-postadress"
+
+#. Default: Country manager for ${country}.
+msgid "notice_country_manager"
+msgstr "Landschef för ${country}."
+
+#. Default: The ${online_help} text can also be modified.
+msgid "documentation_online_help"
+msgstr "Texten för ${online_help} kan också redigeras."
+
+#. Default: online help
+msgid "documentation_online_help_online_help"
+msgstr "online-hjälp"
+
+#. Default: Pages created in the ${appendix} folder are available via links in
+#. the
+#. footer of the online client.
+msgid "documentation_appendix"
+msgstr "Sidor som skapas i $ {appendix}-mappen är tillgängliga via länkarna i online-klientens sidfot."
+
+#. Default: appendix
+msgid "documentation_appendix_appendix"
+msgstr "appendix"
+
+#. Default: Here you can manage the documentation for the ${client}.
+msgid "intro_documenation"
+msgstr "Här kan du hantera dokumentationen för ${client}."
+
+#. Default: online client
+msgid "intro_documenation_client"
+msgstr "online-klient"
+
+#. Default: Documentation
+msgid "title_country_documentation"
+msgstr "Dokumentation"
+
+#. Default: This folder is empty.
+msgid "folder_no_children"
+msgstr "Denna mapp är tom."
+
+#. Default: Client help text
+msgid "title_client_help"
+msgstr "Klient hjälptext"
+
+#. Default: Risks
+msgid "header_risks"
+msgstr "Risker"
+
+#. Default: Submodules
+msgid "header_submodules"
+msgstr "Delmoduler"
+
+#. Default: This module is optional.
+msgid "module_optional"
+msgstr "Denna modul är ett tillval."
+
+#. Default: This module is mandatory.
+msgid "module_mandatory"
+msgstr "Denna modul är obligatorisk."
+
+#. Default: Information
+msgid "header_information"
+msgstr "Information"
+
+#. Default: This is a repeatable profile item.
+msgid "profilequestion_type_repeat"
+msgstr "Detta är en repeterbar post i en profil. "
+
+#. Default: This is an optional profile item.
+msgid "profilequestion_type_optional"
+msgstr "Detta är en post i en profil som är ett tillval."
+
+#. Default: Save
+msgid "button_save"
+msgstr "Spara"
+
+#. Default: Secondary image 3
+msgid "header_secondary_images_3"
+msgstr "Sekundär bild 3"
+
+#. Default: Secondary image 2
+msgid "header_secondary_images_2"
+msgstr "Sekundär bild 2"
+
+#. Default: Secondary image 1
+msgid "header_secondary_images_1"
+msgstr "Sekundär bild 1"
+
+msgid "Group name"
+msgstr "Gruppnamn"
+
+#. Default: Solution ${number}
+msgid "risk_solution_header"
+msgstr "Lösning ${number}"
+
+#. Default: Standard solutions
+msgid "header_solutions"
+msgstr "Standardlösningar"
+
+#. Default: Default effect
+msgid "label_default_effect"
+msgstr "Standardeffekt"
+
+#. Default: No
+msgid "no"
+msgstr "Nej"
+
+#. Default: Yes
+msgid "yes"
+msgstr "Ja"
+
+#. Default: Show '${na}'
+msgid "risk_show_na"
+msgstr "Visa '${na}"
+
+#. Default: not applicable
+msgid "risk_show_na_na"
+msgstr "ej tillämplig"
+
+#. Default: You can also ${add_link}.
+msgid "survey_list_footer"
+msgstr "Du kan även ${add_link}."
+
+#. Default: add a new survey
+msgid "add_survey"
+msgstr "lägga till en ny undersökning"
+
+#. Default: There are no surveys present. You can ${add_link}.
+msgid "no_surveys_present"
+msgstr "Det finns för närvarande inga undersökningar. Du kan ${add_link}."
+
+#. Default: Surveys
+msgid "header_sector_survey_list"
+msgstr "Undersökningar"
+
+#. Default: Please choose a country of which you would like to view or copy a
+#. survey.
+msgid "message_choose_country"
+msgstr "Välj det land som du vill visa eller kopiera en undersökning för."
+
+#. Default: Sectors
+msgid "title_sectors"
+msgstr "Branscher"
+
+#. Default: Save changes
+msgid "button_save_changes"
+msgstr "Spara ändringar"
+
+msgid "Information"
+msgstr "Information"
+
+#. Default: Give the name of the person responsible for the OiRA tools of this
+#. sector.
+msgid "help_sector_contactperson"
+msgstr "Ange namnet på den person som ansvarar för OIRA-verktygen inom denna bransch."
+
+#. Default: Contact person
+msgid "label_contact_person"
+msgstr "Kontaktperson"
+
+#. Default: This is the password that you need to log on to this editor
+#. environment.
+msgid "help_sector_password"
+msgstr "Detta är det lösenord du behöver för att logga in på denna redaktörsmiljö."
+
+#. Default: You may get the best results if you upload a logo as a
+#. ${transparent}
+#. PNG file of at least 100 pixels in height. Uploading larger images is fine,
+#. the
+#. logo will be scaled down to the right size automatically.
+msgid "logo_instructions"
+msgstr "Du kan få bäst resultat om du laddar upp en logotyp som ${transparent} PNG-fil på minst 100 pixlar på höjden. Det är bra att ladda upp större bilder, logotypen skalas automatiskt ner till rätt storlek."
+
+#. Default: transparent
+msgid "logo_instructions_transparent"
+msgstr "transparent"
+
+#. Default: My own
+msgid "logo_my_own"
+msgstr "Min egen"
+
+#. Default: Which logo you would like to display in the top left corner?
+msgid "label_logo_selection"
+msgstr "Vilken logotyp vill du visa i det övre vänstra hörnet?"
+
+#. Default: The logo will appear on both the client side app that your user
+#. group
+#. will see as well as on this editor environment in the top left corner. Make
+#. sure
+#. your image is of format png, jpg or gif and does not contain any special
+#. characters. The new logo will only become visible after you've saved your
+#. changes.
+msgid "help_sector_logo"
+msgstr "Logotypen visas både på applikationen för klientsidan som din användargrupp kommer att se samt på redaktörsmiljön i det övre vänstra hörnet. Se till att din bild är i formatet png, jpg eller gif och inte innehåller några specialtecken. Den nya logotypen blir inte märkbar förrän efter att du har sparat ändringarna."
+
+#. Default: Please use the colour pickers below to select your organisation's
+#. colours. It's best to use a darker colour for the main colour and a lighter
+#. colour for the support colour.
+msgid "help_colour_picker"
+msgstr "Välj bland nedanstående färger för att välja din organisations färger. Det funkar bäst att välja en mörkare färg för huvudfärgen och en ljusare färg för stödfärgen."
+
+#. Default: The colours you select here apply only for the client side of the
+#. application. Try to pick colours that have high enough contrast to keep the
+#. text
+#. on each button legible.
+msgid "help_sector_colours"
+msgstr "De färger du väljer här gäller endast för klientsidans applikation. Försök att välja färger som har tillräckligt hög kontrast för att hålla texten på varje knapp läsbar."
+
+#. Default: Restore to original colours
+msgid "button_reset_colours"
+msgstr "Återställ till originalfärger"
+
+#. Default: Colour scheme
+msgid "header_colour_scheme"
+msgstr "Färgschema"
+
+#. Default: Please provide a description of your sector
+msgid "label_sector_description"
+msgstr "Ange en beskrivning av din bransch"
+
+#. Default: Settings
+msgid "header_settings"
+msgstr "Inställningar"
+
+#. Default: Create
+msgid "button_create"
+msgstr "Skapa"
+
+#. Default: Choose a base revision
+msgid "label_survey_base"
+msgstr "Välj en undersökning översyn"
+
+#. Default: The form will allow you to create a new survey revision.
+msgid "intro_add_survey"
+msgstr "Detta formulär låter dig skapa en ny undersökning översyn."
+
+#. Default: This survey has no modules.
+msgid "no_modules"
+msgstr "Denna undersökning har inga moduler."
+
+#. Default: Modules
+msgid "header_modules"
+msgstr "Moduler"
+
+#. Default: This survey has no profile questions.
+msgid "no_profile_questions"
+msgstr "Denna undersökning har inga profilfrågor."
+
+#. Default: Profile questions
+msgid "header_profile_questions"
+msgstr "Profilfrågor"
+
+#. Default: Not set
+msgid "not_set"
+msgstr "Ej inställt"
+
+#. Default: Mandatory
+msgid "mandatory"
+msgstr "Obligatoriskt"
+
+#. Default: Optional
+msgid "optional"
+msgstr "Tillval"
+
+#. Default: Evaluation phase
+msgid "label_evaluation_phase"
+msgstr "Utvärderingsfas"
+
+#. Default: Choose a revision of the selected survey
+msgid "label_choose_survey"
+msgstr "Välj en revidering av den valda undersökningen"
+
+#. Default: Choose a survey
+msgid "label_choose_surveygroup"
+msgstr "Välj en undersökning"
+
+#. Default: Choose a country
+msgid "label_choose_country"
+msgstr "Välj ett land"
+
+#. Default: Base my new survey on an existing survey of another organisation
+msgid "survey_source_other"
+msgstr "Basera min nya undersökning på en befintlig undersökning av en annan organisation"
+
+#. Default: Base my new survey on an existing survey of my organisation
+msgid "survey_source_local"
+msgstr "Basera min nya undersökning på en befintlig undersökning av min organisation"
+
+#. Default: Create a new survey from scratch
+msgid "survey_source_scratch"
+msgstr "Skapa en ny undersökning från grunden"
+
+#. Default: How would you like to start
+msgid "label_survey_source"
+msgstr "Hur skulle du vilja börja"
+
+#. Default: The form will allow you to create a new survey.
+msgid "intro_add_surveygroup"
+msgstr "Detta formulär låter dig skapa en ny undersökning"
+
+#. Default: Unlock
+msgid "button_unlock"
+msgstr "Lås upp"
+
+#. Default: Lock
+msgid "button_lock"
+msgstr "Lås"
+
+#. Default: Edit
+msgid "button_edit"
+msgstr "Redigera"
+
+#. Default: There are no country managers for this country.
+msgid "country_no_managers"
+msgstr "Det finns inte några landschefer för detta land."
+
+#. Default: Country managers
+msgid "header_country_managers"
+msgstr "Landschefer"
+
+#. Default: There are no sectors for this country.
+msgid "country_no_sectors"
+msgstr "Det finns inga branscher för detta land."
+
+#. Default: Sectors
+msgid "header_sectors"
+msgstr "Branscher"
+
+#. Default: Add country manager
+msgid "button_add_country_manager"
+msgstr "Lägg till landschef"
+
+#. Default: Add new sector
+msgid "button_add_sector"
+msgstr "Lägg till en ny bransch"
+
+#. Default: Manage users in ${country}
+msgid "header_user_management"
+msgstr "Hantera användare i ${country}"
+
+#. Default: XML export
+msgid "menu_export"
+msgstr "XML-export"
+
+#. Default: Import survey
+msgid "menu_import"
+msgstr "Importera undersökning"
+
+#. Default: Relevance: ${percentage}
+msgid "search_result_relevance"
+msgstr "Relevans: ${percentage}"
+
+#. Default: ${number} results found.
+msgid "search_result_intro"
+msgstr "${number} hittade resultat."
+
+#. Default: No items found.
+msgid "search_no_results"
+msgstr "Inga objekt funna."
+
+#. Default: Search results
+msgid "header_search_results"
+msgstr "Sökresultat"
+
+#. Default: Search
+msgid "button_search"
+msgstr "Sök"
+
+#. Default: Search
+msgid "header_search"
+msgstr "Sök"
+
+msgid "Submodule"
+msgstr "Delmodul"
+
+#. Default: Surveys
+msgid "nav_surveys"
+msgstr "Undersökningar"
+
+#. Default: User management
+msgid "nav_usermanagement"
+msgstr "Användarhantering"
+
+#. Default: Documents
+msgid "nav_documents"
+msgstr "Dokument"
+
+#. Default: Help
+msgid "nav_help"
+msgstr "Hjälp"
+
+#. Default: Add ${typename}
+msgid "button_add_factory"
+msgstr "Lägg till ${typename}"
+
+#. Default: Toggle
+msgid "text_toggle_navtree"
+msgstr "Växla"
+
+#. Default: Show older versions
+msgid "title_toggle_navtree"
+msgstr "Visa äldre versioner"
+
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
+#. Click the update icon to bring all the changes live
+msgid "legend_updated"
+msgstr "${label} = Denna version har förändringar som för närvarande inte är publicerade. Klicka på ikonen Uppdatera för att aktivera ändringarna"
+
+#. Default: Update
+msgid "label_update"
+msgstr "Uppdatera"
+
+#. Default: ${label} Version you are currently reviewing
+msgid "legend_current"
+msgstr "${label} Version du för närvarande granskar"
+
+#. Default: Current
+msgid "label_current"
+msgstr "Nuvarande"
+
+#. Default: ${label} Version that is currently online
+msgid "legend_published"
+msgstr "${label} Version som för närvarande är online"
+
+#. Default: Published
+msgid "label_published"
+msgstr "Publicerad"
+
+#. Default: Legend
+msgid "header_legend"
+msgstr "Teckenförklaring"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+msgid "help_create_new_version"
+msgstr "Börja med att skriva en ny undersökning. Du blir tillfrågad om du vill starta med en kopia av en befintlig undersökning."
+
+#. Default: Create new survey
+msgid "button_create_new"
+msgstr "Skapa ny undersökning"
+
+#. Default: Updated
+msgid "button_updated"
+msgstr "Uppdaterad"
+
+#. Default: Current / Published
+msgid "label_current_published"
+msgstr "Nuvarande/publicerad"
+
+#. Default: Publish the selected survey live with its latest changes.
+msgid "help_publish"
+msgstr "Publicera den markerade undersökningen med de senaste ändringarna."
+
+#. Default: Create a duplicate of the selected survey
+msgid "help_add_version"
+msgstr "Skapa en kopia av den valda undersökningen"
+
+#. Default: Duplicate
+msgid "button_add_version"
+msgstr "Kopiera"
+
+#. Default: Versions
+msgid "portlet_header_versions"
+msgstr "Versioner"

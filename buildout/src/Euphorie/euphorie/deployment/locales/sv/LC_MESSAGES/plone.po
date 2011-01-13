@@ -1,0 +1,113 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Robert <vansen@hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "The online client."
+msgstr "Online-klienten"
+
+msgid "Country information and grouping for the client."
+msgstr "Landinformation och gruppering för klienten."
+
+msgid "Sector information and grouping for the client."
+msgstr "Branschinformation och gruppering för klienten."
+
+msgid "A folder for all sectors in a country."
+msgstr "En mapp för alla branscher i ett land."
+
+msgid "Country"
+msgstr "Land"
+
+msgid "A manager for sectors in a country."
+msgstr "En manager för branscher i ett land."
+
+msgid "Country manager"
+msgstr "Landschef"
+
+msgid "A folder for all documentation for a specific language."
+msgstr "En mapp för all dokumentation av ett specifikt språk."
+
+msgid "Documentation"
+msgstr "Dokumentation"
+
+msgid "Folder"
+msgstr "Mapp"
+
+msgid "The help text for the client."
+msgstr "Hjälptext för klienten."
+
+msgid "Online help"
+msgstr "Online-hjälp"
+
+msgid "A module is grouping of risks"
+msgstr "En modul är en riskgruppering"
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "A page with text"
+msgstr "En sida med text"
+
+msgid "Page"
+msgstr "Sida"
+
+msgid "A profile question is used to create optional or repetabled modules"
+msgstr "En profilfråga används för att skapa moduler som är tillval eller repeterbara"
+
+msgid "Profile question"
+msgstr "Profilfråga"
+
+msgid "A risk."
+msgstr "En risk."
+
+msgid "Risk"
+msgstr "Risk"
+
+msgid "A sector is national organisation for a specific type of industry."
+msgstr "En bransch är en nationell organisation för en specifik typ av industri."
+
+msgid "Sector"
+msgstr "Bransch"
+
+msgid "A folder which can contain sectors."
+msgstr "En mapp som kan innehålla branscher."
+
+msgid "Sector Folder"
+msgstr "Branschmapp"
+
+msgid "A solution."
+msgstr "En lösning."
+
+msgid "Solution"
+msgstr "Lösning"
+
+msgid "A version of a survey."
+msgstr "En version av en undersökning."
+
+msgid "Survey version"
+msgstr "Undersökning version"
+
+msgid "A survey."
+msgstr "En undersökning."
+
+msgid "Survey"
+msgstr "Undersökning"
+
+msgid "Sector workflow"
+msgstr "Bransch arbetsflöde"
+
+msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+msgstr "En stats arbetsflöde för branschobjekt, vilket låter branschanvändaren redigera dess innehåll."
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "The One And Only state "
+msgstr "Den enda staten"
+
