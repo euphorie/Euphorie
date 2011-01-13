@@ -2031,6 +2031,18 @@ label abbr.currency {
 	margin-top: 0;
 }
 
+/* @group Percentage */
+
+input.percentage {
+	background: white url(percentage.gif) no-repeat right center;
+	padding-right: 20px;
+	width: 15px;
+}
+
+
+
+/* @end */
+
 /* @group Personals */
 
 li.firstName input {
@@ -2050,7 +2062,8 @@ li.surname input {
 	list-style-image: none !important;
 }
 
-fieldset.comprehensive.radioList label {
+fieldset.comprehensive.radioList label,
+form.concise fieldset.comprehensive.radioList label {
 	padding-left: 20px;
 	display: block;
 	width: 100%;
