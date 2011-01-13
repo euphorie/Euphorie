@@ -1,0 +1,120 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-07-20 17:31+0200\n"
+"PO-Revision-Date: 2011-01-13 09:56+0200\n"
+"Last-Translator: xl <xl@hol.gr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.5\n"
+
+msgid "The online client."
+msgstr "Ο online πελάτης."
+
+msgid "Country information and grouping for the client."
+msgstr "Πληροφορίες χώρας και ταξινόμηση για τον πελάτη."
+
+msgid "Sector information and grouping for the client."
+msgstr "Πληροφορίες τομέα και ταξινόμηση για τον πελάτη."
+
+msgid "A folder for all sectors in a country."
+msgstr "Ένας φάκελος για όλους τους τομείς σε μια χώρα."
+
+msgid "Country"
+msgstr "Χώρα"
+
+msgid "A manager for sectors in a country."
+msgstr "Ένας διευθυντής για τους τομείς σε μια χώρα."
+
+msgid "Country manager"
+msgstr "Εθνικός διευθυντής"
+
+msgid "A folder for all documentation for a specific language."
+msgstr "Ένας φάκελος για όλα τα έγγραφα σε μια συγκεκριμένη γλώσσα."
+
+msgid "Documentation"
+msgstr "Έγγραφα"
+
+msgid "Folder"
+msgstr "Φάκελος"
+
+msgid "The help text for the client."
+msgstr "Το κείμενο βοήθειας για τον πελάτη."
+
+msgid "Online help"
+msgstr "Online βοήθεια"
+
+msgid "A module is grouping of risks"
+msgstr "Μια ενότητα είναι μια ταξινόμηση κινδύνων"
+
+msgid "Module"
+msgstr "Μονάδα"
+
+msgid "A page with text"
+msgstr "Μια σελίδα με κείμενο"
+
+msgid "Page"
+msgstr "Σελίδα"
+
+msgid "A profile question is used to create optional or repetabled modules"
+msgstr "Μια ερώτηση προφίλ χρησιμοποιείται για να δημιουργηθούν προαιρετικές ενότητες ή επαναλαμβανόμενες ενότητες"
+
+msgid "Profile question"
+msgstr "Ερώτηση προφίλ"
+
+msgid "A risk."
+msgstr "Ένας κίνδυνος."
+
+msgid "Risk"
+msgstr "Κίνδυνος."
+
+msgid "A sector is national organisation for a specific type of industry."
+msgstr "Ένας τομέας είναι ένας εθνικός οργανισμός για ένα συγκεκριμένο τύπο βιομηχανίας."
+
+msgid "Sector"
+msgstr "Τομέας"
+
+msgid "A folder which can contain sectors."
+msgstr "Ένας φάκελος που μπορεί να περιέχει τομείς."
+
+msgid "Sector Folder"
+msgstr "Φάκελος τομέων"
+
+msgid "A solution."
+msgstr "Μια λύση."
+
+msgid "Solution"
+msgstr "Λύση"
+
+msgid "A version of a survey."
+msgstr "Μια έκδοση της έρευνας."
+
+msgid "Survey version"
+msgstr "Έκδοση έρευνας"
+
+msgid "A survey."
+msgstr "Μια έρευνα."
+
+msgid "Survey"
+msgstr "Έρευνα"
+
+msgid "Sector workflow"
+msgstr "Ροή εργασίας τομέα"
+
+msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
+msgstr "Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο χρήστη του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
+
+msgid "Active"
+msgstr "Ενεργό"
+
+msgid "The One And Only state "
+msgstr "Η Μία και Μοναδική κατάσταση"
+
