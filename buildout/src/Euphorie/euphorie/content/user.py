@@ -54,7 +54,7 @@ class IUser(form.Schema):
             required = True)
 
     login = LoginField(
-            title = _("label_login", default=u"Login name"),
+            title = _("label_login_name", default=u"Login name"),
             required=True,
             constraint=validLoginValue)
     dexterity.write_permission(login="euphorie.ManageCountry")
