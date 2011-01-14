@@ -161,7 +161,7 @@ class View(grok.View):
 
 class ISurveyAddSchema(form.Schema):
     title = schema.TextLine(
-            title = _("label_survey_title", default=u"Title"),
+            title = _("label_survey_title", default=u"Version name"),
             description = _("help_survey_title",
                 default=u"This is the title of this survey version. This "
                         u"name is never shown to users."),
