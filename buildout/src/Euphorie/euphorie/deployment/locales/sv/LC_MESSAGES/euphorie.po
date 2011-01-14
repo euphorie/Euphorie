@@ -813,9 +813,8 @@ msgid "header_measure"
 msgstr "Åtgärd ${index}"
 
 #. Default: This is a ${priority} .
-#. Default: This is a ${priority} .
 msgid "risk_priority"
-msgstr "Detta är en ${priority} . Standard: Detta är en ${priority} ."
+msgstr "Detta är en ${priority} ."
 
 #. Default: high priority risk
 msgid "risk_priority_high"

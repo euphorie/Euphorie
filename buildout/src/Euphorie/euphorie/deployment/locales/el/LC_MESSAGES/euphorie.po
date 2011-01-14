@@ -811,9 +811,8 @@ msgid "header_measure"
 msgstr "Measure ${index}"
 
 #. Default: This is a ${priority} .
-#. Default: This is a ${priority} .
 msgid "risk_priority"
-msgstr "This is a ${priority} . Default: This is a ${priority} ."
+msgstr "This is a ${priority} ."
 
 #. Default: high priority risk
 msgid "risk_priority_high"
