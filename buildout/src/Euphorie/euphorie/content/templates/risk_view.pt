@@ -46,7 +46,7 @@
             <dd tal:content="view/default_priority">Low</dd>
           </tal:block>
           <tal:block condition="python:context.evaluation_method=='calculated'">
-            <dt i18n:translate="label_default_probability">Default probabilty</dt>
+            <dt i18n:translate="label_default_probability">Default probability</dt>
             <dd tal:content="view/default_probability">Low</dd>
             <dt i18n:translate="label_default_frequency">Default frequency</dt>
             <dd tal:content="view/default_frequency">Low</dd>
