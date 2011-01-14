@@ -7,9 +7,13 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
-- The i18n megid "label_login" was used for 2 different meanings. In
+- The i18n msgid "label_login" was used for 2 different meanings. In
   content/user.py and content/upload.py, the msgid "label_login_name"
   is now used for the LoginField 
+  [thomas]
+- Added msgid "label_preview", Default "Preview", as disambiguation
+  from "header_preview" (Preview survey) and "button_preview"
+  (Create preview)
   [thomas]
 
 

@@ -27,7 +27,7 @@
             <em tal:condition="python:survey.current and survey.published" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
             <input type="radio" name="survey" value="${survey/id}" checked="${python:'checked' if survey.published else None}"/>
             <label><a href="${survey/url}">${survey/title}</a></label>
-            <a class="floatAfter" href="${survey/url}/@@preview" i18n:translate="button_preview">Preview</a>
+            <a class="floatAfter" href="${survey/url}/@@preview" i18n:translate="label_preview">Preview</a>
             <a class="floatAfter" href="${survey/url}" i18n:translate="button_edit">Edit</a>
             <a tal:condition="survey/modified" class="button icon upload floatAfter" href="${survey/url}/@@publish" i18n:translate="button_updated">Updated</a>
             <ul tal:condition="python:survey['versions']" class="surveyRevisions" style="display: none">

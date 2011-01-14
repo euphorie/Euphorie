@@ -17,7 +17,7 @@
         </fieldset>
 
         <fieldset class="client-preview">
-          <legend i18n:translate="header_preview">Preview</legend>
+          <legend i18n:translate="label_preview">Preview</legend>
           <iframe src="${tools/context_url}/@@colour-preview"
             width="510" height="300" class="client-preview" id="client-preview" style="overflow:hidden">
           </iframe>
