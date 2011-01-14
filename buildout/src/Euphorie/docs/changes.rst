@@ -4,7 +4,8 @@ Changelog
 2.4 - Unrelased
 ---------------
 
-- ...
+- Extend client form CSS to support percentage fields.
+  [cornae]
 
 
 2.3 - January 11, 2011
