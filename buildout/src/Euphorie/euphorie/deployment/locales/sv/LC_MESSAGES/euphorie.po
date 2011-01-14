@@ -576,9 +576,12 @@ msgid "label_change_country"
 msgstr "Ändra land/språk"
 
 #. Default: Login
-#. Default: Login name
 msgid "label_login"
-msgstr "Standard login: Inloggningsnamn"
+msgstr "Login"
+
+#. Default: Login name
+msgid "label_login_name"
+msgstr "Inloggningsnamn"
 
 #. Default: Password (${forgot_link})
 msgid "label_login_password"

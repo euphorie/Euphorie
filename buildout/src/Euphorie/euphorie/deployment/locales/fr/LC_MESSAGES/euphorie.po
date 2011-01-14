@@ -1159,13 +1159,14 @@ msgid "label_change_country"
 msgstr "Changer le pays/la langue"
 
 #. Default: Login
-#. Default: Login name
 #: euphorie/client/templates/login.pt:35 euphorie/content/upload.py:69
 #: euphorie/content/user.py:57
 msgid "label_login"
-msgstr ""
-"Connexion\n"
-"Nom d'utilisateur"
+msgstr "Connexion"
+
+#. Default: Login name
+msgid "label_login_name"
+msgstr "Nom d'utilisateur"
 
 #. Default: Password (${forgot_link})
 #: euphorie/client/templates/login.pt:33
