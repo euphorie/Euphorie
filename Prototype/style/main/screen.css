@@ -1637,7 +1637,8 @@ button.link {
 button[disabled="disabled"],
 .button.disabled,
 button[disabled="disabled"]:hover,
-.button.disabled:hover {
+.button.disabled:hover,
+button:disabled {
 	opacity: 0.6;
 	color: gray;
 }
