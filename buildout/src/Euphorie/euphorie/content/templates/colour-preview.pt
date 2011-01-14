@@ -43,8 +43,8 @@
       <li id="step-2">
         <a href="#" i18n:translate="label_evaluation">Evaluation</a>
       </li>
-      <li id="step-3" i18n:translate="label_action_plan">
-        <a href="#">Action Plan</a>
+      <li id="step-3">
+        <a href="#" i18n:translate="label_action_plan">Action Plan</a>
       </li>
     </ol>
     <ul id="navigation">
