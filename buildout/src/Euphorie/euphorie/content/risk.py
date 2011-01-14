@@ -62,7 +62,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.order_after(description="problem_description")
 
     legal_reference = HtmlText(
-            title = _("label_legal_reference", default=u"Legal and policy references."),
+            title = _("label_legal_reference", default=u"Legal and policy references"),
             required=False)
     form.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(legal_reference="description")
