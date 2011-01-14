@@ -11,9 +11,15 @@ Bugfixes
   content/user.py and content/upload.py, the msgid "label_login_name"
   is now used for the LoginField 
   [thomas]
+
 - Added msgid "label_preview", Default "Preview", as disambiguation
   from "header_preview" (Preview survey) and "button_preview"
   (Create preview)
+  [thomas]
+
+- in euphorie/content/risk.py changed Default translation for
+  label_problem_description to "Inversed statement", as given in
+  euphorie/content/templates/risk_view.pt
   [thomas]
 
 

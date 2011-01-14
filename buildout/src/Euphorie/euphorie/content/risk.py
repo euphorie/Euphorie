@@ -44,7 +44,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     problem_description = schema.TextLine(
             title = _("label_problem_description",
-                    default=u"Problem description"),
+                    default=u"Inversed statement"),
             description = _("help_problem_description",
                     default=u"This is the inverse of the statement: a "
                             u"short description of current (bad) situation."),
