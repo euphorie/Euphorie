@@ -1998,7 +1998,7 @@ msgstr "Ja"
 
 #. Default: Show '${na}'
 msgid "risk_show_na"
-msgstr "Visa '${na}"
+msgstr "Visa '${na}'"
 
 #. Default: not applicable
 msgid "risk_show_na_na"
