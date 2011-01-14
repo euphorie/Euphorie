@@ -4,8 +4,13 @@ Changelog
 2.4 - Unrelased
 ---------------
 
-- Extend client form CSS to support percentage fields.
-  [cornae]
+Bugfixes
+~~~~~~~~
+
+- The i18n megid "label_login" was used for 2 different meanings. In
+  content/user.py and content/upload.py, the msgid "label_login_name"
+  is now used for the LoginField 
+  [thomas]
 
 
 2.3 - January 11, 2011
