@@ -22,6 +22,12 @@ Bugfixes
   euphorie/content/templates/risk_view.pt
   [thomas]
 
+- in euphorie/content/upload.py added 2 new msgids, since the
+  ones that were used already have a different meaning
+  label_survey_title -> label_upload_survey_title
+  help_surveygroup_title -> help_upload_surveygroup_title
+  [thomas]
+
 
 2.3 - January 11, 2011
 ----------------------

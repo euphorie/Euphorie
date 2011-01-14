@@ -72,13 +72,13 @@ class IImportSector(Interface):
 
     surveygroup_title = schema.TextLine(
             title = _("label_surveygroup_title", default=u"Title of imported survey."),
-            description = _("help_surveygroup_title",
+            description = _("help_upload_surveygroup_title",
                 default=u"If you do not specify a title it will be taken "
                         u"from the input."),
             required = False)
 
     survey_title = schema.TextLine(
-            title = _("label_survey_title", default=u"Name for survey version"),
+            title = _("label_upload_survey_title", default=u"Name for survey version"),
             default = _(u"Standard"), 
             required = True)
 
@@ -91,13 +91,13 @@ class IImportSector(Interface):
 class IImportSurvey(Interface):
     surveygroup_title = schema.TextLine(
             title = _("label_surveygroup_title", default=u"Title of imported survey."),
-            description = _("help_surveygroup_title",
+            description = _("help_upload_surveygroup_title",
                 default=u"If you do not specify a title it will be taken "
                         u"from the input."),
             required = False)
 
     survey_title = schema.TextLine(
-            title = _("label_survey_title", default=u"Name for survey version"),
+            title = _("label_upload_survey_title", default=u"Name for survey version"),
             default = _(u"Survey import"),
             required = True)
 
