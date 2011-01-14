@@ -374,9 +374,8 @@ msgid "iphone_label_action_plan"
 msgstr "Handelsplan"
 
 #. Default: Action Plan
-#. Default:
 msgid "label_action_plan"
-msgstr "Handelsplan standard:"
+msgstr "Handelsplan"
 
 #. Default: Evaluation
 msgid "iphone_label_evaluation"
