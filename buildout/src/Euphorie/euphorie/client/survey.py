@@ -488,28 +488,6 @@ class ActionPlanReportView(grok.View):
 
 
 
-class ActionPlanReportDownload(ActionPlanReportView):
-    """Generate and download action report.
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("report_actionplan")
-    grok.name("download")
-
-    def update(self):
-        ActionPlanReportView.update(self)
-
-        filename=_("filename_actionplan_report",
-                   default=u"Action plan ${title}.doc",
-                   mapping=dict(title=self.session.title))
-        filename=translate(filename, context=self.request)
-        self.request.response.setHeader("Content-Disposition",
-                            "attachment; filename=\"%s\"" % filename.encode("utf-8"))
-        self.request.response.setHeader("Content-Type", "application/msword")
-        return self
-
-
 
 class Status(grok.View):
     """Show survey status information.

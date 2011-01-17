@@ -4,6 +4,17 @@ Changelog
 2.4 - Unrelased
 ---------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Replace downloadable action plan report with a RTF version. This solves
+  problems with opening and editing the previous html fake-.doc approach.
+  Downside of this approach is the loss of styling for the report.
+  [wichert]
+
+- Extend client form CSS to support percentage fields.
+  [cornae]
+
 Bugfixes
 ~~~~~~~~
 
@@ -31,11 +42,6 @@ Bugfixes
   help_surveygroup_title -> help_upload_surveygroup_title
   [thomas]
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- Extend client form CSS to support percentage fields.
-  [cornae]
 
 2.3 - January 11, 2011
 ----------------------

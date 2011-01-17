@@ -22,12 +22,14 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
+        # Force creation of the company data
+        browser.open("%s/report/company" % survey_url)
         # Download the report
         browser.handleErrors=False
         browser.open("%s/report/download" % survey_url)
-        self.assertEqual(browser.headers.type, "application/msword")
+        self.assertEqual(browser.headers.type, "application/rtf")
         self.assertEqual(browser.headers.get("Content-Disposition"),
-                'attachment; filename="Action plan Sessi\xc3\xb8n.doc"')
+                'attachment; filename="Action plan Sessi\xc3\xb8n.rtf"')
 
 
     def testInvalidDateDoesNotBreakRendering(self):
