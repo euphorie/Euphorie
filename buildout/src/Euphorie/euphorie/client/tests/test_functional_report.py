@@ -60,6 +60,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/ict/software-development/report/view")
         # No errors = success
 
+
     def testCountryDefaultsToCurrentCountry(self):
         from euphorie.content.tests.utils import BASIC_SURVEY
         self.loginAsPortalOwner()
@@ -77,6 +78,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Check the company data
         browser.open("%s/report/company" % survey_url)
         self.assertEqual(browser.getControl(name="form.widgets.country").value, ["nl"])
+
 
     def testCompanySettingsRoundTrip(self):
         from euphorie.content.tests.utils import BASIC_SURVEY
