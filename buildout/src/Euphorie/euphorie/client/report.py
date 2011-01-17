@@ -325,6 +325,11 @@ class ActionPlanReportDownload(grok.View):
                     default=u"This task starts on ${start} and ends on ${end}.",
                     mapping={"start": formatDate(self.request, measure.planning_start),
                              "end": formatDate(self.request, measure.planning_end)}))))
+        if measure.budget:
+            section.append(Paragraph(normal_style,
+                t(_("report_measure_budget",
+                    default=u"There is a budget of ${amount} for this measure.",
+                    mapping={"amount": measure.budget}))))
 
 
     def createSection(self, document):
