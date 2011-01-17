@@ -261,7 +261,7 @@ class ActionPlanReportDownload(grok.View):
                         t(_("header_measure_single", default=u"Measure"))))
                 else:
                     section.append(Paragraph(measure_heading_style,
-                        t(_("header_measure_multiple", default=u"Measure ${index}", mapping={"index": idx+1}))))
+                        t(_("header_measure", default=u"Measure ${index}", mapping={"index": idx+1}))))
                 self.addMeasure(document, section, measure)
 
 
@@ -298,25 +298,31 @@ class ActionPlanReportDownload(grok.View):
                              "start": formatDate(self.request, measure.planning_start)}))))
         elif measure.responsible and not measure.planning_start and measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"${responsible} is responsible for this task which ends on ${end}.",
+                t(_("report_measure_responsible_and_end",
+                    default=u"${responsible} is responsible for this task which ends on ${end}.",
                     mapping={"responsible": measure.responsible,
                              "end": formatDate(self.request, measure.planning_end)}))))
         elif measure.responsible and measure.planning_start and measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"${responsible} is responsible for this task which starts on ${start} and ends on ${end}.",
+                t(_("report_measure_full",
+                    default=u"${responsible} is responsible for this task which starts on ${start} and ends on ${end}.",
                     mapping={"responsible": measure.responsible,
                              "start": formatDate(self.request, measure.planning_start),
                              "end": formatDate(self.request, measure.planning_end)}))))
         elif not measure.responsible and measure.planning_start and not measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"This task starts at ${start}.",
+                t(_("report_measure_start_only",
+                    default=u"This task starts on ${start}.",
                     mapping={"start": formatDate(self.request, measure.planning_start)}))))
         elif not measure.responsible and not measure.planning_start and measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"This task ends at ${end}.", mapping={"end": formatDate(self.request, measure.planning_end)}))))
+                t(_("report_measure_end_only",
+                    default=u"This task ends on ${end}.",
+                    mapping={"end": formatDate(self.request, measure.planning_end)}))))
         elif not measure.responsible and measure.planning_start and measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"This task starts at ${start} and ends at ${end}.",
+                t(_("report_measure_start_and_stop",
+                    default=u"This task starts on ${start} and ends on ${end}.",
                     mapping={"start": formatDate(self.request, measure.planning_start),
                              "end": formatDate(self.request, measure.planning_end)}))))
 

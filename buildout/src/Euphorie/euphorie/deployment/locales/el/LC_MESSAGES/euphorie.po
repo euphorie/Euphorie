@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-11-29 13:39+0100\n"
-"PO-Revision-Date: 2011-01-17 17:15+0100\n"
+"PO-Revision-Date: 2011-01-17 21:51+0100\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -296,8 +296,9 @@ msgstr "Measure ${index}"
 
 #. Default: Measure ${index}
 #: euphorie/client/report.py:264
-#, fuzzy
-msgid "header_measure_multiple"
+#: euphorie/client/templates/report_actionplan.pt:103
+#: euphorie/client/templates/risk_actionplan.pt:35
+msgid "header_measure"
 msgstr "Measure ${index}"
 
 #. Default: Action plan:
@@ -331,37 +332,49 @@ msgstr "${responsible} is responsible for this task."
 msgid "report_measure_responsible_and_start"
 msgstr "${responsible} is responsible for this task which starts on ${start}."
 
+#. Default: ${responsible} is responsible for this task which ends on ${end}.
 #: euphorie/client/report.py:301
-msgid "${responsible} is responsible for this task which ends on ${end}."
-msgstr ""
+#: euphorie/client/templates/report_actionplan.pt:125
+msgid "report_measure_responsible_and_end"
+msgstr "${responsible} is responsible for this task which ends on ${end}."
 
-#: euphorie/client/report.py:306
-msgid ""
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}
+#. and ends on ${end}.
+#: euphorie/client/report.py:307
+#: euphorie/client/templates/report_actionplan.pt:138
+msgid "report_measure_full"
+msgstr ""
 "${responsible} is responsible for this task which starts on ${start} and "
 "ends on ${end}."
-msgstr ""
 
-#: euphorie/client/report.py:312
-msgid "This task starts at ${start}."
-msgstr ""
+#. Default: This task starts on ${start}.
+#: euphorie/client/report.py:314
+#: euphorie/client/templates/report_actionplan.pt:128
+msgid "report_measure_start_only"
+msgstr "This task starts on ${start}."
 
-#: euphorie/client/report.py:316
-msgid "This task ends at ${end}."
-msgstr ""
-
+#. Default: This task ends on ${end}.
 #: euphorie/client/report.py:319
-msgid "This task starts at ${start} and ends at ${end}."
-msgstr ""
+#: euphorie/client/templates/report_actionplan.pt:131
+msgid "report_measure_end_only"
+msgstr "This task ends on ${end}."
+
+#. Default: This task starts on ${start} and ends on ${end}.
+#: euphorie/client/report.py:324
+#: euphorie/client/templates/report_actionplan.pt:134
+msgid "report_measure_start_and_stop"
+msgstr "This task starts on ${start} and ends on ${end}."
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:326
+#: euphorie/client/report.py:332
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr "This report was based on the survey '${title}' of revision date ${date}."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:400
+#: euphorie/client/report.py:406
 #, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Σχέδιο δράσης ${title}.doc"
@@ -1540,41 +1553,6 @@ msgstr ""
 #: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr "There is a budget of ${amount} for this measure."
-
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}
-#. and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:138
-msgid "report_measure_full"
-msgstr ""
-"${responsible} is responsible for this task which starts on ${start} and "
-"ends on ${end}."
-
-#. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:134
-msgid "report_measure_start_and_stop"
-msgstr "This task starts on ${start} and ends on ${end}."
-
-#. Default: This task ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:131
-msgid "report_measure_end_only"
-msgstr "This task ends on ${end}."
-
-#. Default: This task starts on ${start}.
-#: euphorie/client/templates/report_actionplan.pt:128
-msgid "report_measure_start_only"
-msgstr "This task starts on ${start}."
-
-#. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:125
-msgid "report_measure_responsible_and_end"
-msgstr "${responsible} is responsible for this task which ends on ${end}."
-
-#. Default: Measure ${index}
-#: euphorie/client/templates/report_actionplan.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:35
-msgid "header_measure"
-msgstr "Measure ${index}"
 
 #. Default: This is a ${priority} .
 #: euphorie/client/templates/report_actionplan.pt:88
@@ -3691,9 +3669,24 @@ msgstr "Duplicate"
 msgid "portlet_header_versions"
 msgstr "Versions"
 
-#~ msgid "${responsible} is responsible for this task."
+#~ msgid "header_measure_multiple"
+#~ msgstr "Measure ${index}"
+
+#~ msgid "${responsible} is responsible for this task which ends on ${end}."
 #~ msgstr ""
 
-#~ msgid "${responsible} is responsible for this task which starts on ${start}."
+#~ msgid ""
+#~ "${responsible} is responsible for this "
+#~ "task which starts on ${start} and "
+#~ "ends on ${end}."
+#~ msgstr ""
+
+#~ msgid "This task starts at ${start}."
+#~ msgstr ""
+
+#~ msgid "This task ends at ${end}."
+#~ msgstr ""
+
+#~ msgid "This task starts at ${start} and ends at ${end}."
 #~ msgstr ""
 

@@ -139,7 +139,7 @@
               i18n:translate="report_measure_full"><strong i18n:name="responsible" tal:content="actionplan/responsible">The Hulk</strong> is responsible for this task
               which starts on <tal:span i18n:name="start" content="python:tools.formatDate(actionplan.planning_start)">14 April 2010</tal:span> and
               ends on <tal:span i18n:name="end" content="python:tools.formatDate(actionplan.planning_end)">14 April 2010</tal:span>.</tal:block>
-              <tal:block condition="actionplan/budget" i18n:translate="report_measure_budget">There is a budget of
+            <tal:block condition="actionplan/budget" i18n:translate="report_measure_budget">There is a budget of
             <strong i18n:name="amount">€&nbsp;<tal:span replace="actionplan/budget">30</tal:span></strong> for this
             measure.</tal:block>
           </p>

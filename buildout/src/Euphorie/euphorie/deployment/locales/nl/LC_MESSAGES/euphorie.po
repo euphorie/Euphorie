@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2011-01-17 17:15+0100\n"
+"PO-Revision-Date: 2011-01-17 21:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -287,7 +287,9 @@ msgstr "Maatregel"
 
 #. Default: Measure ${index}
 #: euphorie/client/report.py:264
-msgid "header_measure_multiple"
+#: euphorie/client/templates/report_actionplan.pt:103
+#: euphorie/client/templates/risk_actionplan.pt:35
+msgid "header_measure"
 msgstr "Maatregel ${index}"
 
 #. Default: Action plan:
@@ -323,40 +325,53 @@ msgstr ""
 "${responsible} is verantwoordelijk voor deze maatregel, beginnend op "
 "${start}."
 
+#. Default: ${responsible} is responsible for this task which ends on ${end}.
 #: euphorie/client/report.py:301
-msgid "${responsible} is responsible for this task which ends on ${end}."
+#: euphorie/client/templates/report_actionplan.pt:125
+msgid "report_measure_responsible_and_end"
 msgstr ""
+"${responsible} is verantwoordeljk voor deze maatregel, eindigend op "
+"${end}."
 
-#: euphorie/client/report.py:306
-msgid ""
-"${responsible} is responsible for this task which starts on ${start} and "
-"ends on ${end}."
+#. Default: ${responsible} is responsible for this task which starts on
+#. ${start}
+#. and ends on ${end}.
+#: euphorie/client/report.py:307
+#: euphorie/client/templates/report_actionplan.pt:138
+msgid "report_measure_full"
 msgstr ""
+"${responsible} is verantwoordelijk voor deze maatregel, beginnend op "
+"${start} en eindigend op ${end}."
 
-#: euphorie/client/report.py:312
-msgid "This task starts at ${start}."
-msgstr ""
+#. Default: This task starts on ${start}.
+#: euphorie/client/report.py:314
+#: euphorie/client/templates/report_actionplan.pt:128
+msgid "report_measure_start_only"
+msgstr "Deze maatregel begint op ${start}."
 
-#: euphorie/client/report.py:316
-msgid "This task ends at ${end}."
-msgstr ""
-
+#. Default: This task ends on ${end}.
 #: euphorie/client/report.py:319
-msgid "This task starts at ${start} and ends at ${end}."
-msgstr ""
+#: euphorie/client/templates/report_actionplan.pt:131
+msgid "report_measure_end_only"
+msgstr "Deze maatregel eindigt op ${end}."
+
+#. Default: This task starts on ${start} and ends on ${end}.
+#: euphorie/client/report.py:324
+#: euphorie/client/templates/report_actionplan.pt:134
+msgid "report_measure_start_and_stop"
+msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:326
+#: euphorie/client/report.py:332
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:400
-#, fuzzy
+#: euphorie/client/report.py:406
 msgid "filename_report_actionplan"
-msgstr "Plan van aanpak ${title}.doc"
+msgstr "Plan van aanpak ${title}"
 
 #: euphorie/client/risk.py:180 euphorie/client/risk.py:186
 #: euphorie/client/risk.py:207 euphorie/client/risk.py:213
@@ -1508,43 +1523,6 @@ msgstr ""
 msgid "report_measure_budget"
 msgstr "Er is een budget van € ${amount} voor deze maatregel."
 
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}
-#. and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:138
-msgid "report_measure_full"
-msgstr ""
-"${responsible} is verantwoordelijk voor deze maatregel, beginnend op "
-"${start} en eindigend op ${end}."
-
-#. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:134
-msgid "report_measure_start_and_stop"
-msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
-
-#. Default: This task ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:131
-msgid "report_measure_end_only"
-msgstr "Deze maatregel eindigt op ${end}."
-
-#. Default: This task starts on ${start}.
-#: euphorie/client/templates/report_actionplan.pt:128
-msgid "report_measure_start_only"
-msgstr "Deze maatregel begint op ${start}."
-
-#. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/templates/report_actionplan.pt:125
-msgid "report_measure_responsible_and_end"
-msgstr ""
-"${responsible} is verantwoordeljk voor deze maatregel, eindigend op "
-"${end}."
-
-#. Default: Measure ${index}
-#: euphorie/client/templates/report_actionplan.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:35
-msgid "header_measure"
-msgstr "Maatregel ${index}"
-
 #. Default: This is a ${priority} .
 #: euphorie/client/templates/report_actionplan.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:25
@@ -2324,14 +2302,12 @@ msgstr ""
 "plan van aanpak."
 
 #: euphorie/content/module.py:133
-#, fuzzy
 msgid "Edit Module"
-msgstr "Modules"
+msgstr "Bewerk Modules"
 
 #: euphorie/content/module.py:135
-#, fuzzy
 msgid "Edit Submodule"
-msgstr "Submodules"
+msgstr "Bewerk Submodule"
 
 #. Default: Page content
 #: euphorie/content/page.py:29
@@ -2755,7 +2731,6 @@ msgstr "Als u geen titel opgeeft, wordt deze uit de import gehaald."
 
 #. Default: Login name
 #: euphorie/content/upload.py:69 euphorie/content/user.py:57
-#, fuzzy
 msgid "label_login_name"
 msgstr "Login"
 
@@ -2766,17 +2741,13 @@ msgstr "Titel van geïmporteerde RI&E"
 
 #. Default: If you do not specify a title it will be taken from the input.
 #: euphorie/content/upload.py:75 euphorie/content/upload.py:94
-#, fuzzy
 msgid "help_upload_surveygroup_title"
-msgstr ""
-"De titel van deze RI&E. Deze titel wordt zichtbaar in het overzicht voor "
-"gebruikers."
+msgstr "Als u geen titel opgeeft zal titel uit het bestand worden overgenomen."
 
 #. Default: Name for survey version
 #: euphorie/content/upload.py:81 euphorie/content/upload.py:100
-#, fuzzy
 msgid "label_upload_survey_title"
-msgstr "Titel"
+msgstr "Naam voor RI&E versie"
 
 #: euphorie/content/upload.py:82
 msgid "Standard"
@@ -3332,9 +3303,8 @@ msgstr "Kleurinstellingen"
 #. Default: Preview
 #: euphorie/content/templates/settings.pt:20
 #: euphorie/deployment/tiles/templates/versions.pt:30
-#, fuzzy
 msgid "label_preview"
-msgstr "Vorige"
+msgstr "Preview"
 
 #. Default: Please provide a description of your sector
 #: euphorie/content/templates/settings.pt:16
@@ -3661,10 +3631,4 @@ msgstr "Nieuwe versie"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versies"
-
-#~ msgid "${responsible} is responsible for this task."
-#~ msgstr ""
-
-#~ msgid "${responsible} is responsible for this task which starts on ${start}."
-#~ msgstr ""
 
