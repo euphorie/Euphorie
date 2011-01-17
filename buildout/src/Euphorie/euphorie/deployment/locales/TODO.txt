@@ -1,0 +1,16 @@
+The following translations in EL need to be checked / re-translated, since they
+had double (or even triple) entries for default. The translators saw this as eg
+"Create preview Default: Preview"
+
+'button_preview'
+'label_action_plan'
+'label_login'
+'header_preview'
+'risk_priority'
+'label_image'
+'label_problem_description'
+'label_legal_reference'
+'label_default_probability'
+'label_survey_title'
+'help_surveygroup_title'
+
