@@ -187,7 +187,7 @@ class ActionPlanReportDownload(grok.View):
             document.StyleSheet.ParagraphStyles.Heading1,
             t(_("plan_report_company_header", default=u"Company details"))))
 
-        table=Table(TabPropertySet.DEFAULT_WIDTH*5, TabPropertySet.DEFAULT_WIDTH*15)
+        table=Table(TabPropertySet.DEFAULT_WIDTH*3, TabPropertySet.DEFAULT_WIDTH*8)
         field=CompanySchema["country"]
         country=self.request.locale.displayNames.territories.get(company.country.upper(), company.country) \
                     if company.country else missing
