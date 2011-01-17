@@ -18,6 +18,7 @@ from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client import MessageFactory as _
 from euphorie.client.session import SessionManager
 from euphorie.client import model
+from euphorie.client.company import CompanySchema
 
 
 class ActionPlanReportDownload(grok.View):
@@ -78,17 +79,24 @@ class ActionPlanReportDownload(grok.View):
             t(_("plan_report_company_header", default=u"Company details"))))
 
         table=Table(TabPropertySet.DEFAULT_WIDTH*5, TabPropertySet.DEFAULT_WIDTH*15)
+        field=CompanySchema["country"]
         country=self.request.locale.displayNames.territories.get(company.country.upper(), company.country) \
                     if company.country else missing
         table.append(
-                Cell(Paragraph(normal_style, t(_("label_company_country", default=u"Country")))),
+                Cell(Paragraph(normal_style, t(field.title))),
                 Cell(Paragraph(normal_style, country)))
+        field=CompanySchema["employees"]
         table.append(
-                Cell(Paragraph(normal_style, t(_("label_employee_numbers", default=u"Number of employees")))),
-                Cell(Paragraph(normal_style, company.employees if company.employees else missing)))
+                Cell(Paragraph(normal_style, t(field.title))),
+                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.employees).title) if company.employees else missing)))
+        field=CompanySchema["conductor"]
         table.append(
-                Cell(Paragraph(normal_style, t(_("label_referer", default=u"Through which channel did you learn about this tool?")))),
-                Cell(Paragraph(normal_style, company.referer if company.referer else missing)))
+                Cell(Paragraph(normal_style, t(field.title))),
+                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.conductor).title) if company.conductor else missing)))
+        field=CompanySchema["referer"]
+        table.append(
+                Cell(Paragraph(normal_style, t(field.title))),
+                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.referer).title) if company.referer else missing)))
         section.append(table)
 
 
