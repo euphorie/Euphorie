@@ -131,9 +131,14 @@ msgid "Succesfully published the survey"
 msgstr "Undersökningen har publicerats"
 
 #. Default: Create preview
-#. Default: Preview
 msgid "button_preview"
-msgstr "Skapa standard förhandsgranskning: Förhandsgranskning "
+msgstr "Skapa förhandsgranskning"
+
+#. Default: Preview
+#: euphorie/content/templates/settings.pt:20
+#: euphorie/deployment/tiles/templates/versions.pt:30
+msgid "label_preview"
+msgstr "Förhandsgranskning"
 
 msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
 msgstr "En förhandsgranskning av undersökningen har skapats. Den finns tillgänglig på ${url}."
@@ -641,9 +646,8 @@ msgid "intro_preview"
 msgstr "Är du säker på att du vill skapa en förhandsgranskning av denna undersökning? Du kan dela en förhandsvisning med andra via en webbadress så att de kan testa undersökningen. För att få tillgång till en standard OiRA-klient krävs det att du är inloggad."
 
 #. Default: Preview survey
-#. Default: Preview
 msgid "header_preview"
-msgstr "Förhandsgranska undersökning standard: Förhandsgranska"
+msgstr "Förhandsgranska undersökning"
 
 #. Default: Continue
 msgid "label_continue"
@@ -1341,10 +1345,9 @@ msgstr "Fråga"
 msgid "help_module_question"
 msgstr "Frågan till användare om denna modul finns som tillval. Detta måste vara en ja/nej-fråga."
 
-#. Default: Image
 #. Default: Image file
 msgid "label_image"
-msgstr "Bildstandard: Bildfil"
+msgstr "Bildfil"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and
@@ -1399,10 +1402,9 @@ msgstr "Redogörelse"
 msgid "help_statement"
 msgstr "Detta är en kort redgörelse om en möjlig risk."
 
-#. Default: Problem description
 #. Default: Inversed statement
 msgid "label_problem_description"
-msgstr "Problembeskrivning standard: Inverterad redogörelse"
+msgstr "Inverterad redogörelse"
 
 #. Default: This is the inverse of the statement: a short description of
 #. current
@@ -1421,9 +1423,8 @@ msgid "help_risk_description"
 msgstr "Beskriv risken. Inkludera all relevant information som kan vara användbar för andra användare."
 
 #. Default: Legal and policy references.
-#. Default: Legal and policy references
 msgid "label_legal_reference"
-msgstr "Rättsliga och politiska referenser: Standard: Rättsliga och politiska referenser"
+msgstr "Rättsliga och politiska referenser"
 
 #. Default: Identification
 msgid "header_identification"
@@ -1504,9 +1505,8 @@ msgid "no_default"
 msgstr "Ingen standard"
 
 #. Default: Default probability
-#. Default: Default probabilty
 msgid "label_default_probability"
-msgstr "Standard sannolikhet: Standard sannolikhet"
+msgstr "Standard sannolikhet"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
@@ -1605,16 +1605,19 @@ msgid "title_common_solution"
 msgstr "Vanlig lösning"
 
 #. Default: Version name
-#. Default: Title
-#. Default: Name for survey version
 msgid "label_survey_title"
-msgstr "Version namn standard: Namn på undersökningens version"
+msgstr "Version namn"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to
 #. users.
 msgid "help_survey_title"
 msgstr "Detta är titeln på denna version av undersökningen. Detta namn visas aldrig för användarna."
+
+#. Default: Name for survey version
+#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
+msgid "label_upload_survey_title"
+msgstr "Namn på undersökningens version"
 
 #. Default: Introduction text
 msgid "label_introduction"
@@ -1661,15 +1664,18 @@ msgid "label_title"
 msgstr "Titel"
 
 #. Default: The title of this survey. This title is used in the survey
-#. overview in
-#. the clients.
-#. Default: If you do not specify a title it will be taken from the input.
+#. overview in the clients.
 msgid "help_surveygroup_title"
-msgstr "Titeln på denna undersökning. Denna titel används i undersökningens översikt i klienterna. Standard: Om du inte specificerar en titel den kommer att tas från indatan."
+msgstr "Titeln på denna undersökning. Denna titel används i undersökningens översikt i klienterna."
 
 #. Default: Standard
 msgid "survey_default_title"
 msgstr "Standard"
+
+#. Default: If you do not specify a title it will be taken from the input.
+#: euphorie/content/upload.py:75 euphorie/content/upload.py:94
+msgid "help_upload_surveygroup_title"
+msgstr "Om du inte specificerar en titel den kommer att tas från indatan."
 
 #. Default: Title of sector.
 msgid "label_sector_title"
