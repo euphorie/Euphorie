@@ -21,7 +21,7 @@
                     company view/session/company;">
     <h1>${view/report_title}</h1>
 
-    <div class="buttonBar super" tal:condition="not:view/download">
+    <div class="buttonBar super">
       <a class="button-medium" href="${python:view.url(name='download')}" i18n:translate="button_download">Download</a>
       <a class="button-medium printButton jsOnly" i18n:translate="button_print">Print</a>
     </div>
@@ -202,15 +202,13 @@
       <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
-    <tal:block condition="not:view/download">
-      <metal:css use-macro="webhelpers/macros/javascript"/>
-      <tal:analytics replace="tile:client-analytics"/>
-      <script type="text/javascript">
-        $(document).ready(function() {
-            $.localScroll();
-        });
-      </script>
-    </tal:block>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:analytics replace="tile:client-analytics"/>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $.localScroll();
+      });
+    </script>
   </body>
 </html>
 
