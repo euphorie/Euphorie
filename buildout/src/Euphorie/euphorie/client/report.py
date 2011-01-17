@@ -329,7 +329,8 @@ class ActionPlanReportDownload(grok.View):
         footer=Paragraph(document.StyleSheet.ParagraphStyles.Footer,
                 "".join(["\u%s?" % str(ord(e)) for e in footer]))
         section=Section()
-        section.Header.append(Paragraph(document.StyleSheet.ParagraphStyles.Normal, self.session.title))
+        section.Header.append(Paragraph(
+            document.StyleSheet.ParagraphStyles.Footer, self.session.title))
         section.Footer.append(footer)
         section.SetBreakType(section.PAGE)
         document.Sections.append(section)
@@ -352,7 +353,7 @@ class ActionPlanReportDownload(grok.View):
         stylesheet.ParagraphStyles.append(ParagraphStyle("Warning",
             style.Copy(), ParagraphPropertySet(space_before=50, space_after=50)))
 
-        style.textProps.size=10
+        style.textProps.size=16
         stylesheet.ParagraphStyles.append(ParagraphStyle("Footer",
             style.Copy(), ParagraphPropertySet()))
 
