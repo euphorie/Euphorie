@@ -60,3 +60,34 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/ict/software-development/report/view")
         # No errors = success
 
+    def testCompanySettingsRoundTrip(self):
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        browser=Browser()
+        survey_url=self.portal.client.nl["ict"]["software-development"].absolute_url()
+        browser.open(survey_url)
+        registerUserInClient(browser)
+        # Create a new survey session
+        browser.getControl(name="title:utf8:ustring").value=u"Sessiøn".encode("utf-8")
+        browser.getControl(name="next", index=1).click()
+        # Start the survey
+        browser.getForm().submit()
+        browser.getLink("Start Risk Identification").click()
+        # Enter some company data
+        browser.open("%s/report/company" % survey_url)
+        browser.getControl(name="form.widgets.country").value=["nl"]
+        browser.getControl(name="form.widgets.employees").value=["50-249"]
+        browser.getControl(name="form.widgets.conductor").value=["staff"]
+        browser.getControl(name="form.widgets.referer").value=["trade-union"]
+        browser.getControl(name="form.buttons.next").click()
+        # Make sure all fields validated
+        self.assertEqual(browser.url, "%s/report/view" % survey_url)
+        # Verify entered data
+        browser.open("%s/report/company" % survey_url)
+        self.assertEqual(browser.getControl(name="form.widgets.country").value, ["nl"])
+        self.assertEqual(browser.getControl(name="form.widgets.employees").value, ["50-249"])
+        self.assertEqual(browser.getControl(name="form.widgets.conductor").value, ["staff"])
+        self.assertEqual(browser.getControl(name="form.widgets.referer").value, ["trade-union"])
+
+

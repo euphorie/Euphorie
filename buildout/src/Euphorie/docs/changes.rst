@@ -7,6 +7,9 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Do not loose value of the referer field on the company details form.
+  [wichert]
+
 - The i18n msgid "label_login" was used for 2 different meanings. In
   content/user.py and content/upload.py, the msgid "label_login_name"
   is now used for the LoginField 
@@ -28,6 +31,11 @@ Bugfixes
   help_surveygroup_title -> help_upload_surveygroup_title
   [thomas]
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Extend client form CSS to support percentage fields.
+  [cornae]
 
 2.3 - January 11, 2011
 ----------------------

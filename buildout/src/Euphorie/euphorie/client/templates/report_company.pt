@@ -35,14 +35,14 @@
 
         <fieldset class="comprehensive radioList" tal:define="widget view/widgets/referer; value widget/value">
           <legend i18n:translate="label_referer">Through which channel did you learn about this tool?</legend>
-          <label><input type="radio" name="${widget/name}" value="employers-organisation" selected="${python:'selected' if value=='employers-organisation' else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
-          <label><input type="radio" name="${widget/name}" value="trade-union" selected="${python:'selected' if value=='trade-union' else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
-          <label><input type="radio" name="${widget/name}" value="national-public-institution" selected="${python:'selected' if value=='national-public-institution' else None}"/> <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br/>
+          <label><input type="radio" name="${widget/name}" value="employers-organisation" checked="${python:'checked' if 'employers-organisation' in value else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="trade-union" checked="${python:'checked' if 'trade-union' in value else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="national-public-institution" checked="${python:'checked' if 'national-public-institution' in value in value else None}"/> <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br/>
             <span class="discrete">(<tal:span i18n:translate="info_referer_national_public_institution">Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc.</tal:span>)</span></label>
-          <label><input type="radio" name="${widget/name}" value="eu-institution" selected="${python:'selected' if value=='eu-institution' else None}"/> <tal:span i18n:translate="referer_eu_institution">an European institution/administration</tal:span><br/>
+          <label><input type="radio" name="${widget/name}" value="eu-institution" checked="${python:'checked' if 'eu-institution' in value else None}"/> <tal:span i18n:translate="referer_eu_institution">an European institution/administration</tal:span><br/>
             <span class="discrete">(<tal:span i18n:translate="info_referer_eu_institution">The European Agency for Safety and Health at Work, European social partners, etc.</tal:span>)</span></label>
-          <label><input type="radio" name="${widget/name}" value="health-safety-experts" selected="${python:'selected' if value=='health-safety-experts' else None}"/> <tal:span i18n:translate="referer_health_safety_expert">health and safety experts</tal:span></label>
-          <label><input type="radio" name="${widget/name}" value="other" selected="${python:'selected' if value=='other' else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="health-safety-experts" checked="${python:'checked' if 'health-safety-experts' in value else None}"/> <tal:span i18n:translate="referer_health_safety_expert">health and safety experts</tal:span></label>
+          <label><input type="radio" name="${widget/name}" value="other" checked="${python:'checked' if 'other' in value else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
           <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         </fieldset>
       </fieldset>
