@@ -288,10 +288,12 @@ class ActionPlanReportDownload(grok.View):
 
         if measure.responsible and not (measure.planning_start or measure.planning_end):
             section.append(Paragraph(normal_style, 
-                t(_(u"${responsible} is responsible for this task.", mapping={"responsible": measure.responsible}))))
+                t(_("report_measure_responsible", default=u"${responsible} is responsible for this task.",
+                    mapping={"responsible": measure.responsible}))))
         elif measure.responsible and measure.planning_start and not measure.planning_end:
             section.append(Paragraph(normal_style, 
-                t(_(u"${responsible} is responsible for this task which starts on ${start}.",
+                t(_("report_measure_responsible_and_start",
+                    default=u"${responsible} is responsible for this task which starts on ${start}.",
                     mapping={"responsible": measure.responsible,
                              "start": formatDate(self.request, measure.planning_start)}))))
         elif measure.responsible and not measure.planning_start and measure.planning_end:
