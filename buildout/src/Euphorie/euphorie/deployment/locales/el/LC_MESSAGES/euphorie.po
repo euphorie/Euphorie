@@ -1571,7 +1571,7 @@ msgstr ""
 #: euphorie/client/templates/report_actionplan.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
-msgstr "Πρόκειται για ${priority} . Προεπιλογή: Πρόκειται για ${priority} ."
+msgstr "Πρόκειται για ${priority} ."
 
 #. Default: high priority risk
 #: euphorie/client/templates/report_actionplan.pt:92
