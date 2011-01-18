@@ -15,6 +15,9 @@ Feature changes
 - Extend client form CSS to support percentage fields.
   [cornae]
 
+- Added Greek translation provided by external translator for euphorie.pot;
+  the latest additions are not translated yet [thomas]
+
 Bugfixes
 ~~~~~~~~
 
