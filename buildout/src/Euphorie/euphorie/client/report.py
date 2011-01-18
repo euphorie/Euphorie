@@ -371,7 +371,6 @@ class ActionPlanReportDownload(grok.View):
             style.Copy(), ParagraphPropertySet()))
 
         style.textProps.italic=False
-        style.textProps.bold=True
         style.textProps.size=36
         style.textProps.underline=True
         stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 1",
@@ -380,13 +379,14 @@ class ActionPlanReportDownload(grok.View):
         style.textProps.size=34
         stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 2",
             style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=32
+        style.textProps.size=30
+        style.textProps.bold=True
         stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 3",
             style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=30
+        style.textProps.size=28
         stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 4",
             style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=28
+        style.textProps.size=26
         stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 5",
             style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
 
