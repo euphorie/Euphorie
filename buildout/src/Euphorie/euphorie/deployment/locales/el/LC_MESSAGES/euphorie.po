@@ -189,7 +189,7 @@ msgstr "Επιτυχής δημοσίευση της έρευνας"
 #. Default: Create preview
 #: euphorie/client/publish.py:259
 msgid "button_preview"
-msgstr "Προεπισκόπηση"
+msgstr "Δημιουργία προεπισκόπησης"
 
 #: euphorie/client/publish.py:263
 msgid ""
@@ -860,7 +860,7 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/start.pt:54 euphorie/client/templates/status.pt:55
 #: euphorie/client/templates/survey_sessions.pt:74
 #: euphorie/client/templates/updated.pt:87
-msgid "iphone_label_action_plan"
+msgid "iphone_report"
 msgstr "Σχέδιο δράσης"
 
 #. Default: Action Plan
@@ -886,7 +886,7 @@ msgstr "Σχέδιο δράσης"
 #: euphorie/client/templates/updated.pt:86
 #: euphorie/content/templates/colour-preview.pt:47
 msgid "label_action_plan"
-msgstr "Σχέδιο δράσης"
+msgstr "Σχέδιο Δράσης"
 
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:62
@@ -1406,7 +1406,7 @@ msgstr ""
 #. Default: Preview survey
 #: euphorie/client/templates/preview.pt:14
 msgid "header_preview"
-msgstr "Προεπιλογή προεπισκόπησης έρευνας: Προεπισκόπηση"
+msgstr "Προεπισκόπηση έρευνας"
 
 #. Default: Continue
 #: euphorie/client/templates/profile.pt:61
@@ -2313,11 +2313,13 @@ msgstr ""
 "προαιρετική. Πρέπει να απαντηθεί με ναι/όχι."
 
 #. Default: Image file
-#: euphorie/content/module.py:64 euphorie/content/risk.py:194
-#: euphorie/content/risk.py:208 euphorie/content/risk.py:218
+#: euphorie/content/module.py:64
+#: euphorie/content/risk.py:194
+#: euphorie/content/risk.py:208
+#: euphorie/content/risk.py:218
 #: euphorie/content/risk.py:228
 msgid "label_image"
-msgstr "Προεπιλογή εικόνας: Αρχείο εικόνας"
+msgstr "Αρχείο εικόνας"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and
@@ -2429,11 +2431,10 @@ msgstr ""
 "μπορεί να είναι χρήσιμες για τους χρήστες."
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:60
+#: euphorie/content/risk.py:65
+#: euphorie/content/templates/risk_view.pt:60
 msgid "label_legal_reference"
-msgstr ""
-"Νομικές αναφορές και αναφορές πολιτικής. Προεπιλογή: Νομικές αναφορές και"
-" αναφορές πολιτικής"
+msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
 #. Default: Identification
 #: euphorie/content/risk.py:71
@@ -2540,9 +2541,10 @@ msgid "no_default"
 msgstr "Χωρίς προεπιλογή"
 
 #. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:49
+#: euphorie/content/risk.py:142
+#: euphorie/content/templates/risk_view.pt:49
 msgid "label_default_probability"
-msgstr "Προεπιγμένη πιθανότητα Προεπιλογή: Προεπιγμένη πιθανότητα"
+msgstr "Προεπιγμένη πιθανότητα"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
@@ -2678,11 +2680,10 @@ msgid "title_common_solution"
 msgstr "Κοινή λύση"
 
 #. Default: Version name
-#: euphorie/content/survey.py:45 euphorie/content/survey.py:164
+#: euphorie/content/survey.py:45
+#: euphorie/content/survey.py:164
 msgid "label_survey_title"
-msgstr ""
-"Προεπιλογή ονόματος έκδοσης: Προεπιλογή τίτλου: Όνομα για την έκδοση της "
-"έρευνάς σας"
+msgstr "Όνομα έκδοσης"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to
@@ -2752,15 +2753,11 @@ msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική 
 msgid "label_title"
 msgstr "Τίτλος"
 
-#. Default: The title of this survey. This title is used in the survey overview
-#. in
+#. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
 #: euphorie/content/surveygroup.py:34
 msgid "help_surveygroup_title"
-msgstr ""
-"Ο τίτλος αυτής της έρευνας. Αυτός ο τίτλος χρησιμοποιείται στην "
-"προεπισκόπηση έρευνας στους πελάτες. Προεπιλογή: Εάν δεν ορίσετε τίτλο, "
-"θα υιοθετηθεί από τα δεδομένα που θα εισάγετε."
+msgstr "Ο τίτλος αυτής της έρευνας. Αυτός ο τίτλος χρησιμοποιείται στην προεπισκόπηση της έρευνας στους πελάτες"
 
 #. Default: Standard
 #: euphorie/content/surveygroup.py:185
@@ -2790,14 +2787,16 @@ msgid "label_surveygroup_title"
 msgstr "Τίτλος εισαχθείσας έρευνας."
 
 #. Default: If you do not specify a title it will be taken from the input.
-#: euphorie/content/upload.py:75 euphorie/content/upload.py:94
+#: euphorie/content/upload.py:75
+#: euphorie/content/upload.py:94
 msgid "help_upload_surveygroup_title"
-msgstr ""
+msgstr "Εάν δεν ορίσετε τίτλο, θα υιοθετηθεί από τα δεδομένα που θα εισάγετε."
 
 #. Default: Name for survey version
-#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
+#: euphorie/content/upload.py:81
+#: euphorie/content/upload.py:100
 msgid "label_upload_survey_title"
-msgstr ""
+msgstr "Όνομα για την έκδοση της έρευνας"
 
 #: euphorie/content/upload.py:82
 msgid "Standard"
