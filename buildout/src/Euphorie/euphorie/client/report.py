@@ -270,7 +270,7 @@ class ActionPlanReportDownload(grok.View):
 
         t=lambda txt: translate(txt, context=self.request)
 
-        table=Table(TabPropertySet.DEFAULT_WIDTH*5, TabPropertySet.DEFAULT_WIDTH*15)
+        table=Table(TabPropertySet.DEFAULT_WIDTH*5, TabPropertySet.DEFAULT_WIDTH*8)
         if measure.action_plan:
             table.append(
                     Cell(Paragraph(normal_style, t(_("report_measure_actionplan", default=u"Action plan:")))),
