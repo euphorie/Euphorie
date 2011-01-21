@@ -243,10 +243,15 @@ class ActionPlanReportView(grok.View):
 
 
 
-
-
 class ActionPlanReportDownload(grok.View):
-    """Generate and download action report.
+    """Generate and download action report as a RTF file.
+
+    The action plan report lists all present risks, including their action plan
+    information.
+
+    This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
+    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
+    the *inventory* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
