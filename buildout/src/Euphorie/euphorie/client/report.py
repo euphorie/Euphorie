@@ -403,6 +403,8 @@ class ActionPlanReportDownload(grok.View):
 
     def update(self):
         self.session=SessionManager.session
+        if self.session.company is None:
+            self.session.company=model.Company()
 
 
     def getNodes(self):
