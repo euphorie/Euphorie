@@ -4,7 +4,7 @@ from euphorie.client import model
 
 class ShowNegateWarningTests(unittest.TestCase):
     def _call(self, node, zodbnode):
-        from euphorie.client.survey import IdentificationReport
+        from euphorie.client.report import IdentificationReport
         report=IdentificationReport(None, None)
         return report.show_negate_warning(node, zodbnode)
 

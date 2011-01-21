@@ -4,17 +4,14 @@ Survey views
 """
 
 import logging
-import random
 import Acquisition
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
-from zExceptions import NotFound
 from five import grok
 from zope.interface import directlyProvides
 from zope.interface import directlyProvidedBy
 from zope.component import adapts
-from zope.i18n import translate
 from z3c.saconfig import Session
 from sqlalchemy import sql
 from plone.memoize.instance import memoize
@@ -30,7 +27,6 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client import model
 from euphorie.client import utils
-from euphorie.client import MessageFactory as _
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 import OFS.Traversable
 
@@ -270,116 +266,6 @@ class ActionPlan(grok.View):
             self.next_url=QuestionURL(survey, question, phase="actionplan")
         else:
             self.next_url=None
-
-
-
-class IdentificationReport(grok.View):
-    """Generate identification report.
-
-    The identification report lists all risks and modules along with their identification
-    and evaluation results. It does not include action plan information.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *identifcation* component of the URL.
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IIdentificationPhaseSkinLayer)
-    grok.template("report_identification")
-    grok.name("report")
-
-    download = None
-
-    def random(self):
-        return random.choice([True, False])
-
-
-    def report_title(self):
-        return SessionManager.session.title
-
-
-    def title(self, node, zodbnode):
-        if node.type!="risk" or node.identification in [u"n/a", u"yes"]:
-            return node.title
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
-            return zodbnode.problem_description
-        return node.title
-
-
-    def risk_status(self, node, zodbnode):
-        if node.postponed or not node.identification:
-            return "unanswered"
-        elif node.identification in [u"n/a", u"yes"]:
-            return "not-present"
-        elif node.identification=="no":
-            return "present"
-
-
-    def show_negate_warning(self, node, zodbnode):
-        """Check if the risk is present but does not have a problem description.
-        In that case the user interface must show a special warning."""
-        if node.type!="risk" or node.identification in [u"n/a", u"yes", None]:
-            return False
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
-            return False
-        return True
-
-
-    def imageUrl(self, node):
-        if getattr(node, "image", None):
-            return "%s/@@download/image/%s" % \
-                    (node.absolute_url(), node.image.filename)
-
-
-    def getZodbNode(self, treenode):
-        try:
-            return self.request.survey.restrictedTraverse(
-                    treenode.zodb_path.split("/"))
-        except KeyError:
-            log.error("Caught reference in session for %s to missing node %s",
-                    "/".join(self.request.survey.getPhysicalPath()),
-                    treenode.zodb_path)
-            return None
-
-
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
-        session=Session()
-        dbsession=SessionManager.session
-        query=session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session==dbsession)\
-                .filter(sql.not_(model.SKIPPED_PARENTS))\
-                .order_by(model.SurveyTreeItem.path)
-        self.nodes=query.all()
-
-
-    def publishTraverse(self, request, name):
-        """Check if the user wants to download this report by checking for a
-        ``download`` URL entry. This uses a little trick: browser views
-        implement `IPublishTraverse`, which allows us to catch traversal steps.
-        """
-
-        if self.download is not None:
-            raise NotFound(self, name, request)
-
-        if name=="download":
-            self.download=True
-            dbsession=SessionManager.session
-            filename = _("filename_identification_report",
-                         default=u"Identification ${title}.doc",
-                         mapping=dict(title=dbsession.title))
-            filename=translate(filename, context=self.request)
-            self.request.response.setHeader("Content-Disposition",
-                                "attachment; filename=\"%s\"" % filename.encode("utf-8"))
-            self.request.response.setHeader("Content-Type", "application/msword")
-            return self
-        else:
-            self.download=False
-            raise NotFound(self, name, request)
 
 
 
