@@ -11,6 +11,7 @@ from rtfng.document.section import Section
 from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
 from sqlalchemy import sql
+from Acquisition import aq_inner
 from five import grok
 from zope.i18n import translate
 from z3c.saconfig import Session
@@ -28,6 +29,77 @@ from euphorie.client.update import redirectOnSurveyUpdate
 log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
+
+def createDocument():
+    from rtfng.Styles import TextStyle
+    from rtfng.Styles import ParagraphStyle
+    from rtfng.PropertySets import TextPropertySet
+    from rtfng.PropertySets import ParagraphPropertySet
+    stylesheet=StyleSheet()
+
+    style=TextStyle(TextPropertySet(stylesheet.Fonts.Arial, 22))
+
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Normal",
+        style.Copy(), ParagraphPropertySet(space_before=60, space_after=60)))
+
+    style.textProps.italic=True
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Warning",
+        style.Copy(), ParagraphPropertySet(space_before=50, space_after=50)))
+
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Comment",
+        style.Copy(), ParagraphPropertySet(space_before=100, space_after=100,
+            left_indent=TabPropertySet.DEFAULT_WIDTH)))
+
+    style.textProps.size=16
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Footer",
+        style.Copy(), ParagraphPropertySet()))
+
+    style.textProps.italic=False
+    style.textProps.size=36
+    style.textProps.underline=True
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 1",
+        style.Copy(), ParagraphPropertySet(space_before=480, space_after=60)))
+    style.textProps.underline=False
+    style.textProps.size=34
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 2",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+    style.textProps.size=30
+    style.textProps.bold=True
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 3",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+    style.textProps.size=28
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 4",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+    style.textProps.size=26
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 5",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Measure Heading",
+        style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
+
+    document=Document(stylesheet)
+    document.SetTitle(SessionManager.session.title)
+    return document
+
+
+
+def createSection(document, survey, request):
+    t=lambda txt: translate(txt, context=request)
+    footer=t(_("report_survey_revision",
+        default=u"This report was based on the survey '${title}' of revision date ${date}.",
+        mapping={"title": survey.published[1],
+                 "date": formatDate(request, survey.published[2])}))
+    # rtfng does not like unicode footers
+    footer=Paragraph(document.StyleSheet.ParagraphStyles.Footer,
+            "".join(["\u%s?" % str(ord(e)) for e in footer]))
+    section=Section()
+    section.Header.append(Paragraph(
+        document.StyleSheet.ParagraphStyles.Footer, SessionManager.session.title))
+    section.Footer.append(footer)
+    section.SetBreakType(section.PAGE)
+    document.Sections.append(section)
+    return section
+
 
 
 class ReportView(grok.View):
@@ -72,8 +144,6 @@ class IdentificationReport(grok.View):
     grok.layer(IIdentificationPhaseSkinLayer)
     grok.template("report_identification")
     grok.name("report")
-
-    download = None
 
     def random(self):
         return random.choice([True, False])
@@ -146,23 +216,96 @@ class IdentificationReport(grok.View):
         implement `IPublishTraverse`, which allows us to catch traversal steps.
         """
 
-        if self.download is not None:
+        if name=="download":
+            return IdentificationReportDownload(aq_inner(self.context), request)
+        else:
             raise NotFound(self, name, request)
 
-        if name=="download":
-            self.download=True
-            dbsession=SessionManager.session
-            filename = _("filename_identification_report",
-                         default=u"Identification ${title}.doc",
-                         mapping=dict(title=dbsession.title))
-            filename=translate(filename, context=self.request)
-            self.request.response.setHeader("Content-Disposition",
-                                "attachment; filename=\"%s\"" % filename.encode("utf-8"))
-            self.request.response.setHeader("Content-Type", "application/msword")
-            return self
-        else:
-            self.download=False
-            raise NotFound(self, name, request)
+
+
+class IdentificationReportDownload(grok.View):
+    """Generate identification report in RTF form.
+
+    The identification report lists all risks and modules along with their identification
+    and evaluation results. It does not include action plan information.
+
+    This view is registered for :py:class:`PathGhost` instead of
+    :py:obj:`euphorie.content.survey.ISurvey` since the
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
+    *identifcation* component of the URL.
+    """
+    grok.context(PathGhost)
+    grok.require("euphorie.client.ViewSurvey")
+    grok.layer(IIdentificationPhaseSkinLayer)
+
+    def update(self):
+        self.session=SessionManager.session
+
+
+    def getNodes(self):
+        """Return an orderer list of all relevant tree items for the current
+        survey.
+        """
+        query=Session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session==self.session)\
+                .filter(sql.not_(model.SKIPPED_PARENTS))\
+                .order_by(model.SurveyTreeItem.path)
+        return query.all()
+
+
+    def addIdentificationResults(self, document):
+        survey=self.request.survey
+        t=lambda txt: translate(txt, context=self.request)
+        section=createSection(document, self.context, self.request)
+
+        normal_style=document.StyleSheet.ParagraphStyles.Normal
+        warning_style=document.StyleSheet.ParagraphStyles.Warning
+        comment_style=document.StyleSheet.ParagraphStyles.Comment
+        header_styles={
+                0: document.StyleSheet.ParagraphStyles.Heading2,
+                1:  document.StyleSheet.ParagraphStyles.Heading3,
+                2:  document.StyleSheet.ParagraphStyles.Heading4,
+                3:  document.StyleSheet.ParagraphStyles.Heading5,
+                }
+
+        for node in self.getNodes():
+            section.append(Paragraph(header_styles[node.depth], u"%s %s" % (node.number, node.title)))
+
+            if node.type!="risk":
+                continue
+
+            zodb_node=survey.restrictedTraverse(node.zodb_path.split("/"))
+            if node.identification=="no" and not (
+                    zodb_node.problem_description and zodb_node.problem_description.strip()):
+                section.append(Paragraph(warning_style,
+                    t(_("warn_risk_present", default=u"You responded negative to the above statement."))))
+            elif node.postponed or not node.identification:
+                section.append(Paragraph(warning_style,
+                    t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
+
+            section.append(Paragraph(normal_style, htmllaundry.StripMarkup(zodb_node.description)))
+
+            if node.comment and node.comment.strip():
+                section.append(Paragraph(comment_style, node.comment))
+
+
+
+    def render(self):
+        document=createDocument()
+        self.addIdentificationResults(document)
+
+        renderer=Renderer()
+        output=StringIO()
+        renderer.Write(document, output)
+
+        filename=_("filename_report_identification",
+                   default=u"Identification report ${title}",
+                   mapping=dict(title=self.session.title))
+        filename=translate(filename, context=self.request)
+        self.request.response.setHeader("Content-Disposition",
+                            "attachment; filename=\"%s.rtf\"" % filename.encode("utf-8"))
+        self.request.response.setHeader("Content-Type", "application/rtf")
+        return output.getvalue()
 
 
 
@@ -276,7 +419,7 @@ class ActionPlanReportDownload(grok.View):
     def addIntroduction(self, document):
         t=lambda txt: translate(txt, context=self.request)
         normal_style=document.StyleSheet.ParagraphStyles.Normal
-        section=self.createSection(document)
+        section=createSection(document, self.context, self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
@@ -298,7 +441,7 @@ class ActionPlanReportDownload(grok.View):
     def addCompanyInformation(self, document):
         company=self.session.company
         t=lambda txt: translate(txt, context=self.request)
-        section=self.createSection(document)
+        section=createSection(document, self.context, self.request)
         normal_style=document.StyleSheet.ParagraphStyles.Normal
         missing=t(_("missing_data", default=u"Not provided"))
 
@@ -331,13 +474,14 @@ class ActionPlanReportDownload(grok.View):
     def addActionPlan(self, document):
         survey=self.request.survey
         t=lambda txt: translate(txt, context=self.request)
-        section=self.createSection(document)
+        section=createSection(document, self.context, self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
             t(_("plan_report_plan_header", default=u"Action plan"))))
 
         normal_style=document.StyleSheet.ParagraphStyles.Normal
+        comment_style=document.StyleSheet.ParagraphStyles.Comment
         warning_style=document.StyleSheet.ParagraphStyles.Warning
         measure_heading_style=document.StyleSheet.ParagraphStyles.MeasureHeading
         header_styles={
@@ -373,6 +517,8 @@ class ActionPlanReportDownload(grok.View):
                     t(_("report_priority", default=u"This is a ")), t(level)))
 
             section.append(Paragraph(normal_style, htmllaundry.StripMarkup(zodb_node.description)))
+            if node.comment and node.comment.strip():
+                section.append(Paragraph(comment_style, node.comment))
 
             for (idx, measure) in enumerate(node.action_plans):
                 if len(node.action_plans)==1:
@@ -451,74 +597,8 @@ class ActionPlanReportDownload(grok.View):
                     mapping={"amount": measure.budget}))))
 
 
-    def createSection(self, document):
-        t=lambda txt: translate(txt, context=self.request)
-        footer=t(_("report_survey_revision",
-            default=u"This report was based on the survey '${title}' of revision date ${date}.",
-            mapping={"title": self.context.published[1],
-                     "date": formatDate(self.request, self.context.published[2])}))
-        # rtfng does not like unicode footers
-        footer=Paragraph(document.StyleSheet.ParagraphStyles.Footer,
-                "".join(["\u%s?" % str(ord(e)) for e in footer]))
-        section=Section()
-        section.Header.append(Paragraph(
-            document.StyleSheet.ParagraphStyles.Footer, self.session.title))
-        section.Footer.append(footer)
-        section.SetBreakType(section.PAGE)
-        document.Sections.append(section)
-        return section
-
-
-    def createDocument(self):
-        from rtfng.Styles import TextStyle
-        from rtfng.Styles import ParagraphStyle
-        from rtfng.PropertySets import TextPropertySet
-        from rtfng.PropertySets import ParagraphPropertySet
-        stylesheet=StyleSheet()
-
-        style=TextStyle(TextPropertySet(stylesheet.Fonts.Arial, 22))
-
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Normal",
-            style.Copy(), ParagraphPropertySet(space_before=60, space_after=60)))
-
-        style.textProps.italic=True
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Warning",
-            style.Copy(), ParagraphPropertySet(space_before=50, space_after=50)))
-
-        style.textProps.size=16
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Footer",
-            style.Copy(), ParagraphPropertySet()))
-
-        style.textProps.italic=False
-        style.textProps.size=36
-        style.textProps.underline=True
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 1",
-            style.Copy(), ParagraphPropertySet(space_before=480, space_after=60)))
-        style.textProps.underline=False
-        style.textProps.size=34
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 2",
-            style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=30
-        style.textProps.bold=True
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 3",
-            style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=28
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 4",
-            style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-        style.textProps.size=26
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 5",
-            style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-
-        stylesheet.ParagraphStyles.append(ParagraphStyle("Measure Heading",
-            style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
-
-        document=Document(stylesheet)
-        document.SetTitle(self.session.title)
-        return document
-
-
     def render(self):
-        document=self.createDocument()
+        document=createDocument()
         self.addIntroduction(document)
         self.addCompanyInformation(document)
         self.addActionPlan(document)

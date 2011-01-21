@@ -104,15 +104,13 @@
       <li><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
-    <tal:block condition="not:view/download">
-      <metal:css use-macro="webhelpers/macros/javascript"/>
-      <tal:analytics replace="tile:client-analytics"/>
-      <script type="text/javascript">
-        $(document).ready(function() {
-            $.localScroll();
-        });
-      </script>
-    </tal:block>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:analytics replace="tile:client-analytics"/>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $.localScroll();
+      });
+    </script>
   </body>
 </html>
 
