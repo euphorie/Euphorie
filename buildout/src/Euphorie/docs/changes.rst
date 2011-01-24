@@ -7,6 +7,10 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Enable the terms and conditions features introduced in release 2.3, but
+  make it possible to disable it via a settings in the ``.ini`` file.
+  [wichert]
+
 - Replace downloadable action plan report with a RTF version. This solves
   problems with opening and editing the previous html fake-.doc approach.
   Downside of this approach is the loss of styling for the report.

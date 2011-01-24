@@ -1,16 +1,32 @@
+import logging
 from Acquisition import aq_inner
+from zope.component import getUtility
 from zope.interface import Interface
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
 from five import grok
 from AccessControl import getSecurityManager
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import CONDITIONS_VERSION
 
+log = logging.getLogger(__name__)
+
 grok.templatedir("templates")
 
 
-def approvedTermsAndConditions(account=None):
-    return True
+def checkTermsAndConditions():
+    appconfig=getUtility(IAppConfig)
+    try:
+        return asBool(appconfig["euphorie"]["terms-and-conditions"])
+    except KeyError:
+        return True
+    except ValueError:
+        log.error("Invalid value for terms-and-conditions flag in site configuration.")
+        return False
 
+
+
+def approvedTermsAndConditions(account=None):
     if account is None:
         account=getSecurityManager().getUser()
     return account.tc_approved is not None and account.tc_approved==CONDITIONS_VERSION

@@ -44,6 +44,31 @@ in your Plone control panel. Installing this will setup Euphorie in your site.
 For more information on installing add-on products in your Plone site please
 see the article `installing an add-on product`_ in the Plone knowledge base.
 
+Configuration
+-------------
+
+Euphorie uses `z3c.appconfig <http://pypi.python.org/pypi/z3c.appconfig>`_ to
+handle application configuration. All values are stored in the ``euphorie``
+section. For example::
+
+  [euphorie]
+  client=http://oira.example.com
+
+The available options are:
+
+. table:: configuration options
+
+   +--------------------------+---------------------------------------+
+   | options                  | Description                           |
+   +==========================+=======================================+
+   | ``client``               | URL for the client (see alse          |
+   |                          | :ref:`Virtual hosting`.               |
+   +--------------------------+---------------------------------------+
+   | ``terms-and-conditions`` | Boolean flag indicating it the client |
+   |                          | must ask users to accept the terms    |
+   |                          | and conditions of the site.           |
+   +--------------------------+---------------------------------------+
+
 SQL database
 ------------
 
@@ -119,6 +144,7 @@ You will also need to configure the URL for the client in the ``euphorie.ini`` f
 
   [euphorie]
   client=http://oira.example.com
+
 
 
 .. _Plone: http://plone.org/

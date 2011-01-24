@@ -68,6 +68,7 @@ setup(name="Euphorie",
           "NuPlone >=1.0rc1",
           "plone.uuid",
           "pyrtf-ng",
+          "z3c.appconfig >=1.0",
       ],
       tests_require = [
           "collective.testcaselayer",
