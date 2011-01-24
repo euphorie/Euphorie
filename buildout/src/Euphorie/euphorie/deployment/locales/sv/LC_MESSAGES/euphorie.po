@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-11-29 13:39+0100\n"
-"PO-Revision-Date: 2011-01-17 21:51+0100\n"
+"PO-Revision-Date: 2011-01-24 09:27+0100\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -199,8 +199,40 @@ msgstr ""
 "En förhandsgranskning av undersökningen har skapats. Den finns "
 "tillgänglig på ${url}."
 
+#. Default: This report was based on the survey '${title}' of revision date
+#. ${date}.
+#: euphorie/client/report.py:88
+#: euphorie/client/templates/report_actionplan.pt:161
+msgid "report_survey_revision"
+msgstr ""
+"Denna rapport är baserad på undersökingen '${title}' från "
+"revideringsdatum ${date}."
+
+#. Default: You responded negative to the above statement.
+#: euphorie/client/report.py:281 euphorie/client/report.py:506
+#: euphorie/client/templates/report_actionplan.pt:85
+#: euphorie/client/templates/report_identification.pt:49
+#: euphorie/client/templates/webhelpers.pt:108
+msgid "warn_risk_present"
+msgstr "Du svarade nekande till ovanstående redovisning."
+
+#. Default: This risk still needs to be inventorised.
+#. Default: This risk still needs to be inventorised
+#: euphorie/client/report.py:284 euphorie/client/report.py:509
+#: euphorie/client/templates/report_actionplan.pt:86
+#: euphorie/client/templates/report_identification.pt:50
+msgid "risk_unanswered"
+msgstr "Denna risk måste fortfarande kartläggas"
+
+#. Default: Identification report ${title}
+#: euphorie/client/report.py:301
+#, fuzzy
+#| msgid "filename_identification_report"
+msgid "filename_report_identification"
+msgstr "Identifiering ${title}.doc"
+
 #. Default: Introduction
-#: euphorie/client/report.py:164
+#: euphorie/client/report.py:428
 #, fuzzy
 msgid "plan_report_intro_header"
 msgstr ""
@@ -214,7 +246,7 @@ msgstr ""
 #. written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:166
+#: euphorie/client/report.py:430
 #: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
@@ -225,7 +257,7 @@ msgstr ""
 "läggas till."
 
 #. Default: Not provided
-#: euphorie/client/report.py:184
+#: euphorie/client/report.py:448
 #: euphorie/client/templates/report_actionplan.pt:52
 #: euphorie/client/templates/report_actionplan.pt:44
 #: euphorie/client/templates/report_actionplan.pt:40
@@ -233,7 +265,7 @@ msgid "missing_data"
 msgstr "Inte tillhandahållet"
 
 #. Default: Company details
-#: euphorie/client/report.py:188
+#: euphorie/client/report.py:452
 #, fuzzy
 msgid "plan_report_company_header"
 msgstr ""
@@ -241,99 +273,83 @@ msgstr ""
 "eller raderas när som helst via ${preparation_step}."
 
 #. Default: Action plan
-#: euphorie/client/report.py:219
+#: euphorie/client/report.py:483
 #, fuzzy
 msgid "plan_report_plan_header"
 msgstr ""
 "Dina svar och rapporten har ${automatically_saved} och kan hittas igen "
 "eller raderas när som helst via ${preparation_step}."
 
-#. Default: You responded negative to the above statement.
-#: euphorie/client/report.py:241
-#: euphorie/client/templates/report_actionplan.pt:85
-#: euphorie/client/templates/report_identification.pt:49
-#: euphorie/client/templates/webhelpers.pt:108
-msgid "warn_risk_present"
-msgstr "Du svarade nekande till ovanstående redovisning."
-
-#. Default: This risk still needs to be inventorised.
-#. Default: This risk still needs to be inventorised
-#: euphorie/client/report.py:244
-#: euphorie/client/templates/report_actionplan.pt:86
-#: euphorie/client/templates/report_identification.pt:50
-msgid "risk_unanswered"
-msgstr "Denna risk måste fortfarande kartläggas"
-
 #. Default: low priority risk
-#: euphorie/client/report.py:248
+#: euphorie/client/report.py:513
 #, fuzzy
 msgid "report_priority_low"
 msgstr "lågt prioriterad risk"
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:250
+#: euphorie/client/report.py:515
 #, fuzzy
 msgid "report_priority_medium"
 msgstr "Medium"
 
 #. Default: high priority risk
-#: euphorie/client/report.py:252
+#: euphorie/client/report.py:517
 #, fuzzy
 msgid "report_priority_high"
 msgstr "högt prioriterad risk"
 
 #. Default: This is a
-#: euphorie/client/report.py:254
+#: euphorie/client/report.py:519
 #, fuzzy
 msgid "report_priority"
 msgstr "Detta är en ${priority} ."
 
 #. Default: Measure
-#: euphorie/client/report.py:261
+#: euphorie/client/report.py:528
 #, fuzzy
 msgid "header_measure_single"
 msgstr "Åtgärd ${index}"
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:264
+#: euphorie/client/report.py:531
 #: euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Åtgärd ${index}"
 
 #. Default: Action plan:
-#: euphorie/client/report.py:276
+#: euphorie/client/report.py:543
 #: euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr "Handlingsplan:"
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:280
+#: euphorie/client/report.py:547
 #: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr "Förebyggande plan:"
 
 #. Default: Requirements:
-#: euphorie/client/report.py:284
+#: euphorie/client/report.py:551
 #: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr "Krav:"
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:291
+#: euphorie/client/report.py:558
 #: euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr "${responsible} är ansvarig för denna uppgift."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: euphorie/client/report.py:295
+#: euphorie/client/report.py:562
 #: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr "${responsible} är ansvarig för denna uppgift som börjar på ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:301
+#: euphorie/client/report.py:568
 #: euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr "${responsible} är ansvarig för denna uppgift som slutar på ${end}."
@@ -341,7 +357,7 @@ msgstr "${responsible} är ansvarig för denna uppgift som slutar på ${end}."
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:307
+#: euphorie/client/report.py:574
 #: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
@@ -349,34 +365,31 @@ msgstr ""
 "slutar på ${end}."
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:314
+#: euphorie/client/report.py:581
 #: euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr "Denna uppgift börjar på ${start}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:319
+#: euphorie/client/report.py:586
 #: euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr "Denna uppgift slutar på ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:324
+#: euphorie/client/report.py:591
 #: euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr "Denna uppgift börjar på ${start} och slutar på ${end}."
 
-#. Default: This report was based on the survey '${title}' of revision date
-#. ${date}.
-#: euphorie/client/report.py:332
-#: euphorie/client/templates/report_actionplan.pt:161
-msgid "report_survey_revision"
-msgstr ""
-"Denna rapport är baserad på undersökingen '${title}' från "
-"revideringsdatum ${date}."
+#. Default: There is a budget of ${amount} for this measure.
+#: euphorie/client/report.py:597
+#: euphorie/client/templates/report_actionplan.pt:142
+msgid "report_measure_budget"
+msgstr "Det finns en budget på ${amount} för denna åtgärd."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:406
+#: euphorie/client/report.py:612
 #, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Handlingsplan ${title}.doc"
@@ -389,11 +402,6 @@ msgstr "Ogiltig månadsdag"
 #: euphorie/client/risk.py:199 euphorie/client/risk.py:225
 msgid "Please enter a year after 1900"
 msgstr "Ange ett årtal efter år 1900"
-
-#. Default: Identification ${title}.doc
-#: euphorie/client/survey.py:372
-msgid "filename_identification_report"
-msgstr "Identifiering ${title}.doc"
 
 #. Default: OiRA
 #: euphorie/client/utils.py:124 euphorie/client/templates/about.pt:13
@@ -443,7 +451,7 @@ msgstr "Branschinformation och gruppering för klienten."
 #: euphorie/client/templates/about.pt:112
 #: euphorie/client/templates/actionplan.pt:83
 #: euphorie/client/templates/appendix.pt:57
-#: euphorie/client/templates/conditions.pt:63
+#: euphorie/client/templates/conditions.pt:118
 #: euphorie/client/templates/evaluation.pt:78
 #: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
@@ -1080,6 +1088,186 @@ msgstr ""
 "och hur de ska hanteras. Programmet kan erbjuda förslag som du kan "
 "använda eller så kan du lägga till egna åtgärder."
 
+#. Default: Contact information
+#: euphorie/client/templates/conditions.pt:104
+msgid "conditions_contact_header"
+msgstr ""
+
+#. Default: We restrict access to personal information to authorised user. We
+#. take
+#. appropriate security measures to protect against unauthorized access to or
+#. unauthorized alteration, disclosure or destruction of data. These include
+#. internal reviews of our data collection, storage and processing practices
+#. and
+#. security measures, including appropriate encryption of communication and
+#. physical security measures to guard against unauthorized access to systems
+#. where
+#. we store personal data. Data are not accessible to anybody by any means. IP
+#. addresses are not saved so that end-users can not be identified through
+#. their
+#. access.
+#: euphorie/client/templates/conditions.pt:100
+msgid "conditions_security"
+msgstr ""
+
+#. Default: Information security
+#: euphorie/client/templates/conditions.pt:98
+msgid "conditions_security_header"
+msgstr ""
+
+#. Default: You can use the Account settings and your saved OiRA Session(s) to
+#. review, control and delete the information stored in your Account and in
+#. your
+#. Session(s).
+#: euphorie/client/templates/conditions.pt:94
+msgid "conditions_datareview"
+msgstr ""
+
+#. Default: Reviewing and removing your information
+#: euphorie/client/templates/conditions.pt:92
+msgid "conditions_datareview_header"
+msgstr ""
+
+#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#: euphorie/client/templates/conditions.pt:88
+msgid "conditions_conservation_storage"
+msgstr ""
+
+#. Default: We keep your data which is inaccessible for external users until
+#. you
+#. delete your account and your session(s).
+#: euphorie/client/templates/conditions.pt:84
+msgid "conditions_conservation_keep_data"
+msgstr ""
+
+#. Default: Conservation and processing of information
+#: euphorie/client/templates/conditions.pt:82
+msgid "conditions_conservation_header"
+msgstr ""
+
+#. Default: The data controller is Andrew Smith, European Agency for Safety and
+#. Health at Work, Bilbao.
+#: euphorie/client/templates/conditions.pt:78
+msgid "condtions_datacontroller"
+msgstr ""
+
+#. Default: Data controller
+#: euphorie/client/templates/conditions.pt:76
+msgid "conditions_datacontroller_header"
+msgstr ""
+
+#. Default: In any case no personal data will be used for processing of data.
+#: euphorie/client/templates/conditions.pt:72
+msgid "conditions_info_not_personal"
+msgstr ""
+
+#. Default: Build statistics, by using exclusively aggregated and anonymous
+#. data on
+#. the risks of a sector. These statistics will be passed on exclusively to the
+#. developers of the tool.
+#: euphorie/client/templates/conditions.pt:67
+msgid "conditions_info_use_statistics"
+msgstr ""
+
+#. Default: Provide, maintain, protect, and improve our services and develop
+#. new
+#. services.
+#: euphorie/client/templates/conditions.pt:63
+msgid "conditions_info_use_develop"
+msgstr ""
+
+#. Default: In addition to the above mentioned purposes, we may use the
+#. information
+#. we collect to:
+#: euphorie/client/templates/conditions.pt:58
+msgid "conditions_info_use_intro"
+msgstr ""
+
+#. Default: Log information – When you access the service, our servers
+#. automatically record information that your browser sends whenever you visit
+#. a
+#. website. These server logs may include information such as your web request,
+#. your interaction with a service, browser type, browser language, the date
+#. and
+#. time of your request. IP addresses are not stored in the system.
+#: euphorie/client/templates/conditions.pt:53
+msgid "conditions_info_logs"
+msgstr ""
+
+#. Default: Cookies – When you visit the site and select a language, we send a
+#. cookie to your computer or other device to store your language selection.
+#. This
+#. cookie stays in your browser until you close it. When you visit the site and
+#. log
+#. in, we send a cookie with your login information to keep you logged in
+#. during
+#. your visit. This cookie stays on your computer until you close your browser.
+#. Most browsers are initially set up to accept cookies, but you can reset your
+#. browser to refuse all cookies or to indicate when a cookie is being sent.
+#. However, some features and services may not function properly if your
+#. cookies
+#. are disabled.
+#: euphorie/client/templates/conditions.pt:49
+msgid "conditions_info_cookies"
+msgstr ""
+
+#. Default: Any information you provide in the free text fields of the tool and
+#. in
+#. the action plan - (e.g. when you input a measure to tackle a risk, the
+#. person
+#. responsible for that measure, etc). The input of information in the free
+#. text
+#. fields is voluntary.
+#: euphorie/client/templates/conditions.pt:45
+msgid "conditions_info_text"
+msgstr ""
+
+#. Default: Email account: this is necessary to access the online tool, edit
+#. the
+#. input data, and delete the OiRA account. You can enter any valid e-mail
+#. address.
+#. Email addresses will not be used for commercial purposes.
+#: euphorie/client/templates/conditions.pt:41
+msgid "conditions_info_email"
+msgstr ""
+
+#. Default: The Information we collect and for what purposes
+#: euphorie/client/templates/conditions.pt:35
+msgid "conditions_info_header"
+msgstr ""
+
+#. Default: Your personal data is processed in line with Regulation (EC) N°
+#. 45/2001
+#. of the European Parliament and of the Council of 18 December 2000 on the
+#. protection of individuals with regard to the processing of personal data by
+#. the
+#. Community institutions and bodies and on the free movement of such data.
+#. Further
+#. details of the privacy policy of EU-OSHA and the full text of the Regulation
+#. can
+#. be accessed at: ${url}.
+#: euphorie/client/templates/conditions.pt:31
+#, fuzzy
+#| msgid "company_details_intro"
+msgid "conditions_intro2"
+msgstr ""
+"Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
+"formulär kommer även att visas i rapporten."
+
+#. Default: The OiRA tool is an instrument put at your disposal by the European
+#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies
+#. to
+#. all products, services and websites offered by EU-OSHA in the framework of
+#. the
+#. OiRA (Online interactive Risk Assessment) tool.
+#: euphorie/client/templates/conditions.pt:27
+#, fuzzy
+#| msgid "company_details_intro"
+msgid "conditions_intro1"
+msgstr ""
+"Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
+"formulär kommer även att visas i rapporten."
+
 #. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
 #: euphorie/client/templates/conditions.pt:19
@@ -1549,11 +1737,6 @@ msgstr ""
 "Denna risk är inte närvarande inom din organisation, men eftersom "
 "branschorganisationen anser att detta är en av de fem mest kritiska "
 "riskerna måste den ingå i denna rapport."
-
-#. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/templates/report_actionplan.pt:142
-msgid "report_measure_budget"
-msgstr "Det finns en budget på ${amount} för denna åtgärd."
 
 #. Default: This is a ${priority} .
 #: euphorie/client/templates/report_actionplan.pt:88
@@ -3655,25 +3838,4 @@ msgstr "Kopiera"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versioner"
-
-#~ msgid "header_measure_multiple"
-#~ msgstr "Åtgärd ${index}"
-
-#~ msgid "${responsible} is responsible for this task which ends on ${end}."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "${responsible} is responsible for this "
-#~ "task which starts on ${start} and "
-#~ "ends on ${end}."
-#~ msgstr ""
-
-#~ msgid "This task starts at ${start}."
-#~ msgstr ""
-
-#~ msgid "This task ends at ${end}."
-#~ msgstr ""
-
-#~ msgid "This task starts at ${start} and ends at ${end}."
-#~ msgstr ""
 
