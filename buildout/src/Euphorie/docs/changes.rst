@@ -8,7 +8,8 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Enable the terms and conditions features introduced in release 2.3, but
-  make it possible to disable it via a settings in the ``.ini`` file.
+  make it possible to disable it via a settings in the ``.ini`` file. This
+  fixes `ticket 107 <http://code.simplon.biz/tracker/euphorie/ticket/107>`_.
   [wichert]
 
 - Replace downloadable action plan report with a RTF version. This solves
