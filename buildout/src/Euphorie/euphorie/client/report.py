@@ -507,9 +507,14 @@ class ActionPlanReportDownload(grok.View):
             elif node.postponed or not node.identification:
                 section.append(Paragraph(warning_style,
                     t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
-            if node.identification=="yes":
+            elif node.identification in [u"n/a", u"yes"] and node.risk_type=="top5":
                 section.append(Paragraph(warning_style,
-                    t(_("risk_not_present", default=u"You responded positively to the above statement."))))
+                    t(_("top5_risk_not_present", 
+                        default=u"This risk is not present in your "
+                                u"organisation, but since the sector "
+                                u"organisation considers this one of "
+                                u"the top 5 most critical risks it "
+                                u"must be included in this report."))))
 
             if node.priority:
                 if node.priority=="low":
