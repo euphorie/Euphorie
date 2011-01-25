@@ -37,26 +37,6 @@ class SurveyTests(EuphorieTestCase):
         manager=getSecurityManager()
         self.assertTrue(manager.checkPermission("Delete objects", survey))
 
-    def testSectorCanNotDeleteItemsWhenPublished(self):
-        from AccessControl.SecurityManagement import getSecurityManager
-        from AccessControl.SecurityManagement import newSecurityManager
-        self.loginAsPortalOwner()
-        survey=self.createSurvey()
-        sector=self.portal.acl_users.getUser("sector")
-        newSecurityManager(None, sector)
-        self.portal.portal_workflow.doActionFor(survey, "publish")
-        manager=getSecurityManager()
-        self.assertFalse(manager.checkPermission("Delete objects", survey))
-
-    def testManagerCanDeleteItemsWhenPublished(self):
-        from AccessControl.SecurityManagement import getSecurityManager
-        self.loginAsPortalOwner()
-        survey=self.createSurvey()
-        self.portal.acl_users.getUser("sector")
-        self.portal.portal_workflow.doActionFor(survey, "publish")
-        manager=getSecurityManager()
-        self.assertTrue(manager.checkPermission("Delete objects", survey))
-
     def testCanNotBeCopied(self):
         self.loginAsPortalOwner()
         survey=self.createSurvey()
