@@ -1,8 +1,14 @@
 Changelog
 =========
 
-2.4 - Unrelased
+2.5 - Unrelased
 ---------------
+
+- ...
+
+
+2.4 - January 25, 2011
+----------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
