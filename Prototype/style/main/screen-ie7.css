@@ -156,3 +156,11 @@ dl.accordion .colborder hr {
 .report p.priority-high strong {
 	width: 60px;
 }
+
+/* @group Grid list */
+
+dl.grid dd {
+	float: none;
+}
+
+/* @end */
