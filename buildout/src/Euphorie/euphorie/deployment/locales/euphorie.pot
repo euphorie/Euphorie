@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 2.4\n"
+"Project-Id-Version: Euphorie 2.5\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-01-24 09:27+0100\n"
+"POT-Creation-Date: 2011-02-09 15:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,49 +108,49 @@ msgstr ""
 msgid "referer_other"
 msgstr ""
 
-#: euphorie/client/login.py:109
+#: euphorie/client/login.py:110
 msgid "Please enter your email address"
 msgstr ""
 
-#: euphorie/client/login.py:115
+#: euphorie/client/login.py:116
 msgid "Unknown email address"
 msgstr ""
 
-#: euphorie/client/login.py:121
+#: euphorie/client/login.py:122
 msgid "OiRA registration reminder"
 msgstr ""
 
-#: euphorie/client/login.py:130 euphorie/client/login.py:134
-#: euphorie/client/login.py:138
+#: euphorie/client/login.py:131 euphorie/client/login.py:135
+#: euphorie/client/login.py:139
 msgid "An error occured while sending the password reminder"
 msgstr ""
 
-#: euphorie/client/login.py:152
+#: euphorie/client/login.py:153
 msgid "An email with a password reminder has been sent to your address."
 msgstr ""
 
 #. Default: Please enter your email address
-#: euphorie/client/login.py:168
+#: euphorie/client/login.py:169
 msgid "error_missing_email"
 msgstr ""
 
 #. Default: Please enter a valid email address
-#: euphorie/client/login.py:170
+#: euphorie/client/login.py:171
 msgid "error_invalid_email"
 msgstr ""
 
 #. Default: Please enter a password
-#: euphorie/client/login.py:172
+#: euphorie/client/login.py:173
 msgid "error_missing_password"
 msgstr ""
 
 #. Default: Passwords do not match
-#: euphorie/client/login.py:174
+#: euphorie/client/login.py:175
 msgid "error_password_mismatch"
 msgstr ""
 
 #. Default: An account with this email address already exists.
-#: euphorie/client/login.py:182 euphorie/client/login.py:188
+#: euphorie/client/login.py:183 euphorie/client/login.py:189
 msgid "error_email_in_use"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr ""
 msgid "report_survey_revision"
 msgstr ""
 
-#. Default: You responded negatively the above statement.
+#. Default: You responded negatively to the above statement.
 #: euphorie/client/report.py:281 euphorie/client/report.py:506
 #: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:49
@@ -197,7 +197,6 @@ msgid "warn_risk_present"
 msgstr ""
 
 #. Default: This risk still needs to be inventorised.
-#. Default: This risk still needs to be inventorised
 #: euphorie/client/report.py:284 euphorie/client/report.py:509
 #: euphorie/client/templates/report_actionplan.pt:86
 #: euphorie/client/templates/report_identification.pt:50
@@ -240,95 +239,103 @@ msgstr ""
 msgid "plan_report_plan_header"
 msgstr ""
 
+#. Default: This risk is not present in your organisation, but since the sector
+#. organisation considers this one of the top 5 most critical risks it must be
+#. included in this report.
+#: euphorie/client/report.py:512 euphorie/client/templates/report_actionplan.pt:156
+#: euphorie/client/templates/webhelpers.pt:99
+msgid "top5_risk_not_present"
+msgstr ""
+
 #. Default: low priority risk
-#: euphorie/client/report.py:513
+#: euphorie/client/report.py:521
 msgid "report_priority_low"
 msgstr ""
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:515
+#: euphorie/client/report.py:523
 msgid "report_priority_medium"
 msgstr ""
 
 #. Default: high priority risk
-#: euphorie/client/report.py:517
+#: euphorie/client/report.py:525
 msgid "report_priority_high"
 msgstr ""
 
 #. Default: This is a
-#: euphorie/client/report.py:519
+#: euphorie/client/report.py:527
 msgid "report_priority"
 msgstr ""
 
 #. Default: Measure
-#: euphorie/client/report.py:528
+#: euphorie/client/report.py:536
 msgid "header_measure_single"
 msgstr ""
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:531 euphorie/client/templates/report_actionplan.pt:103
+#: euphorie/client/report.py:539 euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr ""
 
 #. Default: Action plan:
-#: euphorie/client/report.py:543 euphorie/client/templates/report_actionplan.pt:106
+#: euphorie/client/report.py:551 euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr ""
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:547 euphorie/client/templates/report_actionplan.pt:110
+#: euphorie/client/report.py:555 euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr ""
 
 #. Default: Requirements:
-#: euphorie/client/report.py:551 euphorie/client/templates/report_actionplan.pt:114
+#: euphorie/client/report.py:559 euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:558 euphorie/client/templates/report_actionplan.pt:120
+#: euphorie/client/report.py:566 euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}.
-#: euphorie/client/report.py:562 euphorie/client/templates/report_actionplan.pt:122
+#: euphorie/client/report.py:570 euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:568 euphorie/client/templates/report_actionplan.pt:125
+#: euphorie/client/report.py:576 euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:574 euphorie/client/templates/report_actionplan.pt:138
+#: euphorie/client/report.py:582 euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:581 euphorie/client/templates/report_actionplan.pt:128
+#: euphorie/client/report.py:589 euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr ""
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:586 euphorie/client/templates/report_actionplan.pt:131
+#: euphorie/client/report.py:594 euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr ""
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:591 euphorie/client/templates/report_actionplan.pt:134
+#: euphorie/client/report.py:599 euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr ""
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:597 euphorie/client/templates/report_actionplan.pt:142
+#: euphorie/client/report.py:605 euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr ""
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:612
+#: euphorie/client/report.py:620
 msgid "filename_report_actionplan"
 msgstr ""
 
@@ -1455,14 +1462,6 @@ msgstr ""
 #. Default: Reporting
 #: euphorie/client/templates/report.pt:17
 msgid "header_reporting"
-msgstr ""
-
-#. Default: This risk is not present in your organisation, but since the sector
-#. organisation considers this one of the top 5 most critical risks it must be
-#. included in this report.
-#: euphorie/client/templates/report_actionplan.pt:156
-#: euphorie/client/templates/webhelpers.pt:99
-msgid "top5_risk_not_present"
 msgstr ""
 
 #. Default: This is a ${priority} .
