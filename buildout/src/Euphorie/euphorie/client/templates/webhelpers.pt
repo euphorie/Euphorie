@@ -105,7 +105,7 @@
             tal:content="risk/problem_description">The fridges are checked daily.</h2>
         <tal:block condition="not:use_problem_description">
           <h2 tal:content="risk/title">The fridges are checked daily.</h2>
-          <p class="negation"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively the above statement.</tal:span></em></p>
+          <p class="negation"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively to the above statement.</tal:span></em></p>
         </tal:block>
       </tal:block>
     </tal:block>

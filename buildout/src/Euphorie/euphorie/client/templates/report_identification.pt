@@ -46,7 +46,7 @@
                  tal:omit-tag="python:status=='unanswered'">
               <h4><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${title}</a></h4>
 
-              <p class="negation" tal:condition="python:view.show_negate_warning(node, zodbnode)"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively the above statement.</tal:span></em></p>
+              <p class="negation" tal:condition="python:view.show_negate_warning(node, zodbnode)"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively to the above statement.</tal:span></em></p>
               <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered">This risk still needs to be inventorised.</p>
 
               <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
