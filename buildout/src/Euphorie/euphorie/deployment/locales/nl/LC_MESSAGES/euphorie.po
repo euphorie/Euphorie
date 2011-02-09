@@ -204,7 +204,7 @@ msgstr ""
 msgid "report_survey_revision"
 msgstr "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
 
-#. Default: You responded negative to the above statement.
+#. Default: You responded negatively the above statement.
 #: euphorie/client/report.py:281 euphorie/client/report.py:506
 #: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:49

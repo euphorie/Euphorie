@@ -278,7 +278,7 @@ class IdentificationReportDownload(grok.View):
             if node.identification=="no" and not (
                     zodb_node.problem_description and zodb_node.problem_description.strip()):
                 section.append(Paragraph(warning_style,
-                    t(_("warn_risk_present", default=u"You responded negative to the above statement."))))
+                    t(_("warn_risk_present", default=u"You responded negatively the above statement."))))
             elif node.postponed or not node.identification:
                 section.append(Paragraph(warning_style,
                     t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))

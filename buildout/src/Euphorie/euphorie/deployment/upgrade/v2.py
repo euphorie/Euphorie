@@ -53,7 +53,6 @@ def migrateCompanyTable(context):
     log.info("Creating new company table")
 
 
-
 def addTermsAndConditionsColumn(context):
     from z3c.saconfig import Session
     from euphorie.deployment.upgrade.utils import ColumnExists

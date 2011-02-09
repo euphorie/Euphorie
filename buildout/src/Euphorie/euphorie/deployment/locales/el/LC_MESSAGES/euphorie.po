@@ -208,7 +208,7 @@ msgstr ""
 "Αυτή η αναφορά βασίστηκε στην έρευνα '${title}' της ημερομηνίας "
 "αναθεώρησης ${date}."
 
-#. Default: You responded negative to the above statement.
+#. Default: You responded negatively the above statement.
 #: euphorie/client/report.py:281 euphorie/client/report.py:506
 #: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:49
