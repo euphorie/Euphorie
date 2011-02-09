@@ -83,7 +83,7 @@
             <sup tal:condition="python:status=='not-present' and node.risk_type=='top5'"><a href="#top5-footnote">*</a></sup></h4>
 
           <p class="negation" tal:condition="show_negate_warning"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively the above statement.</tal:span></em></p>
-          <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered"> This risk still needs to be inventorised </p>
+          <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered">This risk still needs to be inventorised.</p>
 
             <p tal:condition="node/priority" class="priority-${node/priority}" i18n:translate="risk_priority"
             >This is a <strong i18n:name="priority">
