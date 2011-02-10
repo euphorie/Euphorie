@@ -872,7 +872,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/survey_sessions.pt:74
 #: euphorie/client/templates/updated.pt:87
 msgid "iphone_label_action_plan"
-msgstr "Handelsplan"
+msgstr "Handlingsplan"
 
 #. Default: Action Plan
 #: euphorie/client/templates/actionplan.pt:67
@@ -897,7 +897,7 @@ msgstr "Handelsplan"
 #: euphorie/client/templates/updated.pt:86
 #: euphorie/content/templates/colour-preview.pt:47
 msgid "label_action_plan"
-msgstr "Handelsplan"
+msgstr "Handlingsplan"
 
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:62
@@ -1053,7 +1053,7 @@ msgstr "Gå till rapport"
 #. Default: Create action plan
 #: euphorie/client/templates/actionplan.pt:42
 msgid "label_create_action_plan"
-msgstr "Skapa handelsplan"
+msgstr "Skapa handlingsplan"
 
 #. Default: You have identified the magnitude of risk for each of the
 #. bottlenecks.
