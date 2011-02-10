@@ -1416,7 +1416,7 @@ msgstr "Starta riskidentifiering"
 #. Default: You can print the ${list-of-risks}.
 #: euphorie/client/templates/identification.pt:25
 msgid "intro_identification"
-msgstr "Du kan skriva ut ${list-of-risks}."
+msgstr "Här skriver du ut ${list-of-risks}."
 
 #. Default: list of all risks
 #: euphorie/client/templates/identification.pt:26
@@ -2213,7 +2213,7 @@ msgstr ""
 #. Default: The assessment is not complicated.
 #: euphorie/client/templates/start.pt:24
 msgid "header_not_complicated"
-msgstr "Bedömningen är inte komplicerad."
+msgstr "En riskbedömning är inte komplicerad"
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there
