@@ -2,6 +2,8 @@
 	position: absolute;
 	left: 50%;
 	margin-left: -395px;
+	z-index: 1000;
+	zoom:1;
 }
 
 #steps li li.active,
@@ -122,6 +124,19 @@ dl.accordion dt button {
 dl.accordion dt:hover button,
 dl.accordion dt.ui-state-active button {
 	visibility: visible;
+}
+
+dl.accordion dd {
+	float: left;
+	padding: 0;
+	position: relative;
+	width: 110%;
+	clear: left;
+}
+
+dl.accordion dd div.colborder {
+	float: left;
+	margin-left: -15px;
 }
 
 

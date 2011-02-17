@@ -1303,6 +1303,7 @@ dl.accordion dd {
 	padding: 0;
 	position: relative;
 	width: 100%;
+	clear: left;
 }
 
 dl.accordion .colborder hr,dl.accordion .colborder p.question {
