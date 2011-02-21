@@ -2725,6 +2725,11 @@ p.country.si {
 	background-position: -2129px 0;
 }
 
+.countries li.eu,
+p.country.eu {
+	background-position: -2735px 0;
+}
+
 /* @end */
 
 
