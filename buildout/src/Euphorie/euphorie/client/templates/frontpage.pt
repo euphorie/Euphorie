@@ -127,7 +127,7 @@
         <a href="${client_url}/gb/?language=en-GB">English</a>
       </li>
     </ul>
-
+<br/>
     <ul id="navigation">
       <metal:home use-macro="webhelpers/macros/homelink"/>
     </ul>
