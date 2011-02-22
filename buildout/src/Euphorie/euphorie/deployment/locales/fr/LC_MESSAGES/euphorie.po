@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2011-02-09 15:10+0100\n"
+"PO-Revision-Date: 2011-02-22 11:14+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -66,17 +66,19 @@ msgstr "Texte d'introduction "
 #. Default: own staff
 #: euphorie/client/company.py:41
 msgid "conductor_staff"
-msgstr ""
+msgstr "personnel propre"
 
 #. Default: an external consultant or service provider
 #: euphorie/client/company.py:44
 msgid "conductor_third_party"
-msgstr ""
+msgstr "un consultant externe ou un fournisseur de services"
 
 #. Default: both own staff and an external consultant or service provider
 #: euphorie/client/company.py:47
 msgid "conductor_both"
 msgstr ""
+"à la fois le personnel propre et un consultant externe ou fournisseur de "
+"services"
 
 #. Default: Through which channel did you learn about this tool?
 #: euphorie/client/company.py:53
@@ -91,33 +93,33 @@ msgstr "vous inscrire"
 #: euphorie/client/templates/report_actionplan.pt:53
 #: euphorie/client/templates/report_company.pt:38
 msgid "referer_employers_organisation"
-msgstr ""
+msgstr "une organisation d'employeurs"
 
 #. Default: a trade union organisation
 #: euphorie/client/company.py:59
 #: euphorie/client/templates/report_actionplan.pt:54
 #: euphorie/client/templates/report_company.pt:39
 msgid "referer_trade_union"
-msgstr ""
+msgstr "une organisation syndicale"
 
 #. Default: a national public institution/administration
 #: euphorie/client/company.py:62
 #: euphorie/client/templates/report_actionplan.pt:55
 #: euphorie/client/templates/report_company.pt:40
 msgid "referer_national_public_institution"
-msgstr ""
+msgstr "une institution / administration nationale publique"
 
 #. Default: an European institution/administration
 #: euphorie/client/company.py:65
 #: euphorie/client/templates/report_actionplan.pt:56
 #: euphorie/client/templates/report_company.pt:42
 msgid "referer_eu_institution"
-msgstr ""
+msgstr "une institution / administration européenne"
 
 #. Default: health and safety experts
 #: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:44
 msgid "referer_health_safety_expert"
-msgstr ""
+msgstr "experts en santé et sécurité"
 
 #. Default: other channel
 #: euphorie/client/company.py:71
@@ -198,9 +200,7 @@ msgstr "L'enquête a bien été publiée"
 #. Default: Create preview
 #: euphorie/client/publish.py:259
 msgid "button_preview"
-msgstr ""
-"Créer un aperçu\n"
-"Aperçu"
+msgstr "Créer un aperçu"
 
 #: euphorie/client/publish.py:263
 msgid ""
@@ -225,14 +225,14 @@ msgstr ""
 #: euphorie/client/templates/report_identification.pt:49
 #: euphorie/client/templates/webhelpers.pt:108
 msgid "warn_risk_present"
-msgstr "Vous avez répondu par la négative à l'affirmation ci-dessus."
+msgstr "Vous avez répondu négativement à la déclaration ci-dessus."
 
 #. Default: This risk still needs to be inventorised.
 #: euphorie/client/report.py:284 euphorie/client/report.py:509
 #: euphorie/client/templates/report_actionplan.pt:86
 #: euphorie/client/templates/report_identification.pt:50
 msgid "risk_unanswered"
-msgstr "Ce risque doit être recensé"
+msgstr "Ce risque a toujours besoin d'être inventorié."
 
 #. Default: Identification report ${title}
 #: euphorie/client/report.py:301
@@ -429,7 +429,7 @@ msgstr "Jour du mois invalide"
 
 #: euphorie/client/risk.py:199 euphorie/client/risk.py:225
 msgid "Please enter a year after 1900"
-msgstr ""
+msgstr "Veuillez entrer une année après 1900"
 
 #. Default: OiRA
 #: euphorie/client/utils.py:124 euphorie/client/templates/about.pt:13
@@ -1161,7 +1161,7 @@ msgstr ""
 #. Default: Contact information
 #: euphorie/client/templates/conditions.pt:104
 msgid "conditions_contact_header"
-msgstr ""
+msgstr "Informations de contact"
 
 #. Default: We restrict access to personal information to authorised user. We
 #. take
@@ -1179,11 +1179,23 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:100
 msgid "conditions_security"
 msgstr ""
+"Nous limitons l'accès aux informations personnelles aux utilisateurs "
+"autorisés. Nous adoptons des mesures de sécurité appropriées pour se "
+"protéger contre tout accès ou altération non autorisé(e), toute "
+"divulgation ou destruction de données. Ces mesures incluent des révisions"
+" internes de notre recueil de données, un stockage, des pratiques de "
+"traitement et des mesures de sécurité, comprenant un codage approprié de "
+"la communication et des mesures de sécurité physiques pour se protéger "
+"contre tout accès non autorisé à des systèmes où nous stockons des "
+"données personnelles. Les données ne sont pas accessibles à quiconque par"
+" n'importe quel moyen. Les adresses IP ne sont pas sauvegardées afin que "
+"les utilisateurs finaux ne puissent pas être identifiés au travers de "
+"leur accès."
 
 #. Default: Information security
 #: euphorie/client/templates/conditions.pt:98
 msgid "conditions_security_header"
-msgstr ""
+msgstr "Sécurité des informations"
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
 #. review, control and delete the information stored in your Account and in
@@ -1192,16 +1204,19 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:94
 msgid "conditions_datareview"
 msgstr ""
+"Vous pouvez utiliser les paramètres de Compte et votre / vos Session(s) "
+"OiRA sauvegardée(s) pour réviser, contrôler et effacer les informations "
+"stockées dans votre Compte et dans votre / vos Session(s)."
 
 #. Default: Reviewing and removing your information
 #: euphorie/client/templates/conditions.pt:92
 msgid "conditions_datareview_header"
-msgstr ""
+msgstr "Révision et suppression de vos informations"
 
 #. Default: EU-OSHA stores data on our servers in Halle, Germany.
 #: euphorie/client/templates/conditions.pt:88
 msgid "conditions_conservation_storage"
-msgstr ""
+msgstr "EU-OSHA stocke des données sur vos serveurs à Halle, Allemagne."
 
 #. Default: We keep your data which is inaccessible for external users until
 #. you
@@ -1209,27 +1224,34 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:84
 msgid "conditions_conservation_keep_data"
 msgstr ""
+"Nous conservons vos données qui sont inaccessibles aux utilisateurs "
+"externes jusqu'à ce que vous effaciez votre compte et votre / vos "
+"session(s)."
 
 #. Default: Conservation and processing of information
 #: euphorie/client/templates/conditions.pt:82
 msgid "conditions_conservation_header"
-msgstr ""
+msgstr "Conservation et traitement des informations"
 
 #. Default: The data controller is Andrew Smith, European Agency for Safety and
 #. Health at Work, Bilbao.
 #: euphorie/client/templates/conditions.pt:78
 msgid "condtions_datacontroller"
 msgstr ""
+"Le contrôleur de données est Andrew Smith, Agence Européenne pour la "
+"Sécurité et la Santé au Travail, Bilbao."
 
 #. Default: Data controller
 #: euphorie/client/templates/conditions.pt:76
 msgid "conditions_datacontroller_header"
-msgstr ""
+msgstr "Contrôleur de données"
 
 #. Default: In any case no personal data will be used for processing of data.
 #: euphorie/client/templates/conditions.pt:72
 msgid "conditions_info_not_personal"
 msgstr ""
+"En aucun cas les données personnelles seront utilisées pour le traitement"
+" des données."
 
 #. Default: Build statistics, by using exclusively aggregated and anonymous
 #. data on
@@ -1238,6 +1260,9 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
+"Construire des statistiques, en utilisant exclusivement des données "
+"ajoutées et anonymes sur les risques d'un secteur. Ces statistiques "
+"seront exclusivement transférées aux développeurs de l'outil."
 
 #. Default: Provide, maintain, protect, and improve our services and develop
 #. new
@@ -1245,6 +1270,8 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:63
 msgid "conditions_info_use_develop"
 msgstr ""
+"Fournir, maintenir, protéger et améliorer nos services, et développer de "
+"nouveaux services."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information
@@ -1252,6 +1279,8 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:58
 msgid "conditions_info_use_intro"
 msgstr ""
+"En plus des objectifs mentionnés ci-dessus, nous pouvons utiliser les "
+"informations que nous recueillons pour :"
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1263,6 +1292,13 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_logs"
 msgstr ""
+"Consigner des informations – Lorsque vous accédez au service, nos "
+"serveurs enregistrent automatiquement des informations que votre "
+"navigateur envoie à chaque fois que vous visitez un site web. Les "
+"journaux de ces serveurs peuvent inclure des informations telles que la "
+"demande de votre web, votre interaction avec un service, le type de "
+"navigateur, la langue du navigateur, la date et l'heure de votre demande."
+" Les adresses IP ne sont pas stockées dans le système."
 
 #. Default: Cookies – When you visit the site and select a language, we send a
 #. cookie to your computer or other device to store your language selection.
@@ -1280,6 +1316,18 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:49
 msgid "conditions_info_cookies"
 msgstr ""
+"Cookies – Lorsque vous visitez le site et sélectionnez une langue, nous "
+"envoyons un cookie à votre ordinateur ou autre dispositif pour stocker "
+"votre sélection de langue. Ce cookie reste dans votre navigateur jusqu'à "
+"ce que vous le fermiez. Lorsque vous visitez le site et vous connectez, "
+"nous envoyons un cookie avec vos informations de connexion pour que vous "
+"restiez connecté pendant votre visite. Ce cookie reste sur votre "
+"ordinateur jusqu'à ce que vous fermiez votre navigateur. La plupart des "
+"navigateurs sont initialement configurés pour accepter les cookies, mais "
+"vous pouvez réinitialiser votre navigateur pour refuser tous les cookies "
+"ou pour indiquer lorsqu'un cookie est envoyé. Cependant, certaines "
+"caractéristiques et services peuvent ne pas fonctionner correctement si "
+"vos cookies sont désactivés."
 
 #. Default: Any information you provide in the free text fields of the tool and
 #. in
@@ -1291,6 +1339,11 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:45
 msgid "conditions_info_text"
 msgstr ""
+"Toutes les informations que vous fournissez dans les champs de texte "
+"libre de l'outil et dans le plan d'action - (per ex. lorsque vous entrez "
+"une mesure pour aborder un risque, la personne responsable de cette "
+"mesure, etc). L'entrée des informations dans les champs de texte libre "
+"est volontaire."
 
 #. Default: Email account: this is necessary to access the online tool, edit
 #. the
@@ -1300,11 +1353,15 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:41
 msgid "conditions_info_email"
 msgstr ""
+"Compte email : cela est nécessaire pour accéder à l'outil en ligne, "
+"éditer les données d'entrée, et effacer le compte OiRA. Vous pouvez "
+"entrer n'importe quelle adresse email valable. Les adresses email ne "
+"seront pas utilisées dans un but commercial."
 
 #. Default: The Information we collect and for what purposes
 #: euphorie/client/templates/conditions.pt:35
 msgid "conditions_info_header"
-msgstr ""
+msgstr "Les Informations que nous recueillons et dans quel but"
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
 #. 45/2001
@@ -1343,6 +1400,9 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:19
 msgid "terms_changed"
 msgstr ""
+"Les termes et conditions ont changé depuis votre dernière visite. "
+"Veuillez lire les nouveaux termes et conditions attentivement avant de "
+"continuer."
 
 #. Default: Terms and conditions
 #: euphorie/client/templates/conditions.pt:17
@@ -1666,9 +1726,7 @@ msgstr ""
 #. Default: Preview survey
 #: euphorie/client/templates/preview.pt:14
 msgid "header_preview"
-msgstr ""
-"Aperçu de l'enquête\n"
-"Aperçu"
+msgstr "Prévisualiser l'enquête"
 
 #. Default: Continue
 #: euphorie/client/templates/profile.pt:61
@@ -1827,7 +1885,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/report_actionplan.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
-msgstr "Il s'agit d'un ${priority} ."
+msgstr "Ceci est une ${priorité} ."
 
 #. Default: high priority risk
 #: euphorie/client/templates/report_actionplan.pt:92
@@ -1850,7 +1908,7 @@ msgstr "risque à faible priorité"
 #. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
 msgid "referer_health_safety_export"
-msgstr ""
+msgstr "experts en santé et sécurité"
 
 #. Default: Country
 #: euphorie/client/templates/report_actionplan.pt:39
@@ -1900,6 +1958,8 @@ msgstr "Contenu"
 #: euphorie/client/templates/report_company.pt:43
 msgid "info_referer_eu_institution"
 msgstr ""
+"L'Agence Européenne pour la Sécurité et la Santé au Travail, partenaires "
+"sociaux européens, etc."
 
 #. Default: Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health
@@ -1907,6 +1967,8 @@ msgstr ""
 #: euphorie/client/templates/report_company.pt:41
 msgid "info_referer_national_public_institution"
 msgstr ""
+"Ministère, Inspection du Travail, Institut National pour la Sécurité et "
+"la Santé au Travail, etc."
 
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
@@ -2115,7 +2177,7 @@ msgstr "Ajouter une autre mesure"
 #: euphorie/client/templates/risk_actionplan.pt:124
 #: euphorie/client/templates/risk_actionplan.pt:94
 msgid "error_invalid_year"
-msgstr "Année invalide"
+msgstr "Veuillez entrer une année valide après 1900"
 
 #. Default: Invalid day
 #: euphorie/client/templates/risk_actionplan.pt:110
@@ -2256,12 +2318,14 @@ msgstr ""
 #: euphorie/client/templates/sessions.pt:58
 #: euphorie/client/templates/survey_sessions.pt:49
 msgid "label_session_title"
-msgstr "Entrez un titre pour votre project d'évaluation des risques"
+msgstr "Entrer un titre pour votre Évaluation de risques"
 
 #. Default: Start a new session choosing one of the following sectoral tools
 #: euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
-msgstr "Démarrer une nouvelle session parmi les outils sectoriels suivants"
+msgstr ""
+"Démarrer une nouvelle session en choisissant l'un des outils sectoriels "
+"suivants"
 
 #. Default: or…
 #: euphorie/client/templates/sessions.pt:47
@@ -2426,12 +2490,12 @@ msgstr "Produit par ${EU-OSHA}."
 #. Default: Risk Assessment
 #: euphorie/client/templates/webhelpers.pt:17
 msgid "oira_name_line_2"
-msgstr ""
+msgstr "Évaluation des risques"
 
 #. Default: Online interactive
 #: euphorie/client/templates/webhelpers.pt:16
 msgid "oira_name_line_1"
-msgstr ""
+msgstr "Interactive en ligne"
 
 #: euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
@@ -2591,9 +2655,7 @@ msgstr ""
 #: euphorie/content/risk.py:208 euphorie/content/risk.py:218
 #: euphorie/content/risk.py:228
 msgid "label_image"
-msgstr ""
-"Image\n"
-"Fichier image"
+msgstr "Fichier image"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and
@@ -2682,9 +2744,7 @@ msgstr "Une courte déclaration au sujet d'un risque potentiel."
 #. Default: Inversed statement
 #: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:36
 msgid "label_problem_description"
-msgstr ""
-"Description du problème\n"
-"Déclaration contraire"
+msgstr "Déclaration inversée"
 
 #. Default: This is the inverse of the statement: a short description of
 #. current
@@ -2713,9 +2773,7 @@ msgstr ""
 #. Default: Legal and policy references
 #: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:60
 msgid "label_legal_reference"
-msgstr ""
-"Références juridiques et politiques.\n"
-"Références juridiques et politiques"
+msgstr "Références légales et de politique"
 
 #. Default: Identification
 #: euphorie/content/risk.py:71
@@ -2831,9 +2889,7 @@ msgstr "Pas de valeur par défaut"
 #. Default: Default probability
 #: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:49
 msgid "label_default_probability"
-msgstr ""
-"Probabilité par défaut\n"
-"Probabilité par défaut"
+msgstr "Probabilité par défaut"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
@@ -2973,10 +3029,7 @@ msgstr "Solution habituelle"
 #. Default: Version name
 #: euphorie/content/survey.py:45 euphorie/content/survey.py:164
 msgid "label_survey_title"
-msgstr ""
-"Nom de la version\n"
-"Titre\n"
-"Titre de la version de l'’enquête importée"
+msgstr "Nom de version"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to
@@ -3056,11 +3109,8 @@ msgstr "Titre"
 #: euphorie/content/surveygroup.py:34
 msgid "help_surveygroup_title"
 msgstr ""
-"Le titre de cette enquête. Ce titre est utilisé dans la vue générale de "
-"l’enquête dans\n"
-"l’app client.\n"
-"Si vous n’attribuez pas de titre, celui-ci sera tiré du fichier en "
-"lecture."
+"Le titre de cette enquête. Ce titre est utilisé dans l'aperçu de "
+"l'enquête dans les clients."
 
 #. Default: Standard
 #: euphorie/content/surveygroup.py:185
@@ -3655,12 +3705,11 @@ msgstr "Quel logo souhaitez-vous afficher en haut à gauche ? "
 #: euphorie/content/templates/settings.pt:43
 msgid "help_sector_logo"
 msgstr ""
-"Le logo apparaîtra dans l’application client visible par votre groupe "
-"d’utilisateurs\n"
-"ainsi que dans cet environnement d'édition en haut à gauche. Assurez-vous"
-" que votre image est au format png, jpg ou gif et ne contient pas de "
-"caractères spéciaux.Le nouveau logo ne deviendra visible que lorsque vous"
-" aurez 'sauvegardé vos modifications.'"
+"Le logo apparaîtra sur les deux app latérale du client que votre groupe "
+"utilisateur verra ainsi que sur cet environnement éditeur en haut à "
+"gauche. Veillez à ce que votre image soit au format png, jpg ou gif et ne"
+" contienne pas de caractères spéciaux. Le nouveau logo ne sera visible "
+"qu'une fois vos changements sauvegardés."
 
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
@@ -3877,7 +3926,7 @@ msgstr "Rapport"
 #. Default: Import survey
 #: euphorie/deployment/browser/sitemenu.py:40
 msgid "menu_import"
-msgstr ""
+msgstr "Importer enquête"
 
 #. Default: Relevance: ${percentage}
 #: euphorie/deployment/browser/templates/search.pt:28
