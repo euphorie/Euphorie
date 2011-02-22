@@ -73,6 +73,7 @@ dl.accordion dt.ui-state-active button {
 	padding-bottom: 1px;
 	line-height: 22px;
 	padding-top: 0;
+	background-color: transparent !important;
 }
 
 #navigation li#home a {
