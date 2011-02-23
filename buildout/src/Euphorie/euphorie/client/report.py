@@ -73,6 +73,9 @@ def createDocument():
     style.textProps.size=26
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 5",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+    style.textProps.size=24
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 6",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
 
     stylesheet.ParagraphStyles.append(ParagraphStyle("Measure Heading",
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
@@ -266,6 +269,7 @@ class IdentificationReportDownload(grok.View):
                 1:  document.StyleSheet.ParagraphStyles.Heading3,
                 2:  document.StyleSheet.ParagraphStyles.Heading4,
                 3:  document.StyleSheet.ParagraphStyles.Heading5,
+                4:  document.StyleSheet.ParagraphStyles.Heading6,
                 }
 
         for node in self.getNodes():
@@ -491,6 +495,7 @@ class ActionPlanReportDownload(grok.View):
                 1:  document.StyleSheet.ParagraphStyles.Heading3,
                 2:  document.StyleSheet.ParagraphStyles.Heading4,
                 3:  document.StyleSheet.ParagraphStyles.Heading5,
+                4:  document.StyleSheet.ParagraphStyles.Heading6,
                 }
 
         for node in self.getNodes():

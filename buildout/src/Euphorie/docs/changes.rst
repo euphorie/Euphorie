@@ -4,7 +4,10 @@ Changelog
 2.5 - Unrelased
 ---------------
 
-- ...
+- Add report header styles for an extra depth level. This fixes problems
+  when generating reports for deeply nested surveys. This fixes
+  `TNO ticket 176 <http://code.simplon.biz/tracker/tno-euphorie/ticket/176>`_.
+  [wichert].
 
 
 2.4 - January 25, 2011
