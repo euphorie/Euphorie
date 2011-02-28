@@ -4,6 +4,10 @@ Changelog
 2.5 - Unrelased
 ---------------
 
+- Fix small errors in Dutch translation. This fixes
+  `TNO ticket 175 <http://code.simplon.biz/tracker/tno-euphorie/ticket/175>`_.
+  [wichert].
+
 - Replace escape enters with proper newlines in downloadable report.  This
   fixes
   `TNO ticket 174 <http://code.simplon.biz/tracker/tno-euphorie/ticket/174>`_.

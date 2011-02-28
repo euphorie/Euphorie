@@ -291,7 +291,7 @@ msgstr "risico met lage prioriteit"
 #. Default: medium priority risk
 #: euphorie/client/report.py:523
 msgid "report_priority_medium"
-msgstr "Gemiddeld"
+msgstr "risico met gemiddelde prioriteit"
 
 #. Default: high priority risk
 #: euphorie/client/report.py:525
