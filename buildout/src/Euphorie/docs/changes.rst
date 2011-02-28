@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.6 - February 28, 2011
+2.5 - February 28, 2011
 -----------------------
 
 - Restore print button on identification report page; it seems users are
