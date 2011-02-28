@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.5 - Unrelased
----------------
+2.6 - February 28, 2011
+-----------------------
 
 - Restore print button on identification report page; it seems users are
   unable to find the print function of their browser. This fixes
