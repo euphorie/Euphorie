@@ -4,11 +4,18 @@ Changelog
 2.5 - Unrelased
 ---------------
 
+- Replace escape enters with proper newlines in downloadable report.  This
+  fixes
+  `TNO ticket 174 <http://code.simplon.biz/tracker/tno-euphorie/ticket/174>`_.
+  [wichert].
+
 - Added some <br> tags to avoid the navigation vanishing in IE7
   [pilz]
+
 - updated the minified css files from the originals to reflect recent 
   changes cornae did to fix ie compatibility 
   [pilz]
+
 - Add report header styles for an extra depth level. This fixes problems
   when generating reports for deeply nested surveys. This fixes
   `TNO ticket 176 <http://code.simplon.biz/tracker/tno-euphorie/ticket/176>`_.

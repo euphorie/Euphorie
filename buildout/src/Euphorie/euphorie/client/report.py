@@ -85,6 +85,11 @@ def createDocument():
     return document
 
 
+def HtmlToRtf(markup):
+    text=htmllaundry.StripMarkup(markup)
+    text=text.replace("&#13", "\n")
+    return text
+
 
 def createSection(document, survey, request):
     t=lambda txt: translate(txt, context=request)
@@ -287,7 +292,7 @@ class IdentificationReportDownload(grok.View):
                 section.append(Paragraph(warning_style,
                     t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
 
-            section.append(Paragraph(normal_style, htmllaundry.StripMarkup(zodb_node.description)))
+            section.append(Paragraph(normal_style, HtmlToRtf(zodb_node.description)))
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
@@ -531,7 +536,7 @@ class ActionPlanReportDownload(grok.View):
                 section.append(Paragraph(normal_style, 
                     t(_("report_priority", default=u"This is a ")), t(level)))
 
-            section.append(Paragraph(normal_style, htmllaundry.StripMarkup(zodb_node.description)))
+            section.append(Paragraph(normal_style, HtmlToRtf(zodb_node.description)))
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
 
