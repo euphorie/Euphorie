@@ -22,6 +22,7 @@
 
     <div class="buttonBar super">
       <a class="button-medium" href="${python:view.url(name='report')}/download" i18n:translate="button_download">Download</a>
+      <a class="button-medium printButton jsOnly" i18n:translate="button_print">Print</a>
     </div>
 
     <ol class="toc">

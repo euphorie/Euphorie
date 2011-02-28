@@ -4,6 +4,12 @@ Changelog
 2.5 - Unrelased
 ---------------
 
+- Restore print button on identification report page; it seems users are
+  unable to find the print function of their browser. This fixes
+  `TNO ticket 159 <http://code.simplon.biz/tracker/tno-euphorie/ticket/159>`_.
+  [wichert].
+
+
 - Fix small errors in Dutch translation. This fixes
   `TNO ticket 175 <http://code.simplon.biz/tracker/tno-euphorie/ticket/175>`_.
   [wichert].
