@@ -5,7 +5,6 @@ from plone.dexterity.utils import createContentInContainer
 from z3c.saconfig import Session
 
 
-
 class TreeTests(EuphorieTestCase):
     def createClientSurvey(self):
         self.loginAsPortalOwner()
@@ -50,7 +49,7 @@ class GetSurveyTreeTests(TreeTests):
 
 
 
-class GetSurveyTreeTests(TreeTests):
+class GetSessionTreeTests(TreeTests):
     def testEmpty(self):
         session=self.createSurveySession()
         self.assertEqual(update.getSessionTree(session), [])
@@ -110,5 +109,16 @@ class TreeChangesTests(TreeTests):
         survey=self.createClientSurvey()
         changes=update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "remove")]))
+
+    def testRemoveRisk(self):
+        session=self.createSurveySession()
+        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1", type="risk", identification="no"))
+
+        survey=self.createClientSurvey()
+        survey.invokeFactory("euphorie.module", "1")
+        changes=update.treeChanges(session, survey)
+
+        self.assertEqual(changes, set([("1/1", "risk", "remove")]))
 
 
