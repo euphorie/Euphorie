@@ -5,6 +5,7 @@ from Acquisition import aq_parent
 from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
+from OFS.event import ObjectWillBeRemovedEvent
 from zope.event import notify
 from five import grok
 from euphorie.content.survey import ISurvey
@@ -98,6 +99,10 @@ def CopyToClient(survey, preview=False):
     if copy.id in target:
         # We must suppress events to prevent the can-not-delete-published-
         # content check from blocking us.
+        # XXX: We need however the ObjectWillBeRemovedEvent event to be called
+        # otherwise the removed objects are not uncatalogged.
+        to_delete = target._getOb(copy.id)
+        notify(ObjectWillBeRemovedEvent(to_delete, target, copy.id))
         target._delObject(copy.id, suppress_events=True)
 
     target._setObject(copy.id, copy, suppress_events=True)
