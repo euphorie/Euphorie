@@ -24,17 +24,35 @@
         </fieldset>
 
         <dl class="accordion settings">
-          <dt><tal:span i18n:translate="header_colour_scheme">Colour scheme</tal:span> <button id="resetColours" class="micro" i18n:translate="button_reset_colours">Restore to original colours</button></dt>
+        <dt>
+            <tal:span i18n:translate="header_colour_scheme">
+                Colour scheme
+            </tal:span> 
+            <button id="resetColours" class="micro" i18n:translate="button_reset_colours">Restore to original colours</button>
+        </dt>
           <dd class="section colourPicker">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_colours">The colours you select here apply only for the client side of the application. Try to pick colours that have high enough contrast to keep the text on each button legible.</dfn>
-            <p i18n:translate="help_colour_picker">Please use the colour pickers below to select your organisation's colours. It's best to use a darker colour for the main colour and a lighter colour for the support colour.</p>
+            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_colours">
+                The colours you select here apply only for the client side of the application. Try to pick colours that have high enough contrast to keep the text on each button legible.
+            </dfn>
+            <p i18n:translate="help_colour_picker">
+                Please use the colour pickers below to select your organisation's colours. It's best to use a darker colour for the main colour and a lighter colour for the support colour.
+            </p>
             <div id="mainColour" class="picker">
-              <label for="colour-1" tal:define="widget view/widgets/main_colour"><tal:span i18n:translate="label_main_colour">Main colour</tal:span>: <input type="text" id="colour-1" name="${widget/name}" value="${widget/value}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/> <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/></label>
-              <div id="picker-main"></div>
+                <label for="colour-1" tal:define="widget view/widgets/main_colour">
+                    <tal:span i18n:translate="label_main_colour">Main colour</tal:span>: 
+                    <input type="text" id="colour-1" name="${widget/name}" value="${widget/value}"/>
+                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/> 
+                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+                </label>
+                <div id="picker-main"></div>
             </div>
             <div id="supportColour" class="picker">
-              <label for="colour-2" tal:define="widget view/widgets/support_colour"><tal:span i18n:translate="label_support_colour">Support colour</tal:span>: <input type="text" id="colour-2" name="${widget/name}" value="${widget/value}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/></label>
-              <div id="picker-support"></div>
+                <label for="colour-2" tal:define="widget view/widgets/support_colour">
+                    <tal:span i18n:translate="label_support_colour">Support colour</tal:span>: 
+                    <input type="text" id="colour-2" name="${widget/name}" value="${widget/value}"/>
+                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+                </label>
+                <div id="picker-support"></div>
             </div>
           </dd>
 
@@ -183,8 +201,8 @@ $("#resetColours").live("click", function() {
       .removeClass("brightSupportColour")
       .removeClass("brightMainColour");
 
-    $("#colour-1").val("");
-    $("#colour-2").val("");
+    $("#colour-1").val("#031c48");
+    $("#colour-2").val("#e69d17");
 });
 
 
