@@ -13,7 +13,7 @@
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
   <body class="profile ${webhelpers/extra_css}">
-    <h1 i18n:translate="header_profile">Tailor the risk assessment for your organisation</h1>
+    <h1 i18n:translate="header_profile">Tailor the risk assessment to your organisation</h1>
 
     <p i18n:translate="expl_profile">
        Read the following statement(s) and tick the box if the issue is relevant to your company/organisation. If it is not, don’t tick the box and you will not be asked about things that do not apply to your situation.

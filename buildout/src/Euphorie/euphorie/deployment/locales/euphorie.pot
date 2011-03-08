@@ -1360,7 +1360,7 @@ msgstr ""
 msgid "expl_profile"
 msgstr ""
 
-#. Default: Tailor the risk assessment for your organisation
+#. Default: Tailor the risk assessment to your organisation
 #: euphorie/client/templates/profile.pt:16
 msgid "header_profile"
 msgstr ""
