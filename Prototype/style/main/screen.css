@@ -2573,6 +2573,11 @@ p#country {
 	-webkit-transition: all 0.3s;
 	background: transparent url(flags.jpg) repeat-x 0 0;}
 
+.countries li.disabled {
+	opacity: 0.3;
+	filter: alpha(opacity=30)
+}
+
 .countries li a {
 	margin: 0;
 	width: 100px;
