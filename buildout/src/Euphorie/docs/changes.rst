@@ -4,6 +4,11 @@ Changelog
 2.6 - Unreleased
 ----------------
 
+- Fix bug in handling counting risk states for the client survey status screen.
+  This fixes the second part of `TNO ticket 155
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
+  [wichert]
+
 - Clearly mark countries without surveys on the client frontpage.
   [cornae, wichert]
 
@@ -147,8 +152,7 @@ Bugfixes
 ~~~~~~~~
 
 - The survey status screen could show module titles that do not match the
-  current session. This fixes `TNO ticket 155
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
+  current session. This fixes `TNO ticket 155`_.
   [wichert]
 
 - Stop declaring ``eupphorie`` to be a namespace package.

@@ -280,7 +280,7 @@ class Status(grok.View):
     query = """SELECT SUBSTRING(path FROM 1 FOR 3) AS module,
                       CASE WHEN EXISTS(SELECT *
                                        FROM tree AS parent_node
-                                       WHERE tree.session_id=%(sessionid)d AND
+                                       WHERE tree.session_id=parent_node.session_id AND
                                              tree.depth>parent_node.depth AND
                                              tree.path LIKE parent_node.path || '%%' AND
                                              parent_node.skip_children)
