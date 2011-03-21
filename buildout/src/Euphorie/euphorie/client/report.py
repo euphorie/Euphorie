@@ -347,7 +347,8 @@ class IdentificationReportDownload(grok.View):
                 section.append(Paragraph(warning_style,
                     t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
 
-            section.append(*HtmlToRtf(zodb_node.description, normal_style))
+            for el in HtmlToRtf(zodb_node.description, normal_style):
+                section.append(el)
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
@@ -591,7 +592,8 @@ class ActionPlanReportDownload(grok.View):
                 section.append(Paragraph(normal_style, 
                     t(_("report_priority", default=u"This is a ")), t(level)))
 
-            section.append(*HtmlToRtf(zodb_node.description, normal_style))
+            for el in HtmlToRtf(zodb_node.description, normal_style):
+                section.append(el)
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
 
