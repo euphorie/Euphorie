@@ -101,11 +101,13 @@ class _HtmlToRtf(object):
             new_style["underline"]=True
 
         if node.text and node.text.strip():
-            output.append(TEXT(node.text, **new_style))
+            text=unicode(node.text).encode("utf-8")
+            output.append(TEXT(text, **new_style))
         for sub in node:
             self.handleInlineText(sub, output, new_style)
         if node.tail and node.tail.strip():
-            output.append(TEXT(node.tail, **style))
+            text=unicode(node.tail).encode("utf-8")
+            output.append(TEXT(text, **style))
 
         return output
 
