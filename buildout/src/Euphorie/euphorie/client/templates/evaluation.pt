@@ -37,7 +37,7 @@
       <a tal:condition="view/next_url" class="button-medium" href="${view/next_url}" i18n:translate="label_run_evaluation">Run evaluation</a>
       <a tal:condition="not:view/next_url" class="button-medium" href="${python:webhelpers.survey_url(phase='actionplan')}" i18n:translate="label_jump_to_actionplan">Go to action plan</a>
     </p>
-    <br/>
+    <!--[if lte IE 7]> <br/> <![endif]-->
     <ol id="steps" tal:define="survey_url webhelpers/survey_url">
       <li class="complete" id="step-1">
         <a href="${survey_url}/start">

@@ -181,7 +181,9 @@
         </tal:block>
       </li>
     </ul>
-<br/>
+
+    <!--[if lte IE 7]> <br/> <![endif]-->
+
     <ul id="navigation">
       <metal:home use-macro="webhelpers/macros/homelink"/>
     </ul>

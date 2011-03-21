@@ -29,7 +29,7 @@
       <a class="button-medium floatBefore back" href="${view/previous_url}" i18n:translate="label_previous">Previous</a>
       <a class="button-medium floatAfter" href="${view/next_url}" i18n:translate="label_next">Next</a>
     </p>
-<br/>
+    <!--[if lte IE 7]> <br/> <![endif]-->
     <ol id="steps" tal:define="survey_url webhelpers/survey_url">
       <li class="complete" id="step-1">
         <a href="${survey_url}/start">
