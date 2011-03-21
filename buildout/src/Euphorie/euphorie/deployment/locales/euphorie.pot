@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.6\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-03-21 12:02+0100\n"
+"POT-Creation-Date: 2011-03-21 13:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1975,6 +1975,16 @@ msgstr ""
 msgid "The specified colour is not valid."
 msgstr ""
 
+#. Default: This is a region
+#: euphorie/content/country.py:19
+msgid "label_is_region"
+msgstr ""
+
+#. Default: Regions are international groupsing, such as the European Union
+#: euphorie/content/country.py:21
+msgid "help_is_region"
+msgstr ""
+
 #. Default: Introduction
 #: euphorie/content/help.py:15
 msgid "label_help_introduction"
@@ -2597,6 +2607,10 @@ msgstr ""
 #. Default: Account "${title}" has been unlocked.
 #: euphorie/content/user.py:239
 msgid "message_user_unlocked"
+msgstr ""
+
+#: euphorie/content/utils.py:8
+msgid "European Union"
 msgstr ""
 
 #: euphorie/content/behaviour/richdescription.py:29

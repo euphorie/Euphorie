@@ -6,6 +6,7 @@ from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.country import ICountry
+from euphorie.content.utils import getRegionTitle
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 
 grok.templatedir("templates")
@@ -34,13 +35,15 @@ class View(grok.View):
 
     def update(self):
         container=aq_inner(self.context)
-        names=self.request.locale.displayNames.territories
-        countries=[dict(id=country.id,
-                        title=names.get(country.id.upper(), country.title),
-                        url=country.absolute_url())
+        request=self.request
+        countries=[{ "id": country.id,
+                     "is_region": country.is_region,
+                     "title": getRegionTitle(request, country.id, country.title),
+                     "url" : country.absolute_url() }
                    for country in container.values()
                    if ICountry.providedBy(country)]
         countries.sort(key=lambda c: c["title"])
-        self.countries=countries
+        self.countries=[c for c in countries if not c["is_region"]]
+        self.regions=[c for c in countries if c["is_region"]]
 
 

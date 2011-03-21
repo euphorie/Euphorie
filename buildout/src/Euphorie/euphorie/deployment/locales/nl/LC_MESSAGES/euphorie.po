@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2011-03-21 12:02+0100\n"
+"PO-Revision-Date: 2011-03-21 13:20+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -2301,6 +2301,16 @@ msgstr "Online interactieve"
 msgid "The specified colour is not valid."
 msgstr "De opgegven kleur is niet geldig."
 
+#. Default: This is a region
+#: euphorie/content/country.py:19
+msgid "label_is_region"
+msgstr "Dit is een regio"
+
+#. Default: Regions are international groupsing, such as the European Union
+#: euphorie/content/country.py:21
+msgid "help_is_region"
+msgstr "Een regie is een groep van landen, zoals bijvoorbeeld de Europese Unie."
+
 #. Default: Introduction
 #: euphorie/content/help.py:15
 msgid "label_help_introduction"
@@ -3020,6 +3030,10 @@ msgstr "Het account \"${title}\" is geblokkeerd."
 #: euphorie/content/user.py:239
 msgid "message_user_unlocked"
 msgstr "Het account \"${title}\" is vrijgegeven."
+
+#: euphorie/content/utils.py:8
+msgid "European Union"
+msgstr "Europese Unie"
 
 #: euphorie/content/behaviour/richdescription.py:29
 msgid "Summary"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2011-03-21 12:02+0100\n"
+"PO-Revision-Date: 2011-03-21 13:20+0100\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -2503,6 +2503,23 @@ msgstr "Interactive en ligne"
 msgid "The specified colour is not valid."
 msgstr "La couleur indiquée n'est pas valide."
 
+#. Default: This is a region
+#: euphorie/content/country.py:19
+#, fuzzy
+#| msgid "label_sessions"
+msgid "label_is_region"
+msgstr "Sessions"
+
+#. Default: Regions are international groupsing, such as the European Union
+#: euphorie/content/country.py:21
+#, fuzzy
+#| msgid "help_sessions"
+msgid "help_is_region"
+msgstr ""
+"Description de la gestion de la session. Ce texte est accessible via un "
+"lien dans la page de session\n"
+"vue d’ensemble. "
+
 #. Default: Introduction
 #: euphorie/content/help.py:15
 msgid "label_help_introduction"
@@ -3122,7 +3139,6 @@ msgstr "Standard"
 #. Default: This survey is now no longer available in the client.
 #: euphorie/content/surveygroup.py:222
 #, fuzzy
-#| msgid "message_unpublish_cancel"
 msgid "message_unpublish_success"
 msgstr "${label} Version actuellement en ligne "
 
@@ -3256,6 +3272,10 @@ msgstr "Le compte \"${title}\" a été verrouillé."
 #: euphorie/content/user.py:239
 msgid "message_user_unlocked"
 msgstr "Le compte \"${title}\"a été déverrouillé."
+
+#: euphorie/content/utils.py:8
+msgid "European Union"
+msgstr ""
 
 #: euphorie/content/behaviour/richdescription.py:29
 msgid "Summary"

@@ -1,11 +1,13 @@
 from Acquisition import aq_inner
 from zope.interface import implements
+from zope import schema
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.sector import ISector
+from euphorie.content import MessageFactory as _
 
 grok.templatedir("templates")
 
@@ -13,14 +15,26 @@ class ICountry(form.Schema, IBasic):
     """Country grouping in the online client.
     """
 
+    is_region = schema.Bool(
+            title = _("label_is_region",
+                default=u"This is a region."),
+            description = _("help_is_region",
+                default=u"Regions are international groupings, such as the "
+                        u"European Union."),
+            default=False)
+
+
 
 class Country(dexterity.Container):
     """A country folder."""
     implements(ICountry)
 
+    is_region = False
+
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return False
+
 
 
 class View(grok.View):

@@ -79,3 +79,10 @@ def updateSurveyWorkflow(context):
     count=wt.updateRoleMappings()
     log.info("Updated permissions for %d objects.", count)
 
+
+def updateInitialContent(context):
+    from euphorie.deployment.setuphandlers import setupInitialContent
+    siteroot=aq_parent(context)
+    setupInitialContent(siteroot)
+
+

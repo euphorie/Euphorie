@@ -8,6 +8,7 @@ from plonetheme.nuplone.tiles.navigation import CatalogNavTree
 from plonetheme.nuplone.utils import checkPermission
 from plone.tiles import Tile
 from euphorie.content.country import ICountry
+from euphorie.content.utils import getRegionTitle
 
 
 
@@ -63,17 +64,18 @@ class UserManagementNavtree(Tile):
     def update(self):
         country_id=self.context.id
         container=aq_parent(aq_inner(self.context))
-        names=self.request.locale.displayNames.territories
-        countries=[dict(id=country.id,
-                        title=names.get(country.id.upper(), country.title),
-                        current=(country.id==country_id),
-                        url=country.absolute_url())
+        request=self.request
+        countries=[{ "id": country.id,
+                     "is_region": country.is_region,
+                     "current": (country.id==country_id),
+                     "title": getRegionTitle(request, country.id, country.title),
+                     "url" : country.absolute_url() }
                    for country in container.values()
                    if ICountry.providedBy(country) and
                    checkPermission(country, "Euphorie: Manage country")]
-        countries.sort(key=lambda c: c["title"])
-        self.countries=countries
 
+        self.countries=[c for c in countries if not c["is_region"]]
+        self.regions=[c for c in countries if c["is_region"]]
 
     def __call__(self):
         if not ICountry.providedBy(self.context):

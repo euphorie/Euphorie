@@ -3,6 +3,7 @@ from zope.interface import alsoProvides
 from plone.dexterity.utils import createContentInContainer
 from Products.CMFPlone.utils import _createObjectByType
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from euphorie.content.utils import REGION_NAMES
 
 log = logging.getLogger(__name__)
 
@@ -19,6 +20,7 @@ def setupVarious(context):
     disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
+
 
 COUNTRIES = dict(at=u"Austria",
                  be=u"Belgium",
@@ -80,6 +82,19 @@ def setupInitialContent(site):
         if not INavigationRoot.providedBy(help):
             alsoProvides(help, INavigationRoot)
             log.info("Made help for country %s (%s) a navigation root.", country_id, title)
+
+    for (region_id, title) in REGION_NAMES.items():
+        if region_id not in sectors:
+            sectors.invokeFactory("euphorie.country", region_id, title=title, is_region=True)
+            log.info("Added region %s (%s)", region_id, title)
+        region=sectors[region_id]
+        if "help" not in region:
+            createContentInContainer(region, "euphorie.page", id="help", title=u"Help", checkConstraints=False)
+            log.info("Added help section for region %s (%s)", region_id, title)
+        help=region["help"]
+        if not INavigationRoot.providedBy(help):
+            alsoProvides(help, INavigationRoot)
+            log.info("Made help for region %s (%s) a navigation root.", region_id, title)
 
     if "client" not in present:
         site.invokeFactory("euphorie.client", "client", title="Client")

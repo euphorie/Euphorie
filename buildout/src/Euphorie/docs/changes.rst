@@ -4,6 +4,9 @@ Changelog
 2.6 - Unreleased
 ----------------
 
+- Add a new EU region in addition to the existing countries.
+  [wichert]
+
 - Add unpublish feature to the CMS.
   [wichert]
 

@@ -1,7 +1,13 @@
 import re
 from zope.schema.interfaces import ITitledTokenizedTerm
+from euphorie.content import MessageFactory as _
 
 TAG = re.compile(u"<.*?>")
+
+REGION_NAMES = {
+        "eu": _(u"European Union"),
+        }
+
 
 def StripMarkup(markup):
     """Strip all markup from a HTML fragment."""
@@ -21,3 +27,14 @@ def getTermTitle(field, token):
         return term.title
     else:
         return term.value
+
+
+def getRegionTitle(request, id, default=None):
+    names=request.locale.displayNames.territories
+    getters=[REGION_NAMES.get, names.get]
+    for getter in getters:
+        title=getter(id.upper())
+        if title is not None:
+            return title
+    return default if default is not None else id
+

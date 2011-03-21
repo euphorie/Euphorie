@@ -57,5 +57,19 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="5"
+    destination="6"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add regions"
+      description="This step will add new countries and regions to the CMS."
+      handler=".v2.updateInitialContent"
+      />
+
+  </genericsetup:upgradeSteps>
+
 </configure>
 
