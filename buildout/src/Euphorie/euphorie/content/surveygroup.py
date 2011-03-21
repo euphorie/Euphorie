@@ -219,7 +219,7 @@ class Unpublish(grok.View):
 
         if action=="unpublish":
             self.unpublish()
-            flash(_("message_unpublish_cancel", default=u"This survey is now no longer available in the client."), "success")
+            flash(_("message_unpublish_success", default=u"This survey is now no longer available in the client."), "success")
 
         else:
             flash(_("message_unpublish_cancel", default=u"Cancelled unpublish action."), "notice")

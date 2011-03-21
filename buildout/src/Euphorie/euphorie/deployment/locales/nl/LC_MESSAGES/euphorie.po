@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-06-04 09:36+0200\n"
-"PO-Revision-Date: 2011-02-09 15:10+0100\n"
+"PO-Revision-Date: 2011-03-21 12:02+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -166,30 +166,31 @@ msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mail adres"
 
 #. Default: Cancel
-#: euphorie/client/publish.py:204 euphorie/client/publish.py:253
+#: euphorie/client/publish.py:209 euphorie/client/publish.py:258
 #: euphorie/content/templates/risk_edit.pt:62
-#: euphorie/content/templates/settings.pt:82
+#: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
 #: euphorie/content/templates/surveygroup_add.pt:82
+#: euphorie/content/templates/unpublish.pt:22
 msgid "button_cancel"
 msgstr "Annuleren"
 
 #. Default: Publish
-#: euphorie/client/publish.py:210
+#: euphorie/client/publish.py:215
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publiceer"
 
-#: euphorie/client/publish.py:214
+#: euphorie/client/publish.py:219
 msgid "Succesfully published the survey"
 msgstr "De RI&E is succesvol gepubliceerd"
 
 #. Default: Create preview
-#: euphorie/client/publish.py:259
+#: euphorie/client/publish.py:264
 msgid "button_preview"
 msgstr "Preview"
 
-#: euphorie/client/publish.py:263
+#: euphorie/client/publish.py:268
 msgid ""
 "Succesfully created a preview for the survey. It can be accessed at "
 "${url} ."
@@ -199,34 +200,33 @@ msgstr ""
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:88
+#: euphorie/client/report.py:96
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
 
 #. Default: You responded negatively to the above statement.
-#: euphorie/client/report.py:281 euphorie/client/report.py:506
+#: euphorie/client/report.py:290 euphorie/client/report.py:516
 #: euphorie/client/templates/report_actionplan.pt:85
-#: euphorie/client/templates/report_identification.pt:49
+#: euphorie/client/templates/report_identification.pt:50
 #: euphorie/client/templates/webhelpers.pt:108
 msgid "warn_risk_present"
 msgstr "U heeft 'nee' ingevuld bij bovenstaande risico."
 
 #. Default: This risk still needs to be inventorised.
-#: euphorie/client/report.py:284 euphorie/client/report.py:509
+#: euphorie/client/report.py:293 euphorie/client/report.py:519
 #: euphorie/client/templates/report_actionplan.pt:86
-#: euphorie/client/templates/report_identification.pt:50
+#: euphorie/client/templates/report_identification.pt:51
 msgid "risk_unanswered"
 msgstr "Dit risico is nog niet beoordeeld."
 
 #. Default: Identification report ${title}
-#: euphorie/client/report.py:301
-#, fuzzy
+#: euphorie/client/report.py:310
 msgid "filename_report_identification"
 msgstr "Inventarisatie ${title}.doc"
 
 #. Default: Introduction
-#: euphorie/client/report.py:428
+#: euphorie/client/report.py:437
 msgid "plan_report_intro_header"
 msgstr "Inleiding"
 
@@ -237,7 +237,7 @@ msgstr "Inleiding"
 #. written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:430
+#: euphorie/client/report.py:439
 #: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
@@ -255,7 +255,7 @@ msgstr ""
 "vallen kunnen deze vaak zonder extra geld worden opgelost."
 
 #. Default: Not provided
-#: euphorie/client/report.py:448
+#: euphorie/client/report.py:457
 #: euphorie/client/templates/report_actionplan.pt:52
 #: euphorie/client/templates/report_actionplan.pt:44
 #: euphorie/client/templates/report_actionplan.pt:40
@@ -263,19 +263,19 @@ msgid "missing_data"
 msgstr "Niet ingevuld"
 
 #. Default: Company details
-#: euphorie/client/report.py:452
+#: euphorie/client/report.py:461
 msgid "plan_report_company_header"
 msgstr "Bedrijfsgegevens"
 
 #. Default: Action plan
-#: euphorie/client/report.py:483
+#: euphorie/client/report.py:492
 msgid "plan_report_plan_header"
 msgstr "Plan van aanpak"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/report.py:512
+#: euphorie/client/report.py:522
 #: euphorie/client/templates/report_actionplan.pt:156
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
@@ -284,64 +284,64 @@ msgstr ""
 "top-5 risico is het wel opgenomen in de rapportage."
 
 #. Default: low priority risk
-#: euphorie/client/report.py:521
+#: euphorie/client/report.py:531
 msgid "report_priority_low"
 msgstr "risico met lage prioriteit"
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:523
+#: euphorie/client/report.py:533
 msgid "report_priority_medium"
 msgstr "risico met gemiddelde prioriteit"
 
 #. Default: high priority risk
-#: euphorie/client/report.py:525
+#: euphorie/client/report.py:535
 msgid "report_priority_high"
 msgstr "risico met hoge prioriteit"
 
 #. Default: This is a
-#: euphorie/client/report.py:527
+#: euphorie/client/report.py:537
 msgid "report_priority"
 msgstr "Dit is een "
 
 #. Default: Measure
-#: euphorie/client/report.py:536
+#: euphorie/client/report.py:546
 msgid "header_measure_single"
 msgstr "Maatregel"
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:539
+#: euphorie/client/report.py:549
 #: euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Maatregel ${index}"
 
 #. Default: Action plan:
-#: euphorie/client/report.py:551
+#: euphorie/client/report.py:561
 #: euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr "Plan van aanpak"
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:555
+#: euphorie/client/report.py:565
 #: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr "Preventieplan"
 
 #. Default: Requirements:
-#: euphorie/client/report.py:559
+#: euphorie/client/report.py:569
 #: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:566
+#: euphorie/client/report.py:576
 #: euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr "${responsible} is verantwoordelijk voor deze maatregel."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: euphorie/client/report.py:570
+#: euphorie/client/report.py:580
 #: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr ""
@@ -349,7 +349,7 @@ msgstr ""
 "${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:576
+#: euphorie/client/report.py:586
 #: euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr ""
@@ -359,7 +359,7 @@ msgstr ""
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:582
+#: euphorie/client/report.py:592
 #: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
@@ -367,31 +367,31 @@ msgstr ""
 "${start} en eindigend op ${end}."
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:589
+#: euphorie/client/report.py:599
 #: euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr "Deze maatregel begint op ${start}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:594
+#: euphorie/client/report.py:604
 #: euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr "Deze maatregel eindigt op ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:599
+#: euphorie/client/report.py:609
 #: euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:605
+#: euphorie/client/report.py:615
 #: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr "Er is een budget van € ${amount} voor deze maatregel."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:620
+#: euphorie/client/report.py:630
 msgid "filename_report_actionplan"
 msgstr "Plan van aanpak ${title}"
 
@@ -432,7 +432,7 @@ msgstr "Vul een geldig jaartal na 1900 in"
 #: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:13
 #: euphorie/client/templates/updated.pt:12
-#: euphorie/client/templates/webhelpers.pt:15 euphorie/content/sector.py:239
+#: euphorie/client/templates/webhelpers.pt:15 euphorie/content/sector.py:241
 msgid "title_tool"
 msgstr "OiRA"
 
@@ -466,7 +466,7 @@ msgstr "Branche-informatie en groepen voor de gebruiker"
 #: euphorie/client/templates/report.pt:78
 #: euphorie/client/templates/report_actionplan.pt:201
 #: euphorie/client/templates/report_company.pt:93
-#: euphorie/client/templates/report_identification.pt:103
+#: euphorie/client/templates/report_identification.pt:104
 #: euphorie/client/templates/risk_actionplan.pt:275
 #: euphorie/client/templates/risk_evaluation.pt:122
 #: euphorie/client/templates/risk_identification.pt:86
@@ -706,7 +706,7 @@ msgstr "Over"
 #: euphorie/client/templates/report.pt:79
 #: euphorie/client/templates/report_actionplan.pt:202
 #: euphorie/client/templates/report_company.pt:94
-#: euphorie/client/templates/report_identification.pt:104
+#: euphorie/client/templates/report_identification.pt:105
 #: euphorie/client/templates/risk_actionplan.pt:276
 #: euphorie/client/templates/risk_evaluation.pt:123
 #: euphorie/client/templates/risk_identification.pt:87
@@ -725,7 +725,7 @@ msgstr "Status"
 #: euphorie/client/templates/report.pt:77
 #: euphorie/client/templates/report_actionplan.pt:200
 #: euphorie/client/templates/report_company.pt:92
-#: euphorie/client/templates/report_identification.pt:102
+#: euphorie/client/templates/report_identification.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:274
 #: euphorie/client/templates/risk_evaluation.pt:121
 #: euphorie/client/templates/risk_identification.pt:85
@@ -747,7 +747,7 @@ msgstr "RI&E's"
 #: euphorie/client/templates/report.pt:76
 #: euphorie/client/templates/report_actionplan.pt:199
 #: euphorie/client/templates/report_company.pt:91
-#: euphorie/client/templates/report_identification.pt:101
+#: euphorie/client/templates/report_identification.pt:102
 #: euphorie/client/templates/risk_actionplan.pt:273
 #: euphorie/client/templates/risk_evaluation.pt:120
 #: euphorie/client/templates/risk_identification.pt:84
@@ -771,7 +771,7 @@ msgstr "Uitloggen"
 #: euphorie/client/templates/report.pt:69
 #: euphorie/client/templates/report_actionplan.pt:192
 #: euphorie/client/templates/report_company.pt:84
-#: euphorie/client/templates/report_identification.pt:94
+#: euphorie/client/templates/report_identification.pt:95
 #: euphorie/client/templates/risk_actionplan.pt:266
 #: euphorie/client/templates/risk_evaluation.pt:113
 #: euphorie/client/templates/risk_identification.pt:77
@@ -795,7 +795,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/report.pt:68
 #: euphorie/client/templates/report_actionplan.pt:191
 #: euphorie/client/templates/report_company.pt:83
-#: euphorie/client/templates/report_identification.pt:93
+#: euphorie/client/templates/report_identification.pt:94
 #: euphorie/client/templates/risk_actionplan.pt:265
 #: euphorie/client/templates/risk_evaluation.pt:112
 #: euphorie/client/templates/risk_identification.pt:76
@@ -819,7 +819,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/report.pt:63
 #: euphorie/client/templates/report_actionplan.pt:186
 #: euphorie/client/templates/report_company.pt:78
-#: euphorie/client/templates/report_identification.pt:88
+#: euphorie/client/templates/report_identification.pt:89
 #: euphorie/client/templates/risk_actionplan.pt:257
 #: euphorie/client/templates/risk_evaluation.pt:107
 #: euphorie/client/templates/risk_identification.pt:71
@@ -843,7 +843,7 @@ msgstr "Plan van aanpak"
 #: euphorie/client/templates/report.pt:62
 #: euphorie/client/templates/report_actionplan.pt:185
 #: euphorie/client/templates/report_company.pt:77
-#: euphorie/client/templates/report_identification.pt:87
+#: euphorie/client/templates/report_identification.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:256
 #: euphorie/client/templates/risk_evaluation.pt:106
 #: euphorie/client/templates/risk_identification.pt:70
@@ -868,7 +868,7 @@ msgstr "Plan van aanpak"
 #: euphorie/client/templates/report.pt:57
 #: euphorie/client/templates/report_actionplan.pt:180
 #: euphorie/client/templates/report_company.pt:72
-#: euphorie/client/templates/report_identification.pt:82
+#: euphorie/client/templates/report_identification.pt:83
 #: euphorie/client/templates/risk_actionplan.pt:251
 #: euphorie/client/templates/risk_evaluation.pt:98
 #: euphorie/client/templates/risk_identification.pt:65
@@ -892,7 +892,7 @@ msgstr "Evaluatie"
 #: euphorie/client/templates/report.pt:56
 #: euphorie/client/templates/report_actionplan.pt:179
 #: euphorie/client/templates/report_company.pt:71
-#: euphorie/client/templates/report_identification.pt:81
+#: euphorie/client/templates/report_identification.pt:82
 #: euphorie/client/templates/risk_actionplan.pt:250
 #: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:64
@@ -917,7 +917,7 @@ msgstr "Evaluatie"
 #: euphorie/client/templates/report.pt:51
 #: euphorie/client/templates/report_actionplan.pt:174
 #: euphorie/client/templates/report_company.pt:66
-#: euphorie/client/templates/report_identification.pt:76
+#: euphorie/client/templates/report_identification.pt:77
 #: euphorie/client/templates/risk_actionplan.pt:245
 #: euphorie/client/templates/risk_evaluation.pt:92
 #: euphorie/client/templates/risk_identification.pt:56
@@ -941,7 +941,7 @@ msgstr "Inventarisatie"
 #: euphorie/client/templates/report.pt:50
 #: euphorie/client/templates/report_actionplan.pt:173
 #: euphorie/client/templates/report_company.pt:65
-#: euphorie/client/templates/report_identification.pt:75
+#: euphorie/client/templates/report_identification.pt:76
 #: euphorie/client/templates/risk_actionplan.pt:244
 #: euphorie/client/templates/risk_evaluation.pt:91
 #: euphorie/client/templates/risk_identification.pt:55
@@ -966,7 +966,7 @@ msgstr "Inventarisatie"
 #: euphorie/client/templates/report.pt:45
 #: euphorie/client/templates/report_actionplan.pt:168
 #: euphorie/client/templates/report_company.pt:60
-#: euphorie/client/templates/report_identification.pt:70
+#: euphorie/client/templates/report_identification.pt:71
 #: euphorie/client/templates/risk_actionplan.pt:239
 #: euphorie/client/templates/risk_evaluation.pt:86
 #: euphorie/client/templates/risk_identification.pt:50
@@ -990,7 +990,7 @@ msgstr "Voorbereiding"
 #: euphorie/client/templates/report.pt:44
 #: euphorie/client/templates/report_actionplan.pt:167
 #: euphorie/client/templates/report_company.pt:59
-#: euphorie/client/templates/report_identification.pt:69
+#: euphorie/client/templates/report_identification.pt:70
 #: euphorie/client/templates/risk_actionplan.pt:238
 #: euphorie/client/templates/risk_evaluation.pt:85
 #: euphorie/client/templates/risk_identification.pt:49
@@ -1582,7 +1582,7 @@ msgstr ""
 "voor uw organisatie. Indien het niet van toepassing is, laat u het vakje "
 "open en krijgt u geen vragen in de RI&E over dit onderwerp."
 
-#. Default: Tailor the risk assessment for your organisation
+#. Default: Tailor the risk assessment to your organisation
 #: euphorie/client/templates/profile.pt:16
 msgid "header_profile"
 msgstr "Maak de RI&E op maat voor uw organisatie"
@@ -1612,8 +1612,8 @@ msgstr "Weet u zeker dat u deze RI&E revisie wil publiceren?"
 #: euphorie/client/templates/publish.pt:17
 msgid "intro_publish_first_time"
 msgstr ""
-"Weet u zeker dat u deze RI&E wil publiceren? Na publicatie zal de RI&E "
-"inde online client verschijnen en voor iedereen bruikbaar zijn."
+"Weet u zeker dat u deze RI&E wil publiceren? Na publicatie zal de RI&E in"
+" de online client verschijnen en voor iedereen bruikbaar zijn."
 
 #. Default: Publish survey
 #: euphorie/client/templates/publish.pt:14
@@ -1758,6 +1758,7 @@ msgstr "automatisch opgeslagen"
 
 #. Default: Print
 #: euphorie/client/templates/report_actionplan.pt:26
+#: euphorie/client/templates/report_identification.pt:25
 msgid "button_print"
 msgstr "Print"
 
@@ -2768,17 +2769,17 @@ msgid "label_contact_name"
 msgstr "Naam contactpersoon"
 
 #. Default: Logo
-#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:41
+#: euphorie/content/sector.py:72 euphorie/content/templates/settings.pt:59
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
-#: euphorie/content/sector.py:79 euphorie/content/templates/settings.pt:32
+#: euphorie/content/sector.py:79 euphorie/content/templates/settings.pt:42
 msgid "label_main_colour"
 msgstr "Hoofdkleur"
 
 #. Default: Support colour
-#: euphorie/content/sector.py:83 euphorie/content/templates/settings.pt:36
+#: euphorie/content/sector.py:83 euphorie/content/templates/settings.pt:51
 msgid "label_support_colour"
 msgstr "Steunkleur"
 
@@ -2812,21 +2813,21 @@ msgid "title_common_solution"
 msgstr "Standaard maatregel"
 
 #. Default: Version name
-#: euphorie/content/survey.py:45 euphorie/content/survey.py:164
+#: euphorie/content/survey.py:46 euphorie/content/survey.py:165
 msgid "label_survey_title"
 msgstr "Titel"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to
 #. users.
-#: euphorie/content/survey.py:46 euphorie/content/survey.py:165
+#: euphorie/content/survey.py:47 euphorie/content/survey.py:166
 msgid "help_survey_title"
 msgstr ""
 "De titel van deze RI&E. Deze titel is niet zichtbaar aan de "
 "gebruikerskant."
 
 #. Default: Introduction text
-#: euphorie/content/survey.py:55
+#: euphorie/content/survey.py:56
 msgid "label_introduction"
 msgstr "Inleidende tekst"
 
@@ -2837,7 +2838,7 @@ msgstr "Inleidende tekst"
 #. text brief so it will easily fit on screens of small devices such as phones
 #. and
 #. PDAs
-#: euphorie/content/survey.py:56
+#: euphorie/content/survey.py:57
 msgid "help_introduction"
 msgstr ""
 "Deze inleidende tekst wordt getoond als men een nieuwe RI&E start. Indien"
@@ -2846,58 +2847,68 @@ msgstr ""
 "telefoon of PDA."
 
 #. Default: Evaluation may be skipped
-#: euphorie/content/survey.py:67
+#: euphorie/content/survey.py:68
 msgid "label_evaluation_optional"
 msgstr "Evaluatie mag overgeslagen worden ."
 
 #. Default: This option allows uses to skip the evaluation phase.
-#: euphorie/content/survey.py:68
+#: euphorie/content/survey.py:69
 msgid "help_evaluation_optional"
 msgstr ""
 "Deze optie maakt de Evaluatie niet verplicht.  De invuller kan deze fase "
 "overslaan en doorgaan met het Plan van aanpak."
 
 #. Default: Language
-#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:24
+#: euphorie/content/survey.py:75 euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr "Taal"
 
 #. Default: Classification code
-#: euphorie/content/survey.py:80 euphorie/content/templates/survey_view.pt:21
+#: euphorie/content/survey.py:81 euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr "Classificatie code"
 
 #. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
-#: euphorie/content/survey.py:81
+#: euphorie/content/survey.py:82
 msgid "help_classification_code"
 msgstr ""
 "De branchecode zoals die gedefinieerd is in revisie 2 van de NACE-"
 "standaard."
 
 #. Default: You can not delete the only survey version.
-#: euphorie/content/survey.py:237
+#: euphorie/content/survey.py:238
 msgid "message_delete_no_last_survey"
 msgstr "De laatste (enige) versie van de branche-RI&E kan niet verwijderd worden."
 
 #. Default: Title
-#: euphorie/content/surveygroup.py:33
+#: euphorie/content/surveygroup.py:36
 msgid "label_title"
 msgstr "Titel"
 
 #. Default: The title of this survey. This title is used in the survey overview
 #. in
 #. the clients.
-#: euphorie/content/surveygroup.py:34
+#: euphorie/content/surveygroup.py:37
 msgid "help_surveygroup_title"
 msgstr ""
 "De titel van deze RI&E. Deze titel wordt zichtbaar in het overzicht voor "
 "gebruikers."
 
 #. Default: Standard
-#: euphorie/content/surveygroup.py:185
+#: euphorie/content/surveygroup.py:188
 msgid "survey_default_title"
 msgstr "Standaard"
+
+#. Default: This survey is now no longer available in the client.
+#: euphorie/content/surveygroup.py:222
+msgid "message_unpublish_success"
+msgstr "De RI&E is nu niet meer beschikbaar in de online client."
+
+#. Default: Cancelled unpublish action.
+#: euphorie/content/surveygroup.py:225
+msgid "message_unpublish_cancel"
+msgstr "De-publicatie geannuleerd."
 
 #. Default: Title of sector.
 #: euphorie/content/upload.py:62
@@ -2991,7 +3002,7 @@ msgid "label_contact_email"
 msgstr "E-mailadres"
 
 #. Default: Password
-#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:62
+#: euphorie/content/user.py:63 euphorie/content/templates/settings.pt:80
 msgid "label_password"
 msgstr "Wachtwoord"
 
@@ -3377,20 +3388,20 @@ msgid "title_sectors"
 msgstr "Branches"
 
 #. Default: Save changes
-#: euphorie/content/templates/settings.pt:81
+#: euphorie/content/templates/settings.pt:99
 msgid "button_save_changes"
 msgstr "Bewaar wijzigingen"
 
-#: euphorie/content/templates/settings.pt:72
-#: euphorie/content/templates/settings.pt:64
-#: euphorie/content/templates/settings.pt:43
-#: euphorie/content/templates/settings.pt:29
+#: euphorie/content/templates/settings.pt:90
+#: euphorie/content/templates/settings.pt:82
+#: euphorie/content/templates/settings.pt:61
+#: euphorie/content/templates/settings.pt:34
 msgid "Information"
 msgstr "Informatie"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: euphorie/content/templates/settings.pt:72
+#: euphorie/content/templates/settings.pt:90
 msgid "help_sector_contactperson"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -3398,13 +3409,13 @@ msgstr ""
 "zodat de tekst op de knoppen leesbaar blijft."
 
 #. Default: Contact person
-#: euphorie/content/templates/settings.pt:70
+#: euphorie/content/templates/settings.pt:88
 msgid "label_contact_person"
 msgstr "Contactpersoon"
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: euphorie/content/templates/settings.pt:64
+#: euphorie/content/templates/settings.pt:82
 msgid "help_sector_password"
 msgstr "Met dit wachtwoord kunt u inloggen op de beheeromgeving."
 
@@ -3413,7 +3424,7 @@ msgstr "Met dit wachtwoord kunt u inloggen op de beheeromgeving."
 #. PNG file of at least 100 pixels in height. Uploading larger images is fine,
 #. the
 #. logo will be scaled down to the right size automatically.
-#: euphorie/content/templates/settings.pt:57
+#: euphorie/content/templates/settings.pt:75
 msgid "logo_instructions"
 msgstr ""
 "Neem voor het beste resultaat een ${transparent} PNG bestand van "
@@ -3421,17 +3432,17 @@ msgstr ""
 "juiste grootte geschaald."
 
 #. Default: transparent
-#: euphorie/content/templates/settings.pt:58
+#: euphorie/content/templates/settings.pt:76
 msgid "logo_instructions_transparent"
 msgstr "transparant"
 
 #. Default: My own
-#: euphorie/content/templates/settings.pt:52
+#: euphorie/content/templates/settings.pt:70
 msgid "logo_my_own"
 msgstr "Mijn logo"
 
 #. Default: Which logo you would like to display in the top left corner?
-#: euphorie/content/templates/settings.pt:45
+#: euphorie/content/templates/settings.pt:63
 msgid "label_logo_selection"
 msgstr "Welk logo wilt u linksboven tonen?"
 
@@ -3442,7 +3453,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #. your image is of format png, jpg or gif and does not contain any special
 #. characters. The new logo will only become visible after you've saved your
 #. changes.
-#: euphorie/content/templates/settings.pt:43
+#: euphorie/content/templates/settings.pt:61
 msgid "help_sector_logo"
 msgstr ""
 "Het logo zal zowel in de client RI&E als ook in de beheer RI&E linksboven"
@@ -3452,7 +3463,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: euphorie/content/templates/settings.pt:30
+#: euphorie/content/templates/settings.pt:37
 msgid "help_colour_picker"
 msgstr ""
 "Het kleurenpalet hieronder kunt u gebruiken om de kleuren van uw "
@@ -3463,7 +3474,7 @@ msgstr ""
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text
 #. on each button legible.
-#: euphorie/content/templates/settings.pt:29
+#: euphorie/content/templates/settings.pt:34
 msgid "help_sector_colours"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -3471,18 +3482,18 @@ msgstr ""
 "zodat de tekst op de knoppen leesbaar blijft."
 
 #. Default: Restore to original colours
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:31
 msgid "button_reset_colours"
 msgstr "Gebruik de standaard kleuren"
 
 #. Default: Colour scheme
-#: euphorie/content/templates/settings.pt:27
+#: euphorie/content/templates/settings.pt:28
 msgid "header_colour_scheme"
 msgstr "Kleurinstellingen"
 
 #. Default: Preview
 #: euphorie/content/templates/settings.pt:20
-#: euphorie/deployment/tiles/templates/versions.pt:30
+#: euphorie/deployment/tiles/templates/versions.pt:31
 msgid "label_preview"
 msgstr "Preview"
 
@@ -3595,6 +3606,24 @@ msgstr "Hoe wilt u beginnen"
 msgid "intro_add_surveygroup"
 msgstr "Via dit formulier kunt u een nieuwe RI&E maken."
 
+#. Default: Unpublish
+#: euphorie/content/templates/unpublish.pt:23
+#: euphorie/deployment/tiles/templates/versions.pt:21
+msgid "button_unpublish"
+msgstr "De-publiceer"
+
+#. Default: Are you sure you want to unpublish this survey?
+#: euphorie/content/templates/unpublish.pt:19
+msgid "unpublish_confirm"
+msgstr ""
+"Weet u zeker dat u deze RI&E wil depubliceren? Hier zall de RI&E niet "
+"meer beschikbaar zijn in online client."
+
+#. Default: Unpublish "${title}"
+#: euphorie/content/templates/unpublish.pt:12
+msgid "title_unpublish"
+msgstr "De-publiceer \"${title}\""
+
 #. Default: Unlock
 #: euphorie/content/templates/user_mgmt.pt:58
 #: euphorie/content/templates/user_mgmt.pt:36
@@ -3611,7 +3640,7 @@ msgstr "Blokkeren"
 #: euphorie/content/templates/user_mgmt.pt:56
 #: euphorie/content/templates/user_mgmt.pt:34
 #: euphorie/deployment/tiles/templates/addbar.pt:9
-#: euphorie/deployment/tiles/templates/versions.pt:31
+#: euphorie/deployment/tiles/templates/versions.pt:32
 msgid "button_edit"
 msgstr "Wijzig"
 
@@ -3731,66 +3760,71 @@ msgstr "Toon oudere versies"
 
 #. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
-#: euphorie/deployment/tiles/templates/versions.pt:54
+#: euphorie/deployment/tiles/templates/versions.pt:55
 msgid "legend_updated"
 msgstr ""
 "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
 "Publiceer om deze zichtbaar te maken voor de invuller (client)."
 
 #. Default: Update
-#: euphorie/deployment/tiles/templates/versions.pt:54
+#: euphorie/deployment/tiles/templates/versions.pt:55
 msgid "label_update"
 msgstr "Publiceer"
 
 #. Default: ${label} Version you are currently reviewing
-#: euphorie/deployment/tiles/templates/versions.pt:52
+#: euphorie/deployment/tiles/templates/versions.pt:53
 msgid "legend_current"
 msgstr "${label} Getoonde versie"
 
 #. Default: Current
-#: euphorie/deployment/tiles/templates/versions.pt:52
-#: euphorie/deployment/tiles/templates/versions.pt:25
+#: euphorie/deployment/tiles/templates/versions.pt:53
+#: euphorie/deployment/tiles/templates/versions.pt:26
 msgid "label_current"
 msgstr "Huidig"
 
 #. Default: ${label} Version that is currently online
-#: euphorie/deployment/tiles/templates/versions.pt:51
+#: euphorie/deployment/tiles/templates/versions.pt:52
 msgid "legend_published"
 msgstr "${label} Gepubliceerde versie"
 
 #. Default: Published
-#: euphorie/deployment/tiles/templates/versions.pt:51
-#: euphorie/deployment/tiles/templates/versions.pt:26
+#: euphorie/deployment/tiles/templates/versions.pt:52
+#: euphorie/deployment/tiles/templates/versions.pt:27
 msgid "label_published"
 msgstr "Gepubliceerd"
 
 #. Default: Legend
-#: euphorie/deployment/tiles/templates/versions.pt:49
+#: euphorie/deployment/tiles/templates/versions.pt:50
 msgid "header_legend"
 msgstr "Legenda"
 
 #. Default: Start to write a new survey. You will be asked whether you want to
 #. start off with a copy of an existing survey.
-#: euphorie/deployment/tiles/templates/versions.pt:44
+#: euphorie/deployment/tiles/templates/versions.pt:45
 msgid "help_create_new_version"
 msgstr ""
 "Maken van een nieuwe RI&E. U kunt beginnen met een lege RI&E of met een "
 "kopie van een bestaande RI&E."
 
 #. Default: Create new survey
-#: euphorie/deployment/tiles/templates/versions.pt:44
+#: euphorie/deployment/tiles/templates/versions.pt:45
 msgid "button_create_new"
 msgstr "Nieuwe RI&E"
 
 #. Default: Updated
-#: euphorie/deployment/tiles/templates/versions.pt:32
+#: euphorie/deployment/tiles/templates/versions.pt:33
 msgid "button_updated"
 msgstr "Gepubliceerd"
 
 #. Default: Current / Published
-#: euphorie/deployment/tiles/templates/versions.pt:27
+#: euphorie/deployment/tiles/templates/versions.pt:28
 msgid "label_current_published"
 msgstr "Huidig / Gepubliceerd"
+
+#. Default: Remove this survey from the online client.
+#: euphorie/deployment/tiles/templates/versions.pt:21
+msgid "title_help_unpublished"
+msgstr "Verwijder deze RI&E uit de client."
 
 #. Default: Publish the selected survey live with its latest changes.
 #: euphorie/deployment/tiles/templates/versions.pt:20
