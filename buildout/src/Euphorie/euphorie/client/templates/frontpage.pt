@@ -38,93 +38,147 @@
       <span lang="fi" xml:lang="fi">Tervetuloa</span><br />
       <span lang="sv" xml:lang="sv">Välkommen</span><br />
     </h1>
-    <ul class="countries">
-      <li class="at">
-        <a href="${client_url}/at/?language=de-AT">Deutsch</a>
-        <a href="${client_url}/at/?language=sl-AT">Slovenščina</a>
-        <a href="${client_url}/at/?language=hu-AT">Magyar nyelv</a>
+    <ul class="countries" tal:define="enabled_countries view/enabled_countries">
+      <li tal:define="disabled python:'at' not in enabled_countries" class="at${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/at/?language=de-AT">Deutsch</a>
+          <a href="${client_url}/at/?language=sl-AT">Slovenščina</a>
+          <a href="${client_url}/at/?language=hu-AT">Magyar nyelv</a>
+        </tal:block>
       </li>
-      <li class="be">
-        <a href="${client_url}/be/?language=fr-BE">Français</a>
-        <a href="${client_url}/be/?language=nl-BE">Nederlands</a>
+      <li tal:define="disabled python:'be' not in enabled_countries" class="be${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/be/?language=fr-BE">Français</a>
+          <a href="${client_url}/be/?language=nl-BE">Nederlands</a>
+        </tal:block>
       </li>
-      <li class="bg">
-        <a href="${client_url}/bg/?language=bg-BG">Български език</a>
+      <li tal:define="disabled python:'bg' not in enabled_countries" class="bg${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/bg/?language=bg-BG">Български език</a>
+        </tal:block>
       </li>
-      <li class="cy">
-        <a href="${client_url}/cy/?language=el-CY">Ελληvικά</a>
-        <a href="${client_url}/cy/?language=en-CY">English</a>
+      <li tal:define="disabled python:'cy' not in enabled_countries" class="cy${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/cy/?language=el-CY">Ελληvικά</a>
+          <a href="${client_url}/cy/?language=en-CY">English</a>
+        </tal:block>
       </li>
-      <li class="cz">
-        <a href="${client_url}/cz/?language=cs-CZ">Čeština</a>
+      <li tal:define="disabled python:'cz' not in enabled_countries" class="cz${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/cz/?language=cs-CZ">Čeština</a>
+        </tal:block>
       </li>
-      <li class="dk">
-        <a href="${client_url}/dk/?language=da-DK">Dansk</a>
+      <li tal:define="disabled python:'dk' not in enabled_countries" class="dk${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/dk/?language=da-DK">Dansk</a>
+        </tal:block>
       </li>
-      <li class="ee">
-        <a href="${client_url}/ee/?language=et-EE">Eesti keel</a>
+      <li tal:define="disabled python:'ee' not in enabled_countries" class="ee${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/ee/?language=et-EE">Eesti keel</a>
+        </tal:block>
       </li>
-      <li class="fi">
-        <a href="${client_url}/fi/?language=fi-FI">Suomi</a>
+      <li tal:define="disabled python:'fi' not in enabled_countries" class="fi${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/fi/?language=fi-FI">Suomi</a>
+        </tal:block>
       </li>
-      <li class="fr">
-        <a href="${client_url}/fr/?language=fr-FR">Français</a>
+      <li tal:define="disabled python:'fr' not in enabled_countries" class="fr${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/fr/?language=fr-FR">Français</a>
+        </tal:block>
       </li>
-      <li class="de">
-        <a href="${client_url}/de/?language=de-DE">Deutsch</a>
+      <li tal:define="disabled python:'de' not in enabled_countries" class="de${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/de/?language=de-DE">Deutsch</a>
+        </tal:block>
       </li>
-      <li class="gr">
-        <a href="${client_url}/gr/?language=el-EL">Ελληνικά</a>
+      <li tal:define="disabled python:'gr' not in enabled_countries" class="gr${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/gr/?language=el-EL">Ελληνικά</a>
+        </tal:block>
       </li>
-      <li class="hu">
-        <a href="${client_url}/hu/?language=hu-HU">Magyarország</a>
+      <li tal:define="disabled python:'hu' not in enabled_countries" class="hu${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/hu/?language=hu-HU">Magyarország</a>
+        </tal:block>
       </li>
-      <li class="ie">
-        <a href="${client_url}/ie/?language=en-IE">English</a>
+      <li tal:define="disabled python:'ie' not in enabled_countries" class="ie${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/ie/?language=en-IE">English</a>
+        </tal:block>
       </li>
-      <li class="it">
-        <a href="${client_url}/it/?language=it-IT">Italiano</a>
+      <li tal:define="disabled python:'it' not in enabled_countries" class="it${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/it/?language=it-IT">Italiano</a>
+        </tal:block>
       </li>
-      <li class="lv">
-        <a href="${client_url}/lv/?language=lv-LV">Latviešu valoda</a>
+      <li tal:define="disabled python:'lv' not in enabled_countries" class="lv${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/lv/?language=lv-LV">Latviešu valoda</a>
+        </tal:block>
       </li>
-      <li class="lt">
-        <a href="${client_url}/lt/?language=lt-LT">Lietuvių kalba</a>
+      <li tal:define="disabled python:'lt' not in enabled_countries" class="lt${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/lt/?language=lt-LT">Lietuvių kalba</a>
+        </tal:block>
       </li>
-      <li class="lu">
-        <a href="${client_url}/lu/?language=de-LU">Deutsch</a>
-        <a href="${client_url}/lu/?language=fr-LU">Français</a>
+      <li tal:define="disabled python:'lu' not in enabled_countries" class="lu${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/lu/?language=de-LU">Deutsch</a>
+          <a href="${client_url}/lu/?language=fr-LU">Français</a>
+        </tal:block>
       </li>
-      <li class="mt">
-        <a href="${client_url}/mt/?language=en-MT">English</a>
-        <a href="${client_url}/mt/?language=mt-MT">Malti</a>
+      <li tal:define="disabled python:'mt' not in enabled_countries" class="mt${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/mt/?language=en-MT">English</a>
+          <a href="${client_url}/mt/?language=mt-MT">Malti</a>
+        </tal:block>
       </li>
-      <li class="nl">
-        <a href="${client_url}/nl/?language=nl-NL">Nederlands</a>
+      <li tal:define="disabled python:'nl' not in enabled_countries" class="nl${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/nl/?language=nl-NL">Nederlands</a>
+        </tal:block>
       </li>
-      <li class="pl">
-        <a href="${client_url}/pl/?language=pl-PL">Język Polski</a>
+      <li tal:define="disabled python:'pl' not in enabled_countries" class="pl${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/pl/?language=pl-PL">Język Polski</a>
+        </tal:block>
       </li>
-      <li class="pt">
-        <a href="${client_url}/pt/?language=pt-PT">Português</a>
+      <li tal:define="disabled python:'pt' not in enabled_countries" class="pt${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/pt/?language=pt-PT">Português</a>
+        </tal:block>
       </li>
-      <li class="ro">
-        <a href="${client_url}/ro/?language=ro-RO">Limba Română</a>
+      <li tal:define="disabled python:'ro' not in enabled_countries" class="ro${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/ro/?language=ro-RO">Limba Română</a>
+        </tal:block>
       </li>
-      <li class="si">
-        <a href="${client_url}/si/?language=sl-SL">Slovenščina</a>
+      <li tal:define="disabled python:'si' not in enabled_countries" class="si${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/si/?language=sl-SL">Slovenščina</a>
+        </tal:block>
       </li>
-      <li class="sk">
-        <a href="${client_url}/sk/?language=sk-SK">Slovenský jazyks</a>
+      <li tal:define="disabled python:'sk' not in enabled_countries" class="sk${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/sk/?language=sk-SK">Slovenský jazyks</a>
+        </tal:block>
       </li>
-      <li class="es">
-        <a href="${client_url}/es/?language=es-ES">Español</a>
+      <li tal:define="disabled python:'es' not in enabled_countries" class="es${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/es/?language=es-ES">Español</a>
+        </tal:block>
       </li>
-      <li class="se">
-        <a href="${client_url}/se/?language=sv-SE">Svenska</a>
+      <li tal:define="disabled python:'se' not in enabled_countries" class="se${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/se/?language=sv-SE">Svenska</a>
+        </tal:block>
       </li>
-      <li class="gb">
-        <a href="${client_url}/gb/?language=en-GB">English</a>
+      <li tal:define="disabled python:'gb' not in enabled_countries" class="gb${python:' disabled' if disabled else ''}">
+        <tal:block condition="not:disabled">
+          <a href="${client_url}/gb/?language=en-GB">English</a>
+        </tal:block>
       </li>
     </ul>
 <br/>

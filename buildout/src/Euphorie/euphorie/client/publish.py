@@ -66,7 +66,7 @@ def CopyToClient(survey, preview=False):
     assert ISector.providedBy(sector)
 
     if country.id not in client:
-        client.invokeFactory("euphorie.clientcountry", country.id, title=country.title)
+        client.invokeFactory("euphorie.clientcountry", country.id, title=country.title, is_region=country.is_region)
     cl_country=client[country.id]
 
     if sector.id not in cl_country:
@@ -112,6 +112,7 @@ def CopyToClient(survey, preview=False):
     notify(ObjectPublishedEvent(source))
 
     return copy
+
 
 
 def PublishToClient(survey, preview=False):

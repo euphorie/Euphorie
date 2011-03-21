@@ -37,6 +37,9 @@ class View(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("frontpage")
 
+    def update(self):
+        self.enabled_countries=frozenset(self.context.keys())
+
 
 
 

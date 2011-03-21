@@ -3,6 +3,7 @@ from Acquisition import aq_inner
 from AccessControl import getSecurityManager
 from zope.interface import implements
 from five import grok
+from zope import schema
 from z3c.saconfig import Session
 from plone.directives import form
 from plone.directives import dexterity
@@ -14,17 +15,21 @@ from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from euphorie.client.session import SessionManager
 
+grok.templatedir("templates")
+
 log = logging.getLogger(__name__)
+
 
 class IClientCountry(form.Schema, IBasic):
     """Country grouping in the online client.
     """
 
+
 class ClientCountry(dexterity.Container):
     implements(IClientCountry)
 
+    is_region = False
 
-grok.templatedir("templates")
 
 
 class View(grok.View):
