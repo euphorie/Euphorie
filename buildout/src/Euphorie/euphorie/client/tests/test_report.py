@@ -94,5 +94,10 @@ class HtmlToRtfTests(unittest.TestCase):
     def testInlineEntity(self):
         self.assertTrue(
                 "Simple & clean\\par" in 
-                self.render(self.HtmlToRtf(u"<p>Simple &amp; clean</p>", u"<stylesheet>")), [])
+                self.render(self.HtmlToRtf(u"<p>Simple &amp; clean</p>", u"<stylesheet>")))
+
+    def testInlineEntityDigit(self):
+        self.assertTrue(
+                "Simple \r clean\\par" in 
+                self.render(self.HtmlToRtf(u"<p>Simple &#13; clean</p>", u"<stylesheet>")))
 
