@@ -26,7 +26,7 @@ class CountryTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, survey_nl)
         browser=Browser()
         browser.open(self.portal.client.absolute_url())
-        browser.getLink("Nederlands", index=1).click()
+        browser.getLink("Nederlands").click()
         registerUserInClient(browser, link="Registreer")
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/?language=nl-NL")
         self.assertEqual(browser.getControl(name="survey").options,
