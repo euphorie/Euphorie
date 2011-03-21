@@ -4,7 +4,8 @@ Changelog
 2.6 - Unreleased
 ----------------
 
-- ...
+- Add unpublish feature to the CMS.
+  [wichert]
 
 
 2.5 - February 28, 2011
@@ -25,11 +26,11 @@ Changelog
   `TNO ticket 174 <http://code.simplon.biz/tracker/tno-euphorie/ticket/174>`_.
   [wichert].
 
-- Added some <br> tags to avoid the navigation vanishing in IE7
+- Added some ``<br/>`` tags to avoid the navigation vanishing in IE7
   [pilz]
 
-- updated the minified css files from the originals to reflect recent 
-  changes cornae did to fix ie compatibility 
+- Update the minified css files from the originals to reflect recent 
+  changes cornae did to fix ie compatibility .
   [pilz]
 
 - Add report header styles for an extra depth level. This fixes problems

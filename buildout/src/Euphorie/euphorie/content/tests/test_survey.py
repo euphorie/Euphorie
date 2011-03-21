@@ -1,10 +1,6 @@
 import unittest
 import Acquisition
-from zope.interface import alsoProvides
 from zope.component.testing import PlacelessSetup
-from euphorie.content.survey import Survey
-from euphorie.content.survey import View
-from euphorie.content.profilequestion import IProfileQuestion
 
 class Mock(Acquisition.Explicit):
     def __init__(self, **kwargs):
@@ -26,6 +22,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         from plone.folder.default import DefaultOrdering
         from plone.app.layout.globals.context import ContextState
         from zope.interface import Interface
+        from euphorie.content.survey import View
         provideAdapter(AttributeAnnotations)
         provideAdapter(DefaultOrdering)
         provideAdapter(ContextState, adapts=(Interface, Interface),
@@ -36,11 +33,13 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         View.module_info.package_dotted_name="euphorie.content.survey.View"
 
     def tearDown(self):
+        from euphorie.content.survey import View
         super(ViewTests, self).tearDown()
         del View.__view_name__
         del View.module_info
 
     def _request(self):
+        from zope.interface import alsoProvides
         from zope.publisher.browser import TestRequest
         from zope.annotation.interfaces import IAttributeAnnotatable
         req=TestRequest() 
@@ -49,12 +48,18 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
 
 
     def testProfileQuestions_NoChildren(self):
+        from euphorie.content.survey import Survey
+        from euphorie.content.survey import View
         survey=Survey()
         view=View(survey, self._request())
         self.assertEqual(view.profile_questions(), [])
 
 
     def testProfileQuestions_ProfileChild(self):
+        from zope.interface import alsoProvides
+        from euphorie.content.survey import Survey
+        from euphorie.content.profilequestion import IProfileQuestion
+        from euphorie.content.survey import View
         survey=Survey()
         view=View(survey, self._request())
         child=Mock(id="child", title=u"Child")
@@ -65,6 +70,10 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         self.assertEqual(len(pq), 1)
 
     def testProfileQuestions_ReturnedData(self):
+        from zope.interface import alsoProvides
+        from euphorie.content.survey import Survey
+        from euphorie.content.profilequestion import IProfileQuestion
+        from euphorie.content.survey import View
         survey=Survey()
         view=View(survey, self._request())
         child=Mock(id="child", title=u"Child")
@@ -78,6 +87,8 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
 
 
     def testProfileQuestions_OtherChild(self):
+        from euphorie.content.survey import Survey
+        from euphorie.content.survey import View
         survey=Survey()
         view=View(survey, self._request())
         child=Mock(id="child", title=u"Child")
@@ -85,4 +96,29 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
 
         pq=view.profile_questions()
         self.assertEqual(len(pq), 0)
+
+
+
+class HandleSurveyUnpublishTests(unittest.TestCase):
+    def handleSurveyUnpublish(self, *a, **kw):
+        from euphorie.content.survey import handleSurveyUnpublish
+        return handleSurveyUnpublish(*a, **kw)
+
+    def testRemovePublishedFromSurvey(self):
+        surveygroup=Mock(published=None)
+        surveygroup.survey=Mock(id="survey", published="yes")
+        self.handleSurveyUnpublish(surveygroup.survey, None)
+        self.assertTrue(not hasattr(surveygroup.survey, "published"))
+
+    def testUpdatateSurveygroupIfCurrentlyPublished(self):
+        surveygroup=Mock(published="survey")
+        surveygroup.survey=Mock(id="survey", published="yes")
+        self.handleSurveyUnpublish(surveygroup.survey, None)
+        self.assertEqual(surveygroup.published, None)
+
+    def testUpdatateSurveygroupIfOtherPublished(self):
+        surveygroup=Mock(published="other")
+        surveygroup.survey=Mock(id="survey", published="yes")
+        self.handleSurveyUnpublish(surveygroup.survey, None)
+        self.assertEqual(surveygroup.published, "other")
 

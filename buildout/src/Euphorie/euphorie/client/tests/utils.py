@@ -24,6 +24,7 @@ def addSurvey(portal, xml_survey):
     publisher.publish()
 
 
+
 def testRequest():
     """Create a new request object. This is based on the code in
     :py:func`Testing.makerequest.makerequest`."""

@@ -12,7 +12,10 @@ from zope.interface import implements
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.content import MessageFactory as _
+from euphorie.content.interfaces import SurveyUnpublishEvent
+from euphorie.content.survey import ISurvey
 from five import grok
 from five.pt.pagetemplate import ViewPageTemplateFile
 from zope.i18n import translate
@@ -21,9 +24,9 @@ from plone.dexterity.utils import createContentInContainer
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from euphorie.content.survey import ISurvey
 
 
+grok.templatedir("templates")
 
 log = logging.getLogger(__name__)
 
@@ -192,6 +195,45 @@ class AddForm(dexterity.AddForm):
 
 
 
+class Unpublish(grok.View):
+    grok.context(ISurveyGroup)
+    grok.require("cmf.ModifyPortalContent")
+    grok.name("unpublish")
+    grok.template("unpublish")
+
+    def unpublish(self):
+        context=aq_inner(self.context)
+        published_survey=context[context.published]
+
+        wt=getToolByName(context, "portal_workflow")
+        if wt.getInfoFor(published_survey, "review_state")!="published":
+            log.warning("Trying to unpublish survey %s which is not marked as published", "/".join(published_survey.getPhysicalPath()))
+        else:
+            wt.doActionFor(published_survey, "retract")
+        notify(SurveyUnpublishEvent(published_survey))
+
+
+    def post(self):
+        action=self.request.form.get("action", "cancel")
+        flash=IStatusMessage(self.request).addStatusMessage
+
+        if action=="unpublish":
+            self.unpublish()
+            flash(_("message_unpublish_cancel", default=u"This survey is now no longer available in the client."), "success")
+
+        else:
+            flash(_("message_unpublish_cancel", default=u"Cancelled unpublish action."), "notice")
+
+        context=aq_inner(self.context)
+        self.request.response.redirect(context.absolute_url())
+
+
+    def update(self):
+        super(Unpublish, self).update()
+        if self.request.method=="POST":
+            self.post()
+        
+
 
 class VersionCommand(grok.View):
     grok.context(ISurveyGroup)
@@ -207,6 +249,8 @@ class VersionCommand(grok.View):
         response=self.request.response
         if action=="publish":
             response.redirect("%s/%s/@@publish" % (surveygroup.absolute_url(), survey_id))
+        elif action=="unpublish":
+            response.redirect("%s//@@unpublish" % surveygroup.absolute_url())
         elif action=="clone":
             response.redirect("%s/++add++euphorie.survey?%s" % 
                     (surveygroup.absolute_url(),
@@ -231,4 +275,5 @@ def handleSurveyPublish(survey, event):
     
     surveygroup=aq_parent(aq_inner(survey))
     surveygroup.published=survey.id
+
 

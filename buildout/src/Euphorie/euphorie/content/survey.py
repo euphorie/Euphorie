@@ -28,6 +28,7 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.module import IModule
 from euphorie.content.interfaces import IQuestionContainer
+from euphorie.content.interfaces import ISurveyUnpublishEvent
 from euphorie.content.utils import StripMarkup
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.skin import actions
@@ -239,5 +240,16 @@ class Delete(actions.Delete):
             return False
 
 
+
+
+@grok.subscribe(ISurvey, ISurveyUnpublishEvent)
+def handleSurveyUnpublish(survey, event):
+    """Event handler (subscriber) for unpublishing a survey."""
+    if hasattr(survey, "published"):
+        delattr(survey, "published")
+
+    surveygroup=aq_parent(survey)
+    if surveygroup.published==survey.id:
+        surveygroup.published=None
 
 
