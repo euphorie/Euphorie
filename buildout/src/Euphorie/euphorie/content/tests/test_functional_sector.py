@@ -175,3 +175,76 @@ class PermissionTests(EuphorieTestCase):
         self.failUnless(_checkPermission("Modify portal content", sector))
         self.failUnless(_checkPermission("View", sector))
 
+
+
+class GetSurveysTests(EuphorieTestCase):
+    def getSurveys(self, context):
+        from euphorie.content.sector import getSurveys
+        return getSurveys(context)
+
+    def testOutsideSector(self):
+        self.assertEqual(self.getSurveys(None), [])
+
+    def testSingleUnpublishedSurvey(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        self.assertEqual(self.getSurveys(survey),
+                [ { "url": "http://nohost/plone/sectors/nl/sector/test-survey",
+                    "published": False,
+                    "title": u"Test survey",
+                    "surveys": [
+                        { "id": "standard-version",
+                          "title": u"Standard version",
+                          "current": True,
+                          "url": "http://nohost/plone/sectors/nl/sector/test-survey/standard-version",
+                          "versions": [],
+                          "modified": False,
+                          "published": False}],
+                  }])
+
+    def testTwoUnpublishedSurveysgroups(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        addSurvey(sector, EMPTY_SURVEY, "Test survey 2")
+        result=self.getSurveys(survey)
+        self.assertEqual(len(result), 2)
+        self.assertEqual(result[0]["title"], u"Test survey")
+        self.assertEqual(result[1]["title"], u"Test survey 2")
+
+    def testSurveygroupTwoSurveys(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        surveygroup=sector["test-survey"]
+        surveygroup.invokeFactory("euphorie.survey", "next-edition", title=u"Very latest")
+        result=self.getSurveys(survey)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(len(result[0]["surveys"]), 2)
+        self.assertEqual(result[0]["surveys"][0]["current"], True)
+        self.assertEqual(result[0]["surveys"][1]["current"], False)
+        self.assertEqual(result[0]["surveys"][1]["title"], u"Very latest")
+
+    def testPublishedSurvey(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        surveygroup=sector["test-survey"]
+        surveygroup.published="standard-version"
+        result=self.getSurveys(survey)
+        self.assertEqual(result[0]["published"], True)
+        self.assertEqual(result[0]["surveys"][0]["published"], True)
+

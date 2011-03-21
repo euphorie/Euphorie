@@ -147,6 +147,7 @@ def getSurveys(context):
     * ``id``: surveygroup id
     * ``title`` surveygroup title
     * ``url``: URL for the surveygroup
+    * ``published``: boolean indicating if this surveygroup is published
     * ``surveys``: list of surveys for the surveygroup. Each entry is a
       dictionary with the following keys:
 
@@ -199,7 +200,8 @@ def getSurveys(context):
 
     for group in groups:
         info=dict(title=group.title,
-                  url=group.absolute_url())
+                  url=group.absolute_url(),
+                  published=bool(group.published))
         info["surveys"]=[morph(group, survey)
                          for survey in group.values()
                          if ISurvey.providedBy(survey)]
