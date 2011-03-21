@@ -14,12 +14,18 @@
       <div class="introduction">
         <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy a survey.</p>
       </div>
-      <ul class="regions" tal:condition="python:view.regions">
-        <li tal:repeat="region view/regions" class="${region/id}"><a href="${region/url}">${region/title}</a></li>
-      </ul>  
-      <ul class="countries" tal:condition="python:view.countries">
-        <li tal:repeat="country view/countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
-      </ul>  
+      <tal:block condition="python:view.regions">
+        <h3 i18n:translate="header_regions">Regions</h3>
+        <ul class="countries">
+          <li tal:repeat="region view/regions" class="${region/id}"><a href="${region/url}">${region/title}</a></li>
+        </ul>  
+      </tal:block>
+      <tal:block condition="python:view.countries">
+        <h3 i18n:translate="header_countries">Countries</h3>
+        <ul class="countries">
+          <li tal:repeat="country view/countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
+        </ul>  
+      </tal:block>
     </metal:content>
   </body>
 </html>
