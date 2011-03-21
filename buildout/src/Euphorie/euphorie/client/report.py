@@ -90,6 +90,19 @@ def createDocument():
 
 
 class _HtmlToRtf(object):
+    def encode(self, text):
+        if not isinstance(text, unicode):
+            return text
+
+        output=[]
+        for char in text:
+            if ord(char)<127:
+                output.append(str(char))
+            else:
+                output.append("\\u%d?" % ord(char))
+        return "".join(output)
+
+
     def handleInlineText(self, node, output, style={}):
         """Handler for elements which can only contain inline text (p, li)"""
         new_style=style.copy()
@@ -101,13 +114,11 @@ class _HtmlToRtf(object):
             new_style["underline"]=True
 
         if node.text and node.text.strip():
-            text=unicode(node.text).encode("utf-8")
-            output.append(TEXT(text, **new_style))
+            output.append(TEXT(self.encode(node.text), **new_style))
         for sub in node:
             self.handleInlineText(sub, output, new_style)
         if node.tail and node.tail.strip():
-            text=unicode(node.tail).encode("utf-8")
-            output.append(TEXT(text, **style))
+            output.append(TEXT(self.encode(node.tail), **style))
 
         return output
 
@@ -136,7 +147,7 @@ class _HtmlToRtf(object):
         except etree.XMLSyntaxError:
             text=htmllaundry.StripMarkup(markup)
             text=text.replace("&#13", "\n")
-            return [Paragraph(default_style, text)]
+            return [Paragraph(default_style, self.escape(text))]
 
         output=[]
         for node in doc.iter(tag=etree.Element):
