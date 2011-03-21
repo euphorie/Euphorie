@@ -4,6 +4,10 @@ Changelog
 2.6 - Unreleased
 ----------------
 
+_ Attempt to improve HTML->RTF conversion when generating downloadable
+  reports.
+  [wichert]
+
 - Fix bug in handling counting risk states for the client survey status screen.
   This fixes the second part of `TNO ticket 155
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.

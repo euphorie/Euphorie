@@ -1,9 +1,12 @@
 import logging
 import random
 from cStringIO import StringIO
+from lxml import etree
+import lxml.html
 import htmllaundry
 from rtfng.Elements import Document
 from rtfng.Elements import StyleSheet
+from rtfng.document.character import TEXT
 from rtfng.document.paragraph import Paragraph
 from rtfng.document.paragraph import Cell
 from rtfng.document.paragraph import Table
@@ -85,10 +88,62 @@ def createDocument():
     return document
 
 
-def HtmlToRtf(markup):
-    text=htmllaundry.StripMarkup(markup)
-    text=text.replace("&#13", "\n")
-    return text
+
+class _HtmlToRtf(object):
+    def handleInlineText(self, node, output, style={}):
+        """Handler for elements which can only contain inline text (p, li)"""
+        new_style=style.copy()
+        if node.tag in [ "strong", "b" ]:
+            new_style["bold"]=True
+        elif node.tag in [ "em", "i" ]:
+            new_style["italic"]=True
+        elif node.tag=="u":
+            new_style["underline"]=True
+
+        if node.text and node.text.strip():
+            output.append(TEXT(node.text, **new_style))
+        for sub in node:
+            self.handleInlineText(sub, output, new_style)
+        if node.tail and node.tail.strip():
+            output.append(TEXT(node.tail, **style))
+
+        return output
+
+
+    def handleElement(self, node, style):
+        output=[]
+        if node.tag in [ "p", "li"]:
+            txt=self.handleInlineText(node, [])
+            if txt:
+                output.append(Paragraph(style, *txt))
+        elif node.tag in ["ul", "ol"]: # Lame handling of lists
+            for sub in node:
+                output.extend(self.handleElement(sub, style))
+        if node.tail:
+            output.append(Paragraph(style, node.tail))
+        return output
+
+
+
+    def __call__(self, markup, default_style):
+        if not markup or not markup.strip():
+            return []
+
+        try:
+            doc=lxml.html.document_fromstring(markup)
+        except etree.XMLSyntaxError:
+            text=htmllaundry.StripMarkup(markup)
+            text=text.replace("&#13", "\n")
+            return [Paragraph(default_style, text)]
+
+        output=[]
+        for node in doc.iter(tag=etree.Element):
+            output.extend(self.handleElement(node, default_style))
+
+        return output
+
+
+HtmlToRtf = _HtmlToRtf()
 
 
 def createSection(document, survey, request):
@@ -292,7 +347,7 @@ class IdentificationReportDownload(grok.View):
                 section.append(Paragraph(warning_style,
                     t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
 
-            section.append(Paragraph(normal_style, HtmlToRtf(zodb_node.description)))
+            section.append(Paragraph(normal_style, *HtmlToRtf(zodb_node.description)))
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
@@ -536,7 +591,7 @@ class ActionPlanReportDownload(grok.View):
                 section.append(Paragraph(normal_style, 
                     t(_("report_priority", default=u"This is a ")), t(level)))
 
-            section.append(Paragraph(normal_style, HtmlToRtf(zodb_node.description)))
+            section.append(Paragraph(normal_style, *HtmlToRtf(zodb_node.description)))
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
 
