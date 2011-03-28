@@ -13,7 +13,6 @@
     <title i18n:translate="title_tool">OiRA</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <metal:css use-macro="webhelpers/macros/css"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
   </head>
   <body class="login ${webhelpers/extra_css}">
     <h1 i18n:translate="header_welcome">Welcome</h1>
@@ -47,6 +46,7 @@
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
   </body>
 </html>
