@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      id="account-settings"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      tal:define="webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools; client nocall:request/client">
+  <head>
+    <metal:title fill-slot="title">${view/label}</metal:title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <metal:content fill-slot="content">
+      <h2 i18n:translate="header_account_data">Account data</h2>
+      <fieldset class="comprehensive" id="newEmail">
+        <legend i18n:translate="">Email address/account name</legend>
+        <p><strong>${tools/user/loginname}</strong><br/>
+          <a href="new-e-mail.html#newEmail" class="discrete" rel="#newEmail" i18n:translate="">Change email address</a> | <a href="delete-account.html" class="discrete" i18n:translate="">Delete account</a></p>
+          <p>
+          <strong i18n:translate="">Please bear in mind that by changing the email address, your login name will also change.</strong></p>
+      </fieldset>
+
+      <h2 i18n:translate="header_password">Password</h2>
+      <form class="concise" action="${request/getURL}" enctype="${view/enctype}" method="${view/method}" id="${view/id}">
+        <fieldset>
+          <tal:widget repeat="widget view/widgets/values" replace="structure widget/render" />
+        </fieldset>
+
+        <div class="buttonBar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
+          <tal:action repeat="action actions" replace="structure action/render" />
+        </div>
+      </form>
+    </metal:content>
+  </body>
+</html>
+
