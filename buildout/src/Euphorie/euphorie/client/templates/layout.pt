@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:define-macro="layout"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools context/@@tools">
+  <head>
+    <title><metal:title define-slot="title" i18n:translate="title_tool">OiRA</metal:title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:css use-macro="webhelpers/macros/css"/>
+  </head>
+  <body class="status ${webhelpers/extra_css}">
+    <metal:pagetitle define-slot="pagetitle"><h1><metal:slot define-slot="title"/></h1></metal:pagetitle>
+    <tal:block replace="tile:statusmessages"/>
+    <metal:block define-slot="content"/>
+
+    <ol id="steps">
+      <li id="step-1">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+      </li>
+      <li id="step-2">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+      </li>
+      <li id="step-3">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+      </li>
+      <li id="step-4">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+      </li>
+      <li id="step-5">
+        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
+        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
+    </ul>
+    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="webhelpers/macros/javascript"/>
+    <tal:block replace="tile:client-analytics"/>
+    <metal:block define-slot="scripts"/>
+  </body>
+</html>
