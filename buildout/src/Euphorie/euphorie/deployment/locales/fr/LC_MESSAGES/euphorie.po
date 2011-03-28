@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-09-21 16:58+0200\n"
-"PO-Revision-Date: 2011-03-21 13:20+0100\n"
+"PO-Revision-Date: 2011-03-28 11:00+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -179,7 +179,7 @@ msgid "error_email_in_use"
 msgstr "Il existe déjà un compte associé à cette adresse e-mail."
 
 #. Default: Cancel
-#: euphorie/client/publish.py:209 euphorie/client/publish.py:258
+#: euphorie/client/publish.py:210 euphorie/client/publish.py:259
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
@@ -189,21 +189,21 @@ msgid "button_cancel"
 msgstr "Annuler "
 
 #. Default: Publish
-#: euphorie/client/publish.py:215
+#: euphorie/client/publish.py:216
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publier"
 
-#: euphorie/client/publish.py:219
+#: euphorie/client/publish.py:220
 msgid "Succesfully published the survey"
 msgstr "L'enquête a bien été publiée"
 
 #. Default: Create preview
-#: euphorie/client/publish.py:264
+#: euphorie/client/publish.py:265
 msgid "button_preview"
 msgstr "Créer un aperçu"
 
-#: euphorie/client/publish.py:268
+#: euphorie/client/publish.py:269
 msgid ""
 "Succesfully created a preview for the survey. It can be accessed at "
 "${url} ."
@@ -213,7 +213,7 @@ msgstr ""
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:96
+#: euphorie/client/report.py:164
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr ""
@@ -221,7 +221,7 @@ msgstr ""
 "${date}."
 
 #. Default: You responded negatively to the above statement.
-#: euphorie/client/report.py:290 euphorie/client/report.py:516
+#: euphorie/client/report.py:358 euphorie/client/report.py:585
 #: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:50
 #: euphorie/client/templates/webhelpers.pt:108
@@ -229,20 +229,20 @@ msgid "warn_risk_present"
 msgstr "Vous avez répondu négativement à la déclaration ci-dessus."
 
 #. Default: This risk still needs to be inventorised.
-#: euphorie/client/report.py:293 euphorie/client/report.py:519
+#: euphorie/client/report.py:361 euphorie/client/report.py:588
 #: euphorie/client/templates/report_actionplan.pt:86
 #: euphorie/client/templates/report_identification.pt:51
 msgid "risk_unanswered"
 msgstr "Ce risque a toujours besoin d'être inventorié."
 
 #. Default: Identification report ${title}
-#: euphorie/client/report.py:310
+#: euphorie/client/report.py:379
 #, fuzzy
 msgid "filename_report_identification"
 msgstr "Identification ${title}.doc"
 
 #. Default: Introduction
-#: euphorie/client/report.py:437
+#: euphorie/client/report.py:506
 #, fuzzy
 msgid "plan_report_intro_header"
 msgstr ""
@@ -257,7 +257,7 @@ msgstr ""
 #. written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:439
+#: euphorie/client/report.py:508
 #: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
@@ -270,7 +270,7 @@ msgstr ""
 "points doivent être ajoutés."
 
 #. Default: Not provided
-#: euphorie/client/report.py:457
+#: euphorie/client/report.py:526
 #: euphorie/client/templates/report_actionplan.pt:52
 #: euphorie/client/templates/report_actionplan.pt:44
 #: euphorie/client/templates/report_actionplan.pt:40
@@ -278,7 +278,7 @@ msgid "missing_data"
 msgstr "Non fourni"
 
 #. Default: Company details
-#: euphorie/client/report.py:461
+#: euphorie/client/report.py:530
 #, fuzzy
 msgid "plan_report_company_header"
 msgstr ""
@@ -287,7 +287,7 @@ msgstr ""
 "retrouver ou les supprimer à tout moment via l'${preparation_step}."
 
 #. Default: Action plan
-#: euphorie/client/report.py:492
+#: euphorie/client/report.py:561
 #, fuzzy
 msgid "plan_report_plan_header"
 msgstr ""
@@ -298,7 +298,7 @@ msgstr ""
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/report.py:522
+#: euphorie/client/report.py:591
 #: euphorie/client/templates/report_actionplan.pt:156
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
@@ -310,75 +310,75 @@ msgstr ""
 "figurer dans ce rapport."
 
 #. Default: low priority risk
-#: euphorie/client/report.py:531
+#: euphorie/client/report.py:600
 #, fuzzy
 msgid "report_priority_low"
 msgstr "risque à faible priorité"
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:533
+#: euphorie/client/report.py:602
 #, fuzzy
 msgid "report_priority_medium"
 msgstr "Moyenne"
 
 #. Default: high priority risk
-#: euphorie/client/report.py:535
+#: euphorie/client/report.py:604
 #, fuzzy
 msgid "report_priority_high"
 msgstr "risque à priorité élevée"
 
 #. Default: This is a
-#: euphorie/client/report.py:537
+#: euphorie/client/report.py:606
 #, fuzzy
 msgid "report_priority"
 msgstr "Il s'agit d'un ${priority} ."
 
 #. Default: Measure
-#: euphorie/client/report.py:546
+#: euphorie/client/report.py:616
 #, fuzzy
 msgid "header_measure_single"
 msgstr "Mesure ${index}"
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:549
+#: euphorie/client/report.py:619
 #: euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Mesure ${index}"
 
 #. Default: Action plan:
-#: euphorie/client/report.py:561
+#: euphorie/client/report.py:631
 #: euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr "Plan d'action :"
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:565
+#: euphorie/client/report.py:635
 #: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr "Plan de prévention :"
 
 #. Default: Requirements:
-#: euphorie/client/report.py:569
+#: euphorie/client/report.py:639
 #: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr "Exigences :"
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:576
+#: euphorie/client/report.py:646
 #: euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr "${responsible} est responsable de cette tâche."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: euphorie/client/report.py:580
+#: euphorie/client/report.py:650
 #: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr "${responsible} est responsable de cette tâche qui commence le ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:586
+#: euphorie/client/report.py:656
 #: euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr "${responsible} est responsable de cette tâche qui se termine le ${end}."
@@ -386,7 +386,7 @@ msgstr "${responsible} est responsable de cette tâche qui se termine le ${end}.
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:592
+#: euphorie/client/report.py:662
 #: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
@@ -394,31 +394,31 @@ msgstr ""
 "et se termine le ${end}."
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:599
+#: euphorie/client/report.py:669
 #: euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr "Cette tâche commence le ${start}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:604
+#: euphorie/client/report.py:674
 #: euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr "Cette tâche se termine le ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:609
+#: euphorie/client/report.py:679
 #: euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr "Cette tâche commence le ${start} et se termine le ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:615
+#: euphorie/client/report.py:685
 #: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr "Un budget de ${amount} est disponible pour cette mesure."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:630
+#: euphorie/client/report.py:700
 #, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Plan d'action ${title}.doc"
@@ -432,6 +432,65 @@ msgstr "Jour du mois invalide"
 msgid "Please enter a year after 1900"
 msgstr "Veuillez entrer une année après 1900"
 
+#. Default: Current Password
+#: euphorie/client/settings.py:22
+#, fuzzy
+#| msgid "label_password"
+msgid "label_old_password"
+msgstr "Mot de passe"
+
+#. Default: New password
+#. Default: Desired password
+#: euphorie/client/settings.py:27 euphorie/client/templates/register.pt:29
+msgid "label_new_password"
+msgstr "Mot de passe souhaité"
+
+#: euphorie/client/settings.py:33
+#: euphorie/client/templates/account-settings.pt:21
+msgid "Email address/account name"
+msgstr ""
+
+#. Default: Account settings
+#: euphorie/client/settings.py:48 euphorie/client/settings.py:81
+#, fuzzy
+#| msgid "title_country_documentation"
+msgid "title_account_settings"
+msgstr "Documentation"
+
+#: euphorie/client/settings.py:51 euphorie/client/settings.py:83
+#, fuzzy
+#| msgid "button_save_changes"
+msgid "Save changes"
+msgstr "Sauvegarder les modifications"
+
+#: euphorie/client/settings.py:61 euphorie/client/settings.py:95
+msgid "There were no changes to be saved."
+msgstr ""
+
+#: euphorie/client/settings.py:65
+#, fuzzy
+#| msgid "label_password"
+msgid "Invalid password"
+msgstr "Mot de passe"
+
+#: euphorie/client/settings.py:67
+msgid "Your password was successfully changed."
+msgstr ""
+
+#. Default: Please confirm your new email address by clicking on the link in
+#. the
+#. email that will be sent in a few minutes to "${email}". Please note that the
+#. new
+#. email address is also your new login name.
+#: euphorie/client/settings.py:98
+#, fuzzy
+#| msgid "terms_changed"
+msgid "email_change_pending"
+msgstr ""
+"Les termes et conditions ont changé depuis votre dernière visite. "
+"Veuillez lire les nouveaux termes et conditions attentivement avant de "
+"continuer."
+
 #. Default: OiRA
 #: euphorie/client/utils.py:124 euphorie/client/templates/about.pt:13
 #: euphorie/client/templates/actionplan.pt:12
@@ -443,7 +502,7 @@ msgstr "Veuillez entrer une année après 1900"
 #: euphorie/client/templates/frontpage.pt:13
 #: euphorie/client/templates/help.pt:12
 #: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/layout.pt:13 euphorie/client/templates/login.pt:13
 #: euphorie/client/templates/module_actionplan.pt:12
 #: euphorie/client/templates/module_evaluation.pt:12
 #: euphorie/client/templates/module_identification.pt:12
@@ -484,7 +543,7 @@ msgstr "Informations secteur et regroupement pour le client. "
 #: euphorie/client/templates/evaluation.pt:78
 #: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
-#: euphorie/client/templates/login.pt:47
+#: euphorie/client/templates/layout.pt:48 euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/module_actionplan.pt:85
 #: euphorie/client/templates/module_evaluation.pt:73
 #: euphorie/client/templates/module_identification.pt:85
@@ -790,6 +849,36 @@ msgstr ""
 msgid "title_about"
 msgstr "À propos"
 
+#. Default: Password
+#: euphorie/client/templates/account-settings.pt:28
+#, fuzzy
+#| msgid "header_password_reminder"
+msgid "header_password"
+msgstr "Rappel du mot de passe"
+
+#: euphorie/client/templates/account-settings.pt:25
+msgid ""
+"Please bear in mind that by changing the email address, your login name "
+"will also change."
+msgstr ""
+
+#: euphorie/client/templates/account-settings.pt:23
+msgid "Delete account"
+msgstr ""
+
+#: euphorie/client/templates/account-settings.pt:23
+#, fuzzy
+#| msgid "Unknown email address"
+msgid "Change email address"
+msgstr "Adresse e-mail inconnue "
+
+#. Default: Account data
+#: euphorie/client/templates/account-settings.pt:19
+#, fuzzy
+#| msgid "header_country_managers"
+msgid "header_account_data"
+msgstr "Gestionnaires pays"
+
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
 #: euphorie/client/templates/evaluation.pt:79
@@ -835,6 +924,7 @@ msgstr "Enquêtes"
 #: euphorie/client/templates/evaluation.pt:76
 #: euphorie/client/templates/help.pt:92
 #: euphorie/client/templates/identification.pt:68
+#: euphorie/client/templates/layout.pt:47
 #: euphorie/client/templates/module_actionplan.pt:83
 #: euphorie/client/templates/module_evaluation.pt:71
 #: euphorie/client/templates/module_identification.pt:83
@@ -859,6 +949,7 @@ msgstr "Déconnexion"
 #: euphorie/client/templates/evaluation.pt:69
 #: euphorie/client/templates/help.pt:85
 #: euphorie/client/templates/identification.pt:61
+#: euphorie/client/templates/layout.pt:41
 #: euphorie/client/templates/module_actionplan.pt:76
 #: euphorie/client/templates/module_evaluation.pt:64
 #: euphorie/client/templates/module_identification.pt:76
@@ -883,6 +974,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/evaluation.pt:68
 #: euphorie/client/templates/help.pt:84
 #: euphorie/client/templates/identification.pt:60
+#: euphorie/client/templates/layout.pt:40
 #: euphorie/client/templates/module_actionplan.pt:75
 #: euphorie/client/templates/module_evaluation.pt:63
 #: euphorie/client/templates/module_identification.pt:75
@@ -907,6 +999,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/evaluation.pt:63
 #: euphorie/client/templates/help.pt:79
 #: euphorie/client/templates/identification.pt:55
+#: euphorie/client/templates/layout.pt:37
 #: euphorie/client/templates/module_actionplan.pt:67
 #: euphorie/client/templates/module_evaluation.pt:58
 #: euphorie/client/templates/module_identification.pt:70
@@ -931,6 +1024,7 @@ msgstr "Plan d'action"
 #: euphorie/client/templates/evaluation.pt:62
 #: euphorie/client/templates/help.pt:78
 #: euphorie/client/templates/identification.pt:54
+#: euphorie/client/templates/layout.pt:36
 #: euphorie/client/templates/module_actionplan.pt:66
 #: euphorie/client/templates/module_evaluation.pt:57
 #: euphorie/client/templates/module_identification.pt:69
@@ -956,6 +1050,7 @@ msgstr "Plan d'action"
 #: euphorie/client/templates/evaluation.pt:57
 #: euphorie/client/templates/help.pt:73
 #: euphorie/client/templates/identification.pt:49
+#: euphorie/client/templates/layout.pt:33
 #: euphorie/client/templates/module_actionplan.pt:61
 #: euphorie/client/templates/module_evaluation.pt:49
 #: euphorie/client/templates/module_identification.pt:64
@@ -980,6 +1075,7 @@ msgstr "Évaluation"
 #: euphorie/client/templates/evaluation.pt:56
 #: euphorie/client/templates/help.pt:72
 #: euphorie/client/templates/identification.pt:48
+#: euphorie/client/templates/layout.pt:32
 #: euphorie/client/templates/module_actionplan.pt:60
 #: euphorie/client/templates/module_evaluation.pt:48
 #: euphorie/client/templates/module_identification.pt:63
@@ -1005,6 +1101,7 @@ msgstr "Évaluation"
 #: euphorie/client/templates/evaluation.pt:51
 #: euphorie/client/templates/help.pt:67
 #: euphorie/client/templates/identification.pt:43
+#: euphorie/client/templates/layout.pt:29
 #: euphorie/client/templates/module_actionplan.pt:55
 #: euphorie/client/templates/module_evaluation.pt:43
 #: euphorie/client/templates/module_identification.pt:55
@@ -1029,6 +1126,7 @@ msgstr "Identification"
 #: euphorie/client/templates/evaluation.pt:50
 #: euphorie/client/templates/help.pt:66
 #: euphorie/client/templates/identification.pt:42
+#: euphorie/client/templates/layout.pt:28
 #: euphorie/client/templates/module_actionplan.pt:54
 #: euphorie/client/templates/module_evaluation.pt:42
 #: euphorie/client/templates/module_identification.pt:54
@@ -1054,6 +1152,7 @@ msgstr "Identification"
 #: euphorie/client/templates/evaluation.pt:45
 #: euphorie/client/templates/help.pt:61
 #: euphorie/client/templates/identification.pt:37
+#: euphorie/client/templates/layout.pt:25
 #: euphorie/client/templates/module_actionplan.pt:49
 #: euphorie/client/templates/module_evaluation.pt:37
 #: euphorie/client/templates/module_identification.pt:49
@@ -1078,6 +1177,7 @@ msgstr "Préparation"
 #: euphorie/client/templates/evaluation.pt:44
 #: euphorie/client/templates/help.pt:60
 #: euphorie/client/templates/identification.pt:36
+#: euphorie/client/templates/layout.pt:24
 #: euphorie/client/templates/module_actionplan.pt:48
 #: euphorie/client/templates/module_evaluation.pt:36
 #: euphorie/client/templates/module_identification.pt:48
@@ -1587,10 +1687,17 @@ msgstr ""
 "les informations\n"
 "à l'outil."
 
+#. Default: Settings
+#: euphorie/client/templates/layout.pt:49
+#, fuzzy
+#| msgid "navigation_status"
+msgid "navigation_settings"
+msgstr "Statut"
+
 #. Default: Your registration is a private matter. All your data is stored to
 #. be
 #. accessed only by you.
-#: euphorie/client/templates/login.pt:41
+#: euphorie/client/templates/login.pt:40
 msgid "login_tooltip"
 msgstr ""
 "Votre inscription est confidentielle. Tous les renseignements vous "
@@ -1598,51 +1705,51 @@ msgstr ""
 "vous soyez le seul à pouvoir y accéder."
 
 #. Default: Don't have an account? Then please ${register_link} first.
-#: euphorie/client/templates/login.pt:40
+#: euphorie/client/templates/login.pt:39
 msgid "register_teaser"
 msgstr "Pas encore de compte ? Veuillez tout d'abord ${register_link}."
 
 #. Default: register
-#: euphorie/client/templates/login.pt:40
+#: euphorie/client/templates/login.pt:39
 msgid "label_register"
 msgstr "vous inscrire"
 
 #. Default: Change country/language
-#: euphorie/client/templates/login.pt:36
+#: euphorie/client/templates/login.pt:35
 msgid "label_change_country"
 msgstr "Changer le pays/la langue"
 
 #. Default: Login
-#: euphorie/client/templates/login.pt:35
+#: euphorie/client/templates/login.pt:34
 msgid "label_login"
 msgstr "Connexion"
 
 #. Default: Password (${forgot_link})
-#: euphorie/client/templates/login.pt:33
+#: euphorie/client/templates/login.pt:32
 msgid "label_login_password"
 msgstr "Mot de passe (${forgot_link})"
 
 #. Default: I forgot my password
-#: euphorie/client/templates/login.pt:33
+#: euphorie/client/templates/login.pt:32
 msgid "label_forgot_password"
 msgstr "J'ai oublié mon mot de passe"
 
 #. Default: Email address
-#: euphorie/client/templates/login.pt:32
+#: euphorie/client/templates/login.pt:31
 #: euphorie/client/templates/register.pt:27
 #: euphorie/client/templates/reminder.pt:30
 msgid "label_email"
 msgstr "Adresse e-mail"
 
 #. Default: Login
-#: euphorie/client/templates/login.pt:30
+#: euphorie/client/templates/login.pt:29
 msgid "header_login"
 msgstr "Connexion"
 
 #. Default: Your login name and/or password were entered incorrectly. Please
 #. check
 #. and try again or ${request_an_email_reminder} of your login information.
-#: euphorie/client/templates/login.pt:21
+#: euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
 msgstr ""
 "Votre nom d'utilisateur et/ou mot de passe est/sont incorrect(s). "
@@ -1651,12 +1758,12 @@ msgstr ""
 "connexion."
 
 #. Default: request an email reminder
-#: euphorie/client/templates/login.pt:23
+#: euphorie/client/templates/login.pt:22
 msgid "request_an_email_reminder"
 msgstr "demandez un rappel"
 
 #. Default: Welcome
-#: euphorie/client/templates/login.pt:19
+#: euphorie/client/templates/login.pt:18
 #: euphorie/client/templates/reminder.pt:17
 msgid "header_welcome"
 msgstr "Accueil"
@@ -1806,11 +1913,6 @@ msgstr "Déclaration de confidentialité"
 #: euphorie/client/templates/register.pt:31
 msgid "label_password_confirm"
 msgstr "Confirmer le mot de passe"
-
-#. Default: Desired password
-#: euphorie/client/templates/register.pt:29
-msgid "label_new_password"
-msgstr "Mot de passe souhaité"
 
 #. Default: Register
 #: euphorie/client/templates/register.pt:25
@@ -2503,17 +2605,15 @@ msgstr "Interactive en ligne"
 msgid "The specified colour is not valid."
 msgstr "La couleur indiquée n'est pas valide."
 
-#. Default: This is a region
+#. Default: This is a region.
 #: euphorie/content/country.py:19
 #, fuzzy
-#| msgid "label_sessions"
 msgid "label_is_region"
 msgstr "Sessions"
 
-#. Default: Regions are international groupsing, such as the European Union
+#. Default: Regions are international groupings, such as the European Union.
 #: euphorie/content/country.py:21
 #, fuzzy
-#| msgid "help_sessions"
 msgid "help_is_region"
 msgstr ""
 "Description de la gestion de la session. Ce texte est accessible via un "
@@ -3652,6 +3752,20 @@ msgstr "Aucune enquête trouvée. Vous pouvez ${add_link}. \t"
 #: euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
 msgstr "Enquêtes "
+
+#. Default: Countries
+#: euphorie/content/templates/sectorcontainer_view.pt:24
+#, fuzzy
+#| msgid "header_country_managers"
+msgid "header_countries"
+msgstr "Gestionnaires pays"
+
+#. Default: Regions
+#: euphorie/content/templates/sectorcontainer_view.pt:18
+#, fuzzy
+#| msgid "header_register"
+msgid "header_regions"
+msgstr "Inscription"
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.

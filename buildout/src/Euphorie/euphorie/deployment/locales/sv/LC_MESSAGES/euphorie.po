@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-11-29 13:39+0100\n"
-"PO-Revision-Date: 2011-03-21 13:20+0100\n"
+"PO-Revision-Date: 2011-03-28 11:00+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -168,7 +168,7 @@ msgid "error_email_in_use"
 msgstr "Ett konto med denna e-postadress existerar redan."
 
 #. Default: Cancel
-#: euphorie/client/publish.py:209 euphorie/client/publish.py:258
+#: euphorie/client/publish.py:210 euphorie/client/publish.py:259
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
@@ -178,21 +178,21 @@ msgid "button_cancel"
 msgstr "Avbryt"
 
 #. Default: Publish
-#: euphorie/client/publish.py:215
+#: euphorie/client/publish.py:216
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publicera"
 
-#: euphorie/client/publish.py:219
+#: euphorie/client/publish.py:220
 msgid "Succesfully published the survey"
 msgstr "Undersökningen har publicerats"
 
 #. Default: Create preview
-#: euphorie/client/publish.py:264
+#: euphorie/client/publish.py:265
 msgid "button_preview"
 msgstr "Skapa förhandsgranskning"
 
-#: euphorie/client/publish.py:268
+#: euphorie/client/publish.py:269
 msgid ""
 "Succesfully created a preview for the survey. It can be accessed at "
 "${url} ."
@@ -202,7 +202,7 @@ msgstr ""
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:96
+#: euphorie/client/report.py:164
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr ""
@@ -210,7 +210,7 @@ msgstr ""
 "revideringsdatum ${date}."
 
 #. Default: You responded negatively to the above statement.
-#: euphorie/client/report.py:290 euphorie/client/report.py:516
+#: euphorie/client/report.py:358 euphorie/client/report.py:585
 #: euphorie/client/templates/report_actionplan.pt:85
 #: euphorie/client/templates/report_identification.pt:50
 #: euphorie/client/templates/webhelpers.pt:108
@@ -218,20 +218,20 @@ msgid "warn_risk_present"
 msgstr "Du svarade nekande till ovanstående redovisning."
 
 #. Default: This risk still needs to be inventorised.
-#: euphorie/client/report.py:293 euphorie/client/report.py:519
+#: euphorie/client/report.py:361 euphorie/client/report.py:588
 #: euphorie/client/templates/report_actionplan.pt:86
 #: euphorie/client/templates/report_identification.pt:51
 msgid "risk_unanswered"
 msgstr "Denna risk måste fortfarande kartläggas"
 
 #. Default: Identification report ${title}
-#: euphorie/client/report.py:310
+#: euphorie/client/report.py:379
 #, fuzzy
 msgid "filename_report_identification"
 msgstr "Identifiering ${title}.doc"
 
 #. Default: Introduction
-#: euphorie/client/report.py:437
+#: euphorie/client/report.py:506
 #, fuzzy
 msgid "plan_report_intro_header"
 msgstr ""
@@ -245,7 +245,7 @@ msgstr ""
 #. written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:439
+#: euphorie/client/report.py:508
 #: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
@@ -256,7 +256,7 @@ msgstr ""
 "läggas till."
 
 #. Default: Not provided
-#: euphorie/client/report.py:457
+#: euphorie/client/report.py:526
 #: euphorie/client/templates/report_actionplan.pt:52
 #: euphorie/client/templates/report_actionplan.pt:44
 #: euphorie/client/templates/report_actionplan.pt:40
@@ -264,7 +264,7 @@ msgid "missing_data"
 msgstr "Inte tillhandahållet"
 
 #. Default: Company details
-#: euphorie/client/report.py:461
+#: euphorie/client/report.py:530
 #, fuzzy
 msgid "plan_report_company_header"
 msgstr ""
@@ -272,7 +272,7 @@ msgstr ""
 "eller raderas när som helst via ${preparation_step}."
 
 #. Default: Action plan
-#: euphorie/client/report.py:492
+#: euphorie/client/report.py:561
 #, fuzzy
 msgid "plan_report_plan_header"
 msgstr ""
@@ -282,7 +282,7 @@ msgstr ""
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/report.py:522
+#: euphorie/client/report.py:591
 #: euphorie/client/templates/report_actionplan.pt:156
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
@@ -292,75 +292,75 @@ msgstr ""
 "riskerna måste den ingå i denna rapport."
 
 #. Default: low priority risk
-#: euphorie/client/report.py:531
+#: euphorie/client/report.py:600
 #, fuzzy
 msgid "report_priority_low"
 msgstr "lågt prioriterad risk"
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:533
+#: euphorie/client/report.py:602
 #, fuzzy
 msgid "report_priority_medium"
 msgstr "Medium"
 
 #. Default: high priority risk
-#: euphorie/client/report.py:535
+#: euphorie/client/report.py:604
 #, fuzzy
 msgid "report_priority_high"
 msgstr "högt prioriterad risk"
 
 #. Default: This is a
-#: euphorie/client/report.py:537
+#: euphorie/client/report.py:606
 #, fuzzy
 msgid "report_priority"
 msgstr "Detta är en ${priority} ."
 
 #. Default: Measure
-#: euphorie/client/report.py:546
+#: euphorie/client/report.py:616
 #, fuzzy
 msgid "header_measure_single"
 msgstr "Åtgärd ${index}"
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:549
+#: euphorie/client/report.py:619
 #: euphorie/client/templates/report_actionplan.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Åtgärd ${index}"
 
 #. Default: Action plan:
-#: euphorie/client/report.py:561
+#: euphorie/client/report.py:631
 #: euphorie/client/templates/report_actionplan.pt:106
 msgid "report_measure_actionplan"
 msgstr "Handlingsplan:"
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:565
+#: euphorie/client/report.py:635
 #: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_preventionplan"
 msgstr "Förebyggande plan:"
 
 #. Default: Requirements:
-#: euphorie/client/report.py:569
+#: euphorie/client/report.py:639
 #: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_requirements"
 msgstr "Krav:"
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:576
+#: euphorie/client/report.py:646
 #: euphorie/client/templates/report_actionplan.pt:120
 msgid "report_measure_responsible"
 msgstr "${responsible} är ansvarig för denna uppgift."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: euphorie/client/report.py:580
+#: euphorie/client/report.py:650
 #: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr "${responsible} är ansvarig för denna uppgift som börjar på ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:586
+#: euphorie/client/report.py:656
 #: euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_end"
 msgstr "${responsible} är ansvarig för denna uppgift som slutar på ${end}."
@@ -368,7 +368,7 @@ msgstr "${responsible} är ansvarig för denna uppgift som slutar på ${end}."
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:592
+#: euphorie/client/report.py:662
 #: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_full"
 msgstr ""
@@ -376,31 +376,31 @@ msgstr ""
 "slutar på ${end}."
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:599
+#: euphorie/client/report.py:669
 #: euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_start_only"
 msgstr "Denna uppgift börjar på ${start}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:604
+#: euphorie/client/report.py:674
 #: euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_end_only"
 msgstr "Denna uppgift slutar på ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:609
+#: euphorie/client/report.py:679
 #: euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_start_and_stop"
 msgstr "Denna uppgift börjar på ${start} och slutar på ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:615
+#: euphorie/client/report.py:685
 #: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_budget"
 msgstr "Det finns en budget på ${amount} för denna åtgärd."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:630
+#: euphorie/client/report.py:700
 #, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Handlingsplan ${title}.doc"
@@ -414,6 +414,60 @@ msgstr "Ogiltig månadsdag"
 msgid "Please enter a year after 1900"
 msgstr "Ange ett årtal efter år 1900"
 
+#. Default: Current Password
+#: euphorie/client/settings.py:22
+#, fuzzy
+#| msgid "label_password"
+msgid "label_old_password"
+msgstr "Lösenord"
+
+#. Default: New password
+#. Default: Desired password
+#: euphorie/client/settings.py:27 euphorie/client/templates/register.pt:29
+msgid "label_new_password"
+msgstr "Önskat lösenord"
+
+#: euphorie/client/settings.py:33
+#: euphorie/client/templates/account-settings.pt:21
+msgid "Email address/account name"
+msgstr ""
+
+#. Default: Account settings
+#: euphorie/client/settings.py:48 euphorie/client/settings.py:81
+#, fuzzy
+#| msgid "title_country_documentation"
+msgid "title_account_settings"
+msgstr "Dokumentation"
+
+#: euphorie/client/settings.py:51 euphorie/client/settings.py:83
+#, fuzzy
+#| msgid "button_save_changes"
+msgid "Save changes"
+msgstr "Spara ändringar"
+
+#: euphorie/client/settings.py:61 euphorie/client/settings.py:95
+msgid "There were no changes to be saved."
+msgstr ""
+
+#: euphorie/client/settings.py:65
+#, fuzzy
+#| msgid "label_password"
+msgid "Invalid password"
+msgstr "Lösenord"
+
+#: euphorie/client/settings.py:67
+msgid "Your password was successfully changed."
+msgstr ""
+
+#. Default: Please confirm your new email address by clicking on the link in
+#. the
+#. email that will be sent in a few minutes to "${email}". Please note that the
+#. new
+#. email address is also your new login name.
+#: euphorie/client/settings.py:98
+msgid "email_change_pending"
+msgstr ""
+
 #. Default: OiRA
 #: euphorie/client/utils.py:124 euphorie/client/templates/about.pt:13
 #: euphorie/client/templates/actionplan.pt:12
@@ -425,7 +479,7 @@ msgstr "Ange ett årtal efter år 1900"
 #: euphorie/client/templates/frontpage.pt:13
 #: euphorie/client/templates/help.pt:12
 #: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/layout.pt:13 euphorie/client/templates/login.pt:13
 #: euphorie/client/templates/module_actionplan.pt:12
 #: euphorie/client/templates/module_evaluation.pt:12
 #: euphorie/client/templates/module_identification.pt:12
@@ -466,7 +520,7 @@ msgstr "Branschinformation och gruppering för klienten."
 #: euphorie/client/templates/evaluation.pt:78
 #: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
-#: euphorie/client/templates/login.pt:47
+#: euphorie/client/templates/layout.pt:48 euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/module_actionplan.pt:85
 #: euphorie/client/templates/module_evaluation.pt:73
 #: euphorie/client/templates/module_identification.pt:85
@@ -740,6 +794,36 @@ msgstr "Vad är OiRA (interaktivt webbverktyg för riskbedömning)?"
 msgid "title_about"
 msgstr "Om"
 
+#. Default: Password
+#: euphorie/client/templates/account-settings.pt:28
+#, fuzzy
+#| msgid "header_password_reminder"
+msgid "header_password"
+msgstr "Glömt lösenord"
+
+#: euphorie/client/templates/account-settings.pt:25
+msgid ""
+"Please bear in mind that by changing the email address, your login name "
+"will also change."
+msgstr ""
+
+#: euphorie/client/templates/account-settings.pt:23
+msgid "Delete account"
+msgstr ""
+
+#: euphorie/client/templates/account-settings.pt:23
+#, fuzzy
+#| msgid "Unknown email address"
+msgid "Change email address"
+msgstr "Okänd e-postadress"
+
+#. Default: Account data
+#: euphorie/client/templates/account-settings.pt:19
+#, fuzzy
+#| msgid "header_country_managers"
+msgid "header_account_data"
+msgstr "Landschefer"
+
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
 #: euphorie/client/templates/evaluation.pt:79
@@ -785,6 +869,7 @@ msgstr "Undersökningar"
 #: euphorie/client/templates/evaluation.pt:76
 #: euphorie/client/templates/help.pt:92
 #: euphorie/client/templates/identification.pt:68
+#: euphorie/client/templates/layout.pt:47
 #: euphorie/client/templates/module_actionplan.pt:83
 #: euphorie/client/templates/module_evaluation.pt:71
 #: euphorie/client/templates/module_identification.pt:83
@@ -809,6 +894,7 @@ msgstr "Logga ut"
 #: euphorie/client/templates/evaluation.pt:69
 #: euphorie/client/templates/help.pt:85
 #: euphorie/client/templates/identification.pt:61
+#: euphorie/client/templates/layout.pt:41
 #: euphorie/client/templates/module_actionplan.pt:76
 #: euphorie/client/templates/module_evaluation.pt:64
 #: euphorie/client/templates/module_identification.pt:76
@@ -833,6 +919,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/evaluation.pt:68
 #: euphorie/client/templates/help.pt:84
 #: euphorie/client/templates/identification.pt:60
+#: euphorie/client/templates/layout.pt:40
 #: euphorie/client/templates/module_actionplan.pt:75
 #: euphorie/client/templates/module_evaluation.pt:63
 #: euphorie/client/templates/module_identification.pt:75
@@ -857,6 +944,7 @@ msgstr "Rapport"
 #: euphorie/client/templates/evaluation.pt:63
 #: euphorie/client/templates/help.pt:79
 #: euphorie/client/templates/identification.pt:55
+#: euphorie/client/templates/layout.pt:37
 #: euphorie/client/templates/module_actionplan.pt:67
 #: euphorie/client/templates/module_evaluation.pt:58
 #: euphorie/client/templates/module_identification.pt:70
@@ -881,6 +969,7 @@ msgstr "Handlingsplan"
 #: euphorie/client/templates/evaluation.pt:62
 #: euphorie/client/templates/help.pt:78
 #: euphorie/client/templates/identification.pt:54
+#: euphorie/client/templates/layout.pt:36
 #: euphorie/client/templates/module_actionplan.pt:66
 #: euphorie/client/templates/module_evaluation.pt:57
 #: euphorie/client/templates/module_identification.pt:69
@@ -906,6 +995,7 @@ msgstr "Handlingsplan"
 #: euphorie/client/templates/evaluation.pt:57
 #: euphorie/client/templates/help.pt:73
 #: euphorie/client/templates/identification.pt:49
+#: euphorie/client/templates/layout.pt:33
 #: euphorie/client/templates/module_actionplan.pt:61
 #: euphorie/client/templates/module_evaluation.pt:49
 #: euphorie/client/templates/module_identification.pt:64
@@ -930,6 +1020,7 @@ msgstr "Utvärdering"
 #: euphorie/client/templates/evaluation.pt:56
 #: euphorie/client/templates/help.pt:72
 #: euphorie/client/templates/identification.pt:48
+#: euphorie/client/templates/layout.pt:32
 #: euphorie/client/templates/module_actionplan.pt:60
 #: euphorie/client/templates/module_evaluation.pt:48
 #: euphorie/client/templates/module_identification.pt:63
@@ -955,6 +1046,7 @@ msgstr "Utvärdering"
 #: euphorie/client/templates/evaluation.pt:51
 #: euphorie/client/templates/help.pt:67
 #: euphorie/client/templates/identification.pt:43
+#: euphorie/client/templates/layout.pt:29
 #: euphorie/client/templates/module_actionplan.pt:55
 #: euphorie/client/templates/module_evaluation.pt:43
 #: euphorie/client/templates/module_identification.pt:55
@@ -979,6 +1071,7 @@ msgstr "Identifiering"
 #: euphorie/client/templates/evaluation.pt:50
 #: euphorie/client/templates/help.pt:66
 #: euphorie/client/templates/identification.pt:42
+#: euphorie/client/templates/layout.pt:28
 #: euphorie/client/templates/module_actionplan.pt:54
 #: euphorie/client/templates/module_evaluation.pt:42
 #: euphorie/client/templates/module_identification.pt:54
@@ -1004,6 +1097,7 @@ msgstr "Identifiering"
 #: euphorie/client/templates/evaluation.pt:45
 #: euphorie/client/templates/help.pt:61
 #: euphorie/client/templates/identification.pt:37
+#: euphorie/client/templates/layout.pt:25
 #: euphorie/client/templates/module_actionplan.pt:49
 #: euphorie/client/templates/module_evaluation.pt:37
 #: euphorie/client/templates/module_identification.pt:49
@@ -1028,6 +1122,7 @@ msgstr "Förberedelse"
 #: euphorie/client/templates/evaluation.pt:44
 #: euphorie/client/templates/help.pt:60
 #: euphorie/client/templates/identification.pt:36
+#: euphorie/client/templates/layout.pt:24
 #: euphorie/client/templates/module_actionplan.pt:48
 #: euphorie/client/templates/module_evaluation.pt:36
 #: euphorie/client/templates/module_identification.pt:48
@@ -1454,61 +1549,68 @@ msgstr ""
 "genom samråd med arbetstagarna om problem de har stött på). Då kan du "
 "presentera informationen i verktyget."
 
+#. Default: Settings
+#: euphorie/client/templates/layout.pt:49
+#, fuzzy
+#| msgid "navigation_status"
+msgid "navigation_settings"
+msgstr "Status"
+
 #. Default: Your registration is a private matter. All your data is stored to
 #. be
 #. accessed only by you.
-#: euphorie/client/templates/login.pt:41
+#: euphorie/client/templates/login.pt:40
 msgid "login_tooltip"
 msgstr ""
 "Din registrering är en privat angelägenhet. All din lagrade information "
 "har endast du tillgång till."
 
 #. Default: Don't have an account? Then please ${register_link} first.
-#: euphorie/client/templates/login.pt:40
+#: euphorie/client/templates/login.pt:39
 msgid "register_teaser"
 msgstr "Saknar du ett konto? Vänligen ${register_link} först."
 
 #. Default: register
-#: euphorie/client/templates/login.pt:40
+#: euphorie/client/templates/login.pt:39
 msgid "label_register"
 msgstr "Registrera"
 
 #. Default: Change country/language
-#: euphorie/client/templates/login.pt:36
+#: euphorie/client/templates/login.pt:35
 msgid "label_change_country"
 msgstr "Ändra land/språk"
 
 #. Default: Login
-#: euphorie/client/templates/login.pt:35
+#: euphorie/client/templates/login.pt:34
 msgid "label_login"
 msgstr "Login"
 
 #. Default: Password (${forgot_link})
-#: euphorie/client/templates/login.pt:33
+#: euphorie/client/templates/login.pt:32
 msgid "label_login_password"
 msgstr "Lösenord (${forgot_link})"
 
 #. Default: I forgot my password
-#: euphorie/client/templates/login.pt:33
+#: euphorie/client/templates/login.pt:32
 msgid "label_forgot_password"
 msgstr "Jag har glömt bort mitt lösenord"
 
 #. Default: Email address
-#: euphorie/client/templates/login.pt:32
+#: euphorie/client/templates/login.pt:31
 #: euphorie/client/templates/register.pt:27
 #: euphorie/client/templates/reminder.pt:30
 msgid "label_email"
 msgstr "E-postadress"
 
 #. Default: Login
-#: euphorie/client/templates/login.pt:30
+#: euphorie/client/templates/login.pt:29
 msgid "header_login"
 msgstr "Logga in"
 
 #. Default: Your login name and/or password were entered incorrectly. Please
 #. check
 #. and try again or ${request_an_email_reminder} of your login information.
-#: euphorie/client/templates/login.pt:21
+#: euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
 msgstr ""
 "Ditt inloggningsnamn och/eller lösenord är felaktigt. Kontrollera och "
@@ -1516,12 +1618,12 @@ msgstr ""
 "inloggningsinformation."
 
 #. Default: request an email reminder
-#: euphorie/client/templates/login.pt:23
+#: euphorie/client/templates/login.pt:22
 msgid "request_an_email_reminder"
 msgstr "begär en påminnelse via e-post"
 
 #. Default: Welcome
-#: euphorie/client/templates/login.pt:19
+#: euphorie/client/templates/login.pt:18
 #: euphorie/client/templates/reminder.pt:17
 msgid "header_welcome"
 msgstr "Välkommen"
@@ -1665,11 +1767,6 @@ msgstr "Sekretessregler"
 #: euphorie/client/templates/register.pt:31
 msgid "label_password_confirm"
 msgstr "Bekräfta lösenord"
-
-#. Default: Desired password
-#: euphorie/client/templates/register.pt:29
-msgid "label_new_password"
-msgstr "Önskat lösenord"
 
 #. Default: Register
 #: euphorie/client/templates/register.pt:25
@@ -2323,17 +2420,15 @@ msgstr "Interaktiv"
 msgid "The specified colour is not valid."
 msgstr "Den angivna färgen är ogiltig."
 
-#. Default: This is a region
+#. Default: This is a region.
 #: euphorie/content/country.py:19
 #, fuzzy
-#| msgid "label_sessions"
 msgid "label_is_region"
 msgstr "Sessioner"
 
-#. Default: Regions are international groupsing, such as the European Union
+#. Default: Regions are international groupings, such as the European Union.
 #: euphorie/content/country.py:21
 #, fuzzy
-#| msgid "help_sessions"
 msgid "help_is_region"
 msgstr ""
 "Beskriv sessionshantering. Denna text är länkad från sidan för sessionens"
@@ -3417,6 +3512,20 @@ msgstr "Det finns för närvarande inga undersökningar. Du kan ${add_link}."
 #: euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
 msgstr "Undersökningar"
+
+#. Default: Countries
+#: euphorie/content/templates/sectorcontainer_view.pt:24
+#, fuzzy
+#| msgid "header_country_managers"
+msgid "header_countries"
+msgstr "Landschefer"
+
+#. Default: Regions
+#: euphorie/content/templates/sectorcontainer_view.pt:18
+#, fuzzy
+#| msgid "header_register"
+msgid "header_regions"
+msgstr "Registrera"
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.

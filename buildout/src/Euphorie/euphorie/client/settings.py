@@ -24,7 +24,7 @@ class PasswordChangeSchema(form.Schema):
     form.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
     new_password = schema.Password(
-            title = _(u"label_new_password", default=u"New password"))
+            title = _(u"label_new_password", default=u"Desired password"))
 
 
 
