@@ -11,7 +11,7 @@ class PublicationTests(EuphorieTestCase):
 
     def createSurvey(self):
         self.portal.sectors.nl.invokeFactory("euphorie.sector", "dining",
-                title=u"Fine dining®")
+                title=u"Fine diningÂ®")
         self.sector=self.portal.sectors.nl.dining
         self.sector.invokeFactory("euphorie.surveygroup", "survey", title=u"Survey")
         self.surveygroup=self.sector.survey
@@ -27,7 +27,7 @@ class PublicationTests(EuphorieTestCase):
         self.assertEqual(self.client.nl.objectIds(), ["dining"])
         sector=self.client.nl.dining
         self.assertEqual(sector.portal_type, "euphorie.clientsector")
-        self.assertEqual(sector.Title(), u"Fine dining®")
+        self.assertEqual(sector.Title(), u"Fine diningÂ®")
         survey=sector.survey
         self.assertEqual(survey.portal_type, "euphorie.survey")
         self.assertEqual(survey.title, u"Survey")
@@ -75,9 +75,7 @@ class PublicationTests(EuphorieTestCase):
 
         self.sector.logo=NamedBlobImage(data=black_gif, contentType="image/gif", filename="black.gif")
         view.publish()
-        logo=self.client.nl["dining"].logo
         self.assertEqual(self.client.nl["dining"].logo.data, black_gif)
-        rendered_logo=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up")
         black_scale=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up").data.data
         self.assertNotEqual(white_scale, black_scale)
 

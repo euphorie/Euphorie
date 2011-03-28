@@ -3,7 +3,6 @@ from Acquisition import aq_inner
 from AccessControl import getSecurityManager
 from zope.interface import implements
 from five import grok
-from zope import schema
 from z3c.saconfig import Session
 from plone.directives import form
 from plone.directives import dexterity
