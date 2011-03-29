@@ -38,6 +38,7 @@
       <span lang="fi" xml:lang="fi">Tervetuloa</span><br />
       <span lang="sv" xml:lang="sv">Välkommen</span><br />
     </h1>
+    <tal:block replace="tile:statusmessages"/>
     <ul class="countries" tal:define="enabled_countries view/enabled_countries">
       <li tal:define="disabled python:'at' not in enabled_countries" class="at${python:' disabled' if disabled else ''}">
         <tal:block condition="not:disabled">
