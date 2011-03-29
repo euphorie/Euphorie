@@ -237,6 +237,23 @@ class Account(BaseObject):
 
 
 
+class AccountChangeRequest(BaseObject):
+    __tablename__ = "account_change"
+
+    id = schema.Column(types.String(16), primary_key=True, nullable=False)
+    account_id = schema.Column(types.Integer(),
+            schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+            nullable=False, unique=True)
+    account = orm.relation(Account,
+            backref=orm.backref("change_request",
+                                uselist=False,
+                                cascade="all, delete, delete-orphan"))
+    value = schema.Column(types.String(255), nullable=False)
+    expires = schema.Column(types.DateTime(),
+            nullable=False)
+
+
+
 class SurveySession(BaseObject):
     """Information about a users session.
     """
@@ -442,13 +459,14 @@ class ActionPlan(BaseObject):
                                 cascade="all, delete, delete-orphan"))
 
 
+
 _instrumented = False
 if not _instrumented:
     metadata=schema.MetaData()
     metadata._decl_registry=dict()
 
     for cls in [ SurveyTreeItem, SurveySession, Module, Risk,
-                 ActionPlan, Account, Company ]:
+                 ActionPlan, Account, AccountChangeRequest, Company ]:
         declarative.instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True
 

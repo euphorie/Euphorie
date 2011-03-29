@@ -1,3 +1,4 @@
+import datetime
 from Acquisition import aq_inner
 from AccessControl import getSecurityManager
 from five import grok
@@ -10,11 +11,14 @@ from z3c.schema.email import RFC822MailAddress
 from z3c.saconfig import Session
 from plone.directives import form
 from euphorie.client import MessageFactory as _
-from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.model import AccountChangeRequest
+from euphorie.client.session import SessionManager
+from euphorie.client.utils import randomString
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
-from euphorie.client.session import SessionManager
 
 
 grok.templatedir("templates")
@@ -150,6 +154,15 @@ class NewEmail(form.SchemaForm):
         return user
 
 
+    def initiateRequest(self, user, login):
+        if user.change_request is None:
+            user.change_request=AccountChangeRequest()
+        user.change_request.id=randomString()
+        user.change_request.expires=datetime.datetime.now()+datetime.timedelta(days=7)
+        user.change_request.value=login
+
+
+
     @button.buttonAndHandler(_(u"Save changes"))
     def handleSave(self, action):
         flash=IStatusMessage(self.request).addStatusMessage
@@ -169,6 +182,8 @@ class NewEmail(form.SchemaForm):
             flash(_(u"There were no changes to be saved."), "notice")
             return
 
+        self.initiateRequest(user, data["loginname"])
+
         flash(_("email_change_pending", default=
             u"Please confirm your new email address by clicking on the link "
             u"in the email that will be sent in a few minutes to "
@@ -182,4 +197,28 @@ class NewEmail(form.SchemaForm):
     def handleCancel(self, action):
         settings_url="%s/account-settings" % aq_inner(self.context).absolute_url()
         self.request.response.redirect(settings_url)
+
+
+
+class ChangeEmail(grok.View):
+    grok.context(IClient)
+    grok.require("zope2.View")
+    grok.layer(IClientSkinLayer)
+    grok.name("confirm-change")
+    grok.template("error")
+
+    def update(self):
+        key=self.request.get("key")
+        if key is None:
+            return
+
+        request=Session.query(AccountChangeRequest).get(key)
+        if request is None:
+            return
+
+        request.account.loginname=request.value
+        Session.delete(request)
+        flash=IStatusMessage(self.request).addStatusMessage
+        flash(_("Your email address has been updated."), "success")
+        self.request.response.redirect(aq_inner(self.context).absolute_url())
 

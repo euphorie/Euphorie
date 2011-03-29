@@ -147,7 +147,12 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.assertTrue("Not a valid RFC822 email address" in browser.contents)
 
     def testChange(self):
+        import datetime
+        from z3c.saconfig import Session
+        from euphorie.client.model import AccountChangeRequest
+        from euphorie.client.model import Account
         browser=self.browser
+        browser.handleErrors=False
         browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value="guest"
         browser.getControl(name="form.widgets.loginname").value="discard@simplon.biz"
@@ -155,3 +160,60 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
         self.assertTrue("Please confirm your new email" in browser.contents)
         self.assertTrue("discard@simplon.biz" in browser.contents)
+        self.assertEqual(Session.query(AccountChangeRequest).count(), 1)
+        user=Session.query(Account).first()
+        self.assertTrue(user.change_request is not None)
+        self.assertEqual(user.change_request.value, "discard@simplon.biz")
+        self.assertTrue(user.change_request.expires >
+                datetime.datetime.now()+datetime.timedelta(days=6))
+
+    def testSecondChangeResetsKey(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import AccountChangeRequest
+        browser=self.browser
+        browser.handleErrors=False
+        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
+        browser.getControl(name="form.widgets.loginname").value="discard@simplon.biz"
+        browser.getControl("Save changes").click()
+        first_key=Session.query(AccountChangeRequest.id).first()[0]
+        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
+        browser.getControl(name="form.widgets.loginname").value="discard@simplon.biz"
+        browser.getControl("Save changes").click()
+        second_key=Session.query(AccountChangeRequest.id).first()[0]
+        self.assertNotEqual(first_key, second_key)
+
+
+
+class ChangeEmailTests(EuphorieFunctionalTestCase):
+    def setUp(self):
+        from Products.Five.testbrowser import Browser
+        super(ChangeEmailTests, self).setUp()
+        self.browser=Browser()
+
+    def testMissingKey(self):
+        browser=self.browser
+        browser.open("http://nohost/plone/client/confirm-change")
+
+    def testUnkownKey(self):
+        browser=self.browser
+        browser.open("http://nohost/plone/client/confirm-change?key=bad")
+
+    def testValidKey(self):
+        import datetime
+        from z3c.saconfig import Session
+        from euphorie.client.model import AccountChangeRequest
+        from euphorie.client.model import Account
+        account=Account(loginname="login", password="secret")
+        account.change_request=AccountChangeRequest(id="X"*16,
+                value="new-login",
+                expires=datetime.datetime.now()+datetime.timedelta(1))
+        Session.add(account)
+        Session.flush
+        browser=self.browser
+        browser.open("http://nohost/plone/client/confirm-change?key=XXXXXXXXXXXXXXXX")
+        self.assertEqual(browser.url, "http://nohost/plone/client")
+        self.assertEqual(
+                Session.query(Account.loginname).first()[0], "new-login")
+
