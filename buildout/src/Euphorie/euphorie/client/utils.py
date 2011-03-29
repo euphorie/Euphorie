@@ -1,4 +1,5 @@
 import colorsys
+import random
 from PIL.ImageColor import getrgb
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
@@ -40,6 +41,21 @@ def getRequest():
 def getSecret():
     site=getUtility(ISiteRoot)
     return getattr(site, "euphorie_secret", "secret")
+
+
+
+def randomString(length=16):
+    """Return 32 bytes of random data. Only characters which do not require
+    special escaping in HTML are generated."""
+
+    safe_characters = "abcdefghijklmnopqrstuvwxyz" \
+                      "ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+                      "1234567890-/+"
+    output = []
+    append = output.append
+    for i in xrange(length):
+        append(random.choice(safe_characters))
+    return "".join(output)
 
 
 

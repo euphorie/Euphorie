@@ -107,3 +107,12 @@ class MatchColourTests(unittest.TestCase):
 
     def testYellowishColour(self):
         self.assertAlmostEqual(self.to_hls(utils.MatchColour(self.from_hls(0.20, 0, 0)))[1], 0.65, 2)
+
+
+class RandomStringTests(unittest.TestCase):
+    def testOutputChanges(self):
+        self.assertNotEquals(utils.randomString(), utils.randomString())
+
+    def testLength(self):
+        self.assertEquals(len(utils.randomString(5)), 5)
+
