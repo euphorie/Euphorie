@@ -16,15 +16,9 @@
   </head>
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
-      <h2 i18n:translate="header_account_data">Account data</h2>
-      <fieldset class="comprehensive" id="newEmail">
-        <legend i18n:translate="">Email address/account name</legend>
-        <p><strong>${tools/user/loginname}</strong><br/>
-          <a href="${base_url}/new-email" class="discrete" i18n:translate="">Change email address</a> | <a href="${base_url}/account-delete" class="discrete" i18n:translate="">Delete account</a></p>
-        <p><strong i18n:translate="">Please bear in mind that by changing the email address, your login name will also change.</strong></p>
-      </fieldset>
+      <p class="warning" i18n:translate="">By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable.</p>
+      <p i18n:translate="">Please note that by deleting your account, also all your filled out surveys will be deleted. Please make sure to download your surveys from the reports screen prior to deleting your account if you want to keep any.</p>
 
-      <h2 i18n:translate="header_password">Password</h2>
       <form class="concise" action="${request/getURL}" enctype="${view/enctype}" method="${view/method}" id="${view/id}">
         <fieldset>
           <tal:widget repeat="widget view/widgets/values" replace="structure widget/render" />
@@ -37,4 +31,5 @@
     </metal:content>
   </body>
 </html>
+
 

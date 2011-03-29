@@ -59,6 +59,47 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
 
 
 
+class AccountDeleteTests(EuphorieFunctionalTestCase):
+    def setUp(self):
+        from Products.Five.testbrowser import Browser
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import registerUserInClient
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        super(AccountDeleteTests, self).setUp()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        survey=self.portal.client["nl"]["ict"]["software-development"]
+        self.browser=Browser()
+        self.browser.open(survey.absolute_url())
+        registerUserInClient(self.browser)
+
+    def testNoDefaultPassword(self):
+        browser=self.browser
+        browser.handleErrors=False
+        browser.open("http://nohost/plone/client/nl/account-delete")
+        self.assertEqual(
+            browser.getControl(name="form.widgets.password").value, "")
+
+    def testInvalidPassword(self):
+        browser=self.browser
+        browser.open("http://nohost/plone/client/nl/account-delete")
+        browser.getControl(name="form.widgets.password").value="secret"
+        browser.getControl("Delete account").click()
+        self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-delete")
+        self.assertTrue("Invalid password" in browser.contents)
+
+    def testDelete(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import Account
+        browser=self.browser
+        browser.open("http://nohost/plone/client/nl/account-delete")
+        browser.getControl(name="form.widgets.password").value="guest"
+        browser.getControl("Delete account").click()
+        self.assertEqual(browser.url, "http://nohost/plone/client")
+        self.assertEqual(Session.query(Account).count(), 0)
+
+
+
 class NewEmailTests(EuphorieFunctionalTestCase):
     def setUp(self):
         from Products.Five.testbrowser import Browser
