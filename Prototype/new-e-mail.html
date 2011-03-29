@@ -34,7 +34,7 @@
   </head>
   <body class="status">
     <h1>
-      Settings
+      Change e-mail address
     </h1>
     <form action="account-settings-confirmation.html">
       <h2>
@@ -43,11 +43,12 @@
       <fieldset class="concise" id="newEmail">
         <label>New E-mail address/account name
         <input type="text" value="cornelis@cornae.com" class="span-6" /></label>     
-        <label>Your password
+        <label>Your password for confirmation
         <input type="password" class="span-6" /></label>
       </fieldset>
       <div class="buttonBar">
-        <button type="submit">Save changes</button>
+         <!-- Button Cancel leads back to account-settings.html Cannot use <a href> here with current CSS -->
+         <button type="submit">Delete account</button> <button type="submit">Cancel</button>
       </div>
     </form>
     <ol id="steps">

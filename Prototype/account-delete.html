@@ -37,11 +37,17 @@
      
    
      <p>Please note that by deleting your account, also all your filled out surveys will be deleted. Please make sure to download your surveys from the reports screen prior to deleting your account if you want to keep any.</p>
-     <hr/>
-    <form action="account-deleted.html" class="buttonBar">
+     
+     <form action="account-deleted.html">
+       <fieldset class="concise">
+         <label>Your password for confirmation <input type="password" class="span-6" /></label>
+      </label>
+     </form>   
+    
+    <p class="buttonBar">
        <!-- Button Cancel leads back to account-settings.html Cannot use <a href> here with current CSS -->
        <button type="submit">Delete account</button> <button type="submit">Cancel</button> 
-    </form>
+    </p>
     
     <ol id="steps">
       <li id="step-1">
