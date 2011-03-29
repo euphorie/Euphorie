@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.6\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-03-28 11:00+0200\n"
+"POT-Creation-Date: 2011-03-29 17:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,6 +156,7 @@ msgstr ""
 
 #. Default: Cancel
 #: euphorie/client/publish.py:210 euphorie/client/publish.py:259
+#: euphorie/client/settings.py:123 euphorie/client/settings.py:181
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
@@ -350,45 +351,58 @@ msgid "Please enter a year after 1900"
 msgstr ""
 
 #. Default: Current Password
-#: euphorie/client/settings.py:22
+#: euphorie/client/settings.py:25
 msgid "label_old_password"
 msgstr ""
 
-#. Default: New password
 #. Default: Desired password
-#: euphorie/client/settings.py:27 euphorie/client/templates/register.pt:29
+#: euphorie/client/settings.py:30 euphorie/client/templates/register.pt:29
 msgid "label_new_password"
 msgstr ""
 
-#: euphorie/client/settings.py:33 euphorie/client/templates/account-settings.pt:21
+#: euphorie/client/settings.py:36 euphorie/client/settings.py:48
+msgid "Your password for confirmation"
+msgstr ""
+
+#: euphorie/client/settings.py:44 euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
 msgstr ""
 
 #. Default: Account settings
-#: euphorie/client/settings.py:48 euphorie/client/settings.py:81
+#: euphorie/client/settings.py:64 euphorie/client/settings.py:140
 msgid "title_account_settings"
 msgstr ""
 
-#: euphorie/client/settings.py:51 euphorie/client/settings.py:83
+#: euphorie/client/settings.py:67 euphorie/client/settings.py:153
 msgid "Save changes"
 msgstr ""
 
-#: euphorie/client/settings.py:61 euphorie/client/settings.py:95
+#: euphorie/client/settings.py:76 euphorie/client/settings.py:169
 msgid "There were no changes to be saved."
 msgstr ""
 
-#: euphorie/client/settings.py:65
+#: euphorie/client/settings.py:80 euphorie/client/settings.py:115
+#: euphorie/client/settings.py:164
 msgid "Invalid password"
 msgstr ""
 
-#: euphorie/client/settings.py:67
+#: euphorie/client/settings.py:82
 msgid "Your password was successfully changed."
+msgstr ""
+
+#. Default: Delete account
+#: euphorie/client/settings.py:97
+msgid "title_account_delete"
+msgstr ""
+
+#: euphorie/client/settings.py:105 euphorie/client/templates/account-settings.pt:23
+msgid "Delete account"
 msgstr ""
 
 #. Default: Please confirm your new email address by clicking on the link in the
 #. email that will be sent in a few minutes to "${email}". Please note that the new
 #. email address is also your new login name.
-#: euphorie/client/settings.py:98
+#: euphorie/client/settings.py:172
 msgid "email_change_pending"
 msgstr ""
 
@@ -648,19 +662,28 @@ msgstr ""
 msgid "title_about"
 msgstr ""
 
+#: euphorie/client/templates/account-delete.pt:20
+msgid ""
+"Please note that by deleting your account, also all your filled out surveys "
+"will be deleted. Please make sure to download your surveys from the reports "
+"screen prior to deleting your account if you want to keep any."
+msgstr ""
+
+#: euphorie/client/templates/account-delete.pt:19
+msgid ""
+"By clicking on 'Delete account', your account will be permenantly deleted. "
+"This action is irreversable."
+msgstr ""
+
 #. Default: Password
-#: euphorie/client/templates/account-settings.pt:28
+#: euphorie/client/templates/account-settings.pt:27
 msgid "header_password"
 msgstr ""
 
-#: euphorie/client/templates/account-settings.pt:25
+#: euphorie/client/templates/account-settings.pt:24
 msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
-msgstr ""
-
-#: euphorie/client/templates/account-settings.pt:23
-msgid "Delete account"
 msgstr ""
 
 #: euphorie/client/templates/account-settings.pt:23

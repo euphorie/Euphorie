@@ -120,7 +120,7 @@ class DeleteAccount(form.SchemaForm):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
         settings_url="%s/account-settings" % aq_inner(self.context).absolute_url()
         self.request.response.redirect(settings_url)
@@ -178,7 +178,7 @@ class NewEmail(form.SchemaForm):
         self.request.response.redirect(settings_url)
     
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
         settings_url="%s/account-settings" % aq_inner(self.context).absolute_url()
         self.request.response.redirect(settings_url)

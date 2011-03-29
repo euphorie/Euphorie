@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-11-29 13:39+0100\n"
-"PO-Revision-Date: 2011-03-28 11:00+0200\n"
+"PO-Revision-Date: 2011-03-29 17:29+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -169,6 +169,7 @@ msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύ
 
 #. Default: Cancel
 #: euphorie/client/publish.py:210 euphorie/client/publish.py:259
+#: euphorie/client/settings.py:123 euphorie/client/settings.py:181
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
@@ -405,48 +406,59 @@ msgid "Please enter a year after 1900"
 msgstr "Παρακαλώ εισάγετε ένα έτος μεταγενέστερο του 1900"
 
 #. Default: Current Password
-#: euphorie/client/settings.py:22
+#: euphorie/client/settings.py:25
 #, fuzzy
-#| msgid "label_password"
 msgid "label_old_password"
 msgstr "Κωδικός πρόσβασης"
 
-#. Default: New password
 #. Default: Desired password
-#: euphorie/client/settings.py:27 euphorie/client/templates/register.pt:29
+#: euphorie/client/settings.py:30 euphorie/client/templates/register.pt:29
 msgid "label_new_password"
 msgstr "Επιθυμητός κωδικός πρόσβασης"
 
-#: euphorie/client/settings.py:33
+#: euphorie/client/settings.py:36 euphorie/client/settings.py:48
+msgid "Your password for confirmation"
+msgstr ""
+
+#: euphorie/client/settings.py:44
 #: euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
 msgstr ""
 
 #. Default: Account settings
-#: euphorie/client/settings.py:48 euphorie/client/settings.py:81
+#: euphorie/client/settings.py:64 euphorie/client/settings.py:140
 #, fuzzy
-#| msgid "title_country_documentation"
 msgid "title_account_settings"
 msgstr "Έγγραφα"
 
-#: euphorie/client/settings.py:51 euphorie/client/settings.py:83
+#: euphorie/client/settings.py:67 euphorie/client/settings.py:153
 #, fuzzy
-#| msgid "button_save_changes"
 msgid "Save changes"
 msgstr "Αποθήκευση αλλαγών"
 
-#: euphorie/client/settings.py:61 euphorie/client/settings.py:95
+#: euphorie/client/settings.py:76 euphorie/client/settings.py:169
 msgid "There were no changes to be saved."
 msgstr ""
 
-#: euphorie/client/settings.py:65
+#: euphorie/client/settings.py:80 euphorie/client/settings.py:115
+#: euphorie/client/settings.py:164
 #, fuzzy
-#| msgid "label_password"
 msgid "Invalid password"
 msgstr "Κωδικός πρόσβασης"
 
-#: euphorie/client/settings.py:67
+#: euphorie/client/settings.py:82
 msgid "Your password was successfully changed."
+msgstr ""
+
+#. Default: Delete account
+#: euphorie/client/settings.py:97
+#, fuzzy
+msgid "title_account_delete"
+msgstr "Έγγραφα"
+
+#: euphorie/client/settings.py:105
+#: euphorie/client/templates/account-settings.pt:23
+msgid "Delete account"
 msgstr ""
 
 #. Default: Please confirm your new email address by clicking on the link in
@@ -454,7 +466,7 @@ msgstr ""
 #. email that will be sent in a few minutes to "${email}". Please note that the
 #. new
 #. email address is also your new login name.
-#: euphorie/client/settings.py:98
+#: euphorie/client/settings.py:172
 msgid "email_change_pending"
 msgstr ""
 
@@ -795,33 +807,40 @@ msgstr "Τι είναι το έργο OiRA (Online διαδραστική Αξι
 msgid "title_about"
 msgstr "Σχετικά"
 
+#: euphorie/client/templates/account-delete.pt:20
+msgid ""
+"Please note that by deleting your account, also all your filled out "
+"surveys will be deleted. Please make sure to download your surveys from "
+"the reports screen prior to deleting your account if you want to keep "
+"any."
+msgstr ""
+
+#: euphorie/client/templates/account-delete.pt:19
+msgid ""
+"By clicking on 'Delete account', your account will be permenantly "
+"deleted. This action is irreversable."
+msgstr ""
+
 #. Default: Password
-#: euphorie/client/templates/account-settings.pt:28
+#: euphorie/client/templates/account-settings.pt:27
 #, fuzzy
-#| msgid "header_password_reminder"
 msgid "header_password"
 msgstr "Υπενθύμιση κωδικού πρόσβασης"
 
-#: euphorie/client/templates/account-settings.pt:25
+#: euphorie/client/templates/account-settings.pt:24
 msgid ""
 "Please bear in mind that by changing the email address, your login name "
 "will also change."
 msgstr ""
 
 #: euphorie/client/templates/account-settings.pt:23
-msgid "Delete account"
-msgstr ""
-
-#: euphorie/client/templates/account-settings.pt:23
 #, fuzzy
-#| msgid "Unknown email address"
 msgid "Change email address"
 msgstr "Άγνωστη διεύθυνση email."
 
 #. Default: Account data
 #: euphorie/client/templates/account-settings.pt:19
 #, fuzzy
-#| msgid "header_country_managers"
 msgid "header_account_data"
 msgstr "Εθνικοί διευθυντές"
 
@@ -1560,7 +1579,6 @@ msgstr ""
 #. Default: Settings
 #: euphorie/client/templates/layout.pt:49
 #, fuzzy
-#| msgid "navigation_status"
 msgid "navigation_settings"
 msgstr "Κατάσταση"
 
@@ -3562,14 +3580,12 @@ msgstr "Έρευνες"
 #. Default: Countries
 #: euphorie/content/templates/sectorcontainer_view.pt:24
 #, fuzzy
-#| msgid "header_country_managers"
 msgid "header_countries"
 msgstr "Εθνικοί διευθυντές"
 
 #. Default: Regions
 #: euphorie/content/templates/sectorcontainer_view.pt:18
 #, fuzzy
-#| msgid "header_register"
 msgid "header_regions"
 msgstr "Εγγραφή"
 
@@ -4052,4 +4068,7 @@ msgstr "Αντίγραφο"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
+
+#~ msgid "Cancel"
+#~ msgstr "Άκυρο"
 
