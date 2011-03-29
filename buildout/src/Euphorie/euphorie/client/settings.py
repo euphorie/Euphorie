@@ -33,6 +33,11 @@ class EmailChangeSchema(form.Schema):
             title = _(u"Email address/account name"),
             required=True)
 
+    password = schema.Password(
+            title = _(u"Your password for confirmation"),
+            required=True)
+    form.widget(password="z3c.form.browser.password.PasswordFieldWidget")
+
 
 
 class AccountSettings(form.SchemaForm):
@@ -80,6 +85,11 @@ class NewEmail(form.SchemaForm):
 
     label = _(u"title_account_settings", default=u"Account settings")
 
+    def updateFields(self):
+        super(NewEmail, self).updateFields()
+        self.fields["password"].ignoreContext=True
+
+
     @button.buttonAndHandler(_(u"Save changes"))
     def handleSave(self, action):
         flash=IStatusMessage(self.request).addStatusMessage
@@ -89,6 +99,11 @@ class NewEmail(form.SchemaForm):
             return
 
         user=getSecurityManager().getUser()
+
+        if user.password!=data["password"]:
+            raise WidgetActionExecutionError("password",
+                    Invalid(_(u"Invalid password")))
+
         settings_url="%s/account-settings" % aq_inner(self.context).absolute_url()
         if not data["loginname"] or data["loginname"].strip()==user.loginname:
             self.request.response.redirect(settings_url)

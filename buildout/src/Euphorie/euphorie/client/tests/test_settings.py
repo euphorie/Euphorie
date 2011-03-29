@@ -73,16 +73,33 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.browser.open(survey.absolute_url())
         registerUserInClient(self.browser)
 
+    def testNoDefaultPassword(self):
+        browser=self.browser
+        browser.handleErrors=False
+        browser.open("http://nohost/plone/client/nl/new-email")
+        self.assertEqual(
+            browser.getControl(name="form.widgets.password").value, "")
+
     def testNoChange(self):
         browser=self.browser
         browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
         browser.getControl("Save changes").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
         self.assertTrue("There were no changes to be saved." in browser.contents)
 
+    def testInvalidPassword(self):
+        browser=self.browser
+        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="secret"
+        browser.getControl("Save changes").click()
+        self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
+        self.assertTrue("Invalid password" in browser.contents)
+
     def testInvalidEmail(self):
         browser=self.browser
         browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
         browser.getControl(name="form.widgets.loginname").value="one two"
         browser.getControl("Save changes").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
@@ -91,6 +108,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
     def testChange(self):
         browser=self.browser
         browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
         browser.getControl(name="form.widgets.loginname").value="discard@simplon.biz"
         browser.getControl("Save changes").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
