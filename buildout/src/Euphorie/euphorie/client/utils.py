@@ -214,6 +214,21 @@ class WebHelpers(BrowserView):
         return sector.absolute_url()
 
 
+    @reify
+    def _survey(self):
+        from euphorie.client.session import SessionManager
+        survey=getattr(self.request, "survey", None)
+        if survey is not None:
+            return survey
+
+        session=SessionManager.session
+        if session is None:
+            return None
+
+        return self.request.client.restrictedTraverse(session.zodb_path)
+        
+
+
     @memoize
     def survey_url(self, phase=None):
         """Return the URL for the curreny survey.
@@ -221,13 +236,19 @@ class WebHelpers(BrowserView):
         If a phase is specified the URL for the first page of that
         phase is returned.
         """
-        survey=getattr(self.request, "survey", None)
+        survey=self._survey
         if survey is None:
             return None
         url=survey.absolute_url()
         if phase is not None:
             url+="/%s" % phase
         return url
+
+
+    @reify
+    def in_session(self):
+        """Check if there is an active survey session."""
+        return self._survey is not None
 
 
     @reify

@@ -92,6 +92,7 @@
       <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a href="${webhelpers/help_url}#sessions" i18n:translate="navigation_help">Help</a></li>
+      <li><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
     </ul>
     <metal:appendix use-macro="webhelpers/macros/appendix"/>
     <metal:javascript use-macro="webhelpers/macros/javascript"/>
