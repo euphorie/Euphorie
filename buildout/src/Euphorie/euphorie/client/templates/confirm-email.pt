@@ -1,0 +1,15 @@
+<tal:root xmlns:meta="http://xml.zope.org/namespaces/meta"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          i18n:domain="euphorie"
+          meta:interpolation="true"
+><tal:span i18n:translate="email_change_header">Dear user,</tal:span>
+
+<tal:span i18n:translate="email_change_intro">
+You, or someone else, has requested an email change for the OiRA website.
+</tal:span>
+
+
+-- 
+<tal:span i18n:translate="reminder_email_footer" ></tal:span>
+</tal:root>

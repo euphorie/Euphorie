@@ -125,7 +125,7 @@ class Reminder(grok.View):
 
         try:
             mailhost.send(mail, account.email, site.email_from_address, immediate=True)
-            log.info("Send password reminder to %s", account.email)
+            log.info("Sent password reminder to %s", account.email)
         except MailHostError, e:
             log.error("MailHost error sending password reminder to %s: %s", account.email, e)
             self.error=_(u"An error occured while sending the password reminder")

@@ -1,10 +1,15 @@
 import datetime
+import logging
+import smtplib
+import socket
 from Acquisition import aq_inner
 from AccessControl import getSecurityManager
 from five import grok
 from zope import schema
 from zope.interface import directlyProvides
 from zope.interface import Invalid
+from zope.component import getUtility
+from zope.i18n import translate
 from z3c.form import button
 from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.schema.email import RFC822MailAddress
@@ -14,12 +19,18 @@ from euphorie.client import MessageFactory as _
 from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.session import SessionManager
+from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
+from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from Products.MailHost.MailHost import MailHostError
 
+log=logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
@@ -140,6 +151,7 @@ class NewEmail(form.SchemaForm):
     grok.template("new-email")
 
     schema = EmailChangeSchema
+    email_template = ViewPageTemplateFile("templates/confirm-email.pt")
 
     label = _(u"title_account_settings", default=u"Account settings")
 
@@ -154,13 +166,38 @@ class NewEmail(form.SchemaForm):
         return user
 
 
-    def initiateRequest(self, user, login):
-        if user.change_request is None:
-            user.change_request=AccountChangeRequest()
-        user.change_request.id=randomString()
-        user.change_request.expires=datetime.datetime.now()+datetime.timedelta(days=7)
-        user.change_request.value=login
+    def initiateRequest(self, account, login):
+        if account.change_request is None:
+            account.change_request=AccountChangeRequest()
+        account.change_request.id=randomString()
+        account.change_request.expires=datetime.datetime.now()+datetime.timedelta(days=7)
+        account.change_request.value=login
 
+        site=getUtility(ISiteRoot)
+        mailhost=getToolByName(self.context, "MailHost")
+        body=self.email_template(account=account, new_login=login)
+        subject=translate(_(u"Confirm OiRA email address change"), context=self.request)
+        mail=CreateEmailTo(site.email_from_name, site.email_from_address,
+                account.email, subject, body)
+
+        flash=IStatusMessage(self.request).addStatusMessage
+        try:
+            mailhost.send(mail, account.email, site.email_from_address, immediate=True)
+            log.info("Sent email confirmation to %s", account.email)
+        except MailHostError, e:
+            log.error("MailHost error sending email confirmation to %s: %s", account.email, e)
+            flash(_(u"An error occured while sending the confirmation email."), "error")
+            return False
+        except smtplib.SMTPException, e:
+            log.error("smtplib error sending password reminder to %s: %s", account.email, e)
+            flash(_(u"An error occured while sending the confirmation email."), "error")
+            return False
+        except socket.error, e:
+            log.error("Socket error sending password reminder to %s: %s", account.email, e[1])
+            flash(_(u"An error occured while sending the confirmation email."), "error")
+            return False
+
+        return True
 
 
     @button.buttonAndHandler(_(u"Save changes"))
@@ -181,6 +218,11 @@ class NewEmail(form.SchemaForm):
             self.request.response.redirect(settings_url)
             flash(_(u"There were no changes to be saved."), "notice")
             return
+
+        login=data["loginname"].strip()
+        if Session.query(Account.id).filter(Account.loginname==login).count():
+            raise WidgetActionExecutionError("loginname",
+                    Invalid(_(u"This email address is not available.")))
 
         self.initiateRequest(user, data["loginname"])
 

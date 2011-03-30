@@ -114,6 +114,18 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.browser.open(survey.absolute_url())
         registerUserInClient(self.browser)
 
+        from Products.MailHost.MailHost import MailHost
+        self.email_send=email_send=[]
+        def send(self, *a, **kw):
+            email_send.append((a, kw))
+        self._original_send=MailHost.send
+        MailHost.send=send
+
+    def tearDown(self):
+        from Products.MailHost.mailer import SMTPMailer
+        SMTPMailer.send=self._original_send
+
+
     def testNoDefaultPassword(self):
         browser=self.browser
         browser.handleErrors=False
@@ -146,6 +158,18 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
         self.assertTrue("Not a valid RFC822 email address" in browser.contents)
 
+    def testDuplicateEmail(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import Account
+        browser=self.browser
+        Session.add(Account(loginname="jane@example.com", password="secret"))
+        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
+        browser.getControl(name="form.widgets.loginname").value="jane@example.com"
+        browser.getControl("Save changes").click()
+        self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
+        self.assertTrue("address is not available" in browser.contents)
+
     def testChange(self):
         import datetime
         from z3c.saconfig import Session
@@ -161,11 +185,16 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.assertTrue("Please confirm your new email" in browser.contents)
         self.assertTrue("discard@simplon.biz" in browser.contents)
         self.assertEqual(Session.query(AccountChangeRequest).count(), 1)
+
         user=Session.query(Account).first()
         self.assertTrue(user.change_request is not None)
         self.assertEqual(user.change_request.value, "discard@simplon.biz")
         self.assertTrue(user.change_request.expires >
                 datetime.datetime.now()+datetime.timedelta(days=6))
+
+        self.assertEqual(len(self.email_send), 1)
+        parameters=self.email_send[0]
+        self.assertEqual(parameters[0][1], "guest@example.com")
 
     def testSecondChangeResetsKey(self):
         from z3c.saconfig import Session
