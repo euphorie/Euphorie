@@ -1789,7 +1789,7 @@ input[type="text"],input[type="password"],textarea {
 
 input.password,
 input[type="password"],
-input.e-mail {
+input.email {
 	width: 230px;
 }
 
