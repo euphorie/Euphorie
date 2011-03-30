@@ -225,7 +225,7 @@ class WebHelpers(BrowserView):
         if session is None:
             return None
 
-        return self.request.client.restrictedTraverse(session.zodb_path)
+        return self.request.client.restrictedTraverse(session.zodb_path.split("/"))
         
 
 

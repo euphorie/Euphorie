@@ -24,7 +24,7 @@ class ProfileTests(EuphorieFunctionalTestCase):
                           <evaluation-method>direct</evaluation-method>
                         </risk>
                       </profile-question>
-                      <module optional="no">
+                      <module optional="false">
                         <title>Module title</title>
                         <description>&lt;p&gt;Module description.&lt;/p&gt;</description>
                         <risk type="policy">
