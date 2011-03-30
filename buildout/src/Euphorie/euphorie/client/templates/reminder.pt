@@ -27,7 +27,7 @@
       </h2>
 
       <fieldset class="concise">
-        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input type="text" name="loginname" value="${request/loginname|nothing}"/></label>
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" type="text" name="loginname" value="${request/loginname|nothing}"/></label>
       </fieldset>
 
       <p class="buttonBar">
