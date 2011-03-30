@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2010-11-29 13:39+0100\n"
-"PO-Revision-Date: 2011-03-29 17:29+0200\n"
+"PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -169,7 +169,7 @@ msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύ
 
 #. Default: Cancel
 #: euphorie/client/publish.py:210 euphorie/client/publish.py:259
-#: euphorie/client/settings.py:123 euphorie/client/settings.py:181
+#: euphorie/client/settings.py:150 euphorie/client/settings.py:257
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
@@ -406,59 +406,74 @@ msgid "Please enter a year after 1900"
 msgstr "Παρακαλώ εισάγετε ένα έτος μεταγενέστερο του 1900"
 
 #. Default: Current Password
-#: euphorie/client/settings.py:25
+#: euphorie/client/settings.py:41
 #, fuzzy
 msgid "label_old_password"
 msgstr "Κωδικός πρόσβασης"
 
 #. Default: Desired password
-#: euphorie/client/settings.py:30 euphorie/client/templates/register.pt:29
+#: euphorie/client/settings.py:46 euphorie/client/templates/register.pt:29
 msgid "label_new_password"
 msgstr "Επιθυμητός κωδικός πρόσβασης"
 
-#: euphorie/client/settings.py:36 euphorie/client/settings.py:48
+#: euphorie/client/settings.py:52 euphorie/client/settings.py:64
 msgid "Your password for confirmation"
 msgstr ""
 
-#: euphorie/client/settings.py:44
+#: euphorie/client/settings.py:60
 #: euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
 msgstr ""
 
 #. Default: Account settings
-#: euphorie/client/settings.py:64 euphorie/client/settings.py:140
+#: euphorie/client/settings.py:80 euphorie/client/settings.py:168
 #, fuzzy
 msgid "title_account_settings"
 msgstr "Έγγραφα"
 
-#: euphorie/client/settings.py:67 euphorie/client/settings.py:153
+#: euphorie/client/settings.py:89 euphorie/client/settings.py:222
 #, fuzzy
 msgid "Save changes"
 msgstr "Αποθήκευση αλλαγών"
 
-#: euphorie/client/settings.py:76 euphorie/client/settings.py:169
+#: euphorie/client/settings.py:98 euphorie/client/settings.py:238
 msgid "There were no changes to be saved."
 msgstr ""
 
-#: euphorie/client/settings.py:80 euphorie/client/settings.py:115
-#: euphorie/client/settings.py:164
+#: euphorie/client/settings.py:102 euphorie/client/settings.py:142
+#: euphorie/client/settings.py:233
 #, fuzzy
 msgid "Invalid password"
 msgstr "Κωδικός πρόσβασης"
 
-#: euphorie/client/settings.py:82
+#: euphorie/client/settings.py:104
 msgid "Your password was successfully changed."
 msgstr ""
 
 #. Default: Delete account
-#: euphorie/client/settings.py:97
+#: euphorie/client/settings.py:119
 #, fuzzy
 msgid "title_account_delete"
 msgstr "Έγγραφα"
 
-#: euphorie/client/settings.py:105
+#: euphorie/client/settings.py:132
 #: euphorie/client/templates/account-settings.pt:23
 msgid "Delete account"
+msgstr ""
+
+#: euphorie/client/settings.py:198
+msgid "Confirm OiRA email address change"
+msgstr ""
+
+#: euphorie/client/settings.py:208 euphorie/client/settings.py:212
+#: euphorie/client/settings.py:216
+#, fuzzy
+#| msgid "An error occured while sending the password reminder"
+msgid "An error occured while sending the confirmation email."
+msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
+
+#: euphorie/client/settings.py:244
+msgid "This email address is not available."
 msgstr ""
 
 #. Default: Please confirm your new email address by clicking on the link in
@@ -466,12 +481,16 @@ msgstr ""
 #. email that will be sent in a few minutes to "${email}". Please note that the
 #. new
 #. email address is also your new login name.
-#: euphorie/client/settings.py:172
+#: euphorie/client/settings.py:248
 msgid "email_change_pending"
 msgstr ""
 
+#: euphorie/client/settings.py:283
+msgid "Your email address has been updated."
+msgstr ""
+
 #. Default: OiRA
-#: euphorie/client/utils.py:124 euphorie/client/templates/about.pt:13
+#: euphorie/client/utils.py:140 euphorie/client/templates/about.pt:13
 #: euphorie/client/templates/actionplan.pt:12
 #: euphorie/client/templates/appendix.pt:12
 #: euphorie/client/templates/conditions.pt:12
@@ -522,7 +541,7 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 #: euphorie/client/templates/evaluation.pt:78
 #: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
-#: euphorie/client/templates/layout.pt:48 euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/layout.pt:61 euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/module_actionplan.pt:85
 #: euphorie/client/templates/module_evaluation.pt:73
 #: euphorie/client/templates/module_identification.pt:85
@@ -844,6 +863,30 @@ msgstr "Άγνωστη διεύθυνση email."
 msgid "header_account_data"
 msgstr "Εθνικοί διευθυντές"
 
+#. Default: Settings
+#: euphorie/client/templates/actionplan.pt:85
+#: euphorie/client/templates/evaluation.pt:80
+#: euphorie/client/templates/identification.pt:72
+#: euphorie/client/templates/layout.pt:62
+#: euphorie/client/templates/module_actionplan.pt:87
+#: euphorie/client/templates/module_evaluation.pt:75
+#: euphorie/client/templates/module_identification.pt:87
+#: euphorie/client/templates/profile.pt:95
+#: euphorie/client/templates/report.pt:80
+#: euphorie/client/templates/report_actionplan.pt:203
+#: euphorie/client/templates/report_company.pt:95
+#: euphorie/client/templates/report_identification.pt:106
+#: euphorie/client/templates/risk_actionplan.pt:277
+#: euphorie/client/templates/risk_evaluation.pt:124
+#: euphorie/client/templates/risk_identification.pt:88
+#: euphorie/client/templates/sessions.pt:95
+#: euphorie/client/templates/start.pt:67 euphorie/client/templates/status.pt:71
+#: euphorie/client/templates/survey_sessions.pt:86
+#: euphorie/client/templates/updated.pt:100
+#, fuzzy
+msgid "navigation_settings"
+msgstr "Κατάσταση"
+
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
 #: euphorie/client/templates/evaluation.pt:79
@@ -867,6 +910,7 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/actionplan.pt:82
 #: euphorie/client/templates/evaluation.pt:77
 #: euphorie/client/templates/identification.pt:69
+#: euphorie/client/templates/layout.pt:59
 #: euphorie/client/templates/module_actionplan.pt:84
 #: euphorie/client/templates/module_evaluation.pt:72
 #: euphorie/client/templates/module_identification.pt:84
@@ -889,7 +933,7 @@ msgstr "Έρευνες"
 #: euphorie/client/templates/evaluation.pt:76
 #: euphorie/client/templates/help.pt:92
 #: euphorie/client/templates/identification.pt:68
-#: euphorie/client/templates/layout.pt:47
+#: euphorie/client/templates/layout.pt:58
 #: euphorie/client/templates/module_actionplan.pt:83
 #: euphorie/client/templates/module_evaluation.pt:71
 #: euphorie/client/templates/module_identification.pt:83
@@ -914,7 +958,7 @@ msgstr "Αποσύνδεση"
 #: euphorie/client/templates/evaluation.pt:69
 #: euphorie/client/templates/help.pt:85
 #: euphorie/client/templates/identification.pt:61
-#: euphorie/client/templates/layout.pt:41
+#: euphorie/client/templates/layout.pt:50
 #: euphorie/client/templates/module_actionplan.pt:76
 #: euphorie/client/templates/module_evaluation.pt:64
 #: euphorie/client/templates/module_identification.pt:76
@@ -939,7 +983,7 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/evaluation.pt:68
 #: euphorie/client/templates/help.pt:84
 #: euphorie/client/templates/identification.pt:60
-#: euphorie/client/templates/layout.pt:40
+#: euphorie/client/templates/layout.pt:49
 #: euphorie/client/templates/module_actionplan.pt:75
 #: euphorie/client/templates/module_evaluation.pt:63
 #: euphorie/client/templates/module_identification.pt:75
@@ -964,7 +1008,7 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/evaluation.pt:63
 #: euphorie/client/templates/help.pt:79
 #: euphorie/client/templates/identification.pt:55
-#: euphorie/client/templates/layout.pt:37
+#: euphorie/client/templates/layout.pt:44
 #: euphorie/client/templates/module_actionplan.pt:67
 #: euphorie/client/templates/module_evaluation.pt:58
 #: euphorie/client/templates/module_identification.pt:70
@@ -990,7 +1034,7 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/evaluation.pt:62
 #: euphorie/client/templates/help.pt:78
 #: euphorie/client/templates/identification.pt:54
-#: euphorie/client/templates/layout.pt:36
+#: euphorie/client/templates/layout.pt:43
 #: euphorie/client/templates/module_actionplan.pt:66
 #: euphorie/client/templates/module_evaluation.pt:57
 #: euphorie/client/templates/module_identification.pt:69
@@ -1016,7 +1060,7 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/evaluation.pt:57
 #: euphorie/client/templates/help.pt:73
 #: euphorie/client/templates/identification.pt:49
-#: euphorie/client/templates/layout.pt:33
+#: euphorie/client/templates/layout.pt:38
 #: euphorie/client/templates/module_actionplan.pt:61
 #: euphorie/client/templates/module_evaluation.pt:49
 #: euphorie/client/templates/module_identification.pt:64
@@ -1041,7 +1085,7 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/evaluation.pt:56
 #: euphorie/client/templates/help.pt:72
 #: euphorie/client/templates/identification.pt:48
-#: euphorie/client/templates/layout.pt:32
+#: euphorie/client/templates/layout.pt:37
 #: euphorie/client/templates/module_actionplan.pt:60
 #: euphorie/client/templates/module_evaluation.pt:48
 #: euphorie/client/templates/module_identification.pt:63
@@ -1067,7 +1111,7 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/evaluation.pt:51
 #: euphorie/client/templates/help.pt:67
 #: euphorie/client/templates/identification.pt:43
-#: euphorie/client/templates/layout.pt:29
+#: euphorie/client/templates/layout.pt:32
 #: euphorie/client/templates/module_actionplan.pt:55
 #: euphorie/client/templates/module_evaluation.pt:43
 #: euphorie/client/templates/module_identification.pt:55
@@ -1092,7 +1136,7 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/evaluation.pt:50
 #: euphorie/client/templates/help.pt:66
 #: euphorie/client/templates/identification.pt:42
-#: euphorie/client/templates/layout.pt:28
+#: euphorie/client/templates/layout.pt:31
 #: euphorie/client/templates/module_actionplan.pt:54
 #: euphorie/client/templates/module_evaluation.pt:42
 #: euphorie/client/templates/module_identification.pt:54
@@ -1118,7 +1162,7 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/evaluation.pt:45
 #: euphorie/client/templates/help.pt:61
 #: euphorie/client/templates/identification.pt:37
-#: euphorie/client/templates/layout.pt:25
+#: euphorie/client/templates/layout.pt:26
 #: euphorie/client/templates/module_actionplan.pt:49
 #: euphorie/client/templates/module_evaluation.pt:37
 #: euphorie/client/templates/module_identification.pt:49
@@ -1143,7 +1187,7 @@ msgstr "Προετοιμασία"
 #: euphorie/client/templates/evaluation.pt:44
 #: euphorie/client/templates/help.pt:60
 #: euphorie/client/templates/identification.pt:36
-#: euphorie/client/templates/layout.pt:24
+#: euphorie/client/templates/layout.pt:25
 #: euphorie/client/templates/module_actionplan.pt:48
 #: euphorie/client/templates/module_evaluation.pt:36
 #: euphorie/client/templates/module_identification.pt:48
@@ -1407,6 +1451,32 @@ msgstr ""
 msgid "header_terms"
 msgstr ""
 
+#. Default:
+#: euphorie/client/templates/confirm-email.pt:18
+#: euphorie/client/templates/reminder-email.pt:16
+msgid "reminder_email_footer"
+msgstr "υπενθύμιση_email_υποσέλιδο"
+
+#. Default: Please ignore this email if you didn't request for a change.
+#: euphorie/client/templates/confirm-email.pt:15
+msgid "email_change_epilogue"
+msgstr ""
+
+#. Default: Your email address and account name on ${url} will be changed to
+#. '${email}' when you click the confirmation link below.
+#: euphorie/client/templates/confirm-email.pt:8
+#, fuzzy
+#| msgid "label_change_country"
+msgid "email_change_intro"
+msgstr "Αλλαγή χώρας/γλώσσας"
+
+#. Default: Dear user,
+#: euphorie/client/templates/confirm-email.pt:6
+#, fuzzy
+#| msgid "reminder_email_header"
+msgid "email_change_header"
+msgstr "Αγαπητέ χρήστη,"
+
 #. Default: Something bad happened.
 #: euphorie/client/templates/error.pt:19
 msgid "expl_error"
@@ -1575,12 +1645,6 @@ msgstr ""
 "θα μπορούσε να είναι επικίνδυνο ή συζητώντας με τους εργαζομένους για τα "
 "προβλήματα που έχουν αντιμετωπίσει). Στη συνέχεια, μπορείτε να εισάγετε "
 "τις πληροφορίες στο εργαλείο."
-
-#. Default: Settings
-#: euphorie/client/templates/layout.pt:49
-#, fuzzy
-msgid "navigation_settings"
-msgstr "Κατάσταση"
 
 #. Default: Your registration is a private matter. All your data is stored to
 #. be
@@ -1801,11 +1865,6 @@ msgstr "Κωδικός πρόσβασης ξανά"
 msgid "header_register"
 msgstr "Εγγραφή"
 
-#. Default:
-#: euphorie/client/templates/reminder-email.pt:16
-msgid "reminder_email_footer"
-msgstr "υπενθύμιση_email_υποσέλιδο"
-
 #. Default: Password
 #: euphorie/client/templates/reminder-email.pt:13
 msgid "reminder_email_password"
@@ -1969,7 +2028,7 @@ msgstr "Παρακαλώ διορθώσετε τα σφάλματα που επ�
 msgid "hader_company_details"
 msgstr "Στοιχεία εταιρείας"
 
-#: euphorie/client/templates/risk_actionplan.pt:281
+#: euphorie/client/templates/risk_actionplan.pt:282
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -2249,8 +2308,8 @@ msgstr "Ποια η πιθανότητα να προκληθεί αυτός ο �
 msgid "label_not_applicable"
 msgstr "Δεν ισχύει"
 
-#: euphorie/client/templates/sessions.pt:99
-#: euphorie/client/templates/survey_sessions.pt:90
+#: euphorie/client/templates/sessions.pt:100
+#: euphorie/client/templates/survey_sessions.pt:91
 msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
@@ -4068,7 +4127,4 @@ msgstr "Αντίγραφο"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
-
-#~ msgid "Cancel"
-#~ msgstr "Άκυρο"
 
