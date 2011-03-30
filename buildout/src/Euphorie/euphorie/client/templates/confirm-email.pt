@@ -6,11 +6,11 @@
 ><tal:span i18n:translate="email_change_header">Dear user,</tal:span>
 
 <tal:span i18n:translate="email_change_intro">
-Your email address and account name on <tal:span i18n:name="url" tal:content="client_url"/> will be changed to
-'<tal:span i18n:name="email" content="new_login"/>' when you click the confirmation link below.
+Your email address and account name on <tal:span i18n:name="url" tal:content="options/client_url"/> will be changed to
+'<tal:span i18n:name="email" content="options/new_login"/>' when you click the confirmation link below.
 </tal:span>
 
-    <tal:span replace="confirm_url"/>
+    <tal:span replace="options/confirm_url"/>
 
 <tal:span i18n:translate="email_change_epilogue">Please ignore this email if you didn't request for a change.</tal:span>
 

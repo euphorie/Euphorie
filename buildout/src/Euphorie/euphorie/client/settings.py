@@ -119,7 +119,7 @@ class DeleteAccount(form.SchemaForm):
     label = _(u"title_account_delete", default=u"Delete account")
 
     def updateWidgets(self):
-        super(AccountSettings, self).updateWidgets()
+        super(DeleteAccount, self).updateWidgets()
         self.widgets["password"].addClass("password")
 
 
@@ -173,7 +173,7 @@ class NewEmail(form.SchemaForm):
 
 
     def updateWidgets(self):
-        super(AccountSettings, self).updateWidgets()
+        super(NewEmail, self).updateWidgets()
         self.widgets["password"].addClass("password")
 
 
