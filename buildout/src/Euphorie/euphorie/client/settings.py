@@ -2,6 +2,7 @@ import datetime
 import logging
 import smtplib
 import socket
+import urllib
 from Acquisition import aq_inner
 from AccessControl import getSecurityManager
 from five import grok
@@ -189,9 +190,11 @@ class NewEmail(form.SchemaForm):
         account.change_request.expires=datetime.datetime.now()+datetime.timedelta(days=7)
         account.change_request.value=login
 
+        client_url=self.request.client.absolute_url()
+        confirm_url="%s/confirm-change%s" % (client_url, urllib.urlencode({"key": account.change_request.id}))
         site=getUtility(ISiteRoot)
         mailhost=getToolByName(self.context, "MailHost")
-        body=self.email_template(account=account, new_login=login)
+        body=self.email_template(account=account, new_login=login, client_url=client_url, confirm_url=confirm_url)
         subject=translate(_(u"Confirm OiRA email address change"), context=self.request)
         mail=CreateEmailTo(site.email_from_name, site.email_from_address,
                 account.email, subject, body)
