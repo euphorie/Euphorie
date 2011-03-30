@@ -22,6 +22,12 @@ _ Attempt to improve HTML->RTF conversion when generating downloadable
 - Add unpublish feature to the CMS.
   [cornae, wichert]
 
+- Added a euphorie.po for EN, so that we can also use the translation engine for
+  that language, without the need to pass a default value. The file is a copy of
+  euphorie.pot, with the msgstr being filled from the default entry or as a fallback
+  from the msgid
+  [thomasw]
+
 
 2.5 - February 28, 2011
 -----------------------
