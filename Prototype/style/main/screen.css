@@ -1475,6 +1475,38 @@ p.emphasis {
 	color: white;
 }
 
+/* @group Form messages */
+
+.concise .message {
+	width: 150%;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	padding: 0;	
+	
+	position: relative;
+	vertical-align: top;
+	
+	left: 100%;
+	margin-right: -200%;
+	margin-left: 0;
+}
+
+.comprehensive .message {
+	width: 81%;
+}
+
+.concise .message.warning {
+	background-color: transparent;
+	color: #ff8100;
+	clear: left;
+	display: block;
+	font-weight: bold;
+}
+
+/* @end */
+
 /* @group Self Healing */
 
 #selfHealingFeedback {
@@ -1755,6 +1787,20 @@ input[type="text"],input[type="password"],textarea {
 	cursor: text;
 }
 
+input.password,
+input[type="password"],
+input.e-mail {
+	width: 230px;
+}
+
+form fieldset em.message {
+	clear: left;
+	float: left;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	padding: 3px 10px;
+}
+
 textarea {
 	padding-top: 6px;
 }
@@ -1857,6 +1903,23 @@ fieldset label {
 
 /* @group Fieldset Concise */
 
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label textarea,
+fieldset.concise label textarea,
+form.concise fieldset label textarea,
+fieldset.concise label textarea {
+	position: relative;
+	vertical-align: top;
+	max-width: 320px;
+	left: 100%;
+	margin-right: -200%;
+	margin-left: 0;
+	float: left;
+}
+
 fieldset.concise,
 form.concise fieldset {
 	width: 100%;
@@ -1870,23 +1933,9 @@ form.concise fieldset label {
 	padding-top: 0;
 	position: relative;
 	float: left;
-	padding-right: 53%;
-	width: 47%;
+	padding-right: 50%;
+	width: 50%;
 	margin-bottom: 20px;
-}
-
-fieldset.concise label input,
-form.concise fieldset label input,
-fieldset.concise label select,
-form.concise fieldset label select,
-fieldset.concise label ul,
-form.concise fieldset label ul,
-.SI-FILES-STYLIZED label.cabinet button {
-	position: absolute;
-	left: 50%;
-	margin-bottom: 0;
-	margin-top: 0;
-	top: 0;
 }
 
 form.concise fieldset label textarea,
