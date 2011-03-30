@@ -79,6 +79,12 @@ class AccountSettings(form.SchemaForm):
     label = _(u"title_account_settings", default=u"Account settings")
 
 
+    def updateWidgets(self):
+        super(AccountSettings, self).updateWidgets()
+        self.widgets["old_password"].addClass("password")
+        self.widgets["new_password"].addClass("password")
+
+
     @button.buttonAndHandler(_(u"Save changes"))
     def handleSave(self, action):
         flash=IStatusMessage(self.request).addStatusMessage
@@ -110,6 +116,11 @@ class DeleteAccount(form.SchemaForm):
     ignoreContext = True
 
     label = _(u"title_account_delete", default=u"Delete account")
+
+    def updateWidgets(self):
+        super(AccountSettings, self).updateWidgets()
+        self.widgets["password"].addClass("password")
+
 
     def logout(self):
         pas=getToolByName(self.context, "acl_users")
@@ -158,6 +169,11 @@ class NewEmail(form.SchemaForm):
     def updateFields(self):
         super(NewEmail, self).updateFields()
         self.fields["password"].ignoreContext=True
+
+
+    def updateWidgets(self):
+        super(AccountSettings, self).updateWidgets()
+        self.widgets["password"].addClass("password")
 
 
     def getContent(self):
