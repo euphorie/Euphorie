@@ -194,7 +194,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
 
         self.assertEqual(len(self.email_send), 1)
         parameters=self.email_send[0]
-        self.assertEqual(parameters[0][1], "guest@example.com")
+        self.assertEqual(parameters[0][1], "discard@simplon.biz")
 
     def testSecondChangeResetsKey(self):
         from z3c.saconfig import Session

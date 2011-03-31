@@ -197,7 +197,7 @@ class NewEmail(form.SchemaForm):
         body=self.email_template(account=account, new_login=login, client_url=client_url, confirm_url=confirm_url)
         subject=translate(_(u"Confirm OiRA email address change"), context=self.request)
         mail=CreateEmailTo(site.email_from_name, site.email_from_address,
-                account.email, subject, body)
+                login, subject, body)
 
         flash=IStatusMessage(self.request).addStatusMessage
         try:
