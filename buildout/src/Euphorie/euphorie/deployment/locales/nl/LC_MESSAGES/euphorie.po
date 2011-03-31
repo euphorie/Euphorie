@@ -1429,11 +1429,9 @@ msgstr "U kunt deze mail negeren als u geen wijzigings hebt aangevraagd."
 #. Default: Your email address and account name on ${url} will be changed to
 #. '${email}' when you click the confirmation link below.
 #: euphorie/client/templates/confirm-email.pt:8
-#, fuzzy
-#| msgid "email_change_pending"
 msgid "email_change_intro"
 msgstr ""
-"U e-mailadres en login naam voor ${url} zullen worden gewijzigd naar"
+"Uw e-mailadres en login naam voor ${url} zullen worden gewijzigd naar"
 "'${email}' als u op onderstande link klikt."
 
 #. Default: Dear user,
