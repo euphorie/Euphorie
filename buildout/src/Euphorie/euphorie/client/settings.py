@@ -191,7 +191,7 @@ class NewEmail(form.SchemaForm):
         account.change_request.value=login
 
         client_url=self.request.client.absolute_url()
-        confirm_url="%s/confirm-change%s" % (client_url, urllib.urlencode({"key": account.change_request.id}))
+        confirm_url="%s/confirm-change?%s" % (client_url, urllib.urlencode({"key": account.change_request.id}))
         site=getUtility(ISiteRoot)
         mailhost=getToolByName(self.context, "MailHost")
         body=self.email_template(account=account, new_login=login, client_url=client_url, confirm_url=confirm_url)
