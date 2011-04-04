@@ -54,7 +54,7 @@ class SurveyTreeItem(BaseObject):
     sorted tree.
     """
     __tablename__ = "tree"
-    __table_args__ = schema.UniqueConstraint("session_id", "path")
+    __table_args__ = (schema.UniqueConstraint("session_id", "path"), {})
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(types.Integer(),
@@ -380,7 +380,6 @@ class SurveySession(BaseObject):
 class Company(BaseObject):
     """Information about a company."""
     __tablename__ = "company"
-    __table_args__ = schema.UniqueConstraint("session_id", "path")
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(types.Integer(),
