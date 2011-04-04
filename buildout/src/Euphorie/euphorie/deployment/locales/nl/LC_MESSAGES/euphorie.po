@@ -1424,7 +1424,7 @@ msgstr ""
 #. Default: Please ignore this email if you didn't request for a change.
 #: euphorie/client/templates/confirm-email.pt:15
 msgid "email_change_epilogue"
-msgstr "U kunt deze mail negeren als u geen wijzigings hebt aangevraagd."
+msgstr "U kunt deze mail negeren als u geen wijziging hebt aangevraagd."
 
 #. Default: Your email address and account name on ${url} will be changed to
 #. '${email}' when you click the confirmation link below.
