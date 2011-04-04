@@ -156,7 +156,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.loginname").value="one two"
         browser.getControl("Save changes").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
-        self.assertTrue("Not a valid RFC822 email address" in browser.contents)
+        self.assertTrue("Not a valid email address" in browser.contents)
 
     def testDuplicateEmail(self):
         from z3c.saconfig import Session
