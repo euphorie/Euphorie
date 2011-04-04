@@ -201,7 +201,7 @@ class NewEmail(form.SchemaForm):
 
         flash=IStatusMessage(self.request).addStatusMessage
         try:
-            mailhost.send(mail, account.email, site.email_from_address, immediate=True)
+            mailhost.send(mail, login, site.email_from_address, immediate=True)
             log.info("Sent email confirmation to %s", account.email)
         except MailHostError, e:
             log.error("MailHost error sending email confirmation to %s: %s", account.email, e)
