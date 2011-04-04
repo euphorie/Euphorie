@@ -4,6 +4,9 @@ Changelog
 2.6 - Unreleased
 ----------------
 
+- Fix compatibility with SQLAlchemy 0.6
+  [wichert]
+
 _ Attempt to improve HTML->RTF conversion when generating downloadable
   reports.
   [wichert]
