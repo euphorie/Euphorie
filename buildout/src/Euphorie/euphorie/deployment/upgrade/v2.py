@@ -92,6 +92,7 @@ def addAccountChangeTable(context):
     from zope.sqlalchemy import datamanager
     import transaction
 
+    transaction.get().commit() # Clean current connection to prevent hangs
     session=Session()
     model.AccountChangeRequest.__table__.create(bind=session.bind, checkfirst=True)
     datamanager.mark_changed(session)
