@@ -69,6 +69,12 @@
       handler=".v2.updateInitialContent"
       />
 
+    <genericsetup:upgradeStep
+      title="Add new SQL tables"
+      description="This step will adds the account change table for the client, if it is missing."
+      handler=".v2.addAccountChangeTable"
+      />
+
   </genericsetup:upgradeSteps>
 
 </configure>

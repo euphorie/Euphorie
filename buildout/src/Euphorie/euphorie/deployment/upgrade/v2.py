@@ -86,3 +86,13 @@ def updateInitialContent(context):
     setupInitialContent(siteroot)
 
 
+def addAccountChangeTable(context):
+    from z3c.saconfig import Session
+    from euphorie.client import model
+    from zope.sqlalchemy import datamanager
+    import transaction
+
+    session=Session()
+    model.AccountChangeRequest.__table__.create(bind=session.bind, checkfirst=True)
+    datamanager.mark_changed(session)
+    transaction.get().commit()
