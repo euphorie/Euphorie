@@ -1431,7 +1431,7 @@ msgstr "U kunt deze mail negeren als u geen wijziging hebt aangevraagd."
 #: euphorie/client/templates/confirm-email.pt:8
 msgid "email_change_intro"
 msgstr ""
-"Uw e-mailadres en login naam voor ${url} zullen worden gewijzigd naar"
+"Uw e-mailadres en login naam voor ${url} zullen worden gewijzigd naar "
 "'${email}' als u op onderstande link klikt."
 
 #. Default: Dear user,
