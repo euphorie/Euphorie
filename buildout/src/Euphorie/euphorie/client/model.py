@@ -16,7 +16,7 @@ import OFS.Traversable
 from zope.interface import implements
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 
-metadata = None
+metadata = schema.MetaData()
 
 log = logging.getLogger(__name__)
 
@@ -461,9 +461,7 @@ class ActionPlan(BaseObject):
 
 _instrumented = False
 if not _instrumented:
-    metadata=schema.MetaData()
-    metadata._decl_registry=dict()
-
+    metadata._decl_registry={}
     for cls in [ SurveyTreeItem, SurveySession, Module, Risk,
                  ActionPlan, Account, AccountChangeRequest, Company ]:
         declarative.instrument_declarative(cls, metadata._decl_registry, metadata)
