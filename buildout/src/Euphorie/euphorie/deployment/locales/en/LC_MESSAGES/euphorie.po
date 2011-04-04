@@ -287,7 +287,7 @@ msgstr "high priority risk"
 #. Default: This is a
 #: euphorie/client/report.py:606
 msgid "report_priority"
-msgstr "This is a"
+msgstr "This is a "
 
 #. Default: Measure
 #: euphorie/client/report.py:616
