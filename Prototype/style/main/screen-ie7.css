@@ -76,27 +76,13 @@ button.small,
 	width: 100%;
 }
 
-.radioList li label input {
+.radioList label input {
 	margin-top: -2px;
 }
 
 button {
 	width: auto;
 	overflow: visible;
-}
-
-.comprehensive,
-.comprehensive fieldset,
-.concise fieldset.comprehensive,
-.compact fieldset.comprehensive {
-	margin-bottom: 10px;
-	float: left;
-	width: 50%;
-}
-
-fieldset.concise,
-form.concise fieldset {
-	float: left;
 }
 
 .icon {
@@ -108,6 +94,34 @@ form.concise fieldset {
 	margin-top: -2px;
 	position: relative;
 	top: -1px;
+}
+
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label textarea,
+fieldset.concise label textarea,
+form.concise fieldset label textarea,
+fieldset.concise label textarea {
+	left: 50%;
+	margin-top: -20px;
+}
+
+.comprehensive,
+.comprehensive fieldset,
+.concise fieldset.comprehensive,
+.compact fieldset.comprehensive {
+	margin-bottom: 10px;
+	float: left;
+}
+
+fieldset.comprehensive label *,
+form.comprehensive fieldset label *,
+form.concise fieldset.comprehensive label *,
+form.compact fieldset.comprehensive label * {
+	position: static !important;
+	margin-top: 0;
 }
 
 /* @group Accordion */

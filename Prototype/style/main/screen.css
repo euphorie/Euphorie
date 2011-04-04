@@ -1915,9 +1915,9 @@ fieldset.concise label textarea {
 	vertical-align: top;
 	max-width: 320px;
 	left: 100%;
-	margin-right: -200%;
 	margin-left: 0;
 	float: left;
+	margin-right: -100%;
 }
 
 fieldset.concise,
@@ -2125,6 +2125,7 @@ form.concise fieldset.comprehensive.radioList label {
 
 fieldset.comprehensive.radioList label input {
 	margin-left: -20px;
+	float: left;
 }
 
 .radioList li label input[type="text"],
@@ -2204,7 +2205,6 @@ fieldset.inputList {
 }
 
 fieldset.inputList input {
-	clear: left;
 }
 
 /* @end */

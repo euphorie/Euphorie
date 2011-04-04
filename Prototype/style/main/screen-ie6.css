@@ -8,8 +8,10 @@ h1 {
 
 #steps {
 	position: absolute;
-	left: 180px;
-	background-image: none;
+	left: 50%;
+	margin-left: -395px;
+	z-index: 1000;
+	zoom:1;
 }
 
 /* @group Tabs */
@@ -235,18 +237,7 @@ button.small,
 
 
 
-/* @end */
-
-/* The next line prevents IE6 from making the ul too wide and to position it underneath p.question */
-
-.radioList {
-	width: 50%;
-	margin-left: 0;
-}
-
-.radioList li label input {
-	margin-top: -2px;
-}
+/* @end */ 
 
 button {
 	width: auto;
@@ -277,12 +268,6 @@ form.compact fieldset.comprehensive p.question {
 	margin-left: -50%;
 }
 
-fieldset.concise,
-form.concise fieldset {
-	float: left;
-	display: inline;
-}
-
 .icon {
 	display: inline-block;
 	width: 16px;
@@ -294,6 +279,34 @@ form.concise fieldset {
 	padding: 0;
 	overflow: hidden;
 	top: -2px;
+}
+
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label textarea,
+fieldset.concise label textarea,
+form.concise fieldset label textarea,
+fieldset.concise label textarea {
+	left: 50%;
+	margin-top: -20px;
+}
+
+fieldset.comprehensive label *,
+form.comprehensive fieldset label *,
+form.concise fieldset.comprehensive label *,
+form.compact fieldset.comprehensive label * {
+	position: static !important;
+	margin-top: 0;
+}
+
+fieldset.comprehensive.radioList label input {
+	/*position: relative !important;
+	left: -0 !important;
+	top: 0 !important;*/
+	margin-right: 0 !important;
+	margin-left: -20px !important;
 }
 
 /* @group Accordion */
