@@ -72,7 +72,7 @@ class View(grok.View):
                 if getattr(survey, "preview", False):
                     continue
                 if survey.language and survey.language!=language and not \
-                        survey.language.startswith(language):
+                        survey.language.strip().startswith(language):
                     continue
 
                 surveys.append(dict(id="%s/%s" % (sector.id, survey.id),
