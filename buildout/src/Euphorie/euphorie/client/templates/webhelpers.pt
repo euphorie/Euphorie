@@ -38,7 +38,7 @@
   </metal:css>
 
   <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.libraries">
-    <!--[if IE lte 8]> <script type="text/javascript" src="${lib_url}/excanvas.min.js"></script> <![endif]-->
+    <!--[if lte IE 8]> <script type="text/javascript" src="${lib_url}/excanvas.min.js"></script> <![endif]-->
     <tal:block condition="webhelpers/debug_mode">
       <script type="text/javascript" src="${lib_url}/jquery-1.3.2.min.js"></script>
       <script type="text/javascript" src="${lib_url}/jquery-ui-1.7.2.min.js"></script>
