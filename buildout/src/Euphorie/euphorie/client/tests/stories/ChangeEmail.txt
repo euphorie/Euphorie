@@ -1,0 +1,81 @@
+Changing email address and deleting account
+===========================================
+
+Before we can start we must set up our test environment by
+creating an dummy survey.
+
+>>> from euphorie.client.tests.utils import addSurvey
+>>> from euphorie.client.tests.utils import addAccount
+>>> from euphorie.client.tests.utils import MockMailFixture
+>>> from Products.Five.testbrowser import Browser
+>>> xml_survey="""\
+... <sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+...    <title>Sector title</title>
+...    <survey>
+...      <title>Survey title</title>
+...    </survey>
+...  </sector>"""
+>>> self.loginAsPortalOwner()
+>>> addSurvey(portal, xml_survey)
+>>> self.logout()
+>>> addAccount()
+>>> browser=Browser()
+>>> mail_fixture = MockMailFixture()
+
+
+Login and request change
+------------------------
+We start our story by logging in and going to the account settings page.
+
+>>> browser.open(portal.client.nl.absolute_url())
+>>> browser.getControl(name="__ac_name").value="jane@example.com"
+>>> browser.getControl(name="__ac_password:utf8:ustring").value=u"Øle".encode("utf-8")
+>>> browser.getControl(name="next", index=0).click()
+>>> browser.getLink("Settings").click()
+
+Lets request an email address change:
+
+>>> browser.getLink("Change email address").click()
+>>> browser.getControl(name="form.widgets.loginname").value="jane@doe.name"
+>>> browser.getControl(name="form.widgets.password").value=u"Øle".encode("utf-8")
+>>> browser.getControl("Save changes").click()
+>>> browser.contents
+'...Please confirm your new email...jane@doe.name...'
+
+
+Confirm change
+--------------
+
+We should have received an email at jane@doe.name with a confirmation link:
+
+>>> str(mail_fixture.storage[0][0][1])
+'jane@doe.name'
+>>> mail_body=mail_fixture.storage[0][0][0].as_string()
+>>> import quopri
+>>> import re
+>>> url=re.search('(http://nohost/plone/client/confirm.*)', mail_body).group()
+>>> url=quopri.decodestring(url)
+>>> url
+'http://nohost/plone/client/confirm-change?key=...'
+
+When we click on the link the change is triggered:
+
+>>> browser.open(url)
+>>> browser.contents
+'...Your email address has been updated...'
+>>> browser.url
+'http://nohost/plone/client'
+
+
+Logging in with new address
+---------------------------
+
+We can now login with our new address:
+
+>>> browser.open(portal.client.nl.absolute_url())
+>>> browser.getControl(name="__ac_name").value="jane@doe.name"
+>>> browser.getControl(name="__ac_password:utf8:ustring").value=u"Øle".encode("utf-8")
+>>> browser.getControl(name="next", index=0).click()
+>>> '@@login' in browser.url
+False
+

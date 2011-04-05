@@ -49,3 +49,17 @@ def registerUserInClient(browser, link="register"):
     if "terms-and-conditions" in browser.url:
         browser.getForm().submit()
 
+
+class MockMailFixture(object):
+    def __init__(self):
+        self.storage=storage=[]
+
+        from Products.MailHost.MailHost import MailHost
+        def send(self, *a, **kw):
+            storage.append((a, kw))
+        self._original_send=MailHost.send
+        MailHost.send=send
+
+    def __del__(self):
+        from Products.MailHost.mailer import SMTPMailer
+        SMTPMailer.send=self._original_send

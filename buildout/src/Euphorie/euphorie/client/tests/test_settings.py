@@ -105,6 +105,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         from Products.Five.testbrowser import Browser
         from euphorie.client.tests.utils import addSurvey
         from euphorie.client.tests.utils import registerUserInClient
+        from euphorie.client.tests.utils import MockMailFixture
         from euphorie.content.tests.utils import BASIC_SURVEY
         super(NewEmailTests, self).setUp()
         self.loginAsPortalOwner()
@@ -113,18 +114,8 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.browser=Browser()
         self.browser.open(survey.absolute_url())
         registerUserInClient(self.browser)
-
-        from Products.MailHost.MailHost import MailHost
-        self.email_send=email_send=[]
-        def send(self, *a, **kw):
-            email_send.append((a, kw))
-        self._original_send=MailHost.send
-        MailHost.send=send
-
-    def tearDown(self):
-        from Products.MailHost.mailer import SMTPMailer
-        SMTPMailer.send=self._original_send
-
+        self._mail_fixture=MockMailFixture()
+        self.email_send=self._mail_fixture.storage
 
     def testNoDefaultPassword(self):
         browser=self.browser
