@@ -117,6 +117,10 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self._mail_fixture=MockMailFixture()
         self.email_send=self._mail_fixture.storage
 
+    def tearDown(self):
+        super(NewEmailTests, self).tearDown()
+        del self._mail_fixture
+
     def testNoDefaultPassword(self):
         browser=self.browser
         browser.handleErrors=False

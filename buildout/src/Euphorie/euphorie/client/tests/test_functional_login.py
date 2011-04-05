@@ -66,41 +66,24 @@ class ReminderTests(EuphorieFunctionalTestCase):
 
 
     def testEmail(self):
-        import email
-        from email.header import decode_header
-        from email.header import make_header
-        from Products.MailHost.mailer import SMTPMailer
+        from euphorie.client.tests.utils import MockMailFixture
         from euphorie.client.tests.utils import addAccount
         self.addDummySurvey()
         addAccount()
-
-        params=[]
-
-        def send(self, *args, **kw):
-            params.append((args, kw))
-
-        original_send=SMTPMailer.send
-        SMTPMailer.send=send
-        try:
-            self.portal.email_from_address="discard@simplon.biz"
-            self.portal.email_from_name="Euphorie website"
-
-            browser=Browser()
-            browser.open(self.portal.client.nl.absolute_url())
-            browser.getLink("I forgot my password").click()
-            browser.getControl(name="loginname").value="jane@example.com"
-            browser.getControl(name="next").click()
-
-            self.assertEqual(len(params), 1)
-            (args, kw)=params[0]
-            self.assertEqual(args[0], "discard@simplon.biz")
-            self.assertEqual(args[1], ["jane@example.com"])
-            msg=email.message_from_string(args[2])
-            subject=make_header(decode_header(msg["Subject"]))
-            self.assertEqual(unicode(subject), u"OiRA registration reminder")
-            body=msg.get_payload(0)
-            body=body.get_payload(decode=True).decode(body.get_content_charset("utf-8"))
-            self.failUnless(u"Øle" in body)
-        finally:
-            SMTPMailer.send=original_send
+        mail_fixture=MockMailFixture()
+        self.portal.email_from_address="discard@simplon.biz"
+        self.portal.email_from_name="Euphorie website"
+        browser=Browser()
+        browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="loginname").value="jane@example.com"
+        browser.getControl(name="next").click()
+        self.assertEqual(len(mail_fixture.storage), 1)
+        (args, kw)=mail_fixture.storage[0]
+        (mail, mto, mfrom)=args[:3]
+        self.assertEqual(mfrom, "discard@simplon.biz")
+        self.assertEqual(mto, "jane@example.com")
+        self.assertEqual(unicode(mail["Subject"]), u"OiRA registration reminder")
+        body=mail.get_payload(0).get_payload(decode=True).decode(mail.get_content_charset("utf-8"))
+        self.failUnless(u"Øle" in body)
 
