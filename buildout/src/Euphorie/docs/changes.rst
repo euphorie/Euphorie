@@ -4,26 +4,43 @@ Changelog
 2.6 - Unreleased
 ----------------
 
-- Fix compatibility with SQLAlchemy 0.6
-  [wichert]
+Upgrade notes
+~~~~~~~~~~~~~
 
-_ Attempt to improve HTML->RTF conversion when generating downloadable
-  reports.
-  [wichert]
+This release updates the profile version to *6*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
 
-- Fix bug in handling counting risk states for the client survey status screen.
-  This fixes the second part of `TNO ticket 155
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
-  [wichert]
+Feature changes
+~~~~~~~~~~~~~~~
 
-- Clearly mark countries without surveys on the client frontpage.
-  [cornae, wichert]
+- Add compatibility with SQLAlchemy 0.6.
+  [wichert]
 
 - Add a new EU region in addition to the existing countries.
   [wichert]
 
 - Add unpublish feature to the CMS.
   [cornae, wichert]
+
+- Clearly mark countries without surveys on the client frontpage.
+  [cornae, wichert]
+
+- Add options to change password, change email address or delete your account
+  to the online client.
+  [cornae, wichert]
+
+Bug fixes
+~~~~~~~~~
+
+_ Attempt to improve HTML->RTF conversion when generating downloadable
+  reports.
+  [wichert]
+
+- Fix bug in handling of counting risk states for the client survey status screen.
+  This fixes the second part of `TNO ticket 155
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
+  [wichert]
 
 - Added a euphorie.po for EN, so that we can also use the translation engine for
   that language, without the need to pass a default value. The file is a copy of
@@ -39,7 +56,6 @@ _ Attempt to improve HTML->RTF conversion when generating downloadable
   unable to find the print function of their browser. This fixes
   `TNO ticket 159 <http://code.simplon.biz/tracker/tno-euphorie/ticket/159>`_.
   [wichert].
-
 
 - Fix small errors in Dutch translation. This fixes
   `TNO ticket 175 <http://code.simplon.biz/tracker/tno-euphorie/ticket/175>`_.
