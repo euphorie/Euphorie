@@ -1,8 +1,14 @@
 Changelog
 =========
 
-2.6 - Unreleased
+2.7 - Unreleased
 ----------------
+
+- ...
+
+
+2.6 - April 7, 2011
+-------------------
 
 Upgrade notes
 ~~~~~~~~~~~~~
