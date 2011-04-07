@@ -39,7 +39,7 @@ Feature changes
 Bug fixes
 ~~~~~~~~~
 
-_ Attempt to improve HTML->RTF conversion when generating downloadable
+- Attempt to improve HTML->RTF conversion when generating downloadable
   reports.
   [wichert]
 
