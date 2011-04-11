@@ -265,9 +265,12 @@ class PreviewSurvey(form.Form):
     @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
     def handlePreview(self, action):
         self.publish()
+        url = '<a href="%s">%s</a>' % (self.preview_url(), self.preview_url())
         IStatusMessage(self.request).addStatusMessage(
                 _(u"Succesfully created a preview for the survey. It can be accessed at ${url} .",
-                    mapping=dict(url=self.preview_url())), type="success")
+                    mapping=dict(url=url)), type="success")
         state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())
+
+
 
