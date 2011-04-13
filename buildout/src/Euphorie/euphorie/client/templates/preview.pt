@@ -15,7 +15,7 @@
     <metal:content fill-slot="content">
       <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
         <p i18n:translate="intro_preview">Are you sure you want to create a preview of this survey?
-        You can give the URL for the preview to others so they can test the survey. To access
+        You can give the URL for the preview to others so they can test the survey. To access 
         the preview a standard OiRA client login is required.
         </p>
 
