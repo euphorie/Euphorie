@@ -4,7 +4,8 @@ Changelog
 2.7 - Unreleased
 ----------------
 
-- ...
+- Tweak screen-osha.css to show risk priorities on action plan report without
+  any bells and whistles. [jcbrand]
 
 
 2.6 - April 7, 2011
