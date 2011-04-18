@@ -526,7 +526,12 @@ $(".commonMeasureButton").live("click", function() {
         newmeasure = $("#ActionPlanItemForm dd:last");
     }
 
-    var sourcedata = $("#"+$(this).val()+" :input");
+    if (engine==="msie" && engine_version<80) {
+        solution_index = this.attributes.getNamedItem("value").nodeValue;
+    }  else {
+        solution_index = this.value;
+    }
+    var sourcedata = $("#"+solution_index+" :input");
     var el, value, selector;
 
     for (var i in sourcedata) {

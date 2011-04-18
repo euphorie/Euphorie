@@ -7,6 +7,11 @@ Changelog
 - Tweak screen-osha.css to show risk priorities on action plan report without
   any bells and whistles. [jcbrand]
 
+- Fix common solution adding in the client for IE 7. This fixes the second part
+  of `TNO ticket 127
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/127>`_.
+  [wichert]
+
 
 2.6 - April 7, 2011
 -------------------
