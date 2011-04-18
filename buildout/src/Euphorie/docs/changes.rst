@@ -4,6 +4,10 @@ Changelog
 2.7 - Unreleased
 ----------------
 
+- Fix incomplete display of errors on end dates for measures in the online
+  client. This is part of `TNO ticket 150`.
+  [wichert]
+
 - Tweak screen-osha.css to show risk priorities on action plan report without
   any bells and whistles. [jcbrand]
 

@@ -89,9 +89,9 @@
                     <label class="${python:'error' if year_error else None}"
                       for="planning-start-year-1" i18n:translate="label_year">Year</label>
                     <input type="text" name="measure.planning_start_year:records" id="planning-start-year-${number}" maxlength="4"
-                      class="numeric year${python:' error' if day_error else ''}"
+                      class="numeric year${python:' error' if year_error else ''}"
                       value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
-                      <p class="focustip error target-id-planning-start-year-${number}" tal:condition="exists:errors/planning_start_year" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
+                      <p class="focustip error target-id-planning-start-year-${number}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
                   </fieldset>
                 </fieldset>
 
