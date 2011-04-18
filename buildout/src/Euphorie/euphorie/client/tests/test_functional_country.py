@@ -5,7 +5,7 @@ from Products.Five.testbrowser import Browser
 from euphorie.client.tests.utils import addSurvey
 
 class CountryTests(EuphorieFunctionalTestCase):
-    def testSessionFiltersByLanguage(self):
+    def testSurveysiltersByLanguage(self):
         from euphorie.client.tests.utils import registerUserInClient
         survey="""<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                     <title>Sector</title>

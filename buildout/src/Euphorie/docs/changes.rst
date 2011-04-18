@@ -4,6 +4,9 @@ Changelog
 2.7 - Unreleased
 ----------------
 
+- Hide removed surveys from session lists.
+  [wichert]
+
 - Fix incomplete display of errors on end dates for measures in the online
   client. This is part of `TNO ticket 150`.
   [wichert]

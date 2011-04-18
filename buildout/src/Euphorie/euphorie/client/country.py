@@ -1,5 +1,6 @@
 import logging
 from Acquisition import aq_inner
+from Acquisition import aq_parent
 from AccessControl import getSecurityManager
 from zope.interface import implements
 from five import grok
@@ -47,10 +48,18 @@ class View(grok.View):
         * `modified`: timestamp of last session modification
         """
         account=getSecurityManager().getUser()
-        return [dict(id=session.id,
-                     title=session.title,
-                     modified=session.modified)
-                 for session in account.sessions]
+        result=[]
+        client=aq_parent(aq_inner(self.context))
+        for session in account.sessions:
+            try:
+                client.restrictedTraverse(session.zodb_path.split("/"))
+                result.append({"id": session.id,
+                               "title": session.title,
+                               "modified": session.modified,
+                               })
+            except KeyError:
+                pass
+        return result
 
 
     def surveys(self):
