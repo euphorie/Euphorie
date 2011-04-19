@@ -104,3 +104,23 @@ a[rel="fancybox"]:after {
 	float: right;
 	bottom: -5px;
 }
+
+.comprehensive,
+.comprehensive fieldset,
+.concise fieldset.comprehensive,
+.compact fieldset.comprehensive {
+	width: 25%;
+	padding-left: 0;
+	margin-bottom: 10px;
+}
+
+body {
+}
+
+fieldset.comprehensive label *,
+form.comprehensive fieldset label *,
+form.concise fieldset.comprehensive label *,
+form.compact fieldset.comprehensive label * {
+	position: static !important;
+	margin-top: 0;
+}

@@ -72,9 +72,9 @@ button.small,
 
 /* The next line prevents IE7 from making the ul too wide and to position it underneath p.question */
 
-.radioList {
+/*.radioList {
 	width: 100%;
-}
+}*/
 
 .radioList label input {
 	margin-top: -2px;
