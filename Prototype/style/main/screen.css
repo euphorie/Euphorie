@@ -1269,6 +1269,18 @@ th {
 
 #homepage h2 {
 	clear: left;
+	position: relative;
+	height: 20px;
+}
+
+#homepage h2 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#homepage h2 br {
+	display: none;
 }
 
 

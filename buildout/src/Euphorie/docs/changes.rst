@@ -4,6 +4,15 @@ Changelog
 2.7 - Unreleased
 ----------------
 
+- Various improvements for managingn standard solutions:
+
+  - Use a separate view to show all information, and provided a point
+    where solutions can be deleted.
+    [wichert]
+
+  - Allow drag&drop ordering for standard solutions.
+    [wichert]
+
 - Use standard styling for Sphinx docs to make things more readable.
   [wichert]
 
