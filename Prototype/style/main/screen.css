@@ -1267,6 +1267,10 @@ th {
 	display: none;
 }
 
+#homepage h2 {
+	clear: left;
+}
+
 
 
 /* @end */
@@ -2602,11 +2606,11 @@ p#country {
 
 .countries {
 	list-style-type: none;
-	float: left;
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: -20px;
 	padding-bottom: 20px;
+	float: left;
 }
 
 .countries li {
@@ -3744,6 +3748,8 @@ textarea.span-15 {
 	width: 190px;
 	float: left;
 }
+
+
 
 /* @end */
 
