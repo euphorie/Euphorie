@@ -1,11 +1,13 @@
 *.pt.py
 *.pyc
 *.mo
+/buildout/.installed.cfg
 /buildout/.mr.developer.cfg
 /buildout/bin
 /buildout/develop-eggs
 /buildout/parts
 /buildout/src/lingua
+/buildout/src/pyrtf-ng
 /buildout/var/blobstorage
 /buildout/var/filestorage
 /buildout/var/log

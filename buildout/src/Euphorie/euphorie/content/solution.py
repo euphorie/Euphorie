@@ -12,6 +12,9 @@ from htmllaundry.z3cform import HtmlText
 from euphorie.content.behaviour.richdescription import IRichDescription
 
 
+grok.templatedir("templates")
+
+
 class ISolution(form.Schema, IRichDescription):
     """A standard solution for a risk.
 
@@ -66,8 +69,5 @@ class View(grok.View):
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
-
-    def render(self):
-        risk=aq_parent(aq_inner(self.context))
-        self.request.response.redirect("%s#solution-%s" % (risk.absolute_url(), self.context.id))
+    grok.template("solution_view")
 

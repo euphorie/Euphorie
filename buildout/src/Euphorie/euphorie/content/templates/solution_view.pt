@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body> 
+    <metal:title fill-slot="title" i18n:translate="">Standard solution</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+
+    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
+      <p tal:replace="structure context/description">A description of the solution</p>
+
+      <h2 i18n:translate="header_information">Information</h2>
+
+      <dl class="grid span-9">
+        <dt i18n:translate="label_measure_action_plan">Action plan</dt>
+        <dd>${context/action_plan}</dd>
+        <tal:block condition="context/prevention_plan">
+          <dt i18n:translate="label_measure_prevention_plan">Prevention plan</dt>
+          <dd>${context/prevention_plan}</dd>
+        </tal:block>
+        <tal:block condition="context/requirements">
+          <dt i18n:translate="label_measure_requirements">Requirements</dt>
+          <dd>${context/requirements}</dd>
+        </tal:block>
+      </dl>
+    </metal:content>
+  </body>
+</html>
+

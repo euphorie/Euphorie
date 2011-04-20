@@ -11,7 +11,8 @@
   <body>
     <metal:title fill-slot="title">${context/aq_parent/title}</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
-    <metal:content fill-slot="content">
+
+    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
       <div class="introduction" tal:define="images context/@@images">
         <img tal:define="scale python:images.scale('image', width=190, direction='down');"
           tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" title="${context/caption}" class="span-4 floatAfter"/>
@@ -63,8 +64,8 @@
       <tal:block condition="view/solutions">
         <h2 i18n:translate="header_solutions">Standard solutions</h2>
 
-        <ol>
-          <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}/@@edit" i18n:translate="risk_solution_header">Solution <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
+        <ol class="${python:'sortable' if can_edit and len(view.solutions)&gt;1 else None}">
+          <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}" i18n:translate="risk_solution_header">Solution <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
           <tal:description replace="structure solution/description"/></li>
         </ol>
       </tal:block>
