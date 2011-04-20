@@ -76,7 +76,7 @@ setup(name="Euphorie",
           "Products.PloneTestCase >=0.9.9",
           ],
       extras_require = {
-        "sphinx": [ "Sphinx",
+        "sphinx": [ "Sphinx >=1.0",
                     "repoze.sphinx.autointerface",
                   ],
         "tests" : [ "collective.testcaselayer",

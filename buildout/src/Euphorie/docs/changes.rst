@@ -4,6 +4,9 @@ Changelog
 2.7 - Unreleased
 ----------------
 
+- Use standard styling for Sphinx docs to make things more readable.
+  [wichert]
+
 - Hide removed surveys from session lists.
   [wichert]
 
