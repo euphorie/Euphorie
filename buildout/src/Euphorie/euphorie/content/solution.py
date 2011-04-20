@@ -62,6 +62,9 @@ class Solution(dexterity.Item):
 
     title = _("title_common_solution", default=u"Common solution")
 
+    def Title(self):
+        return Solution.title
+
 
 
 class View(grok.View):
