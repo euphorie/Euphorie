@@ -6,6 +6,7 @@
 /buildout/bin
 /buildout/develop-eggs
 /buildout/parts
+/buildout/src/NuPlone
 /buildout/src/lingua
 /buildout/src/pyrtf-ng
 /buildout/var/blobstorage
