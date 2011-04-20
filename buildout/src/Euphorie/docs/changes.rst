@@ -4,6 +4,9 @@ Changelog
 2.7 - Unreleased
 ----------------
 
+- Allow drag&drop ordering for standard solutions.
+  [wichert]
+
 - Use standard styling for Sphinx docs to make things more readable.
   [wichert]
 
