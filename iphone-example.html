@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width = device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="viewport" content="width = 320" />
     <meta name="viewport" content="user-scalable=no" />
     <title>
       Inventariseren
@@ -42,11 +42,13 @@
   </head>
   <body>
     <h1>
-      Groenvoorzieningwerk en werken in natuurterrein
+      Hydraulic ramp
     </h1>
     <form method="post" action="#">
       <fieldset class="radioList comprehensive">
-        <legend>The temperature of all fridges is checked daily</legend> <label><input type="radio" name="answer" value="yes" />Yes</label> <label><input type="radio" name="answer" value="no" />No</label> <label><input type="radio" name="answer" value="n/a" />Not applicable</label>
+        <legend>The hydraulic ramps operate correctly, are inspected and well maintained.</legend> 
+        <label><input type="radio" name="answer" value="yes" />Yes</label> 
+        <label><input type="radio" name="answer" value="no" />No</label>
       </fieldset>
       <p class="buttonBar">
         <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="floatBefore back">Previous</button> <button type="submit" name="next" value="next" i18n:translate="label_next" class="floatAfter">Next</button>
@@ -54,47 +56,13 @@
       <div class="emphasis">
         <p class="gallery">
           <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
+            <img alt="" src="media/Automotive/mini-ramp.png" class="floatBefore" />
           </a> 
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a> 
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a> 
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a> 
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a>
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a> 
-          <a href="media/Smeg.png" rel="fancybox" title="Lorem ipsum dolor sit amet">
-            <img alt="" src="media/Smeg.png" class="floatBefore" />
-          </a>
         </p>
         <p class="description" tal:content="context/description">
-          The temperature in a fridge is critical to storing food. If the temperature is too high or fluctuates too much food can start rotting quickly.
+          Explanation: this question relates to all hydraulic ramps present in the company. If you detect that any one of the hydraulic ramps is not in order, you must fill in No. This also applies if your hydraulic ramps number of requirements. The working Conditions Act (Arbowet) makes annual hydraulic ramp maintenance mandatory. You cannot check most requirements yourself and they must be addressed during maintenance. There is, however, a number of Etc. etc.
         </p>
-        <h4>
-          More information
-        </h4>
-        <ul>
-          <li>
-            <a href="#">The sector organisation has a manual on fridge maintenance. Lorem ipsum dolor sit amet consectuer.</a>
-          </li>
-          <li>
-            <a href="#">A link to a popular brand of fridges</a>
-          </li>
-        </ul>
-        <h4 i18n:translate="header_legal_references">
-          Legal and policy references
-        </h4>
-        <p tal:replace="structure view/legal_reference">
-          The requirements for fridges are defined in section 13.1 section a of the health code.
-        </p>
+        
       </div><!-- WTA: Information block ends here -->
       <fieldset class="condensed" id="comments">
         <label i18n:translate="label_comments" for="commentsField" class="superImpose">Please leave any comments you may have on the question above in this field</label> 
@@ -103,10 +71,10 @@
     </form>
     <ol id="steps">
       <li id="step-1" class="complete">
-        <a href="#">Voorbereiden</a>
+        <a href="#">Preparation</a>
       </li>
       <li class="current" id="step-2">
-        <a href="#">Inventariseren</a>
+        <a href="#">Inventory</a>
         <ol>
           <li class="active">
             <a href="#"><strong class="counter">2.1</strong> Werksoorten</a>
@@ -118,12 +86,12 @@
                 <a href="#"><strong class="counter">2.1.2</strong> Zitgebonden machinewerk zelfrijdende bosbouwmachines</a>
               </li>
               <li class="active current warning">
-                <a href="#"><strong class="counter">2.1.3</strong> Groenvoorzieningwerk en werken in natuurterrein</a>
+                <a href="#"><strong class="counter">2.1.3</strong> Hydraulic ramp</a>
                 <ol class="microns">
                   <li title="Name of step" class="answered">
                     <a href="#">Name of step</a>
                   </li>
-                  <li title="Name of step" class="postponed current">
+                  <li title="Name of step" class="postponed">
                     <a href="#">Name of step</a>
                   </li>
                   <li title="Name of step" class="answered">
@@ -135,13 +103,7 @@
                   <li title="Name of step" class="answered">
                     <a href="#">Name of step</a>
                   </li>
-                  <li title="Name of step" class="answered risk current">
-                    <a href="#">Name of step</a>
-                  </li>
-                  <li title="Name of step" class="answered">
-                    <a href="#">Name of step</a>
-                  </li>
-                  <li title="Name of step" class="answered current">
+                  <li title="Name of step" class="answered risk">
                     <a href="#">Name of step</a>
                   </li>
                   <li title="Name of step" class="answered">
@@ -153,7 +115,13 @@
                   <li title="Name of step" class="answered">
                     <a href="#">Name of step</a>
                   </li>
-                  <li title="Name of step" class="current">
+                  <li title="Name of step" class="answered">
+                    <a href="#">Name of step</a>
+                  </li>
+                  <li title="Name of step" class="answered">
+                    <a href="#">Name of step</a>
+                  </li>
+                  <li title="Name of step" class="">
                     <a href="#">Name of step</a>
                   </li>
                   <li title="Name of step">Name of step
@@ -185,11 +153,11 @@
         </ol>
       </li>
       <li id="step-3">
-        <a href="#">Evalueren</a>
+        <a href="#">Evaluation</a>
       </li>
-      <li id="step-4">Plan van aanpak
+      <li id="step-4">Action plan
       </li>
-      <li id="step-5">Rapporten
+      <li id="step-5">Reports
       </li>
     </ol>
     <ul id="navigation">
@@ -204,9 +172,9 @@
       <li>
         <a href="status.html">Status</a>
       </li>
-        <li>
-          <a href="settings.html">Account settings</a>
-        </li>
+      <li>
+        <a href="status.html">Logout</a>
+      </li>
     </ul>
     <p id="appendix">
       <a href="#">Link to sector organisation</a> | <a href="#">Disclaimer</a> | Design by <a href="http://www.Corn%C3%A6.com">Cornae</a>
