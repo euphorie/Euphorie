@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = "2.7"
+version = "2.7dev"
 
 setup(name="Euphorie",
       version=version,
@@ -11,7 +11,8 @@ setup(name="Euphorie",
         "Environment :: Web Environment",
         "Framework :: Plone",
         "License :: OSI Approved :: GNU General Public License (GPL)",
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.6",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
