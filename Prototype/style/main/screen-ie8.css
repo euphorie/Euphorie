@@ -105,12 +105,13 @@ a[rel="fancybox"]:after {
 	bottom: -5px;
 }
 
-fieldset.comprehensive label *,
-form.comprehensive fieldset label *,
-form.concise fieldset.comprehensive label *,
-form.compact fieldset.comprehensive label * {
-	position: static !important;
+tic !important;
 	margin-top: 0;
+}
+
+body,
+#main {
+	width: 590px !important;
 }
 
 body,
