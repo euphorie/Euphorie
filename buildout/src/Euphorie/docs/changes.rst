@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.7 - Unreleased
-----------------
+2.7 - April 26, 2011
+--------------------
 
-- Various improvements for managingn standard solutions:
+- Various improvements for managing standard solutions:
 
   - Use a separate view to show all information, and provided a point
     where solutions can be deleted.
