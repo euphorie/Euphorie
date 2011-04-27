@@ -14,12 +14,15 @@ Bugfixes
 ~~~~~~~~
 
 - Group countries in the client according to EU membership status.
+  This fixes `github ticket 2
+  <https://github.com/euphorie/Euphorie/issues/2>`_.
   [cornae, wichert]
 
 - Change ordering of countries in the client to match the `official
   EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`).
   This fixes `github ticket 3
   <https://github.com/euphorie/Euphorie/issues/3>`_.
+  .
   [wichert]
 
 
