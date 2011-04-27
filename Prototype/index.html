@@ -393,16 +393,34 @@
       <script type="text/javascript">
 // <![CDATA[
     $(document).ready(function() {
-      $("h1,h2")
-          .wrapInner("<div/>")
-          .jCarouselLite({auto: 1000,
-                          speed: 800,
-                          circular: true,
-                          visible: 1,
-                          listSelector: "div",
-                          itemSelector: "span",
-                          easing: "easeOutElastic",
-                          });
+        var h2_visible = 1,
+            h2_total = $("h2:first span").size();
+
+        function swapH2() {
+            h2_visible = (h2_visible+1) % h2_total;
+
+            $("h2").each(function() {
+                var $headers = $("span", this),
+                    $next_visible = $headers.eq(h2_visible);
+                $headers = $headers.not($next_visible);
+
+                $headers.animate({opacity: 0});
+                $next_visible.animate({opacity: 1});
+            });
+        }
+
+        $("h2 span:not(:first)").css({opacity: 0});
+        $("h1")
+            .wrapInner("<div/>")
+            .jCarouselLite({auto: 1000,
+                            speed: 800,
+                            circular: true,
+                            visible: 1,
+                            listSelector: "div",
+                            itemSelector: "span",
+                            easing: "easeOutElastic",
+                            beforeStart: swapH2
+                            });
     });
     // ]]>
     </script>
