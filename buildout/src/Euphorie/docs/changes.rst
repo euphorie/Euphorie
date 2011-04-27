@@ -1,6 +1,28 @@
 Changelog
 =========
 
+3.0 - Unreleased
+----------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+Development of Euphorie and related projecst has moved to the 
+`euphorie organisation <https://github.com/euphorie>`_ on github.
+
+Bugfixes
+~~~~~~~~
+
+- Group countries in the client according to EU membership status.
+  [cornae, wichert]
+
+- Change ordering of countries in the client to match the `official
+  EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`).
+  This fixes `github ticket 3
+  <https://github.com/euphorie/Euphorie/issues/3>`_.
+  [wichert]
+
+
 2.7 - April 26, 2011
 --------------------
 
