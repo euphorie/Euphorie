@@ -328,14 +328,15 @@
           <a href="${client_url}/ba/?language=sr">српски</a>
         </tal:block>
       </li>
-      <li tal:define="disabled python:'rs' not in enabled_countries" class="rs${python:' disabled' if disabled else ''}">
+      <li tal:define="disabled python:'cs' not in enabled_countries" class="cs${python:' disabled' if disabled else ''}">
         <tal:block condition="not:disabled">
-          <a href="${client_url}/ba/?language=sr">српски</a>
+          <a href="${client_url}/al/?language=sq">Shqip</a>
+          <a href="${client_url}/cs/?language=sr">српски</a>
         </tal:block>
       </li>
       <li tal:define="disabled python:'rs' not in enabled_countries" class="rs${python:' disabled' if disabled else ''}">
         <tal:block condition="not:disabled">
-          <a href="${client_url}/ba/?language=sr">српски</a>
+          <a href="${client_url}/rs/?language=sr">српски</a>
         </tal:block>
       </li>
     </ul>
