@@ -1249,41 +1249,29 @@ th {
 
 /* @group Welcoming word */
 
-#homepage h1 {
+#homepage h1,
+#homepage h2 {
 	height: 41px;
 	padding-left: 0;
 }
 
-#homepage h1 span {
+#homepage h1 span,
+#homepage h2 span {
 	width: 640px;
 	padding-bottom: 20px;
 	overflow: hidden;
 	padding-right: 0;
 	float: left;
+}
+
+#homepage h1 span {
 	padding-left: 170px;
 }
 
-#homepage h1 br {
-	display: none;
-}
-
-#homepage h2 {
-	clear: left;
-	position: relative;
-	height: 20px;
-}
-
-#homepage h2 span {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
+#homepage h1 br,
 #homepage h2 br {
 	display: none;
 }
-
-
 
 /* @end */
 
