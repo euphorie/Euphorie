@@ -1,5 +1,6 @@
 *.pt.py
 *.pyc
+*.pyo
 *.mo
 /buildout/.installed.cfg
 /buildout/.mr.developer.cfg
@@ -16,3 +17,4 @@
 /buildout/var/instance.pid
 /buildout/src/Euphorie/Euphorie.egg-info/
 /buildout/src/Euphorie/dist/
+/buildout/src/Euphorie/docs/.build/
