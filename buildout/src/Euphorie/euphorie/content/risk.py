@@ -26,7 +26,6 @@ from plone.indexer import indexer
 grok.templatedir("templates")
 
 
-TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget", klass="span-7")
 TextLines4Rows = FieldWidgetFactory("z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
 
 
@@ -39,7 +38,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description = _("help_statement",
                 default=u"This is a short statement about a possible risk."),
             required = True)
-    form.widget(title="euphorie.content.risk.TextSpan7")
     form.order_before(title="*")
 
     problem_description = schema.TextLine(
@@ -285,6 +283,11 @@ class Edit(form.SchemaEditForm):
 
     schema = IRisk
     default_fieldset_label = None
+
+
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        self.widgets["title"].addClass("span-7")
 
 
 
