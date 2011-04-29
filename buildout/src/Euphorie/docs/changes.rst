@@ -14,9 +14,9 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Group countries according to EU membership status.  This fixes github tickets
-  `1 <https://github.com/euphorie/Euphorie/issues/1`_,
+  `1 <https://github.com/euphorie/Euphorie/issues/1>`_,
   `2 <https://github.com/euphorie/Euphorie/issues/2>`_ and
-  `4 <https://github.com/euphorie/Euphorie/issues/4`_.
+  `4 <https://github.com/euphorie/Euphorie/issues/4>`_.
   [cornae, wichert]
 
 
