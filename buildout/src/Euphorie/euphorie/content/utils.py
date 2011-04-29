@@ -1,6 +1,8 @@
 import re
 from zope.schema.interfaces import ITitledTokenizedTerm
+from plonetheme.nuplone.utils import checkPermission
 from euphorie.content import MessageFactory as _
+
 
 TAG = re.compile(u"<.*?>")
 
@@ -38,3 +40,25 @@ def getRegionTitle(request, id, default=None):
             return title
     return default if default is not None else id
 
+
+def summarizeCountries(container, request, current_country=None, permission=None):
+    from euphorie.content.country import ICountry
+    result={}
+    for country in container.values():
+        if not ICountry.providedBy(country):
+            continue
+
+        if permission and not checkPermission(country, permission):
+            continue
+
+        country_type=getattr(country, "country_type", "eu-member")
+        countries=result.setdefault(country_type, [])
+        countries.append({ "id": country.id,
+                           "title": getRegionTitle(request, country.id, country.title),
+                           "url" : country.absolute_url(),
+                           "current": (current_country==country.id),
+                          })
+    for ct in result.values():
+        ct.sort(key=lambda c: c["title"])
+
+    return result

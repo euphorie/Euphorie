@@ -10,13 +10,18 @@ Upgrade notes
 Development of Euphorie and related projecst has moved to the 
 `euphorie organisation <https://github.com/euphorie>`_ on github.
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Group countries according to EU membership status.  This fixes github tickets
+  `1 <https://github.com/euphorie/Euphorie/issues/1`_,
+  `2 <https://github.com/euphorie/Euphorie/issues/2>`_ and
+  `4 <https://github.com/euphorie/Euphorie/issues/4`_.
+  [cornae, wichert]
+
+
 Bugfixes
 ~~~~~~~~
-
-- Group countries in the client according to EU membership status.
-  This fixes `github ticket 2
-  <https://github.com/euphorie/Euphorie/issues/2>`_.
-  [cornae, wichert]
 
 - Change ordering of countries in the client to match the `official
   EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`).

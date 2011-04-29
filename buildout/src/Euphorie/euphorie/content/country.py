@@ -1,6 +1,8 @@
 from Acquisition import aq_inner
 from zope.interface import implements
 from zope import schema
+from zope.schema.vocabulary import SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
@@ -15,21 +17,22 @@ class ICountry(form.Schema, IBasic):
     """Country grouping in the online client.
     """
 
-    is_region = schema.Bool(
-            title = _("label_is_region",
-                default=u"This is a region."),
-            description = _("help_is_region",
-                default=u"Regions are international groupings, such as the "
-                        u"European Union."),
-            default=False)
+    country_type = schema.Choice(
+            title = _("Country grouping"),
+            vocabulary = SimpleVocabulary([
+                SimpleTerm(u"region", title=_("Region")),
+                SimpleTerm(u"eu-member", title=_(u"EU member state")),
+                SimpleTerm(u"efta", title=_(u"EFTA country")),
+                SimpleTerm(u"candidate-eu", title=_(u"Candidate country")),
+                SimpleTerm(u"potential-candidate-eu", title=_(u"Potential candidate country")),
+                ]),
+            required=True)
 
 
 
 class Country(dexterity.Container):
     """A country folder."""
     implements(ICountry)
-
-    is_region = False
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""

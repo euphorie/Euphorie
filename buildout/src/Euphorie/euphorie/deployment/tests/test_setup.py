@@ -10,6 +10,10 @@ class SetupTests(EuphorieTestCase):
     def testSectorContainerCreated(self):
         self.failUnless("sectors" in self.portal.objectIds())
         self.assertEqual(self.portal.sectors.portal_type, "euphorie.sectorcontainer")
+    
+    def testCountriesCreated(self):
+        self.assertTrue("nl" in self.portal.sectors)
+        self.assertEqual(self.portal.sectors["nl"].country_type, "eu-member")
 
     def testClientCreated(self):
         self.failUnless("client" in self.portal.objectIds())

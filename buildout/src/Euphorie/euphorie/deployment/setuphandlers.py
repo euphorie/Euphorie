@@ -22,34 +22,38 @@ def setupVarious(context):
     setupVersioning(site)
 
 
-COUNTRIES = dict(at=u"Austria",
-                 be=u"Belgium",
-                 bg=u"Bulgaria",
-                 se=u"Sweden",
-                 cy=u"Cyprus",
-                 cz=u"The Czech Republic",
-                 de=u"Germany",
-                 dk=u"Denmark",
-                 ee=u"Estonia",
-                 es=u"Spain",
-                 fi=u"Finland",
-                 fr=u"France",
-                 gb=u"The United Kingdom",
-                 gr=u"Greece",
-                 hu=u"Hungary",
-                 ie=u"Ireland",
-                 it=u"Italy",
-                 lt=u"Lithuania",
-                 lu=u"Luxembourg",
-                 lv=u"Latvia",
-                 mt=u"Malta",
-                 nl=u"The Netherlands",
-                 pl=u"Poland",
-                 pt=u"Portugal",
-                 ro=u"Romania",
-                 sk=u"Slovakia",
-                 si=u"Slovenia",
-                 )
+COUNTRIES = {
+        "at": (u"Austria", "eu-member"),
+        "be": (u"Belgium", "eu-member"),
+        "bg": (u"Bulgaria", "eu-member"),
+        "se": (u"Sweden", "eu-member"),
+        "cy": (u"Cyprus", "eu-member"),
+        "cz": (u"The Czech Republic", "eu-member"),
+        "de": (u"Germany", "eu-member"),
+        "dk": (u"Denmark", "eu-member"),
+        "ee": (u"Estonia", "eu-member"),
+        "es": (u"Spain", "eu-member"),
+        "fi": (u"Finland", "eu-member"),
+        "fr": (u"France", "eu-member"),
+        "gb": (u"The United Kingdom", "eu-member"),
+        "gr": (u"Greece", "eu-member"),
+        "hu": (u"Hungary", "eu-member"),
+        "ie": (u"Ireland", "eu-member"),
+        "it": (u"Italy", "eu-member"),
+        "lt": (u"Lithuania", "eu-member"),
+        "lu": (u"Luxembourg", "eu-member"),
+        "lv": (u"Latvia", "eu-member"),
+        "mt": (u"Malta", "eu-member"),
+        "nl": (u"The Netherlands", "eu-member"),
+        "pl": (u"Poland", "eu-member"),
+        "pt": (u"Portugal", "eu-member"),
+        "ro": (u"Romania", "eu-member"),
+        "sk": (u"Slovakia", "eu-member"),
+        "si": (u"Slovenia", "eu-member"),
+        }
+
+for i in REGION_NAMES.items():
+    COUNTRIES[i[0]]=(i[1], "region")
 
 
 def setupInitialContent(site):
@@ -70,9 +74,10 @@ def setupInitialContent(site):
         log.info("Added sectors folder")
 
     sectors=site.sectors
-    for (country_id, title) in COUNTRIES.items():
+    for (country_id, info) in COUNTRIES.items():
+        (title, country_type)=info
         if country_id not in sectors:
-            sectors.invokeFactory("euphorie.country", country_id, title=title)
+            sectors.invokeFactory("euphorie.country", country_id, title=title, country_type=country_type)
             log.info("Added country %s (%s)", country_id, title)
         country=sectors[country_id]
         if "help" not in country:
@@ -82,19 +87,6 @@ def setupInitialContent(site):
         if not INavigationRoot.providedBy(help):
             alsoProvides(help, INavigationRoot)
             log.info("Made help for country %s (%s) a navigation root.", country_id, title)
-
-    for (region_id, title) in REGION_NAMES.items():
-        if region_id not in sectors:
-            sectors.invokeFactory("euphorie.country", region_id, title=title, is_region=True)
-            log.info("Added region %s (%s)", region_id, title)
-        region=sectors[region_id]
-        if "help" not in region:
-            createContentInContainer(region, "euphorie.page", id="help", title=u"Help", checkConstraints=False)
-            log.info("Added help section for region %s (%s)", region_id, title)
-        help=region["help"]
-        if not INavigationRoot.providedBy(help):
-            alsoProvides(help, INavigationRoot)
-            log.info("Made help for region %s (%s) a navigation root.", region_id, title)
 
     if "client" not in present:
         site.invokeFactory("euphorie.client", "client", title="Client")

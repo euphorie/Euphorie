@@ -97,3 +97,17 @@ def addAccountChangeTable(context):
     model.AccountChangeRequest.__table__.create(bind=session.bind, checkfirst=True)
     datamanager.mark_changed(session)
     transaction.get().commit()
+
+
+def addCountryGrouping(context):
+    from euphorie.deployment.setuphandlers import COUNTRIES
+    sectors=aq_parent(context).sectors
+    for (country_id, info) in COUNTRIES.items():
+        country=sectors.get(country_id)
+        if country is None:
+            continue
+        if getattr(country, "country_type", None):
+            continue
+        country.country_type=info[1]
+        log.info("Set country type for %s to %s", country_id, info[1])
+
