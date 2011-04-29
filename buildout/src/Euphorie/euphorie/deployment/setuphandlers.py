@@ -50,6 +50,21 @@ COUNTRIES = {
         "ro": (u"Romania", "eu-member"),
         "sk": (u"Slovakia", "eu-member"),
         "si": (u"Slovenia", "eu-member"),
+
+        "li": (u"Liechtenstein", "efta"),
+        "no": (u"Norway", "efta"),
+        "ch": (u"Switzerland", "efta"),
+
+        "hr": (u"Republic of Croatia", "candidate-eu"),
+        "is": (u"Republic of Iceland", "candidate-eu"),
+        "mk": (u"Republic of Macedonia", "candidate-eu"),
+        "me": (u"Montenegro", "candidate-eu"),
+        "tr": (u"Republic of Turkey", "candidate-eu"),
+
+        "al": (u"Republic of Albania", "potential-candidate-eu"),
+        "ba": (u"Bosnia and Herzegovina", "potential-candidate-eu"),
+        "cs": (u"Kosovo", "potential-candidate-eu"),
+        "rs": (u"Republic of Serbia", "potential-candidate-eu"),
         }
 
 for i in REGION_NAMES.items():
