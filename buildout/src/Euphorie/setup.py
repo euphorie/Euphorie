@@ -32,7 +32,6 @@ setup(name="Euphorie",
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          "lingua",
           "Plone >=4.0b1",
           "Zope2 >=2.12",
           "Products.CMFEditions >=2.0b8",
