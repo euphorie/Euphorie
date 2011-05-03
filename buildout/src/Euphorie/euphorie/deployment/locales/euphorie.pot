@@ -6,16 +6,16 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 2.6\n"
+"Project-Id-Version: Euphorie 3.0dev\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-03-30 13:05+0200\n"
+"POT-Creation-Date: 2011-04-28 13:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
+"Generated-By: Babel 0.9.6\n"
 
 #. Default: Your country
 #: euphorie/client/company.py:20 euphorie/client/templates/report_company.pt:26
@@ -180,7 +180,7 @@ msgstr ""
 msgid "button_preview"
 msgstr ""
 
-#: euphorie/client/publish.py:269
+#: euphorie/client/publish.py:272
 msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
 msgstr ""
 
@@ -1785,19 +1785,22 @@ msgstr ""
 
 #. Default: Requirements
 #: euphorie/client/templates/risk_actionplan.pt:182
-#: euphorie/client/templates/risk_actionplan.pt:49 euphorie/content/solution.py:48
+#: euphorie/client/templates/risk_actionplan.pt:49 euphorie/content/solution.py:51
+#: euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Prevention plan
 #: euphorie/client/templates/risk_actionplan.pt:179
-#: euphorie/client/templates/risk_actionplan.pt:46 euphorie/content/solution.py:40
+#: euphorie/client/templates/risk_actionplan.pt:46 euphorie/content/solution.py:43
+#: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Action plan
 #: euphorie/client/templates/risk_actionplan.pt:176
-#: euphorie/client/templates/risk_actionplan.pt:43 euphorie/content/solution.py:32
+#: euphorie/client/templates/risk_actionplan.pt:43 euphorie/content/solution.py:35
+#: euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
 
@@ -2223,13 +2226,13 @@ msgstr ""
 
 #. Default: Description
 #: euphorie/content/module.py:39 euphorie/content/page.py:19
-#: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:23
+#: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:26
 msgid "label_module_description"
 msgstr ""
 
 #. Default: Include any relevant information that may be helpful for users.
 #: euphorie/content/module.py:40 euphorie/content/page.py:20
-#: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:24
+#: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:27
 msgid "help_module_description"
 msgstr ""
 
@@ -2332,7 +2335,7 @@ msgid "help_statement"
 msgstr ""
 
 #. Default: Inversed statement
-#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:37
 msgid "label_problem_description"
 msgstr ""
 
@@ -2354,7 +2357,7 @@ msgid "help_risk_description"
 msgstr ""
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:60
+#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:61
 msgid "label_legal_reference"
 msgstr ""
 
@@ -2386,7 +2389,7 @@ msgid "intro_evaluation"
 msgstr ""
 
 #. Default: Risk type
-#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:34
+#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
 msgstr ""
 
@@ -2414,7 +2417,7 @@ msgid "risktype_policy"
 msgstr ""
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:42
+#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
 msgstr ""
 
@@ -2434,7 +2437,7 @@ msgid "evalmethod_calculated"
 msgstr ""
 
 #. Default: Default priority
-#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:45
+#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:46
 msgid "label_default_priority"
 msgstr ""
 
@@ -2450,7 +2453,7 @@ msgid "no_default"
 msgstr ""
 
 #. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:49
+#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:50
 msgid "label_default_probability"
 msgstr ""
 
@@ -2466,7 +2469,7 @@ msgid "no default"
 msgstr ""
 
 #. Default: Default frequency
-#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:52
 msgid "label_default_frequency"
 msgstr ""
 
@@ -2549,24 +2552,24 @@ msgstr ""
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:33
+#: euphorie/content/solution.py:36
 msgid "help_measure_action_plan"
 msgstr ""
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:41
+#: euphorie/content/solution.py:44
 msgid "help_measure_prevention_plan"
 msgstr ""
 
 #. Default: Describe the standard requirements for the action plan and prevention
 #. plan. This information will be copied to the measure.
-#: euphorie/content/solution.py:49
+#: euphorie/content/solution.py:52
 msgid "help_measure_requirements"
 msgstr ""
 
 #. Default: Common solution
-#: euphorie/content/solution.py:60
+#: euphorie/content/solution.py:63
 msgid "title_common_solution"
 msgstr ""
 
@@ -3015,6 +3018,7 @@ msgstr ""
 #. Default: Information
 #: euphorie/content/templates/module_view.pt:22
 #: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/solution_view.pt:18
 #: euphorie/content/templates/survey_view.pt:15
 msgid "header_information"
 msgstr ""
@@ -3057,37 +3061,37 @@ msgid "Group name"
 msgstr ""
 
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:67
+#: euphorie/content/templates/risk_view.pt:68
 msgid "risk_solution_header"
 msgstr ""
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:64
+#: euphorie/content/templates/risk_view.pt:65
 msgid "header_solutions"
 msgstr ""
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:53
+#: euphorie/content/templates/risk_view.pt:54
 msgid "label_default_effect"
 msgstr ""
 
 #. Default: No
-#: euphorie/content/templates/risk_view.pt:40
+#: euphorie/content/templates/risk_view.pt:41
 msgid "no"
 msgstr ""
 
 #. Default: Yes
-#: euphorie/content/templates/risk_view.pt:39
+#: euphorie/content/templates/risk_view.pt:40
 msgid "yes"
 msgstr ""
 
 #. Default: Show '${na}'
-#: euphorie/content/templates/risk_view.pt:38
+#: euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na"
 msgstr ""
 
 #. Default: not applicable
-#: euphorie/content/templates/risk_view.pt:38
+#: euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na_na"
 msgstr ""
 
@@ -3231,6 +3235,10 @@ msgstr ""
 #. Default: Settings
 #: euphorie/content/templates/settings.pt:12
 msgid "header_settings"
+msgstr ""
+
+#: euphorie/content/templates/solution_view.pt:12
+msgid "Standard solution"
 msgstr ""
 
 #. Default: Create

@@ -7,18 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2010-11-29 13:39+0100\n"
+"POT-Creation-Date: 2011-04-28 13:06+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 0.9.5\n"
 
 #. Default: Your country
-#: euphorie/client/company.py:20 euphorie/client/templates/report_company.pt:26
+#: euphorie/client/company.py:20
+#: euphorie/client/templates/report_company.pt:26
 msgid "label_company_country"
 msgstr "Η χώρα σας "
 
@@ -70,7 +72,8 @@ msgstr "εξωτερικός σύμβουλος ή πάροχος υπηρεσι
 #. Default: both own staff and an external consultant or service provider
 #: euphorie/client/company.py:47
 msgid "conductor_both"
-msgstr "το προσωπικό της εταιρείας και εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
+msgstr ""
+"το προσωπικό της εταιρείας και εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
 
 #. Default: Through which channel did you learn about this tool?
 #: euphorie/client/company.py:53
@@ -108,7 +111,8 @@ msgid "referer_eu_institution"
 msgstr "ευρωπαϊκός οργανισμός/διοίκηση"
 
 #. Default: health and safety experts
-#: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:44
+#: euphorie/client/company.py:68
+#: euphorie/client/templates/report_company.pt:44
 msgid "referer_health_safety_expert"
 msgstr "ειδήμων υγείας και ασφάλειας"
 
@@ -134,7 +138,8 @@ msgstr "Υπενθύμιση εγγραφής OiRA"
 #: euphorie/client/login.py:131 euphorie/client/login.py:135
 #: euphorie/client/login.py:139
 msgid "An error occured while sending the password reminder"
-msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
+msgstr ""
+"Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
 
 #: euphorie/client/login.py:153
 msgid "An email with a password reminder has been sent to your address."
@@ -193,13 +198,12 @@ msgstr "Επιτυχής δημοσίευση της έρευνας"
 msgid "button_preview"
 msgstr "Δημιουργία προεπισκόπησης"
 
-#: euphorie/client/publish.py:269
+#: euphorie/client/publish.py:272
 msgid ""
-"Succesfully created a preview for the survey. It can be accessed at "
-"${url} ."
+"Succesfully created a preview for the survey. It can be accessed at ${url} ."
 msgstr ""
-"Επιτυχής δημιουργία προεπισκόπησης για την έρευνα. Διατίθεται στη "
-"διεύθυνση ${url} ."
+"Επιτυχής δημιουργία προεπισκόπησης για την έρευνα. Διατίθεται στη διεύθυνση "
+"${url} ."
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
@@ -207,8 +211,8 @@ msgstr ""
 #: euphorie/client/templates/report_actionplan.pt:161
 msgid "report_survey_revision"
 msgstr ""
-"Αυτή η αναφορά βασίστηκε στην έρευνα '${title}' της ημερομηνίας "
-"αναθεώρησης ${date}."
+"Αυτή η αναφορά βασίστηκε στην έρευνα '${title}' της ημερομηνίας αναθεώρησης "
+"${date}."
 
 #. Default: You responded negatively to the above statement.
 #: euphorie/client/report.py:358 euphorie/client/report.py:585
@@ -237,10 +241,8 @@ msgid "plan_report_intro_header"
 msgstr ""
 
 #. Default: By filling in the list of questions, you have completed a risk
-#. assessment. This assessment is used to draw up an action plan. The progress
-#. of
-#. this action plan must be discussed annually and a small report must be
-#. written
+#. assessment. This assessment is used to draw up an action plan. The progress of
+#. this action plan must be discussed annually and a small report must be written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
 #: euphorie/client/report.py:508
@@ -249,10 +251,10 @@ msgid "plan_report_intro_1"
 msgstr ""
 "Με τη συμπλήρωση της λίστας με τις ερωτήσεις, έχετε ολοκληρώσει την "
 "αξιολόγηση κινδύνων. Αυτή η αξιολόγηση χρησιμοποιείται για την κατάρτιση "
-"ενός σχεδίου δράσης. Η πρόοδος αυτού του σχεδίου δράσης πρέπει να "
-"συζητείται σε ετήσια βάση και να συντάσσεται μια μικρή αναφορά σχετικά με"
-" την πρόοδο. Ορισμένα θέματα ενδέχεται να έχουν ολοκληρωθεί και ίσως "
-"κάποια νέα θέματα χρειάζεται να προστεθούν."
+"ενός σχεδίου δράσης. Η πρόοδος αυτού του σχεδίου δράσης πρέπει να συζητείται "
+"σε ετήσια βάση και να συντάσσεται μια μικρή αναφορά σχετικά με την πρόοδο. "
+"Ορισμένα θέματα ενδέχεται να έχουν ολοκληρωθεί και ίσως κάποια νέα θέματα "
+"χρειάζεται να προστεθούν."
 
 #. Default: Not provided
 #: euphorie/client/report.py:526
@@ -280,9 +282,9 @@ msgstr ""
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
 msgstr ""
-"Αυτός ο κίνδυνος δεν υπάρχει στην επιχείρησή σας, αλλά επειδή η οργάνωση "
-"του τομέα θεωρεί ότι πρόκειται για έναν από τους 5 πιο κρίσιμους "
-"κινδύνους, πρέπει να συμπεριληφθεί σε αυτή την αναφορά."
+"Αυτός ο κίνδυνος δεν υπάρχει στην επιχείρησή σας, αλλά επειδή η οργάνωση του "
+"τομέα θεωρεί ότι πρόκειται για έναν από τους 5 πιο κρίσιμους κινδύνους, "
+"πρέπει να συμπεριληφθεί σε αυτή την αναφορά."
 
 #. Default: low priority risk
 #: euphorie/client/report.py:600
@@ -340,14 +342,13 @@ msgstr "Απαιτήσεις:"
 msgid "report_measure_responsible"
 msgstr "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια."
 
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}.
+#. Default: ${responsible} is responsible for this task which starts on ${start}.
 #: euphorie/client/report.py:650
 #: euphorie/client/templates/report_actionplan.pt:122
 msgid "report_measure_responsible_and_start"
 msgstr ""
-"Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια η οποία "
-"αρχίζει στις ${start}."
+"Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια η οποία αρχίζει "
+"στις ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
 #: euphorie/client/report.py:656
@@ -357,8 +358,7 @@ msgstr ""
 "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια η οποία "
 "τελειώνει στις ${end}."
 
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}
+#. Default: ${responsible} is responsible for this task which starts on ${start}
 #. and ends on ${end}.
 #: euphorie/client/report.py:662
 #: euphorie/client/templates/report_actionplan.pt:138
@@ -468,18 +468,16 @@ msgstr ""
 #: euphorie/client/settings.py:208 euphorie/client/settings.py:212
 #: euphorie/client/settings.py:216
 #, fuzzy
-#| msgid "An error occured while sending the password reminder"
 msgid "An error occured while sending the confirmation email."
-msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
+msgstr ""
+"Σημειώθηκε ένα σφάλμα κατά την αποστολή της υπενθύμισης κωδικού πρόσβασης"
 
 #: euphorie/client/settings.py:244
 msgid "This email address is not available."
 msgstr ""
 
-#. Default: Please confirm your new email address by clicking on the link in
-#. the
-#. email that will be sent in a few minutes to "${email}". Please note that the
-#. new
+#. Default: Please confirm your new email address by clicking on the link in the
+#. email that will be sent in a few minutes to "${email}". Please note that the new
 #. email address is also your new login name.
 #: euphorie/client/settings.py:248
 msgid "email_change_pending"
@@ -500,7 +498,8 @@ msgstr ""
 #: euphorie/client/templates/frontpage.pt:13
 #: euphorie/client/templates/help.pt:12
 #: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/layout.pt:13 euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/layout.pt:13
+#: euphorie/client/templates/login.pt:13
 #: euphorie/client/templates/module_actionplan.pt:12
 #: euphorie/client/templates/module_evaluation.pt:12
 #: euphorie/client/templates/module_identification.pt:12
@@ -514,7 +513,8 @@ msgstr ""
 #: euphorie/client/templates/risk_evaluation.pt:12
 #: euphorie/client/templates/risk_identification.pt:12
 #: euphorie/client/templates/sessions.pt:13
-#: euphorie/client/templates/start.pt:12 euphorie/client/templates/status.pt:12
+#: euphorie/client/templates/start.pt:12
+#: euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:13
 #: euphorie/client/templates/updated.pt:12
 #: euphorie/client/templates/webhelpers.pt:15 euphorie/content/sector.py:241
@@ -541,7 +541,8 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 #: euphorie/client/templates/evaluation.pt:78
 #: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
-#: euphorie/client/templates/layout.pt:61 euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/layout.pt:61
+#: euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/module_actionplan.pt:85
 #: euphorie/client/templates/module_evaluation.pt:73
 #: euphorie/client/templates/module_identification.pt:85
@@ -556,7 +557,8 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 #: euphorie/client/templates/risk_evaluation.pt:122
 #: euphorie/client/templates/risk_identification.pt:86
 #: euphorie/client/templates/sessions.pt:94
-#: euphorie/client/templates/start.pt:66 euphorie/client/templates/status.pt:70
+#: euphorie/client/templates/start.pt:66
+#: euphorie/client/templates/status.pt:70
 #: euphorie/client/templates/survey_sessions.pt:85
 #: euphorie/client/templates/updated.pt:99
 #: euphorie/content/templates/colour-preview.pt:56
@@ -567,8 +569,8 @@ msgstr "Βοήθεια"
 #: euphorie/client/templates/about.pt:106
 msgid "about_licenses_3"
 msgstr ""
-"Τα εργαλεία OiRA για τους τομείς μπορούν να χρησιμοποιηθούν δωράν από "
-"όλους τους χρήστες."
+"Τα εργαλεία OiRA για τους τομείς μπορούν να χρησιμοποιηθούν δωράν από όλους "
+"τους χρήστες."
 
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
 #: euphorie/client/templates/about.pt:104
@@ -596,19 +598,17 @@ msgid "header_licenses"
 msgstr "Άδειες χρήσης"
 
 #. Default: The Agency was also given strategic and expert advice by a Steering
-#. Committee in the development and implementation of the OiRA project. Members
-#. and
-#. alternates of the Steering Committee were appointed by the interest groups
-#. at
+#. Committee in the development and implementation of the OiRA project. Members and
+#. alternates of the Steering Committee were appointed by the interest groups at
 #. the Board, by the Commission and by EU-OSHA.
 #: euphorie/client/templates/about.pt:94
 msgid "about_partners_3"
 msgstr ""
-"Η Υπηρεσία έχει επίσης λάβει στρατηγικές και εξειδικευμένες συμβουλές από"
-" την Επιτροπή Καθοδήγησης κατά το σχεδιασμό και την υλοποίηση του έργου "
-"OiRA. Τα μέλη και οι αναπληρωτές της Επιτροπής Καθοδήγησης ορίστηκαν από "
-"τις ομάδες ενδιαφέροντος στο Συμβούλιο, από την Ευρωπαϊκή Επιτροπή και "
-"από την ΕΕ-OSHA."
+"Η Υπηρεσία έχει επίσης λάβει στρατηγικές και εξειδικευμένες συμβουλές από "
+"την Επιτροπή Καθοδήγησης κατά το σχεδιασμό και την υλοποίηση του έργου OiRA. "
+"Τα μέλη και οι αναπληρωτές της Επιτροπής Καθοδήγησης ορίστηκαν από τις "
+"ομάδες ενδιαφέροντος στο Συμβούλιο, από την Ευρωπαϊκή Επιτροπή και από την "
+"ΕΕ-OSHA."
 
 #: euphorie/client/templates/about.pt:91
 msgid "Germany"
@@ -619,52 +619,43 @@ msgstr "Γερμανία"
 msgid "The Netherlands"
 msgstr "Ολλανδία"
 
-#. Default: The following technical partners contributed to the development of
-#. the
+#. Default: The following technical partners contributed to the development of the
 #. OiRA project:
 #: euphorie/client/templates/about.pt:77
 msgid "about_partners_2"
 msgstr "Οι παρακάτω τεχνικοί εταίροι συνέβαλαν στο σχεδιασμό του έργου OiRA:"
 
-#. Default: The OiRA project and its related web application has been developed
-#. by
-#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
-#. financed
-#. by the Dutch government, was initially developed by TNO in collaboration
-#. with
-#. the employers organisation for small and medium-sized enterprises
-#. MKB-Nederland
-#. and the Dutch Ministry for Employment. Further development of the
-#. application
+#. Default: The OiRA project and its related web application has been developed by
+#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed
+#. by the Dutch government, was initially developed by TNO in collaboration with
+#. the employers organisation for small and medium-sized enterprises MKB-Nederland
+#. and the Dutch Ministry for Employment. Further development of the application
 #. was realised with input and participation of trade unions FNV, CNV and MHP.
 #: euphorie/client/templates/about.pt:75
 msgid "about_partners_1"
 msgstr ""
-"Το έργο OiRA και η σχετική διαδικτυακή εφαρμογή σχεδιάστηκαν από την "
-"${eu-osha} με βάση το Ολλανδικό εργαλείο αξιολόγησης κινδύνων "
-"(επανομαζόμενο ${RIE}), το οποίο, με τη χρηματοδότηση της ολλανδικής "
-"κυβέρνησης, αρχικά αναπτύχθηκε από την TNO σε συνεργασία με την ένωση "
-"εργαζομένων για μικρές και μεσαίες επιχειρήσεις MKB-Nederland και το "
-"Υπουργείο Εργασίας της Ολλανδίας. Η περαιτέρω ανάπτυξη της εφαρμογής "
-"υλοποιήθηκε με τη συνδρομή και τη συμμετοχή των επαγγελματικών οργανώσεων"
-" FNV, CNV και MHP."
+"Το έργο OiRA και η σχετική διαδικτυακή εφαρμογή σχεδιάστηκαν από την ${eu-"
+"osha} με βάση το Ολλανδικό εργαλείο αξιολόγησης κινδύνων (επανομαζόμενο "
+"${RIE}), το οποίο, με τη χρηματοδότηση της ολλανδικής κυβέρνησης, αρχικά "
+"αναπτύχθηκε από την TNO σε συνεργασία με την ένωση εργαζομένων για μικρές "
+"και μεσαίες επιχειρήσεις MKB-Nederland και το Υπουργείο Εργασίας της "
+"Ολλανδίας. Η περαιτέρω ανάπτυξη της εφαρμογής υλοποιήθηκε με τη συνδρομή και "
+"τη συμμετοχή των επαγγελματικών οργανώσεων FNV, CNV και MHP."
 
 #. Default: Development partners
 #: euphorie/client/templates/about.pt:72
 msgid "header_development_partners"
 msgstr "Εταίροι σχεδιασμού"
 
-#. Default: The official launch of the tool is planned for September 2011, once
-#. the
-#. objectives of the testing phase have been reached and once the OiRA website,
-#. the
+#. Default: The official launch of the tool is planned for September 2011, once the
+#. objectives of the testing phase have been reached and once the OiRA website, the
 #. OiRA training scheme and OiRA help desk will be ready.
 #: euphorie/client/templates/about.pt:69
 msgid "phase_launch"
 msgstr ""
-"Η επίσημη παρουσίαση του εργαλείου έχει προγραμματιστεί για το Σεπτέμβριο"
-" του 2011, όταν θα έχουν επιτευχθεί οι στόχοι της φάσης δοκιμών και μόλις"
-" ο δικτυακός τόπος του OiRA, το πρόγραμμα κατάρτισης OiRA και το τμήμα "
+"Η επίσημη παρουσίαση του εργαλείου έχει προγραμματιστεί για το Σεπτέμβριο "
+"του 2011, όταν θα έχουν επιτευχθεί οι στόχοι της φάσης δοκιμών και μόλις ο "
+"δικτυακός τόπος του OiRA, το πρόγραμμα κατάρτισης OiRA και το τμήμα "
 "εξυπηρέτησης OiRA έχουν ολοκληρωθεί."
 
 #. Default: Official launch of the project – September 2011
@@ -672,24 +663,20 @@ msgstr ""
 msgid "header_launch"
 msgstr "Επίσημη παρουσίαση του έργου – Σεπτέμβριος 2011"
 
-#. Default: After the technical development of the tool in 2009, in 2010 (until
-#. the
-#. first half of 2011) the Agency is piloting the development and diffusion
-#. model
-#. at both EU level (working with the Sectoral Social Dialogue Committees) and
-#. at
-#. Member State level (with several Member States) as part of the testing of
-#. the
+#. Default: After the technical development of the tool in 2009, in 2010 (until the
+#. first half of 2011) the Agency is piloting the development and diffusion model
+#. at both EU level (working with the Sectoral Social Dialogue Committees) and at
+#. Member State level (with several Member States) as part of the testing of the
 #. tool and the development of appropriate support and guidance services.
 #: euphorie/client/templates/about.pt:65
 msgid "devel_phase"
 msgstr ""
-"Μετά την τεχνική εξέλιξη του εργαλείου το 2009, το 2010 (έως το πρώτο "
-"μισό του 2011) ο Οργανισμός σχεδιάζει πιλοτικά το μοντέλο ανάπτυξης και "
-"διάχυσης τόσο σε επίπεδο ΕΕ  (συνεργασία με τις Τομεακές επιτροπές "
-"κοινωνικού διαλόγου) όσο και επίπεδο κρατών-μελών (με αρκετά κράτη-μέλη) "
-"στο πλαίσιο των δοκιμών του εργαλείου και της δημιουργίας κατάλληλων "
-"υπηρεσιών υποστήριξης και καθοδήγησης."
+"Μετά την τεχνική εξέλιξη του εργαλείου το 2009, το 2010 (έως το πρώτο μισό "
+"του 2011) ο Οργανισμός σχεδιάζει πιλοτικά το μοντέλο ανάπτυξης και διάχυσης "
+"τόσο σε επίπεδο ΕΕ  (συνεργασία με τις Τομεακές επιτροπές κοινωνικού "
+"διαλόγου) όσο και επίπεδο κρατών-μελών (με αρκετά κράτη-μέλη) στο πλαίσιο "
+"των δοκιμών του εργαλείου και της δημιουργίας κατάλληλων υπηρεσιών "
+"υποστήριξης και καθοδήγησης."
 
 #. Default: Development and pilot phase – 2009-2011
 #: euphorie/client/templates/about.pt:61
@@ -706,37 +693,30 @@ msgstr "Φάσεις έργου"
 msgid "about_oiraproject"
 msgstr "Περισσότερες πληροφορίες για το έργο OiRA (στα Ελληνικά)"
 
-#. Default: The ${agency} calls for the development of simple tools to
-#. facilitate
-#. risk assessment. Since the adoption of the European Framework directive in
-#. 1989,
-#. risk assessment has become a familiar concept for organising prevention in
-#. the
-#. workplace, and hundreds of thousands of companies all over Europe assess
-#. their
+#. Default: The ${agency} calls for the development of simple tools to facilitate
+#. risk assessment. Since the adoption of the European Framework directive in 1989,
+#. risk assessment has become a familiar concept for organising prevention in the
+#. workplace, and hundreds of thousands of companies all over Europe assess their
 #. risks regularly. Nevertheless, there is sufficient evidence to conclude that
-#. ${smb} when it comes to risk assessment and the adoption of a preventive
-#. policy
+#. ${smb} when it comes to risk assessment and the adoption of a preventive policy
 #. in general which the OiRA project aims to overcome.
 #: euphorie/client/templates/about.pt:54
 msgid "about_paragraph_3"
 msgstr ""
 "Η ${agency} ζητά τη δημιουργία απλών εργαλείων για τη διευκόλυνση της "
-"αξιολόγησης κινδύνου. Από την υιοθέτηση της οδηγίας Ευρωπαϊκού Πλαισίου "
-"το 1989, η αξιολόγηση κινδύνων αποτελεί οικεία έννοια για την οργάνωση "
-"της πρόληψης στο χώρο εργασίας, και εκατοντάδες χιλιάδες εταιρείες σε όλη"
-" την Ευρώπη προβαίνουν τακτικά σε αξιολόγηση των κινδύνων που "
-"αντιμετωπίζουν. Παρόλα αυτά, υπάρχουν αρκετά στοιχεία που υποδεικνύουν το"
-" ${smb} όσον αφορά στην αξιολόγηση κινδύνων και την υιοθέτηση μιας "
-"προληπτικής πολιτικής γενικά την οποία το έργο OiRA έχει στόχο να "
-"υπερβεί."
+"αξιολόγησης κινδύνου. Από την υιοθέτηση της οδηγίας Ευρωπαϊκού Πλαισίου το "
+"1989, η αξιολόγηση κινδύνων αποτελεί οικεία έννοια για την οργάνωση της "
+"πρόληψης στο χώρο εργασίας, και εκατοντάδες χιλιάδες εταιρείες σε όλη την "
+"Ευρώπη προβαίνουν τακτικά σε αξιολόγηση των κινδύνων που αντιμετωπίζουν. "
+"Παρόλα αυτά, υπάρχουν αρκετά στοιχεία που υποδεικνύουν το ${smb} όσον αφορά "
+"στην αξιολόγηση κινδύνων και την υιοθέτηση μιας προληπτικής πολιτικής γενικά "
+"την οποία το έργο OiRA έχει στόχο να υπερβεί."
 
 #. Default: micro and small enterprises have some shortcomings
 #: euphorie/client/templates/about.pt:55
 msgid "about_partners_3_smb"
 msgstr ""
-"οι πολύ μικρές και μικρές επιχειρήσεις μπορεί να αντιμετωπίσουν "
-"ανεπάρκειες"
+"οι πολύ μικρές και μικρές επιχειρήσεις μπορεί να αντιμετωπίσουν ανεπάρκειες"
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
 #: euphorie/client/templates/about.pt:55
@@ -750,8 +730,7 @@ msgstr ""
 msgid "header_why_oira"
 msgstr "Γιατί το έργο OiRA"
 
-#. Default: The OiRA web application gives access to the sectoral Risk
-#. Assessment
+#. Default: The OiRA web application gives access to the sectoral Risk Assessment
 #. tools created and maintained by sectoral organisations at national level.
 #: euphorie/client/templates/about.pt:48
 msgid "about_paragraph_2"
@@ -760,24 +739,20 @@ msgstr ""
 "Αξιολόγησης Κινδύνων που έχουν δημιουργηθεί και συντηρούνται από τους "
 "τομεακούς οργανισμούς σε εθνικό επίπεδο."
 
-#. Default: Experience shows that ${key}. This is why EU-OSHA developed an
-#. ${easy}
-#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and
-#. small
-#. organisations to put in place a ${step} – starting with the
-#. ${identification}
+#. Default: Experience shows that ${key}. This is why EU-OSHA developed an ${easy}
+#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and small
+#. organisations to put in place a ${step} – starting with the ${identification}
 #. and ${evaluation} of workplace risks, through decision making on
-#. ${preventive_actions} and the taking of action, to monitoring and
-#. ${reporting}.
+#. ${preventive_actions} and the taking of action, to monitoring and ${reporting}.
 #: euphorie/client/templates/about.pt:26
 msgid "about_paragraph_1"
 msgstr ""
 "Η πείρα δείχνει ότι ${key}. Για αυτό η ΕΕ-OSHA ανέπτυξαν ένα ${easy} (το "
-"“OiRA” - Online διαδραστική Αξιολόγηση Κινδύνων) που μπορεί να βοηθήσει "
-"τις πολύ μικρές και μικρές επιχειρήσεις για εφαρμόσουν ένα ${step} – "
-"αρχίζονται με την ${identification} και ${evaluation} των κινδύνων στο "
-"χώρο εργασίας, μέσω της λήψης αποφάσεων σχετικά με ${preventive_actions} "
-"και την ανάληψη δράσης, έως την εποπτεία και ${reporting}."
+"“OiRA” - Online διαδραστική Αξιολόγηση Κινδύνων) που μπορεί να βοηθήσει τις "
+"πολύ μικρές και μικρές επιχειρήσεις για εφαρμόσουν ένα ${step} – αρχίζονται "
+"με την ${identification} και ${evaluation} των κινδύνων στο χώρο εργασίας, "
+"μέσω της λήψης αποφάσεων σχετικά με ${preventive_actions} και την ανάληψη "
+"δράσης, έως την εποπτεία και ${reporting}."
 
 #. Default: reporting
 #: euphorie/client/templates/about.pt:42
@@ -828,16 +803,15 @@ msgstr "Σχετικά"
 
 #: euphorie/client/templates/account-delete.pt:20
 msgid ""
-"Please note that by deleting your account, also all your filled out "
-"surveys will be deleted. Please make sure to download your surveys from "
-"the reports screen prior to deleting your account if you want to keep "
-"any."
+"Please note that by deleting your account, also all your filled out surveys "
+"will be deleted. Please make sure to download your surveys from the reports "
+"screen prior to deleting your account if you want to keep any."
 msgstr ""
 
 #: euphorie/client/templates/account-delete.pt:19
 msgid ""
-"By clicking on 'Delete account', your account will be permenantly "
-"deleted. This action is irreversable."
+"By clicking on 'Delete account', your account will be permenantly deleted. "
+"This action is irreversable."
 msgstr ""
 
 #. Default: Password
@@ -848,8 +822,8 @@ msgstr "Υπενθύμιση κωδικού πρόσβασης"
 
 #: euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name "
-"will also change."
+"Please bear in mind that by changing the email address, your login name will "
+"also change."
 msgstr ""
 
 #: euphorie/client/templates/account-settings.pt:23
@@ -880,7 +854,8 @@ msgstr "Εθνικοί διευθυντές"
 #: euphorie/client/templates/risk_evaluation.pt:124
 #: euphorie/client/templates/risk_identification.pt:88
 #: euphorie/client/templates/sessions.pt:95
-#: euphorie/client/templates/start.pt:67 euphorie/client/templates/status.pt:71
+#: euphorie/client/templates/start.pt:67
+#: euphorie/client/templates/status.pt:71
 #: euphorie/client/templates/survey_sessions.pt:86
 #: euphorie/client/templates/updated.pt:100
 #, fuzzy
@@ -922,7 +897,8 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/risk_actionplan.pt:274
 #: euphorie/client/templates/risk_evaluation.pt:121
 #: euphorie/client/templates/risk_identification.pt:85
-#: euphorie/client/templates/start.pt:65 euphorie/client/templates/status.pt:69
+#: euphorie/client/templates/start.pt:65
+#: euphorie/client/templates/status.pt:69
 #: euphorie/client/templates/updated.pt:98
 msgid "navigation_surveys"
 msgstr "Έρευνες"
@@ -946,7 +922,8 @@ msgstr "Έρευνες"
 #: euphorie/client/templates/risk_evaluation.pt:120
 #: euphorie/client/templates/risk_identification.pt:84
 #: euphorie/client/templates/sessions.pt:93
-#: euphorie/client/templates/start.pt:64 euphorie/client/templates/status.pt:68
+#: euphorie/client/templates/start.pt:64
+#: euphorie/client/templates/status.pt:68
 #: euphorie/client/templates/survey_sessions.pt:84
 #: euphorie/client/templates/updated.pt:97
 msgid "navigation_logout"
@@ -971,7 +948,8 @@ msgstr "Αποσύνδεση"
 #: euphorie/client/templates/risk_evaluation.pt:113
 #: euphorie/client/templates/risk_identification.pt:77
 #: euphorie/client/templates/sessions.pt:87
-#: euphorie/client/templates/start.pt:58 euphorie/client/templates/status.pt:61
+#: euphorie/client/templates/start.pt:58
+#: euphorie/client/templates/status.pt:61
 #: euphorie/client/templates/survey_sessions.pt:78
 #: euphorie/client/templates/updated.pt:91
 msgid "iphone_report"
@@ -996,7 +974,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/risk_evaluation.pt:112
 #: euphorie/client/templates/risk_identification.pt:76
 #: euphorie/client/templates/sessions.pt:86
-#: euphorie/client/templates/start.pt:57 euphorie/client/templates/status.pt:60
+#: euphorie/client/templates/start.pt:57
+#: euphorie/client/templates/status.pt:60
 #: euphorie/client/templates/survey_sessions.pt:77
 #: euphorie/client/templates/updated.pt:90
 msgid "label_report"
@@ -1021,7 +1000,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/risk_evaluation.pt:107
 #: euphorie/client/templates/risk_identification.pt:71
 #: euphorie/client/templates/sessions.pt:83
-#: euphorie/client/templates/start.pt:54 euphorie/client/templates/status.pt:55
+#: euphorie/client/templates/start.pt:54
+#: euphorie/client/templates/status.pt:55
 #: euphorie/client/templates/survey_sessions.pt:74
 #: euphorie/client/templates/updated.pt:87
 #, fuzzy
@@ -1047,7 +1027,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/risk_evaluation.pt:106
 #: euphorie/client/templates/risk_identification.pt:70
 #: euphorie/client/templates/sessions.pt:82
-#: euphorie/client/templates/start.pt:53 euphorie/client/templates/status.pt:54
+#: euphorie/client/templates/start.pt:53
+#: euphorie/client/templates/status.pt:54
 #: euphorie/client/templates/survey_sessions.pt:73
 #: euphorie/client/templates/updated.pt:86
 #: euphorie/content/templates/colour-preview.pt:47
@@ -1073,7 +1054,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/risk_evaluation.pt:98
 #: euphorie/client/templates/risk_identification.pt:65
 #: euphorie/client/templates/sessions.pt:79
-#: euphorie/client/templates/start.pt:50 euphorie/client/templates/status.pt:49
+#: euphorie/client/templates/start.pt:50
+#: euphorie/client/templates/status.pt:49
 #: euphorie/client/templates/survey_sessions.pt:70
 #: euphorie/client/templates/updated.pt:83
 msgid "iphone_label_evaluation"
@@ -1098,7 +1080,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:64
 #: euphorie/client/templates/sessions.pt:78
-#: euphorie/client/templates/start.pt:49 euphorie/client/templates/status.pt:48
+#: euphorie/client/templates/start.pt:49
+#: euphorie/client/templates/status.pt:48
 #: euphorie/client/templates/survey_sessions.pt:69
 #: euphorie/client/templates/updated.pt:82 euphorie/content/help.py:57
 #: euphorie/content/templates/colour-preview.pt:44
@@ -1124,7 +1107,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/risk_evaluation.pt:92
 #: euphorie/client/templates/risk_identification.pt:56
 #: euphorie/client/templates/sessions.pt:75
-#: euphorie/client/templates/start.pt:46 euphorie/client/templates/status.pt:43
+#: euphorie/client/templates/start.pt:46
+#: euphorie/client/templates/status.pt:43
 #: euphorie/client/templates/survey_sessions.pt:66
 #: euphorie/client/templates/updated.pt:79
 msgid "iphone_label_identification"
@@ -1149,7 +1133,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/risk_evaluation.pt:91
 #: euphorie/client/templates/risk_identification.pt:55
 #: euphorie/client/templates/sessions.pt:74
-#: euphorie/client/templates/start.pt:45 euphorie/client/templates/status.pt:42
+#: euphorie/client/templates/start.pt:45
+#: euphorie/client/templates/status.pt:42
 #: euphorie/client/templates/survey_sessions.pt:65
 #: euphorie/client/templates/updated.pt:78 euphorie/content/help.py:49
 #: euphorie/content/templates/colour-preview.pt:41
@@ -1175,7 +1160,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/risk_evaluation.pt:86
 #: euphorie/client/templates/risk_identification.pt:50
 #: euphorie/client/templates/sessions.pt:71
-#: euphorie/client/templates/start.pt:41 euphorie/client/templates/status.pt:37
+#: euphorie/client/templates/start.pt:41
+#: euphorie/client/templates/status.pt:37
 #: euphorie/client/templates/survey_sessions.pt:62
 #: euphorie/client/templates/updated.pt:74
 msgid "iphone_label_preparation"
@@ -1200,7 +1186,8 @@ msgstr "Προετοιμασία"
 #: euphorie/client/templates/risk_evaluation.pt:85
 #: euphorie/client/templates/risk_identification.pt:49
 #: euphorie/client/templates/sessions.pt:70
-#: euphorie/client/templates/start.pt:40 euphorie/client/templates/status.pt:36
+#: euphorie/client/templates/start.pt:40
+#: euphorie/client/templates/status.pt:36
 #: euphorie/client/templates/survey_sessions.pt:61
 #: euphorie/client/templates/updated.pt:73 euphorie/content/help.py:40
 msgid "label_preparation"
@@ -1216,69 +1203,57 @@ msgstr "Μεταβείτε στην αναφορά"
 msgid "label_create_action_plan"
 msgstr "Δημιουργία σχεδίου δράσης"
 
-#. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks.
-#. There are no risks which need require any attention during this phase, so
-#. please
+#. Default: You have identified the magnitude of risk for each of the bottlenecks.
+#. There are no risks which need require any attention during this phase, so please
 #. proceed directly to the report.
 #: euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
 msgstr ""
-"Έχετε αναγνωρίσει το μέγεθος του κινδύνου για κάθε μια από τις "
-"δυσχέρειες. Δεν υπάρχουν κίνδυνοι που χρήζουν προσοχής σε αυτή τη φάση, "
-"προχωρήστε απευθείας στην αναφορά."
+"Έχετε αναγνωρίσει το μέγεθος του κινδύνου για κάθε μια από τις δυσχέρειες. "
+"Δεν υπάρχουν κίνδυνοι που χρήζουν προσοχής σε αυτή τη φάση, προχωρήστε "
+"απευθείας στην αναφορά."
 
-#. Default: Removing the causes (tackling the source) is the preferred method:
-#. that
+#. Default: Removing the causes (tackling the source) is the preferred method: that
 #. way, the risk can no longer arise. You then write down what tasks have to be
-#. carried out in order for the risk to be removed, as well as the knowledge
-#. and
-#. experience that are needed for those tasks to be carried out (prevention
-#. plan
+#. carried out in order for the risk to be removed, as well as the knowledge and
+#. experience that are needed for those tasks to be carried out (prevention plan
 #. and requirements).
 #: euphorie/client/templates/actionplan.pt:27
 msgid "expl_actionplan_2"
 msgstr ""
-"Η αφαίρεση των αιτιών (αντιμετώπιση της πηγής) είναι η προτιμώμενη "
-"μέθοδος: με αυτό τον τρόπο, ο κίνδυνος δεν μπορεί πλέον να προκύψει. Στη "
-"συνέχεια σημειώνετε ποιες διαδικασίες πρέπει να πραγματοποιηθούν "
-"προκειμένου ο κίνδυνος να αφαιρεθεί, καθώς και τις γνώσεις και την πείρα "
-"που απαιτούνται για την εκτέλεση αυτών των διαδικασιών (σχέδιο πρόληψης "
-"και απαιτήσεις)."
+"Η αφαίρεση των αιτιών (αντιμετώπιση της πηγής) είναι η προτιμώμενη μέθοδος: "
+"με αυτό τον τρόπο, ο κίνδυνος δεν μπορεί πλέον να προκύψει. Στη συνέχεια "
+"σημειώνετε ποιες διαδικασίες πρέπει να πραγματοποιηθούν προκειμένου ο "
+"κίνδυνος να αφαιρεθεί, καθώς και τις γνώσεις και την πείρα που απαιτούνται "
+"για την εκτέλεση αυτών των διαδικασιών (σχέδιο πρόληψης και απαιτήσεις)."
 
-#. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks.
+#. Default: You have identified the magnitude of risk for each of the bottlenecks.
 #. During the action plan phase you can determine the priority of each of the
-#. bottlenecks and how you are going to tackle the bottleneck. The programme
-#. may
+#. bottlenecks and how you are going to tackle the bottleneck. The programme may
 #. offer a suggestion you can use, or you can add your own measures.
 #: euphorie/client/templates/actionplan.pt:20
 msgid "expl_actionplan_1"
 msgstr ""
-"Έχετε αναγνωρίσει το μέγεθος του κινδύνου για κάθε μία από τις "
-"δυσχέρειες. Στη διάρκεια της φάσης του σχεδίου δράσης, μπορείτε να "
-"προσδιορίσετε την προτεραιότητα κάθε μιας από τις δυσχέρειες και τον "
-"τρόπο με τον οποίο πρόκειται να τις διευθετήσετε. Το πρόγραμμα μπορεί να "
-"προσφέρει μια πρόταση/σύσταση που μπορείτε να αξιοποιήσετε ή μπορείτε να "
-"προσθέσετε τα δικά σας μέτρα αντιμετώπισης."
+"Έχετε αναγνωρίσει το μέγεθος του κινδύνου για κάθε μία από τις δυσχέρειες. "
+"Στη διάρκεια της φάσης του σχεδίου δράσης, μπορείτε να προσδιορίσετε την "
+"προτεραιότητα κάθε μιας από τις δυσχέρειες και τον τρόπο με τον οποίο "
+"πρόκειται να τις διευθετήσετε. Το πρόγραμμα μπορεί να προσφέρει μια πρόταση/"
+"σύσταση που μπορείτε να αξιοποιήσετε ή μπορείτε να προσθέσετε τα δικά σας "
+"μέτρα αντιμετώπισης."
 
 #. Default: Contact information
 #: euphorie/client/templates/conditions.pt:104
 msgid "conditions_contact_header"
 msgstr ""
 
-#. Default: We restrict access to personal information to authorised user. We
-#. take
+#. Default: We restrict access to personal information to authorised user. We take
 #. appropriate security measures to protect against unauthorized access to or
 #. unauthorized alteration, disclosure or destruction of data. These include
-#. internal reviews of our data collection, storage and processing practices
-#. and
+#. internal reviews of our data collection, storage and processing practices and
 #. security measures, including appropriate encryption of communication and
-#. physical security measures to guard against unauthorized access to systems
-#. where
+#. physical security measures to guard against unauthorized access to systems where
 #. we store personal data. Data are not accessible to anybody by any means. IP
-#. addresses are not saved so that end-users can not be identified through
-#. their
+#. addresses are not saved so that end-users can not be identified through their
 #. access.
 #: euphorie/client/templates/conditions.pt:100
 msgid "conditions_security"
@@ -1290,8 +1265,7 @@ msgid "conditions_security_header"
 msgstr ""
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
-#. review, control and delete the information stored in your Account and in
-#. your
+#. review, control and delete the information stored in your Account and in your
 #. Session(s).
 #: euphorie/client/templates/conditions.pt:94
 msgid "conditions_datareview"
@@ -1307,8 +1281,7 @@ msgstr ""
 msgid "conditions_conservation_storage"
 msgstr ""
 
-#. Default: We keep your data which is inaccessible for external users until
-#. you
+#. Default: We keep your data which is inaccessible for external users until you
 #. delete your account and your session(s).
 #: euphorie/client/templates/conditions.pt:84
 msgid "conditions_conservation_keep_data"
@@ -1335,71 +1308,57 @@ msgstr ""
 msgid "conditions_info_not_personal"
 msgstr ""
 
-#. Default: Build statistics, by using exclusively aggregated and anonymous
-#. data on
+#. Default: Build statistics, by using exclusively aggregated and anonymous data on
 #. the risks of a sector. These statistics will be passed on exclusively to the
 #. developers of the tool.
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
 
-#. Default: Provide, maintain, protect, and improve our services and develop
-#. new
+#. Default: Provide, maintain, protect, and improve our services and develop new
 #. services.
 #: euphorie/client/templates/conditions.pt:63
 msgid "conditions_info_use_develop"
 msgstr ""
 
-#. Default: In addition to the above mentioned purposes, we may use the
-#. information
+#. Default: In addition to the above mentioned purposes, we may use the information
 #. we collect to:
 #: euphorie/client/templates/conditions.pt:58
 msgid "conditions_info_use_intro"
 msgstr ""
 
 #. Default: Log information – When you access the service, our servers
-#. automatically record information that your browser sends whenever you visit
-#. a
+#. automatically record information that your browser sends whenever you visit a
 #. website. These server logs may include information such as your web request,
-#. your interaction with a service, browser type, browser language, the date
-#. and
+#. your interaction with a service, browser type, browser language, the date and
 #. time of your request. IP addresses are not stored in the system.
 #: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_logs"
 msgstr ""
 
 #. Default: Cookies – When you visit the site and select a language, we send a
-#. cookie to your computer or other device to store your language selection.
-#. This
-#. cookie stays in your browser until you close it. When you visit the site and
-#. log
-#. in, we send a cookie with your login information to keep you logged in
-#. during
+#. cookie to your computer or other device to store your language selection. This
+#. cookie stays in your browser until you close it. When you visit the site and log
+#. in, we send a cookie with your login information to keep you logged in during
 #. your visit. This cookie stays on your computer until you close your browser.
 #. Most browsers are initially set up to accept cookies, but you can reset your
 #. browser to refuse all cookies or to indicate when a cookie is being sent.
-#. However, some features and services may not function properly if your
-#. cookies
+#. However, some features and services may not function properly if your cookies
 #. are disabled.
 #: euphorie/client/templates/conditions.pt:49
 msgid "conditions_info_cookies"
 msgstr ""
 
-#. Default: Any information you provide in the free text fields of the tool and
-#. in
-#. the action plan - (e.g. when you input a measure to tackle a risk, the
-#. person
-#. responsible for that measure, etc). The input of information in the free
-#. text
+#. Default: Any information you provide in the free text fields of the tool and in
+#. the action plan - (e.g. when you input a measure to tackle a risk, the person
+#. responsible for that measure, etc). The input of information in the free text
 #. fields is voluntary.
 #: euphorie/client/templates/conditions.pt:45
 msgid "conditions_info_text"
 msgstr ""
 
-#. Default: Email account: this is necessary to access the online tool, edit
-#. the
-#. input data, and delete the OiRA account. You can enter any valid e-mail
-#. address.
+#. Default: Email account: this is necessary to access the online tool, edit the
+#. input data, and delete the OiRA account. You can enter any valid e-mail address.
 #. Email addresses will not be used for commercial purposes.
 #: euphorie/client/templates/conditions.pt:41
 msgid "conditions_info_email"
@@ -1410,15 +1369,11 @@ msgstr ""
 msgid "conditions_info_header"
 msgstr ""
 
-#. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001
+#. Default: Your personal data is processed in line with Regulation (EC) N° 45/2001
 #. of the European Parliament and of the Council of 18 December 2000 on the
-#. protection of individuals with regard to the processing of personal data by
-#. the
-#. Community institutions and bodies and on the free movement of such data.
-#. Further
-#. details of the privacy policy of EU-OSHA and the full text of the Regulation
-#. can
+#. protection of individuals with regard to the processing of personal data by the
+#. Community institutions and bodies and on the free movement of such data. Further
+#. details of the privacy policy of EU-OSHA and the full text of the Regulation can
 #. be accessed at: ${url}.
 #: euphorie/client/templates/conditions.pt:31
 #, fuzzy
@@ -1428,10 +1383,8 @@ msgstr ""
 "στοιχεία σε αυτή τη φόρμα θα εμφανίζονται επίσης στην αναφορά."
 
 #. Default: The OiRA tool is an instrument put at your disposal by the European
-#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies
-#. to
-#. all products, services and websites offered by EU-OSHA in the framework of
-#. the
+#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to
+#. all products, services and websites offered by EU-OSHA in the framework of the
 #. OiRA (Online interactive Risk Assessment) tool.
 #: euphorie/client/templates/conditions.pt:27
 #, fuzzy
@@ -1466,14 +1419,12 @@ msgstr ""
 #. '${email}' when you click the confirmation link below.
 #: euphorie/client/templates/confirm-email.pt:8
 #, fuzzy
-#| msgid "label_change_country"
 msgid "email_change_intro"
 msgstr "Αλλαγή χώρας/γλώσσας"
 
 #. Default: Dear user,
 #: euphorie/client/templates/confirm-email.pt:6
 #, fuzzy
-#| msgid "reminder_email_header"
 msgid "email_change_header"
 msgstr "Αγαπητέ χρήστη,"
 
@@ -1507,8 +1458,7 @@ msgstr "Μετάβαση στο σχέδιο δράσης"
 msgid "label_run_evaluation"
 msgstr "Διεξαγωγή αξιολόγησης"
 
-#. Default: There are no risks that need to be evaluated. You can proceed
-#. directly
+#. Default: There are no risks that need to be evaluated. You can proceed directly
 #. to the action plan phase.
 #: euphorie/client/templates/evaluation.pt:31
 msgid "help_evaluation_empty"
@@ -1516,29 +1466,27 @@ msgstr ""
 "Δεν υπάρχουν κίνδυνοι που χρήζουν αξιολόγησης. Μπορείτε να προχωρήσετε "
 "απευθείας στη φάση σχεδίου δράσης"
 
-#. Default: You can also skip this phase and proceed directly to the ${link}
-#. phase.
+#. Default: You can also skip this phase and proceed directly to the ${link} phase.
 #: euphorie/client/templates/evaluation.pt:25
 msgid "help_skip_evaluation"
 msgstr ""
-"Μπορείτε επίσης να παρακάμψετε αυτή τη φάση και να προχωρήσετε απευθείας "
-"στη φάση ${link}."
+"Μπορείτε επίσης να παρακάμψετε αυτή τη φάση και να προχωρήσετε απευθείας στη "
+"φάση ${link}."
 
 #. Default: action plan
 #: euphorie/client/templates/evaluation.pt:28
 msgid "help_skip_evaluation_link"
 msgstr "σχέδιο δράσης"
 
-#. Default: You have indicated that there are possible risks in your
-#. organisation.
+#. Default: You have indicated that there are possible risks in your organisation.
 #. During this evaluation phase you can assess the magnitude of risk for each
 #. bottleneck.
 #: euphorie/client/templates/evaluation.pt:19
 msgid "help_risks_present"
 msgstr ""
 "Έχετε αναφέρει ότι υπάρχουν πιθανοί κίνδυνοι στην επιχείρησή σας. Στη "
-"διάρκεια αυτής της φάσης αξιολόγησης, μπορείτε να αξιολογήσετε το μέγεθος"
-" του κινδύνου για κάθε δυσχέρεια."
+"διάρκεια αυτής της φάσης αξιολόγησης, μπορείτε να αξιολογήσετε το μέγεθος "
+"του κινδύνου για κάθε δυσχέρεια."
 
 #. Default: Final words
 #: euphorie/client/templates/help.pt:54 euphorie/client/templates/help.pt:27
@@ -1614,8 +1562,7 @@ msgstr "Μπορείτε να εκτυπώσετε τη ${list-of-risks}."
 msgid "list_of_risks"
 msgstr "λίστα με το σύνολο των κινδύνων"
 
-#. Default: You can also distribute the list among the workers and invite them
-#. to
+#. Default: You can also distribute the list among the workers and invite them to
 #. participate in identifying the hazards/problems, evaluating the risks and
 #. deciding on preventive action. Their feedback can be taken into account when
 #. filling in this tool.
@@ -1623,37 +1570,33 @@ msgstr "λίστα με το σύνολο των κινδύνων"
 msgid "intro_print_identification_2"
 msgstr ""
 "Μπορείτε επίσης να διανέμετε τη λίστα στους εργαζομένους και να τους "
-"προσκαλέσετε να συμμετάσχουν στη διαδικασία αναγνώρισης των "
-"κινδύνων/προβλημάτων, στην αξιολόγηση των κινδύνων και τη λήψη απόφασης "
-"για τις προληπτικές ενέργειες. Τα σχόλιά τους μπορούν να ληφθούν υπόψη "
-"όταν συμπληρώνετε αυτό το εργαλείο."
+"προσκαλέσετε να συμμετάσχουν στη διαδικασία αναγνώρισης των κινδύνων/"
+"προβλημάτων, στην αξιολόγηση των κινδύνων και τη λήψη απόφασης για τις "
+"προληπτικές ενέργειες. Τα σχόλιά τους μπορούν να ληφθούν υπόψη όταν "
+"συμπληρώνετε αυτό το εργαλείο."
 
 #. Default: You may want to print out the list of risks you cannot immediately
-#. answer and look for the information at the relevant workplace (by walking
-#. around
-#. the workplace and looking at what could cause harm, or by consulting the
-#. workers
-#. about problems they have encountered). Then you can introduce the
-#. information
+#. answer and look for the information at the relevant workplace (by walking around
+#. the workplace and looking at what could cause harm, or by consulting the workers
+#. about problems they have encountered). Then you can introduce the information
 #. into the tool.
 #: euphorie/client/templates/identification.pt:19
 msgid "intro_print_identification_1"
 msgstr ""
-"Μπορείτε επίσης να εκτυπώσετε τη λίστα με τους κινδύνους στους οποίους "
-"δεν μπορείτε να δώσετε άμεσα απάντηση και να αναζητήσετε πληροφορίες στο "
-"σχετικό χώρο εργασίας (περπατώντας στο χώρο εργασίας και αναζητώντας τι "
-"θα μπορούσε να είναι επικίνδυνο ή συζητώντας με τους εργαζομένους για τα "
-"προβλήματα που έχουν αντιμετωπίσει). Στη συνέχεια, μπορείτε να εισάγετε "
-"τις πληροφορίες στο εργαλείο."
+"Μπορείτε επίσης να εκτυπώσετε τη λίστα με τους κινδύνους στους οποίους δεν "
+"μπορείτε να δώσετε άμεσα απάντηση και να αναζητήσετε πληροφορίες στο σχετικό "
+"χώρο εργασίας (περπατώντας στο χώρο εργασίας και αναζητώντας τι θα μπορούσε "
+"να είναι επικίνδυνο ή συζητώντας με τους εργαζομένους για τα προβλήματα που "
+"έχουν αντιμετωπίσει). Στη συνέχεια, μπορείτε να εισάγετε τις πληροφορίες στο "
+"εργαλείο."
 
-#. Default: Your registration is a private matter. All your data is stored to
-#. be
+#. Default: Your registration is a private matter. All your data is stored to be
 #. accessed only by you.
 #: euphorie/client/templates/login.pt:40
 msgid "login_tooltip"
 msgstr ""
-"Η εγγραφή σας είναι προσωπικό ζήτημα. Πρόσβαση σε όλα τα στοιχεία σας που"
-" αποθηκεύονται μπορείτε να έχετε μόνο εσείς."
+"Η εγγραφή σας είναι προσωπικό ζήτημα. Πρόσβαση σε όλα τα στοιχεία σας που "
+"αποθηκεύονται μπορείτε να έχετε μόνο εσείς."
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: euphorie/client/templates/login.pt:39
@@ -1697,15 +1640,14 @@ msgstr "Διεύθυνση email"
 msgid "header_login"
 msgstr "Σύνδεση"
 
-#. Default: Your login name and/or password were entered incorrectly. Please
-#. check
+#. Default: Your login name and/or password were entered incorrectly. Please check
 #. and try again or ${request_an_email_reminder} of your login information.
 #: euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
 msgstr ""
 "Το όνομα σύνδεσης ή/και ο κωδικός πρόσβασής σας δεν καταχωρήθηκαν σωστά. "
-"Παρακαλώ ελέγξτε και προσπαθήστε ξανά ή ${request_an_email_reminder} "
-"σχετικά με τα στοιχεία σύνδεσής σας."
+"Παρακαλώ ελέγξτε και προσπαθήστε ξανά ή ${request_an_email_reminder} σχετικά "
+"με τα στοιχεία σύνδεσής σας."
 
 #. Default: request an email reminder
 #: euphorie/client/templates/login.pt:22
@@ -1767,16 +1709,15 @@ msgstr "Ναι"
 msgid "help_preview_url"
 msgstr "Η προεπισκόπηση θα είναι διαθέσιμη στο ${url}."
 
-#. Default: Are you sure you want to create a preview of this survey? You can
-#. give
+#. Default: Are you sure you want to create a preview of this survey? You can give
 #. the URL for the preview to others so they can test the survey. To access the
 #. preview a standard OiRA client login is required.
 #: euphorie/client/templates/preview.pt:17
 msgid "intro_preview"
 msgstr ""
 "Είστε βέβαιοι ότι θέλετε να δημιουργήσετε μια προεπισκόπηση για αυτή την "
-"έρευνα; Μπορείτε να δώσετε το URL για την προεπισκόπηση σε τρίτους ώστε "
-"να μπορέσουν να δοκιμάσουν την έρευνα. Για να αποκτήσετε πρόσβαση στην "
+"έρευνα; Μπορείτε να δώσετε το URL για την προεπισκόπηση σε τρίτους ώστε να "
+"μπορέσουν να δοκιμάσουν την έρευνα. Για να αποκτήσετε πρόσβαση στην "
 "προεπισκόπηση, απαιτείται τυπική σύνδεση πελάτη OiRA."
 
 #. Default: Preview survey
@@ -1796,30 +1737,27 @@ msgid "label_add_profile_module"
 msgstr "Προσθήκη"
 
 #. Default: Read the following statement(s) and tick the box if the issue is
-#. relevant to your company/organisation. If it is not, don’t tick the box and
-#. you
+#. relevant to your company/organisation. If it is not, don’t tick the box and you
 #. will not be asked about things that do not apply to your situation.
 #: euphorie/client/templates/profile.pt:18
 msgid "expl_profile"
 msgstr ""
-"Διαβάστε τις παρακάτω δηλώσεις και επιλέξτε το πλαίσιο εάν το πρόβλημα "
-"αφορά στην εταιρεία/επιχείρησή σας. Εάν όχι, μην επιλέξετε το πλαίσιο και"
-" δεν θα ερωτηθείτε σχετικά με θέματα που δεν αφορούν στην περίπτωσή σας."
+"Διαβάστε τις παρακάτω δηλώσεις και επιλέξτε το πλαίσιο εάν το πρόβλημα αφορά "
+"στην εταιρεία/επιχείρησή σας. Εάν όχι, μην επιλέξετε το πλαίσιο και δεν θα "
+"ερωτηθείτε σχετικά με θέματα που δεν αφορούν στην περίπτωσή σας."
 
 #. Default: Tailor the risk assessment to your organisation
 #: euphorie/client/templates/profile.pt:16
 msgid "header_profile"
 msgstr ""
-"Προσαρμόστε στις ανάγκες σας την αξιολόγηση κινδύνων για την επιχείρησή "
-"σας"
+"Προσαρμόστε στις ανάγκες σας την αξιολόγηση κινδύνων για την επιχείρησή σας"
 
 #. Default: After publication the survey will be available at ${url}.
 #: euphorie/client/templates/publish.pt:29
 msgid "help_publish_url"
 msgstr "Με τη δημοσίευση, η έρευνα θα είναι διαθέσιμη στη διεύθυνση ${url}."
 
-#. Default: Are you sure you want to publish this survey version? This will
-#. replace
+#. Default: Are you sure you want to publish this survey version? This will replace
 #. the current version.
 #: euphorie/client/templates/publish.pt:24
 msgid "intro_publish_other_survey_published"
@@ -1832,8 +1770,8 @@ msgstr ""
 #: euphorie/client/templates/publish.pt:21
 msgid "intro_publish_survey_published"
 msgstr ""
-"Είστε βέβαιοι ότι θέλετε να επανεκδοθεί αυτή η έρευνα; Σε αυτή την "
-"περίτωση, όλες οι αλλαγές θα δημοσιευτούν."
+"Είστε βέβαιοι ότι θέλετε να επανεκδοθεί αυτή η έρευνα; Σε αυτή την περίτωση, "
+"όλες οι αλλαγές θα δημοσιευτούν."
 
 #. Default: Are you sure you want to publish this survey? After publication the
 #. survey will appear in the online client and be accessible by all users.
@@ -1875,14 +1813,13 @@ msgstr "Κωδικός πρόσβασης"
 msgid "reminder_email_login"
 msgstr "Email"
 
-#. Default: You have requested a password reminder for the OiRA website. Your
-#. login
+#. Default: You have requested a password reminder for the OiRA website. Your login
 #. information is:
 #: euphorie/client/templates/reminder-email.pt:8
 msgid "reminder_email_intro"
 msgstr ""
-"Έχετε ζητήσει υπενθύμιση του κωδικού πρόσβασης για το δικτυακό τόπο OiRA."
-" Τα στοιχεία σας για τη σύνδεση είναι:"
+"Έχετε ζητήσει υπενθύμιση του κωδικού πρόσβασης για το δικτυακό τόπο OiRA. Τα "
+"στοιχεία σας για τη σύνδεση είναι:"
 
 #. Default: Dear user,
 #: euphorie/client/templates/reminder-email.pt:6
@@ -1894,28 +1831,26 @@ msgstr "Αγαπητέ χρήστη,"
 msgid "header_password_reminder"
 msgstr "Υπενθύμιση κωδικού πρόσβασης"
 
-#. Default: Please leave any extra comments that should be included in the
-#. report
+#. Default: Please leave any extra comments that should be included in the report
 #. in this field.
 #: euphorie/client/templates/report.pt:28
 msgid "label_report_comment"
 msgstr ""
-"Παρακαλώ υποβάλλετε τυχόν πρόσφατα σχόλια που θα μπορούσαν να "
-"συμπεριληφθούν στην αναφορά σε αυτό το πεδίο."
+"Παρακαλώ υποβάλλετε τυχόν πρόσφατα σχόλια που θα μπορούσαν να συμπεριληφθούν "
+"στην αναφορά σε αυτό το πεδίο."
 
 #. Default: Now that you have finished identifying all the risks in your
-#. organisation and created an action plan you can create a report which lists
-#. all
+#. organisation and created an action plan you can create a report which lists all
 #. your results. You can, if desired, add some extra comments that should be
 #. included in this report in the field below.
 #: euphorie/client/templates/report.pt:19
 msgid "report_intro"
 msgstr ""
-"Τώρα που έχετε ολοκληρώσει την αναγνώριση όλων των κινδύων στην "
-"επιχείρησή σας και έχετε καταρτίσει ένα σχέδιο δράσης, μπορείτε να "
-"δημιουργήσετε μια αναφορά με τα αποτελέσματά σας. Μπορείτε, εφόσον το "
-"επιθμείτε, να προσθέσετε ορισμένα πρόσθετα σχόλια που θα μπορούσαν να "
-"συμπεριληφθούν στην αναφορά στο παρακάτω πεδίο."
+"Τώρα που έχετε ολοκληρώσει την αναγνώριση όλων των κινδύων στην επιχείρησή "
+"σας και έχετε καταρτίσει ένα σχέδιο δράσης, μπορείτε να δημιουργήσετε μια "
+"αναφορά με τα αποτελέσματά σας. Μπορείτε, εφόσον το επιθμείτε, να προσθέσετε "
+"ορισμένα πρόσθετα σχόλια που θα μπορούσαν να συμπεριληφθούν στην αναφορά στο "
+"παρακάτω πεδίο."
 
 #. Default: Reporting
 #: euphorie/client/templates/report.pt:17
@@ -1956,8 +1891,7 @@ msgstr "ειδικοι σε θέματα υγείας και ασφάλειας"
 msgid "label_country"
 msgstr "Χώρα"
 
-#. Default: Your answers and report were ${automatically_saved} and may be
-#. found
+#. Default: Your answers and report were ${automatically_saved} and may be found
 #. back or deleted at any time via the ${preparation_step}.
 #: euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_2"
@@ -2001,14 +1935,13 @@ msgstr ""
 "Ευρωπαϊκός Οργανισμός για την Ασφάλεια και την Υγεία στην Εργασία, "
 "ευρωπαϊκοί κοινωνικοί εταίροι, κ.λπ."
 
-#. Default: Ministry, Labour Inspectorate, National Institute for Safety and
-#. Health
+#. Default: Ministry, Labour Inspectorate, National Institute for Safety and Health
 #. at Work, etc.
 #: euphorie/client/templates/report_company.pt:41
 msgid "info_referer_national_public_institution"
 msgstr ""
-"Υπουργείο, Επιθεώρηση Εργασίας, Εθνικό Ινστιτούτο για την Υγεία και "
-"Ασφάλεια στην Εργασία, κ.λπ."
+"Υπουργείο, Επιθεώρηση Εργασίας, Εθνικό Ινστιτούτο για την Υγεία και Ασφάλεια "
+"στην Εργασία, κ.λπ."
 
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
@@ -2033,8 +1966,8 @@ msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
-"Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μέτρο; Αυτή η ενέργεια δεν"
-" μπορεί να ανακληθεί."
+"Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μέτρο; Αυτή η ενέργεια δεν "
+"μπορεί να ανακληθεί."
 
 #. Default: Year
 #: euphorie/client/templates/risk_actionplan.pt:226
@@ -2079,8 +2012,8 @@ msgstr "Έναρξη σχεδιασμού"
 #: euphorie/client/templates/risk_actionplan.pt:62
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
-"Παρότι ορισμένα μέτρα δεν ενέχουν κανένα χρηματικό κόστος, τα περισσότερα"
-" κοστίζουν. Για αυτό το λόγο, για τα μέτρα πρέπει να καταρτιστεί ένας "
+"Παρότι ορισμένα μέτρα δεν ενέχουν κανένα χρηματικό κόστος, τα περισσότερα "
+"κοστίζουν. Για αυτό το λόγο, για τα μέτρα πρέπει να καταρτιστεί ένας "
 "προϋπολογισμός - πρέπει να συμπεριληφθούν στον ετήσιο προϋπολογισμό εάν "
 "είναι απαραίτητο."
 
@@ -2091,19 +2024,16 @@ msgid "label_action_plan_budget"
 msgstr "Προϋπολογισμός (σε Ευρώ)"
 
 #. Default: Appoint someone in your company to be responsible for the
-#. implementation of this measure. This person will have the authority to take
-#. the
-#. steps described in the Plan and/or the responsibility to ensure that they
-#. are
+#. implementation of this measure. This person will have the authority to take the
+#. steps described in the Plan and/or the responsibility to ensure that they are
 #. carried out.
 #: euphorie/client/templates/risk_actionplan.pt:189
 #: euphorie/client/templates/risk_actionplan.pt:56
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Ορίστε κάποιον στην εταιρεία σας ως υπεύθυνο για την εφαρμογή αυτού του "
-"μέτρου. Αυτό το άτομο θα έχει την αρμοδιότητα να προβαίνει στις ενέργειες"
-" που περιγράφονται στο Σχέδιο ή/και την ευθύνη να διασφαλίζει ότι "
-"εκτελούνται."
+"μέτρου. Αυτό το άτομο θα έχει την αρμοδιότητα να προβαίνει στις ενέργειες "
+"που περιγράφονται στο Σχέδιο ή/και την ευθύνη να διασφαλίζει ότι εκτελούνται."
 
 #. Default: Who is responsible?
 #: euphorie/client/templates/risk_actionplan.pt:188
@@ -2114,52 +2044,48 @@ msgstr "Ποιος είναι υπεύθυνος;"
 #. Default: Requirements
 #: euphorie/client/templates/risk_actionplan.pt:182
 #: euphorie/client/templates/risk_actionplan.pt:49
-#: euphorie/content/solution.py:48
+#: euphorie/content/solution.py:51
+#: euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Απαιτήσεις"
 
 #. Default: Prevention plan
 #: euphorie/client/templates/risk_actionplan.pt:179
 #: euphorie/client/templates/risk_actionplan.pt:46
-#: euphorie/content/solution.py:40
+#: euphorie/content/solution.py:43
+#: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr "Σχέδιο πρόληψης"
 
 #. Default: Action plan
 #: euphorie/client/templates/risk_actionplan.pt:176
 #: euphorie/client/templates/risk_actionplan.pt:43
-#: euphorie/content/solution.py:32
+#: euphorie/content/solution.py:35
+#: euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Σχέδιο δράσης"
 
-#. Default: You write down in the Plan what measure you will be taking in
-#. response
-#. to the risk. Removing the causes (tackling the source) is the preferred
-#. method:
-#. that way, the risk can no longer arise. You then write down what tasks have
-#. to
-#. be carried out in order for the risk to be removed, as well as the knowledge
-#. and
-#. experience that are needed for those tasks to be carried out (prevention
-#. plan
+#. Default: You write down in the Plan what measure you will be taking in response
+#. to the risk. Removing the causes (tackling the source) is the preferred method:
+#. that way, the risk can no longer arise. You then write down what tasks have to
+#. be carried out in order for the risk to be removed, as well as the knowledge and
+#. experience that are needed for those tasks to be carried out (prevention plan
 #. and requirements). In most cases, the prevention officer will help in the
-#. implementation of the Plan: however, he must have the capability or have had
-#. the
+#. implementation of the Plan: however, he must have the capability or have had the
 #. relevant training to do this.
 #: euphorie/client/templates/risk_actionplan.pt:172
 #: euphorie/client/templates/risk_actionplan.pt:39
 msgid "actionplan_measure_tooltip"
 msgstr ""
-"Σημειώστε στο Σχέδιο ποιο μέτρο αντιμετώπισης θα λάβετε για την "
-"αντιμετώπιση του κινδύνου. Η αφαίρεση των αιτιών (αντιμετώπιση της πηγής)"
-" είναι η προτιμώμενη μέθοδος: με αυτό τον τρόπο, ο κίνδυνος δεν μπορεί "
-"πλέον να προκύψει. Στη συνέχεια σημειώνετε ποιες διαδικασίες πρέπει να "
-"πραγματοποιηθούν προκειμένου ο κίνδυνος να αφαιρεθεί, καθώς και τις "
-"γνώσεις και την πείρα που απαιτούνται για την εκτέλεση αυτών των "
-"διαδικασιών (σχέδιο πρόληψης και απαιτήσεις). Στις περισσότερες "
-"περιπτώσεις, ο υπεύθυνος πρόληψης θα συμβάλλει στην εφαρμογή του Σχεδίου:"
-" ωστόσο, πρέπει να έχει την ικανότητα ή να έχει λάβει τη σχετική "
-"κατάρτιση για να κάνει κάτι τέτοιο."
+"Σημειώστε στο Σχέδιο ποιο μέτρο αντιμετώπισης θα λάβετε για την αντιμετώπιση "
+"του κινδύνου. Η αφαίρεση των αιτιών (αντιμετώπιση της πηγής) είναι η "
+"προτιμώμενη μέθοδος: με αυτό τον τρόπο, ο κίνδυνος δεν μπορεί πλέον να "
+"προκύψει. Στη συνέχεια σημειώνετε ποιες διαδικασίες πρέπει να "
+"πραγματοποιηθούν προκειμένου ο κίνδυνος να αφαιρεθεί, καθώς και τις γνώσεις "
+"και την πείρα που απαιτούνται για την εκτέλεση αυτών των διαδικασιών (σχέδιο "
+"πρόληψης και απαιτήσεις). Στις περισσότερες περιπτώσεις, ο υπεύθυνος "
+"πρόληψης θα συμβάλλει στην εφαρμογή του Σχεδίου: ωστόσο, πρέπει να έχει την "
+"ικανότητα ή να έχει λάβει τη σχετική κατάρτιση για να κάνει κάτι τέτοιο."
 
 #. Default: Remove
 #: euphorie/client/templates/risk_actionplan.pt:170
@@ -2171,30 +2097,27 @@ msgstr "Αφαίρεση"
 msgid "measure_template_title"
 msgstr "Μέτρο 2"
 
-#. Default: Please leave any comments you may have on the question above in
-#. this
+#. Default: Please leave any comments you may have on the question above in this
 #. field. These comments will be used in the action plan.
 #: euphorie/client/templates/risk_actionplan.pt:155
 #: euphorie/client/templates/risk_evaluation.pt:74
 #: euphorie/client/templates/risk_identification.pt:38
 msgid "label_comment"
 msgstr ""
-"Αφήστε τυχόν σχόλια που μπορεί να έχετε σχετικά με την ερώτηση σε αυτό το"
-" πεδίο. Αυτά τα σχόλια θα χρησιμοποιηθούνσ το σχέδιο δράσης."
+"Αφήστε τυχόν σχόλια που μπορεί να έχετε σχετικά με την ερώτηση σε αυτό το "
+"πεδίο. Αυτά τα σχόλια θα χρησιμοποιηθούνσ το σχέδιο δράσης."
 
 #: euphorie/client/templates/risk_actionplan.pt:143
 msgid "Use"
 msgstr "Χρήση"
 
-#. Default: There are known common approaches to this risk. You can create a
-#. new
+#. Default: There are known common approaches to this risk. You can create a new
 #. measure based on these approaches.
 #: euphorie/client/templates/risk_actionplan.pt:138
 msgid "help_common_solutions"
 msgstr ""
 "Υπάρχουν γνωστές προσεγγίσεις για αυτό τον κίνδυνο. Μπορείτε να "
-"δημιουργήσετε ένα νέο  μέτρο αντιμετώπισης με βάση αυτές τις "
-"προσεγγίσεις."
+"δημιουργήσετε ένα νέο  μέτρο αντιμετώπισης με βάση αυτές τις προσεγγίσεις."
 
 #. Default: Common solutions
 #: euphorie/client/templates/risk_actionplan.pt:137
@@ -2224,17 +2147,20 @@ msgid "error_invalid_budget"
 msgstr "Παρακαλώ εισάγετε τον προϋπολογισμό σε ακέραια ευρώ."
 
 #. Default: High
-#: euphorie/client/templates/risk_evaluation.pt:64 euphorie/content/risk.py:134
+#: euphorie/client/templates/risk_evaluation.pt:64
+#: euphorie/content/risk.py:134
 msgid "priority_high"
 msgstr "Υψηλή"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:62 euphorie/content/risk.py:133
+#: euphorie/client/templates/risk_evaluation.pt:62
+#: euphorie/content/risk.py:133
 msgid "priority_medium"
 msgstr "Μέση"
 
 #. Default: Low
-#: euphorie/client/templates/risk_evaluation.pt:60 euphorie/content/risk.py:132
+#: euphorie/client/templates/risk_evaluation.pt:60
+#: euphorie/content/risk.py:132
 msgid "priority_low"
 msgstr "Χαμηλή"
 
@@ -2264,12 +2190,14 @@ msgid "header_risk_effect"
 msgstr "Ποια είναι η σφοδρότητα της ζημιάς;"
 
 #. Default: Constantly
-#: euphorie/client/templates/risk_evaluation.pt:42 euphorie/content/risk.py:166
+#: euphorie/client/templates/risk_evaluation.pt:42
+#: euphorie/content/risk.py:166
 msgid "frequency_constantly"
 msgstr "Διαρκώς"
 
 #. Default: Regularly
-#: euphorie/client/templates/risk_evaluation.pt:40 euphorie/content/risk.py:165
+#: euphorie/client/templates/risk_evaluation.pt:40
+#: euphorie/content/risk.py:165
 msgid "frequency_regularly"
 msgstr "Τακτικά"
 
@@ -2284,17 +2212,20 @@ msgid "header_risk_frequency"
 msgstr "Πόσο συχνά εκτίθενται άνθρωποι σε αυτό τον κίνδυνο;"
 
 #. Default: Large
-#: euphorie/client/templates/risk_evaluation.pt:32 euphorie/content/risk.py:150
+#: euphorie/client/templates/risk_evaluation.pt:32
+#: euphorie/content/risk.py:150
 msgid "probability_large"
 msgstr "Μεγάλη"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:30 euphorie/content/risk.py:149
+#: euphorie/client/templates/risk_evaluation.pt:30
+#: euphorie/content/risk.py:149
 msgid "probability_medium"
 msgstr "Μέτρια"
 
 #. Default: Small
-#: euphorie/client/templates/risk_evaluation.pt:28 euphorie/content/risk.py:148
+#: euphorie/client/templates/risk_evaluation.pt:28
+#: euphorie/content/risk.py:148
 msgid "probability_small"
 msgstr "Μικρή"
 
@@ -2314,36 +2245,30 @@ msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
 msgstr ""
-"Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την ενότητα; Αυτή η ενέργεια "
-"δεν μπορεί να αντιστραφεί."
+"Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την ενότητα; Αυτή η ενέργεια δεν "
+"μπορεί να αντιστραφεί."
 
-#. Default: Once you have started an RA, you will be able to stop before the
-#. end.
-#. Log out: the data will be stored. If you forgot to log out and just ended
-#. the
-#. RA, the data will be stored too. For security reasons it is better to
-#. officially
+#. Default: Once you have started an RA, you will be able to stop before the end.
+#. Log out: the data will be stored. If you forgot to log out and just ended the
+#. RA, the data will be stored too. For security reasons it is better to officially
 #. log out. Of course your must remember your e-mail address, password and the
-#. title that you have given the RA. You can start the stored RA again at a
-#. later
-#. date: select the title of the RA. You can save more than one RA, provided
-#. you
+#. title that you have given the RA. You can start the stored RA again at a later
+#. date: select the title of the RA. You can save more than one RA, provided you
 #. have given them different titles names.
 #: euphorie/client/templates/sessions.pt:59
 #: euphorie/client/templates/survey_sessions.pt:50
 msgid "session_title_tooltip"
 msgstr ""
 "Μόλις αρχίσετε μια αξιολόγηση κινδύνου, θα έχετε τη δυνατότητα να "
-"σταματήσετε πριν φτάσετε στο τέλος. Αποσύνδεση: τα δεδομένα θα "
-"αποθηκευτούν. Εάν ξεχάσατε να αποσυνδεθείτε και μόλις ολοκληρώσατε την "
-"αξιολόγηση κινδύνου, τα δεδομένα θα αποθηκευτούν επίσης. Για λόγους "
-"ασφαλείας είναι καλύτερα να αποσυνδεθείτε κανονικά. Φυσικά θα πρέπει να "
-"θυμάστε τη διεύθυνση e-mail σας, τον κωδικό πρόσβασης και τον τίτλο που "
-"έχετε δώσει στην αξιολόγηση κινδύνου. Μπορείτε να αρχίσετε την "
-"αποθηκευμένη αξιολόγηση κινδύνου αργότερα: επιλέξτε τον τίτλο της "
-"αξιολόγησης κινδύνου. Μπορείτε να αποθηκεύσετε περισσότερες από μία "
-"αξιολογήσεις, με την προϋπόθεση ότι τους έχετε δώσει διαφορετικούς "
-"τίτλους."
+"σταματήσετε πριν φτάσετε στο τέλος. Αποσύνδεση: τα δεδομένα θα αποθηκευτούν. "
+"Εάν ξεχάσατε να αποσυνδεθείτε και μόλις ολοκληρώσατε την αξιολόγηση "
+"κινδύνου, τα δεδομένα θα αποθηκευτούν επίσης. Για λόγους ασφαλείας είναι "
+"καλύτερα να αποσυνδεθείτε κανονικά. Φυσικά θα πρέπει να θυμάστε τη διεύθυνση "
+"e-mail σας, τον κωδικό πρόσβασης και τον τίτλο που έχετε δώσει στην "
+"αξιολόγηση κινδύνου. Μπορείτε να αρχίσετε την αποθηκευμένη αξιολόγηση "
+"κινδύνου αργότερα: επιλέξτε τον τίτλο της αξιολόγησης κινδύνου. Μπορείτε να "
+"αποθηκεύσετε περισσότερες από μία αξιολογήσεις, με την προϋπόθεση ότι τους "
+"έχετε δώσει διαφορετικούς τίτλους."
 
 #. Default: Enter a title for your Risk Assessment
 #: euphorie/client/templates/sessions.pt:58
@@ -2354,7 +2279,8 @@ msgstr "Εισάγετε έναν τίτλο για την Αξιολόγηση 
 #. Default: Start a new session choosing one of the following sectoral tools
 #: euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
-msgstr "Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω τομεακά εργαλεία"
+msgstr ""
+"Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω τομεακά εργαλεία"
 
 #. Default: or…
 #: euphorie/client/templates/sessions.pt:47
@@ -2397,46 +2323,41 @@ msgstr "Ενότητα"
 msgid "label_start_survey"
 msgstr "Έναρξη"
 
-#. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA
-#. is important. So important that the government has made it compulsory for
-#. almost
+#. Default: Complicated? Not really. It just takes a bit of time. However, the RA
+#. is important. So important that the government has made it compulsory for almost
 #. all entrepreneurs with employees.
 #: euphorie/client/templates/start.pt:25
 msgid "intro_not_complicated"
 msgstr ""
-"Πολύπλοκο; Ουσιαστικά όχι. Απλώς χρειάζεται λίγο χρόνο. Ωστόσο, η "
-"αξιολόγηση κινδύνων είναι σημαντική. Τόσο σημαντική που η κυβέρνηση την "
-"έχει καταστήσει υποχρεωτική σχεδόν για όλους τους επιχειρηματίες που "
-"απασχολούν με υπαλλήλους."
+"Πολύπλοκο; Ουσιαστικά όχι. Απλώς χρειάζεται λίγο χρόνο. Ωστόσο, η αξιολόγηση "
+"κινδύνων είναι σημαντική. Τόσο σημαντική που η κυβέρνηση την έχει καταστήσει "
+"υποχρεωτική σχεδόν για όλους τους επιχειρηματίες που απασχολούν με "
+"υπαλλήλους."
 
 #. Default: The assessment is not complicated.
 #: euphorie/client/templates/start.pt:24
 msgid "header_not_complicated"
 msgstr "Η αξιολόγηση δεν είναι πολύπλοκξη."
 
-#. Default: Including the risks to your employees and your equipment? What if
-#. there
+#. Default: Including the risks to your employees and your equipment? What if there
 #. is an accident with one of the machines? What if an employee is exposed to
 #. hazardous substances? A risk assessment helps you to define these risks and
 #. tackle them head on. A risk assessment consists of two parts: a with all the
-#. risks to your company and an to deal with them. These two components allow
-#. you
-#. to limit the risks to your employees and your company, and therefore also
-#. the
+#. risks to your company and an to deal with them. These two components allow you
+#. to limit the risks to your employees and your company, and therefore also the
 #. financial risk.
 #: euphorie/client/templates/start.pt:22
 msgid "intro_risk_aware"
 msgstr ""
-"Συμπεριλαμβάνονται οι κίνδυνοι για τους υπαλλήλους και τον εξοπλισμό σας;"
-" Τι θα συμβεί εάν προκληθεί ατύχημα με ένα από τα μηχανήματα; Τι θα "
-"συμβεί εάν κάποιος από τους υπαλλήλους εκτειθεί σε επιβλαβείς ουσίες; Η "
-"αξιολόγηση κινδύνων σας βοηθά να προσδιορίσετε αυτούς τους κινδύνους και "
-"να τους αντιμετωπίσετε ευθέως. Μια αξιολόγηση κινδύνων αποτελείται από "
-"δύο μέρη: μια με όλους τους κινδύνους που ενέχει η εταιρεία σας και ένα "
-"για την αντιμετώπισή τους. Αυτά τα δύο μέρη σας επιτρέπουν να περιορίσετε"
-" τους κινδύνους στους υπαλλήλους σας και την εταιρεία σας και κατά "
-"συνέπεια μειώνουν και το οικονομικό κόστος."
+"Συμπεριλαμβάνονται οι κίνδυνοι για τους υπαλλήλους και τον εξοπλισμό σας; Τι "
+"θα συμβεί εάν προκληθεί ατύχημα με ένα από τα μηχανήματα; Τι θα συμβεί εάν "
+"κάποιος από τους υπαλλήλους εκτειθεί σε επιβλαβείς ουσίες; Η αξιολόγηση "
+"κινδύνων σας βοηθά να προσδιορίσετε αυτούς τους κινδύνους και να τους "
+"αντιμετωπίσετε ευθέως. Μια αξιολόγηση κινδύνων αποτελείται από δύο μέρη: μια "
+"με όλους τους κινδύνους που ενέχει η εταιρεία σας και ένα για την "
+"αντιμετώπισή τους. Αυτά τα δύο μέρη σας επιτρέπουν να περιορίσετε τους "
+"κινδύνους στους υπαλλήλους σας και την εταιρεία σας και κατά συνέπεια "
+"μειώνουν και το οικονομικό κόστος."
 
 #. Default: Are you aware of all the risks?
 #: euphorie/client/templates/start.pt:21
@@ -2478,14 +2399,13 @@ msgstr "Ενημέρωση"
 msgid "verify_profile"
 msgstr "Επιβεβαιώστε εάν το προφίλ είναι ακόμη ακριβές."
 
-#. Default: This survey has been updated. Before you can continue any changes
-#. made
+#. Default: This survey has been updated. Before you can continue any changes made
 #. in the survey will have to be merged in your session.
 #: euphorie/client/templates/updated.pt:19
 msgid "expl_update"
 msgstr ""
-"Αυτή η έρευνα έχει ενημερωθεί. Για να συνεχίσετε, πρέπει τυχόν αλλαγές "
-"στην έρευνα να ενσωματωθούν στην ενότητά σας."
+"Αυτή η έρευνα έχει ενημερωθεί. Για να συνεχίσετε, πρέπει τυχόν αλλαγές στην "
+"έρευνα να ενσωματωθούν στην ενότητά σας."
 
 #. Default: Survey was updated
 #: euphorie/client/templates/updated.pt:17
@@ -2534,22 +2454,21 @@ msgstr "Ενότητα"
 #, fuzzy
 msgid "help_is_region"
 msgstr ""
-"Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη "
-"σελίδα προεπισκόπησης ενότητας."
+"Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη σελίδα "
+"προεπισκόπησης ενότητας."
 
 #. Default: Introduction
 #: euphorie/content/help.py:15
 msgid "label_help_introduction"
 msgstr "Εισαγωγή"
 
-#. Default: Generic introduction for the client. This text is not associated
-#. with
+#. Default: Generic introduction for the client. This text is not associated with
 #. specific pages.
 #: euphorie/content/help.py:16
 msgid "help_help_introduction"
 msgstr ""
-"Γενική εισαγωγή για τον πελάτη. Το κείμενο δεν συσχετίζεται με "
-"συγκεκριμένες σελίδες."
+"Γενική εισαγωγή για τον πελάτη. Το κείμενο δεν συσχετίζεται με συγκεκριμένες "
+"σελίδες."
 
 #. Default: Authentication
 #: euphorie/content/help.py:23
@@ -2574,34 +2493,33 @@ msgstr "Ενότητα"
 #: euphorie/content/help.py:33
 msgid "help_sessions"
 msgstr ""
-"Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη "
-"σελίδα προεπισκόπησης ενότητας."
+"Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη σελίδα "
+"προεπισκόπησης ενότητας."
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
 #: euphorie/content/help.py:41
 msgid "help_preparation"
 msgstr ""
-"Καταγράψτε τα πρώτα βήματα σε μια έρευνα, συμπ. του τρόπου καθορισμού "
-"ενός προφίλ (εάν χρειάζεται). Αυτή η σελίδα συνδέεται με τη σελίδα "
-"έναρξης της έρευνας."
+"Καταγράψτε τα πρώτα βήματα σε μια έρευνα, συμπ. του τρόπου καθορισμού ενός "
+"προφίλ (εάν χρειάζεται). Αυτή η σελίδα συνδέεται με τη σελίδα έναρξης της "
+"έρευνας."
 
-#. Default: Document the identification phase. This information is linked from
-#. all
+#. Default: Document the identification phase. This information is linked from all
 #. identification related pages
 #: euphorie/content/help.py:50
 msgid "help_identification"
 msgstr ""
-"Καταγράψτε το στάδιο αναγνώρισης. Αυτές οι πληροφορίες συνδέονται με όλες"
-" τις σχετικές σελίδες αναγνώρισης"
+"Καταγράψτε το στάδιο αναγνώρισης. Αυτές οι πληροφορίες συνδέονται με όλες "
+"τις σχετικές σελίδες αναγνώρισης"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
 #: euphorie/content/help.py:58
 msgid "help_evaluation"
 msgstr ""
-"Καταγράψτε το στάδιο αξιολόγησης. Αυτές οι πληροφορίες συνδέονται με όλες"
-" τις σχετικές σελίδες αξιολόγησης"
+"Καταγράψτε το στάδιο αξιολόγησης. Αυτές οι πληροφορίες συνδέονται με όλες "
+"τις σχετικές σελίδες αξιολόγησης"
 
 #. Default: Action plan
 #: euphorie/content/help.py:65
@@ -2613,16 +2531,15 @@ msgstr "Σχέδιο δράσης"
 #: euphorie/content/help.py:66
 msgid "help_actionplan"
 msgstr ""
-"Καταγράψτε το στάδιο σχεδίου δράσης. Αυτές οι πληροφορίες συνδέονται με "
-"όλες τις σχετικές σελίδες σχεδίου δράσης"
+"Καταγράψτε το στάδιο σχεδίου δράσης. Αυτές οι πληροφορίες συνδέονται με όλες "
+"τις σχετικές σελίδες σχεδίου δράσης"
 
 #. Default: Reports
 #: euphorie/content/help.py:73
 msgid "label_reports"
 msgstr "Αναφορές"
 
-#. Default: Describe the reporting options. This page is linked from report
-#. page.
+#. Default: Describe the reporting options. This page is linked from report page.
 #: euphorie/content/help.py:74
 msgid "help_reports"
 msgstr ""
@@ -2639,22 +2556,22 @@ msgstr "Τελικές λέξεις"
 #: euphorie/content/help.py:82
 msgid "help_finalwords"
 msgstr ""
-"Τυχόν τελευταίες λέξεις που πρέπει να προβληθούν στο τέλος της βοήθειας. "
-"Για αυτές τις πληροφορίες δεν υπάρχει άμεση σύνδεση."
+"Τυχόν τελευταίες λέξεις που πρέπει να προβληθούν στο τέλος της βοήθειας. Για "
+"αυτές τις πληροφορίες δεν υπάρχει άμεση σύνδεση."
 
 #. Default: Description
 #: euphorie/content/module.py:39 euphorie/content/page.py:19
-#: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:23
+#: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:26
 msgid "label_module_description"
 msgstr "Περιγραφή"
 
 #. Default: Include any relevant information that may be helpful for users.
 #: euphorie/content/module.py:40 euphorie/content/page.py:20
-#: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:24
+#: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:27
 msgid "help_module_description"
 msgstr ""
-"Συμπεριλάβετε όποιες σχετικές πληροφορίες μπορεί να είναι χρήσιμες για "
-"τους χρήστες."
+"Συμπεριλάβετε όποιες σχετικές πληροφορίες μπορεί να είναι χρήσιμες για τους "
+"χρήστες."
 
 #. Default: This module is optional
 #: euphorie/content/module.py:48
@@ -2665,16 +2582,14 @@ msgstr "Αυτή η μονάδα είναι προαιρετική"
 #: euphorie/content/module.py:49
 msgid "help_module_optional"
 msgstr ""
-"Αφήστε τους χρήστες να παρακάμψουν αυτή την ενότητα και οτιδήποτε "
-"περιέχει."
+"Αφήστε τους χρήστες να παρακάμψουν αυτή την ενότητα και οτιδήποτε περιέχει."
 
 #. Default: Question
 #: euphorie/content/module.py:57
 msgid "label_module_question"
 msgstr "Ερώτηση"
 
-#. Default: The question to ask users if this module is optional. This has to
-#. be a
+#. Default: The question to ask users if this module is optional. This has to be a
 #. yes/no question.
 #: euphorie/content/module.py:58
 msgid "help_module_question"
@@ -2689,16 +2604,15 @@ msgstr ""
 msgid "label_image"
 msgstr "Αρχείο εικόνας"
 
-#. Default: Upload an image. Make sure your image is of format png, jpg or gif
-#. and
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif and
 #. does not contain any special characters.
 #: euphorie/content/module.py:65 euphorie/content/risk.py:195
 #: euphorie/content/risk.py:209 euphorie/content/risk.py:219
 #: euphorie/content/risk.py:229 euphorie/content/sector.py:73
 msgid "help_image_upload"
 msgstr ""
-"Ανεβάστε μια εικόνα. Βεβαιωθείτε ότι η εικόνα είναι τύπου png, jpg ή gif "
-"και ότι δεν περιέχει ειδικούς χαρακτήρες."
+"Ανεβάστε μια εικόνα. Βεβαιωθείτε ότι η εικόνα είναι τύπου png, jpg ή gif και "
+"ότι δεν περιέχει ειδικούς χαρακτήρες."
 
 #. Default: Introduction action plan
 #: euphorie/content/module.py:71
@@ -2710,8 +2624,8 @@ msgstr "Σχέδιο δράσης εισαγωγής"
 #: euphorie/content/module.py:72
 msgid "help_solution_direction"
 msgstr ""
-"Αυτές οι πληροφορίες θα προβληθούν στους χρήστες κατά την εισαγωγή τους "
-"στη μονάδα ενώ επεξεργάζονται το σχέδιο δράσης."
+"Αυτές οι πληροφορίες θα προβληθούν στους χρήστες κατά την εισαγωγή τους στη "
+"μονάδα ενώ επεξεργάζονται το σχέδιο δράσης."
 
 #: euphorie/content/module.py:133
 msgid "Edit Module"
@@ -2731,19 +2645,17 @@ msgstr "Περιεχόμενο σελίδας"
 msgid "label_profilequestion_question"
 msgstr "Ερώτηση"
 
-#. Default: If this is to be an "optional" profile question, it must be
-#. formulated
-#. as a question and be answerable with YES or NO. If this is to be a
-#. "repeatable"
+#. Default: If this is to be an "optional" profile question, it must be formulated
+#. as a question and be answerable with YES or NO. If this is to be a "repeatable"
 #. profile question (statement), it must be formulated as a prompt to fill in
 #. multiple values.
 #: euphorie/content/profilequestion.py:36
 msgid "help_profilequestion_question"
 msgstr ""
 "Εάν αυτή πρόκειται να είναι \"προαιρετική\" ερώτηση προφίλ, πρέπει να "
-"διατυπωθεί ως ερώτηση και να απαντηθεί με ΝΑΙ ή ΟΧΙ. Εάν πρόκειται να "
-"είναι \"επαναλαμβανόμενη\" ερώτηση προφίλ (δήλωση), πρέπει να διατυπωθεί "
-"ως σύσταση συμπλήρωσης πολλαπλών τιμών."
+"διατυπωθεί ως ερώτηση και να απαντηθεί με ΝΑΙ ή ΟΧΙ. Εάν πρόκειται να είναι "
+"\"επαναλαμβανόμενη\" ερώτηση προφίλ (δήλωση), πρέπει να διατυπωθεί ως "
+"σύσταση συμπλήρωσης πολλαπλών τιμών."
 
 #. Default: Type
 #: euphorie/content/profilequestion.py:55
@@ -2771,35 +2683,33 @@ msgid "help_statement"
 msgstr "Αυτή είνα μια σύντομη δήλωση για κάποιον πιθανό κίνδυνο."
 
 #. Default: Inversed statement
-#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:36
+#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:37
 msgid "label_problem_description"
 msgstr "Προεπιλογή περιγραφής κινδύνου: Αντεστραμμένη δήλωση"
 
-#. Default: This is the inverse of the statement: a short description of
-#. current
+#. Default: This is the inverse of the statement: a short description of current
 #. (bad) situation.
 #: euphorie/content/risk.py:48
 msgid "help_problem_description"
 msgstr ""
-"Αυτή είναι η αντιστροφή της δήλωσης: μια σύντομη περιγραφή μιας τρέχουσας"
-" (κακής) κατάστασης."
+"Αυτή είναι η αντιστροφή της δήλωσης: μια σύντομη περιγραφή μιας τρέχουσας "
+"(κακής) κατάστασης."
 
 #. Default: Description
 #: euphorie/content/risk.py:56
 msgid "label_description"
 msgstr "Περιγραφή"
 
-#. Default: Describe the risk. Include any relevant information that may be
-#. helpful
+#. Default: Describe the risk. Include any relevant information that may be helpful
 #. for users.
 #: euphorie/content/risk.py:57
 msgid "help_risk_description"
 msgstr ""
-"Περιγράψτε τον κίνδυνο. Συμπεριλάβετε τυχόν σχετικές πληροφορίες που "
-"μπορεί να είναι χρήσιμες για τους χρήστες."
+"Περιγράψτε τον κίνδυνο. Συμπεριλάβετε τυχόν σχετικές πληροφορίες που μπορεί "
+"να είναι χρήσιμες για τους χρήστες."
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:60
+#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:61
 msgid "label_legal_reference"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
@@ -2817,40 +2727,38 @@ msgstr "Εμφάνιση επιλογής 'δεν ισχύει'"
 #. options.
 #: euphorie/content/risk.py:77
 msgid "help_show_notapplicable"
-msgstr "Παρέχετε μια επιλογή 'δεν ισχύει' εκτός από τις στάνταρ επιλογές ναι/όχι."
+msgstr ""
+"Παρέχετε μια επιλογή 'δεν ισχύει' εκτός από τις στάνταρ επιλογές ναι/όχι."
 
 #. Default: Evaluation
 #: euphorie/content/risk.py:83
 msgid "header_evaluation"
 msgstr "Αξιολόγηση"
 
-#. Default: You can specify how the risks priority is evaluated. For more
-#. details
+#. Default: You can specify how the risks priority is evaluated. For more details
 #. see the online manual.
 #: euphorie/content/risk.py:84
 msgid "intro_evaluation"
 msgstr ""
-"Μπορείτε να ορίσετε τον τρόπο με τον οποίο αξιολογείται η προτεραιότητα "
-"των κινδύνων. Για περισσότερες λεπτομέρειες, δείτε το online εγχειρίδιο."
+"Μπορείτε να ορίσετε τον τρόπο με τον οποίο αξιολογείται η προτεραιότητα των "
+"κινδύνων. Για περισσότερες λεπτομέρειες, δείτε το online εγχειρίδιο."
 
 #. Default: Risk type
-#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:34
+#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
 msgstr "Τύπος κινδύνου"
 
-#. Default: 'Risk' is related to the workplace. 'Policy' is related to
-#. agreements,
-#. procedures and management decisions. It can be answered from behind a desk
-#. (no
+#. Default: 'Risk' is related to the workplace. 'Policy' is related to agreements,
+#. procedures and management decisions. It can be answered from behind a desk (no
 #. need to examine the workplace). 'Top 5' is one of the top five risks of the
 #. sector.
 #: euphorie/content/risk.py:95
 msgid "help_risk_type"
 msgstr ""
-"Ο 'Κίνδυνος' αφορά στο χώρο εργασίας. Η 'Πολιτική' αφορά στις συμφωνίες, "
-"τις διαδικασίες και τις αποφάσεις διαχείρισης. Μπορεί να απαντηθεί πίσω "
-"από ένα γραφείο (δεν υπάρχει ανάγκη να εξεταστεί ο χώρος εργασίας). Το "
-"'Top 5' είναι ένας από τους πέντε κορυφαίους κινδύνους του τομέα."
+"Ο 'Κίνδυνος' αφορά στο χώρο εργασίας. Η 'Πολιτική' αφορά στις συμφωνίες, τις "
+"διαδικασίες και τις αποφάσεις διαχείρισης. Μπορεί να απαντηθεί πίσω από ένα "
+"γραφείο (δεν υπάρχει ανάγκη να εξεταστεί ο χώρος εργασίας). Το 'Top 5' είναι "
+"ένας από τους πέντε κορυφαίους κινδύνους του τομέα."
 
 #. Default: Top 5
 #: euphorie/content/risk.py:102
@@ -2868,7 +2776,7 @@ msgid "risktype_policy"
 msgstr "Πολιτική"
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:42
+#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
 msgstr "Μέθοδος αξιολόγησης"
 
@@ -2876,8 +2784,7 @@ msgstr "Μέθοδος αξιολόγησης"
 #: euphorie/content/risk.py:113
 msgid "help_evaluation_method"
 msgstr ""
-"Επιλέξτε 'κατ' εκτίμηση' εάν ο υπολογισμός δεν είναι απαραίτητος ή "
-"εφικτός."
+"Επιλέξτε 'κατ' εκτίμηση' εάν ο υπολογισμός δεν είναι απαραίτητος ή εφικτός."
 
 #. Default: Estimated
 #: euphorie/content/risk.py:117
@@ -2890,7 +2797,7 @@ msgid "evalmethod_calculated"
 msgstr "Υπολογισμένος"
 
 #. Default: Default priority
-#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:45
+#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:46
 msgid "label_default_priority"
 msgstr "Προεπιλεγμένη προτεραιότητα"
 
@@ -2899,8 +2806,8 @@ msgstr "Προεπιλεγμένη προτεραιότητα"
 #: euphorie/content/risk.py:127
 msgid "help_default_priority"
 msgstr ""
-"Μπορείτε να βοηθήσετε το χρήστη επιλέγοντας μια προεπιλεγμένη "
-"προτεραιότητα. Ο χρήστης μπορεί να αλλάξει την προτεραιότητα."
+"Μπορείτε να βοηθήσετε το χρήστη επιλέγοντας μια προεπιλεγμένη προτεραιότητα. "
+"Ο χρήστης μπορεί να αλλάξει την προτεραιότητα."
 
 #. Default: No default
 #: euphorie/content/risk.py:131
@@ -2908,12 +2815,11 @@ msgid "no_default"
 msgstr "Χωρίς προεπιλογή"
 
 #. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:49
+#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:50
 msgid "label_default_probability"
 msgstr "Προεπιγμένη πιθανότητα"
 
-#. Default: Indicate how likely occurence of this risk is in a normal
-#. situation.
+#. Default: Indicate how likely occurence of this risk is in a normal situation.
 #: euphorie/content/risk.py:143
 msgid "help_default_probability"
 msgstr ""
@@ -2927,7 +2833,7 @@ msgid "no default"
 msgstr "Χωρίς προεπιλογή"
 
 #. Default: Default frequency
-#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:52
 msgid "label_default_frequency"
 msgstr "Προεπιλεγμένη συχνότητα"
 
@@ -2935,8 +2841,7 @@ msgstr "Προεπιλεγμένη συχνότητα"
 #: euphorie/content/risk.py:159
 msgid "help_default_frequency"
 msgstr ""
-"Επισημάνετε πόσο συχνά ο κίνδυνος παρατηρείται σε μια φυσιολογική "
-"κατάσταση."
+"Επισημάνετε πόσο συχνά ο κίνδυνος παρατηρείται σε μια φυσιολογική κατάσταση."
 
 #. Default: Almost never
 #: euphorie/content/risk.py:164
@@ -2973,14 +2878,13 @@ msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
 msgid "header_main_image"
 msgstr "Κύρια εικόνα"
 
-#. Default: The main image will get a more prominent position in the client
-#. than
+#. Default: The main image will get a more prominent position in the client than
 #. the other images.
 #: euphorie/content/risk.py:188
 msgid "intro_main_image"
 msgstr ""
-"Η κύρια εικόνα θα τοποθετηθεί σε μια πιο περίοπτη θέση στον πελάτη σε "
-"σχέση με τις άλλες εικόνες."
+"Η κύρια εικόνα θα τοποθετηθεί σε μια πιο περίοπτη θέση στον πελάτη σε σχέση "
+"με τις άλλες εικόνες."
 
 #. Default: Image caption
 #: euphorie/content/risk.py:200 euphorie/content/risk.py:214
@@ -3015,33 +2919,30 @@ msgstr "Δευτερεύον χρώμα"
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:33
+#: euphorie/content/solution.py:36
 msgid "help_measure_action_plan"
 msgstr ""
-"Περιγράψτε την ενέργεια που μπορεί να διεξαχθεί για την εξάλειψη αυτού "
-"του κινδύνου. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο "
-"αντιμετώπισης."
+"Περιγράψτε την ενέργεια που μπορεί να διεξαχθεί για την εξάλειψη αυτού του "
+"κινδύνου. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο αντιμετώπισης."
 
-#. Default: Describe what can be done to prevent this risk from (re)occuring.
-#. This
+#. Default: Describe what can be done to prevent this risk from (re)occuring. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:41
+#: euphorie/content/solution.py:44
 msgid "help_measure_prevention_plan"
 msgstr ""
-"Περιγράψτε τι μπορεί να γίνει για να αποτραπεί η (επαν)εμφάνιση αυτού του"
-" κινδύνου. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο αντιμετώπισης."
+"Περιγράψτε τι μπορεί να γίνει για να αποτραπεί η (επαν)εμφάνιση αυτού του "
+"κινδύνου. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο αντιμετώπισης."
 
-#. Default: Describe the standard requirements for the action plan and
-#. prevention
+#. Default: Describe the standard requirements for the action plan and prevention
 #. plan. This information will be copied to the measure.
-#: euphorie/content/solution.py:49
+#: euphorie/content/solution.py:52
 msgid "help_measure_requirements"
 msgstr ""
 "Περιγράψτε τις τυπικές απαιτήσεις για το σχέδιο δράσης και το σχέδιο "
 "πρόληψης. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο αντιμετώπισης."
 
 #. Default: Common solution
-#: euphorie/content/solution.py:60
+#: euphorie/content/solution.py:63
 msgid "title_common_solution"
 msgstr "Κοινή λύση"
 
@@ -3050,8 +2951,7 @@ msgstr "Κοινή λύση"
 msgid "label_survey_title"
 msgstr "Όνομα έκδοσης"
 
-#. Default: This is the title of this survey version. This name is never shown
-#. to
+#. Default: This is the title of this survey version. This name is never shown to
 #. users.
 #: euphorie/content/survey.py:47 euphorie/content/survey.py:166
 msgid "help_survey_title"
@@ -3064,18 +2964,15 @@ msgstr ""
 msgid "label_introduction"
 msgstr "Εισαγωγικό κείμενο"
 
-#. Default: The introduction text is shown when starting a new survey session.
-#. If
-#. no introduction is provided here a standard text will be shown.Please keep
-#. this
-#. text brief so it will easily fit on screens of small devices such as phones
-#. and
+#. Default: The introduction text is shown when starting a new survey session. If
+#. no introduction is provided here a standard text will be shown.Please keep this
+#. text brief so it will easily fit on screens of small devices such as phones and
 #. PDAs
 #: euphorie/content/survey.py:57
 msgid "help_introduction"
 msgstr ""
-"Το εισαγωγικό κείμενο εμφανίζεται όταν αρχίζει μια νέα ενότητα έρευνας. "
-"Εάν δεν υπάρχει εισαγωγή, εδώ θα εμφανιστεί ένα τυπικό κείμενο. Παρακαλώ "
+"Το εισαγωγικό κείμενο εμφανίζεται όταν αρχίζει μια νέα ενότητα έρευνας. Εάν "
+"δεν υπάρχει εισαγωγή, εδώ θα εμφανιστεί ένα τυπικό κείμενο. Παρακαλώ "
 "διατηρείτε αυτό το κείμενο σύντομο έτσι, ώστε να χωρά εύκολα στις οθόνες "
 "μικρών συσκευών όπως τηλέφωνα και PDA"
 
@@ -3104,9 +3001,9 @@ msgstr "Κωδικός κατάταξης"
 #: euphorie/content/survey.py:82
 msgid "help_classification_code"
 msgstr ""
-"Κωδικός που ταυτοποιεί αυτό τον τομέα. Οι κωδικοί ταξινόμησης "
-"καθορίζονται από εθνικούς οργανισμούς προτύπων και βασίζονται στην "
-"αναθεώρηση 2 του προτύπου NACE."
+"Κωδικός που ταυτοποιεί αυτό τον τομέα. Οι κωδικοί ταξινόμησης καθορίζονται "
+"από εθνικούς οργανισμούς προτύπων και βασίζονται στην αναθεώρηση 2 του "
+"προτύπου NACE."
 
 #. Default: You can not delete the only survey version.
 #: euphorie/content/survey.py:238
@@ -3118,8 +3015,7 @@ msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική 
 msgid "label_title"
 msgstr "Τίτλος"
 
-#. Default: The title of this survey. This title is used in the survey overview
-#. in
+#. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
 #: euphorie/content/surveygroup.py:37
 msgid "help_surveygroup_title"
@@ -3334,35 +3230,29 @@ msgstr "Σελίδα"
 #. Default: The basic architecture of an Online interactive Risk Assessment
 #. consists of: - profile questions (questions defining the company profile) -
 #. modules and potentially sub-modules - risks (positive statements) Profile
-#. questions are used to determine whether particular modules apply to the end
-#. user
+#. questions are used to determine whether particular modules apply to the end user
 #. at all (OPTIONAL), or whether they should be repeated a number of times
-#. (REPEATABLE). Such questions are asked BEFORE starting the risk
-#. identification
+#. (REPEATABLE). Such questions are asked BEFORE starting the risk identification
 #. and evaluation. If the end-user does not confirm that an optional profile
-#. question is relevant (by ticking the box), then the corresponding module
-#. will be
-#. skipped entirely. If the end-user enters more than one option to a
-#. repeatable
-#. profile question then the corresponding module will be repeated the
-#. specified
+#. question is relevant (by ticking the box), then the corresponding module will be
+#. skipped entirely. If the end-user enters more than one option to a repeatable
+#. profile question then the corresponding module will be repeated the specified
 #. number of times.
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "description_profilequestion"
 msgstr ""
 "Η βασική αρχιτεκτονική μιας Online διαδραστικής αξιολόγησης κινδύνων "
-"αποτελείται από: - ερωτήσεις προφίλ (ερωτήσεις που προσδιορίζουν το "
-"προφίλ της εταιρείας) - μονάδες και πιθανόν υπο-μονάδες - κινδύνους "
-"(θετικές δηλώσεις) Οι ερωτήσεις προφίλ χρησιμοποιούνται για να "
-"προσδιοριστεί εάν κάποιες συγκεκριμένες ενότητες ισχύουν έστω και κατ' "
-"ελάχιστο για τον τελικό χρήστη (ΠΡΟΑΙΡΕΤΙΚΟ) ή εάν πρέπει να "
-"επαναλαμβάνονται κάποιες φορές (ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ). Αυτές οι ερωτήσεις "
-"τίθενται ΠΡΙΝ αρχίσει η ταυτοποίηση και αξιολόγηση κινδύνου. Εάν ο "
-"τελικός χρήστης δεν επιβεβαιώσει ότι μια προαιρετική ερώτηση προφίλ είναι"
-" σχετική (επιλέγοντας το πλαίσιο), τότε η αντίστοιχη μονάδα θα "
-"παρακαμφθεί εντελώς. Εάν ο τελικός χρήστης εισάγει περισσότερες από μια "
-"επιλογές σε μια ερώτηση προφίλ με δυνατότητα επανάληψης τότε η αντίστοιχη"
-" μονάδα θα επαναληφθεί συγκεκριμένες φορές."
+"αποτελείται από: - ερωτήσεις προφίλ (ερωτήσεις που προσδιορίζουν το προφίλ "
+"της εταιρείας) - μονάδες και πιθανόν υπο-μονάδες - κινδύνους (θετικές "
+"δηλώσεις) Οι ερωτήσεις προφίλ χρησιμοποιούνται για να προσδιοριστεί εάν "
+"κάποιες συγκεκριμένες ενότητες ισχύουν έστω και κατ' ελάχιστο για τον τελικό "
+"χρήστη (ΠΡΟΑΙΡΕΤΙΚΟ) ή εάν πρέπει να επαναλαμβάνονται κάποιες φορές "
+"(ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ). Αυτές οι ερωτήσεις τίθενται ΠΡΙΝ αρχίσει η ταυτοποίηση "
+"και αξιολόγηση κινδύνου. Εάν ο τελικός χρήστης δεν επιβεβαιώσει ότι μια "
+"προαιρετική ερώτηση προφίλ είναι σχετική (επιλέγοντας το πλαίσιο), τότε η "
+"αντίστοιχη μονάδα θα παρακαμφθεί εντελώς. Εάν ο τελικός χρήστης εισάγει "
+"περισσότερες από μια επιλογές σε μια ερώτηση προφίλ με δυνατότητα επανάληψης "
+"τότε η αντίστοιχη μονάδα θα επαναληφθεί συγκεκριμένες φορές."
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -3424,11 +3314,11 @@ msgstr "Ροή εργασίας τομέα"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents"
-" to the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
-"Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο "
-"χρήστη του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
+"Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο χρήστη "
+"του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:17
 msgid "Active"
@@ -3475,14 +3365,13 @@ msgstr "Το κείμενο ${online_help} μπορεί επίσης να τρο
 msgid "documentation_online_help_online_help"
 msgstr "online βοήθεια"
 
-#. Default: Pages created in the ${appendix} folder are available via links in
-#. the
+#. Default: Pages created in the ${appendix} folder are available via links in the
 #. footer of the online client.
 #: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
-"Οι σελίδες που δημιουργούνται στο φάκελο ${appendix} είναι διαθέσιμες "
-"μέσω συνδέσμων στο υποσέλιδο του online πελάτη."
+"Οι σελίδες που δημιουργούνται στο φάκελο ${appendix} είναι διαθέσιμες μέσω "
+"συνδέσμων στο υποσέλιδο του online πελάτη."
 
 #. Default: appendix
 #: euphorie/content/templates/documentation_view.pt:17
@@ -3539,6 +3428,7 @@ msgstr "Αυτή η μονάδα είναι υποχρεωτική."
 #. Default: Information
 #: euphorie/content/templates/module_view.pt:22
 #: euphorie/content/templates/profilequestion_view.pt:20
+#: euphorie/content/templates/solution_view.pt:18
 #: euphorie/content/templates/survey_view.pt:15
 msgid "header_information"
 msgstr "Πλοροφορίες"
@@ -3581,37 +3471,37 @@ msgid "Group name"
 msgstr "Όνομα ομάδας"
 
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:67
+#: euphorie/content/templates/risk_view.pt:68
 msgid "risk_solution_header"
 msgstr "Λύση ${number}"
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:64
+#: euphorie/content/templates/risk_view.pt:65
 msgid "header_solutions"
 msgstr "Στάνταρ λύσεις"
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:53
+#: euphorie/content/templates/risk_view.pt:54
 msgid "label_default_effect"
 msgstr "Προεπιλεγμένο εφέ"
 
 #. Default: No
-#: euphorie/content/templates/risk_view.pt:40
+#: euphorie/content/templates/risk_view.pt:41
 msgid "no"
 msgstr "Όχι"
 
 #. Default: Yes
-#: euphorie/content/templates/risk_view.pt:39
+#: euphorie/content/templates/risk_view.pt:40
 msgid "yes"
 msgstr "Ναι"
 
 #. Default: Show '${na}'
-#: euphorie/content/templates/risk_view.pt:38
+#: euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na"
 msgstr "Εμφάνιση '${na}"
 
 #. Default: not applicable
-#: euphorie/content/templates/risk_view.pt:38
+#: euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na_na"
 msgstr "μη διαθέσιμ."
 
@@ -3689,21 +3579,19 @@ msgstr "Άτομο επικοινωνίας"
 #: euphorie/content/templates/settings.pt:82
 msgid "help_sector_password"
 msgstr ""
-"Αυτός είναι ο κωδικός πρόσβασης που χρειάζεστε για να συνδεθείτε σε αυτό "
-"το περιβάλλον του editor."
+"Αυτός είναι ο κωδικός πρόσβασης που χρειάζεστε για να συνδεθείτε σε αυτό το "
+"περιβάλλον του editor."
 
-#. Default: You may get the best results if you upload a logo as a
-#. ${transparent}
-#. PNG file of at least 100 pixels in height. Uploading larger images is fine,
-#. the
+#. Default: You may get the best results if you upload a logo as a ${transparent}
+#. PNG file of at least 100 pixels in height. Uploading larger images is fine, the
 #. logo will be scaled down to the right size automatically.
 #: euphorie/content/templates/settings.pt:75
 msgid "logo_instructions"
 msgstr ""
 "Μπορείτε να έχετε τα καλύτερα αποτελέσματα εάν ανεβάσετε ένα λογότυπο σε "
 "${transparent} αρχείο PNG με ύψος τουλάχιστον 100 pixel. Δεν υπάρχει "
-"πρόβλημα να ανεβάσετε μεγαλύτερες εικόνες, οι διαστάσεις του λογότυπου θα"
-" μειωθούν αυτόματα στις σωστές τιμές."
+"πρόβλημα να ανεβάσετε μεγαλύτερες εικόνες, οι διαστάσεις του λογότυπου θα "
+"μειωθούν αυτόματα στις σωστές τιμές."
 
 #. Default: transparent
 #: euphorie/content/templates/settings.pt:76
@@ -3720,10 +3608,8 @@ msgstr "Προσωπικό"
 msgid "label_logo_selection"
 msgstr "Ποιο λογότυπο θέλετε να εμφανίζεται στην επάνω αριστερή γωνία;"
 
-#. Default: The logo will appear on both the client side app that your user
-#. group
-#. will see as well as on this editor environment in the top left corner. Make
-#. sure
+#. Default: The logo will appear on both the client side app that your user group
+#. will see as well as on this editor environment in the top left corner. Make sure
 #. your image is of format png, jpg or gif and does not contain any special
 #. characters. The new logo will only become visible after you've saved your
 #. changes.
@@ -3732,9 +3618,9 @@ msgid "help_sector_logo"
 msgstr ""
 "Το λογότυπο θα εμφανίζεται τόσο στην πλαϊνή εφαρμογή του πελάτη που θα "
 "βλέπει η ομάδα χρηστών σας όσο και στο περιβάλλον αυτού του editor στην "
-"επάνω αριστερή γωνία. Βεβαιωθείτε ότι η εικόνα σας είναι σε μορφή png, "
-"jpg ή gif και ότι δεν περιέχει ειδικούς χαρακτήρες. Το νέο λογότυπο θα "
-"εμφανιστεί μόνο όταν αποθηκεύεσετε τις αλλαγές σας."
+"επάνω αριστερή γωνία. Βεβαιωθείτε ότι η εικόνα σας είναι σε μορφή png, jpg ή "
+"gif και ότι δεν περιέχει ειδικούς χαρακτήρες. Το νέο λογότυπο θα εμφανιστεί "
+"μόνο όταν αποθηκεύεσετε τις αλλαγές σας."
 
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
@@ -3742,20 +3628,19 @@ msgstr ""
 #: euphorie/content/templates/settings.pt:37
 msgid "help_colour_picker"
 msgstr ""
-"Χρησιμοποιήστε το εργαλείο επιλογής χρωμάτων παρακάτω για να επιλέξετε τα"
-" χρώματα της επιχείρησής σας. Συνιστάται να χρησιμοποιήσετε πιο σκούρο "
-"χρώμα για το κύριο χρώμα και πιο ανοιχτόχρωμο χρώμα ως δευτερεύον χρώμα."
+"Χρησιμοποιήστε το εργαλείο επιλογής χρωμάτων παρακάτω για να επιλέξετε τα "
+"χρώματα της επιχείρησής σας. Συνιστάται να χρησιμοποιήσετε πιο σκούρο χρώμα "
+"για το κύριο χρώμα και πιο ανοιχτόχρωμο χρώμα ως δευτερεύον χρώμα."
 
 #. Default: The colours you select here apply only for the client side of the
-#. application. Try to pick colours that have high enough contrast to keep the
-#. text
+#. application. Try to pick colours that have high enough contrast to keep the text
 #. on each button legible.
 #: euphorie/content/templates/settings.pt:34
 msgid "help_sector_colours"
 msgstr ""
-"Τα χρώμα που επιλέγετε εδώ ισχύουν μόνο την εφαρμογή που αφορά στον "
-"πελάτη. Προσπαθήστε να επιλέξετε χρώματα με αρκετά υψηλή αντίθεση έτσι, "
-"ώστε το κείμενο σε κάθε κουμπί να είναι ορατό."
+"Τα χρώμα που επιλέγετε εδώ ισχύουν μόνο την εφαρμογή που αφορά στον πελάτη. "
+"Προσπαθήστε να επιλέξετε χρώματα με αρκετά υψηλή αντίθεση έτσι, ώστε το "
+"κείμενο σε κάθε κουμπί να είναι ορατό."
 
 #. Default: Restore to original colours
 #: euphorie/content/templates/settings.pt:31
@@ -3782,6 +3667,11 @@ msgstr "Παρέχετε μια περιγραφή του τομέα σας"
 #: euphorie/content/templates/settings.pt:12
 msgid "header_settings"
 msgstr "Ρυθμίσεις"
+
+#: euphorie/content/templates/solution_view.pt:12
+#, fuzzy
+msgid "Standard solution"
+msgstr "Στάνταρ λύσεις"
 
 #. Default: Create
 #: euphorie/content/templates/survey_add.pt:25
@@ -3865,7 +3755,8 @@ msgstr "Η νέα μου έρευνα να βασιστεί σε μια υπάρ
 #. Default: Base my new survey on an existing survey of my organisation
 #: euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
-msgstr "Η νέα μου έρευνα να βασιστεί σε μια υπάρχουσα έρευνα του οργανισμού μου"
+msgstr ""
+"Η νέα μου έρευνα να βασιστεί σε μια υπάρχουσα έρευνα του οργανισμού μου"
 
 #. Default: Create a new survey from scratch
 #: euphorie/content/templates/surveygroup_add.pt:19
@@ -4044,8 +3935,8 @@ msgstr "Εμφάνιση παλαιότερων εκδόσεων"
 msgid "legend_updated"
 msgstr ""
 "${label} = Αυτή η έκδοση έχει αλλαγές που δεν έχουν δημοσιευτεί τη "
-"συγκεκριμένη στιγμή. Κάντε κλικ στο εικονίδιο ενημέρωσης για να "
-"εμφανιστούν όλες οι αλλαγές"
+"συγκεκριμένη στιγμή. Κάντε κλικ στο εικονίδιο ενημέρωσης για να εμφανιστούν "
+"όλες οι αλλαγές"
 
 #. Default: Update
 #: euphorie/deployment/tiles/templates/versions.pt:55
@@ -4084,8 +3975,8 @@ msgstr "Λεζάντα"
 #: euphorie/deployment/tiles/templates/versions.pt:45
 msgid "help_create_new_version"
 msgstr ""
-"Αρχίστε να συντάσσετε μια νέα έρευνα. Θα ερωτηθείτε εάν θέλετε να "
-"αρχίσετε με ένα αντίγραφο μιας υπάρχουσας έρευνας."
+"Αρχίστε να συντάσσετε μια νέα έρευνα. Θα ερωτηθείτε εάν θέλετε να αρχίσετε "
+"με ένα αντίγραφο μιας υπάρχουσας έρευνας."
 
 #. Default: Create new survey
 #: euphorie/deployment/tiles/templates/versions.pt:45
@@ -4127,4 +4018,3 @@ msgstr "Αντίγραφο"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
-
