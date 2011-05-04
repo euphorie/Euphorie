@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0dev\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-04-28 13:06+0200\n"
+"POT-Creation-Date: 2011-05-04 18:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1873,17 +1873,17 @@ msgid "error_invalid_budget"
 msgstr ""
 
 #. Default: High
-#: euphorie/client/templates/risk_evaluation.pt:64 euphorie/content/risk.py:134
+#: euphorie/client/templates/risk_evaluation.pt:64 euphorie/content/risk.py:132
 msgid "priority_high"
 msgstr ""
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:62 euphorie/content/risk.py:133
+#: euphorie/client/templates/risk_evaluation.pt:62 euphorie/content/risk.py:131
 msgid "priority_medium"
 msgstr ""
 
 #. Default: Low
-#: euphorie/client/templates/risk_evaluation.pt:60 euphorie/content/risk.py:132
+#: euphorie/client/templates/risk_evaluation.pt:60 euphorie/content/risk.py:130
 msgid "priority_low"
 msgstr ""
 
@@ -1913,12 +1913,12 @@ msgid "header_risk_effect"
 msgstr ""
 
 #. Default: Constantly
-#: euphorie/client/templates/risk_evaluation.pt:42 euphorie/content/risk.py:166
+#: euphorie/client/templates/risk_evaluation.pt:42 euphorie/content/risk.py:164
 msgid "frequency_constantly"
 msgstr ""
 
 #. Default: Regularly
-#: euphorie/client/templates/risk_evaluation.pt:40 euphorie/content/risk.py:165
+#: euphorie/client/templates/risk_evaluation.pt:40 euphorie/content/risk.py:163
 msgid "frequency_regularly"
 msgstr ""
 
@@ -1933,17 +1933,17 @@ msgid "header_risk_frequency"
 msgstr ""
 
 #. Default: Large
-#: euphorie/client/templates/risk_evaluation.pt:32 euphorie/content/risk.py:150
+#: euphorie/client/templates/risk_evaluation.pt:32 euphorie/content/risk.py:148
 msgid "probability_large"
 msgstr ""
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:30 euphorie/content/risk.py:149
+#: euphorie/client/templates/risk_evaluation.pt:30 euphorie/content/risk.py:147
 msgid "probability_medium"
 msgstr ""
 
 #. Default: Small
-#: euphorie/client/templates/risk_evaluation.pt:28 euphorie/content/risk.py:148
+#: euphorie/client/templates/risk_evaluation.pt:28 euphorie/content/risk.py:146
 msgid "probability_small"
 msgstr ""
 
@@ -2131,14 +2131,28 @@ msgstr ""
 msgid "The specified colour is not valid."
 msgstr ""
 
-#. Default: This is a region.
-#: euphorie/content/country.py:19
-msgid "label_is_region"
+#: euphorie/content/country.py:21
+msgid "Country grouping"
 msgstr ""
 
-#. Default: Regions are international groupings, such as the European Union.
-#: euphorie/content/country.py:21
-msgid "help_is_region"
+#: euphorie/content/country.py:23
+msgid "Region"
+msgstr ""
+
+#: euphorie/content/country.py:24
+msgid "EU member state"
+msgstr ""
+
+#: euphorie/content/country.py:25
+msgid "EFTA country"
+msgstr ""
+
+#: euphorie/content/country.py:26
+msgid "Candidate country"
+msgstr ""
+
+#: euphorie/content/country.py:27
+msgid "Potential candidate country"
 msgstr ""
 
 #. Default: Introduction
@@ -2225,69 +2239,69 @@ msgid "help_finalwords"
 msgstr ""
 
 #. Default: Description
-#: euphorie/content/module.py:39 euphorie/content/page.py:19
+#: euphorie/content/module.py:35 euphorie/content/page.py:19
 #: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:26
 msgid "label_module_description"
 msgstr ""
 
 #. Default: Include any relevant information that may be helpful for users.
-#: euphorie/content/module.py:40 euphorie/content/page.py:20
+#: euphorie/content/module.py:36 euphorie/content/page.py:20
 #: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:27
 msgid "help_module_description"
 msgstr ""
 
 #. Default: This module is optional
-#: euphorie/content/module.py:48
+#: euphorie/content/module.py:44
 msgid "label_module_optional"
 msgstr ""
 
 #. Default: Allow users to skip this module and everything inside it.
-#: euphorie/content/module.py:49
+#: euphorie/content/module.py:45
 msgid "help_module_optional"
 msgstr ""
 
 #. Default: Question
-#: euphorie/content/module.py:57
+#: euphorie/content/module.py:53
 msgid "label_module_question"
 msgstr ""
 
 #. Default: The question to ask users if this module is optional. This has to be a
 #. yes/no question.
-#: euphorie/content/module.py:58
+#: euphorie/content/module.py:54
 msgid "help_module_question"
 msgstr ""
 
 #. Default: Image file
-#: euphorie/content/module.py:64 euphorie/content/risk.py:194
-#: euphorie/content/risk.py:208 euphorie/content/risk.py:218
-#: euphorie/content/risk.py:228
+#: euphorie/content/module.py:60 euphorie/content/risk.py:192
+#: euphorie/content/risk.py:206 euphorie/content/risk.py:216
+#: euphorie/content/risk.py:226
 msgid "label_image"
 msgstr ""
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif and
 #. does not contain any special characters.
-#: euphorie/content/module.py:65 euphorie/content/risk.py:195
-#: euphorie/content/risk.py:209 euphorie/content/risk.py:219
-#: euphorie/content/risk.py:229 euphorie/content/sector.py:73
+#: euphorie/content/module.py:61 euphorie/content/risk.py:193
+#: euphorie/content/risk.py:207 euphorie/content/risk.py:217
+#: euphorie/content/risk.py:227 euphorie/content/sector.py:73
 msgid "help_image_upload"
 msgstr ""
 
 #. Default: Introduction action plan
-#: euphorie/content/module.py:71
+#: euphorie/content/module.py:67
 msgid "label_solution_direction"
 msgstr ""
 
 #. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
-#: euphorie/content/module.py:72
+#: euphorie/content/module.py:68
 msgid "help_solution_direction"
 msgstr ""
 
-#: euphorie/content/module.py:133
+#: euphorie/content/module.py:129
 msgid "Edit Module"
 msgstr ""
 
-#: euphorie/content/module.py:135
+#: euphorie/content/module.py:131
 msgid "Edit Submodule"
 msgstr ""
 
@@ -2325,71 +2339,71 @@ msgid "profile_repeat"
 msgstr ""
 
 #. Default: Statement
-#: euphorie/content/risk.py:38
+#: euphorie/content/risk.py:37
 msgid "label_statement"
 msgstr ""
 
 #. Default: This is a short statement about a possible risk.
-#: euphorie/content/risk.py:39
+#: euphorie/content/risk.py:38
 msgid "help_statement"
 msgstr ""
 
 #. Default: Inversed statement
-#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:37
+#: euphorie/content/risk.py:44 euphorie/content/templates/risk_view.pt:37
 msgid "label_problem_description"
 msgstr ""
 
 #. Default: This is the inverse of the statement: a short description of current
 #. (bad) situation.
-#: euphorie/content/risk.py:48
+#: euphorie/content/risk.py:46
 msgid "help_problem_description"
 msgstr ""
 
 #. Default: Description
-#: euphorie/content/risk.py:56
+#: euphorie/content/risk.py:54
 msgid "label_description"
 msgstr ""
 
 #. Default: Describe the risk. Include any relevant information that may be helpful
 #. for users.
-#: euphorie/content/risk.py:57
+#: euphorie/content/risk.py:55
 msgid "help_risk_description"
 msgstr ""
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:61
+#: euphorie/content/risk.py:63 euphorie/content/templates/risk_view.pt:61
 msgid "label_legal_reference"
 msgstr ""
 
 #. Default: Identification
-#: euphorie/content/risk.py:71
+#: euphorie/content/risk.py:69
 msgid "header_identification"
 msgstr ""
 
 #. Default: Show `not applicable' option
-#: euphorie/content/risk.py:75
+#: euphorie/content/risk.py:73
 msgid "label_show_notapplicable"
 msgstr ""
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
-#: euphorie/content/risk.py:77
+#: euphorie/content/risk.py:75
 msgid "help_show_notapplicable"
 msgstr ""
 
 #. Default: Evaluation
-#: euphorie/content/risk.py:83
+#: euphorie/content/risk.py:81
 msgid "header_evaluation"
 msgstr ""
 
 #. Default: You can specify how the risks priority is evaluated. For more details
 #. see the online manual.
-#: euphorie/content/risk.py:84
+#: euphorie/content/risk.py:82
 msgid "intro_evaluation"
 msgstr ""
 
 #. Default: Risk type
-#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:35
+#: euphorie/content/risk.py:92 euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
 msgstr ""
 
@@ -2397,136 +2411,136 @@ msgstr ""
 #. procedures and management decisions. It can be answered from behind a desk (no
 #. need to examine the workplace). 'Top 5' is one of the top five risks of the
 #. sector.
-#: euphorie/content/risk.py:95
+#: euphorie/content/risk.py:93
 msgid "help_risk_type"
 msgstr ""
 
 #. Default: Top 5
-#: euphorie/content/risk.py:102
+#: euphorie/content/risk.py:100
 msgid "risktype_top5"
 msgstr ""
 
 #. Default: Risk
-#: euphorie/content/risk.py:103
+#: euphorie/content/risk.py:101
 msgid "risktype_risk"
 msgstr ""
 
 #. Default: Policy
-#: euphorie/content/risk.py:104
+#: euphorie/content/risk.py:102
 msgid "risktype_policy"
 msgstr ""
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:43
+#: euphorie/content/risk.py:110 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
 msgstr ""
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
-#: euphorie/content/risk.py:113
+#: euphorie/content/risk.py:111
 msgid "help_evaluation_method"
 msgstr ""
 
 #. Default: Estimated
-#: euphorie/content/risk.py:117
+#: euphorie/content/risk.py:115
 msgid "evalmethod_direct"
 msgstr ""
 
 #. Default: Calculated
-#: euphorie/content/risk.py:118
+#: euphorie/content/risk.py:116
 msgid "evalmethod_calculated"
 msgstr ""
 
 #. Default: Default priority
-#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:46
+#: euphorie/content/risk.py:124 euphorie/content/templates/risk_view.pt:46
 msgid "label_default_priority"
 msgstr ""
 
 #. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
-#: euphorie/content/risk.py:127
+#: euphorie/content/risk.py:125
 msgid "help_default_priority"
 msgstr ""
 
 #. Default: No default
-#: euphorie/content/risk.py:131
+#: euphorie/content/risk.py:129
 msgid "no_default"
 msgstr ""
 
 #. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:50
+#: euphorie/content/risk.py:140 euphorie/content/templates/risk_view.pt:50
 msgid "label_default_probability"
 msgstr ""
 
 #. Default: Indicate how likely occurence of this risk is in a normal situation.
-#: euphorie/content/risk.py:143
+#: euphorie/content/risk.py:141
 msgid "help_default_probability"
 msgstr ""
 
 #. Default: No default
-#: euphorie/content/risk.py:147 euphorie/content/risk.py:163
-#: euphorie/content/risk.py:178
+#: euphorie/content/risk.py:145 euphorie/content/risk.py:161
+#: euphorie/content/risk.py:176
 msgid "no default"
 msgstr ""
 
 #. Default: Default frequency
-#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:52
+#: euphorie/content/risk.py:156 euphorie/content/templates/risk_view.pt:52
 msgid "label_default_frequency"
 msgstr ""
 
 #. Default: Indicate how often this risk occurs in a normal situation.
-#: euphorie/content/risk.py:159
+#: euphorie/content/risk.py:157
 msgid "help_default_frequency"
 msgstr ""
 
 #. Default: Almost never
-#: euphorie/content/risk.py:164
+#: euphorie/content/risk.py:162
 msgid "frequency_almostnever"
 msgstr ""
 
 #. Default: Default severity
-#: euphorie/content/risk.py:174
+#: euphorie/content/risk.py:172
 msgid "label_default_severity"
 msgstr ""
 
 #. Default: Indicate the severity of the manage if this risk occurs.
-#: euphorie/content/risk.py:175
+#: euphorie/content/risk.py:173
 msgid "help_default_severity"
 msgstr ""
 
 #. Default: Weak severity
-#: euphorie/content/risk.py:179
+#: euphorie/content/risk.py:177
 msgid "effect_weak"
 msgstr ""
 
 #. Default: Significant severity
-#: euphorie/content/risk.py:180
+#: euphorie/content/risk.py:178
 msgid "effect_significant"
 msgstr ""
 
 #. Default: High (very high) severity
-#: euphorie/content/risk.py:181
+#: euphorie/content/risk.py:179
 msgid "effect_high"
 msgstr ""
 
 #. Default: Main image
-#: euphorie/content/risk.py:187
+#: euphorie/content/risk.py:185
 msgid "header_main_image"
 msgstr ""
 
 #. Default: The main image will get a more prominent position in the client than
 #. the other images.
-#: euphorie/content/risk.py:188
+#: euphorie/content/risk.py:186
 msgid "intro_main_image"
 msgstr ""
 
 #. Default: Image caption
-#: euphorie/content/risk.py:200 euphorie/content/risk.py:214
-#: euphorie/content/risk.py:224 euphorie/content/risk.py:234
+#: euphorie/content/risk.py:198 euphorie/content/risk.py:212
+#: euphorie/content/risk.py:222 euphorie/content/risk.py:232
 msgid "label_caption"
 msgstr ""
 
 #. Default: Secondary images
-#: euphorie/content/risk.py:204
+#: euphorie/content/risk.py:202
 msgid "header_secondary_images"
 msgstr ""
 
@@ -2765,7 +2779,7 @@ msgstr ""
 msgid "message_user_unlocked"
 msgstr ""
 
-#: euphorie/content/utils.py:8
+#: euphorie/content/utils.py:10
 msgid "European Union"
 msgstr ""
 
@@ -2837,19 +2851,19 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#. Default: The basic architecture of an Online interactive Risk Assessment
-#. consists of: - profile questions (questions defining the company profile) -
-#. modules and potentially sub-modules - risks (positive statements) Profile
-#. questions are used to determine whether particular modules apply to the end user
-#. at all (OPTIONAL), or whether they should be repeated a number of times
-#. (REPEATABLE). Such questions are asked BEFORE starting the risk identification
-#. and evaluation. If the end-user does not confirm that an optional profile
-#. question is relevant (by ticking the box), then the corresponding module will be
-#. skipped entirely. If the end-user enters more than one option to a repeatable
-#. profile question then the corresponding module will be repeated the specified
-#. number of times.
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid "description_profilequestion"
+msgid ""
+"The basic architecture of an Online interactive Risk Assessment consists of: "
+"- profile questions (questions defining the company profile) - modules and "
+"potentially sub-modules - risks (positive statements) Profile questions are "
+"used to determine whether particular modules apply to the end user at all "
+"(OPTIONAL), or whether they should be repeated a number of times "
+"(REPEATABLE). Such questions are asked BEFORE starting the risk "
+"identification and evaluation. If the end-user does not confirm that an "
+"optional profile question is relevant (by ticking the box), then the "
+"corresponding module will be skipped entirely. If the end-user enters more "
+"than one option to a repeatable profile question then the corresponding "
+"module will be repeated the specified number of times."
 msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
@@ -2869,6 +2883,7 @@ msgid "A sector is national organisation for a specific type of industry."
 msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
+#: euphorie/content/templates/user_mgmt.pt:26
 msgid "Sector"
 msgstr ""
 
@@ -3116,9 +3131,22 @@ msgstr ""
 msgid "header_sector_survey_list"
 msgstr ""
 
-#. Default: Countries
+#: euphorie/content/templates/sectorcontainer_view.pt:42
+msgid "Potential Candidate EFTA Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:36
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
+msgid "Candidate Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:30
+msgid "EFTA Countries"
+msgstr ""
+
 #: euphorie/content/templates/sectorcontainer_view.pt:24
-msgid "header_countries"
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
+msgid "EU Member States"
 msgstr ""
 
 #. Default: Regions
@@ -3357,33 +3385,46 @@ msgid "title_unpublish"
 msgstr ""
 
 #. Default: Unlock
-#: euphorie/content/templates/user_mgmt.pt:58
-#: euphorie/content/templates/user_mgmt.pt:36
+#: euphorie/content/templates/user_mgmt.pt:80
+#: euphorie/content/templates/user_mgmt.pt:47
 msgid "button_unlock"
 msgstr ""
 
 #. Default: Lock
-#: euphorie/content/templates/user_mgmt.pt:57
-#: euphorie/content/templates/user_mgmt.pt:35
+#: euphorie/content/templates/user_mgmt.pt:79
+#: euphorie/content/templates/user_mgmt.pt:41
 msgid "button_lock"
 msgstr ""
 
 #. Default: Edit
-#: euphorie/content/templates/user_mgmt.pt:56
-#: euphorie/content/templates/user_mgmt.pt:34
+#: euphorie/content/templates/user_mgmt.pt:78
+#: euphorie/content/templates/user_mgmt.pt:40
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:32
 msgid "button_edit"
 msgstr ""
 
+#: euphorie/content/templates/user_mgmt.pt:68
+#: euphorie/content/templates/user_mgmt.pt:27
+msgid "Login"
+msgstr ""
+
+#: euphorie/content/templates/user_mgmt.pt:67
+msgid "Name"
+msgstr ""
+
 #. Default: There are no country managers for this country.
-#: euphorie/content/templates/user_mgmt.pt:44
+#: euphorie/content/templates/user_mgmt.pt:60
 msgid "country_no_managers"
 msgstr ""
 
 #. Default: Country managers
-#: euphorie/content/templates/user_mgmt.pt:42
+#: euphorie/content/templates/user_mgmt.pt:59
 msgid "header_country_managers"
+msgstr ""
+
+#: euphorie/content/templates/user_mgmt.pt:28
+msgid "Password"
 msgstr ""
 
 #. Default: There are no sectors for this country.
@@ -3488,6 +3529,14 @@ msgstr ""
 #. Default: Show older versions
 #: euphorie/deployment/tiles/templates/scripts.pt:9
 msgid "title_toggle_navtree"
+msgstr ""
+
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr ""
+
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
 msgstr ""
 
 #. Default: ${label} = This version has changes that are currently unpublished.
