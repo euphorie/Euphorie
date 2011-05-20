@@ -82,7 +82,7 @@ class WebHelpers(BrowserView):
             if IClientSector.providedBy(obj):
                 self.sector=obj
                 break
-        self.debug_mode=Globals.DevelopmentMode and False
+        self.debug_mode=Globals.DevelopmentMode
 
 
     @property

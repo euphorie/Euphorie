@@ -69,3 +69,17 @@ h1 {
 #steps li a:hover{
 	color: #8e9fb8;
 }
+
+/* Screen.css limits this to 45% which is then somehow overridden 
+ * by Fancybox. If we however then don't use FancyBox, the image 
+ * is too small.
+ */
+.gallery img {
+	max-width: 100%;
+	max-height: 100%;
+	cursor: default;
+}
+
+.gallery a img {
+	cursor: pointer;
+}
