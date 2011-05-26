@@ -449,7 +449,7 @@ msgstr ""
 #: euphorie/client/settings.py:60
 #: euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
-msgstr ""
+msgstr "Adresse email / identifiant"
 
 #. Default: Account settings
 #: euphorie/client/settings.py:80 euphorie/client/settings.py:168
@@ -478,14 +478,13 @@ msgstr ""
 
 #. Default: Delete account
 #: euphorie/client/settings.py:119
-#, fuzzy
 msgid "title_account_delete"
-msgstr "Documentation"
+msgstr "Supprimer mon compte"
 
 #: euphorie/client/settings.py:132
 #: euphorie/client/templates/account-settings.pt:23
 msgid "Delete account"
-msgstr ""
+msgstr "Supprimer mon compte"
 
 #: euphorie/client/settings.py:198
 msgid "Confirm OiRA email address change"
@@ -872,18 +871,16 @@ msgstr "Rappel du mot de passe"
 msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
-msgstr ""
+msgstr "Attention, en changeant l'adresse email, vous modifiez aussi votre identifiant."
 
 #: euphorie/client/templates/account-settings.pt:23
-#, fuzzy
 msgid "Change email address"
-msgstr "Adresse e-mail inconnue "
+msgstr "Changer l'adresse email"
 
 #. Default: Account data
 #: euphorie/client/templates/account-settings.pt:19
-#, fuzzy
 msgid "header_account_data"
-msgstr "Gestionnaires pays"
+msgstr "Mon compte"
 
 #. Default: Settings
 #: euphorie/client/templates/actionplan.pt:85
