@@ -4,6 +4,9 @@ Changelog
 3.0 - Unreleased
 ----------------
 
+- #15: AttributeError *is_region* when publishing from a country not yet in the
+  client. [jcbrand]
+
 Upgrade notes
 ~~~~~~~~~~~~~
 
