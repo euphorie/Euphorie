@@ -8,6 +8,7 @@
       i18n:domain="euphorie"
       meta:interpolation="true"
       tal:omit-tag="">
+      <h1>strong</h1>
   <p i18n:translate="intro_add_surveygroup">The form will allow you to create a new survey.</p>
 
   <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}"
@@ -76,7 +77,18 @@
           </tal:group>
         </tal:sector>
       </tal:country>
+
+      <fieldset class="dependsOn-source-equals-scratch comprehensive radioList" tal:define="widget view/widgets/evaluation_method">
+        <legend>${widget/label} <sup tal:condition="widget/required" class="required">*</sup></legend> <dfn class="infoPanel" i18n:attributes="title" title="Information" tal:define="description widget/field/description" tal:condition="description" tal:content="description"/>
+          <label tal:repeat="item widget/items"><input type="radio" tal:define="checked item/checked"
+            id="${item/id}" name="${item/name}" value="${item/value}"
+            disabled="${widget/disabled}" readonly="${widget/readonly}"
+            checked="${python:'checked' if checked else None}"/>${item/label}</label>
+          <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+        <input type="hidden" value="1" name="${widget/name}-empty-marker" />
+      </fieldset>
     </fieldset>
+
     <div class="buttonBar">
       <button name="form.buttons.save" type="submit" i18n:translate="button_create">Create</button>
       <button name="form.buttons.cancel" type="submit" i18n:translate="button_cancel">Cancel</button>

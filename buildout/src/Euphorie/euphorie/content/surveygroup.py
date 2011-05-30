@@ -9,6 +9,8 @@ from zope import schema
 from zope.component import getUtility
 from zope.event import notify
 from zope.interface import implements
+from zope.schema.vocabulary import SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -24,6 +26,7 @@ from plone.dexterity.utils import createContentInContainer
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.directives import depends
 
 
 grok.templatedir("templates")
@@ -42,6 +45,15 @@ class ISurveyGroup(form.Schema, IBasic):
 
     form.omitted("description")
 
+    evaluation_method = schema.Choice(
+            title = _("label_survey_evaluation_method", default=u"Evaluation method"),
+            vocabulary = SimpleVocabulary([
+                SimpleTerm(u"kinney", title=_("method_kinney", default=u"Kinney method (standard)")),
+                SimpleTerm(u"french", title=_("french", default=u"Special French method")),
+                ]),
+            default = u"kinney",
+            required = True)
+
 
 
 class SurveyGroup(dexterity.Container):
@@ -49,6 +61,7 @@ class SurveyGroup(dexterity.Container):
     implements(ISurveyGroup)
 
     published = None
+    evaluation_method = u"kinney"
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
@@ -147,6 +160,7 @@ class AddForm(dexterity.AddForm):
         title=self.request.locale.dates.getFormatter("date", length="long").format(datetime.date.today())
         copy.id=today.isoformat()
         copy.title=title
+        target.evaluation_method=aq_parent(source).evaluation_method
         target._setObject(copy.id, copy)
 
         if hasattr(copy, "published"):
@@ -275,5 +289,3 @@ def handleSurveyPublish(survey, event):
     
     surveygroup=aq_parent(aq_inner(survey))
     surveygroup.published=survey.id
-
-
