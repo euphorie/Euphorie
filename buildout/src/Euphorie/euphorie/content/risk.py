@@ -1,11 +1,20 @@
+from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from Acquisition.interfaces import IAcquirer
 from five import grok
+from zope.component import createObject
+from zope.component import getUtility
+from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
 from zope.interface import implements
 from zope.interface import Interface
 from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
+from z3c.form.form import applyChanges
+from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -77,17 +86,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                         u"to the standard yes/no options."),
             default = False)
 
-    form.fieldset("evaluation",
-            label=_("header_evaluation", default=u"Evaluation"),
-            description = _("intro_evaluation",
-                default=u"You can specify how the risks priority is "
-                        u"evaluated. For more details see the online "
-                        u"manual."),
-            fields=["type", "evaluation_method",
-                    "default_priority",
-                    "default_probability", "default_frequency", "default_effect",
-                   ])
-
     type = schema.Choice(
             title = _("label_risk_type", default=u"Risk type"),
             description = _("help_risk_type",
@@ -103,7 +101,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                             ]),
             default = u"risk",
             required = True)
-
 
     depends("evaluation_method", "type", "==", "risk")
     evaluation_method = schema.Choice(
@@ -134,52 +131,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             required = False,
             default = "none")
                       
-    depends("default_probability", "type", "==", "risk")
-    depends("default_probability", "evaluation_method", "==", "calculated")
-    default_probability = schema.Choice(
-            title = _("label_default_probability", default=u"Default probability"),
-            description = _("help_default_probability",
-                default=u"Indicate how likely occurence of this risk "
-                        u"is in a normal situation."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "small", title=_("probability_small", default=u"Small")),
-                            SimpleTerm(3, "medium", title=_("probability_medium", default=u"Medium")),
-                            SimpleTerm(5, "large", title=_("probability_large", default=u"Large")),
-                            ]),
-            required = False,
-            default = 0)
-
-    depends("default_frequency", "type", "==", "risk")
-    depends("default_frequency", "evaluation_method", "==", "calculated")
-    default_frequency = schema.Choice(
-            title = _("label_default_frequency", default=u"Default frequency"),
-            description = _("help_default_frequency",
-                default=u"Indicate how often this risk occurs in a "
-                        u"normal situation."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "almost-never", title=_("frequency_almostnever", default=u"Almost never")),
-                            SimpleTerm(4, "regular", title=_("frequency_regularly", default=u"Regularly")),
-                            SimpleTerm(7, "constant", title=_("frequency_constantly", default=u"Constantly")),
-                            ]),
-            required = False,
-            default = 0)
-
-    depends("default_effect", "type", "==", "risk")
-    depends("default_effect", "evaluation_method", "==", "calculated")
-    default_effect = schema.Choice(
-            title = _("label_default_severity", default=u"Default severity"),
-            description = _("help_default_severity",
-                default=u"Indicate the severity of the manage if this risk occurs."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "weak", title=_("effect_weak", default=u"Weak severity")),
-                            SimpleTerm(5, "significant", title=_("effect_significant", default=u"Significant severity")),
-                            SimpleTerm(10, "high", title=_("effect_high", default=u"High (very high) severity")),
-                            ]),
-            required = False,
-            default = 0)
 
     form.fieldset("main_image",
             label=_("header_main_image", default=u"Main image"),
@@ -234,11 +185,132 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
 
 
+class IFrenchEvaluation(form.Schema):
+    depends("default_frequency", "type", "==", "risk")
+    depends("default_frequency", "evaluation_method", "==", "calculated")
+    default_frequency = schema.Choice(
+            title = _("label_default_frequency", default=u"Default frequency"),
+            description = _("help_default_frequency",
+                default=u"Indicate how often this risk occurs in a "
+                        u"normal situation."),
+            vocabulary = SimpleVocabulary([
+                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                            SimpleTerm(1, "rare", title=_("frequency_french_rare", default=u"Rare")),
+                            SimpleTerm(4, "not-often", title=_("frequency_french_not_often", default=u"Not very often")),
+                            SimpleTerm(7, "often", title=_("frequency_french_often", default=u"Often")),
+                            SimpleTerm(10, "regularly", title=_("frequency_french_regularly", default=u"Regularly")),
+                            ]),
+            required = False,
+            default = 0)
+
+
+class IKinneyEvaluation(form.Schema):
+    form.fieldset("evaluation",
+            label=_("header_evaluation", default=u"Evaluation"),
+            description = _("intro_evaluation",
+                default=u"You can specify how the risks priority is "
+                        u"evaluated. For more details see the online "
+                        u"manual."),
+            fields=["type", "evaluation_method",
+                    "default_priority",
+                    "default_probability", "default_frequency", "default_effect",
+                   ])
+
+    depends("default_probability", "type", "==", "risk")
+    depends("default_probability", "evaluation_method", "==", "calculated")
+    default_probability = schema.Choice(
+            title = _("label_default_probability", default=u"Default probability"),
+            description = _("help_default_probability",
+                default=u"Indicate how likely occurence of this risk "
+                        u"is in a normal situation."),
+            vocabulary = SimpleVocabulary([
+                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                            SimpleTerm(1, "small", title=_("probability_small", default=u"Small")),
+                            SimpleTerm(3, "medium", title=_("probability_medium", default=u"Medium")),
+                            SimpleTerm(5, "large", title=_("probability_large", default=u"Large")),
+                            ]),
+            required = False,
+            default = 0)
+
+    depends("default_frequency", "type", "==", "risk")
+    depends("default_frequency", "evaluation_method", "==", "calculated")
+    default_frequency = schema.Choice(
+            title = _("label_default_frequency", default=u"Default frequency"),
+            description = _("help_default_frequency",
+                default=u"Indicate how often this risk occurs in a "
+                        u"normal situation."),
+            vocabulary = SimpleVocabulary([
+                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                            SimpleTerm(1, "almost-never", title=_("frequency_almostnever", default=u"Almost never")),
+                            SimpleTerm(4, "regular", title=_("frequency_regularly", default=u"Regularly")),
+                            SimpleTerm(7, "constant", title=_("frequency_constantly", default=u"Constantly")),
+                            ]),
+            required = False,
+            default = 0)
+
+    depends("default_effect", "type", "==", "risk")
+    depends("default_effect", "evaluation_method", "==", "calculated")
+    default_effect = schema.Choice(
+            title = _("label_default_severity", default=u"Default severity"),
+            description = _("help_default_severity",
+                default=u"Indicate the severity of the manage if this risk occurs."),
+            vocabulary = SimpleVocabulary([
+                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                            SimpleTerm(1, "weak", title=_("effect_weak", default=u"Weak severity")),
+                            SimpleTerm(5, "significant", title=_("effect_significant", default=u"Significant severity")),
+                            SimpleTerm(10, "high", title=_("effect_high", default=u"High (very high) severity")),
+                            ]),
+            required = False,
+            default = 0)
+
+
+class IKinneyRisk(IRisk, IKinneyEvaluation):
+    pass
+
+
+class IFrenchRisk(IRisk, IFrenchEvaluation):
+    pass
+
 
 class Risk(dexterity.Container):
     implements(IRisk)
 
+    default_probability = 0
+    default_frequency = 0
+    default_effect = 0
 
+    def evaluation_algorithm(self):
+        """Return the evaluation algorithm used by this risk. The
+        algorithm is determined by the `evaluation_algorithm` flag
+        for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
+        """
+        return evaluation_algorithm(self)
+
+
+
+def EnsureInterface(risk):
+    """Make sure a risk has the correct interface set for, matching the
+    evaluation method of the survey group.
+    """
+    algorithm = evaluation_algorithm(risk)
+    if algorithm == u"french":
+        alsoProvides(risk, IFrenchRisk)
+        noLongerProvides(risk, IKinneyRisk)
+    else:
+        alsoProvides(risk, IKinneyRisk)
+        noLongerProvides(risk, IFrenchRisk)
+
+
+def evaluation_algorithm(context):
+    """Return the evaluation algorithm used in a given context. The
+    algorithm is determined by the `evaluation_algorithm` flag
+    for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
+    """
+    from euphorie.content.surveygroup import ISurveyGroup  # XXX Circular
+    for parent in aq_chain(aq_inner(context)):
+        if ISurveyGroup.providedBy(parent):
+            return parent.evaluation_algorithm
+    return u"kinney"
 
 
 @indexer(IRisk)
@@ -260,18 +332,54 @@ class View(grok.View):
         super(View, self).update()
         context=aq_inner(self.context)
         self.module_title=aq_parent(context).title
+        self.evaluation_algorithm = evaluation_algorithm(context)
         self.type=getTermTitle(IRisk["type"], context.type)
         self.evaluation_method=getTermTitle(IRisk["evaluation_method"], context.evaluation_method)
-        self.default_priority=getTermTitle(IRisk["default_priority"], context.default_priority)
-        self.default_probability=getTermTitle(IRisk["default_probability"], context.default_probability)
-        self.default_frequency=getTermTitle(IRisk["default_frequency"], context.default_frequency)
-        self.default_effect=getTermTitle(IRisk["default_effect"], context.default_effect)
+        if self.evaluation_algorithm==u"kinney":
+            self.default_priority=getTermTitle(IKinneyRisk["default_priority"], context.default_priority)
+            self.default_probability=getTermTitle(IKinneyRisk["default_probability"], context.default_probability)
+            self.default_frequency=getTermTitle(IKinneyRisk["default_frequency"], context.default_frequency)
+            self.default_effect=getTermTitle(IKinneyRisk["default_effect"], context.default_effect)
 
         self.solutions=[dict(id=solution.id,
                              url=solution.absolute_url(),
                              description=solution.description)
                         for solution in context.values()
                         if ISolution.providedBy(solution)]
+
+
+class Add(dexterity.AddForm):
+    grok.context(IRisk)
+    grok.name("euphorie.risk")
+    grok.require("euphorie.content.AddNewRIEContent")
+
+    def __init__(self, context, request):
+        dexterity.AddForm.__init__(self, context, request)
+        self.evaluation_algorithm = evaluation_algorithm(context)
+
+    @property
+    def schema(self):
+        if self.evaluation_algorithm==u"french":
+            return IFrenchRisk
+        else:
+            return IKinneyRisk
+
+    def create(self, data):
+        # This is mostly a direct copy of
+        # :py:meth:`plone.dexterity.browser.add.DefaultAddForm.create`,
+        # extended to apply the right interface.
+        fti = getUtility(IDexterityFTI, name=self.portal_type)
+        container = aq_inner(self.context)
+        content = createObject(fti.factory)
+        alsoProvides(content, self.schema)
+        if hasattr(content, '_setPortalTypeName'):
+            content._setPortalTypeName(fti.getId())
+        if IAcquirer.providedBy(content):
+            content = content.__of__(container)
+        applyChanges(self, content, data)
+        for group in self.groups:
+            applyChanges(group, content, data)
+        return aq_base(content)
 
 
 class Edit(form.SchemaEditForm):
@@ -281,9 +389,14 @@ class Edit(form.SchemaEditForm):
     grok.name("edit")
     grok.template("risk_edit")
 
-    schema = IRisk
     default_fieldset_label = None
 
+    def __init__(self, context, request):
+        form.SchemaEditForm.__init__(self, context, request)
+        if context.evaluation_algorithm() == u"french":
+            self.schema = IFrenchRisk
+        else:
+            self.schema = IKinneyRisk
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
@@ -322,4 +435,3 @@ class ConstructionFilter(grok.MultiAdapter):
 
     def allowed(self):
         return self.checkForModules()
-

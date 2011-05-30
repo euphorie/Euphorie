@@ -18,12 +18,12 @@
           <tal:widget replace="structure view/widgets/description/render"/>
           <tal:widget replace="structure view/widgets/legal_reference/render"/>
 
-          <fieldset tal:define="group python:view.groups[0]">
+          <fieldset tal:define="group python:view.groups[1]">
             <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
             <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
             <tal:widget repeat="widget group/widgets/values" replace="structure widget/render"/>
           </fieldset>
-          <fieldset tal:define="group python:view.groups[1]">
+          <fieldset tal:define="group python:view.groups[0]">
             <legend i18n:domain="plone" i18n:translate="" tal:define="legend group/label" tal:condition="legend" tal:content="legend">Group name</legend>
             <p class="discrete" tal:define="description group/description" tal:condition="description" tal:content="description">Group name</p>
             <tal:widget repeat="widget group/widgets/values" replace="structure widget/render"/>

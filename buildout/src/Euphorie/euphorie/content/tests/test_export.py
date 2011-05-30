@@ -488,6 +488,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.survey import Survey
         surveygroup=SurveyGroup()
         surveygroup.title=u"Generic sector"
+        surveygroup.evaluation_algorithm=u"french"
         surveygroup["standard"]=Survey()
         survey=surveygroup["standard"] # Acquisition wrap
         survey.title=u"Standard"
@@ -503,6 +504,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <survey>\n'
                 '    <title>Generic sector</title>\n'
                 '    <language>en-GB</language>\n'
+                '    <evaluation-algorithm>french</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '  </survey>\n'
                 '</root>\n')
@@ -527,6 +529,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <survey>\n'
                 '    <title>Generic sector</title>\n'
                 '    <language>en-GB</language>\n'
+                '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '  </survey>\n'
                 '</root>\n')
@@ -558,6 +561,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <survey>\n'
                 '    <title>Generic sector</title>\n'
                 '    <language>en-GB</language>\n'
+                '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '    <profile-question type="optional">\n'
                 '      <title>Office buildings</title>\n'
@@ -594,6 +598,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <survey>\n'
                 '    <title>Generic sector</title>\n'
                 '    <language>en-GB</language>\n'
+                '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '    <module optional="false">\n'
                 '      <title>Office buildings</title>\n'
@@ -628,6 +633,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <survey>\n'
                 '    <title>Generic sector</title>\n'
                 '    <language>en-GB</language>\n'
+                '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
                 '  </survey>\n'
                 '</sector>\n')

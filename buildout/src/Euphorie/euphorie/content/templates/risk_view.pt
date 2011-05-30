@@ -39,22 +39,24 @@
         <dt i18n:translate="risk_show_na">Show '<em i18n:name="na" i18n:translate="risk_show_na_na">not applicable</em>'</dt>
         <dd tal:condition="context/show_notapplicable" i18n:translate="yes">Yes</dd>
         <dd tal:condition="not:context/show_notapplicable" i18n:translate="no">No</dd>
-        <tal:block condition="python:context.type=='risk'">
-          <dt i18n:translate="label_evaluation_method">Evaluation method</dt>
-          <dd tal:content="view/evaluation_method">Calculated</dd>
-          <tal:block condition="python:context.evaluation_method=='direct'">
-            <dt i18n:translate="label_default_priority">Default priority</dt>
-            <dd tal:content="view/default_priority">Low</dd>
+        <tal:kinney condition="python:view.evaluation_algorithm=='kinney'">
+          <tal:block condition="python:context.type=='risk'">
+            <dt i18n:translate="label_evaluation_method">Evaluation method</dt>
+            <dd tal:content="view/evaluation_method">Calculated</dd>
+            <tal:block condition="python:context.evaluation_method=='direct'">
+              <dt i18n:translate="label_default_priority">Default priority</dt>
+              <dd tal:content="view/default_priority">Low</dd>
+            </tal:block>
+            <tal:block condition="python:context.evaluation_method=='calculated'">
+              <dt i18n:translate="label_default_probability">Default probability</dt>
+              <dd tal:content="view/default_probability">Low</dd>
+              <dt i18n:translate="label_default_frequency">Default frequency</dt>
+              <dd tal:content="view/default_frequency">Low</dd>
+              <dt i18n:translate="label_default_effect">Default effect</dt>
+              <dd tal:content="view/default_effect">Low</dd>
+            </tal:block>
           </tal:block>
-          <tal:block condition="python:context.evaluation_method=='calculated'">
-            <dt i18n:translate="label_default_probability">Default probability</dt>
-            <dd tal:content="view/default_probability">Low</dd>
-            <dt i18n:translate="label_default_frequency">Default frequency</dt>
-            <dd tal:content="view/default_frequency">Low</dd>
-            <dt i18n:translate="label_default_effect">Default effect</dt>
-            <dd tal:content="view/default_effect">Low</dd>
-          </tal:block>
-        </tal:block>
+        </tal:kinney>
       </dl>
       <hr class="clear"/>
       <div tal:condition="python:context.legal_reference" class="message notice floatBefore">

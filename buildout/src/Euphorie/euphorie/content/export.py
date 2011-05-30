@@ -5,6 +5,7 @@ from lxml import etree
 from euphorie.content.survey import ISurvey
 from euphorie.content.solution import ISolution
 from euphorie.content.risk import IRisk
+from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.upload import NSMAP
@@ -51,6 +52,7 @@ class ExportSurvey(grok.View):
         if survey.classification_code:
             etree.SubElement(node, "classification_code").text=survey.classification_code
         etree.SubElement(node, "language").text=survey.language
+        etree.SubElement(node, "evaluation-algorithm").text=aq_parent(survey).evaluation_algorithm
         etree.SubElement(node, "evaluation-optional").text="true" if survey.evaluation_optional else "false"
 
         for child in survey.values():
@@ -111,12 +113,13 @@ class ExportSurvey(grok.View):
             method=etree.SubElement(node, "evaluation-method")
             method.text=risk.evaluation_method
             if risk.evaluation_method=="calculated":
-                if risk.default_probability:
-                    method.attrib["default-probability"]=getToken(IRisk["default_probability"], risk.default_probability)
-                if risk.default_frequency:
-                    method.attrib["default-frequency"]=getToken(IRisk["default_frequency"], risk.default_frequency)
-                if risk.default_effect:
-                    method.attrib["default-effect"]=getToken(IRisk["default_effect"], risk.default_effect)
+                if risk.evaluation_algorithm()=="kinney":
+                    if risk.default_probability:
+                        method.attrib["default-probability"]=getToken(IKinneyEvaluation["default_probability"], risk.default_probability)
+                    if risk.default_frequency:
+                        method.attrib["default-frequency"]=getToken(IKinneyEvaluation["default_frequency"], risk.default_frequency)
+                    if risk.default_effect:
+                        method.attrib["default-effect"]=getToken(IKinneyEvaluation["default_effect"], risk.default_effect)
             elif risk.evaluation_method=="direct":
                 if risk.default_priority:
                     method.attrib["default-priority"]=getToken(IRisk["default_priority"], risk.default_priority)

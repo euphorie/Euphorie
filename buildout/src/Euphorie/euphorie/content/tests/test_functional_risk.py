@@ -32,6 +32,17 @@ class RiskTests(EuphorieTestCase):
         risk=self.createRisk()
         self.assertTrue(risk.cb_isCopyable())
 
+    def testDefaultEvaluationAlgorithm(self):
+        from euphorie.content.risk import Risk
+        risk = Risk()
+        self.assertEqual(risk.evaluation_algorithm(), u"kinney")
+
+    def testEvaluationAlgorithmFromGroup(self):
+        self.loginAsPortalOwner()
+        risk = self.createRisk()
+        self.portal.sectors.nl.sector.group.evaluation_algorithm = u"french"
+        self.assertEqual(risk.evaluation_algorithm(), u"french")
+
 
 
 class RiskFunctionalTests(EuphorieFunctionalTestCase):
@@ -40,12 +51,14 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         return getattr(container, newid)
 
     def createRisk(self):
+        from euphorie.content.risk import EnsureInterface
         country=self.portal.sectors.nl
         sector=self._create(country, "euphorie.sector", "sector")
         surveygroup=self._create(sector, "euphorie.surveygroup", "group")
         survey=self._create(surveygroup, "euphorie.survey", "survey")
         module=self._create(survey, "euphorie.module", "module")
         risk=self._create(module, "euphorie.risk", "risk")
+        EnsureInterface(risk)
         return risk
 
     def testDescriptionSanitised(self):
@@ -56,6 +69,7 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         browser=self.adminBrowser()
         browser.open("%s/@@edit" % risk.absolute_url())
         browser.getControl(name="form.widgets.description").value=u"Raw text"
+        browser.handleErrors=False
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(risk.description, u"<p>Raw text</p>")
 
