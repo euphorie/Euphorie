@@ -186,6 +186,20 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
 
 class IFrenchEvaluation(form.Schema):
+    depends("default_severity", "type", "==", "risk")
+    depends("default_severity", "evaluation_method", "==", "calculated")
+    default_severity = schema.Choice(
+            title = _("label_default_severity", default=u"Default severity"),
+            vocabulary = SimpleVocabulary([
+                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                            SimpleTerm(1, "weak", title=_("severity_weak", default=u"Weak")),
+                            SimpleTerm(5, "not-severe", title=_("severity_not_severe", default=u"Not very severe")),
+                            SimpleTerm(7, "severe", title=_("severity_severe", default=u"Severe")),
+                            SimpleTerm(10, "very-severe", title=_("severity_very_severe", default=u"Very severe")),
+                            ]),
+            required = False,
+            default = 0)
+
     depends("default_frequency", "type", "==", "risk")
     depends("default_frequency", "evaluation_method", "==", "calculated")
     default_frequency = schema.Choice(
@@ -196,12 +210,13 @@ class IFrenchEvaluation(form.Schema):
             vocabulary = SimpleVocabulary([
                             SimpleTerm(0, "none", title=_("no default", default=u"No default")),
                             SimpleTerm(1, "rare", title=_("frequency_french_rare", default=u"Rare")),
-                            SimpleTerm(4, "not-often", title=_("frequency_french_not_often", default=u"Not very often")),
+                            SimpleTerm(3, "not-often", title=_("frequency_french_not_often", default=u"Not very often")),
                             SimpleTerm(7, "often", title=_("frequency_french_often", default=u"Often")),
-                            SimpleTerm(10, "regularly", title=_("frequency_french_regularly", default=u"Regularly")),
+                            SimpleTerm(9, "regularly", title=_("frequency_french_regularly", default=u"Regularly")),
                             ]),
             required = False,
             default = 0)
+
 
 
 class IKinneyEvaluation(form.Schema):
@@ -278,6 +293,7 @@ class Risk(dexterity.Container):
     default_probability = 0
     default_frequency = 0
     default_effect = 0
+    default_severity = 0
 
     def evaluation_algorithm(self):
         """Return the evaluation algorithm used by this risk. The

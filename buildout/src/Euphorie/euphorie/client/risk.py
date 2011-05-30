@@ -99,6 +99,32 @@ class EvaluationView(grok.View):
         return bool(text and text.strip())
 
 
+    def calculatePriority(self, risk, reply):
+        self.context.frequency=reply.get("frequency")
+        self.context.effect=reply.get("severity")
+        try:
+            if risk.evaluation_algorithm()=="french":
+                priority=self.context.frequency*self.context.effect
+                if priority<10:
+                    return "low"
+                elif priority<=45:
+                    return "medium"
+                else:
+                    return "high"
+            else:  # Kinney method
+                self.context.probability=reply.get("probability")
+
+                priority=self.context.frequency*self.context.effect*self.context.probability
+                if priority<=15:
+                    return "low"
+                elif priority<=50:
+                    return "medium"
+                else:
+                    return "high"
+        except TypeError:
+            return None
+
+
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
@@ -109,24 +135,10 @@ class EvaluationView(grok.View):
         if self.request.environ["REQUEST_METHOD"]=="POST":
             reply=self.request.form
             self.context.comment=reply.get("comment")
-            if risk.evaluation_method=="calculated":
-                self.context.frequency=reply.get("frequency")
-                self.context.effect=reply.get("effect")
-                self.context.probability=reply.get("probability")
-
-                # Apply the Kinney method to determine the priority for the risk.
-                try:
-                    priority=self.context.frequency*self.context.effect*self.context.probability
-                    if priority<=15:
-                        self.context.priority="low"
-                    elif priority<=50:
-                        self.context.priority="medium"
-                    else:
-                        self.context.priority="high"
-                except TypeError:
-                    self.context.priority=None
-            else:
+            if risk.evaluation_method=="direct":
                 self.context.priority=reply.get("priority")
+            else:
+                self.context.priority=self.calculate_priority(risk, reply)
 
             SessionManager.session.touch()
 
