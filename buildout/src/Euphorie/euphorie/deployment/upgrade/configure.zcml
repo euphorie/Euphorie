@@ -95,6 +95,20 @@
       handler=".v2.updateInitialContent"
       />
   </genericsetup:upgradeSteps>
+  
+  <genericsetup:upgradeSteps
+    source="7"
+    destination="8"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Country groupings"
+      description="This step will add grouping data to existing CMS and client countries."
+      handler=".v2.addCountryGrouping"
+      />
+      
+  </genericsetup:upgradeSteps>
 
 </configure>
 
