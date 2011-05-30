@@ -21,19 +21,35 @@ class EvaluationViewTests(unittest.TestCase):
         return {"frequency": get("default_frequency", freq),
                 "severity": get("default_severity", effect)}
 
+    def test_evaluation_algorithm_fallback(self):
+        view = self.EvaluationView()
+        risk = self.Risk()
+        self.assertEqual(view.evaluation_algorithm(risk), u"kinney")
+
+    def test_evaluation_algorithm_survey_parent(self):
+        from euphorie.content.survey import Survey
+        view = self.EvaluationView()
+        survey = Survey()
+        survey.evaluation_algorithm = u"dummy"
+        risk = self.Risk().__of__(survey)
+        self.assertEqual(view.evaluation_algorithm(risk), u"dummy")
+
     def test_calculatePriority_kinney_nothing_set(self):
         view = self.EvaluationView()
-        risk = self.Risk(evaluation_algorithm=u"kinney")
+        view.evaluation_algorithm=lambda x: u"french"
+        risk = self.Risk()
         self.assertEqual(view.calculatePriority(risk, {}), None)
 
     def test_calculatePriority_french_nothing_set(self):
         view = self.EvaluationView()
-        risk = self.Risk(evaluation_algorithm=lambda: u"french")
+        view.evaluation_algorithm=lambda x: u"french"
+        risk = self.Risk()
         self.assertEqual(view.calculatePriority(risk, {}), None)
 
     def test_calculatePriority_matrix(self):
         view = self.EvaluationView()
-        risk = self.Risk(evaluation_algorithm=lambda: u"french")
+        view.evaluation_algorithm=lambda x: u"french"
+        risk = self.Risk()
         # Risks with weak severty are always low priority
         for freq in ["rare", "not-often", "often", "regularly"]:
             self.assertEqual(

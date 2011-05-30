@@ -43,7 +43,3 @@ class PublishTests(EuphorieTestCase):
         # check that this has now been fixed.
         brains = survey.portal_catalog(portal_type="euphorie.risk")
         self.assertEqual(len(brains), 0)
-
-
-
-

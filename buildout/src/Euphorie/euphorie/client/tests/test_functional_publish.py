@@ -21,6 +21,7 @@ class PublicationTests(EuphorieTestCase):
 
     def testPublishEmptySurvey(self):
         self.createSurvey()
+        self.surveygroup.evaluation_algorithm=u"dummy"
         view=self.survey.restrictedTraverse("@@publish")
         view.publish()
         self.assertEqual(self.client.objectIds(), ["nl"])
@@ -30,6 +31,7 @@ class PublicationTests(EuphorieTestCase):
         self.assertEqual(sector.Title(), u"Fine diningÂ®")
         survey=sector.survey
         self.assertEqual(survey.portal_type, "euphorie.survey")
+        self.assertEqual(survey.evaluation_algorithm, u"dummy")
         self.assertEqual(survey.title, u"Survey")
         self.assertEqual(survey.objectIds(), [])
 

@@ -13,7 +13,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
-  <body tal:define="risk nocall:view/risk" class="evaluation ${webhelpers/extra_css}">
+  <body tal:define="risk nocall:view/risk; algorithm python:view.evaluation_algorithm(view.risk)"
+    class="evaluation ${webhelpers/extra_css}">
     <h1>${view/title}</h1>
 
     <div class="notice" tal:define="show_statement python:True">
@@ -22,35 +23,62 @@
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
       <tal:block condition="python:risk.evaluation_method=='calculated'">
-        <fieldset class="comprehensive radioList" tal:define="value context/probability">
-          <legend i18n:translate="header_risk_probability">What is the chance of this risk occurring?</legend>
-          <label><input type="radio" name="probability:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-            <tal:span i18n:translate="probability_small">Small</tal:span></label>
-          <label><input type="radio" name="probability:int" value="3" checked="${python:'checked' if value==3 else None}"/>
-            <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
-          <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-            <tal:span i18n:translate="probability_large">Large</tal:span></label>
-        </fieldset>
+        <tal:kinney condition="python:algorithm!='french'">
+          <fieldset class="comprehensive radioList" tal:define="value context/probability">
+            <legend i18n:translate="header_risk_probability">What is the chance of this risk occurring?</legend>
+            <label><input type="radio" name="probability:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+              <tal:span i18n:translate="probability_small">Small</tal:span></label>
+            <label><input type="radio" name="probability:int" value="3" checked="${python:'checked' if value==3 else None}"/>
+              <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
+            <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+              <tal:span i18n:translate="probability_large">Large</tal:span></label>
+          </fieldset>
 
-        <fieldset class="comprehensive radioList" tal:define="value context/frequency">
-          <legend i18n:translate="header_risk_frequency">How often are people exposed to this risk?</legend>
-          <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-            <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
-          <label><input type="radio" name="frequency:int" value="4" checked="${python:'checked' if value==4 else None}"/>
-            <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
-          <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-            <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
-        </fieldset>
+          <fieldset class="comprehensive radioList" tal:define="value context/frequency">
+            <legend i18n:translate="header_risk_frequency">How often are people exposed to this risk?</legend>
+            <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+              <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
+            <label><input type="radio" name="frequency:int" value="4" checked="${python:'checked' if value==4 else None}"/>
+              <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
+            <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+              <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
+          </fieldset>
 
-        <fieldset class="comprehensive radioList" tal:define="value context/effect">
-          <legend i18n:translate="header_risk_effect">What is the severity of the damage ?</legend>
-          <label><input type="radio" name="effect:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-            <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
-          <label><input type="radio" name="effect:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-            <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
-          <label><input type="radio" name="effect:int" value="10" checked="${python:'checked' if value==10 else None}"/>
-            <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
-        </fieldset>
+          <fieldset class="comprehensive radioList" tal:define="value context/effect">
+            <legend i18n:translate="header_risk_effect">What is the severity of the damage ?</legend>
+            <label><input type="radio" name="effect:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+              <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
+            <label><input type="radio" name="effect:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+              <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
+            <label><input type="radio" name="effect:int" value="10" checked="${python:'checked' if value==10 else None}"/>
+              <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
+          </fieldset>
+        </tal:kinney>
+        <tal:french condition="python:algorithm=='french'">
+          <fieldset class="comprehensive radioList" tal:define="value context/frequency">
+            <legend i18n:translate="header_risk_frequency">How often are people exposed to this risk?</legend>
+            <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+              <tal:span i18n:translate="frequency_french_rare">Rare</tal:span></label>
+            <label><input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
+              <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span></label>
+            <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+              <tal:span i18n:translate="frequency_french_often">Often</tal:span></label>
+            <label><input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
+              <tal:span i18n:translate="frequency_french_regularly">Regularly</tal:span></label>
+          </fieldset>
+
+          <fieldset class="comprehensive radioList" tal:define="value context/effect">
+            <legend i18n:translate="header_risk_severity">What is the severity of the damage ?</legend>
+            <label><input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+              <tal:span i18n:translate="severity_weak">Weak</tal:span></label>
+            <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+              <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span></label>
+            <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+              <tal:span i18n:translate="severity_severe">Severe</tal:span></label>
+            <label><input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
+              <tal:span i18n:translate="severity_very_severe">Very severe</tal:span></label>
+          </fieldset>
+        </tal:french>
       </tal:block>
 
       <tal:block condition="python:risk.evaluation_method=='direct'">

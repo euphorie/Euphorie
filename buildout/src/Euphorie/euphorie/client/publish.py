@@ -97,6 +97,7 @@ def CopyToClient(survey, preview=False):
     else:
         copy.id=surveygroup.id
     copy.title=surveygroup.title
+    copy.evaluation_algorithm=surveygroup.evaluation_algorithm
     copy.version=source.id
     copy.published=datetime.datetime.now()
     copy.preview=preview

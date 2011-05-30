@@ -1,9 +1,11 @@
 import calendar
 import datetime
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
 from euphorie.content.solution import ISolution
+from euphorie.content.survey import ISurvey
 from euphorie.client import model
 from euphorie.client import MessageFactory as _
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
@@ -99,11 +101,18 @@ class EvaluationView(grok.View):
         return bool(text and text.strip())
 
 
+    def evaluation_algorithm(self, risk):
+        for parent in aq_chain(aq_inner(risk)):
+            if ISurvey.providedBy(parent):
+                return getattr(parent, "evaluation_algorithm", u"kinney")
+        return u"kinney"
+
+
     def calculatePriority(self, risk, reply):
         self.context.frequency=reply.get("frequency")
         self.context.effect=reply.get("severity")
         try:
-            if risk.evaluation_algorithm()=="french":
+            if self.evaluation_algorithm(risk)=="french":
                 priority=self.context.frequency*self.context.effect
                 if priority<10:
                     return "low"
@@ -138,7 +147,7 @@ class EvaluationView(grok.View):
             if risk.evaluation_method=="direct":
                 self.context.priority=reply.get("priority")
             else:
-                self.context.priority=self.calculate_priority(risk, reply)
+                self.context.priority=self.calculatePriority(risk, reply)
 
             SessionManager.session.touch()
 
