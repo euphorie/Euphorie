@@ -45,11 +45,11 @@ class ISurveyGroup(form.Schema, IBasic):
 
     form.omitted("description")
 
-    evaluation_method = schema.Choice(
-            title = _("label_survey_evaluation_method", default=u"Evaluation method"),
+    evaluation_algorithm = schema.Choice(
+            title = _("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
             vocabulary = SimpleVocabulary([
-                SimpleTerm(u"kinney", title=_("method_kinney", default=u"Kinney method (standard)")),
-                SimpleTerm(u"french", title=_("french", default=u"Special French method")),
+                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Kinney algorithm (standard)")),
+                SimpleTerm(u"french", title=_("french", default=u"Special French algorithm")),
                 ]),
             default = u"kinney",
             required = True)
@@ -61,7 +61,7 @@ class SurveyGroup(dexterity.Container):
     implements(ISurveyGroup)
 
     published = None
-    evaluation_method = u"kinney"
+    evaluation_algorithm = u"kinney"
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
@@ -160,7 +160,7 @@ class AddForm(dexterity.AddForm):
         title=self.request.locale.dates.getFormatter("date", length="long").format(datetime.date.today())
         copy.id=today.isoformat()
         copy.title=title
-        target.evaluation_method=aq_parent(source).evaluation_method
+        target.evaluation_algorithm=aq_parent(source).evaluation_algorithm
         target._setObject(copy.id, copy)
 
         if hasattr(copy, "published"):

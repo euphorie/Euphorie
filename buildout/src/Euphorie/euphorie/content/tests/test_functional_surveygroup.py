@@ -157,15 +157,15 @@ class AddFormTests(EuphorieTestCase):
                 self.portal.portal_workflow.getInfoFor(copy, "review_state"),
                 "draft")
 
-    def testCopyEvaluationMethodFromGroup(self):
+    def testCopyEvaluationAlgorithmFromGroup(self):
         from Acquisition import aq_parent
         from euphorie.content.surveygroup import AddForm
         self.loginAsPortalOwner()
         survey=aq_parent(self.createModule())
-        survey.aq_parent.evaluation_method=u"french"
+        survey.aq_parent.evaluation_algorithm=u"french"
         request=survey.REQUEST
         container=self.portal.sectors.nl.sector
         target=self._create(container, "euphorie.surveygroup", "target",
-                evaluation_method=u"kinney")
+                evaluation_algorithm=u"kinney")
         AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual(target.evaluation_method, u"french")
+        self.assertEqual(target.evaluation_algorithm, u"french")
