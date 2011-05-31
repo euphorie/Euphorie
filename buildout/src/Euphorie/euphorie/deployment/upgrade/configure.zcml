@@ -96,5 +96,18 @@
       />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="7"
+    destination="8"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Evaluation types"
+      description="This step migrate data in preparation for multiple evaluation method support." 
+      handler=".v3.set_evaluation_method_interfaces"
+      />
+  </genericsetup:upgradeSteps>
+
 </configure>
 
