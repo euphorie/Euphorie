@@ -23,7 +23,7 @@ from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content import MessageFactory as _
-from euphorie.content.utils import getTermTitle
+from euphorie.content.utils import getTermTitleByValue
 from euphorie.content.utils import StripMarkup
 from euphorie.content.solution import ISolution
 from plone.namedfile import field as filefield
@@ -349,13 +349,16 @@ class View(grok.View):
         context=aq_inner(self.context)
         self.module_title=aq_parent(context).title
         self.evaluation_algorithm = evaluation_algorithm(context)
-        self.type=getTermTitle(IRisk["type"], context.type)
-        self.evaluation_method=getTermTitle(IRisk["evaluation_method"], context.evaluation_method)
-        if self.evaluation_algorithm==u"kinney":
-            self.default_priority=getTermTitle(IKinneyRisk["default_priority"], context.default_priority)
-            self.default_probability=getTermTitle(IKinneyRisk["default_probability"], context.default_probability)
-            self.default_frequency=getTermTitle(IKinneyRisk["default_frequency"], context.default_frequency)
-            self.default_effect=getTermTitle(IKinneyRisk["default_effect"], context.default_effect)
+        self.type=getTermTitleByValue(IRisk["type"], context.type)
+        self.evaluation_method=getTermTitleByValue(IRisk["evaluation_method"], context.evaluation_method)
+        self.default_priority=getTermTitleByValue(IKinneyRisk["default_priority"], context.default_priority)
+        if self.evaluation_algorithm==u"french":
+            self.default_severity=getTermTitleByValue(IFrenchEvaluation["default_severity"], context.default_severity)
+            self.default_frequency=getTermTitleByValue(IFrenchEvaluation["default_frequency"], context.default_frequency)
+        else:
+            self.default_probability=getTermTitleByValue(IKinneyEvaluation["default_probability"], context.default_probability)
+            self.default_frequency=getTermTitleByValue(IKinneyEvaluation["default_frequency"], context.default_frequency)
+            self.default_effect=getTermTitleByValue(IKinneyEvaluation["default_effect"], context.default_effect)
 
         self.solutions=[dict(id=solution.id,
                              url=solution.absolute_url(),

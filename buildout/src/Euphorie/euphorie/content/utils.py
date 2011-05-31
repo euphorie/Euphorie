@@ -19,7 +19,19 @@ def StripMarkup(markup):
     return TAG.sub(u"", markup)
 
 
-def getTermTitle(field, token):
+def getTermTitleByValue(field, token):
+    try:
+        term=field.vocabulary.getTerm(token)
+    except LookupError:
+        return token
+
+    if ITitledTokenizedTerm.providedBy(term):
+        return term.title
+    else:
+        return term.value
+
+
+def getTermTitleByToken(field, token):
     try:
         term=field.vocabulary.getTermByToken(str(token))
     except LookupError:

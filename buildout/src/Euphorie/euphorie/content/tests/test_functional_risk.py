@@ -85,6 +85,21 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(risk.legal_reference, u"<p>Raw text</p>")
 
+    def testFrenchEvaluationOptionsShown(self):
+        from Acquisition import aq_parent
+        self.loginAsPortalOwner()
+        risk=self.createRisk()
+        risk.default_frequency=9
+        risk.default_severity=7
+        group=aq_parent(aq_parent(aq_parent(risk)))
+        group.evaluation_algorithm=u"french"
+        browser=self.adminBrowser()
+        browser.handleErrors=False
+        browser.open(risk.absolute_url())
+        self.assertTrue("Severe" in browser.contents)
+        self.assertTrue("Regularly" in browser.contents)
+
+
     def testImageFromOtherSectorAccount(self):
         # http://code.simplon.biz/tracker/euphorie/ticket/143
         import re
