@@ -154,7 +154,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.assertEqual(risk.evaluation_method, "direct")
         self.assertEqual(risk.default_priority, "high")
 
-    def testImportRisk_CalculatedEvaluation(self):
+    def testImportRisk_CalculatedEvaluation_Kinney(self):
+        from euphorie.content.risk import IKinneyEvaluation
         snippet=objectify.fromstring(
         """<risk type="risk" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Are your desks at the right height?</title>
@@ -166,11 +167,34 @@ class SurveyImporterTests(EuphorieTestCase):
         importer=upload.SurveyImporter(None)
         importer.ImportRisk(snippet, module)
         risk=module["2"]
+        self.assertTrue(IKinneyEvaluation.providedBy(risk))
         self.assertEqual(risk.show_notapplicable, False)
         self.assertEqual(risk.evaluation_method, "calculated")
         self.assertEqual(risk.default_probability, 1)
         self.assertEqual(risk.default_frequency, 4)
         self.assertEqual(risk.default_effect, 10)
+
+    def testImportRisk_CalculatedEvaluation_French(self):
+        from Acquisition import aq_parent
+        from euphorie.content.risk import IFrenchEvaluation
+        snippet=objectify.fromstring(
+        """<risk type="risk" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+             <title>Are your desks at the right height?</title>
+             <description>&lt;p&gt;The right height is important to prevent back problems.&lt;/p&gt;</description>
+             <evaluation-method default-severity="very-severe" default-frequency="often">calculated</evaluation-method>
+           </risk>""")
+        self.loginAsPortalOwner()
+        module=self.createModule()
+        group=aq_parent(aq_parent(module))
+        group.evaluation_algorithm=u"french"
+        importer=upload.SurveyImporter(None)
+        importer.ImportRisk(snippet, module)
+        risk=module["2"]
+        self.assertTrue(IFrenchEvaluation.providedBy(risk))
+        self.assertEqual(risk.show_notapplicable, False)
+        self.assertEqual(risk.evaluation_method, "calculated")
+        self.assertEqual(risk.default_severity, 10)
+        self.assertEqual(risk.default_frequency, 7)
 
     def testImportRisk_WithSolution(self):
         snippet=objectify.fromstring(

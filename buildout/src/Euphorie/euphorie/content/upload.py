@@ -15,6 +15,7 @@ from plone.dexterity.utils import createContentInContainer
 from zope.component import getMultiAdapter
 from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.content.risk import IRisk
+from euphorie.content.risk import IFrenchEvaluation
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import EnsureInterface
 from euphorie.content.user import LoginField
@@ -156,13 +157,19 @@ class SurveyImporter(object):
             em=getattr(node, "evaluation-method")
             risk.evaluation_method=em.text
             if risk.evaluation_method=="calculated":
-                if risk.evaluation_algorithm()==u"kinney":
+                evaluation_algorithm=risk.evaluation_algorithm()
+                if evaluation_algorithm==u"kinney":
                     risk.default_probability=attr_vocabulary(em, "default-probability",
                             IKinneyEvaluation["default_probability"])
                     risk.default_frequency=attr_vocabulary(em, "default-frequency",
                             IKinneyEvaluation["default_frequency"])
                     risk.default_effect=attr_vocabulary(em, "default-effect",
                             IKinneyEvaluation["default_effect"])
+                elif evaluation_algorithm==u"french":
+                    risk.default_severity=attr_vocabulary(em, "default-severity",
+                            IFrenchEvaluation["default_severity"])
+                    risk.default_frequency=attr_vocabulary(em, "default-frequency",
+                            IFrenchEvaluation["default_frequency"])
             else:
                 risk.default_priority=attr_vocabulary(em, "default-priority",
                         IRisk["default_priority"])
