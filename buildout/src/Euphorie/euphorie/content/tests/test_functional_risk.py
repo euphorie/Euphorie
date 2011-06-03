@@ -7,13 +7,16 @@ class RiskTests(EuphorieTestCase):
         newid=container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
 
-    def createRisk(self):
+    def createRisk(self, algorithm=u'kinney'):
+        from euphorie.content.risk import EnsureInterface
         country=self.portal.sectors.nl
         sector=self._create(country, "euphorie.sector", "sector")
-        surveygroup=self._create(sector, "euphorie.surveygroup", "group")
+        surveygroup=self._create(sector, "euphorie.surveygroup", "group",
+                evaluation_algorithm=algorithm)
         survey=self._create(surveygroup, "euphorie.survey", "survey")
         module=self._create(survey, "euphorie.module", "module")
         risk=self._create(module, "euphorie.risk", "risk")
+        EnsureInterface(risk)
         return risk
 
     def testNotGloballyAllowed(self):
@@ -37,10 +40,9 @@ class RiskTests(EuphorieTestCase):
         risk = Risk()
         self.assertEqual(risk.evaluation_algorithm(), u"kinney")
 
-    def testEvaluationAlgorithmFromGroup(self):
+    def testFrenchEvaluationAlgorithm(self):
         self.loginAsPortalOwner()
-        risk = self.createRisk()
-        self.portal.sectors.nl.sector.group.evaluation_algorithm = u"french"
+        risk = self.createRisk(u"french")
         self.assertEqual(risk.evaluation_algorithm(), u"french")
 
 
@@ -50,11 +52,12 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         newid=container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
 
-    def createRisk(self):
+    def createRisk(self, algorithm=u'kinney'):
         from euphorie.content.risk import EnsureInterface
         country=self.portal.sectors.nl
         sector=self._create(country, "euphorie.sector", "sector")
-        surveygroup=self._create(sector, "euphorie.surveygroup", "group")
+        surveygroup=self._create(sector, "euphorie.surveygroup", "group",
+                evaluation_algorithm=algorithm)
         survey=self._create(surveygroup, "euphorie.survey", "survey")
         module=self._create(survey, "euphorie.module", "module")
         risk=self._create(module, "euphorie.risk", "risk")
@@ -88,11 +91,11 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
     def testFrenchEvaluationOptionsShown(self):
         from Acquisition import aq_parent
         self.loginAsPortalOwner()
-        risk=self.createRisk()
+        risk=self.createRisk(u'french')
         risk.default_frequency=9
         risk.default_severity=7
         group=aq_parent(aq_parent(aq_parent(risk)))
-        group.evaluation_algorithm=u"french"
+        self.assertEqual(group.evaluation_algorithm, u"french")
         browser=self.adminBrowser()
         browser.handleErrors=False
         browser.open(risk.absolute_url())
