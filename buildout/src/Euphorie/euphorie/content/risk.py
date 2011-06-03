@@ -130,7 +130,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                             ]),
             required = False,
             default = "none")
-                      
 
     form.fieldset("main_image",
             label=_("header_main_image", default=u"Main image"),
@@ -220,17 +219,6 @@ class IFrenchEvaluation(form.Schema):
 
 
 class IKinneyEvaluation(form.Schema):
-    form.fieldset("evaluation",
-            label=_("header_evaluation", default=u"Evaluation"),
-            description = _("intro_evaluation",
-                default=u"You can specify how the risks priority is "
-                        u"evaluated. For more details see the online "
-                        u"manual."),
-            fields=["type", "evaluation_method",
-                    "default_priority",
-                    "default_probability", "default_frequency", "default_effect",
-                   ])
-
     depends("default_probability", "type", "==", "risk")
     depends("default_probability", "evaluation_method", "==", "calculated")
     default_probability = schema.Choice(
@@ -280,11 +268,30 @@ class IKinneyEvaluation(form.Schema):
 
 
 class IKinneyRisk(IRisk, IKinneyEvaluation):
-    pass
+    form.fieldset("evaluation",
+            label=_("header_evaluation", default=u"Evaluation"),
+            description = _("intro_evaluation",
+                default=u"You can specify how the risks priority is "
+                        u"evaluated. For more details see the online "
+                        u"manual."),
+            fields=["type", "evaluation_method",
+                    "default_priority",
+                    "default_probability", "default_frequency", "default_effect",
+                   ])
+
 
 
 class IFrenchRisk(IRisk, IFrenchEvaluation):
-    pass
+    form.fieldset("evaluation",
+            label=_("header_evaluation", default=u"Evaluation"),
+            description = _("intro_evaluation",
+                default=u"You can specify how the risks priority is "
+                        u"evaluated. For more details see the online "
+                        u"manual."),
+            fields=["type", "evaluation_method",
+                    "default_priority",
+                    "default_severity", "default_frequency",
+                   ])
 
 
 class Risk(dexterity.Container):
@@ -294,6 +301,15 @@ class Risk(dexterity.Container):
     default_frequency = 0
     default_effect = 0
     default_severity = 0
+
+    image = None
+    caption = None
+    image2 = None
+    caption2 = None
+    image3 = None
+    caption3 = None
+    image4 = None
+    caption4 = None
 
     def evaluation_algorithm(self):
         """Return the evaluation algorithm used by this risk. The
@@ -372,6 +388,8 @@ class Add(dexterity.AddForm):
     grok.name("euphorie.risk")
     grok.require("euphorie.content.AddNewRIEContent")
 
+    default_fieldset_label = None
+
     def __init__(self, context, request):
         dexterity.AddForm.__init__(self, context, request)
         self.evaluation_algorithm = evaluation_algorithm(context)
@@ -382,6 +400,18 @@ class Add(dexterity.AddForm):
             return IFrenchRisk
         else:
             return IKinneyRisk
+
+    def updateFields(self):
+        order = ['header_identification',
+                 'header_evaluation',
+                 'header_main_image',
+                 'header_secondary_images']
+        super(Add, self).updateFields()
+        self.groups.sort(key=lambda g: order.index(g.label))
+
+    def updateWidgets(self):
+        super(Add, self).updateWidgets()
+        self.widgets["title"].addClass("span-7")
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -406,20 +436,28 @@ class Edit(form.SchemaEditForm):
     grok.require("cmf.ModifyPortalContent")
     grok.layer(NuPloneSkin)
     grok.name("edit")
-    grok.template("risk_edit")
 
     default_fieldset_label = None
 
     def __init__(self, context, request):
-        form.SchemaEditForm.__init__(self, context, request)
         if context.evaluation_algorithm() == u"french":
             self.schema = IFrenchRisk
         else:
             self.schema = IKinneyRisk
+        form.SchemaEditForm.__init__(self, context, request)
+
+    def updateFields(self):
+        order = ['header_identification',
+                 'header_evaluation',
+                 'header_main_image',
+                 'header_secondary_images']
+        super(Edit, self).updateFields()
+        self.groups.sort(key=lambda g: order.index(g.label))
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+
 
 
 
@@ -450,7 +488,6 @@ class ConstructionFilter(grok.MultiAdapter):
                 return False
         else:
             return True
-
 
     def allowed(self):
         return self.checkForModules()
