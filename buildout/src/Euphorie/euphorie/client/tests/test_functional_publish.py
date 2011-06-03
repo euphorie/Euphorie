@@ -68,14 +68,14 @@ class PublicationTests(EuphorieTestCase):
                "\x00\x00!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00" \
                "\x00\x01\x00\x01\x00\x00\x02\x01L\x00;"
         self.createSurvey()
-        self.sector.logo=NamedBlobImage(data=white_gif, contentType="image/gif", filename="white.gif")
+        self.sector.logo=NamedBlobImage(data=white_gif, contentType="image/gif", filename=u"white.gif")
         view=self.survey.restrictedTraverse("@@publish")
         view.publish()
         client_sector=self.client.nl["dining"]
         self.assertEqual(client_sector.logo.data, white_gif)
         white_scale=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up").data.data
 
-        self.sector.logo=NamedBlobImage(data=black_gif, contentType="image/gif", filename="black.gif")
+        self.sector.logo=NamedBlobImage(data=black_gif, contentType="image/gif", filename=u"black.gif")
         view.publish()
         self.assertEqual(self.client.nl["dining"].logo.data, black_gif)
         black_scale=client_sector.restrictedTraverse("@@images").scale("logo", height=100, direction="up").data.data
