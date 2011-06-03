@@ -8,7 +8,6 @@
       i18n:domain="euphorie"
       meta:interpolation="true"
       tal:omit-tag="">
-      <h1>strong</h1>
   <p i18n:translate="intro_add_surveygroup">The form will allow you to create a new survey.</p>
 
   <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}"
