@@ -2,6 +2,7 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag=""
+      i18n:domain="euphorie"
       meta:interpolation="true">
   <ul id="navigation" class="navigation">
     <tal:block define='countries python:view.countries.get("region")' condition="python:countries">

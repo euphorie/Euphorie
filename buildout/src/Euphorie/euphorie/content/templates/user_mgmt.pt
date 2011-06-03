@@ -20,34 +20,56 @@
 
       <p class="message notice" tal:condition="not:view/sectors" i18n:translate="country_no_sectors">There are no sectors for this country.</p>
 
-      <table tal:condition="view/sectors">
+    <table tal:condition="view/sectors">
         <thead>
-          <tr><th>Sector</th> <th>Login</th> <th>Password</th> <th class="actions">&nbsp;</th></tr>
+            <tr>
+                <th i18n:translate="">Sector</th> 
+                <th i18n:translate="">Login</th> 
+                <th i18n:translate="">Password</th> 
+                <th class="actions">&nbsp;</th>
+            </tr>
         </thead>
         <tbody>
-          <tr tal:repeat="sector view/sectors">
+        <tr tal:repeat="sector view/sectors">
             <td><a href="${sector/url}">${sector/title}</a></td>
             <td>${sector/login}</td>
             <td>${sector/password}</td>
-            <td class="actions"><form method="post" action="${sector/url}/@@lock">
-                <tal:csrf replace="structure context/@@authenticator/authenticator"/>
-                <a href="${sector/url}/@@edit" class="micro floatAfter function button" i18n:translate="button_edit">Edit</a>
-                <button tal:condition="not:sector/locked" class="micro floatAfter function" type="submit" name="action" value="lock" i18n:translate="button_lock">Lock</button>
-                <button tal:condition="sector/locked" class="micro floatAfter function" type="submit" name="action" value="unlock" i18n:translate="button_unlock">Unlock</button>
-            </form></td>
-          </tr>
+            <td class="actions">
+                <form method="post" action="${sector/url}/@@lock">
+                    <tal:csrf replace="structure context/@@authenticator/authenticator"/>
+                    <a href="${sector/url}/@@edit" class="micro floatAfter function button" i18n:translate="button_edit">Edit</a>
+                    <button tal:condition="not:sector/locked" 
+                        class="micro floatAfter function" 
+                        type="submit" 
+                        name="action" 
+                        value="lock" 
+                        i18n:translate="button_lock">Lock</button>
+                <button tal:condition="sector/locked" 
+                        class="micro floatAfter function" 
+                        type="submit" 
+                        name="action" 
+                        value="unlock" 
+                        i18n:translate="button_unlock">Unlock</button>
+                </form>
+            </td>
+        </tr>
         </tbody>
-      </table>
+    </table>
 
-      <h2 i18n:translate="header_country_managers">Country managers</h2>
+    <h2 i18n:translate="header_country_managers">Country managers</h2>
+    <p class="message notice" 
+        tal:condition="not:view/managers" 
+        i18n:translate="country_no_managers">There are no country managers for this country.</p>
 
-      <p class="message notice" tal:condition="not:view/managers" i18n:translate="country_no_managers">There are no country managers for this country.</p>
-
-      <table tal:condition="view/managers">
+    <table tal:condition="view/managers">
         <thead>
-          <tr><th>Name</th> <th>Login</th> <th class="actions">&nbsp;</th></tr>
+            <tr>
+                <th i18n:translate="">Name</th> 
+                <th i18n:translate="">Login</th> 
+                <th class="actions">&nbsp;</th>
+            </tr>
         </thead>
-        <tbody>
+    <tbody>
           <tr tal:repeat="manager view/managers">
             <td>${manager/title}</td>
             <td>${manager/login}</td>

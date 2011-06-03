@@ -57,23 +57,29 @@
     </div>
     <dl class="accordion" id="ActionPlanItemForm">
       <dt class="open">
-        Measure 1
+        Measure 1 <a class="button small" href="#sm-1" rel=".floatingPanel-modal" title="Fill out with a standard solution">Fill out standard solution</a>
       </dt>
       <dd>
-        <!-- <div class="buttonBar top">
+        <div class="buttonBar top">
           <button class="small">Remove</button>
-          <dl>
-            <dt>
-              Standard solution
-            </dt>
-            <dd>
-              <h4>Select a solution to add</h4>
-              <p>Standard solution bla</p>
-              <p>Lorem ipsum dolor sit amet consectetuer</p>
-              <p>Tremendae</p>
-            </dd>
-          </dl>
-        </div> -->
+          <ul class="standardSolutions">
+            <li>
+              <strong class="button small">Standard solutions</strong>
+              <p>Select a solution to add</p>
+              <ul>
+                <li title="Action plan: lorem ipsum
+                Prevention plan: lorem ipsum
+                Requirements: lorem ipsum">Standard solution bla</li>
+                <li title="Action plan: lorem ipsum
+                Prevention plan: lorem ipsum
+                Requirements: lorem ipsum">Lorem ipsum dolor sit amet consectetuer</li>
+                <li title="Action plan: lorem ipsum
+                Prevention plan: lorem ipsum
+                Requirements: lorem ipsum">Tremendae</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <a href="#" class="icon info clicktip">How do I use this form?</a>
         <div class="span-7 colborder">
           <fieldset class="condensed">
@@ -405,151 +411,153 @@
     
     <p id="appendix">
       <a href="#">Lorem</a> | <a href="#">Ipsum Dolor</a> | <a href="#">Sit</a>
-    </p><script type="text/javascript">
-var confirm_text = "Are you sure you want to delete this measure? This action can not be reverted.";
-// <![CDATA[
-function findActive(measures) {
-    var items = $.map(measures.find("dt"),
-        function(a) { return $(a).hasClass("ui-state-active"); });
-    var active = $.inArray(true, items);
+    </p>
+    
+<!-- <script type="text/javascript">
+    var confirm_text = "Are you sure you want to delete this measure? This action can not be reverted.";
+    // <![CDATA[
+    function findActive(measures) {
+        var items = $.map(measures.find("dt"),
+            function(a) { return $(a).hasClass("ui-state-active"); });
+        var active = $.inArray(true, items);
 
-    return active;
-}
-
-
-function EnforceMeasurementStyling() {
-    var headers = $("#ActionPlanItemForm dt");
-    var measures = $("#ActionPlanItemForm dd");
-    var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
-    var i;
-
-    for (i=0; i<headers.length; i++) {
-        headers.eq(i).text(title.replace(/[0-9]+/, i+1));
-        measures.eq(i).find("fieldset:first *").each(function() {
-            var el=$(this);
-            var buf = el.attr("id");
-            if (buf) {
-                el.attr("id", buf.replace(/[0-9]+/, i+1));
-            }
-            buf=el.attr("for");
-            if (buf) {
-                el.attr("for", buf.replace(/[0-9]+/, i+1));
-            }
-        });
+        return active;
     }
 
-    headers.find("button").remove();
-    if (headers.length>1) {
-        var button = $("#measureTemplate dt .removeButton");
-        button.clone(true).appendTo(headers);
-        $(".removeButton").unbind(".euphorie").bind("click.euphorie", removeButtonHandler);
-    }
-}
 
+    function EnforceMeasurementStyling() {
+        var headers = $("#ActionPlanItemForm dt");
+        var measures = $("#ActionPlanItemForm dd");
+        var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
+        var i;
 
-function removeButtonHandler() {
-    var measures = $("#ActionPlanItemForm");
-    var measures_count = measures.find("dt").length-1;
-    var active = findActive(measures);
-    var header = $(this).parents("dt");
+        for (i=0; i<headers.length; i++) {
+            headers.eq(i).text(title.replace(/[0-9]+/, i+1));
+            measures.eq(i).find("fieldset:first *").each(function() {
+                var el=$(this);
+                var buf = el.attr("id");
+                if (buf) {
+                    el.attr("id", buf.replace(/[0-9]+/, i+1));
+                }
+                buf=el.attr("for");
+                if (buf) {
+                    el.attr("for", buf.replace(/[0-9]+/, i+1));
+                }
+            });
+        }
 
-    if (!confirm(confirm_text)) {
-        return false;
-    }
-
-    if (active>=measures_count-1) {
-      active-=1;
-    }
-
-    $(header).add($(header).next("dd")).remove();
-
-    measures
-        .accordion("destroy")
-        .accordion({active: active});
-
-    EnforceMeasurementStyling();
-};
-
-
-function AddMeasurement() {
-    var measures = $("#ActionPlanItemForm");
-    var measures_count = measures.find("dt").length;
-    var active = findActive(measures);
-
-    $("#measureTemplate")
-        .find("> *")
-        .clone(true)
-        .find(".clicktip")
-            .each(function() {
-                var id = assertId(this);
-                $(this)
-                    .unbind("click")
-                    .bt({trigger: "click",
-                            fill: "#8293ab",
-                            strokeStyle: "#8293ab",
-                            contentSelector: "$('#" + id + "').html()"
-                            })
-                    .click(function() { return false; });
-            }).end()
-        .appendTo(measures);
-
-    measures
-        .accordion("destroy")
-        .accordion({active: active})
-        .accordion("activate", measures_count);
-
-    EnforceMeasurementStyling();
-
-    $("label.superImpose", measures).each(setupSuperimpose);
-}
-
-
-function MeasureHasData(m) {
-    var data = $.map($(m).find(":input:not(select)"),
-                               function(i) { return Boolean($(i).val()); });
-    return $.inArray(true, data)!=-1;
-}
-
-
-$("#addMeasureButton").live("click", AddMeasurement);
-
-$(".commonMeasureButton").live("click", function() {
-    var measures = $("#ActionPlanItemForm");
-    var active = findActive(measures);
-    var active = measures.find("dd").eq(active);
-    var newmeasure;
-
-    if (!MeasureHasData(active)) {
-        newmeasure=active;
-    } else {
-        AddMeasurement();
-        newmeasure = $("#ActionPlanItemForm dd:last");
-    }
-
-    if (engine==="msie" && engine_version<80) {
-        solution_index = this.attributes.getNamedItem("value").nodeValue;
-    }  else {
-        solution_index = this.value;
-    }
-    var sourcedata = $("#"+solution_index+" :input");
-    var el, value, selector;
-
-    for (var i in sourcedata) {
-        el=sourcedata.eq(i);
-        if (el.val()) {
-            selector=":input[name^=measure."+el.attr("name")+"]";
-            newmeasure.find(selector).val(el.val());
+        headers.find("button").remove();
+        if (headers.length>1) {
+            var button = $("#measureTemplate dt .removeButton");
+            button.clone(true).appendTo(headers);
+            $(".removeButton").unbind(".euphorie").bind("click.euphorie", removeButtonHandler);
         }
     }
 
-    $("label.superImpose", newmeasure).each(setupSuperimpose);
-});
+
+    function removeButtonHandler() {
+        var measures = $("#ActionPlanItemForm");
+        var measures_count = measures.find("dt").length-1;
+        var active = findActive(measures);
+        var header = $(this).parents("dt");
+
+        if (!confirm(confirm_text)) {
+            return false;
+        }
+
+        if (active>=measures_count-1) {
+          active-=1;
+        }
+
+        $(header).add($(header).next("dd")).remove();
+
+        measures
+            .accordion("destroy")
+            .accordion({active: active});
+
+        EnforceMeasurementStyling();
+    };
 
 
-$(document).ready(function() {
-    EnforceMeasurementStyling();
-});
-// ]]>
-    </script>
+    function AddMeasurement() {
+        var measures = $("#ActionPlanItemForm");
+        var measures_count = measures.find("dt").length;
+        var active = findActive(measures);
+
+        $("#measureTemplate")
+            .find("> *")
+            .clone(true)
+            .find(".clicktip")
+                .each(function() {
+                    var id = assertId(this);
+                    $(this)
+                        .unbind("click")
+                        .bt({trigger: "click",
+                                fill: "#8293ab",
+                                strokeStyle: "#8293ab",
+                                contentSelector: "$('#" + id + "').html()"
+                                })
+                        .click(function() { return false; });
+                }).end()
+            .appendTo(measures);
+
+        measures
+            .accordion("destroy")
+            .accordion({active: active})
+            .accordion("activate", measures_count);
+
+        EnforceMeasurementStyling();
+
+        $("label.superImpose", measures).each(setupSuperimpose);
+    }
+
+
+    function MeasureHasData(m) {
+        var data = $.map($(m).find(":input:not(select)"),
+                                   function(i) { return Boolean($(i).val()); });
+        return $.inArray(true, data)!=-1;
+    }
+
+
+    $("#addMeasureButton").live("click", AddMeasurement);
+
+    $(".commonMeasureButton").live("click", function() {
+        var measures = $("#ActionPlanItemForm");
+        var active = findActive(measures);
+        var active = measures.find("dd").eq(active);
+        var newmeasure;
+
+        if (!MeasureHasData(active)) {
+            newmeasure=active;
+        } else {
+            AddMeasurement();
+            newmeasure = $("#ActionPlanItemForm dd:last");
+        }
+
+        if (engine==="msie" && engine_version<80) {
+            solution_index = this.attributes.getNamedItem("value").nodeValue;
+        }  else {
+            solution_index = this.value;
+        }
+        var sourcedata = $("#"+solution_index+" :input");
+        var el, value, selector;
+
+        for (var i in sourcedata) {
+            el=sourcedata.eq(i);
+            if (el.val()) {
+                selector=":input[name^=measure."+el.attr("name")+"]";
+                newmeasure.find(selector).val(el.val());
+            }
+        }
+
+        $("label.superImpose", newmeasure).each(setupSuperimpose);
+    });
+
+
+    $(document).ready(function() {
+        EnforceMeasurementStyling();
+    });
+    // ]]>
+        </script> -->
   </body>
 </html>

@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = "3.0dev"
+version = "3.0syslab2"
 
 setup(name="Euphorie",
       version=version,
@@ -31,6 +31,9 @@ setup(name="Euphorie",
             ]},
       include_package_data=True,
       zip_safe=False,
+      setup_requires=[
+        "setuptools_git > 0.3",
+      ],
       install_requires=[
           "Plone >=4.0b1",
           "Zope2 >=2.12",

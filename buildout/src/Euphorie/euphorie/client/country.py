@@ -28,8 +28,7 @@ class IClientCountry(form.Schema, IBasic):
 class ClientCountry(dexterity.Container):
     implements(IClientCountry)
 
-    is_region = False
-
+    country_type = None
 
 
 class View(grok.View):

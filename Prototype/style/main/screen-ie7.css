@@ -173,8 +173,6 @@ dl.accordion .colborder hr {
 	width: 99%;
 }
 
-
-
 /* @end */
 
 .report p.priority-high {
@@ -194,3 +192,8 @@ dl.grid dd {
 }
 
 /* @end */
+
+h3 {
+	font-size: 14px;
+}
+
