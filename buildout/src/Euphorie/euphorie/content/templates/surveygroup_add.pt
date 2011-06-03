@@ -80,10 +80,14 @@
 
       <fieldset class="dependsOn-source-equals-scratch comprehensive radioList" tal:define="widget view/widgets/evaluation_algorithm">
         <legend>${widget/label} <sup tal:condition="widget/required" class="required">*</sup></legend> <dfn class="infoPanel" i18n:attributes="title" title="Information" tal:define="description widget/field/description" tal:condition="description" tal:content="description"/>
-          <label tal:repeat="item widget/items"><input type="radio" tal:define="checked item/checked"
-            id="${item/id}" name="${item/name}" value="${item/value}"
-            disabled="${widget/disabled}" readonly="${widget/readonly}"
-            checked="${python:'checked' if checked else None}"/>${item/label}</label>
+          <label><input type="radio" name="${widget/name}:list" value="kinney"
+            checked="${python:'checked' if 'kinney' in widget.value else None}"/><tal:i18n
+            i18n:translate="algorithm_kinney">Standard three criteria</tal:i18n><br/>
+            <span class="discrete" i18n:translate="">This is the recommended evaluation algorithm, based on the Kinney method</span></label>
+          <label><input type="radio" name="${widget/name}:list" value="french"
+            checked="${python:'checked' if 'french' in widget.value else None}"/><tal:i18n
+            i18n:translate="algorithm_french">Simplified two criteria</tal:i18n><br/>
+            <span class="discrete" i18n:translate="">This is a simpler evaluation algorithm using only two criteria.</span></label>
           <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         <input type="hidden" value="1" name="${widget/name}-empty-marker" />
       </fieldset>

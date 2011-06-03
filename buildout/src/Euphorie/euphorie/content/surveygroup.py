@@ -26,7 +26,6 @@ from plone.dexterity.utils import createContentInContainer
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.z3cform.directives import depends
 
 
 grok.templatedir("templates")
@@ -48,8 +47,8 @@ class ISurveyGroup(form.Schema, IBasic):
     evaluation_algorithm = schema.Choice(
             title = _("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
             vocabulary = SimpleVocabulary([
-                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Kinney algorithm (standard)")),
-                SimpleTerm(u"french", title=_("french", default=u"Special French algorithm")),
+                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Standard three critiera")),
+                SimpleTerm(u"french", title=_("french", default=u"Simplified two criteria")),
                 ]),
             default = u"kinney",
             required = True)
