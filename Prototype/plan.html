@@ -505,40 +505,6 @@
     }
 
 
-/*
-    $(".commonMeasureButton").live("click", function() {
-        var measures = $("#ActionPlanItemForm");
-        var active = findActive(measures);
-        var active = measures.find("dd").eq(active);
-        var newmeasure;
-
-        if (!MeasureHasData(active)) {
-            newmeasure=active;
-        } else {
-            AddMeasurement();
-            newmeasure = $("#ActionPlanItemForm dd:last");
-        }
-
-        if (engine==="msie" && engine_version<80) {
-            solution_index = this.attributes.getNamedItem("value").nodeValue;
-        }  else {
-            solution_index = this.value;
-        }
-        var sourcedata = $("#"+solution_index+" :input");
-        var el, value, selector;
-
-        for (var i in sourcedata) {
-            el=sourcedata.eq(i);
-            if (el.val()) {
-                selector=":input[name^=measure."+el.attr("name")+"]";
-                newmeasure.find(selector).val(el.val());
-            }
-        }
-
-        $("label.superImpose", newmeasure).each(setupSuperimpose);
-    });
- */
-
     $(".button.solutions").live("click", function() {
         var $solutions = $("#solutions");
         $solutions.toggle();
@@ -570,25 +536,22 @@
 
         var measures = $("#ActionPlanItemForm"),
             active = findActive(measures);
-            $active = measures.find("dd").eq(active);
-        var $newmeasure,
-            selector;
+            $measure = measures.find("dd").eq(active);
 
-        if (!MeasureHasData($active)) {
-            $newmeasure=$active;
-        } else {
-            AddMeasurement();
-            $newmeasure = $("#ActionPlanItemForm dd:last");
+        if (MeasureHasData($measure)) {
+            if (!confirm("Are you sure you want to replace the current measure?")) {
+                return false;
+            }
         }
 
-        $newmeasure.find(":input.actionPlan").val(
+        $measure.find(":input.actionPlan").val(
             $(this).find(".actionPlan").text());
-        $newmeasure.find(":input.preventionPlan").val(
+        $measure.find(":input.preventionPlan").val(
             $(this).find(".preventionPlan").text());
-        $newmeasure.find(":input.requirements").val(
+        $measure.find(":input.requirements").val(
             $(this).find(".requirements").text());
 
-        $("label.superImpose", $newmeasure).each(setupSuperimpose);
+        $("label.superImpose", $measure).each(setupSuperimpose);
     }
 
     function setupEvents() {
