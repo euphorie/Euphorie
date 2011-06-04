@@ -4,6 +4,9 @@ Changelog
 3.0 - Unreleased
 ----------------
 
+- Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
+  [wichert]
+
 - #15: AttributeError *is_region* when publishing from a country not yet in the
   client. [jcbrand]
 
