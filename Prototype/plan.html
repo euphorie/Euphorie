@@ -547,16 +547,27 @@
 
     function toggleSolutionDropdown() {
         var $solutions = $("#standardSolutions"),
-            position = $(this).offset();
+            position;
+        
+        if ($solutions.data("euphorie.visible")) {
+            $solutions
+                .data("euphorie.visible", false)
+                .hide();
+            $("html").unbind("click.fallback");
+            return;
+        }
 
+        $solutions.data("euphorie.visible", true);
+        position=$(this).offset();
         $solutions
-            .offset(position)
-            .toggle();
-        return false;
+            .css({top: position.top, left: position.left})
+            .show();
+        $("html").bind("click", toggleSolutionDropdown);
     }
 
     function addStandardSolution() {
         toggleSolutionDropdown();
+
         var measures = $("#ActionPlanItemForm"),
             active = findActive(measures);
             $active = measures.find("dd").eq(active);
