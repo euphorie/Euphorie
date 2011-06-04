@@ -541,7 +541,7 @@
     }
 
     function addStandardSolution() {
-        $("#solutions").hide();
+        toggleSolutionDropdown();
         var measures = $("#ActionPlanItemForm"),
             active = findActive(measures);
             $active = measures.find("dd").eq(active);
@@ -575,7 +575,7 @@
         $(".removeButton")
             .unbind(".euphorie")
             .bind("click.euphorie", removeButtonHandler);
-        $("#solutions li")
+        $("#standardSolutions li")
             .unbind(".euphorie")
             .bind("click.euphorie", addStandardSolution);
     }
