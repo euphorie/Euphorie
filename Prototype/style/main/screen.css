@@ -336,6 +336,11 @@ dl.accordion dt a.solutions:after {
 	font-size: 8px;
 }
 
+dl.accordion dt.ui-state-default:hover a.button.solutions {
+	opacity: 0;
+	display: none;
+}
+
 
 
 /* @end */
@@ -1354,7 +1359,8 @@ dl.accordion {
 dl.accordion dt {
 	margin: 0;
 	float: left;
-	width: 550px;
+	width: 559px;
+	padding-right: 10px;
 }
 
 dl.accordion dt.ui-state-active {
