@@ -424,7 +424,7 @@
         if (headers.length>1) {
             var button = $("#measureTemplate dt .removeButton");
             button.clone(true).appendTo(headers);
-            $(".removeButton").unbind(".euphorie").bind("click.euphorie", removeButtonHandler);
+            setupEvents();
         }
 */
     }
@@ -494,7 +494,6 @@
     }
 
 
-    $("#addMeasureButton").live("click", AddMeasurement);
 /*
     $(".commonMeasureButton").live("click", function() {
         var measures = $("#ActionPlanItemForm");
@@ -532,10 +531,30 @@
     $(".button.solutions").live("click", function() {
         var $solutions = $("#solutions");
         $solutions.toggle();
+        return false;
     });
+
+    function toggleSolutionDropdown() {
+        var $solutions = $("#solutions");
+        $solutions.toggle();
+        return false;
+    }
+
+    function setupEvents() {
+        $(".button.solutions")
+            .unbind(".euphorie")
+            .bind("click.euphorie", toggleSolutionDropdown);
+        $("#addMeasureButton")
+            .unbind(".euphorie")
+            .bind("click.euphorie", AddMeasurement);
+        $(".removeButton")
+            .unbind(".euphorie")
+            .bind("click.euphorie", removeButtonHandler);
+    }
 
 
     $(document).ready(function() {
+        setupEvents();
         EnforceMeasurementStyling();
     });
 // ]]>
