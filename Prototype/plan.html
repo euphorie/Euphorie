@@ -528,7 +528,7 @@
         $solutions
             .css({top: position.top, left: position.left})
             .show();
-        $("html").bind("click", toggleSolutionDropdown);
+        $("html").bind("click.fallback", toggleSolutionDropdown);
     }
 
     function addStandardSolution() {
