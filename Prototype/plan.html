@@ -31,16 +31,16 @@
       Plan van aanpak
     </h1><!-- WTA: This information block is generic and appears in all three phases -->
     <div class="warning span-15 last">
-      <img alt="" tal:condition="content/image" tal:attributes="src content/images/absolute_url" src="media/Smeg.png" class="floatBefore" />
-      <h2 tal:content="content/title">
+      <img alt="" src="media/Smeg.png" class="floatBefore" />
+      <h2>
         The temperature of some fridges is checked daily
       </h2>
       <p>This risk is not present in your organisation, but since the sector organisation considers this one of the top 5 most
       critical risks it must be included in this report.</p>
 
-      <p class="description" tal:content="context/description">
+      <p class="description">
         The temperature in a fridge is critical to storing food. If the temperature is too high or fluctuates too much food can start rotting quickly.
-      </p>
+      </p>      
       <fieldset>
         <label>This is a <select>
           <option>
@@ -55,42 +55,40 @@
         </select> .</label>
       </fieldset>
     </div>
+    
+    <div class="solutions" id="solutions">
+      <p class="info">Select a standard solution to add</p>
+      <ul>
+        <li>
+          <strong class="title">Standard solution bla</strong>
+          <p class="actionPlan">This is the text for action plan</p>
+          <p class="preventionPlan">This is the text for prevention plan</p>
+          <p class="requirements">This is the text for requirements</p>
+        </li>
+        <li>Lorem ipsum dolor sit amet consectetuer</li>
+        <li>Tremendae</li>
+      </ul>
+    </div>
+    
     <dl class="accordion" id="ActionPlanItemForm">
       <dt class="open">
         Measure 1
+        <button class="small">Remove</button>
+        <a href="#solutions" class="button small solutions">Standard solutions</a> 
       </dt>
       <dd>
-        <div class="buttonBar top">
-          <button class="small">Remove</button>
-          <div class="standardSolutions">
-            <a href="#solutions" class="button small">Standard solutions</strong>
-            <div class="solutions">
-              <p class="info">Select a solution to add</p>
-              <ul>
-                <li>
-                  <strong class="title">Standard solution bla</strong>
-                  <p class="actionPlan">This is the text for action plan</p>
-                  <p class="preventionPlan">This is the text for prevention plan</p>
-                  <p class="requirements">This is the text for requirements</p>
-                </li>
-                <li>Lorem ipsum dolor sit amet consectetuer</li>
-                <li>Tremendae</li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <a href="#" class="icon info clicktip">How do I use this form?</a>
         <div class="span-7 colborder">
           <fieldset class="condensed">
-            <legend>Description of your measure</legend> <label i18n:translate="label_action_plan" for="action_plan" class="superImpose">Action plan</label> 
+            <legend>Description of your measure</legend> <label for="action_plan" class="superImpose">Action plan</label> 
             <textarea name="action_plan" rows="6">
 </textarea>
             <hr />
-            <label i18n:translate="label_prevention_plan" class="superImpose">Prevention plan</label> 
+            <label class="superImpose">Prevention plan</label> 
             <textarea name="prevention_plan" rows="3">
 </textarea>
             <hr />
-            <label i18n:translate="label_requirements" class="superImpose">Requirements</label> 
+            <label class="superImpose">Requirements</label> 
             <textarea name="requirements" rows="3">
 </textarea>
           </fieldset>
