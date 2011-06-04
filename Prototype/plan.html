@@ -62,17 +62,20 @@
       <dd>
         <div class="buttonBar top">
           <button class="small">Remove</button>
-          <ul class="standardSolutions">
-            <li>
-              <strong class="button small">Standard solutions</strong>
-              <p>Select a solution to add</p>
-              <ul>
-                <li title="This is the actual solution text for solution 1">Standard solution bla</li>
-                <li title="This is the actual solution text for solution 2">Lorem ipsum dolor sit amet consectetuer</li>
-                <li title="This is the actual solution text for solution 3">Tremendae</li>
-              </ul>
-            </li>
-          </ul>
+          <div>
+            <strong class="button small">Standard solutions</strong>
+            <p>Select a solution to add</p>
+            <ul>
+              <li>
+                <strong>Standard solution bla</strong>
+                <p>This is the text for action plan</p>
+                <p>This is the text for prevention plan</p>
+                <p>This is the text for requirements</p>
+              </li>
+              <li>Lorem ipsum dolor sit amet consectetuer</li>
+              <li>Tremendae</li>
+            </ul>
+          </div>
         </div>
         <a href="#" class="icon info clicktip">How do I use this form?</a>
         <div class="span-7 colborder">
@@ -326,18 +329,7 @@
       <button type="submit" id="addMeasureButton" i18n:translate="label_add">Add another measure</button>
     </div>
 
-    <h4>Standard solutions</h4>
-    <p>
-      There are known common approaches to this risk. You can create a new
-      measure based on these approaches.
-    </p>
-    <ul>
-      <li><button value="common-measure-1" class="commonMeasureButton small" type="button">Use</button><p>Attach a noteblock to write down
-      temperature measurements to the fridge. There are <a href="#">templates</a> 
-      avaiable for temperature entry forms.</p>
-      </li>
-      <li><button value="common-measure-2" class="commonMeasureButton small" type="button">Use</button><p>Arrange a fridge maintenance contract.</p></li>
-    </ul>
+<hr/>
 
     <div class="notice" tal:condition="view/legal_reference">
       <h4 i18n:translate="header_legal_references">
@@ -356,19 +348,6 @@
 </textarea>
     </fieldset>
     
-    <hr/>
-    
-    <div id="common-measure-1" style="display: none">
-      <input type="hidden" name="action_plan" value="This is the action plan template"/>
-      <input type="hidden" name="prevention_plan" value="This is the prevention plan template"/>
-      <input type="hidden" name="requirements" value="This is the requirements template"/>
-    </div>
-    <div id="common-measure-2" style="display: none">
-      <input type="hidden" name="action_plan" value="This is the second action plan template"/>
-      <input type="hidden" name="prevention_plan" value="This is the second prevention plan template"/>
-      <input type="hidden" name="requirements" value="This is the second requirements template"/>
-    </div>
-
     <ol id="steps">
       <li id="step-1" class="complete">
         <a href="#">Voorbereiden</a>
