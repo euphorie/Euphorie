@@ -56,40 +56,40 @@
       </fieldset>
     </div>
     
-    <div class="solutions" id="solutions">
-      <p class="info">Select a standard solution to add</p>
-      <ul>
+    <div class="solutions" id="standardSolutions">
+      <p class="info">Select a standard solution. The main fields of this measure will be automatically populated with this solution. <br/><strong>Any text that's currently there will be overwritten.</strong></p>
+      <ol>
         <li>
           <strong class="title">Standard solution bla</strong>
           <p class="actionPlan">This is the text for action plan</p>
           <p class="preventionPlan">This is the text for prevention plan</p>
           <p class="requirements">This is the text for requirements</p>
         </li>
-        <li>Lorem ipsum dolor sit amet consectetuer</li>
+        <li>Lorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuer</li>
         <li>Tremendae</li>
-      </ul>
+      </ol>
     </div>
     
     <dl class="accordion" id="ActionPlanItemForm">
       <dt class="open">
         Measure 1
         <button class="small">Remove</button>
-        <a href="#solutions" class="button small solutions">Standard solutions</a> 
+        <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
       </dt>
       <dd>
         <a href="#" class="icon info clicktip">How do I use this form?</a>
         <div class="span-7 colborder">
           <fieldset class="condensed">
             <legend>Description of your measure</legend> <label for="action_plan" class="superImpose">Action plan</label> 
-            <textarea name="action_plan" rows="6">
+            <textarea class="actinoPlan" name="action_plan" rows="6">
 </textarea>
             <hr />
             <label class="superImpose">Prevention plan</label> 
-            <textarea name="prevention_plan" rows="3">
+            <textarea class="preventionPlan" name="prevention_plan" rows="3">
 </textarea>
             <hr />
             <label class="superImpose">Requirements</label> 
-            <textarea name="requirements" rows="3">
+            <textarea class="requirements" name="requirements" rows="3">
 </textarea>
           </fieldset>
         </div>
@@ -209,15 +209,15 @@
         <div class="span-7 colborder">
           <fieldset class="condensed">
             <legend>Description of your measure</legend> <label i18n:translate="label_action_plan" class="superImpose">Action plan</label> 
-            <textarea name="action_plan" rows="6">
+            <textarea class="actionPlan" name="action_plan" rows="6">
 </textarea>
             <hr />
             <label i18n:translate="label_prevention_plan" class="superImpose">Prevention plan</label> 
-            <textarea name="prevention_plan" rows="3">
+            <textarea class="preventionPlan" name="prevention_plan" rows="3">
 </textarea>
             <hr />
             <label i18n:translate="label_requirements" class="superImpose">Requirements</label> 
-            <textarea name="requirements" rows="3">
+            <textarea class="requirements" name="requirements" rows="3">
 </textarea>
           </fieldset>
         </div>
@@ -488,7 +488,7 @@
 
 
     function MeasureHasData(m) {
-        var data = $.map($(m).find(":input:not(select)"),
+        var data = $.map(m.find(":input:not(select)"),
                                    function(i) { return Boolean($(i).val()); });
         return $.inArray(true, data)!=-1;
     }
@@ -540,6 +540,31 @@
         return false;
     }
 
+    function addStandardSolution() {
+        $("#solutions").hide();
+        var measures = $("#ActionPlanItemForm"),
+            active = findActive(measures);
+            $active = measures.find("dd").eq(active);
+        var $newmeasure,
+            selector;
+
+        if (!MeasureHasData($active)) {
+            $newmeasure=$active;
+        } else {
+            AddMeasurement();
+            $newmeasure = $("#ActionPlanItemForm dd:last");
+        }
+
+        $newmeasure.find(":input.actionPlan").val(
+            $(this).find(".actionPlan").text());
+        $newmeasure.find(":input.preventionPlan").val(
+            $(this).find(".preventionPlan").text());
+        $newmeasure.find(":input.requirements").val(
+            $(this).find(".requirements").text());
+
+        $("label.superImpose", $newmeasure).each(setupSuperimpose);
+    }
+
     function setupEvents() {
         $(".button.solutions")
             .unbind(".euphorie")
@@ -550,6 +575,9 @@
         $(".removeButton")
             .unbind(".euphorie")
             .bind("click.euphorie", removeButtonHandler);
+        $("#solutions li")
+            .unbind(".euphorie")
+            .bind("click.euphorie", addStandardSolution);
     }
 
 
