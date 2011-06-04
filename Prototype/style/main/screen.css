@@ -285,6 +285,20 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Standard solutions */
+
+.standardSolutions {
+	
+}
+
+.standardSolutions strong.button {
+	
+}
+
+
+
+/* @end */
+
 /* @group Survey index */
 
 .surveyIndex {
@@ -1599,7 +1613,8 @@ button:active,
 }
 
 button.small,
-.button-small {
+.button-small,
+strong.button.small {
 	position: relative;
 	padding: 2px 6px 3px;
 	margin-right: 5px;
