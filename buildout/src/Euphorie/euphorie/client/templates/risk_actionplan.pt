@@ -386,7 +386,6 @@ var delete_confirm_text = "<tal:span i18n:translate=''>Are you sure you want to 
 
 
     function toggleSolutionDropdown(event) {
-        console.log('toggle!');
         var $solutions = $("#standardSolutions"),
             position;
         
