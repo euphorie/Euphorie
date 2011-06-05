@@ -101,13 +101,15 @@ def addAccountChangeTable(context):
 
 def addCountryGrouping(context):
     from euphorie.deployment.setuphandlers import COUNTRIES
-    sectors=aq_parent(context).sectors
+    sectors = aq_parent(context).sectors
+    client = aq_parent(context).client
     for (country_id, info) in COUNTRIES.items():
-        country=sectors.get(country_id)
-        if country is None:
-            continue
-        if getattr(country, "country_type", None):
-            continue
-        country.country_type=info[1]
-        log.info("Set country type for %s to %s", country_id, info[1])
+        for parent in sectors, client:
+            country = parent.get(country_id)
+            if country is None:
+                continue
+            if getattr(country, "country_type", None):
+                continue
+            country.country_type=info[1]
+            log.info("Set country type for %s to %s in %s", country_id, info[1], parent.Title())
 

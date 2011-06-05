@@ -4,6 +4,9 @@ Changelog
 3.0 - Unreleased
 ----------------
 
+- Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
+  [wichert]
+
 - #15: AttributeError *is_region* when publishing from a country not yet in the
   client. [jcbrand]
 
@@ -15,6 +18,10 @@ Development of Euphorie and related projecst has moved to the
 
 Feature changes
 ~~~~~~~~~~~~~~~
+
+- Use a better standard solution selector in the client. This fixes
+  `github ticket 5 <https://github.com/euphorie/Euphorie/issues/5>`_.
+  [cornae, wichert]
 
 - Group countries according to EU membership status.  This fixes github tickets
   `1 <https://github.com/euphorie/Euphorie/issues/1>`_,

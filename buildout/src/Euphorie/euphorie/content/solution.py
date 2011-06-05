@@ -22,13 +22,12 @@ class ISolution(form.Schema, IRichDescription):
     most environments.
     """
 
-    description = HtmlText(
+    description = schema.Text(
             title = _("label_module_description", u"Description"),
             description = _("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
             required = True)
-    form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 
     action_plan = schema.Text(

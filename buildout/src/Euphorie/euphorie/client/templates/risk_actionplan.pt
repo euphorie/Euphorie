@@ -30,9 +30,23 @@
       </fieldset>
      </div>
 
+      <div class="solutions" id="standardSolutions" tal:condition="python:view.solutions">
+        <p class="info" i18n:translate="">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
+        <ol>
+          <li tal:repeat="solution view/solutions"><strong class="title">${solution/description}</strong>
+            <p class="actionPlan">${solution/action_plan}</p>
+            <p class="preventionplan">${solution/prevention_plan}</p>
+            <p class="requirements">${solution/requirements}</p>
+          </li>
+        </ol>
+      </div>
+
       <dl class="accordion" id="ActionPlanItemForm">
         <tal:repeat repeat="actionplan data/action_plans">
-          <dt i18n:translate="header_measure" class="${python:'error' if exists('actionplan/errors') else None}">Measure <tal:span i18n:name="index" content="repeat/actionplan/number">1</tal:span></dt>
+        <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n translate="">Measure <tal:span i18n:name="index">${repeat/actionplan/number}</tal:span></tal:i18n>
+            <button class="small removeButton">Remove</button>
+            <a href="#standardSolutions" class="button small solutions" tal:condition="python:view.solutions" i18n:translate="">Standard solutions</a> 
+          </dt>
           <dd tal:define="errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                          number repeat/actionplan/number"
              class="${python:'error' if errors else None}">
@@ -41,13 +55,13 @@
               <fieldset class="condensed">
                 <legend>Description of the measure</legend>
                 <label for="actionplan-1" class="superImpose" i18n:translate="label_measure_action_plan">Action plan</label>
-                <textarea id="actionplan-1" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" tal:content="actionplan/action_plan|nothing"></textarea>
+                <textarea class="actionPlan" id="actionplan-1" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" tal:content="actionplan/action_plan|nothing"></textarea>
                 <hr/>
                 <label for="preventionplan-1" class="superImpose" i18n:translate="label_measure_prevention_plan">Prevention plan</label>
-                <textarea id="preventionplan-1" name="measure.prevention_plan:utf8:ustring:records" rows="3" tal:content="actionplan/prevention_plan|nothing"></textarea>
+                <textarea class="preventionPlan" id="preventionplan-1" name="measure.prevention_plan:utf8:ustring:records" rows="3" tal:content="actionplan/prevention_plan|nothing"></textarea>
                 <hr/>
                 <label for="requirements-1" class="superImpose" i18n:translate="label_measure_requirements">Requirements</label>
-                <textarea id="requirements-1" name="measure.requirements:utf8:ustring:records" rows="3" tal:content="actionplan/requirements|nothing"></textarea>
+                <textarea class="requirements" id="requirements-1" name="measure.requirements:utf8:ustring:records" rows="3" tal:content="actionplan/requirements|nothing"></textarea>
               </fieldset>
             </div>
             <div class="span-7 last">
@@ -133,19 +147,6 @@
         <button type="button" id="addMeasureButton" i18n:translate="label_add_measure">Add another measure</button>
       </div>
 
-      <tal:block condition="python:view.solutions">
-        <h4 i18n:translate="header_common_solutions">Common solutions</h4>
-        <p i18n:translate="help_common_solutions">There are known common
-        approaches to this risk. You can create a new measure based on these
-        approaches.</p>
-
-        <ul>
-          <li tal:repeat="solution view/solutions"><button class="commonMeasureButton small" type="button"
-            value="common-solution-${repeat/solution/number}" i18n:translate="">Use</button>
-            <p tal:replace="structure solution/description">Arrange for a maintenance contract.</p></li>
-        </ul>
-      </tal:block>
-
       <p class="buttonBar">
         <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
         <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
@@ -159,28 +160,24 @@
       </fieldset>
     </form>
 
-    <div style="display: none" tal:repeat="solution view/solutions" id="common-solution-${repeat/solution/number}">
-      <input type="hidden" name="action_plan" tal:condition="solution/action_plan" value="${solution/action_plan}"/>
-      <input type="hidden" name="prevention_plan" tal:condition="solution/prevention_plan" value="${solution/prevention_plan}"/>
-      <input type="hidden" name="requirements" tal:condition="solution/requirements" value="${solution/requirements}"/>
-    </div>
-
     <dl style="display: none" id="measureTemplate">
-      <dt><tal:span i18n:translate="measure_template_title">Measure 2</tal:span>
-           <button class="small removeButton" i18n:translate="label_remove">Remove</button></dt>
+      <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n translate="">Measure <tal:span i18n:name="index">1</tal:span></tal:i18n>
+        <button class="small removeButton">Remove</button>
+        <a href="#standardSolutions" class="button small solutions" tal:condition="python:view.solutions" i18n:translate="">Standard solutions</a> 
+      </dt>
       <dd>
         <a class="icon info clicktip" href="${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_tooltip">You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this.</a>
         <div class="span-7 colborder">
           <fieldset class="condensed">
             <legend>Description of the measure</legend>
             <label for="actionplan-2" class="superImpose" i18n:translate="label_measure_action_plan">Action plan</label>
-            <textarea id="actionplan-2" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" ></textarea>
+            <textarea class="actionPlan" id="actionplan-2" type="text" name="measure.action_plan:utf8:ustring:records" rows="6" ></textarea>
             <hr/>
             <label for="preventionplan-2" class="superImpose" i18n:translate="label_measure_prevention_plan">Prevention plan</label>
-            <textarea id="preventionplan-2" name="measure.prevention_plan:utf8:ustring:records" rows="3" ></textarea>
+            <textarea class="preventionPlan" id="preventionplan-2" name="measure.prevention_plan:utf8:ustring:records" rows="3" ></textarea>
             <hr/>
             <label for="requirements-2" class="superImpose" i18n:translate="label_measure_requirements">Requirements</label>
-            <textarea id="requirements-2" name="measure.requirements:utf8:ustring::records" rows="3" ></textarea>
+            <textarea class="requirements" id="requirements-2" name="measure.requirements:utf8:ustring::records" rows="3" ></textarea>
           </fieldset>
         </div>
         <div class="span-7 last">
@@ -278,152 +275,186 @@
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
-  <script type="text/javascript">
-var confirm_text = "<tal:span i18n:translate=''>Are you sure you want to delete this measure? This action can not be reverted.</tal:span>";
+  <script type="text/javascript" meta:interpolation="false">
+var delete_confirm_text = "<tal:span i18n:translate=''>Are you sure you want to delete this measure? This action can not be reverted.</tal:span>",
+    replace_confirm_text = "<tal:span i18n:translate=''>The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted Are you sure you want to continue?</tal:span>";
 // <![CDATA[
-function findActive(measures) {
-    var items = $.map(measures.find("dt"),
-        function(a) { return $(a).hasClass("ui-state-active"); });
-    var active = $.inArray(true, items);
+    function findActive(measures) {
+        var items = $.map(measures.find("dt"),
+            function(a) { return $(a).hasClass("ui-state-active"); });
+        var active = $.inArray(true, items);
 
-    return active;
-}
-
-
-function EnforceMeasurementStyling() {
-    var headers = $("#ActionPlanItemForm dt");
-    var measures = $("#ActionPlanItemForm dd");
-    var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
-    var i;
-
-    for (i=0; i<headers.length; i++) {
-        headers.eq(i).text(title.replace(/[0-9]+/, i+1));
-        measures.eq(i).find("fieldset:first *").each(function() {
-            var el=$(this);
-            var buf = el.attr("id");
-            if (buf) {
-                el.attr("id", buf.replace(/[0-9]+/, i+1));
-            }
-            buf=el.attr("for");
-            if (buf) {
-                el.attr("for", buf.replace(/[0-9]+/, i+1));
-            }
-        });
+        return active;
     }
 
-    headers.find("button").remove();
-    if (headers.length>1) {
-        var button = $("#measureTemplate dt .removeButton");
-        button.clone(true).appendTo(headers);
-        $(".removeButton").unbind(".euphorie").bind("click.euphorie", removeButtonHandler);
-    }
-}
 
+    function EnforceMeasurementStyling() {
+        var $headers = $("#ActionPlanItemForm dt"),
+            $measures = $("#ActionPlanItemForm dd"),
+            title = $.trim($("#measureTemplate dt")[0].firstChild.data),
+            i;
 
-function removeButtonHandler() {
-    var measures = $("#ActionPlanItemForm");
-    var measures_count = measures.find("dt").length-1;
-    var active = findActive(measures);
-    var header = $(this).parents("dt");
+        for (i=0; i<$headers.length; i++) {
+            $headers.eq(i).find("span")[0].nextSibling.data = title.replace(/[0-9]+/, i+1);
+            $measures.eq(i).find("fieldset:first *").each(function() {
+                var $el=$(this),
+                    buf = $el.attr("id");
+                if (buf) {
+                    $el.attr("id", buf.replace(/[0-9]+/, i+1));
+                }
+                buf=$el.attr("for");
+                if (buf) {
+                    $el.attr("for", buf.replace(/[0-9]+/, i+1));
+                }
+            });
+        }
 
-    if (!confirm(confirm_text)) {
-        return false;
-    }
-
-    if (active>=measures_count-1) {
-      active-=1;
-    }
-
-    $(header).add($(header).next("dd")).remove();
-
-    measures
-        .accordion("destroy")
-        .accordion({active: active});
-
-    EnforceMeasurementStyling();
-};
-
-
-function AddMeasurement() {
-    var measures = $("#ActionPlanItemForm");
-    var measures_count = measures.find("dt").length;
-    var active = findActive(measures);
-
-    $("#measureTemplate")
-        .find("> *")
-        .clone(true)
-        .find(".clicktip")
-            .each(function() {
-                var id = assertId(this);
-                $(this)
-                    .unbind("click")
-                    .bt({trigger: "click",
-                            fill: "#8293ab",
-                            strokeStyle: "#8293ab",
-                            contentSelector: "$('#" + id + "').html()"
-                            })
-                    .click(function() { return false; });
-            }).end()
-        .appendTo(measures);
-
-    measures
-        .accordion("destroy")
-        .accordion({active: active})
-        .accordion("activate", measures_count);
-
-    EnforceMeasurementStyling();
-
-    $("label.superImpose", measures).each(setupSuperimpose);
-}
-
-
-function MeasureHasData(m) {
-    var data = $.map($(m).find(":input:not(select)"),
-                               function(i) { return Boolean($(i).val()); });
-    return $.inArray(true, data)!=-1;
-}
-
-
-$("#addMeasureButton").live("click", AddMeasurement);
-
-$(".commonMeasureButton").live("click", function() {
-    var measures = $("#ActionPlanItemForm");
-    var active = findActive(measures);
-    var active = measures.find("dd").eq(active);
-    var newmeasure;
-
-    if (!MeasureHasData(active)) {
-        newmeasure=active;
-    } else {
-        AddMeasurement();
-        newmeasure = $("#ActionPlanItemForm dd:last");
-    }
-
-    var solution_index;
-
-    if (engine==="msie" && engine_version<80) {
-        solution_index = this.attributes.getNamedItem("value").nodeValue;
-    }  else {
-        solution_index = this.value;
-    }
-    var sourcedata = $("#"+solution_index+" :input");
-    var el, value, selector;
-
-    for (var i in sourcedata) {
-        el=sourcedata.eq(i);
-        if (el.val()) {
-            selector=":input[name^=measure."+el.attr("name")+"]";
-            newmeasure.find(selector).val(el.val());
+        $headers.find("button").hide();
+        if ($headers.length>1) {
+            $headers.find("button").show();
+        } else {
+            $headers.find("button").hide();
         }
     }
 
-    $("label.superImpose", newmeasure).each(setupSuperimpose);
-});
+
+    function removeButtonHandler(event) {
+        var $measures = $("#ActionPlanItemForm"),
+            measures_count = $measures.find("dt").length-1,
+            active = findActive($measures),
+            $header = $(this).parents("dt");
+
+        if (!confirm(delete_confirm_text)) {
+            event.stopImmediatePropagation();
+            return false;
+        }
+
+        if (active>=measures_count-1) {
+          active-=1;
+        }
+
+        $header.add($header.next("dd")).remove();
+
+        $measures
+            .accordion("destroy")
+            .accordion({active: active});
+
+        EnforceMeasurementStyling();
+        event.stopImmediatePropagation();
+        return false;
+    };
 
 
-$(document).ready(function() {
-    EnforceMeasurementStyling();
-});
+    function AddMeasurement() {
+        var measures = $("#ActionPlanItemForm");
+        var measures_count = measures.find("dt").length;
+        var active = findActive(measures);
+
+        $("#measureTemplate")
+            .find("> *")
+            .clone(true)
+            .find(".clicktip")
+                .each(function() {
+                    var id = assertId(this);
+                    $(this)
+                        .unbind("click")
+                        .bt({trigger: "click",
+                                fill: "#8293ab",
+                                strokeStyle: "#8293ab",
+                                contentSelector: "$('#" + id + "').html()"
+                                })
+                        .click(function() { return false; });
+                }).end()
+            .appendTo(measures);
+
+        measures
+            .accordion("destroy")
+            .accordion({active: active})
+            .accordion("activate", measures_count);
+
+        EnforceMeasurementStyling();
+        setupEvents();
+        $("label.superImpose", measures).each(setupSuperimpose);
+    }
+
+
+    function MeasureHasData(m) {
+        var data = $.map(m.find(":input:not(select)"),
+                                   function(i) { return Boolean($(i).val()); });
+        return $.inArray(true, data)!=-1;
+    }
+
+
+    function toggleSolutionDropdown(event) {
+        var $solutions = $("#standardSolutions"),
+            position;
+        
+        if ($solutions.data("euphorie.visible")) {
+            $solutions
+                .data("euphorie.visible", false)
+                .hide();
+            $("html").unbind("click.fallback");
+            if (event!==undefined) {
+                event.stopImmediatePropagation();
+            }
+            return false;
+        }
+
+        $solutions.data("euphorie.visible", true);
+        position=$(this).offset();
+        $solutions
+            .css({top: position.top, left: position.left})
+            .show();
+        $("html").bind("click.fallback", toggleSolutionDropdown);
+        if (event!==undefined) {
+            event.stopImmediatePropagation();
+        }
+        return false;
+    }
+
+    function addStandardSolution() {
+        toggleSolutionDropdown();
+
+        var measures = $("#ActionPlanItemForm"),
+            active = findActive(measures);
+            $measure = measures.find("dd").eq(active);
+
+        if (MeasureHasData($measure)) {
+            if (!confirm(replace_confirm_text)) {
+                return false;
+            }
+        }
+
+        $measure.find(":input.actionPlan").val(
+            $(this).find(".actionPlan").text());
+        $measure.find(":input.preventionPlan").val(
+            $(this).find(".preventionPlan").text());
+        $measure.find(":input.requirements").val(
+            $(this).find(".requirements").text());
+
+        $("label.superImpose", $measure).each(setupSuperimpose);
+    }
+
+    function setupEvents() {
+        $(".button.solutions")
+            .unbind(".euphorie")
+            .bind("click.euphorie", toggleSolutionDropdown);
+        $("#addMeasureButton")
+            .unbind(".euphorie")
+            .bind("click.euphorie", AddMeasurement);
+        $(".removeButton")
+            .unbind(".euphorie")
+            .bind("click.euphorie", removeButtonHandler);
+        $("#standardSolutions li")
+            .unbind(".euphorie")
+            .bind("click.euphorie", addStandardSolution);
+    }
+
+
+    $(document).ready(function() {
+        setupEvents();
+        EnforceMeasurementStyling();
+    });
 // ]]>
   </script>
     <tal:block replace="tile:client-analytics"/>

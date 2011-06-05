@@ -77,7 +77,7 @@
 
         <ol class="${python:'sortable' if can_edit and len(view.solutions)&gt;1 else None}">
           <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}" i18n:translate="risk_solution_header">Solution <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
-          <tal:description replace="structure solution/description"/></li>
+          <p>${solution/description}</p></li>
         </ol>
       </tal:block>
     </metal:content>
