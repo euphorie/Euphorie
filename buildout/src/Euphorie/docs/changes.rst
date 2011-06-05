@@ -19,6 +19,10 @@ Development of Euphorie and related projecst has moved to the
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Use a better standard solution selector in the client. This fixes
+  `github ticket 5 <https://github.com/euphorie/Euphorie/issues/5>`_.
+  [cornae, wichert]
+
 - Group countries according to EU membership status.  This fixes github tickets
   `1 <https://github.com/euphorie/Euphorie/issues/1>`_,
   `2 <https://github.com/euphorie/Euphorie/issues/2>`_ and
