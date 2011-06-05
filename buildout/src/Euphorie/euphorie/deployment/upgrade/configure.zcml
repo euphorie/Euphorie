@@ -121,6 +121,12 @@
       description="This step migrate data in preparation for multiple evaluation method support." 
       handler=".v3.set_evaluation_method_interfaces"
       />
+
+    <genericsetup:upgradeStep
+      title="Standard solutions"
+      description="This step converts the solution description to plain text." 
+      handler=".v3.convert_solution_description_to_text"
+      />
   </genericsetup:upgradeSteps>
 
 </configure>

@@ -57,3 +57,40 @@ class set_evaluation_method_interfaces_tests(EuphorieTestCase):
         self.assertTrue(not IKinneyEvaluation.providedBy(risk))
         self.assertTrue(IFrenchEvaluation.providedBy(risk))
 
+
+class convert_solution_description_to_text_tests(EuphorieTestCase):
+    def convert_solution_description_to_text(self, *a, **kw):
+        from euphorie.deployment.upgrade.v3 \
+                import convert_solution_description_to_text
+        return convert_solution_description_to_text(*a, **kw)
+
+    def test_empty_site(self):
+        self.convert_solution_description_to_text(self.portal)
+
+    def test_rich_description(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        self.loginAsPortalOwner()
+        sector = createSector(self.portal)
+        survey = addSurvey(sector)
+        risk = survey['1']['2']
+        risk.invokeFactory('euphorie.solution', '3')
+        solution = risk['3']
+        solution.description = u'<p>This is my description.</p>'
+        self.convert_solution_description_to_text(self.portal)
+        self.assertEqual(solution.description,
+                u'This is my description.')
+
+    def test_text_description(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        self.loginAsPortalOwner()
+        sector = createSector(self.portal)
+        survey = addSurvey(sector)
+        risk = survey['1']['2']
+        risk.invokeFactory('euphorie.solution', '3')
+        solution = risk['3']
+        solution.description = u'This is my description.'
+        self.convert_solution_description_to_text(self.portal)
+        self.assertEqual(solution.description,
+                u'This is my description.')
