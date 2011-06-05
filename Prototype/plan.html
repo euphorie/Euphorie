@@ -15,6 +15,7 @@
     <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
     <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
 
+    <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script> -->
     <script type="text/javascript" src="libraries/jquery-1.4.4.min.js"> </script>
     <script type="text/javascript" src="libraries/jquery-ui-1.7.3.min.js"> </script>
     <script type="text/javascript" src="libraries/jquery.hoverIntent.js"></script>
@@ -83,7 +84,7 @@
     <dl class="accordion" id="ActionPlanItemForm">
       <dt class="open">
         Measure 1
-        <button class="small">Remove</button>
+        <button class="small removeButton">Remove</button>
         <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
       </dt>
       <dd>
@@ -412,44 +413,43 @@
 
 
     function EnforceMeasurementStyling() {
-        var headers = $("#ActionPlanItemForm dt");
-        var measures = $("#ActionPlanItemForm dd");
-        var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
-        var i;
+        var $headers = $("#ActionPlanItemForm dt"),
+            $measures = $("#ActionPlanItemForm dd"),
+            title = $.trim($("#measureTemplate dt")[0].firstChild.data),
+            i;
 
-        for (i=0; i<headers.length; i++) {
-//            headers.eq(i).text(title.replace(/[0-9]+/, i+1));
-            measures.eq(i).find("fieldset:first *").each(function() {
-                var el=$(this);
-                var buf = el.attr("id");
+        for (i=0; i<$headers.length; i++) {
+            $headers.eq(i).find("span")[0].nextSibling.data = title.replace(/[0-9]+/, i+1);
+            $measures.eq(i).find("fieldset:first *").each(function() {
+                var $el=$(this),
+                    buf = $el.attr("id");
                 if (buf) {
-                    el.attr("id", buf.replace(/[0-9]+/, i+1));
+                    $el.attr("id", buf.replace(/[0-9]+/, i+1));
                 }
-                buf=el.attr("for");
+                buf=$el.attr("for");
                 if (buf) {
-                    el.attr("for", buf.replace(/[0-9]+/, i+1));
+                    $el.attr("for", buf.replace(/[0-9]+/, i+1));
                 }
             });
         }
 
-/*
-        headers.find("button").remove();
-        if (headers.length>1) {
-            var button = $("#measureTemplate dt .removeButton");
-            button.clone(true).appendTo(headers);
-            setupEvents();
+        $headers.find("button").hide();
+        if ($headers.length>1) {
+            $headers.find("button").show();
+        } else {
+            $headers.find("button").hide();
         }
-*/
     }
 
 
-    function removeButtonHandler() {
-        var measures = $("#ActionPlanItemForm");
-        var measures_count = measures.find("dt").length-1;
-        var active = findActive(measures);
-        var header = $(this).parents("dt");
+    function removeButtonHandler(event) {
+        var $measures = $("#ActionPlanItemForm"),
+            measures_count = $measures.find("dt").length-1,
+            active = findActive($measures),
+            $header = $(this).parents("dt");
 
         if (!confirm(delete_confirm_text)) {
+            event.stopImmediatePropagation();
             return false;
         }
 
@@ -457,13 +457,15 @@
           active-=1;
         }
 
-        $(header).add($(header).next("dd")).remove();
+        $header.add($header.next("dd")).remove();
 
-        measures
+        $measures
             .accordion("destroy")
             .accordion({active: active});
 
         EnforceMeasurementStyling();
+        event.stopImmediatePropagation();
+        return false;
     };
 
 
@@ -495,7 +497,7 @@
             .accordion("activate", measures_count);
 
         EnforceMeasurementStyling();
-
+        setupEvents();
         $("label.superImpose", measures).each(setupSuperimpose);
     }
 
@@ -506,12 +508,6 @@
         return $.inArray(true, data)!=-1;
     }
 
-
-    $(".button.solutions").live("click", function() {
-        var $solutions = $("#solutions");
-        $solutions.toggle();
-        return false;
-    });
 
     function toggleSolutionDropdown() {
         var $solutions = $("#standardSolutions"),
