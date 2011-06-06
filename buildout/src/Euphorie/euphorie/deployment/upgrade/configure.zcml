@@ -111,8 +111,8 @@
   </genericsetup:upgradeSteps>
 
   <genericsetup:upgradeSteps
-    source="7"
-    destination="8"
+    source="8"
+    destination="9"
     profile="euphorie.deployment:default"
     >
 

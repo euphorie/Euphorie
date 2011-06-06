@@ -25,7 +25,10 @@ def convert_solution_description_to_text(context):
     count = 0
     for brain in risks:
         log.debug("Updating description for %s", brain.getPath())
-        solution = brain.getObject()
+        try:
+            solution = brain.getObject()
+        except KeyError:
+            log.error('Could not get object for %s', brain.getPath())
         description = StripMarkup(solution.description)
         if description != solution.description:
             solution.description = description
