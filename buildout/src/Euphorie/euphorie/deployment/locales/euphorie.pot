@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 3.0dev\n"
+"Project-Id-Version: Euphorie 3.0syslab3\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-05-04 18:46+0200\n"
+"POT-Creation-Date: 2011-05-30 15:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,7 @@ msgid "error_email_in_use"
 msgstr ""
 
 #. Default: Cancel
-#: euphorie/client/publish.py:210 euphorie/client/publish.py:259
+#: euphorie/client/publish.py:215 euphorie/client/publish.py:264
 #: euphorie/client/settings.py:150 euphorie/client/settings.py:257
 #: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
@@ -166,21 +166,21 @@ msgid "button_cancel"
 msgstr ""
 
 #. Default: Publish
-#: euphorie/client/publish.py:216
+#: euphorie/client/publish.py:221
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr ""
 
-#: euphorie/client/publish.py:220
+#: euphorie/client/publish.py:225
 msgid "Succesfully published the survey"
 msgstr ""
 
 #. Default: Create preview
-#: euphorie/client/publish.py:265
+#: euphorie/client/publish.py:270
 msgid "button_preview"
 msgstr ""
 
-#: euphorie/client/publish.py:272
+#: euphorie/client/publish.py:277
 msgid "Succesfully created a preview for the survey. It can be accessed at ${url} ."
 msgstr ""
 
