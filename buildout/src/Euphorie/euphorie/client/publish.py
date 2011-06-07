@@ -6,22 +6,23 @@ from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from OFS.event import ObjectWillBeRemovedEvent
-from zope.event import notify
 from five import grok
-from euphorie.content.survey import ISurvey
-from euphorie.client import MessageFactory as _
-from euphorie.client import utils
-from euphorie.content.interfaces import ObjectPublishedEvent
 from zope.component import getMultiAdapter
 from zope.component import getUtility
+from zope.event import notify
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form import button
-from plone.directives import form
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from plonetheme.nuplone.utils import getPortal
+from plone.directives import form
 from plone.scale.storage import AnnotationStorage
+from euphorie.content.survey import ISurvey
+from euphorie.client import MessageFactory as _
+from euphorie.client import utils
+from euphorie.content.interfaces import ObjectPublishedEvent
+from webhelpers.html.builder import make_tag
 
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
@@ -271,13 +272,15 @@ class PreviewSurvey(form.Form):
     @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
     def handlePreview(self, action):
         self.publish()
-
-        from webhelpers.html.builder import make_tag
         url = make_tag('a', href=self.preview_url(), c=self.preview_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
-                _(u"Succesfully created a preview for the survey. It can be accessed at ${url} .",
+                _("message_preview_success", 
+                    default=u"Succesfully created a preview for the survey. "
+                            u"It can be accessed at ${url} .",
                     mapping=dict(url=url)), type="success")
-        state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")
+        state=getMultiAdapter(
+                        (aq_inner(self.context), self.request), 
+                        name="plone_context_state")
         self.request.response.redirect(state.view_url())
 
 
