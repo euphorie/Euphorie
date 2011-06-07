@@ -25,8 +25,6 @@ def convert_solution_description_to_text(context):
     count = 0
     for brain in risks:
         log.debug("Updating description for %s", brain.getPath())
-        if 'client' in brain.getPath():
-            import pdb; pdb.set_trace()
         try:
             solution = brain.getObject()
         except KeyError:
