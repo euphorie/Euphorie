@@ -16,8 +16,8 @@
   </head>
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
-      <p class="warning" i18n:translate="">By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable.</p>
-      <p i18n:translate="">Please note that by deleting your account, also all your filled out surveys will be deleted. Please make sure to download your surveys from the reports screen prior to deleting your account if you want to keep any.</p>
+      <p class="warning" i18n:translate="warning_account_delete_irreversible">By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable.</p>
+      <p i18n:translate="warning_account_delete_surveys">Please note that by deleting your account, also all your filled out surveys will be deleted. Please make sure to download your surveys from the reports screen prior to deleting your account if you want to keep any.</p>
 
       <form class="concise" action="${request/getURL}" enctype="${view/enctype}" method="${view/method}" id="${view/id}">
         <fieldset>
