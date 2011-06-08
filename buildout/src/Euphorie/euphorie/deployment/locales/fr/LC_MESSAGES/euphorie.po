@@ -789,8 +789,8 @@ msgstr ""
 "L'expérience montre qu' ${key}. C'est pourquoi l'EU-OSHA a développé une "
 "${easy}\n"
 "(l'“OiRA” - Online interactive Risk Assessment, évaluation des risques "
-"interactive en ligne) capable d'aider les micro et petites\n"
-"organisations à mettre en place un ${step} – depuis l'${identification}\n"
+"interactive en ligne) capable d'aider les petites\n"
+"entreprises à mettre en place un ${step} – depuis l'${identification}\n"
 "et l'${evaluation} des risques sur le lieu de travail, en passant par la "
 "prise de décision concernant les\n"
 "${preventive_actions} et le lancement d'actions, jusqu'au contrôle et à "
@@ -1102,7 +1102,7 @@ msgstr "Plan d'action"
 #: euphorie/client/templates/survey_sessions.pt:70
 #: euphorie/client/templates/updated.pt:83
 msgid "iphone_label_evaluation"
-msgstr "Évaluation"
+msgstr "Estimation"
 
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:61
@@ -1129,7 +1129,7 @@ msgstr "Évaluation"
 #: euphorie/client/templates/updated.pt:82 euphorie/content/help.py:57
 #: euphorie/content/templates/colour-preview.pt:44
 msgid "label_evaluation"
-msgstr "Évaluation"
+msgstr "Estimation"
 
 #. Default: Identification
 #: euphorie/client/templates/actionplan.pt:56
@@ -1573,14 +1573,14 @@ msgstr "Aller au plan d'action"
 #. Default: Run evaluation
 #: euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Exécuter l'évaluation"
+msgstr "Démarer l'estimation"
 
 #. Default: There are no risks that need to be evaluated. You can proceed directly
 #. to the action plan phase.
 #: euphorie/client/templates/evaluation.pt:31
 msgid "help_evaluation_empty"
 msgstr ""
-"Il n'y aucun risque nécessitant une évaluation. Vous pouvez passer "
+"Il n'y aucun risque nécessitant une estimation. Vous pouvez passer "
 "directement\n"
 "à la phase du plan d'action."
 
@@ -1604,9 +1604,9 @@ msgid "help_risks_present"
 msgstr ""
 "Vous avez indiqué l'existence de risques potentiels dans votre "
 "organisation.\n"
-"Au cours de cette phase d'évaluation, vous pouvez déterminer l'ampleur des "
+"Au cours de cette phase d'estimation, vous pouvez déterminer l'ampleur des "
 "risques pour chaque\n"
-"goulot d'étranglement."
+"point critique."
 
 #. Default: Final words
 #: euphorie/client/templates/help.pt:54 euphorie/client/templates/help.pt:27
@@ -1630,7 +1630,7 @@ msgstr "Plan d'action"
 #: euphorie/client/templates/help.pt:45 euphorie/client/templates/help.pt:24
 #: euphorie/content/templates/help_view.pt:30
 msgid "help_header_evaluation"
-msgstr "Évaluation"
+msgstr "Estimation"
 
 #. Default: Identification
 #: euphorie/client/templates/help.pt:42 euphorie/client/templates/help.pt:23
@@ -2981,7 +2981,7 @@ msgstr "Politique"
 #. Default: Evaluation method
 #: euphorie/content/risk.py:107 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
-msgstr "Méthode d'évaluation"
+msgstr "Méthode d'estimation"
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
 #: euphorie/content/risk.py:108
@@ -2993,12 +2993,12 @@ msgstr ""
 #. Default: Estimated
 #: euphorie/content/risk.py:112
 msgid "evalmethod_direct"
-msgstr "Estimé"
+msgstr "Estimation qualitative"
 
 #. Default: Calculated
 #: euphorie/content/risk.py:113
 msgid "evalmethod_calculated"
-msgstr "Calculé"
+msgstr "Cotation calculé"
 
 #. Default: Default priority
 #: euphorie/content/risk.py:121 euphorie/content/templates/risk_view.pt:47
@@ -3111,14 +3111,14 @@ msgstr "Grave (très grave)"
 #. Default: Evaluation
 #: euphorie/content/risk.py:272 euphorie/content/risk.py:286
 msgid "header_evaluation"
-msgstr "Évaluation"
+msgstr "Estimation"
 
 #. Default: You can specify how the risks priority is evaluated. For more details
 #. see the online manual.
 #: euphorie/content/risk.py:273 euphorie/content/risk.py:287
 msgid "intro_evaluation"
 msgstr ""
-"Vous pouvez déterminer la façon dont la priorité des risques est évaluée. "
+"Vous pouvez déterminer la façon dont la priorité des risques est définie. "
 "Pour de plus amples informations,\n"
 "veuillez consulter le manuel en ligne."
 
@@ -3208,12 +3208,12 @@ msgstr ""
 #. Default: Evaluation may be skipped
 #: euphorie/content/survey.py:68
 msgid "label_evaluation_optional"
-msgstr "Il est possible de sauter l’évaluation"
+msgstr "Il est possible de sauter l’estimation"
 
 #. Default: This option allows uses to skip the evaluation phase.
 #: euphorie/content/survey.py:69
 msgid "help_evaluation_optional"
-msgstr "Cette option permet aux utilisateurs de sauter la phase d'évaluation."
+msgstr "Cette option permet aux utilisateurs de sauter la phase d'estimation."
 
 #. Default: Language
 #: euphorie/content/survey.py:75 euphorie/content/templates/survey_view.pt:24
@@ -3268,7 +3268,7 @@ msgstr ""
 #. Default: Simplified two criteria
 #: euphorie/content/surveygroup.py:51
 msgid "french"
-msgstr ""
+msgstr "Cotation calculée simple (2 critères)"
 
 #. Default: Standard
 #: euphorie/content/surveygroup.py:201
@@ -3968,7 +3968,7 @@ msgstr "Optionnel"
 #. Default: Evaluation phase
 #: euphorie/content/templates/survey_view.pt:18
 msgid "label_evaluation_phase"
-msgstr "Phase d’évaluation "
+msgstr "Phase d’estimation"
 
 #: euphorie/content/templates/surveygroup_add.pt:89
 msgid "This is a simpler evaluation algorithm using only two criteria."
@@ -3977,7 +3977,7 @@ msgstr ""
 #. Default: Simplified two criteria
 #: euphorie/content/templates/surveygroup_add.pt:87
 msgid "algorithm_french"
-msgstr ""
+msgstr "Cotation calculée simple (2 critères)"
 
 #: euphorie/content/templates/surveygroup_add.pt:85
 msgid ""
