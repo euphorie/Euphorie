@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-04-28 13:06+0200\n"
+"POT-Creation-Date: 2011-06-08 07:18+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -173,37 +173,35 @@ msgid "error_email_in_use"
 msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύθυνση email."
 
 #. Default: Cancel
-#: euphorie/client/publish.py:210 euphorie/client/publish.py:259
+#: euphorie/client/publish.py:217 euphorie/client/publish.py:266
 #: euphorie/client/settings.py:150 euphorie/client/settings.py:257
-#: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
-#: euphorie/content/templates/surveygroup_add.pt:82
+#: euphorie/content/templates/surveygroup_add.pt:97
 #: euphorie/content/templates/unpublish.pt:22
 msgid "button_cancel"
 msgstr "Άκυρο"
 
 #. Default: Publish
-#: euphorie/client/publish.py:216
+#: euphorie/client/publish.py:223
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Δημοσίευση"
 
-#: euphorie/client/publish.py:220
+#: euphorie/client/publish.py:227
 msgid "Succesfully published the survey"
 msgstr "Επιτυχής δημοσίευση της έρευνας"
 
 #. Default: Create preview
-#: euphorie/client/publish.py:265
+#: euphorie/client/publish.py:272
 msgid "button_preview"
 msgstr "Δημιουργία προεπισκόπησης"
 
-#: euphorie/client/publish.py:272
-msgid ""
-"Succesfully created a preview for the survey. It can be accessed at ${url} ."
+#. Default: Succesfully created a preview for the survey. It can be accessed at
+#. ${url} .
+#: euphorie/client/publish.py:277
+msgid "message_preview_success"
 msgstr ""
-"Επιτυχής δημιουργία προεπισκόπησης για την έρευνα. Διατίθεται στη διεύθυνση "
-"${url} ."
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
@@ -314,7 +312,6 @@ msgstr ""
 #. Default: Measure ${index}
 #: euphorie/client/report.py:619
 #: euphorie/client/templates/report_actionplan.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Μέτρο ${index}"
 
@@ -396,12 +393,12 @@ msgstr "Υπάρχει προϋπολογισμός ${amount} για αυτό τ
 msgid "filename_report_actionplan"
 msgstr ""
 
-#: euphorie/client/risk.py:180 euphorie/client/risk.py:186
-#: euphorie/client/risk.py:207 euphorie/client/risk.py:213
+#: euphorie/client/risk.py:201 euphorie/client/risk.py:207
+#: euphorie/client/risk.py:228 euphorie/client/risk.py:234
 msgid "Invalid day of month"
 msgstr "Μη αποδεκτή ημέρα του μήνα"
 
-#: euphorie/client/risk.py:199 euphorie/client/risk.py:225
+#: euphorie/client/risk.py:220 euphorie/client/risk.py:246
 msgid "Please enter a year after 1900"
 msgstr "Παρακαλώ εισάγετε ένα έτος μεταγενέστερο του 1900"
 
@@ -553,8 +550,8 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 #: euphorie/client/templates/report_actionplan.pt:201
 #: euphorie/client/templates/report_company.pt:93
 #: euphorie/client/templates/report_identification.pt:104
-#: euphorie/client/templates/risk_actionplan.pt:275
-#: euphorie/client/templates/risk_evaluation.pt:122
+#: euphorie/client/templates/risk_actionplan.pt:272
+#: euphorie/client/templates/risk_evaluation.pt:150
 #: euphorie/client/templates/risk_identification.pt:86
 #: euphorie/client/templates/sessions.pt:94
 #: euphorie/client/templates/start.pt:66
@@ -801,17 +798,17 @@ msgstr "Τι είναι το έργο OiRA (Online διαδραστική Αξι
 msgid "title_about"
 msgstr "Σχετικά"
 
+#. Default: Please note that by deleting your account, also all your filled out
+#. surveys will be deleted. Please make sure to download your surveys from the
+#. reports screen prior to deleting your account if you want to keep any.
 #: euphorie/client/templates/account-delete.pt:20
-msgid ""
-"Please note that by deleting your account, also all your filled out surveys "
-"will be deleted. Please make sure to download your surveys from the reports "
-"screen prior to deleting your account if you want to keep any."
+msgid "warning_account_delete_surveys"
 msgstr ""
 
+#. Default: By clicking on 'Delete account', your account will be permenantly
+#. deleted. This action is irreversable.
 #: euphorie/client/templates/account-delete.pt:19
-msgid ""
-"By clicking on 'Delete account', your account will be permenantly deleted. "
-"This action is irreversable."
+msgid "warning_account_delete_irreversible"
 msgstr ""
 
 #. Default: Password
@@ -850,8 +847,8 @@ msgstr "Εθνικοί διευθυντές"
 #: euphorie/client/templates/report_actionplan.pt:203
 #: euphorie/client/templates/report_company.pt:95
 #: euphorie/client/templates/report_identification.pt:106
-#: euphorie/client/templates/risk_actionplan.pt:277
-#: euphorie/client/templates/risk_evaluation.pt:124
+#: euphorie/client/templates/risk_actionplan.pt:274
+#: euphorie/client/templates/risk_evaluation.pt:152
 #: euphorie/client/templates/risk_identification.pt:88
 #: euphorie/client/templates/sessions.pt:95
 #: euphorie/client/templates/start.pt:67
@@ -874,8 +871,8 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/report_actionplan.pt:202
 #: euphorie/client/templates/report_company.pt:94
 #: euphorie/client/templates/report_identification.pt:105
-#: euphorie/client/templates/risk_actionplan.pt:276
-#: euphorie/client/templates/risk_evaluation.pt:123
+#: euphorie/client/templates/risk_actionplan.pt:273
+#: euphorie/client/templates/risk_evaluation.pt:151
 #: euphorie/client/templates/risk_identification.pt:87
 #: euphorie/content/templates/colour-preview.pt:59
 msgid "navigation_status"
@@ -894,8 +891,8 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/report_actionplan.pt:200
 #: euphorie/client/templates/report_company.pt:92
 #: euphorie/client/templates/report_identification.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:274
-#: euphorie/client/templates/risk_evaluation.pt:121
+#: euphorie/client/templates/risk_actionplan.pt:271
+#: euphorie/client/templates/risk_evaluation.pt:149
 #: euphorie/client/templates/risk_identification.pt:85
 #: euphorie/client/templates/start.pt:65
 #: euphorie/client/templates/status.pt:69
@@ -918,8 +915,8 @@ msgstr "Έρευνες"
 #: euphorie/client/templates/report_actionplan.pt:199
 #: euphorie/client/templates/report_company.pt:91
 #: euphorie/client/templates/report_identification.pt:102
-#: euphorie/client/templates/risk_actionplan.pt:273
-#: euphorie/client/templates/risk_evaluation.pt:120
+#: euphorie/client/templates/risk_actionplan.pt:270
+#: euphorie/client/templates/risk_evaluation.pt:148
 #: euphorie/client/templates/risk_identification.pt:84
 #: euphorie/client/templates/sessions.pt:93
 #: euphorie/client/templates/start.pt:64
@@ -944,8 +941,8 @@ msgstr "Αποσύνδεση"
 #: euphorie/client/templates/report_actionplan.pt:192
 #: euphorie/client/templates/report_company.pt:84
 #: euphorie/client/templates/report_identification.pt:95
-#: euphorie/client/templates/risk_actionplan.pt:266
-#: euphorie/client/templates/risk_evaluation.pt:113
+#: euphorie/client/templates/risk_actionplan.pt:263
+#: euphorie/client/templates/risk_evaluation.pt:141
 #: euphorie/client/templates/risk_identification.pt:77
 #: euphorie/client/templates/sessions.pt:87
 #: euphorie/client/templates/start.pt:58
@@ -970,8 +967,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/report_actionplan.pt:191
 #: euphorie/client/templates/report_company.pt:83
 #: euphorie/client/templates/report_identification.pt:94
-#: euphorie/client/templates/risk_actionplan.pt:265
-#: euphorie/client/templates/risk_evaluation.pt:112
+#: euphorie/client/templates/risk_actionplan.pt:262
+#: euphorie/client/templates/risk_evaluation.pt:140
 #: euphorie/client/templates/risk_identification.pt:76
 #: euphorie/client/templates/sessions.pt:86
 #: euphorie/client/templates/start.pt:57
@@ -996,8 +993,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/report_actionplan.pt:186
 #: euphorie/client/templates/report_company.pt:78
 #: euphorie/client/templates/report_identification.pt:89
-#: euphorie/client/templates/risk_actionplan.pt:257
-#: euphorie/client/templates/risk_evaluation.pt:107
+#: euphorie/client/templates/risk_actionplan.pt:254
+#: euphorie/client/templates/risk_evaluation.pt:135
 #: euphorie/client/templates/risk_identification.pt:71
 #: euphorie/client/templates/sessions.pt:83
 #: euphorie/client/templates/start.pt:54
@@ -1023,8 +1020,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/report_actionplan.pt:185
 #: euphorie/client/templates/report_company.pt:77
 #: euphorie/client/templates/report_identification.pt:88
-#: euphorie/client/templates/risk_actionplan.pt:256
-#: euphorie/client/templates/risk_evaluation.pt:106
+#: euphorie/client/templates/risk_actionplan.pt:253
+#: euphorie/client/templates/risk_evaluation.pt:134
 #: euphorie/client/templates/risk_identification.pt:70
 #: euphorie/client/templates/sessions.pt:82
 #: euphorie/client/templates/start.pt:53
@@ -1050,8 +1047,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/report_actionplan.pt:180
 #: euphorie/client/templates/report_company.pt:72
 #: euphorie/client/templates/report_identification.pt:83
-#: euphorie/client/templates/risk_actionplan.pt:251
-#: euphorie/client/templates/risk_evaluation.pt:98
+#: euphorie/client/templates/risk_actionplan.pt:248
+#: euphorie/client/templates/risk_evaluation.pt:126
 #: euphorie/client/templates/risk_identification.pt:65
 #: euphorie/client/templates/sessions.pt:79
 #: euphorie/client/templates/start.pt:50
@@ -1076,8 +1073,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/report_actionplan.pt:179
 #: euphorie/client/templates/report_company.pt:71
 #: euphorie/client/templates/report_identification.pt:82
-#: euphorie/client/templates/risk_actionplan.pt:250
-#: euphorie/client/templates/risk_evaluation.pt:97
+#: euphorie/client/templates/risk_actionplan.pt:247
+#: euphorie/client/templates/risk_evaluation.pt:125
 #: euphorie/client/templates/risk_identification.pt:64
 #: euphorie/client/templates/sessions.pt:78
 #: euphorie/client/templates/start.pt:49
@@ -1103,8 +1100,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/report_actionplan.pt:174
 #: euphorie/client/templates/report_company.pt:66
 #: euphorie/client/templates/report_identification.pt:77
-#: euphorie/client/templates/risk_actionplan.pt:245
-#: euphorie/client/templates/risk_evaluation.pt:92
+#: euphorie/client/templates/risk_actionplan.pt:242
+#: euphorie/client/templates/risk_evaluation.pt:120
 #: euphorie/client/templates/risk_identification.pt:56
 #: euphorie/client/templates/sessions.pt:75
 #: euphorie/client/templates/start.pt:46
@@ -1129,8 +1126,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/report_actionplan.pt:173
 #: euphorie/client/templates/report_company.pt:65
 #: euphorie/client/templates/report_identification.pt:76
-#: euphorie/client/templates/risk_actionplan.pt:244
-#: euphorie/client/templates/risk_evaluation.pt:91
+#: euphorie/client/templates/risk_actionplan.pt:241
+#: euphorie/client/templates/risk_evaluation.pt:119
 #: euphorie/client/templates/risk_identification.pt:55
 #: euphorie/client/templates/sessions.pt:74
 #: euphorie/client/templates/start.pt:45
@@ -1156,8 +1153,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/report_actionplan.pt:168
 #: euphorie/client/templates/report_company.pt:60
 #: euphorie/client/templates/report_identification.pt:71
-#: euphorie/client/templates/risk_actionplan.pt:239
-#: euphorie/client/templates/risk_evaluation.pt:86
+#: euphorie/client/templates/risk_actionplan.pt:236
+#: euphorie/client/templates/risk_evaluation.pt:114
 #: euphorie/client/templates/risk_identification.pt:50
 #: euphorie/client/templates/sessions.pt:71
 #: euphorie/client/templates/start.pt:41
@@ -1182,8 +1179,8 @@ msgstr "Προετοιμασία"
 #: euphorie/client/templates/report_actionplan.pt:167
 #: euphorie/client/templates/report_company.pt:59
 #: euphorie/client/templates/report_identification.pt:70
-#: euphorie/client/templates/risk_actionplan.pt:238
-#: euphorie/client/templates/risk_evaluation.pt:85
+#: euphorie/client/templates/risk_actionplan.pt:235
+#: euphorie/client/templates/risk_evaluation.pt:113
 #: euphorie/client/templates/risk_identification.pt:49
 #: euphorie/client/templates/sessions.pt:70
 #: euphorie/client/templates/start.pt:40
@@ -1668,8 +1665,8 @@ msgstr "Καλώς ήλθατε"
 #: euphorie/client/templates/reminder.pt:35
 #: euphorie/client/templates/report.pt:37
 #: euphorie/client/templates/report_company.pt:52
-#: euphorie/client/templates/risk_actionplan.pt:151
-#: euphorie/client/templates/risk_evaluation.pt:70
+#: euphorie/client/templates/risk_actionplan.pt:152
+#: euphorie/client/templates/risk_evaluation.pt:98
 #: euphorie/client/templates/risk_identification.pt:30
 #: euphorie/client/templates/sessions.pt:64
 #: euphorie/client/templates/survey_sessions.pt:55
@@ -1683,8 +1680,8 @@ msgstr "Επόμενο"
 #: euphorie/client/templates/register.pt:35
 #: euphorie/client/templates/reminder.pt:34
 #: euphorie/client/templates/report_company.pt:51
-#: euphorie/client/templates/risk_actionplan.pt:150
-#: euphorie/client/templates/risk_evaluation.pt:69
+#: euphorie/client/templates/risk_actionplan.pt:151
+#: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:29
 #: euphorie/client/templates/sessions.pt:63
 #: euphorie/client/templates/start.pt:33
@@ -1961,7 +1958,14 @@ msgstr "Παρακαλώ διορθώσετε τα σφάλματα που επ�
 msgid "hader_company_details"
 msgstr "Στοιχεία εταιρείας"
 
-#: euphorie/client/templates/risk_actionplan.pt:282
+#: euphorie/client/templates/risk_actionplan.pt:280
+msgid ""
+"The current text in the fields 'Action plan', 'Prevention plan' and "
+"'Requirements' of this measure will be overwritten. This action cannot be "
+"reverted Are you sure you want to continue?"
+msgstr ""
+
+#: euphorie/client/templates/risk_actionplan.pt:279
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -1970,46 +1974,46 @@ msgstr ""
 "μπορεί να ανακληθεί."
 
 #. Default: Year
-#: euphorie/client/templates/risk_actionplan.pt:226
-#: euphorie/client/templates/risk_actionplan.pt:209
-#: euphorie/client/templates/risk_actionplan.pt:89
+#: euphorie/client/templates/risk_actionplan.pt:223
+#: euphorie/client/templates/risk_actionplan.pt:206
+#: euphorie/client/templates/risk_actionplan.pt:103
 msgid "label_year"
 msgstr "Έτος"
 
 #. Default: Month
-#: euphorie/client/templates/risk_actionplan.pt:221
-#: euphorie/client/templates/risk_actionplan.pt:204
-#: euphorie/client/templates/risk_actionplan.pt:112
-#: euphorie/client/templates/risk_actionplan.pt:82
+#: euphorie/client/templates/risk_actionplan.pt:218
+#: euphorie/client/templates/risk_actionplan.pt:201
+#: euphorie/client/templates/risk_actionplan.pt:126
+#: euphorie/client/templates/risk_actionplan.pt:96
 msgid "label_month"
 msgstr "Μήνας"
 
 #. Default: Day
-#: euphorie/client/templates/risk_actionplan.pt:218
-#: euphorie/client/templates/risk_actionplan.pt:201
+#: euphorie/client/templates/risk_actionplan.pt:215
+#: euphorie/client/templates/risk_actionplan.pt:198
+#: euphorie/client/templates/risk_actionplan.pt:133
 #: euphorie/client/templates/risk_actionplan.pt:119
-#: euphorie/client/templates/risk_actionplan.pt:105
-#: euphorie/client/templates/risk_actionplan.pt:75
+#: euphorie/client/templates/risk_actionplan.pt:89
 msgid "label_day"
 msgstr "Ημέρα"
 
 #. Default: Planning end
-#: euphorie/client/templates/risk_actionplan.pt:215
-#: euphorie/client/templates/risk_actionplan.pt:102
+#: euphorie/client/templates/risk_actionplan.pt:212
+#: euphorie/client/templates/risk_actionplan.pt:116
 msgid "label_action_plan_end"
 msgstr "Τέλος σχεδιασμού"
 
 #. Default: Planning start
-#: euphorie/client/templates/risk_actionplan.pt:198
-#: euphorie/client/templates/risk_actionplan.pt:72
+#: euphorie/client/templates/risk_actionplan.pt:195
+#: euphorie/client/templates/risk_actionplan.pt:86
 msgid "label_action_plan_start"
 msgstr "Έναρξη σχεδιασμού"
 
 #. Default: Although some measures do not cost any money, most do. The measures
 #. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
-#: euphorie/client/templates/risk_actionplan.pt:194
-#: euphorie/client/templates/risk_actionplan.pt:62
+#: euphorie/client/templates/risk_actionplan.pt:191
+#: euphorie/client/templates/risk_actionplan.pt:76
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Παρότι ορισμένα μέτρα δεν ενέχουν κανένα χρηματικό κόστος, τα περισσότερα "
@@ -2018,8 +2022,8 @@ msgstr ""
 "είναι απαραίτητο."
 
 #. Default: Budget (in Euro)
-#: euphorie/client/templates/risk_actionplan.pt:193
-#: euphorie/client/templates/risk_actionplan.pt:61
+#: euphorie/client/templates/risk_actionplan.pt:190
+#: euphorie/client/templates/risk_actionplan.pt:75
 msgid "label_action_plan_budget"
 msgstr "Προϋπολογισμός (σε Ευρώ)"
 
@@ -2027,8 +2031,8 @@ msgstr "Προϋπολογισμός (σε Ευρώ)"
 #. implementation of this measure. This person will have the authority to take the
 #. steps described in the Plan and/or the responsibility to ensure that they are
 #. carried out.
-#: euphorie/client/templates/risk_actionplan.pt:189
-#: euphorie/client/templates/risk_actionplan.pt:56
+#: euphorie/client/templates/risk_actionplan.pt:186
+#: euphorie/client/templates/risk_actionplan.pt:70
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Ορίστε κάποιον στην εταιρεία σας ως υπεύθυνο για την εφαρμογή αυτού του "
@@ -2036,31 +2040,31 @@ msgstr ""
 "που περιγράφονται στο Σχέδιο ή/και την ευθύνη να διασφαλίζει ότι εκτελούνται."
 
 #. Default: Who is responsible?
-#: euphorie/client/templates/risk_actionplan.pt:188
-#: euphorie/client/templates/risk_actionplan.pt:55
+#: euphorie/client/templates/risk_actionplan.pt:185
+#: euphorie/client/templates/risk_actionplan.pt:69
 msgid "label_action_plan_responsible"
 msgstr "Ποιος είναι υπεύθυνος;"
 
 #. Default: Requirements
-#: euphorie/client/templates/risk_actionplan.pt:182
-#: euphorie/client/templates/risk_actionplan.pt:49
-#: euphorie/content/solution.py:51
+#: euphorie/client/templates/risk_actionplan.pt:179
+#: euphorie/client/templates/risk_actionplan.pt:63
+#: euphorie/content/solution.py:50
 #: euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Απαιτήσεις"
 
 #. Default: Prevention plan
-#: euphorie/client/templates/risk_actionplan.pt:179
-#: euphorie/client/templates/risk_actionplan.pt:46
-#: euphorie/content/solution.py:43
+#: euphorie/client/templates/risk_actionplan.pt:176
+#: euphorie/client/templates/risk_actionplan.pt:60
+#: euphorie/content/solution.py:42
 #: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr "Σχέδιο πρόληψης"
 
 #. Default: Action plan
-#: euphorie/client/templates/risk_actionplan.pt:176
-#: euphorie/client/templates/risk_actionplan.pt:43
-#: euphorie/content/solution.py:35
+#: euphorie/client/templates/risk_actionplan.pt:173
+#: euphorie/client/templates/risk_actionplan.pt:57
+#: euphorie/content/solution.py:34
 #: euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Σχέδιο δράσης"
@@ -2073,8 +2077,8 @@ msgstr "Σχέδιο δράσης"
 #. and requirements). In most cases, the prevention officer will help in the
 #. implementation of the Plan: however, he must have the capability or have had the
 #. relevant training to do this.
-#: euphorie/client/templates/risk_actionplan.pt:172
-#: euphorie/client/templates/risk_actionplan.pt:39
+#: euphorie/client/templates/risk_actionplan.pt:169
+#: euphorie/client/templates/risk_actionplan.pt:53
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Σημειώστε στο Σχέδιο ποιο μέτρο αντιμετώπισης θα λάβετε για την αντιμετώπιση "
@@ -2087,150 +2091,188 @@ msgstr ""
 "πρόληψης θα συμβάλλει στην εφαρμογή του Σχεδίου: ωστόσο, πρέπει να έχει την "
 "ικανότητα ή να έχει λάβει τη σχετική κατάρτιση για να κάνει κάτι τέτοιο."
 
-#. Default: Remove
-#: euphorie/client/templates/risk_actionplan.pt:170
-msgid "label_remove"
-msgstr "Αφαίρεση"
-
-#. Default: Measure 2
-#: euphorie/client/templates/risk_actionplan.pt:169
-msgid "measure_template_title"
-msgstr "Μέτρο 2"
+#: euphorie/client/templates/risk_actionplan.pt:166
+#: euphorie/client/templates/risk_actionplan.pt:48
+msgid "Standard solutions"
+msgstr ""
 
 #. Default: Please leave any comments you may have on the question above in this
 #. field. These comments will be used in the action plan.
-#: euphorie/client/templates/risk_actionplan.pt:155
-#: euphorie/client/templates/risk_evaluation.pt:74
+#: euphorie/client/templates/risk_actionplan.pt:156
+#: euphorie/client/templates/risk_evaluation.pt:102
 #: euphorie/client/templates/risk_identification.pt:38
 msgid "label_comment"
 msgstr ""
 "Αφήστε τυχόν σχόλια που μπορεί να έχετε σχετικά με την ερώτηση σε αυτό το "
 "πεδίο. Αυτά τα σχόλια θα χρησιμοποιηθούνσ το σχέδιο δράσης."
 
-#: euphorie/client/templates/risk_actionplan.pt:143
-msgid "Use"
-msgstr "Χρήση"
-
-#. Default: There are known common approaches to this risk. You can create a new
-#. measure based on these approaches.
-#: euphorie/client/templates/risk_actionplan.pt:138
-msgid "help_common_solutions"
-msgstr ""
-"Υπάρχουν γνωστές προσεγγίσεις για αυτό τον κίνδυνο. Μπορείτε να "
-"δημιουργήσετε ένα νέο  μέτρο αντιμετώπισης με βάση αυτές τις προσεγγίσεις."
-
-#. Default: Common solutions
-#: euphorie/client/templates/risk_actionplan.pt:137
-msgid "header_common_solutions"
-msgstr "Κοινές λύσεις"
-
 #. Default: Add another measure
-#: euphorie/client/templates/risk_actionplan.pt:133
+#: euphorie/client/templates/risk_actionplan.pt:147
 msgid "label_add_measure"
 msgstr "Προσθήκη άλλου μέτρου"
 
 #. Default: Please enter a valid year after 1900
-#: euphorie/client/templates/risk_actionplan.pt:124
-#: euphorie/client/templates/risk_actionplan.pt:94
+#: euphorie/client/templates/risk_actionplan.pt:138
+#: euphorie/client/templates/risk_actionplan.pt:108
 msgid "error_invalid_year"
 msgstr "Παρακαλώ εισάγετε ένα αποδεκτό έτος μετά το 1900"
 
 #. Default: Invalid day
-#: euphorie/client/templates/risk_actionplan.pt:110
-#: euphorie/client/templates/risk_actionplan.pt:80
+#: euphorie/client/templates/risk_actionplan.pt:124
+#: euphorie/client/templates/risk_actionplan.pt:94
 msgid "error_invalid_day"
 msgstr "Μη αποδεκτή ημέρα"
 
 #. Default: Please enter the budget in whole Euros.
-#: euphorie/client/templates/risk_actionplan.pt:65
+#: euphorie/client/templates/risk_actionplan.pt:79
 msgid "error_invalid_budget"
 msgstr "Παρακαλώ εισάγετε τον προϋπολογισμό σε ακέραια ευρώ."
 
+#: euphorie/client/templates/risk_actionplan.pt:34
+msgid ""
+"Select a standard solution. The main fields of this measure will be "
+"populated with the chosen solution."
+msgstr ""
+
 #. Default: High
-#: euphorie/client/templates/risk_evaluation.pt:64
-#: euphorie/content/risk.py:134
+#: euphorie/client/templates/risk_evaluation.pt:92
+#: euphorie/content/risk.py:129
 msgid "priority_high"
 msgstr "Υψηλή"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:62
-#: euphorie/content/risk.py:133
+#: euphorie/client/templates/risk_evaluation.pt:90
+#: euphorie/content/risk.py:128
 msgid "priority_medium"
 msgstr "Μέση"
 
 #. Default: Low
-#: euphorie/client/templates/risk_evaluation.pt:60
-#: euphorie/content/risk.py:132
+#: euphorie/client/templates/risk_evaluation.pt:88
+#: euphorie/content/risk.py:127
 msgid "priority_low"
 msgstr "Χαμηλή"
 
 #. Default: Select the priority of this risk
-#: euphorie/client/templates/risk_evaluation.pt:58
+#: euphorie/client/templates/risk_evaluation.pt:86
 msgid "header_risk_priority"
 msgstr "Επιλέξτε την προτεραιότητα για αυτό τον κίνδυνο"
 
+#. Default: Very severe
+#: euphorie/client/templates/risk_evaluation.pt:79
+#: euphorie/content/risk.py:197
+msgid "severity_very_severe"
+msgstr ""
+
+#. Default: Severe
+#: euphorie/client/templates/risk_evaluation.pt:77
+#: euphorie/content/risk.py:196
+msgid "severity_severe"
+msgstr ""
+
+#. Default: Not very severe
+#: euphorie/client/templates/risk_evaluation.pt:75
+#: euphorie/content/risk.py:195
+msgid "severity_not_severe"
+msgstr ""
+
+#. Default: Weak
+#: euphorie/client/templates/risk_evaluation.pt:73
+#: euphorie/content/risk.py:194
+msgid "severity_weak"
+msgstr ""
+
+#. Default: What is the severity of the damage ?
+#: euphorie/client/templates/risk_evaluation.pt:71
+msgid "header_risk_severity"
+msgstr ""
+
+#. Default: Regularly
+#: euphorie/client/templates/risk_evaluation.pt:67
+#: euphorie/content/risk.py:214
+msgid "frequency_french_regularly"
+msgstr ""
+
+#. Default: Often
+#: euphorie/client/templates/risk_evaluation.pt:65
+#: euphorie/content/risk.py:213
+msgid "frequency_french_often"
+msgstr ""
+
+#. Default: Not very often
+#: euphorie/client/templates/risk_evaluation.pt:63
+#: euphorie/content/risk.py:212
+msgid "frequency_french_not_often"
+msgstr ""
+
+#. Default: Rare
+#: euphorie/client/templates/risk_evaluation.pt:61
+#: euphorie/content/risk.py:211
+msgid "frequency_french_rare"
+msgstr ""
+
+#. Default: How often are people exposed to this risk?
+#: euphorie/client/templates/risk_evaluation.pt:59
+#: euphorie/client/templates/risk_evaluation.pt:38
+msgid "header_risk_frequency"
+msgstr "Πόσο συχνά εκτίθενται άνθρωποι σε αυτό τον κίνδυνο;"
+
 #. Default: High (very high) severity
-#: euphorie/client/templates/risk_evaluation.pt:52
+#: euphorie/client/templates/risk_evaluation.pt:54
 msgid "effect_permanent_damage"
 msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
 
 #. Default: Significant severity
-#: euphorie/client/templates/risk_evaluation.pt:50
+#: euphorie/client/templates/risk_evaluation.pt:52
 msgid "effect_injury_with_absence"
 msgstr "Σημαντική σφοδρότητα"
 
 #. Default: Weak severity
-#: euphorie/client/templates/risk_evaluation.pt:48
+#: euphorie/client/templates/risk_evaluation.pt:50
 msgid "effect_injury_no_absence"
 msgstr "Μικρή σφοδρότητα"
 
 #. Default: What is the severity of the damage ?
-#: euphorie/client/templates/risk_evaluation.pt:46
+#: euphorie/client/templates/risk_evaluation.pt:48
 msgid "header_risk_effect"
 msgstr "Ποια είναι η σφοδρότητα της ζημιάς;"
 
 #. Default: Constantly
-#: euphorie/client/templates/risk_evaluation.pt:42
-#: euphorie/content/risk.py:166
+#: euphorie/client/templates/risk_evaluation.pt:44
+#: euphorie/content/risk.py:249
 msgid "frequency_constantly"
 msgstr "Διαρκώς"
 
 #. Default: Regularly
-#: euphorie/client/templates/risk_evaluation.pt:40
-#: euphorie/content/risk.py:165
+#: euphorie/client/templates/risk_evaluation.pt:42
+#: euphorie/content/risk.py:248
 msgid "frequency_regularly"
 msgstr "Τακτικά"
 
 #. Default: Almost never
-#: euphorie/client/templates/risk_evaluation.pt:38
+#: euphorie/client/templates/risk_evaluation.pt:40
 msgid "frequency_almost_never"
 msgstr "Σχεδόν ποτέ"
 
-#. Default: How often are people exposed to this risk?
-#: euphorie/client/templates/risk_evaluation.pt:36
-msgid "header_risk_frequency"
-msgstr "Πόσο συχνά εκτίθενται άνθρωποι σε αυτό τον κίνδυνο;"
-
 #. Default: Large
-#: euphorie/client/templates/risk_evaluation.pt:32
-#: euphorie/content/risk.py:150
+#: euphorie/client/templates/risk_evaluation.pt:34
+#: euphorie/content/risk.py:233
 msgid "probability_large"
 msgstr "Μεγάλη"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:30
-#: euphorie/content/risk.py:149
+#: euphorie/client/templates/risk_evaluation.pt:32
+#: euphorie/content/risk.py:232
 msgid "probability_medium"
 msgstr "Μέτρια"
 
 #. Default: Small
-#: euphorie/client/templates/risk_evaluation.pt:28
-#: euphorie/content/risk.py:148
+#: euphorie/client/templates/risk_evaluation.pt:30
+#: euphorie/content/risk.py:231
 msgid "probability_small"
 msgstr "Μικρή"
 
 #. Default: What is the chance of this risk occurring?
-#: euphorie/client/templates/risk_evaluation.pt:26
+#: euphorie/client/templates/risk_evaluation.pt:28
 msgid "header_risk_probability"
 msgstr "Ποια η πιθανότητα να προκληθεί αυτός ο κίνδυνος;"
 
@@ -2443,19 +2485,29 @@ msgstr "Online διαδραστική"
 msgid "The specified colour is not valid."
 msgstr "Το χρώμα που καθορίστηκε δεν είναι αποδεκτό."
 
-#. Default: This is a region.
-#: euphorie/content/country.py:19
-#, fuzzy
-msgid "label_is_region"
-msgstr "Ενότητα"
-
-#. Default: Regions are international groupings, such as the European Union.
 #: euphorie/content/country.py:21
-#, fuzzy
-msgid "help_is_region"
+msgid "Country grouping"
 msgstr ""
-"Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη σελίδα "
-"προεπισκόπησης ενότητας."
+
+#: euphorie/content/country.py:23
+msgid "Region"
+msgstr ""
+
+#: euphorie/content/country.py:24
+msgid "EU member state"
+msgstr ""
+
+#: euphorie/content/country.py:25
+msgid "EFTA country"
+msgstr ""
+
+#: euphorie/content/country.py:26
+msgid "Candidate country"
+msgstr ""
+
+#: euphorie/content/country.py:27
+msgid "Potential candidate country"
+msgstr ""
 
 #. Default: Introduction
 #: euphorie/content/help.py:15
@@ -2560,13 +2612,13 @@ msgstr ""
 "αυτές τις πληροφορίες δεν υπάρχει άμεση σύνδεση."
 
 #. Default: Description
-#: euphorie/content/module.py:39 euphorie/content/page.py:19
+#: euphorie/content/module.py:35 euphorie/content/page.py:19
 #: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:26
 msgid "label_module_description"
 msgstr "Περιγραφή"
 
 #. Default: Include any relevant information that may be helpful for users.
-#: euphorie/content/module.py:40 euphorie/content/page.py:20
+#: euphorie/content/module.py:36 euphorie/content/page.py:20
 #: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:27
 msgid "help_module_description"
 msgstr ""
@@ -2574,64 +2626,64 @@ msgstr ""
 "χρήστες."
 
 #. Default: This module is optional
-#: euphorie/content/module.py:48
+#: euphorie/content/module.py:44
 msgid "label_module_optional"
 msgstr "Αυτή η μονάδα είναι προαιρετική"
 
 #. Default: Allow users to skip this module and everything inside it.
-#: euphorie/content/module.py:49
+#: euphorie/content/module.py:45
 msgid "help_module_optional"
 msgstr ""
 "Αφήστε τους χρήστες να παρακάμψουν αυτή την ενότητα και οτιδήποτε περιέχει."
 
 #. Default: Question
-#: euphorie/content/module.py:57
+#: euphorie/content/module.py:53
 msgid "label_module_question"
 msgstr "Ερώτηση"
 
 #. Default: The question to ask users if this module is optional. This has to be a
 #. yes/no question.
-#: euphorie/content/module.py:58
+#: euphorie/content/module.py:54
 msgid "help_module_question"
 msgstr ""
 "Η ερώτηση που πρέπει να τεθεί στους χρήστες εάν αυτή η μονάδα είναι "
 "προαιρετική. Πρέπει να απαντηθεί με ναι/όχι."
 
 #. Default: Image file
-#: euphorie/content/module.py:64 euphorie/content/risk.py:194
-#: euphorie/content/risk.py:208 euphorie/content/risk.py:218
-#: euphorie/content/risk.py:228
+#: euphorie/content/module.py:60 euphorie/content/risk.py:142
+#: euphorie/content/risk.py:156 euphorie/content/risk.py:166
+#: euphorie/content/risk.py:176
 msgid "label_image"
 msgstr "Αρχείο εικόνας"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif and
 #. does not contain any special characters.
-#: euphorie/content/module.py:65 euphorie/content/risk.py:195
-#: euphorie/content/risk.py:209 euphorie/content/risk.py:219
-#: euphorie/content/risk.py:229 euphorie/content/sector.py:73
+#: euphorie/content/module.py:61 euphorie/content/risk.py:143
+#: euphorie/content/risk.py:157 euphorie/content/risk.py:167
+#: euphorie/content/risk.py:177 euphorie/content/sector.py:73
 msgid "help_image_upload"
 msgstr ""
 "Ανεβάστε μια εικόνα. Βεβαιωθείτε ότι η εικόνα είναι τύπου png, jpg ή gif και "
 "ότι δεν περιέχει ειδικούς χαρακτήρες."
 
 #. Default: Introduction action plan
-#: euphorie/content/module.py:71
+#: euphorie/content/module.py:67
 msgid "label_solution_direction"
 msgstr "Σχέδιο δράσης εισαγωγής"
 
 #. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
-#: euphorie/content/module.py:72
+#: euphorie/content/module.py:68
 msgid "help_solution_direction"
 msgstr ""
 "Αυτές οι πληροφορίες θα προβληθούν στους χρήστες κατά την εισαγωγή τους στη "
 "μονάδα ενώ επεξεργάζονται το σχέδιο δράσης."
 
-#: euphorie/content/module.py:133
+#: euphorie/content/module.py:129
 msgid "Edit Module"
 msgstr ""
 
-#: euphorie/content/module.py:135
+#: euphorie/content/module.py:131
 msgid "Edit Submodule"
 msgstr ""
 
@@ -2673,78 +2725,65 @@ msgid "profile_repeat"
 msgstr "Επαναλαμβανόμενη"
 
 #. Default: Statement
-#: euphorie/content/risk.py:38
+#: euphorie/content/risk.py:46
 msgid "label_statement"
 msgstr "Δήλωση"
 
 #. Default: This is a short statement about a possible risk.
-#: euphorie/content/risk.py:39
+#: euphorie/content/risk.py:47
 msgid "help_statement"
 msgstr "Αυτή είνα μια σύντομη δήλωση για κάποιον πιθανό κίνδυνο."
 
 #. Default: Inversed statement
-#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:37
+#: euphorie/content/risk.py:53 euphorie/content/templates/risk_view.pt:37
 msgid "label_problem_description"
 msgstr "Προεπιλογή περιγραφής κινδύνου: Αντεστραμμένη δήλωση"
 
 #. Default: This is the inverse of the statement: a short description of current
 #. (bad) situation.
-#: euphorie/content/risk.py:48
+#: euphorie/content/risk.py:55
 msgid "help_problem_description"
 msgstr ""
 "Αυτή είναι η αντιστροφή της δήλωσης: μια σύντομη περιγραφή μιας τρέχουσας "
 "(κακής) κατάστασης."
 
 #. Default: Description
-#: euphorie/content/risk.py:56
+#: euphorie/content/risk.py:63
 msgid "label_description"
 msgstr "Περιγραφή"
 
 #. Default: Describe the risk. Include any relevant information that may be helpful
 #. for users.
-#: euphorie/content/risk.py:57
+#: euphorie/content/risk.py:64
 msgid "help_risk_description"
 msgstr ""
 "Περιγράψτε τον κίνδυνο. Συμπεριλάβετε τυχόν σχετικές πληροφορίες που μπορεί "
 "να είναι χρήσιμες για τους χρήστες."
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:61
+#: euphorie/content/risk.py:72 euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
 #. Default: Identification
-#: euphorie/content/risk.py:71
+#: euphorie/content/risk.py:78
 msgid "header_identification"
 msgstr "Αναγνώριση"
 
 #. Default: Show `not applicable' option
-#: euphorie/content/risk.py:75
+#: euphorie/content/risk.py:82
 msgid "label_show_notapplicable"
 msgstr "Εμφάνιση επιλογής 'δεν ισχύει'"
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
-#: euphorie/content/risk.py:77
+#: euphorie/content/risk.py:84
 msgid "help_show_notapplicable"
 msgstr ""
 "Παρέχετε μια επιλογή 'δεν ισχύει' εκτός από τις στάνταρ επιλογές ναι/όχι."
 
-#. Default: Evaluation
-#: euphorie/content/risk.py:83
-msgid "header_evaluation"
-msgstr "Αξιολόγηση"
-
-#. Default: You can specify how the risks priority is evaluated. For more details
-#. see the online manual.
-#: euphorie/content/risk.py:84
-msgid "intro_evaluation"
-msgstr ""
-"Μπορείτε να ορίσετε τον τρόπο με τον οποίο αξιολογείται η προτεραιότητα των "
-"κινδύνων. Για περισσότερες λεπτομέρειες, δείτε το online εγχειρίδιο."
-
 #. Default: Risk type
-#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:35
+#: euphorie/content/risk.py:90 euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
 msgstr "Τύπος κινδύνου"
 
@@ -2752,7 +2791,7 @@ msgstr "Τύπος κινδύνου"
 #. procedures and management decisions. It can be answered from behind a desk (no
 #. need to examine the workplace). 'Top 5' is one of the top five risks of the
 #. sector.
-#: euphorie/content/risk.py:95
+#: euphorie/content/risk.py:91
 msgid "help_risk_type"
 msgstr ""
 "Ο 'Κίνδυνος' αφορά στο χώρο εργασίας. Η 'Πολιτική' αφορά στις συμφωνίες, τις "
@@ -2761,141 +2800,158 @@ msgstr ""
 "ένας από τους πέντε κορυφαίους κινδύνους του τομέα."
 
 #. Default: Top 5
-#: euphorie/content/risk.py:102
+#: euphorie/content/risk.py:98
 msgid "risktype_top5"
 msgstr "Top 5"
 
 #. Default: Risk
-#: euphorie/content/risk.py:103
+#: euphorie/content/risk.py:99
 msgid "risktype_risk"
 msgstr "Κίνδυνος"
 
 #. Default: Policy
-#: euphorie/content/risk.py:104
+#: euphorie/content/risk.py:100
 msgid "risktype_policy"
 msgstr "Πολιτική"
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:43
+#: euphorie/content/risk.py:107 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
 msgstr "Μέθοδος αξιολόγησης"
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
-#: euphorie/content/risk.py:113
+#: euphorie/content/risk.py:108
 msgid "help_evaluation_method"
 msgstr ""
 "Επιλέξτε 'κατ' εκτίμηση' εάν ο υπολογισμός δεν είναι απαραίτητος ή εφικτός."
 
 #. Default: Estimated
-#: euphorie/content/risk.py:117
+#: euphorie/content/risk.py:112
 msgid "evalmethod_direct"
 msgstr "Κατ' εκτίμηση"
 
 #. Default: Calculated
-#: euphorie/content/risk.py:118
+#: euphorie/content/risk.py:113
 msgid "evalmethod_calculated"
 msgstr "Υπολογισμένος"
 
 #. Default: Default priority
-#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:46
+#: euphorie/content/risk.py:121 euphorie/content/templates/risk_view.pt:47
 msgid "label_default_priority"
 msgstr "Προεπιλεγμένη προτεραιότητα"
 
 #. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
-#: euphorie/content/risk.py:127
+#: euphorie/content/risk.py:122
 msgid "help_default_priority"
 msgstr ""
 "Μπορείτε να βοηθήσετε το χρήστη επιλέγοντας μια προεπιλεγμένη προτεραιότητα. "
 "Ο χρήστης μπορεί να αλλάξει την προτεραιότητα."
 
 #. Default: No default
-#: euphorie/content/risk.py:131
+#: euphorie/content/risk.py:126
 msgid "no_default"
 msgstr "Χωρίς προεπιλογή"
 
-#. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:50
-msgid "label_default_probability"
-msgstr "Προεπιγμένη πιθανότητα"
-
-#. Default: Indicate how likely occurence of this risk is in a normal situation.
-#: euphorie/content/risk.py:143
-msgid "help_default_probability"
-msgstr ""
-"Επισημάνετε πόσο πιθανό είναι να σημειωθεί αυτός ο κίνδυνος σε μια "
-"φυσιολογική κατάσταση."
-
-#. Default: No default
-#: euphorie/content/risk.py:147 euphorie/content/risk.py:163
-#: euphorie/content/risk.py:178
-msgid "no default"
-msgstr "Χωρίς προεπιλογή"
-
-#. Default: Default frequency
-#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:52
-msgid "label_default_frequency"
-msgstr "Προεπιλεγμένη συχνότητα"
-
-#. Default: Indicate how often this risk occurs in a normal situation.
-#: euphorie/content/risk.py:159
-msgid "help_default_frequency"
-msgstr ""
-"Επισημάνετε πόσο συχνά ο κίνδυνος παρατηρείται σε μια φυσιολογική κατάσταση."
-
-#. Default: Almost never
-#: euphorie/content/risk.py:164
-msgid "frequency_almostnever"
-msgstr "Σχεδόν ποτέ"
-
-#. Default: Default severity
-#: euphorie/content/risk.py:174
-msgid "label_default_severity"
-msgstr "Προεπιλεγμένη σφοδρότητα"
-
-#. Default: Indicate the severity of the manage if this risk occurs.
-#: euphorie/content/risk.py:175
-msgid "help_default_severity"
-msgstr "Επισημάνετε τη σφοδρότητα του κινδύνου εάν ο κίνδυνος προκληθεί."
-
-#. Default: Weak severity
-#: euphorie/content/risk.py:179
-msgid "effect_weak"
-msgstr "Μικρή σφοδρότητα"
-
-#. Default: Significant severity
-#: euphorie/content/risk.py:180
-msgid "effect_significant"
-msgstr "Σημαντική σφοδρότητα"
-
-#. Default: High (very high) severity
-#: euphorie/content/risk.py:181
-msgid "effect_high"
-msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
-
 #. Default: Main image
-#: euphorie/content/risk.py:187
+#: euphorie/content/risk.py:135
 msgid "header_main_image"
 msgstr "Κύρια εικόνα"
 
 #. Default: The main image will get a more prominent position in the client than
 #. the other images.
-#: euphorie/content/risk.py:188
+#: euphorie/content/risk.py:136
 msgid "intro_main_image"
 msgstr ""
 "Η κύρια εικόνα θα τοποθετηθεί σε μια πιο περίοπτη θέση στον πελάτη σε σχέση "
 "με τις άλλες εικόνες."
 
 #. Default: Image caption
-#: euphorie/content/risk.py:200 euphorie/content/risk.py:214
-#: euphorie/content/risk.py:224 euphorie/content/risk.py:234
+#: euphorie/content/risk.py:148 euphorie/content/risk.py:162
+#: euphorie/content/risk.py:172 euphorie/content/risk.py:182
 msgid "label_caption"
 msgstr "Λεζάντα εικόνας"
 
 #. Default: Secondary images
-#: euphorie/content/risk.py:204
+#: euphorie/content/risk.py:152
 msgid "header_secondary_images"
 msgstr "Δευτερεύουσες εικόνες"
+
+#. Default: Default severity
+#: euphorie/content/risk.py:191 euphorie/content/risk.py:257
+#: euphorie/content/templates/risk_view.pt:53
+msgid "label_default_severity"
+msgstr "Προεπιλεγμένη σφοδρότητα"
+
+#. Default: No default
+#: euphorie/content/risk.py:193 euphorie/content/risk.py:210
+#: euphorie/content/risk.py:230 euphorie/content/risk.py:246
+#: euphorie/content/risk.py:261
+msgid "no default"
+msgstr "Χωρίς προεπιλογή"
+
+#. Default: Default frequency
+#: euphorie/content/risk.py:205 euphorie/content/risk.py:241
+#: euphorie/content/templates/risk_view.pt:62
+#: euphorie/content/templates/risk_view.pt:55
+msgid "label_default_frequency"
+msgstr "Προεπιλεγμένη συχνότητα"
+
+#. Default: Indicate how often this risk occurs in a normal situation.
+#: euphorie/content/risk.py:206 euphorie/content/risk.py:242
+msgid "help_default_frequency"
+msgstr ""
+"Επισημάνετε πόσο συχνά ο κίνδυνος παρατηρείται σε μια φυσιολογική κατάσταση."
+
+#. Default: Default probability
+#: euphorie/content/risk.py:225 euphorie/content/templates/risk_view.pt:60
+msgid "label_default_probability"
+msgstr "Προεπιγμένη πιθανότητα"
+
+#. Default: Indicate how likely occurence of this risk is in a normal situation.
+#: euphorie/content/risk.py:226
+msgid "help_default_probability"
+msgstr ""
+"Επισημάνετε πόσο πιθανό είναι να σημειωθεί αυτός ο κίνδυνος σε μια "
+"φυσιολογική κατάσταση."
+
+#. Default: Almost never
+#: euphorie/content/risk.py:247
+msgid "frequency_almostnever"
+msgstr "Σχεδόν ποτέ"
+
+#. Default: Indicate the severity of the manage if this risk occurs.
+#: euphorie/content/risk.py:258
+msgid "help_default_severity"
+msgstr "Επισημάνετε τη σφοδρότητα του κινδύνου εάν ο κίνδυνος προκληθεί."
+
+#. Default: Weak severity
+#: euphorie/content/risk.py:262
+msgid "effect_weak"
+msgstr "Μικρή σφοδρότητα"
+
+#. Default: Significant severity
+#: euphorie/content/risk.py:263
+msgid "effect_significant"
+msgstr "Σημαντική σφοδρότητα"
+
+#. Default: High (very high) severity
+#: euphorie/content/risk.py:264
+msgid "effect_high"
+msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
+
+#. Default: Evaluation
+#: euphorie/content/risk.py:272 euphorie/content/risk.py:286
+msgid "header_evaluation"
+msgstr "Αξιολόγηση"
+
+#. Default: You can specify how the risks priority is evaluated. For more details
+#. see the online manual.
+#: euphorie/content/risk.py:273 euphorie/content/risk.py:287
+msgid "intro_evaluation"
+msgstr ""
+"Μπορείτε να ορίσετε τον τρόπο με τον οποίο αξιολογείται η προτεραιότητα των "
+"κινδύνων. Για περισσότερες λεπτομέρειες, δείτε το online εγχειρίδιο."
 
 #. Default: Contact name
 #: euphorie/content/sector.py:66
@@ -2919,7 +2975,7 @@ msgstr "Δευτερεύον χρώμα"
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:36
+#: euphorie/content/solution.py:35
 msgid "help_measure_action_plan"
 msgstr ""
 "Περιγράψτε την ενέργεια που μπορεί να διεξαχθεί για την εξάλειψη αυτού του "
@@ -2927,7 +2983,7 @@ msgstr ""
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:44
+#: euphorie/content/solution.py:43
 msgid "help_measure_prevention_plan"
 msgstr ""
 "Περιγράψτε τι μπορεί να γίνει για να αποτραπεί η (επαν)εμφάνιση αυτού του "
@@ -2935,14 +2991,14 @@ msgstr ""
 
 #. Default: Describe the standard requirements for the action plan and prevention
 #. plan. This information will be copied to the measure.
-#: euphorie/content/solution.py:52
+#: euphorie/content/solution.py:51
 msgid "help_measure_requirements"
 msgstr ""
 "Περιγράψτε τις τυπικές απαιτήσεις για το σχέδιο δράσης και το σχέδιο "
 "πρόληψης. Αυτές οι πληροφορίες θα αντιγραφούν στο μέτρο αντιμετώπισης."
 
 #. Default: Common solution
-#: euphorie/content/solution.py:63
+#: euphorie/content/solution.py:62
 msgid "title_common_solution"
 msgstr "Κοινή λύση"
 
@@ -3011,105 +3067,122 @@ msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση έρευνας."
 
 #. Default: Title
-#: euphorie/content/surveygroup.py:36
+#: euphorie/content/surveygroup.py:38
 msgid "label_title"
 msgstr "Τίτλος"
 
 #. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
-#: euphorie/content/surveygroup.py:37
+#: euphorie/content/surveygroup.py:39
 msgid "help_surveygroup_title"
 msgstr ""
 "Ο τίτλος αυτής της έρευνας. Αυτός ο τίτλος χρησιμοποιείται στην "
 "προεπισκόπηση της έρευνας στους πελάτες"
 
+#. Default: Evaluation algorithm
+#: euphorie/content/surveygroup.py:48
+msgid "label_survey_evaluation_algorithm"
+msgstr ""
+
+#. Default: Standard three critiera
+#. Default: Standard three criteria
+#: euphorie/content/surveygroup.py:50
+#: euphorie/content/templates/surveygroup_add.pt:83
+msgid "algorithm_kinney"
+msgstr ""
+
+#. Default: Simplified two criteria
+#: euphorie/content/surveygroup.py:51
+msgid "french"
+msgstr ""
+
 #. Default: Standard
-#: euphorie/content/surveygroup.py:188
+#: euphorie/content/surveygroup.py:201
 msgid "survey_default_title"
 msgstr "Πρότυπο"
 
 #. Default: This survey is now no longer available in the client.
-#: euphorie/content/surveygroup.py:222
+#: euphorie/content/surveygroup.py:235
 #, fuzzy
 msgid "message_unpublish_success"
 msgstr "${label} Έκδοση που είναι online τη συγκεκριμένη στιγμή"
 
 #. Default: Cancelled unpublish action.
-#: euphorie/content/surveygroup.py:225
+#: euphorie/content/surveygroup.py:238
 #, fuzzy
 msgid "message_unpublish_cancel"
 msgstr "${label} Έκδοση που είναι online τη συγκεκριμένη στιγμή"
 
 #. Default: Title of sector.
-#: euphorie/content/upload.py:62
+#: euphorie/content/upload.py:65
 msgid "label_sector_title"
 msgstr "Τίτλος του τομέα."
 
 #. Default: If you do not specify a title it will be taken from the input file.
-#: euphorie/content/upload.py:63
+#: euphorie/content/upload.py:66
 msgid "help_sector_title"
 msgstr ""
 "Εάν δεν ορίσετε έναν τίτλο, θα υιοθετηθεί από το αρχείο δεδομένων που θα "
 "εισάγετε."
 
 #. Default: Login name
-#: euphorie/content/upload.py:69 euphorie/content/user.py:57
+#: euphorie/content/upload.py:72 euphorie/content/user.py:57
 msgid "label_login_name"
 msgstr ""
 
 #. Default: Title of imported survey.
-#: euphorie/content/upload.py:74 euphorie/content/upload.py:93
+#: euphorie/content/upload.py:77 euphorie/content/upload.py:96
 msgid "label_surveygroup_title"
 msgstr "Τίτλος εισαχθείσας έρευνας."
 
 #. Default: If you do not specify a title it will be taken from the input.
-#: euphorie/content/upload.py:75 euphorie/content/upload.py:94
+#: euphorie/content/upload.py:78 euphorie/content/upload.py:97
 msgid "help_upload_surveygroup_title"
 msgstr "Εάν δεν ορίσετε τίτλο, θα υιοθετηθεί από τα δεδομένα που θα εισάγετε."
 
 #. Default: Name for survey version
-#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
+#: euphorie/content/upload.py:84 euphorie/content/upload.py:103
 msgid "label_upload_survey_title"
 msgstr "Όνομα για την έκδοση της έρευνας"
 
-#: euphorie/content/upload.py:82
+#: euphorie/content/upload.py:85
 msgid "Standard"
 msgstr "Πρότυπο"
 
 #. Default: XML file
-#: euphorie/content/upload.py:86 euphorie/content/upload.py:105
+#: euphorie/content/upload.py:89 euphorie/content/upload.py:108
 msgid "label_upload_filename"
 msgstr "Αρχείο XML"
 
-#: euphorie/content/upload.py:101
+#: euphorie/content/upload.py:104
 msgid "Survey import"
 msgstr "Εισαγωγή έρευνας"
 
-#: euphorie/content/upload.py:293
+#: euphorie/content/upload.py:304
 msgid "Import survey version"
 msgstr "Εισαγωγή έκδοσης έρευνας"
 
-#: euphorie/content/upload.py:295
+#: euphorie/content/upload.py:306
 msgid "Upload"
 msgstr "Ανέβασμα (Upload)"
 
 #. Default: Please upload a valid XML file
-#: euphorie/content/upload.py:307 euphorie/content/upload.py:338
+#: euphorie/content/upload.py:318 euphorie/content/upload.py:349
 msgid "error_invalid_xml"
 msgstr "Παρακαλώ ανεβάστε ένα αποδεκτό αρχείο XML"
 
 #. Default: Succesfully imported the survey
-#: euphorie/content/upload.py:310 euphorie/content/upload.py:341
+#: euphorie/content/upload.py:321 euphorie/content/upload.py:352
 msgid "upload_success"
 msgstr "Η εισαγωγή της έρευνας ολοκληρώθηκε με επιτυχία"
 
 #. Default: Import sector and survey
-#: euphorie/content/upload.py:323
+#: euphorie/content/upload.py:334
 msgid "title_import_sector_survey"
 msgstr "Εισαγωγή τομέα και έρευνας"
 
 #. Default: Upload
-#: euphorie/content/upload.py:325
+#: euphorie/content/upload.py:336
 msgid "button_upload"
 msgstr "Ανέβασμα (Upload)"
 
@@ -3155,7 +3228,7 @@ msgstr "Ο λογαριασμός \"${title}\" είναι κλειδωμένος
 msgid "message_user_unlocked"
 msgstr "Ο λογαριασμός \"${title}\" έχει ξεκλειδωθεί."
 
-#: euphorie/content/utils.py:8
+#: euphorie/content/utils.py:10
 msgid "European Union"
 msgstr ""
 
@@ -3227,32 +3300,20 @@ msgstr "Μια σελίδα με κείμενο"
 msgid "Page"
 msgstr "Σελίδα"
 
-#. Default: The basic architecture of an Online interactive Risk Assessment
-#. consists of: - profile questions (questions defining the company profile) -
-#. modules and potentially sub-modules - risks (positive statements) Profile
-#. questions are used to determine whether particular modules apply to the end user
-#. at all (OPTIONAL), or whether they should be repeated a number of times
-#. (REPEATABLE). Such questions are asked BEFORE starting the risk identification
-#. and evaluation. If the end-user does not confirm that an optional profile
-#. question is relevant (by ticking the box), then the corresponding module will be
-#. skipped entirely. If the end-user enters more than one option to a repeatable
-#. profile question then the corresponding module will be repeated the specified
-#. number of times.
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid "description_profilequestion"
+msgid ""
+"The basic architecture of an Online interactive Risk Assessment consists of: "
+"- profile questions (questions defining the company profile) - modules and "
+"potentially sub-modules - risks (positive statements) Profile questions are "
+"used to determine whether particular modules apply to the end user at all "
+"(OPTIONAL), or whether they should be repeated a number of times "
+"(REPEATABLE). Such questions are asked BEFORE starting the risk "
+"identification and evaluation. If the end-user does not confirm that an "
+"optional profile question is relevant (by ticking the box), then the "
+"corresponding module will be skipped entirely. If the end-user enters more "
+"than one option to a repeatable profile question then the corresponding "
+"module will be repeated the specified number of times."
 msgstr ""
-"Η βασική αρχιτεκτονική μιας Online διαδραστικής αξιολόγησης κινδύνων "
-"αποτελείται από: - ερωτήσεις προφίλ (ερωτήσεις που προσδιορίζουν το προφίλ "
-"της εταιρείας) - μονάδες και πιθανόν υπο-μονάδες - κινδύνους (θετικές "
-"δηλώσεις) Οι ερωτήσεις προφίλ χρησιμοποιούνται για να προσδιοριστεί εάν "
-"κάποιες συγκεκριμένες ενότητες ισχύουν έστω και κατ' ελάχιστο για τον τελικό "
-"χρήστη (ΠΡΟΑΙΡΕΤΙΚΟ) ή εάν πρέπει να επαναλαμβάνονται κάποιες φορές "
-"(ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ). Αυτές οι ερωτήσεις τίθενται ΠΡΙΝ αρχίσει η ταυτοποίηση "
-"και αξιολόγηση κινδύνου. Εάν ο τελικός χρήστης δεν επιβεβαιώσει ότι μια "
-"προαιρετική ερώτηση προφίλ είναι σχετική (επιλέγοντας το πλαίσιο), τότε η "
-"αντίστοιχη μονάδα θα παρακαμφθεί εντελώς. Εάν ο τελικός χρήστης εισάγει "
-"περισσότερες από μια επιλογές σε μια ερώτηση προφίλ με δυνατότητα επανάληψης "
-"τότε η αντίστοιχη μονάδα θα επαναληφθεί συγκεκριμένες φορές."
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -3273,6 +3334,7 @@ msgstr ""
 "βιομηχανίας."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
+#: euphorie/content/templates/user_mgmt.pt:26
 msgid "Sector"
 msgstr "Τομέας"
 
@@ -3443,45 +3505,18 @@ msgstr "Αυτό είναι ένα στοιχείο προφίλ με δυνατ
 msgid "profilequestion_type_optional"
 msgstr "Αυτό είναι ένα προαιρετικό στοιχείο προφίλ."
 
-#. Default: Save
-#: euphorie/content/templates/risk_edit.pt:61
-msgid "button_save"
-msgstr "Αποθήκευση"
-
-#. Default: Secondary image 3
-#: euphorie/content/templates/risk_edit.pt:53
-msgid "header_secondary_images_3"
-msgstr "Δευτερεύουσα εικόνα 3"
-
-#. Default: Secondary image 2
-#: euphorie/content/templates/risk_edit.pt:47
-msgid "header_secondary_images_2"
-msgstr "Δευτερεύουσα εικόνα 2"
-
-#. Default: Secondary image 1
-#: euphorie/content/templates/risk_edit.pt:41
-msgid "header_secondary_images_1"
-msgstr "Δευτερεύουσα εικόνα 1"
-
-#: euphorie/content/templates/risk_edit.pt:37
-#: euphorie/content/templates/risk_edit.pt:32
-#: euphorie/content/templates/risk_edit.pt:27
-#: euphorie/content/templates/risk_edit.pt:22
-msgid "Group name"
-msgstr "Όνομα ομάδας"
-
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:68
+#: euphorie/content/templates/risk_view.pt:79
 msgid "risk_solution_header"
 msgstr "Λύση ${number}"
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:65
+#: euphorie/content/templates/risk_view.pt:76
 msgid "header_solutions"
 msgstr "Στάνταρ λύσεις"
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:54
+#: euphorie/content/templates/risk_view.pt:64
 msgid "label_default_effect"
 msgstr "Προεπιλεγμένο εφέ"
 
@@ -3526,11 +3561,23 @@ msgstr "Δεν υπάρχουν έρευνες. Μπορείτε να ${add_link
 msgid "header_sector_survey_list"
 msgstr "Έρευνες"
 
-#. Default: Countries
+#: euphorie/content/templates/sectorcontainer_view.pt:42
+msgid "Potential Candidate EFTA Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:36
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
+msgid "Candidate Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:30
+msgid "EFTA Countries"
+msgstr ""
+
 #: euphorie/content/templates/sectorcontainer_view.pt:24
-#, fuzzy
-msgid "header_countries"
-msgstr "Εθνικοί διευθυντές"
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
+msgid "EU Member States"
+msgstr ""
 
 #. Default: Regions
 #: euphorie/content/templates/sectorcontainer_view.pt:18
@@ -3560,6 +3607,7 @@ msgstr "Αποθήκευση αλλαγών"
 #: euphorie/content/templates/settings.pt:82
 #: euphorie/content/templates/settings.pt:61
 #: euphorie/content/templates/settings.pt:34
+#: euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Πληροφορίες"
 
@@ -3675,7 +3723,7 @@ msgstr "Στάνταρ λύσεις"
 
 #. Default: Create
 #: euphorie/content/templates/survey_add.pt:25
-#: euphorie/content/templates/surveygroup_add.pt:81
+#: euphorie/content/templates/surveygroup_add.pt:96
 msgid "button_create"
 msgstr "Δημιουργία"
 
@@ -3729,6 +3777,20 @@ msgstr "Προαιρετικό"
 #: euphorie/content/templates/survey_view.pt:18
 msgid "label_evaluation_phase"
 msgstr "Φάση αξιολόγησης"
+
+#: euphorie/content/templates/surveygroup_add.pt:89
+msgid "This is a simpler evaluation algorithm using only two criteria."
+msgstr ""
+
+#. Default: Simplified two criteria
+#: euphorie/content/templates/surveygroup_add.pt:87
+msgid "algorithm_french"
+msgstr ""
+
+#: euphorie/content/templates/surveygroup_add.pt:85
+msgid ""
+"This is the recommended evaluation algorithm, based on the Kinney method"
+msgstr ""
 
 #. Default: Choose a revision of the selected survey
 #: euphorie/content/templates/surveygroup_add.pt:73
@@ -3796,34 +3858,47 @@ msgid "title_unpublish"
 msgstr "Δημοσιεύτηκε"
 
 #. Default: Unlock
-#: euphorie/content/templates/user_mgmt.pt:58
-#: euphorie/content/templates/user_mgmt.pt:36
+#: euphorie/content/templates/user_mgmt.pt:80
+#: euphorie/content/templates/user_mgmt.pt:47
 msgid "button_unlock"
 msgstr "Ξεκλείδωμα"
 
 #. Default: Lock
-#: euphorie/content/templates/user_mgmt.pt:57
-#: euphorie/content/templates/user_mgmt.pt:35
+#: euphorie/content/templates/user_mgmt.pt:79
+#: euphorie/content/templates/user_mgmt.pt:41
 msgid "button_lock"
 msgstr "Κλείδωμα"
 
 #. Default: Edit
-#: euphorie/content/templates/user_mgmt.pt:56
-#: euphorie/content/templates/user_mgmt.pt:34
+#: euphorie/content/templates/user_mgmt.pt:78
+#: euphorie/content/templates/user_mgmt.pt:40
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:32
 msgid "button_edit"
 msgstr "Επεξεργασία"
 
+#: euphorie/content/templates/user_mgmt.pt:68
+#: euphorie/content/templates/user_mgmt.pt:27
+msgid "Login"
+msgstr ""
+
+#: euphorie/content/templates/user_mgmt.pt:67
+msgid "Name"
+msgstr ""
+
 #. Default: There are no country managers for this country.
-#: euphorie/content/templates/user_mgmt.pt:44
+#: euphorie/content/templates/user_mgmt.pt:60
 msgid "country_no_managers"
 msgstr "Δεν υπάρχουν εθνικοί διευθυντές για αυτή τη χώρα."
 
 #. Default: Country managers
-#: euphorie/content/templates/user_mgmt.pt:42
+#: euphorie/content/templates/user_mgmt.pt:59
 msgid "header_country_managers"
 msgstr "Εθνικοί διευθυντές"
+
+#: euphorie/content/templates/user_mgmt.pt:28
+msgid "Password"
+msgstr ""
 
 #. Default: There are no sectors for this country.
 #: euphorie/content/templates/user_mgmt.pt:21
@@ -3929,6 +4004,14 @@ msgstr "Εναλλαγή"
 msgid "title_toggle_navtree"
 msgstr "Εμφάνιση παλαιότερων εκδόσεων"
 
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr ""
+
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr ""
+
 #. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
 #: euphorie/deployment/tiles/templates/versions.pt:55
@@ -4018,3 +4101,72 @@ msgstr "Αντίγραφο"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
+
+#~ msgid ""
+#~ "Succesfully created a preview for the survey. It can be accessed at "
+#~ "${url} ."
+#~ msgstr ""
+#~ "Επιτυχής δημιουργία προεπισκόπησης για την έρευνα. Διατίθεται στη "
+#~ "διεύθυνση ${url} ."
+
+#~ msgid "label_remove"
+#~ msgstr "Αφαίρεση"
+
+#~ msgid "measure_template_title"
+#~ msgstr "Μέτρο 2"
+
+#~ msgid "Use"
+#~ msgstr "Χρήση"
+
+#~ msgid "help_common_solutions"
+#~ msgstr ""
+#~ "Υπάρχουν γνωστές προσεγγίσεις για αυτό τον κίνδυνο. Μπορείτε να "
+#~ "δημιουργήσετε ένα νέο  μέτρο αντιμετώπισης με βάση αυτές τις προσεγγίσεις."
+
+#~ msgid "header_common_solutions"
+#~ msgstr "Κοινές λύσεις"
+
+#, fuzzy
+#~ msgid "label_is_region"
+#~ msgstr "Ενότητα"
+
+#, fuzzy
+#~ msgid "help_is_region"
+#~ msgstr ""
+#~ "Περιγράψτε το χειρισμό από το χρήστη. Αυτό το κείμενο συνδέεται με τη "
+#~ "σελίδα προεπισκόπησης ενότητας."
+
+#~ msgid "description_profilequestion"
+#~ msgstr ""
+#~ "Η βασική αρχιτεκτονική μιας Online διαδραστικής αξιολόγησης κινδύνων "
+#~ "αποτελείται από: - ερωτήσεις προφίλ (ερωτήσεις που προσδιορίζουν το "
+#~ "προφίλ της εταιρείας) - μονάδες και πιθανόν υπο-μονάδες - κινδύνους "
+#~ "(θετικές δηλώσεις) Οι ερωτήσεις προφίλ χρησιμοποιούνται για να "
+#~ "προσδιοριστεί εάν κάποιες συγκεκριμένες ενότητες ισχύουν έστω και κατ' "
+#~ "ελάχιστο για τον τελικό χρήστη (ΠΡΟΑΙΡΕΤΙΚΟ) ή εάν πρέπει να "
+#~ "επαναλαμβάνονται κάποιες φορές (ΕΠΑΝΑΛΑΜΒΑΝΟΜΕΝΕΣ). Αυτές οι ερωτήσεις "
+#~ "τίθενται ΠΡΙΝ αρχίσει η ταυτοποίηση και αξιολόγηση κινδύνου. Εάν ο "
+#~ "τελικός χρήστης δεν επιβεβαιώσει ότι μια προαιρετική ερώτηση προφίλ είναι "
+#~ "σχετική (επιλέγοντας το πλαίσιο), τότε η αντίστοιχη μονάδα θα παρακαμφθεί "
+#~ "εντελώς. Εάν ο τελικός χρήστης εισάγει περισσότερες από μια επιλογές σε "
+#~ "μια ερώτηση προφίλ με δυνατότητα επανάληψης τότε η αντίστοιχη μονάδα θα "
+#~ "επαναληφθεί συγκεκριμένες φορές."
+
+#~ msgid "button_save"
+#~ msgstr "Αποθήκευση"
+
+#~ msgid "header_secondary_images_3"
+#~ msgstr "Δευτερεύουσα εικόνα 3"
+
+#~ msgid "header_secondary_images_2"
+#~ msgstr "Δευτερεύουσα εικόνα 2"
+
+#~ msgid "header_secondary_images_1"
+#~ msgstr "Δευτερεύουσα εικόνα 1"
+
+#~ msgid "Group name"
+#~ msgstr "Όνομα ομάδας"
+
+#, fuzzy
+#~ msgid "header_countries"
+#~ msgstr "Εθνικοί διευθυντές"

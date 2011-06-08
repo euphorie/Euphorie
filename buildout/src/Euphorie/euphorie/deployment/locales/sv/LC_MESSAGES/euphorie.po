@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-04-28 13:06+0200\n"
+"POT-Creation-Date: 2011-06-08 07:18+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -171,37 +171,35 @@ msgid "error_email_in_use"
 msgstr "Ett konto med denna e-postadress existerar redan."
 
 #. Default: Cancel
-#: euphorie/client/publish.py:210 euphorie/client/publish.py:259
+#: euphorie/client/publish.py:217 euphorie/client/publish.py:266
 #: euphorie/client/settings.py:150 euphorie/client/settings.py:257
-#: euphorie/content/templates/risk_edit.pt:62
 #: euphorie/content/templates/settings.pt:100
 #: euphorie/content/templates/survey_add.pt:26
-#: euphorie/content/templates/surveygroup_add.pt:82
+#: euphorie/content/templates/surveygroup_add.pt:97
 #: euphorie/content/templates/unpublish.pt:22
 msgid "button_cancel"
 msgstr "Avbryt"
 
 #. Default: Publish
-#: euphorie/client/publish.py:216
+#: euphorie/client/publish.py:223
 #: euphorie/deployment/tiles/templates/versions.pt:20
 msgid "button_publish"
 msgstr "Publicera"
 
-#: euphorie/client/publish.py:220
+#: euphorie/client/publish.py:227
 msgid "Succesfully published the survey"
 msgstr "Undersökningen har publicerats"
 
 #. Default: Create preview
-#: euphorie/client/publish.py:265
+#: euphorie/client/publish.py:272
 msgid "button_preview"
 msgstr "Skapa förhandsgranskning"
 
-#: euphorie/client/publish.py:272
-msgid ""
-"Succesfully created a preview for the survey. It can be accessed at ${url} ."
+#. Default: Succesfully created a preview for the survey. It can be accessed at
+#. ${url} .
+#: euphorie/client/publish.py:277
+msgid "message_preview_success"
 msgstr ""
-"En förhandsgranskning av undersökningen har skapats. Den finns tillgänglig "
-"på ${url}."
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
@@ -324,7 +322,6 @@ msgstr "Åtgärd ${index}"
 #. Default: Measure ${index}
 #: euphorie/client/report.py:619
 #: euphorie/client/templates/report_actionplan.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:35
 msgid "header_measure"
 msgstr "Åtgärd ${index}"
 
@@ -403,12 +400,12 @@ msgstr "Det finns en budget på ${amount} för denna åtgärd."
 msgid "filename_report_actionplan"
 msgstr "Handlingsplan ${title}.doc"
 
-#: euphorie/client/risk.py:180 euphorie/client/risk.py:186
-#: euphorie/client/risk.py:207 euphorie/client/risk.py:213
+#: euphorie/client/risk.py:201 euphorie/client/risk.py:207
+#: euphorie/client/risk.py:228 euphorie/client/risk.py:234
 msgid "Invalid day of month"
 msgstr "Ogiltig månadsdag"
 
-#: euphorie/client/risk.py:199 euphorie/client/risk.py:225
+#: euphorie/client/risk.py:220 euphorie/client/risk.py:246
 msgid "Please enter a year after 1900"
 msgstr "Ange ett årtal efter år 1900"
 
@@ -559,8 +556,8 @@ msgstr "Branschinformation och gruppering för klienten."
 #: euphorie/client/templates/report_actionplan.pt:201
 #: euphorie/client/templates/report_company.pt:93
 #: euphorie/client/templates/report_identification.pt:104
-#: euphorie/client/templates/risk_actionplan.pt:275
-#: euphorie/client/templates/risk_evaluation.pt:122
+#: euphorie/client/templates/risk_actionplan.pt:272
+#: euphorie/client/templates/risk_evaluation.pt:150
 #: euphorie/client/templates/risk_identification.pt:86
 #: euphorie/client/templates/sessions.pt:94
 #: euphorie/client/templates/start.pt:66
@@ -796,17 +793,17 @@ msgstr "Vad är OiRA (interaktivt webbverktyg för riskbedömning)?"
 msgid "title_about"
 msgstr "Om"
 
+#. Default: Please note that by deleting your account, also all your filled out
+#. surveys will be deleted. Please make sure to download your surveys from the
+#. reports screen prior to deleting your account if you want to keep any.
 #: euphorie/client/templates/account-delete.pt:20
-msgid ""
-"Please note that by deleting your account, also all your filled out surveys "
-"will be deleted. Please make sure to download your surveys from the reports "
-"screen prior to deleting your account if you want to keep any."
+msgid "warning_account_delete_surveys"
 msgstr ""
 
+#. Default: By clicking on 'Delete account', your account will be permenantly
+#. deleted. This action is irreversable.
 #: euphorie/client/templates/account-delete.pt:19
-msgid ""
-"By clicking on 'Delete account', your account will be permenantly deleted. "
-"This action is irreversable."
+msgid "warning_account_delete_irreversible"
 msgstr ""
 
 #. Default: Password
@@ -845,8 +842,8 @@ msgstr "Landschefer"
 #: euphorie/client/templates/report_actionplan.pt:203
 #: euphorie/client/templates/report_company.pt:95
 #: euphorie/client/templates/report_identification.pt:106
-#: euphorie/client/templates/risk_actionplan.pt:277
-#: euphorie/client/templates/risk_evaluation.pt:124
+#: euphorie/client/templates/risk_actionplan.pt:274
+#: euphorie/client/templates/risk_evaluation.pt:152
 #: euphorie/client/templates/risk_identification.pt:88
 #: euphorie/client/templates/sessions.pt:95
 #: euphorie/client/templates/start.pt:67
@@ -869,8 +866,8 @@ msgstr "Status"
 #: euphorie/client/templates/report_actionplan.pt:202
 #: euphorie/client/templates/report_company.pt:94
 #: euphorie/client/templates/report_identification.pt:105
-#: euphorie/client/templates/risk_actionplan.pt:276
-#: euphorie/client/templates/risk_evaluation.pt:123
+#: euphorie/client/templates/risk_actionplan.pt:273
+#: euphorie/client/templates/risk_evaluation.pt:151
 #: euphorie/client/templates/risk_identification.pt:87
 #: euphorie/content/templates/colour-preview.pt:59
 msgid "navigation_status"
@@ -889,8 +886,8 @@ msgstr "Status"
 #: euphorie/client/templates/report_actionplan.pt:200
 #: euphorie/client/templates/report_company.pt:92
 #: euphorie/client/templates/report_identification.pt:103
-#: euphorie/client/templates/risk_actionplan.pt:274
-#: euphorie/client/templates/risk_evaluation.pt:121
+#: euphorie/client/templates/risk_actionplan.pt:271
+#: euphorie/client/templates/risk_evaluation.pt:149
 #: euphorie/client/templates/risk_identification.pt:85
 #: euphorie/client/templates/start.pt:65
 #: euphorie/client/templates/status.pt:69
@@ -913,8 +910,8 @@ msgstr "Undersökningar"
 #: euphorie/client/templates/report_actionplan.pt:199
 #: euphorie/client/templates/report_company.pt:91
 #: euphorie/client/templates/report_identification.pt:102
-#: euphorie/client/templates/risk_actionplan.pt:273
-#: euphorie/client/templates/risk_evaluation.pt:120
+#: euphorie/client/templates/risk_actionplan.pt:270
+#: euphorie/client/templates/risk_evaluation.pt:148
 #: euphorie/client/templates/risk_identification.pt:84
 #: euphorie/client/templates/sessions.pt:93
 #: euphorie/client/templates/start.pt:64
@@ -939,8 +936,8 @@ msgstr "Logga ut"
 #: euphorie/client/templates/report_actionplan.pt:192
 #: euphorie/client/templates/report_company.pt:84
 #: euphorie/client/templates/report_identification.pt:95
-#: euphorie/client/templates/risk_actionplan.pt:266
-#: euphorie/client/templates/risk_evaluation.pt:113
+#: euphorie/client/templates/risk_actionplan.pt:263
+#: euphorie/client/templates/risk_evaluation.pt:141
 #: euphorie/client/templates/risk_identification.pt:77
 #: euphorie/client/templates/sessions.pt:87
 #: euphorie/client/templates/start.pt:58
@@ -965,8 +962,8 @@ msgstr "Rapport"
 #: euphorie/client/templates/report_actionplan.pt:191
 #: euphorie/client/templates/report_company.pt:83
 #: euphorie/client/templates/report_identification.pt:94
-#: euphorie/client/templates/risk_actionplan.pt:265
-#: euphorie/client/templates/risk_evaluation.pt:112
+#: euphorie/client/templates/risk_actionplan.pt:262
+#: euphorie/client/templates/risk_evaluation.pt:140
 #: euphorie/client/templates/risk_identification.pt:76
 #: euphorie/client/templates/sessions.pt:86
 #: euphorie/client/templates/start.pt:57
@@ -991,8 +988,8 @@ msgstr "Rapport"
 #: euphorie/client/templates/report_actionplan.pt:186
 #: euphorie/client/templates/report_company.pt:78
 #: euphorie/client/templates/report_identification.pt:89
-#: euphorie/client/templates/risk_actionplan.pt:257
-#: euphorie/client/templates/risk_evaluation.pt:107
+#: euphorie/client/templates/risk_actionplan.pt:254
+#: euphorie/client/templates/risk_evaluation.pt:135
 #: euphorie/client/templates/risk_identification.pt:71
 #: euphorie/client/templates/sessions.pt:83
 #: euphorie/client/templates/start.pt:54
@@ -1017,8 +1014,8 @@ msgstr "Handlingsplan"
 #: euphorie/client/templates/report_actionplan.pt:185
 #: euphorie/client/templates/report_company.pt:77
 #: euphorie/client/templates/report_identification.pt:88
-#: euphorie/client/templates/risk_actionplan.pt:256
-#: euphorie/client/templates/risk_evaluation.pt:106
+#: euphorie/client/templates/risk_actionplan.pt:253
+#: euphorie/client/templates/risk_evaluation.pt:134
 #: euphorie/client/templates/risk_identification.pt:70
 #: euphorie/client/templates/sessions.pt:82
 #: euphorie/client/templates/start.pt:53
@@ -1044,8 +1041,8 @@ msgstr "Handlingsplan"
 #: euphorie/client/templates/report_actionplan.pt:180
 #: euphorie/client/templates/report_company.pt:72
 #: euphorie/client/templates/report_identification.pt:83
-#: euphorie/client/templates/risk_actionplan.pt:251
-#: euphorie/client/templates/risk_evaluation.pt:98
+#: euphorie/client/templates/risk_actionplan.pt:248
+#: euphorie/client/templates/risk_evaluation.pt:126
 #: euphorie/client/templates/risk_identification.pt:65
 #: euphorie/client/templates/sessions.pt:79
 #: euphorie/client/templates/start.pt:50
@@ -1070,8 +1067,8 @@ msgstr "Utvärdering"
 #: euphorie/client/templates/report_actionplan.pt:179
 #: euphorie/client/templates/report_company.pt:71
 #: euphorie/client/templates/report_identification.pt:82
-#: euphorie/client/templates/risk_actionplan.pt:250
-#: euphorie/client/templates/risk_evaluation.pt:97
+#: euphorie/client/templates/risk_actionplan.pt:247
+#: euphorie/client/templates/risk_evaluation.pt:125
 #: euphorie/client/templates/risk_identification.pt:64
 #: euphorie/client/templates/sessions.pt:78
 #: euphorie/client/templates/start.pt:49
@@ -1097,8 +1094,8 @@ msgstr "Utvärdering"
 #: euphorie/client/templates/report_actionplan.pt:174
 #: euphorie/client/templates/report_company.pt:66
 #: euphorie/client/templates/report_identification.pt:77
-#: euphorie/client/templates/risk_actionplan.pt:245
-#: euphorie/client/templates/risk_evaluation.pt:92
+#: euphorie/client/templates/risk_actionplan.pt:242
+#: euphorie/client/templates/risk_evaluation.pt:120
 #: euphorie/client/templates/risk_identification.pt:56
 #: euphorie/client/templates/sessions.pt:75
 #: euphorie/client/templates/start.pt:46
@@ -1123,8 +1120,8 @@ msgstr "Identifiering"
 #: euphorie/client/templates/report_actionplan.pt:173
 #: euphorie/client/templates/report_company.pt:65
 #: euphorie/client/templates/report_identification.pt:76
-#: euphorie/client/templates/risk_actionplan.pt:244
-#: euphorie/client/templates/risk_evaluation.pt:91
+#: euphorie/client/templates/risk_actionplan.pt:241
+#: euphorie/client/templates/risk_evaluation.pt:119
 #: euphorie/client/templates/risk_identification.pt:55
 #: euphorie/client/templates/sessions.pt:74
 #: euphorie/client/templates/start.pt:45
@@ -1150,8 +1147,8 @@ msgstr "Identifiering"
 #: euphorie/client/templates/report_actionplan.pt:168
 #: euphorie/client/templates/report_company.pt:60
 #: euphorie/client/templates/report_identification.pt:71
-#: euphorie/client/templates/risk_actionplan.pt:239
-#: euphorie/client/templates/risk_evaluation.pt:86
+#: euphorie/client/templates/risk_actionplan.pt:236
+#: euphorie/client/templates/risk_evaluation.pt:114
 #: euphorie/client/templates/risk_identification.pt:50
 #: euphorie/client/templates/sessions.pt:71
 #: euphorie/client/templates/start.pt:41
@@ -1176,8 +1173,8 @@ msgstr "Förberedelse"
 #: euphorie/client/templates/report_actionplan.pt:167
 #: euphorie/client/templates/report_company.pt:59
 #: euphorie/client/templates/report_identification.pt:70
-#: euphorie/client/templates/risk_actionplan.pt:238
-#: euphorie/client/templates/risk_evaluation.pt:85
+#: euphorie/client/templates/risk_actionplan.pt:235
+#: euphorie/client/templates/risk_evaluation.pt:113
 #: euphorie/client/templates/risk_identification.pt:49
 #: euphorie/client/templates/sessions.pt:70
 #: euphorie/client/templates/start.pt:40
@@ -1655,8 +1652,8 @@ msgstr "Välkommen"
 #: euphorie/client/templates/reminder.pt:35
 #: euphorie/client/templates/report.pt:37
 #: euphorie/client/templates/report_company.pt:52
-#: euphorie/client/templates/risk_actionplan.pt:151
-#: euphorie/client/templates/risk_evaluation.pt:70
+#: euphorie/client/templates/risk_actionplan.pt:152
+#: euphorie/client/templates/risk_evaluation.pt:98
 #: euphorie/client/templates/risk_identification.pt:30
 #: euphorie/client/templates/sessions.pt:64
 #: euphorie/client/templates/survey_sessions.pt:55
@@ -1670,8 +1667,8 @@ msgstr "Nästa"
 #: euphorie/client/templates/register.pt:35
 #: euphorie/client/templates/reminder.pt:34
 #: euphorie/client/templates/report_company.pt:51
-#: euphorie/client/templates/risk_actionplan.pt:150
-#: euphorie/client/templates/risk_evaluation.pt:69
+#: euphorie/client/templates/risk_actionplan.pt:151
+#: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:29
 #: euphorie/client/templates/sessions.pt:63
 #: euphorie/client/templates/start.pt:33
@@ -1942,7 +1939,14 @@ msgstr "Korrigera angivna fel."
 msgid "hader_company_details"
 msgstr "Företagsinformation"
 
-#: euphorie/client/templates/risk_actionplan.pt:282
+#: euphorie/client/templates/risk_actionplan.pt:280
+msgid ""
+"The current text in the fields 'Action plan', 'Prevention plan' and "
+"'Requirements' of this measure will be overwritten. This action cannot be "
+"reverted Are you sure you want to continue?"
+msgstr ""
+
+#: euphorie/client/templates/risk_actionplan.pt:279
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -1951,54 +1955,54 @@ msgstr ""
 "återställas."
 
 #. Default: Year
-#: euphorie/client/templates/risk_actionplan.pt:226
-#: euphorie/client/templates/risk_actionplan.pt:209
-#: euphorie/client/templates/risk_actionplan.pt:89
+#: euphorie/client/templates/risk_actionplan.pt:223
+#: euphorie/client/templates/risk_actionplan.pt:206
+#: euphorie/client/templates/risk_actionplan.pt:103
 msgid "label_year"
 msgstr "År"
 
 #. Default: Month
-#: euphorie/client/templates/risk_actionplan.pt:221
-#: euphorie/client/templates/risk_actionplan.pt:204
-#: euphorie/client/templates/risk_actionplan.pt:112
-#: euphorie/client/templates/risk_actionplan.pt:82
+#: euphorie/client/templates/risk_actionplan.pt:218
+#: euphorie/client/templates/risk_actionplan.pt:201
+#: euphorie/client/templates/risk_actionplan.pt:126
+#: euphorie/client/templates/risk_actionplan.pt:96
 msgid "label_month"
 msgstr "Månad"
 
 #. Default: Day
-#: euphorie/client/templates/risk_actionplan.pt:218
-#: euphorie/client/templates/risk_actionplan.pt:201
+#: euphorie/client/templates/risk_actionplan.pt:215
+#: euphorie/client/templates/risk_actionplan.pt:198
+#: euphorie/client/templates/risk_actionplan.pt:133
 #: euphorie/client/templates/risk_actionplan.pt:119
-#: euphorie/client/templates/risk_actionplan.pt:105
-#: euphorie/client/templates/risk_actionplan.pt:75
+#: euphorie/client/templates/risk_actionplan.pt:89
 msgid "label_day"
 msgstr "Dag"
 
 #. Default: Planning end
-#: euphorie/client/templates/risk_actionplan.pt:215
-#: euphorie/client/templates/risk_actionplan.pt:102
+#: euphorie/client/templates/risk_actionplan.pt:212
+#: euphorie/client/templates/risk_actionplan.pt:116
 msgid "label_action_plan_end"
 msgstr "Planerat slut"
 
 #. Default: Planning start
-#: euphorie/client/templates/risk_actionplan.pt:198
-#: euphorie/client/templates/risk_actionplan.pt:72
+#: euphorie/client/templates/risk_actionplan.pt:195
+#: euphorie/client/templates/risk_actionplan.pt:86
 msgid "label_action_plan_start"
 msgstr "Planerad start"
 
 #. Default: Although some measures do not cost any money, most do. The measures
 #. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
-#: euphorie/client/templates/risk_actionplan.pt:194
-#: euphorie/client/templates/risk_actionplan.pt:62
+#: euphorie/client/templates/risk_actionplan.pt:191
+#: euphorie/client/templates/risk_actionplan.pt:76
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Även fast inte alla åtgärder kostar pengar, gör de flesta det. Åtgärderna "
 "bör därför budgeteras, inkludera dem i den årliga budgeten om nödvändigt."
 
 #. Default: Budget (in Euro)
-#: euphorie/client/templates/risk_actionplan.pt:193
-#: euphorie/client/templates/risk_actionplan.pt:61
+#: euphorie/client/templates/risk_actionplan.pt:190
+#: euphorie/client/templates/risk_actionplan.pt:75
 msgid "label_action_plan_budget"
 msgstr "Budget (i euro)"
 
@@ -2006,8 +2010,8 @@ msgstr "Budget (i euro)"
 #. implementation of this measure. This person will have the authority to take the
 #. steps described in the Plan and/or the responsibility to ensure that they are
 #. carried out.
-#: euphorie/client/templates/risk_actionplan.pt:189
-#: euphorie/client/templates/risk_actionplan.pt:56
+#: euphorie/client/templates/risk_actionplan.pt:186
+#: euphorie/client/templates/risk_actionplan.pt:70
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Utse någon i ditt företag som ansvarar för genomförandet av denna åtgärd. "
@@ -2015,31 +2019,31 @@ msgstr ""
 "planen och/eller ansvaret för att se till att de genomförs."
 
 #. Default: Who is responsible?
-#: euphorie/client/templates/risk_actionplan.pt:188
-#: euphorie/client/templates/risk_actionplan.pt:55
+#: euphorie/client/templates/risk_actionplan.pt:185
+#: euphorie/client/templates/risk_actionplan.pt:69
 msgid "label_action_plan_responsible"
 msgstr "Vem är ansvarig?"
 
 #. Default: Requirements
-#: euphorie/client/templates/risk_actionplan.pt:182
-#: euphorie/client/templates/risk_actionplan.pt:49
-#: euphorie/content/solution.py:51
+#: euphorie/client/templates/risk_actionplan.pt:179
+#: euphorie/client/templates/risk_actionplan.pt:63
+#: euphorie/content/solution.py:50
 #: euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Krav"
 
 #. Default: Prevention plan
-#: euphorie/client/templates/risk_actionplan.pt:179
-#: euphorie/client/templates/risk_actionplan.pt:46
-#: euphorie/content/solution.py:43
+#: euphorie/client/templates/risk_actionplan.pt:176
+#: euphorie/client/templates/risk_actionplan.pt:60
+#: euphorie/content/solution.py:42
 #: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr "Förebyggande plan"
 
 #. Default: Action plan
-#: euphorie/client/templates/risk_actionplan.pt:176
-#: euphorie/client/templates/risk_actionplan.pt:43
-#: euphorie/content/solution.py:35
+#: euphorie/client/templates/risk_actionplan.pt:173
+#: euphorie/client/templates/risk_actionplan.pt:57
+#: euphorie/content/solution.py:34
 #: euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Handlingsplan"
@@ -2052,8 +2056,8 @@ msgstr "Handlingsplan"
 #. and requirements). In most cases, the prevention officer will help in the
 #. implementation of the Plan: however, he must have the capability or have had the
 #. relevant training to do this.
-#: euphorie/client/templates/risk_actionplan.pt:172
-#: euphorie/client/templates/risk_actionplan.pt:39
+#: euphorie/client/templates/risk_actionplan.pt:169
+#: euphorie/client/templates/risk_actionplan.pt:53
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Skriv ner i planen vilken åtgärd du kommer att utföra med anledning av "
@@ -2065,150 +2069,188 @@ msgstr ""
 "bidra till genomförandet av planen: Dock måste han/hon vara kapabel till, "
 "eller haft relevant utbildning för att göra detta.."
 
-#. Default: Remove
-#: euphorie/client/templates/risk_actionplan.pt:170
-msgid "label_remove"
-msgstr "Radera"
-
-#. Default: Measure 2
-#: euphorie/client/templates/risk_actionplan.pt:169
-msgid "measure_template_title"
-msgstr "Åtgärd 2"
+#: euphorie/client/templates/risk_actionplan.pt:166
+#: euphorie/client/templates/risk_actionplan.pt:48
+msgid "Standard solutions"
+msgstr ""
 
 #. Default: Please leave any comments you may have on the question above in this
 #. field. These comments will be used in the action plan.
-#: euphorie/client/templates/risk_actionplan.pt:155
-#: euphorie/client/templates/risk_evaluation.pt:74
+#: euphorie/client/templates/risk_actionplan.pt:156
+#: euphorie/client/templates/risk_evaluation.pt:102
 #: euphorie/client/templates/risk_identification.pt:38
 msgid "label_comment"
 msgstr ""
 "Lämna gärna synpunkter du kan ha om ovanstående fråga inom detta område. "
 "Dessa kommentarer kommer att användas i handlingsplanen."
 
-#: euphorie/client/templates/risk_actionplan.pt:143
-msgid "Use"
-msgstr "Använd"
-
-#. Default: There are known common approaches to this risk. You can create a new
-#. measure based on these approaches.
-#: euphorie/client/templates/risk_actionplan.pt:138
-msgid "help_common_solutions"
-msgstr ""
-"Det finns vanliga strategier för denna risk. Du kan skapa en ny åtgärd som "
-"bygger på dessa strategier."
-
-#. Default: Common solutions
-#: euphorie/client/templates/risk_actionplan.pt:137
-msgid "header_common_solutions"
-msgstr "Vanliga lösningar"
-
 #. Default: Add another measure
-#: euphorie/client/templates/risk_actionplan.pt:133
+#: euphorie/client/templates/risk_actionplan.pt:147
 msgid "label_add_measure"
 msgstr "Lägg till en annan åtgärd"
 
 #. Default: Please enter a valid year after 1900
-#: euphorie/client/templates/risk_actionplan.pt:124
-#: euphorie/client/templates/risk_actionplan.pt:94
+#: euphorie/client/templates/risk_actionplan.pt:138
+#: euphorie/client/templates/risk_actionplan.pt:108
 msgid "error_invalid_year"
 msgstr "Ange ett giltigt årtal efter år 1900"
 
 #. Default: Invalid day
-#: euphorie/client/templates/risk_actionplan.pt:110
-#: euphorie/client/templates/risk_actionplan.pt:80
+#: euphorie/client/templates/risk_actionplan.pt:124
+#: euphorie/client/templates/risk_actionplan.pt:94
 msgid "error_invalid_day"
 msgstr "Ogiltig dag"
 
 #. Default: Please enter the budget in whole Euros.
-#: euphorie/client/templates/risk_actionplan.pt:65
+#: euphorie/client/templates/risk_actionplan.pt:79
 msgid "error_invalid_budget"
 msgstr "Ange budget i euro (ental)."
 
+#: euphorie/client/templates/risk_actionplan.pt:34
+msgid ""
+"Select a standard solution. The main fields of this measure will be "
+"populated with the chosen solution."
+msgstr ""
+
 #. Default: High
-#: euphorie/client/templates/risk_evaluation.pt:64
-#: euphorie/content/risk.py:134
+#: euphorie/client/templates/risk_evaluation.pt:92
+#: euphorie/content/risk.py:129
 msgid "priority_high"
 msgstr "Hög"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:62
-#: euphorie/content/risk.py:133
+#: euphorie/client/templates/risk_evaluation.pt:90
+#: euphorie/content/risk.py:128
 msgid "priority_medium"
 msgstr "Medium"
 
 #. Default: Low
-#: euphorie/client/templates/risk_evaluation.pt:60
-#: euphorie/content/risk.py:132
+#: euphorie/client/templates/risk_evaluation.pt:88
+#: euphorie/content/risk.py:127
 msgid "priority_low"
 msgstr "Låg"
 
 #. Default: Select the priority of this risk
-#: euphorie/client/templates/risk_evaluation.pt:58
+#: euphorie/client/templates/risk_evaluation.pt:86
 msgid "header_risk_priority"
 msgstr "Välj prioritet för denna risk"
 
+#. Default: Very severe
+#: euphorie/client/templates/risk_evaluation.pt:79
+#: euphorie/content/risk.py:197
+msgid "severity_very_severe"
+msgstr ""
+
+#. Default: Severe
+#: euphorie/client/templates/risk_evaluation.pt:77
+#: euphorie/content/risk.py:196
+msgid "severity_severe"
+msgstr ""
+
+#. Default: Not very severe
+#: euphorie/client/templates/risk_evaluation.pt:75
+#: euphorie/content/risk.py:195
+msgid "severity_not_severe"
+msgstr ""
+
+#. Default: Weak
+#: euphorie/client/templates/risk_evaluation.pt:73
+#: euphorie/content/risk.py:194
+msgid "severity_weak"
+msgstr ""
+
+#. Default: What is the severity of the damage ?
+#: euphorie/client/templates/risk_evaluation.pt:71
+msgid "header_risk_severity"
+msgstr ""
+
+#. Default: Regularly
+#: euphorie/client/templates/risk_evaluation.pt:67
+#: euphorie/content/risk.py:214
+msgid "frequency_french_regularly"
+msgstr ""
+
+#. Default: Often
+#: euphorie/client/templates/risk_evaluation.pt:65
+#: euphorie/content/risk.py:213
+msgid "frequency_french_often"
+msgstr ""
+
+#. Default: Not very often
+#: euphorie/client/templates/risk_evaluation.pt:63
+#: euphorie/content/risk.py:212
+msgid "frequency_french_not_often"
+msgstr ""
+
+#. Default: Rare
+#: euphorie/client/templates/risk_evaluation.pt:61
+#: euphorie/content/risk.py:211
+msgid "frequency_french_rare"
+msgstr ""
+
+#. Default: How often are people exposed to this risk?
+#: euphorie/client/templates/risk_evaluation.pt:59
+#: euphorie/client/templates/risk_evaluation.pt:38
+msgid "header_risk_frequency"
+msgstr "Hur ofta är personer utsatta för denna risk?"
+
 #. Default: High (very high) severity
-#: euphorie/client/templates/risk_evaluation.pt:52
+#: euphorie/client/templates/risk_evaluation.pt:54
 msgid "effect_permanent_damage"
 msgstr "Hög (mycket hög) allvarlighetsgrad"
 
 #. Default: Significant severity
-#: euphorie/client/templates/risk_evaluation.pt:50
+#: euphorie/client/templates/risk_evaluation.pt:52
 msgid "effect_injury_with_absence"
 msgstr "Stark allvarlighetsgrad"
 
 #. Default: Weak severity
-#: euphorie/client/templates/risk_evaluation.pt:48
+#: euphorie/client/templates/risk_evaluation.pt:50
 msgid "effect_injury_no_absence"
 msgstr "Svag allvarlighetsgrad"
 
 #. Default: What is the severity of the damage ?
-#: euphorie/client/templates/risk_evaluation.pt:46
+#: euphorie/client/templates/risk_evaluation.pt:48
 msgid "header_risk_effect"
 msgstr "Vad för slags allvarighetsgrad har skadan?"
 
 #. Default: Constantly
-#: euphorie/client/templates/risk_evaluation.pt:42
-#: euphorie/content/risk.py:166
+#: euphorie/client/templates/risk_evaluation.pt:44
+#: euphorie/content/risk.py:249
 msgid "frequency_constantly"
 msgstr "Konstant"
 
 #. Default: Regularly
-#: euphorie/client/templates/risk_evaluation.pt:40
-#: euphorie/content/risk.py:165
+#: euphorie/client/templates/risk_evaluation.pt:42
+#: euphorie/content/risk.py:248
 msgid "frequency_regularly"
 msgstr "Regelbunden"
 
 #. Default: Almost never
-#: euphorie/client/templates/risk_evaluation.pt:38
+#: euphorie/client/templates/risk_evaluation.pt:40
 msgid "frequency_almost_never"
 msgstr "Nästan aldrig"
 
-#. Default: How often are people exposed to this risk?
-#: euphorie/client/templates/risk_evaluation.pt:36
-msgid "header_risk_frequency"
-msgstr "Hur ofta är personer utsatta för denna risk?"
-
 #. Default: Large
-#: euphorie/client/templates/risk_evaluation.pt:32
-#: euphorie/content/risk.py:150
+#: euphorie/client/templates/risk_evaluation.pt:34
+#: euphorie/content/risk.py:233
 msgid "probability_large"
 msgstr "Stor"
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:30
-#: euphorie/content/risk.py:149
+#: euphorie/client/templates/risk_evaluation.pt:32
+#: euphorie/content/risk.py:232
 msgid "probability_medium"
 msgstr "Medium"
 
 #. Default: Small
-#: euphorie/client/templates/risk_evaluation.pt:28
-#: euphorie/content/risk.py:148
+#: euphorie/client/templates/risk_evaluation.pt:30
+#: euphorie/content/risk.py:231
 msgid "probability_small"
 msgstr "Liten"
 
 #. Default: What is the chance of this risk occurring?
-#: euphorie/client/templates/risk_evaluation.pt:26
+#: euphorie/client/templates/risk_evaluation.pt:28
 msgid "header_risk_probability"
 msgstr "Vad är chansen att denna risk uppstår?"
 
@@ -2415,19 +2457,29 @@ msgstr "Interaktiv"
 msgid "The specified colour is not valid."
 msgstr "Den angivna färgen är ogiltig."
 
-#. Default: This is a region.
-#: euphorie/content/country.py:19
-#, fuzzy
-msgid "label_is_region"
-msgstr "Sessioner"
-
-#. Default: Regions are international groupings, such as the European Union.
 #: euphorie/content/country.py:21
-#, fuzzy
-msgid "help_is_region"
+msgid "Country grouping"
 msgstr ""
-"Beskriv sessionshantering. Denna text är länkad från sidan för sessionens "
-"översikt"
+
+#: euphorie/content/country.py:23
+msgid "Region"
+msgstr ""
+
+#: euphorie/content/country.py:24
+msgid "EU member state"
+msgstr ""
+
+#: euphorie/content/country.py:25
+msgid "EFTA country"
+msgstr ""
+
+#: euphorie/content/country.py:26
+msgid "Candidate country"
+msgstr ""
+
+#: euphorie/content/country.py:27
+msgid "Potential candidate country"
+msgstr ""
 
 #. Default: Introduction
 #: euphorie/content/help.py:15
@@ -2532,77 +2584,77 @@ msgstr ""
 "länkad."
 
 #. Default: Description
-#: euphorie/content/module.py:39 euphorie/content/page.py:19
+#: euphorie/content/module.py:35 euphorie/content/page.py:19
 #: euphorie/content/profilequestion.py:47 euphorie/content/solution.py:26
 msgid "label_module_description"
 msgstr "Beskrivning"
 
 #. Default: Include any relevant information that may be helpful for users.
-#: euphorie/content/module.py:40 euphorie/content/page.py:20
+#: euphorie/content/module.py:36 euphorie/content/page.py:20
 #: euphorie/content/profilequestion.py:48 euphorie/content/solution.py:27
 msgid "help_module_description"
 msgstr ""
 "Inkludera all relevant information som kan vara till hjälp för användarna."
 
 #. Default: This module is optional
-#: euphorie/content/module.py:48
+#: euphorie/content/module.py:44
 msgid "label_module_optional"
 msgstr "Denna modul är tillval"
 
 #. Default: Allow users to skip this module and everything inside it.
-#: euphorie/content/module.py:49
+#: euphorie/content/module.py:45
 msgid "help_module_optional"
 msgstr "Tillåter användare att hoppa över denna modul och allt inuti den."
 
 #. Default: Question
-#: euphorie/content/module.py:57
+#: euphorie/content/module.py:53
 msgid "label_module_question"
 msgstr "Fråga"
 
 #. Default: The question to ask users if this module is optional. This has to be a
 #. yes/no question.
-#: euphorie/content/module.py:58
+#: euphorie/content/module.py:54
 msgid "help_module_question"
 msgstr ""
 "Frågan till användare om denna modul finns som tillval. Detta måste vara en "
 "ja/nej-fråga."
 
 #. Default: Image file
-#: euphorie/content/module.py:64 euphorie/content/risk.py:194
-#: euphorie/content/risk.py:208 euphorie/content/risk.py:218
-#: euphorie/content/risk.py:228
+#: euphorie/content/module.py:60 euphorie/content/risk.py:142
+#: euphorie/content/risk.py:156 euphorie/content/risk.py:166
+#: euphorie/content/risk.py:176
 msgid "label_image"
 msgstr "Bildfil"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif and
 #. does not contain any special characters.
-#: euphorie/content/module.py:65 euphorie/content/risk.py:195
-#: euphorie/content/risk.py:209 euphorie/content/risk.py:219
-#: euphorie/content/risk.py:229 euphorie/content/sector.py:73
+#: euphorie/content/module.py:61 euphorie/content/risk.py:143
+#: euphorie/content/risk.py:157 euphorie/content/risk.py:167
+#: euphorie/content/risk.py:177 euphorie/content/sector.py:73
 msgid "help_image_upload"
 msgstr ""
 "Ladda upp en bild. Se till att din bild är i formatet png, jpg eller gif och "
 "inte innehåller några specialtecken."
 
 #. Default: Introduction action plan
-#: euphorie/content/module.py:71
+#: euphorie/content/module.py:67
 msgid "label_solution_direction"
 msgstr "Introduktion handlingsplan"
 
 #. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
-#: euphorie/content/module.py:72
+#: euphorie/content/module.py:68
 msgid "help_solution_direction"
 msgstr ""
 "Denna information visas för användare som går in i denna modul under arbetet "
 "med handlingsplanen."
 
-#: euphorie/content/module.py:133
+#: euphorie/content/module.py:129
 #, fuzzy
 msgid "Edit Module"
 msgstr "Moduler"
 
-#: euphorie/content/module.py:135
+#: euphorie/content/module.py:131
 #, fuzzy
 msgid "Edit Submodule"
 msgstr "Delmoduler"
@@ -2645,79 +2697,66 @@ msgid "profile_repeat"
 msgstr "Repeterbar"
 
 #. Default: Statement
-#: euphorie/content/risk.py:38
+#: euphorie/content/risk.py:46
 msgid "label_statement"
 msgstr "Redogörelse"
 
 #. Default: This is a short statement about a possible risk.
-#: euphorie/content/risk.py:39
+#: euphorie/content/risk.py:47
 msgid "help_statement"
 msgstr "Detta är en kort redgörelse om en möjlig risk."
 
 #. Default: Inversed statement
-#: euphorie/content/risk.py:46 euphorie/content/templates/risk_view.pt:37
+#: euphorie/content/risk.py:53 euphorie/content/templates/risk_view.pt:37
 msgid "label_problem_description"
 msgstr "Inverterad redogörelse"
 
 #. Default: This is the inverse of the statement: a short description of current
 #. (bad) situation.
-#: euphorie/content/risk.py:48
+#: euphorie/content/risk.py:55
 msgid "help_problem_description"
 msgstr ""
 "Detta är inversen av en redogörelse: en kort beskrivning av nuvarande "
 "(dålig) situation."
 
 #. Default: Description
-#: euphorie/content/risk.py:56
+#: euphorie/content/risk.py:63
 msgid "label_description"
 msgstr "Beskrivning"
 
 #. Default: Describe the risk. Include any relevant information that may be helpful
 #. for users.
-#: euphorie/content/risk.py:57
+#: euphorie/content/risk.py:64
 msgid "help_risk_description"
 msgstr ""
 "Beskriv risken. Inkludera all relevant information som kan vara användbar "
 "för andra användare."
 
 #. Default: Legal and policy references
-#: euphorie/content/risk.py:65 euphorie/content/templates/risk_view.pt:61
+#: euphorie/content/risk.py:72 euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
 msgstr "Rättsliga och politiska referenser"
 
 #. Default: Identification
-#: euphorie/content/risk.py:71
+#: euphorie/content/risk.py:78
 msgid "header_identification"
 msgstr "Identifiering"
 
 #. Default: Show `not applicable' option
-#: euphorie/content/risk.py:75
+#: euphorie/content/risk.py:82
 msgid "label_show_notapplicable"
 msgstr "Visa \"ej tillämpliga\" alternativ"
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
-#: euphorie/content/risk.py:77
+#: euphorie/content/risk.py:84
 msgid "help_show_notapplicable"
 msgstr ""
 "Erbjud ett \"ej tillämpligt \" alternativ utöver det vanliga ja/nej "
 "alternativet."
 
-#. Default: Evaluation
-#: euphorie/content/risk.py:83
-msgid "header_evaluation"
-msgstr "Utvärdering"
-
-#. Default: You can specify how the risks priority is evaluated. For more details
-#. see the online manual.
-#: euphorie/content/risk.py:84
-msgid "intro_evaluation"
-msgstr ""
-"Du kan specificera hur riskernas prioritet utvärderas. För mer information "
-"se online-manualen."
-
 #. Default: Risk type
-#: euphorie/content/risk.py:94 euphorie/content/templates/risk_view.pt:35
+#: euphorie/content/risk.py:90 euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
 msgstr "Risktyp"
 
@@ -2725,7 +2764,7 @@ msgstr "Risktyp"
 #. procedures and management decisions. It can be answered from behind a desk (no
 #. need to examine the workplace). 'Top 5' is one of the top five risks of the
 #. sector.
-#: euphorie/content/risk.py:95
+#: euphorie/content/risk.py:91
 msgid "help_risk_type"
 msgstr ""
 "\"Risk\" är relaterad till arbetsplatsen. \"Politik\" är relaterat till "
@@ -2734,136 +2773,153 @@ msgstr ""
 "största branschriskerna."
 
 #. Default: Top 5
-#: euphorie/content/risk.py:102
+#: euphorie/content/risk.py:98
 msgid "risktype_top5"
 msgstr "Topp 5"
 
 #. Default: Risk
-#: euphorie/content/risk.py:103
+#: euphorie/content/risk.py:99
 msgid "risktype_risk"
 msgstr "Risk"
 
 #. Default: Policy
-#: euphorie/content/risk.py:104
+#: euphorie/content/risk.py:100
 msgid "risktype_policy"
 msgstr "Policy"
 
 #. Default: Evaluation method
-#: euphorie/content/risk.py:112 euphorie/content/templates/risk_view.pt:43
+#: euphorie/content/risk.py:107 euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
 msgstr "Utvärderingsmetod"
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
-#: euphorie/content/risk.py:113
+#: euphorie/content/risk.py:108
 msgid "help_evaluation_method"
 msgstr "Välj \"uppskattad\" om beräkningen inte är nödvändig eller möjlig."
 
 #. Default: Estimated
-#: euphorie/content/risk.py:117
+#: euphorie/content/risk.py:112
 msgid "evalmethod_direct"
 msgstr "Uppskattad"
 
 #. Default: Calculated
-#: euphorie/content/risk.py:118
+#: euphorie/content/risk.py:113
 msgid "evalmethod_calculated"
 msgstr "Calculated"
 
 #. Default: Default priority
-#: euphorie/content/risk.py:126 euphorie/content/templates/risk_view.pt:46
+#: euphorie/content/risk.py:121 euphorie/content/templates/risk_view.pt:47
 msgid "label_default_priority"
 msgstr "Standard prioritet"
 
 #. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
-#: euphorie/content/risk.py:127
+#: euphorie/content/risk.py:122
 msgid "help_default_priority"
 msgstr ""
 "Du kan hjälpa användaren genom att välja standard prioritet. Användaren kan "
 "fortfarande ändra prioritet."
 
 #. Default: No default
-#: euphorie/content/risk.py:131
+#: euphorie/content/risk.py:126
 msgid "no_default"
 msgstr "Ingen standard"
 
-#. Default: Default probability
-#: euphorie/content/risk.py:142 euphorie/content/templates/risk_view.pt:50
-msgid "label_default_probability"
-msgstr "Standard sannolikhet"
-
-#. Default: Indicate how likely occurence of this risk is in a normal situation.
-#: euphorie/content/risk.py:143
-msgid "help_default_probability"
-msgstr "Ange hur trolig förekomsten av denna risk är i en normal situation."
-
-#. Default: No default
-#: euphorie/content/risk.py:147 euphorie/content/risk.py:163
-#: euphorie/content/risk.py:178
-msgid "no default"
-msgstr "Ingen standard"
-
-#. Default: Default frequency
-#: euphorie/content/risk.py:158 euphorie/content/templates/risk_view.pt:52
-msgid "label_default_frequency"
-msgstr "Standardfrekvens"
-
-#. Default: Indicate how often this risk occurs in a normal situation.
-#: euphorie/content/risk.py:159
-msgid "help_default_frequency"
-msgstr "Ange hur ofta denna risk inträffar i en normal situation."
-
-#. Default: Almost never
-#: euphorie/content/risk.py:164
-msgid "frequency_almostnever"
-msgstr "Nästan aldrig"
-
-#. Default: Default severity
-#: euphorie/content/risk.py:174
-msgid "label_default_severity"
-msgstr "Standard allvarlighetsgrad"
-
-#. Default: Indicate the severity of the manage if this risk occurs.
-#: euphorie/content/risk.py:175
-msgid "help_default_severity"
-msgstr "Ange allvarighetsgraden av att hantera denna risk om den inträffar."
-
-#. Default: Weak severity
-#: euphorie/content/risk.py:179
-msgid "effect_weak"
-msgstr "Låg allvarighetsgrad"
-
-#. Default: Significant severity
-#: euphorie/content/risk.py:180
-msgid "effect_significant"
-msgstr "Betydande allvarlighetsgrad"
-
-#. Default: High (very high) severity
-#: euphorie/content/risk.py:181
-msgid "effect_high"
-msgstr "Hög (mycket hög) allvarlighetsgrad"
-
 #. Default: Main image
-#: euphorie/content/risk.py:187
+#: euphorie/content/risk.py:135
 msgid "header_main_image"
 msgstr "Huvudbild"
 
 #. Default: The main image will get a more prominent position in the client than
 #. the other images.
-#: euphorie/content/risk.py:188
+#: euphorie/content/risk.py:136
 msgid "intro_main_image"
 msgstr ""
 "Huvudbilden får en mer framträdande position i klienten än övriga bilder."
 
 #. Default: Image caption
-#: euphorie/content/risk.py:200 euphorie/content/risk.py:214
-#: euphorie/content/risk.py:224 euphorie/content/risk.py:234
+#: euphorie/content/risk.py:148 euphorie/content/risk.py:162
+#: euphorie/content/risk.py:172 euphorie/content/risk.py:182
 msgid "label_caption"
 msgstr "Bildtext"
 
 #. Default: Secondary images
-#: euphorie/content/risk.py:204
+#: euphorie/content/risk.py:152
 msgid "header_secondary_images"
 msgstr "Sekundära bilder"
+
+#. Default: Default severity
+#: euphorie/content/risk.py:191 euphorie/content/risk.py:257
+#: euphorie/content/templates/risk_view.pt:53
+msgid "label_default_severity"
+msgstr "Standard allvarlighetsgrad"
+
+#. Default: No default
+#: euphorie/content/risk.py:193 euphorie/content/risk.py:210
+#: euphorie/content/risk.py:230 euphorie/content/risk.py:246
+#: euphorie/content/risk.py:261
+msgid "no default"
+msgstr "Ingen standard"
+
+#. Default: Default frequency
+#: euphorie/content/risk.py:205 euphorie/content/risk.py:241
+#: euphorie/content/templates/risk_view.pt:62
+#: euphorie/content/templates/risk_view.pt:55
+msgid "label_default_frequency"
+msgstr "Standardfrekvens"
+
+#. Default: Indicate how often this risk occurs in a normal situation.
+#: euphorie/content/risk.py:206 euphorie/content/risk.py:242
+msgid "help_default_frequency"
+msgstr "Ange hur ofta denna risk inträffar i en normal situation."
+
+#. Default: Default probability
+#: euphorie/content/risk.py:225 euphorie/content/templates/risk_view.pt:60
+msgid "label_default_probability"
+msgstr "Standard sannolikhet"
+
+#. Default: Indicate how likely occurence of this risk is in a normal situation.
+#: euphorie/content/risk.py:226
+msgid "help_default_probability"
+msgstr "Ange hur trolig förekomsten av denna risk är i en normal situation."
+
+#. Default: Almost never
+#: euphorie/content/risk.py:247
+msgid "frequency_almostnever"
+msgstr "Nästan aldrig"
+
+#. Default: Indicate the severity of the manage if this risk occurs.
+#: euphorie/content/risk.py:258
+msgid "help_default_severity"
+msgstr "Ange allvarighetsgraden av att hantera denna risk om den inträffar."
+
+#. Default: Weak severity
+#: euphorie/content/risk.py:262
+msgid "effect_weak"
+msgstr "Låg allvarighetsgrad"
+
+#. Default: Significant severity
+#: euphorie/content/risk.py:263
+msgid "effect_significant"
+msgstr "Betydande allvarlighetsgrad"
+
+#. Default: High (very high) severity
+#: euphorie/content/risk.py:264
+msgid "effect_high"
+msgstr "Hög (mycket hög) allvarlighetsgrad"
+
+#. Default: Evaluation
+#: euphorie/content/risk.py:272 euphorie/content/risk.py:286
+msgid "header_evaluation"
+msgstr "Utvärdering"
+
+#. Default: You can specify how the risks priority is evaluated. For more details
+#. see the online manual.
+#: euphorie/content/risk.py:273 euphorie/content/risk.py:287
+msgid "intro_evaluation"
+msgstr ""
+"Du kan specificera hur riskernas prioritet utvärderas. För mer information "
+"se online-manualen."
 
 #. Default: Contact name
 #: euphorie/content/sector.py:66
@@ -2887,7 +2943,7 @@ msgstr "Stödfärg"
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:36
+#: euphorie/content/solution.py:35
 msgid "help_measure_action_plan"
 msgstr ""
 "Beskriv den åtgärd som kan vidtas för att avlägsna denna risk. Denna "
@@ -2895,7 +2951,7 @@ msgstr ""
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring. This
 #. information will be copied to the measure.
-#: euphorie/content/solution.py:44
+#: euphorie/content/solution.py:43
 msgid "help_measure_prevention_plan"
 msgstr ""
 "Beskriv vad som kan göras för att förebygga denna risk från att uppstå "
@@ -2903,14 +2959,14 @@ msgstr ""
 
 #. Default: Describe the standard requirements for the action plan and prevention
 #. plan. This information will be copied to the measure.
-#: euphorie/content/solution.py:52
+#: euphorie/content/solution.py:51
 msgid "help_measure_requirements"
 msgstr ""
 "Beskriv standardkraven hos handlingsplanen och planen för förebyggande. "
 "Denna information kopieras till åtgärden."
 
 #. Default: Common solution
-#: euphorie/content/solution.py:63
+#: euphorie/content/solution.py:62
 msgid "title_common_solution"
 msgstr "Vanlig lösning"
 
@@ -2977,103 +3033,120 @@ msgid "message_delete_no_last_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
 #. Default: Title
-#: euphorie/content/surveygroup.py:36
+#: euphorie/content/surveygroup.py:38
 msgid "label_title"
 msgstr "Titel"
 
 #. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
-#: euphorie/content/surveygroup.py:37
+#: euphorie/content/surveygroup.py:39
 msgid "help_surveygroup_title"
 msgstr ""
 "Titeln på denna undersökning. Denna titel används i undersökningens översikt "
 "i klienterna."
 
+#. Default: Evaluation algorithm
+#: euphorie/content/surveygroup.py:48
+msgid "label_survey_evaluation_algorithm"
+msgstr ""
+
+#. Default: Standard three critiera
+#. Default: Standard three criteria
+#: euphorie/content/surveygroup.py:50
+#: euphorie/content/templates/surveygroup_add.pt:83
+msgid "algorithm_kinney"
+msgstr ""
+
+#. Default: Simplified two criteria
+#: euphorie/content/surveygroup.py:51
+msgid "french"
+msgstr ""
+
 #. Default: Standard
-#: euphorie/content/surveygroup.py:188
+#: euphorie/content/surveygroup.py:201
 msgid "survey_default_title"
 msgstr "Standard"
 
 #. Default: This survey is now no longer available in the client.
-#: euphorie/content/surveygroup.py:222
+#: euphorie/content/surveygroup.py:235
 #, fuzzy
 msgid "message_unpublish_success"
 msgstr "${label} Version som för närvarande är online"
 
 #. Default: Cancelled unpublish action.
-#: euphorie/content/surveygroup.py:225
+#: euphorie/content/surveygroup.py:238
 #, fuzzy
 msgid "message_unpublish_cancel"
 msgstr "${label} Version som för närvarande är online"
 
 #. Default: Title of sector.
-#: euphorie/content/upload.py:62
+#: euphorie/content/upload.py:65
 msgid "label_sector_title"
 msgstr "Bransch titel."
 
 #. Default: If you do not specify a title it will be taken from the input file.
-#: euphorie/content/upload.py:63
+#: euphorie/content/upload.py:66
 msgid "help_sector_title"
 msgstr "Om du inte specificerar en titel kommer den att tas från indatafilen."
 
 #. Default: Login name
-#: euphorie/content/upload.py:69 euphorie/content/user.py:57
+#: euphorie/content/upload.py:72 euphorie/content/user.py:57
 msgid "label_login_name"
 msgstr "Inloggningsnamn"
 
 #. Default: Title of imported survey.
-#: euphorie/content/upload.py:74 euphorie/content/upload.py:93
+#: euphorie/content/upload.py:77 euphorie/content/upload.py:96
 msgid "label_surveygroup_title"
 msgstr "Titel på importerad undersökning."
 
 #. Default: If you do not specify a title it will be taken from the input.
-#: euphorie/content/upload.py:75 euphorie/content/upload.py:94
+#: euphorie/content/upload.py:78 euphorie/content/upload.py:97
 msgid "help_upload_surveygroup_title"
 msgstr "Om du inte specificerar en titel den kommer att tas från indatan."
 
 #. Default: Name for survey version
-#: euphorie/content/upload.py:81 euphorie/content/upload.py:100
+#: euphorie/content/upload.py:84 euphorie/content/upload.py:103
 msgid "label_upload_survey_title"
 msgstr "Namn på undersökningens version"
 
-#: euphorie/content/upload.py:82
+#: euphorie/content/upload.py:85
 msgid "Standard"
 msgstr "Standard"
 
 #. Default: XML file
-#: euphorie/content/upload.py:86 euphorie/content/upload.py:105
+#: euphorie/content/upload.py:89 euphorie/content/upload.py:108
 msgid "label_upload_filename"
 msgstr "XML-fil"
 
-#: euphorie/content/upload.py:101
+#: euphorie/content/upload.py:104
 msgid "Survey import"
 msgstr "Importera undersökning"
 
-#: euphorie/content/upload.py:293
+#: euphorie/content/upload.py:304
 msgid "Import survey version"
 msgstr "Importera undersökningsversion"
 
-#: euphorie/content/upload.py:295
+#: euphorie/content/upload.py:306
 msgid "Upload"
 msgstr "Ladda upp"
 
 #. Default: Please upload a valid XML file
-#: euphorie/content/upload.py:307 euphorie/content/upload.py:338
+#: euphorie/content/upload.py:318 euphorie/content/upload.py:349
 msgid "error_invalid_xml"
 msgstr "Ladda upp en giltig XML-fil"
 
 #. Default: Succesfully imported the survey
-#: euphorie/content/upload.py:310 euphorie/content/upload.py:341
+#: euphorie/content/upload.py:321 euphorie/content/upload.py:352
 msgid "upload_success"
 msgstr "Undersökningen har importerats"
 
 #. Default: Import sector and survey
-#: euphorie/content/upload.py:323
+#: euphorie/content/upload.py:334
 msgid "title_import_sector_survey"
 msgstr "Importera bransch och undersökning"
 
 #. Default: Upload
-#: euphorie/content/upload.py:325
+#: euphorie/content/upload.py:336
 msgid "button_upload"
 msgstr "Ladda upp"
 
@@ -3117,7 +3190,7 @@ msgstr "Kontot \"${title}\" har låsts."
 msgid "message_user_unlocked"
 msgstr "Kontot \"${title}\" har låsts upp."
 
-#: euphorie/content/utils.py:8
+#: euphorie/content/utils.py:10
 msgid "European Union"
 msgstr ""
 
@@ -3189,31 +3262,20 @@ msgstr "En sida med text"
 msgid "Page"
 msgstr "Sida"
 
-#. Default: The basic architecture of an Online interactive Risk Assessment
-#. consists of: - profile questions (questions defining the company profile) -
-#. modules and potentially sub-modules - risks (positive statements) Profile
-#. questions are used to determine whether particular modules apply to the end user
-#. at all (OPTIONAL), or whether they should be repeated a number of times
-#. (REPEATABLE). Such questions are asked BEFORE starting the risk identification
-#. and evaluation. If the end-user does not confirm that an optional profile
-#. question is relevant (by ticking the box), then the corresponding module will be
-#. skipped entirely. If the end-user enters more than one option to a repeatable
-#. profile question then the corresponding module will be repeated the specified
-#. number of times.
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid "description_profilequestion"
+msgid ""
+"The basic architecture of an Online interactive Risk Assessment consists of: "
+"- profile questions (questions defining the company profile) - modules and "
+"potentially sub-modules - risks (positive statements) Profile questions are "
+"used to determine whether particular modules apply to the end user at all "
+"(OPTIONAL), or whether they should be repeated a number of times "
+"(REPEATABLE). Such questions are asked BEFORE starting the risk "
+"identification and evaluation. If the end-user does not confirm that an "
+"optional profile question is relevant (by ticking the box), then the "
+"corresponding module will be skipped entirely. If the end-user enters more "
+"than one option to a repeatable profile question then the corresponding "
+"module will be repeated the specified number of times."
 msgstr ""
-"Den grundläggande strukturen för en interaktiv riskbedömning online (OiRA) "
-"består av: - profilfrågor (frågor som definierar företagets profil) - "
-"moduler och eventuella delmoduler - risker (positiva rapporter) "
-"Profilfrågorna används för att avgöra om enskilda moduler överhuvudtaget "
-"gäller för slutanvändaren (TILLVAL), eller om de bör upprepas ett antal "
-"gånger (REPETERBAR). Sådana frågor ställs INNAN en riskidentifiering och "
-"utvärdering startas. Om slutanvändaren inte bekräftar att en profilfråga "
-"(tillval) är relevant (genom att kryssa i rutan), kommer motsvarande modul "
-"att hoppas över helt. Om slutanvändaren anger mer än ett alternativ till en "
-"repeterbar profilfråga kommer motsvarande modul att upprepas ett specifikt "
-"antal gånger."
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -3232,6 +3294,7 @@ msgid "A sector is national organisation for a specific type of industry."
 msgstr "En bransch är en nationell organisation för en viss typ av industri."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
+#: euphorie/content/templates/user_mgmt.pt:26
 msgid "Sector"
 msgstr "Bransch"
 
@@ -3400,45 +3463,18 @@ msgstr "Detta är en repeterbar post i en profil. "
 msgid "profilequestion_type_optional"
 msgstr "Detta är en post i en profil som är ett tillval."
 
-#. Default: Save
-#: euphorie/content/templates/risk_edit.pt:61
-msgid "button_save"
-msgstr "Spara"
-
-#. Default: Secondary image 3
-#: euphorie/content/templates/risk_edit.pt:53
-msgid "header_secondary_images_3"
-msgstr "Sekundär bild 3"
-
-#. Default: Secondary image 2
-#: euphorie/content/templates/risk_edit.pt:47
-msgid "header_secondary_images_2"
-msgstr "Sekundär bild 2"
-
-#. Default: Secondary image 1
-#: euphorie/content/templates/risk_edit.pt:41
-msgid "header_secondary_images_1"
-msgstr "Sekundär bild 1"
-
-#: euphorie/content/templates/risk_edit.pt:37
-#: euphorie/content/templates/risk_edit.pt:32
-#: euphorie/content/templates/risk_edit.pt:27
-#: euphorie/content/templates/risk_edit.pt:22
-msgid "Group name"
-msgstr "Gruppnamn"
-
 #. Default: Solution ${number}
-#: euphorie/content/templates/risk_view.pt:68
+#: euphorie/content/templates/risk_view.pt:79
 msgid "risk_solution_header"
 msgstr "Lösning ${number}"
 
 #. Default: Standard solutions
-#: euphorie/content/templates/risk_view.pt:65
+#: euphorie/content/templates/risk_view.pt:76
 msgid "header_solutions"
 msgstr "Standardlösningar"
 
 #. Default: Default effect
-#: euphorie/content/templates/risk_view.pt:54
+#: euphorie/content/templates/risk_view.pt:64
 msgid "label_default_effect"
 msgstr "Standardeffekt"
 
@@ -3483,11 +3519,23 @@ msgstr "Det finns för närvarande inga undersökningar. Du kan ${add_link}."
 msgid "header_sector_survey_list"
 msgstr "Undersökningar"
 
-#. Default: Countries
+#: euphorie/content/templates/sectorcontainer_view.pt:42
+msgid "Potential Candidate EFTA Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:36
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
+msgid "Candidate Countries"
+msgstr ""
+
+#: euphorie/content/templates/sectorcontainer_view.pt:30
+msgid "EFTA Countries"
+msgstr ""
+
 #: euphorie/content/templates/sectorcontainer_view.pt:24
-#, fuzzy
-msgid "header_countries"
-msgstr "Landschefer"
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
+msgid "EU Member States"
+msgstr ""
 
 #. Default: Regions
 #: euphorie/content/templates/sectorcontainer_view.pt:18
@@ -3515,6 +3563,7 @@ msgstr "Spara ändringar"
 #: euphorie/content/templates/settings.pt:82
 #: euphorie/content/templates/settings.pt:61
 #: euphorie/content/templates/settings.pt:34
+#: euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Information"
 
@@ -3629,7 +3678,7 @@ msgstr "Standardlösningar"
 
 #. Default: Create
 #: euphorie/content/templates/survey_add.pt:25
-#: euphorie/content/templates/surveygroup_add.pt:81
+#: euphorie/content/templates/surveygroup_add.pt:96
 msgid "button_create"
 msgstr "Skapa"
 
@@ -3683,6 +3732,20 @@ msgstr "Tillval"
 #: euphorie/content/templates/survey_view.pt:18
 msgid "label_evaluation_phase"
 msgstr "Utvärderingsfas"
+
+#: euphorie/content/templates/surveygroup_add.pt:89
+msgid "This is a simpler evaluation algorithm using only two criteria."
+msgstr ""
+
+#. Default: Simplified two criteria
+#: euphorie/content/templates/surveygroup_add.pt:87
+msgid "algorithm_french"
+msgstr ""
+
+#: euphorie/content/templates/surveygroup_add.pt:85
+msgid ""
+"This is the recommended evaluation algorithm, based on the Kinney method"
+msgstr ""
 
 #. Default: Choose a revision of the selected survey
 #: euphorie/content/templates/surveygroup_add.pt:73
@@ -3752,34 +3815,47 @@ msgid "title_unpublish"
 msgstr "Publicerad"
 
 #. Default: Unlock
-#: euphorie/content/templates/user_mgmt.pt:58
-#: euphorie/content/templates/user_mgmt.pt:36
+#: euphorie/content/templates/user_mgmt.pt:80
+#: euphorie/content/templates/user_mgmt.pt:47
 msgid "button_unlock"
 msgstr "Lås upp"
 
 #. Default: Lock
-#: euphorie/content/templates/user_mgmt.pt:57
-#: euphorie/content/templates/user_mgmt.pt:35
+#: euphorie/content/templates/user_mgmt.pt:79
+#: euphorie/content/templates/user_mgmt.pt:41
 msgid "button_lock"
 msgstr "Lås"
 
 #. Default: Edit
-#: euphorie/content/templates/user_mgmt.pt:56
-#: euphorie/content/templates/user_mgmt.pt:34
+#: euphorie/content/templates/user_mgmt.pt:78
+#: euphorie/content/templates/user_mgmt.pt:40
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:32
 msgid "button_edit"
 msgstr "Redigera"
 
+#: euphorie/content/templates/user_mgmt.pt:68
+#: euphorie/content/templates/user_mgmt.pt:27
+msgid "Login"
+msgstr ""
+
+#: euphorie/content/templates/user_mgmt.pt:67
+msgid "Name"
+msgstr ""
+
 #. Default: There are no country managers for this country.
-#: euphorie/content/templates/user_mgmt.pt:44
+#: euphorie/content/templates/user_mgmt.pt:60
 msgid "country_no_managers"
 msgstr "Det finns inte några landschefer för detta land."
 
 #. Default: Country managers
-#: euphorie/content/templates/user_mgmt.pt:42
+#: euphorie/content/templates/user_mgmt.pt:59
 msgid "header_country_managers"
 msgstr "Landschefer"
+
+#: euphorie/content/templates/user_mgmt.pt:28
+msgid "Password"
+msgstr ""
 
 #. Default: There are no sectors for this country.
 #: euphorie/content/templates/user_mgmt.pt:21
@@ -3885,6 +3961,14 @@ msgstr "Växla"
 msgid "title_toggle_navtree"
 msgstr "Visa äldre versioner"
 
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr ""
+
+#: euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr ""
+
 #. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
 #: euphorie/deployment/tiles/templates/versions.pt:55
@@ -3973,3 +4057,70 @@ msgstr "Kopiera"
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versioner"
+
+#~ msgid ""
+#~ "Succesfully created a preview for the survey. It can be accessed at "
+#~ "${url} ."
+#~ msgstr ""
+#~ "En förhandsgranskning av undersökningen har skapats. Den finns "
+#~ "tillgänglig på ${url}."
+
+#~ msgid "label_remove"
+#~ msgstr "Radera"
+
+#~ msgid "measure_template_title"
+#~ msgstr "Åtgärd 2"
+
+#~ msgid "Use"
+#~ msgstr "Använd"
+
+#~ msgid "help_common_solutions"
+#~ msgstr ""
+#~ "Det finns vanliga strategier för denna risk. Du kan skapa en ny åtgärd "
+#~ "som bygger på dessa strategier."
+
+#~ msgid "header_common_solutions"
+#~ msgstr "Vanliga lösningar"
+
+#, fuzzy
+#~ msgid "label_is_region"
+#~ msgstr "Sessioner"
+
+#, fuzzy
+#~ msgid "help_is_region"
+#~ msgstr ""
+#~ "Beskriv sessionshantering. Denna text är länkad från sidan för sessionens "
+#~ "översikt"
+
+#~ msgid "description_profilequestion"
+#~ msgstr ""
+#~ "Den grundläggande strukturen för en interaktiv riskbedömning online "
+#~ "(OiRA) består av: - profilfrågor (frågor som definierar företagets "
+#~ "profil) - moduler och eventuella delmoduler - risker (positiva rapporter) "
+#~ "Profilfrågorna används för att avgöra om enskilda moduler överhuvudtaget "
+#~ "gäller för slutanvändaren (TILLVAL), eller om de bör upprepas ett antal "
+#~ "gånger (REPETERBAR). Sådana frågor ställs INNAN en riskidentifiering och "
+#~ "utvärdering startas. Om slutanvändaren inte bekräftar att en profilfråga "
+#~ "(tillval) är relevant (genom att kryssa i rutan), kommer motsvarande "
+#~ "modul att hoppas över helt. Om slutanvändaren anger mer än ett alternativ "
+#~ "till en repeterbar profilfråga kommer motsvarande modul att upprepas ett "
+#~ "specifikt antal gånger."
+
+#~ msgid "button_save"
+#~ msgstr "Spara"
+
+#~ msgid "header_secondary_images_3"
+#~ msgstr "Sekundär bild 3"
+
+#~ msgid "header_secondary_images_2"
+#~ msgstr "Sekundär bild 2"
+
+#~ msgid "header_secondary_images_1"
+#~ msgstr "Sekundär bild 1"
+
+#~ msgid "Group name"
+#~ msgstr "Gruppnamn"
+
+#, fuzzy
+#~ msgid "header_countries"
+#~ msgstr "Landschefer"
