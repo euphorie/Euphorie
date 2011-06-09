@@ -3,6 +3,10 @@
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
+# ATTENTION TRANSLATORS:
+#   * Risk assessment => Evaluation des risque
+#   * Evaluation => Estimation
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
