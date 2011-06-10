@@ -1577,7 +1577,7 @@ msgstr "Aller au plan d'action"
 #. Default: Run evaluation
 #: euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Démarer l'estimation"
+msgstr "Démarrer l'estimation"
 
 #. Default: There are no risks that need to be evaluated. You can proceed directly
 #. to the action plan phase.
