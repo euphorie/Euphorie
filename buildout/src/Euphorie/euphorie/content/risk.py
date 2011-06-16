@@ -196,7 +196,7 @@ class IFrenchEvaluation(form.Schema):
                             SimpleTerm(7, "severe", title=_("severity_severe", default=u"Severe")),
                             SimpleTerm(10, "very-severe", title=_("severity_very_severe", default=u"Very severe")),
                             ]),
-            required = False,
+            required = True,
             default = 0)
 
     depends("default_frequency", "type", "==", "risk")
@@ -213,7 +213,7 @@ class IFrenchEvaluation(form.Schema):
                             SimpleTerm(7, "often", title=_("frequency_french_often", default=u"Often")),
                             SimpleTerm(9, "regularly", title=_("frequency_french_regularly", default=u"Regularly")),
                             ]),
-            required = False,
+            required = True,
             default = 0)
 
 
