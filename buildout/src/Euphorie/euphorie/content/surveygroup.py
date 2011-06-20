@@ -5,6 +5,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from OFS.event import ObjectClonedEvent
 from ZODB.POSException import ConflictError
+from z3c.form.interfaces import IEditForm
 from zope import schema
 from zope.component import getUtility
 from zope.event import notify
@@ -44,6 +45,7 @@ class ISurveyGroup(form.Schema, IBasic):
 
     form.omitted("description")
 
+    form.omitted(IEditForm, 'evaluation_algorithm')
     evaluation_algorithm = schema.Choice(
             title = _("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
             vocabulary = SimpleVocabulary([
