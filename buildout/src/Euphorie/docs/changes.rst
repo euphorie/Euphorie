@@ -1,4 +1,4 @@
-Changelog
+Chdangelog
 =========
 
 3.0 - Unreleased
@@ -9,6 +9,8 @@ Changelog
 
 - #15: AttributeError *is_region* when publishing from a country not yet in the
   client. [jcbrand]
+
+- For SurveyGroup, hide Evaluation Algorithm field on @@edit. [jcbrand]
 
 Upgrade notes
 ~~~~~~~~~~~~~
