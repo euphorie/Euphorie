@@ -1624,7 +1624,7 @@ msgstr ""
 #: euphorie/client/templates/help.pt:54 euphorie/client/templates/help.pt:27
 #: euphorie/content/templates/help_view.pt:39
 msgid "help_header_finalwords"
-msgstr "Le mot de la fin"
+msgstr "Derniers mots"
 
 #. Default: Report
 #: euphorie/client/templates/help.pt:51 euphorie/client/templates/help.pt:26
@@ -1666,7 +1666,7 @@ msgstr "Sessions"
 #: euphorie/client/templates/help.pt:33 euphorie/client/templates/help.pt:20
 #: euphorie/content/templates/help_view.pt:18
 msgid "help_header_authentication"
-msgstr "Authentification"
+msgstr "Connexion"
 
 #. Default: Introduction
 #: euphorie/client/templates/help.pt:30 euphorie/client/templates/help.pt:19
@@ -2692,7 +2692,7 @@ msgstr ""
 #. Default: Authentication
 #: euphorie/content/help.py:23
 msgid "label_authentication"
-msgstr "Authentification"
+msgstr "Connexion"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2758,7 +2758,7 @@ msgstr ""
 #. Default: Reports
 #: euphorie/content/help.py:73
 msgid "label_reports"
-msgstr "Rapports"
+msgstr "Rapport"
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -2771,7 +2771,7 @@ msgstr ""
 #. Default: Final words
 #: euphorie/content/help.py:81
 msgid "label_finalwords"
-msgstr "Mots de conclusion"
+msgstr "Derniers mots"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -3787,9 +3787,8 @@ msgstr "États membres de l'UE"
 
 #. Default: Regions
 #: euphorie/content/templates/sectorcontainer_view.pt:18
-#, fuzzy
 msgid "header_regions"
-msgstr "Inscription"
+msgstr "Régions"
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
