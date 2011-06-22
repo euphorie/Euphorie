@@ -100,7 +100,7 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         browser.handleErrors=False
         browser.open(risk.absolute_url())
         self.assertTrue("Severe" in browser.contents)
-        self.assertTrue("Regularly" in browser.contents)
+        self.assertTrue("Very often or regularly" in browser.contents)
 
 
     def testImageFromOtherSectorAccount(self):
