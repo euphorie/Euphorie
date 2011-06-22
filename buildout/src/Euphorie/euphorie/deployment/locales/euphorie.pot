@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-1\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-06-08 07:18+0200\n"
+"POT-Creation-Date: 2011-06-22 19:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1911,6 +1911,7 @@ msgid "header_risk_severity"
 msgstr ""
 
 #. Default: Regularly
+#. Default: Very often or regularly
 #: euphorie/client/templates/risk_evaluation.pt:67 euphorie/content/risk.py:214
 msgid "frequency_french_regularly"
 msgstr ""
@@ -2686,45 +2687,45 @@ msgid "message_delete_no_last_survey"
 msgstr ""
 
 #. Default: Title
-#: euphorie/content/surveygroup.py:38
+#: euphorie/content/surveygroup.py:39
 msgid "label_title"
 msgstr ""
 
 #. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
-#: euphorie/content/surveygroup.py:39
+#: euphorie/content/surveygroup.py:40
 msgid "help_surveygroup_title"
 msgstr ""
 
 #. Default: Evaluation algorithm
-#: euphorie/content/surveygroup.py:48
+#: euphorie/content/surveygroup.py:50
 msgid "label_survey_evaluation_algorithm"
 msgstr ""
 
 #. Default: Standard three critiera
 #. Default: Standard three criteria
-#: euphorie/content/surveygroup.py:50
+#: euphorie/content/surveygroup.py:52
 #: euphorie/content/templates/surveygroup_add.pt:83
 msgid "algorithm_kinney"
 msgstr ""
 
 #. Default: Simplified two criteria
-#: euphorie/content/surveygroup.py:51
+#: euphorie/content/surveygroup.py:53
 msgid "french"
 msgstr ""
 
 #. Default: Standard
-#: euphorie/content/surveygroup.py:201
+#: euphorie/content/surveygroup.py:203
 msgid "survey_default_title"
 msgstr ""
 
 #. Default: This survey is now no longer available in the client.
-#: euphorie/content/surveygroup.py:235
+#: euphorie/content/surveygroup.py:237
 msgid "message_unpublish_success"
 msgstr ""
 
 #. Default: Cancelled unpublish action.
-#: euphorie/content/surveygroup.py:238
+#: euphorie/content/surveygroup.py:240
 msgid "message_unpublish_cancel"
 msgstr ""
 

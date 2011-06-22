@@ -211,7 +211,7 @@ class IFrenchEvaluation(form.Schema):
                             SimpleTerm(1, "rare", title=_("frequency_french_rare", default=u"Rare")),
                             SimpleTerm(3, "not-often", title=_("frequency_french_not_often", default=u"Not very often")),
                             SimpleTerm(7, "often", title=_("frequency_french_often", default=u"Often")),
-                            SimpleTerm(9, "regularly", title=_("frequency_french_regularly", default=u"Regularly")),
+                            SimpleTerm(9, "regularly", title=_("frequency_french_regularly", default=u"Very often or regularly")),
                             ]),
             required = True,
             default = 0)

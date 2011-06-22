@@ -2320,54 +2320,54 @@ msgstr "Sélectionnez la priorité de ce risque"
 #: euphorie/client/templates/risk_evaluation.pt:79
 #: euphorie/content/risk.py:197
 msgid "severity_very_severe"
-msgstr ""
+msgstr "Très grave"
 
 #. Default: Severe
 #: euphorie/client/templates/risk_evaluation.pt:77
 #: euphorie/content/risk.py:196
 msgid "severity_severe"
-msgstr ""
+msgstr "Grave"
 
 #. Default: Not very severe
 #: euphorie/client/templates/risk_evaluation.pt:75
 #: euphorie/content/risk.py:195
 msgid "severity_not_severe"
-msgstr ""
+msgstr "Moyenne"
 
 #. Default: Weak
 #: euphorie/client/templates/risk_evaluation.pt:73
 #: euphorie/content/risk.py:194
 msgid "severity_weak"
-msgstr ""
+msgstr "Faible"
 
 #. Default: What is the severity of the damage ?
 #: euphorie/client/templates/risk_evaluation.pt:71
 msgid "header_risk_severity"
-msgstr ""
+msgstr "Quelle est la gravité du dommage ?"
 
 #. Default: Regularly
 #: euphorie/client/templates/risk_evaluation.pt:67
 #: euphorie/content/risk.py:214
 msgid "frequency_french_regularly"
-msgstr ""
+msgstr "Très fréquente"
 
 #. Default: Often
 #: euphorie/client/templates/risk_evaluation.pt:65
 #: euphorie/content/risk.py:213
 msgid "frequency_french_often"
-msgstr ""
+msgstr "Fréquente"
 
 #. Default: Not very often
 #: euphorie/client/templates/risk_evaluation.pt:63
 #: euphorie/content/risk.py:212
 msgid "frequency_french_not_often"
-msgstr ""
+msgstr "Moyenne"
 
 #. Default: Rare
 #: euphorie/client/templates/risk_evaluation.pt:61
 #: euphorie/content/risk.py:211
 msgid "frequency_french_rare"
-msgstr ""
+msgstr "Faible"
 
 #. Default: How often are people exposed to this risk?
 #: euphorie/client/templates/risk_evaluation.pt:59
