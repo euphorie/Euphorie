@@ -112,6 +112,6 @@ class ReportTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.getControl(name="form.widgets.employees").value, ["50-249"])
         self.assertEqual(browser.getControl(name="form.widgets.conductor").value, ["staff"])
         self.assertEqual(browser.getControl(name="form.widgets.referer").value, ["trade-union"])
-        self.assertEqual(browser.getControl(name="form.widgets.referer").value, [u"Yes"])
+        self.assertEqual(browser.getControl(name="form.widgets.workers_participated").value, u"Yes")
 
 
