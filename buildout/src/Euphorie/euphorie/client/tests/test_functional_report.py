@@ -102,7 +102,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.employees").value=["50-249"]
         browser.getControl(name="form.widgets.conductor").value=["staff"]
         browser.getControl(name="form.widgets.referer").value=["trade-union"]
-        browser.getControl(name="form.widgets.workers_participated").value=[True]
+        browser.getControl(name="form.widgets.workers_participated").value=['True']
         browser.getControl(name="form.buttons.next").click()
         # Make sure all fields validated
         self.assertEqual(browser.url, "%s/report/view" % survey_url)
@@ -112,6 +112,6 @@ class ReportTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.getControl(name="form.widgets.employees").value, ["50-249"])
         self.assertEqual(browser.getControl(name="form.widgets.conductor").value, ["staff"])
         self.assertEqual(browser.getControl(name="form.widgets.referer").value, ["trade-union"])
-        self.assertEqual(browser.getControl(name="form.widgets.workers_participated").value, u"Yes")
+        self.assertEqual(browser.getControl(name="form.widgets.workers_participated").value, [u"Yes"])
 
 
