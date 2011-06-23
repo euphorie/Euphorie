@@ -64,7 +64,7 @@
             <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
               <tal:span i18n:translate="frequency_french_often">Often</tal:span></label>
             <label><input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
-              <tal:span i18n:translate="frequency_french_regularly">Regularly</tal:span></label>
+              <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span></label>
           </fieldset>
 
           <fieldset class="comprehensive radioList" tal:define="value context/effect">

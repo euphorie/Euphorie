@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-06-08 07:18+0200\n"
+"POT-Creation-Date: 2011-06-23 18:12+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #. Default: Your country
 #: euphorie/client/company.py:20
-#: euphorie/client/templates/report_company.pt:26
+#: euphorie/client/templates/report_company.pt:25
 msgid "label_company_country"
 msgstr "Η χώρα σας "
 
@@ -78,50 +78,64 @@ msgstr ""
 #. Default: Through which channel did you learn about this tool?
 #: euphorie/client/company.py:53
 #: euphorie/client/templates/report_actionplan.pt:51
-#: euphorie/client/templates/report_company.pt:37
+#: euphorie/client/templates/report_company.pt:35
 msgid "label_referer"
 msgstr "Μέσω ποιου καναλιού μάθατε για αυτό το εργαλείο;"
 
 #. Default: an employers' organisation
 #: euphorie/client/company.py:56
 #: euphorie/client/templates/report_actionplan.pt:53
-#: euphorie/client/templates/report_company.pt:38
+#: euphorie/client/templates/report_company.pt:36
 msgid "referer_employers_organisation"
 msgstr "οργανισμός ενός εργοδότη"
 
 #. Default: a trade union organisation
 #: euphorie/client/company.py:59
 #: euphorie/client/templates/report_actionplan.pt:54
-#: euphorie/client/templates/report_company.pt:39
+#: euphorie/client/templates/report_company.pt:37
 msgid "referer_trade_union"
 msgstr "συνδικαλιστική οργάνωση"
 
 #. Default: a national public institution/administration
 #: euphorie/client/company.py:62
 #: euphorie/client/templates/report_actionplan.pt:55
-#: euphorie/client/templates/report_company.pt:40
+#: euphorie/client/templates/report_company.pt:38
 msgid "referer_national_public_institution"
 msgstr "δημόσιος οργανισμός/διοίκηση της χώρας"
 
 #. Default: an European institution/administration
 #: euphorie/client/company.py:65
 #: euphorie/client/templates/report_actionplan.pt:56
-#: euphorie/client/templates/report_company.pt:42
+#: euphorie/client/templates/report_company.pt:40
 msgid "referer_eu_institution"
 msgstr "ευρωπαϊκός οργανισμός/διοίκηση"
 
 #. Default: health and safety experts
 #: euphorie/client/company.py:68
-#: euphorie/client/templates/report_company.pt:44
+#: euphorie/client/templates/report_company.pt:42
 msgid "referer_health_safety_expert"
 msgstr "ειδήμων υγείας και ασφάλειας"
 
 #. Default: other channel
 #: euphorie/client/company.py:71
 #: euphorie/client/templates/report_actionplan.pt:58
-#: euphorie/client/templates/report_company.pt:45
+#: euphorie/client/templates/report_company.pt:43
 msgid "referer_other"
 msgstr "άλλο κανάλι"
+
+#. Default: Yes
+#: euphorie/client/company.py:82
+#: euphorie/client/templates/module_identification.pt:33
+#: euphorie/client/templates/risk_identification.pt:22
+msgid "label_yes"
+msgstr "Ναι"
+
+#. Default: No
+#: euphorie/client/company.py:85
+#: euphorie/client/templates/module_identification.pt:36
+#: euphorie/client/templates/risk_identification.pt:23
+msgid "label_no"
+msgstr "Όχι"
 
 #: euphorie/client/login.py:110
 msgid "Please enter your email address"
@@ -206,23 +220,23 @@ msgstr ""
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
 #: euphorie/client/report.py:164
-#: euphorie/client/templates/report_actionplan.pt:161
+#: euphorie/client/templates/report_actionplan.pt:165
 msgid "report_survey_revision"
 msgstr ""
 "Αυτή η αναφορά βασίστηκε στην έρευνα '${title}' της ημερομηνίας αναθεώρησης "
 "${date}."
 
 #. Default: You responded negatively to the above statement.
-#: euphorie/client/report.py:358 euphorie/client/report.py:585
-#: euphorie/client/templates/report_actionplan.pt:85
+#: euphorie/client/report.py:358 euphorie/client/report.py:603
+#: euphorie/client/templates/report_actionplan.pt:89
 #: euphorie/client/templates/report_identification.pt:50
 #: euphorie/client/templates/webhelpers.pt:108
 msgid "warn_risk_present"
 msgstr "Απαντήσατε αρνητικά στην παραπάνω δήλωση."
 
 #. Default: This risk still needs to be inventorised.
-#: euphorie/client/report.py:361 euphorie/client/report.py:588
-#: euphorie/client/templates/report_actionplan.pt:86
+#: euphorie/client/report.py:361 euphorie/client/report.py:606
+#: euphorie/client/templates/report_actionplan.pt:90
 #: euphorie/client/templates/report_identification.pt:51
 msgid "risk_unanswered"
 msgstr "Πρέπει να γίνει απογραφή αυτού του κινδύνου"
@@ -233,8 +247,17 @@ msgstr "Πρέπει να γίνει απογραφή αυτού του κινδ
 msgid "filename_report_identification"
 msgstr "Αναγνώριση ${title}.doc"
 
+#. Default: Not provided
+#: euphorie/client/report.py:436 euphorie/client/report.py:536
+#: euphorie/client/templates/report_actionplan.pt:62
+#: euphorie/client/templates/report_actionplan.pt:52
+#: euphorie/client/templates/report_actionplan.pt:44
+#: euphorie/client/templates/report_actionplan.pt:40
+msgid "missing_data"
+msgstr "Δεν παρέχεται"
+
 #. Default: Introduction
-#: euphorie/client/report.py:506
+#: euphorie/client/report.py:516
 msgid "plan_report_intro_header"
 msgstr ""
 
@@ -243,7 +266,7 @@ msgstr ""
 #. this action plan must be discussed annually and a small report must be written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:508
+#: euphorie/client/report.py:518
 #: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
@@ -254,29 +277,21 @@ msgstr ""
 "Ορισμένα θέματα ενδέχεται να έχουν ολοκληρωθεί και ίσως κάποια νέα θέματα "
 "χρειάζεται να προστεθούν."
 
-#. Default: Not provided
-#: euphorie/client/report.py:526
-#: euphorie/client/templates/report_actionplan.pt:52
-#: euphorie/client/templates/report_actionplan.pt:44
-#: euphorie/client/templates/report_actionplan.pt:40
-msgid "missing_data"
-msgstr "Δεν παρέχεται"
-
 #. Default: Company details
-#: euphorie/client/report.py:530
+#: euphorie/client/report.py:540
 msgid "plan_report_company_header"
 msgstr ""
 
 #. Default: Action plan
-#: euphorie/client/report.py:561
+#: euphorie/client/report.py:579
 msgid "plan_report_plan_header"
 msgstr ""
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/report.py:591
-#: euphorie/client/templates/report_actionplan.pt:156
+#: euphorie/client/report.py:609
+#: euphorie/client/templates/report_actionplan.pt:160
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
 msgstr ""
@@ -285,71 +300,71 @@ msgstr ""
 "πρέπει να συμπεριληφθεί σε αυτή την αναφορά."
 
 #. Default: low priority risk
-#: euphorie/client/report.py:600
+#: euphorie/client/report.py:618
 msgid "report_priority_low"
 msgstr ""
 
 #. Default: medium priority risk
-#: euphorie/client/report.py:602
+#: euphorie/client/report.py:620
 msgid "report_priority_medium"
 msgstr ""
 
 #. Default: high priority risk
-#: euphorie/client/report.py:604
+#: euphorie/client/report.py:622
 msgid "report_priority_high"
 msgstr ""
 
 #. Default: This is a
-#: euphorie/client/report.py:606
+#: euphorie/client/report.py:624
 msgid "report_priority"
 msgstr ""
 
 #. Default: Measure
-#: euphorie/client/report.py:616
+#: euphorie/client/report.py:634
 msgid "header_measure_single"
 msgstr ""
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:619
-#: euphorie/client/templates/report_actionplan.pt:103
+#: euphorie/client/report.py:637
+#: euphorie/client/templates/report_actionplan.pt:107
 msgid "header_measure"
 msgstr "Μέτρο ${index}"
 
 #. Default: Action plan:
-#: euphorie/client/report.py:631
-#: euphorie/client/templates/report_actionplan.pt:106
+#: euphorie/client/report.py:649
+#: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_actionplan"
 msgstr "Σχέδιο δράσης:"
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:635
-#: euphorie/client/templates/report_actionplan.pt:110
+#: euphorie/client/report.py:653
+#: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_preventionplan"
 msgstr "Σχέδιο πρόληψης:"
 
 #. Default: Requirements:
-#: euphorie/client/report.py:639
-#: euphorie/client/templates/report_actionplan.pt:114
+#: euphorie/client/report.py:657
+#: euphorie/client/templates/report_actionplan.pt:118
 msgid "report_measure_requirements"
 msgstr "Απαιτήσεις:"
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:646
-#: euphorie/client/templates/report_actionplan.pt:120
+#: euphorie/client/report.py:664
+#: euphorie/client/templates/report_actionplan.pt:124
 msgid "report_measure_responsible"
 msgstr "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια."
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}.
-#: euphorie/client/report.py:650
-#: euphorie/client/templates/report_actionplan.pt:122
+#: euphorie/client/report.py:668
+#: euphorie/client/templates/report_actionplan.pt:126
 msgid "report_measure_responsible_and_start"
 msgstr ""
 "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια η οποία αρχίζει "
 "στις ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:656
-#: euphorie/client/templates/report_actionplan.pt:125
+#: euphorie/client/report.py:674
+#: euphorie/client/templates/report_actionplan.pt:129
 msgid "report_measure_responsible_and_end"
 msgstr ""
 "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια η οποία "
@@ -357,39 +372,39 @@ msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:662
-#: euphorie/client/templates/report_actionplan.pt:138
+#: euphorie/client/report.py:680
+#: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_full"
 msgstr ""
 "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια που αρχίζει "
 "στις ${start} και τελειώνει στις ${end}. "
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:669
-#: euphorie/client/templates/report_actionplan.pt:128
+#: euphorie/client/report.py:687
+#: euphorie/client/templates/report_actionplan.pt:132
 msgid "report_measure_start_only"
 msgstr "Αυτή η ενέργεια αρχίζει στις ${start}."
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:674
-#: euphorie/client/templates/report_actionplan.pt:131
+#: euphorie/client/report.py:692
+#: euphorie/client/templates/report_actionplan.pt:135
 msgid "report_measure_end_only"
 msgstr "Αυτή η ενέργεια τελειώνει στις ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:679
-#: euphorie/client/templates/report_actionplan.pt:134
+#: euphorie/client/report.py:697
+#: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_start_and_stop"
 msgstr "Αυτή η ενέργεια αρχίζει στις ${start} και τελειώνει στις ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:685
-#: euphorie/client/templates/report_actionplan.pt:142
+#: euphorie/client/report.py:703
+#: euphorie/client/templates/report_actionplan.pt:146
 msgid "report_measure_budget"
 msgstr "Υπάρχει προϋπολογισμός ${amount} για αυτό το μέτρο αντιμετώπισης."
 
 #. Default: Action plan ${title}
-#: euphorie/client/report.py:700
+#: euphorie/client/report.py:718
 msgid "filename_report_actionplan"
 msgstr ""
 
@@ -547,8 +562,8 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 #: euphorie/client/templates/register.pt:42
 #: euphorie/client/templates/reminder.pt:41
 #: euphorie/client/templates/report.pt:78
-#: euphorie/client/templates/report_actionplan.pt:201
-#: euphorie/client/templates/report_company.pt:93
+#: euphorie/client/templates/report_actionplan.pt:205
+#: euphorie/client/templates/report_company.pt:94
 #: euphorie/client/templates/report_identification.pt:104
 #: euphorie/client/templates/risk_actionplan.pt:272
 #: euphorie/client/templates/risk_evaluation.pt:150
@@ -844,8 +859,8 @@ msgstr "Εθνικοί διευθυντές"
 #: euphorie/client/templates/module_identification.pt:87
 #: euphorie/client/templates/profile.pt:95
 #: euphorie/client/templates/report.pt:80
-#: euphorie/client/templates/report_actionplan.pt:203
-#: euphorie/client/templates/report_company.pt:95
+#: euphorie/client/templates/report_actionplan.pt:207
+#: euphorie/client/templates/report_company.pt:96
 #: euphorie/client/templates/report_identification.pt:106
 #: euphorie/client/templates/risk_actionplan.pt:274
 #: euphorie/client/templates/risk_evaluation.pt:152
@@ -868,8 +883,8 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/module_evaluation.pt:74
 #: euphorie/client/templates/module_identification.pt:86
 #: euphorie/client/templates/report.pt:79
-#: euphorie/client/templates/report_actionplan.pt:202
-#: euphorie/client/templates/report_company.pt:94
+#: euphorie/client/templates/report_actionplan.pt:206
+#: euphorie/client/templates/report_company.pt:95
 #: euphorie/client/templates/report_identification.pt:105
 #: euphorie/client/templates/risk_actionplan.pt:273
 #: euphorie/client/templates/risk_evaluation.pt:151
@@ -888,8 +903,8 @@ msgstr "Κατάσταση"
 #: euphorie/client/templates/module_identification.pt:84
 #: euphorie/client/templates/profile.pt:93
 #: euphorie/client/templates/report.pt:77
-#: euphorie/client/templates/report_actionplan.pt:200
-#: euphorie/client/templates/report_company.pt:92
+#: euphorie/client/templates/report_actionplan.pt:204
+#: euphorie/client/templates/report_company.pt:93
 #: euphorie/client/templates/report_identification.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:271
 #: euphorie/client/templates/risk_evaluation.pt:149
@@ -912,8 +927,8 @@ msgstr "Έρευνες"
 #: euphorie/client/templates/module_identification.pt:83
 #: euphorie/client/templates/profile.pt:92
 #: euphorie/client/templates/report.pt:76
-#: euphorie/client/templates/report_actionplan.pt:199
-#: euphorie/client/templates/report_company.pt:91
+#: euphorie/client/templates/report_actionplan.pt:203
+#: euphorie/client/templates/report_company.pt:92
 #: euphorie/client/templates/report_identification.pt:102
 #: euphorie/client/templates/risk_actionplan.pt:270
 #: euphorie/client/templates/risk_evaluation.pt:148
@@ -938,8 +953,8 @@ msgstr "Αποσύνδεση"
 #: euphorie/client/templates/module_identification.pt:76
 #: euphorie/client/templates/profile.pt:86
 #: euphorie/client/templates/report.pt:69
-#: euphorie/client/templates/report_actionplan.pt:192
-#: euphorie/client/templates/report_company.pt:84
+#: euphorie/client/templates/report_actionplan.pt:196
+#: euphorie/client/templates/report_company.pt:85
 #: euphorie/client/templates/report_identification.pt:95
 #: euphorie/client/templates/risk_actionplan.pt:263
 #: euphorie/client/templates/risk_evaluation.pt:141
@@ -964,8 +979,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/module_identification.pt:75
 #: euphorie/client/templates/profile.pt:85
 #: euphorie/client/templates/report.pt:68
-#: euphorie/client/templates/report_actionplan.pt:191
-#: euphorie/client/templates/report_company.pt:83
+#: euphorie/client/templates/report_actionplan.pt:195
+#: euphorie/client/templates/report_company.pt:84
 #: euphorie/client/templates/report_identification.pt:94
 #: euphorie/client/templates/risk_actionplan.pt:262
 #: euphorie/client/templates/risk_evaluation.pt:140
@@ -990,8 +1005,8 @@ msgstr "Αναφορά"
 #: euphorie/client/templates/module_identification.pt:70
 #: euphorie/client/templates/profile.pt:82
 #: euphorie/client/templates/report.pt:63
-#: euphorie/client/templates/report_actionplan.pt:186
-#: euphorie/client/templates/report_company.pt:78
+#: euphorie/client/templates/report_actionplan.pt:190
+#: euphorie/client/templates/report_company.pt:79
 #: euphorie/client/templates/report_identification.pt:89
 #: euphorie/client/templates/risk_actionplan.pt:254
 #: euphorie/client/templates/risk_evaluation.pt:135
@@ -1017,8 +1032,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/module_identification.pt:69
 #: euphorie/client/templates/profile.pt:81
 #: euphorie/client/templates/report.pt:62
-#: euphorie/client/templates/report_actionplan.pt:185
-#: euphorie/client/templates/report_company.pt:77
+#: euphorie/client/templates/report_actionplan.pt:189
+#: euphorie/client/templates/report_company.pt:78
 #: euphorie/client/templates/report_identification.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:253
 #: euphorie/client/templates/risk_evaluation.pt:134
@@ -1044,8 +1059,8 @@ msgstr "Σχέδιο Δράσης"
 #: euphorie/client/templates/module_identification.pt:64
 #: euphorie/client/templates/profile.pt:78
 #: euphorie/client/templates/report.pt:57
-#: euphorie/client/templates/report_actionplan.pt:180
-#: euphorie/client/templates/report_company.pt:72
+#: euphorie/client/templates/report_actionplan.pt:184
+#: euphorie/client/templates/report_company.pt:73
 #: euphorie/client/templates/report_identification.pt:83
 #: euphorie/client/templates/risk_actionplan.pt:248
 #: euphorie/client/templates/risk_evaluation.pt:126
@@ -1070,8 +1085,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/module_identification.pt:63
 #: euphorie/client/templates/profile.pt:77
 #: euphorie/client/templates/report.pt:56
-#: euphorie/client/templates/report_actionplan.pt:179
-#: euphorie/client/templates/report_company.pt:71
+#: euphorie/client/templates/report_actionplan.pt:183
+#: euphorie/client/templates/report_company.pt:72
 #: euphorie/client/templates/report_identification.pt:82
 #: euphorie/client/templates/risk_actionplan.pt:247
 #: euphorie/client/templates/risk_evaluation.pt:125
@@ -1097,8 +1112,8 @@ msgstr "Αξιολόγηση"
 #: euphorie/client/templates/module_identification.pt:55
 #: euphorie/client/templates/profile.pt:74
 #: euphorie/client/templates/report.pt:51
-#: euphorie/client/templates/report_actionplan.pt:174
-#: euphorie/client/templates/report_company.pt:66
+#: euphorie/client/templates/report_actionplan.pt:178
+#: euphorie/client/templates/report_company.pt:67
 #: euphorie/client/templates/report_identification.pt:77
 #: euphorie/client/templates/risk_actionplan.pt:242
 #: euphorie/client/templates/risk_evaluation.pt:120
@@ -1123,8 +1138,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/module_identification.pt:54
 #: euphorie/client/templates/profile.pt:73
 #: euphorie/client/templates/report.pt:50
-#: euphorie/client/templates/report_actionplan.pt:173
-#: euphorie/client/templates/report_company.pt:65
+#: euphorie/client/templates/report_actionplan.pt:177
+#: euphorie/client/templates/report_company.pt:66
 #: euphorie/client/templates/report_identification.pt:76
 #: euphorie/client/templates/risk_actionplan.pt:241
 #: euphorie/client/templates/risk_evaluation.pt:119
@@ -1150,8 +1165,8 @@ msgstr "Αναγνώριση"
 #: euphorie/client/templates/module_identification.pt:49
 #: euphorie/client/templates/profile.pt:69
 #: euphorie/client/templates/report.pt:45
-#: euphorie/client/templates/report_actionplan.pt:168
-#: euphorie/client/templates/report_company.pt:60
+#: euphorie/client/templates/report_actionplan.pt:172
+#: euphorie/client/templates/report_company.pt:61
 #: euphorie/client/templates/report_identification.pt:71
 #: euphorie/client/templates/risk_actionplan.pt:236
 #: euphorie/client/templates/risk_evaluation.pt:114
@@ -1176,8 +1191,8 @@ msgstr "Προετοιμασία"
 #: euphorie/client/templates/module_identification.pt:48
 #: euphorie/client/templates/profile.pt:68
 #: euphorie/client/templates/report.pt:44
-#: euphorie/client/templates/report_actionplan.pt:167
-#: euphorie/client/templates/report_company.pt:59
+#: euphorie/client/templates/report_actionplan.pt:171
+#: euphorie/client/templates/report_company.pt:60
 #: euphorie/client/templates/report_identification.pt:70
 #: euphorie/client/templates/risk_actionplan.pt:235
 #: euphorie/client/templates/risk_evaluation.pt:113
@@ -1664,7 +1679,7 @@ msgstr "Καλώς ήλθατε"
 #: euphorie/client/templates/register.pt:36
 #: euphorie/client/templates/reminder.pt:35
 #: euphorie/client/templates/report.pt:37
-#: euphorie/client/templates/report_company.pt:52
+#: euphorie/client/templates/report_company.pt:53
 #: euphorie/client/templates/risk_actionplan.pt:152
 #: euphorie/client/templates/risk_evaluation.pt:98
 #: euphorie/client/templates/risk_identification.pt:30
@@ -1679,7 +1694,7 @@ msgstr "Επόμενο"
 #: euphorie/client/templates/module_identification.pt:40
 #: euphorie/client/templates/register.pt:35
 #: euphorie/client/templates/reminder.pt:34
-#: euphorie/client/templates/report_company.pt:51
+#: euphorie/client/templates/report_company.pt:52
 #: euphorie/client/templates/risk_actionplan.pt:151
 #: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:29
@@ -1688,18 +1703,6 @@ msgstr "Επόμενο"
 #: euphorie/client/templates/survey_sessions.pt:54
 msgid "label_previous"
 msgstr "Προηγούμενο"
-
-#. Default: No
-#: euphorie/client/templates/module_identification.pt:36
-#: euphorie/client/templates/risk_identification.pt:23
-msgid "label_no"
-msgstr "Όχι"
-
-#. Default: Yes
-#: euphorie/client/templates/module_identification.pt:33
-#: euphorie/client/templates/risk_identification.pt:22
-msgid "label_yes"
-msgstr "Ναι"
 
 #. Default: The preview will be available at ${url}.
 #: euphorie/client/templates/preview.pt:22
@@ -1855,28 +1858,33 @@ msgid "header_reporting"
 msgstr "Σύνταξη αναφοράς"
 
 #. Default: This is a ${priority} .
-#: euphorie/client/templates/report_actionplan.pt:88
+#: euphorie/client/templates/report_actionplan.pt:92
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
 msgstr "Πρόκειται για ${priority} ."
 
 #. Default: high priority risk
-#: euphorie/client/templates/report_actionplan.pt:92
+#: euphorie/client/templates/report_actionplan.pt:96
 #: euphorie/client/templates/risk_actionplan.pt:28
 msgid "risk_priority_high"
 msgstr "κίνδυνος υψηλής προτεραιότητας"
 
 #. Default: medium priority risk
-#: euphorie/client/templates/report_actionplan.pt:91
+#: euphorie/client/templates/report_actionplan.pt:95
 #: euphorie/client/templates/risk_actionplan.pt:27
 msgid "risk_priority_medium"
 msgstr "κίνδυνος μέσης προτεραιότητας"
 
 #. Default: low priority risk
-#: euphorie/client/templates/report_actionplan.pt:90
+#: euphorie/client/templates/report_actionplan.pt:94
 #: euphorie/client/templates/risk_actionplan.pt:26
 msgid "risk_priority_low"
 msgstr "κίνδυνος χαμηλής προτεραιότητας"
+
+#. Default: Workers were invited to participate in the risk assessment
+#: euphorie/client/templates/report_actionplan.pt:61
+msgid "label_workers_participated"
+msgstr ""
 
 #. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
@@ -1926,7 +1934,7 @@ msgstr "Περιεχόμενα"
 
 #. Default: The European Agency for Safety and Health at Work, European social
 #. partners, etc.
-#: euphorie/client/templates/report_company.pt:43
+#: euphorie/client/templates/report_company.pt:41
 msgid "info_referer_eu_institution"
 msgstr ""
 "Ευρωπαϊκός Οργανισμός για την Ασφάλεια και την Υγεία στην Εργασία, "
@@ -1934,7 +1942,7 @@ msgstr ""
 
 #. Default: Ministry, Labour Inspectorate, National Institute for Safety and Health
 #. at Work, etc.
-#: euphorie/client/templates/report_company.pt:41
+#: euphorie/client/templates/report_company.pt:39
 msgid "info_referer_national_public_institution"
 msgstr ""
 "Υπουργείο, Επιθεώρηση Εργασίας, Εθνικό Ινστιτούτο για την Υγεία και Ασφάλεια "
@@ -1942,14 +1950,14 @@ msgstr ""
 
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
-#: euphorie/client/templates/report_company.pt:21
+#: euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
 msgstr ""
 "Παρακαλώ συμπληρώστε τα στοιχεία της εταιρείας σας σε αυτή τη φόρμα. Τα "
 "στοιχεία σε αυτή τη φόρμα θα εμφανίζονται επίσης στην αναφορά."
 
 #. Default: Please fix the indicated errors.
-#: euphorie/client/templates/report_company.pt:19
+#: euphorie/client/templates/report_company.pt:18
 msgid "warn_fix_errors"
 msgstr "Παρακαλώ διορθώσετε τα σφάλματα που επισημαίνονται."
 
@@ -2186,7 +2194,7 @@ msgstr ""
 msgid "header_risk_severity"
 msgstr ""
 
-#. Default: Regularly
+#. Default: Very often or regularly
 #: euphorie/client/templates/risk_evaluation.pt:67
 #: euphorie/content/risk.py:214
 msgid "frequency_french_regularly"
@@ -3067,48 +3075,48 @@ msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση έρευνας."
 
 #. Default: Title
-#: euphorie/content/surveygroup.py:38
+#: euphorie/content/surveygroup.py:39
 msgid "label_title"
 msgstr "Τίτλος"
 
 #. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
-#: euphorie/content/surveygroup.py:39
+#: euphorie/content/surveygroup.py:40
 msgid "help_surveygroup_title"
 msgstr ""
 "Ο τίτλος αυτής της έρευνας. Αυτός ο τίτλος χρησιμοποιείται στην "
 "προεπισκόπηση της έρευνας στους πελάτες"
 
 #. Default: Evaluation algorithm
-#: euphorie/content/surveygroup.py:48
+#: euphorie/content/surveygroup.py:50
 msgid "label_survey_evaluation_algorithm"
 msgstr ""
 
 #. Default: Standard three critiera
 #. Default: Standard three criteria
-#: euphorie/content/surveygroup.py:50
+#: euphorie/content/surveygroup.py:52
 #: euphorie/content/templates/surveygroup_add.pt:83
 msgid "algorithm_kinney"
 msgstr ""
 
 #. Default: Simplified two criteria
-#: euphorie/content/surveygroup.py:51
+#: euphorie/content/surveygroup.py:53
 msgid "french"
 msgstr ""
 
 #. Default: Standard
-#: euphorie/content/surveygroup.py:201
+#: euphorie/content/surveygroup.py:203
 msgid "survey_default_title"
 msgstr "Πρότυπο"
 
 #. Default: This survey is now no longer available in the client.
-#: euphorie/content/surveygroup.py:235
+#: euphorie/content/surveygroup.py:237
 #, fuzzy
 msgid "message_unpublish_success"
 msgstr "${label} Έκδοση που είναι online τη συγκεκριμένη στιγμή"
 
 #. Default: Cancelled unpublish action.
-#: euphorie/content/surveygroup.py:238
+#: euphorie/content/surveygroup.py:240
 #, fuzzy
 msgid "message_unpublish_cancel"
 msgstr "${label} Έκδοση που είναι online τη συγκεκριμένη στιγμή"
