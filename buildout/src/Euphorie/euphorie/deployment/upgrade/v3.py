@@ -34,3 +34,20 @@ def convert_solution_description_to_text(context):
             solution.description = description
         count += 1
     log.info("Updated description for %d solutions", count)
+
+def add_wp_column_to_company(context):
+    from z3c.saconfig import Session
+    from euphorie.deployment.upgrade.utils import TableExists
+    from euphorie.client import model
+    from zope.sqlalchemy import datamanager
+    import transaction
+
+    session=Session()
+    if TableExists(session, "company"):
+        session.execute("ALTER TABLE company ADD workers_participated bool NULL")
+        model.metadata.create_all(session.bind, checkfirst=True)
+        datamanager.mark_changed(session)
+        transaction.get().commit()
+
+    log.info("Added new column 'workers_participated' to table 'company'")
+

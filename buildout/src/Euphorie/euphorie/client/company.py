@@ -73,6 +73,20 @@ class CompanySchema(form.Schema):
                     ]),
             required=False)
 
+    workers_participated = schema.Choice(
+            title = _(
+                    "label_workers_participated", 
+                    default=u"Workers were invited to participate in the risk assessment"),
+            vocabulary = SimpleVocabulary([
+                SimpleTerm(True,
+                    title=_("label_yes",
+                        default=u"Yes")),
+                SimpleTerm(False,
+                    title=_("label_no",
+                        default=u"No")),
+                    ]),
+            required=False)
+
 
 
 

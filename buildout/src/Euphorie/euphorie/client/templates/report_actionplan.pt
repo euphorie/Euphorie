@@ -36,27 +36,31 @@
     </div>
 
     <dl class="grid companyDetails span-15">
-      <dt i18n:translate="label_country">Country</dt>
-      <dd tal:condition="not:company/country"><em i18n:translate="missing_data">Not provided</em></dd>
-      <dd tal:condition="company/country">${python:request.locale.displayNames.territories.get(company.country.upper(), company.country)}</dd>
+        <dt i18n:translate="label_country">Country</dt>
+        <dd tal:condition="not:company/country"><em i18n:translate="missing_data">Not provided</em></dd>
+        <dd tal:condition="company/country">${python:request.locale.displayNames.territories.get(company.country.upper(), company.country)}</dd>
 
-      <dt i18n:translate="label_employee_numbers">Number of employees</dt>
-      <dd><em tal:condition="not:company/employees" i18n:translate="missing_data">Not provided</em>
-        <tal:span condition="python:company.employees=='1-9'" i18n:translate="employee_numbers_1_to_9">1 to 9 employees</tal:span>
-        <tal:span condition="python:company.employees=='10-49'" i18n:translate="employee_numbers_10_to_49">10 to 49 employees</tal:span>
-        <tal:span condition="python:company.employees=='50-249'" i18n:translate="employee_numbers_50_to_249">50 to 249 employees</tal:span>
-        <tal:span condition="python:company.employees=='250+'" i18n:translate="employee_numbers_250_or_more">250 or more employees</tal:span>
-      </dd>
+        <dt i18n:translate="label_employee_numbers">Number of employees</dt>
+        <dd><em tal:condition="not:company/employees" i18n:translate="missing_data">Not provided</em>
+            <tal:span condition="python:company.employees=='1-9'" i18n:translate="employee_numbers_1_to_9">1 to 9 employees</tal:span>
+            <tal:span condition="python:company.employees=='10-49'" i18n:translate="employee_numbers_10_to_49">10 to 49 employees</tal:span>
+            <tal:span condition="python:company.employees=='50-249'" i18n:translate="employee_numbers_50_to_249">50 to 249 employees</tal:span>
+            <tal:span condition="python:company.employees=='250+'" i18n:translate="employee_numbers_250_or_more">250 or more employees</tal:span>
+        </dd>
 
-      <dt i18n:translate="label_referer">Through which channel did you learn about this tool?</dt>
-      <dd><em tal:condition="not:company/referer" i18n:translate="missing_data">Not provided</em>
-        <tal:span condition="python:company.referer=='employers-organisation'" i18n:translate="referer_employers_organisation">an employers' organisation</tal:span>
-        <tal:span condition="python:company.referer=='trade-union'" i18n:translate="referer_trade_union">a trade union organisation</tal:span>
-        <tal:span condition="python:company.referer=='national-public-institution'" i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span>
-        <tal:span condition="python:company.referer=='eu-institution'" i18n:translate="referer_eu_institution">an European institution/administration</tal:span>
-        <tal:span condition="python:company.referer=='health-safety-experts'" i18n:translate="referer_health_safety_export">health and safety experts</tal:span>
-        <tal:span condition="python:company.referer=='other'" i18n:translate="referer_other">other channel</tal:span>
-      </dd>
+        <dt i18n:translate="label_referer">Through which channel did you learn about this tool?</dt>
+        <dd><em tal:condition="not:company/referer" i18n:translate="missing_data">Not provided</em>
+            <tal:span condition="python:company.referer=='employers-organisation'" i18n:translate="referer_employers_organisation">an employers' organisation</tal:span>
+            <tal:span condition="python:company.referer=='trade-union'" i18n:translate="referer_trade_union">a trade union organisation</tal:span>
+            <tal:span condition="python:company.referer=='national-public-institution'" i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span>
+            <tal:span condition="python:company.referer=='eu-institution'" i18n:translate="referer_eu_institution">an European institution/administration</tal:span>
+            <tal:span condition="python:company.referer=='health-safety-experts'" i18n:translate="referer_health_safety_export">health and safety experts</tal:span>
+            <tal:span condition="python:company.referer=='other'" i18n:translate="referer_other">other channel</tal:span>
+        </dd>
+
+        <dt i18n:translate="label_workers_participated">Workers were invited to participate in the risk assessment</dt>
+        <dd tal:condition="python:company.workers_participated is None"><em i18n:translate="missing_data">Not provided</em></dd>
+        <dd tal:condition="python:company.workers_participated is not None">${view/workers_participated}</dd>
     </dl>
 
     <ol class="toc">

@@ -127,6 +127,12 @@
       description="This step converts the solution description to plain text." 
       handler=".v3.convert_solution_description_to_text"
       />
+
+    <genericsetup:upgradeStep
+      title="New Company column: 'Workers Participated'"
+      description="This step adds a new column 'workers_participated' to the company table." 
+      handler=".v3.add_wp_column_to_company"
+      />
   </genericsetup:upgradeSteps>
 
 </configure>

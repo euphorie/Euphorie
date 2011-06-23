@@ -395,6 +395,7 @@ class Company(BaseObject):
     referer = schema.Column(Enum([None, "employers-organisation",
         "trade-union", "national-public-institution", "eu-institution",
         "health-safety-experts", "other"]))
+    workers_participated = schema.Column(types.Boolean())
 
 
 

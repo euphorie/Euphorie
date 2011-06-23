@@ -428,6 +428,16 @@ class ActionPlanReportView(grok.View):
             return "present"
 
 
+    def workers_participated(self):
+        company = self.session.company
+        field=CompanySchema["workers_participated"]
+        t=lambda txt: translate(txt, context=self.request)
+        if company.workers_participated is None:
+            return t(_("missing_data", "Not provided"))
+        else:
+            return t(field.vocabulary.getTerm(company.workers_participated).title) 
+
+
     def show_negate_warning(self, node, zodbnode):
         if node.type!="risk" or node.identification in [u"n/a", u"yes"]:
             return False
@@ -446,6 +456,7 @@ class ActionPlanReportView(grok.View):
         return self.request.survey.restrictedTraverse(
                 treenode.zodb_path.split("/"))
 
+
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
@@ -461,7 +472,6 @@ class ActionPlanReportView(grok.View):
                                 model.RISK_PRESENT_OR_TOP5_FILTER))\
                 .order_by(model.SurveyTreeItem.path)
         self.nodes=query.all()
-
 
 
 class ActionPlanReportDownload(grok.View):
@@ -548,6 +558,14 @@ class ActionPlanReportDownload(grok.View):
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
                 Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.referer).title) if company.referer else missing)))
+        field=CompanySchema["workers_participated"]
+        table.append(
+                Cell(Paragraph(normal_style, t(field.title))),
+                Cell(Paragraph(
+                        normal_style, 
+                        t(field.vocabulary.getTerm(company.workers_participated).title) if company.workers_participated else missing)
+                    )
+                )
         section.append(table)
 
 

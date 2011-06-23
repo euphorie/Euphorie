@@ -4,6 +4,10 @@ Chdangelog
 3.0 - Unreleased
 ----------------
 
+- Add an extra field to the Company form (and column to the SQL table)
+  [jcbrand]
+  
+
 - Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
   [wichert]
 
