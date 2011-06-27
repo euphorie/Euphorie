@@ -8,7 +8,7 @@ from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.client.utils import RelativePath
 from euphorie.content.profilequestion import IProfileQuestion
-from euphorie.content.risk import IRisk
+from euphorie.content.risk import IRisk, IFrenchRisk
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 
@@ -46,12 +46,18 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
         priority=getattr(node, "default_priority", None)
         if priority=="none":
             priority=None
+
+        if IFrenchRisk.providedBy(node):
+            effect = node.default_severity
+        else:
+            effect = node.default_effect
+
         child=model.Risk(title=title,
                          risk_id=node.id,
                          risk_type=node.type,
                          probability=node.default_probability,
                          frequency=node.default_frequency,
-                         effect=node.default_effect,
+                         effect=effect,
                          priority=priority)
         child.skip_children=False
         child.postponed=False
