@@ -649,17 +649,13 @@ msgstr ""
 #: euphorie/client/templates/about.pt:75
 msgid "about_partners_1"
 msgstr ""
-"Le projet OiRA et l’application Web qui lui est associée ont été développés "
-"par\n"
-"l' ${eu-osha} en se basant sur l'instrument d'évaluation des risques "
-"néerlandais (appelé ${RIE}), qui, financé\n"
-"par le gouvernement néerlandais, a été initialement développé par TNO en "
-"partenariat avec\n"
-"l'organisation patronale des petites et moyennes entreprises MKB-Nederland\n"
-"et le Ministère de l'Emploi néerlandais. Le développement ultérieur de "
-"l'application\n"
-"a été réalisé avec la contribution et la participation des syndicats FNV, "
-"CNV et MHP."
+"Le projet OiRA et son application web relative a été développé par le ${eu-"
+"osha} basé sur l'outil RA néerlandais (appelé ${RIE}), qui, financé par le "
+"gouvernement néerlandais, était initialement conçu par TNO en collaboration "
+"avec l'organisation d'employeurs pour les petites et moyennes entreprises "
+"MKB-Nederland et le ministère néerlandais pour l'emploi. D'autres "
+"développements de l'application ont été réalisés avec l'entrée et la "
+"participation des syndicats FNV, CNV et MHP."
 
 #. Default: Development partners
 #: euphorie/client/templates/about.pt:72
@@ -1472,30 +1468,28 @@ msgstr "Les Informations que nous recueillons et dans quel but"
 #. details of the privacy policy of EU-OSHA and the full text of the Regulation can
 #. be accessed at: ${url}.
 #: euphorie/client/templates/conditions.pt:31
-#, fuzzy
 msgid "conditions_intro2"
 msgstr ""
-"Vos coordonnées personnelles sont traitées conformément à la réglementation "
-"(EC) N° 45/2001 du Parlement européen et du conseil du 18 décembre 2000 sur "
-"la protection des individus concernant le traitement des données "
-"personnelles par les institutions et les organismes de la Communauté "
-"européenne sur le libre mouvement de telles données. De plus amples détails "
-"sur la politique de confidentialité d'EU-OSHA et le texte complet de la "
-"réglementation peuvent être obtenus sur : ${url}."
+"Vos données personnelles sont traitées conformément à la réglementation (EC) "
+"N° 45/2001 du Parlement européen et du Conseil du 18 décembre 2000 sur la "
+"protection des individus concernant le traitement des données personnelles "
+"par les institutions et les organismes de la Communauté et sur le libre "
+"mouvement de ces données. De plus amples détails de la politique de "
+"confidentialité d'EU-OSHA et le texte complet de la réglementation peuvent "
+"être consultés sur : ${url}."
 
 #. Default: The OiRA tool is an instrument put at your disposal by the European
 #. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to
 #. all products, services and websites offered by EU-OSHA in the framework of the
 #. OiRA (Online interactive Risk Assessment) tool.
 #: euphorie/client/templates/conditions.pt:27
-#, fuzzy
 msgid "conditions_intro1"
 msgstr ""
-"L'outil OiRA est un instrument mis à votre disposition par l'Agence "
+"Les outils OiRA sont des instruments mis à votre disposition par l'Agence "
 "européenne pour la sécurité et la santé au travail (EU-OSHA). Cette "
-"politique de confidentialité s'applique à tous les produits, services et "
-"sites web proposés par EU-OSHA dans le cadre de l'outil OiRA (Évaluation des "
-"risques interactive en ligne)."
+"politique de confidentialité pour tous les produits, services et sites web, "
+"est proposée par EU-OSHA dans le cadre de l'outil OiRA (Évaluation "
+"interactive des risques en ligne)."
 
 #. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
@@ -1992,6 +1986,7 @@ msgstr "risque à faible priorité"
 #: euphorie/client/templates/report_actionplan.pt:61
 msgid "label_workers_participated"
 msgstr ""
+"Des travailleurs ont été invités à participer à l'évaluation des risques."
 
 #. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
@@ -2081,6 +2076,9 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted Are you sure you want to continue?"
 msgstr ""
+"Le texte actuel dans les champs 'Plan d'action', 'Plan de prévention' et "
+"'Exigences' de cette mesure sera écrasé. Cette action ne peut pas être "
+"inversée. Êtes-vous sûr de vouloir continuer ?"
 
 #: euphorie/client/templates/risk_actionplan.pt:279
 msgid ""
