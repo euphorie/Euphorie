@@ -440,6 +440,7 @@ class Edit(form.SchemaEditForm):
     grok.require("cmf.ModifyPortalContent")
     grok.layer(NuPloneSkin)
     grok.name("edit")
+    grok.template("risk_edit")
 
     default_fieldset_label = None
 

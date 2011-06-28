@@ -21,9 +21,7 @@ from euphorie.client.session import SessionManager
 from sqlalchemy import sql
 from repoze import formapi
 
-
 grok.templatedir("templates")
-
 
 class IdentificationView(grok.View):
     grok.context(model.Risk)
