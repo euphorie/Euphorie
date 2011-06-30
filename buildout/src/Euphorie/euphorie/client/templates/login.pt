@@ -31,7 +31,7 @@
         <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email autofocus" id="login_name" tabindex="1" type="text" name="__ac_name" value="${request/__ac_name|nothing}"/></label>
         <label><tal:span i18n:translate="label_login_password">Password (<a i18n:name="forgot_link" href="${view/reminder_url}" i18n:translate="label_forgot_password">I forgot my password</a>)</tal:span> <input tabindex="2" type="password" id="login_password" class="password" name="__ac_password:utf8:ustring"/></label>
         <p class="buttonBar">
-          <button tabindex="4" type="submit" name="next" value="next" class="next floatAfter" i18n:translate="label_login">Login</button>
+          <button tabindex="4" id="login_submit" type="submit" name="next" value="next" class="next floatAfter" i18n:translate="label_login">Login</button>
           <a i18n:translate="label_change_country" class="floatBefore button-medium back" href="${webhelpers/client_url}">Change country/language</a>
         </p>
       </fieldset>
