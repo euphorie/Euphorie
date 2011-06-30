@@ -30,7 +30,7 @@
                 <button class="link" type="submit">${session/title}</button>,
                 <tal:span i18n:translate="lable_session_modified">saved on
                 <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
-            <td class="actions span-4">
+            <td class="actions span-5">
               <form method="post" action="${context/absolute_url}/@@json-rename-session" class="renameSessionForm jsOnly">
                 <input type="hidden" name="id" value="${session/id}" />
                 <button type="button" class="small rename floatAfter" i18n:translate="label_rename">Rename</button>
