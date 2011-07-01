@@ -4,6 +4,9 @@ Chdangelog
 3.0 - Unreleased
 ----------------
 
+- Add another evaluation algorithm (French) for calculating risk priorities. 
+  [wichert]
+
 - Bugfix. Effect wasn't set for French risks when added to the session tree.
   [jcbrand]
 
