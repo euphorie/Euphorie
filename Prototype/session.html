@@ -40,24 +40,24 @@
             <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
           </td>
         </tr>
-              <tr>
-                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
-                    <input type="hidden" name="action" value="continue">
-                    <input type="hidden" name="session" value="994">
-                    <button class="link" type="submit"><span>OiRA tool</span></button>,
-                    αποθηκεύτηκε στις 06 Απριλίου 2011</form></td>
-                <td class="actions span-5">
-                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
-                    <input type="hidden" name="id" value="994">
-                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
-                  </form>
-                  <form method="post" action="delete-session" class="removeSessionForm">
-                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
-                    <input type="hidden" name="id" value="994">
-                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
-                  </form>
-                </td>
-              </tr> 
+        <tr>
+          <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+              <input type="hidden" name="action" value="continue">
+              <input type="hidden" name="session" value="994">
+              <button class="link" type="submit"><span>OiRA tool</span></button>,
+              αποθηκεύτηκε στις 06 Απριλίου 2011</form></td>
+          <td class="actions span-5">
+            <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+              <input type="hidden" name="id" value="994">
+              <button type="button" class="small rename"><span>Μετονομασία</span></button>
+            </form>
+            <form method="post" action="delete-session" class="removeSessionForm">
+              <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+              <input type="hidden" name="id" value="994">
+              <button type="button" class="small delete"><span>Διαγραφή</span></button>
+            </form>
+          </td>
+        </tr> 
               
               <tr>
                          <td><form class="startSessionForm" action="http://localhost:4080/Plone2/client/gr/view" method="post">
