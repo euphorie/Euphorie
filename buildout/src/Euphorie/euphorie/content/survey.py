@@ -24,6 +24,7 @@ from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
 from htmllaundry.z3cform import HtmlText
 from Products.statusmessages.interfaces import IStatusMessage
+from Products.Archetypes.utils import shasattr
 from euphorie.content import MessageFactory as _
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.module import IModule
@@ -245,7 +246,7 @@ class Delete(actions.Delete):
 @grok.subscribe(ISurvey, ISurveyUnpublishEvent)
 def handleSurveyUnpublish(survey, event):
     """Event handler (subscriber) for unpublishing a survey."""
-    if hasattr(survey, "published"):
+    if shasattr(survey, "published"):
         delattr(survey, "published")
 
     surveygroup=aq_parent(survey)
