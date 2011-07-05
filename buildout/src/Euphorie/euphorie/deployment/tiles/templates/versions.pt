@@ -16,9 +16,30 @@
         <legend>${group/title}</legend>
 
         <fieldset class="headerButtons">
-          <button class="micro dependsOn-survey dependsAction-enable" title="Create a duplicate of the selected survey" i18n:attributes="title help_add_version;" type="submit" name="action" value="clone" i18n:translate="button_add_version">Duplicate</button>
-          <button class="micro dependsOn-survey dependsAction-enable" title="Publish the selected survey live with its latest changes." i18n:attributes="title help_publish;" disabled="disabled" type="submit" name="action" value="publish" i18n:translate="button_publish">Publish</button>
-          <button class="micro" title="Remove this survey from the online client." i18n:attributes="title title_help_unpublished" disabled="${python:'disabled' if not group.published else None}" type="submit" name="action" value="unpublish" i18n:translate="button_unpublish">Unpublish</button>
+          <button class="micro dependsOn-survey dependsAction-enable" 
+                    title="Create a duplicate of the selected survey" 
+                    i18n:attributes="title help_add_version;" 
+                    type="submit" 
+                    name="action" 
+                    value="clone" 
+                    i18n:translate="button_add_version">Duplicate</button>
+          <button class="micro dependsOn-survey dependsAction-enable" 
+                    title="Publish the selected survey live with its latest changes." 
+                    i18n:attributes="title help_publish;" 
+                    disabled="disabled" 
+                    type="submit" 
+                    name="action" 
+                    value="publish" 
+                    i18n:translate="button_publish">Publish</button>
+          <button class="micro" 
+                    title="Remove this survey from the online client." 
+                    i18n:attributes="title title_help_unpublished" 
+                    disabled="${python:'disabled' if not group.published else None}" 
+                    id="${group/id}"
+                    type="submit" 
+                    name="action" 
+                    value="unpublish" 
+                    i18n:translate="button_unpublish">Unpublish</button>
         </fieldset>
 
         <ul class="radioList surveyVersions">
@@ -26,7 +47,12 @@
             <em tal:condition="python:survey.current and not survey.published" class="sample current" i18n:translate="label_current">Current</em>
             <em tal:condition="python:not survey.current and survey.published" class="sample published" i18n:translate="label_published">Published</em>
             <em tal:condition="python:survey.current and survey.published" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
-            <input type="radio" name="survey" value="${survey/id}" checked="${python:'checked' if survey.published else None}"/>
+            <input type="radio" 
+                   name="survey" 
+                   value="${survey/id}" 
+                   checked="${python:'checked' if survey.published else None}"
+                   tal:attributes="onclick string:toggle_unpublish_button('${group/id}', '${not:survey/published}')"/>
+
             <label><a href="${survey/url}">${survey/title}</a></label>
             <a class="floatAfter" href="${survey/url}/@@preview" i18n:translate="label_preview">Preview</a>
             <a class="floatAfter" href="${survey/url}" i18n:translate="button_edit">Edit</a>
