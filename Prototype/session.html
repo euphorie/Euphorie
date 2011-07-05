@@ -4,10 +4,12 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>
-      —
-    </title>
-    <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen.css" /><link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-osha.css" /><!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie6.css" /> <![endif]-->
+    <meta name="author" content="Cornelis G. A. Kolbach">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+    <title>OiRA</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen.css" />
+    <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie6.css" /> <![endif]-->
     <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
     <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
     <link rel="icon" type="image/png" href="media/favicon.png" /><!--[if IE]>
@@ -26,20 +28,740 @@
       <tbody>
         <tr>
           <td><form method="post" action="inventariseren.html" class="startSessionForm"><button class="link" type="submit">Tandheelkundige praktijken</button></form>, opgeslagen op 25 februari 2010</td>
-          <td class="actions span-3">
+          <td class="actions span-5">
             <form method="post" action="delete" class="renameSessionForm"><button type="button" class="small">Rename</button></form>
             <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
           </td>
         </tr>
         <tr>
           <td><form method="post" action="inventariseren.html" class="startSessionForm"><button class="link" type="submit">Betonmortelfabrikanten</button></form>, opgeslagen op 26 mei 2010</td>
-          <td class="actions span-3">
+          <td class="actions span-5">
             <form method="post" action="delete" class="renameSessionForm"><button type="button" class="small">Rename</button></form>
             <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
           </td>
         </tr>
-      </tbody>
-    </table>
+              <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="994">
+                    <button class="link" type="submit"><span>OiRA tool</span></button>,
+                    αποθηκεύτηκε στις 06 Απριλίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="994">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="994">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> 
+              
+              <tr>
+                         <td><form class="startSessionForm" action="http://localhost:4080/Plone2/client/gr/view" method="post">
+                             <input type="hidden" value="continue" name="action">
+                             <input type="hidden" value="374" name="session">
+                             <button type="submit" class="link">Garage holders</button>,
+                             αποθηκεύτηκε στις 18 Ιανουαρίου 2011</form></td>
+                         <td class="actions span-5">
+                           <form class="renameSessionForm" action="http://localhost:4080/Plone2/client/gr/@@json-rename-session" method="post">
+                             <input type="hidden" value="374" name="id">
+                             <button class="small rename" type="button">Μετονομασία</button>
+                           </form>
+                           <form class="removeSessionForm" action="delete-session" method="post">
+                             <input type="hidden" value="http://localhost:4080/Plone2/client/gr/@@json-delete-session" name="json_url">
+                             <input type="hidden" value="374" name="id">
+                             <button class="small delete" type="button">Διαγραφή</button>
+                           </form>
+                         </td>
+                       </tr>
+              
+              <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1000">
+                    <button class="link" type="submit"><span>el_test_gr</span></button>,
+                    αποθηκεύτηκε στις 07 Απριλίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1000">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1000">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1025">
+                    <button class="link" type="submit"><span>test FR cinema</span></button>,
+                    αποθηκεύτηκε στις 14 Απριλίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1025">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1025">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1091">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers_EL</span></button>,
+                    αποθηκεύτηκε στις 26 Απριλίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1091">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1091">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1165">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 09 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1165">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1165">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1170">
+                    <button class="link" type="submit"><span>test profile q</span></button>,
+                    αποθηκεύτηκε στις 09 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1170">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1170">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1195">
+                    <button class="link" type="submit"><span>Bakeries - Syslab</span></button>,
+                    αποθηκεύτηκε στις 11 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1195">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1195">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1196">
+                    <button class="link" type="submit"><span>PS</span></button>,
+                    αποθηκεύτηκε στις 11 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1196">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1196">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1202">
+                    <button class="link" type="submit"><span>test FOP IT</span></button>,
+                    αποθηκεύτηκε στις 13 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1202">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1202">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1214">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 16 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1214">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1214">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1235">
+                    <button class="link" type="submit"><span>Private Security</span></button>,
+                    αποθηκεύτηκε στις 18 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1235">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1235">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="942">
+                    <button class="link" type="submit"><span>Garage holders</span></button>,
+                    αποθηκεύτηκε στις 19 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="942">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="942">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1241">
+                    <button class="link" type="submit"><span>Private Security (Syslab Preview)</span></button>,
+                    αποθηκεύτηκε στις 19 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1241">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1241">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1243">
+                    <button class="link" type="submit"><span>test avec INRS</span></button>,
+                    αποθηκεύτηκε στις 20 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1243">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1243">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1252">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 20 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1252">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1252">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1262">
+                    <button class="link" type="submit"><span>transportroutier - demo</span></button>,
+                    αποθηκεύτηκε στις 24 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1262">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1262">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1263">
+                    <button class="link" type="submit"><span>Transportroutier - Syslab</span></button>,
+                    αποθηκεύτηκε στις 24 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1263">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1263">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1264">
+                    <button class="link" type="submit"><span>SYSLAB TEST #3265</span></button>,
+                    αποθηκεύτηκε στις 24 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1264">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1264">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1282">
+                    <button class="link" type="submit"><span>bakeries manuela</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1282">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1282">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1286">
+                    <button class="link" type="submit"><span>25_05_2011</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1286">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1286">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1290">
+                    <button class="link" type="submit"><span>Marian</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1290">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1290">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1287">
+                    <button class="link" type="submit"><span>ig-bau_25_05_11</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1287">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1287">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1292">
+                    <button class="link" type="submit"><span>Public Administration - Working in Offices</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1292">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1292">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1293">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1293">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1293">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1291">
+                    <button class="link" type="submit"><span>Marian</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1291">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1291">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1288">
+                    <button class="link" type="submit"><span>test Oira Camp</span></button>,
+                    αποθηκεύτηκε στις 25 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1288">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1288">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1298">
+                    <button class="link" type="submit"><span>dfad</span></button>,
+                    αποθηκεύτηκε στις 26 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1298">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1298">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1299">
+                    <button class="link" type="submit"><span>company bilbao 25-05-2011</span></button>,
+                    αποθηκεύτηκε στις 26 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1299">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1299">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1304">
+                    <button class="link" type="submit"><span>laboratory</span></button>,
+                    αποθηκεύτηκε στις 27 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1304">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1304">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1310">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 27 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1310">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1310">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1321">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 31 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1321">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1321">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1322">
+                    <button class="link" type="submit"><span>Public Administration - Working in Offices</span></button>,
+                    αποθηκεύτηκε στις 31 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1322">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1322">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1323">
+                    <button class="link" type="submit"><span>Slovenia-test</span></button>,
+                    αποθηκεύτηκε στις 31 Μαΐου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1323">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1323">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1294">
+                    <button class="link" type="submit"><span>transportroutier - demo</span></button>,
+                    αποθηκεύτηκε στις 06 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1294">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1294">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1326">
+                    <button class="link" type="submit"><span>Syslab SV Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 06 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1326">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1326">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1328">
+                    <button class="link" type="submit"><span>test</span></button>,
+                    αποθηκεύτηκε στις 10 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1328">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1328">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1309">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 10 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1309">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1309">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1330">
+                    <button class="link" type="submit"><span>el_test_gr</span></button>,
+                    αποθηκεύτηκε στις 10 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1330">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1330">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1331">
+                    <button class="link" type="submit"><span>Cyprus_Hairdressers</span></button>,
+                    αποθηκεύτηκε στις 10 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1331">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1331">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1036">
+                    <button class="link" type="submit"><span>Fishery</span></button>,
+                    αποθηκεύτηκε στις 10 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1036">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1036">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr> <tr>
+                <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue">
+                    <input type="hidden" name="session" value="1332">
+                    <button class="link" type="submit"><span>test calc feature</span></button>,
+                    αποθηκεύτηκε στις 23 Ιουνίου 2011</form></td>
+                <td class="actions span-5">
+                  <form method="post" action="http://client.oiratest.syslab.com/gb/@@json-rename-session" class="">
+                    <input type="hidden" name="id" value="1332">
+                    <button type="button" class="small rename"><span>Μετονομασία</span></button>
+                  </form>
+                  <form method="post" action="delete-session" class="removeSessionForm">
+                    <input type="hidden" name="json_url" value="http://client.oiratest.syslab.com/gb/@@json-delete-session">
+                    <input type="hidden" name="id" value="1332">
+                    <button type="button" class="small delete"><span>Διαγραφή</span></button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
     <h2>or…</h2>
     <form action="inventariseren.html">
       <fieldset class="concise">
