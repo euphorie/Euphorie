@@ -228,15 +228,26 @@ class Delete(actions.Delete):
     grok.context(ISurvey)
 
     def verify(self, container, context):
-        flash=IStatusMessage(self.request).addStatusMessage
+        flash = IStatusMessage(self.request).addStatusMessage
+
+        if shasattr(container, 'published') and container.published==context.id:
+            flash(_("message_no_delete_published_survey", 
+                    default=u"You cannot delete a survey version that is published. Please unpublish it first."), 
+                    "error")
+            self.request.response.redirect(context.absolute_url())
+            return False
+
         count=0
         for survey in container.values():
             if ISurvey.providedBy(survey):
                 count+=1
-            if count>1:
-                return True
+
+        if count > 1:
+            return True
         else:
-            flash(_("message_delete_no_last_survey", default=u"You can not delete the only survey version."), "error")
+            flash(_("message_delete_no_last_survey", 
+                    default=u"You can not delete the only survey version."), 
+                    "error")
             self.request.response.redirect(context.absolute_url())
             return False
 
