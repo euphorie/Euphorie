@@ -37,7 +37,6 @@
     permission="zope.Public"
     />
 
-
   <plone:tile
     name="euphorie.usermgmt.navtree"
     title="User management navigation tree"

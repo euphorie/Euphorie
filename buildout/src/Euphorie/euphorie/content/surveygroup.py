@@ -290,3 +290,4 @@ def handleSurveyPublish(survey, event):
     
     surveygroup=aq_parent(aq_inner(survey))
     surveygroup.published=survey.id
+
