@@ -195,6 +195,7 @@ class GetSurveysTests(EuphorieTestCase):
         self.assertEqual(self.getSurveys(survey),
                 [ { "url": "http://nohost/plone/sectors/nl/sector/test-survey",
                     "published": False,
+                    "id": "test-survey",
                     "title": u"Test survey",
                     "surveys": [
                         { "id": "standard-version",

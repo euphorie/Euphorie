@@ -199,7 +199,8 @@ def getSurveys(context):
         return info
 
     for group in groups:
-        info=dict(title=group.title,
+        info=dict(id=group.id,
+                  title=group.title,
                   url=group.absolute_url(),
                   published=bool(group.published))
         info["surveys"]=[morph(group, survey)

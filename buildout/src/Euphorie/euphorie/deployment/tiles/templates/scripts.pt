@@ -6,6 +6,11 @@
      i18n:domain="euphorie"
      tal:omit-tag="">
   <script type="text/javascript">
+
+toggle_unpublish_button = function(group_id, published) {
+    $('button#' + group_id).attr('disabled', published == 'True' ? true : false);
+}
+
 var twisty_title = '<tal:span i18n:translate="title_toggle_navtree">Show older versions</tal:span>',
     twisty_text = '<tal:span i18n:translate="text_toggle_navtree">Toggle</tal:span>';
 //  <![CDATA[

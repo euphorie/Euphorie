@@ -1,3 +1,4 @@
+from zope import component
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
 
@@ -79,6 +80,18 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
 
+    def testUnpublishAction(self):
+        from zope.event import notify
+        from Products.CMFCore.WorkflowCore import ActionSucceededEvent
+        self.loginAsPortalOwner()
+        surveygroup=self.createSurveyGroup()
+        survey=self._create(surveygroup, "euphorie.survey", "survey")
+        notify(ActionSucceededEvent(survey, None, "publish", None))
+        self.assertEqual(surveygroup.published, "survey")
+        request=survey.REQUEST
+        unpublishview = component.getMultiAdapter((surveygroup, request), name='unpublish')
+        unpublishview.unpublish()
+        self.assertEqual(surveygroup.published, None)
 
 
 class AddFormTests(EuphorieTestCase):

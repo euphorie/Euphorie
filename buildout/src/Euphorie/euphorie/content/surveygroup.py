@@ -12,6 +12,7 @@ from zope.event import notify
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
+from zope.lifecycleevent.interfaces import IObjectRemovedEvent
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -54,7 +55,6 @@ class ISurveyGroup(form.Schema, IBasic):
                 ]),
             default = u"kinney",
             required = True)
-
 
 
 class SurveyGroup(dexterity.Container):
@@ -278,7 +278,7 @@ class VersionCommand(grok.View):
 @grok.subscribe(ISurvey, IActionSucceededEvent)
 def handleSurveyPublish(survey, event):
     """Event handler (subscriber) for succesfull workflow transitions for
-    :py:obj:`ISurvey` objects. This handler performs necessary houskeeping
+    :py:obj:`ISurvey` objects. This handler performs necessary housekeeping
     tasks on the parent :py:class:`SurveyGroup`.
 
     If the workflow action is ``publish`` or ``update`` the ``published``
@@ -290,3 +290,20 @@ def handleSurveyPublish(survey, event):
     
     surveygroup=aq_parent(aq_inner(survey))
     surveygroup.published=survey.id
+
+
+@grok.subscribe(ISurvey, IObjectRemovedEvent)
+def handleSurveyRemoved(survey, event):
+    """Event handler (subscriber) for deletion of  
+    :py:obj:`ISurvey` objects. This handler performs necessary houskeeping
+    tasks on the parent :py:class:`SurveyGroup`.
+
+    The 'published' attr on the surveygroup states the name of the currently
+    published survey.
+
+    If this survey gets deleted, we need to clear this attr.
+    """
+    parent = aq_parent(survey)
+    if ISurveyGroup.providedBy(parent) and parent.published==survey.id:
+        parent.published=None
+

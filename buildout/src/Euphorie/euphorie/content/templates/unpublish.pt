@@ -5,7 +5,7 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="nuplone"
+      i18n:domain="euphorie"
       metal:use-macro="context/@@layout/macros/layout"
       meta:interpolation="true">
   <body>
