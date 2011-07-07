@@ -329,49 +329,6 @@ body,
 	padding: 10px;
 	background: white scroll;
 	color: gray;
-	font-style: italic;position: absolute;
-	font-size: 12px;
-	line-height: 18px;
-	background-color: #e9e9e8;
-	-webkit-bodl.accordion dt.ui-state-default:hover a.button.solutions {
-	opacity: 0;
-	display: noneit-box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-	box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-	border: 1px solid #aeaeae;
-	z-index: 10000;
-	margin-top: 16px;
-	margin-right: 3%;
-	display: none;
-}
-
-#standardSolutions ol {
-}
-
-#standardSolutions ol li {
-	list-style-type: decimal;
-	list-style-position: inside;
-	border-top: 1px solid silver;
-	text-indent: -12px;
-	padding: 7px 10px 7px 23px;
-	cursor: pointer;
-}
-
-#standardSolutions ol li:hover {
-	background-color: #d6d6d6;
-}
-
-#standardSolutions p {
-	display: none;
-}
-
-#standardSolutions p.info
- {
-	display: block;
-	margin: 0;
-	padding: 10px;
-	background: white scroll;
-	color: gray;
 	font-style: italic;
 }
 
@@ -1306,7 +1263,105 @@ hr {
 	top: 10px;
 	height: 1px;
 	border-style: none;
-	background: #c8	width: 559px;
+	background: #c8c3be;
+}
+
+a,
+button.link {
+	color: #113779;
+	font-weight: bold;
+}
+
+a:hover,
+button.link:hover {
+	color: #05142e;
+}
+
+a.block {
+	display: block;
+}
+
+ul {
+	margin-left: 15px;
+	margin-bottom: 20px;
+	list-style-type: square;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+td,th {
+	padding-right: 10px;
+}
+
+th {
+	font-weight: bold;
+}
+
+.discrete {
+	font-size: 11px;
+	color: gray;
+	line-height: 20px;
+	font-style: italic;
+}
+
+/* @end */
+
+/* @group Welcoming word */
+
+#homepage h1 {
+	height: 41px;
+	padding-left: 0;
+}
+
+#homepage h1 span {
+	width: 640px;
+	padding-bottom: 20px;
+	overflow: hidden;
+	padding-right: 0;
+	float: left;
+	padding-left: 170px;
+}
+
+#homepage h1 br {
+	display: none;
+}
+
+#homepage h2 {
+	clear: left;
+	position: relative;
+	height: 20px;
+}
+
+#homepage h2 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#homepage h2 br {
+	display: none;
+}
+
+
+
+/* @end */
+
+/* @group Accordion */
+
+dl.accordion {
+	float: left;
+	width: 100%;
+	margin: 0 0 20px;
+	padding: 0;
+}
+
+dl.accordion dt {
+	margin: 0;
+	float: left;
+	width: 559px;
 	padding-right: 10px;
 }
 
@@ -1487,106 +1542,7 @@ p.emphasis {
 
 .error {
 	border-color: #ff1c00;
-	bac3be;
-}
-
-a,
-button.link {
-	color: #113779;
-	font-weight: bold;
-}
-
-a:hover,
-button.link:hover {
-	color: #05142e;
-}
-
-a.block {
-	display: block;
-}
-
-u9px;
-	padding-right: 1l {
-	margin-left: 15px;
-	margin-bottom: 20px;
-	list-style-type: square;
-}
-
-table {
-	width: 100%;
-	margin-bottom: 20px;
-}
-
-td,th {
-	padding-right: 10px;
-}
-
-th {
-	font-weight: bold;
-}
-
-.discrete {
-	font-size: 11px;
-	color: gray;
-	line-height: 20px;
-	font-style: italic;
-}
-
-/* @end */
-
-/* @group Welcoming word */
-
-#homepage h1 {
-	height: 41px;
-	padding: 0;
-}
-
-#homepage h1 span {
-	width: 640px;
-	padding-bottom: 20px;
-	overflow: hidden;
-	padding-right: 0;
-	float: left;
-	padding-left: 170px;
-}
-
-#homepage h1 br {
-	display: none;
-}
-
-#homepage h2 {
-	clear: left;
-	position: relative;
-	height: 20px;
-}
-
-#homepage h2 span {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#homepage h2 br {
-	display: none;
-}
-
-
-
-/* @end */
-
-/* @group Accordion */
-
-dl.accordion {
-	float: left;
-	width: 100%;
-	margin: 0 0 20px;
-	padding: 0;
-}
-
-dl.accordion dt {
-	margin: 0;
-	float: left;
-ckground-color: #ff1c00;
+	background-color: #ff1c00;
 	color: white;
 }
 
@@ -1766,8 +1722,7 @@ button.back,
 	border-style: none;
 	border-bottom-style: solid;
 	padding: 6px 0 0;
-	cursortable#sessionList {
-	width: 440pxursor: pointer;
+	cursor: pointer;
 }
 
 button.back:hover,
@@ -2014,22 +1969,16 @@ fieldset legend span {
 fieldset legend {
 	position: absolute;
 	left: 0;
-	margin-bottom: 20px;
-	width: 50%;
-}
-ea.span-15 {
-	width: 580px;
+	width: 45%;
+	color: #3f3f3f;
 }
 
-label {
-}
-
-/* @group Add and remove */
-
-#addImage {
-	float: right;
-	margin-top: 10px;
- 0;
+fieldset p.question {
+	width: 95% !important;
+	font-weight: normal;
+	font-style: normal;
+	color: #3f3f3f;
+	margin-bottom: 0;
 }
 
 fieldset label {
@@ -3340,28 +3289,7 @@ body>#steps>li>ol {
 	overflow: hidden;
 	margin: 1px 0 0;
 	height: 16px;
-	float: 0 !important;
-}
-
-/* @end */
-
-/* @end */
-
-@media print {
-
-html {
-	background-color: transparent;
-	background-image: none;
-	padding-left: 20%;
-	padding-right: 10%;
-}
-
-#steps,
-#navigation,
-button,
-#appendix,
-.report .introduction,
-.bu left;
+	float: left;
 	clear: none;
 	padding: 0;
 	background-image: url(microns.png) !important;
@@ -3405,35 +3333,42 @@ button,
 }
 
 #steps ol.microns li.postponed a {
-	background-position: -32px/*		Tablet Layout: 768px.
-		Gutters: 24px.
-		Outer margins: 28px.
-		Inherits styles from: Default Layout.
------------------------------------------------------------------
-cols    1     2      3      4      5      6      7      8
-px      68    160    252    344    436    528    620    712    */
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+	background-position: -32px 0 !important;
 }
 
-/*		Mobile Layout: 320px.
-		Gutters: 24px.
-		Outer margins: 34px.
-		Inherits styles from: Default Layout.
----------------------------------------------
-cols    1     2      3
-px      68    160    252    */
+/* @end */
 
-@media only screen and (max-width: 767px) {
+/* @end */
 
-p#country {
-	position: absolute;
-	top: 64px;
-	-webkit-transform: rotate(5deg);
-	-moz-transform: rotate(5deg);
-	transform: rotate(5deg);
-	left: 205px;
-	margin-left: 0sis {
+@media print {
+
+html {
+	background-color: transparent;
+	background-image: none;
+	padding-left: 20%;
+	padding-right: 10%;
+}
+
+#steps,
+#navigation,
+button,
+#appendix,
+.report .introduction,
+.buttonBar {
+	display: none;
+}
+
+body {
+	background-image: none;70
+	width: auto;
+	padding: 0;
+	width: 100%;
+}
+
+.success,
+.warning,
+.error,
+p.emphasis {
 	width: 100% !important;
 	page-break-inside: avoid;
 }
@@ -3478,26 +3413,35 @@ p.emphasis {
 
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	
-/* Safari 3.0+ and Chrome rules here */
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
 
-#steps li ol {
-	background-image: none;	
-	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#918C88), to(#342F2A));
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
-}
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
 
-@media only screen and (max-device-width: 480px) 	line-height: 32px) {
+@media only screen and (max-width: 767px) {
 
-#navigation {
-	position: static;
-	width: 280px;
-}
-
-#navigation li#home {
-	position: static;
+p#country {
+	position: absolute;
+	top: 64px;
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	transform: rotate(5deg);
+	left: 205px;
+	margin-left: 0;
 }
 
 .countries {
@@ -3512,11 +3456,7 @@ p.emphasis {
 	margin-left: 0;
 	float: left;
 	width: 0;
-	-webkit-box-.startSessionForm button {
-	text-align: left;
-}
-
-/* @group S;
+	-webkit-box-shadow: none;
 	margin-bottom: 20px;
 	clear: left;
 	padding: 0 0 0 100px;
@@ -3553,6 +3493,7 @@ h1 {
 	margin-top: 45px;
 	background-color: #c8c3be;
 	font-size: 30px;
+	line-height: 32px;
 }
 
 #login h1 {
@@ -3570,6 +3511,7 @@ body {
 	float: left;
 	background-image: none;
 	background-color: #eae9e7;
+	overflow-x: hidden;
 }
 
 table .actions {
@@ -3578,7 +3520,11 @@ table .actions {
 	padding: 0;
 }
 
-/* @group #steps */
+.startSessionForm button {
+	text-align: left;
+}
+
+/* @group Steps */
 
 #steps {
 	position: absolute;
@@ -3586,33 +3532,35 @@ table .actions {
 	left: 0;
 	margin: 0;
 	overflow: hidden;
-	height: 65px;
-	width: 320px;
+	height: 130px;
+	width: 640px;
 	-webkit-box-shadow: none;
 	background-image: none;
+	-webkit-transform: scale(0.5);
+	-webkit-transform-origin: 0 0;
 }
 
 #steps li {
-	padding: 27px 0 0;
+	padding: 53px 0 0;
 	margin: 0;
-	width: 64px;
-	height: 23px;
-	font-size: 9px;
+	width: 128px;
+	height: 45px;
+	font-size: 18px;
 	border-bottom: 10px solid #c8c3be;
-	line-height: 30px;
+	line-height: 60px;
 	background-color: #031c48;
 	text-align: center;
 	color: rgba(255,255,255,0.3);
 }
 
 #steps li a {
-	width: 64px;
-	font-size: 9px;
-	padding: 27px 0 0;
-	margin: -27px 0 0;
-	height: 33px;
+	width: 128px;
+	font-size: 18px;
+	padding: 54px 0 0;
+	margin: -54px 0 0;
+	height: 66px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 60px;
 	overflow: hidden;
 	background: no-repeat;
 	position: relative;
@@ -3621,26 +3569,26 @@ table .actions {
 }
 
 #steps>li.complete>a {
-	background: #e69d17 url(tabs-mobile.png) no-repeat -192px -80px !important;
+	background: #e69d17 url(tabs-mobile-retina.png) no-repeat -384px -160px;
 	color: #6d4803;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
-	height: 31px;
+	text-shadow: 0px 2px 0px rgba(255,255,255,0.3);
+	height: 62px;
 }
 
 #steps li.complete:first-child a {
-	background-position: -64px -80px !important;
+	background-position: -128px -160px !important;
 }
 
 #steps li.current a,
 #steps li.current a strong {
 	color: #6d4803;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
-	background: #e69d17 url(tabs-mobile.png) no-repeat -128px -80px !important;
+	text-shadow: 0px 2px 0px rgba(255,255,255,0.3);
+	background: #e69d17 url(tabs-mobile-retina.png) no-repeat -256px -160px !important;
 }
 
 #steps>li.current:first-child>a {
 	background-repeat: no-repeat;
-	background-position: 0 -80px;
+	background-position: 0 -160px;
 }
 
 body>#steps>li>ol {
@@ -3648,43 +3596,39 @@ body>#steps>li>ol {
 }
 
 #steps li:before {
-	content: url(tabs-mobile.png);
-	width: 320px;
+	content: url(tabs-mobile-retina.png);
+	width: 640px;
 	display: inline-block;
 	position: absolute;
-	top: -40px;
-	heigauto;
+	top: -80px;
+	height: 160px;
+	overflow: hidden;
+	left: 0;
+	z-index: 0;
+	opacity: 0.1;
 }
 
-div.emphasis {
-	width: auto;
-}
-
-/* @end */
-
-/* @group Accordion */
-
-dl.accordion dt {
-	margin: 0;
-	float: left;
-	width: 264px;
-	padding-right: 0;
+#steps li a:before {
+	content: url(tabs-mobile-retina.png);
+	width: 640px;
 	display: inline-block;
 	position: absolute;
-	top: -40px;
+	top: -80px;
 	overflow: hidden;
 	left: 0;
 	z-index: 1;
 	opacity: 1;
-label input[type="text"] {
-	width: 271lete a:before,
+	height: 160px;
+}
+
+#steps li.complete a:before,
 #steps li.current a:before {
-	content: url(tabs-mobile.png);
-	width: 320px;
+	content: url(tabs-mobile-retina.png);
+	width: 640px;
 	display: inline-block;
 	position: absolute;
 	top: 0;
-	height: 40px;
+	height: 80px;
 	overflow: hidden;
 	left: 0;
 	z-index: 1;
@@ -3692,25 +3636,19 @@ label input[type="text"] {
 }
 
 #steps li:nth-child(2) a:before {
-	left: -6	position: static;
-	width: 280px;
-	float: left;
-	clear: left;
+	left: -128px;
 }
 
-#navigation li#home {
-	position: static;
+#steps li:nth-child(3) a:before {
+	left: -256px;
 }
 
-#navigation li {
-	display: inline-block;
-	margin: 0 5px 10px;
-	float: none li:nth-child(4) a:before {
-	left: -192px;
+#steps li:nth-child(4) a:before {
+	left: -384px;
 }
 
 #steps li:nth-child(5) a:before {
-	left: -256px;
+	left: -512px;
 }
 
 /* @end */
@@ -3728,11 +3666,11 @@ p.success,
 p.warning,
 p.emphasis {
 	margin-bottom: 20px;
-	width: 260px;
+	width: auto;
 }
 
 div.emphasis {
-	width: 252px;
+	width: auto;
 }
 
 /* @end */
@@ -3742,19 +3680,22 @@ div.emphasis {
 dl.accordion dt {
 	margin: 0;
 	float: left;
-	width: 240px;
+	width: 264px;
+	padding-right: 0;
 }
 
 dl.accordion fieldset {
 	width: 280px;
 	float: left;
-}fieldset.comprehensive.radioList label,
-form.concise fieldset.comprehensive.radioList label {
-	padding-bottom: 8px;
 }
 
-fieldset.comprehensive.radioList label input {
-	margin-top: -10 !important;
+dl.accordion fieldset textarea,
+dl.accordion fieldset label input[type="text"] {
+	width: 271px;
+}
+
+dl.accordion div.colborder {
+	padding: 0 !important;
 	margin: 0 !important;
 	border-right-style: none;
 	width: 280px;
@@ -3771,18 +3712,25 @@ fieldset.comprehensive.radioList label input {
 	margin-bottom: -10px;
 	margin-top: 50px;
 	margin-left: 0;
+	position: static;
+	width: 280px;
+	float: left;
+	clear: left;
+}
+
+#navigation li#home {
+	position: static;
 }
 
 #navigation li {
+	display: inline-block;
+	margin: 0 5px 10px;
 	float: none;
-	display: inline;
-	margin: 0 5px;
 }
 
 #navigation li a {
 	float: none;
-	c	margin-top: 0;
-	line-height: 20px	color: white;
+	color: white;
 	font-size: 14px;
 	font-weight: normal;
 	font-style: normal;
@@ -3796,16 +3744,12 @@ fieldset.comprehensive.radioList label input {
 
 
 
-/* @bottom: 0;
-	position: static;
-	float: left;
-	margin-left: 0;
-	margin-top: 20px;
-}
+/* @end */
 
-fieldset.concise label input[type="text"] {
-	margin-top: 40px;
-	width: 265px: scale(0.456,1);
+/* @group Forms */
+
+dl.status dd {
+	-webkit-transform: scale(0.456,1);
 	-webkit-transform-origin: 0
 }
 
@@ -3823,14 +3767,13 @@ input[type="radio"] {
 	font-size: 20px;
 }
 
-.radioList li label {
-	padding-bottom: 20px;
+fieldset.comprehensive.radioList label,
+form.concise fieldset.comprehensive.radioList label {
+	padding-bottom: 8px;
 }
 
-.radioList li label input {
-	margin-bottom: 0;
-	position: relative !important;
-	top: 3px;
+fieldset.comprehensive.radioList label input {
+	margin-top: -1px;
 }
 
 /* @group Fieldset Concise */
@@ -3843,7 +3786,7 @@ form.concise fieldset {
 }
 
 fieldset.concise label,
-form.concise fieldset label 	line-height: 20pxl {
+form.concise fieldset label {
 	clear: left;
 	font-weight: normal;
 	font-style: normal;
@@ -3851,6 +3794,8 @@ form.concise fieldset label 	line-height: 20pxl {
 	margin-bottom: 20px;
 	padding: 0;
 	width: auto;
+	margin-top: 0;
+	line-height: 20px;
 }
 
 fieldset.concise p.question {
@@ -3861,10 +3806,16 @@ fieldset.concise label input,
 form.concise fieldset label input,
 fieldset.concise label textarea,
 fieldset.concise label select {
-	margin-top: 20px;
 	margin-bottom: 0;
 	position: static;
 	float: left;
+	margin-left: 0;
+	margin-top: 20px;
+}
+
+fieldset.concise label input[type="text"] {
+	margin-top: 40px;
+	width: 265px;
 }
 
 fieldset.concise fieldset p.question {
@@ -3874,7 +3825,7 @@ fieldset.concise fieldset p.question {
 
 
 
-/* @eauto
+/* @end */
 
 /* @group Fieldset Comprehensive */
 
@@ -3899,6 +3850,7 @@ form.comprehensive fieldset label {
 	font-style: normal;
 	display: inline-block;
 	margin-bottom: 0;
+	line-height: 20px;
 }
 
 fieldset.comprehensive p.question {
@@ -3907,7 +3859,78 @@ fieldset.comprehensive p.question {
 }
 
 fieldset.comprehensive label input,
-form/*		Wide Mobile Layout: 480px.
+form.comprehensive fieldset label input,
+fieldset.comprehensive label textarea {
+	float: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: auto;
+	height: auto;
+}
+
+fieldset.comprehensive fieldset p.question {
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+/* @end */
+
+
+
+/* @end */
+
+.notice.span-15,.error.span-15,.success.span-15,.warning.span-15 {
+	width: auto;
+}
+
+textarea.span-15,
+#comments textarea {
+	width: 270px;
+}
+
+/* @group Homepage */
+
+#homepage h1 span {
+	width: 260px;
+	padding: 140px 20px 20px;
+	margin: 0;
+}
+
+#homepage h1 {
+	height: 175px;
+	color: rgba(255,255,255,0.65);
+	text-shadow: black 0 -1px 0;
+	background-color: #031c48;
+	margin-top: 0;
+}
+
+#navigation li#home {
+	display: none;
+}
+
+#homepage #navigation li#home {
+	position: absolute;
+	top: 34px;
+	left: 20px;
+	z-index: 11;
+	width: 280px;
+	display: block;
+}
+
+#homepage #navigation li#home a {
+	width: 190px;
+	float: left;
+}
+
+
+
+/* @end */
+
+}
+
+/*		Wide Mobile Layout: 480px.
 		Gutters: 24px.
 		Outer margins: 22px.
 		Inherits styles from: Default Layout, Mobile Layout.
@@ -3918,7 +3941,7 @@ px      68    160    252    344    436    */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 
 #steps {
-	-webkit-transform: scale(1.5);
+	-webkit-transform: scale(0.75);
 	-webkit-transform-origin: 0 0
 }
 
@@ -3938,33 +3961,36 @@ dl.accordion fieldset {
 dl.accordion fieldset textarea,
 dl.accordion fieldset label input[type="text"] {
 	width: 426px;
-	max-width: 426lete a:before,
-#steps li.current a:before {
-	content: url(tabs-mobile.png);
-	width: 320px;
-	display: inline-block;
-	po437px;
+	max-width: 426px;
+}
+
+dl.accordion div.colborder {
+	padding: 0 !important;
+	margin: 0 !important;
+	border-right-style: none;
+	width: 437px;
 }
 
 
 
 /* @end */
 
-textarea.span-15 {
-	width: 426px;
+textarea.span-15,
+#comments textarea {
+	width: 430px;
 }
 	
 	body {
-		width: 436px;
-		padding: 36px 22px 48px;
-	}flow: hidden;
-	left: 0;
-	z-index: 1;
-	opacity: 1;
+		width: 440px;
+		padding: 36px 20px 48px;
 }
 
-#steps li:nth-child(2) a:before {
-	left: -6	position: static;
+#navigation {
+	text-align: center;
+	margin-bottom: -10px;
+	margin-top: 50px;
+	margin-left: 0;
+	position: static;
 	width: 437px;
 	float: left;
 	clear: left;
