@@ -32,4 +32,3 @@ More information
 For more information please see the `online documentation
 <http://packages.python.org/Euphorie/>`_.
 
-
