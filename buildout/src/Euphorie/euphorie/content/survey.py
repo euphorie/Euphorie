@@ -223,8 +223,9 @@ class AddForm(dexterity.AddForm):
 
 
 class Delete(actions.Delete):
-    """Special delete action class which prevents deletion of the
-    last survey in a group."""
+    """Special delete action class which prevents deletion of published surveys
+       or of the last survey in a group.
+    """
     grok.context(ISurvey)
 
     def verify(self, container, context):

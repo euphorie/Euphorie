@@ -1,4 +1,6 @@
+from zope.event import notify
 from zope import component
+from Products.CMFCore.WorkflowCore import ActionSucceededEvent
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
 
@@ -54,8 +56,6 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         self.assertEqual(surveygroup.published, None)
 
     def testUnknownWorkflowAction(self):
-        from zope.event import notify
-        from Products.CMFCore.WorkflowCore import ActionSucceededEvent
         self.loginAsPortalOwner()
         surveygroup=self.createSurveyGroup()
         survey=self._create(surveygroup, "euphorie.survey", "survey")
@@ -63,8 +63,6 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         self.assertEqual(surveygroup.published, None)
 
     def testPublishAction(self):
-        from zope.event import notify
-        from Products.CMFCore.WorkflowCore import ActionSucceededEvent
         self.loginAsPortalOwner()
         surveygroup=self.createSurveyGroup()
         survey=self._create(surveygroup, "euphorie.survey", "survey")
@@ -72,8 +70,6 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         self.assertEqual(surveygroup.published, "survey")
 
     def testUpdateAction(self):
-        from zope.event import notify
-        from Products.CMFCore.WorkflowCore import ActionSucceededEvent
         self.loginAsPortalOwner()
         surveygroup=self.createSurveyGroup()
         survey=self._create(surveygroup, "euphorie.survey", "survey")
@@ -81,8 +77,6 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         self.assertEqual(surveygroup.published, "survey")
 
     def testUnpublishAction(self):
-        from zope.event import notify
-        from Products.CMFCore.WorkflowCore import ActionSucceededEvent
         self.loginAsPortalOwner()
         surveygroup=self.createSurveyGroup()
         survey=self._create(surveygroup, "euphorie.survey", "survey")
@@ -92,6 +86,81 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         unpublishview = component.getMultiAdapter((surveygroup, request), name='unpublish')
         unpublishview.unpublish()
         self.assertEqual(surveygroup.published, None)
+
+
+class HandleSurveyDeleteVerificationTests(EuphorieTestCase):
+    def _create(self, container, *args, **kwargs):
+        newid=container.invokeFactory(*args, **kwargs)
+        return getattr(container, newid)
+
+    def createSurveyGroup(self):
+        country = self.portal.sectors.nl
+        sector = self._create(country, "euphorie.sector", "sector")
+        surveygroup = self._create(sector, "euphorie.surveygroup", "group")
+        return surveygroup
+
+    def testDeleteOneOfManySurvey(self):
+        """ It should be possible to delete on a many surveys, when it's not
+            published.
+        """
+        self.loginAsPortalOwner()
+        surveygroup = self.createSurveyGroup()
+        dummy = self._create(surveygroup, "euphorie.survey", "dummy")
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        self.assertEqual(surveygroup.published, None)
+        deleteaction = component.getMultiAdapter(
+                                        (survey, survey.REQUEST), 
+                                        name='delete')
+        self.assertEqual(deleteaction.verify(surveygroup, survey), True)
+
+    def testDeleteOnlySurvey(self):
+        """ Validation should fail when trying to delete the only survey in a
+            surveygroup
+        """
+        self.loginAsPortalOwner()
+        surveygroup = self.createSurveyGroup()
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        deleteaction = component.getMultiAdapter(
+                                        (survey, survey.REQUEST), 
+                                        name='delete')
+        self.assertEqual(deleteaction.verify(surveygroup, survey), False)
+
+    def testDeletePublishedSurvey(self):
+        """ Validation should fail when trying to delete a published survey
+        """
+        self.loginAsPortalOwner()
+        surveygroup = self.createSurveyGroup()
+        dummy = self._create(surveygroup, "euphorie.survey", "dummy")
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        notify(ActionSucceededEvent(survey, None, "update", None))
+        self.assertEqual(surveygroup.published, "survey")
+        deleteaction = component.getMultiAdapter(
+                                        (survey, survey.REQUEST), 
+                                        name='delete')
+        self.assertEqual(deleteaction.verify(surveygroup, survey), False)
+
+    def testDeleteUnPublishedSurvey(self):
+        """ It should be possible to delete unpublished surveys
+        """
+        self.loginAsPortalOwner()
+        surveygroup = self.createSurveyGroup()
+        dummy = self._create(surveygroup, "euphorie.survey", "dummy")
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        deleteaction = component.getMultiAdapter(
+                                        (survey, survey.REQUEST), 
+                                        name='delete'
+                                        )
+        notify(ActionSucceededEvent(survey, None, "update", None))
+        self.assertEqual(surveygroup.published, "survey")
+        
+        unpublishview = component.getMultiAdapter(
+                                        (surveygroup, survey.REQUEST), 
+                                        name='unpublish'
+                                        )
+        unpublishview.unpublish()
+
+        self.assertEqual(surveygroup.published, None)
+        self.assertEqual(deleteaction.verify(surveygroup, survey), True)
 
 
 class AddFormTests(EuphorieTestCase):
