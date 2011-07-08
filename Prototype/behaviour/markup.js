@@ -298,14 +298,6 @@ $(document).ready(function() {
         $(this).replaceWith('<p class="question">'+$(this).html()+'</p>');
     });
 
-    // Wrap the contents of button elements in a span. Allows for more
-    // flexible styling.
-    $("button").each(function() {
-        if ($(this).find("span").length===0) {
-            $(this).wrapInner("<span></span>");
-        }
-    });
-
     // PNG transparancy fix for MS Internet Explorer 6
     if (engine==="msie" && engine_version<70) {
         var fixImage = function(img) {
