@@ -555,7 +555,8 @@ class ActionPlanReportDownload(grok.View):
                     t(field.vocabulary.getTerm(company.referer).title)
                     if company.referer else missing)))
         field = CompanySchema["workers_participated"]
-        term = field.vocabulary.getTerm(company.workers_participated)
+        if company.workers_participated:
+            term = field.vocabulary.getTerm(company.workers_participated)
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
                 Cell(Paragraph(
