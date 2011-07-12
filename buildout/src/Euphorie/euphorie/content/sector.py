@@ -20,6 +20,8 @@ from Acquisition import aq_inner
 from zope.interface import implements
 from zope import schema
 from five import grok
+from zope.component import getUtility
+from z3c.appconfig.interfaces import IAppConfig
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -252,6 +254,14 @@ class Settings(form.SchemaEditForm):
     
     schema = ISector
     default_fieldset_label = None
+
+    def update(self):
+        super(Settings, self).update()
+        config = getUtility(IAppConfig).get("euphorie", {})
+        self.main_colour = config.get("main_colour", '#031c48')
+        self.support_colour = config.get("support_colour", '#e69d17')
+        self.main_bg_colour = config.get("main_bg_colour", '#031c48')
+        self.support_bg_colour = config.get("support_bg_colour", '#e69d17')
 
     def extractData(self):
         self.fields=self.fields.omit("title", "login")

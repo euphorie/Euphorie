@@ -22,7 +22,6 @@
             width="510" height="300" class="client-preview" id="client-preview" style="overflow:hidden">
           </iframe>
         </fieldset>
-
         <dl class="accordion settings">
         <dt>
             <tal:span i18n:translate="header_colour_scheme">
@@ -103,7 +102,12 @@
     </metal:content>
     <metal:scripts fill-slot="scripts">
     <script type="text/javascript" src="${tools/portal/++resource++NuPlone.libraries}/farbtastic.js"></script>
-      <script type="text/javascript" meta:interpolation="false">
+    <tal:container define="
+                        main_colour         view/main_colour;
+                        support_colour      view/support_colour;
+                        main_bg_colour      view/main_bg_colour; 
+                        support_bg_colour   view/support_bg_colour;">
+    <script type="text/javascript" meta:interpolation="false">
 // <![CDATA[
 function IsBright(hsl) {
     return hsl[2]>0.50;
@@ -136,11 +140,11 @@ function UpdatePreview(fb) {
         colour_1 = $("#colour-1").val(),
         colour_2 = $("#colour-2").val(),
 
-        main_background = colour_1 ? colour_1 : "#031c48",
+        main_background = colour_1 ? colour_1 : "${main_bg_colour}",
         main_background_hsl = fb.RGBToHSL(fb.unpack(main_background)),
         main_foreground = fb.pack(fb.HSLToRGB(MatchColour(main_background_hsl, 0.0, 0.60, 0.3))),
                                    
-        support_background = colour_2 ? colour_2 : "#e69d17",
+        support_background = colour_2 ? colour_2 : "${support_bg_colour}",
         support_background_hsl = fb.RGBToHSL(fb.unpack(support_background)),
         support_foreground = fb.pack(fb.HSLToRGB(MatchColour(support_background_hsl, 0.2, 0.65)));
 
@@ -191,8 +195,8 @@ $("#resetColours").live("click", function() {
         style=$("head style:last", frame.contentDocument),
         body=$("body", frame.contentDocument);
 
-    $.farbtastic("#picker-main").setColor("#031c48");
-    $.farbtastic("#picker-support").setColor("#e69d17");
+    $.farbtastic("#picker-main").setColor("${main_colour}");
+    $.farbtastic("#picker-support").setColor("${support_colour}");
 
     style.text("");
     body.removeClass("deCornae")
@@ -201,8 +205,8 @@ $("#resetColours").live("click", function() {
       .removeClass("brightSupportColour")
       .removeClass("brightMainColour");
 
-    $("#colour-1").val("#031c48");
-    $("#colour-2").val("#e69d17");
+    $("#colour-1").val("${main_colour}");
+    $("#colour-2").val("${support_colour}");
 });
 
 
@@ -216,7 +220,8 @@ $(document).ready(function() {
     });
 });
 // ]]>
-      </script>
+    </script>
+    </tal:container>
     </metal:scripts>
   </body>
 </html>
