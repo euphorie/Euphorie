@@ -4,7 +4,11 @@ Chdangelog
 3.0 - Unreleased
 ----------------
 
+
 - Add another evaluation algorithm (French) for calculating risk priorities. 
+  [wichert]
+
+- Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
   [wichert]
 
 - Bugfix. Effect wasn't set for French risks when added to the session tree.
@@ -13,13 +17,14 @@ Chdangelog
 - Add an extra field 'workers_participation' to the Company form (and column to the SQL table)
   [jcbrand]
 
-- Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
-  [wichert]
+- #15: AttributeError *is_region* when publishing from a country not yet in the client. 
+  [jcbrand]
 
-- #15: AttributeError *is_region* when publishing from a country not yet in the
-  client. [jcbrand]
+- For SurveyGroup, hide Evaluation Algorithm field on @@edit. 
+  [jcbrand]
 
-- For SurveyGroup, hide Evaluation Algorithm field on @@edit. [jcbrand]
+- Allow the default sector colours to be customized via the euphorie.ini file
+  [jcbrand]
 
 Upgrade notes
 ~~~~~~~~~~~~~
