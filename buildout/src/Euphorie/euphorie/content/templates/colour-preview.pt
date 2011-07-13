@@ -16,18 +16,17 @@
     </title>
     <script type="text/javascript" src="${tools/portal/++resource++NuPlone.libraries}/css_browser_selector.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="${tools/portal/++resource++NuPlone.style}/client/screen.css" />
-    <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie6.css" /> <![endif]-->
-    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie7.css" /> <![endif]-->
-    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/client/screen-ie8.css" /> <![endif]-->
-
+    <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="${tools/portal/++resource++NuPlone.style}/client/screen-ie6.css" /> <![endif]-->
+    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="${tools/portal/++resource++NuPlone.style}/client/screen-ie7.css" /> <![endif]-->
+    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="${tools/portal/++resource++NuPlone.style}/client/screen-ie8.css" /> <![endif]-->
     <style type="text/css" tal:condition="python:logo_scale">
       #navigation li#home {
           background: url(${logo_scale/url}) no-repeat;
       }
     </style>
+    <style type="text/css"> 
+    </style>
 
-     <style type="text/css"> 
-     </style>
   </head>
   <body class="status${python:' alien' if logo_scale else ''}">
     <h1>
