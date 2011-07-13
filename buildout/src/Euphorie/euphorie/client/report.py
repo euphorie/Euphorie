@@ -33,19 +33,20 @@ log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
+
 def createDocument():
     from rtfng.Styles import TextStyle
     from rtfng.Styles import ParagraphStyle
     from rtfng.PropertySets import TextPropertySet
     from rtfng.PropertySets import ParagraphPropertySet
-    stylesheet=StyleSheet()
 
-    style=TextStyle(TextPropertySet(stylesheet.Fonts.Arial, 22))
+    stylesheet = StyleSheet()
+    style = TextStyle(TextPropertySet(stylesheet.Fonts.Arial, 22))
 
     stylesheet.ParagraphStyles.append(ParagraphStyle("Normal",
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=60)))
 
-    style.textProps.italic=True
+    style.textProps.italic = True
     stylesheet.ParagraphStyles.append(ParagraphStyle("Warning",
         style.Copy(), ParagraphPropertySet(space_before=50, space_after=50)))
 
@@ -53,40 +54,39 @@ def createDocument():
         style.Copy(), ParagraphPropertySet(space_before=100, space_after=100,
             left_indent=TabPropertySet.DEFAULT_WIDTH)))
 
-    style.textProps.size=16
+    style.textProps.size = 16
     stylesheet.ParagraphStyles.append(ParagraphStyle("Footer",
         style.Copy(), ParagraphPropertySet()))
 
-    style.textProps.italic=False
-    style.textProps.size=36
-    style.textProps.underline=True
+    style.textProps.italic = False
+    style.textProps.size = 36
+    style.textProps.underline = True
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 1",
         style.Copy(), ParagraphPropertySet(space_before=480, space_after=60)))
-    style.textProps.underline=False
-    style.textProps.size=34
+    style.textProps.underline = False
+    style.textProps.size = 34
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 2",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-    style.textProps.size=30
-    style.textProps.bold=True
+    style.textProps.size = 30
+    style.textProps.bold = True
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 3",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-    style.textProps.size=28
+    style.textProps.size = 28
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 4",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-    style.textProps.size=26
+    style.textProps.size = 26
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 5",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
-    style.textProps.size=24
+    style.textProps.size = 24
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 6",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
 
     stylesheet.ParagraphStyles.append(ParagraphStyle("Measure Heading",
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
 
-    document=Document(stylesheet)
+    document = Document(stylesheet)
     document.SetTitle(SessionManager.session.title)
     return document
-
 
 
 class _HtmlToRtf(object):
@@ -94,24 +94,23 @@ class _HtmlToRtf(object):
         if not isinstance(text, unicode):
             return text
 
-        output=[]
+        output = []
         for char in text:
-            if ord(char)<127:
+            if ord(char) < 127:
                 output.append(str(char))
             else:
                 output.append("\\u%d?" % ord(char))
         return "".join(output)
 
-
     def handleInlineText(self, node, output, style={}):
         """Handler for elements which can only contain inline text (p, li)"""
-        new_style=style.copy()
-        if node.tag in [ "strong", "b" ]:
-            new_style["bold"]=True
-        elif node.tag in [ "em", "i" ]:
-            new_style["italic"]=True
-        elif node.tag=="u":
-            new_style["underline"]=True
+        new_style = style.copy()
+        if node.tag in ["strong", "b"]:
+            new_style["bold"] = True
+        elif node.tag in ["em", "i"]:
+            new_style["italic"] = True
+        elif node.tag == "u":
+            new_style["underline"] = True
 
         if node.text and node.text.strip():
             output.append(TEXT(self.encode(node.text), **new_style))
@@ -119,37 +118,33 @@ class _HtmlToRtf(object):
             self.handleInlineText(sub, output, new_style)
         if node.tail and node.tail.strip():
             output.append(TEXT(self.encode(node.tail), **style))
-
         return output
 
-
     def handleElement(self, node, style):
-        output=[]
-        if node.tag in [ "p", "li"]:
-            txt=self.handleInlineText(node, [])
+        output = []
+        if node.tag in ["p", "li"]:
+            txt = self.handleInlineText(node, [])
             if txt:
                 output.append(Paragraph(style, *txt))
-        elif node.tag in ["ul", "ol"]: # Lame handling of lists
+        elif node.tag in ["ul", "ol"]:  # Lame handling of lists
             for sub in node:
                 output.extend(self.handleElement(sub, style))
         if node.tail:
             output.append(Paragraph(style, node.tail))
         return output
 
-
-
     def __call__(self, markup, default_style):
         if not markup or not markup.strip():
             return []
 
         try:
-            doc=lxml.html.document_fromstring(markup)
+            doc = lxml.html.document_fromstring(markup)
         except etree.XMLSyntaxError:
-            text=htmllaundry.StripMarkup(markup)
-            text=text.replace("&#13", "\n")
+            text = htmllaundry.StripMarkup(markup)
+            text = text.replace("&#13", "\n")
             return [Paragraph(default_style, self.escape(text))]
 
-        output=[]
+        output = []
         for node in doc.iter(tag=etree.Element):
             output.extend(self.handleElement(node, default_style))
 
@@ -160,22 +155,23 @@ HtmlToRtf = _HtmlToRtf()
 
 
 def createSection(document, survey, request):
-    t=lambda txt: translate(txt, context=request)
-    footer=t(_("report_survey_revision",
-        default=u"This report was based on the survey '${title}' of revision date ${date}.",
+    t = lambda txt: translate(txt, context=request)
+    footer = t(_("report_survey_revision",
+        default=u"This report was based on the survey '${title}' of revision "
+                u"date ${date}.",
         mapping={"title": survey.published[1],
                  "date": formatDate(request, survey.published[2])}))
     # rtfng does not like unicode footers
-    footer=Paragraph(document.StyleSheet.ParagraphStyles.Footer,
+    footer = Paragraph(document.StyleSheet.ParagraphStyles.Footer,
             "".join(["\u%s?" % str(ord(e)) for e in footer]))
-    section=Section()
+    section = Section()
     section.Header.append(Paragraph(
-        document.StyleSheet.ParagraphStyles.Footer, SessionManager.session.title))
+        document.StyleSheet.ParagraphStyles.Footer,
+        SessionManager.session.title))
     section.Footer.append(footer)
     section.SetBreakType(section.PAGE)
     document.Sections.append(section)
     return section
-
 
 
 class ReportView(grok.View):
@@ -183,8 +179,8 @@ class ReportView(grok.View):
 
     This view is registered for :py:class:`PathGhost` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *identifcation* component of the URL.
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *identifcation* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -193,27 +189,27 @@ class ReportView(grok.View):
     grok.name("index_html")
 
     def update(self):
-        self.session=SessionManager.session
+        self.session = SessionManager.session
 
-        if self.request.environ["REQUEST_METHOD"]=="POST":
-            reply=self.request.form
-            self.session.report_comment=reply.get("comment")
-            url="%s/report/company" % self.request.survey.absolute_url()
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            reply = self.request.form
+            self.session.report_comment = reply.get("comment")
+            url = "%s/report/company" % self.request.survey.absolute_url()
             self.request.response.redirect(url)
             return
-
 
 
 class IdentificationReport(grok.View):
     """Generate identification report.
 
-    The identification report lists all risks and modules along with their identification
-    and evaluation results. It does not include action plan information.
+    The identification report lists all risks and modules along with their
+    identification and evaluation results. It does not include action plan
+    information.
 
     This view is registered for :py:class:`PathGhost` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *identifcation* component of the URL.
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *identifcation* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -224,43 +220,42 @@ class IdentificationReport(grok.View):
     def random(self):
         return random.choice([True, False])
 
-
     def report_title(self):
         return SessionManager.session.title
 
-
     def title(self, node, zodbnode):
-        if node.type!="risk" or node.identification in [u"n/a", u"yes"]:
+        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return node.title
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
+        if zodbnode.problem_description and \
+                zodbnode.problem_description.strip():
             return zodbnode.problem_description
         return node.title
-
 
     def risk_status(self, node, zodbnode):
         if node.postponed or not node.identification:
             return "unanswered"
         elif node.identification in [u"n/a", u"yes"]:
             return "not-present"
-        elif node.identification=="no":
+        elif node.identification == "no":
             return "present"
 
-
     def show_negate_warning(self, node, zodbnode):
-        """Check if the risk is present but does not have a problem description.
-        In that case the user interface must show a special warning."""
-        if node.type!="risk" or node.identification in [u"n/a", u"yes", None]:
+        """Check if the risk is present but does not have a problem
+        description.  In that case the user interface must show a special
+        warning.
+        """
+        if node.type != "risk" or \
+                node.identification in [u"n/a", u"yes", None]:
             return False
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
+        if zodbnode.problem_description and \
+                zodbnode.problem_description.strip():
             return False
         return True
-
 
     def imageUrl(self, node):
         if getattr(node, "image", None):
             return "%s/@@download/image/%s" % \
                     (node.absolute_url(), node.image.filename)
-
 
     def getZodbNode(self, treenode):
         try:
@@ -272,72 +267,68 @@ class IdentificationReport(grok.View):
                     treenode.zodb_path)
             return None
 
-
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        session=Session()
-        dbsession=SessionManager.session
-        query=session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session==dbsession)\
+        session = Session()
+        dbsession = SessionManager.session
+        query = session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == dbsession)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .order_by(model.SurveyTreeItem.path)
-        self.nodes=query.all()
-
+        self.nodes = query.all()
 
     def publishTraverse(self, request, name):
         """Check if the user wants to download this report by checking for a
         ``download`` URL entry. This uses a little trick: browser views
         implement `IPublishTraverse`, which allows us to catch traversal steps.
         """
-
-        if name=="download":
-            return IdentificationReportDownload(aq_inner(self.context), request)
+        if name == "download":
+            return IdentificationReportDownload(aq_inner(self.context),
+                    request)
         else:
             raise NotFound(self, name, request)
-
 
 
 class IdentificationReportDownload(grok.View):
     """Generate identification report in RTF form.
 
-    The identification report lists all risks and modules along with their identification
-    and evaluation results. It does not include action plan information.
+    The identification report lists all risks and modules along with their
+    identification and evaluation results. It does not include action plan
+    information.
 
     This view is registered for :py:class:`PathGhost` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *identifcation* component of the URL.
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *identifcation* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
 
     def update(self):
-        self.session=SessionManager.session
-
+        self.session = SessionManager.session
 
     def getNodes(self):
         """Return an orderer list of all relevant tree items for the current
         survey.
         """
-        query=Session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session==self.session)\
+        query = Session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == self.session)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .order_by(model.SurveyTreeItem.path)
         return query.all()
 
-
     def addIdentificationResults(self, document):
-        survey=self.request.survey
-        t=lambda txt: translate(txt, context=self.request)
-        section=createSection(document, self.context, self.request)
+        survey = self.request.survey
+        t = lambda txt: translate(txt, context=self.request)
+        section = createSection(document, self.context, self.request)
 
-        normal_style=document.StyleSheet.ParagraphStyles.Normal
-        warning_style=document.StyleSheet.ParagraphStyles.Warning
-        comment_style=document.StyleSheet.ParagraphStyles.Comment
-        header_styles={
+        normal_style = document.StyleSheet.ParagraphStyles.Normal
+        warning_style = document.StyleSheet.ParagraphStyles.Warning
+        comment_style = document.StyleSheet.ParagraphStyles.Comment
+        header_styles = {
                 0: document.StyleSheet.ParagraphStyles.Heading2,
                 1:  document.StyleSheet.ParagraphStyles.Heading3,
                 2:  document.StyleSheet.ParagraphStyles.Heading4,
@@ -346,19 +337,24 @@ class IdentificationReportDownload(grok.View):
                 }
 
         for node in self.getNodes():
-            section.append(Paragraph(header_styles[node.depth], u"%s %s" % (node.number, node.title)))
-
-            if node.type!="risk":
+            section.append(
+                    Paragraph(header_styles[node.depth],
+                              u"%s %s" % (node.number, node.title)))
+            if node.type != "risk":
                 continue
 
-            zodb_node=survey.restrictedTraverse(node.zodb_path.split("/"))
-            if node.identification=="no" and not (
-                    zodb_node.problem_description and zodb_node.problem_description.strip()):
+            zodb_node = survey.restrictedTraverse(node.zodb_path.split("/"))
+            if node.identification == "no" and not (
+                    zodb_node.problem_description and \
+                            zodb_node.problem_description.strip()):
                 section.append(Paragraph(warning_style,
-                    t(_("warn_risk_present", default=u"You responded negatively to the above statement."))))
+                    t(_("warn_risk_present",
+                        default=u"You responded negatively to the above "
+                                u"statement."))))
             elif node.postponed or not node.identification:
                 section.append(Paragraph(warning_style,
-                    t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
+                    t(_("risk_unanswered",
+                       default=u"This risk still needs to be inventorised."))))
 
             for el in HtmlToRtf(zodb_node.description, normal_style):
                 section.append(el)
@@ -366,25 +362,23 @@ class IdentificationReportDownload(grok.View):
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
 
-
-
     def render(self):
-        document=createDocument()
+        document = createDocument()
         self.addIdentificationResults(document)
 
-        renderer=Renderer()
-        output=StringIO()
+        renderer = Renderer()
+        output = StringIO()
         renderer.Write(document, output)
 
-        filename=_("filename_report_identification",
+        filename = _("filename_report_identification",
                    default=u"Identification report ${title}",
                    mapping=dict(title=self.session.title))
-        filename=translate(filename, context=self.request)
+        filename = translate(filename, context=self.request)
         self.request.response.setHeader("Content-Disposition",
-                            "attachment; filename=\"%s.rtf\"" % filename.encode("utf-8"))
+                            "attachment; filename=\"%s.rtf\"" %
+                                filename.encode("utf-8"))
         self.request.response.setHeader("Content-Type", "application/rtf")
         return output.getvalue()
-
 
 
 class ActionPlanReportView(grok.View):
@@ -394,8 +388,8 @@ class ActionPlanReportView(grok.View):
     information.
 
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
-    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
-    the *inventory* component of the URL.
+    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
+    for the *inventory* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -406,72 +400,67 @@ class ActionPlanReportView(grok.View):
     def random(self):
         return random.choice([True, False])
 
-
     def report_title(self):
         return SessionManager.session.title
 
-
     def title(self, node, zodbnode):
-        if node.type!="risk" or node.identification in [u"n/a", u"yes"]:
+        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return node.title
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
+        if zodbnode.problem_description and \
+                zodbnode.problem_description.strip():
             return zodbnode.problem_description
         return node.title
-
 
     def risk_status(self, node, zodbnode):
         if node.postponed or not node.identification:
             return "unanswered"
         elif node.identification in [u"n/a", u"yes"]:
             return "not-present"
-        elif node.identification=="no":
+        elif node.identification == "no":
             return "present"
-
 
     def workers_participated(self):
         company = self.session.company
-        field=CompanySchema["workers_participated"]
-        t=lambda txt: translate(txt, context=self.request)
+        field = CompanySchema["workers_participated"]
+        t = lambda txt: translate(txt, context=self.request)
         if company.workers_participated is None:
             return t(_("missing_data", "Not provided"))
         else:
-            return t(field.vocabulary.getTerm(company.workers_participated).title) 
-
+            term = field.vocabulary.getTerm(company.workers_participated)
+            return t(term.title)
 
     def show_negate_warning(self, node, zodbnode):
-        if node.type!="risk" or node.identification in [u"n/a", u"yes"]:
+        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return False
-        if zodbnode.problem_description and zodbnode.problem_description.strip():
+        if zodbnode.problem_description and \
+                zodbnode.problem_description.strip():
             return False
         return True
-
 
     def imageUrl(self, node):
         if getattr(node, "image", None):
             return "%s/@@download/image/%s" % \
                     (node.absolute_url(), node.image.filename)
 
-
     def getZodbNode(self, treenode):
         return self.request.survey.restrictedTraverse(
                 treenode.zodb_path.split("/"))
-
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        session=Session()
-        self.session=SessionManager.session
+        session = Session()
+        self.session = SessionManager.session
         if self.session.company is None:
-            self.session.company=model.Company()
-        query=session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session==self.session)\
+            self.session.company = model.Company()
+        query = session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == self.session)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
                                 model.RISK_PRESENT_OR_TOP5_FILTER))\
                 .order_by(model.SurveyTreeItem.path)
-        self.nodes=query.all()
+        self.nodes = query.all()
 
 
 class ActionPlanReportDownload(grok.View):
@@ -481,8 +470,8 @@ class ActionPlanReportDownload(grok.View):
     information.
 
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
-    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
-    the *inventory* component of the URL.
+    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
+    for the *inventory* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -490,123 +479,136 @@ class ActionPlanReportDownload(grok.View):
     grok.name("download")
 
     def update(self):
-        self.session=SessionManager.session
+        self.session = SessionManager.session
         if self.session.company is None:
-            self.session.company=model.Company()
-
+            self.session.company = model.Company()
 
     def getNodes(self):
         """Return an orderer list of all tree items for the current survey."""
-        query=Session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session==self.session)\
+        query = Session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == self.session)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
                                 model.RISK_PRESENT_OR_TOP5_FILTER))\
                 .order_by(model.SurveyTreeItem.path)
         return query.all()
 
-
     def addIntroduction(self, document):
-        t=lambda txt: translate(txt, context=self.request)
-        normal_style=document.StyleSheet.ParagraphStyles.Normal
-        section=createSection(document, self.context, self.request)
+        t = lambda txt: translate(txt, context=self.request)
+        normal_style = document.StyleSheet.ParagraphStyles.Normal
+        section = createSection(document, self.context, self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
             t(_("plan_report_intro_header", default=u"Introduction"))))
 
-        intro=t(_("plan_report_intro_1", default=
-            u"By filling in the list of questions, you have completed a risk "
-            u"assessment. This assessment is used to draw up an action plan. "
-            u"The progress of this action plan must be discussed annually and "
-            u"a small report must be written on the progress. Certain "
-            u"subjects might have been completed and perhaps new subjects "
-            u"need to be added."))
+        intro = t(_("plan_report_intro_1",
+            default=u"By filling in the list of questions, you have "
+                    u"completed a risk assessment. This assessment is used to "
+                    u"draw up an action plan.The progress of this action plan "
+                    u"must be discussed annually and a small report must "
+                    u"written on the progress. Certain subjects might have "
+                    u"been completed and perhaps new subjects need to be "
+                    u"added."))
         section.append(Paragraph(normal_style, intro))
 
         if self.session.report_comment:
-            section.append(Paragraph(normal_style, self.session.report_comment))
-
+            section.append(
+                    Paragraph(normal_style, self.session.report_comment))
 
     def addCompanyInformation(self, document):
-        company=self.session.company
-        t=lambda txt: translate(txt, context=self.request)
-        section=createSection(document, self.context, self.request)
-        normal_style=document.StyleSheet.ParagraphStyles.Normal
-        missing=t(_("missing_data", default=u"Not provided"))
+        company = self.session.company
+        t = lambda txt: translate(txt, context=self.request)
+        section = createSection(document, self.context, self.request)
+        normal_style = document.StyleSheet.ParagraphStyles.Normal
+        missing = t(_("missing_data", default=u"Not provided"))
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
             t(_("plan_report_company_header", default=u"Company details"))))
 
-        table=Table(TabPropertySet.DEFAULT_WIDTH*3, TabPropertySet.DEFAULT_WIDTH*8)
-        field=CompanySchema["country"]
-        country=self.request.locale.displayNames.territories.get(company.country.upper(), company.country) \
+        table = Table(TabPropertySet.DEFAULT_WIDTH * 3,
+                      TabPropertySet.DEFAULT_WIDTH * 8)
+        field = CompanySchema["country"]
+        country = self.request.locale.displayNames.territories.get(
+                        company.country.upper(), company.country) \
                     if company.country else missing
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
                 Cell(Paragraph(normal_style, country)))
-        field=CompanySchema["employees"]
+        field = CompanySchema["employees"]
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
-                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.employees).title) if company.employees else missing)))
-        field=CompanySchema["conductor"]
+                Cell(Paragraph(normal_style,
+                    t(field.vocabulary.getTerm(company.employees).title)
+                    if company.employees else missing)))
+        field = CompanySchema["conductor"]
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
-                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.conductor).title) if company.conductor else missing)))
-        field=CompanySchema["referer"]
+                Cell(Paragraph(normal_style,
+                    t(field.vocabulary.getTerm(company.conductor).title)
+                    if company.conductor else missing)))
+        field = CompanySchema["referer"]
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
-                Cell(Paragraph(normal_style, t(field.vocabulary.getTerm(company.referer).title) if company.referer else missing)))
-        field=CompanySchema["workers_participated"]
+                Cell(Paragraph(normal_style,
+                    t(field.vocabulary.getTerm(company.referer).title)
+                    if company.referer else missing)))
+        field = CompanySchema["workers_participated"]
+        if company.workers_participated:
+            term = field.vocabulary.getTerm(company.workers_participated)
         table.append(
                 Cell(Paragraph(normal_style, t(field.title))),
                 Cell(Paragraph(
-                        normal_style, 
-                        t(field.vocabulary.getTerm(company.workers_participated).title) if company.workers_participated else missing)
-                    )
-                )
+                        normal_style, t(term.title)
+                        if company.workers_participated else missing)))
         section.append(table)
 
-
     def addActionPlan(self, document):
-        survey=self.request.survey
-        t=lambda txt: translate(txt, context=self.request)
-        section=createSection(document, self.context, self.request)
+        survey = self.request.survey
+        t = lambda txt: translate(txt, context=self.request)
+        section = createSection(document, self.context, self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
             t(_("plan_report_plan_header", default=u"Action plan"))))
 
-        normal_style=document.StyleSheet.ParagraphStyles.Normal
-        comment_style=document.StyleSheet.ParagraphStyles.Comment
-        warning_style=document.StyleSheet.ParagraphStyles.Warning
-        measure_heading_style=document.StyleSheet.ParagraphStyles.MeasureHeading
-        header_styles={
+        normal_style = document.StyleSheet.ParagraphStyles.Normal
+        comment_style = document.StyleSheet.ParagraphStyles.Comment
+        warning_style = document.StyleSheet.ParagraphStyles.Warning
+        measure_heading_style = \
+                document.StyleSheet.ParagraphStyles.MeasureHeading
+        header_styles = {
                 0: document.StyleSheet.ParagraphStyles.Heading2,
-                1:  document.StyleSheet.ParagraphStyles.Heading3,
-                2:  document.StyleSheet.ParagraphStyles.Heading4,
-                3:  document.StyleSheet.ParagraphStyles.Heading5,
-                4:  document.StyleSheet.ParagraphStyles.Heading6,
+                1: document.StyleSheet.ParagraphStyles.Heading3,
+                2: document.StyleSheet.ParagraphStyles.Heading4,
+                3: document.StyleSheet.ParagraphStyles.Heading5,
+                4: document.StyleSheet.ParagraphStyles.Heading6,
                 }
 
         for node in self.getNodes():
-            section.append(Paragraph(header_styles[node.depth], u"%s %s" % (node.number, node.title)))
+            section.append(Paragraph(header_styles[node.depth],
+                u"%s %s" % (node.number, node.title)))
 
-            if node.type!="risk":
+            if node.type != "risk":
                 continue
 
-            zodb_node=survey.restrictedTraverse(node.zodb_path.split("/"))
-            if node.identification=="no" and not (
-                    zodb_node.problem_description and zodb_node.problem_description.strip()):
+            zodb_node = survey.restrictedTraverse(node.zodb_path.split("/"))
+            if node.identification == "no" and not (
+                    zodb_node.problem_description and
+                    zodb_node.problem_description.strip()):
                 section.append(Paragraph(warning_style,
-                    t(_("warn_risk_present", default=u"You responded negatively to the above statement."))))
+                    t(_("warn_risk_present",
+                        default=u"You responded negatively to the above "
+                                u"statement."))))
             elif node.postponed or not node.identification:
                 section.append(Paragraph(warning_style,
-                    t(_("risk_unanswered", default=u"This risk still needs to be inventorised."))))
-            elif node.identification in [u"n/a", u"yes"] and node.risk_type=="top5":
+                    t(_("risk_unanswered",
+                       default=u"This risk still needs to be inventorised."))))
+            elif node.identification in [u"n/a", u"yes"] and \
+                    node.risk_type == "top5":
                 section.append(Paragraph(warning_style,
-                    t(_("top5_risk_not_present", 
+                    t(_("top5_risk_not_present",
                         default=u"This risk is not present in your "
                                 u"organisation, but since the sector "
                                 u"organisation considers this one of "
@@ -614,13 +616,16 @@ class ActionPlanReportDownload(grok.View):
                                 u"must be included in this report."))))
 
             if node.priority:
-                if node.priority=="low":
-                    level=_("report_priority_low", default=u"low priority risk")
-                elif node.priority=="medium":
-                    level=_("report_priority_medium", default=u"medium priority risk")
-                elif node.priority=="high":
-                    level=_("report_priority_high", default=u"high priority risk")
-                section.append(Paragraph(normal_style, 
+                if node.priority == "low":
+                    level = _("report_priority_low",
+                              default=u"low priority risk")
+                elif node.priority == "medium":
+                    level = _("report_priority_medium",
+                              default=u"medium priority risk")
+                elif node.priority == "high":
+                    level = _("report_priority_high",
+                              default=u"high priority risk")
+                section.append(Paragraph(normal_style,
                     t(_("report_priority", default=u"This is a ")), t(level)))
 
             for el in HtmlToRtf(zodb_node.description, normal_style):
@@ -629,98 +634,123 @@ class ActionPlanReportDownload(grok.View):
                 section.append(Paragraph(comment_style, node.comment))
 
             for (idx, measure) in enumerate(node.action_plans):
-                if len(node.action_plans)==1:
+                if len(node.action_plans) == 1:
                     section.append(Paragraph(measure_heading_style,
                         t(_("header_measure_single", default=u"Measure"))))
                 else:
                     section.append(Paragraph(measure_heading_style,
-                        t(_("header_measure", default=u"Measure ${index}", mapping={"index": idx+1}))))
+                        t(_("header_measure", default=u"Measure ${index}",
+                            mapping={"index": idx + 1}))))
                 self.addMeasure(document, section, measure)
 
-
     def addMeasure(self, document, section, measure):
-        normal_style=document.StyleSheet.ParagraphStyles.Normal
+        normal_style = document.StyleSheet.ParagraphStyles.Normal
+        t = lambda txt: translate(txt, context=self.request)
 
-        t=lambda txt: translate(txt, context=self.request)
-
-        table=Table(TabPropertySet.DEFAULT_WIDTH*5, TabPropertySet.DEFAULT_WIDTH*8)
+        table = Table(TabPropertySet.DEFAULT_WIDTH * 5,
+                TabPropertySet.DEFAULT_WIDTH * 8)
         if measure.action_plan:
             table.append(
-                    Cell(Paragraph(normal_style, t(_("report_measure_actionplan", default=u"Action plan:")))),
+                    Cell(Paragraph(normal_style,
+                        t(_("report_measure_actionplan",
+                        default=u"Action plan:")))),
                     Cell(Paragraph(normal_style, measure.action_plan)))
         if measure.prevention_plan:
             table.append(
-                    Cell(Paragraph(normal_style, t(_("report_measure_preventionplan", default=u"Prevention plan:")))),
+                    Cell(Paragraph(normal_style,
+                        t(_("report_measure_preventionplan",
+                            default=u"Prevention plan:")))),
                     Cell(Paragraph(normal_style, measure.prevention_plan)))
         if measure.requirements:
             table.append(
-                    Cell(Paragraph(normal_style, t(_("report_measure_requirements", default=u"Requirements:")))),
+                    Cell(Paragraph(normal_style,
+                        t(_("report_measure_requirements",
+                            default=u"Requirements:")))),
                     Cell(Paragraph(normal_style, measure.requirements)))
         if table.Rows:
             section.append(table)
 
-        if measure.responsible and not (measure.planning_start or measure.planning_end):
-            section.append(Paragraph(normal_style, 
-                t(_("report_measure_responsible", default=u"${responsible} is responsible for this task.",
+        if measure.responsible and not \
+                (measure.planning_start or measure.planning_end):
+            section.append(Paragraph(normal_style,
+                t(_("report_measure_responsible",
+                    default=u"${responsible} is responsible for this task.",
                     mapping={"responsible": measure.responsible}))))
-        elif measure.responsible and measure.planning_start and not measure.planning_end:
-            section.append(Paragraph(normal_style, 
+        elif measure.responsible and measure.planning_start and \
+                not measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_responsible_and_start",
-                    default=u"${responsible} is responsible for this task which starts on ${start}.",
+                    default=u"${responsible} is responsible for this task "
+                            u"which starts on ${start}.",
                     mapping={"responsible": measure.responsible,
-                             "start": formatDate(self.request, measure.planning_start)}))))
-        elif measure.responsible and not measure.planning_start and measure.planning_end:
-            section.append(Paragraph(normal_style, 
+                             "start": formatDate(self.request,
+                                                 measure.planning_start)}))))
+        elif measure.responsible and \
+                not measure.planning_start and measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_responsible_and_end",
-                    default=u"${responsible} is responsible for this task which ends on ${end}.",
+                    default=u"${responsible} is responsible for this task "
+                            u"which ends on ${end}.",
                     mapping={"responsible": measure.responsible,
-                             "end": formatDate(self.request, measure.planning_end)}))))
-        elif measure.responsible and measure.planning_start and measure.planning_end:
-            section.append(Paragraph(normal_style, 
+                             "end": formatDate(self.request,
+                                               measure.planning_end)}))))
+        elif measure.responsible and \
+                measure.planning_start and measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_full",
-                    default=u"${responsible} is responsible for this task which starts on ${start} and ends on ${end}.",
+                    default=u"${responsible} is responsible for this task "
+                            u"which starts on ${start} and ends on ${end}.",
                     mapping={"responsible": measure.responsible,
-                             "start": formatDate(self.request, measure.planning_start),
-                             "end": formatDate(self.request, measure.planning_end)}))))
-        elif not measure.responsible and measure.planning_start and not measure.planning_end:
-            section.append(Paragraph(normal_style, 
+                             "start": formatDate(self.request,
+                                                 measure.planning_start),
+                             "end": formatDate(self.request,
+                                               measure.planning_end)}))))
+        elif not measure.responsible and \
+                measure.planning_start and not measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_start_only",
                     default=u"This task starts on ${start}.",
-                    mapping={"start": formatDate(self.request, measure.planning_start)}))))
-        elif not measure.responsible and not measure.planning_start and measure.planning_end:
-            section.append(Paragraph(normal_style, 
+                    mapping={"start": formatDate(self.request,
+                                                 measure.planning_start)}))))
+        elif not measure.responsible and \
+                not measure.planning_start and measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_end_only",
                     default=u"This task ends on ${end}.",
-                    mapping={"end": formatDate(self.request, measure.planning_end)}))))
-        elif not measure.responsible and measure.planning_start and measure.planning_end:
-            section.append(Paragraph(normal_style, 
+                    mapping={"end": formatDate(self.request,
+                                               measure.planning_end)}))))
+        elif not measure.responsible \
+                and measure.planning_start and measure.planning_end:
+            section.append(Paragraph(normal_style,
                 t(_("report_measure_start_and_stop",
-                    default=u"This task starts on ${start} and ends on ${end}.",
-                    mapping={"start": formatDate(self.request, measure.planning_start),
-                             "end": formatDate(self.request, measure.planning_end)}))))
+                    default=u"This task starts on ${start} and ends on "
+                            u"${end}.",
+                    mapping={"start": formatDate(self.request,
+                                                 measure.planning_start),
+                             "end": formatDate(self.request,
+                                               measure.planning_end)}))))
         if measure.budget:
             section.append(Paragraph(normal_style,
                 t(_("report_measure_budget",
-                    default=u"There is a budget of ${amount} for this measure.",
+                    default=u"There is a budget of ${amount} for this "
+                            u"measure.",
                     mapping={"amount": measure.budget}))))
 
-
     def render(self):
-        document=createDocument()
+        document = createDocument()
         self.addIntroduction(document)
         self.addCompanyInformation(document)
         self.addActionPlan(document)
 
-        renderer=Renderer()
-        output=StringIO()
+        renderer = Renderer()
+        output = StringIO()
         renderer.Write(document, output)
 
-        filename=_("filename_report_actionplan",
+        filename = _("filename_report_actionplan",
                    default=u"Action plan ${title}",
-                   mapping=dict(title=self.session.title))
-        filename=translate(filename, context=self.request)
+                   mapping={'title': self.session.title})
+        filename = translate(filename, context=self.request)
         self.request.response.setHeader("Content-Disposition",
-                            "attachment; filename=\"%s.rtf\"" % filename.encode("utf-8"))
+                "attachment; filename=\"%s.rtf\"" % filename.encode("utf-8"))
         self.request.response.setHeader("Content-Type", "application/rtf")
         return output.getvalue()
-

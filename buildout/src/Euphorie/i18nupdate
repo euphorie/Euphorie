@@ -2,9 +2,9 @@
 
 set -e
 
-../../bin/zopepy setup.py extract_messages
-../../bin/zopepy setup.py update_catalog
-../../bin/zopepy setup.py compile_catalog
+../../bin/python setup.py extract_messages
+../../bin/python setup.py update_catalog
+../../bin/python setup.py compile_catalog
 
 #../../bin/pybabel extract -F mapping.plone euphorie -o euphorie/deployment/locales/plone.pot
 #../../bin/zopepy setup.py update_catalog -i euphorie/deployment/locales/plone.pot --domain plone
