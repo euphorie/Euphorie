@@ -107,12 +107,11 @@
                         support_colour      view/support_colour;
                         main_bg_colour      view/main_bg_colour; 
                         support_bg_colour   view/support_bg_colour;">
-    <script type="text/javascript" meta:interpolation="false">
+    <script type="text/javascript">
 // <![CDATA[
 function IsBright(hsl) {
     return hsl[2]>0.50;
 }
-
 
 function MatchColour(hsl, l1, l2, s1) {
     var h=hsl[0], s=hsl[1], l=hsl[2];
@@ -129,7 +128,6 @@ function MatchColour(hsl, l1, l2, s1) {
 
     return [h,s,l];
 }
-
 
 function UpdatePreview(fb) {
     var frame=$("#client-preview").get(0),
@@ -154,6 +152,7 @@ function UpdatePreview(fb) {
     buffer+="#steps li.complete a, #steps li.current a { color: " + support_foreground + "; }\n";
     buffer+="#steps li a, #steps li a:hover { color: " + main_foreground + "; }\n";
 
+    // .text (or similar) doesn't work with <style> tags in IE
     if ($.browser.msie && $.browser.version < 9) {
         var doc = window.frames[0].document,
             iestyle = doc.createElement('style');
@@ -168,7 +167,7 @@ function UpdatePreview(fb) {
         head.removeChild(laststyle);
         head.appendChild(iestyle);
     }
-    else style.text(buffer);
+    else style.text(buffer); // Works in all other browsers
 
     if (colour_1 || colour_2) {
         body.addClass("deCornae");
@@ -193,12 +192,10 @@ function UpdatePreview(fb) {
     }
 }
 
-
 function MainColourChanged(colour) {
     $("#colour-1").val(colour);
     UpdatePreview(this);
 }
-
 
 function SupportColourChanged(colour) {
     $("#colour-2").val(colour).data("hsl", this.hsl);
@@ -213,9 +210,7 @@ $("#resetColours").live("click", function() {
     $.farbtastic("#picker-main").setColor("${main_colour}");
     $.farbtastic("#picker-support").setColor("${support_colour}");
 
-    style.text("");
-    body.removeClass("deCornae")
-      .removeClass("brightMainColour")
+    body.removeClass("brightMainColour")
       .removeClass("darkMainColour")
       .removeClass("brightSupportColour")
       .removeClass("brightMainColour");
@@ -223,7 +218,6 @@ $("#resetColours").live("click", function() {
     $("#colour-1").val("${main_colour}");
     $("#colour-2").val("${support_colour}");
 });
-
 
 $(document).ready(function() {
     var fb = $.farbtastic("#picker-main", MainColourChanged).setColor($("#colour-1").val());
