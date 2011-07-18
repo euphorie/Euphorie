@@ -8,10 +8,13 @@ import Acquisition
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
+import Globals
 from five import grok
 from zope.interface import directlyProvides
 from zope.interface import directlyProvidedBy
 from zope.component import adapts
+from zope.component import getUtility
+from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from sqlalchemy import sql
 from plone.memoize.instance import memoize
@@ -417,10 +420,24 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.
         """
-        dbsession=SessionManager.session
-        if dbsession is None:
-            return False
-        if dbsession.zodb_path!=utils.RelativePath(request.client, self.context):
+        dbsession = SessionManager.session
+        client_path = utils.RelativePath(request.client, self.context)
+
+        if dbsession is None or \
+                dbsession.zodb_path != client_path:
+
+            if Globals.DevelopmentMode:
+                # Allow for an alternative session to be hardcoded in the 
+                # euphorie.ini file for automatic browser testing with Browsera
+                debug_session = \
+                    getUtility(IAppConfig).get("euphorie", {}).get(
+                                                    "debug_session")
+                if debug_session:
+                    session = Session.query(model.SurveySession).get(debug_session)
+                    if session.zodb_path == client_path:
+                        SessionManager.resume(session)
+                        return True
+
             return False
         return True
 
