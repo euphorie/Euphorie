@@ -428,11 +428,8 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
 
             # Allow for alternative session ids to be hardcoded in the 
             # euphorie.ini file for automatic browser testing with Browsera
-            conf = getUtility(IAppConfig)
-            debug_ids = eval(conf.get("euphorie",{}).get("debug_sessions",'[]'))
-            if type(debug_ids) == str:
-                debug_ids = [debug_ids]
-
+            conf = getUtility(IAppConfig).get("euphorie",{})
+            debug_ids = conf.get("debug_sessions",'').strip().splitlines()
             for sid in debug_ids:
                 session = Session.query(model.SurveySession).get(sid)
                 if hasattr(session, 'zodb_path') and \
