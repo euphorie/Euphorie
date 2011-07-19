@@ -426,17 +426,19 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         if dbsession is None or \
                 dbsession.zodb_path != client_path:
 
-            if Globals.DevelopmentMode:
-                # Allow for an alternative session to be hardcoded in the 
-                # euphorie.ini file for automatic browser testing with Browsera
-                debug_session = \
-                    getUtility(IAppConfig).get("euphorie", {}).get(
-                                                    "debug_session")
-                if debug_session:
-                    session = Session.query(model.SurveySession).get(debug_session)
-                    if session.zodb_path == client_path:
-                        SessionManager.resume(session)
-                        return True
+            # Allow for alternative session ids to be hardcoded in the 
+            # euphorie.ini file for automatic browser testing with Browsera
+            conf = getUtility(IAppConfig)
+            debug_ids = eval(conf.get("euphorie",{}).get("debug_sessions",'[]'))
+            if type(debug_ids) == str:
+                debug_ids = [debug_ids]
+
+            for sid in debug_ids:
+                session = Session.query(model.SurveySession).get(sid)
+                if hasattr(session, 'zodb_path') and \
+                        session.zodb_path == client_path:
+                    SessionManager.resume(session)
+                    return True
 
             return False
         return True
