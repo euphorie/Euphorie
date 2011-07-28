@@ -16,6 +16,10 @@ h1 {
 
 /* @group Tabs */
 
+#steps {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://euphorie.hosting.simplon.biz/client/++resource++euphorie.style/tabs-ie6/tabs.png', sizingMethod='crop');
+}
+
 /* @group Dimmed */
 
 #steps li#step-1 {
