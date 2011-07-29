@@ -2998,9 +2998,10 @@ ol {
 #steps li {
 	font-size: 12px;
 	float: left;
-	padding: 10px 5px 20px 40px;
+	padding: 10px 5px 0 40px;
 	color: #565b7d;
 	width: 113px;
+	height: 40px;
 }
 
 .deCornae #steps li {
@@ -3029,7 +3030,7 @@ ol {
 	width: 113px;
 	display: block;
 	text-decoration: none;
-	padding: 10px 5px 20px 40px;
+	padding: 10px 5px 0 40px;
 	font-size: 12px;
 	color: #7e8ca2;
 	text-shadow: rgba(0,0,0,0.83) 0 1px 0;
@@ -3037,6 +3038,7 @@ ol {
 	margin: -10px -5px -20px -40px;
 	position: relative;
 	-webkit-transition: color 0.2s;
+	height: 30px;
 }
 
 .deCornae #steps>li>a {
@@ -3068,7 +3070,7 @@ ol {
 	color: #6d4803;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 	background: #e69d17 url(tabs.png) -316px -170px;
-	height: 20px;
+	height: 40px;
 }
 
 .deCornae #steps li.current {
