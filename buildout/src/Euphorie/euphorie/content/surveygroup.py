@@ -50,7 +50,7 @@ class ISurveyGroup(form.Schema, IBasic):
     evaluation_algorithm = schema.Choice(
             title = _("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
             vocabulary = SimpleVocabulary([
-                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Standard three critiera")),
+                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Standard three criteria")),
                 SimpleTerm(u"french", title=_("french", default=u"Simplified two criteria")),
                 ]),
             default = u"kinney",

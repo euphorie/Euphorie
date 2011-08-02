@@ -1,49 +1,56 @@
-# Translations template for Euphorie.
-# Copyright (C) 2011 Wichert Akkerman, Simplon
+# Swedish translations for Euphorie.
+# Copyright (C) 2011 EU-OSHA, Syslab.com
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
 "POT-Creation-Date: 2011-08-02 10:31+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2011-03-30 13:05+0200\n"
+"Last-Translator: \n"
+"Language-Team: es <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Generated-By: Babel 0.9.5\n"
 
 #. Default: Your country
-#: euphorie/client/company.py:20 euphorie/client/templates/report_company.pt:25
+#: euphorie/client/company.py:20
+#: euphorie/client/templates/report_company.pt:25
 msgid "label_company_country"
 msgstr ""
 
 #. Default: Number of employees
-#: euphorie/client/company.py:24 euphorie/client/templates/report_actionplan.pt:43
+#: euphorie/client/company.py:24
+#: euphorie/client/templates/report_actionplan.pt:43
 msgid "label_employee_numbers"
 msgstr ""
 
 #. Default: 1 to 9 employees
-#: euphorie/client/company.py:27 euphorie/client/templates/report_actionplan.pt:45
+#: euphorie/client/company.py:27
+#: euphorie/client/templates/report_actionplan.pt:45
 msgid "employee_numbers_1_to_9"
 msgstr ""
 
 #. Default: 10 to 49 employees
-#: euphorie/client/company.py:29 euphorie/client/templates/report_actionplan.pt:46
+#: euphorie/client/company.py:29
+#: euphorie/client/templates/report_actionplan.pt:46
 msgid "employee_numbers_10_to_49"
 msgstr ""
 
 #. Default: 50 to 249 employees
-#: euphorie/client/company.py:31 euphorie/client/templates/report_actionplan.pt:47
+#: euphorie/client/company.py:31
+#: euphorie/client/templates/report_actionplan.pt:47
 msgid "employee_numbers_50_to_249"
 msgstr ""
 
 #. Default: 250 or more employees
-#: euphorie/client/company.py:33 euphorie/client/templates/report_actionplan.pt:48
+#: euphorie/client/company.py:33
+#: euphorie/client/templates/report_actionplan.pt:48
 msgid "employee_numbers_250_or_more"
 msgstr ""
 
@@ -68,42 +75,49 @@ msgid "conductor_both"
 msgstr ""
 
 #. Default: Through which channel did you learn about this tool?
-#: euphorie/client/company.py:53 euphorie/client/templates/report_actionplan.pt:51
+#: euphorie/client/company.py:53
+#: euphorie/client/templates/report_actionplan.pt:51
 #: euphorie/client/templates/report_company.pt:35
 msgid "label_referer"
 msgstr ""
 
 #. Default: an employers' organisation
-#: euphorie/client/company.py:56 euphorie/client/templates/report_actionplan.pt:53
+#: euphorie/client/company.py:56
+#: euphorie/client/templates/report_actionplan.pt:53
 #: euphorie/client/templates/report_company.pt:36
 msgid "referer_employers_organisation"
 msgstr ""
 
 #. Default: a trade union organisation
-#: euphorie/client/company.py:59 euphorie/client/templates/report_actionplan.pt:54
+#: euphorie/client/company.py:59
+#: euphorie/client/templates/report_actionplan.pt:54
 #: euphorie/client/templates/report_company.pt:37
 msgid "referer_trade_union"
 msgstr ""
 
 #. Default: a national public institution/administration
-#: euphorie/client/company.py:62 euphorie/client/templates/report_actionplan.pt:55
+#: euphorie/client/company.py:62
+#: euphorie/client/templates/report_actionplan.pt:55
 #: euphorie/client/templates/report_company.pt:38
 msgid "referer_national_public_institution"
 msgstr ""
 
 #. Default: an European institution/administration
-#: euphorie/client/company.py:65 euphorie/client/templates/report_actionplan.pt:56
+#: euphorie/client/company.py:65
+#: euphorie/client/templates/report_actionplan.pt:56
 #: euphorie/client/templates/report_company.pt:40
 msgid "referer_eu_institution"
 msgstr ""
 
 #. Default: health and safety experts
-#: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:42
+#: euphorie/client/company.py:68
+#: euphorie/client/templates/report_company.pt:42
 msgid "referer_health_safety_expert"
 msgstr ""
 
 #. Default: other channel
-#: euphorie/client/company.py:71 euphorie/client/templates/report_actionplan.pt:58
+#: euphorie/client/company.py:71
+#: euphorie/client/templates/report_actionplan.pt:58
 #: euphorie/client/templates/report_company.pt:43
 msgid "referer_other"
 msgstr ""
@@ -201,7 +215,8 @@ msgstr ""
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: euphorie/client/report.py:164 euphorie/client/templates/report_actionplan.pt:165
+#: euphorie/client/report.py:164
+#: euphorie/client/templates/report_actionplan.pt:165
 msgid "report_survey_revision"
 msgstr ""
 
@@ -244,7 +259,8 @@ msgstr ""
 #. this action plan must be discussed annually and a small report must be written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
-#: euphorie/client/report.py:518 euphorie/client/templates/report_actionplan.pt:30
+#: euphorie/client/report.py:518
+#: euphorie/client/templates/report_actionplan.pt:30
 msgid "plan_report_intro_1"
 msgstr ""
 
@@ -261,7 +277,8 @@ msgstr ""
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: euphorie/client/report.py:609 euphorie/client/templates/report_actionplan.pt:160
+#: euphorie/client/report.py:609
+#: euphorie/client/templates/report_actionplan.pt:160
 #: euphorie/client/templates/webhelpers.pt:99
 msgid "top5_risk_not_present"
 msgstr ""
@@ -292,63 +309,75 @@ msgid "header_measure_single"
 msgstr ""
 
 #. Default: Measure ${index}
-#: euphorie/client/report.py:637 euphorie/client/templates/report_actionplan.pt:107
+#: euphorie/client/report.py:637
+#: euphorie/client/templates/report_actionplan.pt:107
 msgid "header_measure"
 msgstr ""
 
 #. Default: Action plan:
-#: euphorie/client/report.py:649 euphorie/client/templates/report_actionplan.pt:110
+#: euphorie/client/report.py:649
+#: euphorie/client/templates/report_actionplan.pt:110
 msgid "report_measure_actionplan"
 msgstr ""
 
 #. Default: Prevention plan:
-#: euphorie/client/report.py:653 euphorie/client/templates/report_actionplan.pt:114
+#: euphorie/client/report.py:653
+#: euphorie/client/templates/report_actionplan.pt:114
 msgid "report_measure_preventionplan"
 msgstr ""
 
 #. Default: Requirements:
-#: euphorie/client/report.py:657 euphorie/client/templates/report_actionplan.pt:118
+#: euphorie/client/report.py:657
+#: euphorie/client/templates/report_actionplan.pt:118
 msgid "report_measure_requirements"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task.
-#: euphorie/client/report.py:664 euphorie/client/templates/report_actionplan.pt:124
+#: euphorie/client/report.py:664
+#: euphorie/client/templates/report_actionplan.pt:124
 msgid "report_measure_responsible"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}.
-#: euphorie/client/report.py:668 euphorie/client/templates/report_actionplan.pt:126
+#: euphorie/client/report.py:668
+#: euphorie/client/templates/report_actionplan.pt:126
 msgid "report_measure_responsible_and_start"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: euphorie/client/report.py:674 euphorie/client/templates/report_actionplan.pt:129
+#: euphorie/client/report.py:674
+#: euphorie/client/templates/report_actionplan.pt:129
 msgid "report_measure_responsible_and_end"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on ${start}
 #. and ends on ${end}.
-#: euphorie/client/report.py:680 euphorie/client/templates/report_actionplan.pt:142
+#: euphorie/client/report.py:680
+#: euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_full"
 msgstr ""
 
 #. Default: This task starts on ${start}.
-#: euphorie/client/report.py:687 euphorie/client/templates/report_actionplan.pt:132
+#: euphorie/client/report.py:687
+#: euphorie/client/templates/report_actionplan.pt:132
 msgid "report_measure_start_only"
 msgstr ""
 
 #. Default: This task ends on ${end}.
-#: euphorie/client/report.py:692 euphorie/client/templates/report_actionplan.pt:135
+#: euphorie/client/report.py:692
+#: euphorie/client/templates/report_actionplan.pt:135
 msgid "report_measure_end_only"
 msgstr ""
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: euphorie/client/report.py:697 euphorie/client/templates/report_actionplan.pt:138
+#: euphorie/client/report.py:697
+#: euphorie/client/templates/report_actionplan.pt:138
 msgid "report_measure_start_and_stop"
 msgstr ""
 
 #. Default: There is a budget of ${amount} for this measure.
-#: euphorie/client/report.py:703 euphorie/client/templates/report_actionplan.pt:146
+#: euphorie/client/report.py:703
+#: euphorie/client/templates/report_actionplan.pt:146
 msgid "report_measure_budget"
 msgstr ""
 
@@ -380,7 +409,8 @@ msgstr ""
 msgid "Your password for confirmation"
 msgstr ""
 
-#: euphorie/client/settings.py:60 euphorie/client/templates/account-settings.pt:21
+#: euphorie/client/settings.py:60
+#: euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
 msgstr ""
 
@@ -411,7 +441,8 @@ msgstr ""
 msgid "title_account_delete"
 msgstr ""
 
-#: euphorie/client/settings.py:132 euphorie/client/templates/account-settings.pt:23
+#: euphorie/client/settings.py:132
+#: euphorie/client/templates/account-settings.pt:23
 msgid "Delete account"
 msgstr ""
 
@@ -443,24 +474,29 @@ msgstr ""
 #: euphorie/client/utils.py:140 euphorie/client/templates/about.pt:13
 #: euphorie/client/templates/actionplan.pt:12
 #: euphorie/client/templates/appendix.pt:12
-#: euphorie/client/templates/conditions.pt:12 euphorie/client/templates/error.pt:12
+#: euphorie/client/templates/conditions.pt:12
+#: euphorie/client/templates/error.pt:12
 #: euphorie/client/templates/error_notfound.pt:12
 #: euphorie/client/templates/evaluation.pt:12
-#: euphorie/client/templates/frontpage.pt:13 euphorie/client/templates/help.pt:12
+#: euphorie/client/templates/frontpage.pt:13
+#: euphorie/client/templates/help.pt:12
 #: euphorie/client/templates/identification.pt:12
-#: euphorie/client/templates/layout.pt:13 euphorie/client/templates/login.pt:13
+#: euphorie/client/templates/layout.pt:13
+#: euphorie/client/templates/login.pt:13
 #: euphorie/client/templates/module_actionplan.pt:12
 #: euphorie/client/templates/module_evaluation.pt:12
 #: euphorie/client/templates/module_identification.pt:12
 #: euphorie/client/templates/register.pt:12
-#: euphorie/client/templates/reminder.pt:12 euphorie/client/templates/report.pt:12
+#: euphorie/client/templates/reminder.pt:12
+#: euphorie/client/templates/report.pt:12
 #: euphorie/client/templates/report_actionplan.pt:12
 #: euphorie/client/templates/report_company.pt:12
 #: euphorie/client/templates/report_identification.pt:12
 #: euphorie/client/templates/risk_actionplan.pt:12
 #: euphorie/client/templates/risk_evaluation.pt:12
 #: euphorie/client/templates/risk_identification.pt:12
-#: euphorie/client/templates/sessions.pt:13 euphorie/client/templates/start.pt:12
+#: euphorie/client/templates/sessions.pt:13
+#: euphorie/client/templates/start.pt:12
 #: euphorie/client/templates/status.pt:12
 #: euphorie/client/templates/survey_sessions.pt:13
 #: euphorie/client/templates/updated.pt:12
@@ -485,21 +521,26 @@ msgstr ""
 #: euphorie/client/templates/actionplan.pt:83
 #: euphorie/client/templates/appendix.pt:57
 #: euphorie/client/templates/conditions.pt:118
-#: euphorie/client/templates/evaluation.pt:78 euphorie/client/templates/help.pt:93
+#: euphorie/client/templates/evaluation.pt:78
+#: euphorie/client/templates/help.pt:93
 #: euphorie/client/templates/identification.pt:70
-#: euphorie/client/templates/layout.pt:61 euphorie/client/templates/login.pt:46
+#: euphorie/client/templates/layout.pt:61
+#: euphorie/client/templates/login.pt:46
 #: euphorie/client/templates/module_actionplan.pt:85
 #: euphorie/client/templates/module_evaluation.pt:73
 #: euphorie/client/templates/module_identification.pt:85
-#: euphorie/client/templates/profile.pt:94 euphorie/client/templates/register.pt:42
-#: euphorie/client/templates/reminder.pt:41 euphorie/client/templates/report.pt:78
+#: euphorie/client/templates/profile.pt:94
+#: euphorie/client/templates/register.pt:42
+#: euphorie/client/templates/reminder.pt:41
+#: euphorie/client/templates/report.pt:78
 #: euphorie/client/templates/report_actionplan.pt:205
 #: euphorie/client/templates/report_company.pt:94
 #: euphorie/client/templates/report_identification.pt:104
 #: euphorie/client/templates/risk_actionplan.pt:272
 #: euphorie/client/templates/risk_evaluation.pt:150
 #: euphorie/client/templates/risk_identification.pt:86
-#: euphorie/client/templates/sessions.pt:94 euphorie/client/templates/start.pt:66
+#: euphorie/client/templates/sessions.pt:94
+#: euphorie/client/templates/start.pt:66
 #: euphorie/client/templates/status.pt:70
 #: euphorie/client/templates/survey_sessions.pt:85
 #: euphorie/client/templates/updated.pt:99
@@ -736,14 +777,16 @@ msgstr ""
 #: euphorie/client/templates/module_actionplan.pt:87
 #: euphorie/client/templates/module_evaluation.pt:75
 #: euphorie/client/templates/module_identification.pt:87
-#: euphorie/client/templates/profile.pt:95 euphorie/client/templates/report.pt:80
+#: euphorie/client/templates/profile.pt:95
+#: euphorie/client/templates/report.pt:80
 #: euphorie/client/templates/report_actionplan.pt:207
 #: euphorie/client/templates/report_company.pt:96
 #: euphorie/client/templates/report_identification.pt:106
 #: euphorie/client/templates/risk_actionplan.pt:274
 #: euphorie/client/templates/risk_evaluation.pt:152
 #: euphorie/client/templates/risk_identification.pt:88
-#: euphorie/client/templates/sessions.pt:95 euphorie/client/templates/start.pt:67
+#: euphorie/client/templates/sessions.pt:95
+#: euphorie/client/templates/start.pt:67
 #: euphorie/client/templates/status.pt:71
 #: euphorie/client/templates/survey_sessions.pt:86
 #: euphorie/client/templates/updated.pt:100
@@ -752,7 +795,8 @@ msgstr ""
 
 #. Default: Status
 #: euphorie/client/templates/actionplan.pt:84
-#: euphorie/client/templates/evaluation.pt:79 euphorie/client/templates/help.pt:94
+#: euphorie/client/templates/evaluation.pt:79
+#: euphorie/client/templates/help.pt:94
 #: euphorie/client/templates/identification.pt:71
 #: euphorie/client/templates/module_actionplan.pt:86
 #: euphorie/client/templates/module_evaluation.pt:74
@@ -776,14 +820,16 @@ msgstr ""
 #: euphorie/client/templates/module_actionplan.pt:84
 #: euphorie/client/templates/module_evaluation.pt:72
 #: euphorie/client/templates/module_identification.pt:84
-#: euphorie/client/templates/profile.pt:93 euphorie/client/templates/report.pt:77
+#: euphorie/client/templates/profile.pt:93
+#: euphorie/client/templates/report.pt:77
 #: euphorie/client/templates/report_actionplan.pt:204
 #: euphorie/client/templates/report_company.pt:93
 #: euphorie/client/templates/report_identification.pt:103
 #: euphorie/client/templates/risk_actionplan.pt:271
 #: euphorie/client/templates/risk_evaluation.pt:149
 #: euphorie/client/templates/risk_identification.pt:85
-#: euphorie/client/templates/start.pt:65 euphorie/client/templates/status.pt:69
+#: euphorie/client/templates/start.pt:65
+#: euphorie/client/templates/status.pt:69
 #: euphorie/client/templates/updated.pt:98
 msgid "navigation_surveys"
 msgstr ""
@@ -791,20 +837,23 @@ msgstr ""
 #. Default: Logout
 #: euphorie/client/templates/actionplan.pt:81
 #: euphorie/client/templates/appendix.pt:56
-#: euphorie/client/templates/evaluation.pt:76 euphorie/client/templates/help.pt:92
+#: euphorie/client/templates/evaluation.pt:76
+#: euphorie/client/templates/help.pt:92
 #: euphorie/client/templates/identification.pt:68
 #: euphorie/client/templates/layout.pt:58
 #: euphorie/client/templates/module_actionplan.pt:83
 #: euphorie/client/templates/module_evaluation.pt:71
 #: euphorie/client/templates/module_identification.pt:83
-#: euphorie/client/templates/profile.pt:92 euphorie/client/templates/report.pt:76
+#: euphorie/client/templates/profile.pt:92
+#: euphorie/client/templates/report.pt:76
 #: euphorie/client/templates/report_actionplan.pt:203
 #: euphorie/client/templates/report_company.pt:92
 #: euphorie/client/templates/report_identification.pt:102
 #: euphorie/client/templates/risk_actionplan.pt:270
 #: euphorie/client/templates/risk_evaluation.pt:148
 #: euphorie/client/templates/risk_identification.pt:84
-#: euphorie/client/templates/sessions.pt:93 euphorie/client/templates/start.pt:64
+#: euphorie/client/templates/sessions.pt:93
+#: euphorie/client/templates/start.pt:64
 #: euphorie/client/templates/status.pt:68
 #: euphorie/client/templates/survey_sessions.pt:84
 #: euphorie/client/templates/updated.pt:97
@@ -814,20 +863,23 @@ msgstr ""
 #. Default: Report
 #: euphorie/client/templates/actionplan.pt:74
 #: euphorie/client/templates/appendix.pt:49
-#: euphorie/client/templates/evaluation.pt:69 euphorie/client/templates/help.pt:85
+#: euphorie/client/templates/evaluation.pt:69
+#: euphorie/client/templates/help.pt:85
 #: euphorie/client/templates/identification.pt:61
 #: euphorie/client/templates/layout.pt:50
 #: euphorie/client/templates/module_actionplan.pt:76
 #: euphorie/client/templates/module_evaluation.pt:64
 #: euphorie/client/templates/module_identification.pt:76
-#: euphorie/client/templates/profile.pt:86 euphorie/client/templates/report.pt:69
+#: euphorie/client/templates/profile.pt:86
+#: euphorie/client/templates/report.pt:69
 #: euphorie/client/templates/report_actionplan.pt:196
 #: euphorie/client/templates/report_company.pt:85
 #: euphorie/client/templates/report_identification.pt:95
 #: euphorie/client/templates/risk_actionplan.pt:263
 #: euphorie/client/templates/risk_evaluation.pt:141
 #: euphorie/client/templates/risk_identification.pt:77
-#: euphorie/client/templates/sessions.pt:87 euphorie/client/templates/start.pt:58
+#: euphorie/client/templates/sessions.pt:87
+#: euphorie/client/templates/start.pt:58
 #: euphorie/client/templates/status.pt:61
 #: euphorie/client/templates/survey_sessions.pt:78
 #: euphorie/client/templates/updated.pt:91
@@ -837,20 +889,23 @@ msgstr ""
 #. Default: Report
 #: euphorie/client/templates/actionplan.pt:73
 #: euphorie/client/templates/appendix.pt:48
-#: euphorie/client/templates/evaluation.pt:68 euphorie/client/templates/help.pt:84
+#: euphorie/client/templates/evaluation.pt:68
+#: euphorie/client/templates/help.pt:84
 #: euphorie/client/templates/identification.pt:60
 #: euphorie/client/templates/layout.pt:49
 #: euphorie/client/templates/module_actionplan.pt:75
 #: euphorie/client/templates/module_evaluation.pt:63
 #: euphorie/client/templates/module_identification.pt:75
-#: euphorie/client/templates/profile.pt:85 euphorie/client/templates/report.pt:68
+#: euphorie/client/templates/profile.pt:85
+#: euphorie/client/templates/report.pt:68
 #: euphorie/client/templates/report_actionplan.pt:195
 #: euphorie/client/templates/report_company.pt:84
 #: euphorie/client/templates/report_identification.pt:94
 #: euphorie/client/templates/risk_actionplan.pt:262
 #: euphorie/client/templates/risk_evaluation.pt:140
 #: euphorie/client/templates/risk_identification.pt:76
-#: euphorie/client/templates/sessions.pt:86 euphorie/client/templates/start.pt:57
+#: euphorie/client/templates/sessions.pt:86
+#: euphorie/client/templates/start.pt:57
 #: euphorie/client/templates/status.pt:60
 #: euphorie/client/templates/survey_sessions.pt:77
 #: euphorie/client/templates/updated.pt:90
@@ -860,20 +915,23 @@ msgstr ""
 #. Default: Action Plan
 #: euphorie/client/templates/actionplan.pt:68
 #: euphorie/client/templates/appendix.pt:43
-#: euphorie/client/templates/evaluation.pt:63 euphorie/client/templates/help.pt:79
+#: euphorie/client/templates/evaluation.pt:63
+#: euphorie/client/templates/help.pt:79
 #: euphorie/client/templates/identification.pt:55
 #: euphorie/client/templates/layout.pt:44
 #: euphorie/client/templates/module_actionplan.pt:67
 #: euphorie/client/templates/module_evaluation.pt:58
 #: euphorie/client/templates/module_identification.pt:70
-#: euphorie/client/templates/profile.pt:82 euphorie/client/templates/report.pt:63
+#: euphorie/client/templates/profile.pt:82
+#: euphorie/client/templates/report.pt:63
 #: euphorie/client/templates/report_actionplan.pt:190
 #: euphorie/client/templates/report_company.pt:79
 #: euphorie/client/templates/report_identification.pt:89
 #: euphorie/client/templates/risk_actionplan.pt:254
 #: euphorie/client/templates/risk_evaluation.pt:135
 #: euphorie/client/templates/risk_identification.pt:71
-#: euphorie/client/templates/sessions.pt:83 euphorie/client/templates/start.pt:54
+#: euphorie/client/templates/sessions.pt:83
+#: euphorie/client/templates/start.pt:54
 #: euphorie/client/templates/status.pt:55
 #: euphorie/client/templates/survey_sessions.pt:74
 #: euphorie/client/templates/updated.pt:87
@@ -883,20 +941,23 @@ msgstr ""
 #. Default: Action Plan
 #: euphorie/client/templates/actionplan.pt:67
 #: euphorie/client/templates/appendix.pt:42
-#: euphorie/client/templates/evaluation.pt:62 euphorie/client/templates/help.pt:78
+#: euphorie/client/templates/evaluation.pt:62
+#: euphorie/client/templates/help.pt:78
 #: euphorie/client/templates/identification.pt:54
 #: euphorie/client/templates/layout.pt:43
 #: euphorie/client/templates/module_actionplan.pt:66
 #: euphorie/client/templates/module_evaluation.pt:57
 #: euphorie/client/templates/module_identification.pt:69
-#: euphorie/client/templates/profile.pt:81 euphorie/client/templates/report.pt:62
+#: euphorie/client/templates/profile.pt:81
+#: euphorie/client/templates/report.pt:62
 #: euphorie/client/templates/report_actionplan.pt:189
 #: euphorie/client/templates/report_company.pt:78
 #: euphorie/client/templates/report_identification.pt:88
 #: euphorie/client/templates/risk_actionplan.pt:253
 #: euphorie/client/templates/risk_evaluation.pt:134
 #: euphorie/client/templates/risk_identification.pt:70
-#: euphorie/client/templates/sessions.pt:82 euphorie/client/templates/start.pt:53
+#: euphorie/client/templates/sessions.pt:82
+#: euphorie/client/templates/start.pt:53
 #: euphorie/client/templates/status.pt:54
 #: euphorie/client/templates/survey_sessions.pt:73
 #: euphorie/client/templates/updated.pt:86
@@ -907,20 +968,23 @@ msgstr ""
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:62
 #: euphorie/client/templates/appendix.pt:37
-#: euphorie/client/templates/evaluation.pt:57 euphorie/client/templates/help.pt:73
+#: euphorie/client/templates/evaluation.pt:57
+#: euphorie/client/templates/help.pt:73
 #: euphorie/client/templates/identification.pt:49
 #: euphorie/client/templates/layout.pt:38
 #: euphorie/client/templates/module_actionplan.pt:61
 #: euphorie/client/templates/module_evaluation.pt:49
 #: euphorie/client/templates/module_identification.pt:64
-#: euphorie/client/templates/profile.pt:78 euphorie/client/templates/report.pt:57
+#: euphorie/client/templates/profile.pt:78
+#: euphorie/client/templates/report.pt:57
 #: euphorie/client/templates/report_actionplan.pt:184
 #: euphorie/client/templates/report_company.pt:73
 #: euphorie/client/templates/report_identification.pt:83
 #: euphorie/client/templates/risk_actionplan.pt:248
 #: euphorie/client/templates/risk_evaluation.pt:126
 #: euphorie/client/templates/risk_identification.pt:65
-#: euphorie/client/templates/sessions.pt:79 euphorie/client/templates/start.pt:50
+#: euphorie/client/templates/sessions.pt:79
+#: euphorie/client/templates/start.pt:50
 #: euphorie/client/templates/status.pt:49
 #: euphorie/client/templates/survey_sessions.pt:70
 #: euphorie/client/templates/updated.pt:83
@@ -930,20 +994,23 @@ msgstr ""
 #. Default: Evaluation
 #: euphorie/client/templates/actionplan.pt:61
 #: euphorie/client/templates/appendix.pt:36
-#: euphorie/client/templates/evaluation.pt:56 euphorie/client/templates/help.pt:72
+#: euphorie/client/templates/evaluation.pt:56
+#: euphorie/client/templates/help.pt:72
 #: euphorie/client/templates/identification.pt:48
 #: euphorie/client/templates/layout.pt:37
 #: euphorie/client/templates/module_actionplan.pt:60
 #: euphorie/client/templates/module_evaluation.pt:48
 #: euphorie/client/templates/module_identification.pt:63
-#: euphorie/client/templates/profile.pt:77 euphorie/client/templates/report.pt:56
+#: euphorie/client/templates/profile.pt:77
+#: euphorie/client/templates/report.pt:56
 #: euphorie/client/templates/report_actionplan.pt:183
 #: euphorie/client/templates/report_company.pt:72
 #: euphorie/client/templates/report_identification.pt:82
 #: euphorie/client/templates/risk_actionplan.pt:247
 #: euphorie/client/templates/risk_evaluation.pt:125
 #: euphorie/client/templates/risk_identification.pt:64
-#: euphorie/client/templates/sessions.pt:78 euphorie/client/templates/start.pt:49
+#: euphorie/client/templates/sessions.pt:78
+#: euphorie/client/templates/start.pt:49
 #: euphorie/client/templates/status.pt:48
 #: euphorie/client/templates/survey_sessions.pt:69
 #: euphorie/client/templates/updated.pt:82 euphorie/content/help.py:57
@@ -954,20 +1021,23 @@ msgstr ""
 #. Default: Identification
 #: euphorie/client/templates/actionplan.pt:56
 #: euphorie/client/templates/appendix.pt:31
-#: euphorie/client/templates/evaluation.pt:51 euphorie/client/templates/help.pt:67
+#: euphorie/client/templates/evaluation.pt:51
+#: euphorie/client/templates/help.pt:67
 #: euphorie/client/templates/identification.pt:43
 #: euphorie/client/templates/layout.pt:32
 #: euphorie/client/templates/module_actionplan.pt:55
 #: euphorie/client/templates/module_evaluation.pt:43
 #: euphorie/client/templates/module_identification.pt:55
-#: euphorie/client/templates/profile.pt:74 euphorie/client/templates/report.pt:51
+#: euphorie/client/templates/profile.pt:74
+#: euphorie/client/templates/report.pt:51
 #: euphorie/client/templates/report_actionplan.pt:178
 #: euphorie/client/templates/report_company.pt:67
 #: euphorie/client/templates/report_identification.pt:77
 #: euphorie/client/templates/risk_actionplan.pt:242
 #: euphorie/client/templates/risk_evaluation.pt:120
 #: euphorie/client/templates/risk_identification.pt:56
-#: euphorie/client/templates/sessions.pt:75 euphorie/client/templates/start.pt:46
+#: euphorie/client/templates/sessions.pt:75
+#: euphorie/client/templates/start.pt:46
 #: euphorie/client/templates/status.pt:43
 #: euphorie/client/templates/survey_sessions.pt:66
 #: euphorie/client/templates/updated.pt:79
@@ -977,20 +1047,23 @@ msgstr ""
 #. Default: Identification
 #: euphorie/client/templates/actionplan.pt:55
 #: euphorie/client/templates/appendix.pt:30
-#: euphorie/client/templates/evaluation.pt:50 euphorie/client/templates/help.pt:66
+#: euphorie/client/templates/evaluation.pt:50
+#: euphorie/client/templates/help.pt:66
 #: euphorie/client/templates/identification.pt:42
 #: euphorie/client/templates/layout.pt:31
 #: euphorie/client/templates/module_actionplan.pt:54
 #: euphorie/client/templates/module_evaluation.pt:42
 #: euphorie/client/templates/module_identification.pt:54
-#: euphorie/client/templates/profile.pt:73 euphorie/client/templates/report.pt:50
+#: euphorie/client/templates/profile.pt:73
+#: euphorie/client/templates/report.pt:50
 #: euphorie/client/templates/report_actionplan.pt:177
 #: euphorie/client/templates/report_company.pt:66
 #: euphorie/client/templates/report_identification.pt:76
 #: euphorie/client/templates/risk_actionplan.pt:241
 #: euphorie/client/templates/risk_evaluation.pt:119
 #: euphorie/client/templates/risk_identification.pt:55
-#: euphorie/client/templates/sessions.pt:74 euphorie/client/templates/start.pt:45
+#: euphorie/client/templates/sessions.pt:74
+#: euphorie/client/templates/start.pt:45
 #: euphorie/client/templates/status.pt:42
 #: euphorie/client/templates/survey_sessions.pt:65
 #: euphorie/client/templates/updated.pt:78 euphorie/content/help.py:49
@@ -1001,20 +1074,23 @@ msgstr ""
 #. Default: Preparation
 #: euphorie/client/templates/actionplan.pt:50
 #: euphorie/client/templates/appendix.pt:25
-#: euphorie/client/templates/evaluation.pt:45 euphorie/client/templates/help.pt:61
+#: euphorie/client/templates/evaluation.pt:45
+#: euphorie/client/templates/help.pt:61
 #: euphorie/client/templates/identification.pt:37
 #: euphorie/client/templates/layout.pt:26
 #: euphorie/client/templates/module_actionplan.pt:49
 #: euphorie/client/templates/module_evaluation.pt:37
 #: euphorie/client/templates/module_identification.pt:49
-#: euphorie/client/templates/profile.pt:69 euphorie/client/templates/report.pt:45
+#: euphorie/client/templates/profile.pt:69
+#: euphorie/client/templates/report.pt:45
 #: euphorie/client/templates/report_actionplan.pt:172
 #: euphorie/client/templates/report_company.pt:61
 #: euphorie/client/templates/report_identification.pt:71
 #: euphorie/client/templates/risk_actionplan.pt:236
 #: euphorie/client/templates/risk_evaluation.pt:114
 #: euphorie/client/templates/risk_identification.pt:50
-#: euphorie/client/templates/sessions.pt:71 euphorie/client/templates/start.pt:41
+#: euphorie/client/templates/sessions.pt:71
+#: euphorie/client/templates/start.pt:41
 #: euphorie/client/templates/status.pt:37
 #: euphorie/client/templates/survey_sessions.pt:62
 #: euphorie/client/templates/updated.pt:74
@@ -1024,20 +1100,23 @@ msgstr ""
 #. Default: Preparation
 #: euphorie/client/templates/actionplan.pt:49
 #: euphorie/client/templates/appendix.pt:24
-#: euphorie/client/templates/evaluation.pt:44 euphorie/client/templates/help.pt:60
+#: euphorie/client/templates/evaluation.pt:44
+#: euphorie/client/templates/help.pt:60
 #: euphorie/client/templates/identification.pt:36
 #: euphorie/client/templates/layout.pt:25
 #: euphorie/client/templates/module_actionplan.pt:48
 #: euphorie/client/templates/module_evaluation.pt:36
 #: euphorie/client/templates/module_identification.pt:48
-#: euphorie/client/templates/profile.pt:68 euphorie/client/templates/report.pt:44
+#: euphorie/client/templates/profile.pt:68
+#: euphorie/client/templates/report.pt:44
 #: euphorie/client/templates/report_actionplan.pt:171
 #: euphorie/client/templates/report_company.pt:60
 #: euphorie/client/templates/report_identification.pt:70
 #: euphorie/client/templates/risk_actionplan.pt:235
 #: euphorie/client/templates/risk_evaluation.pt:113
 #: euphorie/client/templates/risk_identification.pt:49
-#: euphorie/client/templates/sessions.pt:70 euphorie/client/templates/start.pt:40
+#: euphorie/client/templates/sessions.pt:70
+#: euphorie/client/templates/start.pt:40
 #: euphorie/client/templates/status.pt:36
 #: euphorie/client/templates/survey_sessions.pt:61
 #: euphorie/client/templates/updated.pt:73 euphorie/content/help.py:40
@@ -1438,7 +1517,8 @@ msgid "label_forgot_password"
 msgstr ""
 
 #. Default: Email address
-#: euphorie/client/templates/login.pt:31 euphorie/client/templates/register.pt:27
+#: euphorie/client/templates/login.pt:31
+#: euphorie/client/templates/register.pt:27
 #: euphorie/client/templates/reminder.pt:30
 msgid "label_email"
 msgstr ""
@@ -1460,7 +1540,8 @@ msgid "request_an_email_reminder"
 msgstr ""
 
 #. Default: Welcome
-#: euphorie/client/templates/login.pt:18 euphorie/client/templates/reminder.pt:17
+#: euphorie/client/templates/login.pt:18
+#: euphorie/client/templates/reminder.pt:17
 msgid "header_welcome"
 msgstr ""
 
@@ -1469,7 +1550,8 @@ msgstr ""
 #: euphorie/client/templates/module_evaluation.pt:30
 #: euphorie/client/templates/module_identification.pt:41
 #: euphorie/client/templates/register.pt:36
-#: euphorie/client/templates/reminder.pt:35 euphorie/client/templates/report.pt:37
+#: euphorie/client/templates/reminder.pt:35
+#: euphorie/client/templates/report.pt:37
 #: euphorie/client/templates/report_company.pt:53
 #: euphorie/client/templates/risk_actionplan.pt:152
 #: euphorie/client/templates/risk_evaluation.pt:98
@@ -1489,7 +1571,8 @@ msgstr ""
 #: euphorie/client/templates/risk_actionplan.pt:151
 #: euphorie/client/templates/risk_evaluation.pt:97
 #: euphorie/client/templates/risk_identification.pt:29
-#: euphorie/client/templates/sessions.pt:63 euphorie/client/templates/start.pt:33
+#: euphorie/client/templates/sessions.pt:63
+#: euphorie/client/templates/start.pt:33
 #: euphorie/client/templates/survey_sessions.pt:54
 msgid "label_previous"
 msgstr ""
@@ -1517,7 +1600,8 @@ msgid "label_continue"
 msgstr ""
 
 #. Default: Add
-#: euphorie/client/templates/profile.pt:52 euphorie/client/templates/updated.pt:57
+#: euphorie/client/templates/profile.pt:52
+#: euphorie/client/templates/updated.pt:57
 msgid "label_add_profile_module"
 msgstr ""
 
@@ -1731,7 +1815,9 @@ msgid ""
 msgstr ""
 
 #: euphorie/client/templates/risk_actionplan.pt:279
-msgid "Are you sure you want to delete this measure? This action can not be reverted."
+msgid ""
+"Are you sure you want to delete this measure? This action can not be "
+"reverted."
 msgstr ""
 
 #. Default: Year
@@ -1801,21 +1887,24 @@ msgstr ""
 
 #. Default: Requirements
 #: euphorie/client/templates/risk_actionplan.pt:179
-#: euphorie/client/templates/risk_actionplan.pt:63 euphorie/content/solution.py:50
+#: euphorie/client/templates/risk_actionplan.pt:63
+#: euphorie/content/solution.py:50
 #: euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Prevention plan
 #: euphorie/client/templates/risk_actionplan.pt:176
-#: euphorie/client/templates/risk_actionplan.pt:60 euphorie/content/solution.py:42
+#: euphorie/client/templates/risk_actionplan.pt:60
+#: euphorie/content/solution.py:42
 #: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Action plan
 #: euphorie/client/templates/risk_actionplan.pt:173
-#: euphorie/client/templates/risk_actionplan.pt:57 euphorie/content/solution.py:34
+#: euphorie/client/templates/risk_actionplan.pt:57
+#: euphorie/content/solution.py:34
 #: euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
@@ -1870,22 +1959,25 @@ msgstr ""
 
 #: euphorie/client/templates/risk_actionplan.pt:34
 msgid ""
-"Select a standard solution. The main fields of this measure will be populated"
-" with the chosen solution."
+"Select a standard solution. The main fields of this measure will be "
+"populated with the chosen solution."
 msgstr ""
 
 #. Default: High
-#: euphorie/client/templates/risk_evaluation.pt:92 euphorie/content/risk.py:129
+#: euphorie/client/templates/risk_evaluation.pt:92
+#: euphorie/content/risk.py:129
 msgid "priority_high"
 msgstr ""
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:90 euphorie/content/risk.py:128
+#: euphorie/client/templates/risk_evaluation.pt:90
+#: euphorie/content/risk.py:128
 msgid "priority_medium"
 msgstr ""
 
 #. Default: Low
-#: euphorie/client/templates/risk_evaluation.pt:88 euphorie/content/risk.py:127
+#: euphorie/client/templates/risk_evaluation.pt:88
+#: euphorie/content/risk.py:127
 msgid "priority_low"
 msgstr ""
 
@@ -1895,22 +1987,26 @@ msgid "header_risk_priority"
 msgstr ""
 
 #. Default: Very severe
-#: euphorie/client/templates/risk_evaluation.pt:79 euphorie/content/risk.py:197
+#: euphorie/client/templates/risk_evaluation.pt:79
+#: euphorie/content/risk.py:197
 msgid "severity_very_severe"
 msgstr ""
 
 #. Default: Severe
-#: euphorie/client/templates/risk_evaluation.pt:77 euphorie/content/risk.py:196
+#: euphorie/client/templates/risk_evaluation.pt:77
+#: euphorie/content/risk.py:196
 msgid "severity_severe"
 msgstr ""
 
 #. Default: Not very severe
-#: euphorie/client/templates/risk_evaluation.pt:75 euphorie/content/risk.py:195
+#: euphorie/client/templates/risk_evaluation.pt:75
+#: euphorie/content/risk.py:195
 msgid "severity_not_severe"
 msgstr ""
 
 #. Default: Weak
-#: euphorie/client/templates/risk_evaluation.pt:73 euphorie/content/risk.py:194
+#: euphorie/client/templates/risk_evaluation.pt:73
+#: euphorie/content/risk.py:194
 msgid "severity_weak"
 msgstr ""
 
@@ -1920,22 +2016,26 @@ msgid "header_risk_severity"
 msgstr ""
 
 #. Default: Very often or regularly
-#: euphorie/client/templates/risk_evaluation.pt:67 euphorie/content/risk.py:214
+#: euphorie/client/templates/risk_evaluation.pt:67
+#: euphorie/content/risk.py:214
 msgid "frequency_french_regularly"
 msgstr ""
 
 #. Default: Often
-#: euphorie/client/templates/risk_evaluation.pt:65 euphorie/content/risk.py:213
+#: euphorie/client/templates/risk_evaluation.pt:65
+#: euphorie/content/risk.py:213
 msgid "frequency_french_often"
 msgstr ""
 
 #. Default: Not very often
-#: euphorie/client/templates/risk_evaluation.pt:63 euphorie/content/risk.py:212
+#: euphorie/client/templates/risk_evaluation.pt:63
+#: euphorie/content/risk.py:212
 msgid "frequency_french_not_often"
 msgstr ""
 
 #. Default: Rare
-#: euphorie/client/templates/risk_evaluation.pt:61 euphorie/content/risk.py:211
+#: euphorie/client/templates/risk_evaluation.pt:61
+#: euphorie/content/risk.py:211
 msgid "frequency_french_rare"
 msgstr ""
 
@@ -1966,12 +2066,14 @@ msgid "header_risk_effect"
 msgstr ""
 
 #. Default: Constantly
-#: euphorie/client/templates/risk_evaluation.pt:44 euphorie/content/risk.py:249
+#: euphorie/client/templates/risk_evaluation.pt:44
+#: euphorie/content/risk.py:249
 msgid "frequency_constantly"
 msgstr ""
 
 #. Default: Regularly
-#: euphorie/client/templates/risk_evaluation.pt:42 euphorie/content/risk.py:248
+#: euphorie/client/templates/risk_evaluation.pt:42
+#: euphorie/content/risk.py:248
 msgid "frequency_regularly"
 msgstr ""
 
@@ -1981,17 +2083,20 @@ msgid "frequency_almost_never"
 msgstr ""
 
 #. Default: Large
-#: euphorie/client/templates/risk_evaluation.pt:34 euphorie/content/risk.py:233
+#: euphorie/client/templates/risk_evaluation.pt:34
+#: euphorie/content/risk.py:233
 msgid "probability_large"
 msgstr ""
 
 #. Default: Medium
-#: euphorie/client/templates/risk_evaluation.pt:32 euphorie/content/risk.py:232
+#: euphorie/client/templates/risk_evaluation.pt:32
+#: euphorie/content/risk.py:232
 msgid "probability_medium"
 msgstr ""
 
 #. Default: Small
-#: euphorie/client/templates/risk_evaluation.pt:30 euphorie/content/risk.py:231
+#: euphorie/client/templates/risk_evaluation.pt:30
+#: euphorie/content/risk.py:231
 msgid "probability_small"
 msgstr ""
 
@@ -2007,7 +2112,9 @@ msgstr ""
 
 #: euphorie/client/templates/sessions.pt:100
 #: euphorie/client/templates/survey_sessions.pt:91
-msgid "Are you sure you want to delete this session? This action can not be reverted."
+msgid ""
+"Are you sure you want to delete this session? This action can not be "
+"reverted."
 msgstr ""
 
 #. Default: Once you have started an RA, you will be able to stop before the end.
@@ -3378,7 +3485,8 @@ msgid "algorithm_french"
 msgstr ""
 
 #: euphorie/content/templates/surveygroup_add.pt:85
-msgid "This is the recommended evaluation algorithm, based on the Kinney method"
+msgid ""
+"This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
 
 #. Default: Choose a revision of the selected survey
@@ -3677,4 +3785,3 @@ msgstr ""
 #: euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr ""
-
