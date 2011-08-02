@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-2\n"
+"Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-06-23 18:12+0200\n"
+"POT-Creation-Date: 2011-08-02 10:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -357,12 +357,12 @@ msgstr ""
 msgid "filename_report_actionplan"
 msgstr ""
 
-#: euphorie/client/risk.py:201 euphorie/client/risk.py:207
-#: euphorie/client/risk.py:228 euphorie/client/risk.py:234
+#: euphorie/client/risk.py:199 euphorie/client/risk.py:205
+#: euphorie/client/risk.py:226 euphorie/client/risk.py:232
 msgid "Invalid day of month"
 msgstr ""
 
-#: euphorie/client/risk.py:220 euphorie/client/risk.py:246
+#: euphorie/client/risk.py:218 euphorie/client/risk.py:244
 msgid "Please enter a year after 1900"
 msgstr ""
 
@@ -2710,7 +2710,6 @@ msgstr ""
 msgid "label_survey_evaluation_algorithm"
 msgstr ""
 
-#. Default: Standard three critiera
 #. Default: Standard three criteria
 #: euphorie/content/surveygroup.py:52
 #: euphorie/content/templates/surveygroup_add.pt:83
