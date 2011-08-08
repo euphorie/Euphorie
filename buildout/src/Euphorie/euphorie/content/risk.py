@@ -397,6 +397,10 @@ class Add(dexterity.AddForm):
     def __init__(self, context, request):
         dexterity.AddForm.__init__(self, context, request)
         self.evaluation_algorithm = evaluation_algorithm(context)
+        self.order = ['header_identification',
+                 'header_evaluation',
+                 'header_main_image',
+                 'header_secondary_images']
 
     @property
     def schema(self):
@@ -406,12 +410,8 @@ class Add(dexterity.AddForm):
             return IKinneyRisk
 
     def updateFields(self):
-        order = ['header_identification',
-                 'header_evaluation',
-                 'header_main_image',
-                 'header_secondary_images']
         super(Add, self).updateFields()
-        self.groups.sort(key=lambda g: order.index(g.label))
+        self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
         super(Add, self).updateWidgets()
@@ -445,19 +445,20 @@ class Edit(form.SchemaEditForm):
     default_fieldset_label = None
 
     def __init__(self, context, request):
-        if context.evaluation_algorithm() == u"french":
+        self.order = ['header_identification',
+                      'header_evaluation',
+                      'header_main_image',
+                      'header_secondary_images']
+        self.evaluation_algorithm = context.evaluation_algorithm()
+        if self.evaluation_algorithm == u"french":
             self.schema = IFrenchRisk
         else:
             self.schema = IKinneyRisk
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
-        order = ['header_identification',
-                 'header_evaluation',
-                 'header_main_image',
-                 'header_secondary_images']
         super(Edit, self).updateFields()
-        self.groups.sort(key=lambda g: order.index(g.label))
+        self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
