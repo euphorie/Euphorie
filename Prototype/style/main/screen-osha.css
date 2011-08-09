@@ -34,11 +34,7 @@ h1 {
 }
 
 #steps li {
-	font-size: 12px;
-	float: left;
-	padding: 10px 5px 20px 40px;
 	color: #4b68a2;
-	width: 113px;
 }
 
 #steps li.complete a,
