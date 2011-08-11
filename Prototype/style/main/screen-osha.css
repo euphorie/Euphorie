@@ -79,3 +79,12 @@ h1 {
 .gallery a img {
 	cursor: pointer;
 }
+
+.oira_sessions_select {
+    position: relative;
+    margin-right: -100%;
+    margin-left: 1em;
+    float: left;
+    left: 100%;
+}
+
