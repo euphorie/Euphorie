@@ -374,3 +374,11 @@ dl.status .range {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/graph-bars.png', sizingMethod='crop');
 	background-image: none;
 }
+
+.oira_sessions_select {
+    margin: 0;
+    left: 0;
+    float: none;
+}
+
+

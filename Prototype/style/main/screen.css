@@ -4016,3 +4016,11 @@ textarea.span-15,
 	
 }
 
+.oira_sessions_select {
+    position: relative;
+    margin-right: -100%;
+    margin-left: 1em;
+    float: left;
+    left: 100%;
+}
+
