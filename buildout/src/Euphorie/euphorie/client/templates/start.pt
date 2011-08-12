@@ -12,7 +12,6 @@
     <title i18n:translate="title_tool">OiRA</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
-    <meta name="viewport" content="width=device-width, user-scalable=yes"/>
   </head>
   <body class="start ${webhelpers/extra_css}">
     <h1>${context/title}</h1>
