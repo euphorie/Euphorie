@@ -11,7 +11,7 @@
       tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools">
   <head>
     <title i18n:translate="title_tool">OiRA</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
   <body tal:define="sessions view/sessions; country_url webhelpers/country_url" class="report ${webhelpers/extra_css}">

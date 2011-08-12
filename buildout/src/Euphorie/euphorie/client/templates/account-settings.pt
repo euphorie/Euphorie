@@ -12,7 +12,7 @@
       tal:define="webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools; client nocall:request/client">
   <head>
     <metal:title fill-slot="title">${view/label}</metal:title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:meta use-macro="webhelpers/macros/headers"/>
   </head>
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">

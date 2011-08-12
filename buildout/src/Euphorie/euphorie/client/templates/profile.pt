@@ -9,7 +9,7 @@
       i18n:domain="euphorie"
       tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
   <body class="profile ${webhelpers/extra_css}">

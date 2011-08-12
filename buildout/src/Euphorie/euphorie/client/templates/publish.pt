@@ -9,6 +9,7 @@
       i18n:domain="euphorie"
       metal:use-macro="context/@@layout/macros/layout">
   <head>
+    <metal:meta use-macro="webhelpers/macros/headers"/>
   </head>
   <body>
     <metal:title fill-slot="title" i18n:translate="header_publish">Publish survey</metal:title>
