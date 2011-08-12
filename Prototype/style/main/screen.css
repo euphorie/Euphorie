@@ -1172,6 +1172,11 @@ label .icon.sidemark {
 	background-position: -16px 0;
 	background-color: transparent;}
 
+.comprehensive label .icon.info {
+	float: right;
+	margin-top: -16px;
+}
+
 
 
 /* @end */

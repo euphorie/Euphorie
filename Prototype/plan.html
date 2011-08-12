@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width = 320" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width = device-width" />
     <meta name="viewport" content="user-scalable=no" />
     <title>
       Plan van aanpak
@@ -15,9 +15,8 @@
     <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
     <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
 
-    <!--    <script type="text/javascript" src="http://ajax4.4ogleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script> -->
-    <script type="text/3ogleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script> -->
-    <script typtext/javascript" src="libraries/jquery-ui-1.7.3.min.js"> </script>
+    <script type="text/javascript" src="libraries/jquery-1.4.4.min.js"> </script>
+    <script type="text/javascript" src="libraries/jquery-ui-1.7.3.min.js"> </script>
     <script type="text/javascript" src="libraries/jquery.hoverIntent.js"></script>
     <script type="text/javascript" src="libraries/jquery.bt.js"> </script>
     <script type="text/javascript" src="libraries/css_browser_selector.js"> </script>
@@ -51,48 +50,41 @@
             medium priority risk
           </option>
           <option>
-            high priortandardSolutions">
-      <p class="info">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
-      <o</div>
+            high priority risk
+          </option>
+        </select> .</label>
+      </fieldset>
+    </div>
     
     <div class="solutions" id="standardSolutions">
       <p class="info">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
       <ol>
         <li>
           <strong class="title">Standard solution bla</strong>
-          <p class="actionPlan">This is the
-          <strong>Lorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuer<p class="info">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
-      <ol>
-        <li>
-          <strong class="title">Standard solution bla</strong>
-          <p class="actionPlan">This is the
-          <strong>Tremendae<p class="info">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
-      <ol>
-        <li>
-          <strong class="title">Standard solution bla</strong>
-          <p class="actionPlan">This </or prevention plan</p>
-          <p class="requirements">This is the text for requirements</p>
-        </li>
-        <li>
-          <strong>Lorem ipsum dolor sit amet consectetuetandardSrLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuer</strong>
           <p class="actionPlan">This is the text for action plan</p>
           <p class="preventionPlan">This is the text for prevention plan</p>
           <p class="requirements">This is the text for requirements</p>
- class="actionPlan"     November
-                    </option>
-                    <option value="1class="superImpose">Prevention plan</label> 
-            <textarea class="preventionPlan"class="preventionPlan">This is the text for prevention plan</p>
+        </li>
+        <li>
+          <strong>Lorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuerLorem ipsum dolor sit amet consectetuer</strong>
+          <p class="actionPlan">This is the text for action plan</p>
+          <p class="preventionPlan">This is the text for prevention plan</p>
           <p class="requirements">This is the text for requirements</p>
-        </liclass="requirements"r:record" id="planning_end_year" maxlength="4" />
-                
-              </fieldset>
-            </fieldset>
-          </fieldset>
-        </div>
-      </dd>
-    </dl>
-    <dl style="display: none" id="measureTemplate">
-      <dt clsolutions">Standard solutions</a> 
+        </li>
+        <li>
+          <strong>Tremendae</strong>
+          <p class="actionPlan">This is the text for action plan</p>
+          <p class="preventionPlan">This is the text for prevention plan</p>
+          <p class="requirements">This is the text for requirements</p>
+        </li>
+      </ol>
+    </div>
+    
+    <dl class="accordion" id="ActionPlanItemForm">
+      <dt class="open">
+        Measure 1
+        <button class="small">Remove</button>
+        <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
       </dt>
       <dd>
         <a href="#" class="icon info clicktip">How do I use this form?</a>
@@ -196,21 +188,22 @@
                     <option value="08" i18n:translate="">
                       August
                     </option>
-                    <option value="09" i18n:translate="">  <a href="#standardSolutions" class="button small solutions">Standard solutions</a> ate="">
+                    <option value="09" i18n:translate="">
                       September
                     </option>
                     <option value="10" i18n:translate="">
                       October
                     </option>
                     <option value="11" i18n:translate="">
-                  class="actionPlan"     November
+                      November
                     </option>
                     <option value="12" i18n:translate="">
                       December
                     </option>
-                  </selclass="preventionPlan"class="preventionPlan">This is the text for prevention plan</p>
-          <p class=""label_year">Year</label> 
-                  <input class="year" type="text" name="planning_end.yearclass="requirements"r:record" id="planning_end_year" maxlength="4" />
+                  </select>
+             
+                  <label for="planning_end_year" i18n:translate="label_year">Year</label> 
+                  <input class="year" type="text" name="planning_end.year:record" id="planning_end_year" maxlength="4" />
                 
               </fieldset>
             </fieldset>
@@ -349,7 +342,8 @@
 
 <hr/>
 
-    <div class="notice" ences">
+    <div class="notice" tal:condition="view/legal_reference">
+      <h4 i18n:translate="header_legal_references">
         Legal and policy references
       </h4>
       <p tal:replace="structure view/legal_reference">
@@ -359,14 +353,15 @@
 
     
     <fieldset class="concise">
-      <label i18n:translate="label_comments"      <li>
-            <a href="settings.html">Account settings</a>
-    "label_comments" class="superImpose">Please leave any comments you may have on the question above in this field</label> 
-      <textarea name="   <script type="text/javascript">
-    var delete_confirm_text = "Are you sure you want to remove this measure? This action can not be reverted.";
-    var replace_confirm_text = "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted Are you sure you want to continue?";
+      <label i18n:translate="label_comments" class="superImpose">Please leave any comments you may have on the question above in this field</label> 
+      <textarea name="comments" cols="70" rows="5" class="span-15">
 
-  <a href="#">Voorbereiden</a>
+</textarea>
+    </fieldset>
+    
+    <ol id="steps">
+      <li id="step-1" class="complete">
+        <a href="#">Voorbereiden</a>
       </li>
       <li id="step-2" class="complete">
         <a href="inventariseren.html">Inventariseren</a>
@@ -379,14 +374,11 @@
       </li>
       <li id="step-5">Rapporten
       </li>
-        <li>
-          <a href="settings.html">Account settings</a>
-        </li>
     </ol>
     
     <ul id="navigation">
       <li id="home">
-//        <a href="index.html" lang="en-GB" xml:lang="en-GB"><strong>OiRA</strong><br/>
+        <a href="index.html" lang="en-GB" xml:lang="en-GB"><strong>OiRA</strong><br/>
           interaktywne narzędzie<br />
           oceny ryzyka on-line</a>
       </li>
@@ -396,6 +388,9 @@
       <li>
         <a href="status.html">Status</a>
       </li>
+          <li>
+            <a href="settings.html">Account settings</a>
+          </li>
     </ul>
     
     <p id="appendix">
@@ -403,10 +398,8 @@
     </p>
     
    <script type="text/javascript">
-    var delete_confirm_text = /* "Are you sure you want to remove this measure? This action can not be reverted.";
-    var replace_confirm_text = "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of setupEvents();
-        }
-*/tinue?";
+    var delete_confirm_text = "Are you sure you want to remove this measure? This action can not be reverted.";
+    var replace_confirm_text = "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted Are you sure you want to continue?";
 
 // <![CDATA[
     function findActive(measures) {
@@ -418,44 +411,45 @@
     }
 
 
-    functdelete_ion EnforceMeasurementStyling() {
-        var $headers = $("#ActionPlanItemForm dt"),
-            $measures = $("#ActionPlanItemForm dd"),
-            title = $.trim($("#measureTemplate dt")[0].firstChild.data),
-            i;
+    function EnforceMeasurementStyling() {
+        var headers = $("#ActionPlanItemForm dt");
+        var measures = $("#ActionPlanItemForm dd");
+        var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
+        var i;
 
-        for (i=0; i<$headers.length; i++) {
-            $headers.eq(i).find("span")[0].nextSibling.data = title.replace(/[0-9]+/, i+1);
-            $measures.eq(i).find("fieldset:first *").each(function() {
-                var $el=$(this),
-                    buf = $el.attr("id");
+        for (i=0; i<headers.length; i++) {
+//            headers.eq(i).text(title.replace(/[0-9]+/, i+1));
+            measures.eq(i).find("fieldset:first *").each(function() {
+                var el=$(this);
+                var buf = el.attr("id");
                 if (buf) {
-                    $el.attr("id", buf.replace(/[0-9]+/, i+1));
+                    el.attr("id", buf.replace(/[0-9]+/, i+1));
                 }
-                buf=$el.attr("for");
+                buf=el.attr("for");
                 if (buf) {
-                    $el.attr("for", buf.replace(/[0-9]+/, i+1));
+                    el.attr("for", buf.replace(/[0-9]+/, i+1));
                 }
             });
         }
 
-        $headers.find("button").hide();
-        if ($headers.length>1) {
-            $headers.find("button").show();
-        } else {
-            $headers.find("button").hide();
+/*
+        headers.find("button").remove();
+        if (headers.length>1) {
+            var button = $("#measureTemplate dt .removeButton");
+            button.clone(true).appendTo(headers);
+            setupEvents();
         }
+*/
     }
 
 
-    function removeButtonHandler(event) {
-        var $measures = $("#ActionPlanItemForm"),
-            measures_count = $measures.find("dt").length-1,
-            active = findActive($measures),
-            $header = $(this).parents("dt");
+    function removeButtonHandler() {
+        var measures = $("#ActionPlanItemForm");
+        var measures_count = measures.find("dt").length-1;
+        var active = findActive(measures);
+        var header = $(this).parents("dt");
 
         if (!confirm(delete_confirm_text)) {
-            event.stopImmediatePropagation();
             return false;
         }
 
@@ -463,14 +457,57 @@
           active-=1;
         }
 
-        $header.add($header.nm"dd")).remove();
+        $(header).add($(header).next("dd")).remove();
 
-        $measures
+        measures
             .accordion("destroy")
             .accordion({active: active});
 
         EnforceMeasurementStyling();
-        event.sto.button.solutions").live("click", function() {
+    };
+
+
+    function AddMeasurement() {
+        var measures = $("#ActionPlanItemForm");
+        var measures_count = measures.find("dt").length;
+        var active = findActive(measures);
+
+        $("#measureTemplate")
+            .find("> *")
+            .clone(true)
+            .find(".clicktip")
+                .each(function() {
+                    var id = assertId(this);
+                    $(this)
+                        .unbind("click")
+                        .bt({trigger: "click",
+                                fill: "#8293ab",
+                                strokeStyle: "#8293ab",
+                                contentSelector: "$('#" + id + "').html()"
+                                })
+                        .click(function() { return false; });
+                }).end()
+            .appendTo(measures);
+
+        measures
+            .accordion("destroy")
+            .accordion({active: active})
+            .accordion("activate", measures_count);
+
+        EnforceMeasurementStyling();
+
+        $("label.superImpose", measures).each(setupSuperimpose);
+    }
+
+
+    function MeasureHasData(m) {
+        var data = $.map(m.find(":input:not(select)"),
+                                   function(i) { return Boolean($(i).val()); });
+        return $.inArray(true, data)!=-1;
+    }
+
+
+    $(".button.solutions").live("click", function() {
         var $solutions = $("#solutions");
         $solutions.toggle();
         return false;
