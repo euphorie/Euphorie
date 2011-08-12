@@ -1175,6 +1175,7 @@ label .icon.sidemark {
 .comprehensive label .icon.info {
 	float: right;
 	margin-top: -16px;
+	position: relative;
 }
 
 
@@ -1940,9 +1941,6 @@ textarea.span-15 {
 	width: 580px;
 }
 
-label {
-}
-
 /* @group Add and remove */
 
 #addImage {
@@ -2214,6 +2212,7 @@ form.concise fieldset.comprehensive.radioList label {
 fieldset.comprehensive.radioList label input {
 	margin-left: -20px;
 	float: left;
+	margin-top: 1px;
 }
 
 .radioList li label input[type="text"],
