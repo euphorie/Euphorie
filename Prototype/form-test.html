@@ -16,26 +16,20 @@
         <link rel="shortcut icon" type="image/x-icon" href="media/favicon-pink.ico" />
       <![endif]-->
 
-    <script type="text/javascript" src="libraries/jquery-1.3.2.min.js">
-</script>
-    <script type="text/javascript" src="libraries/jquery-ui-1.7.2.min.js">
-</script>
-    <script type="text/javascript" src="libraries/css_browser_selector.js">
-</script>
-    <script type="text/javascript" src="libraries/jquery.hoverIntent.js">
-</script>
-    <script type="text/javascript" src="libraries/jquery.bt.js">
-</script>
-    <script type="text/javascript" src="libraries/jquery.numeric.js">
-</script>
-    <script type="text/javascript" src="behaviour/markup.js">
-</script>
-    <script src="behaviour/fancybox/jquery.easing-1.3.pack.js" type="text/javascript" charset="utf-8">
-</script>
-    <script src="behaviour/fancybox/jquery.fancybox-1.3.1.pack.js" type="text/javascript" charset="utf-8">
-</script>
-    <script src="behaviour/fancybox/jquery.mousewheel-3.0.2.pack.js" type="text/javascript" charset="utf-8">
-</script>
+      <script type="text/javascript" src="libraries/jquery-1.3.2.min.js">
+  </script>
+      <script type="text/javascript" src="libraries/jquery-ui-1.7.2.min.js">
+  </script>
+      <script type="text/javascript" src="libraries/css_browser_selector.js">
+  </script>
+      <script type="text/javascript" src="libraries/jquery.hoverIntent.js">
+  </script>
+      <script type="text/javascript" src="libraries/jquery.bt.js">
+  </script>
+      <script type="text/javascript" src="libraries/jquery.numeric.js">
+  </script>
+      <script type="text/javascript" src="behaviour/markup.js">
+  </script>
   </head>
   <body>
     <h1>
@@ -54,6 +48,8 @@
         </fieldset>
  
         <label>Concise pattern text input <input type="text" /></label> 
+  
+        <label>Concise checkbox pattern <input type="checkbox" name="or" id="or" /></label>
 
         <fieldset class="comprehensive date-eu">
           <legend>Datum <span class="discrete">(Datum waarop de gegevens verzameld zijn)</span></legend>
@@ -130,8 +126,13 @@
         
         
         <label>Percentage (Concise context) <input type="text" class="numeric percentage" maxlength="2" /></label> 
-  
-        <label>Concise checkbox pattern <input type="checkbox" name="or" id="or" /></label>
+        
+        
+<!--[if lte IE 6]>
+        <!- Following line prevents the last input item from disappearing in IE 6. Needs to follow the last label/fieldset in the form ->
+        <hr style="height:0;visibility: hidden" />
+<![endif]-->
+        
         <fieldset class="comprehensive date-eu dependsOn-or">
             <legend>Datum van akkoord OR/medewerkersvertegenwoordiging</legend>
             <label for="planning_start_day" i18n:translate="label_day">Day</label> 
@@ -181,7 +182,6 @@
          
         </fieldset>
       </fieldset>
-      
       <p class="buttonBar">
         <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="floatBefore back">Previous</button> <button type="submit" name="next" value="next" i18n:translate="label_next" class="floatAfter">Next</button>
       </p>
@@ -221,6 +221,7 @@
             <a href="settings.html">Account settings</a>
           </li>
     </ul>
+    
     <p id="appendix">
       <a href="#">Link to sector organisation</a> | <a href="#">Disclaimer</a> | Design by <a href="http://www.Corn%C3%A6.com">Cornae</a>
     </p>

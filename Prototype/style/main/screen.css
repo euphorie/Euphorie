@@ -1962,9 +1962,7 @@ fieldset {
 fieldset legend span {
 	width: 100%;
 	margin-left: -100px;
-	display: inline;
 	margin-bottom: 10px;
-	float: left;
 	padding-right: 10px;
 	text-align: right;
 }
@@ -1977,15 +1975,11 @@ fieldset legend {
 }
 
 fieldset p.question {
-	width: 95% !important;
+	width: 95%;
 	font-weight: normal;
 	font-style: normal;
 	color: #3f3f3f;
 	margin-bottom: 0;
-}
-
-fieldset label {
-	position: relative;
 }
 
 /* @group Fieldset Concise */
@@ -2003,14 +1997,13 @@ fieldset.concise label textarea {
 	max-width: 320px;
 	left: 100%;
 	margin-left: 0;
-	float: left;
 	margin-right: -100%;
+	float: left;
 }
 
 fieldset.concise,
 form.concise fieldset {
 	width: 100%;
-	clear: left;
 	padding: 0 0 5px;
 	border-bottom: 1px solid silver;
 }
@@ -2019,10 +2012,10 @@ fieldset.concise label,
 form.concise fieldset label {
 	padding-top: 0;
 	position: relative;
-	float: left;
 	padding-right: 50%;
 	width: 50%;
 	margin-bottom: 20px;
+	display: block;
 }
 
 form.concise fieldset label textarea,
@@ -2030,9 +2023,9 @@ fieldset.concise label textarea {
 	position: relative;
 	vertical-align: top;
 	width: 180px;
-	float: left;
 	margin-right: -100%;
 	right: -100%;
+	float: left;
 }
 
 form.concise fieldset label input[type=checkbox],
@@ -2056,7 +2049,6 @@ form.concise fieldset p.question {
 .concise fieldset.comprehensive,
 .compact fieldset.comprehensive {
 	width: 50%;
-	clear: left;
 	border-bottom: 1px solid silver;
 	padding-left: 50%;
 	margin-bottom: 20px;
@@ -2085,7 +2077,7 @@ fieldset.comprehensive label *,
 form.comprehensive fieldset label *,
 form.concise fieldset.comprehensive label *,
 form.compact fieldset.comprehensive label * {
-	position: static !important;
+	position: static;
 }
 
 fieldset.comprehensive p.question,
@@ -2502,11 +2494,12 @@ body.alien #navigation li#home a {
 	overflow: hidden;
 	padding: 45px 0 0 18px;
 	text-shadow: 0 1px 2px black;
-	letter-spacing: 0;
-	background-color: transparent;	position: absolute;
+	letter-spacing: 0;	
+	position: absolute;
 	top: 0;
 	left: 0;
 	font: normal 10px/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	z-index: 1000;
 }
 
 #navigation li#home a strong {
