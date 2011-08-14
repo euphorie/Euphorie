@@ -2500,6 +2500,7 @@ body.alien #navigation li#home a {
 	left: 0;
 	font: normal 10px/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	z-index: 1000;
+	background-color: transparent;
 }
 
 #navigation li#home a strong {
