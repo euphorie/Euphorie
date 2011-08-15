@@ -37,7 +37,6 @@ class View(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("sessions")
 
-
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -46,9 +45,9 @@ class View(grok.View):
         * `title`: session title
         * `modified`: timestamp of last session modification
         """
-        account=getSecurityManager().getUser()
-        result=[]
-        client=aq_parent(aq_inner(self.context))
+        account = getSecurityManager().getUser()
+        result = []
+        client = aq_parent(aq_inner(self.context))
         for session in account.sessions:
             try:
                 client.restrictedTraverse(session.zodb_path.split("/"))
@@ -60,16 +59,17 @@ class View(grok.View):
                 pass
         return result
 
-
     def surveys(self):
         """Return a list of all available surveys for this country and current
-        language. For each survey a dictionary is returned with the following keys:
+        language. For each survey a dictionary is returned with the following
+        keys:
 
-        * `id`: unique identifier for the survey (unique within the country only)
+        * `id`: unique identifier for the survey (unique within the country
+          only)
         * `title`: title of the survey, includes name of the sector
         """
-        language=self.request.locale.id.language
-        surveys=[]
+        language = self.request.locale.id.language
+        surveys = []
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -79,48 +79,49 @@ class View(grok.View):
                     continue
                 if getattr(survey, "preview", False):
                     continue
-                if survey.language and survey.language!=language and not \
+                if survey.language and survey.language != language and not \
                         survey.language.strip().startswith(language):
                     continue
 
                 surveys.append(dict(id="%s/%s" % (sector.id, survey.id),
                                     title=survey.title))
 
-        return sorted(surveys, key=lambda s: s["title"]) 
-
+        return sorted(surveys, key=lambda s: s["title"])
 
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
-        survey=info.get("survey")
-        survey=aq_inner(self.context).restrictedTraverse(survey)
-        title=info.get("title", u"").strip()
+        context = aq_inner(self.context)
+        survey = info.get("survey")
+        survey = context.restrictedTraverse(survey)
+        if not ISurvey.providedBy(survey):
+            log.error('Tried to start invalid survey %r' % info.get('survey'))
+            # Things are sufficiently messed up at this point that rendering
+            # breaks, so trigger a redirect to the same URL again.
+            self.request.response.redirect(context.absolute_url())
+            return
+        title = info.get("title", u"").strip()
         if not title:
-            title=survey.Title()
+            title = survey.Title()
 
         SessionManager.start(title=title, survey=survey)
         self.request.response.redirect("%s/start" % survey.absolute_url())
 
-
-
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session=Session.query(model.SurveySession).get(info["session"])
+        session = Session.query(model.SurveySession).get(info["session"])
         SessionManager.resume(session)
-        survey=self.request.client.restrictedTraverse(str(session.zodb_path))
+        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         self.request.response.redirect("%s/resume" % survey.absolute_url())
-
 
     def update(self):
         utils.setLanguage(self.request, self.context)
 
-        if self.request.environ["REQUEST_METHOD"]=="POST":
-            reply=self.request.form
-            if reply["action"]=="new":
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            reply = self.request.form
+            if reply["action"] == "new":
                 self._NewSurvey(reply)
-            elif reply["action"]=="continue":
+            elif reply["action"] == "continue":
                 self._ContinueSurvey(reply)
-
-
 
 
 class DeleteSession(grok.CodeView):
@@ -130,12 +131,11 @@ class DeleteSession(grok.CodeView):
     grok.name("delete-session")
 
     def render(self):
-        session=Session()
-        ss=session.query(model.SurveySession).get(self.request.form["id"])
+        session = Session()
+        ss = session.query(model.SurveySession).get(self.request.form["id"])
         if ss is not None:
             session.delete(ss)
         self.request.response.redirect(self.context.absolute_url())
-
 
 
 class JsonRenameSession(grok.CodeView):
@@ -146,12 +146,11 @@ class JsonRenameSession(grok.CodeView):
 
     @utils.jsonify
     def render(self):
-        session=Session()
-        ss=session.query(model.SurveySession).get(self.request.form["id"])
+        session = Session()
+        ss = session.query(model.SurveySession).get(self.request.form["id"])
         if ss is not None:
-            ss.title=self.request.form["title"]
+            ss.title = self.request.form["title"]
         return dict(result="ok")
-
 
 
 class JsonDeleteSession(grok.CodeView):
@@ -163,10 +162,8 @@ class JsonDeleteSession(grok.CodeView):
     @utils.jsonify
     def render(self):
         """JSON entry point for session deletion."""
-        session=Session()
-        ss=session.query(model.SurveySession).get(self.request.form["id"])
+        session = Session()
+        ss = session.query(model.SurveySession).get(self.request.form["id"])
         if ss is not None:
             session.delete(ss)
         return dict(result="ok")
-
-
