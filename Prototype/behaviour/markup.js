@@ -362,7 +362,7 @@ $(document).ready(function() {
                     contentSelector: "$('#" + id + "').html()"
                     })
             .click(function() { return false; });
-});
+    });
 
     $(".focustip").each(function() {
 	var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
