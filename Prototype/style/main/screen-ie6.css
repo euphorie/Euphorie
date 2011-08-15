@@ -1,5 +1,6 @@
 h1 {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/header.png', sizingMethod='crop');
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/header.png', sizingMethod='crop');*/
 	background-image: none;
 	zoom: 1;
 }
@@ -46,11 +47,13 @@ h1 {
 
 #steps li.complete {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-connector.png', sizingMethod='crop') !important;
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-connector.png', sizingMethod='crop') !important;*/
 	background-image: none !important;
 }
 
 #steps li.complete.current {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-current.png', sizingMethod='crop') !important;
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-current.png', sizingMethod='crop') !important;*/
 	background-image: none !important;
 }
 
@@ -229,13 +232,11 @@ button.small,
 
 #navigation li#home {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/logo.png', sizingMethod='crop');
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/logo.png', sizingMethod='crop');*/
 	background: none;
 }
 
 #navigation li#home a {
-	background-image: none;
-	margin-right: 0;
-	font: normal 54px/62px "Abadi-cl";
 
 }
 
@@ -248,28 +249,78 @@ button {
 	overflow: visible;
 }
 
+/* @group Form */
+
 .comprehensive,
 .comprehensive fieldset,
 .concise fieldset.comprehensive,
 .compact fieldset.comprehensive {
 	margin-bottom: 10px;
+	padding-left: 290px;
+	width: 300px;
 	float: left;
-	display: inline;
-
 }
 
-legend
- {
-	display: none;
+fieldset.concise label,
+form.concise fieldset label {
+	float: left;
 }
 
 fieldset.comprehensive p.question,
 form.comprehensive fieldset p.question,
 form.concise fieldset.comprehensive p.question,
 form.compact fieldset.comprehensive p.question {
-	display: inline;
+	margin-left: -290px;
+	width: 270px;
+	margin-right: 0;
 	float: left;
-	margin-left: -50%;
+	margin-bottom: -20px;
+}
+
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label input,
+fieldset.concise label input,
+form.concise fieldset label textarea,
+fieldset.concise label textarea,
+form.concise fieldset label textarea,
+fieldset.concise label textarea {
+	left: 50%;
+	margin-top: -20px;
+	
+}
+
+fieldset.comprehensive label *,
+form.comprehensive fieldset label *,
+form.concise fieldset.comprehensive label *,
+form.compact fieldset.comprehensive label * {
+	margin-top: 0;
+}
+
+fieldset.comprehensive.radioList label,
+form.concise fieldset.comprehensive.radioList label {
+	width: auto;
+}
+
+fieldset.comprehensive.radioList label input {
+	/*position: relative !important;
+	left: -0 !important;
+	top: 0 !important;*/
+	margin-right: 0 !important;
+	margin-left: -20px !important;
+}
+
+fieldset.comprehensive label .icon.info {
+	float: right;
+	top: -16px;
+	position: relative !important;
+}
+
+/* @end */
+
+legend
+ {
+	display: none;
 }
 
 .icon {
@@ -283,34 +334,6 @@ form.compact fieldset.comprehensive p.question {
 	padding: 0;
 	overflow: hidden;
 	top: -2px;
-}
-
-form.concise fieldset label input,
-fieldset.concise label input,
-form.concise fieldset label input,
-fieldset.concise label input,
-form.concise fieldset label textarea,
-fieldset.concise label textarea,
-form.concise fieldset label textarea,
-fieldset.concise label textarea {
-	left: 50%;
-	margin-top: -20px;
-}
-
-fieldset.comprehensive label *,
-form.comprehensive fieldset label *,
-form.concise fieldset.comprehensive label *,
-form.compact fieldset.comprehensive label * {
-	position: static !important;
-	margin-top: 0;
-}
-
-fieldset.comprehensive.radioList label input {
-	/*position: relative !important;
-	left: -0 !important;
-	top: 0 !important;*/
-	margin-right: 0 !important;
-	margin-left: -20px !important;
 }
 
 /* @group Accordion */
