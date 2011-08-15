@@ -4,17 +4,29 @@ Chdangelog
 3.0 - Unreleased
 ----------------
 
-- Bugfix. Effect wasn't set for French risks when added to the session tree.
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add an extra field 'workers_participation' to the Company form (and column to
+  the SQL table).
   [jcbrand]
 
-- Add an extra field 'workers_participation' to the Company form (and column to the SQL table)
+Bugfixes
+~~~~~~~~
+
+- For extra robustness add extra check in new survey creation logic to make
+  sure a valid survey was passed in.
+  [wichert]
+
+- Effect wasn't set for French risks when added to the session tree.
   [jcbrand]
 
 - Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
   [wichert]
 
 - #15: AttributeError *is_region* when publishing from a country not yet in the
-  client. [jcbrand]
+  client.
+  [jcbrand]
 
 - For SurveyGroup, hide Evaluation Algorithm field on @@edit. [jcbrand]
 

@@ -90,8 +90,15 @@ class View(grok.View):
 
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
+        context = aq_inner(self.context)
         survey = info.get("survey")
-        survey = aq_inner(self.context).restrictedTraverse(survey)
+        survey = context.restrictedTraverse(survey)
+        if not ISurvey.providedBy(survey):
+            log.error('Tried to start invalid survey %r' % info.get('survey'))
+            # Things are sufficiently messed up at this point that rendering
+            # breaks, so trigger a redirect to the same URL again.
+            self.request.response.redirect(context.absolute_url())
+            return
         title = info.get("title", u"").strip()
         if not title:
             title = survey.Title()
