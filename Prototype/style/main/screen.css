@@ -2004,6 +2004,7 @@ fieldset.concise label textarea {
 fieldset.concise,
 form.concise fieldset {
 	width: 100%;
+    clear: left;
 	padding: 0 0 5px;
 	border-bottom: 1px solid silver;
 }
