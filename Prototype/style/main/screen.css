@@ -2004,7 +2004,7 @@ fieldset.concise label textarea {
 fieldset.concise,
 form.concise fieldset {
 	width: 100%;
-    clear: left;
+    clear: left; /* Removing this breaks the identification/action-plan pages by making the comments box float */
 	padding: 0 0 5px;
 	border-bottom: 1px solid silver;
 }
@@ -3037,7 +3037,7 @@ ol {
 	margin: -10px -5px -20px -40px;
 	position: relative;
 	-webkit-transition: color 0.2s;
-	height: 30px;
+	/* height: 30px; This makes the button flow into text */
 }
 
 .deCornae #steps>li>a {
