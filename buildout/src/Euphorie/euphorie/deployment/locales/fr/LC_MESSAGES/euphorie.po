@@ -3875,7 +3875,7 @@ msgstr "Combinaisons de couleurs"
 #: euphorie/content/templates/settings.pt:20
 #: euphorie/deployment/tiles/templates/versions.pt:31
 msgid "label_preview"
-msgstr "Précédent"
+msgstr "Aperçu"
 
 #. Default: Please provide a description of your sector
 #: euphorie/content/templates/settings.pt:16
