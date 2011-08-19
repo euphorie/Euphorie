@@ -2050,6 +2050,7 @@ form.concise fieldset p.question {
 .concise fieldset.comprehensive,
 .compact fieldset.comprehensive {
 	width: 50%;
+    clear: left; /* Reverted: removing this breaks the evaluation form in FF */
 	border-bottom: 1px solid silver;
 	padding-left: 50%;
 	margin-bottom: 20px;
