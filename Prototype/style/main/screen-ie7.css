@@ -196,3 +196,8 @@ h3 {
 	font-size: 14px;
 }
 
+.oira_sessions_select {
+    margin: 0;
+    left: 0;
+    float: none;
+}
