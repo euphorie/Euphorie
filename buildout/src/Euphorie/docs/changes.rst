@@ -17,6 +17,14 @@ Feature changes
   the SQL table).
   [jcbrand]
 
+- Use z3c.zrtresource (and collective.zrtresource while still Plone < 4.1) to
+  compile screen-ie6.css. This allows Cornelis to use physical paths in his
+  Prototype, while zrtresource will give us the proper browserresource paths in
+  Euphorie. One caveat is that we now have to minify the browserresource file
+  (i.e http://localhost:4080/Plone2/client/++resource++screen-ie6.css) instead
+  of the filesystem file. 
+  [jcbrand]
+
 Bugfixes
 ~~~~~~~~
 
