@@ -119,4 +119,10 @@
         directory="templates/behaviour"
        />
 
+    <include package="z3c.zrtresource" file="meta.zcml" />
+    <browser:zrt-resource
+        name="screen-ie6.css"
+        file="templates/style/main/screen-ie6.css"
+        />
+
 </configure>

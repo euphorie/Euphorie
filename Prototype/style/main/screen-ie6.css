@@ -1,6 +1,7 @@
+/* zrt-replace: "src='style/main" "src='/++resource++euphorie.style" */
+/* zrt-replace: "url(" "url(/++resource++euphorie.style/" */
 h1 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/header.png', sizingMethod='crop');
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/header.png', sizingMethod='crop');*/
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/header.png', sizingMethod='crop');
 	background-image: none;
 	zoom: 1;
 }
@@ -24,46 +25,46 @@ h1 {
 /* @group Dimmed */
 
 #steps li#step-1 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-1-dimmed.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-1-dimmed.png', sizingMethod='crop');
 }
 
 #steps li#step-2 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-2-dimmed.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-2-dimmed.png', sizingMethod='crop');
 }
 
 #steps li#step-3 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-3-dimmed.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-3-dimmed.png', sizingMethod='crop');
 }
 
 #steps li#step-4 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-4-dimmed.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-4-dimmed.png', sizingMethod='crop');
 }
 
 #steps li#step-5 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-5-dimmed.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-5-dimmed.png', sizingMethod='crop');
 }
 
 /* @end */
 
 #steps li.complete {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-connector.png', sizingMethod='crop') !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-connector.png', sizingMethod='crop') !important;
 	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-connector.png', sizingMethod='crop') !important;*/
 	background-image: none !important;
 }
 
 #steps li.complete.current {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-current.png', sizingMethod='crop') !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-current.png', sizingMethod='crop') !important;
 	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-current.png', sizingMethod='crop') !important;*/
 	background-image: none !important;
 }
 
 #steps li.complete#step-1 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-connector-left.png', sizingMethod='crop') !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-connector-left.png', sizingMethod='crop') !important;
 	background-image: none !important;
 }
 
 #steps li.complete.current#step-1 {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/tab-current-left.png', sizingMethod='crop') !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/tab-current-left.png', sizingMethod='crop') !important;
 	background-image: none !important;
 }
 
@@ -72,23 +73,23 @@ h1 {
 /* @group Normal */
 
 #steps li#step-1 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-1-inactive.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-1-inactive.png', sizingMethod='crop');
 }
 
 #steps li#step-2 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-2-inactive.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-2-inactive.png', sizingMethod='crop');
 }
 
 #steps li#step-3 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-3-inactive.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-3-inactive.png', sizingMethod='crop');
 }
 
 #steps li#step-4 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-4-inactive.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-4-inactive.png', sizingMethod='crop');
 }
 
 #steps li#step-5 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-5-inactive.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-5-inactive.png', sizingMethod='crop');
 }
 
 /* @end */
@@ -97,28 +98,28 @@ h1 {
 
 #steps li#step-1.complete a,
 #steps li#step-1.current a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-1-active.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-1-active.png', sizingMethod='crop');
 
 }
 
 #steps li#step-2.complete a,
 #steps li#step-2.current a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-2-active.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-2-active.png', sizingMethod='crop');
 }
 
 #steps li#step-3.complete a,
 #steps li#step-3.current a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-3-active.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-3-active.png', sizingMethod='crop');
 }
 
 #steps li.complete#step-4 a,
 #steps li.current#step-4 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-4-active.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-4-active.png', sizingMethod='crop');
 }
 
 #steps li.complete#step-5 a,
 #steps li.current#step-5 a {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/tabs-ie6/step-5-active.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/tabs-ie6/step-5-active.png', sizingMethod='crop');
 }
 
 /* @end */
@@ -231,7 +232,7 @@ button.small,
 }
 
 #navigation li#home {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/logo.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/logo.png', sizingMethod='crop');
 	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/logo.png', sizingMethod='crop');*/
 	background: none;
 }
@@ -394,7 +395,7 @@ dl.accordion .colborder hr{
 }
 
 dl.status .range {
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/++resource++euphorie.style/graph-bars.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/graph-bars.png', sizingMethod='crop');
 	background-image: none;
 }
 
