@@ -74,6 +74,8 @@ setup(name="Euphorie",
           "plone.uuid",
           "pyrtf-ng",
           "z3c.appconfig >=1.0",
+          "z3c.zrtresource == 1.2.0",
+          "collective.zrtresource",
       ],
       tests_require = [
           "collective.testcaselayer",
