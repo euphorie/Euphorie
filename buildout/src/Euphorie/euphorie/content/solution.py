@@ -1,19 +1,13 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
 from zope.interface import implements
 from zope import schema
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content import MessageFactory as _
-from htmllaundry.z3cform import HtmlText
 from euphorie.content.behaviour.richdescription import IRichDescription
 
-
 grok.templatedir("templates")
-
 
 class ISolution(form.Schema, IRichDescription):
     """A standard solution for a risk.
@@ -55,7 +49,6 @@ class ISolution(form.Schema, IRichDescription):
             required = False)
 
 
-
 class Solution(dexterity.Item):
     implements(ISolution)
 
@@ -63,7 +56,6 @@ class Solution(dexterity.Item):
 
     def Title(self):
         return Solution.title
-
 
 
 class View(grok.View):
