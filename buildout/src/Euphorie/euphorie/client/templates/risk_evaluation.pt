@@ -62,11 +62,11 @@
                 <tal:span i18n:translate="severity_weak">Weak</tal:span><br/>
                 <a href="#" class="icon info clicktip" i18n:translate="severity_weak_help">No need to stop working</a>
             </label>
-            <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+            <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
                 <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br/>
                 <a href="#" class="icon info clicktip" i18n:translate="severity_not_severe_help">Need to stop working for less than 3 days</a>
             </label>
-            <label><input type="radio" name="probability:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+            <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
                 <tal:span i18n:translate="severity_severe">Severe</tal:span><br/>
                 <a href="#" class="icon info clicktip" i18n:translate="severity_severe_help">Need to stop working for more than 3 days</a>
             </label>
