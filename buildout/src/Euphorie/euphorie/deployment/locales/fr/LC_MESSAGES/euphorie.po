@@ -1658,12 +1658,12 @@ msgstr "Commencer l'identification des risques"
 #. Default: You can print the ${list-of-risks}.
 #: euphorie/client/templates/identification.pt:25
 msgid "intro_identification"
-msgstr "Vous pouvez imprimer la ${list-of-risks}."
+msgstr "Vous pouvez imprimer le ${list-of-risks}."
 
 #. Default: list of all risks
 #: euphorie/client/templates/identification.pt:26
 msgid "list_of_risks"
-msgstr "liste de tous les risques"
+msgstr "contenu de l'outil"
 
 #. Default: You can also distribute the list among the workers and invite them to
 #. participate in identifying the hazards/problems, evaluating the risks and
