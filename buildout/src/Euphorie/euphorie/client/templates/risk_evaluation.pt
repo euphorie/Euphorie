@@ -9,7 +9,7 @@
       i18n:domain="euphorie"
       tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
   <head>
-    <title i18n:translate="title_tool">OiRA</title>
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
@@ -55,30 +55,53 @@
           </fieldset>
         </tal:kinney>
         <tal:french condition="python:algorithm=='french'">
-          <fieldset class="comprehensive radioList" tal:define="value context/frequency">
-            <legend i18n:translate="header_risk_frequency">How often are people exposed to this risk?</legend>
-            <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-              <tal:span i18n:translate="frequency_french_rare">Rare</tal:span></label>
-            <label><input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
-              <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span></label>
-            <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-              <tal:span i18n:translate="frequency_french_often">Often</tal:span></label>
-            <label><input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
-              <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span></label>
-          </fieldset>
-
           <fieldset class="comprehensive radioList" tal:define="value context/effect">
             <legend i18n:translate="header_risk_severity">What is the severity of the damage ?</legend>
-            <label><input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-              <tal:span i18n:translate="severity_weak">Weak</tal:span></label>
-            <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-              <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span></label>
-            <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-              <tal:span i18n:translate="severity_severe">Severe</tal:span></label>
-            <label><input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
-              <tal:span i18n:translate="severity_very_severe">Very severe</tal:span></label>
+            <label>
+                <input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+                <tal:span i18n:translate="severity_weak">Weak</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="severity_weak_help">No need to stop working</a>
+            </label>
+            <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+                <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="severity_not_severe_help">Need to stop working for less than 3 days</a>
+            </label>
+            <label><input type="radio" name="probability:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+                <tal:span i18n:translate="severity_severe">Severe</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="severity_severe_help">Need to stop working for more than 3 days</a>
+            </label>
+            <label>
+                <input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
+                <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="severity_very_severe_help">Irreversible injury, incurable illness, death</a>
+            </label>
+          </fieldset>
+
+          <fieldset class="comprehensive radioList" tal:define="value context/frequency">
+            <legend i18n:translate="header_risk_frequency">How often are people exposed to this risk?</legend>
+            <label>
+                <input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+                <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_rare_help">Once per year</a>
+            </label>
+            <label>
+                <input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
+                <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_not_often_help">Once per month</a>
+            </label>
+            <label> 
+                <input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+                <tal:span i18n:translate="frequency_french_often">Often</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_often_help">Once per week</a>
+            </label>
+            <label>
+                <input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
+                <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br/>
+                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_regularly_help">Minimum once per day</a>
+            </label>
           </fieldset>
         </tal:french>
+
       </tal:block>
 
       <tal:block condition="python:risk.evaluation_method=='direct'">
