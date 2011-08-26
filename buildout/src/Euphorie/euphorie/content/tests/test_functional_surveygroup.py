@@ -100,7 +100,7 @@ class HandleSurveyDeleteVerificationTests(EuphorieTestCase):
         return surveygroup
 
     def testDeleteOneOfManySurvey(self):
-        """ It should be possible to delete on a many surveys, when it's not
+        """ It should be possible to delete one of many surveys, when it's not
             published.
         """
         self.loginAsPortalOwner()

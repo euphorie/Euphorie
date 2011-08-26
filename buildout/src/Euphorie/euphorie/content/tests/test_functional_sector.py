@@ -1,7 +1,9 @@
+from zope.event import notify
+from zope.component import getMultiAdapter
+from Products.CMFCore.WorkflowCore import ActionSucceededEvent
+from Products.CMFCore.utils import _checkPermission
 from euphorie.deployment.tests.functional import EuphorieTestCase
 from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.CMFCore.utils import _checkPermission
-
 
 class SectorTests(EuphorieTestCase):
     def _create(self, container, *args, **kwargs):
@@ -29,6 +31,35 @@ class SectorTests(EuphorieTestCase):
         sector=self.createSector()
         self.assertFalse(sector.cb_isCopyable())
 
+    def testDeleteWithoutPublishedSurvey(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        surveygroup=sector["test-survey"]
+
+        self.assertEqual(surveygroup.published, None)
+
+        deleteaction = getMultiAdapter((sector, sector.REQUEST), name='delete')
+        self.assertEqual(deleteaction.verify(sector.aq_parent, sector), True)
+
+    def testDeleteWithPublishedSurvey(self):
+        from euphorie.content.tests.utils import createSector
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import EMPTY_SURVEY
+        self.loginAsPortalOwner()
+        sector=createSector(self.portal)
+        survey=addSurvey(sector, EMPTY_SURVEY)
+        surveygroup=sector["test-survey"]
+
+        publishview = getMultiAdapter((survey, survey.REQUEST), name='publish')
+        publishview.publish()
+        self.assertEqual(surveygroup.published, "standard-version")
+
+        deleteaction = getMultiAdapter((sector, sector.REQUEST), name='delete')
+        self.assertEqual(deleteaction.verify(sector.aq_parent, sector), False)
 
 
 class SectorAsUserTests(EuphorieTestCase):
@@ -89,7 +120,6 @@ class SectorAsUserTests(EuphorieTestCase):
         self.assertEqual(
                 auth.authenticateCredentials(dict(password="s3cr3t")), 
                 (auth.getUserId(), auth.getUserName()))
-
 
 
 

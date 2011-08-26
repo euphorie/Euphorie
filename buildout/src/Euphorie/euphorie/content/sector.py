@@ -14,6 +14,7 @@ framework.
 
 import datetime
 import logging
+import zExceptions
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -25,26 +26,28 @@ from z3c.appconfig.interfaces import IAppConfig
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
-from euphorie.content import MessageFactory as _
 from plone.namedfile import field as filefield
+from plone.indexer import indexer
+from plone.uuid.interfaces import IAttributeUUID
 from Products.CMFCore.utils import getToolByName
+from Products.CMFEditions.Permissions import AccessPreviousVersions
+from Products.statusmessages.interfaces import IStatusMessage
 from borg.localrole.interfaces import ILocalRoleProvider
-from euphorie.content.surveygroup import ISurveyGroup
-from euphorie.content.survey import ISurvey
+from euphorie.content import MessageFactory as _
 from euphorie.content import colour
+from euphorie.content.behaviour.dirtytree import isDirty
+from euphorie.content.survey import ISurvey
+from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
-from euphorie.content.behaviour.dirtytree import isDirty
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.utils import checkPermission
-from plone.indexer import indexer
-from Products.CMFEditions.Permissions import AccessPreviousVersions
-from plone.uuid.interfaces import IAttributeUUID
+from plonetheme.nuplone.skin import actions
+from plonetheme.nuplone.utils import getPortal
 
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
-
 
 class ISector(form.Schema, IUser, IBasic):
     """Sector object.
@@ -102,7 +105,6 @@ class Sector(dexterity.Container):
         return False
 
 
-
 @indexer(ISector)
 def SearchableTextIndexer(obj):
     return " ".join([obj.title,
@@ -135,8 +137,6 @@ class SectorLocalRoleProvider(grok.Adapter):
     def getAllRoles(self):
         info=UserProvider(self.context)
         return [(info.getUserId(), ("Sector",))]
-
-
 
 
 def getSurveys(context):
@@ -216,7 +216,6 @@ def getSurveys(context):
     return result
 
 
-
 class View(grok.View):
     grok.context(ISector)
     grok.require("zope2.View")
@@ -231,6 +230,41 @@ class View(grok.View):
         super(View, self).update()
 
 
+class Delete(actions.Delete):
+    """ Only delete the sector if it doesn't have any published surveys.
+    """
+    grok.context(ISector)
+
+    def verify(self, container, context):
+        if not checkPermission(container, "Delete objects"):
+            raise zExceptions.Unauthorized
+
+        flash = IStatusMessage(self.request).addStatusMessage
+        sector = context
+        country = container
+        client = getPortal(container).client
+
+        if country.id not in client:
+            return True
+
+        cl_country = client[country.id]
+        if sector.id not in cl_country:
+            return True
+
+        # Look for any published surveys in the client sector, and prevent
+        # deletion if any are found
+        cl_sector = cl_country[sector.id]
+        surveys = [s for s in cl_sector.values() if s.id != 'preview']
+        if surveys:
+            flash(
+                _("message_not_delete_published_sector", 
+                default=u"You can not delete a sector that contains published surveys."), 
+                "error"
+                )
+            self.request.response.redirect(context.absolute_url())
+            return False
+        return True
+
 
 class ColourPreview(grok.View):
     grok.context(ISector)
@@ -242,7 +276,6 @@ class ColourPreview(grok.View):
     def default_title(self):
         from euphorie.client import MessageFactory as _
         return _("title_tool", default=u"OiRA")
-
 
 
 class Settings(form.SchemaEditForm):
@@ -272,7 +305,6 @@ class Settings(form.SchemaEditForm):
         return super(Settings, self).extractData()
 
 
-
 class VersionCommand(grok.View):
     grok.context(ISector)
     grok.require("zope2.View")
@@ -287,5 +319,4 @@ class VersionCommand(grok.View):
                     "%s/++add++euphorie.surveygroup" % sector.absolute_url())
         else:
             log.error("Invalid version command action: %r", action)
-
 

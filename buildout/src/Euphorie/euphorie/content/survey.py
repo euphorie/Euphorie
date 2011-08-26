@@ -233,7 +233,7 @@ class Delete(actions.Delete):
 
         if shasattr(container, 'published') and container.published==context.id:
             flash(_("message_no_delete_published_survey", 
-                    default=u"You cannot delete a survey version that is published. Please unpublish it first."), 
+                    default=u"You cannot delete a survey that is published. Please unpublish it first."), 
                     "error")
             self.request.response.redirect(context.absolute_url())
             return False
@@ -251,8 +251,6 @@ class Delete(actions.Delete):
                     "error")
             self.request.response.redirect(context.absolute_url())
             return False
-
-
 
 
 @grok.subscribe(ISurvey, ISurveyUnpublishEvent)

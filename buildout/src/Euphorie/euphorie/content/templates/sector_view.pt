@@ -20,7 +20,7 @@
       </p>
 
       <tal:group repeat="group view/surveys">
-        <h5>${group/title}</h5>
+        <h5><a href="${group/url}">${group/title}</a></h5>
         <ul tal:condition="python:view.surveys" class="surveyVersions">
             <li tal:repeat="survey group/surveys" class="${python:'current' if survey.current else None}">
               <label><a href="${survey/url}">${survey/title}</a></label>
