@@ -25,6 +25,9 @@ Feature changes
   of the filesystem file. 
   [jcbrand]
 
+- Add delete validation on a sector to check that it doesn't contain any
+  published surveys. [jcbrand]
+
 Bugfixes
 ~~~~~~~~
 
