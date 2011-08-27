@@ -237,6 +237,10 @@ button.small,
 	background: none;
 }
 
+.alien #navigation li#home {
+	filter: none;
+}
+
 #navigation li#home a {
 
 }
