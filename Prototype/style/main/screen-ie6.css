@@ -345,20 +345,21 @@ dl.accordion dt {
 	height: 25px;
 }
 
-dl.accordion dt button {
+dl.accordion dt button,
+dl.accordion dt a.button {
 	position: relative;
 	top: -17px;
 	visibility: hidden;
 }
 
 dl.accordion dt a.button {
-	position: relative;
-	top: -17px;
 	line-height: 13px;
 }
 
 dl.accordion dt:hover button,
-dl.accordion dt.ui-state-active button {
+dl.accordion dt.ui-state-active button,
+dl.accordion dt:hover a.button,
+dl.accordion dt.ui-state-active a.button {
 	visibility: visible;
 }
 
