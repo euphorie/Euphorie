@@ -2,10 +2,6 @@
 /* zrt-replace: "url(" "url(/++resource++euphorie.style/" */
 h1 {
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/header.png', sizingMethod='crop');
-<<<<<<< HEAD
-=======
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='style/main/header.png', sizingMethod='crop');*/
->>>>>>> Paths for DX filters turned back to local ones for prototyping.
 	background-image: none;
 	zoom: 1;
 }
