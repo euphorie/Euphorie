@@ -289,7 +289,9 @@ fieldset.concise label input,
 form.concise fieldset label textarea,
 fieldset.concise label textarea,
 form.concise fieldset label textarea,
-fieldset.concise label textarea {
+fieldset.concise label textarea,
+fieldset.concise label select,
+form.concise fieldset label select {
 	left: 50%;
 	margin-top: -20px;
 	
