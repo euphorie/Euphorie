@@ -2020,7 +2020,9 @@ form.concise fieldset label {
 }
 
 form.concise fieldset label textarea,
-fieldset.concise label textarea {
+fieldset.concise label textarea,
+fieldset.concise label select,
+form.concise fieldset label select {
 	position: relative;
 	vertical-align: top;
 	width: 180px;
