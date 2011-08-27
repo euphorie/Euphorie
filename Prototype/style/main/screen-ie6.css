@@ -351,6 +351,12 @@ dl.accordion dt button {
 	visibility: hidden;
 }
 
+dl.accordion dt a.button {
+	position: relative;
+	top: -17px;
+	line-height: 13px;
+}
+
 dl.accordion dt:hover button,
 dl.accordion dt.ui-state-active button {
 	visibility: visible;
