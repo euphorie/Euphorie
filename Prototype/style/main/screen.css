@@ -2020,7 +2020,9 @@ form.concise fieldset label {
 }
 
 form.concise fieldset label textarea,
-fieldset.concise label textarea {
+fieldset.concise label textarea,
+fieldset.concise label select,
+form.concise fieldset label select {
 	position: relative;
 	vertical-align: top;
 	width: 180px;
@@ -2066,7 +2068,7 @@ form.compact fieldset.comprehensive label {
 	margin: 0;
 	padding: 0;
 	float: none;
-	width: 90%;
+	width: 90px;
 }
 
 .concise fieldset.comprehensive,
@@ -2086,7 +2088,7 @@ fieldset.comprehensive p.question,
 form.comprehensive fieldset p.question,
 form.concise fieldset.comprehensive p.question,
 form.compact fieldset.comprehensive p.question {
-	width: 100%;
+	width: 90%;
 	display: inline;
 	text-align: left;
 	margin-left: -100%;
@@ -2358,7 +2360,7 @@ label.superImpose {
 	margin-top: 0;
 	width: auto !important;
 	padding: 5px 20px 1px 0 !important;
-	line-height: 11px;
+	line-height: 18px;
 }
 
 li label.superImpose {

@@ -237,6 +237,10 @@ button.small,
 	background: none;
 }
 
+.alien #navigation li#home {
+	filter: none;
+}
+
 #navigation li#home a {
 
 }
@@ -285,7 +289,9 @@ fieldset.concise label input,
 form.concise fieldset label textarea,
 fieldset.concise label textarea,
 form.concise fieldset label textarea,
-fieldset.concise label textarea {
+fieldset.concise label textarea,
+fieldset.concise label select,
+form.concise fieldset label select {
 	left: 50%;
 	margin-top: -20px;
 	
@@ -345,14 +351,21 @@ dl.accordion dt {
 	height: 25px;
 }
 
-dl.accordion dt button {
+dl.accordion dt button,
+dl.accordion dt a.button {
 	position: relative;
 	top: -17px;
 	visibility: hidden;
 }
 
+dl.accordion dt a.button {
+	line-height: 13px;
+}
+
 dl.accordion dt:hover button,
-dl.accordion dt.ui-state-active button {
+dl.accordion dt.ui-state-active button,
+dl.accordion dt:hover a.button,
+dl.accordion dt.ui-state-active a.button {
 	visibility: visible;
 }
 
