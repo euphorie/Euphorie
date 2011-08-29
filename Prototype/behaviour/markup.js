@@ -221,7 +221,7 @@ jQuery.fn.toolTip = function(content, options) {
                     tipsource.btOff();
                 }
             }
-        }
+        };
 
         monitor.bind("mouseenter.btdelay", function() { tipsource.data("btdelay.hover", true); })
                .bind("mouseleave.btdelay", function() { tipsource.data("btdelay.hover", false); });
@@ -350,8 +350,10 @@ $(document).ready(function() {
         .click(function() { setSelectForCheckbox(this); })
         .each(function() { setSelectForCheckbox(this); });
 
-    // Title attributes get an on-hover tooltip
-    $("*[title][rel!=fancybox]:not(form)").toolTip({shrinkToFit: true});
+    if (!(engine==="msie" && engine_version<70)) {
+        // Title attributes get an on-hover tooltip 
+        $("*[title][rel!=fancybox]:not(form)").toolTip({shrinkToFit: true});
+    }
 
     // Clicktips are activated by clicking on an item
     $(".clicktip").each(function() {
@@ -387,7 +389,6 @@ $(document).ready(function() {
             });
 
 });
-
 
 
 // Work around broken button behaviour for IE 6 and 7
