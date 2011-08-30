@@ -189,6 +189,8 @@ class IFrenchEvaluation(form.Schema):
     depends("default_severity", "evaluation_method", "==", "calculated")
     default_severity = schema.Choice(
             title = _("label_default_severity", default=u"Default severity"),
+            description = _("help_default_severity",
+                default=u"Indicate the severity if this risk occurs."),
             vocabulary = SimpleVocabulary([
                             SimpleTerm(0, "none", title=_("no default", default=u"No default")),
                             SimpleTerm(1, "weak", title=_("severity_weak", default=u"Weak")),
@@ -256,7 +258,7 @@ class IKinneyEvaluation(form.Schema):
     default_effect = schema.Choice(
             title = _("label_default_severity", default=u"Default severity"),
             description = _("help_default_severity",
-                default=u"Indicate the severity of the manage if this risk occurs."),
+                default=u"Indicate the severity if this risk occurs."),
             vocabulary = SimpleVocabulary([
                             SimpleTerm(0, "none", title=_("no default", default=u"No default")),
                             SimpleTerm(1, "weak", title=_("effect_weak", default=u"Weak severity")),
