@@ -355,16 +355,18 @@ $(document).ready(function() {
         $("*[title][rel!=fancybox]:not(form)").toolTip({shrinkToFit: true});
     }
 
-    // Clicktips are activated by clicking on an item
-    $(".clicktip").each(function() {
-        var id = assertId(this);
-        $(this).bt({trigger: "click",
-                    fill: "#8293ab",
-                    strokeStyle: "#8293ab", 
-                    contentSelector: "$('#" + id + "').html()"
-                    })
-            .click(function() { return false; });
-    });
+    if (!(engine==="msie" && engine_version<80)) {
+        // Clicktips are activated by clicking on an item
+        $(".clicktip").each(function() {
+            var id = assertId(this);
+            $(this).bt({trigger: "click",
+                        fill: "#8293ab",
+                        strokeStyle: "#8293ab", 
+                        contentSelector: "$('#" + id + "').html()"
+                        })
+                .click(function() { return false; });
+        });
+    }
 
     $(".focustip").each(function() {
 	var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
