@@ -352,10 +352,14 @@ $(document).ready(function() {
 
     if (!(engine==="msie" && engine_version<70)) {
         // Title attributes get an on-hover tooltip 
-        $("*[title][rel!=fancybox]:not(form)").toolTip({shrinkToFit: true});
+        $("*[title][rel!=fancybox]:not(form):not('.clicktip')").toolTip({shrinkToFit: true});
     }
-
-    if (!(engine==="msie" && engine_version<80)) {
+    if (engine==="msie" && engine_version<80) {
+        $(".clicktip").each(function() { 
+            $(this).click(function() { return false; });
+        });
+    }
+    else {
         // Clicktips are activated by clicking on an item
         $(".clicktip").each(function() {
             var id = assertId(this);
