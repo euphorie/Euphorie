@@ -31,6 +31,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Hide hover beautytips on IE6 and clicktips on IE6 and IE7 
+  [jcbrand]
+
 - For extra robustness add extra check in new survey creation logic to make
   sure a valid survey was passed in.
   [wichert]
