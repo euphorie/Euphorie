@@ -11,110 +11,152 @@ msgstr ""
 "PO-Revision-Date: 2011-01-13 09:56+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
+#: euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
 msgstr "Ο online πελάτης."
 
+#: euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
 msgid "Country information and grouping for the client."
 msgstr "Πληροφορίες χώρας και ταξινόμηση για τον πελάτη."
 
+#: euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
 msgid "Sector information and grouping for the client."
 msgstr "Πληροφορίες τομέα και ταξινόμηση για τον πελάτη."
 
+#: euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
 msgstr "Ένας φάκελος για όλους τους τομείς σε μια χώρα."
 
+#: euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
 msgstr "Χώρα"
 
+#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
 msgid "A manager for sectors in a country."
 msgstr "Ένας διευθυντής για τους τομείς σε μια χώρα."
 
+#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
 msgid "Country manager"
 msgstr "Εθνικός διευθυντής"
 
+#: euphorie/content/profiles/default/types/euphorie.documentation.xml:7
 msgid "A folder for all documentation for a specific language."
 msgstr "Ένας φάκελος για όλα τα έγγραφα σε μια συγκεκριμένη γλώσσα."
 
+#: euphorie/content/profiles/default/types/euphorie.documentation.xml:6
 msgid "Documentation"
 msgstr "Έγγραφα"
 
+#: euphorie/content/profiles/default/types/euphorie.folder.xml:6
 msgid "Folder"
 msgstr "Φάκελος"
 
+#: euphorie/content/profiles/default/types/euphorie.help.xml:8
 msgid "The help text for the client."
 msgstr "Το κείμενο βοήθειας για τον πελάτη."
 
+#: euphorie/content/profiles/default/types/euphorie.help.xml:7
 msgid "Online help"
 msgstr "Online βοήθεια"
 
+#: euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is grouping of risks"
 msgstr "Μια ενότητα είναι μια ταξινόμηση κινδύνων"
 
+#: euphorie/content/profiles/default/types/euphorie.module.xml:7
 msgid "Module"
 msgstr "Μονάδα"
 
+#: euphorie/content/profiles/default/types/euphorie.page.xml:8
 msgid "A page with text"
 msgstr "Μια σελίδα με κείμενο"
 
+#: euphorie/content/profiles/default/types/euphorie.page.xml:7
 msgid "Page"
 msgstr "Σελίδα"
 
+#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
-msgstr "Μια ερώτηση προφίλ χρησιμοποιείται για να δημιουργηθούν προαιρετικές ενότητες ή επαναλαμβανόμενες ενότητες"
+msgstr ""
+"Μια ερώτηση προφίλ χρησιμοποιείται για να δημιουργηθούν προαιρετικές "
+"ενότητες ή επαναλαμβανόμενες ενότητες"
 
+#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
 msgstr "Ερώτηση προφίλ"
 
+#: euphorie/content/profiles/default/types/euphorie.risk.xml:8
 msgid "A risk."
 msgstr "Ένας κίνδυνος."
 
+#: euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
 msgstr "Κίνδυνος."
 
+#: euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr "Ένας τομέας είναι ένας εθνικός οργανισμός για ένα συγκεκριμένο τύπο βιομηχανίας."
+msgstr ""
+"Ένας τομέας είναι ένας εθνικός οργανισμός για ένα συγκεκριμένο τύπο "
+"βιομηχανίας."
 
+#: euphorie/content/profiles/default/types/euphorie.sector.xml:7
 msgid "Sector"
 msgstr "Τομέας"
 
+#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
 msgid "A folder which can contain sectors."
 msgstr "Ένας φάκελος που μπορεί να περιέχει τομείς."
 
+#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
 msgstr "Φάκελος τομέων"
 
+#: euphorie/content/profiles/default/types/euphorie.solution.xml:8
 msgid "A solution."
 msgstr "Μια λύση."
 
+#: euphorie/content/profiles/default/types/euphorie.solution.xml:7
 msgid "Solution"
 msgstr "Λύση"
 
+#: euphorie/content/profiles/default/types/euphorie.survey.xml:8
 msgid "A version of a survey."
 msgstr "Μια έκδοση της έρευνας."
 
+#: euphorie/content/profiles/default/types/euphorie.survey.xml:7
 msgid "Survey version"
 msgstr "Έκδοση έρευνας"
 
+#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
 msgid "A survey."
 msgstr "Μια έρευνα."
 
+#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
 msgid "Survey"
 msgstr "Έρευνα"
 
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid "Sector workflow"
 msgstr "Ροή εργασίας τομέα"
 
-msgid "One-state workflow for sector objects, giving edit access to its contents to the sector user."
-msgstr "Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο χρήστη του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:2
+msgid ""
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
+msgstr ""
+"Ροή εργασίας μίας κατάστασης για αντικείμενα τομέων, που παρέχει στο χρήστη "
+"του τομέα πρόσβαση για τροποποίηση των περιεχομένων του."
 
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"
 msgstr "Ενεργό"
 
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
 msgstr "Η Μία και Μοναδική κατάσταση"
-
