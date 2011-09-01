@@ -1,3 +1,4 @@
+@media only screen and (min-width: 768px) {
 h1 {
 	background-color: #003399;
 }
@@ -88,3 +89,4 @@ h1 {
     left: 100%;
 }
 
+} /* Media screen.. */
