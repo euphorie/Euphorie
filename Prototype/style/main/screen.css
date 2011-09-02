@@ -2997,7 +2997,7 @@ ol {
 	background: url(tabs.png) 0 0;
 }
 
-#steps li {
+#steps > li {
 	font-size: 12px;
 	float: left;
 	padding: 10px 5px 0 40px;
