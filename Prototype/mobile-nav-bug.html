@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<base href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/report/" />
+
+    <title>OiRA - Évaluation interactive des risques en ligne</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="client/++resource++euphorie.media/favicon.png" />
+  
+
+  
+    
+    
+      <link rel="stylesheet" type="text/css" media="all" href="http://client.oiratest.syslab.com/++resource++euphorie.style/screen.min.css" />
+      
+      <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="all" href="++resource++screen-ie6.css"/> <![endif]-->
+      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="http://client.oiratest.syslab.com/++resource++euphorie.style/screen-ie7.min.css"/> <![endif]-->
+      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="http://client.oiratest.syslab.com/++resource++euphorie.style/screen-ie8.min.css" /> <![endif]-->
+    
+    
+    <link rel="stylesheet" type="text/css" media="handheld" href="client/++resource++osha.oira.stylesheets/mobile.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="client/++resource++osha.oira.stylesheets/main.css" />
+    
+    <style type="text/css" media="all">
+        .report #appendix img {
+            margin-bottom: 0;
+        }
+        .appendix_oira_logo { 
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .report .creative_commons_logo {
+            cursor: pointer;
+        }
+    </style>
+  
+
+  
+    <link rel="stylesheet" type="text/css" media="all" href="++resource++collective.alerts.resources/jquery.alerts.css" />
+  </head>
+  <body class="report  deCornae darkMainColour darkSupportColour">
+    <h1>Rapport</h1>
+
+    <p>Maintenant que vous avez fini d'identifier tous les risques dans votre organisation et créé un plan d'action, vous pouvez créer un rapport qui répertorie tous vos résultats. Vous pouvez, si vous le voulez, ajouter des commentaires supplémentaires qui seront inclus dans ce rapport dans le champ ci-dessous. Vous pouvez également télécharger ce rapport et l'enregistrer sur votre ordinateur. Vous pourrez ainsi le personnaliser, le compléter et le modifier comme vous le souhaitez.</p>
+
+    <form id="report_comment_form" accept-charset="UTF-8" method="post" action="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/report/@@index_html">
+        <fieldset class="concise" id="comments">
+            <label for="comment" class="superImpose">Vous pouvez saisir ici un commentaire qui apparaîtra dans le rapport</label>
+            <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5"></textarea>
+        </fieldset>
+        <p id="username" style="display:None">pilz@syslab.com</p>
+        <p id="survey_popup_url" style="display:None">http://www.surveymonkey.com/s/OiRATool</p>
+        <p id="survey_popup_text" style="display:None">Veuillez nous faire part de votre feedback sur cet outil : cela ne vous prendra que 3 minutes ! Nous apprécions vraiment votre contribution pendant cette phase de test de l'outil OiRA.</p>
+        <p id="survey_popup_confirm" style="display:None">Aller à l'enquête</p>
+        <p id="survey_popup_deny" style="display:None">Non merci</p>
+        <p class="buttonBar">
+            <button type="submit" name="next" value="next" id="report_comment_submit" class="next floatAfter">Enregistrer et continuer</button>
+        </p>
+    </form>
+
+    <ol id="steps">
+      <li class="complete" id="step-1">
+        <a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/start">
+          
+          Préparation
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/identification">
+          
+          Identification
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/evaluation">
+          
+          Estimation
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/actionplan">
+          
+          Plan d'action
+        </a>
+      </li>
+      <li class="current active" id="step-5">
+        <a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/report">
+          
+          Rapport
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home">
+      
+      <a href="http://client.oiratest.syslab.com">
+        <strong>OiRA - Online interactive Risk Assessment</strong><br />
+        Online interactive<br />
+        Risk Assessment</a>
+    </li>
+  
+
+  
+      <li><a href="http://client.oiratest.syslab.com/fr/logout">Déconnexion</a></li>
+      <li><a href="http://client.oiratest.syslab.com/fr">Sessions</a></li>
+      <li><a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/help#identification">Aide</a></li>
+      <li><a href="http://client.oiratest.syslab.com/fr/transportroutier/transportroutier-demo/status">Statut</a></li>
+      <li><a href="http://client.oiratest.syslab.com/fr/account-settings">Paramètres</a></li>
+    </ul>
+
+    <p id="appendix">
+        <a href="http://client.oiratest.syslab.com">
+        <img class="appendix_oira_logo" src="++resource++osha.oira.images/footer_logo.png" />
+        </a>
+
+        
+        Produit par <a href="http://osha.europa.eu" target="_new">EU-OSHA</a>. 
+        |
+        <a href="http://client.oiratest.syslab.com/about">À propos</a>
+        |
+        <a href="http://client.oiratest.syslab.com/terms-and-conditions">Confidentialité</a>
+        |
+        <a href="http://client.oiratest.syslab.com/disclaimer">Décharge de responsabilité</a>
+        |
+        <a href="http://www.gnu.org/licenses/gpl.html">Licence GPL</a>
+        |
+        <a href="http://creativecommons.org/licenses/by-sa/2.5/" alt="CC License">
+            <img class="creative_commons_logo" src="++resource++osha.oira.images/creative_commons.png" />
+        </a>
+    </p>
+  
+
+  
+    <!--[if lte IE 8]> <script type="text/javascript" src="http://client.oiratest.syslab.com/++resource++euphorie.libraries/excanvas.min.js"></script> <![endif]-->
+    
+    
+      <script type="text/javascript" src="http://client.oiratest.syslab.com/++resource++euphorie.behaviour/common.min.js"></script>
+    
+
+  
+    <script type="text/javascript" src="++resource++collective.alerts.resources/jquery.alerts.js"></script>
+    <script type="text/javascript" src="++resource++osha.oira.javascripts/oira.js"></script>
+    
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9750156-1']);
+_gaq.push(['_setDomainName', '.oira.osha.europa.eu']);
+  _gaq.push(['_setCustomVar', 1, 'account', 'pilz@syslab.com', 3]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>
