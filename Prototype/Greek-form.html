@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE7" />
+    <title>OiRA - Online διαδραστική Αξιολόγηση Κινδύνων</title>
+      <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen.css" />
+
+      <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie6.css" /> <![endif]-->
+      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
+      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
+      <link rel="icon" type="image/png" href="media/favicon.png" /><!--[if IE]>
+        <link rel="shortcut icon" type="image/x-icon" href="media/favicon-pink.ico" />
+      <![endif]-->
+      <!--[if lte IE 8]><script src="libraries/excanvas.min.js" type=text/javascript></script><![endif]-->
+      <script type="text/javascript" src="libraries/jquery-1.3.2.min.js"> </script>
+      <script type="text/javascript" src="libraries/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+      <script type="text/javascript" src="libraries/jquery-ui-1.7.2.min.js"> </script>
+      <script type="text/javascript" src="libraries/css_browser_selector.js"> </script>
+      <script type="text/javascript" src="libraries/jquery.hoverIntent.js"> </script>
+      <script type="text/javascript" src="libraries/jquery.bt.js"> </script>
+      <script type="text/javascript" src="libraries/jquery.numeric.js"> </script>
+      <script type="text/javascript" src="behaviour/markup.js"> </script>
+      
+      <style type="text/css" media="all">
+          .report #appendix img {
+              margin-bottom: 0;
+          }
+          .appendix_oira_logo { 
+              margin-right: 15px;
+              cursor: pointer;
+          }
+          .report .creative_commons_logo {
+              cursor: pointer;
+          }
+        </style>
+  </head>
+<body class="report  deCornae darkMainColour brightSupportColour alien">
+    <h1>Ορισμένες πληροφορίες για εσάς</h1>
+    
+    <p>Μπορείτε να παράσχετε τις πληροφορίες παρακάτω. Αυτές οι πληροφορίες προορίζονται για τη βελτίωση των παρεχόμενων εργαλείων και υπηρεσιών. Αυτά τα στοιχεία δεν εμφανίζονται στην αναφορά.</p>
+    <form action="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/report/company" method="post" enctype="multipart/form-data" class="concise">
+    <fieldset>
+        <label>
+            Η χώρα σας 
+            <select name="form.widgets.country">
+                <option value="ly">LY</option> <option value="vc">Άγιος Βικέντιος και Γρεναδίνες</option> <option value="sm">Άγιος Μαρίνος</option> <option value="eg">Αίγυπτος</option> <option value="va">Αγία Έδρα (Βατικανό)</option> <option value="sh">Αγία Ελένη</option> <option value="lc">Αγία Λουκία</option> <option value="az">Αζερμπαϊτζάν</option> <option value="et">Αιθιοπία</option> <option value="ci">Ακτή Ελεφαντόδοντος</option> <option value="al">Αλβανία</option> <option value="dz">Αλγερία</option> <option value="vi">Αμερικανικές Παρθένοι Νήσοι</option> <option value="as">Αμερικανική Σαμόα</option> <option value="tl">Ανατολικό Τιμόρ</option> <option value="ai">Ανγκουίλα</option> <option value="ao">Ανγκόλα</option> <option value="ad">Ανδόρα</option> <option value="ag">Αντίγκουα και Μπαρμπούντα</option> <option value="aq">Ανταρκτική</option> <option value="um">Απομακρυσμένες Νησίδες των Ηνωμένων Πολιτειών</option> <option value="ar">Αργεντινή</option> <option value="am">Αρμενία</option> <option value="aw">Αρούμπα</option> <option value="at">Αυστρία</option> <option value="au">Αυστραλία</option> <option value="af">Αφγανιστάν</option> <option value="ht">Αϊτή</option> <option value="be">Βέλγιο</option> <option value="vu">Βανουάτου</option> <option value="ve">Βενεζουέλα</option> <option value="bm">Βερμούδες</option> <option value="vn">Βιετνάμ</option> <option value="bo">Βολιβία</option> <option value="ba">Βοσνία - Ερζεγοβίνη</option> <option value="bg">Βουλγαρία</option> <option value="br">Βραζιλία</option> <option value="io">Βρετανικά Έδάφη Ινδικού Ωκεανού</option> <option value="vg">Βρετανικές Παρθένοι Νήσοι</option> <option value="fr">Γαλλία</option> <option value="tf">Γαλλικά Νότια Εδάφη</option> <option value="gf">Γαλλική Γουιάνα</option> <option value="pf">Γαλλική Πολυνησία</option> <option value="de">Γερμανία</option> <option value="ge">Γεωργία</option> <option value="gi">Γιβραλτάρ</option> <option value="yu">Γιουγκοσλαβία</option> <option value="gm">Γκάμπια</option> <option value="gh">Γκάνα</option> <option value="ga">Γκαμπόν</option> <option value="gu">Γκουάμ</option> <option value="gp">Γουαδελούπη</option> <option value="gt">Γουατεμάλα</option> <option value="gy">Γουιάνα</option> <option value="gn">Γουινέα</option> <option value="gw">Γουινέα-Μπισάου</option> <option value="gd">Γρενάδα</option> <option value="gl">Γροιλανδία</option> <option value="dk">Δανία</option> <option value="do">Δομινικανή Δημοκρατία</option> <option value="eh">Δυτική Σαχάρα</option> <option value="sv">Ελ Σαλβαδόρ</option> <option value="ch">Ελβετία</option> <option value="gr">Ελλάδα</option> <option value="er">Ερυθραία</option> <option value="ee">Εσθονία</option> <option value="zm">Ζάμπια</option> <option value="zw">Ζιμπάμπουε</option> <option value="ae">Ηνωμένα Αραβικά Εμιράτα</option> <option value="us">Ηνωμένες Πολιτείες</option> <option value="gb">Ηνωμένο Βασίλειο</option> <option value="jp">Ιαπωνία</option> <option value="in">Ινδία</option> <option value="id">Ινδονησία</option> <option value="jo">Ιορδανία</option> <option value="iq">Ιράκ</option> <option value="ir">Ιράν, Ισλαμική Δημοκρατία του</option> <option value="ie">Ιρλανδία</option> <option value="gq">Ισημερινή Γουινέα</option> <option value="ec">Ισημερινός</option> <option value="is">Ισλανδία</option> <option value="es">Ισπανία</option> <option value="il">Ισραήλ</option> <option value="it">Ιταλία</option> <option value="ke">Κένυα</option> <option value="cn">Κίνα</option> <option value="kz">Καζακστάν</option> <option value="cm">Καμερούν</option> <option value="kh">Καμπότζη</option> <option value="ca">Καναδάς</option> <option value="qa">Κατάρ</option> <option value="cf">Κεντροαφρικανική Δημοκρατία</option> <option value="kg">Κιργιζία</option> <option value="ki">Κιριμπάτι</option> <option value="co">Κολομβία</option> <option value="km">Κομόρες</option> <option value="cg">Κονγκό</option> <option value="cd">Κονγκό, Λαϊκή Δημοκρατία του</option> <option value="kp">Κορέα, Βόρεια</option> <option value="kr">Κορέα, Νότια</option> <option value="kw">Κουβέιτ</option> <option value="cu">Κούβα</option> <option value="hr">Κροατία</option> <option value="cr">Κόστα Ρίκα</option> <option value="cy" selected="selected">Κύπρος</option> <option value="lb">Λίβανος</option> <option value="la">Λατινική Αμερική</option> <option value="ls">Λεσότο</option> <option value="lv">Λετονία</option> <option value="by">Λευκορωσία</option> <option value="lr">Λιβερία</option> <option value="lt">Λιθουανία</option> <option value="li">Λιχτενστάιν</option> <option value="lu">Λουξεμβούργο</option> <option value="ml">Μάλι</option> <option value="mt">Μάλτα</option> <option value="yt">Μαγιότ</option> <option value="mg">Μαδαγασκάρη</option> <option value="mo">Μακάο, Ειδική Διοικητική Περιφέρεια της Κίνας</option> <option value="mw">Μαλάουι</option> <option value="my">Μαλαισία</option> <option value="mv">Μαλδίβες</option> <option value="mq">Μαρτινίκα</option> <option value="ma">Μαρόκο</option> <option value="mu">Μαυρίκιος</option> <option value="mr">Μαυριτανία</option> <option value="mx">Μεξικό</option> <option value="mm">Μιανμάρ</option> <option value="fm">Μικρονησία, Ομόσπονδες Πολιτείες της</option> <option value="mn">Μογγολία</option> <option value="mz">Μοζαμβίκη</option> <option value="md">Μολδαβία, Δημοκρατία της</option> <option value="mc">Μονακό</option> <option value="ms">Μονσεράτ</option> <option value="bj">Μπένιν</option> <option value="bd">Μπανγκλαντές</option> <option value="bb">Μπαρμπάντος</option> <option value="bs">Μπαχάμες</option> <option value="bh">Μπαχρέιν</option> <option value="bz">Μπελίζ</option> <option value="bw">Μποτσουάνα</option> <option value="bf">Μπουρκίνα Φάσο</option> <option value="bi">Μπουρούντι</option> <option value="bt">Μπουτάν</option> <option value="bn">Μπρουνέι Νταρουσαλάμ</option> <option value="nz">Νέα Ζηλανδία</option> <option value="nc">Νέα Καληδονία</option> <option value="mp">Νήσοι Βόρειες Μαριάνες</option> <option value="ky">Νήσοι Κέιμαν</option> <option value="ck">Νήσοι Κουκ</option> <option value="cc">Νήσοι Κόκος (Κήλινγκ)</option> <option value="mh">Νήσοι Μάρσαλ</option> <option value="wf">Νήσοι Ουαλλίς και Φουτουνά</option> <option value="cv">Νήσοι Πράσινου Ακρωτηρίου</option> <option value="sj">Νήσοι Σβάλμπαρ και Γιαν Μαγιέν</option> <option value="sb">Νήσοι Σολομώντος</option> <option value="tc">Νήσοι Τερκς και Κάικος</option> <option value="fo">Νήσοι Φερόες</option> <option value="fk">Νήσοι Φώκλαντ</option> <option value="hm">Νήσοι Χερντ και Μακντόναλντ</option> <option value="bv">Νήσος Μπουβέ</option> <option value="nf">Νήσος Νόρφολκ</option> <option value="cx">Νήσος Χριστουγέννων</option> <option value="ne">Νίγηρ</option> <option value="na">Ναμίμπια</option> <option value="nr">Ναούρου</option> <option value="np">Νεπάλ</option> <option value="ng">Νιγηρία</option> <option value="ni">Νικαράγουα</option> <option value="nu">Νιούε</option> <option value="no">Νορβηγία</option> <option value="dm">Ντομίνικα</option> <option value="za">Νότια Αφρική</option> <option value="gs">Νότια Γεωργία και Νήσοι Νότιες Σάντουιτς</option> <option value="nl">Ολλανδία</option> <option value="an">Ολλανδικές Αντίλλες</option> <option value="om">Ομάν</option> <option value="hn">Ονδούρα</option> <option value="hu">Ουγγαρία</option> <option value="ug">Ουγκάντα</option> <option value="uz">Ουζμπεκιστάν</option> <option value="ua">Ουκρανία</option> <option value="uy">Ουρουγουάη</option> <option value="mk">ΠΓΔ Μακεδονίας</option> <option value="pn">Πίτκερν</option> <option value="pk">Πακιστάν</option> <option value="pw">Παλάου</option> <option value="ps">Παλαιστινιακά Εδάφη</option> <option value="pa">Παναμάς</option> <option value="pg">Παπούα - Νέα Γουινέα</option> <option value="py">Παραγουάη</option> <option value="pe">Περού</option> <option value="pl">Πολωνία</option> <option value="pt">Πορτογαλία</option> <option value="pr">Πουέρτο Ρίκο</option> <option value="re">Ρεϋνιόν</option> <option value="rw">Ρουάντα</option> <option value="ro">Ρουμανία</option> <option value="ru">Ρωσία</option> <option value="st">Σάο Τομέ και Πρίνσιπε</option> <option value="kn">Σαιντ Κιτς και Νέβις</option> <option value="pm">Σαιντ Πιέρ και Μικελόν</option> <option value="ws">Σαμόα</option> <option value="sa">Σαουδική Αραβία</option> <option value="sn">Σενεγάλη</option> <option value="sp">Σερβία</option> <option value="sc">Σεϋχέλλες</option> <option value="sl">Σιέρα Λεόνε</option> <option value="sg">Σιγκαπούρη</option> <option value="sk">Σλοβακία</option> <option value="si">Σλοβενία</option> <option value="so">Σομαλία</option> <option value="sz">Σουαζιλάνδη</option> <option value="sd">Σουδάν</option> <option value="se">Σουηδία</option> <option value="sr">Σουρινάμ</option> <option value="lk">Σρι Λάνκα</option> <option value="sy">Συρία, Αραβική Δημοκρατία της</option> <option value="tz">Τανζανία</option> <option value="tj">Τατζικιστάν</option> <option value="tw">Ταϊβάν (Δ.Κ.)</option> <option value="th">Ταϊλάνδη</option> <option value="jm">Τζαμάικα</option> <option value="dj">Τζιμπουτί</option> <option value="tk">Τοκελάου</option> <option value="tv">Τουβαλού</option> <option value="tr">Τουρκία</option> <option value="tm">Τουρκμενιστάν</option> <option value="tt">Τρινιδάδ και Τομπάγκο</option> <option value="td">Τσαντ</option> <option value="cz">Τσεχία</option> <option value="tn">Τυνησία</option> <option value="tg">Τόγκο</option> <option value="to">Τόνγκα</option> <option value="ye">Υεμένη</option> <option value="fj">Φίτζι</option> <option value="ph">Φιλιππίνες</option> <option value="fi">Φινλανδία</option> <option value="cl">Χιλή</option> <option value="hk">Χονγκ Κονγκ, Ειδική Διοικητική Περιφέρεια της Κίνας</option>
+            </select>
+            
+        </label>
+        
+  <fieldset class="comprehensive radioList  None">
+    <legend>Αριθμός υπαλλήλων </legend> 
+    <label><input type="radio" id="form-widgets-employees-0" name="form.widgets.employees" value="1-9" />1 έως 9 υπάλληλοι</label> <label><input type="radio" id="form-widgets-employees-1" name="form.widgets.employees" value="10-49" />10 έως 49 υπάλληλοι</label> <label><input type="radio" id="form-widgets-employees-2" name="form.widgets.employees" value="50-249" />50 έως 249 υπάλληλοι</label> <label><input type="radio" id="form-widgets-employees-3" name="form.widgets.employees" value="250+" />250 ή περισσότεροι υπάλληλοι</label>
+    
+    <input type="hidden" value="1" name="form.widgets.employees-empty-marker" />
+  </fieldset>
+
+        
+  <fieldset class="comprehensive radioList  None">
+    <legend>Η αξιολόγηση κινδύνου πραγματοποιήθηκε από </legend> 
+    <label><input type="radio" id="form-widgets-conductor-0" name="form.widgets.conductor" value="staff" />προσωπικό εταιρείας</label> <label><input type="radio" id="form-widgets-conductor-1" name="form.widgets.conductor" value="third-party" />εξωτερικός σύμβουλος ή πάροχος υπηρεσιών</label> <label><input type="radio" id="form-widgets-conductor-2" name="form.widgets.conductor" value="both" />το προσωπικό της εταιρείας και εξωτερικός σύμβουλος ή πάροχος υπηρεσιών</label>
+    
+    <input type="hidden" value="1" name="form.widgets.conductor-empty-marker" />
+  </fieldset>
+
+
+        <fieldset class="comprehensive radioList">
+            <legend>Μέσω ποιου καναλιού μάθατε για αυτό το εργαλείο;</legend>
+            <label><input type="radio" name="form.widgets.referer" value="employers-organisation" /> οργανισμός ενός εργοδότη</label>
+            <label><input type="radio" name="form.widgets.referer" value="trade-union" /> συνδικαλιστική οργάνωση</label>
+            <label><input type="radio" name="form.widgets.referer" value="national-public-institution" /> δημόσιος οργανισμός/διοίκηση της χώρας<br />
+            <span class="discrete">(Υπουργείο, Επιθεώρηση Εργασίας, Εθνικό Ινστιτούτο για την Υγεία και Ασφάλεια στην Εργασία, κ.λπ.)</span></label>
+            <label><input type="radio" name="form.widgets.referer" value="eu-institution" /> ευρωπαϊκός οργανισμός/διοίκηση<br />
+            <span class="discrete">(Ευρωπαϊκός Οργανισμός για την Ασφάλεια και την Υγεία στην Εργασία, ευρωπαϊκοί κοινωνικοί εταίροι, κ.λπ.)</span></label>
+            <label><input type="radio" name="form.widgets.referer" value="health-safety-experts" /> ειδήμων υγείας και ασφάλειας</label>
+            <label><input type="radio" name="form.widgets.referer" value="other" /> άλλο κανάλι</label>
+            
+        </fieldset>
+        
+        
+  <fieldset class="comprehensive radioList  None">
+    <legend>Προσκλήθηκαν εργαζόμενοι για να μετάσχουν στην αξιολόγηση κινδύνου </legend> 
+    <label><input type="radio" id="form-widgets-workers_participated-0" name="form.widgets.workers_participated" value="True" />Ναι</label> <label><input type="radio" id="form-widgets-workers_participated-1" name="form.widgets.workers_participated" value="False" />Όχι</label>
+    
+    <input type="hidden" value="1" name="form.widgets.workers_participated-empty-marker" />
+  </fieldset>
+
+    </fieldset>
+
+      
+      <p class="buttonBar">
+        <button type="submit" name="form.buttons.previous" class="previous floatBefore back">Προηγούμενο</button>
+        <button type="submit" name="form.buttons.next" class="next floatAfter">Save and continue</button>
+      </p>
+    </form>
+
+    <ol id="steps">
+      <li class="complete" id="step-1">
+        <a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/start">
+          Προετοιμασία
+          
+        </a>
+      </li>
+      <li class="complete" id="step-2">
+        <a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/identification">
+          Αναγνώριση
+          
+        </a>
+      </li>
+      <li class="complete" id="step-3">
+        <a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/evaluation">
+          Αξιολόγηση
+          
+        </a>
+      </li>
+      <li class="complete" id="step-4">
+        <a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/actionplan">
+          Σχέδιο Δράσης
+          
+        </a>
+      </li>
+      <li class="active current" id="step-5">
+        <a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/report">
+          Αναφορά
+          
+        </a>
+      </li>
+    </ol>
+
+    <ul id="navigation">
+      <li id="home">
+      <a href="http://client.oiratest.syslab.com">hairdressers</a>
+      
+    </li>
+  
+
+  
+      <li><a href="http://client.oiratest.syslab.com/cy/logout">Αποσύνδεση</a></li>
+      <li><a href="http://client.oiratest.syslab.com/cy">Ενότητες </a></li>
+      <li><a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/help#actionplan">Βοήθεια</a></li>
+      <li><a href="http://client.oiratest.syslab.com/cy/hairdressers/cyprus_hairdressers_el/status">Κατάσταση</a></li>
+      <li><a href="http://client.oiratest.syslab.com/cy/account-settings">Κατάσταση</a></li>
+    </ul>
+    <p id="appendix">
+        <a href="http://client.oiratest.syslab.com">
+        <img class="appendix_oira_logo" src="++resource++osha.oira.images/footer_logo.png" />
+        </a>
+
+        
+        Δημιουργήθηκε από <a href="http://osha.europa.eu" target="_new">EU-OSHA</a>. 
+        |
+        <a href="http://client.oiratest.syslab.com/about">Σχετικά</a>
+        |
+        <a href="http://client.oiratest.syslab.com/terms-and-conditions">Ιδιωτικότητα</a>
+        |
+        <a href="http://client.oiratest.syslab.com/disclaimer">Αποποίηση ευθυνών</a>
+        |
+        <a href="http://www.gnu.org/licenses/gpl.html">Άδεια GPL</a>
+        |
+        <a href="http://creativecommons.org/licenses/by-sa/2.5/" alt="CC License">
+            <img class="creative_commons_logo" src="++resource++osha.oira.images/creative_commons.png" />
+        </a>
+    </p>
+  
+
+  
+    <!--[if lte IE 8]> <script type="text/javascript" src="http://client.oiratest.syslab.com/++resource++euphorie.libraries/excanvas.min.js"></script> <![endif]-->
+    
+    
+      <script type="text/javascript" src="http://client.oiratest.syslab.com/++resource++euphorie.behaviour/common.min.js"></script>
+    
+
+  
+    
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9750156-1']);
+_gaq.push(['_setDomainName', '.oira.osha.europa.eu']);
+  _gaq.push(['_setCustomVar', 1, 'account', 'pilz@syslab.com', 3]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>
