@@ -1623,8 +1623,8 @@ p.emphasis {
 
 .buttonBar {
 	margin-bottom: 20px;
-	float: left;
 	width: 100%;
+	float: left;
 }
 
 .buttonBar.super {
@@ -3539,14 +3539,14 @@ table .actions {
 }
 
 #steps>li.complete>a {
-	background: #e69d17 url(tabs-mobile-retina.png) no-repeat -384px -160px;
-	color: #6d4803;
+	background: #e69d17 none no-repeat -384px -160px;	color: #6d4803;
 	text-shadow: 0px 2px 0px rgba(255,255,255,0.3);
-	height: 62px;
+	height: 45px;
+	border-bottom: 2px solid #b4974b;
 }
 
 #steps li.complete:first-child a {
-	background-position: -128px -160px !important;
+	background-position: -128px -160px;
 }
 
 #steps li.current a,
