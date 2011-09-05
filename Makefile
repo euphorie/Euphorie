@@ -5,7 +5,8 @@ CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
 CSS_DIR		= Prototype/style/main
 CSS_TARGETS	= $(CSS_DIR)/screen.min.css \
 		  $(CSS_DIR)/screen-ie7.min.css \
-		  $(CSS_DIR)/screen-ie8.min.css
+		  $(CSS_DIR)/screen-ie8.min.css \
+		  $(CSS_DIR)/screen-osha.min.css
 
 JS_PACK		= $(YUICOMPRESS) --charset utf-8
 JS_DIR		= Prototype
