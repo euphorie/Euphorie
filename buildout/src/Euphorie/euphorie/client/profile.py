@@ -1,16 +1,17 @@
 from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
+from euphorie.content.interfaces import IQuestionContainer
+from euphorie.content.module import IModule
+from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.risk import IRisk, IFrenchRisk
 from euphorie.content.survey import ISurvey
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
+from euphorie.client.update import treeChanges
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.client.utils import RelativePath
-from euphorie.content.profilequestion import IProfileQuestion
-from euphorie.content.risk import IRisk, IFrenchRisk
-from euphorie.content.interfaces import IQuestionContainer
-from euphorie.content.module import IModule
 
 
 grok.templatedir("templates")
@@ -203,7 +204,8 @@ class Profile(grok.View):
         if not self.session.hasTree():
             BuildSurveyTree(survey, new_profile, dbsession=self.session)
         else:
-            if self.current_profile!=new_profile:
+            changes = treeChanges(self.session, survey)
+            if self.current_profile != new_profile or changes:
                 old_session=self.session
                 new_session=SessionManager.start(old_session.title, survey)
                 BuildSurveyTree(survey, new_profile, new_session)
@@ -258,4 +260,3 @@ class Update(Profile):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.template("updated")
-

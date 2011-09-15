@@ -51,6 +51,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix survey tree update code to also rebuild the session for all tree changes
+  instead of only profile changes. This fixes problems KeyErrors that appeared
+  after publishing a survey which removes modules or risks.
+  [wichert]
+
 - Fix check for survey changes in the client: the old code falsely assumed
   client surveys were cataloged.
   [wichert]
