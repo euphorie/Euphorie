@@ -10,6 +10,10 @@ Upgrade notes
 Development of Euphorie and related projecst has moved to the 
 `euphorie organisation <https://github.com/euphorie>`_ on github.
 
+This release updates the profile version to *9*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
 Feature changes
 ~~~~~~~~~~~~~~~
 
