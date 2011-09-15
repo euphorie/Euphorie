@@ -1,8 +1,8 @@
+import collections
 from five import grok
 from z3c.saconfig import Session
 from euphorie.client import model
-from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
+from euphorie.content.interfaces import IQuestionContainer
 from euphorie.client.session import SessionManager
 
 grok.templatedir("templates")
@@ -13,14 +13,21 @@ def getSurveyTree(survey):
     a survey. Each entry is represented by a dict with a `zodb_path`
     and `type` key.
     """
-    ct = getToolByName(survey, "portal_catalog")
-    base_path = "/".join(aq_inner(survey).getPhysicalPath())
-    nodes = ct(path=base_path,
-             portal_type=["euphorie.profilequestion",
-                          "euphorie.module", "euphorie.risk"])
-    return [{'zodb_path': brain.getPath()[len(base_path) + 1:],
-             'type': brain.portal_type[9:]}
-             for brain in nodes]
+    # XXX Can this be cached on the survey instance?
+    nodes = []
+    base_length = len(survey.getPhysicalPath())
+    queue = collections.deque(survey.values())
+    while queue:
+        node = queue.popleft()
+        if node.portal_type not in \
+                ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk']:
+            continue
+        nodes.append({
+            'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
+            'type': node.portal_type[9:]})
+        if IQuestionContainer.providedBy(node):
+            queue.extend(node.values())
+    return nodes
 
 
 class Node(object):

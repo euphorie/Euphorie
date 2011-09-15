@@ -51,6 +51,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix check for survey changes in the client: the old code falsely assumed
+  client surveys were cataloged.
+  [wichert]
+
 - Hide hover beautytips on IE6 and clicktips on IE6 and IE7 
   [jcbrand]
 
