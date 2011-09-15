@@ -8,7 +8,6 @@ import Acquisition
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
-import Globals
 from five import grok
 from zope.interface import directlyProvides
 from zope.interface import directlyProvidedBy
