@@ -411,10 +411,7 @@ class SurveySession(BaseObject):
                     """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
         session.execute(statement)
 
-
-# XXX Rewrite this using SQLAlchemy constructs.
-        statements=[
-                    """INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
+        statement = """INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
                                                 requirements, responsible, budget,
                                                 planning_start, planning_end)
                        SELECT action_plan.risk_id,
@@ -429,22 +426,16 @@ class SurveySession(BaseObject):
                                         JOIN tree ON tree.id=risk.id,
                             tree AS new_tree
                        WHERE tree.session_id=%(old_sessionid)d AND
-                             new_tree.session_id=%(sessionid)d AND
+                             new_tree.session_id=%(new_sessionid)d AND
                              tree.zodb_path=new_tree.zodb_path AND
                              tree.profile_index=new_tree.profile_index;
-                    """,
+                    """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        session.execute(statement)
 
-                    """UPDATE company
-                       SET session_id=%(sessionid)d
-                       WHERE session_id=%(old_sessionid)d;
-                    """,
-                    ]
-
-        parameters=dict(sessionid=self.id, old_sessionid=other.id)
-        session=Session()
-        for statement in statements:
-            session.execute(statement % parameters)
-
+        session.query(Company)\
+            .filter(Company.session==other)\
+            .update({'session_id': self.id}, 
+                    synchronize_session=False)
 
 
 class Company(BaseObject):
