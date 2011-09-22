@@ -25,7 +25,7 @@
         <input type="hidden" name="came_from" value="${view/came_from}" tal:condition="view/came_from"/>
         <div id="conditions" class="conditions">
           <p i18n:translate="conditions_intro1">
-            The OiRA tool is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA (Online interactive Risk Assessment) tool.
+            The OiRA (Online interactive Risk Assesment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
           </p>
 
           <p i18n:translate="conditions_intro2">
@@ -34,16 +34,16 @@
 
           <h2 i18n:translate="conditions_info_header">The Information we collect and for what purposes</h2>
 
-          <p i18n:translater="conditions_info_intry">
-          The kind of information we collect: when you sign up for an OiRA account and you put in data into the Online interactive Risk Assessment tool we are asking you for the following information:</p>
+          <p i18n:translate="conditions_info_entry">
+          The kind of information we collect: when you sign up for an OiRA account and you put in data into the Online interactive Risk Assessment application we are asking you for the following information:</p>
 
           <ul>
             <li i18n:translate="conditions_info_email">
-              Email account: this is necessary to access the online tool, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes.
+              Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes.
             </li>
 
             <li i18n:translate="conditions_info_text">
-              Any information you provide in the free text fields of the tool and in the action plan - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary.
+              Any information you provide in the free text fields of the application and in the action plan - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary.
             </li>
 
             <li i18n:translate="conditions_info_cookies">
@@ -65,7 +65,7 @@
             </li>
             
             <li i18n:translate="conditions_info_use_statistics">
-              Build statistics, by using exclusively aggregated and anonymous data on the risks of a sector. These statistics will be passed on exclusively to the developers of the tool.
+              Build statistics, by using exclusively aggregated and anonymous data on the risks of a sector (any information put into the free text fields will not be used). These statistics will be passed on exclusively to the developers of the application.
             </li>
           </ul>
 
@@ -98,7 +98,7 @@
           <h2 i18n:translate="conditions_security_header">Information security</h2>
 
           <p i18n:translate="conditions_security">
-            We restrict access to personal information to authorised user. We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. Data are not accessible to anybody by any means. IP addresses are not saved so that end-users can not be identified through their access.
+            We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. Data are not accessible to anybody by any means. IP addresses are not saved so that end-users can not be identified through their access.
           </p>
 
           <h2 i18n:translate="conditions_contact_header">Contact information</h2>
