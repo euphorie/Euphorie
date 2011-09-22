@@ -916,7 +916,7 @@ msgstr "Paramètres"
 #: euphorie/client/templates/risk_identification.pt:87
 #: euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
-msgstr "Statut"
+msgstr "avancement"
 
 #. Default: Surveys
 #: euphorie/client/templates/actionplan.pt:82
@@ -2001,7 +2001,7 @@ msgstr "risque à faible priorité"
 #: euphorie/client/templates/report_actionplan.pt:61
 msgid "label_workers_participated"
 msgstr ""
-"Des travailleurs ont été invités à participer à l'évaluation des risques."
+"Des salaríes ont été invités à participer à l'évaluation des risques."
 
 #. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
@@ -2624,7 +2624,7 @@ msgstr "Questions ayant reçu une réponse par module"
 #. Default: Status
 #: euphorie/client/templates/status.pt:17
 msgid "title_status"
-msgstr "Statut"
+msgstr "Avancement"
 
 #. Default: Update
 #: euphorie/client/templates/updated.pt:66
