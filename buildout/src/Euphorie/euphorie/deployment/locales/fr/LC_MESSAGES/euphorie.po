@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-08-30 11:43+0200\n"
+"POT-Creation-Date: 2011-09-22 11:02+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1289,20 +1289,18 @@ msgstr ""
 msgid "conditions_contact_header"
 msgstr "Informations de contact"
 
-#. Default: We restrict access to personal information to authorised user. We take
-#. appropriate security measures to protect against unauthorized access to or
-#. unauthorized alteration, disclosure or destruction of data. These include
-#. internal reviews of our data collection, storage and processing practices and
-#. security measures, including appropriate encryption of communication and
-#. physical security measures to guard against unauthorized access to systems where
-#. we store personal data. Data are not accessible to anybody by any means. IP
-#. addresses are not saved so that end-users can not be identified through their
-#. access.
+#. Default: We take appropriate security measures to protect against unauthorized
+#. access to or unauthorized alteration, disclosure or destruction of data. These
+#. include internal reviews of our data collection, storage and processing
+#. practices and security measures, including appropriate encryption of
+#. communication and physical security measures to guard against unauthorized
+#. access to systems where we store personal data. Data are not accessible to
+#. anybody by any means. IP addresses are not saved so that end-users can not be
+#. identified through their access.
 #: euphorie/client/templates/conditions.pt:100
 msgid "conditions_security"
 msgstr ""
-"Nous limitons l'accès aux informations personnelles aux utilisateurs "
-"autorisés. Nous adoptons des mesures de sécurité appropriées pour se "
+"Nous adoptons des mesures de sécurité appropriées pour se "
 "protéger contre tout accès ou altération non autorisé(e), toute divulgation "
 "ou destruction de données. Ces mesures incluent des révisions internes de "
 "notre recueil de données, un stockage, des pratiques de traitement et des "
@@ -1356,7 +1354,7 @@ msgstr "Conservation et traitement des informations"
 #: euphorie/client/templates/conditions.pt:78
 msgid "condtions_datacontroller"
 msgstr ""
-"Le contrôleur de données est Andrew Smith, Agence Européenne pour la "
+"Le contrôleur de données est M. Andrew Smith, Agence Européenne pour la "
 "Sécurité et la Santé au Travail, Bilbao."
 
 #. Default: Data controller
@@ -1372,14 +1370,16 @@ msgstr ""
 "des données."
 
 #. Default: Build statistics, by using exclusively aggregated and anonymous data on
-#. the risks of a sector. These statistics will be passed on exclusively to the
-#. developers of the tool.
+#. the risks of a sector (any information put into the free text fields will not be
+#. used). These statistics will be passed on exclusively to the developers of the
+#. application.
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
 "Construire des statistiques, en utilisant exclusivement des données ajoutées "
-"et anonymes sur les risques d'un secteur. Ces statistiques seront "
-"exclusivement transférées aux développeurs de l'outil."
+"et anonymes sur les risques d'un secteur (les informations entrées dans les "
+"champs libres de l'application sont exclues de ce traitement). Ces statistiques seront "
+"exclusivement transférées aux développeurs de l'application."
 
 #. Default: Provide, maintain, protect, and improve our services and develop new
 #. services.
@@ -1405,10 +1405,10 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_logs"
 msgstr ""
-"Consigner des informations – Lorsque vous accédez au service, nos serveurs "
+"Informations de connexion – Lorsque vous accédez au service, nos serveurs "
 "enregistrent automatiquement des informations que votre navigateur envoie à "
-"chaque fois que vous visitez un site web. Les journaux de ces serveurs "
-"peuvent inclure des informations telles que la demande de votre web, votre "
+"chaque fois que vous visitez un site web quel qu'il soit. Les journaux de ces serveurs "
+"peuvent inclure des informations telles que la page que vous visitez, votre "
 "interaction avec un service, le type de navigateur, la langue du navigateur, "
 "la date et l'heure de votre demande. Les adresses IP ne sont pas stockées "
 "dans le système."
@@ -1438,29 +1438,37 @@ msgstr ""
 "et services peuvent ne pas fonctionner correctement si vos cookies sont "
 "désactivés."
 
-#. Default: Any information you provide in the free text fields of the tool and in
-#. the action plan - (e.g. when you input a measure to tackle a risk, the person
-#. responsible for that measure, etc). The input of information in the free text
-#. fields is voluntary.
+#. Default: Any information you provide in the free text fields of the application
+#. and in the action plan - (e.g. when you input a measure to tackle a risk, the
+#. person responsible for that measure, etc). The input of information in the free
+#. text fields is voluntary.
 #: euphorie/client/templates/conditions.pt:45
 msgid "conditions_info_text"
 msgstr ""
 "Toutes les informations que vous fournissez dans les champs de texte libre "
-"de l'outil et dans le plan d'action - (per ex. lorsque vous entrez une "
+"de l'application et dans le plan d'action - (per ex. lorsque vous entrez une "
 "mesure pour aborder un risque, la personne responsable de cette mesure, "
 "etc). L'entrée des informations dans les champs de texte libre est "
 "volontaire."
 
-#. Default: Email account: this is necessary to access the online tool, edit the
-#. input data, and delete the OiRA account. You can enter any valid e-mail address.
-#. Email addresses will not be used for commercial purposes.
+#. Default: Email account: this is necessary to access the online application, edit
+#. the input data, and delete the OiRA account. You can enter any valid e-mail
+#. address. Email addresses will not be used for commercial purposes.
 #: euphorie/client/templates/conditions.pt:41
 msgid "conditions_info_email"
 msgstr ""
-"Compte email : cela est nécessaire pour accéder à l'outil en ligne, éditer "
+"Compte email : cela est nécessaire pour accéder à l'application en ligne, éditer "
 "les données d'entrée, et effacer le compte OiRA. Vous pouvez entrer "
 "n'importe quelle adresse email valable. Les adresses email ne seront pas "
 "utilisées dans un but commercial."
+
+#. Default: The kind of information we collect: when you sign up for an OiRA
+#. account and you put in data into the Online interactive Risk Assessment
+#. application we are asking you for the following information:
+#: euphorie/client/templates/conditions.pt:37
+msgid "conditions_info_entry"
+msgstr "Lorsque vous créez un compte OiRA et que vous utilisez l’application, les "
+"informations suivantes sont collectées :"
 
 #. Default: The Information we collect and for what purposes
 #: euphorie/client/templates/conditions.pt:35
@@ -1484,18 +1492,19 @@ msgstr ""
 "confidentialité d'EU-OSHA et le texte complet de la réglementation peuvent "
 "être consultés sur : ${url}."
 
-#. Default: The OiRA tool is an instrument put at your disposal by the European
-#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to
-#. all products, services and websites offered by EU-OSHA in the framework of the
-#. OiRA (Online interactive Risk Assessment) tool.
+#. Default: The OiRA (Online interactive Risk Assesment) application is an
+#. instrument put at your disposal by the European Agency for Safety and Health at
+#. Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. websites offered by EU-OSHA in the framework of the OiRA application.
 #: euphorie/client/templates/conditions.pt:27
 msgid "conditions_intro1"
 msgstr ""
-"Les outils OiRA sont des instruments mis à votre disposition par l'Agence "
-"européenne pour la sécurité et la santé au travail (EU-OSHA). Cette "
-"politique de confidentialité pour tous les produits, services et sites web, "
-"est proposée par EU-OSHA dans le cadre de l'outil OiRA (Évaluation "
-"interactive des risques en ligne)."
+"L'application Web OiRA (Online interactive Risk Assesment / Évaluation "
+"interactive des riques en ligne) sont des instruments mis à votre "
+"disposition par l'Agence européenne pour la sécurité et la santé au travail "
+"(EU-OSHA). Cette politique de confidentialité pour tous les produits, "
+"services et sites web, est proposée par EU-OSHA dans le cadre de "
+"l'application OiRA (Évaluation interactive des risques en ligne)."
 
 #. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
