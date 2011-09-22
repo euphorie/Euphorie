@@ -317,34 +317,101 @@ class SurveySession(BaseObject):
     def copySessionData(self, other):
         """Copy all user data from another session to this one.
         """
-# XXX Rewrite UPDATE FROM as UPDATE .. WHERE x.id IN (select...) to make this work with SQLite
-        statements=["""UPDATE tree
-                       SET skip_children=old_tree.skip_children,
-                           postponed=old_tree.postponed
-                       FROM tree AS old_tree
-                       WHERE tree.session_id=%(sessionid)d AND
-                             old_tree.session_id=%(old_sessionid)d AND
-                             tree.zodb_path=old_tree.zodb_path AND
-                             tree.profile_index=old_tree.profile_index;
-                    """,
+        session = Session()
 
-                    """UPDATE risk
-                       SET identification=old_risk.identification,
-                           frequency=old_risk.frequency,
-                           effect=old_risk.effect,
-                           probability=old_risk.probability,
-                           priority=old_risk.priority,
-                           comment=old_risk.comment
-                       FROM tree AS old_tree, tree AS new_tree, risk AS old_risk
-                       WHERE new_tree.session_id=%(sessionid)d AND
-                             new_tree.id=risk.id AND
-                             old_tree.session_id=%(old_sessionid)s AND
-                             old_tree.id=old_risk.id AND
-                             new_tree.zodb_path=old_tree.zodb_path AND
-                             new_tree.profile_index=old_tree.profile_index;
-                    """,
+        # Copy all tree data to the new session (skip_children and postponed)
+        old_tree = orm.aliased(SurveyTreeItem, name='old_tree')
+        in_old_tree = sql.and_(
+                old_tree.session_id == other.id,
+                SurveyTreeItem.zodb_path == old_tree.zodb_path,
+                SurveyTreeItem.profile_index == old_tree.profile_index)
+        skip_children = sql.select([old_tree.skip_children], in_old_tree)
+        postponed = sql.select([old_tree.postponed], in_old_tree)
+        new_items = session.query(SurveyTreeItem)\
+                    .filter(SurveyTreeItem.session == self)\
+                    .filter(sql.exists(
+                        sql.select([old_tree.id]).where(in_old_tree)))
+        new_items.update({'skip_children': skip_children,
+                          'postponed': postponed},
+                         synchronize_session=False)
 
-                    """INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
+        # Copy all risk data to the new session
+# This triggers a "Only update via a single table query is currently supported"
+# error with SQLAlchemy 0.6.6
+#        old_risk = orm.aliased(Risk.__table__, name='old_risk')
+#        is_old_risk = sql.and_(in_old_tree, old_tree.id == old_risk.id)
+#        identification = sql.select([old_risk.identification], is_old_risk)
+#        new_risks = session.query(Risk)\
+#                .filter(Risk.session == self)\
+#                .filter(sql.exists(
+#                    sql.select([SurveyTreeItem.id]).where(sql.and_(
+#                            SurveyTreeItem.id == Risk.id,
+#                            sql.exists([old_tree.id]).where(sql.and_(
+#                                in_old_tree, old_tree.type == 'risk'))))))
+#        new_risks.update({'identification': identification},
+#                synchronize_session=False)
+
+        statement = """UPDATE RISK
+                       SET identification = (SELECT old_risk.identification
+                                             FROM risk AS old_risk, tree AS old_tree, tree
+                                             WHERE tree.id=risk.id AND
+                                                   tree.session_id=%(new_sessionid)s AND
+                                                   old_tree.id=old_risk.id AND
+                                                   old_tree.session_id=%(old_sessionid)s AND
+                                                   old_tree.zodb_path=tree.zodb_path AND
+                                                   old_tree.profile_index=tree.profile_index),
+                           frequency = (SELECT old_risk.frequency
+                                        FROM risk AS old_risk, tree AS old_tree, tree
+                                        WHERE tree.id=risk.id AND
+                                              tree.session_id=%(new_sessionid)s AND
+                                              old_tree.id=old_risk.id AND
+                                              old_tree.session_id=%(old_sessionid)s AND
+                                              old_tree.zodb_path=tree.zodb_path AND
+                                              old_tree.profile_index=tree.profile_index),
+                           effect = (SELECT old_risk.effect
+                                     FROM risk AS old_risk, tree AS old_tree, tree
+                                     WHERE tree.id=risk.id AND
+                                           tree.session_id=%(new_sessionid)s AND
+                                           old_tree.id=old_risk.id AND
+                                           old_tree.session_id=%(old_sessionid)s AND
+                                           old_tree.zodb_path=tree.zodb_path AND
+                                           old_tree.profile_index=tree.profile_index),
+                           probability = (SELECT old_risk.probability
+                                          FROM risk AS old_risk, tree AS old_tree, tree
+                                          WHERE tree.id=risk.id AND
+                                                tree.session_id=%(new_sessionid)s AND
+                                                old_tree.id=old_risk.id AND
+                                                old_tree.session_id=%(old_sessionid)s AND
+                                                old_tree.zodb_path=tree.zodb_path AND
+                                                old_tree.profile_index=tree.profile_index),
+                           priority = (SELECT old_risk.priority
+                                       FROM risk AS old_risk, tree AS old_tree, tree
+                                       WHERE tree.id=risk.id AND
+                                             tree.session_id=%(new_sessionid)s AND
+                                             old_tree.id=old_risk.id AND
+                                             old_tree.session_id=%(old_sessionid)s AND
+                                             old_tree.zodb_path=tree.zodb_path AND
+                                             old_tree.profile_index=tree.profile_index),
+                           comment = (SELECT old_risk.comment
+                                      FROM risk AS old_risk, tree AS old_tree, tree
+                                      WHERE tree.id=risk.id AND
+                                            tree.session_id=%(new_sessionid)s AND
+                                            old_tree.id=old_risk.id AND
+                                            old_tree.session_id=%(old_sessionid)s AND
+                                            old_tree.zodb_path=tree.zodb_path AND
+                                            old_tree.profile_index=tree.profile_index)
+                       WHERE EXISTS (SELECT old_tree.id
+                                     FROM risk AS old_risk, tree AS old_tree, tree
+                                     WHERE tree.id=risk.id AND
+                                           tree.session_id=%(new_sessionid)s AND
+                                           old_tree.id=old_risk.id AND
+                                           old_tree.session_id=%(old_sessionid)s AND
+                                           old_tree.zodb_path=tree.zodb_path AND
+                                           old_tree.profile_index=tree.profile_index);
+                    """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        session.execute(statement)
+
+        statement = """INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
                                                 requirements, responsible, budget,
                                                 planning_start, planning_end)
                        SELECT action_plan.risk_id,
@@ -359,22 +426,16 @@ class SurveySession(BaseObject):
                                         JOIN tree ON tree.id=risk.id,
                             tree AS new_tree
                        WHERE tree.session_id=%(old_sessionid)d AND
-                             new_tree.session_id=%(sessionid)d AND
+                             new_tree.session_id=%(new_sessionid)d AND
                              tree.zodb_path=new_tree.zodb_path AND
                              tree.profile_index=new_tree.profile_index;
-                    """,
+                    """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        session.execute(statement)
 
-                    """UPDATE company
-                       SET session_id=%(sessionid)d
-                       WHERE session_id=%(old_sessionid)d;
-                    """,
-                    ]
-
-        parameters=dict(sessionid=self.id, old_sessionid=other.id)
-        session=Session()
-        for statement in statements:
-            session.execute(statement % parameters)
-
+        session.query(Company)\
+            .filter(Company.session==other)\
+            .update({'session_id': self.id}, 
+                    synchronize_session=False)
 
 
 class Company(BaseObject):

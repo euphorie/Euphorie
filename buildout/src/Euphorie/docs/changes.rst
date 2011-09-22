@@ -4,8 +4,28 @@ Chdangelog
 3.0 - Unreleased
 ----------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+Development of Euphorie and related projecst has moved to the 
+`euphorie organisation <https://github.com/euphorie>`_ on github.
+
+This release updates the profile version to *9*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
 Feature changes
 ~~~~~~~~~~~~~~~
+
+- Use a better standard solution selector in the client. This fixes
+  `github ticket 5 <https://github.com/euphorie/Euphorie/issues/5>`_.
+  [cornae, wichert]
+
+- Group countries according to EU membership status.  This fixes github tickets
+  `1 <https://github.com/euphorie/Euphorie/issues/1>`_,
+  `2 <https://github.com/euphorie/Euphorie/issues/2>`_ and
+  `4 <https://github.com/euphorie/Euphorie/issues/4>`_.
+  [cornae, wichert]
 
 - Add another evaluation algorithm (French) for calculating risk priorities. 
   [wichert]
@@ -31,6 +51,15 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix survey tree update code to also rebuild the session for all tree changes
+  instead of only profile changes. This fixes problems KeyErrors that appeared
+  after publishing a survey which removes modules or risks.
+  [wichert]
+
+- Fix check for survey changes in the client: the old code falsely assumed
+  client surveys were cataloged.
+  [wichert]
+
 - Hide hover beautytips on IE6 and clicktips on IE6 and IE7 
   [jcbrand]
 
@@ -53,35 +82,12 @@ Bugfixes
 - Allow the default sector colours to be customized via the euphorie.ini file
   [jcbrand]
 
-Upgrade notes
-~~~~~~~~~~~~~
-
-Development of Euphorie and related projecst has moved to the 
-`euphorie organisation <https://github.com/euphorie>`_ on github.
-
-Feature changes
-~~~~~~~~~~~~~~~
-
-- Use a better standard solution selector in the client. This fixes
-  `github ticket 5 <https://github.com/euphorie/Euphorie/issues/5>`_.
-  [cornae, wichert]
-
-- Group countries according to EU membership status.  This fixes github tickets
-  `1 <https://github.com/euphorie/Euphorie/issues/1>`_,
-  `2 <https://github.com/euphorie/Euphorie/issues/2>`_ and
-  `4 <https://github.com/euphorie/Euphorie/issues/4>`_.
-  [cornae, wichert]
-
-
-Bugfixes
-~~~~~~~~
-
 - Change ordering of countries in the client to match the `official
   EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`).
   This fixes `github ticket 3
   <https://github.com/euphorie/Euphorie/issues/3>`_.
-  .
   [wichert]
+
 
 
 2.7 - April 26, 2011
