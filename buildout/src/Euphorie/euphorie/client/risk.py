@@ -107,11 +107,12 @@ class EvaluationView(grok.View):
 
 
     def calculatePriority(self, risk, reply):
-        self.context.frequency=reply.get("frequency")
-        self.context.effect=reply.get("severity")
+        self.context.frequency = reply.get("frequency")
         try:
             if self.evaluation_algorithm(risk)=="french":
-                priority=self.context.frequency*self.context.effect
+                self.context.effect = reply.get("severity")
+                priority = self.context.frequency*self.context.effect
+
                 if priority<10:
                     return "low"
                 elif priority<=45:
@@ -119,9 +120,10 @@ class EvaluationView(grok.View):
                 else:
                     return "high"
             else:  # Kinney method
-                self.context.probability=reply.get("probability")
-
-                priority=self.context.frequency*self.context.effect*self.context.probability
+                self.context.effect = reply.get("effect")
+                self.context.probability = reply.get("probability")
+                priority = self.context.frequency*self.context.effect*self.context.probability
+                
                 if priority<=15:
                     return "low"
                 elif priority<=50:
