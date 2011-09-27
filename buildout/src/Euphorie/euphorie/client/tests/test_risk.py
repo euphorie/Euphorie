@@ -11,15 +11,20 @@ class EvaluationViewTests(unittest.TestCase):
         from euphorie.content.risk import Risk
         return Risk(**kw)
 
-    def reply(self, freq, effect):
-        from euphorie.content.risk import IFrenchEvaluation
-
-        def get(voc, token):
-            vocabulary = IFrenchEvaluation[voc].vocabulary
-            return vocabulary.getTermByToken(token).value
-
-        return {"frequency": get("default_frequency", freq),
-                "severity": get("default_severity", effect)}
+    def reply(self, freq, effect, prob=None):
+        from euphorie.content.risk import IFrenchEvaluation as IFr
+        from euphorie.content.risk import IKinneyEvaluation as IKi
+        if prob is None: #French
+            return {
+                "frequency": IFr['default_frequency'].vocabulary.getTermByToken(freq).value,
+                "severity": IFr['default_severity'].vocabulary.getTermByToken(effect).value,
+                }
+        else: #Kinney
+            return {
+                "frequency": IKi['default_frequency'].vocabulary.getTermByToken(freq).value,
+                "effect": IKi['default_effect'].vocabulary.getTermByToken(effect).value,
+                "probability": IKi['default_probability'].vocabulary.getTermByToken(prob).value,
+                }
 
     def test_evaluation_algorithm_fallback(self):
         view = self.EvaluationView()
@@ -46,7 +51,7 @@ class EvaluationViewTests(unittest.TestCase):
         risk = self.Risk()
         self.assertEqual(view.calculatePriority(risk, {}), None)
 
-    def test_calculatePriority_matrix(self):
+    def test_calculatePriority_french(self):
         view = self.EvaluationView()
         view.evaluation_algorithm=lambda x: u"french"
         risk = self.Risk()
@@ -77,3 +82,26 @@ class EvaluationViewTests(unittest.TestCase):
             view.calculatePriority(risk,
                 self.reply("not-often", "not-severe")),
             "medium")
+
+    def test_calculatePriority_kinney(self):
+        view = self.EvaluationView()
+        view.evaluation_algorithm=lambda x: u"kinney"
+        risk = self.Risk()
+        # Risks with weak severity are always low priority
+        for freq in ["almost-never", "regular", "constant"]:
+            self.assertEqual(
+                    view.calculatePriority(risk, self.reply(freq, "weak", 'small')),
+                    "low")
+
+        self.assertEqual(
+            view.calculatePriority(risk, self.reply("constant", "significant", 'medium')),
+            "high")
+
+        self.assertEqual(
+            view.calculatePriority(risk, self.reply("constant", "high", 'medium')),
+            "high")
+
+        self.assertEqual(
+            view.calculatePriority(risk, self.reply("constant", "weak", 'medium')),
+            "medium")
+
