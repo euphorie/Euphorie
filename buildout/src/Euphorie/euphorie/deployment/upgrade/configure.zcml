@@ -133,13 +133,6 @@
       description="This step adds a new column 'workers_participated' to the company table." 
       handler=".v3.add_wp_column_to_company"
       />
-
-    <genericsetup:upgradeStep
-      title="renew_survey_published_date"
-      description="Update the published attr of surveys to set the date to now. This will force all surveys to redirect to the @@update page from where users' session trees can be updated."
-      handler=".v3.renew_survey_published_date"
-      />
-
   </genericsetup:upgradeSteps>
 
 </configure>
