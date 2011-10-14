@@ -526,6 +526,7 @@ ol.toc {
 	border: 2px groove #f8f8f8;
 	border-right-style: none;
 	border-left-style: none;
+	margin-left: 0;
 }
 
 ol.toc:before {
@@ -1288,9 +1289,15 @@ a.block {
 }
 
 ul {
-	margin-left: 15px;
+	margin-left: 30px;
 	margin-bottom: 20px;
 	list-style-type: square;
+}
+
+ol {
+	counter-reset: item;
+	margin-left: 30px;
+	margin-bottom: 20px;
 }
 
 table {
@@ -2980,11 +2987,6 @@ p.country.rs {
 
 /* @group Steps */
 
-ol {
-	list-style-position: inside;
-	counter-reset: item;
-}
-
 #steps {
 	list-style-type: none;
 	position: absolute;
@@ -3096,7 +3098,7 @@ ol {
 	position: absolute;
 	top: 70px;
 	left: -60px;
-	list-style-position: outside;
+	list-style-position: inside;
 	padding-left: 0;
 	padding-top: 10px;
 	padding-bottom: 30px;
