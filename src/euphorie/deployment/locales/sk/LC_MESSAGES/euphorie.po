@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-08-30 11:43+0200\n"
+"POT-Creation-Date: 2011-09-22 11:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1193,15 +1193,14 @@ msgstr ""
 msgid "conditions_contact_header"
 msgstr "Informácie o kontaktoch"
 
-#. Default: We restrict access to personal information to authorised user. We take
-#. appropriate security measures to protect against unauthorized access to or
-#. unauthorized alteration, disclosure or destruction of data. These include
-#. internal reviews of our data collection, storage and processing practices and
-#. security measures, including appropriate encryption of communication and
-#. physical security measures to guard against unauthorized access to systems where
-#. we store personal data. Data are not accessible to anybody by any means. IP
-#. addresses are not saved so that end-users can not be identified through their
-#. access.
+#. Default: We take appropriate security measures to protect against unauthorized
+#. access to or unauthorized alteration, disclosure or destruction of data. These
+#. include internal reviews of our data collection, storage and processing
+#. practices and security measures, including appropriate encryption of
+#. communication and physical security measures to guard against unauthorized
+#. access to systems where we store personal data. Data are not accessible to
+#. anybody by any means. IP addresses are not saved so that end-users can not be
+#. identified through their access.
 #: euphorie/client/templates/conditions.pt:100
 msgid "conditions_security"
 msgstr ""
@@ -1264,8 +1263,9 @@ msgid "conditions_info_not_personal"
 msgstr "Na spracovanie dát sa v žiadnom prípade nepoužijú žiadne osobné údaje."
 
 #. Default: Build statistics, by using exclusively aggregated and anonymous data on
-#. the risks of a sector. These statistics will be passed on exclusively to the
-#. developers of the tool.
+#. the risks of a sector (any information put into the free text fields will not be
+#. used). These statistics will be passed on exclusively to the developers of the
+#. application.
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
@@ -1314,24 +1314,34 @@ msgstr ""
 "Súbory cookie – Keď navštívite stránky a zvolíte jazyk, odošleme súbor "
 "cookie do vášho počítača alebo iného zariadenia na uchovávanie vášho jazyka"
 
-#. Default: Any information you provide in the free text fields of the tool and in
-#. the action plan - (e.g. when you input a measure to tackle a risk, the person
-#. responsible for that measure, etc). The input of information in the free text
-#. fields is voluntary.
+#. Default: Any information you provide in the free text fields of the application
+#. and in the action plan - (e.g. when you input a measure to tackle a risk, the
+#. person responsible for that measure, etc). The input of information in the free
+#. text fields is voluntary.
 #: euphorie/client/templates/conditions.pt:45
 msgid "conditions_info_text"
 msgstr ""
 "Akékoľvek informácie, ktoré uvediete vo voľných textových poliach nástroja a "
 "v akčnom pláne - (napr. keď zadáte opatrenie na riešenie "
 
-#. Default: Email account: this is necessary to access the online tool, edit the
-#. input data, and delete the OiRA account. You can enter any valid e-mail address.
-#. Email addresses will not be used for commercial purposes.
+#. Default: Email account: this is necessary to access the online application, edit
+#. the input data, and delete the OiRA account. You can enter any valid e-mail
+#. address. Email addresses will not be used for commercial purposes.
 #: euphorie/client/templates/conditions.pt:41
 msgid "conditions_info_email"
 msgstr ""
 "E-mailové konto: je potrebné na prístup k online nástroju, upravovanie "
 "zadaných dát a vymazanie konta OiRA. Môžete zadať akékoľvek platné"
+
+#. Default: The kind of information we collect: when you sign up for an OiRA
+#. account and you put in data into the Online interactive Risk Assessment
+#. application we are asking you for the following information:
+#: euphorie/client/templates/conditions.pt:37
+#, fuzzy
+msgid "conditions_info_entry"
+msgstr ""
+"Akékoľvek informácie, ktoré uvediete vo voľných textových poliach nástroja a "
+"v akčnom pláne - (napr. keď zadáte opatrenie na riešenie "
 
 #. Default: The Information we collect and for what purposes
 #: euphorie/client/templates/conditions.pt:35
@@ -1350,10 +1360,10 @@ msgstr ""
 "Vaše osobné údaje sa spracúvajú v súlade s Nariadením Európskeho parlamentu "
 "a Rady (ES) č. 45/2001 zo dňa 1"
 
-#. Default: The OiRA tool is an instrument put at your disposal by the European
-#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to
-#. all products, services and websites offered by EU-OSHA in the framework of the
-#. OiRA (Online interactive Risk Assessment) tool.
+#. Default: The OiRA (Online interactive Risk Assesment) application is an
+#. instrument put at your disposal by the European Agency for Safety and Health at
+#. Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. websites offered by EU-OSHA in the framework of the OiRA application.
 #: euphorie/client/templates/conditions.pt:27
 msgid "conditions_intro1"
 msgstr ""

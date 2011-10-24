@@ -2,15 +2,16 @@
 # Copyright (C) 2011 Wichert Akkerman, Simplon
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2011-08-30 11:43+0200\n"
+"POT-Creation-Date: 2011-09-22 11:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,8 +206,7 @@ msgstr ""
 msgid "button_preview"
 msgstr "Vytvořit náhled"
 
-#. Default: Succesfully created a preview for the survey. It can be accessed
-#. at
+#. Default: Succesfully created a preview for the survey. It can be accessed at
 #. ${url} .
 #: euphorie/client/publish.py:277
 msgid "message_preview_success"
@@ -254,17 +254,13 @@ msgid "plan_report_intro_header"
 msgstr "Úvod"
 
 #. Default: By filling in the list of questions, you have completed a risk
-#. assessment. This assessment is used to draw up an action plan.The progress
-#. of
-#. this action plan must be discussed annually and a small report must written
-#. on
+#. assessment. This assessment is used to draw up an action plan.The progress of
+#. this action plan must be discussed annually and a small report must written on
 #. the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
 #. Default: By filling in the list of questions, you have completed a risk
-#. assessment. This assessment is used to draw up an action plan. The progress
-#. of
-#. this action plan must be discussed annually and a small report must be
-#. written
+#. assessment. This assessment is used to draw up an action plan. The progress of
+#. this action plan must be discussed annually and a small report must be written
 #. on the progress. Certain subjects might have been completed and perhaps new
 #. subjects need to be added.
 #: euphorie/client/report.py:505
@@ -287,8 +283,7 @@ msgstr "Údaje o společnosti"
 msgid "plan_report_plan_header"
 msgstr "Akční plán"
 
-#. Default: This risk is not present in your organisation, but since the
-#. sector
+#. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
 #: euphorie/client/report.py:611
@@ -352,8 +347,7 @@ msgstr ""
 msgid "report_measure_responsible"
 msgstr ""
 
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}.
+#. Default: ${responsible} is responsible for this task which starts on ${start}.
 #: euphorie/client/report.py:682
 #: euphorie/client/templates/report_actionplan.pt:126
 msgid "report_measure_responsible_and_start"
@@ -365,8 +359,7 @@ msgstr ""
 msgid "report_measure_responsible_and_end"
 msgstr ""
 
-#. Default: ${responsible} is responsible for this task which starts on
-#. ${start}
+#. Default: ${responsible} is responsible for this task which starts on ${start}
 #. and ends on ${end}.
 #: euphorie/client/report.py:700
 #: euphorie/client/templates/report_actionplan.pt:142
@@ -475,10 +468,8 @@ msgstr "Při odesílání potvrzujícího e-mailu se vyskytla chyba."
 msgid "This email address is not available."
 msgstr "Tato e-mailová adresa není k dispozici."
 
-#. Default: Please confirm your new email address by clicking on the link in
-#. the
-#. email that will be sent in a few minutes to "${email}". Please note that
-#. the new
+#. Default: Please confirm your new email address by clicking on the link in the
+#. email that will be sent in a few minutes to "${email}". Please note that the new
 #. email address is also your new login name.
 #: euphorie/client/settings.py:248
 msgid "email_change_pending"
@@ -598,12 +589,9 @@ msgstr "Zdrojový kód pro aplikaci OiRA ${GPL} podléhá licenci.."
 msgid "header_licenses"
 msgstr "Licence"
 
-#. Default: The Agency was also given strategic and expert advice by a
-#. Steering
-#. Committee in the development and implementation of the OiRA project.
-#. Members and
-#. alternates of the Steering Committee were appointed by the interest groups
-#. at
+#. Default: The Agency was also given strategic and expert advice by a Steering
+#. Committee in the development and implementation of the OiRA project. Members and
+#. alternates of the Steering Committee were appointed by the interest groups at
 #. the Board, by the Commission and by EU-OSHA.
 #: euphorie/client/templates/about.pt:94
 msgid "about_partners_3"
@@ -621,23 +609,17 @@ msgstr "Německo"
 msgid "The Netherlands"
 msgstr "Nizozemí"
 
-#. Default: The following technical partners contributed to the development of
-#. the
+#. Default: The following technical partners contributed to the development of the
 #. OiRA project:
 #: euphorie/client/templates/about.pt:77
 msgid "about_partners_2"
 msgstr "K rozvoji projektu OiRA přispěli následující techničtí partneři:"
 
-#. Default: The OiRA project and its related web application has been
-#. developed by
-#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
-#. financed
-#. by the Dutch government, was initially developed by TNO in collaboration
-#. with
-#. the employers organisation for small and medium-sized enterprises MKB-
-#. Nederland
-#. and the Dutch Ministry for Employment. Further development of the
-#. application
+#. Default: The OiRA project and its related web application has been developed by
+#. the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed
+#. by the Dutch government, was initially developed by TNO in collaboration with
+#. the employers organisation for small and medium-sized enterprises MKB-Nederland
+#. and the Dutch Ministry for Employment. Further development of the application
 #. was realised with input and participation of trade unions FNV, CNV and MHP.
 #: euphorie/client/templates/about.pt:75
 msgid "about_partners_1"
@@ -646,18 +628,16 @@ msgstr ""
 "založený na holandském RA-nástroji (s názvem ${RIE}), který je financován "
 "holandskou vládou a původně jej vyvinul TNO ve spolupráci s organizacemi "
 "zaměstnavatelů pro malé a střední podniky MKB-Nederland a holandské "
-"Ministerstvo zaměstnanosti. Další rozvoj aplikace byl realizován díky pomoci"
-" a za účasti odborových organizací FNV, CNV a MHP."
+"Ministerstvo zaměstnanosti. Další rozvoj aplikace byl realizován díky pomoci "
+"a za účasti odborových organizací FNV, CNV a MHP."
 
 #. Default: Development partners
 #: euphorie/client/templates/about.pt:72
 msgid "header_development_partners"
 msgstr "Partneři rozvoje"
 
-#. Default: The official launch of the tool is planned for September 2011,
-#. once the
-#. objectives of the testing phase have been reached and once the OiRA
-#. website, the
+#. Default: The official launch of the tool is planned for September 2011, once the
+#. objectives of the testing phase have been reached and once the OiRA website, the
 #. OiRA training scheme and OiRA help desk will be ready.
 #: euphorie/client/templates/about.pt:69
 msgid "phase_launch"
@@ -671,20 +651,16 @@ msgstr ""
 msgid "header_launch"
 msgstr "Oficiální spuštění projektu - září 2011"
 
-#. Default: After the technical development of the tool in 2009, in 2010
-#. (until the
-#. first half of 2011) the Agency is piloting the development and diffusion
-#. model
-#. at both EU level (working with the Sectoral Social Dialogue Committees) and
-#. at
-#. Member State level (with several Member States) as part of the testing of
-#. the
+#. Default: After the technical development of the tool in 2009, in 2010 (until the
+#. first half of 2011) the Agency is piloting the development and diffusion model
+#. at both EU level (working with the Sectoral Social Dialogue Committees) and at
+#. Member State level (with several Member States) as part of the testing of the
 #. tool and the development of appropriate support and guidance services.
 #: euphorie/client/templates/about.pt:65
 msgid "devel_phase"
 msgstr ""
-"Po technickém rozvoji nástroje v roce 2009 agentura v roce 2010 (až do první"
-" poloviny 2011) provozuje pilotní model rozvoje a rozšiřování jak na úrovni "
+"Po technickém rozvoji nástroje v roce 2009 agentura v roce 2010 (až do první "
+"poloviny 2011) provozuje pilotní model rozvoje a rozšiřování jak na úrovni "
 "EU (práce se Sektorovými výbory společenského dialogu), tak na úrovni "
 "členských států (s několika členskými státy) jako součást zkoušení nástroje "
 "a rozvoje vhodných služeb podpory a vedení."
@@ -704,18 +680,12 @@ msgstr "Fáze projektu"
 msgid "about_oiraproject"
 msgstr "Více informací o projektu OiRA (v angličtině)"
 
-#. Default: The ${agency} calls for the development of simple tools to
-#. facilitate
-#. risk assessment. Since the adoption of the European Framework directive in
-#. 1989,
-#. risk assessment has become a familiar concept for organising prevention in
-#. the
-#. workplace, and hundreds of thousands of companies all over Europe assess
-#. their
-#. risks regularly. Nevertheless, there is sufficient evidence to conclude
-#. that
-#. ${smb} when it comes to risk assessment and the adoption of a preventive
-#. policy
+#. Default: The ${agency} calls for the development of simple tools to facilitate
+#. risk assessment. Since the adoption of the European Framework directive in 1989,
+#. risk assessment has become a familiar concept for organising prevention in the
+#. workplace, and hundreds of thousands of companies all over Europe assess their
+#. risks regularly. Nevertheless, there is sufficient evidence to conclude that
+#. ${smb} when it comes to risk assessment and the adoption of a preventive policy
 #. in general which the OiRA project aims to overcome.
 #: euphorie/client/templates/about.pt:54
 msgid "about_paragraph_3"
@@ -737,16 +707,15 @@ msgstr "mikropodniky a makropodniky mají určité nedostatky"
 #: euphorie/client/templates/about.pt:55
 msgid "about_paragraph3_agency"
 msgstr ""
-"Strategie Evropského společenství týkající se bezpečnosti a zdraví při práci"
-" 2007-2012"
+"Strategie Evropského společenství týkající se bezpečnosti a zdraví při práci "
+"2007-2012"
 
 #. Default: Why the OiRA project
 #: euphorie/client/templates/about.pt:53
 msgid "header_why_oira"
 msgstr "Proč projekt OiRA"
 
-#. Default: The OiRA web application gives access to the sectoral Risk
-#. Assessment
+#. Default: The OiRA web application gives access to the sectoral Risk Assessment
 #. tools created and maintained by sectoral organisations at national level.
 #: euphorie/client/templates/about.pt:48
 msgid "about_paragraph_2"
@@ -755,15 +724,11 @@ msgstr ""
 "Vyhodnocení rizik, které vytvořily a udržovaly sektorové organizace na "
 "národní úrovni."
 
-#. Default: Experience shows that ${key}. This is why EU-OSHA developed an
-#. ${easy}
-#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and
-#. small
-#. organisations to put in place a ${step} – starting with the
-#. ${identification}
+#. Default: Experience shows that ${key}. This is why EU-OSHA developed an ${easy}
+#. (the “OiRA” - Online interactive Risk Assessment) that can help micro and small
+#. organisations to put in place a ${step} – starting with the ${identification}
 #. and ${evaluation} of workplace risks, through decision making on
-#. ${preventive_actions} and the taking of action, to monitoring and
-#. ${reporting}.
+#. ${preventive_actions} and the taking of action, to monitoring and ${reporting}.
 #: euphorie/client/templates/about.pt:26
 msgid "about_paragraph_1"
 msgstr ""
@@ -818,8 +783,7 @@ msgstr "Co je projekt OiRA (Online interaktivní vyhodnocení rizik)"
 msgid "title_about"
 msgstr "Co je projekt OiRA (Online interaktivní vyhodnocení rizik)"
 
-#. Default: Please note that by deleting your account, also all your filled
-#. out
+#. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: euphorie/client/templates/account-delete.pt:20
@@ -831,8 +795,7 @@ msgstr ""
 #: euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_irreversible"
 msgstr ""
-"Kliknutím na 'Zrušit účet\" se váš účet trvalé zruší. Tento krok je "
-"nevratný."
+"Kliknutím na 'Zrušit účet\" se váš účet trvalé zruší. Tento krok je nevratný."
 
 #. Default: Password
 #: euphorie/client/templates/account-settings.pt:27
@@ -841,8 +804,8 @@ msgstr ""
 
 #: euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name will"
-" also change."
+"Please bear in mind that by changing the email address, your login name will "
+"also change."
 msgstr ""
 
 #: euphorie/client/templates/account-settings.pt:23
@@ -1218,33 +1181,25 @@ msgstr ""
 msgid "label_create_action_plan"
 msgstr ""
 
-#. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks.
-#. There are no risks which need require any attention during this phase, so
-#. please
+#. Default: You have identified the magnitude of risk for each of the bottlenecks.
+#. There are no risks which need require any attention during this phase, so please
 #. proceed directly to the report.
 #: euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
 msgstr ""
 
-#. Default: Removing the causes (tackling the source) is the preferred method:
-#. that
-#. way, the risk can no longer arise. You then write down what tasks have to
-#. be
-#. carried out in order for the risk to be removed, as well as the knowledge
-#. and
-#. experience that are needed for those tasks to be carried out (prevention
-#. plan
+#. Default: Removing the causes (tackling the source) is the preferred method: that
+#. way, the risk can no longer arise. You then write down what tasks have to be
+#. carried out in order for the risk to be removed, as well as the knowledge and
+#. experience that are needed for those tasks to be carried out (prevention plan
 #. and requirements).
 #: euphorie/client/templates/actionplan.pt:27
 msgid "expl_actionplan_2"
 msgstr ""
 
-#. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks.
+#. Default: You have identified the magnitude of risk for each of the bottlenecks.
 #. During the action plan phase you can determine the priority of each of the
-#. bottlenecks and how you are going to tackle the bottleneck. The programme
-#. may
+#. bottlenecks and how you are going to tackle the bottleneck. The programme may
 #. offer a suggestion you can use, or you can add your own measures.
 #: euphorie/client/templates/actionplan.pt:20
 msgid "expl_actionplan_1"
@@ -1255,19 +1210,14 @@ msgstr ""
 msgid "conditions_contact_header"
 msgstr "Kontaktní informace"
 
-#. Default: We restrict access to personal information to authorised user. We
-#. take
-#. appropriate security measures to protect against unauthorized access to or
-#. unauthorized alteration, disclosure or destruction of data. These include
-#. internal reviews of our data collection, storage and processing practices
-#. and
-#. security measures, including appropriate encryption of communication and
-#. physical security measures to guard against unauthorized access to systems
-#. where
-#. we store personal data. Data are not accessible to anybody by any means. IP
-#. addresses are not saved so that end-users can not be identified through
-#. their
-#. access.
+#. Default: We take appropriate security measures to protect against unauthorized
+#. access to or unauthorized alteration, disclosure or destruction of data. These
+#. include internal reviews of our data collection, storage and processing
+#. practices and security measures, including appropriate encryption of
+#. communication and physical security measures to guard against unauthorized
+#. access to systems where we store personal data. Data are not accessible to
+#. anybody by any means. IP addresses are not saved so that end-users can not be
+#. identified through their access.
 #: euphorie/client/templates/conditions.pt:100
 msgid "conditions_security"
 msgstr ""
@@ -1277,8 +1227,8 @@ msgstr ""
 "interní kontroly našeho shromažďování dat, postupy shromažďování a "
 "zpracování a bezpečnostní kroky, včetně vhodného kódování komunikace a "
 "fyzické bezpečnostní kroky k ochraně proti neoprávněnému přístupu k "
-"systémům, kde se osobní údaje ukládají. Údaje nejsou přístupné nikomu žádným"
-" způsobem. IP adresy se neukládají, aby koncoví uživatelé nemohli být díky "
+"systémům, kde se osobní údaje ukládají. Údaje nejsou přístupné nikomu žádným "
+"způsobem. IP adresy se neukládají, aby koncoví uživatelé nemohli být díky "
 "svému přístupu identifikováni."
 
 #. Default: Information security
@@ -1287,15 +1237,14 @@ msgid "conditions_security_header"
 msgstr "Informační bezpečnost"
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
-#. review, control and delete the information stored in your Account and in
-#. your
+#. review, control and delete the information stored in your Account and in your
 #. Session(s).
 #: euphorie/client/templates/conditions.pt:94
 msgid "conditions_datareview"
 msgstr ""
 "Můžete použít Nastavení účtu a svou uloženou relaci/relace OiRA k "
-"vyhodnocení, kontrole a vymazání informací uložených na vašem účtu a ve vaší"
-" relaci/relacích."
+"vyhodnocení, kontrole a vymazání informací uložených na vašem účtu a ve vaší "
+"relaci/relacích."
 
 #. Default: Reviewing and removing your information
 #: euphorie/client/templates/conditions.pt:92
@@ -1307,8 +1256,7 @@ msgstr "Vyhodnocení a odstranění vašich informací"
 msgid "conditions_conservation_storage"
 msgstr "EU-OSHA ukládá data na našich serverech v německém Halle."
 
-#. Default: We keep your data which is inaccessible for external users until
-#. you
+#. Default: We keep your data which is inaccessible for external users until you
 #. delete your account and your session(s).
 #: euphorie/client/templates/conditions.pt:84
 msgid "conditions_conservation_keep_data"
@@ -1321,14 +1269,13 @@ msgstr ""
 msgid "conditions_conservation_header"
 msgstr "Uchování a zpracování informací"
 
-#. Default: The data controller is Andrew Smith, European Agency for Safety
-#. and
+#. Default: The data controller is Andrew Smith, European Agency for Safety and
 #. Health at Work, Bilbao.
 #: euphorie/client/templates/conditions.pt:78
 msgid "condtions_datacontroller"
 msgstr ""
-"Osobou kontrolující data je Andrew Smith, Evropská agentura pro bezpečnost a"
-" zdraví při práci, Bilbao."
+"Osobou kontrolující data je Andrew Smith, Evropská agentura pro bezpečnost a "
+"zdraví při práci, Bilbao."
 
 #. Default: Data controller
 #: euphorie/client/templates/conditions.pt:76
@@ -1341,11 +1288,10 @@ msgid "conditions_info_not_personal"
 msgstr ""
 "V žádném případě nebudou žádné osobní údaje použity pro zpracování dat."
 
-#. Default: Build statistics, by using exclusively aggregated and anonymous
-#. data on
-#. the risks of a sector. These statistics will be passed on exclusively to
-#. the
-#. developers of the tool.
+#. Default: Build statistics, by using exclusively aggregated and anonymous data on
+#. the risks of a sector (any information put into the free text fields will not be
+#. used). These statistics will be passed on exclusively to the developers of the
+#. application.
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
@@ -1353,8 +1299,7 @@ msgstr ""
 "týkajících se rizik sektoru. Tyto statistiky budou předány dál výhradně "
 "osobám, které vyvíjejí nástroj."
 
-#. Default: Provide, maintain, protect, and improve our services and develop
-#. new
+#. Default: Provide, maintain, protect, and improve our services and develop new
 #. services.
 #: euphorie/client/templates/conditions.pt:63
 msgid "conditions_info_use_develop"
@@ -1362,8 +1307,7 @@ msgstr ""
 "Poskytujte, udržujte, chraňte a zlepšujte naše služby a vyvíjejte nové "
 "služby."
 
-#. Default: In addition to the above mentioned purposes, we may use the
-#. information
+#. Default: In addition to the above mentioned purposes, we may use the information
 #. we collect to:
 #: euphorie/client/templates/conditions.pt:58
 msgid "conditions_info_use_intro"
@@ -1371,12 +1315,9 @@ msgstr ""
 "Kromě výše uvedených účelů můžeme používat informace, které shromáždíme:"
 
 #. Default: Log information – When you access the service, our servers
-#. automatically record information that your browser sends whenever you visit
-#. a
-#. website. These server logs may include information such as your web
-#. request,
-#. your interaction with a service, browser type, browser language, the date
-#. and
+#. automatically record information that your browser sends whenever you visit a
+#. website. These server logs may include information such as your web request,
+#. your interaction with a service, browser type, browser language, the date and
 #. time of your request. IP addresses are not stored in the system.
 #: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_logs"
@@ -1388,75 +1329,72 @@ msgstr ""
 "prohlížeče, datum a čas vaší žádosti. IP adresy se v systému neukládají."
 
 #. Default: Cookies – When you visit the site and select a language, we send a
-#. cookie to your computer or other device to store your language selection.
-#. This
-#. cookie stays in your browser until you close it. When you visit the site
-#. and log
-#. in, we send a cookie with your login information to keep you logged in
-#. during
-#. your visit. This cookie stays on your computer until you close your
-#. browser.
-#. Most browsers are initially set up to accept cookies, but you can reset
-#. your
+#. cookie to your computer or other device to store your language selection. This
+#. cookie stays in your browser until you close it. When you visit the site and log
+#. in, we send a cookie with your login information to keep you logged in during
+#. your visit. This cookie stays on your computer until you close your browser.
+#. Most browsers are initially set up to accept cookies, but you can reset your
 #. browser to refuse all cookies or to indicate when a cookie is being sent.
-#. However, some features and services may not function properly if your
-#. cookies
+#. However, some features and services may not function properly if your cookies
 #. are disabled.
 #: euphorie/client/templates/conditions.pt:49
 msgid "conditions_info_cookies"
 msgstr ""
 "Cookies - Když navštívíte tyto stránky a zvolíte jazyk, zašleme cookie do "
-"vašeho počítače nebo jiného zařízení, kde se uloží volba vašeho jazyka. Tato"
-" cookie zůstává ve vašem prohlížeči, dokud jej nezavřete. Když navštívíte "
+"vašeho počítače nebo jiného zařízení, kde se uloží volba vašeho jazyka. Tato "
+"cookie zůstává ve vašem prohlížeči, dokud jej nezavřete. Když navštívíte "
 "tyto stránky a přihlásíte se, pošleme cookie s vašimi přihlašovacími "
-"informace, abyste mohl být během své návštěvy přihlášen. Tato cookie zůstává"
-" ve vašem počítači, dokud jej nezavřete. Většina prohlížečů je ve výchozím "
+"informace, abyste mohl být během své návštěvy přihlášen. Tato cookie zůstává "
+"ve vašem počítači, dokud jej nezavřete. Většina prohlížečů je ve výchozím "
 "stavu nastavená tak, aby přijímala cookies, ale svůj prohlížeč můžete "
 "přenastavit, aby odmítal veškeré cookies nebo aby oznamoval, že se cookie "
 "posílá. Avšak některé funkce a služby nemohou fungovat řádným způsobem, "
 "pokud jsou cookies deaktivovány."
 
-#. Default: Any information you provide in the free text fields of the tool
-#. and in
-#. the action plan - (e.g. when you input a measure to tackle a risk, the
-#. person
-#. responsible for that measure, etc). The input of information in the free
-#. text
-#. fields is voluntary.
+#. Default: Any information you provide in the free text fields of the application
+#. and in the action plan - (e.g. when you input a measure to tackle a risk, the
+#. person responsible for that measure, etc). The input of information in the free
+#. text fields is voluntary.
 #: euphorie/client/templates/conditions.pt:45
 msgid "conditions_info_text"
 msgstr ""
-"Jakékoliv informace, které poskytnete ve volných textových polích nástroje a"
-" v akčním plánu (např. když vložíte postup k řešení rizika, osobu odpovědnou"
-" za daný krok atd.). Zadávání informací do volných textových polí je "
+"Jakékoliv informace, které poskytnete ve volných textových polích nástroje a "
+"v akčním plánu (např. když vložíte postup k řešení rizika, osobu odpovědnou "
+"za daný krok atd.). Zadávání informací do volných textových polí je "
 "dobrovolné."
 
-#. Default: Email account: this is necessary to access the online tool, edit
-#. the
-#. input data, and delete the OiRA account. You can enter any valid e-mail
-#. address.
-#. Email addresses will not be used for commercial purposes.
+#. Default: Email account: this is necessary to access the online application, edit
+#. the input data, and delete the OiRA account. You can enter any valid e-mail
+#. address. Email addresses will not be used for commercial purposes.
 #: euphorie/client/templates/conditions.pt:41
 msgid "conditions_info_email"
 msgstr ""
 "E-mailový účet: je nezbytný pro přístup k online nástroji, k editaci "
-"vstupních dat a ke zrušení účtu OiRA. Můžete zadat jakoukoliv platnou "
-"e-mailovou adresu. E-mailové adresy nebudou použity pro komerční účely."
+"vstupních dat a ke zrušení účtu OiRA. Můžete zadat jakoukoliv platnou e-"
+"mailovou adresu. E-mailové adresy nebudou použity pro komerční účely."
+
+#. Default: The kind of information we collect: when you sign up for an OiRA
+#. account and you put in data into the Online interactive Risk Assessment
+#. application we are asking you for the following information:
+#: euphorie/client/templates/conditions.pt:37
+#, fuzzy
+msgid "conditions_info_entry"
+msgstr ""
+"Jakékoliv informace, které poskytnete ve volných textových polích nástroje a "
+"v akčním plánu (např. když vložíte postup k řešení rizika, osobu odpovědnou "
+"za daný krok atd.). Zadávání informací do volných textových polí je "
+"dobrovolné."
 
 #. Default: The Information we collect and for what purposes
 #: euphorie/client/templates/conditions.pt:35
 msgid "conditions_info_header"
 msgstr "Informace, které shromáždíme, a pro jaké účely"
 
-#. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001
+#. Default: Your personal data is processed in line with Regulation (EC) N° 45/2001
 #. of the European Parliament and of the Council of 18 December 2000 on the
-#. protection of individuals with regard to the processing of personal data by
-#. the
-#. Community institutions and bodies and on the free movement of such data.
-#. Further
-#. details of the privacy policy of EU-OSHA and the full text of the
-#. Regulation can
+#. protection of individuals with regard to the processing of personal data by the
+#. Community institutions and bodies and on the free movement of such data. Further
+#. details of the privacy policy of EU-OSHA and the full text of the Regulation can
 #. be accessed at: ${url}.
 #: euphorie/client/templates/conditions.pt:31
 msgid "conditions_intro2"
@@ -1464,26 +1402,22 @@ msgstr ""
 "Vaše osobní údaje se zpracovávají v souladu s nařízením (ES) č. 45/2001 "
 "Evropského parlamentu a Rady ze dne 18. prosince 2000 o ochraně fyzických "
 "osob v souvislosti s ochranou osobních údajů orgány a institucemi "
-"Společenství a o volném pohybu těchto údajů. Bližší detaily ohledně politiky"
-" důvěrnosti EU-OSHA a celé znění Nařízení je možno získat na adrese: ${url}."
+"Společenství a o volném pohybu těchto údajů. Bližší detaily ohledně politiky "
+"důvěrnosti EU-OSHA a celé znění Nařízení je možno získat na adrese: ${url}."
 
-#. Default: The OiRA tool is an instrument put at your disposal by the
-#. European
-#. Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies
-#. to
-#. all products, services and websites offered by EU-OSHA in the framework of
-#. the
-#. OiRA (Online interactive Risk Assessment) tool.
+#. Default: The OiRA (Online interactive Risk Assesment) application is an
+#. instrument put at your disposal by the European Agency for Safety and Health at
+#. Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. websites offered by EU-OSHA in the framework of the OiRA application.
 #: euphorie/client/templates/conditions.pt:27
 msgid "conditions_intro1"
 msgstr ""
-"Nástroj OiRA je instrument, který vám dává k dispozici Evropská agentura pro"
-" bezpečnost a zdraví při práci (EU-OSHA). Tato politika důvěrnosti se "
+"Nástroj OiRA je instrument, který vám dává k dispozici Evropská agentura pro "
+"bezpečnost a zdraví při práci (EU-OSHA). Tato politika důvěrnosti se "
 "vztahuje na všechny produkty, služby a internetové stránky, které nabízí EU-"
 "OSHA v rámci nástroje OiRA (Online interaktivní vyhodnocení rizik)."
 
-#. Default: The terms and conditions have changed since your last visit.
-#. Please
+#. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
 #: euphorie/client/templates/conditions.pt:19
 msgid "terms_changed"
@@ -1512,8 +1446,8 @@ msgstr "Prosím ignorujte tento e-mail, pokud jste nežádal/a o změnu."
 #: euphorie/client/templates/confirm-email.pt:8
 msgid "email_change_intro"
 msgstr ""
-"Vaše e-mailová adresa a název účtu na ${url} bude změněn na '${email}', když"
-" kliknete na potvrzující odkaz níže."
+"Vaše e-mailová adresa a název účtu na ${url} bude změněn na '${email}', když "
+"kliknete na potvrzující odkaz níže."
 
 #. Default: Dear user,
 #: euphorie/client/templates/confirm-email.pt:6
@@ -1550,15 +1484,13 @@ msgstr "Jděte na akční plán"
 msgid "label_run_evaluation"
 msgstr "Proveďte vyhodnocení"
 
-#. Default: There are no risks that need to be evaluated. You can proceed
-#. directly
+#. Default: There are no risks that need to be evaluated. You can proceed directly
 #. to the action plan phase.
 #: euphorie/client/templates/evaluation.pt:31
 msgid "help_evaluation_empty"
 msgstr ""
 
-#. Default: You can also skip this phase and proceed directly to the ${link}
-#. phase.
+#. Default: You can also skip this phase and proceed directly to the ${link} phase.
 #: euphorie/client/templates/evaluation.pt:25
 msgid "help_skip_evaluation"
 msgstr "Tuto fázi můžete také přeskočit a jít přímo na fázi ${link}."
@@ -1568,8 +1500,7 @@ msgstr "Tuto fázi můžete také přeskočit a jít přímo na fázi ${link}."
 msgid "help_skip_evaluation_link"
 msgstr "akční plán"
 
-#. Default: You have indicated that there are possible risks in your
-#. organisation.
+#. Default: You have indicated that there are possible risks in your organisation.
 #. During this evaluation phase you can assess the magnitude of risk for each
 #. bottleneck.
 #: euphorie/client/templates/evaluation.pt:19
@@ -1650,30 +1581,24 @@ msgstr "Můžete vytisknout ${list-of-risks}."
 msgid "list_of_risks"
 msgstr ""
 
-#. Default: You can also distribute the list among the workers and invite them
-#. to
+#. Default: You can also distribute the list among the workers and invite them to
 #. participate in identifying the hazards/problems, evaluating the risks and
-#. deciding on preventive action. Their feedback can be taken into account
-#. when
+#. deciding on preventive action. Their feedback can be taken into account when
 #. filling in this tool.
 #: euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
 msgstr ""
 
 #. Default: You may want to print out the list of risks you cannot immediately
-#. answer and look for the information at the relevant workplace (by walking
-#. around
-#. the workplace and looking at what could cause harm, or by consulting the
-#. workers
-#. about problems they have encountered). Then you can introduce the
-#. information
+#. answer and look for the information at the relevant workplace (by walking around
+#. the workplace and looking at what could cause harm, or by consulting the workers
+#. about problems they have encountered). Then you can introduce the information
 #. into the tool.
 #: euphorie/client/templates/identification.pt:19
 msgid "intro_print_identification_1"
 msgstr ""
 
-#. Default: Your registration is a private matter. All your data is stored to
-#. be
+#. Default: Your registration is a private matter. All your data is stored to be
 #. accessed only by you.
 #: euphorie/client/templates/login.pt:40
 msgid "login_tooltip"
@@ -1723,8 +1648,7 @@ msgstr ""
 msgid "header_login"
 msgstr "Přihlašovací jméno"
 
-#. Default: Your login name and/or password were entered incorrectly. Please
-#. check
+#. Default: Your login name and/or password were entered incorrectly. Please check
 #. and try again or ${request_an_email_reminder} of your login information.
 #: euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
@@ -1781,10 +1705,8 @@ msgstr ""
 msgid "help_preview_url"
 msgstr "Náhled bude k dispozici na ${url}."
 
-#. Default: Are you sure you want to create a preview of this survey? You can
-#. give
-#. the URL for the preview to others so they can test the survey. To access
-#. the
+#. Default: Are you sure you want to create a preview of this survey? You can give
+#. the URL for the preview to others so they can test the survey. To access the
 #. preview a standard OiRA client login is required.
 #: euphorie/client/templates/preview.pt:18
 msgid "intro_preview"
@@ -1807,8 +1729,7 @@ msgid "label_add_profile_module"
 msgstr ""
 
 #. Default: Read the following statement(s) and tick the box if the issue is
-#. relevant to your company/organisation. If it is not, don’t tick the box and
-#. you
+#. relevant to your company/organisation. If it is not, don’t tick the box and you
 #. will not be asked about things that do not apply to your situation.
 #: euphorie/client/templates/profile.pt:18
 msgid "expl_profile"
@@ -1824,8 +1745,7 @@ msgstr ""
 msgid "help_publish_url"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey version? This will
-#. replace
+#. Default: Are you sure you want to publish this survey version? This will replace
 #. the current version.
 #: euphorie/client/templates/publish.pt:25
 msgid "intro_publish_other_survey_published"
@@ -1837,8 +1757,7 @@ msgstr ""
 msgid "intro_publish_survey_published"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey? After publication
-#. the
+#. Default: Are you sure you want to publish this survey? After publication the
 #. survey will appear in the online client and be accessible by all users.
 #: euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
@@ -1875,8 +1794,7 @@ msgstr "Heslo"
 msgid "reminder_email_login"
 msgstr "E-mail"
 
-#. Default: You have requested a password reminder for the OiRA website. Your
-#. login
+#. Default: You have requested a password reminder for the OiRA website. Your login
 #. information is:
 #: euphorie/client/templates/reminder-email.pt:8
 msgid "reminder_email_intro"
@@ -1894,16 +1812,14 @@ msgstr "Vážený uživateli,"
 msgid "header_password_reminder"
 msgstr "Připomenutí hesla"
 
-#. Default: Please leave any extra comments that should be included in the
-#. report
+#. Default: Please leave any extra comments that should be included in the report
 #. in this field.
 #: euphorie/client/templates/report.pt:28
 msgid "label_report_comment"
 msgstr ""
 
 #. Default: Now that you have finished identifying all the risks in your
-#. organisation and created an action plan you can create a report which lists
-#. all
+#. organisation and created an action plan you can create a report which lists all
 #. your results. You can, if desired, add some extra comments that should be
 #. included in this report in the field below.
 #: euphorie/client/templates/report.pt:19
@@ -1954,8 +1870,7 @@ msgstr "odborníci v oblasti zdraví a bezpečnosti"
 msgid "label_country"
 msgstr "Země"
 
-#. Default: Your answers and report were ${automatically_saved} and may be
-#. found
+#. Default: Your answers and report were ${automatically_saved} and may be found
 #. back or deleted at any time via the ${preparation_step}.
 #: euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_2"
@@ -1997,15 +1912,13 @@ msgstr ""
 msgid "info_referer_eu_institution"
 msgstr ""
 
-#. Default: Ministry, Labour Inspectorate, National Institute for Safety and
-#. Health
+#. Default: Ministry, Labour Inspectorate, National Institute for Safety and Health
 #. at Work, etc.
 #: euphorie/client/templates/report_company.pt:39
 msgid "info_referer_national_public_institution"
 msgstr ""
 
-#. Default: Please fill out your company details on this form. The data on
-#. this
+#. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
 #: euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
@@ -2070,10 +1983,8 @@ msgstr ""
 msgid "label_action_plan_start"
 msgstr ""
 
-#. Default: Although some measures do not cost any money, most do. The
-#. measures
-#. should therefore be budgeted for; include them in the annual budget round
-#. if
+#. Default: Although some measures do not cost any money, most do. The measures
+#. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
 #: euphorie/client/templates/risk_actionplan.pt:191
 #: euphorie/client/templates/risk_actionplan.pt:76
@@ -2087,10 +1998,8 @@ msgid "label_action_plan_budget"
 msgstr ""
 
 #. Default: Appoint someone in your company to be responsible for the
-#. implementation of this measure. This person will have the authority to take
-#. the
-#. steps described in the Plan and/or the responsibility to ensure that they
-#. are
+#. implementation of this measure. This person will have the authority to take the
+#. steps described in the Plan and/or the responsibility to ensure that they are
 #. carried out.
 #: euphorie/client/templates/risk_actionplan.pt:186
 #: euphorie/client/templates/risk_actionplan.pt:70
@@ -2127,19 +2036,13 @@ msgstr ""
 msgid "label_measure_action_plan"
 msgstr ""
 
-#. Default: You write down in the Plan what measure you will be taking in
-#. response
-#. to the risk. Removing the causes (tackling the source) is the preferred
-#. method:
-#. that way, the risk can no longer arise. You then write down what tasks have
-#. to
-#. be carried out in order for the risk to be removed, as well as the
-#. knowledge and
-#. experience that are needed for those tasks to be carried out (prevention
-#. plan
+#. Default: You write down in the Plan what measure you will be taking in response
+#. to the risk. Removing the causes (tackling the source) is the preferred method:
+#. that way, the risk can no longer arise. You then write down what tasks have to
+#. be carried out in order for the risk to be removed, as well as the knowledge and
+#. experience that are needed for those tasks to be carried out (prevention plan
 #. and requirements). In most cases, the prevention officer will help in the
-#. implementation of the Plan: however, he must have the capability or have
-#. had the
+#. implementation of the Plan: however, he must have the capability or have had the
 #. relevant training to do this.
 #: euphorie/client/templates/risk_actionplan.pt:169
 #: euphorie/client/templates/risk_actionplan.pt:53
@@ -2151,8 +2054,7 @@ msgstr ""
 msgid "Standard solutions"
 msgstr ""
 
-#. Default: Please leave any comments you may have on the question above in
-#. this
+#. Default: Please leave any comments you may have on the question above in this
 #. field. These comments will be used in the action plan.
 #: euphorie/client/templates/risk_actionplan.pt:156
 #: euphorie/client/templates/risk_evaluation.pt:125
@@ -2384,17 +2286,12 @@ msgid ""
 "reverted."
 msgstr ""
 
-#. Default: Once you have started an RA, you will be able to stop before the
-#. end.
-#. Log out: the data will be stored. If you forgot to log out and just ended
-#. the
-#. RA, the data will be stored too. For security reasons it is better to
-#. officially
+#. Default: Once you have started an RA, you will be able to stop before the end.
+#. Log out: the data will be stored. If you forgot to log out and just ended the
+#. RA, the data will be stored too. For security reasons it is better to officially
 #. log out. Of course your must remember your e-mail address, password and the
-#. title that you have given the RA. You can start the stored RA again at a
-#. later
-#. date: select the title of the RA. You can save more than one RA, provided
-#. you
+#. title that you have given the RA. You can start the stored RA again at a later
+#. date: select the title of the RA. You can save more than one RA, provided you
 #. have given them different titles names.
 #: euphorie/client/templates/sessions.pt:59
 #: euphorie/client/templates/survey_sessions.pt:50
@@ -2453,10 +2350,8 @@ msgstr ""
 msgid "label_start_survey"
 msgstr ""
 
-#. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA
-#. is important. So important that the government has made it compulsory for
-#. almost
+#. Default: Complicated? Not really. It just takes a bit of time. However, the RA
+#. is important. So important that the government has made it compulsory for almost
 #. all entrepreneurs with employees.
 #: euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
@@ -2467,16 +2362,12 @@ msgstr ""
 msgid "header_not_complicated"
 msgstr ""
 
-#. Default: Including the risks to your employees and your equipment? What if
-#. there
+#. Default: Including the risks to your employees and your equipment? What if there
 #. is an accident with one of the machines? What if an employee is exposed to
 #. hazardous substances? A risk assessment helps you to define these risks and
-#. tackle them head on. A risk assessment consists of two parts: a with all
-#. the
-#. risks to your company and an to deal with them. These two components allow
-#. you
-#. to limit the risks to your employees and your company, and therefore also
-#. the
+#. tackle them head on. A risk assessment consists of two parts: a with all the
+#. risks to your company and an to deal with them. These two components allow you
+#. to limit the risks to your employees and your company, and therefore also the
 #. financial risk.
 #: euphorie/client/templates/start.pt:21
 msgid "intro_risk_aware"
@@ -2522,8 +2413,7 @@ msgstr "Aktualizace"
 msgid "verify_profile"
 msgstr "Prosím ověřte, zda je profil stále přesný."
 
-#. Default: This survey has been updated. Before you can continue any changes
-#. made
+#. Default: This survey has been updated. Before you can continue any changes made
 #. in the survey will have to be merged in your session.
 #: euphorie/client/templates/updated.pt:19
 msgid "expl_update"
@@ -2594,8 +2484,7 @@ msgstr "Potenciální kandidátská země"
 msgid "label_help_introduction"
 msgstr "Úvod"
 
-#. Default: Generic introduction for the client. This text is not associated
-#. with
+#. Default: Generic introduction for the client. This text is not associated with
 #. specific pages.
 #: euphorie/content/help.py:16
 msgid "help_help_introduction"
@@ -2617,8 +2506,7 @@ msgstr ""
 msgid "label_sessions"
 msgstr ""
 
-#. Default: Describe the session handling. This text is linked from the
-#. session
+#. Default: Describe the session handling. This text is linked from the session
 #. overview page.
 #: euphorie/content/help.py:33
 msgid "help_sessions"
@@ -2630,8 +2518,7 @@ msgstr ""
 msgid "help_preparation"
 msgstr ""
 
-#. Default: Document the identification phase. This information is linked from
-#. all
+#. Default: Document the identification phase. This information is linked from all
 #. identification related pages
 #: euphorie/content/help.py:50
 msgid "help_identification"
@@ -2648,8 +2535,7 @@ msgstr ""
 msgid "label_actionplan"
 msgstr "Akční plán"
 
-#. Default: Document the action plan phase. This information is linked from
-#. all
+#. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
 #: euphorie/content/help.py:66
 msgid "help_actionplan"
@@ -2660,8 +2546,7 @@ msgstr ""
 msgid "label_reports"
 msgstr "Zprávy"
 
-#. Default: Describe the reporting options. This page is linked from report
-#. page.
+#. Default: Describe the reporting options. This page is linked from report page.
 #: euphorie/content/help.py:74
 msgid "help_reports"
 msgstr ""
@@ -2704,8 +2589,7 @@ msgstr ""
 msgid "label_module_question"
 msgstr "Otázka"
 
-#. Default: The question to ask users if this module is optional. This has to
-#. be a
+#. Default: The question to ask users if this module is optional. This has to be a
 #. yes/no question.
 #: euphorie/content/module.py:54
 msgid "help_module_question"
@@ -2718,8 +2602,7 @@ msgstr ""
 msgid "label_image"
 msgstr "Obrazový soubor"
 
-#. Default: Upload an image. Make sure your image is of format png, jpg or gif
-#. and
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif and
 #. does not contain any special characters.
 #: euphorie/content/module.py:61 euphorie/content/risk.py:143
 #: euphorie/content/risk.py:157 euphorie/content/risk.py:167
@@ -2734,8 +2617,7 @@ msgstr ""
 msgid "label_solution_direction"
 msgstr ""
 
-#. Default: This information will be shown to users when they enter this
-#. module
+#. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
 #: euphorie/content/module.py:68
 msgid "help_solution_direction"
@@ -2759,10 +2641,8 @@ msgstr "Obsah stránky"
 msgid "label_profilequestion_question"
 msgstr "Otázka"
 
-#. Default: If this is to be an "optional" profile question, it must be
-#. formulated
-#. as a question and be answerable with YES or NO. If this is to be a
-#. "repeatable"
+#. Default: If this is to be an "optional" profile question, it must be formulated
+#. as a question and be answerable with YES or NO. If this is to be a "repeatable"
 #. profile question (statement), it must be formulated as a prompt to fill in
 #. multiple values.
 #: euphorie/content/profilequestion.py:36
@@ -2799,8 +2679,7 @@ msgstr ""
 msgid "label_problem_description"
 msgstr ""
 
-#. Default: This is the inverse of the statement: a short description of
-#. current
+#. Default: This is the inverse of the statement: a short description of current
 #. (bad) situation.
 #: euphorie/content/risk.py:55
 msgid "help_problem_description"
@@ -2811,8 +2690,7 @@ msgstr ""
 msgid "label_description"
 msgstr "Popis"
 
-#. Default: Describe the risk. Include any relevant information that may be
-#. helpful
+#. Default: Describe the risk. Include any relevant information that may be helpful
 #. for users.
 #: euphorie/content/risk.py:64
 msgid "help_risk_description"
@@ -2844,10 +2722,8 @@ msgstr "Nabídnout možnost 'nevztahuje se' vedle standardních možností ano/n
 msgid "label_risk_type"
 msgstr "Typ rizika"
 
-#. Default: 'Risk' is related to the workplace. 'Policy' is related to
-#. agreements,
-#. procedures and management decisions. It can be answered from behind a desk
-#. (no
+#. Default: 'Risk' is related to the workplace. 'Policy' is related to agreements,
+#. procedures and management decisions. It can be answered from behind a desk (no
 #. need to examine the workplace). 'Top 5' is one of the top five risks of the
 #. sector.
 #: euphorie/content/risk.py:91
@@ -2894,8 +2770,7 @@ msgstr "Kalkulováno"
 msgid "label_default_priority"
 msgstr "Výchozí priorita"
 
-#. Default: You can help the user by selecting a default priority. The user
-#. can
+#. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
 #: euphorie/content/risk.py:122
 msgid "help_default_priority"
@@ -2911,8 +2786,7 @@ msgstr "Žádné výchozí nastavení"
 msgid "header_main_image"
 msgstr "Hlavní obrázek"
 
-#. Default: The main image will get a more prominent position in the client
-#. than
+#. Default: The main image will get a more prominent position in the client than
 #. the other images.
 #: euphorie/content/risk.py:136
 msgid "intro_main_image"
@@ -2965,8 +2839,7 @@ msgstr "Uveďte, jak často se riziko objevuje v běžné situaci."
 msgid "label_default_probability"
 msgstr "Výchozí pravděpodobnost"
 
-#. Default: Indicate how likely occurence of this risk is in a normal
-#. situation.
+#. Default: Indicate how likely occurence of this risk is in a normal situation.
 #: euphorie/content/risk.py:228
 msgid "help_default_probability"
 msgstr ""
@@ -2997,8 +2870,7 @@ msgstr "Vysoká (velmi vysoká) závažnost"
 msgid "header_evaluation"
 msgstr "Vyhodnocení"
 
-#. Default: You can specify how the risks priority is evaluated. For more
-#. details
+#. Default: You can specify how the risks priority is evaluated. For more details
 #. see the online manual.
 #: euphorie/content/risk.py:275 euphorie/content/risk.py:289
 msgid "intro_evaluation"
@@ -3037,15 +2909,13 @@ msgstr ""
 msgid "help_measure_action_plan"
 msgstr ""
 
-#. Default: Describe what can be done to prevent this risk from (re)occuring.
-#. This
+#. Default: Describe what can be done to prevent this risk from (re)occuring. This
 #. information will be copied to the measure.
 #: euphorie/content/solution.py:37
 msgid "help_measure_prevention_plan"
 msgstr ""
 
-#. Default: Describe the standard requirements for the action plan and
-#. prevention
+#. Default: Describe the standard requirements for the action plan and prevention
 #. plan. This information will be copied to the measure.
 #: euphorie/content/solution.py:45
 msgid "help_measure_requirements"
@@ -3061,8 +2931,7 @@ msgstr "Běžné řešení"
 msgid "label_survey_title"
 msgstr "Název verze"
 
-#. Default: This is the title of this survey version. This name is never shown
-#. to
+#. Default: This is the title of this survey version. This name is never shown to
 #. users.
 #: euphorie/content/survey.py:48 euphorie/content/survey.py:167
 msgid "help_survey_title"
@@ -3073,12 +2942,9 @@ msgstr ""
 msgid "label_introduction"
 msgstr "Úvodní text"
 
-#. Default: The introduction text is shown when starting a new survey session.
-#. If
-#. no introduction is provided here a standard text will be shown.Please keep
-#. this
-#. text brief so it will easily fit on screens of small devices such as phones
-#. and
+#. Default: The introduction text is shown when starting a new survey session. If
+#. no introduction is provided here a standard text will be shown.Please keep this
+#. text brief so it will easily fit on screens of small devices such as phones and
 #. PDAs
 #: euphorie/content/survey.py:58
 msgid "help_introduction"
@@ -3104,8 +2970,7 @@ msgstr ""
 msgid "label_classification_code"
 msgstr ""
 
-#. Default: A code identifying this sector. Classification codes are defined
-#. by
+#. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
 #: euphorie/content/survey.py:83
 msgid "help_classification_code"
@@ -3129,8 +2994,7 @@ msgstr ""
 msgid "label_title"
 msgstr "Název"
 
-#. Default: The title of this survey. This title is used in the survey
-#. overview in
+#. Default: The title of this survey. This title is used in the survey overview in
 #. the clients.
 #: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
@@ -3172,8 +3036,7 @@ msgstr "Zrušená nepublikovaná akce."
 msgid "label_sector_title"
 msgstr "Název sektoru."
 
-#. Default: If you do not specify a title it will be taken from the input
-#. file.
+#. Default: If you do not specify a title it will be taken from the input file.
 #: euphorie/content/upload.py:66
 msgid "help_sector_title"
 msgstr "Pokud nespecifikujete název, bude použit ze vstupního souboru."
@@ -3353,8 +3216,8 @@ msgstr "Strana"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid ""
-"The basic architecture of an Online interactive Risk Assessment consists of:"
-" - profile questions (questions defining the company profile) - modules and "
+"The basic architecture of an Online interactive Risk Assessment consists of: "
+"- profile questions (questions defining the company profile) - modules and "
 "potentially sub-modules - risks (positive statements) Profile questions are "
 "used to determine whether particular modules apply to the end user at all "
 "(OPTIONAL), or whether they should be repeated a number of times "
@@ -3365,8 +3228,8 @@ msgid ""
 "than one option to a repeatable profile question then the corresponding "
 "module will be repeated the specified number of times."
 msgstr ""
-"Základní architektura Online interaktivního vyhodnocení rizik se skládá: - z"
-" profilových otázek (otázky definující profil společnosti) - moduly a "
+"Základní architektura Online interaktivního vyhodnocení rizik se skládá: - z "
+"profilových otázek (otázky definující profil společnosti) - moduly a "
 "případně dílčí moduly - rizika (kladná prohlášení) Profilové otázky se "
 "používají k určení, zda se konkrétní moduly vůbec vztahují na koncového "
 "uživatele (VOLITELNÉ) nebo zda by se měly několikrát opakovat "
@@ -3436,8 +3299,8 @@ msgstr "Pracovní postup sektoru"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to"
-" the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
 "Jednostavový pracovní postup pro objekty sektoru, poskytující editační "
 "přístup uživateli sektoru ke svému obsahu."
@@ -3485,8 +3348,7 @@ msgstr "Text ${online_help} je také možno měnit."
 msgid "documentation_online_help_online_help"
 msgstr "online pomoc"
 
-#. Default: Pages created in the ${appendix} folder are available via links in
-#. the
+#. Default: Pages created in the ${appendix} folder are available via links in the
 #. footer of the online client.
 #: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
@@ -3683,13 +3545,10 @@ msgstr "Kontaktní osoba"
 #: euphorie/content/templates/settings.pt:81
 msgid "help_sector_password"
 msgstr ""
-"Toto je heslo, které potřebujete k přihlášení do tohoto editačního "
-"prostředí."
+"Toto je heslo, které potřebujete k přihlášení do tohoto editačního prostředí."
 
-#. Default: You may get the best results if you upload a logo as a
-#. ${transparent}
-#. PNG file of at least 100 pixels in height. Uploading larger images is fine,
-#. the
+#. Default: You may get the best results if you upload a logo as a ${transparent}
+#. PNG file of at least 100 pixels in height. Uploading larger images is fine, the
 #. logo will be scaled down to the right size automatically.
 #: euphorie/content/templates/settings.pt:74
 msgid "logo_instructions"
@@ -3714,10 +3573,8 @@ msgstr "Moje vlastní"
 msgid "label_logo_selection"
 msgstr "Které logo byste chtěl/a zobrazit v levém horním rohu?"
 
-#. Default: The logo will appear on both the client side app that your user
-#. group
-#. will see as well as on this editor environment in the top left corner. Make
-#. sure
+#. Default: The logo will appear on both the client side app that your user group
+#. will see as well as on this editor environment in the top left corner. Make sure
 #. your image is of format png, jpg or gif and does not contain any special
 #. characters. The new logo will only become visible after you've saved your
 #. changes.
@@ -3735,12 +3592,11 @@ msgstr ""
 #: euphorie/content/templates/settings.pt:36
 msgid "help_colour_picker"
 msgstr ""
-"Použijte paletu barev níže k volbě barev vaší organizace. Je nejlepší použít"
-" tmavší odstín pro hlavní barvu a světlejší odstín pro podpůrnou barvu."
+"Použijte paletu barev níže k volbě barev vaší organizace. Je nejlepší použít "
+"tmavší odstín pro hlavní barvu a světlejší odstín pro podpůrnou barvu."
 
 #. Default: The colours you select here apply only for the client side of the
-#. application. Try to pick colours that have high enough contrast to keep the
-#. text
+#. application. Try to pick colours that have high enough contrast to keep the text
 #. on each button legible.
 #: euphorie/content/templates/settings.pt:33
 msgid "help_sector_colours"
@@ -4063,8 +3919,7 @@ msgstr "Potenciální kandidátské země"
 msgid "Regions"
 msgstr "Regiony"
 
-#. Default: ${label} = This version has changes that are currently
-#. unpublished.
+#. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
 #: euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
