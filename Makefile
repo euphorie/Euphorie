@@ -27,8 +27,8 @@ EXTRAS		= $(JS_DIR)/libraries/jquery.hoverIntent.js \
 		  $(JS_DIR)/libraries/fancybox/jquery.fancybox-1.3.1.pack.js \
 		  $(JS_DIR)/libraries/fancybox/jquery.mousewheel-3.0.2.pack.js 
 
-EUPHORIE_PO_FILES	= $(wildcard buildout/src/Euphorie/euphorie/deployment/locales/*/LC_MESSAGES/euphorie.po)
-PLONE_PO_FILES	= $(wildcard buildout/src/Euphorie/euphorie/deployment/locales/*/LC_MESSAGES/plone.po)
+EUPHORIE_PO_FILES	= $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/euphorie.po)
+PLONE_PO_FILES	= $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/plone.po)
 MO_FILES	= $(EUPHORIE_PO_FILES:.po=.mo) $(PLONE_PO_FILES:.po=.mo)
 
 TARGETS		= $(CSS_TARGETS) $(JS_TARGETS) $(MO_FILES)
@@ -38,25 +38,25 @@ all: ${TARGETS}
 clean:
 	-rm ${TARGETS}
 
-buildout/bin/buildout: buildout/bootstrap.py
-	cd buildout ; $(PYTHON) bootstrap.py
+bin/buildout: bootstrap.py
+	$(PYTHON) bootstrap.py
 
-buildout/bin/test buildout/bin/sphinx-build: buildout/bin/buildout buildout/buildout.cfg buildout/versions.cfg buildout/devel.cfg
-	cd buildout ; bin/buildout -c devel.cfg
+bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg
+	bin/buildout -c devel.cfg
 
-check:: buildout/bin/test
-	cd buildout ; bin/test
+check:: bin/test
+	bin/test
 
-check:: buildout/bin/sphinx-build
-	$(MAKE) -C buildout/src/Euphorie/docs linkcheck
+check:: bin/sphinx-build
+	$(MAKE) -C docs linkcheck
 
 $(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${JQUERY_UI} ${EXTRAS} $(JS_DIR)/behaviour/markup.js
 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
 
-$(EUPHORIE_PO_FILES): buildout/src/Euphorie/euphorie/deployment/locales/euphorie.pot
+$(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
 	msgmerge --update $@ $<
 
-$(PLONE_PO_FILES): buildout/src/Euphorie/euphorie/deployment/locales/plone.pot
+$(PLONE_PO_FILES): src/euphorie/deployment/locales/plone.pot
 	msgmerge --update $@ $<
 
 %.min.css: %.css

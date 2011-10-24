@@ -1,0 +1,15 @@
+include *.rst
+recursive-include src/euphorie *.zcml
+recursive-include src/euphorie/deployment/locales *.mo
+recursive-include src/euphorie/deployment/locales *.po
+recursive-include src/euphorie/deployment *.ini
+graft docs
+prune docs/.build
+graft src/euphorie/client/profiles
+graft src/euphorie/client/templates
+graft src/euphorie/content/profiles
+graft src/euphorie/content/templates
+graft src/euphorie/deployment/profiles
+graft src/euphorie/deployment/browser/templates
+graft src/euphorie/deployment/tiles/templates
+
