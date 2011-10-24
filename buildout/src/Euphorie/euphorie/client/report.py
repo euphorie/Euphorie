@@ -145,7 +145,7 @@ class _HtmlToRtf(object):
             return [Paragraph(default_style, self.escape(text))]
 
         output = []
-        for node in doc.iter(tag=etree.Element):
+        for node in doc.find('body'):
             output.extend(self.handleElement(node, default_style))
 
         return output

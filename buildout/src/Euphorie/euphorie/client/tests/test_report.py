@@ -59,7 +59,8 @@ class HtmlToRtfTests(unittest.TestCase):
         from rtfng.Renderer import Renderer
         document = Document()
         section = Section()
-        section.append(*output)
+        for o in output:
+            section.append(o)
         document.Sections.append(section)
         renderer = Renderer()
         renderer.Write(document, StringIO())  # Setup instance variables
@@ -108,3 +109,10 @@ class HtmlToRtfTests(unittest.TestCase):
                 "Simple \r clean\\par" in
                 self.render(self.HtmlToRtf(u"<p>Simple &#13; clean</p>",
                                            u"<stylesheet>")))
+
+    def test_link_in_text(self):
+        # This demonstrates TNO Euphorie ticket 186
+        html = '<p>Check the <a rel="nofollow">manual</a> for more info.</p>'
+        rendering = self.render(self.HtmlToRtf(html, '<stylesheet>'))
+        self.assertTrue('Check the manual for more info.' in rendering)
+        self.assertEqual(rendering.count('more info'), 1)

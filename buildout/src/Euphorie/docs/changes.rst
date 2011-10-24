@@ -53,6 +53,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix HTML->RTF conversion to not duplicate texts of links/bold/italic text
+  in descriptions.
+  [wichert]
+
 - Fix survey tree update code to also rebuild the session for all tree changes
   instead of only profile changes. This fixes problems KeyErrors that appeared
   after publishing a survey which removes modules or risks.
