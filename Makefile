@@ -1,5 +1,5 @@
 YUICOMPRESS	?= yui-compressor
-PYTHON		?= python
+PYTHON		?= python2.6
 
 CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
 CSS_DIR		= Prototype/style/main
@@ -44,11 +44,14 @@ bin/buildout: bootstrap.py
 bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg
 	bin/buildout -c devel.cfg
 
-check:: bin/test
+check:: bin/test ${MO_FILES}
 	bin/test
 
 check:: bin/sphinx-build
 	$(MAKE) -C docs linkcheck
+
+jenkins: bin/test bin/sphinx-build ${MO_FILES}
+	bin/test --xml -s euphorie
 
 $(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${JQUERY_UI} ${EXTRAS} $(JS_DIR)/behaviour/markup.js
 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
@@ -65,6 +68,6 @@ $(PLONE_PO_FILES): src/euphorie/deployment/locales/plone.pot
 .po.mo:
 	msgfmt -c --statistics -o $@~ $< && mv $@~ $@
 
-.PHONY: all clean
+.PHONY: all clean jenkins
 .SUFFIXES:
 .SUFFIXES: .po .mo .css .min.css
