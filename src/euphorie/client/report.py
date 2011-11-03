@@ -337,16 +337,23 @@ class IdentificationReportDownload(grok.View):
                 }
 
         for node in self.getNodes():
+            has_risk = node.type == 'risk' and node.identification == 'no'
+            zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
+            show_problem_description = has_risk and \
+                    zodb_node.problem_description and \
+                            zodb_node.problem_description.strip()
+            if show_problem_description:
+                title = zodb_node.problem_description.strip()
+            else:
+                title = node.title
             section.append(
                     Paragraph(header_styles[node.depth],
-                              u"%s %s" % (node.number, node.title)))
+                              u'%s %s' % (node.number, title)))
+
             if node.type != "risk":
                 continue
 
-            zodb_node = survey.restrictedTraverse(node.zodb_path.split("/"))
-            if node.identification == "no" and not (
-                    zodb_node.problem_description and \
-                            zodb_node.problem_description.strip()):
+            if has_risk and not show_problem_description:
                 section.append(Paragraph(warning_style,
                     t(_("warn_risk_present",
                         default=u"You responded negatively to the above "
@@ -587,16 +594,24 @@ class ActionPlanReportDownload(grok.View):
                 }
 
         for node in self.getNodes():
+            has_risk = node.type == 'risk' and node.identification == 'no'
+            zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
+            show_problem_description = has_risk and \
+                    zodb_node.problem_description and \
+                            zodb_node.problem_description.strip()
+            if show_problem_description:
+                title = zodb_node.problem_description.strip()
+            else:
+                title = node.title
+
             section.append(Paragraph(header_styles[node.depth],
-                u"%s %s" % (node.number, node.title)))
+                u"%s %s" % (node.number, title)))
 
             if node.type != "risk":
                 continue
 
             zodb_node = survey.restrictedTraverse(node.zodb_path.split("/"))
-            if node.identification == "no" and not (
-                    zodb_node.problem_description and
-                    zodb_node.problem_description.strip()):
+            if has_risk and not show_problem_description:
                 section.append(Paragraph(warning_style,
                     t(_("warn_risk_present",
                         default=u"You responded negatively to the above "

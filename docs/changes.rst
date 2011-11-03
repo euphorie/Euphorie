@@ -46,12 +46,17 @@ Feature changes
   [jcbrand]
 
 - Add delete validation on a sector to check that it doesn't contain any
-  published surveys. [jcbrand]
+  published surveys.
+  [jcbrand]
 
-- Update Slovenian translations. [thomas_w]
+- Update Slovenian translations.
+  [thomas_w]
 
 Bugfixes
 ~~~~~~~~
+
+- Fix downloadable reports to correctly show a risks problem description.
+  [wichert]
 
 - Fix HTML->RTF conversion to not duplicate texts of links/bold/italic text
   in descriptions.
