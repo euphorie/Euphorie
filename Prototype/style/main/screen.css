@@ -1067,6 +1067,7 @@ ol.toc li a:after {
 .report blockquote.comments {
 	letter-spacing: 1px;
 	font: italic normal 18px Georgia, "Times New Roman", Times, serif;
+	clear: both;
 }
 
 .report blockquote.comments:before {
