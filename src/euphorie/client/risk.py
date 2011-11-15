@@ -301,9 +301,7 @@ class ActionPlanView(grok.View):
                 reply['action_plans'].append(measure)
                 if not form.validate():
                     errors  =  True
-                    plan=dict(measure)
-                    plan["errors"]=dict(form.errors._dict)
-                    reply["action_plans"].append(plan)
+                    reply['action_plans'][-1]['errors'] = dict(form.errors._dict)
                     continue
 
                 if len(measure) > 2:
