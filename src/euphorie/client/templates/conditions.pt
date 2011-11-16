@@ -7,7 +7,8 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers;
+                  isAnonymous here/portal_membership/isAnonymousUser">
   <head>
     <title i18n:translate="title_tool">OiRA</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
@@ -16,9 +17,11 @@
   <body>
     <h1 i18n:translate="header_terms">Terms and conditions</h1>
 
+    <tal:if condition="not:isAnonymous">
     <p class="message warning" i18n:translate="terms_changed" tal:condition="view/terms_changed">
-      The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding.
+    The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding.
     </p>
+    </tal:if>
     
     <form action="${request/getURL}" method="POST" class="concise">
       <fieldset class="concise">
@@ -107,7 +110,7 @@
             EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any inquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.  
           </p>
         </div>
-        <p class="buttonBar">
+        <p class="buttonBar" tal:condition="not:isAnonymous">
           <button id="agreeButton" type="submit" disabled="disabled" value="agree">Agree and continue</button>
         </p>
       </fieldset>

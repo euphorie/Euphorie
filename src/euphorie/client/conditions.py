@@ -25,12 +25,10 @@ def checkTermsAndConditions():
         return False
 
 
-
 def approvedTermsAndConditions(account=None):
     if account is None:
         account=getSecurityManager().getUser()
     return account.tc_approved is not None and account.tc_approved==CONDITIONS_VERSION
-
 
 
 class TermsAndConditions(grok.View):
@@ -42,7 +40,6 @@ class TermsAndConditions(grok.View):
 
     def terms_changed(self):
         return self.account.tc_approved is not None
-
 
     def update(self):
         self.came_from=self.request.form.get("came_from")
