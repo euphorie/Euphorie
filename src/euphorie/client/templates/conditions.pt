@@ -59,22 +59,12 @@
           </ul>
 
           <p i18n:translate="conditions_info_use_intro">
-            In addition to the above mentioned purposes, we may use the information we collect to: 
+            In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data.
           </p>
-
-          <ul>
-            <li i18n:translate="conditions_info_use_develop">
-              Provide, maintain, protect, and improve our services and develop new services.
-            </li>
-            
-            <li i18n:translate="conditions_info_use_statistics">
-              Build statistics, by using exclusively aggregated and anonymous data on the risks of a sector (any information put into the free text fields will not be used). These statistics will be passed on exclusively to the developers of the application.
-            </li>
-          </ul>
-
-          <p i18n:translate="conditions_info_not_personal">
-            In any case no personal data will be used for processing of data.
-          </p>
+          <!-- Keep these for now to not break translations. -->
+          <p i18n:translate="conditions_info_use_develop"></p>
+          <p i18n:translate="conditions_info_use_statistics"></p>
+          <p i18n:translate="conditions_info_not_personal"></p>
 
           <h2 i18n:translate="conditions_datacontroller_header">Data controller</h2>
 
