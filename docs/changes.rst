@@ -99,10 +99,15 @@ Bugfixes
   <https://github.com/euphorie/Euphorie/issues/3>`_.
   [wichert]
 
-- Fixed Terms&Conditions page for anonymouse users. [jcbrand]
+- Fixed Terms&Conditions page for anonymouse users. 
+  [jcbrand]
 
-- During action plan phase, include all measures on request when validation fails. [jcbrand]
+- During action plan phase, include all measures on request when validation fails. 
+  [jcbrand]
 
+- Updated optional modules that are now mandatory must not have their children
+  skipped.
+  [jcbrand]
 
 
 2.7 - April 26, 2011
