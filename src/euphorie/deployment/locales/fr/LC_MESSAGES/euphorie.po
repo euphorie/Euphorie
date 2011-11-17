@@ -1366,8 +1366,6 @@ msgstr "Contrôleur de données"
 #: euphorie/client/templates/conditions.pt:72
 msgid "conditions_info_not_personal"
 msgstr ""
-"En aucun cas les données personnelles seront utilisées pour le traitement "
-"des données."
 
 #. Default: Build statistics, by using exclusively aggregated and anonymous data on
 #. the risks of a sector (any information put into the free text fields will not be
@@ -1376,18 +1374,12 @@ msgstr ""
 #: euphorie/client/templates/conditions.pt:67
 msgid "conditions_info_use_statistics"
 msgstr ""
-"Construire des statistiques, en utilisant exclusivement des données ajoutées "
-"et anonymes sur les risques d'un secteur (les informations entrées dans les "
-"champs libres de l'application sont exclues de ce traitement). Ces statistiques seront "
-"exclusivement transférées aux développeurs de l'application."
 
 #. Default: Provide, maintain, protect, and improve our services and develop new
 #. services.
 #: euphorie/client/templates/conditions.pt:63
 msgid "conditions_info_use_develop"
 msgstr ""
-"Fournir, maintenir, protéger et améliorer nos services, et développer de "
-"nouveaux services."
 
 #. Default: In addition to the above mentioned purposes, we may use the information
 #. we collect to:
@@ -1395,7 +1387,8 @@ msgstr ""
 msgid "conditions_info_use_intro"
 msgstr ""
 "En plus des objectifs mentionnés ci-dessus, nous pouvons utiliser les "
-"informations que nous recueillons pour :"
+"informations que nous recueillons pour fournir, maintenir, protéger et "
+"améliorer nos services, et développer de nouveaux services."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit a
