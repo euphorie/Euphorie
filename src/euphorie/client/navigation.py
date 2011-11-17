@@ -139,7 +139,6 @@ def getTreeData(request, context, phase="identification", filter=None):
 
     result["children"]=[morph(obj) for obj in context.siblings(filter=filter)]
 
-
     if isinstance(context, model.Module):
         if not context.skip_children:
             # For modules which do not skip children, include the list of children

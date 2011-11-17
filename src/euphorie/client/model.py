@@ -7,14 +7,20 @@ from sqlalchemy import orm
 from sqlalchemy import sql
 from sqlalchemy.sql import functions
 from sqlalchemy.ext import declarative
-from euphorie.client.enum import Enum
 from z3c.saconfig import Session
+
 from zope.sqlalchemy import datamanager
-import Acquisition
-from AccessControl.PermissionRole import _what_not_even_god_should_do
-import OFS.Traversable
 from zope.interface import implements
+
+import Acquisition
+import OFS.Traversable
+from AccessControl.PermissionRole import _what_not_even_god_should_do
+
+from zope.app.component.hooks import getSite
+
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
+
+from euphorie.client.enum import Enum
 
 metadata = schema.MetaData()
 
@@ -286,29 +292,29 @@ class SurveySession(BaseObject):
     def reset(self):
         Session.query(SurveyTreeItem)\
                 .filter(SurveyTreeItem.session==self).delete()
-        self.created=self.modified=datetime.datetime.now()
+        self.created = self.modified=datetime.datetime.now()
 
 
     def touch(self):
-        self.modified=datetime.datetime.now()
+        self.modified = datetime.datetime.now()
 
 
     def addChild(self, item):
-        sqlsession=Session()
-        query=sqlsession.query(SurveyTreeItem.path)\
+        sqlsession = Session()
+        query = sqlsession.query(SurveyTreeItem.path)\
                 .filter(SurveyTreeItem.session_id==self.id)\
                 .filter(SurveyTreeItem.depth==1)\
                 .order_by(SurveyTreeItem.path.desc())
-        last=query.first()
+        last = query.first()
         if not last:
-            index=1
+            index = 1
         else:
-            index=int(last[0][-3:])+1
+            index = int(last[0][-3:])+1
 
-        item.session=self
-        item.depth=1
-        item.path="%03d" % index
-        item.parent_id=None
+        item.session = self
+        item.depth = 1
+        item.path = "%03d" % index
+        item.parent_id = None
         sqlsession.add(item)
         self.touch()
         return item
@@ -335,21 +341,33 @@ class SurveySession(BaseObject):
                           'postponed': postponed},
                          synchronize_session=False)
 
+        # Mandatory modules must have skip_children=False. It's possible that
+        # the module was optional with skip_children=True and now after the
+        # update it's mandatory. So we must check and correct.
+        survey = getSite()['client'].restrictedTraverse(self.zodb_path)
+        for item in new_items.all():
+            if item.type != 'module':
+                continue
+
+            module = survey.restrictedTraverse(item.zodb_path.split("/"))
+            if not module.optional:
+                item.skip_children = False
+
         # Copy all risk data to the new session
-# This triggers a "Only update via a single table query is currently supported"
-# error with SQLAlchemy 0.6.6
-#        old_risk = orm.aliased(Risk.__table__, name='old_risk')
-#        is_old_risk = sql.and_(in_old_tree, old_tree.id == old_risk.id)
-#        identification = sql.select([old_risk.identification], is_old_risk)
-#        new_risks = session.query(Risk)\
-#                .filter(Risk.session == self)\
-#                .filter(sql.exists(
-#                    sql.select([SurveyTreeItem.id]).where(sql.and_(
-#                            SurveyTreeItem.id == Risk.id,
-#                            sql.exists([old_tree.id]).where(sql.and_(
-#                                in_old_tree, old_tree.type == 'risk'))))))
-#        new_risks.update({'identification': identification},
-#                synchronize_session=False)
+        # This triggers a "Only update via a single table query is currently supported"
+        # error with SQLAlchemy 0.6.6
+        #        old_risk = orm.aliased(Risk.__table__, name='old_risk')
+        #        is_old_risk = sql.and_(in_old_tree, old_tree.id == old_risk.id)
+        #        identification = sql.select([old_risk.identification], is_old_risk)
+        #        new_risks = session.query(Risk)\
+        #                .filter(Risk.session == self)\
+        #                .filter(sql.exists(
+        #                    sql.select([SurveyTreeItem.id]).where(sql.and_(
+        #                            SurveyTreeItem.id == Risk.id,
+        #                            sql.exists([old_tree.id]).where(sql.and_(
+        #                                in_old_tree, old_tree.type == 'risk'))))))
+        #        new_risks.update({'identification': identification},
+        #                synchronize_session=False)
 
         statement = """UPDATE RISK
                        SET identification = (SELECT old_risk.identification
