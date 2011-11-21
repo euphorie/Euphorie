@@ -131,7 +131,7 @@
                     </select>
 
                     <label class="${python:'error' if year_error else None}"
-                      for="planning-end-year-${number}" i18n:translate="label_day">Day</label>
+                      for="planning-end-year-${number}" i18n:translate="label_year">Year</label>
                     <input type="text" name="measure.planning_end_year:records" id="planning-end-year-${number}" maxlength="4"
                       class="numeric year${python:' error' if year_error else ''}"
                       value="${actionplan/planning_end_year|actionplan/planning_end/year|nothing}"/>
