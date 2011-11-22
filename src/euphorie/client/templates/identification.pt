@@ -23,7 +23,7 @@
       You can also distribute the list among the workers and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action. Their feedback can be taken into account when filling in this tool.
     </p>
     <p i18n:translate="intro_identification">
-    You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${python:webhelpers.survey_url(phase='identification')}/report">list of all risks</a></tal:span>.
+    You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${python:webhelpers.survey_url(phase='identification')}/report" target="_blank">list of all risks</a></tal:span>.
     </p>
 
     <p>
