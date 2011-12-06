@@ -16,7 +16,7 @@ from zope.component import getMultiAdapter
 from zope.event import notify
 from zope import schema
 from five import grok
-from five.pt.pagetemplate import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.container.interfaces import INameChooser
 from plone.directives import form
 from plone.directives import dexterity

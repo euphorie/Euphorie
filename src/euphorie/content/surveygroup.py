@@ -21,7 +21,7 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
 from five import grok
-from five.pt.pagetemplate import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.i18n import translate
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.utils import createContentInContainer
