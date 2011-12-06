@@ -11,19 +11,20 @@ class SetCookieTests(unittest.TestCase):
     def testBasic(self):
         response=HTTPResponse()
         self.setCookie(response, "secret", "euphorie", "123")
-        self.assertEqual(response._cookie_list(),
-                ['Set-Cookie: euphorie="s2QukE8flTyx94ketu53fjEyMw%3D%3D"; Path=/; HTTPOnly'])
+        self.assertTrue('euphorie' in response.cookies)
+        cookie = response.cookies['euphorie']
+        self.assertTrue('expires' not in cookie)
+        self.assertEqual(cookie['path'], '/')
+        self.assertEqual(cookie['http_only'], True)
+        self.assertEqual(cookie['value'], 's2QukE8flTyx94ketu53fjEyMw==')
 
     def testTimeout(self):
         import re
         import datetime
         response=HTTPResponse()
         self.setCookie(response, "secret", "euphorie", "123", 3600)
-        # Be a bit liberal in the match and allow for different minutes and seconds
-        expires=datetime.datetime.utcnow()+datetime.timedelta(seconds=3600)
-        expires=expires.strftime("%a, %d %b %Y %H:..:.. GMT")
-        cookie='Set-Cookie: euphorie="s2QukE8flTyx94ketu53fjEyMw%%3D%%3D"; Path=/; Expires=%s; HTTPOnly$' % expires
-        self.failUnless(re.match(cookie, response._cookie_list()[0]))
+        cookie = response.cookies['euphorie']
+        self.assertTrue('expires' in cookie)
 
 
 class GetCookieTests(unittest.TestCase):
