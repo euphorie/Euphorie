@@ -55,6 +55,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix positioning of comments in the inventorisation report. This fixes 
+  TNO ticket 192.
+  [cornae]
+
 - Fix downloadable reports to correctly show a risks problem description.
   [wichert]
 
