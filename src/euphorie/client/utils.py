@@ -14,19 +14,23 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 import Globals
+from five import grok
 from AccessControl import getSecurityManager
 from zope.component import getUtility
+from zope.interface import Interface
 from plone.memoize.instance import memoize
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from euphorie.decorators import reify
 from euphorie.content.utils import StripMarkup
 from euphorie.client import MessageFactory as _
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import IClientSector
-from Products.Five.browser import BrowserView
 
 locals = threading.local()
 log = logging.getLogger(__name__)
+
+grok.templatedir('templates')
 
 
 def setRequest(request):
@@ -64,18 +68,24 @@ def jsonify(func, *args, **kwargs):
     return simplejson.dumps(data)
 
 
-class WebHelpers(BrowserView):
+class WebHelpers(grok.View):
     """Browser view with utility methods that can be used in templates.
 
     Several methods in this view assume that the current survey can be
     found as an attribute on the request. This is normally setup by the
     :py:class:`euphorie.client.survey.SurveyPublishTraverser` traverser.
     """
+    grok.context(Interface)
+    grok.layer(IClientSkinLayer)
+    grok.name('webhelpers')
+    grok.require('zope2.View')
+    grok.template('webhelpers')
+
     sector = None
 
     def __init__(self, context, request):
         super(WebHelpers, self).__init__(context, request)
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(context)):
             if IClientSector.providedBy(obj):
                 self.sector = obj
                 break

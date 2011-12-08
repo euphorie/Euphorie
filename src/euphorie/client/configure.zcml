@@ -74,15 +74,6 @@
         permission="zope2.View"
         />
 
-    <browser:page
-        for="*"
-        layer=".client.IClientSkinLayer"
-        class=".utils.WebHelpers"
-        name="webhelpers"
-        template="templates/webhelpers.pt"
-        permission="zope2.View"
-        />
-
     <genericsetup:registerProfile
         name="default"
         title="Euphorie online client"
