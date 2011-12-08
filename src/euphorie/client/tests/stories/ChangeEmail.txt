@@ -35,7 +35,7 @@ We start our story by logging in and going to the account settings page.
 
 Lets request an email address change:
 
->>> browser.getLink("Change email address").click()
+>>> browser.open("http://nohost/plone/client/nl/new-email")
 >>> browser.getControl(name="form.widgets.loginname").value="jane@doe.name"
 >>> browser.getControl(name="form.widgets.password").value=u"Øle".encode("utf-8")
 >>> browser.getControl("Save changes").click()
