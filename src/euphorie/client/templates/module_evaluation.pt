@@ -49,7 +49,7 @@
           <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
         </a>
         <tal:block define="tree view/tree">
-          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+          <metal:call use-macro="webhelpers/macros/survey_tree" />
         </tal:block>
       </li>
       <li id="step-4">

@@ -18,7 +18,7 @@
     <h1>${view/title}</h1>
 
     <div class="notice" tal:define="show_statement python:True">
-      <metal:call use-macro="webhelpers/index/macros/risk_info" />
+      <metal:call use-macro="webhelpers/macros/risk_info" />
     </div>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
@@ -149,7 +149,7 @@
           <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
         </a>
         <tal:block define="tree view/tree">
-          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+          <metal:call use-macro="webhelpers/macros/survey_tree" />
         </tal:block>
       </li>
       <li id="step-4">

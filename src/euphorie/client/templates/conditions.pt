@@ -96,7 +96,7 @@
 
           <h2 i18n:translate="conditions_contact_header">Contact information</h2>
 
-          <p i18n:translations="conditions_contact">
+          <p i18n:translate="conditions_contact">
             EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any inquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.  
           </p>
         </div>

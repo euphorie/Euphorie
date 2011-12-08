@@ -20,7 +20,7 @@
    <form method="post" action="${context/absolute_url}">
 
     <div class="warning last span-15" tal:define="show_statement python:True">
-      <metal:call use-macro="webhelpers/index/macros/risk_info" />
+      <metal:call use-macro="webhelpers/macros/risk_info" />
       <fieldset tal:define="value data/priority">
         <label i18n:translate="risk_priority">This is a <select name="priority" i18n:name="priority">
           <option value="low" selected="${python:'selected' if value=='low' else None}" i18n:translate="risk_priority_low">low priority risk</option>
@@ -43,7 +43,7 @@
 
       <dl class="accordion" id="ActionPlanItemForm">
         <tal:repeat repeat="actionplan data/action_plans">
-        <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n translate="">Measure <tal:span i18n:name="index">${repeat/actionplan/number}</tal:span></tal:i18n>
+        <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n i18n:translate="">Measure <tal:span i18n:name="index">${repeat/actionplan/number}</tal:span></tal:i18n>
             <button class="small removeButton">Remove</button>
             <a href="#standardSolutions" class="button small solutions" tal:condition="python:view.solutions" i18n:translate="">Standard solutions</a> 
           </dt>
@@ -161,7 +161,7 @@
     </form>
 
     <dl style="display: none" id="measureTemplate">
-      <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n translate="">Measure <tal:span i18n:name="index">1</tal:span></tal:i18n>
+      <dt class="${python:'error' if exists('actionplan/errors') else None}"><tal:i18n i18n:translate="">Measure <tal:span i18n:name="index">1</tal:span></tal:i18n>
         <button class="small removeButton">Remove</button>
         <a href="#standardSolutions" class="button small solutions" tal:condition="python:view.solutions" i18n:translate="">Standard solutions</a> 
       </dt>
@@ -254,7 +254,7 @@
           <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
         </a>
         <tal:block define="tree view/tree">
-          <metal:call use-macro="webhelpers/index/macros/survey_tree" />
+          <metal:call use-macro="webhelpers/macros/survey_tree" />
         </tal:block>
       </li>
       <li id="step-5">

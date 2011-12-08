@@ -34,7 +34,7 @@
           <button class="micro" 
                     title="Remove this survey from the online client." 
                     i18n:attributes="title title_help_unpublished" 
-                    disabled="${python:'disabled' if not group.published else None}" 
+                    disabled="${python:'disabled' if not group['published'] else None}" 
                     id="${group/id}"
                     type="submit" 
                     name="action" 
@@ -43,14 +43,14 @@
         </fieldset>
 
         <ul class="radioList surveyVersions">
-          <li tal:repeat="survey group/surveys" class="${python:' '.join(filter(None, ['current' if survey.current else None, 'published' if survey.published else None]))}">
-            <em tal:condition="python:survey.current and not survey.published" class="sample current" i18n:translate="label_current">Current</em>
-            <em tal:condition="python:not survey.current and survey.published" class="sample published" i18n:translate="label_published">Published</em>
-            <em tal:condition="python:survey.current and survey.published" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
+          <li tal:repeat="survey group/surveys" class="${python:' '.join(filter(None, ['current' if survey['current'] else None, 'published' if survey['published'] else None]))}">
+            <em tal:condition="python:survey['current'] and not survey['published']" class="sample current" i18n:translate="label_current">Current</em>
+            <em tal:condition="python:not survey['current'] and survey['published']" class="sample published" i18n:translate="label_published">Published</em>
+            <em tal:condition="python:survey['current'] and survey['published']" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
             <input type="radio" 
                    name="survey" 
                    value="${survey/id}" 
-                   checked="${python:'checked' if survey.published else None}"
+                   checked="${python:'checked' if survey['published'] else None}"
                    tal:attributes="onclick string:toggle_unpublish_button('${group/id}', '${not:survey/published}')"/>
 
             <label><a href="${survey/url}">${survey/title}</a></label>
