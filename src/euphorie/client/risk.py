@@ -42,7 +42,7 @@ class IdentificationView(grok.View):
             reply = self.request.form
             answer = reply.get("answer")
             self.context.postponed = (answer=="postponed")
-            if self.context.postoned:
+            if self.context.postponed:
                 self.context.identification = None
             else:
                 self.context.identification = answer
