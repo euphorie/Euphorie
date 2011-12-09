@@ -101,6 +101,7 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         if not login or not password:
             return None
 
+        login = login.lower()
         accounts = Session().query(model.Account)\
                 .filter(model.Account.loginname==login)\
                 .filter(model.Account.password==password).count()
@@ -112,6 +113,7 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     # IUserFactoryPlugin implementation
     @graceful_recovery()
     def createUser(self, user_id, name):
+        name = name.lower()
         account=Session().query(model.Account)\
                 .filter(model.Account.loginname==name).first()
         return account
@@ -164,7 +166,6 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     #
     def _isKnownAccount(self, loginname):
         """Utility function to check if a loginname is valid."""
-
         viewname=createViewName("_isKnownAccount", loginname)
         keywords=dict(login=loginname)
         result=self.ZCacheable_get(view_name=viewname, keywords=keywords,

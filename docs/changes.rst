@@ -17,6 +17,9 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Ignore case when checking the email address for client logins.
+  [wichert]
+
 - Use a better standard solution selector in the client. This fixes
   `github ticket 5 <https://github.com/euphorie/Euphorie/issues/5>`_.
   [cornae, wichert]

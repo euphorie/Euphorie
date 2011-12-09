@@ -74,7 +74,7 @@ class LoginView(grok.View):
 
             user = getSecurityManager().getUser()
             if isinstance(user, model.Account) and \
-                    user.getId() == reply.get("__ac_name"):
+                    user.getId() == reply.get("__ac_name", '').lower():
                 pas = getToolByName(self.context, "acl_users")
                 pas.updateCredentials(self.request, self.request.response,
                         user.getId(), reply.get("__ac_password", ""))
@@ -189,6 +189,7 @@ class Register(grok.View):
             return False
 
         session = Session()
+        loginname = loginname.lower()
         account = session.query(model.Account)\
                 .filter(model.Account.loginname == loginname).count()
         if account:
@@ -202,7 +203,7 @@ class Register(grok.View):
                 default=u"An account with this email address already exists.")
             return False
 
-        account = model.Account(loginname=reply.get("email"),
+        account = model.Account(loginname=loginname,
                                 password=reply.get("password1"))
         Session().add(account)
         log.info("Registered new account %s", loginname)

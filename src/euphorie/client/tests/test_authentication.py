@@ -45,6 +45,16 @@ class EuphorieAccountPluginTests(DatabaseTests):
         self.failUnless(isinstance(info[0], str))
         self.failUnless(isinstance(info[1], str))
 
+    def testAuthenticate_not_case_sensitive(self):
+        session=Session()
+        account=model.Account(loginname="john", password=u"jane")
+        session.add(account)
+        plugin=EuphorieAccountPlugin("plugin")
+        info=plugin.authenticateCredentials({'login': 'JoHn', 'password': u'jane'})
+        self.assertEqual(info, ("john", "john"))
+        self.failUnless(isinstance(info[0], str))
+        self.failUnless(isinstance(info[1], str))
+
     def testCreateUser_Interface(self):
         from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
         from zope.interface.verify import verifyClass

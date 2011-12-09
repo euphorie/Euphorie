@@ -1,7 +1,14 @@
 import logging
+from sqlalchemy.sql import func
 from htmllaundry import StripMarkup
 from Products.CMFCore.utils import getToolByName
 from euphorie.content.risk import EnsureInterface
+from z3c.saconfig import Session
+from euphorie.deployment.upgrade.utils import TableExists
+from euphorie.client import model
+from zope.sqlalchemy import datamanager
+import transaction
+
 
 log = logging.getLogger(__name__)
 
@@ -36,12 +43,6 @@ def convert_solution_description_to_text(context):
 
 
 def add_wp_column_to_company(context):
-    from z3c.saconfig import Session
-    from euphorie.deployment.upgrade.utils import TableExists
-    from euphorie.client import model
-    from zope.sqlalchemy import datamanager
-    import transaction
-
     session=Session()
     if TableExists(session, "company"):
         session.execute("ALTER TABLE company ADD workers_participated bool NULL")
@@ -51,3 +52,10 @@ def add_wp_column_to_company(context):
 
     log.info("Added new column 'workers_participated' to table 'company'")
 
+
+def lowercase_login(context):
+    session = Session()
+    session.query(model.Account).update(
+                    {'loginname': func.lower(model.Account.loginname)},
+                    synchronize_session=False)
+    datamanager.mark_changed(session)

@@ -94,3 +94,29 @@ class convert_solution_description_to_text_tests(EuphorieTestCase):
         self.convert_solution_description_to_text(self.portal)
         self.assertEqual(solution.description,
                 u'This is my description.')
+
+
+class lowercase_login_tests(EuphorieTestCase):
+    def lowercase_login(self, *a, **kw):
+        from euphorie.deployment.upgrade.v3 import lowercase_login
+        return lowercase_login(*a, **kw)
+
+    def test_already_lowercase(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import Account
+        session = Session()
+        account = Account(loginname='jane@example.com', password=u'john')
+        session.add(account)
+        self.lowercase_login(None)
+        session.expire(account)
+        self.assertEqual(account.loginname, 'jane@example.com')
+
+    def test_uppercase_login(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import Account
+        session = Session()
+        account = Account(loginname='JaNe@ExAmPlE.CoM', password=u'john')
+        session.add(account)
+        self.lowercase_login(None)
+        session.expire(account)
+        self.assertEqual(account.loginname, 'jane@example.com')

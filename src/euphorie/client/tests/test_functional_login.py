@@ -5,6 +5,22 @@ from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
 
 
+class LoginTests(EuphorieFunctionalTestCase):
+    def test_login_not_case_sensitive(self):
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import addAccount
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        addAccount(password='secret')
+        browser = Browser()
+        browser.open(self.portal.client.nl.absolute_url())
+        browser.getControl(name='__ac_name').value = 'JANE@example.com'
+        browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
+        browser.getControl(name="next").click()
+        self.assertTrue('@@login' not in browser.url)
+
+
 class RegisterTests(EuphorieTestCase):
     def afterSetUp(self):
         from zope.interface import alsoProvides
@@ -12,6 +28,15 @@ class RegisterTests(EuphorieTestCase):
         super(RegisterTests, self).afterSetUp()
         self.loginAsPortalOwner()
         alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)
+
+    def test_lowercase_email(self):
+        view = self.portal.client.restrictedTraverse("register")
+        view.errors = {}
+        view.request.form['email'] = 'JANE@example.com'
+        view.request.form['password1'] = 'secret'
+        view.request.form['password2'] = 'secret'
+        account = view._tryRegistration()
+        self.assertEqual(account.loginname, 'jane@example.com')
 
     def testConflictWithPloneAccount(self):
         view = self.portal.client.restrictedTraverse("register")
