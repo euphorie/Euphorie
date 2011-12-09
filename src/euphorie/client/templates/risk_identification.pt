@@ -23,6 +23,7 @@
         <label><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
         <label tal:condition="risk/show_notapplicable"><input type="radio" name="answer" value="n/a"
           checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
+        <label><input type="radio" name="answer" value="postponed" checked="${python:'checked' if context.identification is None and context.postponed else None}"/><tal:span i18n:translate="label_unknown">Currently unknown</tal:span></label>
       </fieldset>
       
       <p class="buttonBar">

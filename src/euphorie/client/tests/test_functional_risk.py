@@ -77,3 +77,30 @@ class RiskTests(EuphorieFunctionalTestCase):
                 "http://nohost/plone/client/nl/ict/software-development/actionplan/1/1")
         self.assertTrue("Please enter a valid year after 1900" in browser.contents)
 
+    def test_set_unknown_answer_if_skipped(self):
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        # Register in the client 
+        browser = Browser()
+        survey_url = self.portal.client.nl['ict']['software-development']\
+                .absolute_url()
+        browser.open(survey_url)
+        registerUserInClient(browser)
+        # Create a new survey session
+        browser.getControl(name='title:utf8:ustring').value = u'Session'
+        browser.getControl(name='next', index=1).click()
+        # Start the survey
+        browser.getForm().submit()
+        browser.getLink('Start Risk Identification').click()
+        browser.getControl('next').click()
+        # No answer should be set on initial view
+        self.assertEqual(browser.getControl(name='answer').value, [])
+        # Do not give an identification answer
+        risk_url =  browser.url
+        browser.getControl('next').click()
+        # Go back and check the new answer
+        browser.open(risk_url)
+        self.assertEqual(
+                browser.getControl(name='answer').value,
+                ['postponed'])

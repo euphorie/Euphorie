@@ -17,6 +17,10 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add an *Currently unknown* option for risk identification. This can be
+  used to remove an existing answer.
+  [wichert]
+
 - Ignore case when checking the email address for client logins.
   [wichert]
 
