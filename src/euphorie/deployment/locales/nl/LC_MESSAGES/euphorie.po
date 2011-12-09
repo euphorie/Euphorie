@@ -307,22 +307,22 @@ msgstr ""
 #. Default: low priority risk
 #: euphorie/client/report.py:620
 msgid "report_priority_low"
-msgstr "risico met lage prioriteit"
+msgstr "laag"
 
 #. Default: medium priority risk
 #: euphorie/client/report.py:623
 msgid "report_priority_medium"
-msgstr "risico met gemiddelde prioriteit"
+msgstr "gemiddeld"
 
 #. Default: high priority risk
 #: euphorie/client/report.py:626
 msgid "report_priority_high"
-msgstr "risico met hoge prioriteit"
+msgstr "hoog"
 
 #. Default: This is a
 #: euphorie/client/report.py:629
 msgid "report_priority"
-msgstr "Dit is een "
+msgstr "Dit is een risico in de categorie: "
 
 #. Default: Measure
 #: euphorie/client/report.py:639
@@ -1827,31 +1827,30 @@ msgstr "Rapportage"
 #: euphorie/client/templates/report_actionplan.pt:92
 #: euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
-msgstr "Dit is een ${priority}."
+msgstr "Dit is een risico in de categorie ${priority}."
 
 #. Default: high priority risk
 #: euphorie/client/templates/report_actionplan.pt:96
 #: euphorie/client/templates/risk_actionplan.pt:28
 msgid "risk_priority_high"
-msgstr "risico met hoge prioriteit"
+msgstr "hoog"
 
 #. Default: medium priority risk
 #: euphorie/client/templates/report_actionplan.pt:95
 #: euphorie/client/templates/risk_actionplan.pt:27
 msgid "risk_priority_medium"
-msgstr "risico met gemiddelde prioriteit"
+msgstr "gemiddeld"
 
 #. Default: low priority risk
 #: euphorie/client/templates/report_actionplan.pt:94
 #: euphorie/client/templates/risk_actionplan.pt:26
 msgid "risk_priority_low"
-msgstr "risico met lage prioriteit"
+msgstr "laag"
 
 #. Default: Workers were invited to participate in the risk assessment
 #: euphorie/client/templates/report_actionplan.pt:61
-#, fuzzy
 msgid "label_workers_participated"
-msgstr "Naam"
+msgstr ""
 
 #. Default: health and safety experts
 #: euphorie/client/templates/report_actionplan.pt:57
@@ -2127,7 +2126,7 @@ msgstr "Laag"
 #. Default: Select the priority of this risk
 #: euphorie/client/templates/risk_evaluation.pt:109
 msgid "header_risk_priority"
-msgstr "Geef de prioriteit van dit risico aan"
+msgstr "Geef de categorie van dit risico aan"
 
 #. Default: Minimum once per day
 #: euphorie/client/templates/risk_evaluation.pt:100
@@ -2997,9 +2996,8 @@ msgstr "Steunkleur"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
-msgstr "Er zijn geen branches of sectoren voor dit land."
+msgstr ""
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
@@ -3089,10 +3087,8 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
 msgstr ""
-"De laatste (enige) versie van de branche-RI&E kan niet verwijderd worden."
 
 #. Default: You can not delete the only survey version.
 #: euphorie/content/survey.py:249

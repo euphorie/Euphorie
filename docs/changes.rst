@@ -17,6 +17,9 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change risk priority terminology in Dutch.
+  [wichert]
+
 - Add an *Currently unknown* option for risk identification. This can be
   used to remove an existing answer.
   [wichert]
