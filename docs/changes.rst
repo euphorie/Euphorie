@@ -17,6 +17,10 @@ profile to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add a timeline export for the action plan: this generates an xlsx file
+  with all measures for all risks.
+  [wichert]
+
 - Change risk priority terminology in Dutch.
   [wichert]
 
