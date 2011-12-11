@@ -133,16 +133,6 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         dbsession.add(session)
         return session
 
-    def _convert_xls(self, book):
-        from cStringIO import StringIO
-        import xlrd
-        output = StringIO()
-        book.save(output)
-        readable_book = xlrd.open_workbook(
-                file_contents=output.getvalue(),
-                on_demand=True)
-        return readable_book
-
     def test_get_measures_return_risks_without_measures(self):
         from z3c.saconfig import Session
         from euphorie.client.model import Risk
@@ -208,13 +198,12 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         view = self.ActionPlanTimeline(None, None)
         view.get_measures = lambda: []
         book = view.create_workbook()
-        self.assertRaises(IndexError, book.get_sheet, 1)
-        sheet = book.get_sheet(0)
+        self.assertEqual(len(book.worksheets), 1)
+        sheet = book.worksheets[0]
         self.assertEqual(len(sheet.rows), 1)
 
     def test_create_workbook_plan_information(self):
         import datetime
-        import xlrd
         from euphorie.client.model import Risk
         from euphorie.client.model import ActionPlan
         risk = Risk(zodb_path='1', risk_id='1', identification='no')
@@ -223,26 +212,24 @@ class ActionPlanTimelineTests(EuphorieTestCase):
                            budget=500)
         view = self.ActionPlanTimeline(None, None)
         view.get_measures = lambda: [(risk, plan)]
-        book = view.create_workbook()
-        book = self._convert_xls(book)
-        row = book.get_sheet(0).row(1)
+        sheet = view.create_workbook().worksheets[0]
+
         # planning start
-# XXX xlwt turns dates into numbers?
-        #self.assertEqual(row[0].ctype, xlrd.XL_CELL_DATE)
+        self.assertEqual(
+                sheet.cell('A2').value.date(),
+                datetime.date(2011, 12, 15))
         # planning end
-        self.assertEqual(row[1].ctype, xlrd.XL_CELL_EMPTY)
+        self.assertEqual(sheet.cell('B2').value, None)
         # action plan
-        self.assertEqual(row[2].ctype, xlrd.XL_CELL_TEXT)
-        self.assertEqual(row[2].value, u'Plan 2')
+        self.assertEqual(sheet.cell('C2').value, u'Plan 2')
         # prevention plan
-        self.assertEqual(row[3].ctype, xlrd.XL_CELL_EMPTY)
+        self.assertEqual(sheet.cell('D2').value, None)
         # requirements
-        self.assertEqual(row[4].ctype, xlrd.XL_CELL_EMPTY)
+        self.assertEqual(sheet.cell('E2').value, None)
         # responsible
-        self.assertEqual(row[4].ctype, xlrd.XL_CELL_EMPTY)
+        self.assertEqual(sheet.cell('F2').value, None)
         # budget
-        self.assertEqual(row[6].ctype, xlrd.XL_CELL_NUMBER)
-        self.assertEqual(row[6].value, 500)
+        self.assertEqual(sheet.cell('G2').value, 500)
 
     def test_render_value(self):
         from euphorie.client.tests.utils import testRequest
@@ -255,7 +242,8 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         response = request.response
         self.assertEqual(
                 response.headers['content-type'],
-                'application/vnd.ms-excel')
+                'application/vnd.openxmlformats-'
+                                    'officedocument.spreadsheetml.sheet')
         self.assertEqual(
                 response.headers['content-disposition'],
-                'attachment; filename="Timeline for Acme.xls"')
+                'attachment; filename="Timeline for Acme.xlsx"')

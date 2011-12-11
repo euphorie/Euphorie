@@ -1,4 +1,3 @@
-import datetime
 import logging
 import random
 from cStringIO import StringIO
@@ -14,7 +13,8 @@ from rtfng.document.paragraph import Table
 from rtfng.document.section import Section
 from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
-import xlwt
+from openpyxl.workbook import Workbook
+from openpyxl.writer.excel import save_virtual_workbook
 from sqlalchemy import sql
 from Acquisition import aq_inner
 from five import grok
@@ -831,21 +831,18 @@ class ActionPlanTimeline(grok.View):
         """Create an Excel workbook containing the all risks and measures. 
         """
         t = lambda txt: translate(txt, context=self.request)
-        book = xlwt.Workbook(encoding='utf-8')
-        date_style = xlwt.easyxf('', num_format_str='D-MMM-YY')
-        sheet = book.add_sheet(t(
-            _('report_timeline_title', default=u'Timeline')))
+        book = Workbook()
+        sheet = book.worksheets[0]
+        sheet.title = t(_('report_timeline_title', default=u'Timeline'))
+
         for (column, (key, title)) in enumerate(self.plan_columns):
-            sheet.write(0, column, t(title))
+            sheet.cell(row=0, column=column).value = t(title)
+
         for (row, (risk, plan)) in enumerate(self.get_measures(), 1):
             for (column, (key, title)) in enumerate(self.plan_columns):
                 value = getattr(plan, key, None)
-                if isinstance(value, datetime.datetime):
-                    sheet.write(row, column, value, style=date_style)
-                elif value is not None:
-                    sheet.write(row, column, value)
-
-                sheet.write(row, column, getattr(plan, key, None))
+                if value is not None:
+                    sheet.cell(row=row, column=column).value = value
         return book
 
     def render(self):
@@ -855,9 +852,8 @@ class ActionPlanTimeline(grok.View):
                    mapping={'title': self.session.title})
         filename = translate(filename, context=self.request)
         self.request.response.setHeader('Content-Disposition',
-                'attachment; filename="%s.xls"' % filename.encode('utf-8'))
+                'attachment; filename="%s.xlsx"' % filename.encode('utf-8'))
         self.request.response.setHeader(
-                'Content-Type', 'application/vnd.ms-excel')
-        output = StringIO()
-        book.save(output)
-        return output.getvalue()
+                'Content-Type', 'application/vnd.openxmlformats-'
+                                        'officedocument.spreadsheetml.sheet')
+        return save_virtual_workbook(book)
