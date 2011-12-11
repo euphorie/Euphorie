@@ -22,6 +22,7 @@
     <h1>${view/report_title}</h1>
 
     <div class="buttonBar super">
+      <a class="button-medium" href="${python:view.url(name='timeline')}" i18n:translate="button_timeline">Timeline (xls)</a>
       <a class="button-medium" href="${python:view.url(name='download')}" i18n:translate="button_download">Download</a>
       <a class="button-medium printButton jsOnly" i18n:translate="button_print">Print</a>
     </div>

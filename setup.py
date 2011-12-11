@@ -77,10 +77,12 @@ setup(name="Euphorie",
           "z3c.appconfig >=1.0",
           "z3c.zrtresource == 1.2.0",
           "collective.zrtresource",
+          "xlwt",
       ],
       tests_require = [
           "collective.testcaselayer",
           "Products.PloneTestCase >=0.9.9",
+          'xlrd',
           ],
       extras_require = {
         "sphinx": [ "Sphinx >=1.0",

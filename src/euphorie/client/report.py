@@ -1,3 +1,4 @@
+import datetime
 import logging
 import random
 from cStringIO import StringIO
@@ -13,6 +14,7 @@ from rtfng.document.paragraph import Table
 from rtfng.document.section import Section
 from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
+import xlwt
 from sqlalchemy import sql
 from Acquisition import aq_inner
 from five import grok
@@ -768,4 +770,94 @@ class ActionPlanReportDownload(grok.View):
         self.request.response.setHeader("Content-Disposition",
                 "attachment; filename=\"%s.rtf\"" % filename.encode("utf-8"))
         self.request.response.setHeader("Content-Type", "application/rtf")
+        return output.getvalue()
+
+
+class ActionPlanTimeline(grok.View):
+    """Generate an excel file listing all measures.
+
+    This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
+    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
+    for the *inventory* component of the URL.
+    """
+    grok.context(PathGhost)
+    grok.require('euphorie.client.ViewSurvey')
+    grok.layer(IReportPhaseSkinLayer)
+    grok.name('timeline')
+
+    def update(self):
+        self.session = SessionManager.session
+
+    def get_measures(self):
+        """Find all data that should be included in the report.
+
+        The data is returned as a list of tuples containing a 
+        :py:class:`Risk <euphorie.client.model.Risk>` and 
+        :py:class:`ActionPlan <euphorie.client.model.ActionPlan>`. Each
+        entry in the list will correspond to a row in the generated Excel
+        file.
+        """
+        query = Session.query(model.SurveyTreeItem, model.ActionPlan)\
+                .outerjoin(model.ActionPlan)\
+                .filter(model.SurveyTreeItem.type == 'risk')\
+                .filter(model.SurveyTreeItem.session == self.session)\
+                .filter(sql.not_(model.SKIPPED_PARENTS))\
+                .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
+                                model.RISK_PRESENT_OR_TOP5_FILTER))\
+                .order_by(model.ActionPlan.planning_start,
+                          model.SurveyTreeItem.path)
+        return query.all()
+
+    plan_columns = [
+            ('planning_start',
+                _('label_action_plan_start', default=u'Planning start')),
+            ('planning_end',
+                _('label_action_plan_end', default=u'Planning end')),
+            ('action_plan',
+                _('label_measure_action_plan', default=u'Action plan')),
+            ('prevention_plan',
+                _('label_measure_prevention_plan',
+                    default=u'Prevention plan')),
+            ('requirements',
+                _('label_measure_requirements', default=u'Requirements')),
+            ('responsible',
+                _('label_action_plan_responsible',
+                    default=u'Who is responsible?')),
+            ('budget',
+                _('label_action_plan_budget', default=u'Budget (in Euro)')),
+            ]
+
+    def create_workbook(self):
+        """Create an Excel workbook containing the all risks and measures. 
+        """
+        t = lambda txt: translate(txt, context=self.request)
+        book = xlwt.Workbook(encoding='utf-8')
+        date_style = xlwt.easyxf('', num_format_str='D-MMM-YY')
+        sheet = book.add_sheet(t(
+            _('report_timeline_title', default=u'Timeline')))
+        for (column, (key, title)) in enumerate(self.plan_columns):
+            sheet.write(0, column, t(title))
+        for (row, (risk, plan)) in enumerate(self.get_measures(), 1):
+            for (column, (key, title)) in enumerate(self.plan_columns):
+                value = getattr(plan, key, None)
+                if isinstance(value, datetime.datetime):
+                    sheet.write(row, column, value, style=date_style)
+                elif value is not None:
+                    sheet.write(row, column, value)
+
+                sheet.write(row, column, getattr(plan, key, None))
+        return book
+
+    def render(self):
+        book = self.create_workbook()
+        filename = _('filename_report_timeline',
+                   default=u'Timeline for ${title}',
+                   mapping={'title': self.session.title})
+        filename = translate(filename, context=self.request)
+        self.request.response.setHeader('Content-Disposition',
+                'attachment; filename="%s.xls"' % filename.encode('utf-8'))
+        self.request.response.setHeader(
+                'Content-Type', 'application/vnd.ms-excel')
+        output = StringIO()
+        book.save(output)
         return output.getvalue()
