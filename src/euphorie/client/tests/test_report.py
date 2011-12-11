@@ -193,6 +193,14 @@ class ActionPlanTimelineTests(EuphorieTestCase):
                 [row[1].action_plan for row in measures],
                 [u'Plan 1', u'Plan 2'])
 
+    def test_priority_name_known_priority(self):
+        view = self.ActionPlanTimeline(None, None)
+        self.assertEqual(view.priority_name('high'), u'High')
+
+    def test_priority_name_known_unpriority(self):
+        view = self.ActionPlanTimeline(None, None)
+        self.assertEqual(view.priority_name('dummy'), 'dummy')
+
     def test_create_workbook_empty_session(self):
         # If there are no risks only the header row should be generated.
         view = self.ActionPlanTimeline(None, None)
@@ -206,7 +214,11 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         import datetime
         from euphorie.client.model import Risk
         from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1', risk_id='1', identification='no')
+        risk = Risk(zodb_path='1', risk_id='1', 
+                title=u'Risk title',
+                priority='high',
+                identification='no',
+                comment=u'Risk comment')
         plan = ActionPlan(action_plan=u'Plan 2',
                            planning_start=datetime.date(2011, 12, 15),
                            budget=500)
@@ -230,6 +242,12 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         self.assertEqual(sheet.cell('F2').value, None)
         # budget
         self.assertEqual(sheet.cell('G2').value, 500)
+        # risk title
+        self.assertEqual(sheet.cell('H2').value, u'Risk title')
+        # risk priority
+        self.assertEqual(sheet.cell('I2').value, u'High')
+        # risk comment
+        self.assertEqual(sheet.cell('J2').value, u'Risk comment')
 
     def test_render_value(self):
         from euphorie.client.tests.utils import testRequest

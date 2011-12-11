@@ -36,6 +36,13 @@ log = logging.getLogger(__name__)
 grok.templatedir("templates")
 
 
+PRIORITY_NAMES = {
+        'low': _('report_priority_low', default=u'low priority risk'),
+        'medium': _('report_priority_medium', default=u'medium priority risk'),
+        'high': _('report_priority_high', default=u'high priority risk'),
+        }
+
+
 def createDocument():
     from rtfng.Styles import TextStyle
     from rtfng.Styles import ParagraphStyle
@@ -633,17 +640,13 @@ class ActionPlanReportDownload(grok.View):
                                 u"must be included in this report."))))
 
             if node.priority:
-                if node.priority == "low":
-                    level = _("report_priority_low",
-                              default=u"low priority risk")
-                elif node.priority == "medium":
-                    level = _("report_priority_medium",
-                              default=u"medium priority risk")
-                elif node.priority == "high":
-                    level = _("report_priority_high",
-                              default=u"high priority risk")
+                level = PRIORITY_NAMES.get(node.priority)
+                if level is not None:
+                    level = t(level)
+                else:
+                    level = node.priority
                 section.append(Paragraph(normal_style,
-                    t(_("report_priority", default=u"This is a ")), t(level)))
+                    t(_("report_priority", default=u"This is a ")), level))
 
             for el in HtmlToRtf(zodb_node.description, normal_style):
                 section.append(el)
@@ -808,6 +811,12 @@ class ActionPlanTimeline(grok.View):
                           model.SurveyTreeItem.path)
         return query.all()
 
+    priority_names = {
+            'low': _(u'label_timeline_priority_low', default=u'Low'),
+            'medium': _(u'label_timeline_priority_medium', default=u'Medium'),
+            'high': _(u'label_timeline_priority_high', default=u'High'),
+            }
+
     plan_columns = [
             ('planning_start',
                 _('label_action_plan_start', default=u'Planning start')),
@@ -827,6 +836,21 @@ class ActionPlanTimeline(grok.View):
                 _('label_action_plan_budget', default=u'Budget (in Euro)')),
             ]
 
+    risk_columns = [
+            ('title',
+                _('report_timeline_risk_title', default=u'Risk')),
+            ('priority',
+                _('report_timeline_priority', default=u'Priority')),
+            ('comment',
+                _('report_timeline_comment', default=u'Comments')),
+            ]
+
+    def priority_name(self, priority):
+        title = self.priority_names.get(priority)
+        if title is not None:
+            return translate(title, context=self.request)
+        return priority
+
     def create_workbook(self):
         """Create an Excel workbook containing the all risks and measures. 
         """
@@ -835,14 +859,24 @@ class ActionPlanTimeline(grok.View):
         sheet = book.worksheets[0]
         sheet.title = t(_('report_timeline_title', default=u'Timeline'))
 
-        for (column, (key, title)) in enumerate(self.plan_columns):
+        all_columns = self.plan_columns + self.risk_columns
+        for (column, (key, title)) in enumerate(all_columns):
             sheet.cell(row=0, column=column).value = t(title)
 
         for (row, (risk, plan)) in enumerate(self.get_measures(), 1):
-            for (column, (key, title)) in enumerate(self.plan_columns):
+            column = 0
+            for (key, title) in self.plan_columns:
                 value = getattr(plan, key, None)
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
+                column += 1
+            for (key, title) in self.risk_columns:
+                value = getattr(risk, key, None)
+                if key == 'priority':
+                    value = self.priority_name(value)
+                if value is not None:
+                    sheet.cell(row=row, column=column).value = value
+                column += 1
         return book
 
     def render(self):
