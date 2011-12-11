@@ -8,19 +8,15 @@ from sqlalchemy import sql
 from sqlalchemy.sql import functions
 from sqlalchemy.ext import declarative
 from z3c.saconfig import Session
-
 from zope.sqlalchemy import datamanager
 from zope.interface import implements
-
 import Acquisition
 import OFS.Traversable
 from AccessControl.PermissionRole import _what_not_even_god_should_do
-
 from zope.app.component.hooks import getSite
-
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
-
 from euphorie.client.enum import Enum
+
 
 metadata = schema.MetaData()
 
@@ -29,12 +25,10 @@ log = logging.getLogger(__name__)
 
 def GenerateSecret(length=32):
     """Return random data."""
-    secret=""
+    secret = ""
     for i in range(length):
-        secret+=chr(random.getrandbits(8))
-
+        secret += chr(random.getrandbits(8))
     return secret
-
 
 
 class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
@@ -64,20 +58,23 @@ class SurveyTreeItem(BaseObject):
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(types.Integer(),
-        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        schema.ForeignKey("session.id",
+            onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False, index=True)
     parent_id = schema.Column(types.Integer(),
         schema.ForeignKey("tree.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=True, index=True)
-    type = schema.Column(Enum(["risk", "module" ]),
+    type = schema.Column(Enum(["risk", "module"]),
             nullable=False, index=True)
     path = schema.Column(types.String(40), nullable=False, index=True)
     zodb_path = schema.Column(types.String(40), nullable=False)
     profile_index = schema.Column(types.Integer(), default=0, nullable=False)
-    depth = schema.Column(types.Integer(), default=0, nullable=False, index=True)
+    depth = schema.Column(types.Integer(), default=0, nullable=False,
+            index=True)
     title = schema.Column(types.Unicode(512))
     postponed = schema.Column(types.Boolean())
-    skip_children = schema.Column(types.Boolean(), default=False, nullable=False)
+    skip_children = schema.Column(types.Boolean(), default=False,
+            nullable=False)
 
     __mapper_args__ = dict(polymorphic_on=type)
 
@@ -87,90 +84,80 @@ class SurveyTreeItem(BaseObject):
     @property
     def parent(self):
 # XXX Evil! Figure out why the parent relation does not work
-        return self.parent_id and Session.query(SurveyTreeItem).get(self.parent_id)
-
+        return self.parent_id and \
+                Session.query(SurveyTreeItem).get(self.parent_id)
 
     def getId(self):
         return self.path[-3:].lstrip("0")
-
 
     @property
     def short_path(self):
         def slice(path):
             while path:
                 yield path[:3].lstrip("0")
-                path=path[3:]
+                path = path[3:]
         return slice(self.path)
 
     @property
     def number(self):
-        return ".".join(self.short_path)
-
+        return '.'.join(self.short_path)
 
     def children(self, filter=None):
-        query=Session.query(SurveyTreeItem)\
-               .filter(SurveyTreeItem.session_id==self.session_id)\
-               .filter(SurveyTreeItem.depth==self.depth+1)
+        query = Session.query(SurveyTreeItem)\
+               .filter(SurveyTreeItem.session_id == self.session_id)\
+               .filter(SurveyTreeItem.depth == self.depth + 1)
         if self.path:
-            query=query.filter(SurveyTreeItem.path.like(self.path+"%"))
+            query = query.filter(SurveyTreeItem.path.like(self.path + "%"))
         if filter is not None:
-            query=query.filter(filter)
-
+            query = query.filter(filter)
         return query.order_by(SurveyTreeItem.path)
-
 
     def siblings(self, klass=None, filter=None):
         if not self.path:
             return []
-
         if klass is None:
-            klass=SurveyTreeItem
-
-        query=Session.query(klass)\
-                .filter(klass.session_id==self.session_id)\
-                .filter(klass.parent_id==self.parent_id)
+            klass = SurveyTreeItem
+        query = Session.query(klass)\
+                .filter(klass.session_id == self.session_id)\
+                .filter(klass.parent_id == self.parent_id)
         if filter is not None:
-            query=query.filter(sql.or_(klass.id==self.id, filter))
-
+            query = query.filter(sql.or_(klass.id == self.id, filter))
         return query.order_by(klass.path)
 
-
     def addChild(self, item):
-        sqlsession=Session()
-        query=sqlsession.query(SurveyTreeItem.path)\
-                .filter(SurveyTreeItem.session_id==self.session_id)\
-                .filter(SurveyTreeItem.depth==self.depth+1)
+        sqlsession = Session()
+        query = sqlsession.query(SurveyTreeItem.path)\
+                .filter(SurveyTreeItem.session_id == self.session_id)\
+                .filter(SurveyTreeItem.depth == self.depth + 1)
         if self.path:
-            query=query.filter(SurveyTreeItem.path.like(self.path+"%"))
+            query = query.filter(SurveyTreeItem.path.like(self.path + "%"))
 
-        last=query.order_by(SurveyTreeItem.path.desc()).first()
+        last = query.order_by(SurveyTreeItem.path.desc()).first()
         if not last:
-            index=1
+            index = 1
         else:
-            index=int(last[0][-3:])+1
+            index = int(last[0][-3:]) + 1
 
-        item.session=self.session
-        item.depth=self.depth+1
-        item.path=(self.path and self.path or "") + "%03d" % index
-        item.parent_id=self.id
+        item.session = self.session
+        item.depth = self.depth + 1
+        item.path = (self.path and self.path or "") + "%03d" % index
+        item.parent_id = self.id
         sqlsession.add(item)
         self.session.touch()
         return item
 
-
     def removeChildren(self):
-        session=Session()
+        session = Session()
         if self.path:
-            filter=sql.and_(SurveyTreeItem.session_id==self.session_id,
-                            SurveyTreeItem.path.like(self.path+"%"),
-                            SurveyTreeItem.id!=self.id)
+            filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
+                            SurveyTreeItem.path.like(self.path + "%"),
+                            SurveyTreeItem.id != self.id)
         else:
-            filter=sql.and_(SurveyTreeItem.session_id==self.session_id,
-                            SurveyTreeItem.id!=self.id)
+            filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
+                            SurveyTreeItem.id != self.id)
         session.execute(SurveyTreeItem.__table__.delete().where(filter))
         self.session.touch()
         datamanager.mark_changed(session)
-
 
 
 class Account(BaseObject):
@@ -182,14 +169,14 @@ class Account(BaseObject):
     __tablename__ = "account"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
-    loginname = schema.Column(types.String(255), nullable=False, index=True, unique=True)
+    loginname = schema.Column(types.String(255), nullable=False,
+            index=True, unique=True)
     password = schema.Column(types.Unicode(64), nullable=False)
     tc_approved = schema.Column(types.Integer())
 
     @property
     def email(self):
         return self.loginname
-
 
     # PAS BasicUser implementation
     def getId(self):
@@ -224,7 +211,7 @@ class Account(BaseObject):
 
     def has_permission(self, perm, context):
         """Check if the user has a permission in a context."""
-        return perm=="Euphorie: View a Survey"
+        return perm == "Euphorie: View a Survey"
 
     def allowed(self, object, object_roles=None):
         """Check if this account has any of the requested roles in the context
@@ -235,12 +222,11 @@ class Account(BaseObject):
         if object_roles is None:
             return True
 
-        for role in [ "Anonymous", "Authenticated", "EuphorieUser"]:
+        for role in ["Anonymous", "Authenticated", "EuphorieUser"]:
             if role in object_roles:
                 return True
 
         return False
-
 
 
 class AccountChangeRequest(BaseObject):
@@ -248,7 +234,8 @@ class AccountChangeRequest(BaseObject):
 
     id = schema.Column(types.String(16), primary_key=True, nullable=False)
     account_id = schema.Column(types.Integer(),
-            schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+            schema.ForeignKey(Account.id,
+                onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, unique=True)
     account = orm.relation(Account,
             backref=orm.backref("change_request",
@@ -259,7 +246,6 @@ class AccountChangeRequest(BaseObject):
             nullable=False)
 
 
-
 class SurveySession(BaseObject):
     """Information about a users session.
     """
@@ -268,7 +254,8 @@ class SurveySession(BaseObject):
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     account_id = schema.Column(types.Integer(),
-            schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+            schema.ForeignKey(Account.id,
+                onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, index=True)
     title = schema.Column(types.Unicode(512))
     created = schema.Column(types.DateTime, nullable=False,
@@ -283,33 +270,29 @@ class SurveySession(BaseObject):
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
 
-
     def hasTree(self):
         return bool(Session.query(SurveyTreeItem)
-                .filter(SurveyTreeItem.session==self).count())
-
+                .filter(SurveyTreeItem.session == self).count())
 
     def reset(self):
         Session.query(SurveyTreeItem)\
-                .filter(SurveyTreeItem.session==self).delete()
-        self.created = self.modified=datetime.datetime.now()
-
+                .filter(SurveyTreeItem.session == self).delete()
+        self.created = self.modified = datetime.datetime.now()
 
     def touch(self):
         self.modified = datetime.datetime.now()
 
-
     def addChild(self, item):
         sqlsession = Session()
         query = sqlsession.query(SurveyTreeItem.path)\
-                .filter(SurveyTreeItem.session_id==self.id)\
-                .filter(SurveyTreeItem.depth==1)\
+                .filter(SurveyTreeItem.session_id == self.id)\
+                .filter(SurveyTreeItem.depth == 1)\
                 .order_by(SurveyTreeItem.path.desc())
         last = query.first()
         if not last:
             index = 1
         else:
-            index = int(last[0][-3:])+1
+            index = int(last[0][-3:]) + 1
 
         item.session = self
         item.depth = 1
@@ -318,7 +301,6 @@ class SurveySession(BaseObject):
         sqlsession.add(item)
         self.touch()
         return item
-
 
     def copySessionData(self, other):
         """Copy all user data from another session to this one.
@@ -353,106 +335,108 @@ class SurveySession(BaseObject):
             if not module.optional:
                 item.skip_children = False
 
-        # Copy all risk data to the new session
-        # This triggers a "Only update via a single table query is currently supported"
-        # error with SQLAlchemy 0.6.6
-        #        old_risk = orm.aliased(Risk.__table__, name='old_risk')
-        #        is_old_risk = sql.and_(in_old_tree, old_tree.id == old_risk.id)
-        #        identification = sql.select([old_risk.identification], is_old_risk)
-        #        new_risks = session.query(Risk)\
-        #                .filter(Risk.session == self)\
-        #                .filter(sql.exists(
-        #                    sql.select([SurveyTreeItem.id]).where(sql.and_(
-        #                            SurveyTreeItem.id == Risk.id,
-        #                            sql.exists([old_tree.id]).where(sql.and_(
-        #                                in_old_tree, old_tree.type == 'risk'))))))
-        #        new_risks.update({'identification': identification},
-        #                synchronize_session=False)
+# Copy all risk data to the new session
+# This triggers a "Only update via a single table query is currently supported"
+# error with SQLAlchemy 0.6.6
+#        old_risk = orm.aliased(Risk.__table__, name='old_risk')
+#        is_old_risk = sql.and_(in_old_tree, old_tree.id == old_risk.id)
+#        identification = sql.select([old_risk.identification], is_old_risk)
+#        new_risks = session.query(Risk)\
+#                .filter(Risk.session == self)\
+#                .filter(sql.exists(
+#                    sql.select([SurveyTreeItem.id]).where(sql.and_(
+#                            SurveyTreeItem.id == Risk.id,
+#                            sql.exists([old_tree.id]).where(sql.and_(
+#                                in_old_tree, old_tree.type == 'risk'))))))
+#        new_risks.update({'identification': identification},
+#                synchronize_session=False)
 
-        statement = """UPDATE RISK
-                       SET identification = (SELECT old_risk.identification
-                                             FROM risk AS old_risk, tree AS old_tree, tree
-                                             WHERE tree.id=risk.id AND
-                                                   tree.session_id=%(new_sessionid)s AND
-                                                   old_tree.id=old_risk.id AND
-                                                   old_tree.session_id=%(old_sessionid)s AND
-                                                   old_tree.zodb_path=tree.zodb_path AND
-                                                   old_tree.profile_index=tree.profile_index),
-                           frequency = (SELECT old_risk.frequency
-                                        FROM risk AS old_risk, tree AS old_tree, tree
-                                        WHERE tree.id=risk.id AND
-                                              tree.session_id=%(new_sessionid)s AND
-                                              old_tree.id=old_risk.id AND
-                                              old_tree.session_id=%(old_sessionid)s AND
-                                              old_tree.zodb_path=tree.zodb_path AND
-                                              old_tree.profile_index=tree.profile_index),
-                           effect = (SELECT old_risk.effect
-                                     FROM risk AS old_risk, tree AS old_tree, tree
-                                     WHERE tree.id=risk.id AND
-                                           tree.session_id=%(new_sessionid)s AND
-                                           old_tree.id=old_risk.id AND
-                                           old_tree.session_id=%(old_sessionid)s AND
-                                           old_tree.zodb_path=tree.zodb_path AND
-                                           old_tree.profile_index=tree.profile_index),
-                           probability = (SELECT old_risk.probability
-                                          FROM risk AS old_risk, tree AS old_tree, tree
-                                          WHERE tree.id=risk.id AND
-                                                tree.session_id=%(new_sessionid)s AND
-                                                old_tree.id=old_risk.id AND
-                                                old_tree.session_id=%(old_sessionid)s AND
-                                                old_tree.zodb_path=tree.zodb_path AND
-                                                old_tree.profile_index=tree.profile_index),
-                           priority = (SELECT old_risk.priority
-                                       FROM risk AS old_risk, tree AS old_tree, tree
-                                       WHERE tree.id=risk.id AND
-                                             tree.session_id=%(new_sessionid)s AND
-                                             old_tree.id=old_risk.id AND
-                                             old_tree.session_id=%(old_sessionid)s AND
-                                             old_tree.zodb_path=tree.zodb_path AND
-                                             old_tree.profile_index=tree.profile_index),
-                           comment = (SELECT old_risk.comment
-                                      FROM risk AS old_risk, tree AS old_tree, tree
-                                      WHERE tree.id=risk.id AND
-                                            tree.session_id=%(new_sessionid)s AND
-                                            old_tree.id=old_risk.id AND
-                                            old_tree.session_id=%(old_sessionid)s AND
-                                            old_tree.zodb_path=tree.zodb_path AND
-                                            old_tree.profile_index=tree.profile_index)
-                       WHERE EXISTS (SELECT old_tree.id
-                                     FROM risk AS old_risk, tree AS old_tree, tree
-                                     WHERE tree.id=risk.id AND
-                                           tree.session_id=%(new_sessionid)s AND
-                                           old_tree.id=old_risk.id AND
-                                           old_tree.session_id=%(old_sessionid)s AND
-                                           old_tree.zodb_path=tree.zodb_path AND
-                                           old_tree.profile_index=tree.profile_index);
-                    """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        statement = """\
+        UPDATE RISK
+        SET identification = (SELECT old_risk.identification
+                              FROM risk AS old_risk, tree AS old_tree, tree
+                              WHERE tree.id=risk.id AND
+                                    tree.session_id=%(new_sessionid)s AND
+                                    old_tree.id=old_risk.id AND
+                                    old_tree.session_id=%(old_sessionid)s AND
+                                    old_tree.zodb_path=tree.zodb_path AND
+                                    old_tree.profile_index=tree.profile_index),
+            frequency = (SELECT old_risk.frequency
+                         FROM risk AS old_risk, tree AS old_tree, tree
+                         WHERE tree.id=risk.id AND
+                               tree.session_id=%(new_sessionid)s AND
+                               old_tree.id=old_risk.id AND
+                               old_tree.session_id=%(old_sessionid)s AND
+                               old_tree.zodb_path=tree.zodb_path AND
+                               old_tree.profile_index=tree.profile_index),
+            effect = (SELECT old_risk.effect
+                      FROM risk AS old_risk, tree AS old_tree, tree
+                      WHERE tree.id=risk.id AND
+                            tree.session_id=%(new_sessionid)s AND
+                            old_tree.id=old_risk.id AND
+                            old_tree.session_id=%(old_sessionid)s AND
+                            old_tree.zodb_path=tree.zodb_path AND
+                            old_tree.profile_index=tree.profile_index),
+            probability = (SELECT old_risk.probability
+                           FROM risk AS old_risk, tree AS old_tree, tree
+                           WHERE tree.id=risk.id AND
+                                 tree.session_id=%(new_sessionid)s AND
+                                 old_tree.id=old_risk.id AND
+                                 old_tree.session_id=%(old_sessionid)s AND
+                                 old_tree.zodb_path=tree.zodb_path AND
+                                 old_tree.profile_index=tree.profile_index),
+            priority = (SELECT old_risk.priority
+                        FROM risk AS old_risk, tree AS old_tree, tree
+                        WHERE tree.id=risk.id AND
+                              tree.session_id=%(new_sessionid)s AND
+                              old_tree.id=old_risk.id AND
+                              old_tree.session_id=%(old_sessionid)s AND
+                              old_tree.zodb_path=tree.zodb_path AND
+                              old_tree.profile_index=tree.profile_index),
+            comment = (SELECT old_risk.comment
+                       FROM risk AS old_risk, tree AS old_tree, tree
+                       WHERE tree.id=risk.id AND
+                             tree.session_id=%(new_sessionid)s AND
+                             old_tree.id=old_risk.id AND
+                             old_tree.session_id=%(old_sessionid)s AND
+                             old_tree.zodb_path=tree.zodb_path AND
+                             old_tree.profile_index=tree.profile_index)
+        WHERE EXISTS (SELECT old_tree.id
+                      FROM risk AS old_risk, tree AS old_tree, tree
+                      WHERE tree.id=risk.id AND
+                            tree.session_id=%(new_sessionid)s AND
+                            old_tree.id=old_risk.id AND
+                            old_tree.session_id=%(old_sessionid)s AND
+                            old_tree.zodb_path=tree.zodb_path AND
+                            old_tree.profile_index=tree.profile_index);
+        """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
         session.execute(statement)
 
-        statement = """INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
-                                                requirements, responsible, budget,
-                                                planning_start, planning_end)
-                       SELECT action_plan.risk_id,
-                              action_plan.action_plan,
-                              action_plan.prevention_plan,
-                              action_plan.requirements,
-                              action_plan.responsible,
-                              action_plan.budget,
-                              action_plan.planning_start,
-                              action_plan.planning_end
-                       FROM action_plan JOIN risk ON action_plan.risk_id=risk.id
-                                        JOIN tree ON tree.id=risk.id,
-                            tree AS new_tree
-                       WHERE tree.session_id=%(old_sessionid)d AND
-                             new_tree.session_id=%(new_sessionid)d AND
-                             tree.zodb_path=new_tree.zodb_path AND
-                             tree.profile_index=new_tree.profile_index;
-                    """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        statement = """\
+        INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
+                                        requirements, responsible, budget,
+                                        planning_start, planning_end)
+               SELECT action_plan.risk_id,
+                      action_plan.action_plan,
+                      action_plan.prevention_plan,
+                      action_plan.requirements,
+                      action_plan.responsible,
+                      action_plan.budget,
+                      action_plan.planning_start,
+                      action_plan.planning_end
+               FROM action_plan JOIN risk ON action_plan.risk_id=risk.id
+                                JOIN tree ON tree.id=risk.id,
+                    tree AS new_tree
+               WHERE tree.session_id=%(old_sessionid)d AND
+                     new_tree.session_id=%(new_sessionid)d AND
+                     tree.zodb_path=new_tree.zodb_path AND
+                     tree.profile_index=new_tree.profile_index;
+            """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
         session.execute(statement)
 
         session.query(Company)\
-            .filter(Company.session==other)\
-            .update({'session_id': self.id}, 
+            .filter(Company.session == other)\
+            .update({'session_id': self.id},
                     synchronize_session=False)
 
 
@@ -462,7 +446,8 @@ class Company(BaseObject):
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(types.Integer(),
-        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        schema.ForeignKey("session.id",
+            onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False, index=True)
     session = orm.relation("SurveySession",
             cascade="all,delete-orphan", single_parent=True,
@@ -477,7 +462,6 @@ class Company(BaseObject):
     workers_participated = schema.Column(types.Boolean())
 
 
-
 class Module(SurveyTreeItem):
     """A module.
 
@@ -488,11 +472,11 @@ class Module(SurveyTreeItem):
     __mapper_args__ = dict(polymorphic_identity="module")
 
     sql_module_id = schema.Column("id", types.Integer(),
-            schema.ForeignKey(SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"),
+            schema.ForeignKey(SurveyTreeItem.id,
+                onupdate="CASCADE", ondelete="CASCADE"),
             primary_key=True)
     module_id = schema.Column(types.String(16), nullable=False)
     solution_direction = schema.Column(types.Boolean(), default=False)
-
 
 
 class Risk(SurveyTreeItem):
@@ -502,7 +486,8 @@ class Risk(SurveyTreeItem):
     __mapper_args__ = dict(polymorphic_identity="risk")
 
     sql_risk_id = schema.Column("id", types.Integer(),
-            schema.ForeignKey(SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"),
+            schema.ForeignKey(SurveyTreeItem.id,
+                onupdate="CASCADE", ondelete="CASCADE"),
             primary_key=True)
     risk_id = schema.Column(types.String(16), nullable=False)
     risk_type = schema.Column(Enum(["risk", "policy", "top5"]),
@@ -513,7 +498,6 @@ class Risk(SurveyTreeItem):
     probability = schema.Column(types.Integer())
     priority = schema.Column(Enum([None, u"low", u"medium", u"high"]))
     comment = schema.Column(types.UnicodeText())
-
 
 
 class ActionPlan(BaseObject):
@@ -538,84 +522,84 @@ class ActionPlan(BaseObject):
                                 cascade="all, delete, delete-orphan"))
 
 
-
 _instrumented = False
 if not _instrumented:
-    metadata._decl_registry={}
-    for cls in [ SurveyTreeItem, SurveySession, Module, Risk,
-                 ActionPlan, Account, AccountChangeRequest, Company ]:
-        declarative.instrument_declarative(cls, metadata._decl_registry, metadata)
+    metadata._decl_registry = {}
+    for cls in [SurveyTreeItem, SurveySession, Module, Risk,
+                ActionPlan, Account, AccountChangeRequest, Company]:
+        declarative.instrument_declarative(cls,
+                metadata._decl_registry, metadata)
     _instrumented = True
 
 
-parent=orm.aliased(SurveyTreeItem)
+parent = orm.aliased(SurveyTreeItem)
 # XXX This can be optimized by doing short-circuit on parent.type!=module
 SKIPPED_PARENTS = \
     sql.exists().where(sql.and_(
-        parent.session_id==SurveyTreeItem.session_id,
-        SurveyTreeItem.depth>parent.depth,
-        SurveyTreeItem.path.like(parent.path+"%"),
-        parent.skip_children==True))
+        parent.session_id == SurveyTreeItem.session_id,
+        SurveyTreeItem.depth > parent.depth,
+        SurveyTreeItem.path.like(parent.path + "%"),
+        parent.skip_children == True))
 del parent
 
-node=orm.aliased(SurveyTreeItem)
+node = orm.aliased(SurveyTreeItem)
 
 MODULE_WITH_RISK_FILTER = \
-    sql.and_(SurveyTreeItem.type=="module",
-             SurveyTreeItem.skip_children==False,
+    sql.and_(SurveyTreeItem.type == "module",
+             SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id==SurveyTreeItem.session_id,
-                   node.id==Risk.sql_risk_id,
-                   node.type=="risk",
-                   Risk.identification=="no",
-                   node.depth>SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path+"%")))))
+                   node.session_id == SurveyTreeItem.session_id,
+                   node.id == Risk.sql_risk_id,
+                   node.type == "risk",
+                   Risk.identification == "no",
+                   node.depth > SurveyTreeItem.depth,
+                   node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_OR_TOP5_FILTER = \
-    sql.and_(SurveyTreeItem.type=="module",
-             SurveyTreeItem.skip_children==False,
+    sql.and_(SurveyTreeItem.type == "module",
+             SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id==SurveyTreeItem.session_id,
-                   node.id==Risk.sql_risk_id,
-                   node.type=="risk",
-                   sql.or_(Risk.identification=="no", Risk.risk_type=="top5"),
-                   node.depth>SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path+"%")))))
+                   node.session_id == SurveyTreeItem.session_id,
+                   node.id == Risk.sql_risk_id,
+                   node.type == "risk",
+                   sql.or_(Risk.identification == "no",
+                           Risk.risk_type == "top5"),
+                   node.depth > SurveyTreeItem.depth,
+                   node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER = \
-    sql.and_(SurveyTreeItem.type=="module",
-             SurveyTreeItem.skip_children==False,
+    sql.and_(SurveyTreeItem.type == "module",
+             SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id==SurveyTreeItem.session_id,
-                   node.id==Risk.sql_risk_id,
-                   node.type=="risk",
+                   node.session_id == SurveyTreeItem.session_id,
+                   node.id == Risk.sql_risk_id,
+                   node.type == "risk",
                    sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                   Risk.identification=="no",
-                   node.depth>SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path+"%")))))
+                   Risk.identification == "no",
+                   node.depth > SurveyTreeItem.depth,
+                   node.path.like(SurveyTreeItem.path + "%")))))
 
 RISK_PRESENT_FILTER = \
-      sql.and_(SurveyTreeItem.type=="risk",
+      sql.and_(SurveyTreeItem.type == "risk",
                sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id==SurveyTreeItem.id,
-                   Risk.identification=="no"))))
+                   Risk.sql_risk_id == SurveyTreeItem.id,
+                   Risk.identification == "no"))))
 
 RISK_PRESENT_OR_TOP5_FILTER = \
-      sql.and_(SurveyTreeItem.type=="risk",
+      sql.and_(SurveyTreeItem.type == "risk",
                sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id==SurveyTreeItem.id,
-                   sql.or_(Risk.identification=="no", Risk.risk_type=="top5")))))
+                   Risk.sql_risk_id == SurveyTreeItem.id,
+                   sql.or_(Risk.identification == "no",
+                           Risk.risk_type == "top5")))))
 
 RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER = \
-      sql.and_(SurveyTreeItem.type=="risk",
+      sql.and_(SurveyTreeItem.type == "risk",
                sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id==SurveyTreeItem.id,
+                   Risk.sql_risk_id == SurveyTreeItem.id,
                    sql.not_(Risk.risk_type.in_(['top5', 'policy'])),
-                   Risk.identification=="no"))))
+                   Risk.identification == "no"))))
 del node
 
-__all__ = [ "SurveySession", "Module", "Risk", "ActionPlan",
-            "SKIPPED_PARENTS","MODULE_WITH_RISK_FILTER",
-            "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER" ]
-
-
+__all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
+           "SKIPPED_PARENTS", "MODULE_WITH_RISK_FILTER",
+           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER"]
