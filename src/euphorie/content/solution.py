@@ -5,11 +5,10 @@ from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content import MessageFactory as _
-from euphorie.content.behaviour.richdescription import IRichDescription
 
 grok.templatedir("templates")
 
-class ISolution(form.Schema, IRichDescription):
+class ISolution(form.Schema):
     """A standard solution for a risk.
 
     Risk questions can have standard solutions that can be applied in
