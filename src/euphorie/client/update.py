@@ -64,7 +64,7 @@ def treeChanges(session, survey):
     """Determine a list of changes in a survey for an existing session. The
     list of changes is returned as a list of tuples listing the ZODB path,
     the object type (one of `profile`, `module` or `risk`) and the change type
-    (one of `add` or `remove`).
+    (one of `add`, `remove` or 'modified').
     """
     surveytree = getSurveyTree(survey)
     sestree = set(getSessionTree(session))
