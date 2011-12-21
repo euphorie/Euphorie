@@ -193,7 +193,9 @@ class UpdateTests(EuphorieFunctionalTestCase):
         # Set Skip-children to True
         module_identification_url = browser.url
         browser.handleErrors = False
-        browser.getControl(name="skip_children:bool").controls[1].click()
+        # XXX: The following breaks when testing with sqlite but not with
+        # postgres.
+        browser.getControl(name="skip_children:bool").controls[1].click() 
         browser.getControl(name="next", index=1).click()
         # Change the survey to make the module required and publish again
         from euphorie.client import publish
