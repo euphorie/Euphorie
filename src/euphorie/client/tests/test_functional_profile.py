@@ -195,7 +195,7 @@ class UpdateTests(EuphorieFunctionalTestCase):
         browser.handleErrors = False
         # XXX: The following breaks when testing with sqlite but not with
         # postgres.
-        browser.getControl(name="skip_children:bool").controls[1].click() 
+        browser.getControl(name="skip_children:boolean").controls[1].click() 
         browser.getControl(name="next", index=1).click()
         # Change the survey to make the module required and publish again
         from euphorie.client import publish
@@ -212,7 +212,7 @@ class UpdateTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, module_identification_url)
         # But this time, the module's "optional" question (i.e to skip the
         # children) should not be there
-        self.assertRaises(LookupError, browser.getControl, name='skip_children:bool')
+        self.assertRaises(LookupError, browser.getControl, name='skip_children:boolean')
         browser.getControl(name="next", index=1).click()
         # Now we must see the risk, i.e skip_children=False so we *must* answer
         # the risk
