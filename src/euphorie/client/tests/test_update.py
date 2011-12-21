@@ -37,16 +37,15 @@ class GetSurveyTreeTests(TreeTests):
         survey=self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         self.assertEqual(update.getSurveyTree(survey),
-                         [dict(zodb_path="1", type="module")])
+                         [dict(optional=False, zodb_path="1", type="module")])
 
     def testModuleAndRisk(self):
         survey=self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         survey["1"].invokeFactory("euphorie.risk", "2")
         self.assertEqual(update.getSurveyTree(survey),
-                         [dict(zodb_path="1", type="module"),
-                          dict(zodb_path="1/2", type="risk")])
-
+                         [dict(optional=False, zodb_path="1", type="module"),
+                          dict(optional=False, zodb_path="1/2", type="risk")])
 
 
 class GetSessionTreeTests(TreeTests):
