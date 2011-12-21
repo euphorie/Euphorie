@@ -24,7 +24,8 @@ def getSurveyTree(survey):
             continue
         nodes.append({
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
-            'type': node.portal_type[9:]})
+            'type': node.portal_type[9:],
+            'optional': node.optional, })
         if IQuestionContainer.providedBy(node):
             queue.extend(node.values())
     return nodes
@@ -39,6 +40,7 @@ class Node(object):
         self.zodb_path = item.zodb_path
         self.path = item.path
         self.type = item.type
+        self.skip_children = item.skip_children
 
     def __repr__(self):
         return "<Node zodb_path=%s type=%s path=%s>" % \
@@ -72,9 +74,17 @@ def treeChanges(session, survey):
         if nodes:
             for node in nodes:
                 sestree.remove(node)
+
+            if nodes[0].type == entry['type'] == 'module':
+                if entry['optional'] == False and \
+                        nodes[0].skip_children == True:
+                    # skip_children cannot be True if the module is not
+                    # optional, so this is requires a SessionTree update    
+                    results.add((entry["zodb_path"], nodes[0].type, "modified"))
+
             if nodes[0].type == entry["type"] or \
                     (nodes[0].type == "module" and \
-                     entry["type"] == "profilequestion"):
+                    entry["type"] == "profilequestion"):
                 continue
             results.add((entry["zodb_path"], nodes[0].type, "remove"))
             results.add((entry["zodb_path"], entry["type"], "add"))
