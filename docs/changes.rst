@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.0.1 - December 28, 2011
+-------------------------
+
+- Fix packaging error.
+  [wichert]
+
+
 3.0 - December 28, 2011
 -----------------------
 
