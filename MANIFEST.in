@@ -3,6 +3,7 @@ recursive-include src/euphorie *.zcml
 recursive-include src/euphorie/deployment/locales *.mo
 recursive-include src/euphorie/deployment/locales *.po
 recursive-include src/euphorie/deployment *.ini
+graft Prototype
 graft docs
 prune docs/.build
 graft src/euphorie/client/profiles
