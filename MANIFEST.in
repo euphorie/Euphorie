@@ -12,4 +12,5 @@ graft src/euphorie/content/templates
 graft src/euphorie/deployment/profiles
 graft src/euphorie/deployment/browser/templates
 graft src/euphorie/deployment/tiles/templates
-
+recursive-exclude src/euphorie *.pt.py
+recursive-exclude src/euphorie *.pt.pyc

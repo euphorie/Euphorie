@@ -1,8 +1,8 @@
-Chdangelog
+Changelog
 =========
 
-3.0 - Unreleased
-----------------
+3.0 - December 28, 2011
+-----------------------
 
 Upgrade notes
 ~~~~~~~~~~~~~
@@ -99,7 +99,8 @@ Bugfixes
 - Effect wasn't set for French risks when added to the session tree.
   [jcbrand]
 
-- #15: AttributeError *is_region* when publishing from a country not yet in the client. 
+- #15: AttributeError *is_region* when publishing from a country not yet in the
+  client. 
   [jcbrand]
 
 - For SurveyGroup, hide Evaluation Algorithm field on @@edit. 
@@ -120,7 +121,8 @@ Bugfixes
 - Fixed Terms&Conditions page for anonymouse users. 
   [jcbrand]
 
-- During action plan phase, include all measures on request when validation fails. 
+- During action plan phase, include all measures on request when validation
+  fails.
   [jcbrand]
 
 - Updated optional modules that are now mandatory must not have their children
