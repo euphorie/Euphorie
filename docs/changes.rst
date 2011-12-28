@@ -118,16 +118,13 @@ Bugfixes
   [jcbrand]
 
 - For SurveyGroup, hide Evaluation Algorithm field on @@edit. 
-
-- #15: AttributeError *is_region* when publishing from a country not yet in the
-  client.
   [jcbrand]
 
 - Allow the default sector colours to be customized via the euphorie.ini file
   [jcbrand]
 
 - Change ordering of countries in the client to match the `official
-  EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`).
+  EU ordering <http://publications.europa.eu/code/pdf/370000en.htm>`_).
   This fixes `github ticket 3
   <https://github.com/euphorie/Euphorie/issues/3>`_.
   [wichert]
