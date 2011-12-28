@@ -4,10 +4,6 @@
 :mod:`Euphorie` -- Euphorie Risk Assessment tool
 ************************************************
 
-:Author: Simplon / Wichert Akkerman
-:Version: |version|
-
-
 Translations
 ============
 
