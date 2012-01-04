@@ -96,8 +96,8 @@ class UpdateTests(EuphorieFunctionalTestCase):
         browser.getLink("Start Risk Identification").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/sector-title/survey-title/update")
         # And our current profile should be listed
-        self.assertEqual(browser.getControl(name="1:utext:list", index=0).value, "Profile 2")
-        self.assertEqual(browser.getControl(name="1:utext:list", index=1).value, "Profile 1")
+        self.assertEqual(browser.getControl(name="1:utext:list", index=0).value, "Profile 1")
+        self.assertEqual(browser.getControl(name="1:utext:list", index=1).value, "Profile 2")
         # Confirm the profile
         browser.getForm().submit()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/sector-title/survey-title/identification")
