@@ -1,5 +1,5 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:db="http://namespaces.zope.org/db">
+            xmlns:db="http://namespaces.zope.org/db">
     <include package="z3c.saconfig" file="meta.zcml" />
     <db:engine name="session" url="sqlite:///" />
     <db:session engine="session" />
