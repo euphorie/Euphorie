@@ -87,3 +87,7 @@ h1 {
     float: left;
     left: 100%;
 }
+
+body > #steps > li > ol {
+    -webkit-transform: rotate(0deg); 
+}
