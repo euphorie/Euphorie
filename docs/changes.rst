@@ -4,7 +4,8 @@ Changelog
 3.1 - Unreleased
 ----------------
 
-- ...
+- Bugfix, unpublishing a survey that's in an active session raises KeyError.
+  [jcbrand]
 
 
 3.0.1 - December 28, 2011
