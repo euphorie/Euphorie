@@ -1,3 +1,9 @@
+from zope.app.component.hooks import getSite
+
+from euphorie.client import model
+from euphorie.client import session
+from euphorie.client import utils 
+from euphorie.client.tests.utils import testRequest
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
 class handleSurveyUnpublishTests(EuphorieTestCase):
@@ -39,4 +45,31 @@ class handleSurveyUnpublishTests(EuphorieTestCase):
         clientcountry["other"] = SimpleItem("other")
         self.handleSurveyUnpublish(survey, None)
         self.assertEqual(self.portal.client["nl"].keys(), ["other"])
+
+    def testUnpublishWithActiveSession(self):
+        """ When a survey gets unpublished, while it's still in an active 
+            session, then WebHelpers.survey_url must return None, not fail.
+        """
+        survey = self.createSurvey()
+        client_survey = getSite().client.nl.ict['software-development']
+        request = testRequest()
+        request.client = client_survey
+        utils.setRequest(request)
+        account = model.Account(loginname="jane", password=u"john")
+        mgr = session.SessionManagerFactory()
+        mgr.start(u"Test session", client_survey, account)
+        mgr.session.zodb_path = '/'.join(client_survey.getPhysicalPath())
+        
+        helpers = utils.WebHelpers(survey, request)
+        self.assertEqual(
+                helpers.survey_url(),
+                client_survey.absolute_url())
+
+        self.handleSurveyUnpublish(survey, None)
+
+        helpers = utils.WebHelpers(survey, request)
+        self.assertEqual(
+                helpers.survey_url(),
+                None)
+
 
