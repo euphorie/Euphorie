@@ -4,6 +4,9 @@ Changelog
 3.1 - Unreleased
 ----------------
 
+- No longer rotate the client navigation tree.
+  [jcbrand, wichert]
+
 - Bugfix, unpublishing a survey that's in an active session raises KeyError.
   [jcbrand]
 
