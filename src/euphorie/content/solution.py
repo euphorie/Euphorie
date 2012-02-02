@@ -54,7 +54,8 @@ class Solution(dexterity.Item):
     title = _("title_common_solution", default=u"Common solution")
 
     def Title(self):
-        return Solution.title
+        # this is a CMF-style accessor, so should return utf8-encoded
+        return Solution.title.encode('utf-8')
 
 
 class View(grok.View):
