@@ -199,37 +199,38 @@ class AddForm(dexterity.AddForm):
         notify(ObjectClonedEvent(target[copy.id]))
         return copy
 
-
     def createAndAdd(self, data):
-        obj=super(AddForm, self).createAndAdd(data)
-        obj=aq_inner(self.context)[obj.id]
+        obj = super(AddForm, self).createAndAdd(data)
+        obj = aq_inner(self.context)[obj.id]
 
-        form=self.request.form
-        if form["source"]!="scratch":
+        form = self.request.form
+        if form["source"] != "scratch":
             sector=aq_inner(self.context)
-            if form["source"]=="other":
-                country_id=form["country"]
-                country=aq_parent(aq_parent(sector))[country_id]
-                bits=form["sector.%s" % country_id].split(".", 1)
-                sector=country[bits[0]]
-                surveygroup=sector[bits[1]]
-                survey_id=form["survey.%s.%s" % (country_id, surveygroup.id)]
-                survey=surveygroup[survey_id]
+            if form["source"] == "other":
+                country_id = form["country"]
+                country = aq_parent(aq_parent(sector))[country_id]
+                bits = form["sector.%s" % country_id].split(".", 1)
+                sector = country[bits[0]]
+                surveygroup = sector[bits[1]]
+                survey_id = form["survey.%s.%s" % (country_id, surveygroup.id)]
+                survey = surveygroup[survey_id]
             else:
-                surveygroup=sector[form["surveygroup.local"]]
-                survey=surveygroup[form["survey.local"]]
+                surveygroup = sector[form["surveygroup.local"]]
+                survey = surveygroup[form["survey.local"]]
 
-            survey=self.copyTemplate(survey, obj)
-            self.immediate_view=survey.absolute_url()
+            survey = self.copyTemplate(survey, obj)
+            self.immediate_view = survey.absolute_url()
         else:
-            title=translate(_("survey_default_title", default=u"Standard"),
-                            context=self.request)
-            obj=aq_inner(self.context)[obj.id]
-            survey=createContentInContainer(obj, "euphorie.survey", title=title)
+            title=translate(
+                        _("survey_default_title", default=u"Standard"),
+                        context=self.request)
+
+            obj = aq_inner(self.context)[obj.id]
+            survey = createContentInContainer(
+                            obj, "euphorie.survey", title=title)
+
             self.immediate_view=survey.absolute_url()
-
         return obj
-
 
 
 class Unpublish(grok.View):
