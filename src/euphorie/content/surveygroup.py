@@ -96,57 +96,79 @@ class AddForm(dexterity.AddForm):
 
     def update(self):
         super(AddForm, self).update()
-        sector=aq_inner(self.context)
-        country=aq_parent(sector)
-        self.my_country=country.id
-        self.my_sector=sector.id
+        sector = aq_inner(self.context)
+        country = aq_parent(sector)
+        self.my_country = country.id
+        self.my_sector = sector.id
 
     def buildSurveyTree(self):
-        site=getUtility(ISiteRoot)
-        catalog=getToolByName(self.context, "portal_catalog")
-        startPath="%s/sectors" % "/".join(site.getPhysicalPath())
-        startPathDepth=startPath.count("/")+1
-        query={"path" : dict(query=startPath,
-                             depth=4,
-                             navtree=True),
-               "portal_type" : [ "euphorie.country", "euphorie.sector", "euphorie.surveygroup", "euphorie.survey" ],
+        site = getUtility(ISiteRoot)
+        catalog = getToolByName(self.context, "portal_catalog")
+        startPath = "%s/sectors" % "/".join(site.getPhysicalPath())
+        startPathDepth = startPath.count("/")+1
+        query = \
+            {"path" : dict( query=startPath,
+                            depth=4,
+                            navtree=True),
+               "portal_type" : [ "euphorie.country", 
+                                "euphorie.sector", 
+                                "euphorie.surveygroup", 
+                                "euphorie.survey" ],
                "sort_on" : "path",
                "sort_order" : "asc"}
-        tree={}
+        tree = {}
         for brain in catalog.searchResults(query):
-            path=brain.getPath().split("/")[startPathDepth:]
-            if brain.portal_type=="euphorie.country":
-                tree[brain.id]=dict(id=brain.id, title=brain.Title, path=brain.getPath(), sectors={})
-            elif brain.portal_type=="euphorie.sector":
-                country=tree[path[0]]
-                country["sectors"][brain.id]=dict(id=brain.id, title=brain.Title, path=brain.getPath(), groups={})
-            elif brain.portal_type=="euphorie.surveygroup":
-                country=tree[path[0]]
-                sector=country["sectors"][path[1]]
-                sector["groups"][brain.id]=dict(id=brain.id, title=brain.Title, path=brain.getPath(), surveys={})
-            elif brain.portal_type=="euphorie.survey":
-                country=tree[path[0]]
-                sector=country["sectors"][path[1]]
-                group=sector["groups"][path[2]]
-                group["surveys"][brain.id]=dict(id=brain.id, title=brain.Title, path=brain.getPath(), url=brain.getURL())
-        my_sector_path=tree[self.my_country]["sectors"][self.my_sector]["path"]
-        countries=sorted(tree.values(), key=lambda x: x["title"])
-        self.my_group=None
+            path = brain.getPath().split("/")[startPathDepth:]
+            if brain.portal_type == "euphorie.country":
+                tree[brain.id] = dict(id=brain.id, 
+                                    title=brain.Title, 
+                                    path=brain.getPath(), 
+                                    sectors={})
+            elif brain.portal_type == "euphorie.sector":
+                country = tree[path[0]]
+                country["sectors"][brain.id] = dict(id=brain.id, 
+                                                    title=brain.Title, 
+                                                    path=brain.getPath(), 
+                                                    groups={})
+            elif brain.portal_type == "euphorie.surveygroup":
+                country = tree[path[0]]
+                sector = country["sectors"][path[1]]
+                sector["groups"][brain.id] = dict(id=brain.id, 
+                                                title=brain.Title, 
+                                                path=brain.getPath(), 
+                                                surveys={})
+            elif brain.portal_type == "euphorie.survey":
+                country = tree[path[0]]
+                sector = country["sectors"][path[1]]
+                group = sector["groups"][path[2]]
+                group["surveys"][brain.id] = dict(id=brain.id, 
+                                                title=brain.Title, 
+                                                path=brain.getPath(), 
+                                                url=brain.getURL())
+        my_sector_path = tree[self.my_country]["sectors"][self.my_sector]["path"]
+        countries = sorted(tree.values(), key=lambda x: x["title"])
+        self.my_group = None
         for country in countries:
-            country["sectors"]=sectors=sorted(country["sectors"].values(), key=lambda x: x["title"])
-            for sector in sectors:
-                sector["groups"]=groups=sorted(sector["groups"].values(), key=lambda x: x["title"])
-                if sector["path"]==my_sector_path and sector["groups"]:
-                    self.my_group=sector["groups"][0]["id"]
-                for group in groups:
-                    group["surveys"]=sorted(group["surveys"].values(), key=lambda x: x["title"])
-                sector["groups"]=[group for group in groups if group["surveys"]]
-            country["sectors"]=[sector for sector in sectors if sector["groups"]]
-        countries=[country for country in countries if country["sectors"]]
+            country["sectors"] = sectors = \
+                sorted(country["sectors"].values(), key=lambda x: x["title"])
 
+            for sector in sectors:
+                sector["groups"] = groups = \
+                    sorted(sector["groups"].values(), key=lambda x: x["title"])
+
+                if sector["path"] == my_sector_path and sector["groups"]:
+                    self.my_group = sector["groups"][0]["id"]
+                for group in groups:
+                    group["surveys"] = sorted(
+                                        group["surveys"].values(), 
+                                        key=lambda x: x["title"]
+                                        )
+
+                sector["groups"] = [g for g in groups if g["surveys"]]
+            country["sectors"] = [s for s in sectors if s["groups"]]
+        countries = [c for c in countries if c["sectors"]]
         return countries
 
-    
 
     def copyTemplate(self, source, target):
         target=self.context[target.id] # Acquisition-wrap
