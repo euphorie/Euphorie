@@ -10,6 +10,12 @@ Changelog
 - Bugfix, unpublishing a survey that's in an active session raises KeyError.
   [jcbrand]
 
+- Bugfix. CMS-style accessors must return bytestrings.
+  [jcbrand]
+
+- Removed setuptools_git as a dependency.
+  [jcbrand]
+
 
 3.0.1 - December 28, 2011
 -------------------------
