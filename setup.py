@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = "3.0.2dev"
+version = "3.0.2syslab8"
 
 setup(name="Euphorie",
       version=version,
