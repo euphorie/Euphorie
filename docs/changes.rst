@@ -16,6 +16,12 @@ Changelog
 - Removed setuptools_git as a dependency.
   [jcbrand]
 
+- Fixed 2 typos that caused duplicate default translations
+  [thomasw]
+
+- Added stub po file for BG
+  [thomasw]
+
 
 3.0.1 - December 28, 2011
 -------------------------
