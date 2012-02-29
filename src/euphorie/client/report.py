@@ -521,9 +521,9 @@ class ActionPlanReportDownload(grok.View):
         intro = t(_("plan_report_intro_1",
             default=u"By filling in the list of questions, you have "
                     u"completed a risk assessment. This assessment is used to "
-                    u"draw up an action plan.The progress of this action plan "
-                    u"must be discussed annually and a small report must "
-                    u"written on the progress. Certain subjects might have "
+                    u"draw up an action plan. The progress of this action "
+                    u"plan must be discussed annually and a small report must "
+                    u"be written on the progress. Certain subjects might have "
                     u"been completed and perhaps new subjects need to be "
                     u"added."))
         section.append(Paragraph(normal_style, intro))
