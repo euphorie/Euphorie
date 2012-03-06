@@ -203,7 +203,10 @@ class ActionPlanTimelineTests(EuphorieTestCase):
 
     def test_create_workbook_empty_session(self):
         # If there are no risks only the header row should be generated.
-        view = self.ActionPlanTimeline(None, None)
+        from euphorie.client.tests.utils import testRequest
+        request = testRequest()
+        request.survey = None
+        view = self.ActionPlanTimeline(None, request)
         view.get_measures = lambda: []
         book = view.create_workbook()
         self.assertEqual(len(book.worksheets), 1)
@@ -212,9 +215,11 @@ class ActionPlanTimelineTests(EuphorieTestCase):
 
     def test_create_workbook_plan_information(self):
         import datetime
+        import mock
+        from euphorie.client.tests.utils import testRequest
         from euphorie.client.model import Risk
         from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1', risk_id='1', 
+        risk = Risk(zodb_path='1/2/3', risk_id='1', 
                 title=u'Risk title',
                 priority='high',
                 identification='no',
@@ -223,10 +228,14 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         plan = ActionPlan(action_plan=u'Plan 2',
                            planning_start=datetime.date(2011, 12, 15),
                            budget=500)
-        view = self.ActionPlanTimeline(None, None)
+        request = testRequest()
+        request.survey = mock.Mock()
+        zodb_node = mock.Mock()
+        zodb_node.problem_description = u'This is wrong.'
+        request.survey.restrictedTraverse.return_value = zodb_node
+        view = self.ActionPlanTimeline(None, request)
         view.get_measures = lambda: [(risk, plan)]
         sheet = view.create_workbook().worksheets[0]
-
         # planning start
         self.assertEqual(
                 sheet.cell('A2').value.date(),
@@ -246,16 +255,43 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         # risk number
         self.assertEqual(sheet.cell('H2').value, u'1.2.3')
         # risk title
-        self.assertEqual(sheet.cell('I2').value, u'Risk title')
+        self.assertEqual(sheet.cell('I2').value, u'This is wrong.')
         # risk priority
         self.assertEqual(sheet.cell('J2').value, u'High')
         # risk comment
         self.assertEqual(sheet.cell('K2').value, u'Risk comment')
 
+    def test_create_workbook_no_problem_description(self):
+        import datetime
+        import mock
+        from euphorie.client.tests.utils import testRequest
+        from euphorie.client.model import Risk
+        from euphorie.client.model import ActionPlan
+        risk = Risk(zodb_path='1/2/3', risk_id='1', 
+                title=u'Risk title',
+                priority='high',
+                identification='no',
+                path='001002003',
+                comment=u'Risk comment')
+        plan = ActionPlan(action_plan=u'Plan 2',
+                           planning_start=datetime.date(2011, 12, 15),
+                           budget=500)
+        request = testRequest()
+        request.survey = mock.Mock()
+        zodb_node = mock.Mock()
+        zodb_node.title = u'Risk title.'
+        zodb_node.problem_description = u'  '
+        request.survey.restrictedTraverse.return_value = zodb_node
+        view = self.ActionPlanTimeline(None, request)
+        view.get_measures = lambda: [(risk, plan)]
+        sheet = view.create_workbook().worksheets[0]
+        self.assertEqual(sheet.cell('I2').value, u'Risk title')
+
     def test_render_value(self):
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.model import SurveySession
         request = testRequest()
+        request.survey = None
         view = self.ActionPlanTimeline(None, request)
         view.session = SurveySession(title=u'Acme')
         view.get_measures = lambda: []

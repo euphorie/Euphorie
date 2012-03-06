@@ -79,6 +79,7 @@ setup(name="Euphorie",
       tests_require = [
           "collective.testcaselayer",
           "Products.PloneTestCase >=0.9.9",
+          'mock',
           ],
       extras_require = {
         "sphinx": [ "Sphinx >=1.0",
@@ -86,6 +87,7 @@ setup(name="Euphorie",
                   ],
         "tests" : [ "collective.testcaselayer",
                     "Products.PloneTestCase >=0.9.9",
+                    "mock",
                   ],
       },
       entry_points="""

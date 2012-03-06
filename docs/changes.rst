@@ -19,6 +19,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Use problem description instead of risk title in action timeline. This fixes
+  `TNO ticket 202
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/202>`_.
+  [wichert]
+
 - No longer rotate the client navigation tree.
   [jcbrand, wichert]
 

@@ -860,6 +860,7 @@ class ActionPlanTimeline(grok.View):
         book = Workbook()
         sheet = book.worksheets[0]
         sheet.title = t(_('report_timeline_title', default=u'Timeline'))
+        survey = self.request.survey
 
         all_columns = self.plan_columns + self.risk_columns
         for (column, (key, title)) in enumerate(all_columns):
@@ -876,6 +877,11 @@ class ActionPlanTimeline(grok.View):
                 value = getattr(risk, key, None)
                 if key == 'priority':
                     value = self.priority_name(value)
+                elif key == 'title':
+                    zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+                    if zodb_node.problem_description and \
+                            zodb_node.problem_description.strip():
+                        value = zodb_node.problem_description
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1
