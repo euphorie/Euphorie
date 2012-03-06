@@ -7,6 +7,11 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Do not open list of all risks (under inventorisation) in a new window or tab.
+  This fixes `TNO ticket 205
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/205>`_.
+  [wichert]
+
 - Add a new column with the risk number to the Action plan xlsx rendering. This
   fixes `TNO ticket 203
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/203>`_.
