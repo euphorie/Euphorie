@@ -7,6 +7,11 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add a new column with the risk number to the Action plan xlsx rendering. This
+  fixes `TNO ticket 203
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/203>`_.
+  [wichert]
+
 - Update Dutch translations.
   [wichert]
 

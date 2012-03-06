@@ -837,6 +837,8 @@ class ActionPlanTimeline(grok.View):
             ]
 
     risk_columns = [
+            ('number',
+                _('label_risk_number', default=u'Risk number')),
             ('title',
                 _('report_timeline_risk_title', default=u'Risk')),
             ('priority',

@@ -218,6 +218,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
                 title=u'Risk title',
                 priority='high',
                 identification='no',
+                path='001002003',
                 comment=u'Risk comment')
         plan = ActionPlan(action_plan=u'Plan 2',
                            planning_start=datetime.date(2011, 12, 15),
@@ -242,12 +243,14 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         self.assertEqual(sheet.cell('F2').value, None)
         # budget
         self.assertEqual(sheet.cell('G2').value, 500)
+        # risk number
+        self.assertEqual(sheet.cell('H2').value, u'1.2.3')
         # risk title
-        self.assertEqual(sheet.cell('H2').value, u'Risk title')
+        self.assertEqual(sheet.cell('I2').value, u'Risk title')
         # risk priority
-        self.assertEqual(sheet.cell('I2').value, u'High')
+        self.assertEqual(sheet.cell('J2').value, u'High')
         # risk comment
-        self.assertEqual(sheet.cell('J2').value, u'Risk comment')
+        self.assertEqual(sheet.cell('K2').value, u'Risk comment')
 
     def test_render_value(self):
         from euphorie.client.tests.utils import testRequest
