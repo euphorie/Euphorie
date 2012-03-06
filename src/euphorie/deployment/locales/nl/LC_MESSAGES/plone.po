@@ -6,15 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
-"Report-Msgid-Bugs-To: wichert@wiggy.net\n"
-"POT-Creation-Date: 2010-07-20 17:07+0200\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-07-20 17:31+0200\n"
 "PO-Revision-Date: 2010-07-20 17:31+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: nl <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 0.9.5\n"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -39,7 +40,9 @@ msgstr "Land"
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
 msgid "A manager for sectors in a country."
-msgstr "Een landbeheerder is verantwoordelijk voor alle brancheorganisaties in een land."
+msgstr ""
+"Een landbeheerder is verantwoordelijk voor alle brancheorganisaties in een "
+"land."
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
 msgid "Country manager"
@@ -99,7 +102,9 @@ msgstr "Risico"
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr "Een brancheorganisatie is een landelijke organisatie voor een specifieke branche."
+msgstr ""
+"Een brancheorganisatie is een landelijke organisatie voor een specifieke "
+"branche."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
 msgid "Sector"
@@ -143,8 +148,8 @@ msgstr ""
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents"
-" to the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15

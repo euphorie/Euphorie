@@ -4,6 +4,16 @@ Changelog
 3.1 - Unreleased
 ----------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Update Dutch translations.
+  [wichert]
+
+
+Bugfixes
+~~~~~~~~
+
 - No longer rotate the client navigation tree.
   [jcbrand, wichert]
 
