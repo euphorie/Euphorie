@@ -20,6 +20,8 @@ Feature changes
 - Update Dutch translations.
   [wichert]
 
+- Added Bulgarian translations
+  [thomasw]
 
 Bugfixes
 ~~~~~~~~
@@ -44,8 +46,6 @@ Bugfixes
 - Fixed 2 typos that caused duplicate default translations
   [thomasw]
 
-- Added stub po file for BG
-  [thomasw]
 
 
 3.0.1 - December 28, 2011
