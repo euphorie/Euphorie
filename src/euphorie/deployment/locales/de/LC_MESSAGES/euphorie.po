@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2011-12-20 19:10+0100\n"
+"POT-Creation-Date: 2012-03-06 14:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -277,11 +277,6 @@ msgid "plan_report_intro_header"
 msgstr "Einführung"
 
 #. Default: By filling in the list of questions, you have completed a risk
-#. assessment. This assessment is used to draw up an action plan.The progress
-#. of this action plan must be discussed annually and a small report must
-#. written on the progress. Certain subjects might have been completed and
-#. perhaps new subjects need to be added.
-#. Default: By filling in the list of questions, you have completed a risk
 #. assessment. This assessment is used to draw up an action plan. The progress
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
@@ -440,7 +435,7 @@ msgstr ""
 #: src/euphorie/client/report.py:826
 #: src/euphorie/client/templates/risk_actionplan.pt:57
 #: src/euphorie/client/templates/risk_actionplan.pt:173
-#: src/euphorie/content/solution.py:28
+#: src/euphorie/content/solution.py:27
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
@@ -449,7 +444,7 @@ msgstr ""
 #: src/euphorie/client/report.py:828
 #: src/euphorie/client/templates/risk_actionplan.pt:60
 #: src/euphorie/client/templates/risk_actionplan.pt:176
-#: src/euphorie/content/solution.py:36
+#: src/euphorie/content/solution.py:35
 #: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
@@ -458,7 +453,7 @@ msgstr ""
 #: src/euphorie/client/report.py:831
 #: src/euphorie/client/templates/risk_actionplan.pt:63
 #: src/euphorie/client/templates/risk_actionplan.pt:179
-#: src/euphorie/content/solution.py:44
+#: src/euphorie/content/solution.py:43
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
@@ -595,7 +590,6 @@ msgid "Your email address has been updated."
 msgstr "Ihre E-Mail-Adresse wurde aktualisiert."
 
 #. Default: OiRA
-#. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
@@ -2197,7 +2191,7 @@ msgstr ""
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
-"reverted Are you sure you want to continue?"
+"reverted. Are you sure you want to continue?"
 msgstr ""
 
 #. Default: What is the chance of this risk occurring?
@@ -2654,14 +2648,14 @@ msgstr ""
 #. Default: Description
 #: src/euphorie/content/module.py:35 src/euphorie/content/page.py:19
 #: src/euphorie/content/profilequestion.py:47
-#: src/euphorie/content/solution.py:20
+#: src/euphorie/content/solution.py:19
 msgid "label_module_description"
 msgstr "Beschreibung"
 
 #. Default: Include any relevant information that may be helpful for users.
 #: src/euphorie/content/module.py:36 src/euphorie/content/page.py:20
 #: src/euphorie/content/profilequestion.py:48
-#: src/euphorie/content/solution.py:21
+#: src/euphorie/content/solution.py:20
 msgid "help_module_description"
 msgstr ""
 
@@ -3009,24 +3003,24 @@ msgstr "Es sind keine Branchen für dieses Land angelegt."
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
-#: src/euphorie/content/solution.py:29
+#: src/euphorie/content/solution.py:28
 msgid "help_measure_action_plan"
 msgstr ""
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring.
 #. This information will be copied to the measure.
-#: src/euphorie/content/solution.py:37
+#: src/euphorie/content/solution.py:36
 msgid "help_measure_prevention_plan"
 msgstr ""
 
 #. Default: Describe the standard requirements for the action plan and
 #. prevention plan. This information will be copied to the measure.
-#: src/euphorie/content/solution.py:45
+#: src/euphorie/content/solution.py:44
 msgid "help_measure_requirements"
 msgstr ""
 
 #. Default: Common solution
-#: src/euphorie/content/solution.py:55
+#: src/euphorie/content/solution.py:54
 msgid "title_common_solution"
 msgstr "Häufig angewendete Lösung"
 
@@ -3123,17 +3117,17 @@ msgid "french"
 msgstr "Vereinfacht, zwei Kriterien"
 
 #. Default: Standard
-#: src/euphorie/content/surveygroup.py:203
+#: src/euphorie/content/surveygroup.py:225
 msgid "survey_default_title"
 msgstr "Standard"
 
 #. Default: This survey is now no longer available in the client.
-#: src/euphorie/content/surveygroup.py:237
+#: src/euphorie/content/surveygroup.py:260
 msgid "message_unpublish_success"
 msgstr ""
 
 #. Default: Cancelled unpublish action.
-#: src/euphorie/content/surveygroup.py:240
+#: src/euphorie/content/surveygroup.py:263
 msgid "message_unpublish_cancel"
 msgstr "Aktion „Veröffentlichung aufheben“ abgebrochen."
 

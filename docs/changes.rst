@@ -4,6 +4,33 @@ Changelog
 3.1 - Unreleased
 ----------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Do not open list of all risks (under inventorisation) in a new window or tab.
+  This fixes `TNO ticket 205
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/205>`_.
+  [wichert]
+
+- Add a new column with the risk number to the Action plan xlsx rendering. This
+  fixes `TNO ticket 203
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/203>`_.
+  [wichert]
+
+- Update Dutch translations.
+  [wichert]
+
+- Added Bulgarian translations
+  [thomasw]
+
+Bugfixes
+~~~~~~~~
+
+- Use problem description instead of risk title in action timeline. This fixes
+  `TNO ticket 202
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/202>`_.
+  [wichert]
+
 - No longer rotate the client navigation tree.
   [jcbrand, wichert]
 
@@ -15,6 +42,10 @@ Changelog
 
 - Removed setuptools_git as a dependency.
   [jcbrand]
+
+- Fixed 2 typos that caused duplicate default translations
+  [thomasw]
+
 
 
 3.0.1 - December 28, 2011

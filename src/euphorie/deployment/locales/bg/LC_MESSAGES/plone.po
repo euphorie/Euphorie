@@ -1,155 +1,161 @@
+# Bulgarian translations for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2010-07-20 17:31+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Robert <vansen@hotmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-02-29 21:39+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: bg <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
-msgstr "Online-klienten"
+msgstr "Онлайн клиентът."
 
 #: euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
 msgid "Country information and grouping for the client."
-msgstr "Landinformation och gruppering fÃ¶r klienten."
+msgstr "Информация за страната и групиране за клиента."
 
 #: euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
 msgid "Sector information and grouping for the client."
-msgstr "Branschinformation och gruppering fÃ¶r klienten."
+msgstr "Информация за секторa и групиране за клиента."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
-msgstr "En mapp fÃ¶r alla branscher i ett land."
+msgstr "Папка за всички сектори в една страна."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
-msgstr "Land"
+msgstr "Страна"
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
 msgid "A manager for sectors in a country."
-msgstr "En manager fÃ¶r branscher i ett land."
+msgstr "Мениджър за сектори в една страна."
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
 msgid "Country manager"
-msgstr "Landschef"
+msgstr "Мениджър за страна"
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:7
 msgid "A folder for all documentation for a specific language."
-msgstr "En mapp fÃ¶r all dokumentation av ett specifikt sprÃ¥k."
+msgstr "Папка за цялата документация за определен език."
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:6
 msgid "Documentation"
-msgstr "Dokumentation"
+msgstr "Документация"
 
 #: euphorie/content/profiles/default/types/euphorie.folder.xml:6
 msgid "Folder"
-msgstr "Mapp"
+msgstr "Папка"
 
 #: euphorie/content/profiles/default/types/euphorie.help.xml:8
 msgid "The help text for the client."
-msgstr "HjÃ¤lptext fÃ¶r klienten."
+msgstr "Помощният текст за клиента."
 
 #: euphorie/content/profiles/default/types/euphorie.help.xml:7
 msgid "Online help"
-msgstr "Online-hjÃ¤lp"
+msgstr "Онлайн помощ"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is grouping of risks"
-msgstr "En modul Ã¤r en riskgruppering"
+msgstr "Модулът представлява групиране на рискове"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml:7
 msgid "Module"
-msgstr "Modul"
+msgstr "Модул"
 
 #: euphorie/content/profiles/default/types/euphorie.page.xml:8
 msgid "A page with text"
-msgstr "En sida med text"
+msgstr "Страница с текст"
 
 #: euphorie/content/profiles/default/types/euphorie.page.xml:7
 msgid "Page"
-msgstr "Sida"
+msgstr "Страница"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
 msgstr ""
-"En profilfrÃ¥ga anvÃ¤nds fÃ¶r att skapa moduler som Ã¤r tillval eller "
-"repeterbara"
+"Профилиращите въпроси се използват за създаване на незадължителни или "
+"повтарящи се модули"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr "ProfilfrÃ¥ga"
+msgstr "Профилиращ въпрос"
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml:8
 msgid "A risk."
-msgstr "En risk."
+msgstr "Риск."
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
-msgstr "Risk"
+msgstr "Риск"
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr ""
-"En bransch Ã¤r en nationell organisation fÃ¶r en specifik typ av industri."
+msgstr "Секторът е национална организация за определен вид индустрия."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
 msgid "Sector"
-msgstr "Bransch"
+msgstr "Сектор"
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
 msgid "A folder which can contain sectors."
-msgstr "En mapp som kan innehÃ¥lla branscher."
+msgstr "Папка, която може да съдържа сектори."
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
-msgstr "Branschmapp"
+msgstr "Папка на сектор"
 
 #: euphorie/content/profiles/default/types/euphorie.solution.xml:8
 msgid "A solution."
-msgstr "En lÃ¶sning."
+msgstr "Решение."
 
 #: euphorie/content/profiles/default/types/euphorie.solution.xml:7
 msgid "Solution"
-msgstr "LÃ¶sning"
+msgstr "Решение"
 
 #: euphorie/content/profiles/default/types/euphorie.survey.xml:8
 msgid "A version of a survey."
-msgstr "En version av en undersÃ¶kning."
+msgstr "Версия на проучването."
 
 #: euphorie/content/profiles/default/types/euphorie.survey.xml:7
 msgid "Survey version"
-msgstr "UndersÃ¶kning version"
+msgstr "Версия на проучването"
 
 #: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
 msgid "A survey."
-msgstr "En undersÃ¶kning."
+msgstr "Проучване."
 
 #: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
 msgid "Survey"
-msgstr "UndersÃ¶kning"
+msgstr "Проучване"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid "Sector workflow"
-msgstr "Bransch arbetsflÃ¶de"
+msgstr "Работен поток на сектора"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
-"En stats arbetsflÃ¶de fÃ¶r branschobjekt, vilket lÃ¥ter branschanvÃ¤ndaren "
-"redigera dess innehÃ¥ll."
+"Работен поток с едно състояние за обектите на сектора, даващ достъп за "
+"редактиране на съдържанието на потребителя на сектора."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"
-msgstr "Aktiv"
+msgstr "Активен"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
-msgstr "Den enda staten"
+msgstr "Едно единствено състояние"

@@ -2,7 +2,7 @@
 # Copyright (C) 2010 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -11,8 +11,9 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
@@ -144,8 +145,8 @@ msgstr "Pracovní postup sektoru"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to"
-" the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
 "Jednostavový pracovní postup pro objekty sektoru, poskytující editační "
 "přístup k jeho obsahu uživateli sektoru."
