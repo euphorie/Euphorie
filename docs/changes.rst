@@ -26,6 +26,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix broken translations on risk action plan template. This fixes
+  `TNO ticket 201
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/201>`_.
+  [wichert]
+
 - Use problem description instead of risk title in action timeline. This fixes
   `TNO ticket 202
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/202>`_.

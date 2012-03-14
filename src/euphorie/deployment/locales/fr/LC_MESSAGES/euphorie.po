@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-03-14 11:49+0100\n"
+"POT-Creation-Date: 2012-03-14 11:53+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -255,6 +255,7 @@ msgstr ""
 #: src/euphorie/client/report.py:367 src/euphorie/client/report.py:625
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:50
+#: src/euphorie/client/templates/webhelpers.pt:115
 msgid "warn_risk_present"
 msgstr "Vous avez répondu négativement à la déclaration ci-dessus."
 
@@ -316,6 +317,7 @@ msgstr "Plan d'action"
 #. included in this report.
 #: src/euphorie/client/report.py:635
 #: src/euphorie/client/templates/report_actionplan.pt:161
+#: src/euphorie/client/templates/webhelpers.pt:106
 msgid "top5_risk_not_present"
 msgstr ""
 "Ce risque n'est pas présent dans votre organisation, mais étant donné que\n"
@@ -645,6 +647,7 @@ msgstr "Votre adresse email a été actualisée."
 #: src/euphorie/client/templates/status.pt:12
 #: src/euphorie/client/templates/survey_sessions.pt:13
 #: src/euphorie/client/templates/updated.pt:12
+#: src/euphorie/client/templates/webhelpers.pt:22
 #: src/euphorie/content/sector.py:278
 msgid "title_tool"
 msgstr "OiRA"
@@ -2724,6 +2727,33 @@ msgstr "Veuillez vérifier si le profil est toujours d'actualité."
 msgid "label_accept update"
 msgstr "Mise à jour"
 
+#. Default: Online interactive
+#: src/euphorie/client/templates/webhelpers.pt:23
+msgid "oira_name_line_1"
+msgstr "Interactive en ligne"
+
+#. Default: Risk Assessment
+#: src/euphorie/client/templates/webhelpers.pt:24
+msgid "oira_name_line_2"
+msgstr "Évaluation des risques"
+
+#. Default: Produced by ${EU-OSHA}.
+#: src/euphorie/client/templates/webhelpers.pt:83
+#: src/euphorie/content/templates/colour-preview.pt:62
+msgid "appendix_produced_by"
+msgstr "Produit par ${EU-OSHA}."
+
+#. Default: About
+#: src/euphorie/client/templates/webhelpers.pt:84
+#: src/euphorie/content/templates/colour-preview.pt:63
+msgid "appendix_about"
+msgstr "À propos"
+
+#. Default: Legal and policy references
+#: src/euphorie/client/templates/webhelpers.pt:125
+msgid "header_legal_references"
+msgstr "Références juridiques et politiques"
+
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
 msgstr "La couleur indiquée n'est pas valide."
@@ -3698,16 +3728,6 @@ msgstr "Un seul et unique état"
 msgid "titld_tool"
 msgstr "OiRA"
 
-#. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/content/templates/colour-preview.pt:62
-msgid "appendix_produced_by"
-msgstr "Produit par ${EU-OSHA}."
-
-#. Default: About
-#: src/euphorie/content/templates/colour-preview.pt:63
-msgid "appendix_about"
-msgstr "À propos"
-
 #. Default: Select a sector for which you would like to view or copy a survey.
 #: src/euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
@@ -4392,15 +4412,6 @@ msgstr ""
 
 #~ msgid "reminder_email_footer"
 #~ msgstr "Par défaut :"
-
-#~ msgid "header_legal_references"
-#~ msgstr "Références juridiques et politiques"
-
-#~ msgid "oira_name_line_2"
-#~ msgstr "Évaluation des risques"
-
-#~ msgid "oira_name_line_1"
-#~ msgstr "Interactive en ligne"
 
 #~ msgid "Potential Candidate Countries"
 #~ msgstr "Pays candidat potentiel"
