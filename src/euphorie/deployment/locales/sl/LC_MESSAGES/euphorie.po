@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-03-06 14:49+0100\n"
+"POT-Creation-Date: 2012-03-14 11:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -471,29 +471,35 @@ msgstr ""
 msgid "label_action_plan_budget"
 msgstr ""
 
-#. Default: Risk
+#. Default: Risk number
 #: src/euphorie/client/report.py:841
+#, fuzzy
+msgid "label_risk_number"
+msgstr "Vrsta tveganja"
+
+#. Default: Risk
+#: src/euphorie/client/report.py:843
 msgid "report_timeline_risk_title"
 msgstr ""
 
 #. Default: Priority
-#: src/euphorie/client/report.py:843
+#: src/euphorie/client/report.py:845
 #, fuzzy
 msgid "report_timeline_priority"
 msgstr "To je"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:845
+#: src/euphorie/client/report.py:847
 msgid "report_timeline_comment"
 msgstr ""
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:860
+#: src/euphorie/client/report.py:862
 msgid "report_timeline_title"
 msgstr ""
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:884
+#: src/euphorie/client/report.py:892
 #, fuzzy
 msgid "filename_report_timeline"
 msgstr "Identifikacijsko poročilo ${title}"

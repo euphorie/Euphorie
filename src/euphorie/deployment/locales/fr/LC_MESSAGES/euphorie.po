@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-03-06 14:49+0100\n"
+"POT-Creation-Date: 2012-03-14 11:49+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -489,20 +489,26 @@ msgstr "Qui est responsable ?"
 msgid "label_action_plan_budget"
 msgstr "Budget (en Euros)"
 
-#. Default: Risk
+#. Default: Risk number
 #: src/euphorie/client/report.py:841
+#, fuzzy
+msgid "label_risk_number"
+msgstr "Type de risque"
+
+#. Default: Risk
+#: src/euphorie/client/report.py:843
 #, fuzzy
 msgid "report_timeline_risk_title"
 msgstr "${responsible} est responsable de cette tâche."
 
 #. Default: Priority
-#: src/euphorie/client/report.py:843
+#: src/euphorie/client/report.py:845
 #, fuzzy
 msgid "report_timeline_priority"
 msgstr "C'est un"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:845
+#: src/euphorie/client/report.py:847
 #, fuzzy
 msgid "report_timeline_comment"
 msgstr ""
@@ -510,13 +516,13 @@ msgstr ""
 "dans ce champ."
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:860
+#: src/euphorie/client/report.py:862
 #, fuzzy
 msgid "report_timeline_title"
 msgstr "Plan d'action :"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:884
+#: src/euphorie/client/report.py:892
 #, fuzzy
 msgid "filename_report_timeline"
 msgstr "Plan d'action ${title}"

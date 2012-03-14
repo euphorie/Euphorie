@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-03-06 14:42+0100\n"
+"POT-Creation-Date: 2012-03-14 11:49+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -483,28 +483,33 @@ msgstr "Wie is er verantwoordelijk?"
 msgid "label_action_plan_budget"
 msgstr "Budget (in Euro)"
 
-#. Default: Risk
+#. Default: Risk number
 #: src/euphorie/client/report.py:841
+msgid "label_risk_number"
+msgstr "Risiconummer"
+
+#. Default: Risk
+#: src/euphorie/client/report.py:843
 msgid "report_timeline_risk_title"
 msgstr "Risico"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:843
+#: src/euphorie/client/report.py:845
 msgid "report_timeline_priority"
 msgstr "Dit is een risico in de categorie: "
 
 #. Default: Comments
-#: src/euphorie/client/report.py:845
+#: src/euphorie/client/report.py:847
 msgid "report_timeline_comment"
 msgstr "Opmerkingen"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:860
+#: src/euphorie/client/report.py:862
 msgid "report_timeline_title"
 msgstr "Plan van aanpak"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:884
+#: src/euphorie/client/report.py:892
 msgid "filename_report_timeline"
 msgstr "Actielijst ${title}"
 
@@ -2024,8 +2029,8 @@ msgid ""
 "Select a standard solution. The main fields of this measure will be "
 "populated with the chosen solution."
 msgstr ""
-"Kies een standaard oplosing. De gegevens van gekozen oplossing zullen "
-"worden ingevuld in de maatregel."
+"Kies een standaard oplosing. De gegevens van gekozen oplossing zullen worden "
+"ingevuld in de maatregel."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:46
 #: src/euphorie/client/templates/risk_actionplan.pt:164
@@ -3156,18 +3161,18 @@ msgstr ""
 #. Default: Evaluation algorithm
 #: src/euphorie/content/surveygroup.py:51
 msgid "label_survey_evaluation_algorithm"
-msgstr ""
+msgstr "Evaluatiemethode"
 
 #. Default: Standard three criteria
 #: src/euphorie/content/surveygroup.py:53
 #: src/euphorie/content/templates/surveygroup_add.pt:83
 msgid "algorithm_kinney"
-msgstr ""
+msgstr "Standaard (drie criteria)"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/surveygroup.py:54
 msgid "french"
-msgstr ""
+msgstr "Vereenvoudigd (twee critiria)"
 
 #. Default: Standard
 #: src/euphorie/content/surveygroup.py:225
@@ -3402,7 +3407,8 @@ msgstr "Branche"
 
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr "Een branche is een landelijke organisatie voor een bepaalde industrietak."
+msgstr ""
+"Een branche is een landelijke organisatie voor een bepaalde industrietak."
 
 #: src/euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
@@ -3888,19 +3894,18 @@ msgstr "Kies een land"
 #: src/euphorie/content/templates/surveygroup_add.pt:85
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr ""
-"Dit is de aanbevolen evaluatie method, gebaseerd op de Kinney methode"
+msgstr "Dit is de aanbevolen evaluatie method, gebaseerd op de Kinney methode"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/templates/surveygroup_add.pt:87
 msgid "algorithm_french"
-msgstr ""
-"Vereenvoudigde twee-criteria methode"
+msgstr "Vereenvoudigde twee-criteria methode"
 
 #: src/euphorie/content/templates/surveygroup_add.pt:89
 msgid "This is a simpler evaluation algorithm using only two criteria."
 msgstr ""
-"Dit is een simpelere evaluatiemethode die van slechts twee criteria gebruik maakt."
+"Dit is een simpelere evaluatiemethode die van slechts twee criteria gebruik "
+"maakt."
 
 #. Default: Unpublish "${title}"
 #: src/euphorie/content/templates/unpublish.pt:12

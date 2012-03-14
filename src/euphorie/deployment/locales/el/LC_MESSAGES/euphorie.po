@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-03-06 14:49+0100\n"
+"POT-Creation-Date: 2012-03-14 11:49+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -487,20 +487,26 @@ msgstr "Ποιος είναι υπεύθυνος;"
 msgid "label_action_plan_budget"
 msgstr "Προϋπολογισμός (σε Ευρώ)"
 
-#. Default: Risk
+#. Default: Risk number
 #: src/euphorie/client/report.py:841
+#, fuzzy
+msgid "label_risk_number"
+msgstr "Τύπος κινδύνου"
+
+#. Default: Risk
+#: src/euphorie/client/report.py:843
 #, fuzzy
 msgid "report_timeline_risk_title"
 msgstr "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια."
 
 #. Default: Priority
-#: src/euphorie/client/report.py:843
+#: src/euphorie/client/report.py:845
 #, fuzzy
 msgid "report_timeline_priority"
 msgstr "Είναι"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:845
+#: src/euphorie/client/report.py:847
 #, fuzzy
 msgid "report_timeline_comment"
 msgstr ""
@@ -508,13 +514,13 @@ msgstr ""
 "στην αναφορά σε αυτό το πεδίο."
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:860
+#: src/euphorie/client/report.py:862
 #, fuzzy
 msgid "report_timeline_title"
 msgstr "Σχέδιο δράσης:"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:884
+#: src/euphorie/client/report.py:892
 #, fuzzy
 msgid "filename_report_timeline"
 msgstr "Σχέδιο δράσης ${title}"
