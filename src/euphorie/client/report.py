@@ -233,7 +233,7 @@ class IdentificationReport(grok.View):
         return SessionManager.session.title
 
     def title(self, node, zodbnode):
-        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
+        if node.type != "risk" or node.identification in [u"n/a", u"yes", None]:
             return node.title
         if zodbnode.problem_description and \
                 zodbnode.problem_description.strip():

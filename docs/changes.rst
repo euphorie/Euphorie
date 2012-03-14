@@ -26,6 +26,12 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- The identification report wrongly showed the problem description for
+  unanswered risks. This fixes
+  `TNO ticket 207
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/207>`_.
+  [wichert]
+
 - Fix broken translations on risk action plan template. This fixes
   `TNO ticket 201
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/201>`_.

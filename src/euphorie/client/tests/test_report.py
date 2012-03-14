@@ -4,6 +4,51 @@ from euphorie.content.risk import Risk
 from euphorie.client import model
 
 
+class IdentificationReportTests(unittest.TestCase):
+    def IdentificationReport(self, *a, **kw):
+        from euphorie.client.report import IdentificationReport
+        return IdentificationReport(*a, **kw)
+
+    def test_title_not_a_risk(self):
+        import mock 
+        node = mock.Mock()
+        node.type = 'module'
+        node.title = u'My title'
+        view = self.IdentificationReport(None, None)
+        self.assertEqual(view.title(node, None), u'My title')
+
+    def test_title_unanswered_risk(self):
+        import mock 
+        node = mock.Mock()
+        node.type = 'risk'
+        node.identification = None
+        node.title = u'My title'
+        view = self.IdentificationReport(None, None)
+        self.assertEqual(view.title(node, None), u'My title')
+
+    def test_title_empty_problem_description(self):
+        import mock 
+        node = mock.Mock()
+        node.type = 'risk'
+        node.identification = u'no'
+        node.title = u'My title'
+        zodb_node = mock.Mock()
+        zodb_node.problem_description = u'   '
+        view = self.IdentificationReport(None, None)
+        self.assertEqual(view.title(node, zodb_node), u'My title')
+
+    def test_title_risk_present_and_with_problem_description(self):
+        import mock 
+        node = mock.Mock()
+        node.type = 'risk'
+        node.identification = u'no'
+        node.title = u'My title'
+        zodb_node = mock.Mock()
+        zodb_node.problem_description = u'Bad situation'
+        view = self.IdentificationReport(None, None)
+        self.assertEqual(view.title(node, zodb_node), u'Bad situation')
+
+
 class ShowNegateWarningTests(unittest.TestCase):
     def _call(self, node, zodbnode):
         from euphorie.client.report import IdentificationReport
