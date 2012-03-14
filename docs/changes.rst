@@ -26,7 +26,13 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- Fix colour of bold text in reports. This tixkes 
+- Fix handling of text-style tags (strong/b/em/etc.) outside paragraphs
+  when generating an RTF report. This fixes the second part of
+  `TNO ticket 208
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
+  [wichert]
+
+- Fix colour of bold text in reports. This fixes 
   `TNO ticket 208
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
   [wichert]

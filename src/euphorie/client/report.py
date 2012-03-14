@@ -131,7 +131,7 @@ class _HtmlToRtf(object):
 
     def handleElement(self, node, style):
         output = []
-        if node.tag in ["p", "li"]:
+        if node.tag in ["p", "li", 'strong', 'b', 'em', 'i', 'u']:
             txt = self.handleInlineText(node, [])
             if txt:
                 output.append(Paragraph(style, *txt))

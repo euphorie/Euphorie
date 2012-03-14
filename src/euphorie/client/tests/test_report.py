@@ -143,6 +143,12 @@ class HtmlToRtfTests(unittest.TestCase):
                     u"<p>Very <em>very <strong>bold</strong></em></p>",
                     u"<stylesheet>")))
 
+    def testItalicInText(self):
+        self.assertTrue(
+                "{\\i text}" in
+                self.render(self.HtmlToRtf(u"<em>text</em>",
+                                           u"<stylesheet>")))
+
     def testInlineEntity(self):
         self.assertTrue(
                 "Simple & clean\\par" in
