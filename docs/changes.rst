@@ -26,6 +26,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix colour of bold text in reports. This tixkes 
+  `TNO ticket 208
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
+  [wichert]
+
 - The identification report wrongly showed the problem description for
   unanswered risks. This fixes
   `TNO ticket 207
