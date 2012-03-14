@@ -7,6 +7,11 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change default behaviour for optional modules: children are now included
+  in all reports if the module question has not been answered.  This fixes `TNO
+  ticket 197 <http://code.simplon.biz/tracker/tno-euphorie/ticket/197>`_.
+  [wichert]
+
 - Do not open list of all risks (under inventorisation) in a new window or tab.
   This fixes `TNO ticket 205
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/205>`_.
