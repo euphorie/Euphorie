@@ -43,7 +43,9 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
         child = model.Module(title=title, module_id=node.id)
         if IModule.providedBy(node):
             child.solution_direction = HasText(node.solution_direction)
-            if not node.optional:
+            if node.optional:
+                child.skip_children = True
+            else:
                 child.postponed = False
     elif IRisk.providedBy(node):
         priority = getattr(node, "default_priority", None)
