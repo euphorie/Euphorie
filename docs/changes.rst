@@ -1,8 +1,14 @@
 Changelog
 =========
 
-3.1 - Unreleased
-----------------
+3.1 - March 15, 2012
+--------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+No special upgrade steps are needed for this release.
+
 
 Feature changes
 ~~~~~~~~~~~~~~~

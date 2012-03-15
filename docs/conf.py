@@ -12,7 +12,7 @@
 # All configuration values have a default value; values that are commented
 # out serve to show the default value.
 
-import sys, os
+# import sys, os
 
 # If your extensions are in another directory, add it here. If the
 # directory is relative to the documentation root, use os.path.abspath to
@@ -39,15 +39,15 @@ master_doc = 'index'
 
 # General substitutions.
 project = 'euphorie'
-copyright = '2009-2011, Simplon B.V.'
+copyright = '2009-2012, Simplon B.V. and SYSLAB.com GmbH'
 
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
 #
 # The short X.Y version.
-version = '3.0'
+version = '3.1'
 # The full version, including alpha/beta/rc tags.
-release = '3.0'
+release = '3.1'
 
 # There are two options for replacing |today|: either, you set today to
 # some non-false value, then it is used:
@@ -176,7 +176,7 @@ htmlhelp_basename = 'euphoriedoc'
 #  author, document class [howto/manual]).
 latex_documents = [
   ('index', 'euphorie.tex', 'Euphorie Documentation',
-   'Simplon', 'manual'),
+   'Simplon B.V.', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the
