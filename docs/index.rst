@@ -66,6 +66,7 @@ Technical Information
 
    install
    xml
+   api
    implementation/index
 
 
