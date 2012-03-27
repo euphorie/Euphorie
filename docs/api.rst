@@ -36,11 +36,11 @@ Users
 Authenticate user
 ~~~~~~~~~~~~~~~~~
 
- +------+---------------------+------------------------------+
- | Verb | URI                 | Description                  |
- +======+=====================+==============================+
- | POST | /users/authenticate |  List all defined countries. |
- +------+---------------------+------------------------------+
++------+---------------------+------------------------------+
+| Verb | URI                 | Description                  |
++======+=====================+==============================+
+| POST | /users/authenticate |  List all defined countries. |
++------+---------------------+------------------------------+
 
 In order to authenticate you must submit a JSON object with two keys:
 
@@ -77,11 +77,11 @@ requests that require authentication.
 User details
 ~~~~~~~~~~~~
 
- +------+---------------------+------------------------------+
- | Verb | URI                 | Description                  |
- +======+=====================+==============================+
- | GET  | /users/<userid>     | Return user information.     |
- +------+---------------------+------------------------------+
++------+---------------------+------------------------------+
+| Verb | URI                 | Description                  |
++======+=====================+==============================+
+| GET  | /users/<userid>     | Return user information.     |
++------+---------------------+------------------------------+
 
 This will return information about the user, including all known sessions. A
 user can only request information for his own account: any attempt to request
@@ -105,7 +105,7 @@ information on another user will result in a HTTP 403 error response.
                    "modified": "2011-12-06T15:15:24Z",
            },
        ],
-   }
+   
 
 This token should be supplied in an ``X-Euphorie-Token`` HTTP header for all
 requests that require authentication.
@@ -117,11 +117,11 @@ Surveys
 List countries
 ~~~~~~~~~~~~~~
 
- +------+----------+------------------------------+
- | Verb | URI      | Description                  |
- +======+==========+==============================+
- | GET  | /surveys |  List all defined countries  |
- +------+-----------+-----------------------------+
++------+----------+------------------------------+
+| Verb | URI      | Description                  |
++======+==========+==============================+
+| GET  | /surveys |  List all defined countries  |
++------+-----------+-----------------------------+
 
 Example response::
 
@@ -141,18 +141,18 @@ Example response::
 List sectors
 ~~~~~~~~~~~~
 
- +------+--------------------------------------------+-----------------------------------+
- | Verb | URI                                        | Description                       |
- +======+============================================+===================================+
- | GET  | /surveys/<country>                         | List all surveys in a country.    |
- +------+--------------------------------------------+-----------------------------------+
- | GET  | /surveys/<country>/details                 | List all surveys in a country     |
- |      |                                            | including its surveys.            |
- +------+--------------------------------------------+-----------------------------------+
- | GET  | /surveys/<country>/details?language=<lang> | List all surveys in a country     |
- |      |                                            | including all surveys in the given|
- |      |                                            | language.                         |
- +------+--------------------------------------------+-----------------------------------+
++------+--------------------------------------------+-----------------------------------+
+| Verb | URI                                        | Description                       |
++======+============================================+===================================+
+| GET  | /surveys/<country>                         | List all surveys in a country.    |
++------+--------------------------------------------+-----------------------------------+
+| GET  | /surveys/<country>/details                 | List all surveys in a country     |
+|      |                                            | including its surveys.            |
++------+--------------------------------------------+-----------------------------------+
+| GET  | /surveys/<country>/details?language=<lang> | List all surveys in a country     |
+|      |                                            | including all surveys in the given|
+|      |                                            | language.                         |
++------+--------------------------------------------+-----------------------------------+
 
 Example response::
 
@@ -206,11 +206,11 @@ Example detail response::
 List sector details
 ~~~~~~~~~~~~~~~~~~~
 
- +------+--------------------------------+-----------------------------------+
- | Verb | URI                            | Description                       |
- +======+================================+===================================+
- | GET  | /surveys/<country>/<sectorid>  | List details of the given sector. |
- +------+--------------------------------+-----------------------------------+
++------+--------------------------------+-----------------------------------+
+| Verb | URI                            | Description                       |
++======+================================+===================================+
+| GET  | /surveys/<country>/<sectorid>  | List details of the given sector. |
++------+--------------------------------+-----------------------------------+
 
 
 Example response::
