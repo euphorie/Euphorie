@@ -4,8 +4,15 @@ Changelog
 3.1.1 - Unreleased
 ------------------
 
-- ...
+Bugfixes
+~~~~~~~~
 
+- Fix case handling of email addresses when changing the email address
+  in the client. Previously it was possible to change to an email address
+  with capital, after which login was no longer possible.  This fixes 
+  a final part of `TNO ticket 194
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
+  [wichert]
 
 
 3.1 - March 15, 2012

@@ -238,12 +238,12 @@ class NewEmail(form.SchemaForm):
             flash(_(u"There were no changes to be saved."), "notice")
             return
 
-        login=data["loginname"].strip()
+        login=data["loginname"].strip().lower()
         if Session.query(Account.id).filter(Account.loginname==login).count():
             raise WidgetActionExecutionError("loginname",
                     Invalid(_(u"This email address is not available.")))
 
-        self.initiateRequest(user, data["loginname"])
+        self.initiateRequest(user, login)
 
         flash(_("email_change_pending", default=
             u"Please confirm your new email address by clicking on the link "

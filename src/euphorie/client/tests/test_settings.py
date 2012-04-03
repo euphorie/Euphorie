@@ -208,6 +208,18 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         second_key=Session.query(AccountChangeRequest.id).first()[0]
         self.assertNotEqual(first_key, second_key)
 
+    def testLowercaseEmail(self):
+        from z3c.saconfig import Session
+        from euphorie.client.model import AccountChangeRequest
+        browser=self.browser
+        browser.handleErrors=False
+        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(name="form.widgets.password").value="guest"
+        browser.getControl(name="form.widgets.loginname").value="DISCARD@sImplOn.biz"
+        browser.getControl("Save changes").click()
+        request=Session.query(AccountChangeRequest).first()
+        self.assertEqual(request.value, 'discard@simplon.biz')
+
 
 
 class ChangeEmailTests(EuphorieFunctionalTestCase):
@@ -240,4 +252,3 @@ class ChangeEmailTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, "http://nohost/plone/client")
         self.assertEqual(
                 Session.query(Account.loginname).first()[0], "new-login")
-
