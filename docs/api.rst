@@ -39,7 +39,7 @@ Authenticate user
 +------+---------------------+------------------------------+
 | Verb | URI                 | Description                  |
 +======+=====================+==============================+
-| POST | /users/authenticate |  List all defined countries. |
+| POST | /users/authenticate |  Authenticate a user.        |
 +------+---------------------+------------------------------+
 
 In order to authenticate you must submit a JSON object with two keys:
@@ -111,8 +111,8 @@ This token should be supplied in an ``X-Euphorie-Token`` HTTP header for all
 requests that require authentication.
 
 
-Surveys
--------
+Survey catalog
+--------------
 
 List countries
 ~~~~~~~~~~~~~~
@@ -220,15 +220,47 @@ Example response::
            "title": "STIGAS",
            "surveys": [
                {
-                       "id": "akkerbouw-en-vollegrondsgroenteteelt",
+                       "id": "nl/akkerbouw-en-vollegrondsgroenteteelt",
                        "title": "Akkerbouw en vollegrondsgroenteteelt",
                        "language": "nl",
                },
                {
-                       "id": "bos-en-natuur",
+                       "id": "nl/bos-en-natuur",
                        "title": "Bos en natuur",
                        "language": "nl",
                }
                ,
            ],
+   }
+
+
+Survey interaction
+------------------
+
+Start a new survey
+~~~~~~~~~~~~~~~~~~
+
++------+---------------------------+------------------------------+
+| Verb | URI                       | Description                  |
++======+===========================+==============================+
+| POST  | /users/<userid>surveys   | Start a new survey session.  |
++------+---------------------------+------------------------------+
+
+To start a new survey a POST request must be send. This must include a JSON
+body with the following keys:
+
+* ``id``: id of the survey.
+* ``title``: title of the new session. This should default to the title of
+  the survey itself.
+
+This requires that the user already authenticated and a suitable authentication
+token is set in the ``X-Euphorie-Token`` header.
+
+The response will be a JSON block::
+
+
+   {
+           "id": "193714",
+           "introduction": "Introduction text from the survey.",
+           "next": "http://instrument.rie.nl/users/13/surveys/193714/profile",
    }
