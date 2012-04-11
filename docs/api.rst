@@ -41,6 +41,23 @@ information provided by the user.
 API operations
 ==============
 
+Error responses
+---------------
+
+An error can occur for several reasons: bad data being passed to an API
+call, Euphorie encountering an internal error, a disk running out of space,
+etc. If this happens an error-response will be returned. These can be
+recognized by the ``type`` key being set to ``error``.
+
+.. code-block:: javascript
+
+    {
+            "type": "error",
+            "message": "Required data missing",
+    }
+
+
+
 Users
 -----
 
@@ -118,12 +135,6 @@ authentication token and a list of existing sessions::
 
 This token should be supplied in an ``X-Euphorie-Token`` HTTP header for all
 requests that require authentication.
-
-.. note::
-
-   Note that this is only possible for accounts that were created in an
-   Euphorie system directly, or for accounts that were created via this API
-   and have performed a password reset to set a password for the account.
 
 User details
 ~~~~~~~~~~~~
@@ -327,7 +338,7 @@ structure. They include the following keys:
 
 * ``phase``: the current survey phase. This will be one of ``identification``,
 * ``type``: an indicator of the response type. This will be one of ``survey``,
-  ``profile``, ``module``, ``risk`` or ``update``.
+  ``profile``, ``module``, ``risk``, ``update`` or ``error``.
 * ``title``: the title for the current context. Depending on the context this
   will be the title of the survey, module or the risk.
   ``evaluation`` or ``actionplan``.
@@ -339,24 +350,26 @@ structure. They include the following keys:
 
 If a survey was updated since the last interaction of the user with the survey
 and the structure of the survey has changed a *survey-update* response is
-generated. The response type can be identified by ``type`` set to ``update``
-and ``next-step`` pointing to the API interface for the profile step.
+generated. The response type can be identified by ``type`` set to ``update``.
+An additional ``confirm-profile`` key is set to ``true`` if the profile options
+for the survey have changed and the user needs to (re)confirm his profile.
+
+.. code-block:: javascript
+
+   {
+           "type": "update",
+           "confirm-profile": true,
+           "next-step": "http://instrumenten.rie.nl/users/13/surveys/193714/update",
+   }
+
 
 XXX:
-- add survey version to update notice
-- add different update types: simple confirm or reconfirm propfile
-
-.. note::
-
-   Need to define menu structure here as well. See euphorie.client.navigation.getTreeData
-
-.. note::
-
-   Need to specify error responses.
+- Need to define menu structure here as well. See euphorie.client.navigation.getTreeData
 
 
-Start a new survey
-~~~~~~~~~~~~~~~~~~
+
+Start a new survey session
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------+---------------------------+------------------------------+
 | Verb | URI                       | Description                  |
@@ -390,8 +403,8 @@ profile update API. For surveys without profile questions ``next-step`` will
 point directly to the start of the identification phase.
 
 
-Survey information
-~~~~~~~~~~~~~~~~~~
+Survey session information
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------+-------------------------------------+------------------------------+
 | Verb | URI                                 | Description                  |
@@ -401,9 +414,35 @@ Survey information
 
 .. note::
 
-   This is also the API interface to use when resuming an existing survey.
+   This is also the API interface to use when resuming an existing survey
+   session.
 
-This will return the same information as the previous API call.
+This function returns almost exactly the same response as the survey session
+creation method. The only difference is the addition of a ``modified`` entry.
+
+.. code-block:: javascript
+
+
+   {
+           "id": "193714",
+           "type": "survey",
+           "modified": "2011-12-06T15:15:24Z",
+           "title": "The title of the survey",
+           "introduction": "Introduction text from the survey.",
+           "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/profile",
+   }
+
+
+Remove survey session
+~~~~~~~~~~~~~~~~~~~~~
+
++--------+-------------------------------------+------------------------------+
+| Verb   | URI                                 | Description                  |
++========+=====================================+==============================+
+| DELETE | /users/<userid>/surveys/<survey id> | Delete a survey session.     |
++--------+-------------------------------------+------------------------------+
+
+This will delete an existing survey session.
 
 
 View profile information
