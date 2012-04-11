@@ -205,7 +205,7 @@ List countries
 | Verb | URI      | Description                  |
 +======+==========+==============================+
 | GET  | /surveys |  List all defined countries  |
-+------+-----------+-----------------------------+
++------+----------+------------------------------+
 
 Example response::
 
