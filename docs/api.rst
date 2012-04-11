@@ -49,7 +49,7 @@ call, Euphorie encountering an internal error, a disk running out of space,
 etc. If this happens an error-response will be returned. These can be
 recognized by the ``type`` key being set to ``error``.
 
-.. code-block:: javascript
+::
 
     {
             "type": "error",
@@ -354,7 +354,7 @@ generated. The response type can be identified by ``type`` set to ``update``.
 An additional ``confirm-profile`` key is set to ``true`` if the profile options
 for the survey have changed and the user needs to (re)confirm his profile.
 
-.. code-block:: javascript
+::
 
    {
            "type": "update",
@@ -420,8 +420,7 @@ Survey session information
 This function returns almost exactly the same response as the survey session
 creation method. The only difference is the addition of a ``modified`` entry.
 
-.. code-block:: javascript
-
+::
 
    {
            "id": "193714",
