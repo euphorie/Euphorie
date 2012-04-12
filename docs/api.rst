@@ -330,6 +330,15 @@ Example response::
 Survey interaction
 ------------------
 
+The general structure for interacting with a survey is as follows:
+
+1. Authenticate the user
+2. Start a new survey session
+3. Start identification phase and walk through all identification steps
+4. Start evaluation phase and walk through all evaluation steps
+5. Start action plan phase and walk through all action plan steps
+
+
 Standard response components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -341,7 +350,6 @@ structure. They include the following keys:
   ``profile``, ``module``, ``risk``, ``update`` or ``error``.
 * ``title``: the title for the current context. Depending on the context this
   will be the title of the survey, module or the risk.
-  ``evaluation`` or ``actionplan``.
 * ``previous-step``: a URL pointing to the API location of the previous logical
   step.  If the end start of the survey is reached this key will not be
   present.
@@ -538,3 +546,200 @@ the identification phase::
    {
            "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/identification",
    }
+
+
+Start identification phase
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------------+------------------------------+
+| Verb | URI                                                 | Description                  |
++======+=====================================================+==============================+
+| GET  | /users/<userid>/surveys/<survey id>/identification  | Request idenfication info.   |
++------+-----------------------------------------------------+------------------------------+
+
+This call will return information that is needed to start the identification
+phase in a survey.  A frontend may not need to display any of this information
+but only use it to find locate the first unanswered question in the survey
+session, which is given in the ``next-step`` key.
+
+::
+
+    {
+            "type": "survey",
+            "phase": "identification",
+            "title": "The title of the survey",
+            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/1",
+            "menu": [ ... ],
+    }
+
+
+Start evaluation phase
+~~~~~~~~~~~~~~~~~~~~~~
+
++------+-------------------------------------------------+------------------------------+
+| Verb | URI                                             | Description                  |
++======+=================================================+==============================+
+| GET  | /users/<userid>/surveys/<survey id>/evaluation  | Request evaluation info.     |
++------+-------------------------------------------------+------------------------------+
+
+This call will return information that is needed to start the evaluation phase
+in a survey.  A frontend may not need to display any of this information but
+only use it to find locate the first unanswered evaluation question in the
+survey session, which is given in the ``next-step`` key.
+
+::
+
+    {
+            "type": "survey",
+            "phase": "evaluation",
+            "title": "The title of the survey",
+            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/2/5/13",
+            "menu": [ ... ],
+    }
+
+
+Start action plan phase
+~~~~~~~~~~~~~~~~~~~~~~~
+
++------+------------------------------------------------+------------------------------+
+| Verb | URI                                            | Description                  |
++======+================================================+==============================+
+| GET  | /users/<userid>/surveys/<survey id>/actionplan | Request evaluation info.     |
++------+------------------------------------------------+------------------------------+
+
+This call will return information that is needed to start the action plan phase
+in a survey.  A frontend may not need to display any of this information but
+only use it to find locate the first unanswered action plan question in the
+survey session, which is given in the ``next-step`` key.
+
+::
+
+    {
+            "type": "survey",
+            "phase": "actinoplan",
+            "title": "The title of the survey",
+            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/2/5/13",
+            "menu": [ ... ],
+    }
+
+
+Module information
+~~~~~~~~~~~~~~~~~~
+
++------+----------------------------------------------------+------------------------------+
+| Verb | URI                                                | Description                  |
++======+====================================================+==============================+
+| GET  | /users/<userid>/surveys/<survey id>/<path>         | Request module information   |
++------+----------------------------------------------------+------------------------------+
+| GET  | /users/<userid>/surveys/<survey id>/<path>/<phase> | Request module information   |
+|      |                                                    | for the given phase.
++------+----------------------------------------------------+------------------------------+
+
+.. note::
+
+   The URL does not indicate if the data at that location is a module or a
+   risk. That means a client must check the returned ``type`` information to
+   determine the resource type and act accordingly.
+
+``previous-step`` and ``next-step`` can only be returned if the phase is
+provided. The phase must be one of ``identification``, ``evaluation`` or
+``actionplan``.
+
+Beyond the standard fields a module will return these extra fields:
+
++------------------------+---------------+----------+--------------------------------+
+|  Field                 | Type          | Required |                                |
++========================+===============+==========+================================+
+| ``image``              | object        | No       | An image related to the module.|
+|                        |               |          | This has two keys: ``url`` and |
+|                        |               |          | ``caption``.                   |
++------------------------+---------------+----------+--------------------------------+
+| ``solution-direction`` | string (HTML) | No       | Explanation of how to handle   |
+|                        |               |          | risks in this module.          |
++------------------------+---------------+----------+--------------------------------+
+| ``optional``           | boolean       | Yes      | Flag indicating if this module |
+|                        |               |          | is optional.                   |
++------------------------+---------------+----------+--------------------------------+
+| ``question``           | string        | No       | For optional modules this is   |
+|                        |               |          | the question to ask users to   |
+|                        |               |          | determine if children of this  |
+|                        |               |          | module should be included or   |
+|                        |               |          | skipped.                       |
++------------------------+---------------+----------+--------------------------------+
+| ``skip-children``      | boolean       | No       | The users answer to the        |
+|                        |               |          | question. If the question has  |
+|                        |               |          | not been answered yet this is  |
+|                        |               |          | set to ``null``.               |
++------------------------+---------------+----------+--------------------------------+
+
+
+Update module identification data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------------------+-----------------------+
+| Verb | URI                                                       | Description           |
++======+===========================================================+=======================+
+| PUT  | /users/<userid>/surveys/<survey id>/<path>/identification | Update module status  |
++------+-----------------------------------------------------------+-----------------------+
+
+This call is only useful for optional modules. For normal (ie mandatory) modules
+it is an error to use this call.
+
+The request must be a JSON block with an answer for the ``skip-children``
+flag:
+
+::
+
+    {
+            "skip-children": false,
+    }
+
+
+Risk information
+~~~~~~~~~~~~~~~~
+
++------+----------------------------------------------------+----------------------------+
+| Verb | URI                                                | Description                |
++======+====================================================+============================+
+| GET  | /users/<userid>/surveys/<survey id>/<path>         | Request risk information   |
++------+----------------------------------------------------+----------------------------+
+| GET  | /users/<userid>/surveys/<survey id>/<path>/<phase> | Request risk information   |
+|      |                                                    | for the given phase.       |
++------+----------------------------------------------------+----------------------------+
+
+.. note::
+
+   The URL does not indicate if the data at that location is a module or a
+   risk. That means a client must check the returned ``type`` information to
+   determine the resource type and act accordingly.
+
+``previous-step`` and ``next-step`` can only be returned if the phase is
+provided. The phase must be one of ``identification``, ``evaluation`` or
+``actionplan``.
+
+Beyond the standard fields a risk will return these extra fields:
+
++-------------------------+---------------+----------+--------------------------------+
+|  Field                  | Type          | Required |                                |
++=========================+===============+==========+================================+
+| ``evaluation-options``  | list of       | No       | A list of allowed evaluation   |
+|                         | objects       |          | answers. Each entry is an      |
+|                         | objects       |          | object with two string keys:   |
+|                         | objects       |          | ``value`` and ``title``        |
++-------------------------+---------------+----------+--------------------------------+
+| ``images``              | list of       | No       | An list of image related to the|
+|                         | objects       |          | risk. Each entry is an object  |
+|                         |               |          | with two keys: ``url`` and     |
+|                         |               |          | ``caption``.                   |
++-------------------------+---------------+----------+--------------------------------+
+| ``comment``             | string        | No       | A comment added by the user.   |
++-------------------------+---------------+----------+--------------------------------+
+| ``legal-reference``     | string (HTML) | No       | A reference to related legal   |
+|                         |               |          | and policy references.         |
++-------------------------+---------------+----------+--------------------------------+
+| ``show-not-applicable`` | boolean       | No       | Indicates of a *not            |
+|                         |               |          | applicable* option should be   |
+|                         |               |          | offered in the identification  |
+|                         |               |          | phase.                         |
++-------------------------+---------------+----------+--------------------------------+
+
