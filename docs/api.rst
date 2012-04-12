@@ -722,24 +722,110 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 |  Field                  | Type          | Required |                                |
 +=========================+===============+==========+================================+
-| ``evaluation-options``  | list of       | No       | A list of allowed evaluation   |
-|                         | objects       |          | answers. Each entry is an      |
-|                         | objects       |          | object with two string keys:   |
-|                         | objects       |          | ``value`` and ``title``        |
+| ``evaluation-method``   | string        | Yes      | The evaluation method to use.  |
+|                         |               |          | Will be either ``direct`` or   |
+|                         |               |          | ``calcualated``.               |
 +-------------------------+---------------+----------+--------------------------------+
 | ``images``              | list of       | No       | An list of image related to the|
 |                         | objects       |          | risk. Each entry is an object  |
 |                         |               |          | with two keys: ``url`` and     |
 |                         |               |          | ``caption``.                   |
 +-------------------------+---------------+----------+--------------------------------+
-| ``comment``             | string        | No       | A comment added by the user.   |
-+-------------------------+---------------+----------+--------------------------------+
 | ``legal-reference``     | string (HTML) | No       | A reference to related legal   |
 |                         |               |          | and policy references.         |
 +-------------------------+---------------+----------+--------------------------------+
-| ``show-not-applicable`` | boolean       | No       | Indicates of a *not            |
+| ``show-not-applicable`` | boolean       | Yes      | Indicates of a *not            |
 |                         |               |          | applicable* option should be   |
 |                         |               |          | offered in the identification  |
 |                         |               |          | phase.                         |
 +-------------------------+---------------+----------+--------------------------------+
+| ``present``             | string        | Yes      | Indicates if the risk is       |
+|                         |               |          | present. One of ``yes``,       |
+|                         |               |          | ``no``, ``n/a`` (only if       |
+|                         |               |          | ``show-not-applicable`` is set)|
+|                         |               |          | or null of not yet known.      |
++-------------------------+---------------+----------+--------------------------------+
+| ``priority``            | string        | Yes      | The priority of the risk. One  |
+|                         |               |          | ``low``, ``medium``, ``high``  |
+|                         |               |          | or ``null`` if not known yet.  |
++-------------------------+---------------+----------+--------------------------------+
+| ``comment``             | string        | No       | A comment added by the user.   |
++-------------------------+---------------+----------+--------------------------------+
+
+
+For risks with ann evalution option of ``calculated`` these extra fields are included:
+
+
++-------------------------+---------------+----------+--------------------------------+
+|  Field                  | Type          | Required |                                |
++=========================+===============+==========+================================+
+| ``frequency-options``   | list of       | Yes      | A list of allowed frequency    |
+|                         | objects       |          | answers. Each entry is an      |
+|                         | objects       |          | object with two keys:          |
+|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | ``title`` (string).            |
++-------------------------+---------------+----------+--------------------------------+
+| ``effect-options``      | list of       | Yes      | A list of allowed effect       |
+|                         | objects       |          | answers. Each entry is an      |
+|                         | objects       |          | object with two keys:          |
+|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | ``title`` (string).            |
++-------------------------+---------------+----------+--------------------------------+
+| ``effect``              | integer       | Yes      | Users answer to the effect     |
+|                         |               |          | question.                      |
++-------------------------+---------------+----------+--------------------------------+
+| ``probability-options`` | list of       | Yes      | A list of allowed probability  |
+|                         | objects       |          | answers. Each entry is an      |
+|                         | objects       |          | object with two keys:          |
+|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | ``title`` (string).            |
++-------------------------+---------------+----------+--------------------------------+
+| ``probability``         | integer       | Yes      | Users answer to the probability|
+|                         |               |          | question.                      |
++-------------------------+---------------+----------+--------------------------------+
+
+
+Update risk identification data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------------------+---------------------+
+| Verb | URI                                                       | Description         |
++======+===========================================================+=====================+
+| PUT  | /users/<userid>/surveys/<survey id>/<path>/identification | Update risk status  |
++------+-----------------------------------------------------------+---------------------+
+
+
+The request must be a JSON block with a (new) answer for the ``present`` flag. The comment
+can also be updated by including the ``comment`` field.
+
+::
+
+    {
+            "present": "no",
+            "comment": "Verify with John at the shipping department!",
+    }
+
+
+Update risk evaluation data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------------------+---------------------+
+| Verb | URI                                                       | Description         |
++======+===========================================================+=====================+
+| PUT  | /users/<userid>/surveys/<survey id>/<path>/evaluation     | Update risk status  |
++------+-----------------------------------------------------------+---------------------+
+
+The possbile values depend on the evaluation method used for the risk. For risks that use
+a direct evaluation the priority field can be set directly. For risks using a calculated
+evaluation method the frequency, effect and probability information must be provided.
+
+The comment can also be updated by including the ``comment`` field.
+
+::
+
+    {
+            "frequency": 10,
+            "effect": 3,
+            "probability": 7,
+    }
 
