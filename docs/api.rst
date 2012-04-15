@@ -829,3 +829,142 @@ The comment can also be updated by including the ``comment`` field.
             "probability": 7,
     }
 
+
+List action plans
+~~~~~~~~~~~~~~~~~
+
++------+-------------------------------------------------------+-------------------+
+| Verb | URI                                                   | Description       |
++======+=======================================================+===================+
+| GET  | /users/<userid>/surveys/<survey id>/<path>/actionplan | List action plans |
++------+-------------------------------------------------------+-------------------+
+
+During the action plan phase a user is asked to indicate how he wants to tackle
+a risk by defining specific actions to be taken. This API call will return a
+list of all action plans provided by the user.
+
+The response is returned in the form of a JSON object with a ``action-plans`` key
+containing a list of plans.
+
+::
+
+     {
+             "action-plans": [
+                     {
+                             "id": 15,
+                             "plan": "Clean the workplace",
+                             "prevention": "Educate workers to clean daily.",
+                             "requirements": "Soap, vacuumcleaner",
+                             "responsible": "John Doe",
+                             "budget": 1500,
+                             "planning-start": "2012-04-15",
+                             "planning-end": null,
+                             "reference": "2012a16.5",
+                     },
+             ],
+     }
+
+See the :ref:`view action plan <View action plan>` call for details on the
+returned information.
+
+
+View action plan
+~~~~~~~~~~~~~~~~
+
++------+------------------------------------------------------------+----------------------------+
+| Verb | URI                                                        | Description                |
++======+============================================================+============================+
+| GET  | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | View action plan details.  |
++------+------------------------------------------------------------+----------------------------+
+
+The response is returned in the form of a JSON object containing all known
+information about an action plan.
+
+::
+
+     {
+             "id": 15,
+             "plan": "Clean the workplace",
+             "prevention": "Educate workers to clean daily.",
+             "requirements": "Soap, vacuumcleaner",
+             "responsible": "John Doe",
+             "budget": 1500,
+             "planning-start": "2012-04-15",
+             "planning-end": null,
+             "reference": "2012a16.5",
+     }
+
+The ``reference`` key is not part of the standard Euphorie user interface, but
+can be used by consumers of this API to link a measure to an external system.
+
+
+Create new action plan
+~~~~~~~~~~~~~~~~~~~~~~
+
++------+-------------------------------------------------------+----------------------+
+| Verb | URI                                                   | Description          |
++======+=======================================================+======================+
+| POST | /users/<userid>/surveys/<survey id>/<path>/actionplan | Add new action plan. |
++------+-------------------------------------------------------+----------------------+
+
+The request must be a JSON object with data for the action plan to be added. The
+only required field is ``plan``; all either items are optional.
+
++-------------------------+---------------+----------+--------------------------------+
+|  Field                  | Type          | Required |                                |
++=========================+===============+==========+================================+
+| ``plan``                | string        | Yes      | Description of actions needed  |
+|                         | string        |          | to remove the current risk.    |
++-------------------------+---------------+----------+--------------------------------+
+| ``prevention``          | string        | No       | Description of what should be  |
+|                         |               |          | done to remove this risk.      |
++-------------------------+---------------+----------+--------------------------------+
+| ``requirements``        | string        | No       | A description of the           |
+|                         |               |          | requirements for this plan.    |
++-------------------------+---------------+----------+--------------------------------+
+| ``responsible``         | string        | No       | The name of the person or group|
+|                         |               |          | who is available for this task.|
++-------------------------+---------------+----------+--------------------------------+
+| ``budget``              | integer       | No       | The budget that is available   |
+|                         |               |          | for this task.                 |
++-------------------------+---------------+----------+--------------------------------+
+| ``planning-start``      | string (ISO   | No       | Start date for the plan.       |
+|                         | date)         |          |                                |
++-------------------------+---------------+----------+--------------------------------+
+| ``planning-end``        | string (ISO   | No       | Completion date for the plan.  |
+|                         | date)         |          |                                |
++-------------------------+---------------+----------+--------------------------------+
+| ``reference``           | string        | No       | Reference to external system.  |
+|                         |               |          |                                |
++-------------------------+---------------+----------+--------------------------------+
+
+The ``reference`` key is not part of the standard Euphorie user interface, but
+can be used by consumers of this API to link a measure to an external system.
+
+The response is a JSON object with complete information on the newly created action
+plan. See the :ref:`view action plan <View action plan>` call for details.
+
+
+Update action plan
+~~~~~~~~~~~~~~~~~~
+
++------+------------------------------------------------------------+------------------------+
+| Verb | URI                                                        | Description            |
++======+============================================================+========================+
+| PUT  | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | Update an action plan. |
++------+------------------------------------------------------------+------------------------+
+
+The request must be a JSON object with all items that must be updated. Items
+not included in the request will not be changed.
+
+
+Delete action plan
+~~~~~~~~~~~~~~~~~~
+
++--------+------------------------------------------------------------+------------------------+
+| Verb   | URI                                                        | Description            |
++========+============================================================+========================+
+| DELETE | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | Remove an action plan. |
++--------+------------------------------------------------------------+------------------------+
+
+This call will remove an action plan for a risk.
