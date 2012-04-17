@@ -339,8 +339,7 @@ The ``image`` element is used in ``module`` and ``risk`` elements to add
 extra images. The element has three optional attributes:
 
 ``caption``
-  The caption for the image. This is only used by ``risk`` elements, and
-  ignored in other places.
+  The caption for the image.
 
 ``content-type``
   The MIME content type for the image. This is generally one of ``image/gif``,

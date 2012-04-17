@@ -90,7 +90,7 @@ class ExportSurvey(grok.View):
         if StripMarkup(module.solution_direction):
             etree.SubElement(node, "solution-direction").text=module.solution_direction
         if module.image is not None:
-            self.exportImage(node, module.image)
+            self.exportImage(node, module.image, module.caption)
 
         for child in module.values():
             if IModule.providedBy(child):

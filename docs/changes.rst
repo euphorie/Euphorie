@@ -12,6 +12,10 @@ No special upgrade steps are needed for this release.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add a caption field for module image captions. This fixes `TNO ticket 210
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/210>`_.
+  [wichert]
+
 - Use a slightly larger image size for the module views, and enable 
   image zoom (fancybox). This fixes `TNO ticket 209
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/209>`_.

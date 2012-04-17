@@ -205,7 +205,9 @@ class SurveyImporter(object):
 
         image=getattr(node, "image", None)
         if image is not None:
-            module.image=self.ImportImage(image)[0]
+            (image,caption)=self.ImportImage(image)
+            module.image = image
+            module.caption = caption
 
 
     def ImportProfileQuestion(self, node, survey):
