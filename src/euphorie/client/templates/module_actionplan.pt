@@ -16,8 +16,9 @@
   <body tal:define="module nocall:view/module" class="actionplan ${webhelpers/extra_css}">
     <h1>${view/title}</h1>
 
-    <img alt="" class="floatBefore" tal:define="images module/@@images; scale python:images.scale('image', width=150, height=500, direction='thumbnail')"
-    tal:condition="scale" src="${scale/url}" width="${scale/width}" height="${scale/height}"/>
+    <a tal:define="images module/@@images; scale python:images.scale('image', width=200, height=500, direction='thumbnail')"
+      tal:condition="scale" rel="fancybox" class="floatAfter" href="${module/absolute_url}/@@download/image/${module/image/filename}">
+      <img alt="" src="${scale/url}" width="${scale/width}" height="${scale/height}"/></a>
 
     <p tal:replace="structure module/description">
       This is a description of the module.

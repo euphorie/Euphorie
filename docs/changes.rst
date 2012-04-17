@@ -9,6 +9,14 @@ Upgrade notes
 
 No special upgrade steps are needed for this release.
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Use a slightly larger image size for the module views, and enable 
+  image zoom (fancybox). This fixes `TNO ticket 209
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/209>`_.
+  [wichert]
+
 Bugfixes
 ~~~~~~~~
 
