@@ -4,6 +4,11 @@ Changelog
 3.1.1 - Unreleased
 ------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+No special upgrade steps are needed for this release.
+
 Bugfixes
 ~~~~~~~~
 
@@ -14,6 +19,12 @@ Bugfixes
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
   [wichert]
 
+Other changes
+~~~~~~~~~~~~~
+
+- Small code restructuring to make it easier for derived sites to change
+  filters for reports.
+  [wichert]
 
 3.1 - March 15, 2012
 --------------------
