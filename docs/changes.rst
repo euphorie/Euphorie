@@ -16,6 +16,11 @@ Feature changes
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/210>`_.
   [wichert]
 
+- Position images for module views on the right side of the page so they
+  do not break running text as badly. This should fix `TNO ticket 211
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/211>`_.
+  [wichert]
+
 - Use a slightly larger image size for the module views, and enable 
   image zoom (fancybox). This fixes `TNO ticket 209
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/209>`_.
