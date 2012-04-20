@@ -1,18 +1,37 @@
 from five import grok
-from euphorie.client.api.interfaces import IClientAPISkinLayer
+from euphorie.client.authentication import authenticate
 from euphorie.client.survey import PathGhost
+from euphorie.client.api import JsonView
 
 
 class Users(PathGhost):
     """Entry point for the users."""
 
 
-class Authenticate(grok.View):
+class Authenticate(JsonView):
     grok.context(Users)
-    grok.layer(IClientAPISkinLayer)
     grok.name('authenticate')
+    grok.require('zope2.Public')
 
     def render(self):
         """Try to authenticate a user.
         """
-        return 'ok!'
+        try:
+            login = self.input['login']
+            password = self.input['password']
+        except (KeyError, TypeError):
+            self.request.response.setStatus(403)
+            return {'type': 'error',
+                    'message': 'Required data missing'}
+
+        account = authenticate(login, password)
+        if account is None:
+            self.request.response.setStatus(403)
+            return {'type': 'error',
+                    'message': 'Invalid credentials'}
+
+        return {'type': 'user',
+                'id': account.id,
+                'login': account.loginname,
+                'email': account.email,
+                'token': 'token'}

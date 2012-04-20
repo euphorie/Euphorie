@@ -97,16 +97,10 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     def authenticateCredentials(self, credentials):
         login = credentials.get('login')
         password = credentials.get('password')
-
-        if not login or not password:
+        account = authenticate(login, password)
+        if account is None:
             return None
-
-        login = login.lower()
-        accounts = Session().query(model.Account)\
-                .filter(model.Account.loginname==login)\
-                .filter(model.Account.password==password).count()
-
-        if accounts==1:
+        else:
             return (login, login)
 
     #
@@ -179,6 +173,26 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
 
         self.ZCacheable_set(result, view_name=viewname, keywords=keywords)
         return result
+
+
+def authenticate(login, password):
+    """Try to authenticate a user using the given login and password.
+
+    :param unicode login: login name
+    :param unicode password: users password
+    :return: :py:class:`Account <euphorie.client.model.Account>` instance
+
+    If the credentials are valid the matching account is returned. For invalid
+    credentials None is returned instead.
+    """
+    if not login or not password:
+        return None
+
+    login = login.lower()
+    account = Session().query(model.Account)\
+            .filter(model.Account.loginname==login)\
+            .filter(model.Account.password==password).first()
+    return account
 
 
 classImplements(
