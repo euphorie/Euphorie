@@ -10,11 +10,12 @@ class APITests(unittest.TestCase):
 
     def test_get_known_entrypoint(self):
         from euphorie.client.api.users import Users
-        api = self.API('request')
+        api = self.API('api', 'request')
         api.entry_points = {'known': Users}
         child = api['known']
         self.assertTrue(isinstance(child, Users))
         self.assertEqual(child.request, 'request')
+        self.assertEqual(child.getId(), 'known')
 
 
 class BrowserAPITests(EuphorieFunctionalTestCase):

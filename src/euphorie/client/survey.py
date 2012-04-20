@@ -46,8 +46,9 @@ class PathGhost(OFS.Traversable.Traversable, Acquisition.Implicit):
     ZODB or SQL databsae exists.
     """
 
-    def __init__(self, id):
-        self.id=id
+    def __init__(self, id, request=None):
+        self.id = id
+        self.request = request
 
     def getId(self):
         return self.id

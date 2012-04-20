@@ -13,17 +13,12 @@ class API(PathGhost):
     to setup interfaces on the request.
     """
 
-    id = 'api'
-
     entry_points = {
             'users': Users
             }
 
-    def __init__(self, request):
-        self.request = request
-
     def __getitem__(self, key):
-        return self.entry_points[key](self.request).__of__(self)
+        return self.entry_points[key](key, self.request).__of__(self)
 
     def __call__(self):
         self.request.response.setHeader('Content-Type', 'application/json')
@@ -48,4 +43,4 @@ def access_api(request):
     # request methods other than GET and POST.
     request.maybe_webdav_client = False
     directlyProvides(request, IClientAPISkinLayer, [])
-    return API(request)
+    return API('api', request)
