@@ -13,6 +13,12 @@ class Authenticate(JsonView):
     grok.name('authenticate')
     grok.require('zope2.Public')
 
+    def sessions(self, account):
+        return [{'id': session.id,
+                 'title': session.title,
+                 'modified': session.modified.isoformat()}
+                for session in account.sessions]
+
     def render(self):
         """Try to authenticate a user.
         """
@@ -34,4 +40,5 @@ class Authenticate(JsonView):
                 'id': account.id,
                 'login': account.loginname,
                 'email': account.email,
-                'token': 'token'}
+                'token': 'token',
+                'sessions': self.sessions(account)}
