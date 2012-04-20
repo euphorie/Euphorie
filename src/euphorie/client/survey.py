@@ -440,7 +440,6 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         return True
 
 
-
     def publishTraverse(self, request, name):
         request.survey=self.context
         utils.setLanguage(request, self.context, self.context.language)
@@ -466,4 +465,3 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         # No SQL based traversal possible, return the existing context with the
         # new skin layer applied
         return self.context
-

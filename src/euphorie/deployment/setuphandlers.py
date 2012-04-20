@@ -4,6 +4,7 @@ from plone.dexterity.utils import createContentInContainer
 from Products.CMFPlone.utils import _createObjectByType
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from euphorie.content.utils import REGION_NAMES
+from euphorie.client.api.entry import API
 
 log = logging.getLogger(__name__)
 
@@ -107,6 +108,10 @@ def setupInitialContent(site):
         site.invokeFactory("euphorie.client", "client", title="Client")
         wt.doActionFor(site.client, "publish")
         log.info("Added Euphorie client instance")
+
+    client = site.client
+    if 'api' not in client:
+        client['api'] = API('api')
 
     if "documents" not in present:
         site.invokeFactory("euphorie.folder", "documents", title=u"Documents")

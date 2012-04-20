@@ -1,0 +1,22 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:db="http://namespaces.zope.org/db"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="euphorie">
+
+    <interface
+        interface=".interfaces.IClientAPISkinLayer"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="api"
+        />
+
+    <browser:defaultView
+      for=".client.IClient"
+      name="view"
+      />
+
+
+</configure>
