@@ -101,7 +101,7 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         if account is None:
             return None
         else:
-            return (login, login)
+            return (account.loginname, account.loginname)
 
     #
     # IUserFactoryPlugin implementation
