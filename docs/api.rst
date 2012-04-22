@@ -179,16 +179,18 @@ Update user
 +------+---------------------+------------------------------+
 | Verb | URI                 | Description                  |
 +======+=====================+==============================+
-| POST | /users/<userid>     | Return user information.     |
+| POST | /users/<userid>     | Update user information.     |
 +------+---------------------+------------------------------+
 
-This call allows updating the user information. Keys that can be updated
-are ``email`` and ``password``.
+This call allows updating the user information. The only key that can
+be updated is ``login``. Currently the login name and email address
+are defined to be the same, so updating the login will also update the
+users email address.
 
 ::
 
    {
-       "email": "jane@example.com",
+       "login": "jane@example.com",
        "password": "bruce",
    }
 
