@@ -3,6 +3,22 @@ from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
 
 
+class ViewTests(EuphorieFunctionalTestCase):
+    def View(self, *a, **kw):
+        from euphorie.client.api.users import View
+        return View(*a, **kw)
+
+    def test_POST_valid_data(self):
+        import mock
+        view = self.View(None, None)
+        view.input = {'login': 'john', 'password': 'jane'}
+        with mock.patch('euphorie.client.api.users.generate_token') \
+                as mock_generate_token:
+            mock_generate_token.return_value = 'token'
+            response = view.POST()
+        self.assertEqual(response['type'], 'user')
+
+
 class AuthenticateTests(unittest.TestCase):
     def Authenticate(self, *a, **kw):
         from euphorie.client.api.users import Authenticate
@@ -12,14 +28,14 @@ class AuthenticateTests(unittest.TestCase):
         import mock
         view = self.Authenticate(None, mock.Mock())
         view.input = None
-        response = view.render()
+        response = view.POST()
         self.assertEqual(response['type'], 'error')
 
     def test_render_missing_data(self):
         import mock
         view = self.Authenticate(None, mock.Mock())
         view.input = {'login': 'foo'}
-        response = view.render()
+        response = view.POST()
         self.assertEqual(response['type'], 'error')
 
     def test_render_bad_login(self):
@@ -29,7 +45,7 @@ class AuthenticateTests(unittest.TestCase):
         view.input = {'login': 'foo', 'password': 'bar'}
         with mock.patch('euphorie.client.api.users.authenticate') as mock_auth:
             mock_auth.return_value = None
-            response = view.render()
+            response = view.POST()
             mock_auth.assert_called_once_with('foo', 'bar')
             self.assertEqual(response['type'], 'error')
             self.assertEqual(response['message'], 'Invalid credentials')
@@ -42,15 +58,16 @@ class AuthenticateTests(unittest.TestCase):
         with mock.patch('euphorie.client.api.users.authenticate') as mock_auth:
             with mock.patch('euphorie.client.api.users.generate_token') \
                     as mock_generate_token:
-                view.sessions = mock.Mock(return_value='sessions')
-                view.user_info = mock.Mock(return_value={'foo': 'bar'})
-                mock_auth.return_value = account = mock.Mock()
-                mock_generate_token.return_value = 'auth-token'
-                response = view.render()
-                mock_auth.assert_called_once_with('foo', 'bar')
-                view.user_info.assert_called_once_with(account)
-                self.assertEqual(response['foo'], 'bar')
-                self.assertEqual(response['token'], 'auth-token')
+                with mock.patch('euphorie.client.api.users.user_info') as info:
+                    view.sessions = mock.Mock(return_value='sessions')
+                    info.return_value = {'foo': 'bar'}
+                    mock_auth.return_value = account = mock.Mock()
+                    mock_generate_token.return_value = 'auth-token'
+                    response = view.POST()
+                    mock_auth.assert_called_once_with('foo', 'bar')
+                    info.assert_called_once_with(account, None)
+                    self.assertEqual(response['foo'], 'bar')
+                    self.assertEqual(response['token'], 'auth-token')
 
 
 class AuthenticateBrowserTests(EuphorieFunctionalTestCase):

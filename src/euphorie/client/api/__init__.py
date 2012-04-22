@@ -1,8 +1,10 @@
+from zExceptions import NotFound
 import json
 import martian
 from zope.publisher.publish import mapply
 from five import grok
 from euphorie.client.api.interfaces import IClientAPISkinLayer
+
 
 
 class JsonView(grok.View):
@@ -20,6 +22,10 @@ class JsonView(grok.View):
 
     input = None
 
+    def render(self):
+        # Workaround for grok silliness
+        pass
+
     def __call__(self):
         self.request.response.setHeader('Content-Type', 'application/json')
         input = self.request.stdin.getvalue()
@@ -35,5 +41,9 @@ class JsonView(grok.View):
             return  # Shortcircuit on redirect, no need to render
 
         self.request.response.setHeader('Content-Type', 'application/json')
-        response = mapply(self.render, (), self.request)
+        method = self.request.get('REQUEST_METHOD', 'GET').upper()
+        renderer = getattr(self, method, None)
+        if renderer is None:
+            raise NotFound()
+        response = mapply(renderer, (), self.request)
         return json.dumps(response)

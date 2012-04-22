@@ -179,7 +179,7 @@ Update user
 +------+---------------------+------------------------------+
 | Verb | URI                 | Description                  |
 +======+=====================+==============================+
-| POST | /users/<userid>     | Update user information.     |
+| PUT  | /users/<userid>     | Update user information.     |
 +------+---------------------+------------------------------+
 
 This call allows updating the user information. The only key that can

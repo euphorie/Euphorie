@@ -31,9 +31,49 @@ class ViewTests(unittest.TestCase):
                   'title': u'This is my title',
                   'modified': '2012-04-20T16:05:23'}])
 
+    def test_PUT_no_data(self):
+        import mock
+        account = mock.Mock()
+        account.sessions = []
+        view = self.View(account, None)
+        view.input = {}
+        view.PUT()
+
+    def test_PUT_empty_login(self):
+        import mock
+        account = mock.Mock()
+        account.sessions = []
+        view = self.View(account, None)
+        view.input = {'login': ''}
+        self.assertEqual(view.PUT()['type'], 'error')
+
+    def test_PUT_new_login_in_use(self):
+        import mock
+        account = mock.Mock()
+        account.sessions = []
+        view = self.View(account, None)
+        view.input = {'login': 'jane'}
+        with mock.patch('euphorie.client.api.account.login_available') \
+                as mock_available:
+            mock_available.return_value = False
+            self.assertEqual(view.PUT()['type'], 'error')
+            mock_available.assert_called_once_with('jane')
+
+    def test_PUT_set_login_to_same_value(self):
+        import mock
+        account = mock.Mock()
+        account.loginname = 'jane'
+        account.sessions = []
+        view = self.View(account, None)
+        view.input = {'login': 'jane'}
+        with mock.patch('euphorie.client.api.account.login_available') \
+                as mock_available:
+            mock_available.return_value = False
+            self.assertEqual(view.PUT()['type'], 'user')
+            self.assertTrue(not mock_available.called)
+
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):
-# XXX This should break without authentication
     def test_user_info(self):
         import json
         from z3c.saconfig import Session

@@ -95,11 +95,11 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
         setRequest(request)
+        request.client = self.context
 
         if name == 'api':
             return access_api(request).__of__(self.context)
 
-        request.client = self.context
         ifaces = [iface for iface in directlyProvidedBy(request)
                 if not IBrowserSkinType.providedBy(iface)]
         directlyProvides(request, IClientSkinLayer, ifaces)

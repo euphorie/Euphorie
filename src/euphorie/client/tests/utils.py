@@ -10,6 +10,7 @@ def addAccount(login="jane@example.com", password=u"Øle"):
     session=Session()
     session.add(account)
     session.flush()
+    return account
 
 
 def addSurvey(portal, xml_survey):
@@ -22,7 +23,7 @@ def addSurvey(portal, xml_survey):
     survey=sector.values()[0]["test-import"]
     publisher=publish.PublishSurvey(survey, portal.REQUEST)
     publisher.publish()
-
+    return survey
 
 
 def testRequest():

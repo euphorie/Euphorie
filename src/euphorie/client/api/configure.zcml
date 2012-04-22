@@ -33,4 +33,8 @@
       layer=".interfaces.IClientAPISkinLayer"
       name="index_html"/>
 
+    <adapter
+      factory=".account.AccountPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+
 </configure>

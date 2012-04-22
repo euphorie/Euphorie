@@ -30,25 +30,28 @@ class EuphorieAPIPluginTests(unittest.TestCase):
     def test_extractCredentials_no_token_present(self):
         import mock
         request = mock.Mock()
-        request.headers = {}
+        request.getHeader.return_value = None
         plugin = self.EuphorieAPIPlugin('id')
         self.assertEqual(plugin.extractCredentials(request), {})
+        request.getHeader.assert_called_once_with('X-Euphorie-Token')
 
     def test_extractCredentials_invalid_token(self):
         import mock
         request = mock.Mock()
-        request.headers = {'X-Euphorie-Token': 'broken'}
+        request.getHeader.return_value = 'broken'
         plugin = self.EuphorieAPIPlugin('id')
         self.assertEqual(plugin.extractCredentials(request), {})
+        request.getHeader.assert_called_once_with('X-Euphorie-Token')
 
     def test_extractCredentials_valid_token(self):
         import mock
         request = mock.Mock()
-        request.headers = {'X-Euphorie-Token': 'dmFsaWQ='}
+        request.getHeader.return_value = 'dmFsaWQ='
         plugin = self.EuphorieAPIPlugin('id')
         self.assertEqual(
                 plugin.extractCredentials(request),
                 {'api-token': 'valid'})
+        request.getHeader.assert_called_once_with('X-Euphorie-Token')
 
     def test_authenticateCredentials_no_token(self):
         plugin = self.EuphorieAPIPlugin('id')

@@ -75,7 +75,7 @@ class EuphorieAPIPlugin(BasePlugin, Cacheable):
     # IAuthenticationPlugin implementation
     security.declarePrivate('authenticateCredentials')
     def extractCredentials(self, request):
-        token = request.headers.get('X-Euphorie-Token')
+        token = request.getHeader('X-Euphorie-Token')
         try:
             return {'api-token': binascii.a2b_base64(token)}
         except (TypeError, binascii.Error):
@@ -102,7 +102,7 @@ class EuphorieAPIPlugin(BasePlugin, Cacheable):
             return False
 
         response.setHeader('Content-Type', 'application/json')
-        response.setbody(json.dumps({
+        response.setBody(json.dumps({
             'type': 'error',
             'message': 'Authentication required'}))
         return True
