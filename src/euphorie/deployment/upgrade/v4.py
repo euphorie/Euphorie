@@ -27,5 +27,3 @@ def add_api_authentication(context):
         return
 
     add_api_authentication_plugin(pas)
-
-
