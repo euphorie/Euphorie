@@ -1,5 +1,6 @@
 from five import grok
 from euphorie.client.authentication import authenticate
+from euphorie.client.api.authentication import generate_token
 from euphorie.client.survey import PathGhost
 from euphorie.client.api import JsonView
 
@@ -36,9 +37,10 @@ class Authenticate(JsonView):
             return {'type': 'error',
                     'message': 'Invalid credentials'}
 
+        auth_token = generate_token(self.context, account)
         return {'type': 'user',
                 'id': account.id,
                 'login': account.loginname,
                 'email': account.email,
-                'token': 'token',
+                'token': auth_token,
                 'sessions': self.sessions(account)}

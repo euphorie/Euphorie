@@ -1,3 +1,4 @@
+import binascii
 import json
 import logging
 from z3c.saconfig import Session
@@ -61,16 +62,16 @@ class EuphorieAPIPlugin(BasePlugin, Cacheable):
 
     security.declarePrivate('authenticateCredentials')
     def generate_token(self, account):
-        return tktauth.createTicket('secret', account.id)
-
+        ticket = tktauth.createTicket('secret', str(account.id))
+        return binascii.b2a_base64(ticket).strip()
 
     # IAuthenticationPlugin implementation
     security.declarePrivate('authenticateCredentials')
     def extractCredentials(self, request):
         token = request.headers.get('X-Euphorie-Token')
-        if token:
-            return {'api-token': token}
-        else:
+        try:
+            return {'api-token': binascii.a2b_base64(token)}
+        except (TypeError, binascii.Error):
             return {}
 
     # IAuthenticationPlugin implementation
