@@ -1,10 +1,12 @@
 import binascii
 import json
 import logging
+from zope.component import getUtility
 from z3c.saconfig import Session
 from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
 from OFS.Cache import Cacheable
+from plone.keyring.interfaces import IKeyManager
 from Products.CMFCore.utils import getToolByName
 from Products.PluggableAuthService.utils import classImplements
 from Products.PluggableAuthService.utils import createViewName
@@ -60,9 +62,14 @@ class EuphorieAPIPlugin(BasePlugin, Cacheable):
         self._setId(id)
         self.title = title
 
+    security.declarePrivate('_getSecret')
+    def _getSecret(self):
+        manager = getUtility(IKeyManager)
+        return manager.secret()
+
     security.declarePrivate('authenticateCredentials')
     def generate_token(self, account):
-        ticket = tktauth.createTicket('secret', str(account.id))
+        ticket = tktauth.createTicket(self._getSecret(), str(account.id))
         return binascii.b2a_base64(ticket).strip()
 
     # IAuthenticationPlugin implementation
@@ -81,7 +88,7 @@ class EuphorieAPIPlugin(BasePlugin, Cacheable):
         token = credentials.get('api-token')
         if not token:
             return None
-        info = tktauth.validateTicket('secret', token)
+        info = tktauth.validateTicket(self._getSecret(), token)
         if not info:
             return None
         login = self._getLogin(info[1])
