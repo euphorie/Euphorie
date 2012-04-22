@@ -5,12 +5,11 @@ from euphorie.client.api.authentication import generate_token
 from euphorie.client.survey import PathGhost
 from euphorie.client.api import JsonView
 from euphorie.client.model import Account
-from euphorie.client.api.user import User
-from euphorie.client.api.user import View as UserView
+from euphorie.client.api.account import View as AccountView
 
 
 class Users(PathGhost):
-    """Entry point for the users."""
+    """Virtual container for all user data."""
 
     def __getitem__(self, key):
         try:
@@ -22,7 +21,7 @@ class Users(PathGhost):
         if account is None:
             raise KeyError(key)
 
-        return User(key, self.request, account).__of__(self)
+        return account.__of__(self)
 
 
 class Authenticate(JsonView):
@@ -31,7 +30,7 @@ class Authenticate(JsonView):
     grok.require('zope2.Public')
 
     def user_info(self, account):
-        view = UserView(account, self.request)
+        view = AccountView(account, self.request)
         return view.render()
 
     def render(self):

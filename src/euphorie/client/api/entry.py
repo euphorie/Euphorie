@@ -1,7 +1,9 @@
 import json
 import pkg_resources
+from five import grok
 from zope.interface import directlyProvides
 from euphorie.client.api.interfaces import IClientAPISkinLayer
+from euphorie.client.api import JsonView
 from euphorie.client.api.users import Users
 from euphorie.client.survey import PathGhost
 
@@ -20,11 +22,17 @@ class API(PathGhost):
     def __getitem__(self, key):
         return self.entry_points[key](key, self.request).__of__(self)
 
-    def __call__(self):
+
+class View(JsonView):
+    grok.context(API)
+    grok.require('zope2.Public')
+    grok.name('index_html')
+
+    def render(self):
         self.request.response.setHeader('Content-Type', 'application/json')
         euphorie = pkg_resources.get_distribution('Euphorie')
-        return json.dumps({'api-version': [1, 0],
-                           'euphorie-version': euphorie.version})
+        return {'api-version': [1, 0],
+                'euphorie-version': euphorie.version}
 
 
 def access_api(request):

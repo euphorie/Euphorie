@@ -5,7 +5,7 @@ from Products.Five.testbrowser import Browser
 
 class ViewTests(unittest.TestCase):
     def View(self, *a, **kw):
-        from euphorie.client.api.user import View
+        from euphorie.client.api.account import View
         return View(*a, **kw)
 
     def test_sessions_no_sessions(self):
@@ -33,6 +33,7 @@ class ViewTests(unittest.TestCase):
 
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):
+# XXX This should break without authentication
     def test_user_info(self):
         import json
         from z3c.saconfig import Session

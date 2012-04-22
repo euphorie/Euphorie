@@ -419,7 +419,7 @@ Survey session information
 +------+-------------------------------------+------------------------------+
 | Verb | URI                                 | Description                  |
 +======+=====================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id> | Get information on survey.   |
+| GET  | /users/<userid>/sessions/<survey id> | Get information on survey.   |
 +------+-------------------------------------+------------------------------+
 
 .. note::
@@ -438,18 +438,18 @@ creation method. The only difference is the addition of a ``modified`` entry.
            "modified": "2011-12-06T15:15:24Z",
            "title": "The title of the survey",
            "introduction": "Introduction text from the survey.",
-           "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/profile",
+           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/profile",
    }
 
 
 Remove survey session
 ~~~~~~~~~~~~~~~~~~~~~
 
-+--------+-------------------------------------+------------------------------+
-| Verb   | URI                                 | Description                  |
-+========+=====================================+==============================+
-| DELETE | /users/<userid>/surveys/<survey id> | Delete a survey session.     |
-+--------+-------------------------------------+------------------------------+
++--------+---------------------------------------+------------------------------+
+| Verb   | URI                                   | Description                  |
++========+=======================================+==============================+
+| DELETE | /users/<userid>/sessions/<session id> | Delete a survey session.     |
++--------+---------------------------------------+------------------------------+
 
 This will delete an existing survey session.
 
@@ -457,11 +457,11 @@ This will delete an existing survey session.
 View profile information
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+---------------------------------------------+------------------------------+
-| Verb | URI                                         | Description                  |
-+======+=============================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id>/profile | Get survey profile.          |
-+------+---------------------------------------------+------------------------------+
++------+-----------------------------------------------+------------------------------+
+| Verb | URI                                           | Description                  |
++======+===============================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/profile | Get survey profile.          |
++------+-----------------------------------------------+------------------------------+
 
 
 The response will be a JSON block::
@@ -497,11 +497,11 @@ The response will be a JSON block::
 Update profile
 ~~~~~~~~~~~~~~
 
-+------+---------------------------------------------+------------------------------+
-| Verb | URI                                         | Description                  |
-+======+=============================================+==============================+
-| PUT  | /users/<userid>/surveys/<survey id>/profile | Update survey profile.       |
-+------+---------------------------------------------+------------------------------+
++------+-----------------------------------------------+------------------------------+
+| Verb | URI                                           | Description                  |
++======+===============================================+==============================+
+| PUT  | /users/<userid>/sessions/<session id>/profile | Update survey profile.       |
++------+-----------------------------------------------+------------------------------+
 
 The request body must be a JSON block specifying the new profile::
 
@@ -520,18 +520,18 @@ The response for a profile update is a standard response with ``next-step``
 pointing to the start of the identification phase::
 
    {
-           "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/identification",
+           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/identification",
    }
 
 
 Acknowledge survey update
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+---------------------------------------------+------------------------------+
-| Verb | URI                                         | Description                  |
-+======+=============================================+==============================+
-| POST | /users/<userid>/surveys/<survey id>/update  | Confirm survey update.       |
-+------+---------------------------------------------+------------------------------+
++------+-----------------------------------------------+------------------------------+
+| Verb | URI                                           | Description                  |
++======+===============================================+==============================+
+| POST | /users/<userid>/sessions/<session id>/update  | Confirm survey update.       |
++------+-----------------------------------------------+------------------------------+
 
 If a survey was updated since the last user interaction and the survey
 structure was changed (for example a new risk has been added) the user must
@@ -546,21 +546,21 @@ The response is a standard response with ``next-step`` pointing to the start of
 the identification phase::
 
    {
-           "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/identification",
+           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/identification",
    }
 
 
 Start identification phase
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-----------------------------------------------------+------------------------------+
-| Verb | URI                                                 | Description                  |
-+======+=====================================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id>/identification  | Request idenfication info.   |
-+------+-----------------------------------------------------+------------------------------+
++------+-------------------------------------------------------+------------------------------+
+| Verb | URI                                                   | Description                  |
++======+=======================================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/identification  | Request idenfication info.   |
++------+-------------------------------------------------------+------------------------------+
 
 This call will return information that is needed to start the identification
-phase in a survey.  A frontend may not need to display any of this information
+phase in a survey. A frontend may not need to display any of this information
 but only use it to find locate the first unanswered question in the survey
 session, which is given in the ``next-step`` key.
 
@@ -578,14 +578,14 @@ session, which is given in the ``next-step`` key.
 Start evaluation phase
 ~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-------------------------------------------------+------------------------------+
-| Verb | URI                                             | Description                  |
-+======+=================================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id>/evaluation  | Request evaluation info.     |
-+------+-------------------------------------------------+------------------------------+
++------+---------------------------------------------------+------------------------------+
+| Verb | URI                                               | Description                  |
++======+===================================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/evaluation  | Request evaluation info.     |
++------+---------------------------------------------------+------------------------------+
 
 This call will return information that is needed to start the evaluation phase
-in a survey.  A frontend may not need to display any of this information but
+in a survey. A frontend may not need to display any of this information but
 only use it to find locate the first unanswered evaluation question in the
 survey session, which is given in the ``next-step`` key.
 
@@ -603,11 +603,11 @@ survey session, which is given in the ``next-step`` key.
 Start action plan phase
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+------------------------------------------------+------------------------------+
-| Verb | URI                                            | Description                  |
-+======+================================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id>/actionplan | Request evaluation info.     |
-+------+------------------------------------------------+------------------------------+
++------+--------------------------------------------------+------------------------------+
+| Verb | URI                                              | Description                  |
++======+==================================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/actionplan | Request evaluation info.     |
++------+--------------------------------------------------+------------------------------+
 
 This call will return information that is needed to start the action plan phase
 in a survey.  A frontend may not need to display any of this information but
@@ -628,14 +628,14 @@ survey session, which is given in the ``next-step`` key.
 Module information
 ~~~~~~~~~~~~~~~~~~
 
-+------+----------------------------------------------------+------------------------------+
-| Verb | URI                                                | Description                  |
-+======+====================================================+==============================+
-| GET  | /users/<userid>/surveys/<survey id>/<path>         | Request module information   |
-+------+----------------------------------------------------+------------------------------+
-| GET  | /users/<userid>/surveys/<survey id>/<path>/<phase> | Request module information   |
-|      |                                                    | for the given phase.
-+------+----------------------------------------------------+------------------------------+
++------+------------------------------------------------------+------------------------------+
+| Verb | URI                                                  | Description                  |
++======+======================================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/<path>         | Request module information   |
++------+------------------------------------------------------+------------------------------+
+| GET  | /users/<userid>/sessions/<session id>/<path>/<phase> | Request module information   |
+|      |                                                      | for the given phase.
++------+------------------------------------------------------+------------------------------+
 
 .. note::
 
@@ -678,11 +678,11 @@ Beyond the standard fields a module will return these extra fields:
 Update module identification data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-----------------------------------------------------------+-----------------------+
-| Verb | URI                                                       | Description           |
-+======+===========================================================+=======================+
-| PUT  | /users/<userid>/surveys/<survey id>/<path>/identification | Update module status  |
-+------+-----------------------------------------------------------+-----------------------+
++------+-------------------------------------------------------------+-----------------------+
+| Verb | URI                                                         | Description           |
++======+=============================================================+=======================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/identification | Update module status  |
++------+-------------------------------------------------------------+-----------------------+
 
 This call is only useful for optional modules. For normal (ie mandatory) modules
 it is an error to use this call.
@@ -700,14 +700,14 @@ flag:
 Risk information
 ~~~~~~~~~~~~~~~~
 
-+------+----------------------------------------------------+----------------------------+
-| Verb | URI                                                | Description                |
-+======+====================================================+============================+
-| GET  | /users/<userid>/surveys/<survey id>/<path>         | Request risk information   |
-+------+----------------------------------------------------+----------------------------+
-| GET  | /users/<userid>/surveys/<survey id>/<path>/<phase> | Request risk information   |
-|      |                                                    | for the given phase.       |
-+------+----------------------------------------------------+----------------------------+
++------+------------------------------------------------------+----------------------------+
+| Verb | URI                                                  | Description                |
++======+======================================================+============================+
+| GET  | /users/<userid>/sessions/<session id>/<path>         | Request risk information   |
++------+------------------------------------------------------+----------------------------+
+| GET  | /users/<userid>/sessions/<session id>/<path>/<phase> | Request risk information   |
+|      |                                                      | for the given phase.       |
++------+------------------------------------------------------+----------------------------+
 
 .. note::
 
@@ -790,11 +790,11 @@ For risks with ann evalution option of ``calculated`` these extra fields are inc
 Update risk identification data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-----------------------------------------------------------+---------------------+
-| Verb | URI                                                       | Description         |
-+======+===========================================================+=====================+
-| PUT  | /users/<userid>/surveys/<survey id>/<path>/identification | Update risk status  |
-+------+-----------------------------------------------------------+---------------------+
++------+-------------------------------------------------------------+---------------------+
+| Verb | URI                                                         | Description         |
++======+=============================================================+=====================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/identification | Update risk status  |
++------+-------------------------------------------------------------+---------------------+
 
 
 The request must be a JSON block with a (new) answer for the ``present`` flag. The comment
@@ -811,13 +811,13 @@ can also be updated by including the ``comment`` field.
 Update risk evaluation data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-----------------------------------------------------------+---------------------+
-| Verb | URI                                                       | Description         |
-+======+===========================================================+=====================+
-| PUT  | /users/<userid>/surveys/<survey id>/<path>/evaluation     | Update risk status  |
-+------+-----------------------------------------------------------+---------------------+
-
-The possbile values depend on the evaluation method used for the risk. For risks that use
++------+-------------------------------------------------------------+---------------------+
+| Verb | URI                                                         | Description         |
++======+=============================================================+=====================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/evaluation     | Update risk status  |
++------+-------------------------------------------------------------+---------------------+
+                    
+The possbile value==s depend on the evaluation method used for the risk. For risks that use
 a direct evaluation the priority field can be set directly. For risks using a calculated
 evaluation method the frequency, effect and probability information must be provided.
 
@@ -835,11 +835,11 @@ The comment can also be updated by including the ``comment`` field.
 List action plans
 ~~~~~~~~~~~~~~~~~
 
-+------+-------------------------------------------------------+-------------------+
-| Verb | URI                                                   | Description       |
-+======+=======================================================+===================+
-| GET  | /users/<userid>/surveys/<survey id>/<path>/actionplan | List action plans |
-+------+-------------------------------------------------------+-------------------+
++------+---------------------------------------------------------+-------------------+
+| Verb | URI                                                     | Description       |
++======+=========================================================+===================+
+| GET  | /users/<userid>/sessions/<session id>/<path>/actionplan | List action plans |
++------+---------------------------------------------------------+-------------------+
 
 During the action plan phase a user is asked to indicate how he wants to tackle
 a risk by defining specific actions to be taken. This API call will return a
@@ -873,11 +873,11 @@ returned information.
 View action plan
 ~~~~~~~~~~~~~~~~
 
-+------+------------------------------------------------------------+----------------------------+
-| Verb | URI                                                        | Description                |
-+======+============================================================+============================+
-| GET  | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | View action plan details.  |
-+------+------------------------------------------------------------+----------------------------+
++------+--------------------------------------------------------------+----------------------------+
+| Verb | URI                                                          | Description                |
++======+==============================================================+============================+
+| GET  | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | View action plan details.  |
++------+--------------------------------------------------------------+----------------------------+
 
 The response is returned in the form of a JSON object containing all known
 information about an action plan.
@@ -903,11 +903,11 @@ can be used by consumers of this API to link a measure to an external system.
 Create new action plan
 ~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-------------------------------------------------------+----------------------+
-| Verb | URI                                                   | Description          |
-+======+=======================================================+======================+
-| POST | /users/<userid>/surveys/<survey id>/<path>/actionplan | Add new action plan. |
-+------+-------------------------------------------------------+----------------------+
++------+---------------------------------------------------------+----------------------+
+| Verb | URI                                                     | Description          |
++======+=========================================================+======================+
+| POST | /users/<userid>/sessions/<session id>/<path>/actionplan | Add new action plan. |
++------+---------------------------------------------------------+----------------------+
 
 The request must be a JSON object with data for the action plan to be added. The
 only required field is ``plan``; all either items are optional.
@@ -950,11 +950,11 @@ plan. See the :ref:`view action plan <View action plan>` call for details.
 Update action plan
 ~~~~~~~~~~~~~~~~~~
 
-+------+------------------------------------------------------------+------------------------+
-| Verb | URI                                                        | Description            |
-+======+============================================================+========================+
-| PUT  | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | Update an action plan. |
-+------+------------------------------------------------------------+------------------------+
++------+--------------------------------------------------------------+------------------------+
+| Verb | URI                                                          | Description            |
++======+==============================================================+========================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | Update an action plan. |
++------+--------------------------------------------------------------+------------------------+
 
 The request must be a JSON object with all items that must be updated. Items
 not included in the request will not be changed.
@@ -963,10 +963,10 @@ not included in the request will not be changed.
 Delete action plan
 ~~~~~~~~~~~~~~~~~~
 
-+--------+------------------------------------------------------------+------------------------+
-| Verb   | URI                                                        | Description            |
-+========+============================================================+========================+
-| DELETE | /users/<userid>/surveys/<survey id>/<path>/actionplan/<id> | Remove an action plan. |
-+--------+------------------------------------------------------------+------------------------+
++--------+--------------------------------------------------------------+------------------------+
+| Verb   | URI                                                          | Description            |
++========+==============================================================+========================+
+| DELETE | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | Remove an action plan. |
++--------+--------------------------------------------------------------+------------------------+
 
 This call will remove an action plan for a risk.
