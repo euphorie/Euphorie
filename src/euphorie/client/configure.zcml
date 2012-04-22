@@ -10,6 +10,7 @@
     <five:registerPackage package="." initialize=".initialize" />
      
     <include package="euphorie.content" />
+    <include package=".api" />
 
     <permission
         id="euphorie.client.PublishSurvey"

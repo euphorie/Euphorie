@@ -8,29 +8,6 @@ class AuthenticateTests(unittest.TestCase):
         from euphorie.client.api.users import Authenticate
         return Authenticate(*a, **kw)
 
-    def test_sessions_no_sessions(self):
-        import mock
-        view = self.Authenticate(None, None)
-        account = mock.Mock()
-        account.sessions = []
-        self.assertEqual(view.sessions(account), [])
-
-    def test_sessions_with_session(self):
-        import datetime
-        import mock
-        view = self.Authenticate(None, None)
-        account = mock.Mock()
-        session = mock.Mock()
-        session.id = 13
-        session.title = u'This is my title'
-        session.modified = datetime.datetime(2012, 4, 20, 16, 5, 23)
-        account.sessions = [session]
-        self.assertEqual(
-                view.sessions(account),
-                [{'id': 13,
-                  'title': u'This is my title',
-                  'modified': '2012-04-20T16:05:23'}])
-
     def test_render_no_data_provided(self):
         import mock
         view = self.Authenticate(None, mock.Mock())
@@ -66,13 +43,13 @@ class AuthenticateTests(unittest.TestCase):
             with mock.patch('euphorie.client.api.users.generate_token') \
                     as mock_generate_token:
                 view.sessions = mock.Mock(return_value='sessions')
+                view.user_info = mock.Mock(return_value={'foo': 'bar'})
                 mock_auth.return_value = account = mock.Mock()
                 mock_generate_token.return_value = 'auth-token'
                 response = view.render()
                 mock_auth.assert_called_once_with('foo', 'bar')
-                self.assertEqual(response['type'], 'user')
-                self.assertTrue(response['id'], account.id)
-                self.assertEqual(response['sessions'], 'sessions')
+                view.user_info.assert_called_once_with(account)
+                self.assertEqual(response['foo'], 'bar')
                 self.assertEqual(response['token'], 'auth-token')
 
 

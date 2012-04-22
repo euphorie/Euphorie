@@ -401,7 +401,6 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             zodb_path.append(head.pop())
 
 
-
     def setupContext(self, tree_id):
         """Build an acquisition context for a tree node.
         """

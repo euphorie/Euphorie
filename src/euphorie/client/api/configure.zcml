@@ -14,9 +14,23 @@
         />
 
     <browser:defaultView
-      for=".client.IClient"
-      name="view"
-      />
+      for="Products.CMFCore.interfaces.IContentish"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
 
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IFolderish"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="..model.BaseObject"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="..survey.PathGhost"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
 
 </configure>
