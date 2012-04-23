@@ -147,11 +147,6 @@
     >
 
     <genericsetup:upgradeStep
-      title="Add client API interface"
-      description="Add a REST interface for the client."
-      handler=".v4.add_client_api"/>
-
-    <genericsetup:upgradeStep
       title="Add API authentication support"
       description="Enable client API authentication."
       handler=".v4.add_api_authentication"/>
