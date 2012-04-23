@@ -25,7 +25,7 @@ class Sessions(PathGhost):
             if survey is not None:
                 self.request.survey = survey
                 return survey_session.__of__(self)
-        except (KeyError, TypeError, ValueError):
+        except (AttributeError, TypeError, ValueError):
             pass
 
         raise KeyError(key)

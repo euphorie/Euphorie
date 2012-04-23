@@ -19,7 +19,7 @@ class View(JsonView):
     def GET(self):
         info = {'id': self.context.id,
                 'type': 'session',
-                'created': self.context.modified.isoformat(),
+                'created': self.context.created.isoformat(),
                 'modified': self.context.modified.isoformat(),
                 'title': self.context.title,
                }

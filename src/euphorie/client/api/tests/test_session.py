@@ -16,7 +16,8 @@ class BrowserTests(EuphorieFunctionalTestCase):
         account = addAccount(password='secret')
         survey_session = SurveySession(
                 title=u'Dummy session',
-                modified=datetime.datetime(2012, 4, 22, 23, 5, 12),
+                created=datetime.datetime(2012, 4, 22, 23, 5, 12),
+                modified=datetime.datetime(2012, 4, 23, 11, 50, 30),
                 zodb_path='nl/ict/software-development',
                 account=account)
         Session.add(survey_session)
@@ -24,8 +25,38 @@ class BrowserTests(EuphorieFunctionalTestCase):
         browser.open('http://nohost/plone/client/api/users/1/sessions/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
-        self.assertEqual(set(response), set(['id', 'type', 'modified', 'title']))
+        self.assertEqual(
+                set(response),
+                set(['id', 'type', 'created', 'modified', 'title']))
         self.assertEqual(response['id'], 1)
         self.assertEqual(response['type'], 'session')
         self.assertEqual(response['title'], 'Dummy session')
-        self.assertEqual(response['modified'], '2012-04-22T23:05:12')
+        self.assertEqual(response['created'], '2012-04-22T23:05:12')
+        self.assertEqual(response['modified'], '2012-04-23T11:50:30')
+
+    def test_with_introduction(self):
+        import datetime
+        import json
+        from z3c.saconfig import Session
+        from euphorie.client.model import SurveySession
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.tests.utils import addAccount
+        from euphorie.client.tests.utils import addSurvey
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        survey = self.portal.client['nl']['ict']['software-development']
+        survey.introduction = u'<p>Fancy intro.</p>'
+        account = addAccount(password='secret')
+        survey_session = SurveySession(
+                title=u'Dummy session',
+                created=datetime.datetime(2012, 4, 22, 23, 5, 12),
+                modified=datetime.datetime(2012, 4, 23, 11, 50, 30),
+                zodb_path='nl/ict/software-development',
+                account=account)
+        Session.add(survey_session)
+        browser = Browser()
+        browser.open('http://nohost/plone/client/api/users/1/sessions/1')
+        self.assertEqual(browser.headers['Content-Type'], 'application/json')
+        response = json.loads(browser.contents)
+        self.assertTrue('introduction' in response)
+        self.assertEqual(response['introduction'], u'<p>Fancy intro.</p>')

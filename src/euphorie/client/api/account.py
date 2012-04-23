@@ -48,7 +48,7 @@ class View(JsonView):
     def sessions(self):
         return [{'id': session.id,
                  'title': session.title,
-                 'created': session.modified.isoformat(),
+                 'created': session.created.isoformat(),
                  'modified': session.modified.isoformat()}
                 for session in self.context.sessions
                 if get_survey(self.request, session.zodb_path) is not None]

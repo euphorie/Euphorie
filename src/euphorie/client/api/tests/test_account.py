@@ -22,14 +22,17 @@ class ViewTests(unittest.TestCase):
         session = mock.Mock()
         session.id = 13
         session.title = u'This is my title'
-        session.modified = datetime.datetime(2012, 4, 20, 16, 5, 23)
+        session.created = datetime.datetime(2012, 4, 20, 16, 5, 23)
+        session.modified = datetime.datetime(2012, 4, 23, 11, 46, 23)
         account.sessions = [session]
-        view = self.View(account, None)
-        self.assertEqual(
-                view.sessions(),
-                [{'id': 13,
-                  'title': u'This is my title',
-                  'modified': '2012-04-20T16:05:23'}])
+        with mock.patch('euphorie.client.api.account.get_survey'):
+            view = self.View(account, None)
+            self.assertEqual(
+                    view.sessions(),
+                    [{'id': 13,
+                      'title': u'This is my title',
+                      'created': '2012-04-20T16:05:23',
+                      'modified': '2012-04-23T11:46:23'}])
 
     def test_PUT_no_data(self):
         import mock
