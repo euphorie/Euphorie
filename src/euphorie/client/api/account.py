@@ -4,6 +4,7 @@ from z3c.saconfig import Session
 from euphorie.client.model import Account
 from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
+from euphorie.client.api.session import get_survey
 from euphorie.client.api.sessions import Sessions
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
@@ -47,8 +48,10 @@ class View(JsonView):
     def sessions(self):
         return [{'id': session.id,
                  'title': session.title,
+                 'created': session.modified.isoformat(),
                  'modified': session.modified.isoformat()}
-                for session in self.context.sessions]
+                for session in self.context.sessions
+                if get_survey(self.request, session.zodb_path) is not None]
 
     def GET(self):
         return {'type': 'user',

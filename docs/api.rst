@@ -123,12 +123,14 @@ authentication token and a list of existing sessions::
            {
                    "id": 1926,
                    "title": "Hoveniers en Groenvoorzieners",
-                   "modified": "2010-09-27T11:35:00Z",
+                   "created": "2010-09-27T11:35:00Z",
+                   "modified": "2012-04-23T10:29:13Z",
            },
            {
                    "id": 23945,
                    "title": "Vlakglas",
-                   "modified": "2011-12-06T15:15:24Z",
+                   "created": "2010-09-27T11:35:00Z",
+                   "modified": "2012-04-23T10:29:13Z",
            },
        ],
    }
@@ -159,7 +161,8 @@ information on another user will result in a HTTP 403 error response.
            {
                    "id": 1926,
                    "title": "Hoveniers en Groenvoorzieners",
-                   "modified": "2010-09-27T11:35:00Z",
+                   "created": "2010-09-27T11:35:00Z",
+                   "modified": "2012-04-23T10:29:13Z",
            },
            {
                    "id": 23945,
@@ -215,13 +218,13 @@ Example response::
        "countries": [
            {
                    "id": "nl",
+                   "title": "The Netherlands",
                    "type": "eu-member",
-                   "languages": ["nl"],
            },
            {
                    "id": "be",
+                   "title": "Belgium",
                    "type": "eu-member",
-                   "languages": ["nl", "fr"],
            },
    }
 
@@ -233,6 +236,11 @@ The possible country types are:
 * ``efta``: member of the European Free Trade Association
 * ``region``: generic region, not an individual country
 
+Note that even though a country has a title frontends are encouraged to use
+use locale-specific name for the country. This can be based on the id, which
+is guaranteed to be a valid country code. 
+
+
 
 List sectors
 ~~~~~~~~~~~~
@@ -240,12 +248,12 @@ List sectors
 +------+--------------------------------------------+-----------------------------------+
 | Verb | URI                                        | Description                       |
 +======+============================================+===================================+
-| GET  | /surveys/<country>                         | List all surveys in a country.    |
+| GET  | /surveys/<country>                         | List all sectors in a country.    |
 +------+--------------------------------------------+-----------------------------------+
-| GET  | /surveys/<country>/details                 | List all surveys in a country     |
+| GET  | /surveys/<country>?details                 | List all sectors in a country     |
 |      |                                            | including its surveys.            |
 +------+--------------------------------------------+-----------------------------------+
-| GET  | /surveys/<country>/details?language=<lang> | List all surveys in a country     |
+| GET  | /surveys/<country>?details&language=<lang> | List all sectors in a country     |
 |      |                                            | including all surveys in the given|
 |      |                                            | language.                         |
 +------+--------------------------------------------+-----------------------------------+
@@ -253,6 +261,9 @@ List sectors
 Example response::
 
    {
+       "id": "nl",
+       "title": "The Netherlands",
+       "type": "eu-member",
        "sectors": [
            {
                    "id": "bovag",
@@ -267,6 +278,9 @@ Example response::
 Example detail response::
 
    {
+       "id": "nl",
+       "title": "The Netherlands",
+       "type": "eu-member",
        "sectors": [
            {
                    "id": "stigas",
@@ -302,11 +316,15 @@ Example detail response::
 List sector details
 ~~~~~~~~~~~~~~~~~~~
 
-+------+--------------------------------+-----------------------------------+
-| Verb | URI                            | Description                       |
-+======+================================+===================================+
-| GET  | /surveys/<country>/<sectorid>  | List details of the given sector. |
-+------+--------------------------------+-----------------------------------+
++------+------------------------------------------------+-----------------------------------+
+| Verb | URI                                            | Description                       |
++======+================================================+===================================+
+| GET  | /surveys/<country>/<sectorid>                  | List details of the given sector. |
++------+------------------------------------------------+-----------------------------------+
+| GET  | /surveys/<country>/<sectorid>?language=<lang>  | List details of the given sector, |
+|      |                                                | only including surveys in the     |
+|      |                                                | given language.                   |
++------+------------------------------------------------+-----------------------------------+
 
 
 Example response::
@@ -443,7 +461,8 @@ creation method. The only difference is the addition of a ``modified`` entry.
    {
            "id": "193714",
            "type": "session",
-           "modified": "2011-12-06T15:15:24Z",
+           "created": "2011-12-06T15:15:24Z",
+           "modified": "2012-04-23T10:29:13Z",
            "title": "The title of the survey",
            "introduction": "Introduction text from the survey.",
            "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/profile",

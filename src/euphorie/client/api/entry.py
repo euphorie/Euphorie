@@ -4,6 +4,7 @@ from zope.interface import directlyProvides
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.api import JsonView
 from euphorie.client.api.users import Users
+from euphorie.client.api.surveys import Surveys
 from euphorie.client.survey import PathGhost
 
 
@@ -15,7 +16,8 @@ class API(PathGhost):
     """
 
     entry_points = {
-            'users': Users
+            'surveys': Surveys,
+            'users': Users,
             }
 
     def __getitem__(self, key):

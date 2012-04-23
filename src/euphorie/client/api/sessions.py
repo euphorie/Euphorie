@@ -3,7 +3,9 @@ from z3c.saconfig import Session
 from euphorie.client.survey import PathGhost
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
-from euphorie.content.survey import ISurvey
+from euphorie.client.api.session import View as SessionView
+from euphorie.client.api.session import get_survey
+
 
 
 class Sessions(PathGhost):
@@ -19,13 +21,10 @@ class Sessions(PathGhost):
                     .filter(SurveySession.id == int(key))\
                     .filter(SurveySession.account == self.account)\
                     .first()
-            if survey_session is not None:
-                client = self.request.client
-                survey = client.restrictedTraverse(
-                        survey_session.zodb_path.split('/'))
-                if ISurvey.providedBy(survey):
-                    self.request.survey = survey
-                    return survey_session.__of__(self)
+            survey = get_survey(self.request, survey_session.zodb_path)
+            if survey is not None:
+                self.request.survey = survey
+                return survey_session.__of__(self)
         except (KeyError, TypeError, ValueError):
             pass
 
@@ -40,8 +39,32 @@ class View(JsonView):
     def sessions(self):
         return [{'id': session.id,
                  'title': session.title,
+                 'created': session.modified.isoformat(),
                  'modified': session.modified.isoformat()}
                 for session in self.context.account.sessions]
 
     def GET(self):
         return {'sessions': self.sessions()}
+
+    def POST(self):
+        try:
+            path = self.input['path']
+            title = self.input['title']
+        except KeyError:
+            return {'type': 'error',
+                    'message': 'Required data missing'}
+        
+        survey = self.request.restrictedTraverse(path.split('/'))
+        if survey is None:
+            return {'type': 'error',
+                    'message': 'Unknown survey id'}
+
+        survey_session = SurveySession(
+                account=self.context.account,
+                title=title,
+                zodb_path=path)
+        session = Session()
+        session.add(survey_session)
+        session.flush()
+        view = SessionView(survey_session, self.request)
+        return view.GET()
