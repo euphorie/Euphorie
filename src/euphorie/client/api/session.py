@@ -7,8 +7,13 @@ from euphorie.client.utils import HasText
 
 def get_survey(request, path):
     client = request.client
-    survey = client.restrictedTraverse(path.split('/'))
-    return survey if ISurvey.providedBy(survey) else None
+    try:
+        survey = client.restrictedTraverse(path.split('/'))
+        if ISurvey.providedBy(survey):
+            return survey
+    except KeyError:
+        pass
+    return None
 
 
 class View(JsonView):
