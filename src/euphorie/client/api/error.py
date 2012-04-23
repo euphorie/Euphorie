@@ -3,7 +3,7 @@ from five import grok
 from euphorie.client.api import JsonView
 
 
-class GenericError(grok.View):
+class GenericError(JsonView):
     grok.context(Exception)
     grok.name('index.html')
 
