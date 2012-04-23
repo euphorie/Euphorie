@@ -27,9 +27,9 @@ class View(JsonView):
 
 
     def GET(self):
-        countries = []
-        for country in self.context.values():
-            if not IClientCountry.providedBy(country):
-                continue
-            countries.append(self.country_info(country))
+        countries = [{'id': country.id,
+                      'title': country.title,
+                      'type': country.country_type}
+                     for country in self.context.values()
+                     if IClientCountry.providedBy(country)]
         return {'countries': countries}
