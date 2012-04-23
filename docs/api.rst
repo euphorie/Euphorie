@@ -369,7 +369,7 @@ for the survey have changed and the user needs to (re)confirm his profile.
    {
            "type": "update",
            "confirm-profile": true,
-           "next-step": "http://instrumenten.rie.nl/users/13/surveys/193714/update",
+           "next-step": "http://api.instrumenten.rie.nl/users/13/sessions/193714/update",
    }
 
 
@@ -387,25 +387,33 @@ Start a new survey session
 | POST | /users/<userid>/surveys   | Start a new survey session.  |
 +------+---------------------------+------------------------------+
 
-To start a new survey a POST request must be send. This must include a JSON
-body with the following keys:
+To start a new survey session a POST request must be send. This must include a
+JSON body with the following keys:
 
-* ``id``: id of the survey.
+* ``path``: path of the survey. This is a combination of the id of the sector
+  id and survey id, separated by a slash.
 * ``title``: title of the new session. This should default to the title of
   the survey itself.
 
 This requires that the user already authenticated and a suitable authentication
 token is set in the ``X-Euphorie-Token`` header.
 
+Here is an example request::
+
+   {
+           "path": "stigas/bos-en-natuur",
+           "title": "Beheer stadspark oost",
+   }
+
 The response will be a JSON block::
 
 
    {
            "id": "193714",
-           "type": "survey",
-           "title": "The title of the survey",
+           "type": "session",
+           "title": "Beheer stadspark oost",
            "introduction": "Introduction text from the survey.",
-           "next-step: "http://instrumenten.rie.nl/users/13/surveys/193714/profile",
+           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/profile",
    }
 
 If the survey has a configurable profile ``next-step`` will either to the
@@ -434,11 +442,11 @@ creation method. The only difference is the addition of a ``modified`` entry.
 
    {
            "id": "193714",
-           "type": "survey",
+           "type": "session",
            "modified": "2011-12-06T15:15:24Z",
            "title": "The title of the survey",
            "introduction": "Introduction text from the survey.",
-           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/profile",
+           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/profile",
    }
 
 
@@ -520,7 +528,7 @@ The response for a profile update is a standard response with ``next-step``
 pointing to the start of the identification phase::
 
    {
-           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/identification",
+           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/identification",
    }
 
 
@@ -546,7 +554,7 @@ The response is a standard response with ``next-step`` pointing to the start of
 the identification phase::
 
    {
-           "next-step: "http://instrumenten.rie.nl/users/13/sessions/193714/identification",
+           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/identification",
    }
 
 
@@ -567,10 +575,10 @@ session, which is given in the ``next-step`` key.
 ::
 
     {
-            "type": "survey",
+            "type": "session",
             "phase": "identification",
             "title": "The title of the survey",
-            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/1",
+            "next-step": "http://api.instrumenten.rie.nl/users/13/sessions/1931714/1",
             "menu": [ ... ],
     }
 
@@ -592,10 +600,10 @@ survey session, which is given in the ``next-step`` key.
 ::
 
     {
-            "type": "survey",
+            "type": "session",
             "phase": "evaluation",
             "title": "The title of the survey",
-            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/2/5/13",
+            "next-step": "http://api.instrumenten.rie.nl/users/13/sessions/1931714/2/5/13",
             "menu": [ ... ],
     }
 
@@ -617,10 +625,10 @@ survey session, which is given in the ``next-step`` key.
 ::
 
     {
-            "type": "survey",
-            "phase": "actinoplan",
+            "type": "session",
+            "phase": "actionplan",
             "title": "The title of the survey",
-            "next-step": "http://instrumenten.rie.nl/users/13/surveys/1931714/2/5/13",
+            "next-step": "http://api.instrumenten.rie.nl/users/13/sessions/1931714/2/5/13",
             "menu": [ ... ],
     }
 
