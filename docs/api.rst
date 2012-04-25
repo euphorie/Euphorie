@@ -419,7 +419,7 @@ token is set in the ``X-Euphorie-Token`` header.
 Here is an example request::
 
    {
-           "survey": "stigas/bos-en-natuur",
+           "survey": "nl/stigas/bos-en-natuur",
            "title": "Beheer stadspark oost",
    }
 
@@ -428,7 +428,7 @@ The response will be a JSON block::
 
    {
            "id": "193714",
-           "survey": "stigas/bos-en-natuur",
+           "survey": "nl/stigas/bos-en-natuur",
            "type": "session",
            "title": "Beheer stadspark oost",
            "introduction": "Introduction text from the survey.",
@@ -461,7 +461,7 @@ creation method. The only difference is the addition of a ``modified`` entry.
 
    {
            "id": "193714",
-           "survey": "stigas/bos-en-natuur",
+           "survey": "nl/stigas/bos-en-natuur",
            "type": "session",
            "created": "2011-12-06T15:15:24Z",
            "modified": "2012-04-23T10:29:13Z",
