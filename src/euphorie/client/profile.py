@@ -1,6 +1,7 @@
 from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
+from sqlalchemy.orm import object_session
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
@@ -9,6 +10,7 @@ from euphorie.content.survey import ISurvey
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
 from euphorie.client.update import treeChanges
+from euphorie.client.session import create_survey_session
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.client.utils import RelativePath
@@ -115,10 +117,14 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
             AddToTree(dbsession, child)
 
 
-def extractProfile(survey):
-    """Determine the current profile for the current survey. The
-    :py:class:`euphorie.client.session.SessionManager` is used to find the
-    current session.
+def extractProfile(survey, survey_session):
+    """Determine the current profile for given current survey session.
+
+    :param survey: current survey
+    :type survey: :py:class:`euphorie.content.survey.Survey`
+    :param survey_session: current survey session
+    :type survey_session: :py:class:`euphorie.client.model.SurveySession`
+    :rtype: dictionary with profile answers
 
     The profile is returned as a dictionary. The id of the profile questions
     are used as keys. For optional profile questions the value is a boolean.
@@ -126,9 +132,6 @@ def extractProfile(survey):
     by the user. This format is compatible with
     :py:meth:`Profile.getDesiredProfile`.
 
-    :param survey: current survey
-    :type survey: :py:class:`euphorie.client.model.Survey`
-    :rtype: dictionary with profile answers
     """
     questions = [{'id': child.id, 'type': child.type}
                  for child in survey.ProfileQuestions()]
@@ -138,8 +141,8 @@ def extractProfile(survey):
     session_modules = {}
     query = Session.query(model.SurveyTreeItem.zodb_path,
                             model.SurveyTreeItem.title)\
-            .filter(model.SurveyTreeItem.type == "module")\
-            .filter(model.SurveyTreeItem.session_id == SessionManager.id)\
+            .filter(model.SurveyTreeItem.type == 'module')\
+            .filter(model.SurveyTreeItem.session == survey_session)\
             .filter(model.SurveyTreeItem.depth == 1)\
             .all()
     for row in query:
@@ -147,13 +150,43 @@ def extractProfile(survey):
 
     profile = {}
     for question in questions:
-        nodes = session_modules.get(question["id"], [])
-        if question["type"] == "optional":
-            profile[question["id"]] = bool(nodes)
+        nodes = session_modules.get(question['id'], [])
+        if question['type'] == 'optional':
+            profile[question['id']] = bool(nodes)
         else:
-            profile[question["id"]] = [node.title for node in nodes]
+            profile[question['id']] = [node.title for node in nodes]
 
     return profile
+
+
+def set_session_profile(survey, survey_session, profile):
+    """Setup the survey session using a given profile.
+
+    :param survey: the survey to use
+    :type survey: :py:class:`euphorie.content.survey.Survey`
+    :param survey_session: survey session to update
+    :type survey_session: :py:class:`euphorie.client.model.SurveySession`
+    :param dict profile: desired profile
+    :rtype: :py:class:`euphorie.client.model.SurveySession`
+    :return: the update session (this might be a new session)
+    
+    This will rebuild the survey session tree if the profile has changed.
+    """
+    if not survey_session.hasTree():
+        BuildSurveyTree(survey, profile, survey_session)
+        return survey_session
+
+    current_profile = extractProfile(survey, survey_session)
+    if current_profile == profile and not treeChanges(survey_session, survey):
+        survey_session.touch()
+        return survey_session
+
+    new_session = create_survey_session(
+            survey_session.title, survey, survey_session.account)
+    BuildSurveyTree(survey, profile, new_session)
+    new_session.copySessionData(survey_session)
+    object_session(survey_session).delete(survey_session)
+    return new_session
 
 
 class Profile(grok.View):
@@ -201,20 +234,9 @@ class Profile(grok.View):
         """
         survey = aq_inner(self.context)
         new_profile = self.getDesiredProfile()
+        self.session = set_session_profile(survey, self.session, new_profile)
+        SessionManager.resume(self.session)
 
-        if not self.session.hasTree():
-            BuildSurveyTree(survey, new_profile, dbsession=self.session)
-        else:
-            changes = treeChanges(self.session, survey)
-            if self.current_profile != new_profile or changes:
-                old_session = self.session
-                new_session = SessionManager.start(old_session.title, survey)
-                BuildSurveyTree(survey, new_profile, new_session)
-                new_session.copySessionData(old_session)
-                Session.delete(old_session)
-                self.session = new_session
-            else:
-                self.session.touch()
 
     def ProfileQuestions(self):
         """Return information for all profile questions in this survey.
@@ -226,16 +248,16 @@ class Profile(grok.View):
         - ``title``: title of the question
         - ``type``: question type, one of `repeat` or `optional`
         """
-        return [dict(id=child.id,
-                     question=child.question or child.title,
-                     type=child.type)
+        return [{'id': child.id,
+                 'question': child.question or child.title,
+                 'type': child.type}
                 for child in self.context.ProfileQuestions()]
 
     def update(self):
         survey = aq_inner(self.context)
         self.profile_questions = self.ProfileQuestions()
         self.session = SessionManager.session
-        self.current_profile = extractProfile(survey)
+        self.current_profile = extractProfile(survey, SessionManager.session)
         assert self.session is not None
         assert self.session.zodb_path == \
                 RelativePath(self.request.client, aq_inner(self.context))

@@ -30,6 +30,24 @@ BASIC_SURVEY = \
           </sector>"""
 
 
+PROFILE_SURVEY = \
+        """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+             <title>ICT</title>
+             <survey>
+              <title>Software development</title>
+              <profile-question type="optional">
+                <title>Profile one</title>
+                <question>Does this apply?</question>
+                <description/>
+                <risk type="policy">
+                  <title>New hires are not aware of design patterns.</title>
+                  <description>&lt;p&gt;Every developer should know about them..&lt;/p&gt;</description>
+                  <evaluation-method>direct</evaluation-method>
+                </risk>
+              </profile-question>
+            </survey>
+          </sector>"""
+
 
 
 def _create(container, *args, **kwargs):

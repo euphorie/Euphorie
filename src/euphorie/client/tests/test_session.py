@@ -1,8 +1,6 @@
 import unittest
 from euphorie.client.tests.database import DatabaseTests
-from euphorie.client import session
-from euphorie.client import model
-from z3c.saconfig import Session
+
 
 class Mock(object):
     def __init__(self, **kw):
@@ -22,12 +20,13 @@ class CachingTests(unittest.TestCase):
     def testCachedSession(self):
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.utils import locals
-        request=testRequest()
-        marker=[]
+        from euphorie.client import session
+        request = testRequest()
+        marker = []
         request.other["euphorie.session"]=marker
-        mgr=session.SessionManagerFactory()
+        mgr = session.SessionManagerFactory()
 
-        locals.request=request
+        locals.request = request
         try:
             self.failUnless(mgr.session is marker)
         finally:
@@ -36,13 +35,13 @@ class CachingTests(unittest.TestCase):
     def testCachedSessionId(self):
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.utils import locals
-        request=testRequest()
-        marker=[]
-
-        ses=Mock(id=marker)
-        request.other["euphorie.session"]=ses
-        mgr=session.SessionManagerFactory()
-        locals.request=request
+        from euphorie.client import session
+        request = testRequest()
+        marker = []
+        ses = Mock(id=marker)
+        request.other["euphorie.session"] = ses
+        mgr = session.SessionManagerFactory()
+        locals.request = request
         try:
             self.failUnless(mgr.id is marker)
         finally:
@@ -63,22 +62,25 @@ class SessionCreationTests(DatabaseTests):
         cleanUp()
 
     def testNewSession(self):
+        import mock
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.utils import locals
+        from euphorie.client import model
+        from euphorie.client import session
 
-        request=testRequest()
-        mgr=session.SessionManagerFactory()
-        request.client=survey=object()
-        locals.request=request
+        request = testRequest()
+        mgr = session.SessionManagerFactory()
+        request.client = survey = object()
+        locals.request = request
         try:
             account = model.Account(loginname="jane", password=u"john")
-            mgr.start(u"Test session", survey, account)
-            query=Session.query(model.SurveySession)
-            self.assertEqual(query.count(), 1)
-            s=query.first()
-            self.assertEqual(s.title, u"Test session")
-            self.failUnless("euphorie.session" in request.other)
-            self.failUnless(request.other["euphorie.session"] is s)
+            with mock.patch('euphorie.client.session.create_survey_session') \
+                    as mock_create:
+                survey_session = mock.Mock()
+                survey_session.id = 43
+                mock_create.return_value = survey_session
+                ses = mgr.start(u"Test session", survey, account)
+                self.assertTrue(ses is survey_session)
+                self.failUnless(request.other["euphorie.session"] is ses)
         finally:
             del locals.request
-

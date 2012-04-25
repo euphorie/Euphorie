@@ -83,17 +83,14 @@ class View(grok.View):
                  if session.zodb_path==my_path]
 
 
-
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
-        survey=aq_inner(self.context)
-        title=info.get("title", u"").strip()
+        survey = aq_inner(self.context)
+        title = info.get("title", u"").strip()
         if not title:
-            title=survey.Title()
-
+            title = survey.Title()
         SessionManager.start(title=title, survey=survey)
         self.request.response.redirect("%s/start" % survey.absolute_url())
-
 
 
     def _ContinueSurvey(self, info):
