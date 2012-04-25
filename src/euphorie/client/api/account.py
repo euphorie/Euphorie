@@ -47,6 +47,7 @@ class View(JsonView):
 
     def sessions(self):
         return [{'id': session.id,
+                 'survey': session.zodb_path,
                  'title': session.title,
                  'created': session.created.isoformat(),
                  'modified': session.modified.isoformat()}

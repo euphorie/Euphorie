@@ -71,7 +71,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
-    def test_no_sessions(self):
+    def test_GET_basic(self):
         import json
         from z3c.saconfig import Session
         from euphorie.client.model import Account

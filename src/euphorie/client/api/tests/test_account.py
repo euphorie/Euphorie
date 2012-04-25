@@ -21,6 +21,7 @@ class ViewTests(unittest.TestCase):
         account = mock.Mock()
         session = mock.Mock()
         session.id = 13
+        session.zodb_path  = 'nl/ict/software-development'
         session.title = u'This is my title'
         session.created = datetime.datetime(2012, 4, 20, 16, 5, 23)
         session.modified = datetime.datetime(2012, 4, 23, 11, 46, 23)
@@ -30,6 +31,7 @@ class ViewTests(unittest.TestCase):
             self.assertEqual(
                     view.sessions(),
                     [{'id': 13,
+                      'survey': 'nl/ict/software-development',
                       'title': u'This is my title',
                       'created': '2012-04-20T16:05:23',
                       'modified': '2012-04-23T11:46:23'}])

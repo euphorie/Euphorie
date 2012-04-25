@@ -27,8 +27,9 @@ class BrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(
                 set(response),
-                set(['id', 'type', 'created', 'modified', 'title']))
+                set(['id', 'survey', 'type', 'created', 'modified', 'title']))
         self.assertEqual(response['id'], 1)
+        self.assertEqual(response['survey'], 'nl/ict/software-development')
         self.assertEqual(response['type'], 'session')
         self.assertEqual(response['title'], 'Dummy session')
         self.assertEqual(response['created'], '2012-04-22T23:05:12')

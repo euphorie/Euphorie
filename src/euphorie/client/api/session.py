@@ -24,6 +24,7 @@ class View(JsonView):
     def GET(self):
         info = {'id': self.context.id,
                 'type': 'session',
+                'survey': self.context.zodb_path,
                 'created': self.context.created.isoformat(),
                 'modified': self.context.modified.isoformat(),
                 'title': self.context.title,

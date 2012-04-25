@@ -408,7 +408,7 @@ Start a new survey session
 To start a new survey session a POST request must be send. This must include a
 JSON body with the following keys:
 
-* ``path``: path of the survey. This is a combination of the id of the sector
+* ``survey``: path of the survey. This is a combination of the id of the sector
   id and survey id, separated by a slash.
 * ``title``: title of the new session. This should default to the title of
   the survey itself.
@@ -419,7 +419,7 @@ token is set in the ``X-Euphorie-Token`` header.
 Here is an example request::
 
    {
-           "path": "stigas/bos-en-natuur",
+           "survey": "stigas/bos-en-natuur",
            "title": "Beheer stadspark oost",
    }
 
@@ -428,6 +428,7 @@ The response will be a JSON block::
 
    {
            "id": "193714",
+           "survey": "stigas/bos-en-natuur",
            "type": "session",
            "title": "Beheer stadspark oost",
            "introduction": "Introduction text from the survey.",
@@ -460,6 +461,7 @@ creation method. The only difference is the addition of a ``modified`` entry.
 
    {
            "id": "193714",
+           "survey": "stigas/bos-en-natuur",
            "type": "session",
            "created": "2011-12-06T15:15:24Z",
            "modified": "2012-04-23T10:29:13Z",
@@ -751,6 +753,11 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 |  Field                  | Type          | Required |                                |
 +=========================+===============+==========+================================+
+| ``problem-description`` | string        | Yes      | The inverse of the risk title. |
+|                         |               |          | This should be used instead of |
+|                         |               |          | the title if risk is known to  |
+|                         |               |          | be present.                    |
++-------------------------+---------------+----------+--------------------------------+
 | ``evaluation-method``   | string        | Yes      | The evaluation method to use.  |
 |                         |               |          | Will be either ``direct`` or   |
 |                         |               |          | ``calcualated``.               |
