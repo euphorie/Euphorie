@@ -1,10 +1,13 @@
 from five import grok
 from z3c.saconfig import Session
+from euphorie.content.survey import ISurvey
 from euphorie.client.survey import PathGhost
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
 from euphorie.client.api.session import View as SessionView
 from euphorie.client.api.session import get_survey
+from euphorie.client.profile import set_session_profile
+from euphorie.client.session import create_survey_session
 
 
 
@@ -48,23 +51,22 @@ class View(JsonView):
 
     def POST(self):
         try:
-            path = self.input['path']
-            title = self.input['title']
-        except KeyError:
+            survey = self.request.client.restrictedTraverse(
+                    self.input['survey'].split('/'))
+            if not ISurvey.providedBy(survey):
+                raise TypeError('Not a survey')
+        except (KeyError, TypeError):
             return {'type': 'error',
-                    'message': 'Required data missing'}
-        
-        survey = self.request.restrictedTraverse(path.split('/'))
-        if survey is None:
-            return {'type': 'error',
-                    'message': 'Unknown survey id'}
+                    'message': 'Unknown survey'}
 
-        survey_session = SurveySession(
-                account=self.context.account,
-                title=title,
-                zodb_path=path)
-        session = Session()
-        session.add(survey_session)
-        session.flush()
+        title = self.input.get('title', survey.title)
+        survey_session = create_survey_session(title, survey)
         view = SessionView(survey_session, self.request)
-        return view.GET()
+        response = view.GET()
+        survey_session_url = self.context.absolute_url()
+        if survey.ProfileQuestions():
+            response['next-step'] = '%s/profile' % survey_session_url
+        else:
+            survey_session = set_session_profile(survey, survey_session, {})
+            response['next-step'] = '%s/identification' % survey_session_url
+        return response

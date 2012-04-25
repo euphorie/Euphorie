@@ -1,5 +1,3 @@
-import unittest
-from zope.component.testing import PlacelessSetup
 from euphorie.client.tests.database import DatabaseTests
 from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
@@ -61,13 +59,112 @@ class SessionsTests(DatabaseTests):
             self.assertEqual(request.survey, 'mock-survey')
 
 
-class ViewTests(PlacelessSetup, unittest.TestCase):
-    def setUp(self):
-        from zope.component import provideAdapter
-        from zope.annotation.attribute import AttributeAnnotations
-        from plone.folder.default import DefaultOrdering
-        provideAdapter(AttributeAnnotations)
-        provideAdapter(DefaultOrdering)
+class ViewTests(EuphorieFunctionalTestCase):
+    def View(self, *a, **kw):
+        from euphorie.client.api.sessions import View
+        return View(*a, **kw)
+
+    def test_GET(self):
+        import mock
+        view = self.View(None, None)
+        view.sessions = mock.Mock(return_value='session data')
+        self.assertEqual(view.GET(), {'sessions': 'session data'})
+
+    def test_POST_missing_survey_path(self):
+        import mock
+        request = mock.Mock()
+        view = self.View(None, request)
+        view.input = {}
+        self.assertEqual(view.POST()['type'], 'error')
+
+    def test_POST_bad_survey_path(self):
+        import mock
+        request = mock.Mock()
+        request.client.restrictedTraverse.side_effect = KeyError()
+        view = self.View(None, request)
+        view.input = {'survey': 'bad/path'}
+        self.assertEqual(view.POST()['type'], 'error')
+        request.client.restrictedTraverse.assert_called_once_with(
+                ['bad', 'path'])
+
+    def test_POST_survey_path_does_not_point_to_survey(self):
+        import mock
+        request = mock.Mock()
+        request.client.restrictedTraverse.return_value = 'thing'
+        view = self.View(None, request)
+        view.input = {'survey': 'bad/path'}
+        self.assertEqual(view.POST()['type'], 'error')
+
+    def test_POST_survey_without_profile(self):
+        from z3c.saconfig import Session
+        from AccessControl.SecurityManagement import newSecurityManager
+        from zope.publisher.browser import TestRequest
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.model import SurveySession
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import addAccount
+        account = addAccount()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        request = TestRequest()
+        request.client = self.portal.client
+        survey = self.portal.client['nl']['ict']['software-development']
+        view = self.View(survey, request)
+        view.input = {'survey': 'nl/ict/software-development'}
+        newSecurityManager(None, account)
+        response = view.POST()
+        self.assertTrue(
+                response['next-step'].endswith('identification'))
+        survey_session = Session.query(SurveySession).first()
+        self.assertEqual(survey_session.title, u'Software development')
+        self.assertTrue(survey_session.hasTree())
+
+    def test_POST_survey_specify_title(self):
+        from z3c.saconfig import Session
+        from AccessControl.SecurityManagement import newSecurityManager
+        from zope.publisher.browser import TestRequest
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.model import SurveySession
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import addAccount
+        account = addAccount()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        request = TestRequest()
+        request.client = self.portal.client
+        survey = self.portal.client['nl']['ict']['software-development']
+        view = self.View(survey, request)
+        view.input = {'survey': 'nl/ict/software-development',
+                      'title': u'Alternative title'}
+        newSecurityManager(None, account)
+        response = view.POST()
+        self.assertTrue(
+                response['next-step'].endswith('identification'))
+        survey_session = Session.query(SurveySession).first()
+        self.assertEqual(survey_session.title, u'Alternative title')
+
+    def test_POST_survey_with_profile(self):
+        from z3c.saconfig import Session
+        from AccessControl.SecurityManagement import newSecurityManager
+        from zope.publisher.browser import TestRequest
+        from euphorie.content.tests.utils import PROFILE_SURVEY
+        from euphorie.client.model import SurveySession
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import addAccount
+        account = addAccount()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, PROFILE_SURVEY)
+        request = TestRequest()
+        request.client = self.portal.client
+        survey = self.portal.client['nl']['ict']['software-development']
+        view = self.View(survey, request)
+        view.input = {'survey': 'nl/ict/software-development'}
+        newSecurityManager(None, account)
+        response = view.POST()
+        self.assertTrue(
+                response['next-step'].endswith('profile'))
+        survey_session = Session.query(SurveySession).first()
+        self.assertTrue(not survey_session.hasTree())
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
