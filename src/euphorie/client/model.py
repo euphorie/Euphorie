@@ -171,7 +171,7 @@ class Account(BaseObject):
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     loginname = schema.Column(types.String(255), nullable=False,
             index=True, unique=True)
-    password = schema.Column(types.Unicode(64), nullable=False)
+    password = schema.Column(types.Unicode(64))
     tc_approved = schema.Column(types.Integer())
 
     @property
