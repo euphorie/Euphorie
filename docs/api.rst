@@ -496,19 +496,20 @@ View profile information
 The response will be a JSON block::
 
    {
+      "id": 15,
       "type": "profile",
       "title": "The title of the survey",
       "profile": [
           {
                "id": "1",
                "type": "optional",
-               "title": "Do you have a storeroom?",
+               "question": "Do you have a storeroom?",
                "value": false,
           },
           {
                "id": "3",
                "type": "repetable",
-               "title": "Enter your shop locations",
+               "question": "Enter your shop locations",
                "value": [
                    "New York",
                    "Paris",
@@ -521,6 +522,9 @@ The response will be a JSON block::
 
    As you can see in the example the response does not have ``previous-step``
    or ``next-step`` information.
+
+The ``id`` is set to the survey id. Please note that not all surveys have a
+profile, so the ``profile`` list might be empty.
 
 
 Update profile
@@ -545,11 +549,16 @@ The request body must be a JSON block specifying the new profile::
 It is mandatory that all profile questions are included in the request data. If
 data for a question is missing or invalid an error will be returned.
 
-The response for a profile update is a standard response with ``next-step``
-pointing to the start of the identification phase::
+The response to a profile update returns the same information as the profile
+information view. **The ``id`` of the survey might have change as a result
+of a profile update**.
+
+::
 
    {
-           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/identification",
+           "id": 15,
+           "type": "profile",
+           "title": "The title of the survey",
    }
 
 
