@@ -28,6 +28,7 @@ class Users(PathGhost):
             raise KeyError(key)
         # Give an account full control over itself
 #        account.__ac_local_roles__ = { account.loginname: ['Manager'] }
+        account.getId = lambda: key
         return account.__of__(self)
 
 

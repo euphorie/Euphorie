@@ -3,6 +3,9 @@ from euphorie.content.survey import ISurvey
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
 from euphorie.client.utils import HasText
+from euphorie.client.navigation import FindFirstQuestion
+from euphorie.client.survey import Evaluation as BaseEvaluation
+from euphorie.client.survey import ActionPlan as BaseActionPlan
 
 
 def get_survey(request, path):
@@ -33,3 +36,40 @@ class View(JsonView):
         if HasText(survey.introduction):
             info['introduction'] = survey.introduction
         return info
+
+
+class Identification(JsonView):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.name('identification')
+
+    phase = 'identification'
+    question_filter = None
+
+    def GET(self):
+        info = View(self.context, self.request).GET()
+        info['phase'] = self.phase
+        risk = FindFirstQuestion(self.context, self.question_filter)
+        if risk is not None:
+            info['next-step'] = '%s/%s/%s' % \
+                    (self.context.absolute_url(), 
+                            '/'.join(risk.short_path), self.phase)
+        return info
+
+
+class Evaluation(Identification):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.name('evaluation')
+
+    phase = 'evaluation'
+    question_filter = BaseEvaluation.question_filter
+
+
+class ActionPlan(Identification):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.name('actionplan')
+
+    phase = 'actionplan'
+    question_filter = BaseActionPlan.question_filter
