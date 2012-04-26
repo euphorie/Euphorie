@@ -402,7 +402,7 @@ Start a new survey session
 +------+---------------------------+------------------------------+
 | Verb | URI                       | Description                  |
 +======+===========================+==============================+
-| POST | /users/<userid>/surveys   | Start a new survey session.  |
+| POST | /users/<userid>/sessions  | Start a new survey session.  |
 +------+---------------------------+------------------------------+
 
 To start a new survey session a POST request must be send. This must include a
