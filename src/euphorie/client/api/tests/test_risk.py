@@ -86,6 +86,59 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['legal-reference'], u'<p>Catch 22</p>')
 
 
+class IdentificationTests(EuphorieFunctionalTestCase):
+    def Identification(self, *a, **kw):
+        from euphorie.client.api.risk import Identification
+        return Identification(*a, **kw)
+
+    def test_POST_missing_present_value(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.Identification(risk, request)
+        view.input = {}
+        response = view.POST()
+        self.assertEqual(response['type'], 'error')
+
+    def test_POST_present_invalid_value(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.Identification(risk, request)
+        view.input = {'present': 'foo'}
+        response = view.POST()
+        self.assertEqual(response['type'], 'error')
+
+    def test_POST_keep_existing_comment(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        risk.comment = u'Original comment'
+        view = self.Identification(risk, request)
+        view.input = {'present': 'yes'}
+        response = view.POST()
+        self.assertEqual(response['comment'], u'Original comment')
+        self.assertEqual(risk.comment, u'Original comment')
+
+
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_get(self):
         import json

@@ -63,6 +63,19 @@ class Identification(JsonView):
         self._step(info, 'next-step', FindNextQuestion)
         return info
 
+    def POST(self):
+        allowed_values = Risk.__table__.c['identification'].type.values
+        try:
+            if self.input['present'] not in allowed_values:
+                return {'type': 'error',
+                        'message': '"present" field has invalid value'}
+        except KeyError:
+            return {'type': 'error',
+                    'message': '"present" field missing'}
+        self.context.identification = self.input['present']
+        self.context.comment = self.input.get('comment', self.context.comment)
+        return self.GET()
+
 
 class Evaluation(Identification):
     grok.context(Risk)
