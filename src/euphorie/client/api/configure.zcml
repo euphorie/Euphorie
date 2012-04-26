@@ -37,4 +37,7 @@
       factory=".account.AccountPublishTraverse"
       provides="zope.publisher.interfaces.IPublishTraverse"/>
 
+    <adapter
+      factory=".session.SurveySessionPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
 </configure>

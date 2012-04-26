@@ -347,6 +347,56 @@ class Status(grok.View):
 
 
 
+def find_sql_context(session_id, zodb_path):
+    """Find the closest SQL tree node for a candidate path.
+
+    The path has to be given as a list of path entries. The session
+    timestamp is only used as part of a cache key for this method.
+
+    The return value is the id of the SQL tree node. All consumed
+    entries will be removed from the zodb_path list.
+    """
+    # Pop all integer elements from the URL
+    path = ""
+    head = []
+    while zodb_path:
+        next = zodb_path.pop()
+        if len(next) > 3:
+            zodb_path.append(next)
+            break
+
+        try:
+            path += '%03d' % int(next)
+            head.append(next)
+        except ValueError:
+            zodb_path.append(next)
+            break
+
+    # Try and find a SQL tree node that matches our URL
+    query = Session.query(model.SurveyTreeItem.id).\
+            filter(model.SurveyTreeItem.session_id == session_id).\
+            filter(model.SurveyTreeItem.path == sql.bindparam('path'))
+    while path:
+        node = query.params(path=path).first()
+        if node is not None:
+            return node[0]
+        path = path[:-3]
+        zodb_path.append(head.pop())
+
+
+def build_tree_aq_chain(root, tree_id):
+    """Build an acquisition context for a tree node.
+    """
+    tail = Session.query(model.SurveyTreeItem).get(tree_id)
+    walker = root
+    path = tail.path
+    while len(path) > 3:
+        id = str(int(path[:3]))
+        path = path[3:]
+        walker = PathGhost(id).__of__(walker)
+    return tail.__of__(walker)
+
+
 class SurveyPublishTraverser(DefaultPublishTraverse):
     """Publish traverser to setup the survey skin layers.
 
@@ -359,59 +409,6 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
                 evaluation=IEvaluationPhaseSkinLayer,
                 actionplan=IActionPlanPhaseSkinLayer,
                 report=IReportPhaseSkinLayer)
-
-    def findSqlContext(self, session_id, session_timestamp, zodb_path):
-        """Find the closest SQL tree node for a candidate path.
-
-        The path has to be given as a list of path entries. The session
-        timestamp is only used as part of a cache key for this method.
-
-        The return value is the id of the SQL tree node. All consumed
-        entries will be removed from the zodb_path list.
-        """
-        # Pop all integer elements from the URL
-        path=""
-        head=[]
-        while zodb_path:
-            next=zodb_path.pop()
-            if len(next)>3:
-                zodb_path.append(next)
-                break
-
-            try:
-                path+="%03d" % int(next)
-                head.append(next)
-            except ValueError:
-                zodb_path.append(next)
-                break
-
-        # Try and find a SQL tree node that matches our URL
-        query=Session.query(model.SurveyTreeItem.id).\
-                filter(model.SurveyTreeItem.session_id==session_id).\
-                filter(model.SurveyTreeItem.path==sql.bindparam("path"))
-        while path:
-            node=query.params(path=path).first()
-            if node is not None:
-                return node[0]
-
-            path=path[:-3]
-            zodb_path.append(head.pop())
-
-
-    def setupContext(self, tree_id):
-        """Build an acquisition context for a tree node.
-        """
-        node=Session.query(model.SurveyTreeItem).get(tree_id)
-
-        tail=self.context
-        path=node.path
-        while len(path)>3:
-            id=str(int(path[:3]))
-            path=path[3:]
-            tail=PathGhost(id).__of__(tail)
-        
-        return node.__of__(tail)
-
 
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.
@@ -454,10 +451,11 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
                          *directlyProvidedBy(request))
         self.context=PathGhost(name).__of__(self.context)
 
-        session=SessionManager.session
-        tree_id=self.findSqlContext(session.id, session.created, request["TraversalRequestNameStack"])
+        session = SessionManager.session
+        tree_id = find_sql_context(session.id,
+                request['TraversalRequestNameStack'])
         if tree_id is not None:
-            return self.setupContext(tree_id)
+            return build_tree_aq_chain(self.context, tree_id)
 
         # No SQL based traversal possible, return the existing context with the
         # new skin layer applied

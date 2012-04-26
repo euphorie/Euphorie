@@ -1,11 +1,16 @@
+from zope.component import adapts
 from five import grok
 from euphorie.content.survey import ISurvey
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
+from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.utils import HasText
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.survey import Evaluation as BaseEvaluation
 from euphorie.client.survey import ActionPlan as BaseActionPlan
+from euphorie.client.survey import find_sql_context
+from euphorie.client.survey import build_tree_aq_chain
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 def get_survey(request, path):
@@ -73,3 +78,23 @@ class ActionPlan(Identification):
 
     phase = 'actionplan'
     question_filter = BaseActionPlan.question_filter
+
+
+class SurveySessionPublishTraverse(DefaultPublishTraverse):
+    """Publish traverser for survey sessions.
+
+    This takes care of finding a survey session tree item efficiently
+    and setting up the right acquisition path for it.
+    """
+    adapts(SurveySession, IClientAPISkinLayer)
+
+    def publishTraverse(self, request, name):
+        stack = request['TraversalRequestNameStack']
+        stack.append(name)
+        node_id = find_sql_context(self.context.id, stack)
+        if node_id is not None:
+            return build_tree_aq_chain(self.context, node_id)
+        stack.pop()
+        return super(SurveySessionPublishTraverse, self).publishTraverse(
+                request, name)
+
