@@ -24,7 +24,7 @@ class View(JsonView):
         if HasText(self.module.description):
             info['description'] = self.module.description
         if HasText(self.module.solution_direction):
-            info['solution_direction'] = self.solution_direction
+            info['solution-direction'] = self.module.solution_direction
         if self.module.optional:
             info['question'] = self.module.question
             info['skip-children'] = self.context.skip_children
