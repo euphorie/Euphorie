@@ -69,6 +69,64 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['skip-children'], True)
 
 
+class IdentificationTests(EuphorieFunctionalTestCase):
+    def Identification(self, *a, **kw):
+        from euphorie.client.api.module import Identification
+        return Identification(*a, **kw)
+
+    def test_POST_missing_value(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Module
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        module = survey['1']
+        module.optional = True
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Module).first()
+        view = self.Identification(risk, request)
+        view.input = {}
+        response = view.POST()
+        self.assertEqual(response['type'], 'error')
+
+    def test_POST_invalid_value(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Module
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        module = survey['1']
+        module.optional = True
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Module).first()
+        view = self.Identification(risk, request)
+        view.input = {'skip-children': 'yes'}
+        response = view.POST()
+        self.assertEqual(response['type'], 'error')
+
+    def test_POST_update_value(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Module
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        module = survey['1']
+        module.optional = True
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        module = object_session(survey_session).query(Module).first()
+        view = self.Identification(module, request)
+        view.input = {'skip-children': True}
+        response = view.POST()
+        self.assertEqual(response['skip-children'], True)
+        self.assertEqual(module.skip_children, True)
+
+
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_get(self):
         import json

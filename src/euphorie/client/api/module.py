@@ -54,6 +54,19 @@ class Identification(JsonView):
         self._step(info, 'next-step', FindNextQuestion)
         return info
 
+    def POST(self):
+        self.module = self.request.survey.restrictedTraverse(
+                self.context.zodb_path.split('/'))
+        if not self.module.optional:
+            return self.GET()
+
+        value = self.input.get('skip-children')
+        if not isinstance(value, bool):
+            return {'type': 'error',
+                    'message': 'skip-children field missing or invalid'}
+        self.context.skip_children = value
+        return self.GET()
+
 
 class Evaluation(Identification):
     grok.context(Module)
