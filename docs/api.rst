@@ -806,14 +806,17 @@ For risks with ann evalution option of ``calculated`` these extra fields are inc
 +=========================+===============+==========+================================+
 | ``frequency-options``   | list of       | Yes      | A list of allowed frequency    |
 |                         | objects       |          | answers. Each entry is an      |
-|                         | objects       |          | object with two keys:          |
-|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | object with two keys:          |
+|                         |               |          | ``value`` (integer) and        |
 |                         |               |          | ``title`` (string).            |
++-------------------------+---------------+----------+--------------------------------+
+| ``frequency``           | integer       | Yes      | Users answer to the frequency  |
+|                         |               |          | question.                      |
 +-------------------------+---------------+----------+--------------------------------+
 | ``effect-options``      | list of       | Yes      | A list of allowed effect       |
 |                         | objects       |          | answers. Each entry is an      |
-|                         | objects       |          | object with two keys:          |
-|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | object with two keys:          |
+|                         |               |          | ``value`` (integer) and        |
 |                         |               |          | ``title`` (string).            |
 +-------------------------+---------------+----------+--------------------------------+
 | ``effect``              | integer       | Yes      | Users answer to the effect     |
@@ -821,8 +824,8 @@ For risks with ann evalution option of ``calculated`` these extra fields are inc
 +-------------------------+---------------+----------+--------------------------------+
 | ``probability-options`` | list of       | Yes      | A list of allowed probability  |
 |                         | objects       |          | answers. Each entry is an      |
-|                         | objects       |          | object with two keys:          |
-|                         | objects       |          | ``value`` (integer) and        |
+|                         |               |          | object with two keys:          |
+|                         |               |          | ``value`` (integer) and        |
 |                         |               |          | ``title`` (string).            |
 +-------------------------+---------------+----------+--------------------------------+
 | ``probability``         | integer       | Yes      | Users answer to the probability|
