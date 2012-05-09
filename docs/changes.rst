@@ -7,6 +7,12 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change default for top5 risks to not be present to work around frequent abuse
+  of top5 risks by sector organisations. They will still always be included in
+  reports even if not present. This fixes `TNO ticket 216
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/216>`_.
+  [wichert]
+
 - Change default for optional modules to present based on user feedback.
   This fixes `TNO ticket 197
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/197>`_.

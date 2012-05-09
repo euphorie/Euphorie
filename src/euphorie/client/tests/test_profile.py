@@ -88,15 +88,16 @@ class AddToTreeTests(DatabaseTests):
         children=list(self.root.children())
         child=children[0]
         self.assertEqual(child.risk_type, "policy")
+        self.assertEqual(child.priority, "high")
 
     def testAddTop5Risk(self):
-        question=createRisk("13")
-        question.type="top5"
+        question = createRisk("13")
+        question.type = "top5"
         AddToTree(self.root, question)
-        children=list(self.root.children())
-        child=children[0]
+        children = list(self.root.children())
+        child = children[0]
         self.assertEqual(child.risk_type, "top5")
-        self.assertEqual(child.identification, "no")
+        self.assertEqual(child.priority, "high")
 
     def testAddEmptyContainer(self):
         container=createContainer("13")

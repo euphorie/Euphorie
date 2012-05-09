@@ -66,11 +66,8 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
                          priority=priority)
         child.skip_children = False
         child.postponed = False
-        if node.type == "top5":
-            child.priority = "high"
-            child.identification = "no"
-        elif node.type == "policy":
-            child.priority = "high"
+        if node.type in ['top5', 'policy']:
+            child.priority = 'high'
     else:
         return
 
