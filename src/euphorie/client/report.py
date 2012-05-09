@@ -276,17 +276,20 @@ class IdentificationReport(grok.View):
                     treenode.zodb_path)
             return None
 
+    def getNodes(self):
+        """Return an orderer list of all relevant tree items for the current
+        survey.
+        """
+        query = Session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == self.session)\
+                .filter(sql.not_(model.SKIPPED_PARENTS))\
+                .order_by(model.SurveyTreeItem.path)
+        return query.all()
+
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
-
-        session = Session()
-        dbsession = SessionManager.session
-        query = session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session == dbsession)\
-                .filter(sql.not_(model.SKIPPED_PARENTS))\
-                .order_by(model.SurveyTreeItem.path)
-        self.nodes = query.all()
+        self.nodes = self.getNodes()
 
     def publishTraverse(self, request, name):
         """Check if the user wants to download this report by checking for a
