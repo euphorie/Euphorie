@@ -24,10 +24,18 @@ Feature changes
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/197>`_.
   [wichert]
 
-
 - Make description for modules optional. If a module has no description
   it is skipped in the client. This fixes `TNO ticket 213
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/213>`_.
+  [wichert]
+
+Bugfixes
+~~~~~~~~
+
+- Add missing introductionary sentence in a direct survey view in the
+  client which explains that a user can create a new survey. This fixes
+  `TNO ticket 193 
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/193>`_.
   [wichert]
 
 
