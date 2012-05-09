@@ -36,7 +36,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
             description = _("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
-            required = True)
+            required = False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 

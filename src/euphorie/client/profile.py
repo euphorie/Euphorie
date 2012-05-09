@@ -77,6 +77,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
     zodb_path = zodb_path + [node.id]
     child.zodb_path = "/".join(zodb_path)
     child.profile_index = profile_index
+    child.has_description = HasText(node.description)
     root.addChild(child)
 
     if IQuestionContainer.providedBy(node):
