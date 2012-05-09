@@ -7,6 +7,12 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Remove warning-icon for risks with a problem description in the action plan
+  report. Since this report only contains present risks the icon was not useful.
+  This fixes `TNO ticket 219
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/219>`_.
+  [wichert]
+
 - Change default for top5 risks to not be present to work around frequent abuse
   of top5 risks by sector organisations. They will still always be included in
   reports even if not present. This fixes `TNO ticket 216
