@@ -7,6 +7,12 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Change default for optional modules to present based on user feedback.
+  This fixes `TNO ticket 197
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/197>`_.
+  [wichert]
+
+
 - Make description for modules optional. If a module has no description
   it is skipped in the client. This fixes `TNO ticket 213
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/213>`_.

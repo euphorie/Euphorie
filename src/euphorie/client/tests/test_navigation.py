@@ -127,14 +127,18 @@ class EvaluationNavigationTests(DatabaseTests):
         self.assertEqual(navigation.FindNextQuestion(mod1, survey, self.filter()), None)
 
     def testShowModuleWithPresentRisk(self):
-        (session, survey)=createSurvey()
-        mod1=model.Module(title=u"Module 1", module_id="1", zodb_path="1", skip_children=False)
+        (session, survey) = createSurvey()
+        mod1 = model.Module(title=u"Module 1", module_id="1", zodb_path="1",
+                skip_children=False)
         survey.addChild(mod1)
-        mod11=model.Module(title=u"Module 1.1", module_id="11", zodb_path="1/1", skip_children=False)
+        mod11 = model.Module(title=u"Module 1.1", module_id="11",
+                zodb_path="1/1", skip_children=False, has_description=True)
         mod1.addChild(mod11)
-        q111=model.Risk(title=u"Risk 1.1.1", risk_id="1", zodb_path="1/1/1", identification="no")
+        q111 = model.Risk(title=u"Risk 1.1.1", risk_id="1", zodb_path="1/1/1",
+                identification="no")
         mod11.addChild(q111)
-        self.failUnless(navigation.FindNextQuestion(mod1, survey, self.filter()) is mod11)
+        self.failUnless(
+            navigation.FindNextQuestion(mod1, survey, self.filter()) is mod11)
 
     def testSkipModuleWithPresentTop5Risk(self):
         (session, survey)=createSurvey()
@@ -218,13 +222,17 @@ class ActionPlanNavigationTests(DatabaseTests):
 
     def testShowModuleWithTop5RiskEvenIfNotPresent(self):
         (session, survey)=createSurvey()
-        mod1=model.Module(title=u"Module 1", module_id="1", zodb_path="1", skip_children=False)
+        mod1 = model.Module(title=u'Module 1', module_id='1', zodb_path='1',
+                skip_children=False)
         survey.addChild(mod1)
-        mod11=model.Module(title=u"Module 1.1", module_id="11", zodb_path="1/1", skip_children=False)
+        mod11 = model.Module(title=u'Module 1.1', module_id='11',
+                zodb_path='1/1', skip_children=False, has_description=True)
         mod1.addChild(mod11)
-        q111=model.Risk(title=u"Risk 1.1.1", risk_id="1", zodb_path="1/1/1", identification="yes", risk_type="top5")
+        q111 = model.Risk(title=u'Risk 1.1.1', risk_id='1', zodb_path='1/1/1',
+                identification='yes', risk_type='top5')
         mod11.addChild(q111)
-        self.failUnless(navigation.FindNextQuestion(mod1, survey, self.filter()) is mod11)
+        self.failUnless(
+            navigation.FindNextQuestion(mod1, survey, self.filter()) is mod11)
 
     def testSkipRiskIfNotPresent(self):
         (session, survey)=createSurvey()

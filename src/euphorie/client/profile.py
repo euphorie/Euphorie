@@ -44,7 +44,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
         if IModule.providedBy(node):
             child.solution_direction = HasText(node.solution_direction)
             if node.optional:
-                child.skip_children = True
+                child.skip_children = False
             else:
                 child.postponed = False
     elif IRisk.providedBy(node):
