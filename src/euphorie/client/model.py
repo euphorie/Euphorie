@@ -545,6 +545,10 @@ del parent
 
 node = orm.aliased(SurveyTreeItem)
 
+RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = \
+    sql.or_(SurveyTreeItem.type != "module",
+            SurveyTreeItem.has_description)
+
 MODULE_WITH_RISK_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,

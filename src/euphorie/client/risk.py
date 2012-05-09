@@ -33,6 +33,7 @@ class IdentificationView(grok.View):
     phase = "identification"
     risk_present = False
     use_problem_description = False
+    question_filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -50,14 +51,14 @@ class IdentificationView(grok.View):
             SessionManager.session.touch()
 
             if reply["next"] == "previous":
-                next = FindPreviousQuestion(self.context)
+                next = FindPreviousQuestion(self.context, filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, step back to intro page
                     url = "%s/identification" % self.request.survey.absolute_url()
                     self.request.response.redirect(url)
                     return
             else:
-                next = FindNextQuestion(self.context)
+                next = FindNextQuestion(self.context, filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, proceed to the evaluation
                     url = "%s/evaluation" % self.request.survey.absolute_url()
@@ -88,9 +89,10 @@ class EvaluationView(grok.View):
 
     phase = "evaluation"
     risk_present = True
-    question_filter = sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
-                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
-
+    question_filter = sql.and_(
+            model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER,
+            sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
+                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER))
 
     @property
     def use_problem_description(self):
@@ -256,8 +258,10 @@ class ActionPlanView(grok.View):
     grok.name("index_html")
 
     phase = "actionplan"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                              model.RISK_PRESENT_OR_TOP5_FILTER)
+    question_filter = sql.and_(
+            model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER,
+            sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
+                              model.RISK_PRESENT_OR_TOP5_FILTER))
 
     @property
     def risk_present(self):
@@ -374,4 +378,3 @@ class ActionPlanView(grok.View):
                                     if ISolution.providedBy(solution)]
 
         super(ActionPlanView, self).update()
-

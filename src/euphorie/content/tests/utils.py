@@ -18,7 +18,7 @@ BASIC_SURVEY = \
               <title>Software development</title>
               <module optional="no">
                 <title>Module one</title>
-                <description/>
+                <description>Quick description</description>
                  <risk type="policy">
                    <title>New hires are not aware of design patterns.</title>
                    <description>&lt;p&gt;Every developer should know about them..&lt;/p&gt;</description>
@@ -28,7 +28,6 @@ BASIC_SURVEY = \
               </module>
             </survey>
           </sector>"""
-
 
 
 
