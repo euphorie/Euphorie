@@ -128,7 +128,7 @@ very similar to the ``module`` element.
    +=========================+===========+===========================================+
    | ``title``               | Yes       | Title of this profile question            |
    +-------------------------+-----------+-------------------------------------------+
-   | ``description``         | Yes       | Description (HTML)                        |
+   | ``description``         | No        | Description (HTML)                        |
    +-------------------------+-----------+-------------------------------------------+
    | ``question``            | Yes       | Question asked to determine use of profile|
    |                         |           | section in survey.                        |
@@ -180,7 +180,7 @@ is very similar to the ``profile-question`` element.
    +=========================+===========+===========================================+
    | ``title``               | Yes       | Title of this profile question            |
    +-------------------------+-----------+-------------------------------------------+
-   | ``description``         | Yes       | Description (HTML)                        |
+   | ``description``         | No        | Description (HTML)                        |
    +-------------------------+-----------+-------------------------------------------+
    | ``question``            | Yes/No    | Question asked to determine if module     |
    |                         |           | should be skipped                         |

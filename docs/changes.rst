@@ -4,8 +4,13 @@ Changelog
 3.1.2 - Unreleased
 ------------------
 
-- ...
+Feature changes
+~~~~~~~~~~~~~~~
 
+- Make description for modules optional. If a module has no description
+  it is skipped in the client. This fixes `TNO ticket 213
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/213>`_.
+  [wichert]
 
 
 3.1.1 - April 27, 2012

@@ -10,6 +10,7 @@ from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.upload import NSMAP
 from euphorie.content.utils import StripMarkup
+from euphorie.client.utils import HasText
 
 
 def getToken(field, value, default=None):
@@ -70,7 +71,8 @@ class ExportSurvey(grok.View):
         etree.SubElement(node, "title").text=profile.title
         # Use title if question is not available (Euphorie < 2.0rc2 data)
         etree.SubElement(node, "question").text=profile.question or profile.title
-        etree.SubElement(node, "description").text=profile.description
+        if HasText(profile.description):
+            etree.SubElement(node, "description").text=profile.description
 
         for child in profile.values():
             if IModule.providedBy(child):
@@ -84,7 +86,8 @@ class ExportSurvey(grok.View):
         if getattr(module, "external_id", None):
             node.attrib["external-id"]=module.external_id
         etree.SubElement(node, "title").text=module.title
-        etree.SubElement(node, "description").text=module.description
+        if HasText(module.description):
+            etree.SubElement(node, "description").text=module.description
         if module.optional:
             etree.SubElement(node, "question").text=module.question
         if StripMarkup(module.solution_direction):
@@ -160,5 +163,3 @@ class ExportSurvey(grok.View):
         response.setHeader("Content-Disposition", u"attachment; filename=\"%s\"" % filename)
         response.setHeader("Content-Type", "text/xml")
         return etree.tostring(output, pretty_print=True, xml_declaration=True, encoding="utf-8")
-
-
