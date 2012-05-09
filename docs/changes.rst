@@ -32,6 +32,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Small grammar fix in Dutch translation for action plan introduction text.
+  This fixes `TNO ticket 220 
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/220>`_.
+  [wichert]
+
 - Add missing introductionary sentence in a direct survey view in the
   client which explains that a user can create a new survey. This fixes
   `TNO ticket 193 
