@@ -14,7 +14,6 @@ def initialize(context):
     from AccessControl.Permissions import manage_users as ManageUsers
     from Products.PluggableAuthService.PluggableAuthService import registerMultiPlugin
     from euphorie.client import authentication
-    from euphorie.client.api import authentication as api_authentication
 
     registerMultiPlugin(authentication.EuphorieAccountPlugin.meta_type)
     context.registerClass(authentication.EuphorieAccountPlugin,
@@ -22,14 +21,6 @@ def initialize(context):
                                 constructors=
                                         (authentication.manage_addEuphorieAccountPlugin,
                                         authentication.addEuphorieAccountPlugin),
-                                visibility=None)
-
-    registerMultiPlugin(api_authentication.EuphorieAPIPlugin.meta_type)
-    context.registerClass(api_authentication.EuphorieAPIPlugin,
-                          permission=ManageUsers,
-                                constructors=
-                                        (api_authentication.manage_addEuphorieAPIPlugin,
-                                        api_authentication.addEuphorieAPIPlugin),
                                 visibility=None)
 
     # Instruct the email module to use quoted printable for UT8

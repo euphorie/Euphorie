@@ -159,11 +159,6 @@
     >
 
     <genericsetup:upgradeStep
-      title="Add API authentication support"
-      description="Enable client API authentication."
-      handler=".v4.add_api_authentication"/>
-
-    <genericsetup:upgradeStep
       title="Allow empty client password"
       description="Allow the client API to create passwordless accounts."
       handler=".v4.allow_empty_password"/>

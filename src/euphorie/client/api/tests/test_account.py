@@ -81,10 +81,11 @@ class ViewTests(unittest.TestCase):
 class ViewBrowserTests(EuphorieFunctionalTestCase):
     def test_user_info(self):
         import json
-        from z3c.saconfig import Session
-        from euphorie.client.model import Account
-        Session.add(Account(loginname='john', password=u'jane'))
+        from euphorie.client.tests.utils import addAccount
+        from euphorie.client.api.authentication import generate_token
+        account = addAccount()
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.handleErrors = False
         browser.open('http://nohost/plone/client/api/users/1')
         response = json.loads(browser.contents)

@@ -113,6 +113,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
         from euphorie.content.tests.utils import PROFILE_SURVEY
         from euphorie.client.tests.utils import addAccount
         from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.api.authentication import generate_token
         self.loginAsPortalOwner()
         addSurvey(self.portal, PROFILE_SURVEY)
         account = addAccount(password='secret')
@@ -124,6 +125,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
                 account=account)
         Session.add(survey_session)
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open(
                 'http://nohost/plone/client/api/users/1/sessions/1/profile')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')

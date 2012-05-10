@@ -14,7 +14,7 @@ def _setup_session(portal):
     survey_session = create_survey_session(u'Dummy session',
             survey, account)
     survey_session = set_session_profile(survey, survey_session, {})
-    return (survey, survey_session)
+    return (account, survey, survey_session)
 
 
 class ViewTests(EuphorieFunctionalTestCase):
@@ -27,7 +27,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         request = TestRequest()
         request.survey = survey
         module = object_session(survey_session).query(Module).first()
@@ -47,7 +47,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
         module.description = u'<p>Simple description</p>'
         module.solution_direction = u'<p>Fix It Fast</p>'
@@ -80,7 +80,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
         module.optional = True
         request = TestRequest()
@@ -97,7 +97,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
         module.optional = True
         request = TestRequest()
@@ -114,7 +114,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
         module.optional = True
         request = TestRequest()
@@ -131,9 +131,11 @@ class IdentificationTests(EuphorieFunctionalTestCase):
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_get(self):
         import json
+        from euphorie.client.api.authentication import generate_token
         self.loginAsPortalOwner()
-        _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions/1/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)

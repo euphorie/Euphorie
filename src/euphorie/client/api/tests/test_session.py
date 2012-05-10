@@ -8,6 +8,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
         import json
         from z3c.saconfig import Session
         from euphorie.client.model import SurveySession
+        from euphorie.client.api.authentication import generate_token
         from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addAccount
         from euphorie.client.tests.utils import addSurvey
@@ -22,6 +23,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
                 account=account)
         Session.add(survey_session)
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
@@ -40,6 +42,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
         import json
         from z3c.saconfig import Session
         from euphorie.client.model import SurveySession
+        from euphorie.client.api.authentication import generate_token
         from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addAccount
         from euphorie.client.tests.utils import addSurvey
@@ -56,6 +59,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
                 account=account)
         Session.add(survey_session)
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)

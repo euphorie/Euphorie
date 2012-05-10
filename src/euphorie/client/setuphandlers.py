@@ -1,7 +1,5 @@
 from euphorie.client.authentication import EuphorieAccountPlugin
 from euphorie.client.authentication import addEuphorieAccountPlugin
-from euphorie.client.api.authentication import EuphorieAPIPlugin
-from euphorie.client.api.authentication import addEuphorieAPIPlugin
 import logging
 
 log = logging.getLogger(__name__)
@@ -20,11 +18,6 @@ def add_account_plugin(pas):
     enable_plugin_and_move_to_top(pas, pas.euphorie)
 
 
-def add_api_authentication_plugin(pas):
-    addEuphorieAPIPlugin(pas, 'euphorie_api', 'Euphorie API authentication')
-    enable_plugin_and_move_to_top(pas, pas.euphorie_api)
-
-
 def setupVarious(context):
     if context.readDataFile('euphorie.client.txt') is None:
         return   
@@ -33,6 +26,3 @@ def setupVarious(context):
     pas = site.acl_users
     if not pas.objectIds([EuphorieAccountPlugin.meta_type]):
         add_account_plugin(pas)
-
-    if not pas.objectIds([EuphorieAPIPlugin.meta_type]):
-        add_api_authentication_plugin(pas)

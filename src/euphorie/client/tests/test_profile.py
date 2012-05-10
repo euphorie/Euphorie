@@ -455,5 +455,3 @@ class Profile_setupSession_Tests(TreeTests):
         self.setupSession(view)
         self.failUnless(view.session is not session)
         self.assertEqual(view.session.hasTree(), False)
-
-

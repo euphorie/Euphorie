@@ -1,6 +1,7 @@
 from z3c.saconfig import Session
 from five import grok
 from euphorie.client.authentication import authenticate
+from euphorie.client.api.authentication import authenticate_token
 from euphorie.client.api.authentication import generate_token
 from euphorie.client.survey import PathGhost
 from euphorie.client.api import JsonView
@@ -23,11 +24,10 @@ class Users(PathGhost):
         except ValueError:
             raise KeyError(key)
 
-        account = Session.query(Account).get(userid)
-        if account is None:
+        token = self.request.getHeader('X-Euphorie-Token')
+        account = authenticate_token(token)
+        if account is None or account.id != userid:
             raise KeyError(key)
-        # Give an account full control over itself
-#        account.__ac_local_roles__ = { account.loginname: ['Manager'] }
         account.getId = lambda: key
         return account.__of__(self)
 
@@ -54,7 +54,7 @@ class View(JsonView):
         session.flush()
 
         info = user_info(account, self.request)
-        info['token'] = generate_token(self.context, account)
+        info['token'] = generate_token(account)
         return info
 
 
@@ -81,5 +81,5 @@ class Authenticate(JsonView):
                     'message': 'Invalid credentials'}
 
         info = user_info(account, self.request)
-        info['token'] = generate_token(self.context, account)
+        info['token'] = generate_token(account)
         return info

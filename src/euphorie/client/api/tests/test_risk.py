@@ -14,7 +14,7 @@ def _setup_session(portal):
     survey_session = create_survey_session(u'Dummy session',
             survey, account)
     survey_session = set_session_profile(survey, survey_session, {})
-    return (survey, survey_session)
+    return (account, survey, survey_session)
 
 
 class ViewTests(EuphorieFunctionalTestCase):
@@ -27,7 +27,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.title = u'Everything is under control.'
         risk.problem_description = u'Not everything under control.'
@@ -61,7 +61,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.description = u'<p>Simple description</p>'
         risk.legal_reference = u'<p>Catch 22</p>'
@@ -97,7 +97,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         request = TestRequest()
         request.survey = survey
         request.survey_session = survey_session
@@ -112,7 +112,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         request = TestRequest()
         request.survey = survey
         request.survey_session = survey_session
@@ -127,7 +127,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         request = TestRequest()
         request.survey = survey
         request.survey_session = survey_session
@@ -150,7 +150,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.type = 'top5'
         request = TestRequest()
@@ -167,7 +167,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.type = 'risk'
         risk.evaluation_method = 'direct'
@@ -186,7 +186,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.evaluation_method = 'direct'
         risk.type = 'risk'
@@ -206,7 +206,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
-        (survey, survey_session) = _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.evaluation_method = 'calculated'
         risk.type = 'risk'
@@ -227,9 +227,11 @@ class EvaluationTests(EuphorieFunctionalTestCase):
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_get(self):
         import json
+        from euphorie.client.api.authentication import generate_token
         self.loginAsPortalOwner()
-        _setup_session(self.portal)
+        (account, survey, survey_session) = _setup_session(self.portal)
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions/1/1/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)

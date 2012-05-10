@@ -170,11 +170,11 @@ class ViewTests(EuphorieFunctionalTestCase):
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_GET_basic(self):
         import json
-        from z3c.saconfig import Session
-        from euphorie.client.model import Account
-        account = Account(loginname='john', password=u'jane')
-        Session.add(account)
+        from euphorie.client.api.authentication import generate_token
+        from euphorie.client.tests.utils import addAccount
+        account = addAccount()
         browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
