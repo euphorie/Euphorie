@@ -248,7 +248,6 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         from euphorie.content.module import Module
         module=Module()
         module.title=u"Office buildings"
-        module.description=u"<p>Owning property brings risks.</p>"
         module.optional=False
         module.solution_direction=None
         root=self.root()
@@ -258,9 +257,23 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <module optional="false">\n'
                 '    <title>Office buildings</title>\n'
-                '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
                 '  </module>\n'
                 '</root>\n')
+
+    def testModule_with_description(self):
+        from euphorie.content.module import Module
+        module = Module()
+        module.title = u"Office buildings"
+        module.description = u"<p>Owning property brings risks.</p>"
+        module.solution_direction = None
+        module.optional = False
+        root = self.root()
+        view = ExportSurvey(None, None)
+        view.exportModule(root, module)
+        xml = etree.tostring(root, pretty_print=True)
+        self.assertTrue(
+                '<description>&lt;p&gt;Owning property brings risks.'
+                '&lt;/p&gt;</description>\n' in xml)
 
     def testModule_Optional(self):
         from euphorie.content.module import Module
@@ -385,10 +398,9 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
     def testProfileQuestion_Minimal(self):
         from euphorie.content.profilequestion import ProfileQuestion
         profile=ProfileQuestion()
-        profile.title=u"Office buildings"
-        profile.question=u"Do you have an office buildings?"
-        profile.description=u"<p>Owning property brings risks.</p>"
-        profile.type="optional"
+        profile.title = u"Office buildings"
+        profile.question = u"Do you have an office building?"
+        profile.type = "optional"
         root=self.root()
         view=ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
@@ -396,10 +408,23 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <profile-question type="optional">\n'
                 '    <title>Office buildings</title>\n'
-                '    <question>Do you have an office buildings?</question>\n'
-                '    <description>&lt;p&gt;Owning property brings risks.&lt;/p&gt;</description>\n'
+                '    <question>Do you have an office building?</question>\n'
                 '  </profile-question>\n'
                 '</root>\n')
+
+    def testProfileQuestion_with_description(self):
+        from euphorie.content.profilequestion import ProfileQuestion
+        profile = ProfileQuestion()
+        profile.title = u"Office buildings"
+        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.type = 'optional'
+        root = self.root()
+        view = ExportSurvey(None, None)
+        view.exportProfileQuestion(root, profile)
+        xml = etree.tostring(root, pretty_print=True)
+        self.assertTrue(
+                '<description>&lt;p&gt;Owning property brings risks.'
+                '&lt;/p&gt;</description>' in xml)
 
     def testProfileQuestion_WithoutQuestion(self):
         from euphorie.content.profilequestion import ProfileQuestion

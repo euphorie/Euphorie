@@ -128,7 +128,7 @@ very similar to the ``module`` element.
    +=========================+===========+===========================================+
    | ``title``               | Yes       | Title of this profile question            |
    +-------------------------+-----------+-------------------------------------------+
-   | ``description``         | Yes       | Description (HTML)                        |
+   | ``description``         | No        | Description (HTML)                        |
    +-------------------------+-----------+-------------------------------------------+
    | ``question``            | Yes       | Question asked to determine use of profile|
    |                         |           | section in survey.                        |
@@ -180,7 +180,7 @@ is very similar to the ``profile-question`` element.
    +=========================+===========+===========================================+
    | ``title``               | Yes       | Title of this profile question            |
    +-------------------------+-----------+-------------------------------------------+
-   | ``description``         | Yes       | Description (HTML)                        |
+   | ``description``         | No        | Description (HTML)                        |
    +-------------------------+-----------+-------------------------------------------+
    | ``question``            | Yes/No    | Question asked to determine if module     |
    |                         |           | should be skipped                         |
@@ -339,8 +339,7 @@ The ``image`` element is used in ``module`` and ``risk`` elements to add
 extra images. The element has three optional attributes:
 
 ``caption``
-  The caption for the image. This is only used by ``risk`` elements, and
-  ignored in other places.
+  The caption for the image.
 
 ``content-type``
   The MIME content type for the image. This is generally one of ``image/gif``,

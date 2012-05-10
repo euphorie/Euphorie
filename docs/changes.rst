@@ -1,8 +1,79 @@
 Changelog
 =========
 
-3.1.1 - Unreleased
+3.1.2 - Unreleased
 ------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Remove warning-icon for risks with a problem description in the action plan
+  report. Since this report only contains present risks the icon was not useful.
+  This fixes `TNO ticket 219
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/219>`_.
+  [wichert]
+
+- Change default for top5 risks to not be present to work around frequent abuse
+  of top5 risks by sector organisations. They will still always be included in
+  reports even if not present. This fixes `TNO ticket 216
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/216>`_.
+  [wichert]
+
+- Change default for optional modules to present based on user feedback.
+  This fixes `TNO ticket 197
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/197>`_.
+  [wichert]
+
+- Make description for modules optional. If a module has no description
+  it is skipped in the client. This fixes `TNO ticket 213
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/213>`_.
+  [wichert]
+
+Bugfixes
+~~~~~~~~
+
+- Small grammar fix in Dutch translation for action plan introduction text.
+  This fixes `TNO ticket 220 
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/220>`_.
+  [wichert]
+
+- Add missing introductionary sentence in a direct survey view in the
+  client which explains that a user can create a new survey. This fixes
+  `TNO ticket 193 
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/193>`_.
+  [wichert]
+
+- Fix case handling of email addresses when changing the email address
+  in the client. Previously it was possible to change to an email address
+  with capital, after which login was no longer possible.  This fixes 
+  a final part of `TNO ticket 194
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
+
+
+3.1.1 - April 27, 2012
+----------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+No special upgrade steps are needed for this release.
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add a caption field for module image captions. This fixes `TNO ticket 210
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/210>`_.
+  [wichert]
+
+- Position images for module views on the right side of the page so they
+  do not break running text as badly. This should fix `TNO ticket 211
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/211>`_.
+  [wichert]
+
+- Use a slightly larger image size for the module views, and enable 
+  image zoom (fancybox). This fixes `TNO ticket 209
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/209>`_.
+  [wichert]
 
 Bugfixes
 ~~~~~~~~
@@ -14,6 +85,12 @@ Bugfixes
   <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
   [wichert]
 
+Other changes
+~~~~~~~~~~~~~
+
+- Small code restructuring to make it easier for derived sites to change
+  filters for reports.
+  [wichert]
 
 3.1 - March 15, 2012
 --------------------

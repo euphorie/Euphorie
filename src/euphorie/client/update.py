@@ -4,6 +4,7 @@ from z3c.saconfig import Session
 from euphorie.client import model
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.client.session import SessionManager
+from euphorie.client.utils import HasText
 
 grok.templatedir("templates")
 
@@ -25,6 +26,7 @@ def getSurveyTree(survey):
         nodes.append({
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
             'type': node.portal_type[9:],
+            'has_description': HasText(node.description),
             'optional': node.optional, })
         if IQuestionContainer.providedBy(node):
             queue.extend(node.values())
@@ -41,6 +43,7 @@ class Node(object):
         self.path = item.path
         self.type = item.type
         self.skip_children = item.skip_children
+        self.has_description = item.has_description
 
     def __repr__(self):
         return "<Node zodb_path=%s type=%s path=%s>" % \
@@ -70,7 +73,7 @@ def treeChanges(session, survey):
     sestree = set(getSessionTree(session))
     results = set()
     for entry in surveytree:
-        nodes = filter(lambda x: x.zodb_path == entry["zodb_path"], sestree)
+        nodes = [node for node in sestree if node.zodb_path == entry['zodb_path']]
         if nodes:
             for node in nodes:
                 sestree.remove(node)
@@ -81,7 +84,8 @@ def treeChanges(session, survey):
                     # skip_children cannot be True if the module is not
                     # optional, so this is requires a SessionTree update    
                     results.add((entry["zodb_path"], nodes[0].type, "modified"))
-
+                elif entry['has_description'] != nodes[0].has_description:
+                    results.add((entry["zodb_path"], nodes[0].type, "modified"))
             if nodes[0].type == entry["type"] or \
                     (nodes[0].type == "module" and \
                     entry["type"] == "profilequestion"):

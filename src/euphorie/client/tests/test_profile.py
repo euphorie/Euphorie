@@ -20,7 +20,8 @@ def createContainer(id, profile=False):
     from euphorie.content.interfaces import IQuestionContainer
     class Container(dict):
         implements(IQuestionContainer)
-        title=u"container"
+        title = u"container"
+        description = None
         def __init__(self, id):
             self.id=id
     c=Container(id)
@@ -37,11 +38,12 @@ def createRisk(id):
     from euphorie.content.risk import IRisk
     class Risk(object):
         implements(IRisk)
-        title=u"risk"
-        type="risk"
-        default_probability=0
-        default_frequency=0
-        default_effect=0
+        title = u'risk'
+        type = 'risk'
+        default_probability = 0
+        default_frequency = 0
+        default_effect = 0
+        description = None
 
         def __init__(self, id):
             self.id=id
@@ -86,15 +88,16 @@ class AddToTreeTests(DatabaseTests):
         children=list(self.root.children())
         child=children[0]
         self.assertEqual(child.risk_type, "policy")
+        self.assertEqual(child.priority, "high")
 
     def testAddTop5Risk(self):
-        question=createRisk("13")
-        question.type="top5"
+        question = createRisk("13")
+        question.type = "top5"
         AddToTree(self.root, question)
-        children=list(self.root.children())
-        child=children[0]
+        children = list(self.root.children())
+        child = children[0]
         self.assertEqual(child.risk_type, "top5")
-        self.assertEqual(child.identification, "no")
+        self.assertEqual(child.priority, "high")
 
     def testAddEmptyContainer(self):
         container=createContainer("13")
@@ -133,6 +136,21 @@ class AddToTreeTests(DatabaseTests):
         self.assertEqual(child.title, u"Top level title")
         self.assertEqual(child.profile_index, 1)
 
+    def test_item_with_description(self):
+        question = createRisk("13")
+        question.description = u'<p>Hello!</p>'
+        AddToTree(self.root, question)
+        children = list(self.root.children())
+        child = children[0]
+        self.assertEqual(child.has_description, True)
+
+    def test_item_without_description(self):
+        question = createRisk("13")
+        question.description = u'<p></p>'
+        AddToTree(self.root, question)
+        children = list(self.root.children())
+        child = children[0]
+        self.assertEqual(child.has_description, False)
 
 
 class BuildSurveyTreeTests(unittest.TestCase):

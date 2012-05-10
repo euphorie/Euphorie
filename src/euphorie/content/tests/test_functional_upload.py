@@ -249,7 +249,7 @@ class SurveyImporterTests(EuphorieTestCase):
              <title>Design patterns</title>
              <description>&lt;p&gt;Software design patterns are critical.&lt;/p&gt;</description>
              <solution-direction>&lt;p&gt;Buy the book from the gang of four.&lt;/p&gt;</solution-direction>
-             <image content-type="image/gif">R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>
+             <image caption="My caption" content-type="image/gif">R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>
            </module>""")
         self.loginAsPortalOwner()
         survey=self.createSurvey()
@@ -258,6 +258,7 @@ class SurveyImporterTests(EuphorieTestCase):
         module=survey["1"]
         self.assertNotEqual(module.image, None)
         self.assertEqual(module.image.contentType, "image/gif")
+        self.assertEqual(module.caption, u'My caption')
 
     def testImportModule_Optional(self):
         snippet=objectify.fromstring(

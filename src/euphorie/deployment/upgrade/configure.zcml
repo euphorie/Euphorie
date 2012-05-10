@@ -135,7 +135,7 @@
       />
 
     <genericsetup:upgradeStep
-      title="Lowercase all client loginname"
+      title="Lowercase all client login names"
       description="This is required for the case-insensitive client logins." 
       handler=".v3.lowercase_login"/>
   </genericsetup:upgradeSteps>
@@ -143,6 +143,18 @@
   <genericsetup:upgradeSteps
     source="9"
     destination="10"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add description-presence column"
+      description="This allows skipping modules without a description in the client."
+      handler=".v3.add_has_description_column"/>
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="10"
+    destination="11"
     profile="euphorie.deployment:default"
     >
 

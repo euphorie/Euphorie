@@ -24,6 +24,7 @@ class IdentificationView(grok.View):
     grok.name("index_html")
 
     phase = "identification"
+    question_filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -45,14 +46,14 @@ class IdentificationView(grok.View):
                 SessionManager.session.touch()
 
             if reply["next"]=="previous":
-                next=FindPreviousQuestion(context)
+                next = FindPreviousQuestion(context, filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, step back to intro page
                     url="%s/identification" % self.request.survey.absolute_url()
                     self.request.response.redirect(url)
                     return
             else:
-                next=FindNextQuestion(context)
+                next = FindNextQuestion(context, filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, proceed to the evaluation
                     url="%s/evaluation" % self.request.survey.absolute_url()
@@ -69,8 +70,6 @@ class IdentificationView(grok.View):
             super(IdentificationView, self).update()
 
 
-
-
 class EvaluationView(grok.View):
     grok.context(model.Module)
     grok.require("euphorie.client.ViewSurvey")
@@ -79,8 +78,10 @@ class EvaluationView(grok.View):
     grok.name("index_html")
 
     phase = "evaluation"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
-                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
+    question_filter = sql.and_(
+            model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER,
+            sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
+                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER))
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -115,8 +116,10 @@ class ActionPlanView(grok.View):
     grok.name("index_html")
 
     phase = "actionplan"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                              model.RISK_PRESENT_OR_TOP5_FILTER)
+    question_filter = sql.and_(
+            model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER,
+            sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
+                              model.RISK_PRESENT_OR_TOP5_FILTER))
 
     @property
     def use_solution_direction(self):

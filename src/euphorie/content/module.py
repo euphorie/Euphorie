@@ -36,7 +36,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
             description = _("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
-            required = True)
+            required = False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 
@@ -62,6 +62,9 @@ class IModule(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format png, jpg "
                         u"or gif and does not contain any special characters."),
             required = False)
+    caption = schema.TextLine(
+            title = _("label_caption", default=u"Image caption"),
+            required=False)
 
     solution_direction = HtmlText(
             title = _("label_solution_direction", default=u"Introduction action plan"),
@@ -78,6 +81,7 @@ class Module(dexterity.Container):
     implements(IModule, IQuestionContainer)
 
     image = None
+    caption = None
 
 
 

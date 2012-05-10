@@ -67,6 +67,7 @@ class SurveyTreeItem(BaseObject):
     type = schema.Column(Enum(["risk", "module"]),
             nullable=False, index=True)
     path = schema.Column(types.String(40), nullable=False, index=True)
+    has_description = schema.Column(types.Boolean(), default=False, index=True)
     zodb_path = schema.Column(types.String(40), nullable=False)
     profile_index = schema.Column(types.Integer(), default=0, nullable=False)
     depth = schema.Column(types.Integer(), default=0, nullable=False,
@@ -543,6 +544,10 @@ SKIPPED_PARENTS = \
 del parent
 
 node = orm.aliased(SurveyTreeItem)
+
+RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = \
+    sql.or_(SurveyTreeItem.type != "module",
+            SurveyTreeItem.has_description)
 
 MODULE_WITH_RISK_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",

@@ -43,10 +43,12 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
 
     if IQuestionContainer.providedBy(node):
         child = model.Module(title=title, module_id=node.id)
+        child.has_description = HasText(node.description)
         if IModule.providedBy(node):
             child.solution_direction = HasText(node.solution_direction)
             if node.optional:
-                child.skip_children = True
+                child.skip_children = False
+                child.has_description = True
             else:
                 child.postponed = False
     elif IRisk.providedBy(node):
@@ -68,11 +70,9 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
                          priority=priority)
         child.skip_children = False
         child.postponed = False
-        if node.type == "top5":
-            child.priority = "high"
-            child.identification = "no"
-        elif node.type == "policy":
-            child.priority = "high"
+        child.has_description = HasText(node.description)
+        if node.type in ['top5', 'policy']:
+            child.priority = 'high'
     else:
         return
 

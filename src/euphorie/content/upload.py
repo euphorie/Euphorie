@@ -191,7 +191,7 @@ class SurveyImporter(object):
         module=createContentInContainer(survey, "euphorie.module",
                                         title=unicode(node.title))
         module.optional=node.get("optional")=="true"
-        module.description=unicode(node.description)
+        module.description = el_unicode(node, 'description')
         module.external_id=attr_unicode(node, "external-id")
         if module.optional:
             module.question=unicode(node.question)
@@ -205,14 +205,16 @@ class SurveyImporter(object):
 
         image=getattr(node, "image", None)
         if image is not None:
-            module.image=self.ImportImage(image)[0]
+            (image,caption)=self.ImportImage(image)
+            module.image = image
+            module.caption = caption
 
 
     def ImportProfileQuestion(self, node, survey):
         profile=createContentInContainer(survey, "euphorie.profilequestion",
                                         title=unicode(node.title))
         profile.type=node.get("type")
-        profile.description=unicode(node.description)
+        profile.description = el_unicode(node, 'description')
         profile.question=unicode(node.question)
         profile.external_id=attr_unicode(node, "external-id")
 

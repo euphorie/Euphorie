@@ -276,17 +276,20 @@ class IdentificationReport(grok.View):
                     treenode.zodb_path)
             return None
 
+    def getNodes(self):
+        """Return an orderer list of all relevant tree items for the current
+        survey.
+        """
+        query = Session.query(model.SurveyTreeItem)\
+                .filter(model.SurveyTreeItem.session == self.session)\
+                .filter(sql.not_(model.SKIPPED_PARENTS))\
+                .order_by(model.SurveyTreeItem.path)
+        return query.all()
+
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
-
-        session = Session()
-        dbsession = SessionManager.session
-        query = session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session == dbsession)\
-                .filter(sql.not_(model.SKIPPED_PARENTS))\
-                .order_by(model.SurveyTreeItem.path)
-        self.nodes = query.all()
+        self.nodes = self.getNodes()
 
     def publishTraverse(self, request, name):
         """Check if the user wants to download this report by checking for a
@@ -462,21 +465,24 @@ class ActionPlanReportView(grok.View):
         return self.request.survey.restrictedTraverse(
                 treenode.zodb_path.split("/"))
 
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
-        session = Session()
-        self.session = SessionManager.session
-        if self.session.company is None:
-            self.session.company = model.Company()
-        query = session.query(model.SurveyTreeItem)\
+    def getNodes(self):
+        """Return an orderer list of all tree items for the current survey."""
+        query = Session.query(model.SurveyTreeItem)\
                 .filter(model.SurveyTreeItem.session == self.session)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
                                 model.RISK_PRESENT_OR_TOP5_FILTER))\
                 .order_by(model.SurveyTreeItem.path)
-        self.nodes = query.all()
+        return  query.all()
+
+    def update(self):
+        if redirectOnSurveyUpdate(self.request):
+            return
+
+        self.session = SessionManager.session
+        if self.session.company is None:
+            self.session.company = model.Company()
+        self.nodes = self.getNodes()
 
 
 class ActionPlanReportDownload(grok.View):
