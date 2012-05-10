@@ -101,4 +101,3 @@ class SurveySessionPublishTraverse(DefaultPublishTraverse):
         stack.pop()
         return super(SurveySessionPublishTraverse, self).publishTraverse(
                 request, name)
-
