@@ -1,6 +1,7 @@
 from five import grok
 from euphorie.client.utils import HasText
 from euphorie.client.model import Module
+from euphorie.client.api import context_menu
 from euphorie.client.api import JsonView
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
@@ -52,6 +53,9 @@ class Identification(JsonView):
         info['phase'] = self.phase
         self._step(info, 'previous-step', FindPreviousQuestion)
         self._step(info, 'next-step', FindNextQuestion)
+        if 'menu' in self.request.form:
+            info['menu'] = context_menu(self.request, self.context, self.phase,
+                    self.question_filter)
         return info
 
     def POST(self):

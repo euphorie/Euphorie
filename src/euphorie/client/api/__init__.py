@@ -1,11 +1,30 @@
+import collections
+import re
 from zExceptions import NotFound
 import json
 import martian
 from zope.publisher.publish import mapply
 from five import grok
 from zope.i18n import translate
+from euphorie.client.navigation import getTreeData
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 
+
+def context_menu(request, context, phase, filter):
+    menu = getTreeData(request, context, phase, filter)['children']
+    todo = collections.deque(menu)
+    matcher = re.compile(r'^.*%s' % phase)
+    url_root = request.survey_session.absolute_url()
+    while todo:
+        node = todo.popleft()
+        del node['id']
+        del node['class']
+        del node['leaf_module']
+        del node['path']
+        del node['current_parent']
+        node['url'] = matcher.sub(url_root, node['url'])
+        todo.extend(node['children'])
+    return menu
 
 
 def vocabulary_options(field, request):

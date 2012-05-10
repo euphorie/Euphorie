@@ -391,9 +391,31 @@ for the survey have changed and the user needs to (re)confirm his profile.
    }
 
 
-XXX:
-- Need to define menu structure here as well. See euphorie.client.navigation.getTreeData
+Context menu
+~~~~~~~~~~~~
 
+When looking at a module or risk you can ask for a context menu information to
+be included in the response by adding a ``menu`` parameter to the query
+string. The parameter does not need to have a value.
+
+The menu information is provided in a ``menu`` key and formatted as a
+nested dictionary reflecting the elements of a navigation tree. Each
+element in the tree is an object with the following keys:
+
+* ``type``: node type (one of ``risk`` or ``module``).
+* ``number``: human presentable numbering for the node.
+* ``title``: title of the risk or module.
+* ``current``: boolean indicating if this is the current node.
+  parent.
+* ``active``: boolean indicating if this is a parent node of the current node.
+* ``children``: list of child nodes (in the right order).
+* ``url``: URL for the API interface to this node..
+
+.. note::
+
+   The content of the context menu depends on the currently active phase.
+   Requesting the menu without specifying the phase will not return any
+   menu data.
 
 
 Start a new survey session

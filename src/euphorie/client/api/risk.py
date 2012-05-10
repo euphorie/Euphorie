@@ -8,6 +8,7 @@ from euphorie.client.model import Risk
 from euphorie.client.api import JsonView
 from euphorie.client.api import get_json_token
 from euphorie.client.api import vocabulary_options
+from euphorie.client.api import context_menu
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.risk import EvaluationView as BaseEvaluation
@@ -84,6 +85,9 @@ class Identification(JsonView):
         info['phase'] = self.phase
         self._step(info, 'previous-step', FindPreviousQuestion)
         self._step(info, 'next-step', FindNextQuestion)
+        if 'menu' in self.request.form:
+            info['menu'] = context_menu(self.request, self.context, self.phase,
+                    self.question_filter)
         return info
 
     def POST(self):
