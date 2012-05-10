@@ -1016,3 +1016,56 @@ Delete action plan
 +--------+--------------------------------------------------------------+------------------------+
 
 This call will remove an action plan for a risk.
+
+
+View company details
+~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------+------------------------------+
+| Verb | URI                                           | Description                  |
++======+===============================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/company | Request company information  |
++------+-----------------------------------------------+------------------------------+
+| PUT  | /users/<userid>/sessions/<session id>/company | Update company details.      |
++------+-----------------------------------------------+------------------------------+
+
+This interface will return information about the company to which this survey
+session applies. The response is returned in the form of a JSON object
+containing all known information about the company. The possible fields are:
+
++------------------------+---------------+----------+--------------------------------+
+|  Field                 | Type          | Required |                                |
++========================+===============+==========+================================+
+| ``country``            | string        | No       | ISO country code.             .|
++------------------------+---------------+----------+--------------------------------+
+| ``employees``          | string        | No       | Indicator of company size in   |
+|                        |               |          | terms of number of employees.  |
+|                        |               |          | One of ``1-9``, ``10-49``,     |
+|                        |               |          | ``50-249`` or ``250+``.        |
++------------------------+---------------+----------+--------------------------------+
+| ``conductor``          | string        | No       | Role of person who conducted   |
+|                        |               |          | the survey. Must be one of     |
+|                        |               |          | ``staff``, ``third-party`` or  |
+|                        |               |          | ``both``.                      |
++------------------------+---------------+----------+--------------------------------+
+| ``referer``            | string        | No       | How the user learned about the |
+|                        |               |          | tool. Must be one of           |
+|                        |               |          | ``employers-organisation``,    |
+|                        |               |          | ``trade-union``,               |
+|                        |               |          | ``national-public-institution``|
+|                        |               |          | ``eu-institution``             |
+|                        |               |          | ``health-safety-experts``      |
+|                        |               |          | or ``other``.                  |
++------------------------+---------------+----------+--------------------------------+
+
+Update company details
+~~~~~~~~~~~~~~~~~~~~~~
+
++------+-----------------------------------------------+------------------------------+
+| Verb | URI                                           | Description                  |
++======+===============================================+==============================+
+| PUT  | /users/<userid>/sessions/<session id>/company | Update company details.      |
++------+-----------------------------------------------+------------------------------+
+
+This interface will update the company information for a survey session.
+See the :ref:`View company details` section for the supported fields.

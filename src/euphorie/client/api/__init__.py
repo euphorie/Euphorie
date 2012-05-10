@@ -6,11 +6,12 @@ from five import grok
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 
 
-def get_json_token(input, name, field, required=False):
+
+def get_json_token(input, name, field, required=False, default=None):
     value = input.get(name)
     if value is None:
         if not required:
-            return None
+            return default
         raise KeyError('Required field %s is missing' % name)
     try:
         return field.vocabulary.getTerm(value).token
@@ -18,11 +19,11 @@ def get_json_token(input, name, field, required=False):
         raise ValueError('Invalid value for field %s' % name)
 
 
-def get_json_string(input, name, required=False, length=None):
+def get_json_string(input, name, required=False, default=None, length=None):
     value = input.get(name)
     if value is None:
         if not required:
-            return None
+            return default
         raise KeyError('Required field %s is missing' % name)
     if not isinstance(value, basestring):
         raise ValueError('Field %s has wrong type' % name)
@@ -31,11 +32,11 @@ def get_json_string(input, name, required=False, length=None):
     return value
 
 
-def get_json_bool(input, name, required=False):
+def get_json_bool(input, name, required=False, default=None):
     value = input.get(name)
     if value is None:
         if not required:
-            return None
+            return default
         raise KeyError('Required field %s is missing' % name)
     if not isinstance(value, bool):
         raise ValueError('Field %s has wrong type' % name)

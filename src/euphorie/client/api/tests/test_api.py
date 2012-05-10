@@ -21,8 +21,9 @@ class get_json_token_tests(unittest.TestCase):
 
     def test_missing_optional_field(self):
         self.assertEqual(
-                self.get_json_token({}, 'field', None, required=False),
-                None)
+                self.get_json_token({}, 'field', None, required=False,
+                    default='default'),
+                'default')
 
     def test_bad_value(self):
         self.assertRaises(ValueError,
@@ -47,8 +48,9 @@ class get_json_string_tests(unittest.TestCase):
 
     def test_missing_optional_field(self):
         self.assertEqual(
-                self.get_json_string({}, 'field', required=False),
-                None)
+                self.get_json_string({}, 'field', required=False,
+                    default='default'),
+                'default')
 
     def test_bad_type(self):
         self.assertRaises(ValueError,
@@ -77,8 +79,9 @@ class get_json_bool_tests(unittest.TestCase):
 
     def test_missing_optional_field(self):
         self.assertEqual(
-                self.get_json_bool({}, 'field', required=False),
-                None)
+                self.get_json_bool({}, 'field', required=False,
+                    default='default'),
+                'default')
 
     def test_bad_type(self):
         self.assertRaises(ValueError,
