@@ -35,10 +35,11 @@ class ViewTests(EuphorieFunctionalTestCase):
         response = view.GET()
         self.assertEqual(
                 set(response),
-                set(['id', 'type', 'title', 'optional']))
+                set(['id', 'type', 'title', 'description', 'optional']))
         self.assertEqual(response['id'], 1)
         self.assertEqual(response['type'], 'module')
         self.assertEqual(response['title'], u'Module one')
+        self.assertEqual(response['description'], u'Quick description')
         self.assertEqual(response['optional'], False)
 
     def test_GET_full(self):

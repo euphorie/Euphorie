@@ -1,11 +1,18 @@
 from five import grok
+from euphorie.content.risk import evaluation_algorithm
+from euphorie.content.risk import IFrenchEvaluation
+from euphorie.content.risk import IKinneyEvaluation
+from euphorie.content.risk import IRisk
 from euphorie.client.utils import HasText
 from euphorie.client.model import Risk
 from euphorie.client.api import JsonView
+from euphorie.client.api import get_json_token
+from euphorie.client.api import vocabulary_options
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.risk import EvaluationView as BaseEvaluation
 from euphorie.client.risk import ActionPlanView as BaseActionPlan
+from euphorie.client.risk import calculate_priority
 
 
 class View(JsonView):
@@ -31,9 +38,25 @@ class View(JsonView):
         if HasText(self.risk.legal_reference):
             info['legal-reference'] = self.risk.legal_reference
         if self.risk.evaluation_method == 'calculated':
-            info['frequency'] = self.context.frequency
-            info['effect'] = self.context.effect
-            info['probability'] = self.context.probability
+            algorithm = evaluation_algorithm(self.risk)
+            info['evaluation-algorithm'] = algorithm
+            if algorithm == 'french':
+                info['severity'] = self.context.severity
+                info['severity-options'] = vocabulary_options(
+                        IFrenchEvaluation['default_severity'], self.request)
+                info['frequency'] = self.context.frequency
+                info['frequency-options'] = vocabulary_options(
+                        IFrenchEvaluation['default_frequency'], self.request)
+            else:  # Kinney
+                info['frequency'] = self.context.frequency
+                info['frequency-options'] = vocabulary_options(
+                        IKinneyEvaluation['default_frequency'], self.request)
+                info['effect'] = self.context.effect
+                info['effect-options'] = vocabulary_options(
+                        IKinneyEvaluation['default_effect'], self.request)
+                info['probability'] = self.context.probability
+                info['probability-options'] = vocabulary_options(
+                        IKinneyEvaluation['default_probability'], self.request)
         return info
 
 
@@ -85,6 +108,37 @@ class Evaluation(Identification):
     phase = 'evaluation'
     question_filter = BaseEvaluation.question_filter
 
+    def POST(self):
+        self.risk = self.request.survey.restrictedTraverse(
+                self.context.zodb_path.split('/'))
+        if self.risk.type in ['top5', 'policy']:
+                return {'type': 'error',
+                        'message': 'Can not evaluate a %s risk'
+                            % self.risk.type}
+        try:
+            if self.risk.evaluation_method == 'direct':
+                self.context.priority = get_json_token(self.input, 'priority', 
+                        IRisk['default_priority'], default=self.context.priority)
+            else:
+                algorithm = evaluation_algorithm(self.risk)
+                if algorithm == 'french':
+                    self.context.severity = get_json_token(self.input, 'severity',
+                            IFrenchEvaluation['default_severity'], self.context.severity)
+                    self.context.frequency = get_json_token(self.input, 'frequency',
+                            IFrenchEvaluation['default_frequency'], self.context.frequency)
+                else:  # Kinney
+                    self.context.probability = get_json_token(self.input, 'probability',
+                            IKinneyEvaluation['default_probability'], self.context.probability)
+                    self.context.frequency = get_json_token(self.input, 'frequency',
+                            IKinneyEvaluation['default_frequency'], self.context.frequency)
+                    self.context.effect = get_json_token(self.input, 'effect',
+                            IKinneyEvaluation['default_effect'], self.context.effect)
+                calculate_priority(self.context, self.risk)
+        except (KeyError, ValueError) as e:
+            return {'result': 'error',
+                    'message': str(e)}
+        return self.GET()
+
 
 class ActionPlan(Identification):
     grok.context(Risk)
@@ -93,4 +147,3 @@ class ActionPlan(Identification):
 
     phase = 'actionplan'
     question_filter = BaseActionPlan.question_filter
-

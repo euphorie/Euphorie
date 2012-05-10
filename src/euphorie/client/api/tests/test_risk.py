@@ -78,9 +78,10 @@ class ViewTests(EuphorieFunctionalTestCase):
                      'show-not-applicable', 'evaluation-method',
                      'present', 'priority', 'comment',
                      'description', 'legal-reference',
-                     'frequency',
-                     'effect',
-                     'probability',
+                     'evaluation-algorithm',
+                     'frequency', 'frequency-options',
+                     'effect', 'effect-options',
+                     'probability', 'probability-options',
                      ]))
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['legal-reference'], u'<p>Catch 22</p>')
@@ -137,6 +138,90 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         response = view.POST()
         self.assertEqual(response['comment'], u'Original comment')
         self.assertEqual(risk.comment, u'Original comment')
+
+
+class EvaluationTests(EuphorieFunctionalTestCase):
+    def Evaluation(self, *a, **kw):
+        from euphorie.client.api.risk import Evaluation
+        return Evaluation(*a, **kw)
+
+    def test_POST_evaluate_top5_risk(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.type = 'top5'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.Evaluation(risk, request)
+        view.input = {}
+        response = view.POST()
+        self.assertEqual(response['type'], 'error')
+
+    def test_POST_direct_evaluation(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.type = 'risk'
+        risk.evaluation_method = 'direct'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.Evaluation(risk, request)
+        view.input = {'priority': 'high'}
+        response = view.POST()
+        self.assertEqual(response['priority'], 'high')
+        self.assertEqual(risk.priority, 'high')
+
+    def test_POST_invalid_priority(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.evaluation_method = 'direct'
+        risk.type = 'risk'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        risk.priority = 'low'
+        view = self.Evaluation(risk, request)
+        view.input = {'priority': 'bad'}
+        response = view.POST()
+        self.assertEqual(response['result'], 'error')
+        self.assertEqual(risk.priority, 'low')
+
+    def test_POST_kinney_risk(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.evaluation_method = 'calculated'
+        risk.type = 'risk'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        risk.priority = 'low'
+        view = self.Evaluation(risk, request)
+        view.input = {'probability': 'large', 
+                      'frequency': 'constant',
+                      'effect': 'high'}
+        response = view.POST()
+        self.assertEqual(response['priority'], 'high')
+        self.assertEqual(risk.priority, 'high')
 
 
 class BrowserTests(EuphorieFunctionalTestCase):

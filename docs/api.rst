@@ -798,7 +798,7 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 
 
-For risks with ann evalution option of ``calculated`` these extra fields are included:
+For risks with an evalution option of ``calculated`` these extra fields are included:
 
 
 +-------------------------+---------------+----------+--------------------------------+
@@ -863,7 +863,7 @@ Update risk evaluation data
 | PUT  | /users/<userid>/sessions/<session id>/<path>/evaluation     | Update risk status  |
 +------+-------------------------------------------------------------+---------------------+
                     
-The possbile value==s depend on the evaluation method used for the risk. For risks that use
+The possbile values depend on the evaluation method used for the risk. For risks that use
 a direct evaluation the priority field can be set directly. For risks using a calculated
 evaluation method the frequency, effect and probability information must be provided.
 

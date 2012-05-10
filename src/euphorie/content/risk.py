@@ -299,6 +299,8 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
 class Risk(dexterity.Container):
     implements(IRisk)
 
+    type = 'risk'
+
     default_probability = 0
     default_frequency = 0
     default_effect = 0

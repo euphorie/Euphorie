@@ -3,8 +3,16 @@ import json
 import martian
 from zope.publisher.publish import mapply
 from five import grok
+from zope.i18n import translate
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 
+
+
+def vocabulary_options(field, request):
+    t = lambda txt: translate(txt, context=request)
+    return [{'value': term.token,
+             'title': t(term.title)}
+            for term in field.vocabulary]
 
 
 def get_json_token(input, name, field, required=False, default=None):
@@ -14,7 +22,7 @@ def get_json_token(input, name, field, required=False, default=None):
             return default
         raise KeyError('Required field %s is missing' % name)
     try:
-        return field.vocabulary.getTerm(value).token
+        return field.vocabulary.getTermByToken(value).value
     except LookupError:
         raise ValueError('Invalid value for field %s' % name)
 
