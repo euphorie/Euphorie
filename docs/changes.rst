@@ -1,8 +1,20 @@
 Changelog
 =========
 
-3.1.2 - Unreleased
+3.2 - May 20, 2012
 ------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *10*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version. For large systems this migration spent a long
+time in a SQL migration; in that situation it may be useful to run a
+manual SQL migration step by hand first: connect to the database and
+issue this SQL statement::
+
+    ALTER TABLE tree ADD has_description bool DEFAULT 'f';
 
 Feature changes
 ~~~~~~~~~~~~~~~

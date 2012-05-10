@@ -68,6 +68,7 @@ def add_has_description_column(context):
     if ColumnExists(session, 'tree', 'has_description'):
         return
 
+    transaction.get().commit()
     session.execute(
             "ALTER TABLE tree ADD has_description bool DEFAULT 'f'")
     model.metadata.create_all(session.bind, checkfirst=True)
