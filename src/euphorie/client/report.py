@@ -280,8 +280,9 @@ class IdentificationReport(grok.View):
         """Return an orderer list of all relevant tree items for the current
         survey.
         """
+        dbsession = SessionManager.session
         query = Session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session == self.session)\
+                .filter(model.SurveyTreeItem.session == dbsession)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .order_by(model.SurveyTreeItem.path)
         return query.all()
