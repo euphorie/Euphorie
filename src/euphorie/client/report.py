@@ -226,6 +226,9 @@ class IdentificationReport(grok.View):
     grok.template("report_identification")
     grok.name("report")
 
+    def update(self):
+        self.session = SessionManager.session
+
     def random(self):
         return random.choice([True, False])
 

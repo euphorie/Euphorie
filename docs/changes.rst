@@ -4,7 +4,11 @@ Changelog
 3.2.1 - Unreleased
 ------------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Fix a bug in rendering identification reports.
+  [wichert]
 
 
 3.2 - May 20, 2012
