@@ -1,11 +1,11 @@
 Changelog
 =========
 
-3.2.2 - Unreleased
+3.2.2 - May 14, 2012
 --------------------
 
-- ...
-
+- 3.2.1 was a paper-brown-bag release. Try again.
+  [wichert]
 
 
 3.2.1 - May 14, 2012

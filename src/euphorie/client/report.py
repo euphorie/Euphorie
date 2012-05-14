@@ -226,9 +226,6 @@ class IdentificationReport(grok.View):
     grok.template("report_identification")
     grok.name("report")
 
-    def update(self):
-        self.session = SessionManager.session
-
     def random(self):
         return random.choice([True, False])
 
@@ -290,6 +287,7 @@ class IdentificationReport(grok.View):
         return query.all()
 
     def update(self):
+        self.session = SessionManager.session
         if redirectOnSurveyUpdate(self.request):
             return
         self.nodes = self.getNodes()
