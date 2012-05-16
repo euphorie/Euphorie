@@ -1,8 +1,8 @@
 Changelog
 =========
 
-3.2.3 - Unreleased
-------------------
+3.2.3 - May 16, 2012
+--------------------
 
 - SQL performance work: revise SQL query used to copy survey session data
   on a survey update to use UPDATE FROM. This means we are no longer ANSI
