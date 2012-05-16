@@ -523,6 +523,13 @@ class ActionPlan(BaseObject):
                                 cascade="all, delete, delete-orphan"))
 
 
+schema.Index('tree_session_path',
+        SurveyTreeItem.session_id, SurveyTreeItem.path)
+schema.Index('tree_zodb_path',
+        SurveyTreeItem.session_id, SurveyTreeItem.profile_index,
+        SurveyTreeItem.zodb_path)
+
+
 _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}

@@ -4,8 +4,9 @@ Changelog
 3.2.3 - Unreleased
 ------------------
 
-- ...
-
+- SQL performance work: add two extra indices to improve performance for
+  looking up risk data.
+  [wichert]
 
 
 3.2.2 - May 14, 2012
