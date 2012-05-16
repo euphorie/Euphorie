@@ -4,6 +4,11 @@ Changelog
 3.2.3 - Unreleased
 ------------------
 
+- SQL performance work: revise SQL query used to copy survey session data
+  on a survey update to use UPDATE FROM. This means we are no longer ANSI
+  SQL compliant, but makes the query run 20-50 times faster.
+  [wichert]
+
 - SQL performance work: add two extra indices to improve performance for
   looking up risk data.
   [wichert]

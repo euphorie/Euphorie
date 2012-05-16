@@ -354,62 +354,18 @@ class SurveySession(BaseObject):
 
         statement = """\
         UPDATE RISK
-        SET identification = (SELECT old_risk.identification
-                              FROM risk AS old_risk, tree AS old_tree, tree
-                              WHERE tree.id=risk.id AND
-                                    tree.session_id=%(new_sessionid)s AND
-                                    old_tree.id=old_risk.id AND
-                                    old_tree.session_id=%(old_sessionid)s AND
-                                    old_tree.zodb_path=tree.zodb_path AND
-                                    old_tree.profile_index=tree.profile_index),
-            frequency = (SELECT old_risk.frequency
-                         FROM risk AS old_risk, tree AS old_tree, tree
-                         WHERE tree.id=risk.id AND
-                               tree.session_id=%(new_sessionid)s AND
-                               old_tree.id=old_risk.id AND
-                               old_tree.session_id=%(old_sessionid)s AND
-                               old_tree.zodb_path=tree.zodb_path AND
-                               old_tree.profile_index=tree.profile_index),
-            effect = (SELECT old_risk.effect
-                      FROM risk AS old_risk, tree AS old_tree, tree
-                      WHERE tree.id=risk.id AND
-                            tree.session_id=%(new_sessionid)s AND
-                            old_tree.id=old_risk.id AND
-                            old_tree.session_id=%(old_sessionid)s AND
-                            old_tree.zodb_path=tree.zodb_path AND
-                            old_tree.profile_index=tree.profile_index),
-            probability = (SELECT old_risk.probability
-                           FROM risk AS old_risk, tree AS old_tree, tree
-                           WHERE tree.id=risk.id AND
-                                 tree.session_id=%(new_sessionid)s AND
-                                 old_tree.id=old_risk.id AND
-                                 old_tree.session_id=%(old_sessionid)s AND
-                                 old_tree.zodb_path=tree.zodb_path AND
-                                 old_tree.profile_index=tree.profile_index),
-            priority = (SELECT old_risk.priority
-                        FROM risk AS old_risk, tree AS old_tree, tree
-                        WHERE tree.id=risk.id AND
-                              tree.session_id=%(new_sessionid)s AND
-                              old_tree.id=old_risk.id AND
-                              old_tree.session_id=%(old_sessionid)s AND
-                              old_tree.zodb_path=tree.zodb_path AND
-                              old_tree.profile_index=tree.profile_index),
-            comment = (SELECT old_risk.comment
-                       FROM risk AS old_risk, tree AS old_tree, tree
-                       WHERE tree.id=risk.id AND
-                             tree.session_id=%(new_sessionid)s AND
-                             old_tree.id=old_risk.id AND
-                             old_tree.session_id=%(old_sessionid)s AND
-                             old_tree.zodb_path=tree.zodb_path AND
-                             old_tree.profile_index=tree.profile_index)
-        WHERE EXISTS (SELECT old_tree.id
-                      FROM risk AS old_risk, tree AS old_tree, tree
-                      WHERE tree.id=risk.id AND
-                            tree.session_id=%(new_sessionid)s AND
-                            old_tree.id=old_risk.id AND
-                            old_tree.session_id=%(old_sessionid)s AND
-                            old_tree.zodb_path=tree.zodb_path AND
-                            old_tree.profile_index=tree.profile_index);
+        SET identification = old_risk.identification,
+            frequency = old_risk.frequency,
+            effect = old_risk.effect,
+            probability = old_risk.probability,
+            priority = old_risk.priority,
+            comment = old_risk.comment
+        FROM risk AS old_risk JOIN tree AS old_tree ON old_tree.id=old_risk.id, tree
+        WHERE tree.id=risk.id AND
+              tree.session_id=%(new_sessionid)s AND
+              old_tree.session_id=%(old_sessionid)s AND
+              old_tree.zodb_path=tree.zodb_path AND
+              old_tree.profile_index=tree.profile_index;
         """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
         session.execute(statement)
 
