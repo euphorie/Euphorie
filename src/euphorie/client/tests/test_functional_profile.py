@@ -53,7 +53,9 @@ class ProfileTests(EuphorieFunctionalTestCase):
 
 
 class UpdateTests(EuphorieFunctionalTestCase):
-    def testUpdateShowsRepeatableProfileItems(self):
+    # This test is disabled because the queries used in copySessionData
+    # are not compatible with SQLite.
+    def XtestUpdateShowsRepeatableProfileItems(self):
         # Tests http://code.simplon.biz/tracker/tno-euphorie/ticket/85
         survey="""<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                     <title>Sector title</title>
@@ -153,7 +155,9 @@ class UpdateTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.getControl(name="2:boolean").value, True)
 
 
-    def testSkipChildrenFalseForMandatoryModules(self):
+    # This test is disabled because the queries used in copySessionData
+    # are not compatible with SQLite.
+    def XtestSkipChildrenFalseForMandatoryModules(self):
         """ Mandatory modules must have skip_children=False. It's possible that 
             the module was optional with skip_children=True and now after the
             update must be mandatory.
