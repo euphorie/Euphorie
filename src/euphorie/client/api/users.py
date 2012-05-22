@@ -1,5 +1,6 @@
 from z3c.saconfig import Session
 from five import grok
+from AccessControl.SecurityManagement import newSecurityManager
 from euphorie.client.authentication import authenticate
 from euphorie.client.api.authentication import authenticate_token
 from euphorie.client.api.authentication import generate_token
@@ -29,6 +30,8 @@ class Users(PathGhost):
         if account is None or account.id != userid:
             raise KeyError(key)
         account.getId = lambda: key
+
+        newSecurityManager(None, account)
         return account.__of__(self)
 
 

@@ -11,13 +11,17 @@ from zope.publisher.interfaces.browser import IBrowserView
 from Products.PluggableAuthService.utils import classImplements
 from Products.PluggableAuthService.utils import createViewName
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
-from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
+from Products.PluggableAuthService.interfaces.plugins \
+        import IAuthenticationPlugin
+from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
-from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlugin
+from Products.PluggableAuthService.interfaces.plugins \
+        import IUserEnumerationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
+from euphorie.client.api.authentication import authenticate_token
 
 
 log = logging.getLogger(__name__)
@@ -89,19 +93,41 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         self.title=title
 
     #
+    # IExtractionPlugin implementation
+    #
+    def extractCredentials(self, request):
+        token = request.getHeader('X-Euphorie-Token')
+        if token:
+            return {'api-token': token}
+        else:
+            return {}
+
+    #
     # IAuthenticationPlugin implementation
     #
+    security.declarePrivate('_authenticate_token')
+    def _authenticate_token(self, credentials):
+        token = credentials.get('api-token')
+        if not token:
+            return None
+        return authenticate_token(token)
+
+    security.declarePrivate('_authenticate_login')
+    def _authenticate_login(self, credentials):
+        login = credentials.get('login')
+        password = credentials.get('password')
+        return authenticate(login, password)
 
     security.declarePrivate('authenticateCredentials')
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
-        login = credentials.get('login')
-        password = credentials.get('password')
-        account = authenticate(login, password)
+        account = self._authenticate_login(credentials)
         if account is None:
-            return None
-        else:
+            account = self._authenticate_token(credentials)
+        if account is not None:
             return (account.loginname, account.loginname)
+        else:
+            return None
 
     #
     # IUserFactoryPlugin implementation
@@ -111,7 +137,6 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         account=Session().query(model.Account)\
                 .filter(model.Account.loginname==name).first()
         return account
-
 
     #
     # IUserEnumerationPlugin implementation
@@ -199,8 +224,8 @@ classImplements(
     EuphorieAccountPlugin,
     IAuthenticationPlugin,
     IChallengePlugin,
+    IExtractionPlugin,
     IUserEnumerationPlugin,
     IUserFactoryPlugin)
 
 InitializeClass(EuphorieAccountPlugin)
-
