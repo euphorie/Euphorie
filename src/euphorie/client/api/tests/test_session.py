@@ -29,13 +29,18 @@ class BrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(
                 set(response),
-                set(['id', 'survey', 'type', 'created', 'modified', 'title']))
+                set(['id', 'survey', 'type', 'created', 'modified',
+                     'title', 'next-step']))
         self.assertEqual(response['id'], 1)
         self.assertEqual(response['survey'], 'nl/ict/software-development')
         self.assertEqual(response['type'], 'session')
         self.assertEqual(response['title'], 'Dummy session')
         self.assertEqual(response['created'], '2012-04-22T23:05:12')
         self.assertEqual(response['modified'], '2012-04-23T11:50:30')
+        self.assertEqual(
+                response['next-step'],
+                'http://nohost/plone/client/api/users/1/sessions/1/'
+                'identification')
 
     def test_with_introduction(self):
         import datetime

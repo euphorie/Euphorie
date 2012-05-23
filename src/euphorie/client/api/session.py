@@ -42,6 +42,7 @@ class View(JsonView):
                 'created': self.context.created.isoformat(),
                 'modified': self.context.modified.isoformat(),
                 'title': self.context.title,
+                'next-step': '%s/identification' % self.context.absolute_url(),
                }
         survey = get_survey(self.request, self.context.zodb_path)
         if HasText(survey.introduction):
