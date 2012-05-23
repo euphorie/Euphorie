@@ -29,7 +29,7 @@ class View(JsonView):
     grok.require('zope2.Public')
     grok.name('index_html')
 
-    def GET(self):
+    def do_GET(self):
         self.request.response.setHeader('Content-Type', 'application/json')
         euphorie = pkg_resources.get_distribution('Euphorie')
         return {'api-version': [1, 0],

@@ -13,7 +13,7 @@ from euphorie.client.api.account import View as AccountView
 
 def user_info(account, request):
     view = AccountView(account, request)
-    return view.GET()
+    return view.do_GET()
 
 
 class Users(PathGhost):
@@ -40,7 +40,7 @@ class View(JsonView):
     grok.name('index_html')
     grok.require('zope2.Public')
 
-    def POST(self):
+    def do_POST(self):
         try:
             login = self.input['login'].strip().lower()
             if not login_available(login):
@@ -66,7 +66,7 @@ class Authenticate(JsonView):
     grok.name('authenticate')
     grok.require('zope2.Public')
 
-    def POST(self):
+    def do_POST(self):
         """Try to authenticate a user.
         """
         try:

@@ -22,7 +22,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.module import View
         return View(*a, **kw)
 
-    def test_GET_minimal(self):
+    def test_do_GET_minimal(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
@@ -32,7 +32,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         request.survey = survey
         module = object_session(survey_session).query(Module).first()
         view = self.View(module, request)
-        response = view.GET()
+        response = view.do_GET()
         self.assertEqual(
                 set(response),
                 set(['id', 'type', 'title', 'description', 'optional']))
@@ -42,7 +42,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['description'], u'Quick description')
         self.assertEqual(response['optional'], False)
 
-    def test_GET_full(self):
+    def test_do_GET_full(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
@@ -58,7 +58,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         module = object_session(survey_session).query(Module).first()
         module.skip_children = True
         view = self.View(module, request)
-        response = view.GET()
+        response = view.do_GET()
         self.assertEqual(
                 set(response),
                 set(['id', 'type', 'title', 'optional',
@@ -75,7 +75,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.module import Identification
         return Identification(*a, **kw)
 
-    def test_POST_missing_value(self):
+    def test_do_POST_missing_value(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
@@ -89,10 +89,10 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Module).first()
         view = self.Identification(risk, request)
         view.input = {}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
-    def test_POST_invalid_value(self):
+    def test_do_POST_invalid_value(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
@@ -106,10 +106,10 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Module).first()
         view = self.Identification(risk, request)
         view.input = {'skip-children': 'yes'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
-    def test_POST_update_value(self):
+    def test_do_POST_update_value(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
@@ -123,7 +123,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         module = object_session(survey_session).query(Module).first()
         view = self.Identification(module, request)
         view.input = {'skip-children': True}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['skip-children'], True)
         self.assertEqual(module.skip_children, True)
 

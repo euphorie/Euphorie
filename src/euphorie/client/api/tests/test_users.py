@@ -8,14 +8,14 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.users import View
         return View(*a, **kw)
 
-    def test_POST_valid_data(self):
+    def test_do_POST_valid_data(self):
         import mock
         view = self.View(None, None)
         view.input = {'login': 'john', 'password': 'jane'}
         with mock.patch('euphorie.client.api.users.generate_token') \
                 as mock_generate_token:
             mock_generate_token.return_value = 'token'
-            response = view.POST()
+            response = view.do_POST()
         self.assertEqual(response['type'], 'user')
 
 
@@ -28,14 +28,14 @@ class AuthenticateTests(unittest.TestCase):
         import mock
         view = self.Authenticate(None, mock.Mock())
         view.input = None
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
     def test_render_missing_data(self):
         import mock
         view = self.Authenticate(None, mock.Mock())
         view.input = {'login': 'foo'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
     def test_render_bad_login(self):
@@ -45,7 +45,7 @@ class AuthenticateTests(unittest.TestCase):
         view.input = {'login': 'foo', 'password': 'bar'}
         with mock.patch('euphorie.client.api.users.authenticate') as mock_auth:
             mock_auth.return_value = None
-            response = view.POST()
+            response = view.do_POST()
             mock_auth.assert_called_once_with('foo', 'bar')
             self.assertEqual(response['type'], 'error')
             self.assertEqual(response['message'], 'Invalid credentials')
@@ -63,7 +63,7 @@ class AuthenticateTests(unittest.TestCase):
                     info.return_value = {'foo': 'bar'}
                     mock_auth.return_value = account = mock.Mock()
                     mock_generate_token.return_value = 'auth-token'
-                    response = view.POST()
+                    response = view.do_POST()
                     mock_auth.assert_called_once_with('foo', 'bar')
                     info.assert_called_once_with(account, None)
                     self.assertEqual(response['foo'], 'bar')

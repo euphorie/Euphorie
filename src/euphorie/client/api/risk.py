@@ -21,7 +21,7 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
-    def GET(self):
+    def do_GET(self):
         self.risk = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         info = {'id': self.context.id,
@@ -80,8 +80,8 @@ class Identification(JsonView):
                     (self.request.survey_session.absolute_url(), 
                     '/'.join(node.short_path), self.phase)
 
-    def GET(self):
-        info = View(self.context, self.request).GET()
+    def do_GET(self):
+        info = View(self.context, self.request).do_GET()
         info['phase'] = self.phase
         self._step(info, 'previous-step', FindPreviousQuestion)
         self._step(info, 'next-step', FindNextQuestion)
@@ -90,7 +90,7 @@ class Identification(JsonView):
                     self.question_filter)
         return info
 
-    def POST(self):
+    def do_POST(self):
         allowed_values = Risk.__table__.c['identification'].type.values
         try:
             if self.input['present'] not in allowed_values:
@@ -101,7 +101,7 @@ class Identification(JsonView):
                     'message': '"present" field missing'}
         self.context.identification = self.input['present']
         self.context.comment = self.input.get('comment', self.context.comment)
-        return self.GET()
+        return self.do_GET()
 
 
 class Evaluation(Identification):
@@ -112,7 +112,7 @@ class Evaluation(Identification):
     phase = 'evaluation'
     question_filter = BaseEvaluation.question_filter
 
-    def POST(self):
+    def do_POST(self):
         self.risk = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         if self.risk.type in ['top5', 'policy']:
@@ -141,7 +141,7 @@ class Evaluation(Identification):
         except (KeyError, ValueError) as e:
             return {'result': 'error',
                     'message': str(e)}
-        return self.GET()
+        return self.do_GET()
 
 
 class ActionPlan(Identification):

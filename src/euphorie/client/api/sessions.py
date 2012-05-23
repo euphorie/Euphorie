@@ -46,10 +46,10 @@ class View(JsonView):
                  'modified': session.modified.isoformat()}
                 for session in self.context.account.sessions]
 
-    def GET(self):
+    def do_GET(self):
         return {'sessions': self.sessions()}
 
-    def POST(self):
+    def do_POST(self):
         try:
             survey = self.request.client.restrictedTraverse(
                     self.input['survey'].split('/'))
@@ -62,7 +62,7 @@ class View(JsonView):
         title = self.input.get('title', survey.title)
         survey_session = create_survey_session(title, survey)
         view = SessionView(survey_session, self.request)
-        response = view.GET()
+        response = view.do_GET()
         survey_session_url = self.context.absolute_url()
         if survey.ProfileQuestions():
             response['next-step'] = '%s/profile' % survey_session_url

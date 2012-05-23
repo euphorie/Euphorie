@@ -105,7 +105,7 @@ class JsonView(grok.View):
 
         self.request.response.setHeader('Content-Type', 'application/json')
         method = self.request.get('REQUEST_METHOD', 'GET').upper()
-        renderer = getattr(self, method, None)
+        renderer = getattr(self, 'do_%s' % method, None)
         if renderer is None:
             raise NotFound()
         response = mapply(renderer, (), self.request)

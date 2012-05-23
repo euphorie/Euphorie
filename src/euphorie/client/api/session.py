@@ -1,5 +1,6 @@
 from zope.component import adapts
 from five import grok
+from sqlalchemy.orm import object_session
 from euphorie.content.survey import ISurvey
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
@@ -29,7 +30,13 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
-    def GET(self):
+    def do_DELETE(self):
+        import pdb ; pdb.set_trace()
+        session = object_session(self.context)
+        session.delete(self.context)
+        return {}
+        
+    def do_GET(self):
         info = {'id': self.context.id,
                 'type': 'session',
                 'survey': self.context.zodb_path,
@@ -51,8 +58,8 @@ class Identification(JsonView):
     phase = 'identification'
     question_filter = None
 
-    def GET(self):
-        info = View(self.context, self.request).GET()
+    def do_GET(self):
+        info = View(self.context, self.request).do_GET()
         info['phase'] = self.phase
         risk = FindFirstQuestion(self.context, self.question_filter)
         if risk is not None:

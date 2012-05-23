@@ -50,10 +50,10 @@ class ViewTests(unittest.TestCase):
                 workers_participated=True)
         return company
 
-    def test_GET_result(self):
+    def test_do_GET_result(self):
         context = self.create_context()
         view = self.View(context, None)
-        response = view.GET()
+        response = view.do_GET()
         self.assertTrue(isinstance(response, dict))
         self.assertEqual(
                 set(response),
@@ -61,43 +61,43 @@ class ViewTests(unittest.TestCase):
                      'workers-participated']))
         self.assertEqual(response['type'], 'company')
 
-    def test_GET_no_company_data(self):
+    def test_do_GET_no_company_data(self):
         # Company might not have been created yet
         from euphorie.client import model
         context = model.SurveySession()
         view = self.View(context, None)
-        response = view.GET()
+        response = view.do_GET()
         self.assertEqual(response['country'], None)
         self.assertEqual(response['employees'], None)
 
-    def test_POST_returns_info(self):
+    def test_do_POST_returns_info(self):
         import mock
         context = self.create_context()
         view = self.View(context, None)
         view.input = {}
-        view.GET = mock.Mock(return_value='info')
-        self.assertEqual(view.POST(), 'info')
+        view.do_GET = mock.Mock(return_value='info')
+        self.assertEqual(view.do_POST(), 'info')
 
-    def test_POST_update_data(self):
+    def test_do_POST_update_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {'referer': 'trade-union'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['referer'], 'trade-union')
         self.assertEqual(context.referer, 'trade-union')
 
-    def test_POST_bad_data(self):
+    def test_do_POST_bad_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {'referer': 'jane'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['result'], 'error')
 
-    def test_POST_do_not_clobber_mising_data(self):
+    def test_do_POST_do_not_clobber_mising_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {}
-        view.POST()
+        view.do_POST()
         self.assertEqual(context.country, u'nl')
         self.assertEqual(context.employees, u'1-9')
         self.assertEqual(context.workers_participated, True)

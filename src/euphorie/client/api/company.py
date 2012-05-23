@@ -12,7 +12,7 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
-    def GET(self):
+    def do_GET(self):
         company = self.context
         return {'type': 'company',
                 'country': getattr(company, 'country', None),
@@ -23,7 +23,7 @@ class View(JsonView):
                     getattr(company, 'workers_participated', None),
                }
 
-    def POST(self):
+    def do_POST(self):
         company = self.context
         try:
             company.country = get_json_string(self.input, 'country', False,
@@ -40,4 +40,4 @@ class View(JsonView):
         except (KeyError, ValueError) as e:
             return {'result': 'error',
                     'message': str(e)}
-        return self.GET()
+        return self.do_GET()

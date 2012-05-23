@@ -27,3 +27,8 @@ def initialize(context):
     import email.Charset
     email.Charset.add_charset('utf-8', email.Charset.QP, email.Charset.QP,
             'utf-8')
+
+    # Monkeypatch the publisher to disable its WebDAV logic so we can use
+    # all request methods for our REST API.
+    import ZPublisher.HTTPRequest
+    ZPublisher.HTTPRequest.HTTPRequest.maybe_webdav_client = 0

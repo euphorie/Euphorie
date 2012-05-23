@@ -16,7 +16,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         with mock.patch('euphorie.client.api.profile.extractProfile') \
                 as mock_extractProfile:
             mock_extractProfile.return_value = {}
-            response = view.GET()
+            response = view.do_GET()
             self.assertEqual(response['profile'], [])
 
     def test_get_with_profile(self):
@@ -33,7 +33,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         with mock.patch('euphorie.client.api.profile.extractProfile') \
                 as mock_extractProfile:
             mock_extractProfile.return_value = {'5': [u'London', u'Tokyo']}
-            response = view.GET()
+            response = view.do_GET()
             profile = response['profile']
             self.assertEqual(
                     profile,
@@ -61,7 +61,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         with mock.patch('euphorie.client.api.profile.extractProfile') \
                 as mock_extractProfile:
             mock_extractProfile.return_value = {}
-            response = view.POST()
+            response = view.do_POST()
             self.assertEqual(response['profile'], [])
 
     def test_post_too_much_data(self):
@@ -78,7 +78,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         view.input = {'5': True}
         survey = Survey(id='survey')
         view.survey = mock.Mock(return_value=survey)
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
     def test_post_not_all_questions_answered(self):
@@ -100,7 +100,7 @@ class ViewTests(EuphorieFunctionalTestCase):
                 question=u'Locations',
                 type='repeatable')
         view.survey = mock.Mock(return_value=survey)
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
 

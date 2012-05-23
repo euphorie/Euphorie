@@ -25,7 +25,7 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
-    def PUT(self):
+    def do_PUT(self):
         changes = {}
         for (key, value) in self.input.items():
             if not value:
@@ -43,7 +43,7 @@ class View(JsonView):
                 changes['loginname']  = value
         for (key, value) in changes.items():
             setattr(self.context, key, value)
-        return self.GET()
+        return self.do_GET()
 
     def sessions(self):
         return [{'id': session.id,
@@ -54,7 +54,7 @@ class View(JsonView):
                 for session in self.context.sessions
                 if get_survey(self.request, session.zodb_path) is not None]
 
-    def GET(self):
+    def do_GET(self):
         return {'type': 'user',
                 'id': self.context.id,
                 'login': self.context.loginname,

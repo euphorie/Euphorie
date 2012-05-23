@@ -20,7 +20,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         from zope.publisher.browser import TestRequest
         from euphorie.client.sector import ClientSector
         sector = ClientSector(id='ict', title=u'ICT')
-        response = self.View(sector, TestRequest()).GET()
+        response = self.View(sector, TestRequest()).do_GET()
         self.assertTrue(isinstance(response, dict))
         self.assertEqual(
                 set(response),
@@ -36,7 +36,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         sector = ClientSector(id='ict', title=u'ICT')
         sector['gaming'] = Survey(id='gaming', title=u'Gaming',
                 language='nl')
-        response = self.View(sector, TestRequest()).GET()
+        response = self.View(sector, TestRequest()).do_GET()
         self.assertEqual(len(response['surveys']), 1)
         survey_info = response['surveys'][0]
         self.assertTrue(isinstance(survey_info, dict))
@@ -51,7 +51,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         from euphorie.client.sector import ClientSector
         sector = ClientSector(id='ict', title=u'ICT')
         sector['gaming'] = PathGhost('gaming')
-        response = self.View(sector, TestRequest()).GET()
+        response = self.View(sector, TestRequest()).do_GET()
         self.assertEqual(response['surveys'], [])
 
     def test_survey_info_filter_by_language(self):
@@ -63,10 +63,10 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
                 language='nl')
         request = TestRequest()
         request.form['language'] = 'en'
-        response = self.View(sector, request).GET()
+        response = self.View(sector, request).do_GET()
         self.assertEqual(len(response['surveys']), 0)
         request.form['language'] = 'nl'
-        response = self.View(sector, request).GET()
+        response = self.View(sector, request).do_GET()
         self.assertEqual(len(response['surveys']), 1)
 
 

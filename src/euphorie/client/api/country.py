@@ -10,7 +10,7 @@ class View(JsonView):
     grok.name('index_html')
     grok.require('zope2.Public')
 
-    def GET(self):
+    def do_GET(self):
         info = {'id': self.context.id,
                 'title': self.context.title,
                 'type': self.context.country_type,
@@ -18,7 +18,7 @@ class View(JsonView):
         sectors = [sector for sector in self.context.values()
                    if IClientSector.providedBy(sector)]
         if 'details' in self.request.form:
-            info['sectors'] = [SectorView(sector, self.request).GET()
+            info['sectors'] = [SectorView(sector, self.request).do_GET()
                                for sector in sectors]
         else:
             info['sectors'] = [{'id': sector.id,

@@ -14,7 +14,7 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
-    def GET(self):
+    def do_GET(self):
         self.module = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         info = {'id': self.context.id,
@@ -48,8 +48,8 @@ class Identification(JsonView):
                     (self.request.survey_session.absolute_url(), 
                     '/'.join(node.short_path), self.phase)
 
-    def GET(self):
-        info = View(self.context, self.request).GET()
+    def do_GET(self):
+        info = View(self.context, self.request).do_GET()
         info['phase'] = self.phase
         self._step(info, 'previous-step', FindPreviousQuestion)
         self._step(info, 'next-step', FindNextQuestion)
@@ -58,18 +58,18 @@ class Identification(JsonView):
                     self.question_filter)
         return info
 
-    def POST(self):
+    def do_POST(self):
         self.module = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         if not self.module.optional:
-            return self.GET()
+            return self.do_GET()
 
         value = self.input.get('skip-children')
         if not isinstance(value, bool):
             return {'type': 'error',
                     'message': 'skip-children field missing or invalid'}
         self.context.skip_children = value
-        return self.GET()
+        return self.do_GET()
 
 
 class Evaluation(Identification):

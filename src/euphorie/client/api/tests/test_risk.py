@@ -22,7 +22,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.risk import View
         return View(*a, **kw)
 
-    def test_GET_minimal(self):
+    def test_do_GET_minimal(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -37,7 +37,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         request.survey = survey
         risk = object_session(survey_session).query(Risk).first()
         view = self.View(risk, request)
-        response = view.GET()
+        response = view.do_GET()
         self.assertEqual(
                 set(response),
                 set(['id', 'type', 'title', 'problem-description',
@@ -56,7 +56,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['present'], None)
         self.assertEqual(response['priority'], u'high')
 
-    def test_GET_full(self):
+    def test_do_GET_full(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -71,7 +71,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         risk.skip_children = True
         view = self.View(risk, request)
-        response = view.GET()
+        response = view.do_GET()
         self.assertEqual(
                 set(response),
                 set(['id', 'type', 'title', 'problem-description',
@@ -92,7 +92,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.risk import Identification
         return Identification(*a, **kw)
 
-    def test_POST_missing_present_value(self):
+    def test_do_POST_missing_present_value(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -104,10 +104,10 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         view = self.Identification(risk, request)
         view.input = {}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
-    def test_POST_present_invalid_value(self):
+    def test_do_POST_present_invalid_value(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -119,10 +119,10 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         view = self.Identification(risk, request)
         view.input = {'present': 'foo'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
-    def test_POST_keep_existing_comment(self):
+    def test_do_POST_keep_existing_comment(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -135,7 +135,7 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         risk.comment = u'Original comment'
         view = self.Identification(risk, request)
         view.input = {'present': 'yes'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['comment'], u'Original comment')
         self.assertEqual(risk.comment, u'Original comment')
 
@@ -145,7 +145,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.risk import Evaluation
         return Evaluation(*a, **kw)
 
-    def test_POST_evaluate_top5_risk(self):
+    def test_do_POST_evaluate_top5_risk(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -159,10 +159,10 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         view = self.Evaluation(risk, request)
         view.input = {}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['type'], 'error')
 
-    def test_POST_direct_evaluation(self):
+    def test_do_POST_direct_evaluation(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -177,11 +177,11 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         view = self.Evaluation(risk, request)
         view.input = {'priority': 'high'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['priority'], 'high')
         self.assertEqual(risk.priority, 'high')
 
-    def test_POST_invalid_priority(self):
+    def test_do_POST_invalid_priority(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -197,11 +197,11 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         risk.priority = 'low'
         view = self.Evaluation(risk, request)
         view.input = {'priority': 'bad'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['result'], 'error')
         self.assertEqual(risk.priority, 'low')
 
-    def test_POST_kinney_risk(self):
+    def test_do_POST_kinney_risk(self):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
@@ -219,7 +219,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         view.input = {'probability': 'large', 
                       'frequency': 'constant',
                       'effect': 'high'}
-        response = view.POST()
+        response = view.do_POST()
         self.assertEqual(response['priority'], 'high')
         self.assertEqual(risk.priority, 'high')
 

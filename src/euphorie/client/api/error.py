@@ -16,6 +16,6 @@ class NotFoundView(JsonView):
     grok.context(NotFound)
     grok.name('index.html')
 
-    def GET(self):
+    def do_GET(self):
         return {'type': 'error',
                 'message': 'Unknown resource requested'}

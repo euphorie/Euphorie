@@ -21,7 +21,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         from euphorie.client.country import ClientCountry
         country = ClientCountry(id='nl', title=u'The Netherlands',
                 country_type='eu-member')
-        response = self.View(country, TestRequest()).GET()
+        response = self.View(country, TestRequest()).do_GET()
         self.assertTrue(isinstance(response, dict))
         self.assertEqual(
                 set(response),
@@ -38,7 +38,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         country = ClientCountry(id='nl', title=u'The Netherlands',
                 country_type='eu-member')
         country['ict'] = ClientSector(id='ict', title=u'ICT')
-        response = self.View(country, TestRequest()).GET()
+        response = self.View(country, TestRequest()).do_GET()
         self.assertEqual(len(response['sectors']), 1)
         sector_info = response['sectors'][0]
         self.assertTrue(isinstance(sector_info, dict))
@@ -56,10 +56,10 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         country['ict'] = ClientSector(id='ict', title=u'ICT')
         request = TestRequest()
         request.form['details'] = ''
-        with mock.patch('euphorie.client.api.sector.View.GET') \
+        with mock.patch('euphorie.client.api.sector.View.do_GET') \
                 as mock_sector_view:
             mock_sector_view.return_value = 'sector-detailed-info'
-            response = self.View(country, request).GET()
+            response = self.View(country, request).do_GET()
             self.assertEqual(response['sectors'], ['sector-detailed-info'])
 
     def test_ignore_non_sector_child(self):
@@ -69,7 +69,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
         country = ClientCountry(id='nl', title=u'The Netherlands',
                 country_type='eu-member')
         country['ict'] = PathGhost('ict')
-        response = self.View(country, TestRequest()).GET()
+        response = self.View(country, TestRequest()).do_GET()
         self.assertEqual(response['sectors'], [])
 
 

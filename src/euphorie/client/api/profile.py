@@ -14,7 +14,7 @@ class View(JsonView):
         return self.request.client.restrictedTraverse(
                 self.context.zodb_path.split('/'))
 
-    def GET(self):
+    def do_GET(self):
         survey = self.survey()
         answers = extractProfile(survey, self.context)
         result = []
@@ -30,7 +30,7 @@ class View(JsonView):
                 'title': self.context.title,
                 'profile': result}
 
-    def POST(self):
+    def do_POST(self):
         survey = self.survey()
         questions = survey.ProfileQuestions()
         if set([q.id for q in questions]) != set(self.input):
@@ -47,4 +47,4 @@ class View(JsonView):
                     'message': 'Invalid profile data.'}
 
         self.context = set_session_profile(survey, self.context, self.input)
-        return self.GET()
+        return self.do_GET()

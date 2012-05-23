@@ -9,7 +9,7 @@ class View(JsonView):
     grok.name('index_html')
     grok.require('zope2.Public')
 
-    def GET(self):
+    def do_GET(self):
         info = {'id': self.context.id,
                 'title': self.context.title}
         surveys = [survey for survey in self.context.values()

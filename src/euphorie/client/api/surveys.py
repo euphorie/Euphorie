@@ -23,10 +23,10 @@ class View(JsonView):
 
     def country_info(self, country):
         view = CountryView(country, self.request)
-        return view.GET()
+        return view.do_GET()
 
 
-    def GET(self):
+    def do_GET(self):
         countries = [{'id': country.id,
                       'title': country.title,
                       'type': country.country_type}

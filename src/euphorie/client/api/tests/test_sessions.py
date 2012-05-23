@@ -64,38 +64,38 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.client.api.sessions import View
         return View(*a, **kw)
 
-    def test_GET(self):
+    def test_do_GET(self):
         import mock
         view = self.View(None, None)
         view.sessions = mock.Mock(return_value='session data')
-        self.assertEqual(view.GET(), {'sessions': 'session data'})
+        self.assertEqual(view.do_GET(), {'sessions': 'session data'})
 
-    def test_POST_missing_survey_path(self):
+    def test_do_POST_missing_survey_path(self):
         import mock
         request = mock.Mock()
         view = self.View(None, request)
         view.input = {}
-        self.assertEqual(view.POST()['type'], 'error')
+        self.assertEqual(view.do_POST()['type'], 'error')
 
-    def test_POST_bad_survey_path(self):
+    def test_do_POST_bad_survey_path(self):
         import mock
         request = mock.Mock()
         request.client.restrictedTraverse.side_effect = KeyError()
         view = self.View(None, request)
         view.input = {'survey': 'bad/path'}
-        self.assertEqual(view.POST()['type'], 'error')
+        self.assertEqual(view.do_POST()['type'], 'error')
         request.client.restrictedTraverse.assert_called_once_with(
                 ['bad', 'path'])
 
-    def test_POST_survey_path_does_not_point_to_survey(self):
+    def test_do_POST_survey_path_does_not_point_to_survey(self):
         import mock
         request = mock.Mock()
         request.client.restrictedTraverse.return_value = 'thing'
         view = self.View(None, request)
         view.input = {'survey': 'bad/path'}
-        self.assertEqual(view.POST()['type'], 'error')
+        self.assertEqual(view.do_POST()['type'], 'error')
 
-    def test_POST_survey_without_profile(self):
+    def test_do_POST_survey_without_profile(self):
         from z3c.saconfig import Session
         from AccessControl.SecurityManagement import newSecurityManager
         from zope.publisher.browser import TestRequest
@@ -112,14 +112,14 @@ class ViewTests(EuphorieFunctionalTestCase):
         view = self.View(survey, request)
         view.input = {'survey': 'nl/ict/software-development'}
         newSecurityManager(None, account)
-        response = view.POST()
+        response = view.do_POST()
         self.assertTrue(
                 response['next-step'].endswith('identification'))
         survey_session = Session.query(SurveySession).first()
         self.assertEqual(survey_session.title, u'Software development')
         self.assertTrue(survey_session.hasTree())
 
-    def test_POST_survey_specify_title(self):
+    def test_do_POST_survey_specify_title(self):
         from z3c.saconfig import Session
         from AccessControl.SecurityManagement import newSecurityManager
         from zope.publisher.browser import TestRequest
@@ -137,13 +137,13 @@ class ViewTests(EuphorieFunctionalTestCase):
         view.input = {'survey': 'nl/ict/software-development',
                       'title': u'Alternative title'}
         newSecurityManager(None, account)
-        response = view.POST()
+        response = view.do_POST()
         self.assertTrue(
                 response['next-step'].endswith('identification'))
         survey_session = Session.query(SurveySession).first()
         self.assertEqual(survey_session.title, u'Alternative title')
 
-    def test_POST_survey_with_profile(self):
+    def test_do_POST_survey_with_profile(self):
         from z3c.saconfig import Session
         from AccessControl.SecurityManagement import newSecurityManager
         from zope.publisher.browser import TestRequest
@@ -160,7 +160,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         view = self.View(survey, request)
         view.input = {'survey': 'nl/ict/software-development'}
         newSecurityManager(None, account)
-        response = view.POST()
+        response = view.do_POST()
         self.assertTrue(
                 response['next-step'].endswith('profile'))
         survey_session = Session.query(SurveySession).first()
@@ -168,7 +168,7 @@ class ViewTests(EuphorieFunctionalTestCase):
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
-    def test_GET_basic(self):
+    def test_do_GET_basic(self):
         import json
         from euphorie.client.api.authentication import generate_token
         from euphorie.client.tests.utils import addAccount

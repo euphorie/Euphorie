@@ -36,23 +36,23 @@ class ViewTests(unittest.TestCase):
                       'created': '2012-04-20T16:05:23',
                       'modified': '2012-04-23T11:46:23'}])
 
-    def test_PUT_no_data(self):
+    def test_do_PUT_no_data(self):
         import mock
         account = mock.Mock()
         account.sessions = []
         view = self.View(account, None)
         view.input = {}
-        view.PUT()
+        view.do_PUT()
 
-    def test_PUT_empty_login(self):
+    def test_do_PUT_empty_login(self):
         import mock
         account = mock.Mock()
         account.sessions = []
         view = self.View(account, None)
         view.input = {'login': ''}
-        self.assertEqual(view.PUT()['type'], 'error')
+        self.assertEqual(view.do_PUT()['type'], 'error')
 
-    def test_PUT_new_login_in_use(self):
+    def test_do_PUT_new_login_in_use(self):
         import mock
         account = mock.Mock()
         account.sessions = []
@@ -61,10 +61,10 @@ class ViewTests(unittest.TestCase):
         with mock.patch('euphorie.client.api.account.login_available') \
                 as mock_available:
             mock_available.return_value = False
-            self.assertEqual(view.PUT()['type'], 'error')
+            self.assertEqual(view.do_PUT()['type'], 'error')
             mock_available.assert_called_once_with('jane')
 
-    def test_PUT_set_login_to_same_value(self):
+    def test_do_PUT_set_login_to_same_value(self):
         import mock
         account = mock.Mock()
         account.loginname = 'jane'
@@ -74,7 +74,7 @@ class ViewTests(unittest.TestCase):
         with mock.patch('euphorie.client.api.account.login_available') \
                 as mock_available:
             mock_available.return_value = False
-            self.assertEqual(view.PUT()['type'], 'user')
+            self.assertEqual(view.do_PUT()['type'], 'user')
             self.assertTrue(not mock_available.called)
 
 
