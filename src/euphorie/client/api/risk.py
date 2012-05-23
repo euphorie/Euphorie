@@ -67,24 +67,17 @@ class Identification(JsonView):
     grok.name('identification')
 
     phase = 'identification'
+    next_phase = 'evaluation'
     question_filter = None
 
     def __init__(self, *a):
         super(Identification, self).__init__(*a)
 
-    def _step(self, info, key, finder):
-        node = finder(self.context, self.request.survey_session,
-                self.question_filter)
-        if node is not None:
-            info[key] = '%s/%s/%s' % \
-                    (self.request.survey_session.absolute_url(), 
-                    '/'.join(node.short_path), self.phase)
-
     def do_GET(self):
         info = View(self.context, self.request).do_GET()
         info['phase'] = self.phase
         self._step(info, 'previous-step', FindPreviousQuestion)
-        self._step(info, 'next-step', FindNextQuestion)
+        self._step(info, 'next-step', FindNextQuestion, self.next_phase)
         if 'menu' in self.request.form:
             info['menu'] = context_menu(self.request, self.context, self.phase,
                     self.question_filter)
@@ -110,6 +103,7 @@ class Evaluation(Identification):
     grok.name('evaluation')
 
     phase = 'evaluation'
+    next_phase = 'actionplan'
     question_filter = BaseEvaluation.question_filter
 
     def do_POST(self):
@@ -150,4 +144,5 @@ class ActionPlan(Identification):
     grok.name('actionplan')
 
     phase = 'actionplan'
+    next_phase = None
     question_filter = BaseActionPlan.question_filter

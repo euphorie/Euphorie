@@ -55,6 +55,7 @@ class Identification(JsonView):
     grok.name('identification')
 
     phase = 'identification'
+    next_phase = 'evaluation'
     question_filter = None
 
     def do_GET(self):
@@ -65,6 +66,9 @@ class Identification(JsonView):
             info['next-step'] = '%s/%s/%s' % \
                     (self.context.absolute_url(), 
                             '/'.join(risk.short_path), self.phase)
+        else:
+            info['next-step'] = '%s/%s' % \
+                    (self.context.absolute_url(), self.next_phase)
         return info
 
 
@@ -74,6 +78,7 @@ class Evaluation(Identification):
     grok.name('evaluation')
 
     phase = 'evaluation'
+    next_phase = 'actionplan'
     question_filter = BaseEvaluation.question_filter
 
 
@@ -83,6 +88,7 @@ class ActionPlan(Identification):
     grok.name('actionplan')
 
     phase = 'actionplan'
+    next_phase = None
     question_filter = BaseActionPlan.question_filter
 
 

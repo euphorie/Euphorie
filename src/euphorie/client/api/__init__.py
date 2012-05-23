@@ -85,6 +85,23 @@ class JsonView(grok.View):
 
     input = None
 
+    phase = 'identification'
+    previous_phase = None
+    next_phase = None
+    question_filter = None
+
+    def _step(self, info, key, finder, next_phase=None):
+        node = finder(self.context, self.request.survey_session,
+                self.question_filter)
+        if node is not None:
+            info[key] = '%s/%s/%s' % \
+                    (self.request.survey_session.absolute_url(), 
+                    '/'.join(node.short_path), self.phase)
+        elif next_phase:
+            info[key] = '%s/%s' % \
+                    (self.request.survey_session.absolute_url(), 
+                     next_phase)
+
     def render(self):
         # Workaround for grok silliness
         pass
