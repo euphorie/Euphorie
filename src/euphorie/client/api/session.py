@@ -31,7 +31,6 @@ class View(JsonView):
     grok.name('index_html')
 
     def do_DELETE(self):
-        import pdb ; pdb.set_trace()
         session = object_session(self.context)
         session.delete(self.context)
         return {}
