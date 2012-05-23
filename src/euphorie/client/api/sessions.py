@@ -1,3 +1,4 @@
+from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
 from euphorie.content.survey import ISurvey
@@ -61,9 +62,10 @@ class View(JsonView):
 
         title = self.input.get('title', survey.title)
         survey_session = create_survey_session(title, survey)
+        survey_session = survey_session.__of__(aq_inner(self.context))
         view = SessionView(survey_session, self.request)
         response = view.do_GET()
-        survey_session_url = self.context.absolute_url()
+        survey_session_url = survey_session.absolute_url()
         if survey.ProfileQuestions():
             response['next-step'] = '%s/profile' % survey_session_url
         else:
