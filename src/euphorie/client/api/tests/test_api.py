@@ -18,6 +18,24 @@ class context_menu_tests(unittest.TestCase):
                     self.context_menu(mock.Mock(), 'context', 'phase', None),
                     [])
 
+    def test_risk_status_no_class_set(self):
+        import mock
+        menu = {'children': [{
+                        'id': 15,
+                        'type': 'risk',
+                        'class': None,
+                        'leaf_module': True,
+                        'path': '/1',
+                        'current_parent': False,
+                        'url': '/1',
+                        'children': [],
+                        }]}
+        request = mock.Mock()
+        request.survey_session.absolute_url.return_value = 'http://localhost'
+        with mock.patch('euphorie.client.api.getTreeData', return_value=menu):
+            context_menu = self.context_menu(request, 'context', 'phase', None)
+            self.assertEqual(context_menu[0]['status'], None)
+
     def test_risk_status_postponed(self):
         import mock
         menu = {'children': [{

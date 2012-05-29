@@ -18,14 +18,14 @@ def context_menu(request, context, phase, filter):
     while todo:
         node = todo.popleft()
         if node['type'] == 'risk':
-            if 'postponed' in node['class']:
-                node['status'] = 'postponed'
-            elif 'risk' in node['class']:
-                node['status'] = 'present'
-            elif 'answered' in node['class']:
-                node['status'] = 'not-present'
-            else:
-                node['status'] = None
+            node['status'] = None
+            if node['class']:
+                if 'postponed' in node['class']:
+                    node['status'] = 'postponed'
+                elif 'risk' in node['class']:
+                    node['status'] = 'present'
+                elif 'answered' in node['class']:
+                    node['status'] = 'not-present'
         del node['id']
         del node['class']
         del node['leaf_module']
