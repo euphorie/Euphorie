@@ -131,7 +131,6 @@ def getTreeData(request, context, phase="identification", filter=None):
         info["class"]=cls and " ".join(cls) or None
         return info
 
-
     # Result is always pointing to the level *above* the current level.
     # At the end it will be the virtual tree root
     result=dict(children=[], leaf_module=False, current=False, id=None, title=None)

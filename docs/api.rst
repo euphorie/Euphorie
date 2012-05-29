@@ -410,6 +410,9 @@ element in the tree is an object with the following keys:
 * ``active``: boolean indicating if this is a parent node of the current node.
 * ``children``: list of child nodes (in the right order).
 * ``url``: URL for the API interface to this node..
+* ``status``: only present for risks and specifies the risk status. The value
+  is one of ``postponed``, ``present``, ``not-present`` or *null* if the
+  user has not seen the risk yet.
 
 .. note::
 

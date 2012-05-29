@@ -5,9 +5,90 @@ from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
 
 
-class DummySchema(Interface):
-    field = Choice(vocabulary=SimpleVocabulary([
-        SimpleTerm(u'foo', title=u'Bar')]))
+class context_menu_tests(unittest.TestCase):
+    def context_menu(self, *a, **kw):
+        from euphorie.client.api import context_menu
+        return context_menu(*a, **kw)
+
+    def test_empty_menu(self):
+        import mock
+        with mock.patch('euphorie.client.api.getTreeData',
+                return_value={'children': []}):
+            self.assertEqual(
+                    self.context_menu(mock.Mock(), 'context', 'phase', None),
+                    [])
+
+    def test_risk_status_postponed(self):
+        import mock
+        menu = {'children': [{
+                        'id': 15,
+                        'type': 'risk',
+                        'class': 'postponed',
+                        'leaf_module': True,
+                        'path': '/1',
+                        'current_parent': False,
+                        'url': '/1',
+                        'children': [],
+                        }]}
+        request = mock.Mock()
+        request.survey_session.absolute_url.return_value = 'http://localhost'
+        with mock.patch('euphorie.client.api.getTreeData', return_value=menu):
+            context_menu = self.context_menu(request, 'context', 'phase', None)
+            self.assertEqual(context_menu[0]['status'], 'postponed')
+
+    def test_risk_status_risk_present(self):
+        import mock
+        menu = {'children': [{
+                        'id': 15,
+                        'type': 'risk',
+                        'class': 'answered risk',
+                        'leaf_module': True,
+                        'path': '/1',
+                        'current_parent': False,
+                        'url': '/1',
+                        'children': [],
+                        }]}
+        request = mock.Mock()
+        request.survey_session.absolute_url.return_value = 'http://localhost'
+        with mock.patch('euphorie.client.api.getTreeData', return_value=menu):
+            context_menu = self.context_menu(request, 'context', 'phase', None)
+            self.assertEqual(context_menu[0]['status'], 'present')
+
+    def test_risk_status_risk_not_present(self):
+        import mock
+        menu = {'children': [{
+                        'id': 15,
+                        'type': 'risk',
+                        'class': 'current answered',
+                        'leaf_module': True,
+                        'path': '/1',
+                        'current_parent': False,
+                        'url': '/1',
+                        'children': [],
+                        }]}
+        request = mock.Mock()
+        request.survey_session.absolute_url.return_value = 'http://localhost'
+        with mock.patch('euphorie.client.api.getTreeData', return_value=menu):
+            context_menu = self.context_menu(request, 'context', 'phase', None)
+            self.assertEqual(context_menu[0]['status'], 'not-present')
+
+    def test_risk_status_risk_seen(self):
+        import mock
+        menu = {'children': [{
+                        'id': 15,
+                        'type': 'risk',
+                        'class': 'current',
+                        'leaf_module': True,
+                        'path': '/1',
+                        'current_parent': False,
+                        'url': '/1',
+                        'children': [],
+                        }]}
+        request = mock.Mock()
+        request.survey_session.absolute_url.return_value = 'http://localhost'
+        with mock.patch('euphorie.client.api.getTreeData', return_value=menu):
+            context_menu = self.context_menu(request, 'context', 'phase', None)
+            self.assertEqual(context_menu[0]['status'], None)
 
 
 class get_json_token_tests(unittest.TestCase):
@@ -90,3 +171,8 @@ class get_json_bool_tests(unittest.TestCase):
 
     def test_proper_value(self):
         self.assertEqual(self.get_json_bool({'field': True}, 'field'), True)
+
+
+class DummySchema(Interface):
+    field = Choice(vocabulary=SimpleVocabulary([
+        SimpleTerm(u'foo', title=u'Bar')]))
