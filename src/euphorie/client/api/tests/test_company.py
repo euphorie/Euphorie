@@ -70,34 +70,34 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(response['country'], None)
         self.assertEqual(response['employees'], None)
 
-    def test_do_POST_returns_info(self):
+    def test_do_PUT_returns_info(self):
         import mock
         context = self.create_context()
         view = self.View(context, None)
         view.input = {}
         view.do_GET = mock.Mock(return_value='info')
-        self.assertEqual(view.do_POST(), 'info')
+        self.assertEqual(view.do_PUT(), 'info')
 
-    def test_do_POST_update_data(self):
+    def test_do_PUT_update_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {'referer': 'trade-union'}
-        response = view.do_POST()
+        response = view.do_PUT()
         self.assertEqual(response['referer'], 'trade-union')
         self.assertEqual(context.referer, 'trade-union')
 
-    def test_do_POST_bad_data(self):
+    def test_do_PUT_bad_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {'referer': 'jane'}
-        response = view.do_POST()
+        response = view.do_PUT()
         self.assertEqual(response['result'], 'error')
 
-    def test_do_POST_do_not_clobber_mising_data(self):
+    def test_do_PUT_do_not_clobber_mising_data(self):
         context = self.create_context()
         view = self.View(context, None)
         view.input = {}
-        view.do_POST()
+        view.do_PUT()
         self.assertEqual(context.country, u'nl')
         self.assertEqual(context.employees, u'1-9')
         self.assertEqual(context.workers_participated, True)

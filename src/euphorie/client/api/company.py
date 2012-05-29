@@ -23,7 +23,7 @@ class View(JsonView):
                     getattr(company, 'workers_participated', None),
                }
 
-    def do_POST(self):
+    def do_PUT(self):
         company = self.context
         try:
             company.country = get_json_string(self.input, 'country', False,

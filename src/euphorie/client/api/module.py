@@ -51,7 +51,7 @@ class Identification(JsonView):
                     self.question_filter)
         return info
 
-    def do_POST(self):
+    def do_PUT(self):
         self.module = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         if not self.module.optional:

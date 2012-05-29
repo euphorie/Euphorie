@@ -83,7 +83,7 @@ class Identification(JsonView):
                     self.question_filter)
         return info
 
-    def do_POST(self):
+    def do_PUT(self):
         allowed_values = Risk.__table__.c['identification'].type.values
         try:
             if self.input['present'] not in allowed_values:
@@ -106,7 +106,7 @@ class Evaluation(Identification):
     next_phase = 'actionplan'
     question_filter = BaseEvaluation.question_filter
 
-    def do_POST(self):
+    def do_PUT(self):
         self.risk = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         if self.risk.type in ['top5', 'policy']:
