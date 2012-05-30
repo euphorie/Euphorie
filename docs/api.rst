@@ -593,7 +593,7 @@ Acknowledge survey update
 +------+-----------------------------------------------+------------------------------+
 | Verb | URI                                           | Description                  |
 +======+===============================================+==============================+
-| POST | /users/<userid>/sessions/<session id>/update  | Confirm survey update.       |
+| PUT  | /users/<userid>/sessions/<session id>/update  | Confirm survey update.       |
 +------+-----------------------------------------------+------------------------------+
 
 If a survey was updated since the last user interaction and the survey
@@ -1050,8 +1050,6 @@ View company details
 | Verb | URI                                           | Description                  |
 +======+===============================================+==============================+
 | GET  | /users/<userid>/sessions/<session id>/company | Request company information  |
-+------+-----------------------------------------------+------------------------------+
-| PUT  | /users/<userid>/sessions/<session id>/company | Update company details.      |
 +------+-----------------------------------------------+------------------------------+
 
 This interface will return information about the company to which this survey
