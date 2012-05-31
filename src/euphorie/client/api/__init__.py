@@ -36,6 +36,14 @@ def context_menu(request, context, phase, filter):
     return menu
 
 
+def vocabulary_token(field, value):
+    term = field.vocabulary.by_value.get(value)
+    if term is None:
+        return None
+    else:
+        return term.token
+
+
 def vocabulary_options(field, request):
     t = lambda txt: translate(txt, context=request)
     return [{'value': term.token,

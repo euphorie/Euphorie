@@ -7,6 +7,7 @@ from euphorie.client.utils import HasText
 from euphorie.client.model import Risk
 from euphorie.client.api import JsonView
 from euphorie.client.api import get_json_token
+from euphorie.client.api import vocabulary_token
 from euphorie.client.api import vocabulary_options
 from euphorie.client.api import context_menu
 from euphorie.client.navigation import FindPreviousQuestion
@@ -42,22 +43,36 @@ class View(JsonView):
             algorithm = evaluation_algorithm(self.risk)
             info['evaluation-algorithm'] = algorithm
             if algorithm == 'french':
-                info['severity'] = self.context.severity
+                field = IFrenchEvaluation['default_severity']
+                info['severity'] = vocabulary_token(
+                        field, self.context.severity) \
+                                if self.context.severity else None
                 info['severity-options'] = vocabulary_options(
-                        IFrenchEvaluation['default_severity'], self.request)
-                info['frequency'] = self.context.frequency
+                        field, self.request)
+                field = IFrenchEvaluation['default_frequency']
+                info['frequency'] = vocabulary_token(
+                        field, self.context.frequency) \
+                                if self.context.frequency else None
                 info['frequency-options'] = vocabulary_options(
-                        IFrenchEvaluation['default_frequency'], self.request)
+                        field, self.request)
             else:  # Kinney
-                info['frequency'] = self.context.frequency
+                field = IKinneyEvaluation['default_frequency']
+                info['frequency'] = vocabulary_token(
+                        field, self.context.frequency) \
+                                if self.context.frequency else None
                 info['frequency-options'] = vocabulary_options(
-                        IKinneyEvaluation['default_frequency'], self.request)
-                info['effect'] = self.context.effect
+                        field, self.request)
+                field = IKinneyEvaluation['default_effect']
+                info['effect'] = vocabulary_token(field, self.context.effect) \
+                                if self.context.effect else None
                 info['effect-options'] = vocabulary_options(
-                        IKinneyEvaluation['default_effect'], self.request)
-                info['probability'] = self.context.probability
+                        field, self.request)
+                field = IKinneyEvaluation['default_probability']
+                info['probability'] = vocabulary_token(
+                        field, self.context.probability) \
+                                if self.context.probability else None
                 info['probability-options'] = vocabulary_options(
-                        IKinneyEvaluation['default_probability'], self.request)
+                        field, self.request)
         return info
 
 

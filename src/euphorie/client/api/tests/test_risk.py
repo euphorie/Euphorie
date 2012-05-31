@@ -86,6 +86,28 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['legal-reference'], u'<p>Catch 22</p>')
 
+    def test_do_GET_use_vocabulary_token(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (account, survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.title = u'Everything is under control.'
+        risk.problem_description = u'Not everything under control.'
+        risk.description = None
+        risk.evaluation_method = 'calculated'
+        request = TestRequest()
+        request.survey = survey
+        risk = object_session(survey_session).query(Risk).first()
+        risk.probability = 3
+        risk.frequency = 7
+        view = self.View(risk, request)
+        response = view.do_GET()
+        self.assertEqual(response['probability'], 'medium')
+        self.assertEqual(response['frequency'], 'constant')
+        self.assertEqual(response['effect'], None)
+
 
 class IdentificationTests(EuphorieFunctionalTestCase):
     def Identification(self, *a, **kw):
