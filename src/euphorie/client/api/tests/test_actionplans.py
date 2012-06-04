@@ -72,27 +72,18 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(view.plans(), [])
 
     def test_with_plan(self):
-        import datetime
+        import mock
         from euphorie.client.model import ActionPlan
         context = self._build_context()
-        context.risk.action_plans.append(ActionPlan(
-            action_plan=u'This is the plan',
-            planning_start=datetime.date(2012, 6, 3)))
-        view = self.View(context, None)
-        plans = view.plans()
-        self.assertEqual(len(plans), 1)
-        self.assertTrue(isinstance(plans[0], dict))
-        self.assertEqual(
-                set(plans[0]),
-                set(['id', 'plan', 'prevention', 'requirements', 'responsible',
-                    'budget', 'planning-start', 'planning-end', 'reference']))
-        self.assertEqual(plans[0]['plan'], u'This is the plan')
-        self.assertEqual(plans[0]['prevention'], None)
-        self.assertEqual(plans[0]['requirements'], None)
-        self.assertEqual(plans[0]['responsible'], None)
-        self.assertEqual(plans[0]['budget'], None)
-        self.assertEqual(plans[0]['planning-start'], '2012-06-03')
-        self.assertEqual(plans[0]['planning-end'], None)
+        plan = ActionPlan(action_plan=u'This is the plan')
+        context.risk.action_plans.append(plan)
+        with mock.patch('euphorie.client.api.actionplans.plan_info') \
+                as mock_plan_info:
+            mock_plan_info.return_value = 'plan-info'
+            view = self.View(context, None)
+            plans = view.plans()
+            self.assertEqual(plans, ['plan-info'])
+            mock_plan_info.assert_called_once_with(plan)
 
     def test_do_GET_response(self):
         import mock

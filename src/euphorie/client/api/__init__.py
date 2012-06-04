@@ -1,7 +1,8 @@
 import collections
+import datetime
+import json
 import re
 from zExceptions import NotFound
-import json
 import martian
 from zope.publisher.publish import mapply
 from five import grok
@@ -84,6 +85,30 @@ def get_json_bool(input, name, required=False, default=None):
         raise KeyError('Required field %s is missing' % name)
     if not isinstance(value, bool):
         raise ValueError('Field %s has wrong type' % name)
+    return value
+
+
+def get_json_int(input, name, required=False, default=None):
+    value = input.get(name)
+    if value is None:
+        if not required:
+            return default
+        raise KeyError('Required field %s is missing' % name)
+    if not isinstance(value, int):
+        raise ValueError('Field %s has wrong type' % name)
+    return value
+
+
+def get_json_date(input, name, required=False, default=None):
+    value = input.get(name)
+    if value is None:
+        if not required:
+            return default
+        raise KeyError('Required field %s is missing' % name)
+    try:
+        return datetime.datetime.strptime(value, '%Y-%m-%d').date()
+    except (TypeError, ValueError):
+        raise ValueError('Field %s is not a valid date' % name)
     return value
 
 

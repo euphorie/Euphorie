@@ -3,6 +3,7 @@ from sqlalchemy.orm import object_session
 from euphorie.client.survey import PathGhost
 from euphorie.client.api import JsonView
 from euphorie.client.model import ActionPlan
+from euphorie.client.api.actionplan import plan_info
 
 
 
@@ -35,18 +36,7 @@ class View(JsonView):
     grok.name('index_html')
 
     def plans(self):
-        return [{'id': plan.id,
-                 'plan': plan.action_plan,
-                 'prevention': plan.prevention_plan,
-                 'requirements': plan.requirements,
-                 'responsible': plan.responsible,
-                 'budget': plan.budget,
-                 'planning-start': plan.planning_start.isoformat() \
-                         if plan.planning_start else None,
-                 'planning-end': plan.planning_end.isoformat() \
-                         if plan.planning_end else None,
-                 'reference': plan.reference}
-                for plan in self.context.risk.action_plans]
+        return [plan_info(plan) for plan in self.context.risk.action_plans]
 
     def do_GET(self):
         return {'action-plans': self.plans()}

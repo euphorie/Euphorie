@@ -191,6 +191,62 @@ class get_json_bool_tests(unittest.TestCase):
         self.assertEqual(self.get_json_bool({'field': True}, 'field'), True)
 
 
+class get_json_int_tests(unittest.TestCase):
+    def get_json_int(self, *a, **kw):
+        from euphorie.client.api import get_json_int
+        return get_json_int(*a, **kw)
+
+    def test_missing_required_field(self):
+        self.assertRaises(KeyError,
+                self.get_json_int, {}, 'field', required=True)
+
+    def test_missing_optional_field(self):
+        self.assertEqual(
+                self.get_json_int({}, 'field', required=False,
+                    default='default'),
+                'default')
+
+    def test_bad_type(self):
+        self.assertRaises(ValueError,
+                self.get_json_int, {'field': 'dummy'}, 'field',
+                DummySchema['field'])
+
+    def test_proper_value(self):
+        self.assertEqual(self.get_json_int({'field': 15}, 'field'), 15)
+
+
+class get_json_date_tests(unittest.TestCase):
+    def get_json_date(self, *a, **kw):
+        from euphorie.client.api import get_json_date
+        return get_json_date(*a, **kw)
+
+    def test_missing_required_field(self):
+        self.assertRaises(KeyError,
+                self.get_json_date, {}, 'field', required=True)
+
+    def test_missing_optional_field(self):
+        self.assertEqual(
+                self.get_json_date({}, 'field', required=False,
+                    default='default'),
+                'default')
+
+    def test_bad_type(self):
+        self.assertRaises(ValueError,
+                self.get_json_date, {'field': 15}, 'field',
+                DummySchema['field'])
+
+    def test_invalid_date(self):
+        self.assertRaises(ValueError,
+                self.get_json_date, {'field': '2012-06-four'}, 'field',
+                DummySchema['field'])
+
+    def test_proper_value(self):
+        import datetime
+        self.assertEqual(
+                self.get_json_date({'field': '2012-06-04'}, 'field'),
+                datetime.date(2012, 6, 4))
+
+
 class DummySchema(Interface):
     field = Choice(vocabulary=SimpleVocabulary([
         SimpleTerm(u'foo', title=u'Bar')]))
