@@ -12,6 +12,7 @@ from euphorie.client.api import vocabulary_token
 from euphorie.client.api import vocabulary_options
 from euphorie.client.api import context_menu
 from euphorie.client.api.actionplans import RiskActionPlans
+from euphorie.client.api.actionplan import plan_info
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
@@ -152,7 +153,7 @@ class Evaluation(Identification):
                             IKinneyEvaluation['default_effect'], self.context.effect)
                 calculate_priority(self.context, self.risk)
         except (KeyError, ValueError) as e:
-            return {'result': 'error',
+            return {'type': 'error',
                     'message': str(e)}
         return self.do_GET()
 
@@ -165,6 +166,26 @@ class ActionPlan(Identification):
     phase = 'actionplan'
     next_phase = None
     question_filter = BaseActionPlan.question_filter
+
+    def do_GET(self):
+        info = super(ActionPlan, self).do_GET()
+        info['action-plans'] = [plan_info(plan)
+                                for plan in self.context.action_plans]
+        return info
+
+    def do_PUT(self):
+        self.risk = self.request.survey.restrictedTraverse(
+                self.context.zodb_path.split('/'))
+        if 'priority' in self.input:
+            if self.risk.type in ['top5', 'policy']:
+                return {'type': 'error',
+                        'message': 'Can not set priority for top-5 or '
+                                   'policy risks'}
+            self.context.priority = get_json_token(self.input, 'priority', 
+                    IRisk['default_priority'],
+                    default=self.context.priority)
+        self.context.comment = self.input.get('comment', self.context.comment)
+        return self.do_GET()
 
 
 class RiskPublishTraverse(DefaultPublishTraverse):

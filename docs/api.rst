@@ -817,7 +817,7 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 | ``priority``            | string        | Yes      | The priority of the risk. One  |
 |                         |               |          | ``low``, ``medium``, ``high``  |
-|                         |               |          | or ``null`` if not known yet.  |
+|                         |               |          | or *null* if not known yet.    |
 +-------------------------+---------------+----------+--------------------------------+
 | ``comment``             | string        | No       | A comment added by the user.   |
 +-------------------------+---------------+----------+--------------------------------+
@@ -888,9 +888,10 @@ Update risk evaluation data
 | PUT  | /users/<userid>/sessions/<session id>/<path>/evaluation     | Update risk status  |
 +------+-------------------------------------------------------------+---------------------+
                     
-The possbile values depend on the evaluation method used for the risk. For risks that use
-a direct evaluation the priority field can be set directly. For risks using a calculated
-evaluation method the frequency, effect and probability information must be provided.
+The possbile values depend on the evaluation method used for the risk. For
+risks that use a direct evaluation the priority field can be set directly. For
+risks using a calculated evaluation method the frequency, effect and
+probability information must be provided.
 
 The comment can also be updated by including the ``comment`` field.
 
@@ -901,6 +902,34 @@ The comment can also be updated by including the ``comment`` field.
             "effect": 3,
             "probability": 7,
     }
+
+
+Update risk action plan data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+-------------------------------------------------------------+---------------------+
+| Verb | URI                                                         | Description         |
++======+=============================================================+=====================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/actionplan     | Update risk status  |
++------+-------------------------------------------------------------+---------------------+
+                    
+This method updates the action plan-specific information for a risk. For top-5
+and policy risks only the commend field may be updated. For other risks the
+priority can be set directly as well (but it may be reset of the user
+re-evaluates the risk).
+
+The possible values for priority are ``low``, ``medium`` and ``high``.
+
+::
+
+    {
+            "comment": "We need to take another look at this",
+            "priority": "medium",
+    }
+
+
+Action plans can be added, updated or deleted through the ``actionplans``
+container (see below).
 
 
 List action plans

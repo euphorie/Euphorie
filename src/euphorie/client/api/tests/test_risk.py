@@ -220,7 +220,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         view = self.Evaluation(risk, request)
         view.input = {'priority': 'bad'}
         response = view.do_PUT()
-        self.assertEqual(response['result'], 'error')
+        self.assertEqual(response['type'], 'error')
         self.assertEqual(risk.priority, 'low')
 
     def test_do_PUT_kinney_risk(self):
@@ -244,6 +244,47 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         response = view.do_PUT()
         self.assertEqual(response['priority'], 'high')
         self.assertEqual(risk.priority, 'high')
+
+
+class ActionPlanTests(EuphorieFunctionalTestCase):
+    def ActionPlan(self, *a, **kw):
+        from euphorie.client.api.risk import ActionPlan
+        return ActionPlan(*a, **kw)
+
+    def test_do_PUT_set_priority_for_top5_risk_not_allowed(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (account, survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.type = 'top5'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.ActionPlan(risk, request)
+        view.input = {'priority': 'low'}
+        response = view.do_PUT()
+        self.assertEqual(response['type'], 'error')
+
+    def test_do_PUT_set_priority_for_normal_risk(self):
+        from sqlalchemy.orm import object_session
+        from zope.publisher.browser import TestRequest
+        from euphorie.client.model import Risk
+        self.loginAsPortalOwner()
+        (account, survey, survey_session) = _setup_session(self.portal)
+        risk = survey['1']['2']
+        risk.type = 'risk'
+        request = TestRequest()
+        request.survey = survey
+        request.survey_session = survey_session
+        risk = object_session(survey_session).query(Risk).first()
+        view = self.ActionPlan(risk, request)
+        view.input = {'priority': 'low'}
+        response = view.do_PUT()
+        self.assertEqual(response['priority'], 'low')
+        self.assertEqual(risk.priority, 'low')
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
