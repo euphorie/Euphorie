@@ -2,7 +2,7 @@ import collections
 import datetime
 import json
 import re
-from zExceptions import NotFound
+from zExceptions import MethodNotAllowed
 import martian
 from zope.publisher.publish import mapply
 from five import grok
@@ -166,6 +166,6 @@ class JsonView(grok.View):
         method = self.request.get('REQUEST_METHOD', 'GET').upper()
         renderer = getattr(self, 'do_%s' % method, None)
         if renderer is None:
-            raise NotFound()
+            raise MethodNotAllowed()
         response = mapply(renderer, (), self.request)
         return json.dumps(response)
