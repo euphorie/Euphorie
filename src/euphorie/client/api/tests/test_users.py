@@ -82,7 +82,6 @@ class AuthenticateBrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(response['type'], 'error')
 
-
     def test_authentication_success(self):
         import json
         from z3c.saconfig import Session

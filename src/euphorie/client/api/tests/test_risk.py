@@ -238,7 +238,7 @@ class EvaluationTests(EuphorieFunctionalTestCase):
         risk = object_session(survey_session).query(Risk).first()
         risk.priority = 'low'
         view = self.Evaluation(risk, request)
-        view.input = {'probability': 'large', 
+        view.input = {'probability': 'large',
                       'frequency': 'constant',
                       'effect': 'high'}
         response = view.do_PUT()

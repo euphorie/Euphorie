@@ -71,6 +71,7 @@ class BrowserTests(EuphorieFunctionalTestCase):
         self.assertTrue('introduction' in response)
         self.assertEqual(response['introduction'], u'<p>Fancy intro.</p>')
 
+
 class IdentificationReportTests(EuphorieFunctionalTestCase):
     def test_browser(self):
         import datetime

@@ -25,7 +25,6 @@ class View(JsonView):
         view = CountryView(country, self.request)
         return view.do_GET()
 
-
     def do_GET(self):
         countries = [{'id': country.id,
                       'title': country.title,

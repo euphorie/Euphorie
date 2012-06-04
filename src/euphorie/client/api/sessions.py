@@ -11,7 +11,6 @@ from euphorie.client.profile import set_session_profile
 from euphorie.client.session import create_survey_session
 
 
-
 class Sessions(PathGhost):
     """Virtual container for all user data."""
 

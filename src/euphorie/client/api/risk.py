@@ -135,22 +135,31 @@ class Evaluation(Identification):
                             % self.risk.type}
         try:
             if self.risk.evaluation_method == 'direct':
-                self.context.priority = get_json_token(self.input, 'priority', 
-                        IRisk['default_priority'], default=self.context.priority)
+                self.context.priority = get_json_token(self.input, 'priority',
+                        IRisk['default_priority'],
+                        default=self.context.priority)
             else:
                 algorithm = evaluation_algorithm(self.risk)
                 if algorithm == 'french':
-                    self.context.severity = get_json_token(self.input, 'severity',
-                            IFrenchEvaluation['default_severity'], self.context.severity)
-                    self.context.frequency = get_json_token(self.input, 'frequency',
-                            IFrenchEvaluation['default_frequency'], self.context.frequency)
+                    self.context.severity = get_json_token(self.input,
+                            'severity', IFrenchEvaluation['default_severity'],
+                            self.context.severity)
+                    self.context.frequency = get_json_token(self.input,
+                            'frequency',
+                            IFrenchEvaluation['default_frequency'],
+                            self.context.frequency)
                 else:  # Kinney
-                    self.context.probability = get_json_token(self.input, 'probability',
-                            IKinneyEvaluation['default_probability'], self.context.probability)
-                    self.context.frequency = get_json_token(self.input, 'frequency',
-                            IKinneyEvaluation['default_frequency'], self.context.frequency)
+                    self.context.probability = get_json_token(self.input,
+                            'probability',
+                            IKinneyEvaluation['default_probability'],
+                            self.context.probability)
+                    self.context.frequency = get_json_token(self.input,
+                            'frequency',
+                            IKinneyEvaluation['default_frequency'],
+                            self.context.frequency)
                     self.context.effect = get_json_token(self.input, 'effect',
-                            IKinneyEvaluation['default_effect'], self.context.effect)
+                            IKinneyEvaluation['default_effect'],
+                            self.context.effect)
                 calculate_priority(self.context, self.risk)
         except (KeyError, ValueError) as e:
             return {'type': 'error',
@@ -181,7 +190,7 @@ class ActionPlan(Identification):
                 return {'type': 'error',
                         'message': 'Can not set priority for top-5 or '
                                    'policy risks'}
-            self.context.priority = get_json_token(self.input, 'priority', 
+            self.context.priority = get_json_token(self.input, 'priority',
                     IRisk['default_priority'],
                     default=self.context.priority)
         self.context.comment = self.input.get('comment', self.context.comment)

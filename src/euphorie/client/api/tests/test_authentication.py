@@ -38,7 +38,7 @@ class generate_token_tests(unittest.TestCase):
         with mock.patch('euphorie.client.api.authentication.getUtility') \
                 as mock_getUtility:
             mock_getUtility(IKeyManager).secret.return_value = 'secret'
-            self.assertTrue('jane' not in 
+            self.assertTrue('jane' not in
                     self.generate_token(Account(id=5, loginname='john',
                         password='jane')))
 
@@ -72,4 +72,3 @@ class authenticate_token_tests(DatabaseTests):
                 return_value='1-otherhash'):
             addAccount()
             self.assertTrue(self.authenticate_token('1-hash') is None)
-

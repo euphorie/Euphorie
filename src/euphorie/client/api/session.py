@@ -38,7 +38,7 @@ class View(JsonView):
         session = object_session(self.context)
         session.delete(self.context)
         return {}
-        
+
     def do_GET(self):
         info = {'id': self.context.id,
                 'type': 'session',
@@ -69,7 +69,7 @@ class Identification(JsonView):
         risk = FindFirstQuestion(self.context, self.question_filter)
         if risk is not None:
             info['next-step'] = '%s/%s/%s' % \
-                    (self.context.absolute_url(), 
+                    (self.context.absolute_url(),
                             '/'.join(risk.short_path), self.phase)
         else:
             info['next-step'] = '%s/%s' % \
@@ -152,7 +152,7 @@ class SurveySessionPublishTraverse(DefaultPublishTraverse):
             if stack and stack[-1] != 'actionplans' and\
                     not stack[-1].startswith('@@'):
                 stack.append('@@%s' % stack.pop())
-                
+
             return build_tree_aq_chain(self.context, node_id)
         stack.pop()
         return super(SurveySessionPublishTraverse, self).publishTraverse(

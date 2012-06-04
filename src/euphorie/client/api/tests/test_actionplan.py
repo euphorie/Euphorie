@@ -50,7 +50,7 @@ class ViewTests(unittest.TestCase):
                     view.do_GET(),
                     {'type': 'actionplan', 'data': 'mock'})
             mock_plan_info.assert_called_once_with('context')
-        
+
     def test_do_PUT_returns_info(self):
         import mock
         from euphorie.client.model import ActionPlan

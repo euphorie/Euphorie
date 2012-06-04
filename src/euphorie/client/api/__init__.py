@@ -137,11 +137,11 @@ class JsonView(grok.View):
                 self.question_filter)
         if node is not None:
             info[key] = '%s/%s/%s' % \
-                    (self.request.survey_session.absolute_url(), 
+                    (self.request.survey_session.absolute_url(),
                     '/'.join(node.short_path), self.phase)
         elif next_phase:
             info[key] = '%s/%s' % \
-                    (self.request.survey_session.absolute_url(), 
+                    (self.request.survey_session.absolute_url(),
                      next_phase)
 
     def render(self):

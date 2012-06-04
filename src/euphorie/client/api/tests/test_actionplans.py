@@ -35,8 +35,8 @@ class RiskActionPlansTests(EuphorieFunctionalTestCase):
         wrapped_plan = plans['1']
         self.assertTrue(aq_base(wrapped_plan) is plan)
         self.assertTrue(aq_base(aq_parent(wrapped_plan)) is plans)
-
         self.assertRaises(KeyError, plans.__getitem__, '1')
+
     def test_getitem_bad_key(self):
         plans = self.RiskActionPlans('actionplans', None, None)
         self.assertRaises(KeyError, plans.__getitem__, 'xyz')

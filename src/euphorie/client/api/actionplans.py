@@ -6,7 +6,6 @@ from euphorie.client.model import ActionPlan
 from euphorie.client.api.actionplan import plan_info
 
 
-
 class RiskActionPlans(PathGhost):
     """Virtual container for all action plans for a risk data."""
 

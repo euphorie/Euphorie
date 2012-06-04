@@ -21,7 +21,7 @@ class ViewTests(unittest.TestCase):
         account = mock.Mock()
         session = mock.Mock()
         session.id = 13
-        session.zodb_path  = 'nl/ict/software-development'
+        session.zodb_path = 'nl/ict/software-development'
         session.title = u'This is my title'
         session.created = datetime.datetime(2012, 4, 20, 16, 5, 23)
         session.modified = datetime.datetime(2012, 4, 23, 11, 46, 23)

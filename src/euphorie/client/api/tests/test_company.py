@@ -29,7 +29,8 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         Session.add(survey_session)
         browser = Browser()
         browser.addHeader('X-Euphorie-Token', generate_token(account))
-        browser.open('http://nohost/plone/client/api/users/1/sessions/1/company')
+        browser.open(
+                'http://nohost/plone/client/api/users/1/sessions/1/company')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
         self.assertEqual(response['type'], 'company')

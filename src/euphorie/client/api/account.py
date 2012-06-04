@@ -40,7 +40,7 @@ class View(JsonView):
                 if not login_available(value):
                     return {'type': 'error',
                             'message': 'Loginname already in use.'}
-                changes['loginname']  = value
+                changes['loginname'] = value
         for (key, value) in changes.items():
             setattr(self.context, key, value)
         return self.do_GET()

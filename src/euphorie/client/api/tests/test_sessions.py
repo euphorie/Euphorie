@@ -52,7 +52,7 @@ class SessionsTests(DatabaseTests):
         with mock.patch('euphorie.client.api.sessions.get_survey') \
                 as mock_get:
             mock_get.return_value = 'mock-survey'
-            result = sessions['1'] 
+            result = sessions['1']
             self.assertTrue(aq_base(result) is survey_session)
             self.assertTrue(aq_parent(result) is sessions)
             mock_get.assert_called_once_with(request, 'survey/path')
