@@ -468,11 +468,11 @@ point directly to the start of the identification phase.
 Survey session information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+------+-------------------------------------+------------------------------+
-| Verb | URI                                 | Description                  |
-+======+=====================================+==============================+
++------+--------------------------------------+------------------------------+
+| Verb | URI                                  | Description                  |
++======+======================================+==============================+
 | GET  | /users/<userid>/sessions/<survey id> | Get information on survey.   |
-+------+-------------------------------------+------------------------------+
++------+--------------------------------------+------------------------------+
 
 .. note::
 
@@ -956,6 +956,7 @@ information about an action plan.
 ::
 
      {
+             "type": "actionplan",
              "id": 15,
              "plan": "Clean the workplace",
              "prevention": "Educate workers to clean daily.",
@@ -1092,3 +1093,42 @@ Update company details
 
 This interface will update the company information for a survey session.
 See the :ref:`View company details` section for the supported fields.
+
+
+Identifcation report
+~~~~~~~~~~~~~~~~~~~~
+
++------+------------------------------------------------------------+--------------------------------+
+| Verb | URI                                                        | Description                    |
++======+============================================================+================================+
+| GET  | /users/<userid>/sessions/<survey id>/report-identification | Download identifcation report. |
++------+------------------------------------------------------------+--------------------------------+
+
+This API call will return the identification report. This is returned as
+a downloadable RTF file.
+
+
+Action plan report
+~~~~~~~~~~~~~~~~~~
+
++------+--------------------------------------------------------+------------------------------+
+| Verb | URI                                                    | Description                  |
++======+========================================================+==============================+
+| GET  | /users/<userid>/sessions/<survey id>/report-actionplan | Download action plan report. |
++------+--------------------------------------------------------+------------------------------+
+
+This API call will return the action plan report. This is returned as a
+downloadable RTF file.
+
+
+Action plan timeline report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++------+------------------------------------------------------+--------------------------------+
+| Verb | URI                                                  | Description                    |
++======+======================================================+================================+
+| GET  | /users/<userid>/sessions/<survey id>/report-timeline | Download action plan timeline. |
++------+------------------------------------------------------+--------------------------------+
+
+This API call will return the action plan timeline. This is returned as
+a downloadable OpenXML (xlsx) file.

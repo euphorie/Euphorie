@@ -1,7 +1,9 @@
 from zope.component import adapts
 from five import grok
 from sqlalchemy.orm import object_session
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 from euphorie.content.survey import ISurvey
+from euphorie.client.model import Company
 from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
@@ -11,7 +13,9 @@ from euphorie.client.survey import Evaluation as BaseEvaluation
 from euphorie.client.survey import ActionPlan as BaseActionPlan
 from euphorie.client.survey import find_sql_context
 from euphorie.client.survey import build_tree_aq_chain
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from euphorie.client.report import ActionPlanReportDownload
+from euphorie.client.report import ActionPlanTimeline
+from euphorie.client.report import IdentificationReportDownload
 
 
 def get_survey(request, path):
@@ -91,6 +95,44 @@ class ActionPlan(Identification):
     phase = 'actionplan'
     next_phase = None
     question_filter = BaseActionPlan.question_filter
+
+
+class IdentificationReport(grok.View):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.layer(IClientAPISkinLayer)
+    grok.name('report-identification')
+
+    def render(self):
+        view = IdentificationReportDownload(self.request.survey, self.request)
+        view.session = self.context
+        return view.render()
+
+
+class ActionPlanReport(grok.View):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.layer(IClientAPISkinLayer)
+    grok.name('report-actionplan')
+
+    def render(self):
+        view = ActionPlanReportDownload(self.request.survey, self.request)
+        view.session = self.context
+        if view.session.company is None:
+            view.session.company = Company()
+        return view.render()
+
+
+class TimelineReport(grok.View):
+    grok.context(SurveySession)
+    grok.require('zope2.View')
+    grok.layer(IClientAPISkinLayer)
+    grok.name('report-timeline')
+
+    def render(self):
+        view = ActionPlanTimeline(self.request.survey, self.request)
+        view.session = self.context
+        return view.render()
 
 
 class SurveySessionPublishTraverse(DefaultPublishTraverse):
