@@ -107,7 +107,8 @@ class SurveySessionPublishTraverse(DefaultPublishTraverse):
         node_id = find_sql_context(self.context.id, stack)
         if node_id is not None:
             self.request.survey_session = self.context
-            if stack and not stack[-1].startswith('@@'):
+            if stack and stack[-1] != 'actionplans' and\
+                    not stack[-1].startswith('@@'):
                 stack.append('@@%s' % stack.pop())
                 
             return build_tree_aq_chain(self.context, node_id)

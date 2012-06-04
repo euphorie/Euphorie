@@ -1,3 +1,4 @@
+from zope.component import adapts
 from five import grok
 from euphorie.content.risk import evaluation_algorithm
 from euphorie.content.risk import IFrenchEvaluation
@@ -10,11 +11,14 @@ from euphorie.client.api import get_json_token
 from euphorie.client.api import vocabulary_token
 from euphorie.client.api import vocabulary_options
 from euphorie.client.api import context_menu
+from euphorie.client.api.actionplans import RiskActionPlans
+from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.risk import EvaluationView as BaseEvaluation
 from euphorie.client.risk import ActionPlanView as BaseActionPlan
 from euphorie.client.risk import calculate_priority
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 class View(JsonView):
@@ -161,3 +165,20 @@ class ActionPlan(Identification):
     phase = 'actionplan'
     next_phase = None
     question_filter = BaseActionPlan.question_filter
+
+
+class RiskPublishTraverse(DefaultPublishTraverse):
+    """Publish traverser for risks.
+
+    This is traverser makes it possible to traverse to the action plan
+    container.
+    """
+    adapts(Risk, IClientAPISkinLayer)
+
+    def publishTraverse(self, request, name):
+        if name == 'actionplans':
+            return RiskActionPlans(name, request, self.context)\
+                    .__of__(self.context)
+        else:
+            return super(RiskPublishTraverse, self).publishTraverse(
+                    request, name)

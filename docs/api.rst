@@ -906,11 +906,11 @@ The comment can also be updated by including the ``comment`` field.
 List action plans
 ~~~~~~~~~~~~~~~~~
 
-+------+---------------------------------------------------------+-------------------+
-| Verb | URI                                                     | Description       |
-+======+=========================================================+===================+
-| GET  | /users/<userid>/sessions/<session id>/<path>/actionplan | List action plans |
-+------+---------------------------------------------------------+-------------------+
++------+----------------------------------------------------------+-------------------+
+| Verb | URI                                                      | Description       |
++======+==========================================================+===================+
+| GET  | /users/<userid>/sessions/<session id>/<path>/actionplans | List action plans |
++------+----------------------------------------------------------+-------------------+
 
 During the action plan phase a user is asked to indicate how he wants to tackle
 a risk by defining specific actions to be taken. This API call will return a
@@ -944,11 +944,11 @@ returned information.
 View action plan
 ~~~~~~~~~~~~~~~~
 
-+------+--------------------------------------------------------------+----------------------------+
-| Verb | URI                                                          | Description                |
-+======+==============================================================+============================+
-| GET  | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | View action plan details.  |
-+------+--------------------------------------------------------------+----------------------------+
++------+---------------------------------------------------------------+----------------------------+
+| Verb | URI                                                           | Description                |
++======+===============================================================+============================+
+| GET  | /users/<userid>/sessions/<session id>/<path>/actionplans/<id> | View action plan details.  |
++------+---------------------------------------------------------------+----------------------------+
 
 The response is returned in the form of a JSON object containing all known
 information about an action plan.
@@ -974,11 +974,11 @@ can be used by consumers of this API to link a measure to an external system.
 Create new action plan
 ~~~~~~~~~~~~~~~~~~~~~~
 
-+------+---------------------------------------------------------+----------------------+
-| Verb | URI                                                     | Description          |
-+======+=========================================================+======================+
-| POST | /users/<userid>/sessions/<session id>/<path>/actionplan | Add new action plan. |
-+------+---------------------------------------------------------+----------------------+
++------+----------------------------------------------------------+----------------------+
+| Verb | URI                                                      | Description          |
++======+==========================================================+======================+
+| POST | /users/<userid>/sessions/<session id>/<path>/actionplans | Add new action plan. |
++------+----------------------------------------------------------+----------------------+
 
 The request must be a JSON object with data for the action plan to be added. The
 only required field is ``plan``; all either items are optional.
@@ -1021,11 +1021,11 @@ plan. See the :ref:`view action plan <View action plan>` call for details.
 Update action plan
 ~~~~~~~~~~~~~~~~~~
 
-+------+--------------------------------------------------------------+------------------------+
-| Verb | URI                                                          | Description            |
-+======+==============================================================+========================+
-| PUT  | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | Update an action plan. |
-+------+--------------------------------------------------------------+------------------------+
++------+---------------------------------------------------------------+------------------------+
+| Verb | URI                                                           | Description            |
++======+===============================================================+========================+
+| PUT  | /users/<userid>/sessions/<session id>/<path>/actionplans/<id> | Update an action plan. |
++------+---------------------------------------------------------------+------------------------+
 
 The request must be a JSON object with all items that must be updated. Items
 not included in the request will not be changed.
@@ -1034,11 +1034,11 @@ not included in the request will not be changed.
 Delete action plan
 ~~~~~~~~~~~~~~~~~~
 
-+--------+--------------------------------------------------------------+------------------------+
-| Verb   | URI                                                          | Description            |
-+========+==============================================================+========================+
-| DELETE | /users/<userid>/sessions/<session id>/<path>/actionplan/<id> | Remove an action plan. |
-+--------+--------------------------------------------------------------+------------------------+
++--------+---------------------------------------------------------------+------------------------+
+| Verb   | URI                                                           | Description            |
++========+===============================================================+========================+
+| DELETE | /users/<userid>/sessions/<session id>/<path>/actionplans/<id> | Remove an action plan. |
++--------+---------------------------------------------------------------+------------------------+
 
 This call will remove an action plan for a risk.
 

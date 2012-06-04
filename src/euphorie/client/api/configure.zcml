@@ -40,4 +40,8 @@
     <adapter
       factory=".session.SurveySessionPublishTraverse"
       provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <adapter
+      factory=".risk.RiskPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
 </configure>
