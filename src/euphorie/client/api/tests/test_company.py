@@ -92,7 +92,7 @@ class ViewTests(unittest.TestCase):
         view = self.View(context, None)
         view.input = {'referer': 'jane'}
         response = view.do_PUT()
-        self.assertEqual(response['result'], 'error')
+        self.assertEqual(response['type'], 'error')
 
     def test_do_PUT_do_not_clobber_mising_data(self):
         context = self.create_context()

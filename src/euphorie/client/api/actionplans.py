@@ -4,6 +4,7 @@ from euphorie.client.survey import PathGhost
 from euphorie.client.api import JsonView
 from euphorie.client.model import ActionPlan
 from euphorie.client.api.actionplan import plan_info
+from euphorie.client.api.actionplan import View as ActionPlanView
 
 
 class RiskActionPlans(PathGhost):
@@ -39,3 +40,12 @@ class View(JsonView):
 
     def do_GET(self):
         return {'action-plans': self.plans()}
+
+    def do_POST(self):
+        action_plan = ActionPlan()
+        view = ActionPlanView(action_plan, self.request)
+        view.input = self.input
+        response = view.do_PUT()
+        if response['type'] != 'error':
+            self.context.risk.action_plans.append(action_plan)
+        return response

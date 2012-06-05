@@ -95,6 +95,27 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['action-plans'], 'plan-info')
         view.plans.assert_called_once_with()
 
+    def test_do_POST_success(self):
+        import mock
+        context = mock.Mock()
+        context.risk.action_plans = []
+        view = self.View(context, 'request')
+        with mock.patch('euphorie.client.api.actionplan.View.do_PUT',
+                return_value={'type': 'actionplan'}):
+            view.input = 'input'
+            response = view.do_POST()
+            self.assertEqual(response, {'type': 'actionplan'})
+            self.assertEqual(len(context.risk.action_plans), 1)
+
+    def test_do_POST_error(self):
+        import mock
+        view = self.View(None, 'request')
+        with mock.patch('euphorie.client.api.actionplan.View.do_PUT',
+                return_value={'type': 'error'}):
+            view.input = 'input'
+            response = view.do_POST()
+            self.assertEqual(response, {'type': 'error'})
+
 
 class BrowserTests(EuphorieFunctionalTestCase):
     def test_get(self):

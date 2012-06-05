@@ -54,6 +54,6 @@ class View(JsonView):
             plan.planning_end = get_json_date(self.input, 'planning-end',
                     False, plan.planning_end)
         except (KeyError, ValueError) as e:
-            return {'result': 'error',
+            return {'type': 'error',
                     'message': str(e)}
         return self.do_GET()

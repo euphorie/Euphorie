@@ -38,6 +38,6 @@ class View(JsonView):
                     'workers-participated', False,
                     company.workers_participated)
         except (KeyError, ValueError) as e:
-            return {'result': 'error',
+            return {'type': 'error',
                     'message': str(e)}
         return self.do_GET()

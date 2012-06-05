@@ -78,7 +78,7 @@ class ViewTests(unittest.TestCase):
         view = self.View(context, None)
         view.input = {'budget': 'unlimited'}
         response = view.do_PUT()
-        self.assertEqual(response['result'], 'error')
+        self.assertEqual(response['type'], 'error')
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
