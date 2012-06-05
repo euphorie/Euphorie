@@ -159,6 +159,11 @@
     >
 
     <genericsetup:upgradeStep
+      title="Add action plan reference client"
+      description="Extend action plan data for API clients."
+      handler=".v4.add_actionplan_reference"/>
+
+    <genericsetup:upgradeStep
       title="Allow empty client password"
       description="Allow the client API to create passwordless accounts."
       handler=".v4.allow_empty_password"/>

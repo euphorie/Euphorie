@@ -1,10 +1,28 @@
 Changelog
 =========
 
-3.2.4 - Unreleased
+4.0 - Unreleased
 --------------------
 
-- ...
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *11*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version. For large systems this migration spent a long
+time in a SQL migration; in that situation it may be useful to run a
+manual SQL migration step by hand first: connect to the database and
+issue these SQL statements::
+
+    ALTER TABLE action_plan ADD COLUMN reference TEXT;
+    ALTER TABLE account ALTER COLUMN password DROP NOT NULL;
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Expose client functionality with via simple REST API.
+  [wichert]
 
 
 3.2.3 - May 16, 2012
