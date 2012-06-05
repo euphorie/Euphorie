@@ -43,7 +43,7 @@ PRIORITY_NAMES = {
         }
 
 
-def createDocument():
+def createDocument(survey_session):
     from rtfng.Styles import TextStyle
     from rtfng.Styles import ParagraphStyle
     from rtfng.PropertySets import TextPropertySet
@@ -94,7 +94,7 @@ def createDocument():
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
 
     document = Document(stylesheet)
-    document.SetTitle(SessionManager.session.title)
+    document.SetTitle(survey_session.title)
     return document
 
 
@@ -163,7 +163,7 @@ class _HtmlToRtf(object):
 HtmlToRtf = _HtmlToRtf()
 
 
-def createSection(document, survey, request):
+def createSection(document, survey, survey_session, request):
     t = lambda txt: translate(txt, context=request)
     footer = t(_("report_survey_revision",
         default=u"This report was based on the survey '${title}' of revision "
@@ -175,8 +175,7 @@ def createSection(document, survey, request):
             "".join(["\u%s?" % str(ord(e)) for e in footer]))
     section = Section()
     section.Header.append(Paragraph(
-        document.StyleSheet.ParagraphStyles.Footer,
-        SessionManager.session.title))
+        document.StyleSheet.ParagraphStyles.Footer, survey_session.title))
     section.Footer.append(footer)
     section.SetBreakType(section.PAGE)
     document.Sections.append(section)
@@ -280,8 +279,9 @@ class IdentificationReport(grok.View):
         """Return an orderer list of all relevant tree items for the current
         survey.
         """
+        dbsession = SessionManager.session
         query = Session.query(model.SurveyTreeItem)\
-                .filter(model.SurveyTreeItem.session == self.session)\
+                .filter(model.SurveyTreeItem.session == dbsession)\
                 .filter(sql.not_(model.SKIPPED_PARENTS))\
                 .order_by(model.SurveyTreeItem.path)
         return query.all()
@@ -336,7 +336,8 @@ class IdentificationReportDownload(grok.View):
     def addIdentificationResults(self, document):
         survey = self.request.survey
         t = lambda txt: translate(txt, context=self.request)
-        section = createSection(document, self.context, self.request)
+        section = createSection(document, self.context, self.session,
+                self.request)
 
         normal_style = document.StyleSheet.ParagraphStyles.Normal
         warning_style = document.StyleSheet.ParagraphStyles.Warning
@@ -383,7 +384,7 @@ class IdentificationReportDownload(grok.View):
                 section.append(Paragraph(comment_style, node.comment))
 
     def render(self):
-        document = createDocument()
+        document = createDocument(self.session)
         self.addIdentificationResults(document)
 
         renderer = Renderer()
@@ -519,7 +520,8 @@ class ActionPlanReportDownload(grok.View):
     def addIntroduction(self, document):
         t = lambda txt: translate(txt, context=self.request)
         normal_style = document.StyleSheet.ParagraphStyles.Normal
-        section = createSection(document, self.context, self.request)
+        section = createSection(document, self.context, self.session,
+                self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
@@ -542,7 +544,8 @@ class ActionPlanReportDownload(grok.View):
     def addCompanyInformation(self, document):
         company = self.session.company
         t = lambda txt: translate(txt, context=self.request)
-        section = createSection(document, self.context, self.request)
+        section = createSection(document, self.context, self.session, 
+                self.request)
         normal_style = document.StyleSheet.ParagraphStyles.Normal
         missing = t(_("missing_data", default=u"Not provided"))
 
@@ -590,7 +593,8 @@ class ActionPlanReportDownload(grok.View):
     def addActionPlan(self, document):
         survey = self.request.survey
         t = lambda txt: translate(txt, context=self.request)
-        section = createSection(document, self.context, self.request)
+        section = createSection(document, self.context, self.session, 
+                self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
@@ -764,7 +768,7 @@ class ActionPlanReportDownload(grok.View):
                     mapping={"amount": measure.budget}))))
 
     def render(self):
-        document = createDocument()
+        document = createDocument(self.session)
         self.addIntroduction(document)
         self.addCompanyInformation(document)
         self.addActionPlan(document)

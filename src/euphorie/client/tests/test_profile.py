@@ -214,67 +214,56 @@ class BuildSurveyTreeTests(unittest.TestCase):
 
 
 class ExtractProfileTests(TreeTests):
-    def extractProfile(self, survey):
-        from euphorie.client.utils import setRequest
+    def extractProfile(self, *a, **kw):
         from euphorie.client.profile import extractProfile
-        setRequest(self.portal.REQUEST)
-        try:
-            return extractProfile(survey)
-        finally:
-            setRequest(None)
+        return extractProfile(*a, **kw)
 
     def testNoProfileQuestions(self):
-        survey=self.createClientSurvey()
-        survey.invokeFactory("euphorie.module", "1")
-        session=self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
-        request=survey.REQUEST
-        request.other["euphorie.session"]=session
-        self.assertEqual(self.extractProfile(survey), {})
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.module', '1')
+        session = self.createSurveySession()
+        session.addChild(model.Module(
+            title=u'Root', module_id='1', zodb_path='1'))
+        self.assertEqual(self.extractProfile(survey, session), {})
 
     def testOptionalProfileQuestionNotSelected(self):
-        survey=self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq=survey["1"]
-        pq.type="optional"
-        session=self.createSurveySession()
-        request=survey.REQUEST
-        request.other["euphorie.session"]=session
-        self.assertEqual(self.extractProfile(survey), {"1": False})
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.profilequestion', '1')
+        pq = survey['1']
+        pq.type = 'optional'
+        session = self.createSurveySession()
+        self.assertEqual(self.extractProfile(survey, session), {'1': False})
 
     def testOptionalProfileQuestionSelected(self):
-        survey=self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq=survey["1"]
-        pq.type="optional"
-        session=self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
-        request=survey.REQUEST
-        request.other["euphorie.session"]=session
-        self.assertEqual(self.extractProfile(survey), {"1": True})
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.profilequestion', '1')
+        pq = survey['1']
+        pq.type = 'optional'
+        session = self.createSurveySession()
+        session.addChild(model.Module(
+            title=u'Root', module_id='1', zodb_path='1'))
+        self.assertEqual(self.extractProfile(survey, session), {'1': True})
 
     def testRepeatableProfileQuestionNotSelected(self):
-        survey=self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq=survey["1"]
-        pq.type="repeat"
-        session=self.createSurveySession()
-        request=survey.REQUEST
-        request.other["euphorie.session"]=session
-        self.assertEqual(self.extractProfile(survey), {"1": []})
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.profilequestion', '1')
+        pq = survey['1']
+        pq.type = 'repeat'
+        session = self.createSurveySession()
+        self.assertEqual(self.extractProfile(survey, session), {'1': []})
 
     def testRepeatableProfileQuestionSingleOption(self):
-        survey=self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq=survey["1"]
-        pq.title=u"Repeatable profile question"
-        pq.type="repeat"
-        session=self.createSurveySession()
-        session.addChild(model.Module(title=u"First answer", module_id="1", zodb_path="1"))
-        request=survey.REQUEST
-        request.other["euphorie.session"]=session
-        self.assertEqual(self.extractProfile(survey), {"1": [u"First answer"]})
-
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.profilequestion', '1')
+        pq = survey['1']
+        pq.title = u'Repeatable profile question'
+        pq.type = 'repeat'
+        session = self.createSurveySession()
+        session.addChild(model.Module(
+            title=u'First answer', module_id='1', zodb_path='1'))
+        self.assertEqual(
+                self.extractProfile(survey, session),
+                {'1': [u'First answer']})
 
 
 class Profile_getDesiredProfile_Tests(TreeTests):
@@ -466,5 +455,3 @@ class Profile_setupSession_Tests(TreeTests):
         self.setupSession(view)
         self.failUnless(view.session is not session)
         self.assertEqual(view.session.hasTree(), False)
-
-

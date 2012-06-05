@@ -40,68 +40,79 @@ class EvaluationViewTests(unittest.TestCase):
         self.assertEqual(view.evaluation_algorithm(risk), u"dummy")
 
     def test_calculatePriority_kinney_nothing_set(self):
+        import mock
         view = self.EvaluationView()
-        view.evaluation_algorithm=lambda x: u"french"
         risk = self.Risk()
-        self.assertEqual(view.calculatePriority(risk, {}), None)
+        risk.evaluation_method = 'calculated'
+        with mock.patch('euphorie.client.risk.evaluation_algorithm',
+                return_value='kinney'):
+            self.assertEqual(view.calculatePriority(risk, {}), None)
 
     def test_calculatePriority_french_nothing_set(self):
+        import mock
         view = self.EvaluationView()
-        view.evaluation_algorithm=lambda x: u"french"
         risk = self.Risk()
-        self.assertEqual(view.calculatePriority(risk, {}), None)
+        risk.evaluation_method = 'calculated'
+        with mock.patch('euphorie.client.risk.evaluation_algorithm',
+                return_value='french'):
+            self.assertEqual(view.calculatePriority(risk, {}), None)
 
     def test_calculatePriority_french(self):
+        import mock
         view = self.EvaluationView()
-        view.evaluation_algorithm=lambda x: u"french"
-        risk = self.Risk()
-        # Risks with weak severty are always low priority
-        for freq in ["rare", "not-often", "often", "regularly"]:
+        with mock.patch('euphorie.client.risk.evaluation_algorithm',
+                return_value='french'):
+            risk = self.Risk()
+            risk.evaluation_method = 'calculated'
+            # Risks with weak severity are always low priority
+            for freq in ["rare", "not-often", "often", "regularly"]:
+                self.assertEqual(
+                        view.calculatePriority(risk, self.reply(freq, "weak")),
+                        "low")
+            # High priority items
             self.assertEqual(
-                    view.calculatePriority(risk, self.reply(freq, "weak")),
-                    "low")
-        # High priority items
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("often", "severe")),
-            "high")
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("often", "very-severe")),
-            "high")
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("regularly", "severe")),
-            "high")
-        self.assertEqual(
-            view.calculatePriority(risk,
-                self.reply("regularly", "very-severe")),
-            "high")
-        # Some medium priority items
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("rare", "very-severe")),
-            "medium")
-        self.assertEqual(
-            view.calculatePriority(risk,
-                self.reply("not-often", "not-severe")),
-            "medium")
+                view.calculatePriority(risk, self.reply("often", "severe")),
+                "high")
+            self.assertEqual(
+                view.calculatePriority(risk, self.reply("often", "very-severe")),
+                "high")
+            self.assertEqual(
+                view.calculatePriority(risk, self.reply("regularly", "severe")),
+                "high")
+            self.assertEqual(
+                view.calculatePriority(risk,
+                    self.reply("regularly", "very-severe")),
+                "high")
+            # Some medium priority items
+            self.assertEqual(
+                view.calculatePriority(risk, self.reply("rare", "very-severe")),
+                "medium")
+            self.assertEqual(
+                view.calculatePriority(risk,
+                    self.reply("not-often", "not-severe")),
+                "medium")
 
     def test_calculatePriority_kinney(self):
+        import mock
         view = self.EvaluationView()
-        view.evaluation_algorithm=lambda x: u"kinney"
         risk = self.Risk()
-        # Risks with weak severity are always low priority
-        for freq in ["almost-never", "regular", "constant"]:
+        risk.evaluation_method = 'calculated'
+        with mock.patch('euphorie.client.risk.evaluation_algorithm',
+                return_value='kinney'):
+            # Risks with weak severity are always low priority
+            for freq in ["almost-never", "regular", "constant"]:
+                self.assertEqual(
+                        view.calculatePriority(risk, self.reply(freq, "weak", 'small')),
+                        "low")
+
             self.assertEqual(
-                    view.calculatePriority(risk, self.reply(freq, "weak", 'small')),
-                    "low")
+                view.calculatePriority(risk, self.reply("constant", "significant", 'medium')),
+                "high")
 
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("constant", "significant", 'medium')),
-            "high")
+            self.assertEqual(
+                view.calculatePriority(risk, self.reply("constant", "high", 'medium')),
+                "high")
 
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("constant", "high", 'medium')),
-            "high")
-
-        self.assertEqual(
-            view.calculatePriority(risk, self.reply("constant", "weak", 'medium')),
-            "medium")
-
+            self.assertEqual(
+                view.calculatePriority(risk, self.reply("constant", "weak", 'medium')),
+                "medium")

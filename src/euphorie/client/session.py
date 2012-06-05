@@ -1,5 +1,7 @@
 import logging
 from z3c.saconfig import Session
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from AccessControl import getSecurityManager
 from euphorie.client import model
 from euphorie.client.cookie import getCookie
@@ -7,10 +9,33 @@ from euphorie.client.cookie import setCookie
 from euphorie.client.cookie import deleteCookie
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import getSecret
-from euphorie.client.utils import RelativePath
 
 log = logging.getLogger(__name__)
 SESSION_COOKIE = "_eu_session"
+
+
+def create_survey_session(title, survey, account=None):
+    """Create a new survey session.
+
+    :param title: title for the new session.
+    :type title: unicode
+    :param survey: survey for which the session is being created
+    :type survey: :py:class:`euphorie.content.survey.Survey`
+    :rtype: :py:class:`euphorie.client.model.SurveySession` instance
+    """
+    if account is None:
+        account = getSecurityManager().getUser()
+
+    sector = aq_parent(aq_inner(survey))
+    country = aq_parent(sector)
+    zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
+    survey_session = model.SurveySession(
+            title=title,
+            zodb_path=zodb_path,
+            account=account)
+    Session.add(survey_session)
+    Session.flush()  # flush so we get a session id
+    return survey_session
 
 
 class SessionManagerFactory(object):
@@ -49,16 +74,12 @@ class SessionManagerFactory(object):
         :type survey: :py:class:`euphorie.content.survey.Survey`
         :rtype: :py:class:`euphorie.client.model.SurveySession` instance
         """
-        if account is None:
-            account=getSecurityManager().getUser()
-        request=getRequest()
-        zodb_path=RelativePath(request.client, survey)
-        session=model.SurveySession(title=title, zodb_path=zodb_path, account=account)
-        Session.add(session)
-        Session.flush() # flush so we get a session id
-        setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)
-        request.other["euphorie.session"]=session
-        return session
+        survey_session = create_survey_session(title, survey, account)
+        request = getRequest()
+        setCookie(request.response, getSecret(), SESSION_COOKIE, 
+                survey_session.id)
+        request.other['euphorie.session'] = survey_session
+        return survey_session
 
 
     def resume(self, session):

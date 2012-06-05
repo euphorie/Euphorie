@@ -91,6 +91,12 @@ Bugfixes
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/193>`_.
   [wichert]
 
+- Fix case handling of email addresses when changing the email address
+  in the client. Previously it was possible to change to an email address
+  with capital, after which login was no longer possible.  This fixes 
+  a final part of `TNO ticket 194
+  <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
+
 
 3.1.1 - April 27, 2012
 ----------------------

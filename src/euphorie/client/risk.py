@@ -101,41 +101,22 @@ class EvaluationView(grok.View):
         text = risk.problem_description
         return bool(text and text.strip())
 
-
+    
     def evaluation_algorithm(self, risk):
-        for parent in aq_chain(aq_inner(risk)):
-            if ISurvey.providedBy(parent):
-                return getattr(parent, "evaluation_algorithm", u"kinney")
-        return u"kinney"
-
+        return evaluation_algorithm(risk)
 
     def calculatePriority(self, risk, reply):
         self.context.frequency = reply.get("frequency")
         try:
-            if self.evaluation_algorithm(risk)=="french":
+            if evaluation_algorithm(risk)=="french":
                 self.context.effect = reply.get("severity")
-                priority = self.context.frequency*self.context.effect
-
-                if priority<10:
-                    return "low"
-                elif priority<=45:
-                    return "medium"
-                else:
-                    return "high"
             else:  # Kinney method
                 self.context.effect = reply.get("effect")
                 self.context.probability = reply.get("probability")
-                priority = self.context.frequency*self.context.effect*self.context.probability
-                
-                if priority<=15:
-                    return "low"
-                elif priority<=50:
-                    return "medium"
-                else:
-                    return "high"
+            calculate_priority(self.context, risk)
         except TypeError:
-            return None
-
+            pass
+        return self.context.priority
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -150,7 +131,7 @@ class EvaluationView(grok.View):
             if risk.evaluation_method == "direct":
                 self.context.priority = reply.get("priority")
             else:
-                self.context.priority = self.calculatePriority(risk, reply)
+                self.calculatePriority(risk, reply)
 
             SessionManager.session.touch()
 
@@ -378,3 +359,40 @@ class ActionPlanView(grok.View):
                                     if ISolution.providedBy(solution)]
 
         super(ActionPlanView, self).update()
+
+
+def calculate_priority(db_risk, risk):
+    """Update the risk priority.
+
+    This method can be used for risks using a calculated evaluation method
+    to determine the priority absed on the subquestions.
+    """
+    assert risk.evaluation_method == 'calculated'
+    if risk.type in ['top5', 'policy']:
+        db_risk.priority = 'high'
+    elif evaluation_algorithm(risk) == 'french':
+        priority = db_risk.frequency * db_risk.effect
+        if priority < 10:
+            db_risk.priority = 'low'
+        elif priority <= 45:
+            db_risk.priority = 'medium'
+        else:
+            db_risk.priority = 'high'
+    else:
+        priority = db_risk.frequency * db_risk.effect * db_risk.probability
+        
+        if priority <= 15:
+            db_risk.priority = 'low'
+        elif priority<=50:
+            db_risk.priority = 'medium'
+        else:
+            db_risk.priority = 'high'
+    return db_risk.priority
+
+
+def evaluation_algorithm(risk):
+    for parent in aq_chain(aq_inner(risk)):
+        if ISurvey.providedBy(parent):
+            return getattr(parent, 'evaluation_algorithm', u'kinney')
+    else:
+        return u'kinney'

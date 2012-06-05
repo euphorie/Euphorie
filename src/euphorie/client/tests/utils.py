@@ -4,12 +4,12 @@ def addAccount(login="jane@example.com", password=u"Øle"):
     from z3c.saconfig import Session
     from euphorie.client import model
     from euphorie.client import CONDITIONS_VERSION
-    account=model.Account(loginname="jane@example.com",
-            password=password,
+    account = model.Account(loginname=login, password=password,
             tc_approved=CONDITIONS_VERSION)
-    session=Session()
+    session = Session()
     session.add(account)
     session.flush()
+    return account
 
 
 def addSurvey(portal, xml_survey):
@@ -17,12 +17,11 @@ def addSurvey(portal, xml_survey):
     loggin in as portal owner."""
     from euphorie.content import upload
     from euphorie.client import publish
-    importer=upload.SectorImporter(portal.sectors.nl)
-    sector=importer(xml_survey, None, None, None, u"test import")
-    survey=sector.values()[0]["test-import"]
-    publisher=publish.PublishSurvey(survey, portal.REQUEST)
+    importer = upload.SectorImporter(portal.sectors.nl)
+    sector = importer(xml_survey, None, None, None, u"test import")
+    survey = sector.values()[0]["test-import"]
+    publisher = publish.PublishSurvey(survey, portal.REQUEST)
     publisher.publish()
-
 
 
 def testRequest():

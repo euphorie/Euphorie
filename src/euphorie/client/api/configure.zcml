@@ -1,0 +1,47 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:db="http://namespaces.zope.org/db"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="euphorie">
+
+    <interface
+        interface=".interfaces.IClientAPISkinLayer"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="api"
+        />
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IContentish"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IFolderish"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="..model.BaseObject"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="..survey.PathGhost"
+      layer=".interfaces.IClientAPISkinLayer"
+      name="index_html"/>
+
+    <adapter
+      factory=".account.AccountPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <adapter
+      factory=".session.SurveySessionPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+    <adapter
+      factory=".risk.RiskPublishTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+</configure>

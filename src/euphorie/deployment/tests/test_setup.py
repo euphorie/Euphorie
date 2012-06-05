@@ -19,6 +19,10 @@ class SetupTests(EuphorieTestCase):
         self.failUnless("client" in self.portal.objectIds())
         self.assertEqual(self.portal.client.portal_type, "euphorie.client")
 
+    def test_client_api(self):
+        client = self.portal.client
+        self.assertTrue('api' in client)
+
     def testClientUserCreated(self):
         user=self.portal.acl_users.getUserById("client")
         self.failUnless(user is not None)

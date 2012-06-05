@@ -282,5 +282,3 @@ class PreviewSurvey(form.Form):
                         (aq_inner(self.context), self.request), 
                         name="plone_context_state")
         self.request.response.redirect(state.view_url())
-
-

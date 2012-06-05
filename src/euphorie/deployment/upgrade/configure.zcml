@@ -152,5 +152,17 @@
       handler=".v3.add_has_description_column"/>
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="10"
+    destination="11"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Allow empty client password"
+      description="Allow the client API to create passwordless accounts."
+      handler=".v4.allow_empty_password"/>
+
+  </genericsetup:upgradeSteps>
 </configure>
 

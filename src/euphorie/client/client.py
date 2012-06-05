@@ -11,6 +11,7 @@ from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from borg.localrole.interfaces import ILocalRoleProvider
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.api.entry import access_api
 from Products.membrane.interfaces.user import IMembraneUserObject
 
 class IClient(form.Schema, IBasic):
@@ -94,9 +95,12 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
         setRequest(request)
-        request.client=self.context
-        ifaces=[iface for iface in directlyProvidedBy(request)
+        request.client = self.context
+
+        if name == 'api':
+            return access_api(request).__of__(self.context)
+
+        ifaces = [iface for iface in directlyProvidedBy(request)
                 if not IBrowserSkinType.providedBy(iface)]
         directlyProvides(request, IClientSkinLayer, ifaces)
         return super(ClientPublishTraverser, self).publishTraverse(request, name)
-
