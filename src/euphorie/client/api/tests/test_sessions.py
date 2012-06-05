@@ -48,15 +48,16 @@ class SessionsTests(DatabaseTests):
                 zodb_path='survey/path', account=account)
         object_session(account).add(survey_session)
         request = mock.Mock()
+        request.language = None
         sessions = self.Sessions('sessions', request, account)
         with mock.patch('euphorie.client.api.sessions.get_survey') \
                 as mock_get:
-            mock_get.return_value = 'mock-survey'
+            mock_survey = mock_get(request, 'survey/path')
+            mock_survey.language = None
             result = sessions['1']
             self.assertTrue(aq_base(result) is survey_session)
             self.assertTrue(aq_parent(result) is sessions)
-            mock_get.assert_called_once_with(request, 'survey/path')
-            self.assertEqual(request.survey, 'mock-survey')
+            self.assertTrue(request.survey is mock_survey)
 
 
 class ViewTests(EuphorieFunctionalTestCase):

@@ -27,6 +27,11 @@ class Sessions(PathGhost):
             survey = get_survey(self.request, survey_session.zodb_path)
             if survey is not None:
                 self.request.survey = survey
+                if survey.language is not None:
+                    self.request['LANGUAGE'] = survey.language
+                    binding = self.request.get('LANGUAGE_TOOL', None)
+                    if binding is not None:
+                        binding.LANGUAGE = survey.language
                 return survey_session.__of__(self)
         except (AttributeError, TypeError, ValueError):
             pass

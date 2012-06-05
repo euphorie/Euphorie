@@ -49,7 +49,8 @@ def vocabulary_options(field, request):
     t = lambda txt: translate(txt, context=request)
     return [{'value': term.token,
              'title': t(term.title)}
-            for term in field.vocabulary]
+            for term in field.vocabulary
+            if term.token != 'none']
 
 
 def get_json_token(input, name, field, required=False, default=None):

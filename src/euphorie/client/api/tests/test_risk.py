@@ -299,3 +299,18 @@ class BrowserTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
         self.assertEqual(response['type'], 'risk')
+
+    def test_get_translation(self):
+        import json
+        from euphorie.client.api.authentication import generate_token
+        self.loginAsPortalOwner()
+        (account, survey, survey_session) = _setup_session(self.portal)
+        survey.language = 'nl'
+        browser = Browser()
+        browser.addHeader('X-Euphorie-Token', generate_token(account))
+        browser.open('http://nohost/plone/client/api/users/1/sessions/1/1/1')
+        self.assertEqual(browser.headers['Content-Type'], 'application/json')
+        response = json.loads(browser.contents)
+        options = dict((opt['value'], opt['title'])
+                           for opt in response['frequency-options'])
+        self.assertEqual(options['constant'], u'Voortdurend')
