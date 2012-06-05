@@ -168,6 +168,11 @@
       description="Allow the client API to create passwordless accounts."
       handler=".v4.allow_empty_password"/>
 
+    <genericsetup:upgradeStep
+      title="Configure client API authentication."
+      description="Configure authentication for client API users."
+      handler=".v4.enable_extra_pas_interfaces"/>
+
   </genericsetup:upgradeSteps>
 </configure>
 

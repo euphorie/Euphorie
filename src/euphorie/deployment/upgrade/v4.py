@@ -1,9 +1,11 @@
 import logging
 from sqlalchemy.engine.reflection import Inspector
+from Acquisition import aq_parent
 from zope.sqlalchemy import datamanager
 from z3c.saconfig import Session
 from euphorie.client.model import Account
 from euphorie.client.model import ActionPlan
+from euphorie.client.setuphandlers import enable_plugin_and_move_to_top
 
 
 log = logging.getLogger(__name__)
@@ -29,3 +31,8 @@ def allow_empty_password(context):
         session.execute(
                 'ALTER TABLE account ALTER COLUMN password DROP NOT NULL')
         datamanager.mark_changed(session)
+
+
+def enable_extra_pas_interfaces(context):
+    pas = aq_parent(context).acl_users
+    enable_plugin_and_move_to_top(pas, pas.euphorie)

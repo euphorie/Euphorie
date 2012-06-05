@@ -13,6 +13,7 @@ def enable_plugin_and_move_to_top(pas, plugin):
         for i in range(len(pas.plugins.listPluginIds(info['interface']))):
             pas.plugins.movePluginsUp(info['interface'], [plugin.getId()])
 
+
 def add_account_plugin(pas):
     addEuphorieAccountPlugin(pas, 'euphorie', 'Euphorie account manager')
     enable_plugin_and_move_to_top(pas, pas.euphorie)
