@@ -831,27 +831,24 @@ For risks with an evalution option of ``calculated`` these extra fields are incl
 +=========================+===============+==========+================================+
 | ``frequency-options``   | list of       | Yes      | A list of allowed frequency    |
 |                         | objects       |          | answers. Each entry is an      |
-|                         |               |          | object with two keys:          |
-|                         |               |          | ``value`` (integer) and        |
-|                         |               |          | ``title`` (string).            |
+|                         |               |          | object with two string keys:   |
+|                         |               |          | ``value`` and ``title``.       |
 +-------------------------+---------------+----------+--------------------------------+
 | ``frequency``           | integer       | Yes      | Users answer to the frequency  |
 |                         |               |          | question.                      |
 +-------------------------+---------------+----------+--------------------------------+
 | ``effect-options``      | list of       | Yes      | A list of allowed effect       |
 |                         | objects       |          | answers. Each entry is an      |
-|                         |               |          | object with two keys:          |
-|                         |               |          | ``value`` (integer) and        |
-|                         |               |          | ``title`` (string).            |
+|                         |               |          | object with two string keys:   |
+|                         |               |          | ``value`` and ``title``.       |
 +-------------------------+---------------+----------+--------------------------------+
 | ``effect``              | integer       | Yes      | Users answer to the effect     |
 |                         |               |          | question.                      |
 +-------------------------+---------------+----------+--------------------------------+
 | ``probability-options`` | list of       | Yes      | A list of allowed probability  |
 |                         | objects       |          | answers. Each entry is an      |
-|                         |               |          | object with two keys:          |
-|                         |               |          | ``value`` (integer) and        |
-|                         |               |          | ``title`` (string).            |
+|                         |               |          | object with two string keys:   |
+|                         |               |          | ``value`` and ``title``.       |
 +-------------------------+---------------+----------+--------------------------------+
 | ``probability``         | integer       | Yes      | Users answer to the probability|
 |                         |               |          | question.                      |
