@@ -1,4 +1,7 @@
+from Acquisition.interfaces import IAcquirer
 from zope.component import adapts
+from zope.component import queryMultiAdapter
+from zope.interface import Interface
 from five import grok
 from sqlalchemy.orm import object_session
 from ZPublisher.BaseRequest import DefaultPublishTraverse
@@ -155,5 +158,11 @@ class SurveySessionPublishTraverse(DefaultPublishTraverse):
 
             return build_tree_aq_chain(self.context, node_id)
         stack.pop()
-        return super(SurveySessionPublishTraverse, self).publishTraverse(
-                request, name)
+        view = queryMultiAdapter((self.context, request), Interface,
+                name)
+        if view is not None:
+            if IAcquirer.providedBy(view):
+                view = view.__of__(self.context)
+            return view
+        else:
+            raise KeyError(name)

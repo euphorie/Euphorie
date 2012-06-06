@@ -1,6 +1,7 @@
 from five import grok
 from euphorie.client.company import CompanySchema
 from euphorie.client.model import Company
+from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
 from euphorie.client.api import get_json_bool
 from euphorie.client.api import get_json_string
@@ -8,12 +9,16 @@ from euphorie.client.api import get_json_token
 
 
 class View(JsonView):
-    grok.context(Company)
+    grok.context(SurveySession)
     grok.require('zope2.View')
-    grok.name('index_html')
+    grok.name('company')
+
+    def update(self):
+        if self.context.company is None:
+            self.context.company = Company()
 
     def do_GET(self):
-        company = self.context
+        company = self.context.company
         return {'type': 'company',
                 'country': getattr(company, 'country', None),
                 'employees': getattr(company, 'employees', None),
@@ -24,7 +29,7 @@ class View(JsonView):
                }
 
     def do_PUT(self):
-        company = self.context
+        company = self.context.company
         try:
             company.country = get_json_string(self.input, 'country', False,
                     company.country, length=3)
