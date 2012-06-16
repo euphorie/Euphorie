@@ -27,6 +27,8 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
+    check_update = True
+
     def do_GET(self):
         self.risk = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
@@ -89,9 +91,6 @@ class Identification(JsonView):
     phase = 'identification'
     next_phase = 'evaluation'
     question_filter = None
-
-    def __init__(self, *a):
-        super(Identification, self).__init__(*a)
 
     def do_GET(self):
         info = View(self.context, self.request).do_GET()

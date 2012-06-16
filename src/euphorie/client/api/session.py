@@ -65,6 +65,7 @@ class Identification(JsonView):
     phase = 'identification'
     next_phase = 'evaluation'
     question_filter = None
+    check_update = True
 
     def do_GET(self):
         info = View(self.context, self.request).do_GET()
@@ -88,6 +89,7 @@ class Evaluation(Identification):
     phase = 'evaluation'
     next_phase = 'actionplan'
     question_filter = BaseEvaluation.question_filter
+    check_update = True
 
 
 class ActionPlan(Identification):
@@ -98,6 +100,7 @@ class ActionPlan(Identification):
     phase = 'actionplan'
     next_phase = None
     question_filter = BaseActionPlan.question_filter
+    check_update = True
 
 
 class IdentificationReport(grok.View):

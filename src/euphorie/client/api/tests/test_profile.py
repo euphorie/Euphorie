@@ -42,7 +42,7 @@ class ViewTests(EuphorieFunctionalTestCase):
                       'type': 'repeatable',
                       'value': [u'London', u'Tokyo']}])
 
-    def test_post_no_profile(self):
+    def test_put_no_profile(self):
         import mock
         from z3c.saconfig import Session
         from euphorie.client.tests.utils import addAccount
@@ -61,10 +61,10 @@ class ViewTests(EuphorieFunctionalTestCase):
         with mock.patch('euphorie.client.api.profile.extractProfile') \
                 as mock_extractProfile:
             mock_extractProfile.return_value = {}
-            response = view.do_POST()
+            response = view.do_PUT()
             self.assertEqual(response['profile'], [])
 
-    def test_post_too_much_data(self):
+    def test_put_too_much_data(self):
         import mock
         from euphorie.client.tests.utils import addAccount
         from euphorie.client.model import SurveySession
@@ -78,10 +78,10 @@ class ViewTests(EuphorieFunctionalTestCase):
         view.input = {'5': True}
         survey = Survey(id='survey')
         view.survey = mock.Mock(return_value=survey)
-        response = view.do_POST()
+        response = view.do_PUT()
         self.assertEqual(response['type'], 'error')
 
-    def test_post_not_all_questions_answered(self):
+    def test_put_not_all_questions_answered(self):
         import mock
         from euphorie.content.survey import Survey
         from euphorie.content.profilequestion import ProfileQuestion
@@ -100,7 +100,7 @@ class ViewTests(EuphorieFunctionalTestCase):
                 question=u'Locations',
                 type='repeatable')
         view.survey = mock.Mock(return_value=survey)
-        response = view.do_POST()
+        response = view.do_PUT()
         self.assertEqual(response['type'], 'error')
 
 

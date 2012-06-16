@@ -14,6 +14,8 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
+    check_update = True
+
     def do_GET(self):
         self.module = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))

@@ -30,7 +30,7 @@ class View(JsonView):
                 'title': self.context.title,
                 'profile': result}
 
-    def do_POST(self):
+    def do_PUT(self):
         survey = self.survey()
         questions = survey.ProfileQuestions()
         if set([q.id for q in questions]) != set(self.input):

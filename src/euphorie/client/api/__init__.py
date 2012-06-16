@@ -8,6 +8,7 @@ from zope.publisher.publish import mapply
 from five import grok
 from zope.i18n import translate
 from euphorie.client.navigation import getTreeData
+from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 
 
@@ -132,6 +133,7 @@ class JsonView(grok.View):
     previous_phase = None
     next_phase = None
     question_filter = None
+    check_update = False
 
     def _step(self, info, key, finder, next_phase=None):
         node = finder(self.context, self.request.survey_session,
@@ -151,6 +153,12 @@ class JsonView(grok.View):
 
     def __call__(self):
         self.request.response.setHeader('Content-Type', 'application/json')
+        if self.check_update and \
+            wasSurveyUpdated(self.request.survey_session, self.request.survey):
+            url = '%s/update' % self.request.survey_session.absolute_url()
+            return {'type': 'update',
+                    'next-step': url}
+
         input = self.request.stdin.getvalue()
         if input:
             try:

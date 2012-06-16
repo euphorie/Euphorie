@@ -379,8 +379,6 @@ structure. They include the following keys:
 If a survey was updated since the last interaction of the user with the survey
 and the structure of the survey has changed a *survey-update* response is
 generated. The response type can be identified by ``type`` set to ``update``.
-An additional ``confirm-profile`` key is set to ``true`` if the profile options
-for the survey have changed and the user needs to (re)confirm his profile.
 
 ::
 
@@ -593,6 +591,8 @@ Acknowledge survey update
 +------+-----------------------------------------------+------------------------------+
 | Verb | URI                                           | Description                  |
 +======+===============================================+==============================+
+| GET  | /users/<userid>/sessions/<session id>/update  | Get update information.      |
++------+-----------------------------------------------+------------------------------+
 | PUT  | /users/<userid>/sessions/<session id>/update  | Confirm survey update.       |
 +------+-----------------------------------------------+------------------------------+
 
@@ -601,16 +601,10 @@ structure was changed (for example a new risk has been added) the user must
 acknowledge the change and request that his survey session is updated
 accordingly. 
 
-For surveys without profile questions the request does not require any data to be
-specified. For surveys with a profile the (updated) profile must be provided. This
-uses the same format as a normal :ref:`profile update <Update profile>`.
+These calls return the same information as the `profile information<View
+profile information>`_ and `update profile <Update profile>`_ calls. The only
+difference is that the ``type`` got a GET query will be set to ``update``.
 
-The response is a standard response with ``next-step`` pointing to the start of
-the identification phase::
-
-   {
-           "next-step: "http://api.instrumenten.rie.nl/users/13/sessions/193714/identification",
-   }
 
 
 Start identification phase
