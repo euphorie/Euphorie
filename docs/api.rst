@@ -575,8 +575,8 @@ It is mandatory that all profile questions are included in the request data. If
 data for a question is missing or invalid an error will be returned.
 
 The response to a profile update returns the same information as the profile
-information view. **The ``id`` of the survey might have change as a result
-of a profile update**.
+information view. **The id of the survey may change as a result of a profile
+update**.
 
 ::
 
