@@ -4,7 +4,7 @@ Changelog
 4.0.2 - Unreleased
 ---------------------
 
-...
+- Added Czech translations. [jcbrand]
 
 
 4.0.1 - June 18, 2012

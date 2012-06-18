@@ -328,7 +328,7 @@ msgstr ""
 #: src/euphorie/client/report.py:681
 #: src/euphorie/client/templates/report_actionplan.pt:111
 msgid "report_measure_actionplan"
-msgstr ""
+msgstr "Akční plán"
 
 #. Default: Prevention plan:
 #: src/euphorie/client/report.py:687
@@ -395,7 +395,7 @@ msgstr ""
 #. Default: Action plan ${title}
 #: src/euphorie/client/report.py:775
 msgid "filename_report_actionplan"
-msgstr ""
+msgstr "Akční plán"
 
 #. Default: Low
 #: src/euphorie/client/report.py:821
@@ -436,7 +436,7 @@ msgstr ""
 #: src/euphorie/content/solution.py:27
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
-msgstr ""
+msgstr "Akční plán"
 
 #. Default: Prevention plan
 #: src/euphorie/client/report.py:834
@@ -1602,7 +1602,7 @@ msgstr "Proveďte vyhodnocení"
 #. Default: Go to action plan
 #: src/euphorie/client/templates/evaluation.pt:38
 msgid "label_jump_to_actionplan"
-msgstr "Jděte na akční plán"
+msgstr "Přejděte na akční plán"
 
 #. Default: Help
 #: src/euphorie/client/templates/help.pt:17
@@ -2142,7 +2142,7 @@ msgstr ""
 #: src/euphorie/client/templates/risk_evaluation.pt:125
 #: src/euphorie/client/templates/risk_identification.pt:39
 msgid "label_comment"
-msgstr ""
+msgstr "Zde nezapisujte jakékoli poznámky nebo komentáře k výše uvedenému textu. Případné poznámky nebo komentáře uveďte v akčním plánu."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:279
 msgid ""
@@ -2525,9 +2525,8 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:125
-#, fuzzy
 msgid "header_legal_references"
-msgstr "Právní odkazy a odkazy na postupy"
+msgstr "Odkazy na právní předpisy a postupy"
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
