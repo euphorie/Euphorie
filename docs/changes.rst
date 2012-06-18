@@ -1,10 +1,10 @@
 Changelog
 =========
 
-4.0.1 - Unreleased
+4.0.1 - June 18, 2012
 --------------------
 
-- ...
+- Fix bad release.
 
 
 4.0 - June 18, 2012
