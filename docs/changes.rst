@@ -6,11 +6,15 @@ Changelog
 
 - Added Czech translations. [jcbrand]
 
+- Fix access problem for survey session views in the client API.
+  [wichert]
+
 
 4.0.1 - June 18, 2012
 ---------------------
 
 - Fix bad release.
+  [wichert]
 
 
 4.0 - June 18, 2012

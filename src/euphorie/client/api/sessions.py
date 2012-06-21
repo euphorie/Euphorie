@@ -24,6 +24,7 @@ class Sessions(PathGhost):
                     .filter(SurveySession.id == int(key))\
                     .filter(SurveySession.account == self.account)\
                     .first()
+            self.request.survey_session = survey_session
             survey = get_survey(self.request, survey_session.zodb_path)
             if survey is not None:
                 self.request.survey = survey
