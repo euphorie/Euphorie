@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.0.2 - Unreleased
+4.0.2 - June 21, 2012
 ---------------------
 
 - Added Czech translations. [jcbrand]
