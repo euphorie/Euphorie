@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '4.0.2'
+version = '4.0.3dev'
 
 setup(name="Euphorie",
       version=version,
@@ -13,6 +13,7 @@ setup(name="Euphorie",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 2 :: Only",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
