@@ -28,7 +28,7 @@
         <input type="hidden" name="came_from" value="${view/came_from}" tal:condition="view/came_from"/>
         <div id="conditions" class="conditions">
           <p i18n:translate="conditions_intro1">
-            The OiRA (Online interactive Risk Assesment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
+            The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
           </p>
 
           <p i18n:translate="conditions_intro2">
@@ -38,7 +38,7 @@
           <h2 i18n:translate="conditions_info_header">The Information we collect and for what purposes</h2>
 
           <p i18n:translate="conditions_info_entry">
-          The kind of information we collect: when you sign up for an OiRA account and you put in data into the Online interactive Risk Assessment application we are asking you for the following information:</p>
+          The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:</p>
 
           <ul>
             <li i18n:translate="conditions_info_email">
@@ -46,7 +46,7 @@
             </li>
 
             <li i18n:translate="conditions_info_text">
-              Any information you provide in the free text fields of the application and in the action plan - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary.
+              Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary.
             </li>
 
             <li i18n:translate="conditions_info_cookies">
@@ -69,13 +69,13 @@
           <h2 i18n:translate="conditions_datacontroller_header">Data controller</h2>
 
           <p i18n:translate="condtions_datacontroller">
-            The data controller is Andrew Smith, European Agency for Safety and Health at Work, Bilbao. 
+            The data controller is the European Agency for Safety and Health at Work, Bilbao. 
           </p>
 
           <h2 i18n:translate="conditions_conservation_header">Conservation and processing of information</h2>
 
           <p i18n:translate="conditions_conservation_keep_data">
-            We keep your data which is inaccessible for external users until you delete your account and your session(s). 
+            We keep your data, which is inaccessible for external users, until you delete your account and your session(s). 
           </p>
 
           <p i18n:translate="conditions_conservation_storage">
@@ -91,13 +91,13 @@
           <h2 i18n:translate="conditions_security_header">Information security</h2>
 
           <p i18n:translate="conditions_security">
-            We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. Data are not accessible to anybody by any means. IP addresses are not saved so that end-users can not be identified through their access.
+            We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access.
           </p>
 
           <h2 i18n:translate="conditions_contact_header">Contact information</h2>
 
           <p i18n:translate="conditions_contact">
-            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any inquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.  
+            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.  
           </p>
         </div>
         <p class="buttonBar" tal:condition="not:isAnonymous">
