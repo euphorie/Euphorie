@@ -4,7 +4,7 @@ Changelog
 4.0.3 - Unreleased
 ---------------------
 
-- ...
+- Updated privacy policy text. [jcbrand]
 
 
 4.0.2 - June 21, 2012
