@@ -1783,12 +1783,12 @@ msgstr ""
 #. Default: list of all risks
 #: src/euphorie/client/templates/identification.pt:26
 msgid "list_of_risks"
-msgstr "λίστα με το σύνολο των κινδύνων"
+msgstr "κατάλογο με το σύνολο των κινδύνων"
 
 #. Default: You can print the ${list-of-risks}.
 #: src/euphorie/client/templates/identification.pt:25
 msgid "intro_identification"
-msgstr "Μπορείτε να εκτυπώσετε τη ${list-of-risks}."
+msgstr "Μπορείτε να εκτυπώσετε τον ${list-of-risks}."
 
 #. Default: Start Risk Identification
 #: src/euphorie/client/templates/identification.pt:30
