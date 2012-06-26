@@ -2437,7 +2437,7 @@ msgstr ""
 #. Default: Are you aware of all the risks?
 #: src/euphorie/client/templates/start.pt:20
 msgid "header_risk_aware"
-msgstr ""
+msgstr "Запознати ли сте с всички рискове?"
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
@@ -2449,19 +2449,19 @@ msgstr ""
 #. risk.
 #: src/euphorie/client/templates/start.pt:21
 msgid "intro_risk_aware"
-msgstr ""
+msgstr "Включително рисковете за Вашите служители и оборудване? Какво би станало, ако настъпи злополука на една от машините? Какво се случва, ако работник или служител е изложен на въздействието на опасни вещества? Оценката на риска Ви помага за идентифициране на тези рискове и за справяне с пораждащите ги причини. Оценката на риска се състои основно от две части: <dynamic element> с всички рискове във вашето предприятие, както и <dynamic element> с подробности за това как да се справите с тези рискове. Тези два компонента Ви дават възможност да ограничите рисковете за Вашите служители и за предприятието, а следователно и финансовия риск."
 
 #. Default: The assessment is not complicated.
 #: src/euphorie/client/templates/start.pt:23
 msgid "header_not_complicated"
-msgstr ""
+msgstr "Оценката не е сложна."
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
 #. RA is important. So important that the government has made it compulsory for
 #. almost all entrepreneurs with employees.
 #: src/euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
-msgstr ""
+msgstr "Сложна? Всъщност, не. Тя просто отнема малко време. Но въпреки това, оценката на риска е важна. Толкова важна, че е законово изискване, поради достатъчно основателна причина. Ако рисковете не са оценени или правилно разгледани, не може да започне подходящ процес на управление на риска и е малко вероятно да бъдат намерени или въведени подходящи превантивни мерки."
 
 #. Default: Start
 #: src/euphorie/client/templates/start.pt:33
