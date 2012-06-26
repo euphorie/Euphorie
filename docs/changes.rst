@@ -6,6 +6,7 @@ Changelog
 
 - Updated privacy policy text. [jcbrand]
 - Updated Greek translations. [jcbrand]
+- Added Flemish (nl_BE) translations [thomasw]
 
 
 4.0.2 - June 21, 2012

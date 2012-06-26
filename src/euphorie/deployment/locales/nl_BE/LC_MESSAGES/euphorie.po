@@ -1,0 +1,2164 @@
+# Translations template for Euphorie.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Euphorie project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Euphorie 3.0.2dev\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-06 18:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#. Default: Number of employees
+#: src/euphorie/client/company.py:24
+#: src/euphorie/client/templates/report_actionplan.pt:44
+msgid "label_employee_numbers"
+msgstr "Aantal werknemers"
+
+#. Default: 1 to 9 employees
+#: src/euphorie/client/company.py:27
+#: src/euphorie/client/templates/report_actionplan.pt:46
+msgid "employee_numbers_1_to_9"
+msgstr "1 tot 9 werknemers"
+
+#. Default: 10 to 49 employees
+#: src/euphorie/client/company.py:29
+#: src/euphorie/client/templates/report_actionplan.pt:47
+msgid "employee_numbers_10_to_49"
+msgstr "10 tot 49 werknemers"
+
+#. Default: 50 to 249 employees
+#: src/euphorie/client/company.py:31
+#: src/euphorie/client/templates/report_actionplan.pt:48
+msgid "employee_numbers_50_to_249"
+msgstr "50 tot 249 werknemers"
+
+#. Default: 250 or more employees
+#: src/euphorie/client/company.py:33
+#: src/euphorie/client/templates/report_actionplan.pt:49
+msgid "employee_numbers_250_or_more"
+msgstr "250 of meer werknemers"
+
+#. Default: The risk assessment was conducted by
+#: src/euphorie/client/company.py:38
+msgid "label_conductor"
+msgstr "De risicobeoordeling werd uitgevoerd door"
+
+#. Default: own staff
+#: src/euphorie/client/company.py:41
+msgid "conductor_staff"
+msgstr "eigen personeel"
+
+#. Default: an external consultant or service provider
+#: src/euphorie/client/company.py:44
+msgid "conductor_third_party"
+msgstr "een externe adviseur of service provider"
+
+#. Default: both own staff and an external consultant or service provider
+#: src/euphorie/client/company.py:47
+msgid "conductor_both"
+msgstr "zowel eigen personeel als een externe adviseur of service provider"
+
+#. Default: Workers were invited to participate in the risk assessment
+#: src/euphorie/client/company.py:77
+#: src/euphorie/client/templates/report_actionplan.pt:62
+msgid "label_workers_participated"
+msgstr "Arbeiders werden uitgenodigd om deel te nemen aan de risicobeoordeling"
+
+#: src/euphorie/client/login.py:111
+msgid "Please enter your email address"
+msgstr "Voer uw e-mailadres in"
+
+#: src/euphorie/client/login.py:117
+msgid "Unknown email address"
+msgstr "Ongekend e-mailadres"
+
+#: src/euphorie/client/login.py:125
+msgid "OiRA registration reminder"
+msgstr "Herinnering voor OiRA-registratie"
+
+#: src/euphorie/client/login.py:137 src/euphorie/client/login.py:143
+#: src/euphorie/client/login.py:149
+msgid "An error occured while sending the password reminder"
+msgstr "Er is een fout opgetreden bij het versturen van de wachtwoordherinnering"
+
+#: src/euphorie/client/login.py:162
+msgid "An email with a password reminder has been sent to your address."
+msgstr "Er is een e-mail met wachtwoordherinnering naar uw adres verstuurd."
+
+#. Default: Please enter your email address
+#: src/euphorie/client/login.py:177
+msgid "error_missing_email"
+msgstr "Voer uw e-mailadres in"
+
+#. Default: Please enter a valid email address
+#: src/euphorie/client/login.py:180
+msgid "error_invalid_email"
+msgstr "Voer een geldig e-mailadres in"
+
+#. Default: Please enter a password
+#: src/euphorie/client/login.py:183
+msgid "error_missing_password"
+msgstr "Voer een wachtwoord in"
+
+#. Default: Passwords do not match
+#: src/euphorie/client/login.py:186
+msgid "error_password_mismatch"
+msgstr "Wachtwoorden komen niet overeen"
+
+#. Default: An account with this email address already exists.
+#: src/euphorie/client/login.py:196 src/euphorie/client/login.py:202
+msgid "error_email_in_use"
+msgstr "Er bestaat al een account met dit e-mailadres."
+
+#. Default: Publish
+#: src/euphorie/client/publish.py:223
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+msgid "button_publish"
+msgstr "Publiceren"
+
+#. Default: Create preview
+#: src/euphorie/client/publish.py:272
+msgid "button_preview"
+msgstr "Voorbeeld maken"
+
+#. Default: low priority risk
+#: src/euphorie/client/report.py:40
+msgid "report_priority_low"
+msgstr "risico met lage prioriteit"
+
+#. Default: medium priority risk
+#: src/euphorie/client/report.py:41
+msgid "report_priority_medium"
+msgstr "risico met gemiddelde prioriteit"
+
+#. Default: high priority risk
+#: src/euphorie/client/report.py:42
+msgid "report_priority_high"
+msgstr "risico met hoge prioriteit"
+
+#. Default: This risk still needs to be inventorised.
+#: src/euphorie/client/report.py:372 src/euphorie/client/report.py:630
+#: src/euphorie/client/templates/report_actionplan.pt:91
+#: src/euphorie/client/templates/report_identification.pt:51
+msgid "risk_unanswered"
+msgstr "Dit risico is nog niet beoordeeld."
+
+#. Default: Identification report ${title}
+#: src/euphorie/client/report.py:389
+msgid "filename_report_identification"
+msgstr "Identificatierapport ${title}"
+
+#. Default: Not provided
+#: src/euphorie/client/report.py:443 src/euphorie/client/report.py:540
+#: src/euphorie/client/templates/report_actionplan.pt:41
+#: src/euphorie/client/templates/report_actionplan.pt:45
+#: src/euphorie/client/templates/report_actionplan.pt:53
+#: src/euphorie/client/templates/report_actionplan.pt:63
+msgid "missing_data"
+msgstr "Niet ingevuld"
+
+#. Default: Introduction
+#: src/euphorie/client/report.py:519
+msgid "plan_report_intro_header"
+msgstr "Inleiding"
+
+#. Default: By filling in the list of questions, you have completed a risk
+#. assessment. This assessment is used to draw up an action plan. The progress
+#. of this action plan must be discussed annually and a small report must be
+#. written on the progress. Certain subjects might have been completed and
+#. perhaps new subjects need to be added.
+#: src/euphorie/client/report.py:521
+#: src/euphorie/client/templates/report_actionplan.pt:31
+msgid "plan_report_intro_1"
+msgstr ""
+"Door het invullen van de vragen hebt u een risicobeoordeling uitgevoerd. "
+"Op basis van deze beoordeling wordt een actieplan opgesteld. De voortgang van dit "
+"actieplan moet jaarlijks worden besproken en er moet een kort rapport worden opgemaakt over"
+" de stand van zaken. Bepaalde onderwerpen zijn mogelijk afgerond en misschien moeten er nieuwe "
+"onderwerpen worden toegevoegd."
+
+#. Default: Company details
+#: src/euphorie/client/report.py:544
+msgid "plan_report_company_header"
+msgstr "Bedrijfsgegevens"
+
+#. Default: Action plan
+#: src/euphorie/client/report.py:590
+msgid "plan_report_plan_header"
+msgstr "Actieplan"
+
+#. Default: This is a
+#: src/euphorie/client/report.py:649
+msgid "report_priority"
+msgstr "Dit is een"
+
+#. Default: Low
+#: src/euphorie/client/report.py:815
+msgid "label_timeline_priority_low"
+msgstr "Laag"
+
+#. Default: Medium
+#: src/euphorie/client/report.py:816
+msgid "label_timeline_priority_medium"
+msgstr "Gemiddeld"
+
+#. Default: High
+#: src/euphorie/client/report.py:817
+msgid "label_timeline_priority_high"
+msgstr "Hoog"
+
+#. Default: Risk number
+#: src/euphorie/client/report.py:841
+msgid "label_risk_number"
+msgstr "Risiconummer"
+
+#. Default: Risk
+#: src/euphorie/client/report.py:843
+msgid "report_timeline_risk_title"
+msgstr "Risico"
+
+#. Default: Priority
+#: src/euphorie/client/report.py:845
+msgid "report_timeline_priority"
+msgstr "Prioriteit"
+
+#. Default: Comments
+#: src/euphorie/client/report.py:847
+msgid "report_timeline_comment"
+msgstr "Opmerkingen"
+
+#. Default: Timeline
+#: src/euphorie/client/report.py:862
+msgid "report_timeline_title"
+msgstr "Tijdslijn"
+
+#. Default: Timeline for ${title}
+#: src/euphorie/client/report.py:892
+msgid "filename_report_timeline"
+msgstr "Tijdslijn voor ${title}"
+
+#: src/euphorie/client/risk.py:202 src/euphorie/client/risk.py:208
+#: src/euphorie/client/risk.py:229 src/euphorie/client/risk.py:235
+msgid "Invalid day of month"
+msgstr "Ongeldige dag van de maand"
+
+#: src/euphorie/client/risk.py:221 src/euphorie/client/risk.py:247
+msgid "Please enter a year after 1900"
+msgstr "Voer een jaartal in na 1900"
+
+#. Default: Current Password
+#: src/euphorie/client/settings.py:41
+msgid "label_old_password"
+msgstr "Huidig wachtwoord"
+
+#: src/euphorie/client/settings.py:52 src/euphorie/client/settings.py:64
+msgid "Your password for confirmation"
+msgstr "Uw wachtwoord ter bevestiging"
+
+#. Default: Account settings
+#: src/euphorie/client/settings.py:80 src/euphorie/client/settings.py:168
+msgid "title_account_settings"
+msgstr "Accountinstellingen"
+
+#: src/euphorie/client/settings.py:89 src/euphorie/client/settings.py:222
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
+
+#: src/euphorie/client/settings.py:98 src/euphorie/client/settings.py:238
+msgid "There were no changes to be saved."
+msgstr "Er waren geen wijzigingen om op te slaan."
+
+#: src/euphorie/client/settings.py:102 src/euphorie/client/settings.py:142
+#: src/euphorie/client/settings.py:233
+msgid "Invalid password"
+msgstr "Ongeldig wachtwoord"
+
+#: src/euphorie/client/settings.py:104
+msgid "Your password was successfully changed."
+msgstr "Uw wachtwoord werd gewijzigd."
+
+#. Default: Delete account
+#: src/euphorie/client/settings.py:119
+msgid "title_account_delete"
+msgstr "Account verwijderen"
+
+#: src/euphorie/client/settings.py:132
+#: src/euphorie/client/templates/account-settings.pt:23
+msgid "Delete account"
+msgstr "Verwijder de account"
+
+#: src/euphorie/client/settings.py:198
+msgid "Confirm OiRA email address change"
+msgstr "Bevestig wijziging van OiRA-e-mailadres"
+
+#: src/euphorie/client/settings.py:208 src/euphorie/client/settings.py:212
+#: src/euphorie/client/settings.py:216
+msgid "An error occured while sending the confirmation email."
+msgstr "Er is een fout opgetreden bij het versturen van de bevestingse-mail."
+
+#: src/euphorie/client/settings.py:244
+msgid "This email address is not available."
+msgstr "Dit e-mailadres is niet beschikbaar."
+
+#. Default: Please confirm your new email address by clicking on the link in
+#. the email that will be sent in a few minutes to "${email}". Please note
+#. that
+#. the new email address is also your new login name.
+#: src/euphorie/client/settings.py:248
+msgid "email_change_pending"
+msgstr ""
+"Bevestig uw nieuwe e-mailadres door te klikken op de link in de e-mail "
+"die u over een aantal minuten ontvangt op \"${email}\". Denk eraan dat het nieuwe"
+" e-mailadres ook uw nieuwe loginnaam is."
+
+#: src/euphorie/client/settings.py:283
+msgid "Your email address has been updated."
+msgstr "Uw e-mailadres werd bijgewerkt."
+
+#: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
+msgid "The online client."
+msgstr "De online gebruikerssite."
+
+#: src/euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
+msgid "Country information and grouping for the client."
+msgstr "Landinformatie en groepen voor de gebruiker."
+
+#: src/euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
+msgid "Sector information and grouping for the client."
+msgstr "Sectorinformatie en groepen voor de gebruiker."
+
+#. Default: About
+#: src/euphorie/client/templates/about.pt:19
+msgid "title_about"
+msgstr "Over"
+
+#. Default: What is the OiRA (Online Interactive Risk Assessment) project
+#: src/euphorie/client/templates/about.pt:21
+msgid "header_what_is_oira"
+msgstr "Wat is het OiRA-project (Online Interactive Risk Assessment)"
+
+#. Default: proper risk assessment is the key to healthy workplaces
+#: src/euphorie/client/templates/about.pt:26
+msgid "about_paragraph_1_key"
+msgstr "een degelijke risicobeoordeling is de sleutel tot een gezonde werkplek"
+
+#. Default: easy-to-use and cost-free web application
+#: src/euphorie/client/templates/about.pt:29
+msgid "about_paragraph_1_easy"
+msgstr "gebruiksvriendelijke en gratis webapplicatie"
+
+#. Default: step-by-step risk assessment process
+#: src/euphorie/client/templates/about.pt:32
+msgid "about_paragraph_1_step"
+msgstr "stapsgewijs risicobeoordelingsproces"
+
+#. Default: identification
+#: src/euphorie/client/templates/about.pt:35
+msgid "about_paragraph_1_identification"
+msgstr "identificatie"
+
+#. Default: evaluation
+#: src/euphorie/client/templates/about.pt:37
+msgid "about_paragraph_1_evaluation"
+msgstr "evaluatie"
+
+#. Default: preventive actions
+#: src/euphorie/client/templates/about.pt:39
+msgid "about_paragraph_1_preventive_actions"
+msgstr "preventieve acties"
+
+#. Default: reporting
+#: src/euphorie/client/templates/about.pt:42
+msgid "about_paragraph_1_reporting"
+msgstr "rapportering"
+
+#. Default: Experience shows that ${key}. This is why EU-OSHA developed an
+#. ${easy} (the â€œOiRAâ€ - Online interactive Risk Assessment) that can help
+#. micro and small organisations to put in place a ${step} â€“ starting with the
+#. ${identification} and ${evaluation} of workplace risks, through decision
+#. making on ${preventive_actions} and the taking of action, to monitoring and
+#. ${reporting}.
+#: src/euphorie/client/templates/about.pt:26
+msgid "about_paragraph_1"
+msgstr ""
+"Ervaring toont ons dat ${key}. Daarom heeft EU-OSHA een ${easy} (het "
+"â€œOiRAâ€ - Online interactive Risk Assessment) ontwikkelt dat micro-ondernemingen en kleine "
+"ondernemingen kan helpen om een {step} aan te nemen â€“ starten met de "
+"${identification} en ${evaluation} van risico's op de werkvloer, door middel van  "
+"het nemen van beslissingen over ${preventive_actions} en het ondernemen van actie, voor monitoring en "
+"${reporting}."
+
+#. Default: The OiRA web application gives access to the sectoral Risk
+#. Assessment tools created and maintained by sectoral organisations at
+#. national level.
+#: src/euphorie/client/templates/about.pt:48
+msgid "about_paragraph_2"
+msgstr ""
+"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelinginstrumenten voor uw sector "
+"die worden samengesteld en bijgewerkt door sectoriële organisaties op nationaal niveau."
+
+#. Default: Why the OiRA project
+#: src/euphorie/client/templates/about.pt:53
+msgid "header_why_oira"
+msgstr "Waarom het OiRA-project"
+
+#. Default: European Community Strategy on Health and Safety at Work 2007-2012
+#: src/euphorie/client/templates/about.pt:55
+msgid "about_paragraph3_agency"
+msgstr "De strategie van de Europese Gemeenschap over gezondheid en veiligheid op het werk 2007-2012"
+
+#. Default: micro and small enterprises have some shortcomings
+#: src/euphorie/client/templates/about.pt:55
+msgid "about_partners_3_smb"
+msgstr "micro-ondernemingen en kleine ondernemingen hebben tekortkomingen"
+
+#. Default: The ${agency} calls for the development of simple tools to
+#. facilitate risk assessment. Since the adoption of the European Framework
+#. directive in 1989, risk assessment has become a familiar concept for
+#. organising prevention in the workplace, and hundreds of thousands of
+#. companies all over Europe assess their risks regularly. Nevertheless, there
+#. is sufficient evidence to conclude that ${smb} when it comes to risk
+#. assessment and the adoption of a preventive policy in general which the
+#. OiRA
+#. project aims to overcome.
+#: src/euphorie/client/templates/about.pt:54
+msgid "about_paragraph_3"
+msgstr ""
+"Het ${agency} vraagt naar de ontwikkeling van eenvoudige instrumenten om "
+"risicobeoordelingen te vereenvoudigen. Sinds het aannemen van de richtlijn van het Europese kader in 1989, "
+"is risicobeoordeling een vertrouwd concept geworden voor het organiseren van preventie op "
+"de werkvloer. Honderdduizenden bedrijven in Europa beoordelen"
+" hun risico's regelmatig. Er is niettegenstaande voldoende bewijs om "
+"te besluiten dat ${smb} wanneer het gaat over risicobeoordeling en het aannemen van een "
+"algemeen preventief beleid dat het OiRA-project tracht te overkomen."
+
+#. Default: More information about the OiRA project (in English)
+#: src/euphorie/client/templates/about.pt:58
+msgid "about_oiraproject"
+msgstr "Meer informatie over het OiRA project (Engelstalig)"
+
+#. Default: Project Phases
+#: src/euphorie/client/templates/about.pt:60
+msgid "header_project_phases"
+msgstr "Projectfase"
+
+#. Default: Development and pilot phase â€“ 2009-2011
+#: src/euphorie/client/templates/about.pt:61
+msgid "header_devel_phase"
+msgstr "Ontwikkelings- en pilootfase â€“ 2009-2011"
+
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until
+#. the first half of 2011) the Agency is piloting the development and
+#. diffusion
+#. model at both EU level (working with the Sectoral Social Dialogue
+#. Committees) and at Member State level (with several Member States) as part
+#. of the testing of the tool and the development of appropriate support and
+#. guidance services.
+#: src/euphorie/client/templates/about.pt:65
+msgid "devel_phase"
+msgstr ""
+"Na de technische ontwikkeling van het instrument in 2009, onderwerpt het Agentschap in 2010 (tot de "
+"eerste helft van 2011) het ontwikkelings- en diffusiemodel aan een voorafgaande test "
+"op EU-niveau (samenwerken met de Sectoral Social Dialogue "
+"Committees) en op het niveau van de lidstaten (met verschillende lidstaten) als onderdeel "
+"van de testfase van het instrument en de ontwikkeling van geschikte ondersteuning- "
+"adviesservices."
+
+#. Default: Official launch of the project â€“ September 2011
+#: src/euphorie/client/templates/about.pt:68
+msgid "header_launch"
+msgstr "Officiële lancering van het project â€“ September 2011"
+
+#. Default: The official launch of the tool is planned for September 2011,
+#. once
+#. the objectives of the testing phase have been reached and once the OiRA
+#. website, the OiRA training scheme and OiRA help desk will be ready.
+#: src/euphorie/client/templates/about.pt:69
+msgid "phase_launch"
+msgstr ""
+"De officiële lancering van het instrument zal plaatsvinden in september 2011, van zodra de "
+"doelstellingen van de testfase zijn bereikt en de OiRA-website,"
+" het OiRA-trainingschema en de OiRA-helpdesk beschikbaar zijn."
+
+#. Default: Development partners
+#: src/euphorie/client/templates/about.pt:72
+msgid "header_development_partners"
+msgstr "Ontwikkelingspartners"
+
+#. Default: The OiRA project and its related web application has been
+#. developed
+#. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
+#. financed by the Dutch government, was initially developed by TNO in
+#. collaboration with the employers organisation for small and medium-sized
+#. enterprises MKB-Nederland and the Dutch Ministry for Employment. Further
+#. development of the application was realised with input and participation of
+#. trade unions FNV, CNV and MHP.
+#: src/euphorie/client/templates/about.pt:75
+msgid "about_partners_1"
+msgstr ""
+"Het OiRA-project en de verwante webapplicatie werden ontwikkeld door de "
+"${eu-osha} die gebaseerd werd op het Nederlandse beoordelinginstrument (${RIE} genoemd), dat gefinancierd"
+" werd door de Nederlandse overheid en initieel werd ontwikkeld door TNO in samenwerking "
+"met de werknemersorganisatie voor kleine en middelgrote ondernemingen MKB-"
+"Nederland en het Nederlandse Ministerie voor Werkgelegenheid. De "
+"applicatie werd verder ontwikkeld met de inbreng en deelname van de vakbonden FNV, "
+"CNV en MHP."
+
+#. Default: The following technical partners contributed to the development of
+#. the OiRA project:
+#: src/euphorie/client/templates/about.pt:77
+msgid "about_partners_2"
+msgstr ""
+"De volgende technische partners hebben bijgedragen aan de ontwikkeling van het OiRA- "
+"project:"
+
+#: src/euphorie/client/templates/about.pt:82
+#: src/euphorie/client/templates/about.pt:85
+#: src/euphorie/client/templates/about.pt:88
+msgid "The Netherlands"
+msgstr "Nederland"
+
+#: src/euphorie/client/templates/about.pt:91
+msgid "Germany"
+msgstr "Duitsland"
+
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members
+#. and alternates of the Steering Committee were appointed by the interest
+#. groups at the Board, by the Commission and by EU-OSHA.
+#: src/euphorie/client/templates/about.pt:94
+msgid "about_partners_3"
+msgstr ""
+"Het Agentschap kreeg strategisch en expertadvies van een stuurgroep "
+"voor de ontwikkeling en implementatie van het OiRA-project. Leden"
+" en plaatsvervangende leden van de stuurgroep werden aangesteld door de belangengroepen "
+"bij de Raad, de Commissie en door EU-OSHA."
+
+#. Default: Licenses
+#: src/euphorie/client/templates/about.pt:98
+msgid "header_licenses"
+msgstr "Licenties"
+
+#. Default: The source code of the OiRA application is ${GPL} licensed.
+#: src/euphorie/client/templates/about.pt:100
+msgid "about_licenses_1"
+msgstr "De broncode van de OiRA-applicatie heeft een ${GPL}-licentie."
+
+#: src/euphorie/client/templates/about.pt:104
+msgid "Creative Commons License"
+msgstr "Creative Commons License"
+
+#: src/euphorie/client/templates/about.pt:104
+msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
+msgstr "Creative Commons Attribution-ShareAlike 2.5 generieke licentie"
+
+#. Default: The content of OiRA sectoral tools is licensed under a ${license}
+#: src/euphorie/client/templates/about.pt:104
+msgid "about_licenses_2"
+msgstr "De inhoud van sectoriële OiRA-instrumenten zijn gelicenceerd onder een ${license}"
+
+#. Default: The OiRA sectoral tools can be used for free by all users.
+#: src/euphorie/client/templates/about.pt:106
+msgid "about_licenses_3"
+msgstr "De sectoriële OiRA-instrumenten kunnen gratis worden gebruikt door alle gebruikers."
+
+#. Default: By clicking on 'Delete account', your account will be permenantly
+#. deleted. This action is irreversable.
+#: src/euphorie/client/templates/account-delete.pt:19
+msgid "warning_account_delete_irreversible"
+msgstr ""
+"Door te klikken op 'Account verwijderen', wordt uw account definitief verwijderd. "
+"Deze actie is onomkeerbaar."
+
+#. Default: Terms and conditions
+#: src/euphorie/client/templates/conditions.pt:18
+msgid "header_terms"
+msgstr "Algemene voorwaarden"
+
+#. Default: The terms and conditions have changed since your last visit.
+#. Please
+#. read the new terms and conditions carefully before proceding.
+#: src/euphorie/client/templates/conditions.pt:21
+msgid "terms_changed"
+msgstr ""
+"De algemene voorwaarden zijn gewijzigd sinds uw laatste bezoek. Lees de"
+" nieuwe algemene voorwaarden aandachtig door voordat u verdergaat."
+
+#. Default: The OiRA (Online interactive Risk Assesment) application is an
+#. instrument put at your disposal by the European Agency for Safety and
+#. Health
+#. at Work (EU-OSHA). This Privacy Policy applies to all products, services
+#. and
+#. websites offered by EU-OSHA in the framework of the OiRA application.
+#: src/euphorie/client/templates/conditions.pt:30
+msgid "conditions_intro1"
+msgstr ""
+"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument "
+"dat u ter beschikking wordt gesteld door het Europees Agentschap voor de veiligheid en gezondheid op het werk "
+"(EU-OSHA). Dit privacybeleid is van toepassing voor alle producten, diensten en "
+"websites die worden aangeboden door EU-OSHA in het kader van de OiRA-applicatie."
+
+#. Default: Your personal data is processed in line with Regulation (EC) NÂ°
+#. 45/2001 of the European Parliament and of the Council of 18 December 2000
+#. on
+#. the protection of individuals with regard to the processing of personal
+#. data
+#. by the Community institutions and bodies and on the free movement of such
+#. data. Further details of the privacy policy of EU-OSHA and the full text of
+#. the Regulation can be accessed at: ${url}.
+#: src/euphorie/client/templates/conditions.pt:34
+msgid "conditions_intro2"
+msgstr ""
+"Uw persoonlijke gegevens worden verwerkt conform de Verordening (EG) nr. 45/2001 van "
+"het Europese Parlement en de Raad van 18 december 2000 betreffende de "
+"bescherming van natuurlijke personen in verband met de verwerking van persoonsgegevens door "
+"de communautaire instellingen en organen en betreffende het vrije verkeer van die gegevens."
+" Meer informatie over het privacybeleid van EU-OSHA en de volledige tekst van de  "
+"Verordening vindt u op: ${url}."
+
+#. Default: The Information we collect and for what purposes
+#: src/euphorie/client/templates/conditions.pt:38
+msgid "conditions_info_header"
+msgstr "De informatie die we verzamelen en voor welke doeleinden"
+
+#. Default: The kind of information we collect: when you sign up for an OiRA
+#. account and you put in data into the Online interactive Risk Assessment
+#. application we are asking you for the following information:
+#: src/euphorie/client/templates/conditions.pt:40
+msgid "conditions_info_entry"
+msgstr ""
+"Het soort informatie dat we verzamelen: wanneer u zich registreert voor een OiRA-account en"
+" u voert gegevens in de Online interactive Risk Assessment applicatie in, "
+"vragen we u naar de volgende informatie:"
+
+#. Default: Email account: this is necessary to access the online application,
+#. edit the input data, and delete the OiRA account. You can enter any valid
+#. e-mail address. Email addresses will not be used for commercial purposes.
+#: src/euphorie/client/templates/conditions.pt:44
+msgid "conditions_info_email"
+msgstr ""
+"E-mailaccount: dit is nodig voor de toegang tot de online applicatie, het bewerken van "
+"de ingevoerde gegevens en het verwijderen van de OiRA-account. U kunt eender welk geldig e-mailadres "
+"invoeren. E-mailadressen zullen niet worden gebruikt voor commerciële doeleinden."
+
+#. Default: Any information you provide in the free text fields of the
+#. application and in the action plan - (e.g. when you input a measure to
+#. tackle a risk, the person responsible for that measure, etc). The input of
+#. information in the free text fields is voluntary.
+#: src/euphorie/client/templates/conditions.pt:48
+msgid "conditions_info_text"
+msgstr ""
+"Alle informatie die u in vrije tekstvelden van de applicatie en "
+"in het actieplan invoert - (bijv. wanneer u een maatregel invoert om een risico te behandelen, de "
+"persoon die verantwoordelijk is voor deze maatregel, enz.). Het invoeren van informatie in "
+"vrije tekstvelden is niet verplicht."
+
+#. Default: Cookies â€“ When you visit the site and select a language, we send a
+#. cookie to your computer or other device to store your language selection.
+#. This cookie stays in your browser until you close it. When you visit the
+#. site and log in, we send a cookie with your login information to keep you
+#. logged in during your visit. This cookie stays on your computer until you
+#. close your browser. Most browsers are initially set up to accept cookies,
+#. but you can reset your browser to refuse all cookies or to indicate when a
+#. cookie is being sent. However, some features and services may not function
+#. properly if your cookies are disabled.
+#: src/euphorie/client/templates/conditions.pt:52
+msgid "conditions_info_cookies"
+msgstr ""
+"Cookies â€“ Wanneer u de site bezoekt en een taal selecteert, sturen we een cookie naar"
+" uw computer of ander apparaat om uw taalkeuze op te slaan. Deze cookie"
+" blijft in uw browser tot u deze sluit. Wanneer u de site bezoekt en zich aanmeldt, "
+"sturen we een cookie met uw logininformatie om u aangemeld te houden "
+"tijdens uw bezoek. Deze cookie blijft op uw computer tot u uw "
+"browser sluit. De meeste browsers zijn initieel ingesteld om cookies te aanvaarden, maar u kunt "
+"uw browser opnieuw instellen om alle cookies te weigeren of om aan te geven wanneer er een cookie "
+"wordt verstuurd. Sommige functies en diensten kunnen mogelijk niet correct functioneren"
+" als uw cookies zijn uitgeschakeld."
+
+#. Default: Log information â€“ When you access the service, our servers
+#. automatically record information that your browser sends whenever you visit
+#. a website. These server logs may include information such as your web
+#. request, your interaction with a service, browser type, browser language,
+#. the date and time of your request. IP addresses are not stored in the
+#. system.
+#: src/euphorie/client/templates/conditions.pt:56
+msgid "conditions_info_logs"
+msgstr ""
+"Logboekinformatie â€“ Wanneer u de dienst gebruikt, registreren onze servers automatisch "
+"informatie die uw browser verstuurt wanneer u een website bezoekt. "
+"De logboeken van deze server kunnen informatie bevatten zoals uw webverzoek, uw "
+"interactie met een dienst, browsertype, browsertaal, de datum en "
+"het tijdstip van uw verzoek. IP-adressen worden niet bewaard in het systeem."
+
+#. Default: In addition to the above mentioned purposes, we may use the
+#. information we collect to provide, maintain, protect, and improve our
+#. services and develop new services. In any case no personal data will be
+#. used
+#. for processing of data.
+#: src/euphorie/client/templates/conditions.pt:61
+msgid "conditions_info_use_intro"
+msgstr ""
+"Naast de hierboven vermelde doeleinden, kunnen we de informatie die we verzamelen, gebruiken om "
+"onze diensten te voorzien, onderhouden, beschermen en verbeteren, en om nieuwe diensten "
+"te ontwikkelen. Er zal in geen geval persoonlijke informatie worden gebruikt voor het verwerken van "
+"gegevens."
+
+#. Default: Data controller
+#: src/euphorie/client/templates/conditions.pt:69
+msgid "conditions_datacontroller_header"
+msgstr "Houder van persoonsgegevens"
+
+#. Default: The data controller is Andrew Smith, European Agency for Safety
+#. and
+#. Health at Work, Bilbao.
+#: src/euphorie/client/templates/conditions.pt:71
+msgid "condtions_datacontroller"
+msgstr ""
+"De houder van persoonsgegevens is Andrew Smith, Europees Agentschap voor de veiligheid en de gezondheid "
+"op het werk, Bilbao."
+
+#. Default: Conservation and processing of information
+#: src/euphorie/client/templates/conditions.pt:75
+msgid "conditions_conservation_header"
+msgstr "Bewaren en verwerken van informatie"
+
+#. Default: We keep your data which is inaccessible for external users until
+#. you delete your account and your session(s).
+#: src/euphorie/client/templates/conditions.pt:77
+msgid "conditions_conservation_keep_data"
+msgstr ""
+"We bewaren uw gegevens die niet toegankelijk zijn voor externe gebruikers tot u "
+"uw account en uw sessie(s) verwijdert."
+
+#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#: src/euphorie/client/templates/conditions.pt:81
+msgid "conditions_conservation_storage"
+msgstr "EU-OSHA bewaart gegevens op onze servers in Halle, Duitsland."
+
+#. Default: Reviewing and removing your information
+#: src/euphorie/client/templates/conditions.pt:85
+msgid "conditions_datareview_header"
+msgstr "Uw informatie controleren en verwijderen"
+
+#. Default: You can use the Account settings and your saved OiRA Session(s) to
+#. review, control and delete the information stored in your Account and in
+#. your Session(s).
+#: src/euphorie/client/templates/conditions.pt:87
+msgid "conditions_datareview"
+msgstr ""
+"U kunt de accountinstellingen en uw bewaarde OiRA-sessie(s) gebruiken om "
+"de informatie in uw account en in uw sessie(s) te controleren en te "
+"verwijderen."
+
+#. Default: Information security
+#: src/euphorie/client/templates/conditions.pt:91
+msgid "conditions_security_header"
+msgstr "Informatieveiligheid"
+
+#. Default: We take appropriate security measures to protect against
+#. unauthorized access to or unauthorized alteration, disclosure or
+#. destruction
+#. of data. These include internal reviews of our data collection, storage and
+#. processing practices and security measures, including appropriate
+#. encryption
+#. of communication and physical security measures to guard against
+#. unauthorized access to systems where we store personal data. Data are not
+#. accessible to anybody by any means. IP addresses are not saved so that
+#. end-users can not be identified through their access.
+#: src/euphorie/client/templates/conditions.pt:93
+msgid "conditions_security"
+msgstr ""
+"We nemen toepasselijke maatregelen voor de bescherming tegen onbevoegde toegang"
+" tot of onbevoegde aanpassing, bekendmaking of vernietiging van gegevens. Deze "
+"bestaan onder meer uit interne beoordelingen van onze gegevensverzameling, praktijken met betrekking tot opslag en verwerking "
+"en veiligheidsmaatregelen, waaronder toepasselijke encryptie van "
+"communicatie en fysieke veiligheidsmaatregelen ter bescherming tegen onbevoegde "
+"toegang tot systemen waar we persoonlijke gegevens bewaren. Gegevens zijn voor niemand en "
+"op geen enkele manier toegankelijk. IP-adressen worden niet bewaard, zodat eindgebruikers niet kunnen "
+"geïdentificeerd worden op basis van hun toegang."
+
+#. Default: Contact information
+#: src/euphorie/client/templates/conditions.pt:97
+msgid "conditions_contact_header"
+msgstr "Contactinformatie"
+
+#. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
+#. Any inquiries and complaints regarding our privacy policy can be sent to
+#. the
+#. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
+#: src/euphorie/client/templates/conditions.pt:99
+msgid "conditions_contact"
+msgstr ""
+"EU-OSHA beoordeelt vaak zijn naleving van dit privacybeleid. Alle "
+"informatieaanvragen en klachten met betrekking tot ons privacybeleid kunnen worden verstuurd naar de DPO"
+" van EU-OSHA op ${dpo-email} of de EDPS op ${edps-email}."
+
+#. Default: Dear user,
+#: src/euphorie/client/templates/confirm-email.pt:6
+msgid "email_change_header"
+msgstr "Beste gebruiker,"
+
+#. Default: Your email address and account name on ${url} will be changed to
+#. '${email}' when you click the confirmation link below.
+#: src/euphorie/client/templates/confirm-email.pt:8
+msgid "email_change_intro"
+msgstr ""
+"Uw e-mailadres en accountnaam op ${url} zullen worden gewijzigd naar '${email}' "
+"wanneer u klikt op onderstaande bevestigingslink."
+
+#. Default: Please ignore this email if you didn't request for a change.
+#: src/euphorie/client/templates/confirm-email.pt:15
+msgid "email_change_epilogue"
+msgstr "U kunt deze e-mail negeren als u geen wijziging hebt aangevraagd."
+
+#. Default: Error
+#: src/euphorie/client/templates/error.pt:17
+msgid "title_error"
+msgstr "Fout"
+
+#. Default: Not found
+#: src/euphorie/client/templates/error_notfound.pt:17
+msgid "title_error_notfound"
+msgstr "Niet gevonden"
+
+#. Default: The page you requested could not be found.
+#: src/euphorie/client/templates/error_notfound.pt:19
+msgid "expl_error_notfound"
+msgstr "De opgevraagde pagina kon niet worden gevonden."
+
+#. Default: action plan
+#: src/euphorie/client/templates/evaluation.pt:28
+msgid "help_skip_evaluation_link"
+msgstr "actieplan"
+
+#. Default: You can also skip this phase and proceed directly to the ${link}
+#. phase.
+#: src/euphorie/client/templates/evaluation.pt:25
+msgid "help_skip_evaluation"
+msgstr ""
+"U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+
+#. Default: Run evaluation
+#: src/euphorie/client/templates/evaluation.pt:37
+msgid "label_run_evaluation"
+msgstr "Voer evaluatie uit"
+
+#. Default: Go to action plan
+#: src/euphorie/client/templates/evaluation.pt:38
+msgid "label_jump_to_actionplan"
+msgstr "Naar actieplan"
+
+#. Default: Help
+#: src/euphorie/client/templates/help.pt:17
+msgid "title_help"
+msgstr "Help"
+
+#. Default: Introduction
+#: src/euphorie/client/templates/help.pt:19
+#: src/euphorie/client/templates/help.pt:30
+#: src/euphorie/content/templates/help_view.pt:15
+msgid "help_header_introduction"
+msgstr "Inleiding"
+
+#. Default: Authentication
+#: src/euphorie/client/templates/help.pt:20
+#: src/euphorie/client/templates/help.pt:33
+#: src/euphorie/content/templates/help_view.pt:18
+msgid "help_header_authentication"
+msgstr "Authenticatie"
+
+#. Default: Preparation
+#: src/euphorie/client/templates/help.pt:22
+#: src/euphorie/client/templates/help.pt:39
+#: src/euphorie/content/templates/help_view.pt:24
+msgid "help_header_start"
+msgstr "Voorbereiding"
+
+#. Default: Identification
+#: src/euphorie/client/templates/help.pt:23
+#: src/euphorie/client/templates/help.pt:42
+#: src/euphorie/content/templates/help_view.pt:27
+msgid "help_header_identification"
+msgstr "Identificatie"
+
+#. Default: Evaluation
+#: src/euphorie/client/templates/help.pt:24
+#: src/euphorie/client/templates/help.pt:45
+#: src/euphorie/content/templates/help_view.pt:30
+msgid "help_header_evaluation"
+msgstr "Evaluatie"
+
+#. Default: Action Plan
+#: src/euphorie/client/templates/help.pt:25
+#: src/euphorie/client/templates/help.pt:48
+#: src/euphorie/content/templates/help_view.pt:33
+msgid "help_header_actionplan"
+msgstr "Actieplan"
+
+#. Default: Report
+#: src/euphorie/client/templates/help.pt:26
+#: src/euphorie/client/templates/help.pt:51
+#: src/euphorie/content/templates/help_view.pt:36
+msgid "help_header_report"
+msgstr "Rapport"
+
+#. Default: Final words
+#: src/euphorie/client/templates/help.pt:27
+#: src/euphorie/client/templates/help.pt:54
+#: src/euphorie/content/templates/help_view.pt:39
+msgid "help_header_finalwords"
+msgstr "Tot slot"
+
+#. Default: Welcome
+#: src/euphorie/client/templates/login.pt:18
+#: src/euphorie/client/templates/reminder.pt:17
+msgid "header_welcome"
+msgstr "Welkom"
+
+#. Default: request an email reminder
+#: src/euphorie/client/templates/login.pt:22
+msgid "request_an_email_reminder"
+msgstr "vraag een e-mailherinnering aan"
+
+#. Default: Your login name and/or password were entered incorrectly. Please
+#. check and try again or ${request_an_email_reminder} of your login
+#. information.
+#: src/euphorie/client/templates/login.pt:20
+msgid "incorrect_login"
+msgstr ""
+"Uw loginnaam en/of wachtwoord werden fout ingevoerd. Controleer de gegevens en "
+"probeer het opnieuw of ${request_an_email_reminder} van uw logininformatie."
+
+#. Default: I forgot my password
+#: src/euphorie/client/templates/login.pt:32
+msgid "label_forgot_password"
+msgstr "Ik ben mijn wachtwoord vergeten"
+
+#. Default: Password (${forgot_link})
+#: src/euphorie/client/templates/login.pt:32
+msgid "label_login_password"
+msgstr "Wachtwoord (${forgot_link})"
+
+#. Default: Change country/language
+#: src/euphorie/client/templates/login.pt:35
+msgid "label_change_country"
+msgstr "Wijzig land/taal"
+
+#. Default: register
+#: src/euphorie/client/templates/login.pt:39
+msgid "label_register"
+msgstr "registreer"
+
+#. Default: Don't have an account? Then please ${register_link} first.
+#: src/euphorie/client/templates/login.pt:39
+msgid "register_teaser"
+msgstr "Hebt u nog geen account? ${register_link} u dan eerst."
+
+#. Default: Your registration is a private matter. All your data is stored to
+#. be accessed only by you.
+#: src/euphorie/client/templates/login.pt:40
+msgid "login_tooltip"
+msgstr ""
+"Uw registratiegegevens zijn privé. De opgeslagen gegevens zijn niet voor "
+"anderen toegankelijk."
+
+#. Default: The preview will be available at ${url}.
+#: src/euphorie/client/templates/preview.pt:23
+msgid "help_preview_url"
+msgstr "Het voorbeeld zal beschikbaar zijn op ${url}."
+
+#. Default: Continue
+#: src/euphorie/client/templates/profile.pt:61
+msgid "label_continue"
+msgstr "Ga verder"
+
+#. Default: Privacy statement
+#: src/euphorie/client/templates/register.pt:33
+msgid "label_privacy_statement"
+msgstr "Privacyverklaring"
+
+#. Default: Dear user,
+#: src/euphorie/client/templates/reminder-email.pt:6
+msgid "reminder_email_header"
+msgstr "Beste gebruiker,"
+
+#. Default: You have requested a password reminder for the OiRA website. Your
+#. login information is:
+#: src/euphorie/client/templates/reminder-email.pt:8
+msgid "reminder_email_intro"
+msgstr ""
+"U hebt een wachtwoordherinnering opgevraagd voor de OiRA-website. Uw login-"
+"informatie is:"
+
+#. Default: Email
+#: src/euphorie/client/templates/reminder-email.pt:12
+msgid "reminder_email_login"
+msgstr "E-mail"
+
+#. Default: Password
+#: src/euphorie/client/templates/reminder-email.pt:13
+msgid "reminder_email_password"
+msgstr "Wachtwoord"
+
+#. Default: Password reminder
+#: src/euphorie/client/templates/reminder.pt:25
+msgid "header_password_reminder"
+msgstr "Wachtwoordherinnering"
+
+#. Default: Timeline
+#: src/euphorie/client/templates/report_actionplan.pt:25
+msgid "button_timeline"
+msgstr "Tijdslijn"
+
+#. Default: automatically saved
+#: src/euphorie/client/templates/report_actionplan.pt:32
+msgid "plan_report_intro_2_automatically_saved"
+msgstr "automatisch opgeslagen"
+
+#. Default: preparation step
+#: src/euphorie/client/templates/report_actionplan.pt:32
+msgid "plan_report_intro_2_preparation_step"
+msgstr "voorbereidingsstap"
+
+#. Default: Your answers and report were ${automatically_saved} and may be
+#. found back or deleted at any time via the ${preparation_step}.
+#: src/euphorie/client/templates/report_actionplan.pt:32
+msgid "plan_report_intro_2"
+msgstr ""
+"Uw antwoorden en het rapport werden ${automatically_saved} en zijn op eender welk moment terug te vinden of"
+" te verwijderen via de ${preparation_step}."
+
+#. Default: Country
+#: src/euphorie/client/templates/report_actionplan.pt:40
+msgid "label_country"
+msgstr "Land"
+
+#. Default: health and safety experts
+#: src/euphorie/client/templates/report_actionplan.pt:58
+msgid "referer_health_safety_export"
+msgstr "experts in gezondheid en veiligheid"
+
+#: src/euphorie/client/templates/risk_actionplan.pt:34
+msgid ""
+"Select a standard solution. The main fields of this measure will be "
+"populated with the chosen solution."
+msgstr ""
+"Kies een standaardoplossing. De belangrijkste gegevens van de maatregel zullen  "
+"worden ingevuld met de kozen oplossing."
+
+#: src/euphorie/client/templates/risk_actionplan.pt:46
+#: src/euphorie/client/templates/risk_actionplan.pt:164
+msgid "Measure ${index}"
+msgstr "Maatregel ${index}"
+
+#: src/euphorie/client/templates/risk_actionplan.pt:280
+msgid ""
+"The current text in the fields 'Action plan', 'Prevention plan' and "
+"'Requirements' of this measure will be overwritten. This action cannot be "
+"reverted. Are you sure you want to continue?"
+msgstr ""
+"De huidige gegevens in de velden 'Actieplan', 'Preventieplan' en "
+"'Vereisten' van deze maatregel zullen worden overschreven. Deze actie kan niet "
+"worden teruggedraaid. Weet u zeker dat u wilt doorgaan?"
+
+#. Default: Currently unknown
+#: src/euphorie/client/templates/risk_identification.pt:26
+msgid "label_unknown"
+msgstr "Momenteel niet bekend"
+
+#. Default: Status
+#: src/euphorie/client/templates/status.pt:17
+msgid "title_status"
+msgstr "Status"
+
+#. Default: Questions answered per module
+#: src/euphorie/client/templates/status.pt:18
+msgid "header_questions_answered"
+msgstr "Vragen beantwoord per module"
+
+#. Default: ${count} questions were answersed
+#: src/euphorie/client/templates/status.pt:23
+msgid "status_answered"
+msgstr "${count} vragen werden beantwoord"
+
+#. Default: ${count} answers indicated a risk
+#: src/euphorie/client/templates/status.pt:25
+msgid "status_risk"
+msgstr "${count} antwoorden gaven een risico aan"
+
+#. Default: ${count} questions were postponed
+#: src/euphorie/client/templates/status.pt:27
+msgid "status_postponed"
+msgstr "${count} vragen zijn uitgesteld"
+
+#. Default: Please verify if the profile is still accurate.
+#: src/euphorie/client/templates/updated.pt:24
+msgid "verify_profile"
+msgstr "Controleer of het profiel nog klopt."
+
+#. Default: Update
+#: src/euphorie/client/templates/updated.pt:66
+msgid "label_accept update"
+msgstr "Bijwerken"
+
+#: src/euphorie/content/colour.py:12
+msgid "The specified colour is not valid."
+msgstr "De opgegeven kleur is niet geldig."
+
+#: src/euphorie/content/country.py:21
+msgid "Country grouping"
+msgstr "Landengroepering"
+
+#: src/euphorie/content/country.py:23
+msgid "Region"
+msgstr "Regio"
+
+#: src/euphorie/content/country.py:24
+msgid "EU member state"
+msgstr "EU-lidstaat"
+
+#: src/euphorie/content/country.py:25
+msgid "EFTA country"
+msgstr "EFTA-land"
+
+#: src/euphorie/content/country.py:26
+msgid "Candidate country"
+msgstr "Kandidaat-land"
+
+#: src/euphorie/content/country.py:27
+msgid "Potential candidate country"
+msgstr "Mogelijk kandidaat-land"
+
+#. Default: Introduction
+#: src/euphorie/content/help.py:15
+msgid "label_help_introduction"
+msgstr "Inleiding"
+
+#. Default: Authentication
+#: src/euphorie/content/help.py:23
+msgid "label_authentication"
+msgstr "Authenticatie"
+
+#. Default: Action plan
+#: src/euphorie/content/help.py:65
+msgid "label_actionplan"
+msgstr "Actieplan"
+
+#. Default: Reports
+#: src/euphorie/content/help.py:73
+msgid "label_reports"
+msgstr "Rapporten"
+
+#. Default: Final words
+#: src/euphorie/content/help.py:81
+msgid "label_finalwords"
+msgstr "Tot slot"
+
+#. Default: Description
+#: src/euphorie/content/module.py:35 src/euphorie/content/page.py:19
+#: src/euphorie/content/profilequestion.py:47
+#: src/euphorie/content/solution.py:19
+msgid "label_module_description"
+msgstr "Beschrijving"
+
+#. Default: This module is optional
+#: src/euphorie/content/module.py:44
+msgid "label_module_optional"
+msgstr "Deze module is optioneel"
+
+#. Default: Question
+#: src/euphorie/content/module.py:53
+msgid "label_module_question"
+msgstr "Vraag"
+
+#. Default: Image file
+#: src/euphorie/content/module.py:60 src/euphorie/content/risk.py:142
+#: src/euphorie/content/risk.py:156 src/euphorie/content/risk.py:166
+#: src/euphorie/content/risk.py:176
+msgid "label_image"
+msgstr "Afbeelding"
+
+#. Default: Upload an image. Make sure your image is of format png, jpg or gif
+#. and does not contain any special characters.
+#: src/euphorie/content/module.py:61 src/euphorie/content/risk.py:143
+#: src/euphorie/content/risk.py:157 src/euphorie/content/risk.py:167
+#: src/euphorie/content/risk.py:177 src/euphorie/content/sector.py:78
+msgid "help_image_upload"
+msgstr ""
+"Upload een afbeelding. Zorg ervoor dat de afbeelding een png, jpg of gif is en "
+"geen speciale karakters bevat."
+
+#: src/euphorie/content/module.py:129
+msgid "Edit Module"
+msgstr "Bewerk module"
+
+#: src/euphorie/content/module.py:131
+msgid "Edit Submodule"
+msgstr "Bewerk submodule"
+
+#. Default: Page content
+#: src/euphorie/content/page.py:29
+msgid "label_body"
+msgstr "Pagina-inhoud"
+
+#. Default: Question
+#: src/euphorie/content/profilequestion.py:35
+msgid "label_profilequestion_question"
+msgstr "Vraag"
+
+#. Default: Type
+#: src/euphorie/content/profilequestion.py:55
+msgid "label_profile_type"
+msgstr "Type"
+
+#. Default: Optional
+#: src/euphorie/content/profilequestion.py:57
+msgid "profile_optional"
+msgstr "Optioneel"
+
+#. Default: Repeatable
+#: src/euphorie/content/profilequestion.py:58
+msgid "profile_repeat"
+msgstr "Herhaalbaar"
+
+#. Default: Description
+#: src/euphorie/content/risk.py:63
+msgid "label_description"
+msgstr "Beschrijving"
+
+#. Default: Legal and policy references
+#: src/euphorie/content/risk.py:72
+#: src/euphorie/content/templates/risk_view.pt:72
+msgid "label_legal_reference"
+msgstr "Wet- en beleidsreferenties"
+
+#. Default: Identification
+#: src/euphorie/content/risk.py:78
+msgid "header_identification"
+msgstr "Identificatie"
+
+#. Default: Show `not applicable' option
+#: src/euphorie/content/risk.py:82
+msgid "label_show_notapplicable"
+msgstr "Toon `niet van toepassing' optie"
+
+#. Default: Offer a `not applicable' option in addition to the standard yes/no
+#. options.
+#: src/euphorie/content/risk.py:84
+msgid "help_show_notapplicable"
+msgstr ""
+"Bied een `niet van toepassing' optie aan naast de standaard ja/nee-opties."
+
+#. Default: Risk type
+#: src/euphorie/content/risk.py:90
+#: src/euphorie/content/templates/risk_view.pt:35
+msgid "label_risk_type"
+msgstr "Risicotype"
+
+#. Default: Risk
+#: src/euphorie/content/risk.py:99
+msgid "risktype_risk"
+msgstr "Risico"
+
+#. Default: Policy
+#: src/euphorie/content/risk.py:100
+msgid "risktype_policy"
+msgstr "Beleid"
+
+#. Default: Evaluation method
+#: src/euphorie/content/risk.py:107
+#: src/euphorie/content/templates/risk_view.pt:43
+msgid "label_evaluation_method"
+msgstr "Evaluatiemethode"
+
+#. Default: Select 'estimated' if calcuation is not necessary or not possible.
+#: src/euphorie/content/risk.py:108
+msgid "help_evaluation_method"
+msgstr "Kies voor 'geschat' als de berekening niet nodig of niet mogelijk is."
+
+#. Default: Estimated
+#: src/euphorie/content/risk.py:112
+msgid "evalmethod_direct"
+msgstr "Geschat"
+
+#. Default: Calculated
+#: src/euphorie/content/risk.py:113
+msgid "evalmethod_calculated"
+msgstr "Berekend"
+
+#. Default: Default priority
+#: src/euphorie/content/risk.py:121
+#: src/euphorie/content/templates/risk_view.pt:47
+msgid "label_default_priority"
+msgstr "Standaardprioriteit"
+
+#. Default: No default
+#: src/euphorie/content/risk.py:126
+msgid "no_default"
+msgstr "Geen standaard"
+
+#. Default: Main image
+#: src/euphorie/content/risk.py:135
+msgid "header_main_image"
+msgstr "Belangrijkste afbeelding"
+
+#. Default: The main image will get a more prominent position in the client
+#. than the other images.
+#: src/euphorie/content/risk.py:136
+msgid "intro_main_image"
+msgstr ""
+"De belangrijkste afbeelding krijgt een meer opvallende plaats op de gebruikerssite dan "
+"de andere afbeeldingen."
+
+#. Default: Image caption
+#: src/euphorie/content/risk.py:148 src/euphorie/content/risk.py:162
+#: src/euphorie/content/risk.py:172 src/euphorie/content/risk.py:182
+msgid "label_caption"
+msgstr "Onderschrift afbeelding"
+
+#. Default: Secondary images
+#: src/euphorie/content/risk.py:152
+msgid "header_secondary_images"
+msgstr "Overige afbeeldingen"
+
+#. Default: Default severity
+#: src/euphorie/content/risk.py:191 src/euphorie/content/risk.py:259
+#: src/euphorie/content/templates/risk_view.pt:53
+msgid "label_default_severity"
+msgstr "Standaardernst"
+
+#. Default: No default
+#: src/euphorie/content/risk.py:195 src/euphorie/content/risk.py:212
+#: src/euphorie/content/risk.py:232 src/euphorie/content/risk.py:248
+#: src/euphorie/content/risk.py:263
+msgid "no default"
+msgstr "Geen standaard"
+
+#. Default: Default frequency
+#: src/euphorie/content/risk.py:207 src/euphorie/content/risk.py:243
+#: src/euphorie/content/templates/risk_view.pt:55
+#: src/euphorie/content/templates/risk_view.pt:62
+msgid "label_default_frequency"
+msgstr "Standaardfrequentie"
+
+#. Default: Indicate how often this risk occurs in a normal situation.
+#: src/euphorie/content/risk.py:208 src/euphorie/content/risk.py:244
+msgid "help_default_frequency"
+msgstr "Geef aan hoe vaak dit risico voorkomt in een normale situatie."
+
+#. Default: Default probability
+#: src/euphorie/content/risk.py:227
+#: src/euphorie/content/templates/risk_view.pt:60
+msgid "label_default_probability"
+msgstr "Standaardkans"
+
+#. Default: Indicate how likely occurence of this risk is in a normal
+#. situation.
+#: src/euphorie/content/risk.py:228
+msgid "help_default_probability"
+msgstr "Geef aan hoe groot de kans is dat dit risico voorkomt in een normale situatie."
+
+#. Default: Almost never
+#: src/euphorie/content/risk.py:249
+msgid "frequency_almostnever"
+msgstr "Bijna nooit"
+
+#. Default: Weak severity
+#: src/euphorie/content/risk.py:264
+msgid "effect_weak"
+msgstr "Letsel zonder verzuim"
+
+#. Default: Significant severity
+#: src/euphorie/content/risk.py:265
+msgid "effect_significant"
+msgstr "Letsel met verzuim"
+
+#. Default: High (very high) severity
+#: src/euphorie/content/risk.py:266
+msgid "effect_high"
+msgstr "Blijvende gezondheidsschade"
+
+#. Default: Evaluation
+#: src/euphorie/content/risk.py:274 src/euphorie/content/risk.py:288
+msgid "header_evaluation"
+msgstr "Evaluatie"
+
+#. Default: You can specify how the risks priority is evaluated. For more
+#. details see the online manual.
+#: src/euphorie/content/risk.py:275 src/euphorie/content/risk.py:289
+msgid "intro_evaluation"
+msgstr ""
+"U kunt de wijze van evalueren aangeven. Raadpleeg voor meer informatie "
+"de online handleiding."
+
+#. Default: Contact name
+#: src/euphorie/content/sector.py:71
+msgid "label_contact_name"
+msgstr "Naam contactpersoon"
+
+#. Default: Logo
+#: src/euphorie/content/sector.py:77
+#: src/euphorie/content/templates/settings.pt:58
+msgid "label_logo"
+msgstr "Logo"
+
+#. Default: Main colour
+#: src/euphorie/content/sector.py:84
+#: src/euphorie/content/templates/settings.pt:41
+msgid "label_main_colour"
+msgstr "Hoofdkleur"
+
+#. Default: Support colour
+#: src/euphorie/content/sector.py:88
+#: src/euphorie/content/templates/settings.pt:50
+msgid "label_support_colour"
+msgstr "Steunkleur"
+
+#. Default: Version name
+#: src/euphorie/content/survey.py:47 src/euphorie/content/survey.py:166
+msgid "label_survey_title"
+msgstr "Versienaam"
+
+#. Default: Introduction text
+#: src/euphorie/content/survey.py:57
+msgid "label_introduction"
+msgstr "Inleidingtekst"
+
+#. Default: Evaluation may be skipped
+#: src/euphorie/content/survey.py:69
+msgid "label_evaluation_optional"
+msgstr "Evaluatie mag worden overgeslagen"
+
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
+#. national standards bodies and based on revision 2 of the NACE standard.
+#: src/euphorie/content/survey.py:83
+msgid "help_classification_code"
+msgstr ""
+"Een code die deze sector identificeert. Classificatiecodes worden omschreven door nationale"
+" normalisatie-instellingen en zijn gebaseerd op revisie 2 van de NACE-norm."
+
+#. Default: Title
+#: src/euphorie/content/surveygroup.py:40
+msgid "label_title"
+msgstr "Titel"
+
+#. Default: Evaluation algorithm
+#: src/euphorie/content/surveygroup.py:51
+msgid "label_survey_evaluation_algorithm"
+msgstr "Evaluatiealgoritme"
+
+#. Default: Simplified two criteria
+#: src/euphorie/content/surveygroup.py:54
+msgid "french"
+msgstr "Vereenvoudigde twee criteria"
+
+#. Default: Standard
+#: src/euphorie/content/surveygroup.py:225
+msgid "survey_default_title"
+msgstr "Standaard"
+
+#. Default: Cancelled unpublish action.
+#: src/euphorie/content/surveygroup.py:263
+msgid "message_unpublish_cancel"
+msgstr "Ongedaan maken van publicatie geannuleerd."
+
+#. Default: Title of sector.
+#: src/euphorie/content/upload.py:65
+msgid "label_sector_title"
+msgstr "Titel van de sector."
+
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
+#: src/euphorie/content/upload.py:66
+msgid "help_sector_title"
+msgstr "Als u geen titel opgeeft, wordt deze uit het importbestand gehaald."
+
+#. Default: Login name
+#: src/euphorie/content/upload.py:72 src/euphorie/content/user.py:57
+msgid "label_login_name"
+msgstr "Loginnaam"
+
+#. Default: If you do not specify a title it will be taken from the input.
+#: src/euphorie/content/upload.py:78 src/euphorie/content/upload.py:97
+msgid "help_upload_surveygroup_title"
+msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
+
+#: src/euphorie/content/upload.py:85
+msgid "Standard"
+msgstr "Standaard"
+
+#. Default: XML file
+#: src/euphorie/content/upload.py:89 src/euphorie/content/upload.py:108
+msgid "label_upload_filename"
+msgstr "XML-bestand"
+
+#: src/euphorie/content/upload.py:306
+msgid "Upload"
+msgstr "Uploaden"
+
+#. Default: Please upload a valid XML file
+#: src/euphorie/content/upload.py:318 src/euphorie/content/upload.py:349
+msgid "error_invalid_xml"
+msgstr "Upload een geldig XML-bestand"
+
+#. Default: Upload
+#: src/euphorie/content/upload.py:336
+msgid "button_upload"
+msgstr "Uploaden"
+
+#. Default: This login name is already taken.
+#: src/euphorie/content/user.py:33
+msgid "error_existing_login"
+msgstr "Deze loginnaam bestaat al."
+
+#. Default: A login name may only consist of lowercase letters and numbers.
+#: src/euphorie/content/user.py:38
+msgid "error_invalid_login"
+msgstr "Een loginnaam mag alleen kleine letters en cijfers bevatten."
+
+#. Default: Name
+#: src/euphorie/content/user.py:49
+msgid "label_user_title"
+msgstr "Naam"
+
+#. Default: Contact email address
+#: src/euphorie/content/user.py:53
+msgid "label_contact_email"
+msgstr "E-mailadres contactpersoon"
+
+#. Default: Account is locked
+#: src/euphorie/content/user.py:67
+msgid "label_account_locked"
+msgstr "De account is vergrendeld"
+
+#. Default: Account "${title}" has been locked.
+#: src/euphorie/content/user.py:235
+msgid "message_user_locked"
+msgstr "De account \"${title}\" is vergrendeld."
+
+#. Default: Account "${title}" has been unlocked.
+#: src/euphorie/content/user.py:239
+msgid "message_user_unlocked"
+msgstr "De account \"${title}\" is vergrendeld."
+
+#: src/euphorie/content/utils.py:10
+msgid "European Union"
+msgstr "Europese Unie"
+
+#: src/euphorie/content/behaviour/richdescription.py:29
+msgid "Summary"
+msgstr "Samenvatting"
+
+#: src/euphorie/content/behaviour/richdescription.py:30
+msgid "A short summary of the content."
+msgstr "Een korte samenvatting van de inhoud."
+
+#: src/euphorie/content/behaviour/uniqueid.py:40
+msgid "Identifier"
+msgstr "Identificatie"
+
+#: src/euphorie/content/behaviour/uniqueid.py:41
+msgid "This is a unique identifier for this object."
+msgstr "Dit is een unieke identificatie voor dit object."
+
+#: src/euphorie/content/profiles/default/types/euphorie.country.xml:6
+msgid "Country"
+msgstr "Land"
+
+#: src/euphorie/content/profiles/default/types/euphorie.country.xml:7
+msgid "A folder for all sectors in a country."
+msgstr "Een map voor alle sectoren in een land."
+
+#: src/euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
+msgid "Country manager"
+msgstr "Landbeheerder"
+
+#: src/euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
+msgid "A manager for sectors in a country."
+msgstr "Een beheerder voor alle sectoren in een land."
+
+#: src/euphorie/content/profiles/default/types/euphorie.documentation.xml:6
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: src/euphorie/content/profiles/default/types/euphorie.documentation.xml:7
+msgid "A folder for all documentation for a specific language."
+msgstr "Een map voor alle documentatie voor een specifieke taal."
+
+#: src/euphorie/content/profiles/default/types/euphorie.folder.xml:6
+msgid "Folder"
+msgstr "Map"
+
+#: src/euphorie/content/profiles/default/types/euphorie.help.xml:7
+msgid "Online help"
+msgstr "Online help"
+
+#: src/euphorie/content/profiles/default/types/euphorie.help.xml:8
+msgid "The help text for the client."
+msgstr "De helptekst voor de gebruiker."
+
+#: src/euphorie/content/profiles/default/types/euphorie.module.xml:7
+msgid "Module"
+msgstr "Module"
+
+#: src/euphorie/content/profiles/default/types/euphorie.module.xml:8
+msgid "A module is a grouping of risks"
+msgstr "Een module is een groepering van risico's"
+
+#: src/euphorie/content/profiles/default/types/euphorie.page.xml:7
+msgid "Page"
+msgstr "Pagina"
+
+#: src/euphorie/content/profiles/default/types/euphorie.page.xml:8
+msgid "A page with text"
+msgstr "Een pagina met tekst"
+
+#: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
+msgid "Profile question"
+msgstr "Profielvraag"
+
+#: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
+msgid ""
+"The basic architecture of an Online interactive Risk Assessment consists of:"
+" - profile questions (questions defining the company profile) - modules and "
+"potentially sub-modules - risks (positive statements) Profile questions are "
+"used to determine whether particular modules apply to the end user at all "
+"(OPTIONAL), or whether they should be repeated a number of times "
+"(REPEATABLE). Such questions are asked BEFORE starting the risk "
+"identification and evaluation. If the end-user does not confirm that an "
+"optional profile question is relevant (by ticking the box), then the "
+"corresponding module will be skipped entirely. If the end-user enters more "
+"than one option to a repeatable profile question then the corresponding "
+"module will be repeated the specified number of times."
+msgstr ""
+"De basisarchitectuur van een Online interactive Risk Assessment bestaat uit:"
+" - profielvragen (vragen die het bedrijfsprofiel omschrijven) - modules en "
+"mogelijk submodules - risico's (bevestigende stellingen) Profielvragen worden "
+"gebruikt om te bepalen of specifieke modules van toepassing zijn op de eindgebruiker "
+"(OPTIONEEL), of ze een aantal keren moeten worden herhaald "
+"(HERHAALBAAR). Dergelijke vragen worden gesteld VOORAFGAAND aan de "
+"risico-identificatie en evaluatie. Als de eindgebruiker niet bevestigt dat een "
+"optionele profielvraag relevant is (door het vakje aan te vinken), dan wordt de "
+"overeenstemmende module volledig overgeslagen. Als de eindgebruiker meer "
+"dan één optie invoert voor een herhaalbare profielvraag dan zal de overeenstemmende "
+"module het vermelde aantal keren worden herhaald."
+
+#: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
+msgid "Risk"
+msgstr "Risico"
+
+#: src/euphorie/content/profiles/default/types/euphorie.risk.xml:8
+msgid "A risk."
+msgstr "Een risico."
+
+#: src/euphorie/content/profiles/default/types/euphorie.sector.xml:8
+msgid "A sector is national organisation for a specific type of industry."
+msgstr "Een sector is een nationale organisatie voor een bepaalde industrietak."
+
+#: src/euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
+msgid "Sector Folder"
+msgstr "Sectormap"
+
+#: src/euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
+msgid "A folder which can contain sectors."
+msgstr "Een map die sectoren kan bevatten."
+
+#: src/euphorie/content/profiles/default/types/euphorie.survey.xml:8
+msgid "A version of a survey."
+msgstr "Een versie van een enquête."
+
+#: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
+msgid "A survey."
+msgstr "Een enquête."
+
+#: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
+msgid "Sector workflow"
+msgstr "Sectorworkflow"
+
+#: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
+msgid ""
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
+msgstr ""
+"De workflow van één staat voor sectorobjecten, geeft toegang voor het bewerken van de inhoud"
+" aan de sectorgebruiker."
+
+#: src/euphorie/content/profiles/default/workflows/sector/definition.xml:17
+msgid "Active"
+msgstr "Actief"
+
+#: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
+msgid "The One And Only state"
+msgstr "De enige echte staat"
+
+#. Default: OiRA
+#: src/euphorie/content/templates/colour-preview.pt:51
+msgid "titld_tool"
+msgstr "OiRA"
+
+#. Default: There are no sectors for this country.
+#: src/euphorie/content/templates/country_view.pt:18
+msgid "message_no_sectors"
+msgstr "Er zijn geen sectoren voor dit land."
+
+#. Default: Country manager for ${country}.
+#: src/euphorie/content/templates/countrymanager_view.pt:15
+msgid "notice_country_manager"
+msgstr "Landbeheerder voor ${country}."
+
+#. Default: Email address
+#: src/euphorie/content/templates/countrymanager_view.pt:19
+msgid "email"
+msgstr "E-mailadres"
+
+#. Default: Documentation
+#: src/euphorie/content/templates/documentation_view.pt:12
+msgid "title_country_documentation"
+msgstr "Documentatie"
+
+#. Default: online client
+#: src/euphorie/content/templates/documentation_view.pt:15
+msgid "intro_documenation_client"
+msgstr "online gebruikerssite"
+
+#. Default: Here you can manage the documentation for the ${client}.
+#: src/euphorie/content/templates/documentation_view.pt:14
+msgid "intro_documenation"
+msgstr "Hier kunt u de documentatie voor de ${client} beheren."
+
+#. Default: appendix
+#: src/euphorie/content/templates/documentation_view.pt:17
+msgid "documentation_appendix_appendix"
+msgstr "bijlage"
+
+#. Default: Pages created in the ${appendix} folder are available via links in
+#. the footer of the online client.
+#: src/euphorie/content/templates/documentation_view.pt:17
+msgid "documentation_appendix"
+msgstr ""
+"Pagina's die gemaakt zijn in de map ${appendix} zijn opvraagbaar via de links in de "
+"voettekst van de online gebruikerssite."
+
+#. Default: online help
+#: src/euphorie/content/templates/documentation_view.pt:22
+msgid "documentation_online_help_online_help"
+msgstr "online help"
+
+#. Default: The ${online_help} text can also be modified.
+#: src/euphorie/content/templates/documentation_view.pt:22
+msgid "documentation_online_help"
+msgstr "De ${online_help} tekst kan ook worden aangepast."
+
+#. Default: This folder is empty.
+#: src/euphorie/content/templates/folder_view.pt:17
+msgid "folder_no_children"
+msgstr "Deze map is leeg."
+
+#. Default: Client help text
+#: src/euphorie/content/templates/help_view.pt:12
+msgid "title_client_help"
+msgstr "Helptekst voor gebruikerssite"
+
+#. Default: not applicable
+#: src/euphorie/content/templates/risk_view.pt:39
+msgid "risk_show_na_na"
+msgstr "niet van toepassing"
+
+#. Default: Show '${na}'
+#: src/euphorie/content/templates/risk_view.pt:39
+msgid "risk_show_na"
+msgstr "toon '${na}"
+
+#. Default: Yes
+#: src/euphorie/content/templates/risk_view.pt:40
+msgid "yes"
+msgstr "Ja"
+
+#. Default: No
+#: src/euphorie/content/templates/risk_view.pt:41
+msgid "no"
+msgstr "Nee"
+
+#. Default: Default effect
+#: src/euphorie/content/templates/risk_view.pt:64
+msgid "label_default_effect"
+msgstr "Standaardeffect"
+
+#. Default: You can also ${add_link}.
+#: src/euphorie/content/templates/sector_view.pt:31
+msgid "survey_list_footer"
+msgstr "U kunt ook ${add_link}."
+
+#. Default: Sectors
+#: src/euphorie/content/templates/sectorcontainer_view.pt:12
+msgid "title_sectors"
+msgstr "Sectoren"
+
+#: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
+msgid "EU Member States"
+msgstr "EU-lidstaten"
+
+#: src/euphorie/content/templates/sectorcontainer_view.pt:30
+msgid "EFTA Countries"
+msgstr "EFTA-landen"
+
+#: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
+msgid "Candidate Countries"
+msgstr "Kandidaat-landen"
+
+#: src/euphorie/content/templates/sectorcontainer_view.pt:42
+msgid "Potential Candidate EFTA Countries"
+msgstr "Mogelijke kandidaat-EFTA-landen"
+
+#. Default: Settings
+#: src/euphorie/content/templates/settings.pt:12
+msgid "header_settings"
+msgstr "Instellingen"
+
+#. Default: Please provide a description of your sector
+#: src/euphorie/content/templates/settings.pt:16
+msgid "label_sector_description"
+msgstr "Geef een beschrijving van uw sector"
+
+#. Default: Preview
+#: src/euphorie/content/templates/settings.pt:20
+#: src/euphorie/deployment/tiles/templates/versions.pt:57
+msgid "label_preview"
+msgstr "Voorbeeld"
+
+#. Default: Colour scheme
+#: src/euphorie/content/templates/settings.pt:27
+msgid "header_colour_scheme"
+msgstr "Kleurschema"
+
+#. Default: Restore to original colours
+#: src/euphorie/content/templates/settings.pt:30
+msgid "button_reset_colours"
+msgstr "Herstel originele kleuren"
+
+#. Default: The colours you select here apply only for the client side of the
+#. application. Try to pick colours that have high enough contrast to keep the
+#. text on each button legible.
+#: src/euphorie/content/templates/settings.pt:33
+msgid "help_sector_colours"
+msgstr ""
+"De kleuren die u hier kiest, zijn alleen van toepassing voor de gebruikerssite van de "
+"applicatie. Probeer kleuren te kiezen waarvan het contrast hoog genoeg is zodat de "
+"tekst op de knoppen leesbaar blijft."
+
+#. Default: Please use the colour pickers below to select your organisation's
+#. colours. It's best to use a darker colour for the main colour and a lighter
+#. colour for the support colour.
+#: src/euphorie/content/templates/settings.pt:36
+msgid "help_colour_picker"
+msgstr ""
+"Gebruik het kleurenpalet hieronder om de kleuren van uw organisatie te kiezen. "
+"U kunt het best een donkerdere kleur kiezen voor de hoofdkleuren en een lichtere kleur "
+"voor de steunkleur."
+
+#. Default: The logo will appear on both the client side app that your user
+#. group will see as well as on this editor environment in the top left
+#. corner.
+#. Make sure your image is of format png, jpg or gif and does not contain any
+#. special characters. The new logo will only become visible after you've
+#. saved
+#. your changes.
+#: src/euphorie/content/templates/settings.pt:60
+msgid "help_sector_logo"
+msgstr ""
+"Het logo zal verschijnen in de gebruikerssite-applicatie die uw gebruikersgroep zal "
+"zien, alsook in deze opmaakomgeving bovenaan links. Zorg ervoor "
+"dat uw afbeelding png, jpg of gif is en geen speciale "
+"karakters bevat. Het nieuwe logo wordt zichtbaar van zodra u uw "
+"wijzigingen hebt opgeslagen."
+
+#. Default: Which logo you would like to display in the top left corner?
+#: src/euphorie/content/templates/settings.pt:62
+msgid "label_logo_selection"
+msgstr "Welk logo wilt u linksboven tonen?"
+
+#. Default: My own
+#: src/euphorie/content/templates/settings.pt:69
+msgid "logo_my_own"
+msgstr "Mijn logo"
+
+#. Default: transparent
+#: src/euphorie/content/templates/settings.pt:75
+msgid "logo_instructions_transparent"
+msgstr "transparant"
+
+#. Default: You may get the best results if you upload a logo as a
+#. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
+#. images is fine, the logo will be scaled down to the right size
+#. automatically.
+#: src/euphorie/content/templates/settings.pt:74
+msgid "logo_instructions"
+msgstr ""
+"U krijgt mogelijk het beste resultaat als u een logo uploadt als een ${transparent} PNG-bestand "
+"van minstens 100 pixels hoog. U kunt grotere afbeeldingen uploaden, maar  "
+"het logo wordt dan automatisch naar de juiste grootte geschaald."
+
+#. Default: This is the password that you need to log on to this editor
+#. environment.
+#: src/euphorie/content/templates/settings.pt:81
+msgid "help_sector_password"
+msgstr ""
+"Met dit wachtwoord kunt u zich aanmelden op de opmaakomgeving."
+
+#. Default: Contact person
+#: src/euphorie/content/templates/settings.pt:87
+msgid "label_contact_person"
+msgstr "Contactpersoon"
+
+#. Default: Give the name of the person responsible for the OiRA tools of this
+#. sector.
+#: src/euphorie/content/templates/settings.pt:89
+msgid "help_sector_contactperson"
+msgstr ""
+"Geef de naam van de persoon die verantwoordelijk is voor de OiRA-instrumenten van deze sector."
+
+#. Default: Save changes
+#: src/euphorie/content/templates/settings.pt:98
+msgid "button_save_changes"
+msgstr "Wijzigingen opslaan"
+
+#: src/euphorie/content/templates/solution_view.pt:12
+msgid "Standard solution"
+msgstr "Standaardoplossing"
+
+#. Default: Choose a base revision
+#: src/euphorie/content/templates/survey_add.pt:20
+msgid "label_survey_base"
+msgstr "Kies een basisrevisie"
+
+#. Default: Profile questions
+#: src/euphorie/content/templates/survey_view.pt:30
+msgid "header_profile_questions"
+msgstr "Profielvragen"
+
+#. Default: Unpublish "${title}"
+#: src/euphorie/content/templates/unpublish.pt:12
+msgid "title_unpublish"
+msgstr "Publicatie \"${title}\" ongedaan maken"
+
+#. Default: Unpublish
+#: src/euphorie/content/templates/unpublish.pt:23
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+msgid "button_unpublish"
+msgstr "Publicatie ongedaan maken"
+
+#. Default: Manage users in ${country}
+#: src/euphorie/content/templates/user_mgmt.pt:12
+msgid "header_user_management"
+msgstr "Beheer gebruikers in ${country}"
+
+#. Default: Add new sector
+#: src/euphorie/content/templates/user_mgmt.pt:14
+msgid "button_add_sector"
+msgstr "Nieuwe sector toevoegen"
+
+#. Default: Add country manager
+#: src/euphorie/content/templates/user_mgmt.pt:15
+msgid "button_add_country_manager"
+msgstr "Nieuwe landbeheerder toevoegen"
+
+#. Default: Sectors
+#: src/euphorie/content/templates/user_mgmt.pt:19
+msgid "header_sectors"
+msgstr "Sectoren"
+
+#. Default: There are no sectors for this country.
+#: src/euphorie/content/templates/user_mgmt.pt:21
+msgid "country_no_sectors"
+msgstr "Er zijn geen sectoren voor dit land."
+
+#: src/euphorie/content/templates/user_mgmt.pt:27
+#: src/euphorie/content/templates/user_mgmt.pt:68
+msgid "Login"
+msgstr "Login"
+
+#: src/euphorie/content/templates/user_mgmt.pt:28
+msgid "Password"
+msgstr "Wachtwoord"
+
+#. Default: Edit
+#: src/euphorie/content/templates/user_mgmt.pt:40
+#: src/euphorie/content/templates/user_mgmt.pt:78
+#: src/euphorie/deployment/tiles/templates/addbar.pt:9
+#: src/euphorie/deployment/tiles/templates/versions.pt:58
+msgid "button_edit"
+msgstr "Bewerken"
+
+#. Default: Lock
+#: src/euphorie/content/templates/user_mgmt.pt:41
+#: src/euphorie/content/templates/user_mgmt.pt:79
+msgid "button_lock"
+msgstr "Vergrendelen"
+
+#. Default: Unlock
+#: src/euphorie/content/templates/user_mgmt.pt:47
+#: src/euphorie/content/templates/user_mgmt.pt:80
+msgid "button_unlock"
+msgstr "Ontgrendelen"
+
+#. Default: Country managers
+#: src/euphorie/content/templates/user_mgmt.pt:59
+msgid "header_country_managers"
+msgstr "Landbeheerders"
+
+#. Default: There are no country managers for this country.
+#: src/euphorie/content/templates/user_mgmt.pt:60
+msgid "country_no_managers"
+msgstr "Er zijn geen landbeheerders voor dit land."
+
+#: src/euphorie/content/templates/user_mgmt.pt:67
+msgid "Name"
+msgstr "Naam"
+
+#. Default: XML export
+#: src/euphorie/deployment/browser/sitemenu.py:37
+msgid "menu_export"
+msgstr "XML-export"
+
+#. Default: Search
+#: src/euphorie/deployment/browser/templates/search.pt:10
+msgid "header_search"
+msgstr "Zoeken"
+
+#. Default: Search
+#: src/euphorie/deployment/browser/templates/search.pt:17
+msgid "button_search"
+msgstr "Zoeken"
+
+#. Default: Search results
+#: src/euphorie/deployment/browser/templates/search.pt:22
+msgid "header_search_results"
+msgstr "Zoekresultaten"
+
+#. Default: No items found.
+#: src/euphorie/deployment/browser/templates/search.pt:24
+msgid "search_no_results"
+msgstr "Geen resultaten gevonden."
+
+#. Default: ${number} results found.
+#: src/euphorie/deployment/browser/templates/search.pt:26
+msgid "search_result_intro"
+msgstr "${number} resultaten gevonden."
+
+#. Default: Relevance: ${percentage}
+#: src/euphorie/deployment/browser/templates/search.pt:28
+msgid "search_result_relevance"
+msgstr "Relevantie: ${percentage}"
+
+#. Default: User management
+#: src/euphorie/deployment/tiles/tabs.py:54
+#: src/euphorie/deployment/tiles/tabs.py:64
+msgid "nav_usermanagement"
+msgstr "Gebruikersbeheer"
+
+#. Default: Documents
+#: src/euphorie/deployment/tiles/tabs.py:58
+msgid "nav_documents"
+msgstr "Documenten"
+
+#. Default: Help
+#: src/euphorie/deployment/tiles/tabs.py:71
+msgid "nav_help"
+msgstr "Help"
+
+#. Default: Add ${typename}
+#: src/euphorie/deployment/tiles/templates/addbar.pt:10
+msgid "button_add_factory"
+msgstr "${typename} toevoegen"
+
+#. Default: Show older versions
+#: src/euphorie/deployment/tiles/templates/scripts.pt:14
+msgid "title_toggle_navtree"
+msgstr "Toon oudere versies"
+
+#. Default: Toggle
+#: src/euphorie/deployment/tiles/templates/scripts.pt:15
+msgid "text_toggle_navtree"
+msgstr "Toggle"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr "Regio's"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr "Mogelijke kandidaat-landen"
+
+#. Default: Versions
+#: src/euphorie/deployment/tiles/templates/versions.pt:11
+msgid "portlet_header_versions"
+msgstr "Versies"
+
+#. Default: Duplicate
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+msgid "button_add_version"
+msgstr "Dupliceren"
+
+#. Default: Current
+#: src/euphorie/deployment/tiles/templates/versions.pt:47
+#: src/euphorie/deployment/tiles/templates/versions.pt:79
+msgid "label_current"
+msgstr "Huidig"
+
+#. Default: Published
+#: src/euphorie/deployment/tiles/templates/versions.pt:48
+#: src/euphorie/deployment/tiles/templates/versions.pt:78
+msgid "label_published"
+msgstr "Gepubliceerd"
+
+#. Default: Current / Published
+#: src/euphorie/deployment/tiles/templates/versions.pt:49
+msgid "label_current_published"
+msgstr "Huidig / gepubliceerd"
+
+#. Default: Updated
+#: src/euphorie/deployment/tiles/templates/versions.pt:59
+msgid "button_updated"
+msgstr "Bijgewerkt"
+
+#. Default: Legend
+#: src/euphorie/deployment/tiles/templates/versions.pt:76
+msgid "header_legend"
+msgstr "Legende"
+
+#. Default: ${label} Version that is currently online
+#: src/euphorie/deployment/tiles/templates/versions.pt:78
+msgid "legend_published"
+msgstr "${label} versie die momenteel online is"
+
+#. Default: ${label} Version you are currently reviewing
+#: src/euphorie/deployment/tiles/templates/versions.pt:79
+msgid "legend_current"
+msgstr "${label} versie die u momenteel bekijkt"
+
+#. Default: Update
+#: src/euphorie/deployment/tiles/templates/versions.pt:81
+msgid "label_update"
+msgstr "Bijwerken"
+
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
+#. Click the update icon to bring all the changes live
+#: src/euphorie/deployment/tiles/templates/versions.pt:81
+msgid "legend_updated"
+msgstr ""
+"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
+"het pictogram bijwerken om alle wijzigingen zichtbaar te maken"
