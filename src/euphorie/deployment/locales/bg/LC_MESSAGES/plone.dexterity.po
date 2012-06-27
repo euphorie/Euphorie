@@ -41,7 +41,7 @@ msgstr "Добавяне на ${name}"
 
 #: plone/dexterity/browser/base.py:14
 msgid "Content"
-msgstr "Content"
+msgstr ""
 
 #: plone/dexterity/browser/edit.py:22
 msgid "Changes saved"
