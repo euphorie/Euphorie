@@ -1736,21 +1736,21 @@ msgstr "Αξιολόγηση"
 #: src/euphorie/client/templates/help.pt:48
 #: src/euphorie/content/templates/help_view.pt:33
 msgid "help_header_actionplan"
-msgstr "Σχέδιο δράσης"
+msgstr "Σχέδιο Δράσης"
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
 #: src/euphorie/client/templates/help.pt:51
 #: src/euphorie/content/templates/help_view.pt:36
 msgid "help_header_report"
-msgstr "Αναφορά"
+msgstr "Έκθεση"
 
 #. Default: Final words
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 #: src/euphorie/content/templates/help_view.pt:39
 msgid "help_header_finalwords"
-msgstr "Τελικές λέξεις"
+msgstr "Επίλογος"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -2830,7 +2830,7 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 msgid "label_finalwords"
-msgstr "Τελικές λέξεις"
+msgstr "Επίλογος"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
