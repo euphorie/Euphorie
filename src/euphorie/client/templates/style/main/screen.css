@@ -303,6 +303,7 @@ body,
 }
 
 #standardSolutions ol {
+	margin-left: 0;
 }
 
 #standardSolutions ol li {
@@ -310,8 +311,18 @@ body,
 	list-style-position: inside;
 	border-top: 1px solid silver;
 	text-indent: -12px;
-	padding: 7px 10px 7px 23px;
+	padding: 7px 40px 7px 23px;
 	cursor: pointer;
+	position: relative;
+}
+
+#standardSolutions ol li:before {
+	content: "Add";
+	float: right;
+	position: static;
+	margin-left: 30px;
+	margin-right: -20px;
+	text-indent: 0;
 }
 
 #standardSolutions ol li:hover {
@@ -1432,6 +1443,12 @@ dl.accordion dt a.button  {
 	margin-left: 10px;
 }
 
+dl.accordion dt a.button.solutions {
+	position: absolute;
+	top: 4px;
+	right: 315px;
+}
+
 dl.accordion dt:hover button,
 dl.accordion dt:hover a.button {
 	opacity: 1;
@@ -1700,7 +1717,8 @@ button:active,
 
 button.small,
 .button-small,
-.button.small {
+.button.small,
+.solutions ol li:before {
 	position: relative;
 	padding: 2px 6px 3px;
 	margin-right: 5px;
