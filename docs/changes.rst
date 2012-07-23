@@ -6,6 +6,7 @@ Changelog
 
 - Updated privacy policy text. [jcbrand]
 - Updated Greek translations. [jcbrand]
+- Updated Czech translations. [jcbrand]
 - Added Flemish (nl_BE) translations [thomasw]
 - Greek translation amendments for the Help page [thomasw]
 
