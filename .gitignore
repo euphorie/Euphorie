@@ -3,6 +3,7 @@
 *.pyc
 *.pyo
 *~
+*.mo
 *.sw?
 /.installed.cfg
 /.mr.developer.cfg
