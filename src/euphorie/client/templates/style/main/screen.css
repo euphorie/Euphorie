@@ -285,6 +285,138 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Navigatin pills */
+
+.nav-pills {
+	margin-bottom: 20px;
+	padding: 4px;
+	background-color: rgba(255,254,255,0.66);
+	overflow: hidden;
+	height: 20px;
+	box-shadow: inset 0 0 7px rgba(0,0,0,0.15);
+	border: 1px solid #ddd;
+}
+
+.nav-pills a {
+	height: 18px;
+	line-height: 18px;
+	display: inline-block;
+	padding-right: 0;
+	padding-left: 10px;
+	border: 1px solid silver;
+	text-decoration: none;
+	border-radius: 10px;
+	margin-right: 5px;
+	font-size: 11px;
+}
+
+.nav-pills a.current {
+	color: white;
+	background-color: #304e83;
+	border-color: #304e83;
+}
+
+.nav-pills a span.icon.delete {
+	width: 16px;
+	height: 16px;
+	background: url(delete-sign.png) no-repeat 0 -16px;
+	position: relative;
+	border-radius: 8px;
+	margin-right: 1px;
+	top: 1px;
+}
+
+.nav-pills a span.icon.delete:hover {
+	background-color: silver;
+
+}
+
+.nav-pills a.current span.icon.delete {
+	background: url(delete-sign.png) no-repeat 0 0;
+}
+
+.nav-pills a.current span.icon.delete:hover {
+	background: white url(delete-sign.png) no-repeat 0 -16px;
+}
+
+
+
+/* @end */
+
+/* @group Solutions plan */
+
+#ActionPlanItemForm {
+	
+}
+
+#ActionPlanItemForm .solutions {
+	float: right;
+	margin-right: 0;
+	margin-top: 2px;
+}
+
+#ActionPlanItemForm p.question {
+	margin-bottom: 5px;
+}
+
+#ActionPlanItemForm label input {
+	margin-top: 4px;
+}
+
+#ActionPlanItemForm .tab-container > .clicktip {
+}
+
+#addMeasureButton {
+	border-style: none;
+	width: 20px;
+	height: 20px;
+	text-indent: -1000px;
+	overflow: hidden;
+	border-radius: 50%;
+	background-image: url(plus-sign.png);
+	background-color: #304e83;
+	top: -1px;
+}
+
+
+
+/* @end */
+
+/* @group Module navigation tabs */
+
+.module-navigation-tabs {
+}
+
+.module-navigation-tabs .tabs {
+	border-bottom: 1px solid silver;
+	margin-bottom: 20px;
+}
+
+.module-navigation-tabs .tabs a {
+	padding-right: 20px;
+	padding-left: 20px;
+	line-height: 30px;
+	display: inline-block;
+	text-decoration: none;
+	color: #535353;
+	margin-bottom: -1px;
+}
+
+.module-navigation-tabs .tabs a.current {
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+	background-color: #e9e9e8;
+}
+
+  {
+	
+}
+
+
+
+/* @end */
+
 /* @group Standard solutions */
 
 #standardSolutions {
@@ -303,6 +435,7 @@ body,
 }
 
 #standardSolutions ol {
+	margin-left: 0;
 }
 
 #standardSolutions ol li {
@@ -310,8 +443,18 @@ body,
 	list-style-position: inside;
 	border-top: 1px solid silver;
 	text-indent: -12px;
-	padding: 7px 10px 7px 23px;
+	padding: 7px 40px 7px 23px;
 	cursor: pointer;
+	position: relative;
+}
+
+#standardSolutions ol li:before {
+	content: "Add";
+	float: right;
+	position: static;
+	margin-left: 30px;
+	margin-right: -20px;
+	text-indent: 0;
 }
 
 #standardSolutions ol li:hover {
@@ -332,17 +475,11 @@ body,
 	font-style: italic;
 }
 
-dl.accordion dt a.solutions:after {
+a.solutions:after {
 	content: " ▼";
 	margin-left: 3px;
 	font-size: 8px;
 }
-
-dl.accordion dt.ui-state-default:hover a.button.solutions {
-	opacity: 0;
-	display: none;
-}
-
 
 
 /* @end */
@@ -1391,7 +1528,7 @@ dl.accordion {
 	padding: 0;
 }
 
-dl.accordion dt {
+dl.accordion  {
 	margin: 0;
 	float: left;
 	width: 559px;
@@ -1418,7 +1555,8 @@ dl.accordion dd {
 	clear: left;
 }
 
-dl.accordion .colborder hr,dl.accordion .colborder p.question {
+dl.accordion .colborder hr,
+dl.accordion .colborder p.question {
 	display: none;
 }
 
@@ -1674,9 +1812,6 @@ button,
 	padding: 5px 20px 6px;
 	margin-right: 10px;
 	margin-left: 0;
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 	color: #c8c3be;
 	border: 1px solid #7f7f7f;
 	text-shadow: 0px -1px 0px rgba(0,0,0,1);
@@ -1689,6 +1824,7 @@ button,
 	background-image: url(button-default.png);
 	background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#413C37), to(#726D68));
 	cursor: default !important;
+	display: inline-block;
 }
 
 button:active,
@@ -1700,14 +1836,12 @@ button:active,
 
 button.small,
 .button-small,
-.button.small {
+.button.small,
+.solutions ol li:before {
 	position: relative;
 	padding: 2px 6px 3px;
 	margin-right: 5px;
 	margin-left: 0;
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 	background-image: url(button-default.png);
 	color: #c8c3be;
 	border: 1px solid #7f7f7f;
@@ -1723,6 +1857,7 @@ button.small,
 	text-decoration: none;
 	cursor: default;
 	top: -2px;
+	display: inline-block;
 }
 
 button:hover,

@@ -79,25 +79,27 @@
       </ol>
     </div>
     
-    <dl class="accordion" id="ActionPlanItemForm">
-      <dt class="open">
-        Measure 1
-        <button class="small">Remove</button>
-        <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
-      </dt>
-      <dd>
-        <a href="#" class="icon info clicktip">How do I use this form?</a>
+    <div class="module-navigation-tabs" id="ActionPlanItemForm">
+    	<nav class="nav nav-pills">
+    		<a href="measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
+    		<a href="measure-2">Measure 2 <span class="icon delete" title="Delete this measure">Delete</span></a>
+    		<a href="measure-3">Measure 3 <span class="icon delete" title="Delete this measure">Delete</span></a>
+    		
+			<button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
+    	</nav>
+      <div class="tab-container" id="measure-1">
         <div class="span-7 colborder">
           <fieldset class="condensed">
-            <legend>Description of your measure</legend> 
+            <legend>Description <a href="#standardSolutions" class="button small solutions">Standard solutions</a>
+              <a href="#" class="icon info clicktip">How do I use this form?</a></legend> 
             <label class="superImpose">General approach (to eliminate or reduce the risk)</label>
             <textarea class="actionPlan" name="action_plan" rows="6">
 </textarea>
-            <hr />
+           
             <label class="superImpose">Specific action(s) required to implement this approach</label>
             <textarea class="preventionPlan" name="prevention_plan" rows="3">
 </textarea>
-            <hr />
+          
             <label class="superImpose">Level of expertise and/or requirements needed</label>
             <textarea class="requirements" name="requirements" rows="3">
 </textarea>
@@ -209,14 +211,14 @@
             </fieldset>
           </fieldset>
         </div>
-      </dd>
-    </dl>
-    <dl style="display: none" id="measureTemplate">
-      <dt class="open">
+      </div>
+    </div>
+    <div style="display: none" id="measureTemplate">
+      <a href="#measure-x">
         Measure 2 <button class="small removeButton">Remove</button>
         <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
-      </dt>
-      <dd>
+      </a>
+      <div>
         <div class="span-7 colborder">
           <fieldset class="condensed">
             <legend>Description of your measure</legend> 
@@ -335,12 +337,9 @@
             </fieldset>
           </fieldset>
         </div>
-      </dd>
-    </dl>
-    <div class="buttonBar">
-      <button type="submit" id="addMeasureButton" i18n:translate="label_add">Add another measure</button>
+      </div>
     </div>
-
+   
 <hr/>
 
     <div class="notice" tal:condition="view/legal_reference">
@@ -468,37 +467,37 @@
     };
 
 
-    function AddMeasurement() {
-        var measures = $("#ActionPlanItemForm");
-        var measures_count = measures.find("dt").length;
-        var active = findActive(measures);
-
-        $("#measureTemplate")
-            .find("> *")
-            .clone(true)
-            .find(".clicktip")
-                .each(function() {
-                    var id = assertId(this);
-                    $(this)
-                        .unbind("click")
-                        .bt({trigger: "click",
-                                fill: "#8293ab",
-                                strokeStyle: "#8293ab",
-                                contentSelector: "$('#" + id + "').html()"
-                                })
-                        .click(function() { return false; });
-                }).end()
-            .appendTo(measures);
-
-        measures
-            .accordion("destroy")
-            .accordion({active: active})
-            .accordion("activate", measures_count);
-
-        EnforceMeasurementStyling();
-
-        $("label.superImpose", measures).each(setupSuperimpose);
-    }
+//    function AddMeasurement() {
+//        var measures = $("#ActionPlanItemForm");
+//        var measures_count = measures.find("dt").length;
+//        var active = findActive(measures);
+//
+//        $("#measureTemplate")
+//            .find("> *")
+//            .clone(true)
+//            .find(".clicktip")
+//                .each(function() {
+//                    var id = assertId(this);
+//                    $(this)
+//                        .unbind("click")
+//                        .bt({trigger: "click",
+//                                fill: "#8293ab",
+//                                strokeStyle: "#8293ab",
+//                                contentSelector: "$('#" + id + "').html()"
+//                                })
+//                        .click(function() { return false; });
+//                }).end()
+//            .appendTo(measures);
+//
+//        measures
+//            .accordion("destroy")
+//            .accordion({active: active})
+//            .accordion("activate", measures_count);
+//
+//        EnforceMeasurementStyling();
+//
+//        $("label.superImpose", measures).each(setupSuperimpose);
+//    }
 
 
     function MeasureHasData(m) {
