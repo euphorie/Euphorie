@@ -2,7 +2,6 @@
 *.pt.py
 *.pyc
 *.pyo
-*.mo
 *~
 *.sw?
 /.installed.cfg
