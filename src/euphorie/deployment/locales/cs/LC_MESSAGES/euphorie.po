@@ -1471,7 +1471,7 @@ msgstr "Uchování a zpracování informací"
 msgid "conditions_conservation_keep_data"
 msgstr ""
 "Uchováváme vaše údaje, ke kterým nemohou mít přístup externí uživatelé, "
-"dokud svůj účet a relaci/relace nezrušíte."
+"dokud svůj účet a modul nezrušíte."
 
 #. Default: EU-OSHA stores data on our servers in Halle, Germany.
 #: src/euphorie/client/templates/conditions.pt:81
@@ -1489,9 +1489,9 @@ msgstr "Vyhodnocení a odstranění vašich informací"
 #: src/euphorie/client/templates/conditions.pt:87
 msgid "conditions_datareview"
 msgstr ""
-"Můžete použít Nastavení účtu a svou uloženou relaci/relace OiRA k "
+"Můžete použít Nastavení účtu a svou uloženou modul OiRA k "
 "vyhodnocení, kontrole a vymazání informací uložených na vašem účtu a ve vaší "
-"relaci/relacích."
+"modul."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
@@ -1670,7 +1670,7 @@ msgstr "Zpráva"
 #: src/euphorie/client/templates/help.pt:54
 #: src/euphorie/content/templates/help_view.pt:39
 msgid "help_header_finalwords"
-msgstr "Konečná slova"
+msgstr "Závěr"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -2632,7 +2632,7 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 msgid "label_finalwords"
-msgstr "Konečná slova"
+msgstr "Závěr"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -2788,7 +2788,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:72
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Právní odkazy a odkazy na postupy"
+msgstr "Odkazy na právní předpisy a postupy"
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:78
@@ -3492,7 +3492,7 @@ msgstr ""
 #. Default: This module is mandatory.
 #: src/euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
-msgstr ""
+msgstr "Tento modul je povinný"
 
 #. Default: This module is optional.
 #: src/euphorie/content/templates/module_view.pt:24
@@ -3573,9 +3573,9 @@ msgid "no_surveys_present"
 msgstr ""
 
 #. Default: You can also ${add_link}.
-#: src/euphorie/content/templates/sector_view.pt:31
+#: src/euphorie/conten/templates/sector_view.pt:31
 msgid "survey_list_footer"
-msgstr ""
+msgstr "Také můžete ${add_link}."
 
 #. Default: Sectors
 #: src/euphorie/content/templates/sectorcontainer_view.pt:12
@@ -3607,7 +3607,7 @@ msgstr "Kandidátské země"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:42
 msgid "Potential Candidate EFTA Countries"
-msgstr "Potenciální kandidátská země Evropského sdružení volného obchodu"
+msgstr "Potenciální kandidátské země"
 
 #. Default: Settings
 #: src/euphorie/content/templates/settings.pt:12
