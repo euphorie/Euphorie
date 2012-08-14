@@ -4,7 +4,13 @@ Changelog
 4.1 - Unreleased
 ---------------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Fix survey XML importer to generate filenames for images if not provided.
+  This solves problems with not being able to see fullsize images for
+  imported images.
+  [wichert]
 
 
 4.0.2 - June 21, 2012
