@@ -4,6 +4,7 @@ import json
 import re
 from zExceptions import MethodNotAllowed
 import martian
+from zope.component import getMultiAdapter
 from zope.publisher.publish import mapply
 from five import grok
 from zope.i18n import translate
@@ -112,6 +113,19 @@ def get_json_date(input, name, required=False, default=None):
     except (TypeError, ValueError):
         raise ValueError('Field %s is not a valid date' % name)
     return value
+
+
+def export_image(context, request, image_attr, caption_attr, **kw):
+    images_view = getMultiAdapter((context, request), name='images')
+    scale = images_view.scale(image_attr, **kw)
+    if scale is not None:
+        return {'thumbnail': scale.url,
+                'original': '%s/@@download/images/%s' %
+                    (context.absolute_url(),
+                        getattr(context, image_attr).filename),
+                'caption': getattr(context, caption_attr, None)}
+    else:
+        return None
 
 
 class JsonView(grok.View):
