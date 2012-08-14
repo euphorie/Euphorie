@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.0.3 - Unreleased
+5.0 - Unreleased
 ---------------------
 
 - Updated privacy policy text. [jcbrand]
