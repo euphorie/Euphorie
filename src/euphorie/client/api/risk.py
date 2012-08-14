@@ -11,6 +11,7 @@ from euphorie.client.api import get_json_token
 from euphorie.client.api import vocabulary_token
 from euphorie.client.api import vocabulary_options
 from euphorie.client.api import context_menu
+from euphorie.client.api import export_image
 from euphorie.client.api.actionplans import RiskActionPlans
 from euphorie.client.api.actionplan import plan_info
 from euphorie.client.api.interfaces import IClientAPISkinLayer
@@ -42,6 +43,13 @@ class View(JsonView):
                 'priority': self.context.priority,
                 'comment': self.context.comment,
                 }
+        images = filter(None,
+                [export_image(self.risk, self.request,
+                    'image%s' % postfix, 'caption%s' % postfix,
+                    width=150, height=500, direction='thumbnail')
+                    for postfix in ['', '2', '3', '4']])
+        if images:
+            info['images'] = images
         if HasText(self.risk.description):
             info['description'] = self.risk.description
         if HasText(self.risk.legal_reference):

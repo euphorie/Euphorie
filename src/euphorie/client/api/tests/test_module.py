@@ -2,6 +2,11 @@ from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
 
 
+DUMMY_GIF = 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff' \
+            '\xff\xff!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00' \
+            '\x00\x01\x00\x01\x00\x00\x02\x01L\x00;'
+
+
 def _setup_session(portal):
     from euphorie.content.tests.utils import BASIC_SURVEY
     from euphorie.client.tests.utils import addAccount
@@ -46,6 +51,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Module
+        from plone.namedfile.file import NamedBlobImage
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
@@ -53,6 +59,9 @@ class ViewTests(EuphorieFunctionalTestCase):
         module.solution_direction = u'<p>Fix It Fast</p>'
         module.optional = True
         module.question = u'Is this needed?'
+        module.image = NamedBlobImage(data=DUMMY_GIF, contentType='image/gif',
+                filename=u'dummy.gif')
+        module.caption = u'Key Image'
         request = TestRequest()
         request.survey = survey
         module = object_session(survey_session).query(Module).first()
@@ -61,13 +70,25 @@ class ViewTests(EuphorieFunctionalTestCase):
         response = view.do_GET()
         self.assertEqual(
                 set(response),
-                set(['id', 'type', 'title', 'optional',
+                set(['id', 'type', 'title', 'optional', 'image',
                      'description', 'solution-direction',
                      'question', 'skip-children']))
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['solution-direction'], u'<p>Fix It Fast</p>')
         self.assertEqual(response['question'], u'Is this needed?')
         self.assertEqual(response['skip-children'], True)
+        self.assertEqual(
+                set(response['image']),
+                set(['thumbnail', 'original', 'caption']))
+        self.assertEqual(response['image']['caption'], u'Key Image')
+        self.assertEqual(
+                response['image']['original'],
+                u'http://nohost/plone/client/nl/ict/software-development/1/'
+                '@@download/images/dummy.gif')
+        self.assertTrue(
+                response['image']['thumbnail'].startswith(
+                u'http://nohost/plone/client/nl/ict/software-development'
+                '/1/@@images/'))
 
 
 class IdentificationTests(EuphorieFunctionalTestCase):

@@ -1,4 +1,5 @@
 import mimetypes
+import random
 from Acquisition import aq_inner
 import lxml.etree
 import lxml.objectify
@@ -126,13 +127,19 @@ class SurveyImporter(object):
         :param node: lxml.objectified XML node of image element
         :rtype: (:py:class:`NamedImage`, unicode) tuple
         """
-        image=NamedBlobImage(data=node.text.decode("base64"),
-                contentType=node.get("content-type", None),
-                filename=attr_unicode(node, "filename"))
+        filename = attr_unicode(node, 'filename')
+        contentType = node.get("content-type", None)
+        if not filename:
+            basename = u'image%d.%%s' % random.randint(1, 2 ** 16)
+            if contentType and '/' in contentType:
+                filename = basename % contentType.split(u'/')[1]
+            else:
+                filename = basename % u'jpg'
+        image = NamedBlobImage(data=node.text.decode("base64"),
+                contentType=contentType, filename=filename)
         if image.contentType is None and image.filename:
-            image.contentType=mimetypes.guess_type(image.filename)[0]
+            image.contentType = mimetypes.guess_type(image.filename)[0]
         return (image, attr_unicode(node, "caption"))
-
 
     def ImportSolution(self, node, risk):
         solution=createContentInContainer(risk, "euphorie.solution")

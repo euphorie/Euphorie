@@ -1,14 +1,29 @@
 Changelog
 =========
 
-4.0.3 - Unreleased
+5.0 - Unreleased
 ---------------------
 
+
+Bugfixes
+~~~~~~~~
+
+- Implement missing export of image data for modules and risks in the client
+  API. This also changes the datastructure used for images; this should not
+  break existing clients since image data was never present in earlier versions.
+  [wichert]
+
+- Fix survey XML importer to generate filenames for images if not provided.
+  This solves problems with not being able to see fullsize images for
+  imported images.
+  [wichert]
+
+- Update Czech and Greek translations. [jcbrand,thomasw]
+
 - Updated privacy policy text. [jcbrand]
-- Updated Greek translations. [jcbrand]
-- Updated Czech translations. [jcbrand]
+
 - Added Flemish (nl_BE) translations [thomasw]
-- Greek translation amendments for the Help page [thomasw]
+
 
 
 4.0.2 - June 21, 2012

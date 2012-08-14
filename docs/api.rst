@@ -710,8 +710,9 @@ Beyond the standard fields a module will return these extra fields:
 |  Field                 | Type          | Required |                                |
 +========================+===============+==========+================================+
 | ``image``              | object        | No       | An image related to the module.|
-|                        |               |          | This has two keys: ``url`` and |
-|                        |               |          | ``caption``.                   |
+|                        |               |          | This has three keys:           |
+|                        |               |          | ``original``, ``thumbanil``    |
+|                        |               |          | and ``caption``.               |
 +------------------------+---------------+----------+--------------------------------+
 | ``solution-direction`` | string (HTML) | No       | Explanation of how to handle   |
 |                        |               |          | risks in this module.          |
@@ -792,8 +793,8 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 | ``images``              | list of       | No       | An list of image related to the|
 |                         | objects       |          | risk. Each entry is an object  |
-|                         |               |          | with two keys: ``url`` and     |
-|                         |               |          | ``caption``.                   |
+|                         |               |          | with three keys: ``original``, |
+|                         |               |          | ``thumbnail and ``caption``.   |
 +-------------------------+---------------+----------+--------------------------------+
 | ``legal-reference``     | string (HTML) | No       | A reference to related legal   |
 |                         |               |          | and policy references.         |

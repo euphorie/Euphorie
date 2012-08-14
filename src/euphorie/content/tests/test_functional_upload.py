@@ -23,14 +23,22 @@ class SurveyImporterTests(EuphorieTestCase):
 
     def testImportImage(self):
         from plone.namedfile.file import NamedBlobImage
-        snippet=objectify.fromstring(
-                """<image caption="Key image" content-type="image/gif">R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>""")
-        importer=upload.SurveyImporter(None)
-        (image,caption)=importer.ImportImage(snippet)
+        snippet = objectify.fromstring(
+                """<image caption="Key image" filename="myfile.gif" content-type="image/gif">R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>""")
+        importer = upload.SurveyImporter(None)
+        (image,caption) = importer.ImportImage(snippet)
         self.assertEqual(caption, u"Key image")
         self.assertTrue(isinstance(caption, unicode))
         self.assertEqual(image.contentType, "image/gif")
+        self.assertEqual(image.filename, 'myfile.gif')
         self.assertTrue(isinstance(image, NamedBlobImage))
+
+    def testImportImage_filename_from_mimetype(self):
+        snippet = objectify.fromstring(
+                """<image caption="Key image" content-type="image/bmp">R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7</image>""")
+        importer = upload.SurveyImporter(None)
+        (image,caption) = importer.ImportImage(snippet)
+        self.assertTrue(image.filename.endswith('.bmp'))
 
     def testImportImage_MimeFromFilename(self):
         snippet=objectify.fromstring(
