@@ -373,7 +373,7 @@ class SurveySession(BaseObject):
         INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
                                         requirements, responsible, budget,
                                         planning_start, planning_end)
-               SELECT action_plan.risk_id,
+               SELECT new_tree.id,
                       action_plan.action_plan,
                       action_plan.prevention_plan,
                       action_plan.requirements,
