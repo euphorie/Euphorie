@@ -2,6 +2,7 @@ from five import grok
 from euphorie.client.utils import HasText
 from euphorie.client.model import Module
 from euphorie.client.api import context_menu
+from euphorie.client.api import export_image
 from euphorie.client.api import JsonView
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import FindNextQuestion
@@ -24,6 +25,11 @@ class View(JsonView):
                 'title': self.module.title,
                 'optional': self.module.optional,
                 }
+        image = export_image(self.module, self.request,
+                'image', 'caption', width=150, height=500,
+                direction='thumbnail')
+        if image:
+            info['image'] = image
         if HasText(self.module.description):
             info['description'] = self.module.description
         if HasText(self.module.solution_direction):

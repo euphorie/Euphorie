@@ -7,6 +7,11 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Implement missing export of image data for modules and risks in the client
+  API. This also changes the datastructure used for images; this should not
+  break existing clients since image data was never present in earlier versions.
+  [wichert]
+
 - Fix survey XML importer to generate filenames for images if not provided.
   This solves problems with not being able to see fullsize images for
   imported images.

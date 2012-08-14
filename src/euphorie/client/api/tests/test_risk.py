@@ -2,6 +2,11 @@ from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
 
 
+DUMMY_GIF = 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff' \
+            '\xff\xff!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00' \
+            '\x00\x01\x00\x01\x00\x00\x02\x01L\x00;'
+
+
 def _setup_session(portal):
     from euphorie.content.tests.utils import BASIC_SURVEY
     from euphorie.client.tests.utils import addAccount
@@ -33,6 +38,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         risk.problem_description = u'Not everything under control.'
         risk.description = None
         risk.evaluation_method = 'direct'
+        risk.image = None
         request = TestRequest()
         request.survey = survey
         risk = object_session(survey_session).query(Risk).first()
@@ -60,12 +66,16 @@ class ViewTests(EuphorieFunctionalTestCase):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
+        from plone.namedfile.file import NamedBlobImage
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
         risk = survey['1']['2']
         risk.description = u'<p>Simple description</p>'
         risk.legal_reference = u'<p>Catch 22</p>'
         risk.evaluation_method = 'calculated'
+        risk.image2 = NamedBlobImage(data=DUMMY_GIF, contentType='image/gif',
+                filename=u'dummy.gif')
+        risk.caption2 = u'Secondary Image'
         request = TestRequest()
         request.survey = survey
         risk = object_session(survey_session).query(Risk).first()
@@ -82,9 +92,11 @@ class ViewTests(EuphorieFunctionalTestCase):
                      'frequency', 'frequency-options',
                      'effect', 'effect-options',
                      'probability', 'probability-options',
+                     'images',
                      ]))
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['legal-reference'], u'<p>Catch 22</p>')
+        self.assertEqual(len(response['images']), 2)
 
     def test_do_GET_use_vocabulary_token(self):
         from sqlalchemy.orm import object_session
