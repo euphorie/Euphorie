@@ -1222,19 +1222,21 @@ ol.toc li a:after {
 
 .report blockquote.comments {
 	letter-spacing: 1px;
-	font: italic normal 18px Georgia, "Times New Roman", Times, serif;
 	clear: both;
+	font: italic normal 14px/20px Georgia, "Times New Roman", Times, serif;
 }
 
 .report blockquote.comments:before {
 	content: "“";
 	font-size: 200px;
 	z-index: 0;
-	color: #d9d5d3;
+	color: white;
 	float: left;
 	width: 70px;
-	margin: -42px -40px -120px -30px;
 	clear: left;
+	margin-top: 60px;
+	margin-left: -30px;
+	margin-right: -40px;
 }
 
 .report dl,.report dd {
