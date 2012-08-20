@@ -1089,19 +1089,6 @@ ol.toc li a:after {
 	font: italic normal 14px/20px Georgia, "Times New Roman", Times, serif;
 }
 
-.report blockquote.comments:before {
-	content: "“";
-	font-size: 200px;
-	z-index: 0;
-	color: white;
-	float: left;
-	width: 70px;
-	clear: left;
-	margin-top: 60px;
-	margin-left: -30px;
-	margin-right: -40px;
-}
-
 .report dl,.report dd {
 	margin-bottom: 20px;
 }
@@ -1124,6 +1111,19 @@ ol.toc li a:after {
 }
 
 @media screen {
+
+.report blockquote.comments:before {
+	content: "“";
+	font-size: 200px;
+	z-index: 0;
+	color: white;
+	float: left;
+	width: 70px;
+	clear: left;
+	margin-top: 60px;
+	margin-left: -30px;
+	margin-right: -40px;
+}
 
 .report p.priority-high {
 	position: absolute;
