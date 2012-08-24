@@ -24,6 +24,8 @@ Bugfixes
 
 - Added Flemish (nl_BE) translations [thomasw]
 
+- Added Latvian (lv) and Catalan (ca) translations [thomasw]
+
 
 
 4.0.2 - June 21, 2012
