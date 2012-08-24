@@ -7,6 +7,8 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add Latvian (lv) and Catalan (ca) translations. [thomasw]
+
 - Client API modifications:
   - Add module title to the returned risk information.
   - Expose risk standard solutions.
