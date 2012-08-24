@@ -1,10 +1,12 @@
 from zope.interface import implements
 from zope import schema
+from zope.i18n import translate
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content import MessageFactory as _
+from euphorie.content import utils
 
 grok.templatedir("templates")
 
@@ -50,12 +52,14 @@ class ISolution(form.Schema):
 
 class Solution(dexterity.Item):
     implements(ISolution)
-
     title = _("title_common_solution", default=u"Common solution")
 
     def Title(self):
-        # this is a CMF-style accessor, so should return utf8-encoded
-        return Solution.title.encode('utf-8')
+        survey = utils.getSurvey(self)
+        return translate(
+                    Solution.title, 
+                    context=self.REQUEST, 
+                    target_language=survey.language).encode('utf-8')
 
 
 class View(grok.View):

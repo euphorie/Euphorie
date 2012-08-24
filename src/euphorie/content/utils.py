@@ -1,5 +1,6 @@
 import re
 from zope.schema.interfaces import ITitledTokenizedTerm
+from Acquisition import aq_parent
 from plonetheme.nuplone.utils import checkPermission
 from euphorie.content import MessageFactory as _
 
@@ -9,6 +10,15 @@ TAG = re.compile(u"<.*?>")
 REGION_NAMES = {
         "eu": _(u"European Union"),
         }
+
+def getSurvey(context):
+    from euphorie.content.surveygroup import ISurveyGroup
+    from euphorie.content.survey import ISurvey
+    obj = context
+    while obj and not ISurveyGroup.providedBy(obj):
+        if ISurvey.providedBy(obj):
+            return obj 
+        obj = aq_parent(obj)
 
 
 def StripMarkup(markup):
