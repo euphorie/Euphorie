@@ -174,5 +174,19 @@
       handler=".v4.enable_extra_pas_interfaces"/>
 
   </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="11"
+    destination="12"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Fix solution titles."
+      description="Fix solution titles indexed as title_common_solution"
+      handler=".v5.reindex_solution_titles"/>
+
+  </genericsetup:upgradeSteps>
+
 </configure>
 
