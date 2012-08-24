@@ -1,0 +1,159 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-07-20 17:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.5\n"
+
+#: euphorie/client/profiles/default/types/euphorie.client.xml:8
+msgid "The online client."
+msgstr "El client en línia."
+
+#: euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
+msgid "Country information and grouping for the client."
+msgstr "Agrupació i informació del país del client."
+
+#: euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
+msgid "Sector information and grouping for the client."
+msgstr "Agrupació i informació del sector del client."
+
+#: euphorie/content/profiles/default/types/euphorie.country.xml:7
+msgid "A folder for all sectors in a country."
+msgstr "Una carpeta per a tots els sectors d'un país."
+
+#: euphorie/content/profiles/default/types/euphorie.country.xml:6
+msgid "Country"
+msgstr "País"
+
+#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
+msgid "A manager for sectors in a country."
+msgstr "Un responsable per a tots els sectors d'un país."
+
+#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
+msgid "Country manager"
+msgstr "Responsable de país"
+
+#: euphorie/content/profiles/default/types/euphorie.documentation.xml:7
+msgid "A folder for all documentation for a specific language."
+msgstr "Una carpeta per a tota la documentació d'un idioma determinat."
+
+#: euphorie/content/profiles/default/types/euphorie.documentation.xml:6
+msgid "Documentation"
+msgstr "Documentació"
+
+#: euphorie/content/profiles/default/types/euphorie.folder.xml:6
+msgid "Folder"
+msgstr "Carpeta"
+
+#: euphorie/content/profiles/default/types/euphorie.help.xml:8
+msgid "The help text for the client."
+msgstr "El text d'ajuda per al client."
+
+#: euphorie/content/profiles/default/types/euphorie.help.xml:7
+msgid "Online help"
+msgstr "Ajuda en línia"
+
+#: euphorie/content/profiles/default/types/euphorie.module.xml:8
+msgid "A module is grouping of risks"
+msgstr "Un mòdul és un grup de riscos"
+
+#: euphorie/content/profiles/default/types/euphorie.module.xml:7
+msgid "Module"
+msgstr "Mòdul"
+
+#: euphorie/content/profiles/default/types/euphorie.page.xml:8
+msgid "A page with text"
+msgstr "Una pàgina amb text"
+
+#: euphorie/content/profiles/default/types/euphorie.page.xml:7
+msgid "Page"
+msgstr "Pàgina"
+
+#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
+msgid "A profile question is used to create optional or repetabled modules"
+msgstr ""
+"S'utilitza una pregunta de perfil per crear mòduls opcionals o recurrents"
+
+#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
+msgid "Profile question"
+msgstr "Pregunta de perfil"
+
+#: euphorie/content/profiles/default/types/euphorie.risk.xml:8
+msgid "A risk."
+msgstr "Un risc."
+
+#: euphorie/content/profiles/default/types/euphorie.risk.xml:7
+msgid "Risk"
+msgstr "Risc"
+
+#: euphorie/content/profiles/default/types/euphorie.sector.xml:8
+msgid "A sector is national organisation for a specific type of industry."
+msgstr ""
+"Un sector és una organització nacional d'un tipus d'indústria determinat."
+
+#: euphorie/content/profiles/default/types/euphorie.sector.xml:7
+msgid "Sector"
+msgstr "Sector"
+
+#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
+msgid "A folder which can contain sectors."
+msgstr "Una carpeta que pot contenir sectors."
+
+#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
+msgid "Sector Folder"
+msgstr "Carpeta de sectors"
+
+#: euphorie/content/profiles/default/types/euphorie.solution.xml:8
+msgid "A solution."
+msgstr "Una solució."
+
+#: euphorie/content/profiles/default/types/euphorie.solution.xml:7
+msgid "Solution"
+msgstr "Solució"
+
+#: euphorie/content/profiles/default/types/euphorie.survey.xml:8
+msgid "A version of a survey."
+msgstr "Una versió d'una enquesta."
+
+#: euphorie/content/profiles/default/types/euphorie.survey.xml:7
+msgid "Survey version"
+msgstr "Versió de l'enquesta"
+
+#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
+msgid "A survey."
+msgstr "Una enquesta."
+
+#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
+msgid "Survey"
+msgstr "Enquesta"
+
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:2
+msgid "Sector workflow"
+msgstr "Flux de treball del sector"
+
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:2
+msgid ""
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
+msgstr ""
+"Flux de treball d'un estat per als objectes del sector, la qual cosa "
+"proporciona a l'usuari del sector accés d'edició al contingut."
+
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:15
+msgid "Active"
+msgstr "Actiu"
+
+#: euphorie/content/profiles/default/workflows/sector/definition.xml:16
+msgid "The One And Only state "
+msgstr "Estat únic"
