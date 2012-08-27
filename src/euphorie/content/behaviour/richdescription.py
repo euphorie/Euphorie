@@ -11,6 +11,7 @@ the standard description field with a rich text version, and registers
 a catalog indexer which returns a plain text version of the description.
 """
 
+import HTMLParser
 from zope import schema
 from plone.indexer import indexer
 from plone.directives import form
@@ -19,18 +20,17 @@ from euphorie.content.utils import StripMarkup
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
-
 class IRichDescription(form.Schema):
     """Simple behaviour for content types with a HTML description.
     Replaces the standard description field with a rich text version.
     """
-
     description = schema.Text(
             title = _(u"Summary"),
             description = _(u'A short summary of the content.'),
             required = False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
+
 
 @indexer(IRichDescription)
 def Description(obj):
@@ -41,5 +41,5 @@ def Description(obj):
     if d is None:
         return None
 
-    return StripMarkup(d)
-
+    h = HTMLParser.HTMLParser()
+    return h.unescape(StripMarkup(d))
