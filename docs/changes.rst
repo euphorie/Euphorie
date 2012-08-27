@@ -39,6 +39,9 @@ Bugfixes
   imported images.
   [wichert]
 
+- Correct display of standard solution titles in the CMS navigation tree.
+  [jcbrand]
+
 
 4.0.2 - June 21, 2012
 ---------------------
