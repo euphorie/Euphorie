@@ -1116,7 +1116,7 @@ jQuery.bt = {version: '0.9.5-rc1'};
                                              //   hoverIntent becomes default if available
                                              
     clickAnywhereToClose: true,              // clicking anywhere outside of the tip will close it 
-    closeWhenOthersOpen: false,              // tip will be closed before another opens - stop >= 2 tips being on
+    closeWhenOthersOpen: true,               // tip will be closed before another opens - stop >= 2 tips being on
                                              
     shrinkToFit:      false,                 // should short single-line content get a narrower balloon?
     width:            '200px',               // width of tooltip box
