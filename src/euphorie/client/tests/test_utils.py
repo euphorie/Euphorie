@@ -1,4 +1,11 @@
 import unittest
+from euphorie.client.country import ClientCountry
+from euphorie.client.sector import ClientSector
+from euphorie.client.utils import locals
+from euphorie.client.tests.utils import testRequest
+from euphorie.client.utils import WebHelpers
+from euphorie.content.survey import Survey
+from euphorie.deployment.tests.functional import EuphorieTestCase
 from euphorie.client import utils
 
 
@@ -11,6 +18,50 @@ class MockRequest:
     def get_header(self, key, default):
         return self.__headers.get(key, default)
 
+
+class TestURLs(EuphorieTestCase):
+
+    def setUp(self):
+        super(TestURLs, self).setUp()
+        self.loginAsPortalOwner()
+        self.client = self.portal.client
+        # Set locals
+        request = testRequest()
+        locals.request = request
+        # Add survey
+        self.client['en'] = ClientCountry('en')
+        country = self.client['en']
+        country["sector"] = ClientSector('sector')
+        country["sector"].title=u"Test sector"
+        country["sector"].id="sector"
+        sector = country["sector"]
+        survey = Survey('survey')
+        survey.title = u'Test Survey' 
+        survey.language = 'en' 
+        sector['survey'] = survey
+
+    def testBaseURL(self):
+        country = self.client['en']
+        survey = self.client['en']['sector']['survey']
+
+        request = testRequest()
+        request.client = self.client
+        view = WebHelpers(self.client, request)
+        self.assertTrue(view._base_url().startswith(self.client.absolute_url()))
+        self.assertFalse(view._base_url().startswith(country.absolute_url()))
+
+        view = WebHelpers(country, testRequest())
+        self.assertTrue(view._base_url().startswith(country.absolute_url()))
+
+        request = testRequest()
+        view = WebHelpers(survey, testRequest())
+        view._survey = survey
+        self.assertTrue(view._base_url().startswith(survey.absolute_url()))
+
+        view = WebHelpers(country, testRequest())
+        self.assertFalse(view._base_url().startswith(survey.absolute_url()))
+        self.assertTrue(view._base_url().startswith(country.absolute_url()))
+    
 
 class WebhelperTests(unittest.TestCase):
     def _createView(self, agent=None):

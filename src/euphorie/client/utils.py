@@ -158,7 +158,8 @@ class WebHelpers(grok.View):
         the country will be used as parent.
         """
         base_url = self.survey_url()
-        if base_url is not None:
+        if base_url is not None and \
+                aq_inner(self.context).absolute_url().startswith(base_url):
             return base_url
         base_url = self.country_url
         if base_url is not None:
@@ -242,6 +243,7 @@ class WebHelpers(grok.View):
         survey = self._survey
         if survey is None:
             return None
+
         url = survey.absolute_url()
         if phase is not None:
             url += '/%s' % phase
