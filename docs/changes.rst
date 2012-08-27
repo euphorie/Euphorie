@@ -22,6 +22,10 @@ Bugfixes
 
 - Updated privacy policy text. [jcbrand]
 
+- Show proper help URL when outside of a survey. [jcbrand]
+
+- Solution's Title metadata indexed as title_common_solution. [jcbrand]
+
 - Added Flemish (nl_BE) translations [thomasw]
 
 - Added Latvian (lv) and Catalan (ca) translations [thomasw]
