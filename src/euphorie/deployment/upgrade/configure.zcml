@@ -186,6 +186,11 @@
       description="Fix solution titles indexed as title_common_solution"
       handler=".v5.reindex_solution_titles"/>
 
+    <genericsetup:upgradeStep
+      title="Reindex rich text descriptions."
+      description="IRichDescription fields need to be reindexed to properly catalog HTML entities."
+      handler=".v5.reindex_richtext_descriptions"/>
+
   </genericsetup:upgradeSteps>
 
 </configure>
