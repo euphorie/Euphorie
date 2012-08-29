@@ -711,7 +711,7 @@ Beyond the standard fields a module will return these extra fields:
 +========================+===============+==========+================================+
 | ``image``              | object        | No       | An image related to the module.|
 |                        |               |          | This has three keys:           |
-|                        |               |          | ``original``, ``thumbanil``    |
+|                        |               |          | ``original``, ``thumbnail``    |
 |                        |               |          | and ``caption``.               |
 +------------------------+---------------+----------+--------------------------------+
 | ``solution-direction`` | string (HTML) | No       | Explanation of how to handle   |
@@ -782,6 +782,9 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 |  Field                  | Type          | Required |                                |
 +=========================+===============+==========+================================+
+| ``module-title``        | string        | Yes      | The title of the parent        |
+|                         |               |          | module.                        |
++-------------------------+---------------+----------+--------------------------------+
 | ``problem-description`` | string        | Yes      | The inverse of the risk title. |
 |                         |               |          | This should be used instead of |
 |                         |               |          | the title if risk is known to  |
@@ -794,7 +797,15 @@ Beyond the standard fields a risk will return these extra fields:
 | ``images``              | list of       | No       | An list of image related to the|
 |                         | objects       |          | risk. Each entry is an object  |
 |                         |               |          | with three keys: ``original``, |
-|                         |               |          | ``thumbnail and ``caption``.   |
+|                         |               |          | ``thumbnail`` and ``caption``. |
++-------------------------+---------------+----------+--------------------------------+
+| ``standard-solutions``  | list of       | No       | A list of standard solutions   |
+|                         | objects       |          | for this risk. Each entry is   |
+|                         |               |          | with four keys:                |
+|                         |               |          | ``description``,               |
+|                         |               |          | ``action-plan``,               |
+|                         |               |          | ``prevention-plan`` and        |
+|                         |               |          | ``requirements``.              |
 +-------------------------+---------------+----------+--------------------------------+
 | ``legal-reference``     | string (HTML) | No       | A reference to related legal   |
 |                         |               |          | and policy references.         |

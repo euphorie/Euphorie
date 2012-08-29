@@ -4,9 +4,33 @@ Changelog
 5.0 - Unreleased
 ---------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *12*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add Flemish (nl_BE), Latvian (lv), Greek and Catalan (ca) translations.
+  [thomasw]
+
+- Client API modifications:
+  - Add module title to the returned risk information.
+  - Expose risk standard solutions.
+
+- Updated privacy policy text. [jcbrand]
+
 
 Bugfixes
 ~~~~~~~~
+
+- Report styling improvements: correct display of comments to they are
+  readable when printing a report.
+  [cornae]
 
 - Implement missing export of image data for modules and risks in the client
   API. This also changes the datastructure used for images; this should not
@@ -18,18 +42,10 @@ Bugfixes
   imported images.
   [wichert]
 
-- Update Czech and Greek translations. [jcbrand,thomasw]
-
-- Updated privacy policy text. [jcbrand]
-
 - Show proper help URL when outside of a survey. [jcbrand]
 
-- Solution's Title metadata indexed as title_common_solution. [jcbrand]
-
-- Added Flemish (nl_BE) translations [thomasw]
-
-- Added Latvian (lv) and Catalan (ca) translations [thomasw]
-
+- Correct display of standard solution titles in the CMS navigation tree.
+  [jcbrand]
 
 
 4.0.2 - June 21, 2012

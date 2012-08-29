@@ -1,9 +1,11 @@
+from Acquisition import aq_parent
 from zope.component import adapts
 from five import grok
 from euphorie.content.risk import evaluation_algorithm
 from euphorie.content.risk import IFrenchEvaluation
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
+from euphorie.content.solution import ISolution
 from euphorie.client.utils import HasText
 from euphorie.client.model import Risk
 from euphorie.client.api import JsonView
@@ -31,31 +33,32 @@ class View(JsonView):
     check_update = True
 
     def do_GET(self):
-        self.risk = self.request.survey.restrictedTraverse(
+        self.risk = risk = self.request.survey.restrictedTraverse(
                 self.context.zodb_path.split('/'))
         info = {'id': self.context.id,
                 'type': 'risk',
-                'title': self.risk.title,
-                'problem-description': self.risk.problem_description,
-                'show-not-applicable': self.risk.show_notapplicable,
-                'evaluation-method': self.risk.evaluation_method,
+                'title': risk.title,
+                'module-title': aq_parent(risk).title,
+                'problem-description': risk.problem_description,
+                'show-not-applicable': risk.show_notapplicable,
+                'evaluation-method': risk.evaluation_method,
                 'present': self.context.identification,
                 'priority': self.context.priority,
                 'comment': self.context.comment,
                 }
         images = filter(None,
-                [export_image(self.risk, self.request,
+                [export_image(risk, self.request,
                     'image%s' % postfix, 'caption%s' % postfix,
                     width=150, height=500, direction='thumbnail')
                     for postfix in ['', '2', '3', '4']])
         if images:
             info['images'] = images
-        if HasText(self.risk.description):
-            info['description'] = self.risk.description
-        if HasText(self.risk.legal_reference):
-            info['legal-reference'] = self.risk.legal_reference
-        if self.risk.evaluation_method == 'calculated':
-            algorithm = evaluation_algorithm(self.risk)
+        if HasText(risk.description):
+            info['description'] = risk.description
+        if HasText(risk.legal_reference):
+            info['legal-reference'] = risk.legal_reference
+        if risk.evaluation_method == 'calculated':
+            algorithm = evaluation_algorithm(risk)
             info['evaluation-algorithm'] = algorithm
             if algorithm == 'french':
                 field = IFrenchEvaluation['default_severity']
@@ -88,6 +91,15 @@ class View(JsonView):
                                 if self.context.probability else None
                 info['probability-options'] = vocabulary_options(
                         field, self.request)
+        solutions = [solution for solution in risk.values()
+                     if ISolution.providedBy(solution)]
+        if solutions:
+            info['standard-solutions'] = [
+                    {'description': solution.description,
+                     'action-plan': solution.action_plan,
+                     'prevention-plan': solution.prevention_plan,
+                     'requirements': solution.requirements}
+                    for solution in risk.values()]
         return info
 
 

@@ -53,6 +53,8 @@ class ISolution(form.Schema):
 class Solution(dexterity.Item):
     implements(ISolution)
     title = _("title_common_solution", default=u"Common solution")
+    prevention_plan = None
+    requirements = None
 
     def Title(self):
         survey = utils.getSurvey(self)

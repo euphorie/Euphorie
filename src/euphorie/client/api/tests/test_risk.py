@@ -33,6 +33,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.client.model import Risk
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
+        survey['1'].title = u'Module title.'
         risk = survey['1']['2']
         risk.title = u'Everything is under control.'
         risk.problem_description = u'Not everything under control.'
@@ -46,14 +47,13 @@ class ViewTests(EuphorieFunctionalTestCase):
         response = view.do_GET()
         self.assertEqual(
                 set(response),
-                set(['id', 'type', 'title', 'problem-description',
-                     'show-not-applicable', 'evaluation-method',
-                     'present', 'priority', 'comment']))
+                set(['id', 'type', 'title', 'module-title',
+                      'problem-description', 'show-not-applicable',
+                      'evaluation-method', 'present', 'priority', 'comment']))
         self.assertEqual(response['id'], 2)
         self.assertEqual(response['type'], 'risk')
-        self.assertEqual(
-                response['title'],
-                u'Everything is under control.')
+        self.assertEqual(response['title'], u'Everything is under control.')
+        self.assertEqual(response['module-title'], u'Module title.')
         self.assertEqual(
                 response['problem-description'],
                 u'Not everything under control.')
@@ -66,6 +66,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from sqlalchemy.orm import object_session
         from zope.publisher.browser import TestRequest
         from euphorie.client.model import Risk
+        from euphorie.content.solution import Solution
         from plone.namedfile.file import NamedBlobImage
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
@@ -76,6 +77,9 @@ class ViewTests(EuphorieFunctionalTestCase):
         risk.image2 = NamedBlobImage(data=DUMMY_GIF, contentType='image/gif',
                 filename=u'dummy.gif')
         risk.caption2 = u'Secondary Image'
+        risk['3'] = Solution(description=u'Standard solution 1',
+                action_plan=u'Dummy plan',
+                requirements=u'Dummy requirements')
         request = TestRequest()
         request.survey = survey
         risk = object_session(survey_session).query(Risk).first()
@@ -84,19 +88,25 @@ class ViewTests(EuphorieFunctionalTestCase):
         response = view.do_GET()
         self.assertEqual(
                 set(response),
-                set(['id', 'type', 'title', 'problem-description',
-                     'show-not-applicable', 'evaluation-method',
-                     'present', 'priority', 'comment',
-                     'description', 'legal-reference',
-                     'evaluation-algorithm',
+                set(['id', 'type', 'title', 'module-title',
+                     'problem-description', 'show-not-applicable',
+                     'evaluation-method', 'present', 'priority', 'comment',
+                     'description', 'legal-reference', 'evaluation-algorithm',
                      'frequency', 'frequency-options',
                      'effect', 'effect-options',
                      'probability', 'probability-options',
-                     'images',
+                     'images', 'standard-solutions'
                      ]))
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['legal-reference'], u'<p>Catch 22</p>')
         self.assertEqual(len(response['images']), 2)
+        self.assertEqual(len(response['standard-solutions']), 1)
+        self.assertEqual(
+                response['standard-solutions'][0],
+                {'description': u'Standard solution 1',
+                 'action-plan': u'Dummy plan',
+                 'prevention-plan': None,
+                 'requirements': u'Dummy requirements'})
 
     def test_do_GET_use_vocabulary_token(self):
         from sqlalchemy.orm import object_session
