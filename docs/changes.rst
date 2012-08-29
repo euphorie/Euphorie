@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.1 - Unreleased
+4.1 - August 29, 2012
 ---------------------
 
 Upgrade notes
