@@ -15,6 +15,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Report styling improvements: correct display of comments to they are
+  readable when printing a report.
+  [cornae]
+
 - Implement missing export of image data for modules and risks in the client
   API. This also changes the datastructure used for images; this should not
   break existing clients since image data was never present in earlier versions.
