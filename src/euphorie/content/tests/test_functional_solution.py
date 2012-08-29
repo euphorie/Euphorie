@@ -32,11 +32,15 @@ class RiskTests(EuphorieTestCase):
     def testCMFAccessors(self):
         """ CMF-Style accessors must return utf8-encoded strings.
         """
+        from zope.i18n import translate
+        from euphorie.content import utils
         from euphorie.content.solution import Solution
         self.loginAsPortalOwner()
         solution = createSolution()
         title = solution.Title()
         self.assertEqual(type(title), str)
-        self.assertEqual(title, Solution.title.encode('utf-8'))
+
+        survey = utils.getSurvey(solution)
+        self.assertEqual(title, translate(Solution.title, target_language=survey.language))
 
 
