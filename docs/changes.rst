@@ -4,6 +4,14 @@ Changelog
 4.1 - Unreleased
 ---------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release updates the profile version to *12*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
+
 Feature changes
 ~~~~~~~~~~~~~~~
 
