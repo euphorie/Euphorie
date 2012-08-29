@@ -4,6 +4,13 @@ Changelog
 4.1 - Unreleased
 ---------------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Client API modifications:
+  - add module title to the returned risk information.
+
+
 Bugfixes
 ~~~~~~~~
 

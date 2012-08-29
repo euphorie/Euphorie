@@ -782,6 +782,9 @@ Beyond the standard fields a risk will return these extra fields:
 +-------------------------+---------------+----------+--------------------------------+
 |  Field                  | Type          | Required |                                |
 +=========================+===============+==========+================================+
+| ``module-title``        | string        | Yes      | The title of the parent        |
+|                         |               |          | module.                        |
++-------------------------+---------------+----------+--------------------------------+
 | ``problem-description`` | string        | Yes      | The inverse of the risk title. |
 |                         |               |          | This should be used instead of |
 |                         |               |          | the title if risk is known to  |
