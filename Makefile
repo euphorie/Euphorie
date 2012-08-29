@@ -48,7 +48,7 @@ bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setu
 	touch bin/sphinx-build
 
 check:: bin/test ${MO_FILES}
-	bin/test
+	bin/test -s euphorie
 
 check:: bin/sphinx-build
 	$(MAKE) -C docs linkcheck
