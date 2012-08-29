@@ -5,6 +5,7 @@ from euphorie.content.risk import evaluation_algorithm
 from euphorie.content.risk import IFrenchEvaluation
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
+from euphorie.content.solution import ISolution
 from euphorie.client.utils import HasText
 from euphorie.client.model import Risk
 from euphorie.client.api import JsonView
@@ -90,6 +91,15 @@ class View(JsonView):
                                 if self.context.probability else None
                 info['probability-options'] = vocabulary_options(
                         field, self.request)
+        solutions = [solution for solution in risk.values()
+                     if ISolution.providedBy(solution)]
+        if solutions:
+            info['standard-solutions'] = [
+                    {'description': solution.description,
+                     'action-plan': solution.action_plan,
+                     'prevention-plan': solution.prevention_plan,
+                     'requirements': solution.requirements}
+                    for solution in risk.values()]
         return info
 
 

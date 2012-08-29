@@ -8,7 +8,8 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Client API modifications:
-  - add module title to the returned risk information.
+  - Add module title to the returned risk information.
+  - Expose risk standard solutions.
 
 
 Bugfixes

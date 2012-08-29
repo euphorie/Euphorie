@@ -799,6 +799,14 @@ Beyond the standard fields a risk will return these extra fields:
 |                         |               |          | with three keys: ``original``, |
 |                         |               |          | ``thumbnail`` and ``caption``. |
 +-------------------------+---------------+----------+--------------------------------+
+| ``standard-solutions``  | list of       | No       | A list of standard solutions   |
+|                         | objects       |          | for this risk. Each entry is   |
+|                         |               |          | with four keys:                |
+|                         |               |          | ``description``,               |
+|                         |               |          | ``action-plan``,               |
+|                         |               |          | ``prevention-plan`` and        |
+|                         |               |          | ``requirements``.              |
++-------------------------+---------------+----------+--------------------------------+
 | ``legal-reference``     | string (HTML) | No       | A reference to related legal   |
 |                         |               |          | and policy references.         |
 +-------------------------+---------------+----------+--------------------------------+

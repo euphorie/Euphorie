@@ -52,6 +52,8 @@ class Solution(dexterity.Item):
     implements(ISolution)
 
     title = _("title_common_solution", default=u"Common solution")
+    prevention_plan = None
+    requirements = None
 
     def Title(self):
         # this is a CMF-style accessor, so should return utf8-encoded
