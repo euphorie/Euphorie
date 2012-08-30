@@ -490,6 +490,7 @@ body,
 #moreMeasuresButton.open .dropdown-toggle {
 	background-color: white;
 	border: 1px solid silver;
+	overflow: hidden;
 }
 
 #moreMeasuresButton {
