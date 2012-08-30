@@ -80,11 +80,29 @@
     </div>
     
     <div class="module-navigation-tabs" id="ActionPlanItemForm">
-    	<nav class="nav nav-pills">
+    	<nav class="nav nav-tabs">
     		<a href="measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
     		<a href="measure-2">Measure 2 <span class="icon delete" title="Delete this measure">Delete</span></a>
     		<a href="measure-3">Measure 3 <span class="icon delete" title="Delete this measure">Delete</span></a>
     		
+			<div class="btn-group open" id="moreMeasuresButton">
+			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			    More…
+			  </a>
+			  <ul class="dropdown-menu">
+			    <!-- dropdown menu links -->
+			    <li>
+			    	<a href="#">Measure 4</a>
+			    </li>
+			    <li>
+			    	<a href="#">Measure 5</a>
+			    </li>
+			    <li>
+			    	<a href="#">Measure 6</a>
+			    </li>
+			  </ul>
+			</div>			
+			
 			<button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
     	</nav>
       <div class="tab-container" id="measure-1">

@@ -285,7 +285,110 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
-/* @group Navigatin pills */
+/* @group Dropdown menu */
+
+.btn-group {
+	display: inline-block;
+}
+
+.btn-group .dropdown-menu {
+	position: absolute;
+	background-color: white;
+	display: none;
+	width: 240px;
+	margin: 3px 0 0;
+	padding: 6px 0;
+	border: 1px solid silver;
+	border-radius: 4px;
+	list-style-type: none;
+}
+
+.btn-group .dropdown-menu li {
+	padding: 0;
+	margin: 0;
+}
+
+.btn-group.open .dropdown-menu {
+	display: block;
+}
+
+.btn-group .dropdown-menu li a {
+	display: block;
+	text-decoration: none;
+	color: #3d3d3d;
+	padding: 2px 10px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.btn-group .dropdown-menu li a:hover {
+	background-color: #efefef;
+}
+
+
+
+/* @end */
+
+/* @group Navigation tabs */
+
+.nav-tabs {
+	margin-bottom: 20px;
+	padding: 4px 0 0;
+	height: 20px;
+	border-bottom: 1px solid silver;
+	width: 100%;
+	float: left;
+}
+
+.nav-tabs > a {
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	padding-right: 0;
+	padding-left: 10px;
+	border: 1px solid silver;
+	text-decoration: none;
+	margin-right: 2px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-size: 11px;
+	position: relative;
+	border-bottom-style: none;
+	top: -1px;
+}
+
+.nav-tabs > a.current {
+	background-color: #e9e9e8;
+}
+
+.nav-tabs > a span.icon.delete {
+	width: 16px;
+	height: 16px;
+	background: url(delete-sign.png) no-repeat 0 -16px;
+	position: relative;
+	border-radius: 4px;
+	margin-right: 1px;
+	top: 2px;
+}
+
+.nav-tabs > a span.icon.delete:hover {
+	background: #304e83 url(delete-sign.png) no-repeat 0 0;
+
+}
+
+/*.nav-tabs a.current span.icon.delete {
+	background: url(delete-sign.png) no-repeat 0 0;
+}*/
+
+/*.nav-tabs > a.current span.icon.delete:hover {
+	background: white url(delete-sign.png) no-repeat 0 -16px;
+}*/
+
+
+
+/* @end */
+
+/* @group Navigation pills */
 
 .nav-pills {
 	margin-bottom: 20px;
@@ -300,14 +403,14 @@ body,
 .nav-pills a {
 	height: 18px;
 	line-height: 18px;
-	display: inline-block;
 	padding-right: 0;
 	padding-left: 10px;
 	border: 1px solid silver;
 	text-decoration: none;
 	border-radius: 10px;
-	margin-right: 5px;
+	margin-right: 2px;
 	font-size: 11px;
+	float: left;
 }
 
 .nav-pills a.current {
@@ -366,16 +469,67 @@ body,
 #ActionPlanItemForm .tab-container > .clicktip {
 }
 
+#moreMeasuresButton .dropdown-toggle {
+	width: 14px;
+	background-image: none;
+	background-color: transparent;
+	height: 14px;
+	text-indent: -1000px;
+	padding: 0;
+	display: inline-block;
+	top: 0;
+	position: relative;
+	text-shadow: none;
+	text-align: center;
+	border-radius: 4px;
+	margin-right: 0;
+	border: 1px solid silver;
+	font-weight: bold;
+}
+
+#moreMeasuresButton.open .dropdown-toggle {
+	background-color: white;
+	border: 1px solid silver;
+}
+
+#moreMeasuresButton {
+	position: relative;
+	z-index: 1;
+	top: 2px;
+}
+
+#moreMeasuresButton .dropdown-menu {
+	top: 18px;
+}
+
+#moreMeasuresButton #moreMeasuresButton .dropdown-toggle:hover {
+	box-shadow: inset 0 0 4px rgba(0,0,0,0.4);
+	background-color: white;
+}
+
+#moreMeasuresButton .dropdown-toggle:before {
+	content: "≫";
+	text-indent: 0;
+	line-height: 12px;
+	width: 16px;
+	height: 14px;
+	float: left;
+	color: #484848;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+}
+
 #addMeasureButton {
 	border-style: none;
-	width: 20px;
-	height: 20px;
+	width: 16px;
+	height: 16px;
 	text-indent: -1000px;
 	overflow: hidden;
-	border-radius: 50%;
+	border-radius: 4px;
 	background-image: url(plus-sign.png);
 	background-color: #304e83;
-	top: -1px;
+	top: -3px;
 }
 
 
