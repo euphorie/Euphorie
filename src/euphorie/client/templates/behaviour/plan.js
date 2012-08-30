@@ -84,6 +84,7 @@ var ActionPlan = {
             $solutions
                 .data("euphorie.visible", false)
                 .hide();
+            $("#standardSolutions li").off("click.euphorie");
             $("html").unbind("click.fallback");
             return false;
         }
@@ -93,21 +94,19 @@ var ActionPlan = {
         $solutions
             .css({top: position.top, left: position.left})
             .show();
+        $("#standardSolutions li").on("click.euphorie", ActionPlan.addStandardSolution);
         $("html").bind("click.fallback", ActionPlan.toggleSolutionDropdown);
         return false;
     },
 
-    addStandardSolution: function() {
-        ActionPlan.toggleSolutionDropdown();
-        alert("Whoop");
+    addStandardSolution: function(event) {
+        event.preventDefault();
 
-        var measures = $("#ActionPlanItemForm"),
-            active = ActionPlan.findActive(measures);
-            $measure = measures.find("dd").eq(active);
+        var $measure = $("#ActionPlanItemForm .tab-container.current");
 
         if (ActionPlan.MeasureHasData($measure)) {
             if (!confirm(replace_confirm_text)) {
-                return false;
+                return;
             }
         }
 
@@ -126,8 +125,7 @@ var ActionPlan = {
             .on("click", "#measureTabs a", ActionPlan.onSwitchMeasure)
             .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
             .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
-            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown)
-            .on("click", "#standardSolutions li", ActionPlan.addStandardSolution);
+            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
     }
 };
 
