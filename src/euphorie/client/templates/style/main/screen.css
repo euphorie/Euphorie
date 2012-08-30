@@ -343,18 +343,18 @@ body,
 .nav-tabs > a {
 	height: 20px;
 	line-height: 20px;
-	display: inline-block;
 	padding-right: 0;
 	padding-left: 10px;
 	border: 1px solid silver;
 	text-decoration: none;
-	margin-right: 2px;
+	margin-right: 4px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	font-size: 11px;
 	position: relative;
 	border-bottom-style: none;
 	top: -1px;
+	float: left;
 }
 
 .nav-tabs > a.current {
@@ -2210,7 +2210,8 @@ p.fileUploader input.file {
 
 /* @end */
 
-input[type="text"],input[type="password"],textarea {
+input[type="text"],
+input[type="password"],textarea {
 	margin-top: -1px;
 	max-width: 100%;
 	margin-bottom: 5px;
@@ -2220,10 +2221,15 @@ input[type="text"],input[type="password"],textarea {
 	margin-left: 0;
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
-	border-style: none;
-	-webkit-transition: all 0.5s;
-	outline: 1px solid #c8c3be;
+	-webkit-transition: all 0.2s;
+	border: 1px solid #c8c3be;
 	cursor: text;
+}
+
+input:focus,
+textarea:focus {
+	outline-color: black;
+	box-shadow: 0 0 1px #34538d
 }
 
 input.password,
@@ -2490,15 +2496,6 @@ fieldset.condensed fieldset p.question {
 
 address {
 	margin-top: 0;
-}
-
-input:focus,
-textarea:focus {
-	outline:  none;
-	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
-	background-color: white;
 }
 
 abbr.currency {
