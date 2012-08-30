@@ -9,6 +9,7 @@ var ActionPlan = {
 
     onDeleteMeasure: function(event) {
         event.preventDefault();
+        event.stopPropagation();
         if (!confirm(delete_confirm_text)) {
             return false;
         }
