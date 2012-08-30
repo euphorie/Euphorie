@@ -14,7 +14,7 @@
     <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie7.css" /> <![endif]-->
     <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="screen" href="style/main/screen-ie8.css" /> <![endif]-->
     <!--[if lte IE 8]><script src="libraries/excanvas.min.js" type=text/javascript></script><![endif]-->
-    <script type="text/javascript" src="libraries/jquery-1.4.4.min.js"> </script>
+    <script type="text/javascript" src="libraries/jquery-1.8.0.min.js"> </script>
     <script type="text/javascript" src="libraries/jquery-ui-1.7.3.min.js"> </script>
     <script type="text/javascript" src="libraries/jquery.hoverIntent.js"></script>
     <script type="text/javascript" src="libraries/jquery.bt.js"> </script>
@@ -81,32 +81,11 @@
     
     <div class="module-navigation-tabs" id="ActionPlanItemForm">
     	<nav class="nav nav-tabs" id="measureTabs">
-    		<a href="measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
-    		<a href="measure-2">Measure 2 <span class="icon delete" title="Delete this measure">Delete</span></a>
-    		<a href="measure-3">Measure 3 <span class="icon delete" title="Delete this measure">Delete</span></a>
-    		
-			<div class="btn-group closed" id="moreMeasuresButton">
-			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			    More…
-			  </a>
-			  <ul class="dropdown-menu">
-			    <!-- dropdown menu links -->
-			    <li>
-			    	<a href="#">Measure 4</a>
-			    </li>
-			    <li>
-			    	<a href="#">Measure 5</a>
-			    </li>
-			    <li>
-			    	<a href="#">Measure 6</a>
-			    </li>
-			  </ul>
-			</div>			
-			
-			<button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
+    		<a href="#measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
+                <button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
     	</nav>
-      <div class="tab-container" id="measure-1">
-        <div class="column">
+      <div class="tab-container current" id="measure-1">
+        <div class="span-7 colborder">
           <fieldset class="condensed">
             <legend>Description <a href="#standardSolutions" class="button small solutions">Standard solutions</a>
               <a href="#" class="icon info clicktip">How do I use this form?</a></legend> 
@@ -231,133 +210,6 @@
         </div>
       </div>
     </div>
-    <div style="display: none" id="measureTemplate">
-      <a href="#measure-x">
-        Measure 2 <button class="small removeButton">Remove</button>
-        <a href="#standardSolutions" class="button small solutions">Standard solutions</a> 
-      </a>
-      <div>
-        <div class="span-7 colborder">
-          <fieldset class="condensed">
-            <legend>Description of your measure</legend> 
-            <label class="superImpose">General approach (to eliminate or reduce the risk)</label>
-            <textarea class="actionPlan" name="action_plan" rows="6">
-</textarea>
-            <hr />
-            <label class="superImpose">Specific action(s) required to implement this approach</label>
-            <textarea class="preventionPlan" name="prevention_plan" rows="3">
-</textarea>
-            <hr />
-            <label class="superImpose">Level of expertise and/or requirements needed</label>
-            <textarea class="requirements" name="requirements" rows="3">
-</textarea>
-          </fieldset>
-        </div>
-        <div class="span-7 last">
-          <fieldset class="condensed">
-            <label i18n:translate="label_action_plan_responsible">Who is responsible? <input type="text" name="responsible" /></label> <label i18n:translate="label_action_plan_budget">Budget (in Euro) <abbr class="currency">€</abbr> <input type="text" name="budget" /></label>
-          </fieldset>
-          <fieldset class="condensed">
-            <legend i18n:translate="label_action_plan_start">Planning start</legend>
-            <fieldset class="date-eu">
-                <label for="planning_start_day" i18n:translate="label_day">Day</label> 
-                <input class="day" name="planning_start.day:record" id="planning_start_day" maxlength="2" />   
-                <label for="planning_start_month" i18n:translate="label_month">Month</label> 
-                <select class="month" name="planning_start.month:record" id="planning_start_month">
-                  <option value="01" i18n:translate="">
-                    January
-                  </option>
-                  <option value="02" i18n:translate="">
-                    February
-                  </option>
-                  <option value="03" i18n:translate="">
-                    March
-                  </option>
-                  <option value="04" i18n:translate="">
-                    April
-                  </option>
-                  <option value="05" i18n:translate="">
-                    May
-                  </option>
-                  <option value="06" i18n:translate="">
-                    June
-                  </option>
-                  <option value="07" i18n:translate="">
-                    July
-                  </option>
-                  <option value="08" i18n:translate="">
-                    August
-                  </option>
-                  <option value="09" i18n:translate="">
-                    September
-                  </option>
-                  <option value="10" i18n:translate="">
-                    October
-                  </option>
-                  <option value="11" i18n:translate="">
-                    November
-                  </option>
-                  <option value="12" i18n:translate="">
-                    December
-                  </option>
-                </select>
-
-                <label for="planning_start_year" i18n:translate="label_year">Year</label> <input class="year" name="planning_start.year:record" id="planning_start_year" maxlength="4" />
-             </fieldset>
-          </fieldset>
-          <fieldset class="condensed ">
-            <legend i18n:translate="label_action_plan_end">Planning end</legend>
-            <fieldset class="date-eu">
-            
-                <label for="planning_end_day" i18n:translate="label_day">Day</label> <input class="day" name="planning_end.day:record" id="planning_end_day" maxlength="2" />
-             
-                <label for="planning_end_month" i18n:translate="label_month">Month</label> 
-                <select name="planning_end.month:record" id="planning_end_month" class="month">
-                  <option value="01" i18n:translate="">
-                    January
-                  </option>
-                  <option value="02" i18n:translate="">
-                    February
-                  </option>
-                  <option value="03" i18n:translate="">
-                    March
-                  </option>
-                  <option value="04" i18n:translate="">
-                    April
-                  </option>
-                  <option value="05" i18n:translate="">
-                    May
-                  </option>
-                  <option value="06" i18n:translate="">
-                    June
-                  </option>
-                  <option value="07" i18n:translate="">
-                    July
-                  </option>
-                  <option value="08" i18n:translate="">
-                    August
-                  </option>
-                  <option value="09" i18n:translate="">
-                    September
-                  </option>
-                  <option value="10" i18n:translate="">
-                    October
-                  </option>
-                  <option value="11" i18n:translate="">
-                    November
-                  </option>
-                  <option value="12" i18n:translate="">
-                    December
-                  </option>
-                </select>
-             
-                <label for="planning_end_year" i18n:translate="label_year">Year</label> <input class="year" name="planning_end.year:record" id="planning_end_year" maxlength="4" />
-            </fieldset>
-          </fieldset>
-        </div>
-      </div>
-    </div>
-   
 <hr/>
 
     <div class="notice" tal:condition="view/legal_reference">
@@ -420,102 +272,74 @@
     var replace_confirm_text = "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted Are you sure you want to continue?";
 
 // <![CDATA[
+    function switchMeasure(event) {
+        event.preventDefault();
+        $("#measureTabs a").removeClass("current");
+        $(this).addClass("current");
+        $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
+        $(this.hash).addClass("current").show();
+    }
+
+    function deleteMeasure(event) {
+        event.preventDefault();
+        if (!confirm(delete_confirm_text)) {
+            return false;
+        }
+
+        if ($("#measureTabs > a").length===1) {
+            $("#ActionPlanItemForm :input").each(function() {
+                this.value = null;
+            });
+        } else {
+            var $tab = $(this).closest("a");
+            $($tab[0].hash).remove();
+            if ($tab.hasClass("current")) {
+                $("#measureTabs a:first").addClass("current");
+                $("#ActionPlanItemForm .tab-container:first").addClass("current").show();
+            }
+            $tab.remove();
+            UpdateNumbering();
+        }
+    }
+
+    function addMeasure(event) {
+        event.preventDefault();
+        var $new_tab = $("#measureTabs a:first").clone().insertBefore(this),
+            $new_container = $("#ActionPlanItemForm .tab-container:first").clone().appendTo("#ActionPlanItemForm");
+
+        $new_container.find(":input").each(function() {
+            this.value = null;
+        });
+        $("#measureTabs a").removeClass("current");
+        $new_tab.addClass("current");
+        $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
+        $new_container.addClass("current").show();
+        UpdateNumbering();
+    }
+
     function findActive(measures) {
         var items = $.map(measures.find("dt"),
-            function(a) { return $(a).hasClass("ui-state-active"); });
+            function(a) { return $(a).hasClass("current"); });
         var active = $.inArray(true, items);
 
         return active;
     }
 
+    function UpdateNumbering() {
+        var $tabs = $("#measureTabs > a"),
+            $containers = $("#ActionPlanItemForm .tab-container"),
+            i, $tab, $container, text;
 
-    function EnforceMeasurementStyling() {
-        var headers = $("#ActionPlanItemForm dt");
-        var measures = $("#ActionPlanItemForm dd");
-        var title = $("#measureTemplate dt").clone().find("button").remove().end().text();
-        var i;
-
-        for (i=0; i<headers.length; i++) {
-//            headers.eq(i).text(title.replace(/[0-9]+/, i+1));
-            measures.eq(i).find("fieldset:first *").each(function() {
-                var el=$(this);
-                var buf = el.attr("id");
-                if (buf) {
-                    el.attr("id", buf.replace(/[0-9]+/, i+1));
-                }
-                buf=el.attr("for");
-                if (buf) {
-                    el.attr("for", buf.replace(/[0-9]+/, i+1));
-                }
-            });
+        for (i=0; i<$tabs.length; i++) {
+            $tab = $tabs.eq(i);
+            $tab.attr("href", $tabs[i].hash.replace(/[0-9]+/, i+1));
+            text = $tab[0].firstChild;
+            text.textContent = text.textContent.replace(/[0-9]+/, i+1);
+            $container = $containers.eq(i);
+            $container
+              .attr("id", $container.attr("id").replace(/[0-9]+/, i+1));
         }
-
-/*
-        headers.find("button").remove();
-        if (headers.length>1) {
-            var button = $("#measureTemplate dt .removeButton");
-            button.clone(true).appendTo(headers);
-            setupEvents();
-        }
-*/
     }
-
-
-    function removeButtonHandler() {
-        var measures = $("#ActionPlanItemForm");
-        var measures_count = measures.find("dt").length-1;
-        var active = findActive(measures);
-        var header = $(this).parents("dt");
-
-        if (!confirm(delete_confirm_text)) {
-            return false;
-        }
-
-        if (active>=measures_count-1) {
-          active-=1;
-        }
-
-        $(header).add($(header).next("dd")).remove();
-
-        measures
-            .accordion("destroy")
-            .accordion({active: active});
-
-        EnforceMeasurementStyling();
-    };
-
-
-//    function AddMeasurement() {
-//        var measures = $("#ActionPlanItemForm");
-//        var measures_count = measures.find("dt").length;
-//        var active = findActive(measures);
-//
-//        $("#measureTemplate")
-//            .find("> *")
-//            .clone(true)
-//            .find(".clicktip")
-//                .each(function() {
-//                    var id = assertId(this);
-//                    $(this)
-//                        .unbind("click")
-//                        .bt({trigger: "click",
-//                                fill: "#8293ab",
-//                                strokeStyle: "#8293ab",
-//                                contentSelector: "$('#" + id + "').html()"
-//                                })
-//                        .click(function() { return false; });
-//                }).end()
-//            .appendTo(measures);
-//
-//        measures
-//            .accordion("destroy")
-//            .accordion({active: active})
-//            .accordion("activate", measures_count);
-//
-//        EnforceMeasurementStyling();
-//
-//        $("label.superImpose", measures).each(setupSuperimpose);
-//    }
 
 
     function MeasureHasData(m) {
@@ -523,13 +347,6 @@
                                    function(i) { return Boolean($(i).val()); });
         return $.inArray(true, data)!=-1;
     }
-
-
-    $(".button.solutions").live("click", function() {
-        var $solutions = $("#solutions");
-        $solutions.toggle();
-        return false;
-    });
 
     function toggleSolutionDropdown() {
         var $solutions = $("#standardSolutions"),
@@ -540,7 +357,7 @@
                 .data("euphorie.visible", false)
                 .hide();
             $("html").unbind("click.fallback");
-            return;
+            return false;
         }
 
         $solutions.data("euphorie.visible", true);
@@ -549,10 +366,12 @@
             .css({top: position.top, left: position.left})
             .show();
         $("html").bind("click.fallback", toggleSolutionDropdown);
+        return false;
     }
 
     function addStandardSolution() {
         toggleSolutionDropdown();
+        alert("Whoop");
 
         var measures = $("#ActionPlanItemForm"),
             active = findActive(measures);
@@ -574,26 +393,13 @@
         $("label.superImpose", $measure).each(setupSuperimpose);
     }
 
-    function setupEvents() {
-        $(".button.solutions")
-            .unbind(".euphorie")
-            .bind("click.euphorie", toggleSolutionDropdown);
-        $("#addMeasureButton")
-            .unbind(".euphorie")
-            .bind("click.euphorie", AddMeasurement);
-        $(".removeButton")
-            .unbind(".euphorie")
-            .bind("click.euphorie", removeButtonHandler);
-        $("#standardSolutions li")
-            .unbind(".euphorie")
-            .bind("click.euphorie", addStandardSolution);
-    }
+    $(document)
+        .on("click", "#measureTabs a", switchMeasure)
+        .on("click", "#addMeasureButton", addMeasure)
+        .on("click", "#measureTabs .delete", deleteMeasure)
+        .on("click", ".button.solutions", toggleSolutionDropdown)
+        .on("click", "#standardSolutions li", addStandardSolution);
 
-
-    $(document).ready(function() {
-        setupEvents();
-        EnforceMeasurementStyling();
-    });
 // ]]>
     </script>
   </body>
