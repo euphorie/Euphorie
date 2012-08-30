@@ -449,7 +449,36 @@ body,
 /* @group Solutions plan */
 
 #ActionPlanItemForm {
-	
+	background-color: white;
+	float: left;
+	margin-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid silver;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2)
+}
+
+#ActionPlanItemForm .column {
+	width: 274px;
+	float: left;
+	margin-left: 20px;
+	margin-right: 0;
+}
+
+#ActionPlanItemForm .column:first-child {
+	margin-left: 0;
+}
+
+#ActionPlanItemForm textarea,#ActionPlanItemForm input.budget, #ActionPlanItemForm input.responsible {
+	width: 264px;
+}
+
+#measureTabs {
+	margin-top: -25px;
+}
+
+#measureTabs .current {
+	background-color: white;
 }
 
 #ActionPlanItemForm .solutions {
@@ -530,7 +559,8 @@ body,
 	border-radius: 4px;
 	background-image: url(plus-sign.png);
 	background-color: #304e83;
-	top: -3px;
+	float: right;
+	top: 2px;
 }
 
 
