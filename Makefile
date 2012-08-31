@@ -12,11 +12,8 @@ JS_PACK		= $(YUICOMPRESS) --charset utf-8
 JS_DIR		= src/euphorie/client/templates
 JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
-JQUERY 		= $(JS_DIR)/libraries/jquery-1.3.2.js \
-		  $(JS_DIR)/libraries/jquery-ui-1.7.2.min.js
-JQUERY_UI	= $(JS_DIR)/libraries/ui-1.7.2/ui.core.js \
-		  $(JS_DIR)/libraries/ui-1.7.2/effects.core.js \
-		  $(JS_DIR)/libraries/ui-1.7.2/ui.accordion.js
+JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.0.min.js \
+		  $(JS_DIR)/libraries/jquery-ui-1.7.3.min.js
 EXTRAS		= $(JS_DIR)/libraries/jquery.hoverIntent.js \
 		  $(JS_DIR)/libraries/jquery.bt.js  \
 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
@@ -56,7 +53,7 @@ check:: bin/sphinx-build
 jenkins: bin/test bin/sphinx-build ${MO_FILES}
 	bin/test --xml -s euphorie
 
-$(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${JQUERY_UI} ${EXTRAS} $(JS_DIR)/behaviour/markup.js
+$(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${EXTRAS} $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
 
 pot: bin/buildout
