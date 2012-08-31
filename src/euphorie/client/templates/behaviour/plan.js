@@ -16,7 +16,7 @@ var ActionPlan = {
 
         if ($("#measureTabs > a").length===1) {
             $("#ActionPlanItemForm :input").each(function() {
-                this.value = null;
+                $(this).removeAttr('value');
             });
         } else {
             var $tab = $(this).closest("a");
@@ -36,7 +36,7 @@ var ActionPlan = {
             $new_container = $("#ActionPlanItemForm .tab-container:first").clone().appendTo("#ActionPlanItemForm");
 
         $new_container.find(":input").each(function() {
-            this.value = null;
+            $(this).removeAttr('value');
         });
         $("#measureTabs a").removeClass("current");
         $new_tab.addClass("current");
