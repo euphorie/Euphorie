@@ -2726,11 +2726,11 @@ fieldset.date-eu {
 }
 
 input.day {
-	width: 19px;
+	width: 39px;
 }
 
 input.year {
-	width: 32px;
+	width: 62px;
 }
 
 /* @end */
