@@ -35,40 +35,6 @@ function assertId(el) {
 }
 
 
-function setupSuperimpose() {
-    var label = this,
-        forInput = $(label).attr("for"),
-        myInput = forInput ? $("#"+forInput) : $(":input", label);
-    if (forInput && !myInput.length) {
-        myInput = $(":input[name=" + forInput + "]");
-    }
-    if (!myInput.length) {
-        return;
-    }
-
-    $(label)
-        .css("display", $(myInput).val()==="" ? "block" : "none")
-        .click(function() {
-            $(myInput).focus();
-        });
-
-    // Check after a little bit to test if a browser silently entered
-    // form data after DOM load. Safari 4 needs this.
-    setTimeout(function() {
-        $(label).css("display", $(myInput).val()==="" ? "block" : "none");
-        }, 250);
-
-    $(myInput)
-        .unbind(".superimpose");
-
-    $(myInput)
-        .bind("blur.superimpose", function(e) {
-            $(label).css("display", $(myInput).val()==="" ? "block" : "none");
-        })
-        .bind("focus.superimpose", function(e) {
-            $(label).css("display", "none");
-        });
-}
 
 // Check if all dependenceis as spcified in `dependsOn` classes for
 // an element are satisfied.
@@ -130,6 +96,40 @@ function getDependMasters(el) {
     return $result;
 }
 
+
+function initPlaceHolders() {
+    // check placeholder browser support
+    if (!Modernizr.input.placeholder) {
+        // set placeholder values
+        $(this).find('[placeholder]').each(function() {
+            if ($(this).val() == '') { // if field is empty
+                $(this).val( $(this).attr('placeholder') );
+            }
+        });
+		
+        // focus and blur of placeholders
+        $('[placeholder]').focus(function() {
+            if ($(this).val() == $(this).attr('placeholder')) {
+                $(this).val('');
+                $(this).removeClass('placeholder');
+            }
+        }).blur(function() {
+            if ($(this).val() == '' || $(this).val() == $(this).attr('placeholder')) {
+                $(this).val($(this).attr('placeholder'));
+                $(this).addClass('placeholder');
+            }
+        });
+		
+        // remove placeholders on submit
+        $('[placeholder]').closest('form').submit(function() {
+            $(this).find('[placeholder]').each(function() {
+                if ($(this).val() == $(this).attr('placeholder')) {
+                    $(this).val('');
+                }
+            })
+        });
+    }
+}
 
 // Setup dependency-tracking behaviour.
 function initDepends(root) {
@@ -316,8 +316,7 @@ $(document).ready(function() {
     }
 
     // Show/hide labels for input elements depending on their contents.
-    $("label.superImpose").each(setupSuperimpose);
-
+    initPlaceHolders();
     initDepends(document);
 
     // Set selected and hover attributes on checkboxes and radio buttons.
