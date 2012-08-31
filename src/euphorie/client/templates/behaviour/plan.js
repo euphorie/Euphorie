@@ -72,7 +72,6 @@ var ActionPlan = {
         }
     },
 
-
     MeasureHasData: function(m) {
         var data = $.map(m.find(":input:not(select)"),
                                    function(i) { return Boolean($(i).val()); });
@@ -132,6 +131,19 @@ var ActionPlan = {
         $("#ActionPlanItemForm .tab-container:not(:first)").hide();
         $("#measureTabs a:first").addClass("current");
         $("#ActionPlanItemForm .tab-container:first").addClass('current');
+
+        $('.enablePicker').each(function () {
+            $(this).datepicker({
+                showOn: "button",      
+                buttonImage: "++resource++osha.oira.images/calendar.gif",
+                buttonImageOnly: true,
+                dateFormat: "yy",
+                onSelect: function (dateText, inst) {
+                    $(this).parent().find(".day").val(inst.selectedDay);
+                    $(this).parent().find(".month").val(inst.selectedMonth+1);
+                }
+            });
+        });
     }
 };
 
