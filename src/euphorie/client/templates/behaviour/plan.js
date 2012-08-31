@@ -35,8 +35,11 @@ var ActionPlan = {
         var $new_tab = $("#measureTabs a:first").clone().insertBefore(this),
             $new_container = $("#ActionPlanItemForm .tab-container:first").clone().appendTo("#ActionPlanItemForm");
 
-        $new_container.find(":input").each(function() {
+        $new_container.find(":input:not(select)").each(function() {
             $(this).removeAttr('value');
+        });
+        $new_container.find("select").each(function() {
+            $(this).children(':first').attr('selected', 'selected');
         });
         $("#measureTabs a").removeClass("current");
         $new_tab.addClass("current");
@@ -109,7 +112,6 @@ var ActionPlan = {
                 return;
             }
         }
-
         $measure.find(":input.actionPlan").val(
             $(this).find(".actionPlan").text());
         $measure.find(":input.preventionPlan").val(
@@ -126,6 +128,10 @@ var ActionPlan = {
             .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
             .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
             .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
+
+        $("#ActionPlanItemForm .tab-container:not(:first)").hide();
+        $("#measureTabs a:first").addClass("current");
+        $("#ActionPlanItemForm .tab-container:first").addClass('current');
     }
 };
 
