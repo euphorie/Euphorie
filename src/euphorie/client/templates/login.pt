@@ -28,7 +28,7 @@
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <h2 i18n:translate="header_login">Login</h2>
       <fieldset class="concise">
-        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email autofocus" id="login_name" tabindex="1" type="text" name="__ac_name" value="${request/__ac_name|nothing}"/></label>
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email autofocus" id="login_name" tabindex="1" type="email" name="__ac_name" value="${request/__ac_name|nothing}"/></label>
         <label><tal:span i18n:translate="label_login_password">Password (<a i18n:name="forgot_link" href="${view/reminder_url}" i18n:translate="label_forgot_password">I forgot my password</a>)</tal:span> <input tabindex="2" type="password" id="login_password" class="password" name="__ac_password:utf8:ustring"/></label>
         <p class="buttonBar">
           <button tabindex="4" id="login_submit" type="submit" name="next" value="next" class="next floatAfter" i18n:translate="label_login">Login</button>
