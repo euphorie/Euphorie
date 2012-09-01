@@ -117,8 +117,6 @@ var ActionPlan = {
             $(this).find(".preventionPlan").text());
         $measure.find(":input.requirements").val(
             $(this).find(".requirements").text());
-
-        $("label.superImpose", $measure).each(setupSuperimpose);
     },
     
     init: function() {
