@@ -89,9 +89,7 @@
                   <legend i18n:translate="label_action_plan_start">Planning start</legend>
 
                   <fieldset class="date-eu">
-                    <label class="${python:'error' if day_error else None}"
-                      for="label-planning-start-day-${index}" i18n:translate="label_day">Day</label>
-                    <input type="number" min="1" max="31" name="measure.planning_start_day:records" id="planning-start-day-${index}" maxlength="2"
+                    <input placeholder="Day" i18n:attributes="placeholder label_day;" type="number" min="1" max="31" name="measure.planning_start_day:records" id="planning-start-day-${index}" maxlength="2"
                       class="day${python:' error' if day_error else ''}"
                       value="${actionplan/planning_start_day|actionplan/planning_start/day|nothing}"/>
                     <p class="focustip error target-id-planning-start-day-${index}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
@@ -103,9 +101,7 @@
                             value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
                     </select>
 
-                    <label class="${python:'error' if year_error else None}"
-                      for="planning-start-year-1" i18n:translate="label_year">Year</label>
-                    <input type="number" min="2000" name="measure.planning_start_year:records" id="planning-start-year-${index}" maxlength="4"
+                    <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" name="measure.planning_start_year:records" id="planning-start-year-${index}" maxlength="4"
                       class="year${python:' error' if year_error else ''}"
                       value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
                       <p class="focustip error target-id-planning-start-year-${index}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
@@ -119,9 +115,7 @@
                   <legend i18n:translate="label_action_plan_end">Planning end</legend>
 
                   <fieldset class="date-eu">
-                    <label class="${python:'error' if day_error else None}"
-                      for="label-planning-end-day-${index}" i18n:translate="label_day">Day</label>
-                    <input type="number" min="1" max="31" name="measure.planning_end_day:records" id="planning-end-day-${index}" maxlength="2"
+                    <input placeholder="Day" i18n:attributes="placeholder label_day;" type="number" min="1" max="31" name="measure.planning_end_day:records" id="planning-end-day-${index}" maxlength="2"
                       class="day${python:' error' if day_error else ''}"
                       value="${actionplan/planning_end_day|actionplan/planning_end/day|nothing}"/>
                     <p class="focustip error target-id-planning-end-day-${index}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
@@ -133,9 +127,7 @@
                             value="${python:month[0]}" selected="${python:'selected' if str(value)==str(month[0]) else None}">${python:month[1]}</option>
                     </select>
 
-                    <label class="${python:'error' if year_error else None}"
-                      for="planning-end-year-1" i18n:translate="label_year">Year</label>
-                    <input type="number" min="2000" name="measure.planning_end_year:records" id="planning-end-year-${index}" maxlength="4"
+                    <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" name="measure.planning_end_year:records" id="planning-end-year-${index}" maxlength="4"
                       class="year${python:' error' if year_error else ''}"
                       value="${actionplan/planning_end_year|actionplan/planning_end/year|nothing}"/>
                       <p class="focustip error target-id-planning-end-year-${index}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
