@@ -460,11 +460,7 @@ body,
 
 #ActionPlanItemForm .column {
 	width: 274px;
-	float
-
-.nav-tabs > a.current {
-	background-color: #e9e9e8;
-}: left;
+	float: left;
 	margin-left: 20px;
 	margin-right: 0;
 }
@@ -567,7 +563,7 @@ body,
 	background-image: url(plus-sign.png);
 	background-color: #304e83;
 	float: right;
-	top: 2px;
+	top: 3px;
 }
 
 
