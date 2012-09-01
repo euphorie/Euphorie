@@ -354,6 +354,7 @@ body,
 	position: relative;
 	border-bottom-style: none;
 	float: left;
+	margin-bottom: 4px;
 }
 
 .nav-tabs > a.current {
@@ -459,7 +460,11 @@ body,
 
 #ActionPlanItemForm .column {
 	width: 274px;
-	float: left;
+	float
+
+.nav-tabs > a.current {
+	background-color: #e9e9e8;
+}: left;
 	margin-left: 20px;
 	margin-right: 0;
 }
@@ -474,6 +479,9 @@ body,
 
 #measureTabs {
 	margin-top: -25px;
+	border-style: none;
+	overflow: hidden;
+	height: 22px;
 }
 
 #measureTabs .current {
