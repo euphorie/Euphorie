@@ -39,6 +39,10 @@ var ActionPlan = {
 	}
     },
 
+    onTimeout: function () {
+        $("input[placeholder], textarea[placeholder]").placeholder();
+    },
+
     onAddMeasure: function(event) {
         event.preventDefault();
         var $new_tab = $("#measureTabs a:first").clone().insertBefore(this),
@@ -55,8 +59,8 @@ var ActionPlan = {
         $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
         $new_container.addClass("current").show();
         ActionPlan.UpdateNumbering();
-	ActionPlan.chevronize();
-        setTimeout('$("input[placeholder], textarea[placeholder]").placeholder()', 400);
+        ActionPlan.chevronize();
+        setTimeout(ActionPlan.onTimeout, 400);
     },
 
     findActive: function(measures) {
