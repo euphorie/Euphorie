@@ -560,10 +560,10 @@ body,
 	text-indent: -1000px;
 	overflow: hidden;
 	border-radius: 4px;
-	background-image: url(plus-sign.png);
-	background-color: #304e83;
 	float: right;
 	top: 3px;
+	padding: 0;
+	background: #304e83 url(plus-sign.png) center center;
 }
 
 
