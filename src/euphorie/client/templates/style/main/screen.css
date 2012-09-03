@@ -480,8 +480,6 @@ body,
 #measureTabs {
 	margin-top: -25px;
 	border-style: none;
-/*The overflow:hidden should be removed after the chefron is deployed. As long as it's here, the tooltip won't work on the 'x'*/
-	overflow: hidden;
 	height: 22px;
 }
 
