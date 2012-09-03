@@ -39,10 +39,6 @@ var ActionPlan = {
 	}
     },
 
-    onTimeout: function () {
-        $("input[placeholder], textarea[placeholder]").placeholder();
-    },
-
     onAddMeasure: function(event) {
         event.preventDefault();
         var $new_tab = $("#measureTabs a:first").clone().insertBefore(this),
@@ -60,7 +56,7 @@ var ActionPlan = {
         $new_container.addClass("current").show();
         ActionPlan.UpdateNumbering();
         ActionPlan.chevronize();
-        setTimeout(ActionPlan.onTimeout, 400);
+        $new_container.placeholder();
     },
 
     findActive: function(measures) {
@@ -135,18 +131,8 @@ var ActionPlan = {
         $measure.find(":input.requirements").val(
             $(this).find(".requirements").text());
     },
-    
-    init: function() {
-        $(document)
-            .on("click", "#measureTabs a", ActionPlan.onSwitchMeasure)
-            .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
-            .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
-            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
 
-        $("#ActionPlanItemForm .tab-container:not(:first)").hide();
-        $("#measureTabs a:first").addClass("current");
-        $("#ActionPlanItemForm .tab-container:first").addClass('current');
-
+    enableDatePicker: function() {
         $('.enablePicker').each(function () {
             $(this).datepicker({
                 showOn: "button",      
@@ -159,6 +145,19 @@ var ActionPlan = {
                 }
             });
         });
+    },
+    
+    init: function() {
+        $(document)
+            .on("click", "#measureTabs a", ActionPlan.onSwitchMeasure)
+            .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
+            .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
+            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
+
+        $("#ActionPlanItemForm .tab-container:not(:first)").hide();
+        $("#measureTabs a:first").addClass("current");
+        $("#ActionPlanItemForm .tab-container:first").addClass('current');
+        ActionPlan.enableDatePicker();
     }
 };
 
