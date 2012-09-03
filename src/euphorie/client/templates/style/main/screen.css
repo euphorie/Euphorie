@@ -2233,6 +2233,10 @@ textarea {
 	cursor: text;
 }
 
+input.placeholder,textarea.placeholder {
+	color: gray;
+}
+
 input:focus,
 textarea:focus {
 	outline-color: black;
