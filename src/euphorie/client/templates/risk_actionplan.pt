@@ -133,7 +133,7 @@
                       <p class="focustip error target-id-planning-end-year-${index}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a valid year after 1900</p>
                   </fieldset>
                 </fieldset>
-              <fieldset>
+              </fieldset>
             </div>
           </div>
         </tal:actionplan>
