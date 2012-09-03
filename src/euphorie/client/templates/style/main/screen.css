@@ -471,13 +471,16 @@ body,
 	margin-left: 0;
 }
 
-#ActionPlanItemForm textarea,#ActionPlanItemForm input.budget, #ActionPlanItemForm input.responsible {
+#ActionPlanItemForm textarea,
+#ActionPlanItemForm input.budget, 
+#ActionPlanItemForm input.responsible {
 	width: 264px;
 }
 
 #measureTabs {
 	margin-top: -25px;
 	border-style: none;
+/*The overflow:hidden should be removed after the chefron is deployed*/
 	overflow: hidden;
 	height: 22px;
 }
