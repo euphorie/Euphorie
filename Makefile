@@ -14,7 +14,7 @@ JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
 JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.0.min.js \
 		  $(JS_DIR)/libraries/jquery-ui-1.7.3.min.js
-EXTRAS		= $(JS_DIR)/libraries/modernizr-2.6.1.js \
+EXTRAS		= $(JS_DIR)/libraries/modernizr-2.6.1.min.js \
 		  $(JS_DIR)/libraries/jquery.hoverIntent.js \
 		  $(JS_DIR)/libraries/jquery.bt.js  \
 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
