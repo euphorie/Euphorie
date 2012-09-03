@@ -2223,7 +2223,7 @@ input[type="email"],
 input[type="search"],
 textarea {
 	margin-top: -1px;
-	max-width: 100%;
+	/*max-width: 100%;*/
 	margin-bottom: 5px;
 	padding: 2px 5px;
 	background-color: #fff;
