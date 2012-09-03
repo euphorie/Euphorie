@@ -61,9 +61,7 @@ var ActionPlan = {
     findActive: function(measures) {
         var items = $.map(measures.find("dt"),
             function(a) { return $(a).hasClass("current"); });
-        var active = $.inArray(true, items);
-
-        return active;
+        return $.inArray(true, items);
     },
 
     UpdateNumbering: function() {
@@ -85,7 +83,7 @@ var ActionPlan = {
     MeasureHasData: function(m) {
         var data = $.map(m.find(":input:not(select)"),
                                    function(i) { return Boolean($(i).val()); });
-        return $.inArray(true, data)!=-1;
+        return $.inArray(true, data)!==-1;
     },
 
     toggleSolutionDropdown: function() {
@@ -155,3 +153,4 @@ var ActionPlan = {
     }
 };
 
+/*jslint plusplus: true, unparam: true, sloppy: true, white: true, browser: true, devel: true */

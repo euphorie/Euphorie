@@ -102,19 +102,19 @@ function initPlaceHolders() {
     if (!Modernizr.input.placeholder) {
         // set placeholder values
         $(this).find('[placeholder]').each(function() {
-            if ($(this).val() == '') { // if field is empty
+            if ($(this).val() === '') { // if field is empty
                 $(this).val( $(this).attr('placeholder') );
             }
         });
 		
         // focus and blur of placeholders
         $('[placeholder]').focus(function() {
-            if ($(this).val() == $(this).attr('placeholder')) {
+            if ($(this).val() === $(this).attr('placeholder')) {
                 $(this).val('');
                 $(this).removeClass('placeholder');
             }
         }).blur(function() {
-            if ($(this).val() == '' || $(this).val() == $(this).attr('placeholder')) {
+            if ($(this).val() === '' || $(this).val() === $(this).attr('placeholder')) {
                 $(this).val($(this).attr('placeholder'));
                 $(this).addClass('placeholder');
             }
@@ -123,10 +123,10 @@ function initPlaceHolders() {
         // remove placeholders on submit
         $('[placeholder]').closest('form').submit(function() {
             $(this).find('[placeholder]').each(function() {
-                if ($(this).val() == $(this).attr('placeholder')) {
+                if ($(this).val() === $(this).attr('placeholder')) {
                     $(this).val('');
                 }
-            })
+            });
         });
     }
 }
@@ -156,10 +156,10 @@ function initDepends(root) {
 // Animation function for fancy effect when showing a BeautyTips
 // tooltip. Use as the showTip option.
 function BeautyTipShow(box) {
-    var $content = $('.bt-content', box).hide(); /* hide the content until after the animation */
-    var $canvas = $('canvas', box).hide(); /* hide the canvas for a moment */
-    var origWidth = $canvas[0].width; /* jQuery's .width() doesn't work on canvas element */
-    var origHeight = $canvas[0].height;
+    var $content = $('.bt-content', box).hide(), /* hide the content until after the animation */
+        $canvas = $('canvas', box).hide(), /* hide the canvas for a moment */
+        origWidth = $canvas[0].width, /* jQuery's .width() doesn't work on canvas element */
+        origHeight = $canvas[0].height;
     $(box).show(); /* show the wrapper, however elements inside (canvas, content) are now hidden */
     $canvas
       .css({width: origWidth * 0.5,
@@ -185,8 +185,8 @@ function BeautyTipHide(box, callback) {
     $('.bt-content', box).hide();
     var $canvas = $('canvas', box);
     if ($canvas.length===0) { return; }
-    var origWidth = $canvas[0].width;
-    var origHeight = $canvas[0].height;
+    var origWidth = $canvas[0].width,
+        origHeight = $canvas[0].height;
     $canvas
       .animate({width: origWidth * 0.5,
                 height: origHeight * 0.5,
@@ -228,7 +228,7 @@ jQuery.fn.toolTip = function(content, options) {
         timer=setInterval(checkRemove, 100);
     };
 
-    var opt = (typeof content == "string") ? options : content;
+    var opt = (typeof content === "string") ? options : content;
     opt = jQuery.extend(opt, {trigger: "none", postShow: postShow});
 
     return this.each(function(index) {
@@ -261,12 +261,6 @@ jQuery.bt.options.shadowBlur=5;
 jQuery.bt.options.spikeLength= 10; 
 jQuery.bt.options.spikeGirth= 10;
 jQuery.bt.options.padding= 10;
-// jQuery.bt.options.cssStyles={
-//         fontFamily: '"lucida grande",tahoma,verdana,arial,sans-serif', 
-// 		fontSize: '13px',
-//         "line-height": '20px',
-// 		color: 'white'
-//   };
 jQuery.bt.options.shadowColor="rgba(0,0,0,.6)";
 jQuery.bt.options.shadowOverlap=false;
 jQuery.bt.options.noShadowOpts={strokeStyle: "white",
@@ -372,8 +366,8 @@ $(document).ready(function() {
     }
 
     $(".focustip").each(function() {
-	var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
-	if (target) {
+        var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
+        if (target) {
             var id = assertId(this);
             $("#"+target[1]).bt({
                 trigger: ["focus", "blur"],
@@ -421,4 +415,3 @@ if (iphone) {
     });
 }
 
-/*jslint browser: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true, newcap: true, immed: true */
