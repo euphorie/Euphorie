@@ -73,7 +73,11 @@ var ActionPlan = {
             $tab = $tabs.eq(i);
             $tab.attr("href", $tabs[i].hash.replace(/[0-9]+/, i+1));
             text = $tab[0].firstChild;
-            text.textContent = text.textContent.replace(/[0-9]+/, i+1);
+            if (text.textContent){
+                text.textContent = text.textContent.replace(/[0-9]+/, i+1);
+            } else {
+                text.data = text.data.replace(/[0-9]+/, i+1);
+            }
             $container = $containers.eq(i);
             $container
               .attr("id", $container.attr("id").replace(/[0-9]+/, i+1));
