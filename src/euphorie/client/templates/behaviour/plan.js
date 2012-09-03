@@ -27,7 +27,16 @@ var ActionPlan = {
             }
             $tab.remove();
             ActionPlan.UpdateNumbering();
+	    ActionPlan.chevronize();
         }
+    },
+
+    chevronize: function() {
+	if ($("#measureTabs > a").length > 5) {
+		$("#addMeasureButton").hide();
+	} else {
+		$("#addMeasureButton").show();
+	}
     },
 
     onAddMeasure: function(event) {
@@ -46,6 +55,7 @@ var ActionPlan = {
         $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
         $new_container.addClass("current").show();
         ActionPlan.UpdateNumbering();
+	ActionPlan.chevronize();
     },
 
     findActive: function(measures) {
