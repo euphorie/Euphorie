@@ -369,6 +369,8 @@ body,
 	border-radius: 4px;
 	margin-right: 1px;
 	top: 2px;
+	padding: 0;
+	margin-top: 0;
 }
 
 .nav-tabs > a span.icon.delete:hover {
