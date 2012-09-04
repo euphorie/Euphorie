@@ -97,18 +97,18 @@ function getDependMasters(el) {
 }
 
 
-function initPlaceHolders() {
+function initPlaceHolders(root) {
     // check placeholder browser support
     if (!Modernizr.input.placeholder) {
         // set placeholder values
-        $(this).find('[placeholder]').each(function() {
+        $(root).find('[placeholder]').each(function() {
             if ($(this).val() === '') { // if field is empty
                 $(this).val( $(this).attr('placeholder') );
             }
         });
 		
         // focus and blur of placeholders
-        $('[placeholder]').focus(function() {
+        $('[placeholder]', root).focus(function() {
             if ($(this).val() === $(this).attr('placeholder')) {
                 $(this).val('');
                 $(this).removeClass('placeholder');
@@ -121,7 +121,7 @@ function initPlaceHolders() {
         });
 		
         // remove placeholders on submit
-        $('[placeholder]').closest('form').submit(function() {
+        $('[placeholder]', root).closest('form').submit(function() {
             $(this).find('[placeholder]').each(function() {
                 if ($(this).val() === $(this).attr('placeholder')) {
                     $(this).val('');
@@ -310,7 +310,7 @@ $(document).ready(function() {
     }
 
     // Show/hide labels for input elements depending on their contents.
-    initPlaceHolders();
+    initPlaceHolders(document);
     initDepends(document);
 
     // Set selected and hover attributes on checkboxes and radio buttons.
