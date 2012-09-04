@@ -56,7 +56,8 @@ var ActionPlan = {
         $new_container.addClass("current").show();
         ActionPlan.UpdateNumbering();
 	ActionPlan.chevronize();
-        $new_container.placeholder();
+        $new_container.removeClass('placeholder');
+        $("textarea[placeholder], input[placeholder]").placeholder();
     },
 
     findActive: function(measures) {
