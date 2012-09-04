@@ -82,7 +82,7 @@ var ActionPlan = {
         $new_tab.addClass("current");
         $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
         $new_container.addClass("current").show('fast', $.proxy(function() {
-                $new_container.find("textarea").removeClass("placeholder");
+                this.find("textarea").removeClass("placeholder");
                 this.placeholder();
         }, $new_container));
         ActionPlan.UpdateNumbering();
