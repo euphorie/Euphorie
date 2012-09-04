@@ -32,17 +32,45 @@ var ActionPlan = {
     },
 
     chevronize: function() {
-	if ($("#measureTabs > a").length > 5) {
-		$("#addMeasureButton").hide();
-	} else {
-		$("#addMeasureButton").show();
-	}
+        if ($("#measureTabs > a").length > 5) {
+            $("#addMeasureButton").hide();
+        } else {
+            $("#addMeasureButton").show();
+        }
+    },
+
+    prepClone: function(clone) {
+        var number = $("#measureTabs > a").length;
+        clone.find('#planning-start-day-1').attr('id', 'planning-start-day-' + number);
+        clone.find('#planning-start-month-1').attr('id', 'planning-start-month-' + number);
+        clone.find('#planning-start-year-1').attr('id', 'planning-start-year-' + number);
+
+        clone.find('#planning-end-day-1').attr('id', 'planning-end-day-' + number);
+        clone.find('#planning-end-month-1').attr('id', 'planning-end-month-' + number);
+        clone.find('#planning-end-year-1').attr('id', 'planning-end-year-' + number);
+
+        clone.find('.ui-datepicker-trigger').remove();
+
+        clone.find('.enablePicker').each(function () {
+            $(this).removeClass('hasDatepicker');
+            $(this).datepicker({
+                showOn: "button",      
+                buttonImage: "++resource++osha.oira.images/calendar.gif",
+                buttonImageOnly: true,
+                dateFormat: "yy",
+                onSelect: function (dateText, inst) {
+                    $(this).parent().find(".day").val(inst.selectedDay);
+                    $(this).parent().find(".month").val(inst.selectedMonth+1);
+                }
+            });
+        });
+        return $(clone);
     },
 
     onAddMeasure: function(event) {
         event.preventDefault();
         var $new_tab = $("#measureTabs a:first").clone().insertBefore(this),
-            $new_container = $("#ActionPlanItemForm .tab-container:first").clone().appendTo("#ActionPlanItemForm");
+            $new_container = ActionPlan.prepClone($("#ActionPlanItemForm .tab-container:first").clone()).appendTo("#ActionPlanItemForm");
 
         $new_container.find(":input:not(select)").each(function() {
             $(this).removeAttr('value');
@@ -53,11 +81,14 @@ var ActionPlan = {
         $("#measureTabs a").removeClass("current");
         $new_tab.addClass("current");
         $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
-        $new_container.addClass("current").show();
+        $new_container.addClass("current").show('fast', $.proxy(function() {
+                this.placeholder();
+        }, $new_container));
         ActionPlan.UpdateNumbering();
-	ActionPlan.chevronize();
+
         $new_container.removeClass('placeholder');
         $("textarea[placeholder], input[placeholder]").placeholder();
+        ActionPlan.chevronize();
     },
 
     findActive: function(measures) {
@@ -132,18 +163,8 @@ var ActionPlan = {
         $measure.find(":input.requirements").val(
             $(this).find(".requirements").text());
     },
-    
-    init: function() {
-        $(document)
-            .on("click", "#measureTabs a", ActionPlan.onSwitchMeasure)
-            .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
-            .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
-            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
 
-        $("#ActionPlanItemForm .tab-container:not(:first)").hide();
-        $("#measureTabs a:first").addClass("current");
-        $("#ActionPlanItemForm .tab-container:first").addClass('current');
-
+    enableDatePicker: function() {
         $('.enablePicker').each(function () {
             $(this).datepicker({
                 showOn: "button",      
@@ -156,6 +177,19 @@ var ActionPlan = {
                 }
             });
         });
+    },
+    
+    init: function() {
+        $(document)
+            .on("click", "#measureTabs a", ActionPlan.onSwitchMeasure)
+            .on("click", "#addMeasureButton", ActionPlan.onAddMeasure)
+            .on("click", "#measureTabs .delete", ActionPlan.onDeleteMeasure)
+            .on("click", ".button.solutions", ActionPlan.toggleSolutionDropdown);
+
+        $("#ActionPlanItemForm .tab-container:not(:first)").hide();
+        $("#measureTabs a:first").addClass("current");
+        $("#ActionPlanItemForm .tab-container:first").addClass('current');
+        ActionPlan.enableDatePicker();
     }
 };
 
