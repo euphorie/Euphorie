@@ -15,8 +15,11 @@ var ActionPlan = {
         }
 
         if ($("#measureTabs > a").length===1) {
-            $("#ActionPlanItemForm :input").each(function() {
+            $("#ActionPlanItemForm :input:not(select)").each(function() {
                 $(this).removeAttr('value');
+            });
+            $("#ActionPlanItemForm select").each(function() {
+                $(this).children(':first').attr('selected', 'selected');
             });
         } else {
             var $tab = $(this).closest("a");
