@@ -86,6 +86,7 @@ var ActionPlan = {
         $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
         $new_container.addClass("current").show('fast');
 	initPlaceHolders($new_container);
+	initTooltips($new_container);
         ActionPlan.UpdateNumbering();
         ActionPlan.chevronize();
     },

@@ -131,6 +131,37 @@ function initPlaceHolders(root) {
     }
 }
 
+function initTooltips(root) {
+    if (engine==="msie" && engine_version<80) {
+        $(".clicktip", root).each(function() { 
+            $(this).click(function() { return false; });
+        });
+    }
+    else {
+        // Clicktips are activated by clicking on an item
+        $(".clicktip", root).each(function() {
+            var id = assertId(this);
+            $(this).bt({trigger: "click",
+                        fill: "#8293ab",
+                        strokeStyle: "#8293ab", 
+                        contentSelector: "$('#" + id + "').html()"
+                        })
+                .click(function() { return false; });
+        });
+    }
+
+    $(".focustip", root).each(function() {
+        var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
+        if (target) {
+            var id = assertId(this);
+            $("#"+target[1]).bt({
+                trigger: ["focus", "blur"],
+                contentSelector: "$('#" + id + "').html()"
+            });
+        }
+    });
+}
+
 // Setup dependency-tracking behaviour.
 function initDepends(root) {
     $("*[class*='dependsOn-']", root).each(function() {
@@ -309,9 +340,9 @@ $(document).ready(function() {
         });
     }
 
-    // Show/hide labels for input elements depending on their contents.
     initPlaceHolders(document);
     initDepends(document);
+    initTooltips(document);
 
     // Set selected and hover attributes on checkboxes and radio buttons.
     // Allows for more flexible styling.
@@ -347,35 +378,6 @@ $(document).ready(function() {
         // Title attributes get an on-hover tooltip 
         $("*[title][rel!=fancybox]:not(form):not('.clicktip')").toolTip({shrinkToFit: true});
     }
-    if (engine==="msie" && engine_version<80) {
-        $(".clicktip").each(function() { 
-            $(this).click(function() { return false; });
-        });
-    }
-    else {
-        // Clicktips are activated by clicking on an item
-        $(".clicktip").each(function() {
-            var id = assertId(this);
-            $(this).bt({trigger: "click",
-                        fill: "#8293ab",
-                        strokeStyle: "#8293ab", 
-                        contentSelector: "$('#" + id + "').html()"
-                        })
-                .click(function() { return false; });
-        });
-    }
-
-    $(".focustip").each(function() {
-        var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
-        if (target) {
-            var id = assertId(this);
-            $("#"+target[1]).bt({
-                trigger: ["focus", "blur"],
-                contentSelector: "$('#" + id + "').html()"
-            });
-        }
-    });
-
     tmp = $(".autofocus:first");
     if (tmp.length) {
         tmp.get(0).focus();
