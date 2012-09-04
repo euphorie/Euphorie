@@ -281,7 +281,7 @@ body,
 	color: #4b4540;
 	padding: 0 60px 0 180px;
 	min-height: 100%;
-	margin: 0 auto !important; /* Add !important to work around https://github.com/Modernizr/Modernizr/issues/680 */
+	margin: 0 auto !important; /* !important to work around browser extensions that change body margin */
 	background: white url(body.png) repeat-y center 0;	
 }
 
