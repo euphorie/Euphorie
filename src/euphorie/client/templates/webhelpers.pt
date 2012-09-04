@@ -39,7 +39,7 @@
       <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie8.min.css" /> <![endif]-->
     </tal:block>
     <link tal:define="sector_url webhelpers/sector_url" tal:condition="sector_url" rel="stylesheet" type="text/css" media="all" href="${sector_url}/@@sector.css" />
-    <script type="text/javascript" src="${lib_url}/modernizr-2.6.1.min.js"></script>
+    <script type="text/javascript" src="${client/++resource++euphorie.libraries}/modernizr-2.6.1.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width = 320" />
     <meta name="viewport" content="user-scalable=no" />
