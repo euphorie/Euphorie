@@ -20,7 +20,6 @@ EXTRAS		= $(JS_DIR)/libraries/modernizr-2.6.1.min.js \
 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
 		  $(JS_DIR)/libraries/css_browser_selector.js \
 		  $(JS_DIR)/libraries/jquery.numeric.js \
-		  $(JS_DIR)/libraries/jquery.placeholder.js \
 		  $(JS_DIR)/libraries/jquery.scrollTo.js \
 		  $(JS_DIR)/libraries/jquery.localscroll.js \
 		  $(JS_DIR)/libraries/fancybox/jquery.fancybox-1.3.1.pack.js \
