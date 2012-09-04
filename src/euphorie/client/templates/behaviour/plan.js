@@ -86,7 +86,7 @@ var ActionPlan = {
         }, $new_container));
         ActionPlan.UpdateNumbering();
 
-        $new_container.removeClass('placeholder');
+        $("textarea[placeholder], input[placeholder]").removeClass('placeholder');
         $("textarea[placeholder], input[placeholder]").placeholder();
         ActionPlan.chevronize();
     },
