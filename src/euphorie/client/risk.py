@@ -266,6 +266,8 @@ class ActionPlanView(grok.View):
             return None
         return datetime.date(year, month, day)
 
+    def get_action_plans(self):
+        return sorted(self.context.action_plans, key=lambda k: k.id)
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -344,8 +346,6 @@ class ActionPlanView(grok.View):
         else:
             if len(context.action_plans) == 0:
                 context.action_plans.append(model.ActionPlan())
-            # FIXME: Action plans get saved in reverse for some reason
-            context.action_plans.reverse()
             self.data = context
 
         self.risk = risk = self.request.survey.restrictedTraverse(
