@@ -338,13 +338,15 @@ class ActionPlanView(grok.View):
                         self.request.response.redirect(url)
                         return
 
-                url=QuestionURL(self.request.survey, next, phase="actionplan")
+                url = QuestionURL(self.request.survey, next, phase="actionplan")
                 self.request.response.redirect(url)
                 return
         else:
             if len(context.action_plans) == 0:
                 context.action_plans.append(model.ActionPlan())
-            self.data=context
+            # FIXME: Action plans get saved in reverse for some reason
+            context.action_plans.reverse()
+            self.data = context
 
         self.risk = risk = self.request.survey.restrictedTraverse(
                                         context.zodb_path.split("/"))
