@@ -95,7 +95,6 @@
       <li><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
-  </body>
     <metal:css use-macro="webhelpers/macros/javascript"/>
   <script type="text/javascript" defer="1">
     // <![CDATA[
@@ -117,5 +116,6 @@
     // ]]>
   </script>
     <tal:block replace="tile:client-analytics"/>
+  </body>
 </html>
 

@@ -13,7 +13,6 @@
     <title i18n:translate="title_tool">OiRA</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
-    <metal:js use-macro="webhelpers/macros/javascript"/>
   </head>
   <body tal:define="media_url client/++resource++euphorie.media">
     <h1 i18n:translate="title_about">About</h1>
@@ -112,6 +111,7 @@
       <li><a href="${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
     </ul>
     <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:js use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
   </body>
 </html>
