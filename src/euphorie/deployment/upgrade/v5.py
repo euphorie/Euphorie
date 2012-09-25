@@ -10,7 +10,10 @@ def reindex_solution_titles(context):
     ps = catalog(title='title_common_solution', portal_type='euphorie.solution')
     i = 0
     for p in ps:
-        obj = p.getObject()
+        try:
+            obj = p.getObject()
+        except:
+            continue
         obj.reindexObject('Title')
         i += 1
         if i == 100:
@@ -21,7 +24,10 @@ def reindex_richtext_descriptions(context):
     ps = catalog(object_provides=IRichDescription.__identifier__)
     i = 0
     for p in ps:
-        obj = p.getObject()
+        try:
+            obj = p.getObject()
+        except:
+            continue
         obj.reindexObject('Description')
         i += 1
         if i == 100:
