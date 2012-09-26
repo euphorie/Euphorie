@@ -3,6 +3,7 @@ from zope.interface import Interface
 from zope.schema import Choice
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
+from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 
 
 class context_menu_tests(unittest.TestCase):
@@ -245,6 +246,79 @@ class get_json_date_tests(unittest.TestCase):
         self.assertEqual(
                 self.get_json_date({'field': '2012-06-04'}, 'field'),
                 datetime.date(2012, 6, 4))
+
+
+class export_image_tests(EuphorieFunctionalTestCase):
+    def export_image(self, *a, **kw):
+        from .. import export_image
+        return export_image(*a, **kw)
+
+    def setup_context(self):
+        from plone.namedfile.file import NamedBlobImage
+        self.loginAsPortalOwner()
+        self.portal.sectors.nl.invokeFactory('euphorie.sector', 'dining',
+                title=u'Fine dining')
+        sector = self.portal.sectors.nl.dining
+        sector.invokeFactory('euphorie.surveygroup', 'survey', title=u'Survey')
+        surveygroup = sector.survey
+        surveygroup.invokeFactory('euphorie.survey', 'version1',
+                title=u'Version 1')
+        survey = surveygroup.version1
+        survey.invokeFactory('euphorie.module', '1', title=u'Module 1')
+        module = survey['1']
+        gif = 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff' \
+               '\xff\xff!\xf9\x04\x01\x00\x00\x01\x00,\x00\x00\x00' \
+               '\x00\x01\x00\x01\x00\x00\x02\x01L\x00;'
+        module.image = NamedBlobImage(data=gif, contentType='image/gif',
+                filename=u'pixel.gif')
+        module.caption = u'Caption'
+        view = survey.restrictedTraverse('@@publish')
+        view.publish()
+        return self.portal.client['nl']['dining']['survey']['1']
+
+    def test_unknown_image(self):
+        from zope.publisher.browser import TestRequest
+        context = self.setup_context()
+        context.image = None
+        request = TestRequest()
+        response = self.export_image(context, request, 'image', u'Caption',
+                width=100, height=100)
+        self.assertEqual(response, None)
+
+    def test_standard(self):
+        from zope.component import getUtility
+        from z3c.appconfig.interfaces import IAppConfig
+        from zope.publisher.browser import TestRequest
+        config = getUtility(IAppConfig)
+        del config['euphorie']['client']
+        context = self.setup_context()
+        request = TestRequest()
+        request.client = self.portal.client
+        response = self.export_image(context, request, 'image', 'caption',
+                width=100, height=100)
+        self.assertEqual(
+                set(response), set(['thumbnail', 'original', 'caption']))
+        self.assertTrue(response['thumbnail']
+                .startswith('http://nohost/plone/client/nl'))
+        self.assertTrue(response['original']
+                .startswith('http://nohost/plone/client/nl'))
+        self.assertEqual(response['caption'], u'Caption')
+
+    def test_different_client_url(self):
+        from zope.component import getUtility
+        from z3c.appconfig.interfaces import IAppConfig
+        from zope.publisher.browser import TestRequest
+        config = getUtility(IAppConfig)
+        config['euphorie']['client'] = 'http://client.euphorie.org/'
+        context = self.setup_context()
+        request = TestRequest()
+        request.client = self.portal.client
+        response = self.export_image(context, request, 'image', 'caption',
+                width=100, height=100)
+        self.assertTrue(response['thumbnail']
+                .startswith('http://client.euphorie.org/nl/'))
+        self.assertTrue(response['original']
+                .startswith('http://client.euphorie.org/nl/'))
 
 
 class DummySchema(Interface):

@@ -4,7 +4,12 @@ Changelog
 5.0 - Unreleased
 -----------------------
 
-- ...
+- Client API changes:
+
+  - correct the URL for the original image size. This fixes `issue 38
+    <https://github.com/euphorie/Euphorie/issues/38>`_.
+
+  - make sure image URLs point to the client instead of the API location. 
 
 
 
