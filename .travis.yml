@@ -2,5 +2,5 @@ language: python
 env:
  - PYTHON=python2.7
 before_script:
- - sudo apt-get install -qq python-dev libtiff-dev libpng-dev libjpeg8-dev zlib1g-dev libpq-dev gettext yui-compressor
+ - sudo apt-get install -qq python-dev libtiff-dev libpng-dev libjpeg8-dev zlib1g-dev libpq-dev libxslt-dev gettext yui-compressor
 script: make check
