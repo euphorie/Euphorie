@@ -84,7 +84,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         self.assertEqual(
                 response['image']['original'],
                 u'http://nohost/plone/client/nl/ict/software-development/1/'
-                '@@download/images/dummy.gif')
+                '@@download/image/dummy.gif')
         self.assertTrue(
                 response['image']['thumbnail'].startswith(
                 u'http://nohost/plone/client/nl/ict/software-development'

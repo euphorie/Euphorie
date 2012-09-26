@@ -5,9 +5,11 @@ import re
 from zExceptions import MethodNotAllowed
 import martian
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.publisher.publish import mapply
 from five import grok
 from zope.i18n import translate
+from z3c.appconfig.interfaces import IAppConfig
 from euphorie.client.navigation import getTreeData
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.api.interfaces import IClientAPISkinLayer
@@ -118,14 +120,22 @@ def get_json_date(input, name, required=False, default=None):
 def export_image(context, request, image_attr, caption_attr, **kw):
     images_view = getMultiAdapter((context, request), name='images')
     scale = images_view.scale(image_attr, **kw)
-    if scale is not None:
-        return {'thumbnail': scale.url,
-                'original': '%s/@@download/images/%s' %
-                    (context.absolute_url(),
-                        getattr(context, image_attr).filename),
-                'caption': getattr(context, caption_attr, None)}
-    else:
+    if scale is None:
         return None
+
+    info = {'thumbnail': scale.url,
+            'original': '%s/@@download/image/%s' %
+                (context.absolute_url(),
+                    getattr(context, image_attr).filename),
+            'caption': getattr(context, caption_attr, None)}
+    config = getUtility(IAppConfig)
+    client_url = config.get("euphorie", {}).get("client")
+    if client_url:
+        client_url = client_url.rstrip('/')
+        old_base = request.client.absolute_url()
+        info['thumbnail'] = info['thumbnail'].replace(old_base, client_url)
+        info['original'] = info['original'].replace(old_base, client_url)
+    return info
 
 
 class JsonView(grok.View):
