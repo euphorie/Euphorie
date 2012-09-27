@@ -7,8 +7,10 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
-- Client API changes: return a proper error message if invalid JSON data
-  is received.
+- Client API changes:
+  
+  - return a proper JSON error message if invalid JSON data is received.
+  - return a proper JSON error message if an unsupported HTTP method is used.
 
 
 4.1.1 - September 27, 2012

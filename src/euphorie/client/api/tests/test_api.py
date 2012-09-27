@@ -339,6 +339,23 @@ class JsonViewTests(unittest.TestCase):
                 {'type': 'error',
                  'message': 'Invalid JSON input'})
 
+    def test_bad_method(self):
+        import json
+        import StringIO
+        import mock
+        from zope.publisher.browser import TestRequest
+        request = TestRequest()
+        request.stdin = StringIO.StringIO()
+        context = mock.Mock()
+        context.getPhysicalPath.return_value = ['', 'Plone', 'client', 'api']
+        view = self.JsonView(context, request)
+        response = view()
+        self.assertEqual(request.response.getStatus(), 405)
+        self.assertEqual(
+                json.loads(response),
+                {'type': 'error',
+                 'message': 'HTTP method not allowed'})
+
 
 class DummySchema(Interface):
     field = Choice(vocabulary=SimpleVocabulary([
