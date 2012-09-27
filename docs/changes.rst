@@ -4,6 +4,12 @@ Changelog
 5.0 - Unreleased
 -----------------------
 
+- ...
+
+
+4.1.1 - Unreleased
+-----------------------
+
 - Client API changes:
 
   - correct the URL for the original image size. This fixes `issue 38
