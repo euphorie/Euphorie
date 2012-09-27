@@ -321,6 +321,25 @@ class export_image_tests(EuphorieFunctionalTestCase):
                 .startswith('http://client.euphorie.org/nl/'))
 
 
+class JsonViewTests(unittest.TestCase):
+    def JsonView(self, *a, **kw):
+        from .. import JsonView
+        return JsonView(*a, **kw)
+
+    def test_invalid_input(self):
+        import json
+        import StringIO
+        from zope.publisher.browser import TestRequest
+        request = TestRequest()
+        request.stdin = StringIO.StringIO('invalid json')
+        view = self.JsonView(None, request)
+        response = view()
+        self.assertEqual(
+                json.loads(response),
+                {'type': 'error',
+                 'message': 'Invalid JSON input'})
+
+
 class DummySchema(Interface):
     field = Choice(vocabulary=SimpleVocabulary([
         SimpleTerm(u'foo', title=u'Bar')]))

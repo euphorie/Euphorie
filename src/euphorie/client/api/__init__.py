@@ -188,8 +188,8 @@ class JsonView(grok.View):
             try:
                 self.input = json.loads(input)
             except ValueError:
-                return {'type': 'error',
-                        'message': 'Invalid JSON input'}
+                return json.dumps({'type': 'error',
+                                   'message': 'Invalid JSON input'})
 
         mapply(self.update, (), self.request)
         if self.request.response.getStatus() in [302, 303]:

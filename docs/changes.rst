@@ -4,7 +4,11 @@ Changelog
 4.1.2 - Unreleased
 --------------------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Client API changes: return a proper error message if invalid JSON data
+  is received.
 
 
 4.1.1 - September 27, 2012
