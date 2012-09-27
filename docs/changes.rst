@@ -7,7 +7,17 @@ Changelog
 Upgrade notes
 ~~~~~~~~~~~~~
 
-This release does not require any upgrade steps.
+This release upgrades Plone from version 4.1.3 to version 4.1.6. This may
+require to re-bootstrap your buildout if you see an error like this::
+
+    While:
+      Installing.
+      Getting section instance.
+      Initializing section instance.
+      Installing recipe plone.recipe.zope2instance.
+    Error: There is a version conflict.
+    We already have: Zope2 2.13.10
+
 
 Bugfixes
 ~~~~~~~~
