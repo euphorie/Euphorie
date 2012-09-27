@@ -4,12 +4,19 @@ Changelog
 4.1.1 - Unreleased
 -----------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release does not require any upgrade steps.
+
+Bugfixes
+~~~~~~~~
+
 - Client API changes:
 
   - correct the URL for the original image size. This fixes `issue 38
     <https://github.com/euphorie/Euphorie/issues/38>`_.
-
-  - make sure image URLs point to the client instead of the API location. 
+  - make sure image URLs point to the client instead of the API location.
 
 
 4.1 - August 29, 2012
