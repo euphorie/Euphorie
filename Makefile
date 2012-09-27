@@ -43,7 +43,7 @@ bin/buildout: bootstrap.py
 	$(PYTHON) bootstrap.py
 
 bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
-	bin/buildout -c devel.cfg
+	bin/buildout -c devel.cfg -t 10
 	touch bin/test
 	touch bin/sphinx-build
 

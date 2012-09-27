@@ -1,0 +1,8 @@
+language: python
+python:
+ - 2.7
+env:
+ - PYTHON=python
+before_script:
+ - sudo apt-get install -qq python-dev libtiff-dev libpng-dev libjpeg8-dev zlib1g-dev libpq-dev libxslt-dev gettext yui-compressor
+script: make check
