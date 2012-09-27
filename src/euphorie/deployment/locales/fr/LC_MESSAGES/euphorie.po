@@ -492,9 +492,8 @@ msgstr "${responsible} est responsable de cette tâche."
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
-msgstr "C'est un"
+msgstr "Priorité"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:858
@@ -2146,7 +2145,7 @@ msgstr "risque à priorité élevée"
 #: src/euphorie/client/templates/report_actionplan.pt:93
 #: src/euphorie/client/templates/risk_actionplan.pt:25
 msgid "risk_priority"
-msgstr "Ceci est une ${priorité} ."
+msgstr "Ceci est une ${priority}."
 
 #. Default: Company details
 #: src/euphorie/client/templates/report_company.pt:17
@@ -3254,9 +3253,9 @@ msgstr "Couleur de support"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
-msgstr "Il n'y a pas de secteurs pour ce pays."
+msgstr ""
+"Vous ne pouvez pas supprimer un secteur qui contient des outils OiRA publiés."
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
@@ -3356,9 +3355,8 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
-msgstr "Vous ne pouvez pas supprimer la seule version de l'enquête."
+msgstr ""
 
 #. Default: You can not delete the only survey version.
 #: src/euphorie/content/survey.py:249
