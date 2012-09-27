@@ -1,21 +1,24 @@
 from zope.app.component.hooks import getSite
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
+
 def _create(container, *args, **kwargs):
     newid = container.invokeFactory(*args, **kwargs)
     return getattr(container, newid)
+
 
 def createSolution(algorithm=u'kinney'):
     portal = getSite()
     country = portal.sectors.nl
     sector = _create(country, "euphorie.sector", "sector")
     surveygroup = _create(sector, "euphorie.surveygroup", "group",
-            evaluation_algorithm = algorithm)
+            evaluation_algorithm=algorithm)
     survey = _create(surveygroup, "euphorie.survey", "survey")
     module = _create(survey, "euphorie.module", "module")
     risk = _create(module, "euphorie.risk", "risk")
     solution = _create(risk, "euphorie.solution", "solution")
     return solution
+
 
 class RiskTests(EuphorieTestCase):
 
@@ -39,8 +42,7 @@ class RiskTests(EuphorieTestCase):
         solution = createSolution()
         title = solution.Title()
         self.assertEqual(type(title), str)
-
         survey = utils.getSurvey(solution)
-        self.assertEqual(title, translate(Solution.title, target_language=survey.language))
-
-
+        self.assertEqual(
+                title,
+                translate(Solution.title, target_language=survey.language))

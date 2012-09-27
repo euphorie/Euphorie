@@ -7,15 +7,32 @@ Changelog
 - ...
 
 
-4.1.1 - Unreleased
------------------------
+4.1.1 - September 27, 2012
+--------------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release upgrades Plone from version 4.1.3 to version 4.1.6. This may
+require to re-bootstrap your buildout if you see an error like this::
+
+    While:
+      Installing.
+      Getting section instance.
+      Initializing section instance.
+      Installing recipe plone.recipe.zope2instance.
+    Error: There is a version conflict.
+    We already have: Zope2 2.13.10
+
+
+Bugfixes
+~~~~~~~~
 
 - Client API changes:
 
   - correct the URL for the original image size. This fixes `issue 38
     <https://github.com/euphorie/Euphorie/issues/38>`_.
-
-  - make sure image URLs point to the client instead of the API location. 
+  - make sure image URLs point to the client instead of the API location.
 
 
 
