@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.1.2 - Unreleased
+4.1.2 - September 28, 2012
 --------------------------
 
 Bugfixes
