@@ -269,7 +269,7 @@ msgstr "Ce risque a toujours besoin d'être inventorié."
 #. Default: Identification report ${title}
 #: src/euphorie/client/report.py:394
 msgid "filename_report_identification"
-msgstr "Rapport d'identification ${titre}"
+msgstr "Rapport d'identification ${title}"
 
 #. Default: Not provided
 #: src/euphorie/client/report.py:448 src/euphorie/client/report.py:550
@@ -4153,7 +4153,7 @@ msgstr ""
 #. Default: Unpublish "${title}"
 #: src/euphorie/content/templates/unpublish.pt:12
 msgid "title_unpublish"
-msgstr "Ne pas publier \"${titre}"
+msgstr "Ne pas publier \"${title}"
 
 #. Default: Are you sure you want to unpublish this survey?
 #: src/euphorie/content/templates/unpublish.pt:19
