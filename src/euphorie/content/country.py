@@ -56,8 +56,10 @@ class View(grok.View):
                            url=sector.absolute_url())
                       for sector in self.context.values()
                       if ISector.providedBy(sector)]
-        self.sectors.sort(key=lambda s: s["title"].lower())
-
+        try:
+            self.sectors.sort(key=lambda s: s["title"].lower())
+        except UnicodeDecodeError:
+            self.sectors.sort(key=lambda s: s["title"].lower().decode('utf-8'))
 
 
 class ManageUsers(grok.View):
