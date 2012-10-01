@@ -75,7 +75,7 @@ class Identification(JsonView):
             info['next-step'] = '%s/%s/%s' % \
                     (self.context.absolute_url(),
                             '/'.join(risk.short_path), self.phase)
-        else:
+        elif self.next_phase is not None:
             info['next-step'] = '%s/%s' % \
                     (self.context.absolute_url(), self.next_phase)
         return info

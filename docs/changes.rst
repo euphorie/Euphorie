@@ -3,8 +3,14 @@ Changelog
 
 4.1.3 - Unreleased
 --------------------------
+-Bugfixes
+~~~~~~~~
 
-- ...
+- Client API changes:
+  
+  - Return the update-hint as JSON data.
+  - Remove invalid next-step hint which was included on the session action-plan
+    response if a survey has no risks present.
 
 
 4.1.2 - September 28, 2012
