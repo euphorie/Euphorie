@@ -69,6 +69,8 @@ def main():
     parser.add_argument('-s', '--server',
             default='https://api.instrumenten.rie.nl',
             help='URL for API server')
+    parser.add_argument('-m', '--menu', action='store_true', default=False,
+            help='Show menu for every step.')
     parser.add_argument('login', help='Login name for online client')
     parser.add_argument('password', help='Password used to login')
     options = parser.parse_args()
@@ -81,7 +83,7 @@ def main():
 
     # First we must authenticate the user
     user_info = api.post('/users/authenticate',
-            options.login, options.password)
+            login=options.login, password=options.password)
     api.auth_token = user_info['token']
     print 'Succesfully authenticated user %s' % user_info['login']
     print 'Authentication token: %s' % api.auth_token
@@ -105,17 +107,12 @@ def main():
             (user_info['id'], info['id'])
     company = api.get(company_url)
     if company['type'] == 'dutch-company':
-        import pprint
-        pprint.pprint(company)
         print 'Dutch company type detected. Modifying data.'
         company = api.put(company_url,
                 **{'visit-address': {
                     'address': 'Dorpstraat 2',
                     'city': 'Ons Dorp'},
                  'absentee-percentage': 15})
-        import pprint
-        pprint.pprint(company)
-    return
 
     # Keep moving forward through the survey, always following next-step
     while 'next-step' in info:
@@ -124,7 +121,8 @@ def main():
         info = api.get('%s?menu' % info['next-step'])
         if 'title' in info:
             print 'Title: %s' % info['title']
-        show_menu(info)
+        if options.menu:
+            show_menu(info)
 
 
 if __name__ == '__main__':
