@@ -304,21 +304,41 @@ class export_image_tests(EuphorieFunctionalTestCase):
                 .startswith('http://nohost/plone/client/nl'))
         self.assertEqual(response['caption'], u'Caption')
 
-    def test_different_client_url(self):
-        from zope.component import getUtility
-        from z3c.appconfig.interfaces import IAppConfig
+
+class JsonViewTests(unittest.TestCase):
+    def JsonView(self, *a, **kw):
+        from .. import JsonView
+        return JsonView(*a, **kw)
+
+    def test_invalid_input(self):
+        import json
+        import StringIO
         from zope.publisher.browser import TestRequest
-        config = getUtility(IAppConfig)
-        config['euphorie']['client'] = 'http://client.euphorie.org/'
-        context = self.setup_context()
         request = TestRequest()
-        request.client = self.portal.client
-        response = self.export_image(context, request, 'image', 'caption',
-                width=100, height=100)
-        self.assertTrue(response['thumbnail']
-                .startswith('http://client.euphorie.org/nl/'))
-        self.assertTrue(response['original']
-                .startswith('http://client.euphorie.org/nl/'))
+        request.stdin = StringIO.StringIO('invalid json')
+        view = self.JsonView(None, request)
+        response = view()
+        self.assertEqual(
+                json.loads(response),
+                {'type': 'error',
+                 'message': 'Invalid JSON input'})
+
+    def test_bad_method(self):
+        import json
+        import StringIO
+        import mock
+        from zope.publisher.browser import TestRequest
+        request = TestRequest()
+        request.stdin = StringIO.StringIO()
+        context = mock.Mock()
+        context.getPhysicalPath.return_value = ['', 'Plone', 'client', 'api']
+        view = self.JsonView(context, request)
+        response = view()
+        self.assertEqual(request.response.getStatus(), 405)
+        self.assertEqual(
+                json.loads(response),
+                {'type': 'error',
+                 'message': 'HTTP method not allowed'})
 
 
 class DummySchema(Interface):

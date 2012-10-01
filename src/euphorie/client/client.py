@@ -14,12 +14,14 @@ from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.api.entry import access_api
 from Products.membrane.interfaces.user import IMembraneUserObject
 
+
 class IClient(form.Schema, IBasic):
     """The online client.
 
     The online client is implemented as a container with all available surveys.
     The default view for all survey elements inside this container is changed
-    to the client user interface. This is done using a simple traversal adapter.
+    to the client user interface. This is done using a simple traversal
+    adapter.
     """
 
 
@@ -39,9 +41,7 @@ class View(grok.View):
     grok.template("frontpage")
 
     def update(self):
-        self.enabled_countries=frozenset(self.context.keys())
-
-
+        self.enabled_countries = frozenset(self.context.keys())
 
 
 class ClientUserProvider(grok.Adapter):
@@ -59,7 +59,6 @@ class ClientUserProvider(grok.Adapter):
         return self.context.id
 
 
-
 class ClientLocalRolesProvider(grok.Adapter):
     """`borg.localrole` provider for :obj:`IClient` instances.
 
@@ -72,16 +71,15 @@ class ClientLocalRolesProvider(grok.Adapter):
     grok.implements(ILocalRoleProvider)
 
     def __init__(self, client):
-        self.context=client
+        self.context = client
 
     def getRoles(self, principal_id):
-        if principal_id==self.context.getId():
+        if principal_id == self.context.getId():
             return ("CountryManager",)
         return ()
 
     def getAllRoles(self):
         return [(self.context.getId(), ("CountryManager",))]
-
 
 
 class ClientPublishTraverser(DefaultPublishTraverse):
@@ -103,4 +101,5 @@ class ClientPublishTraverser(DefaultPublishTraverse):
         ifaces = [iface for iface in directlyProvidedBy(request)
                 if not IBrowserSkinType.providedBy(iface)]
         directlyProvides(request, IClientSkinLayer, ifaces)
-        return super(ClientPublishTraverser, self).publishTraverse(request, name)
+        return super(ClientPublishTraverser, self)\
+                .publishTraverse(request, name)

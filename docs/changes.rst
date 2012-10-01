@@ -7,6 +7,35 @@ Changelog
 - ...
 
 
+
+4.1.3 - October 1, 2012
+-----------------------
+
+Bugfixes
+~~~~~~~~
+
+- Client API changes:
+  
+  - Return the update-hint as JSON data.
+  - Remove invalid next-step hint which was included on the session action-plan
+    response if a survey has no risks present.
+  - Use image URLs within the client API so images can be accessed by users who
+    are not logged in on the client site. This reverts a change from 4.1.1.
+
+
+4.1.2 - September 28, 2012
+--------------------------
+
+Bugfixes
+~~~~~~~~
+
+- Client API changes:
+  
+  - return a proper JSON error message if invalid JSON data is received.
+  - return a proper JSON error message if an unsupported HTTP method is used.
+
+
+>>>>>>> stable-4
 4.1.1 - September 27, 2012
 --------------------------
 

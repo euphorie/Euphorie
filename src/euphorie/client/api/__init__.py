@@ -1,18 +1,19 @@
 import collections
 import datetime
+import logging
 import json
 import re
-from zExceptions import MethodNotAllowed
 import martian
 from zope.component import getMultiAdapter
-from zope.component import getUtility
 from zope.publisher.publish import mapply
 from five import grok
 from zope.i18n import translate
-from z3c.appconfig.interfaces import IAppConfig
 from euphorie.client.navigation import getTreeData
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.api.interfaces import IClientAPISkinLayer
+
+
+log = logging.getLogger(__name__)
 
 
 def context_menu(request, context, phase, filter):
@@ -128,13 +129,6 @@ def export_image(context, request, image_attr, caption_attr, **kw):
                 (context.absolute_url(),
                     getattr(context, image_attr).filename),
             'caption': getattr(context, caption_attr, None)}
-    config = getUtility(IAppConfig)
-    client_url = config.get("euphorie", {}).get("client")
-    if client_url:
-        client_url = client_url.rstrip('/')
-        old_base = request.client.absolute_url()
-        info['thumbnail'] = info['thumbnail'].replace(old_base, client_url)
-        info['original'] = info['original'].replace(old_base, client_url)
     return info
 
 
@@ -176,29 +170,36 @@ class JsonView(grok.View):
         pass
 
     def __call__(self):
-        self.request.response.setHeader('Content-Type', 'application/json')
         if self.check_update and \
             wasSurveyUpdated(self.request.survey_session, self.request.survey):
             url = '%s/update' % self.request.survey_session.absolute_url()
-            return {'type': 'update',
-                    'next-step': url}
+            self.response.setHeader('Content-Type', 'application/json')
+            return json.dumps(
+                    {'type': 'update',
+                     'next-step': url})
 
         input = self.request.stdin.getvalue()
         if input:
             try:
                 self.input = json.loads(input)
             except ValueError:
-                return {'type': 'error',
-                        'message': 'Invalid JSON input'}
+                self.response.setHeader('Content-Type', 'application/json')
+                return json.dumps({'type': 'error',
+                                   'message': 'Invalid JSON input'})
 
         mapply(self.update, (), self.request)
-        if self.request.response.getStatus() in [302, 303]:
+        if self.response.getStatus() in [302, 303]:
             return  # Shortcircuit on redirect, no need to render
 
-        self.request.response.setHeader('Content-Type', 'application/json')
+        self.response.setHeader('Content-Type', 'application/json')
         method = self.request.get('REQUEST_METHOD', 'GET').upper()
         renderer = getattr(self, 'do_%s' % method, None)
         if renderer is None:
-            raise MethodNotAllowed()
-        response = mapply(renderer, (), self.request)
+            log.info('Invalid HTTP method %s attempted for %s',
+                    method, '/'.join(self.context.getPhysicalPath()))
+            self.response.setStatus(405)
+            response = {'type': 'error',
+                        'message': 'HTTP method not allowed'}
+        else:
+            response = mapply(renderer, (), self.request)
         return json.dumps(response)
