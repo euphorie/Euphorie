@@ -3,6 +3,7 @@
 import argparse
 import collections
 import json
+import sys
 import requests
 
 
@@ -48,9 +49,6 @@ class API(object):
         return self._request(requests.delete, *a, **kw)
 
 
-DEMO_SURVEY = 'nl/stigas/bos-en-natuur'
-
-
 def show_menu(info):
     menu = info.get('menu')
     if not menu:
@@ -69,6 +67,8 @@ def main():
     parser.add_argument('-s', '--server',
             default='https://api.instrumenten.rie.nl',
             help='URL for API server')
+    parser.add_argument('-S', '--survey', default='nl/stigas/bos-en-natuur',
+            help='Survey path to use')
     parser.add_argument('-m', '--menu', action='store_true', default=False,
             help='Show menu for every step.')
     parser.add_argument('login', help='Login name for online client')
@@ -93,7 +93,7 @@ def main():
             print ' - %s, last modified on %s' % \
                     (session['title'],
                             session['modified'])
-            if session['survey'] == DEMO_SURVEY:
+            if session['survey'] == options.survey:
                 print '  -> Removing this old demo session'
                 api.delete('/users/%d/sessions/%d' %
                         (user_info['id'], session['id']))
@@ -101,7 +101,10 @@ def main():
     # Start a new session
     print 'Creating a new survey session.'
     info = api.post('/users/%d/sessions' % user_info['id'],
-            survey=DEMO_SURVEY, title='API demonstratie')
+            survey=options.survey, title='API demonstratie')
+    if info['type'] == 'error':
+        print >> sys.stderr, 'Error: %s' % info['message']
+        return 1
 
     company_url = '/users/%d/sessions/%d/company' % \
             (user_info['id'], info['id'])
