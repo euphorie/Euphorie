@@ -304,22 +304,6 @@ class export_image_tests(EuphorieFunctionalTestCase):
                 .startswith('http://nohost/plone/client/nl'))
         self.assertEqual(response['caption'], u'Caption')
 
-    def test_different_client_url(self):
-        from zope.component import getUtility
-        from z3c.appconfig.interfaces import IAppConfig
-        from zope.publisher.browser import TestRequest
-        config = getUtility(IAppConfig)
-        config['euphorie']['client'] = 'http://client.euphorie.org/'
-        context = self.setup_context()
-        request = TestRequest()
-        request.client = self.portal.client
-        response = self.export_image(context, request, 'image', 'caption',
-                width=100, height=100)
-        self.assertTrue(response['thumbnail']
-                .startswith('http://client.euphorie.org/nl/'))
-        self.assertTrue(response['original']
-                .startswith('http://client.euphorie.org/nl/'))
-
 
 class JsonViewTests(unittest.TestCase):
     def JsonView(self, *a, **kw):
