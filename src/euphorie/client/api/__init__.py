@@ -196,7 +196,7 @@ class JsonView(grok.View):
         renderer = getattr(self, 'do_%s' % method, None)
         if renderer is None:
             log.info('Invalid HTTP method %s attempted for %s',
-                    method, '.'.join(self.context.getPhysicalPath()))
+                    method, '/'.join(self.context.getPhysicalPath()))
             self.response.setStatus(405)
             response = {'type': 'error',
                         'message': 'HTTP method not allowed'}
