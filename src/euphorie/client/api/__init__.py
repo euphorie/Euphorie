@@ -182,16 +182,17 @@ class JsonView(grok.View):
         if self.check_update and \
             wasSurveyUpdated(self.request.survey_session, self.request.survey):
             url = '%s/update' % self.request.survey_session.absolute_url()
-            return {'type': 'update',
-                    'next-step': url}
+            self.response.setHeader('Content-Type', 'application/json')
+            return json.dumps(
+                    {'type': 'update',
+                     'next-step': url})
 
         input = self.request.stdin.getvalue()
         if input:
             try:
                 self.input = json.loads(input)
             except ValueError:
-                self.response.setHeader(
-                        'Content-Type', 'application/json')
+                self.response.setHeader('Content-Type', 'application/json')
                 return json.dumps({'type': 'error',
                                    'message': 'Invalid JSON input'})
 
