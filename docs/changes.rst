@@ -1,9 +1,10 @@
 Changelog
 =========
 
-4.1.3 - Unreleased
---------------------------
--Bugfixes
+4.1.3 - October 1, 2012
+-----------------------
+
+Bugfixes
 ~~~~~~~~
 
 - Client API changes:
