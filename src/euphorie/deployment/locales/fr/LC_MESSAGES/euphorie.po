@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-09-03 10:49+0200\n"
+"POT-Creation-Date: 2012-10-19 13:52+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -448,21 +448,23 @@ msgstr "Date de commencement prévue"
 msgid "label_action_plan_end"
 msgstr "Date de fin prévue"
 
-#. Default: Action plan
-#: src/euphorie/client/report.py:837 src/euphorie/content/solution.py:29
+#. Default: General approach (to eliminate or reduce the risk)
+#: src/euphorie/client/report.py:837
+#: src/euphorie/client/templates/risk_actionplan.pt:66
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
-msgstr "Plan d'action"
+msgstr "Décrivez cette mesure"
 
-#. Default: Prevention plan
-#: src/euphorie/client/report.py:839 src/euphorie/content/solution.py:37
-#: src/euphorie/content/templates/solution_view.pt:24
+#. Default: Specific action(s) required to implement this approach
+#: src/euphorie/client/report.py:839
+#: src/euphorie/client/templates/risk_actionplan.pt:67
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
-msgstr "Plan de prévention"
+msgstr "Précisez les actions à mettre en place pour rendre cette mesure effective"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
-#: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Exigences"
 
@@ -651,51 +653,51 @@ msgid "Sector information and grouping for the client."
 msgstr "Informations secteur et regroupement pour le client. "
 
 #. Default: About
-#: src/euphorie/client/templates/about.pt:19
+#: src/euphorie/client/templates/about.pt:18
 msgid "title_about"
 msgstr "À propos"
 
 #. Default: What is the OiRA (Online Interactive Risk Assessment) project
-#: src/euphorie/client/templates/about.pt:21
+#: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
 msgstr ""
 "Qu'est-ce que le projet OiRA (Online Interactive Risk Assessment, évaluation "
 "des risques interactive en ligne) "
 
 #. Default: proper risk assessment is the key to healthy workplaces
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
 msgstr ""
 "une évaluation des risques appropriée est l'élément clé pour assurer la "
 "santé sur le lieu de travail "
 
 #. Default: easy-to-use and cost-free web application
-#: src/euphorie/client/templates/about.pt:29
+#: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
 msgstr "application Web facile d'utilisation et gratuite"
 
 #. Default: step-by-step risk assessment process
-#: src/euphorie/client/templates/about.pt:32
+#: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
 msgstr "processus d'évaluation des risques progressif"
 
 #. Default: identification
-#: src/euphorie/client/templates/about.pt:35
+#: src/euphorie/client/templates/about.pt:34
 msgid "about_paragraph_1_identification"
 msgstr "identification"
 
 #. Default: evaluation
-#: src/euphorie/client/templates/about.pt:37
+#: src/euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_evaluation"
 msgstr "évaluation"
 
 #. Default: preventive actions
-#: src/euphorie/client/templates/about.pt:39
+#: src/euphorie/client/templates/about.pt:38
 msgid "about_paragraph_1_preventive_actions"
 msgstr "actions préventives"
 
 #. Default: reporting
-#: src/euphorie/client/templates/about.pt:42
+#: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
 msgstr "établissement de rapports"
 
@@ -705,7 +707,7 @@ msgstr "établissement de rapports"
 #. ${identification} and ${evaluation} of workplace risks, through decision
 #. making on ${preventive_actions} and the taking of action, to monitoring and
 #. ${reporting}.
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
 "L'expérience montre qu' ${key}. C'est pourquoi l'EU-OSHA a développé une "
@@ -721,7 +723,7 @@ msgstr ""
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
 #. national level.
-#: src/euphorie/client/templates/about.pt:48
+#: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
 "L'application Web OiRA offre un accès aux outils sectoriels d'évaluation des "
@@ -729,19 +731,19 @@ msgstr ""
 "créés et gérés par des organisations sectorielles au niveau national."
 
 #. Default: Why the OiRA project
-#: src/euphorie/client/templates/about.pt:53
+#: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
 msgstr "Pourquoi le projet OiRA "
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
 "Stratégie de la Communauté Eeuropéenne sur la Santé et la Sécurité au "
 "Travail 2007-2012"
 
 #. Default: micro and small enterprises have some shortcomings
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
 msgstr "les micro et petites entreprises rencontrent certaines difficultés"
 
@@ -753,7 +755,7 @@ msgstr "les micro et petites entreprises rencontrent certaines difficultés"
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
 #. assessment and the adoption of a preventive policy in general which the OiRA
 #. project aims to overcome.
-#: src/euphorie/client/templates/about.pt:54
+#: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
 "La ${agency} souhaite le développement d'outils simples afin de faciliter\n"
@@ -771,17 +773,17 @@ msgstr ""
 "difficultés."
 
 #. Default: More information about the OiRA project (in English)
-#: src/euphorie/client/templates/about.pt:58
+#: src/euphorie/client/templates/about.pt:57
 msgid "about_oiraproject"
 msgstr "Plus d'informations sur le projet Oira (en anglais)"
 
 #. Default: Project Phases
-#: src/euphorie/client/templates/about.pt:60
+#: src/euphorie/client/templates/about.pt:59
 msgid "header_project_phases"
 msgstr "Phases du projet"
 
 #. Default: Development and pilot phase – 2009-2011
-#: src/euphorie/client/templates/about.pt:61
+#: src/euphorie/client/templates/about.pt:60
 msgid "header_devel_phase"
 msgstr "Développement et phase pilote – 2009-2011"
 
@@ -791,7 +793,7 @@ msgstr "Développement et phase pilote – 2009-2011"
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
 #. guidance services.
-#: src/euphorie/client/templates/about.pt:65
+#: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
 "Suite au développement technique de l'outil en 2009, en 2010 (jusqu'à la\n"
@@ -804,14 +806,14 @@ msgstr ""
 "outil et du développement de services de support et d'assistance appropriés."
 
 #. Default: Official launch of the project – September 2011
-#: src/euphorie/client/templates/about.pt:68
+#: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
 msgstr "Lancement officiel du projet – septembre 2011"
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
-#: src/euphorie/client/templates/about.pt:69
+#: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
 "Le lancement officiel de l'outil est prévu pour septembre 2011, une fois que "
@@ -821,7 +823,7 @@ msgstr ""
 "programme de formation OiRA et le centre d'assistance OiRA seront prêts."
 
 #. Default: Development partners
-#: src/euphorie/client/templates/about.pt:72
+#: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
 msgstr "Partenaires de développement"
 
@@ -832,7 +834,7 @@ msgstr "Partenaires de développement"
 #. enterprises MKB-Nederland and the Dutch Ministry for Employment. Further
 #. development of the application was realised with input and participation of
 #. trade unions FNV, CNV and MHP.
-#: src/euphorie/client/templates/about.pt:75
+#: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
 "Le projet OiRA et son application web relative a été développé par le ${eu-"
@@ -845,20 +847,20 @@ msgstr ""
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
-#: src/euphorie/client/templates/about.pt:77
+#: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
 msgstr ""
 "Les partenaires techniques suivants ont contribué au développement du "
 "projet \n"
 "OiRA :"
 
-#: src/euphorie/client/templates/about.pt:82
-#: src/euphorie/client/templates/about.pt:85
-#: src/euphorie/client/templates/about.pt:88
+#: src/euphorie/client/templates/about.pt:81
+#: src/euphorie/client/templates/about.pt:84
+#: src/euphorie/client/templates/about.pt:87
 msgid "The Netherlands"
 msgstr "Pays-Bas"
 
-#: src/euphorie/client/templates/about.pt:91
+#: src/euphorie/client/templates/about.pt:90
 msgid "Germany"
 msgstr "Allemagne"
 
@@ -866,7 +868,7 @@ msgstr "Allemagne"
 #. Committee in the development and implementation of the OiRA project. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
-#: src/euphorie/client/templates/about.pt:94
+#: src/euphorie/client/templates/about.pt:93
 msgid "about_partners_3"
 msgstr ""
 "L’Agence a également reçu des conseils d’expert et stratégiques de la part "
@@ -877,39 +879,39 @@ msgstr ""
 "Conseil, par la Commission et par l’EU-OSHA. "
 
 #. Default: Licenses
-#: src/euphorie/client/templates/about.pt:98
+#: src/euphorie/client/templates/about.pt:97
 msgid "header_licenses"
 msgstr "Licences"
 
 #. Default: The source code of the OiRA application is ${GPL} licensed.
-#: src/euphorie/client/templates/about.pt:100
+#: src/euphorie/client/templates/about.pt:99
 msgid "about_licenses_1"
 msgstr "Le code source de l’application OiRA est sous licence ${GPL}."
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons License"
 msgstr "Licence Creative Commons "
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 msgstr ""
 "Creative Commons Paternité - Partage des Conditions Initiales à l'Identique "
 "2.5 Générique "
 
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "about_licenses_2"
 msgstr "Le contenu des outils sectoriels OiRA est sous licence ${license} "
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
-#: src/euphorie/client/templates/about.pt:106
+#: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr ""
 "Les outils sectoriels OiRA peuvent être utilisés gratuitement par tous les "
 "utilisateurs. "
 
 #. Default: Help
-#: src/euphorie/client/templates/about.pt:112
+#: src/euphorie/client/templates/about.pt:111
 #: src/euphorie/client/templates/actionplan.pt:83
 #: src/euphorie/client/templates/appendix.pt:57
 #: src/euphorie/client/templates/conditions.pt:111
@@ -1611,6 +1613,11 @@ msgstr "Informations de contact"
 msgid "conditions_contact"
 msgstr "Informations de contact"
 
+#. Default: Agree and continue
+#: src/euphorie/client/templates/conditions.pt:104
+msgid "agree_and_continue"
+msgstr "Accepter et continuer"
+
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
 msgid "email_change_header"
@@ -2192,11 +2199,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:49
 msgid "Measure ${index}"
-msgstr ""
+msgstr "Measure ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:50
 msgid "Delete this measure"
-msgstr ""
+msgstr "Effacer cette mesure"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
@@ -2215,7 +2222,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:62
 msgid "Standard solutions"
-msgstr "Solutions standard"
+msgstr "Solutions proposées"
 
 #. Default: You write down in the Plan what measure you will be taking in
 #. response to the risk. Removing the causes (tackling the source) is the
@@ -2272,6 +2279,12 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr "Veuillez saisir un nombre entier pour le budget en Euros."
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:92
+#: src/euphorie/client/templates/risk_actionplan.pt:118
+msgid "label_day"
+msgstr "Jour"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:121
@@ -2283,6 +2296,12 @@ msgstr "Jour invalide"
 #: src/euphorie/client/templates/risk_actionplan.pt:123
 msgid "label_month"
 msgstr "Mois"
+
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:104
+#: src/euphorie/client/templates/risk_actionplan.pt:130
+msgid "label_year"
+msgstr "Année"
 
 #. Default: Please enter a valid year after 1900
 #: src/euphorie/client/templates/risk_actionplan.pt:107
@@ -2704,12 +2723,12 @@ msgstr "Mise à jour"
 #. Default: Online interactive
 #: src/euphorie/client/templates/webhelpers.pt:23
 msgid "oira_name_line_1"
-msgstr "Interactive en ligne"
+msgstr "Outil d'évaluation"
 
 #. Default: Risk Assessment
 #: src/euphorie/client/templates/webhelpers.pt:24
 msgid "oira_name_line_2"
-msgstr "Évaluation des risques"
+msgstr "des risques en ligne"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:85
@@ -3888,6 +3907,7 @@ msgid "header_regions"
 msgstr "Régions"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "États membres de l'UE"
 
@@ -3896,6 +3916,7 @@ msgid "EFTA Countries"
 msgstr "Pays de l'EFTA"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Pays candidats"
 
@@ -4317,15 +4338,40 @@ msgstr "Afficher des versions antérieures "
 msgid "text_toggle_navtree"
 msgstr "Basculer"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr "Régions"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr "Pays candidat potentiel"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versions"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+msgid "help_add_version"
+msgstr "Créer un double de l’enquête sélectionnée "
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Créer un double"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+msgid "help_publish"
+msgstr ""
+"Publier l’enquête sélectionnée en direct avec les toutes dernières "
+"modifications. \t"
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+msgid "title_help_unpublished"
+msgstr "Supprimer cet outil OiRA des clients en ligne."
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4348,6 +4394,15 @@ msgstr "En cours / Publiée"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Mise à jour"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+msgid "help_create_new_version"
+msgstr ""
+"Commencez à écrire une nouvelle enquête. Il vous sera demandé si vous "
+"souhaitez\n"
+"commencer avec une copie d’une enquête existante.\t"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4384,12 +4439,6 @@ msgstr ""
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
 
-#~ msgid "label_day"
-#~ msgstr "Jour"
-
-#~ msgid "label_year"
-#~ msgstr "Année"
-
 #~ msgid "label_comment"
 #~ msgstr ""
 #~ "Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce\n"
@@ -4397,29 +4446,6 @@ msgstr ""
 
 #~ msgid "reminder_email_footer"
 #~ msgstr "Par défaut :"
-
-#~ msgid "Potential Candidate Countries"
-#~ msgstr "Pays candidat potentiel"
-
-#~ msgid "Regions"
-#~ msgstr "Régions"
-
-#~ msgid "help_create_new_version"
-#~ msgstr ""
-#~ "Commencez à écrire une nouvelle enquête. Il vous sera demandé si vous "
-#~ "souhaitez\n"
-#~ "commencer avec une copie d’une enquête existante.\t"
-
-#~ msgid "title_help_unpublished"
-#~ msgstr "Supprimer cet outil OiRA des clients en ligne."
-
-#~ msgid "help_publish"
-#~ msgstr ""
-#~ "Publier l’enquête sélectionnée en direct avec les toutes dernières "
-#~ "modifications. \t"
-
-#~ msgid "help_add_version"
-#~ msgstr "Créer un double de l’enquête sélectionnée "
 
 #~ msgid ""
 #~ "Succesfully created a preview for the survey. It can be accessed at "
