@@ -26,7 +26,7 @@ class ISolution(form.Schema):
     form.order_after(description="title")
 
     action_plan = schema.Text(
-            title = _("label_measure_action_plan", default=u"Action plan"),
+            title = _("label_measure_action_plan", default=u"General approach (to eliminate or reduce the risk)"),
             description = _("help_measure_action_plan",
                 default=u"Describe the action that can be taken to "
                         u"remove this risk. This information will be "
@@ -34,7 +34,7 @@ class ISolution(form.Schema):
             required = True)
 
     prevention_plan = schema.Text(
-            title = _("label_measure_prevention_plan", default=u"Prevention plan"),
+            title = _("label_measure_prevention_plan", default=u"Specific action(s) required to implement this approach"),
             description = _("help_measure_prevention_plan",
                 default=u"Describe what can be done to prevent this risk "
                         u"from (re)occuring. This information will be "
