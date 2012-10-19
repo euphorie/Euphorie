@@ -101,7 +101,7 @@
           </p>
         </div>
         <p class="buttonBar" tal:condition="not:isAnonymous">
-          <button id="agreeButton" type="submit" disabled="disabled" value="agree">Agree and continue</button>
+          <button id="agreeButton" type="submit" disabled="disabled" value="agree" i18n:translate="agree_and_continue">Agree and continue</button>
         </p>
       </fieldset>
     </form>
