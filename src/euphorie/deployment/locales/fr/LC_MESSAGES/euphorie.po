@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-10-19 13:52+0200\n"
+"POT-Creation-Date: 2012-10-19 14:50+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -461,7 +461,8 @@ msgstr "Décrivez cette mesure"
 #: src/euphorie/client/templates/risk_actionplan.pt:67
 #: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
-msgstr "Précisez les actions à mettre en place pour rendre cette mesure effective"
+msgstr ""
+"Précisez les actions à mettre en place pour rendre cette mesure effective"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
@@ -2074,7 +2075,7 @@ msgstr ""
 #: src/euphorie/client/templates/report.pt:28
 msgid "label_report_comment"
 msgstr ""
-"Veuillez saisir tout commentaire devant figurer dans le rapport\n"
+"Veuillez saisir tout commentaire devant figurer dans le rapport "
 "dans ce champ."
 
 #. Default: Contents
@@ -2308,6 +2309,14 @@ msgstr "Année"
 #: src/euphorie/client/templates/risk_actionplan.pt:133
 msgid "error_invalid_year"
 msgstr "Veuillez entrer une année valide après 1900"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:147
+msgid "label_comment"
+msgstr ""
+"Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce "
+"champ. Ces commentaires seront utilisés dans le plan d'action."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:200
 msgid ""
@@ -4438,11 +4447,6 @@ msgstr ""
 "éditées.\n"
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce\n"
-#~ "champ. Ces commentaires seront utilisés dans le plan d'action."
 
 #~ msgid "reminder_email_footer"
 #~ msgstr "Par défaut :"
