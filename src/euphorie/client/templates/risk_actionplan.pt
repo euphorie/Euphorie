@@ -12,9 +12,9 @@
     <title i18n:translate="title_tool">OiRA</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
-    <style>
+    <style type="text/css" media="all">
       #standardSolutions ol li:before {
-      	content: "<span i18n:translate='label_add'>Add</span>";
+        content: "<span tal:omit-tag='' i18n:translate='button_add'>Add</span>";
       }
     </style>
   </head>
