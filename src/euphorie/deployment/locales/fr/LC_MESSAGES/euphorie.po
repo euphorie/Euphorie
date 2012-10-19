@@ -2321,7 +2321,7 @@ msgstr "Veuillez entrer une année valide après 1900"
 msgid "label_comment"
 msgstr ""
 "Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce "
-"champ. Vous retrouverez ces commentaires à l'étape plan d'action.
+"champ. Vous retrouverez ces commentaires à l'étape plan d'action."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
