@@ -4,8 +4,10 @@ Changelog
 5.0 - Unreleased
 -----------------------
 
-- ...
+Bugfixes
+~~~~~~~~
 
+- Added missing i18n statement on conditions page [thomasw]
 
 
 4.1.3 - October 1, 2012
