@@ -12,6 +12,11 @@
     <title i18n:translate="title_tool">OiRA</title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
+    <style>
+      #standardSolutions ol li:before {
+      	content: "<span i18n:translate='label_add'>Add</span>";
+      }
+    </style>
   </head>
   <body tal:define="risk nocall:view/risk; data view/data"
         class="actionplan ${webhelpers/extra_css}">
