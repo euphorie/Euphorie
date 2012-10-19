@@ -146,7 +146,7 @@
       <fieldset class="concise" id="comments">
         <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5" 
           placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-          i18n:translate="placeholder label_comment">${data/comment}</textarea>
+          i18n:attributes="placeholder label_comment">${data/comment}</textarea>
       </fieldset>
     </form>
 

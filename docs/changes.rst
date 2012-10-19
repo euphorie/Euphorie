@@ -8,6 +8,7 @@ Bugfixes
 ~~~~~~~~
 
 - Added missing i18n statement on conditions page [thomasw]
+- i18n bugfix in client/templates/risk_actionplan.pt [thomasw]
 
 
 4.1.3 - October 1, 2012
