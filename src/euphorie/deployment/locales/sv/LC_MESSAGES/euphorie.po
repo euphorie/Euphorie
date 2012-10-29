@@ -125,7 +125,6 @@ msgstr "annan kanal"
 #. Default: Workers were invited to participate in the risk assessment
 #: src/euphorie/client/company.py:77
 #: src/euphorie/client/templates/report_actionplan.pt:62
-#, fuzzy
 msgid "label_workers_participated"
 msgstr "Namn"
 
@@ -224,19 +223,16 @@ msgstr ""
 
 #. Default: low priority risk
 #: src/euphorie/client/report.py:40
-#, fuzzy
 msgid "report_priority_low"
 msgstr "lågt prioriterad risk"
 
 #. Default: medium priority risk
 #: src/euphorie/client/report.py:41
-#, fuzzy
 msgid "report_priority_medium"
 msgstr "Medium"
 
 #. Default: high priority risk
 #: src/euphorie/client/report.py:42
-#, fuzzy
 msgid "report_priority_high"
 msgstr "högt prioriterad risk"
 
@@ -266,7 +262,6 @@ msgstr "Denna risk måste fortfarande kartläggas"
 
 #. Default: Identification report ${title}
 #: src/euphorie/client/report.py:394
-#, fuzzy
 msgid "filename_report_identification"
 msgstr "Identifiering ${title}.doc"
 
@@ -281,7 +276,6 @@ msgstr "Inte tillhandahållet"
 
 #. Default: Introduction
 #: src/euphorie/client/report.py:528
-#, fuzzy
 msgid "plan_report_intro_header"
 msgstr ""
 "Dina svar och rapporten har ${automatically_saved} och kan hittas igen eller "
@@ -303,7 +297,6 @@ msgstr ""
 
 #. Default: Company details
 #: src/euphorie/client/report.py:554
-#, fuzzy
 msgid "plan_report_company_header"
 msgstr ""
 "Dina svar och rapporten har ${automatically_saved} och kan hittas igen eller "
@@ -311,7 +304,6 @@ msgstr ""
 
 #. Default: Action plan
 #: src/euphorie/client/report.py:601
-#, fuzzy
 msgid "plan_report_plan_header"
 msgstr ""
 "Dina svar och rapporten har ${automatically_saved} och kan hittas igen eller "
@@ -331,13 +323,11 @@ msgstr ""
 
 #. Default: This is a
 #: src/euphorie/client/report.py:660
-#, fuzzy
 msgid "report_priority"
 msgstr "Detta är en ${priority} ."
 
 #. Default: Measure
 #: src/euphorie/client/report.py:670
-#, fuzzy
 msgid "header_measure_single"
 msgstr "Åtgärd ${index}"
 
@@ -419,25 +409,21 @@ msgstr "Det finns en budget på ${amount} för denna åtgärd."
 
 #. Default: Action plan ${title}
 #: src/euphorie/client/report.py:780
-#, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Handlingsplan ${title}.doc"
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Standard prioritet"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "Medium"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Standard prioritet"
 
@@ -485,37 +471,31 @@ msgstr "Budget (i euro)"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Risktyp"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:854
-#, fuzzy
 msgid "report_timeline_risk_title"
 msgstr "${responsible} är ansvarig för denna uppgift."
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
 msgstr "Detta är en ${priority} ."
 
 #. Default: Comments
 #: src/euphorie/client/report.py:858
-#, fuzzy
 msgid "report_timeline_comment"
 msgstr "Lämna gärna extra kommentarer som bör ingå i denna områdesrapport."
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:873
-#, fuzzy
 msgid "report_timeline_title"
 msgstr "Handlingsplan:"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Handlingsplan ${title}.doc"
 
@@ -530,7 +510,6 @@ msgstr "Ange ett årtal efter år 1900"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
-#, fuzzy
 msgid "label_old_password"
 msgstr "Lösenord"
 
@@ -551,12 +530,10 @@ msgstr ""
 
 #. Default: Account settings
 #: src/euphorie/client/settings.py:80 src/euphorie/client/settings.py:168
-#, fuzzy
 msgid "title_account_settings"
 msgstr "Dokumentation"
 
 #: src/euphorie/client/settings.py:89 src/euphorie/client/settings.py:222
-#, fuzzy
 msgid "Save changes"
 msgstr "Spara ändringar"
 
@@ -566,7 +543,6 @@ msgstr ""
 
 #: src/euphorie/client/settings.py:102 src/euphorie/client/settings.py:142
 #: src/euphorie/client/settings.py:233
-#, fuzzy
 msgid "Invalid password"
 msgstr "Lösenord"
 
@@ -576,7 +552,6 @@ msgstr ""
 
 #. Default: Delete account
 #: src/euphorie/client/settings.py:119
-#, fuzzy
 msgid "title_account_delete"
 msgstr "Dokumentation"
 
@@ -591,7 +566,6 @@ msgstr ""
 
 #: src/euphorie/client/settings.py:208 src/euphorie/client/settings.py:212
 #: src/euphorie/client/settings.py:216
-#, fuzzy
 msgid "An error occured while sending the confirmation email."
 msgstr "Ett fel har inträffat när lösenordspåminnelsen skulle skickas ut"
 
@@ -935,12 +909,10 @@ msgstr ""
 
 #. Default: Account data
 #: src/euphorie/client/templates/account-settings.pt:19
-#, fuzzy
 msgid "header_account_data"
 msgstr "Landschefer"
 
 #: src/euphorie/client/templates/account-settings.pt:23
-#, fuzzy
 msgid "Change email address"
 msgstr "Okänd e-postadress"
 
@@ -952,7 +924,6 @@ msgstr ""
 
 #. Default: Password
 #: src/euphorie/client/templates/account-settings.pt:27
-#, fuzzy
 msgid "header_password"
 msgstr "Glömt lösenord"
 
@@ -1353,13 +1324,11 @@ msgstr "Status"
 #: src/euphorie/client/templates/status.pt:71
 #: src/euphorie/client/templates/survey_sessions.pt:87
 #: src/euphorie/client/templates/updated.pt:100
-#, fuzzy
 msgid "navigation_settings"
 msgstr "Status"
 
 #. Default: Terms and conditions
 #: src/euphorie/client/templates/conditions.pt:18
-#, fuzzy
 msgid "header_terms"
 msgstr "eller…"
 
@@ -1374,7 +1343,6 @@ msgstr ""
 #. at Work (EU-OSHA). This Privacy Policy applies to all products, services and
 #. websites offered by EU-OSHA in the framework of the OiRA application.
 #: src/euphorie/client/templates/conditions.pt:30
-#, fuzzy
 msgid "conditions_intro1"
 msgstr ""
 "Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
@@ -1387,7 +1355,6 @@ msgstr ""
 #. data. Further details of the privacy policy of EU-OSHA and the full text of
 #. the Regulation can be accessed at: ${url}.
 #: src/euphorie/client/templates/conditions.pt:34
-#, fuzzy
 msgid "conditions_intro2"
 msgstr ""
 "Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
@@ -1402,7 +1369,6 @@ msgstr ""
 #. account and you enter data into the OiRA application we are asking you for
 #. the following information:
 #: src/euphorie/client/templates/conditions.pt:40
-#, fuzzy
 msgid "conditions_info_entry"
 msgstr ""
 "Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
@@ -1518,7 +1484,6 @@ msgstr ""
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr ""
 "Fyll i din företagsinformation i detta formulär. Uppgifterna i detta "
@@ -1526,14 +1491,12 @@ msgstr ""
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
-#, fuzzy
 msgid "email_change_header"
 msgstr "Bäste användare!"
 
 #. Default: Your email address and account name on ${url} will be changed to
 #. '${email}' when you click the confirmation link below.
 #: src/euphorie/client/templates/confirm-email.pt:8
-#, fuzzy
 msgid "email_change_intro"
 msgstr "Ändra land/språk"
 
@@ -1970,7 +1933,6 @@ msgstr "Innehåll"
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Redigera"
 
@@ -2085,7 +2047,6 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Återställ till originalfärger"
 
@@ -2303,7 +2264,6 @@ msgstr ""
 
 #. Default: Once per year
 #: src/euphorie/client/templates/risk_evaluation.pt:85
-#, fuzzy
 msgid "frequency_french_rare_help"
 msgstr "Regelbunden"
 
@@ -2326,7 +2286,6 @@ msgstr ""
 
 #. Default: Once per week
 #: src/euphorie/client/templates/risk_evaluation.pt:95
-#, fuzzy
 msgid "frequency_french_often_help"
 msgstr "Konstant"
 
@@ -2338,7 +2297,6 @@ msgstr ""
 
 #. Default: Minimum once per day
 #: src/euphorie/client/templates/risk_evaluation.pt:100
-#, fuzzy
 msgid "frequency_french_regularly_help"
 msgstr "Regelbunden"
 
@@ -2372,7 +2330,6 @@ msgstr "Ej tillämpligt"
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Nej"
 
@@ -2523,7 +2480,6 @@ msgstr "${count} frågorna har skjutits upp"
 
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
-#, fuzzy
 msgid "label_select_new_session_in_survey"
 msgstr "Starta en ny session genom att välja en av följande branschverktyg"
 
@@ -2784,12 +2740,10 @@ msgstr ""
 "med handlingsplanen."
 
 #: src/euphorie/content/module.py:133
-#, fuzzy
 msgid "Edit Module"
 msgstr "Moduler"
 
 #: src/euphorie/content/module.py:135
-#, fuzzy
 msgid "Edit Submodule"
 msgstr "Delmoduler"
 
@@ -3081,7 +3035,6 @@ msgstr "Stödfärg"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
 msgstr "Det finns inga branscher för detta land."
 
@@ -3176,7 +3129,6 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
@@ -3221,13 +3173,11 @@ msgstr "Standard"
 
 #. Default: This survey is now no longer available in the client.
 #: src/euphorie/content/surveygroup.py:260
-#, fuzzy
 msgid "message_unpublish_success"
 msgstr "${label} Version som för närvarande är online"
 
 #. Default: Cancelled unpublish action.
 #: src/euphorie/content/surveygroup.py:263
-#, fuzzy
 msgid "message_unpublish_cancel"
 msgstr "${label} Version som för närvarande är online"
 
@@ -3500,7 +3450,6 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "Den enda staten"
 
@@ -3686,7 +3635,6 @@ msgstr "Välj det land som du vill visa eller kopiera en undersökning för."
 
 #. Default: Regions
 #: src/euphorie/content/templates/sectorcontainer_view.pt:18
-#, fuzzy
 msgid "header_regions"
 msgstr "Registrera"
 
@@ -3825,7 +3773,6 @@ msgid "button_save_changes"
 msgstr "Spara ändringar"
 
 #: src/euphorie/content/templates/solution_view.pt:12
-#, fuzzy
 msgid "Standard solution"
 msgstr "Standardlösningar"
 
@@ -3947,13 +3894,11 @@ msgstr ""
 
 #. Default: Unpublish "${title}"
 #: src/euphorie/content/templates/unpublish.pt:12
-#, fuzzy
 msgid "title_unpublish"
 msgstr "Publicerad"
 
 #. Default: Are you sure you want to unpublish this survey?
 #: src/euphorie/content/templates/unpublish.pt:19
-#, fuzzy
 msgid "unpublish_confirm"
 msgstr ""
 "Är du säker på att du vill publicera denna undersökning? Efter publiceringen "
@@ -3963,7 +3908,6 @@ msgstr ""
 #. Default: Unpublish
 #: src/euphorie/content/templates/unpublish.pt:23
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "button_unpublish"
 msgstr "Publicera"
 
@@ -4199,7 +4143,6 @@ msgstr ""
 #~ "Börja med att skriva en ny undersökning. Du blir tillfrågad om du vill "
 #~ "starta med en kopia av en befintlig undersökning."
 
-#, fuzzy
 #~ msgid "title_help_unpublished"
 #~ msgstr "Publicera den markerade undersökningen med de senaste ändringarna."
 
@@ -4233,11 +4176,9 @@ msgstr ""
 #~ msgid "header_common_solutions"
 #~ msgstr "Vanliga lösningar"
 
-#, fuzzy
 #~ msgid "label_is_region"
 #~ msgstr "Sessioner"
 
-#, fuzzy
 #~ msgid "help_is_region"
 #~ msgstr ""
 #~ "Beskriv sessionshantering. Denna text är länkad från sidan för sessionens "
@@ -4272,6 +4213,5 @@ msgstr ""
 #~ msgid "Group name"
 #~ msgstr "Gruppnamn"
 
-#, fuzzy
 #~ msgid "header_countries"
 #~ msgstr "Landschefer"

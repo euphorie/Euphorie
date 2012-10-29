@@ -399,19 +399,16 @@ msgstr "Akční plán"
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Výchozí priorita"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "riziko se střední prioritou"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Výchozí priorita"
 
@@ -459,7 +456,6 @@ msgstr ""
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Typ rizika"
 
@@ -470,7 +466,6 @@ msgstr ""
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
 msgstr "Toto je"
 
@@ -486,7 +481,6 @@ msgstr ""
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Identifikační zpráva ${title}"
 
@@ -1357,7 +1351,6 @@ msgstr "Informace, které shromáždíme, a pro jaké účely"
 #. account and you enter data into the OiRA application we are asking you for
 #. the following information:
 #: src/euphorie/client/templates/conditions.pt:40
-#, fuzzy
 msgid "conditions_info_entry"
 msgstr ""
 "Jakékoliv informace, které poskytnete ve volných textových polích nástroje a "
@@ -1513,7 +1506,6 @@ msgstr "Kontaktní informace"
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr "Kontaktní informace"
 
@@ -1931,7 +1923,6 @@ msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Editovat"
 
@@ -2045,7 +2036,6 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Obnovte původní barvy"
 
@@ -2314,7 +2304,6 @@ msgstr ""
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Přihlašovací jméno"
 
@@ -3372,7 +3361,6 @@ msgid "Active"
 msgstr "Aktivní"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "Jediný možný stav "
 

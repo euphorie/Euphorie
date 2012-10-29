@@ -19,7 +19,6 @@ msgstr ""
 #. Default: Your country
 #: src/euphorie/client/company.py:20
 #: src/euphorie/client/templates/report_company.pt:25
-#, fuzzy
 msgid "label_company_country"
 msgstr "Wijzig land/taal"
 
@@ -77,7 +76,6 @@ msgstr "zowel eigen personeel als een externe adviseur of service provider"
 #: src/euphorie/client/company.py:53
 #: src/euphorie/client/templates/report_actionplan.pt:52
 #: src/euphorie/client/templates/report_company.pt:35
-#, fuzzy
 msgid "label_referer"
 msgstr "registreer"
 
@@ -112,7 +110,6 @@ msgstr ""
 #. Default: health and safety experts
 #: src/euphorie/client/company.py:68
 #: src/euphorie/client/templates/report_company.pt:42
-#, fuzzy
 msgid "referer_health_safety_expert"
 msgstr "experts in gezondheid en veiligheid"
 
@@ -133,7 +130,6 @@ msgstr "Arbeiders werden uitgenodigd om deel te nemen aan de risicobeoordeling"
 #: src/euphorie/client/company.py:82
 #: src/euphorie/client/templates/module_identification.pt:34
 #: src/euphorie/client/templates/risk_identification.pt:22
-#, fuzzy
 msgid "label_yes"
 msgstr "Pagina-inhoud"
 
@@ -141,7 +137,6 @@ msgstr "Pagina-inhoud"
 #: src/euphorie/client/company.py:85
 #: src/euphorie/client/templates/module_identification.pt:37
 #: src/euphorie/client/templates/risk_identification.pt:23
-#, fuzzy
 msgid "label_no"
 msgstr "Pagina-inhoud"
 
@@ -199,7 +194,6 @@ msgstr "Er bestaat al een account met dit e-mailadres."
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
-#, fuzzy
 msgid "button_cancel"
 msgstr "Ontgrendelen"
 
@@ -321,21 +315,18 @@ msgstr "Dit is een"
 
 #. Default: Measure
 #: src/euphorie/client/report.py:670
-#, fuzzy
 msgid "header_measure_single"
 msgstr "Belangrijkste afbeelding"
 
 #. Default: Measure ${index}
 #: src/euphorie/client/report.py:673
 #: src/euphorie/client/templates/report_actionplan.pt:108
-#, fuzzy
 msgid "header_measure"
 msgstr "Zoeken"
 
 #. Default: Action plan:
 #: src/euphorie/client/report.py:686
 #: src/euphorie/client/templates/report_actionplan.pt:111
-#, fuzzy
 msgid "report_measure_actionplan"
 msgstr "Actieplan"
 
@@ -348,14 +339,12 @@ msgstr ""
 #. Default: Requirements:
 #: src/euphorie/client/report.py:698
 #: src/euphorie/client/templates/report_actionplan.pt:119
-#, fuzzy
 msgid "report_measure_requirements"
 msgstr "Opmerkingen"
 
 #. Default: ${responsible} is responsible for this task.
 #: src/euphorie/client/report.py:707
 #: src/euphorie/client/templates/report_actionplan.pt:125
-#, fuzzy
 msgid "report_measure_responsible"
 msgstr "Risico"
 
@@ -376,14 +365,12 @@ msgstr ""
 #. ${start} and ends on ${end}.
 #: src/euphorie/client/report.py:731
 #: src/euphorie/client/templates/report_actionplan.pt:143
-#, fuzzy
 msgid "report_measure_full"
 msgstr "Tijdslijn"
 
 #. Default: This task starts on ${start}.
 #: src/euphorie/client/report.py:742
 #: src/euphorie/client/templates/report_actionplan.pt:133
-#, fuzzy
 msgid "report_measure_start_only"
 msgstr "Tijdslijn"
 
@@ -407,7 +394,6 @@ msgstr ""
 
 #. Default: Action plan ${title}
 #: src/euphorie/client/report.py:780
-#, fuzzy
 msgid "filename_report_actionplan"
 msgstr "Tijdslijn voor ${title}"
 
@@ -429,49 +415,42 @@ msgstr "Hoog"
 #. Default: Planning start
 #: src/euphorie/client/report.py:833
 #: src/euphorie/client/templates/risk_actionplan.pt:89
-#, fuzzy
 msgid "label_action_plan_start"
 msgstr "Actieplan"
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:835
 #: src/euphorie/client/templates/risk_actionplan.pt:115
-#, fuzzy
 msgid "label_action_plan_end"
 msgstr "Actieplan"
 
 #. Default: Action plan
 #: src/euphorie/client/report.py:837 src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
-#, fuzzy
 msgid "label_measure_action_plan"
 msgstr "Actieplan"
 
 #. Default: Prevention plan
 #: src/euphorie/client/report.py:839 src/euphorie/content/solution.py:37
 #: src/euphorie/content/templates/solution_view.pt:24
-#, fuzzy
 msgid "label_measure_prevention_plan"
 msgstr "Actieplan"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
 #: src/euphorie/content/templates/solution_view.pt:28
-#, fuzzy
 msgid "label_measure_requirements"
 msgstr "Standaardfrequentie"
 
 #. Default: Who is responsible?
 #: src/euphorie/client/report.py:844
 #: src/euphorie/client/templates/risk_actionplan.pt:73
-#, fuzzy
 msgid "label_action_plan_responsible"
 msgstr "Actieplan"
 
 #. Default: Budget (in Euro)
 #: src/euphorie/client/report.py:847
 #: src/euphorie/client/templates/risk_actionplan.pt:78
-#, fuzzy
 msgid "label_action_plan_budget"
 msgstr "Actieplan"
 
@@ -522,7 +501,6 @@ msgstr "Huidig wachtwoord"
 #. Default: Desired password
 #: src/euphorie/client/settings.py:46
 #: src/euphorie/client/templates/register.pt:29
-#, fuzzy
 msgid "label_new_password"
 msgstr "Wachtwoord (${forgot_link})"
 
@@ -626,7 +604,6 @@ msgstr "Uw e-mailadres werd bijgewerkt."
 #: src/euphorie/client/templates/updated.pt:12
 #: src/euphorie/client/templates/webhelpers.pt:22
 #: src/euphorie/content/sector.py:278
-#, fuzzy
 msgid "title_tool"
 msgstr "OiRA"
 
@@ -910,7 +887,6 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:86
 #: src/euphorie/client/templates/updated.pt:99
 #: src/euphorie/content/templates/colour-preview.pt:55
-#, fuzzy
 msgid "navigation_help"
 msgstr "Help"
 
@@ -926,7 +902,6 @@ msgstr ""
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
-#, fuzzy
 msgid "warning_account_delete_surveys"
 msgstr ""
 "Door te klikken op 'Account verwijderen', wordt uw account definitief "
@@ -934,12 +909,10 @@ msgstr ""
 
 #. Default: Account data
 #: src/euphorie/client/templates/account-settings.pt:19
-#, fuzzy
 msgid "header_account_data"
 msgstr "Landbeheerders"
 
 #: src/euphorie/client/templates/account-settings.pt:23
-#, fuzzy
 msgid "Change email address"
 msgstr "Ongekend e-mailadres"
 
@@ -951,7 +924,6 @@ msgstr ""
 
 #. Default: Password
 #: src/euphorie/client/templates/account-settings.pt:27
-#, fuzzy
 msgid "header_password"
 msgstr "Wachtwoordherinnering"
 
@@ -961,7 +933,6 @@ msgstr "Wachtwoordherinnering"
 #. programme may offer a suggestion you can use, or you can add your own
 #. measures.
 #: src/euphorie/client/templates/actionplan.pt:20
-#, fuzzy
 msgid "expl_actionplan_1"
 msgstr "Actieplan"
 
@@ -971,7 +942,6 @@ msgstr "Actieplan"
 #. knowledge and experience that are needed for those tasks to be carried out
 #. (prevention plan and requirements).
 #: src/euphorie/client/templates/actionplan.pt:27
-#, fuzzy
 msgid "expl_actionplan_2"
 msgstr "Actieplan"
 
@@ -979,19 +949,16 @@ msgstr "Actieplan"
 #. bottlenecks. There are no risks which need require any attention during this
 #. phase, so please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:35
-#, fuzzy
 msgid "expl_actionplan_empty"
 msgstr "Actieplan"
 
 #. Default: Create action plan
 #: src/euphorie/client/templates/actionplan.pt:42
-#, fuzzy
 msgid "label_create_action_plan"
 msgstr "Actieplan"
 
 #. Default: Go to report
 #: src/euphorie/client/templates/actionplan.pt:43
-#, fuzzy
 msgid "label_jump_to_report"
 msgstr "Rapporten"
 
@@ -1018,7 +985,6 @@ msgstr "Rapporten"
 #: src/euphorie/client/templates/status.pt:36
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:73 src/euphorie/content/help.py:40
-#, fuzzy
 msgid "label_preparation"
 msgstr "Voer evaluatie uit"
 
@@ -1045,7 +1011,6 @@ msgstr "Voer evaluatie uit"
 #: src/euphorie/client/templates/status.pt:37
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:74
-#, fuzzy
 msgid "iphone_label_preparation"
 msgstr "Voer evaluatie uit"
 
@@ -1073,7 +1038,6 @@ msgstr "Voer evaluatie uit"
 #: src/euphorie/client/templates/survey_sessions.pt:66
 #: src/euphorie/client/templates/updated.pt:78 src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/colour-preview.pt:40
-#, fuzzy
 msgid "label_identification"
 msgstr "Identificatie"
 
@@ -1100,7 +1064,6 @@ msgstr "Identificatie"
 #: src/euphorie/client/templates/status.pt:43
 #: src/euphorie/client/templates/survey_sessions.pt:67
 #: src/euphorie/client/templates/updated.pt:79
-#, fuzzy
 msgid "iphone_label_identification"
 msgstr "Identificatie"
 
@@ -1128,7 +1091,6 @@ msgstr "Identificatie"
 #: src/euphorie/client/templates/survey_sessions.pt:70
 #: src/euphorie/client/templates/updated.pt:82 src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/colour-preview.pt:43
-#, fuzzy
 msgid "label_evaluation"
 msgstr "Voer evaluatie uit"
 
@@ -1155,7 +1117,6 @@ msgstr "Voer evaluatie uit"
 #: src/euphorie/client/templates/status.pt:49
 #: src/euphorie/client/templates/survey_sessions.pt:71
 #: src/euphorie/client/templates/updated.pt:83
-#, fuzzy
 msgid "iphone_label_evaluation"
 msgstr "Evaluatie"
 
@@ -1183,7 +1144,6 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/survey_sessions.pt:74
 #: src/euphorie/client/templates/updated.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:46
-#, fuzzy
 msgid "label_action_plan"
 msgstr "Actieplan"
 
@@ -1210,7 +1170,6 @@ msgstr "Actieplan"
 #: src/euphorie/client/templates/status.pt:55
 #: src/euphorie/client/templates/survey_sessions.pt:75
 #: src/euphorie/client/templates/updated.pt:87
-#, fuzzy
 msgid "iphone_label_action_plan"
 msgstr "Actieplan"
 
@@ -1237,7 +1196,6 @@ msgstr "Actieplan"
 #: src/euphorie/client/templates/status.pt:60
 #: src/euphorie/client/templates/survey_sessions.pt:78
 #: src/euphorie/client/templates/updated.pt:90
-#, fuzzy
 msgid "label_report"
 msgstr "Rapporten"
 
@@ -1264,7 +1222,6 @@ msgstr "Rapporten"
 #: src/euphorie/client/templates/status.pt:61
 #: src/euphorie/client/templates/survey_sessions.pt:79
 #: src/euphorie/client/templates/updated.pt:91
-#, fuzzy
 msgid "iphone_report"
 msgstr "Rapport"
 
@@ -1332,7 +1289,6 @@ msgstr ""
 #: src/euphorie/client/templates/risk_evaluation.pt:172
 #: src/euphorie/client/templates/risk_identification.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:58
-#, fuzzy
 msgid "navigation_status"
 msgstr "Status"
 
@@ -1357,7 +1313,6 @@ msgstr "Status"
 #: src/euphorie/client/templates/status.pt:71
 #: src/euphorie/client/templates/survey_sessions.pt:87
 #: src/euphorie/client/templates/updated.pt:100
-#, fuzzy
 msgid "navigation_settings"
 msgstr "Accountinstellingen"
 
@@ -1605,7 +1560,6 @@ msgstr "Fout"
 
 #. Default: Something bad happened.
 #: src/euphorie/client/templates/error.pt:19
-#, fuzzy
 msgid "expl_error"
 msgstr "De opgevraagde pagina kon niet worden gevonden."
 
@@ -1623,7 +1577,6 @@ msgstr "De opgevraagde pagina kon niet worden gevonden."
 #. organisation. During this evaluation phase you can assess the magnitude of
 #. risk for each bottleneck.
 #: src/euphorie/client/templates/evaluation.pt:19
-#, fuzzy
 msgid "help_risks_present"
 msgstr "Risicotype"
 
@@ -1641,7 +1594,6 @@ msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 #. Default: There are no risks that need to be evaluated. You can proceed
 #. directly to the action plan phase.
 #: src/euphorie/client/templates/evaluation.pt:31
-#, fuzzy
 msgid "help_evaluation_empty"
 msgstr "Kies voor 'geschat' als de berekening niet nodig of niet mogelijk is."
 
@@ -1678,7 +1630,6 @@ msgstr "Authenticatie"
 #: src/euphorie/client/templates/help.pt:21
 #: src/euphorie/client/templates/help.pt:36
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "help_header_sessions"
 msgstr "Evaluatie"
 
@@ -1730,7 +1681,6 @@ msgstr "Tot slot"
 #. the workers about problems they have encountered). Then you can introduce
 #. the information into the tool.
 #: src/euphorie/client/templates/identification.pt:19
-#, fuzzy
 msgid "intro_print_identification_1"
 msgstr "Identificatierapport ${title}"
 
@@ -1739,25 +1689,21 @@ msgstr "Identificatierapport ${title}"
 #. deciding on preventive action. Their feedback can be taken into account when
 #. filling in this tool.
 #: src/euphorie/client/templates/identification.pt:22
-#, fuzzy
 msgid "intro_print_identification_2"
 msgstr "Identificatierapport ${title}"
 
 #. Default: list of all risks
 #: src/euphorie/client/templates/identification.pt:26
-#, fuzzy
 msgid "list_of_risks"
 msgstr "Risico"
 
 #. Default: You can print the ${list-of-risks}.
 #: src/euphorie/client/templates/identification.pt:25
-#, fuzzy
 msgid "intro_identification"
 msgstr "Identificatie"
 
 #. Default: Start Risk Identification
 #: src/euphorie/client/templates/identification.pt:30
-#, fuzzy
 msgid "label_start_identification"
 msgstr "Authenticatie"
 
@@ -1784,7 +1730,6 @@ msgstr ""
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:29
-#, fuzzy
 msgid "header_login"
 msgstr "Legende"
 
@@ -1792,7 +1737,6 @@ msgstr "Legende"
 #: src/euphorie/client/templates/login.pt:31
 #: src/euphorie/client/templates/register.pt:27
 #: src/euphorie/client/templates/reminder.pt:30
-#, fuzzy
 msgid "label_email"
 msgstr "E-mailadres contactpersoon"
 
@@ -1808,7 +1752,6 @@ msgstr "Wachtwoord (${forgot_link})"
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:34
-#, fuzzy
 msgid "label_login"
 msgstr "Logo"
 
@@ -1848,7 +1791,6 @@ msgstr ""
 #: src/euphorie/client/templates/sessions.pt:63
 #: src/euphorie/client/templates/start.pt:32
 #: src/euphorie/client/templates/survey_sessions.pt:55
-#, fuzzy
 msgid "label_previous"
 msgstr "Voorbeeld"
 
@@ -1865,13 +1807,11 @@ msgstr "Voorbeeld"
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:64
 #: src/euphorie/client/templates/survey_sessions.pt:56
-#, fuzzy
 msgid "label_next"
 msgstr "Land"
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
-#, fuzzy
 msgid "header_preview"
 msgstr "Voorbeeld"
 
@@ -1879,7 +1819,6 @@ msgstr "Voorbeeld"
 #. give the URL for the preview to others so they can test the survey. To
 #. access the preview a standard OiRA client login is required.
 #: src/euphorie/client/templates/preview.pt:18
-#, fuzzy
 msgid "intro_preview"
 msgstr "Voorbeeld maken"
 
@@ -1890,7 +1829,6 @@ msgstr "Het voorbeeld zal beschikbaar zijn op ${url}."
 
 #. Default: Tailor the risk assessment to your organisation
 #: src/euphorie/client/templates/profile.pt:16
-#, fuzzy
 msgid "header_profile"
 msgstr "Profielvragen"
 
@@ -1898,14 +1836,12 @@ msgstr "Profielvragen"
 #. relevant to your company/organisation. If it is not, don’t tick the box and
 #. you will not be asked about things that do not apply to your situation.
 #: src/euphorie/client/templates/profile.pt:18
-#, fuzzy
 msgid "expl_profile"
 msgstr "Controleer of het profiel nog klopt."
 
 #. Default: Add
 #: src/euphorie/client/templates/profile.pt:52
 #: src/euphorie/client/templates/updated.pt:57
-#, fuzzy
 msgid "label_add_profile_module"
 msgstr "Type"
 
@@ -1916,7 +1852,6 @@ msgstr "Ga verder"
 
 #. Default: Publish survey
 #: src/euphorie/client/templates/publish.pt:15
-#, fuzzy
 msgid "header_publish"
 msgstr "Gepubliceerd"
 
@@ -1929,7 +1864,6 @@ msgstr ""
 #. Default: Are you sure you want to republish this survey? This will make all
 #. changes made public.
 #: src/euphorie/client/templates/publish.pt:22
-#, fuzzy
 msgid "intro_publish_survey_published"
 msgstr "Huidig / gepubliceerd"
 
@@ -1941,20 +1875,17 @@ msgstr ""
 
 #. Default: After publication the survey will be available at ${url}.
 #: src/euphorie/client/templates/publish.pt:30
-#, fuzzy
 msgid "help_publish_url"
 msgstr "Het voorbeeld zal beschikbaar zijn op ${url}."
 
 #. Default: Register
 #: src/euphorie/client/templates/register.pt:17
 #: src/euphorie/client/templates/register.pt:25
-#, fuzzy
 msgid "header_register"
 msgstr "registreer"
 
 #. Default: Again password
 #: src/euphorie/client/templates/register.pt:31
-#, fuzzy
 msgid "label_password_confirm"
 msgstr "Huidig wachtwoord"
 
@@ -1993,7 +1924,6 @@ msgstr "Wachtwoordherinnering"
 
 #. Default: Reporting
 #: src/euphorie/client/templates/report.pt:17
-#, fuzzy
 msgid "header_reporting"
 msgstr "Instellingen"
 
@@ -2002,7 +1932,6 @@ msgstr "Instellingen"
 #. all your results. You can, if desired, add some extra comments that should
 #. be included in this report in the field below.
 #: src/euphorie/client/templates/report.pt:19
-#, fuzzy
 msgid "report_intro"
 msgstr ""
 "Door het invullen van de vragen hebt u een risicobeoordeling uitgevoerd. Op "
@@ -2014,7 +1943,6 @@ msgstr ""
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
 #: src/euphorie/client/templates/report.pt:28
-#, fuzzy
 msgid "label_report_comment"
 msgstr "Rapporten"
 
@@ -2032,14 +1960,12 @@ msgstr "Tijdslijn"
 #. Default: Download
 #: src/euphorie/client/templates/report_actionplan.pt:26
 #: src/euphorie/client/templates/report_identification.pt:24
-#, fuzzy
 msgid "button_download"
 msgstr "Uploaden"
 
 #. Default: Print
 #: src/euphorie/client/templates/report_actionplan.pt:27
 #: src/euphorie/client/templates/report_identification.pt:25
-#, fuzzy
 msgid "button_print"
 msgstr "Bewerken"
 
@@ -2074,28 +2000,24 @@ msgstr "experts in gezondheid en veiligheid"
 #. Default: low priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:26
-#, fuzzy
 msgid "risk_priority_low"
 msgstr "risico met lage prioriteit"
 
 #. Default: medium priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:96
 #: src/euphorie/client/templates/risk_actionplan.pt:27
-#, fuzzy
 msgid "risk_priority_medium"
 msgstr "risico met gemiddelde prioriteit"
 
 #. Default: high priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:97
 #: src/euphorie/client/templates/risk_actionplan.pt:28
-#, fuzzy
 msgid "risk_priority_high"
 msgstr "risico met hoge prioriteit"
 
 #. Default: This is a ${priority} .
 #: src/euphorie/client/templates/report_actionplan.pt:93
 #: src/euphorie/client/templates/risk_actionplan.pt:25
-#, fuzzy
 msgid "risk_priority"
 msgstr "Dit is een"
 
@@ -2112,7 +2034,6 @@ msgstr ""
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
-#, fuzzy
 msgid "company_details_intro"
 msgstr ""
 "De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat "
@@ -2151,13 +2072,11 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Herstel originele kleuren"
 
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:53
-#, fuzzy
 msgid "label_add_measure"
 msgstr "Afbeelding"
 
@@ -2166,7 +2085,6 @@ msgid "Description of the measure"
 msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:62
-#, fuzzy
 msgid "Standard solutions"
 msgstr "Standaardoplossing"
 
@@ -2199,28 +2117,24 @@ msgstr ""
 
 #. Default: Please enter the budget in whole Euros.
 #: src/euphorie/client/templates/risk_actionplan.pt:81
-#, fuzzy
 msgid "error_invalid_budget"
 msgstr "Voer een geldig e-mailadres in"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:121
-#, fuzzy
 msgid "error_invalid_day"
 msgstr "Voer een geldig e-mailadres in"
 
 #. Default: Month
 #: src/euphorie/client/templates/risk_actionplan.pt:97
 #: src/euphorie/client/templates/risk_actionplan.pt:123
-#, fuzzy
 msgid "label_month"
 msgstr "Land"
 
 #. Default: Please enter a valid year after 1900
 #: src/euphorie/client/templates/risk_actionplan.pt:107
 #: src/euphorie/client/templates/risk_actionplan.pt:133
-#, fuzzy
 msgid "error_invalid_year"
 msgstr "Voer een geldig e-mailadres in"
 
@@ -2242,7 +2156,6 @@ msgstr ""
 
 #. Default: What is the chance of this risk occurring?
 #: src/euphorie/client/templates/risk_evaluation.pt:28
-#, fuzzy
 msgid "header_risk_probability"
 msgstr ""
 "Geef aan hoe groot de kans is dat dit risico voorkomt in een normale "
@@ -2257,7 +2170,6 @@ msgstr ""
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:32
 #: src/euphorie/content/risk.py:234
-#, fuzzy
 msgid "probability_medium"
 msgstr "risico met gemiddelde prioriteit"
 
@@ -2270,33 +2182,28 @@ msgstr ""
 #. Default: How often are people exposed to this risk?
 #: src/euphorie/client/templates/risk_evaluation.pt:38
 #: src/euphorie/client/templates/risk_evaluation.pt:81
-#, fuzzy
 msgid "header_risk_frequency"
 msgstr "Geef aan hoe vaak dit risico voorkomt in een normale situatie."
 
 #. Default: Almost never
 #: src/euphorie/client/templates/risk_evaluation.pt:40
-#, fuzzy
 msgid "frequency_almost_never"
 msgstr "Bijna nooit"
 
 #. Default: Regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:42
 #: src/euphorie/content/risk.py:250
-#, fuzzy
 msgid "frequency_regularly"
 msgstr "Bijna nooit"
 
 #. Default: Constantly
 #: src/euphorie/client/templates/risk_evaluation.pt:44
 #: src/euphorie/content/risk.py:251
-#, fuzzy
 msgid "frequency_constantly"
 msgstr "Bijna nooit"
 
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:48
-#, fuzzy
 msgid "header_risk_effect"
 msgstr "Sectoren"
 
@@ -2317,14 +2224,12 @@ msgstr ""
 
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:59
-#, fuzzy
 msgid "header_risk_severity"
 msgstr "Zoeken"
 
 #. Default: Weak
 #: src/euphorie/client/templates/risk_evaluation.pt:62
 #: src/euphorie/content/risk.py:196
-#, fuzzy
 msgid "severity_weak"
 msgstr "Letsel zonder verzuim"
 
@@ -2391,7 +2296,6 @@ msgstr ""
 #. Default: Often
 #: src/euphorie/client/templates/risk_evaluation.pt:94
 #: src/euphorie/content/risk.py:215
-#, fuzzy
 msgid "frequency_french_often"
 msgstr "Bijna nooit"
 
@@ -2413,34 +2317,29 @@ msgstr ""
 
 #. Default: Select the priority of this risk
 #: src/euphorie/client/templates/risk_evaluation.pt:109
-#, fuzzy
 msgid "header_risk_priority"
 msgstr "Rapport"
 
 #. Default: Low
 #: src/euphorie/client/templates/risk_evaluation.pt:111
 #: src/euphorie/content/risk.py:127
-#, fuzzy
 msgid "priority_low"
 msgstr "risico met lage prioriteit"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:113
 #: src/euphorie/content/risk.py:128
-#, fuzzy
 msgid "priority_medium"
 msgstr "risico met gemiddelde prioriteit"
 
 #. Default: High
 #: src/euphorie/client/templates/risk_evaluation.pt:115
 #: src/euphorie/content/risk.py:129
-#, fuzzy
 msgid "priority_high"
 msgstr "risico met hoge prioriteit"
 
 #. Default: Not applicable
 #: src/euphorie/client/templates/risk_identification.pt:25
-#, fuzzy
 msgid "label_not_applicable"
 msgstr "Toon `niet van toepassing' optie"
 
@@ -2452,14 +2351,12 @@ msgstr "Momenteel niet bekend"
 #. Default: Session
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
-#, fuzzy
 msgid "header_session"
 msgstr "Instellingen"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
 #: src/euphorie/client/templates/survey_sessions.pt:21
-#, fuzzy
 msgid "header_select_session"
 msgstr "Sectoren"
 
@@ -2472,34 +2369,29 @@ msgstr ""
 #. Default: Rename
 #: src/euphorie/client/templates/sessions.pt:36
 #: src/euphorie/client/templates/survey_sessions.pt:33
-#, fuzzy
 msgid "label_rename"
 msgstr "Voorbeeld"
 
 #. Default: Delete
 #: src/euphorie/client/templates/sessions.pt:41
 #: src/euphorie/client/templates/survey_sessions.pt:38
-#, fuzzy
 msgid "label_delete"
 msgstr "Bijwerken"
 
 #. Default: or…
 #: src/euphorie/client/templates/sessions.pt:47
 #: src/euphorie/client/templates/survey_sessions.pt:43
-#, fuzzy
 msgid "header_or"
 msgstr "Sectoren"
 
 #. Default: Start a new session choosing one of the following sectoral tools
 #: src/euphorie/client/templates/sessions.pt:53
-#, fuzzy
 msgid "label_select_new_session"
 msgstr "Welk logo wilt u linksboven tonen?"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:58
 #: src/euphorie/client/templates/survey_sessions.pt:50
-#, fuzzy
 msgid "label_session_title"
 msgstr "Titel van de sector."
 
@@ -2524,7 +2416,6 @@ msgstr ""
 
 #. Default: Are you aware of all the risks?
 #: src/euphorie/client/templates/start.pt:20
-#, fuzzy
 msgid "header_risk_aware"
 msgstr "Vragen beantwoord per module"
 
@@ -2537,7 +2428,6 @@ msgstr "Vragen beantwoord per module"
 #. risks to your employees and your company, and therefore also the financial
 #. risk.
 #: src/euphorie/client/templates/start.pt:21
-#, fuzzy
 msgid "intro_risk_aware"
 msgstr ""
 "De belangrijkste afbeelding krijgt een meer opvallende plaats op de "
@@ -2545,7 +2435,6 @@ msgstr ""
 
 #. Default: The assessment is not complicated.
 #: src/euphorie/client/templates/start.pt:23
-#, fuzzy
 msgid "header_not_complicated"
 msgstr "Belangrijkste afbeelding"
 
@@ -2558,7 +2447,6 @@ msgstr ""
 
 #. Default: Start
 #: src/euphorie/client/templates/start.pt:33
-#, fuzzy
 msgid "label_start_survey"
 msgstr "Kies een basisrevisie"
 
@@ -2594,14 +2482,12 @@ msgstr ""
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
-#, fuzzy
 msgid "title_updated"
 msgstr "Bijgewerkt"
 
 #. Default: This survey has been updated. Before you can continue any changes
 #. made in the survey will have to be merged in your session.
 #: src/euphorie/client/templates/updated.pt:19
-#, fuzzy
 msgid "expl_update"
 msgstr "Bijwerken"
 
@@ -2639,7 +2525,6 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:127
-#, fuzzy
 msgid "header_legal_references"
 msgstr "Wet- en beleidsreferenties"
 
@@ -2679,7 +2564,6 @@ msgstr "Inleiding"
 #. Default: Generic introduction for the client. This text is not associated
 #. with specific pages.
 #: src/euphorie/content/help.py:16
-#, fuzzy
 msgid "help_help_introduction"
 msgstr "Inleiding"
 
@@ -2691,41 +2575,35 @@ msgstr "Authenticatie"
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
 #: src/euphorie/content/help.py:24
-#, fuzzy
 msgid "help_authentication"
 msgstr "Authenticatie"
 
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
-#, fuzzy
 msgid "label_sessions"
 msgstr "Beschrijving"
 
 #. Default: Describe the session handling. This text is linked from the session
 #. overview page.
 #: src/euphorie/content/help.py:33
-#, fuzzy
 msgid "help_sessions"
 msgstr "Met dit wachtwoord kunt u zich aanmelden op de opmaakomgeving."
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
 #: src/euphorie/content/help.py:41
-#, fuzzy
 msgid "help_preparation"
 msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
 #: src/euphorie/content/help.py:50
-#, fuzzy
 msgid "help_identification"
 msgstr "Identificatie"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
 #: src/euphorie/content/help.py:58
-#, fuzzy
 msgid "help_evaluation"
 msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 
@@ -2737,7 +2615,6 @@ msgstr "Actieplan"
 #. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
 #: src/euphorie/content/help.py:66
-#, fuzzy
 msgid "help_actionplan"
 msgstr "Actieplan"
 
@@ -2749,7 +2626,6 @@ msgstr "Rapporten"
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
 #: src/euphorie/content/help.py:74
-#, fuzzy
 msgid "help_reports"
 msgstr "Rapporten"
 
@@ -2761,7 +2637,6 @@ msgstr "Tot slot"
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
 #: src/euphorie/content/help.py:82
-#, fuzzy
 msgid "help_finalwords"
 msgstr "Tot slot"
 
@@ -2776,7 +2651,6 @@ msgstr "Beschrijving"
 #: src/euphorie/content/module.py:36 src/euphorie/content/page.py:20
 #: src/euphorie/content/profilequestion.py:48
 #: src/euphorie/content/solution.py:22
-#, fuzzy
 msgid "help_module_description"
 msgstr "Beschrijving"
 
@@ -2787,7 +2661,6 @@ msgstr "Deze module is optioneel"
 
 #. Default: Allow users to skip this module and everything inside it.
 #: src/euphorie/content/module.py:45
-#, fuzzy
 msgid "help_module_optional"
 msgstr "Deze module is optioneel"
 
@@ -2799,7 +2672,6 @@ msgstr "Vraag"
 #. Default: The question to ask users if this module is optional. This has to
 #. be a yes/no question.
 #: src/euphorie/content/module.py:54
-#, fuzzy
 msgid "help_module_question"
 msgstr "Vraag"
 
@@ -2829,14 +2701,12 @@ msgstr "Onderschrift afbeelding"
 
 #. Default: Introduction action plan
 #: src/euphorie/content/module.py:70
-#, fuzzy
 msgid "label_solution_direction"
 msgstr "Geef een beschrijving van uw sector"
 
 #. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
 #: src/euphorie/content/module.py:71
-#, fuzzy
 msgid "help_solution_direction"
 msgstr "Kies voor 'geschat' als de berekening niet nodig of niet mogelijk is."
 
@@ -2863,7 +2733,6 @@ msgstr "Vraag"
 #. a "repeatable" profile question (statement), it must be formulated as a
 #. prompt to fill in multiple values.
 #: src/euphorie/content/profilequestion.py:36
-#, fuzzy
 msgid "help_profilequestion_question"
 msgstr "Vraag"
 
@@ -2884,27 +2753,23 @@ msgstr "Herhaalbaar"
 
 #. Default: Statement
 #: src/euphorie/content/risk.py:46
-#, fuzzy
 msgid "label_statement"
 msgstr "Privacyverklaring"
 
 #. Default: This is a short statement about a possible risk.
 #: src/euphorie/content/risk.py:47
-#, fuzzy
 msgid "help_statement"
 msgstr "Privacyverklaring"
 
 #. Default: Inversed statement
 #: src/euphorie/content/risk.py:53
 #: src/euphorie/content/templates/risk_view.pt:37
-#, fuzzy
 msgid "label_problem_description"
 msgstr "Beschrijving"
 
 #. Default: This is the inverse of the statement: a short description of
 #. current (bad) situation.
 #: src/euphorie/content/risk.py:55
-#, fuzzy
 msgid "help_problem_description"
 msgstr "Beschrijving"
 
@@ -2916,7 +2781,6 @@ msgstr "Beschrijving"
 #. Default: Describe the risk. Include any relevant information that may be
 #. helpful for users.
 #: src/euphorie/content/risk.py:64
-#, fuzzy
 msgid "help_risk_description"
 msgstr "Beschrijving"
 
@@ -2954,13 +2818,11 @@ msgstr "Risicotype"
 #. behind a desk (no need to examine the workplace). 'Top 5' is one of the top
 #. five risks of the sector.
 #: src/euphorie/content/risk.py:91
-#, fuzzy
 msgid "help_risk_type"
 msgstr "Risicotype"
 
 #. Default: Top 5
 #: src/euphorie/content/risk.py:98
-#, fuzzy
 msgid "risktype_top5"
 msgstr "Beleid"
 
@@ -3004,7 +2866,6 @@ msgstr "Standaardprioriteit"
 #. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
 #: src/euphorie/content/risk.py:122
-#, fuzzy
 msgid "help_default_priority"
 msgstr "Standaardprioriteit"
 
@@ -3039,7 +2900,6 @@ msgstr "Standaardernst"
 
 #. Default: Indicate the severity if this risk occurs.
 #: src/euphorie/content/risk.py:192 src/euphorie/content/risk.py:260
-#, fuzzy
 msgid "help_default_severity"
 msgstr "Standaardernst"
 
@@ -3134,34 +2994,29 @@ msgstr "Steunkleur"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
 msgstr "Er zijn geen sectoren voor dit land."
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
 #: src/euphorie/content/solution.py:30
-#, fuzzy
 msgid "help_measure_action_plan"
 msgstr "Actieplan"
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring.
 #. This information will be copied to the measure.
 #: src/euphorie/content/solution.py:38
-#, fuzzy
 msgid "help_measure_prevention_plan"
 msgstr "Actieplan"
 
 #. Default: Describe the standard requirements for the action plan and
 #. prevention plan. This information will be copied to the measure.
 #: src/euphorie/content/solution.py:46
-#, fuzzy
 msgid "help_measure_requirements"
 msgstr "Geef aan hoe vaak dit risico voorkomt in een normale situatie."
 
 #. Default: Common solution
 #: src/euphorie/content/solution.py:55
-#, fuzzy
 msgid "title_common_solution"
 msgstr "Documentatie"
 
@@ -3173,7 +3028,6 @@ msgstr "Versienaam"
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
 #: src/euphorie/content/survey.py:48 src/euphorie/content/survey.py:167
-#, fuzzy
 msgid "help_survey_title"
 msgstr "Versienaam"
 
@@ -3187,7 +3041,6 @@ msgstr "Inleidingtekst"
 #. keep this text brief so it will easily fit on screens of small devices such
 #. as phones and PDAs
 #: src/euphorie/content/survey.py:58
-#, fuzzy
 msgid "help_introduction"
 msgstr "Inleidingtekst"
 
@@ -3198,21 +3051,18 @@ msgstr "Evaluatie mag worden overgeslagen"
 
 #. Default: This option allows uses to skip the evaluation phase.
 #: src/euphorie/content/survey.py:70
-#, fuzzy
 msgid "help_evaluation_optional"
 msgstr "Evaluatie mag worden overgeslagen"
 
 #. Default: Language
 #: src/euphorie/content/survey.py:76
 #: src/euphorie/content/templates/survey_view.pt:24
-#, fuzzy
 msgid "label_language"
 msgstr "Afbeelding"
 
 #. Default: Classification code
 #: src/euphorie/content/survey.py:82
 #: src/euphorie/content/templates/survey_view.pt:21
-#, fuzzy
 msgid "label_classification_code"
 msgstr ""
 "Een code die deze sector identificeert. Classificatiecodes worden omschreven "
@@ -3231,7 +3081,6 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
 msgstr "Ongedaan maken van publicatie geannuleerd."
 
@@ -3248,7 +3097,6 @@ msgstr "Titel"
 #. Default: The title of this survey. This title is used in the survey overview
 #. in the clients.
 #: src/euphorie/content/surveygroup.py:41
-#, fuzzy
 msgid "help_surveygroup_title"
 msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
@@ -3275,7 +3123,6 @@ msgstr "Standaard"
 
 #. Default: This survey is now no longer available in the client.
 #: src/euphorie/content/surveygroup.py:260
-#, fuzzy
 msgid "message_unpublish_success"
 msgstr "Ongedaan maken van publicatie geannuleerd."
 
@@ -3301,7 +3148,6 @@ msgstr "Loginnaam"
 
 #. Default: Title of imported survey.
 #: src/euphorie/content/upload.py:78 src/euphorie/content/upload.py:97
-#, fuzzy
 msgid "label_surveygroup_title"
 msgstr "Versienaam"
 
@@ -3312,7 +3158,6 @@ msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
 #. Default: Name for survey version
 #: src/euphorie/content/upload.py:85 src/euphorie/content/upload.py:104
-#, fuzzy
 msgid "label_upload_survey_title"
 msgstr "Versienaam"
 
@@ -3349,7 +3194,6 @@ msgstr ""
 
 #. Default: Import sector and survey
 #: src/euphorie/content/upload.py:343
-#, fuzzy
 msgid "title_import_sector_survey"
 msgstr "Sectoren"
 
@@ -3381,7 +3225,6 @@ msgstr "E-mailadres contactpersoon"
 #. Default: Password
 #: src/euphorie/content/user.py:63
 #: src/euphorie/content/templates/settings.pt:79
-#, fuzzy
 msgid "label_password"
 msgstr "Huidig wachtwoord"
 
@@ -3512,7 +3355,6 @@ msgstr "Een risico."
 
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:7
 #: src/euphorie/content/templates/user_mgmt.pt:26
-#, fuzzy
 msgid "Sector"
 msgstr "Sectormap"
 
@@ -3530,12 +3372,10 @@ msgid "A folder which can contain sectors."
 msgstr "Een map die sectoren kan bevatten."
 
 #: src/euphorie/content/profiles/default/types/euphorie.solution.xml:7
-#, fuzzy
 msgid "Solution"
 msgstr "Standaardoplossing"
 
 #: src/euphorie/content/profiles/default/types/euphorie.solution.xml:8
-#, fuzzy
 msgid "A solution."
 msgstr "Standaardoplossing"
 
@@ -3548,7 +3388,6 @@ msgid "A version of a survey."
 msgstr "Een versie van een enquête."
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
-#, fuzzy
 msgid "Survey"
 msgstr "Een enquête."
 
@@ -3583,7 +3422,6 @@ msgstr "OiRA"
 
 #. Default: Select a sector for which you would like to view or copy a survey.
 #: src/euphorie/content/templates/country_view.pt:15
-#, fuzzy
 msgid "intro_select_sector"
 msgstr "Sectoren"
 
@@ -3655,7 +3493,6 @@ msgstr "Helptekst voor gebruikerssite"
 #: src/euphorie/content/templates/profilequestion_view.pt:20
 #: src/euphorie/content/templates/solution_view.pt:18
 #: src/euphorie/content/templates/survey_view.pt:15
-#, fuzzy
 msgid "header_information"
 msgstr "Identificatie"
 
@@ -3666,33 +3503,28 @@ msgstr ""
 
 #. Default: This module is optional.
 #: src/euphorie/content/templates/module_view.pt:24
-#, fuzzy
 msgid "module_optional"
 msgstr "Deze module is optioneel"
 
 #. Default: Submodules
 #: src/euphorie/content/templates/module_view.pt:27
 #: src/euphorie/content/templates/profilequestion_view.pt:25
-#, fuzzy
 msgid "header_submodules"
 msgstr "Sectoren"
 
 #. Default: Risks
 #: src/euphorie/content/templates/module_view.pt:34
 #: src/euphorie/content/templates/profilequestion_view.pt:32
-#, fuzzy
 msgid "header_risks"
 msgstr "Algemene voorwaarden"
 
 #. Default: This is an optional profile item.
 #: src/euphorie/content/templates/profilequestion_view.pt:21
-#, fuzzy
 msgid "profilequestion_type_optional"
 msgstr "Vraag"
 
 #. Default: This is a repeatable profile item.
 #: src/euphorie/content/templates/profilequestion_view.pt:22
-#, fuzzy
 msgid "profilequestion_type_repeat"
 msgstr "Herhaalbaar"
 
@@ -3723,26 +3555,22 @@ msgstr "Standaardeffect"
 
 #. Default: Standard solutions
 #: src/euphorie/content/templates/risk_view.pt:76
-#, fuzzy
 msgid "header_solutions"
 msgstr "Evaluatie"
 
 #. Default: Solution ${number}
 #: src/euphorie/content/templates/risk_view.pt:79
-#, fuzzy
 msgid "risk_solution_header"
 msgstr "Bewaren en verwerken van informatie"
 
 #. Default: Surveys
 #: src/euphorie/content/templates/sector_view.pt:14
-#, fuzzy
 msgid "header_sector_survey_list"
 msgstr "Sectoren"
 
 #. Default: add a new survey
 #: src/euphorie/content/templates/sector_view.pt:18
 #: src/euphorie/content/templates/sector_view.pt:33
-#, fuzzy
 msgid "add_survey"
 msgstr "Een enquête."
 
@@ -3764,13 +3592,11 @@ msgstr "Sectoren"
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
 #: src/euphorie/content/templates/sectorcontainer_view.pt:15
-#, fuzzy
 msgid "message_choose_country"
 msgstr "Er zijn geen sectoren voor dit land."
 
 #. Default: Regions
 #: src/euphorie/content/templates/sectorcontainer_view.pt:18
-#, fuzzy
 msgid "header_regions"
 msgstr "Instellingen"
 
@@ -3926,19 +3752,16 @@ msgstr "Kies een basisrevisie"
 #. Default: Create
 #: src/euphorie/content/templates/survey_add.pt:25
 #: src/euphorie/content/templates/surveygroup_add.pt:96
-#, fuzzy
 msgid "button_create"
 msgstr "Bewerken"
 
 #. Default: Evaluation phase
 #: src/euphorie/content/templates/survey_view.pt:18
-#, fuzzy
 msgid "label_evaluation_phase"
 msgstr "Evaluatie mag worden overgeslagen"
 
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
-#, fuzzy
 msgid "optional"
 msgstr "Optioneel"
 
@@ -3960,31 +3783,26 @@ msgstr "Profielvragen"
 
 #. Default: This survey has no profile questions.
 #: src/euphorie/content/templates/survey_view.pt:32
-#, fuzzy
 msgid "no_profile_questions"
 msgstr "Profielvragen"
 
 #. Default: Modules
 #: src/euphorie/content/templates/survey_view.pt:42
-#, fuzzy
 msgid "header_modules"
 msgstr "Algemene voorwaarden"
 
 #. Default: This survey has no modules.
 #: src/euphorie/content/templates/survey_view.pt:44
-#, fuzzy
 msgid "no_modules"
 msgstr "Module"
 
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
-#, fuzzy
 msgid "intro_add_surveygroup"
 msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
 #. Default: How would you like to start
 #: src/euphorie/content/templates/surveygroup_add.pt:18
-#, fuzzy
 msgid "label_survey_source"
 msgstr "Kies een basisrevisie"
 
@@ -4000,27 +3818,23 @@ msgstr ""
 
 #. Default: Base my new survey on an existing survey of another organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:21
-#, fuzzy
 msgid "survey_source_other"
 msgstr "U kunt ook ${add_link}."
 
 #. Default: Choose a survey
 #: src/euphorie/content/templates/surveygroup_add.pt:28
 #: src/euphorie/content/templates/surveygroup_add.pt:54
-#, fuzzy
 msgid "label_choose_surveygroup"
 msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
 #. Default: Choose a revision of the selected survey
 #: src/euphorie/content/templates/surveygroup_add.pt:37
 #: src/euphorie/content/templates/surveygroup_add.pt:73
-#, fuzzy
 msgid "label_choose_survey"
 msgstr "Land"
 
 #. Default: Choose a country
 #: src/euphorie/content/templates/surveygroup_add.pt:47
-#, fuzzy
 msgid "label_choose_country"
 msgstr "Wijzig land/taal"
 
@@ -4129,7 +3943,6 @@ msgstr "XML-export"
 
 #. Default: Import survey
 #: src/euphorie/deployment/browser/sitemenu.py:40
-#, fuzzy
 msgid "menu_import"
 msgstr "XML-export"
 
@@ -4164,13 +3977,11 @@ msgid "search_result_relevance"
 msgstr "Relevantie: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:14
-#, fuzzy
 msgid "Submodule"
 msgstr "Bewerk submodule"
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:41
-#, fuzzy
 msgid "nav_surveys"
 msgstr "Kies een basisrevisie"
 
@@ -4239,7 +4050,6 @@ msgstr "Bijgewerkt"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "button_create_new"
 msgstr "Voorbeeld maken"
 

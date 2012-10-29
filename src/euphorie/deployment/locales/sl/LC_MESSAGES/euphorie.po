@@ -402,19 +402,16 @@ msgstr ""
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Privzeta prioriteta"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "tveganje srednje prioritete"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Privzeta prioriteta"
 
@@ -462,7 +459,6 @@ msgstr ""
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Vrsta tveganja"
 
@@ -473,7 +469,6 @@ msgstr ""
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
 msgstr "To je"
 
@@ -489,7 +484,6 @@ msgstr ""
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Identifikacijsko poročilo ${title}"
 
@@ -1513,7 +1507,6 @@ msgstr "Kontaktne informacije"
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr "Kontaktne informacije"
 
@@ -1931,7 +1924,6 @@ msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Uredi"
 
@@ -2045,7 +2037,6 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Obnovi prvotne barve"
 
@@ -2314,7 +2305,6 @@ msgstr ""
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Prijava"
 
@@ -2493,7 +2483,6 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:127
-#, fuzzy
 msgid "header_legal_references"
 msgstr "Pravni sklici in sklici pravilnika"
 
@@ -3372,7 +3361,6 @@ msgid "Active"
 msgstr "Aktivno"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "Eno in edino stanje"
 

@@ -403,19 +403,16 @@ msgstr ""
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Prioridad por defecto"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "riesgo de prioridad media"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Prioridad por defecto"
 
@@ -463,7 +460,6 @@ msgstr ""
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Tipo de riesgo"
 
@@ -474,7 +470,6 @@ msgstr ""
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
 msgstr "Se trata de"
 
@@ -490,7 +485,6 @@ msgstr ""
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Informe de identificación ${title}"
 
@@ -1376,7 +1370,6 @@ msgstr "La información recopilada y el fin"
 #. account and you enter data into the OiRA application we are asking you for
 #. the following information:
 #: src/euphorie/client/templates/conditions.pt:40
-#, fuzzy
 msgid "conditions_info_entry"
 msgstr ""
 "Cualquier información indicada en los campos de texto libres de la "
@@ -1538,7 +1531,6 @@ msgstr "Información de contacto"
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr "Información de contacto"
 
@@ -1958,7 +1950,6 @@ msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Editar"
 
@@ -2072,7 +2063,6 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Restaurar los colores originales"
 
@@ -2341,7 +2331,6 @@ msgstr ""
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Login"
 
@@ -2520,7 +2509,6 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:127
-#, fuzzy
 msgid "header_legal_references"
 msgstr "Referencias legales y de política"
 
@@ -2990,7 +2978,6 @@ msgstr "Color secundario"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
 msgstr "No hay sectores para este país."
 
@@ -3075,7 +3062,6 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
 msgstr "Acción sin publicar cancelada."
 
@@ -3407,7 +3393,6 @@ msgid "Active"
 msgstr "Activo"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "El único estado"
 

@@ -420,19 +420,16 @@ msgstr "Plan d'action ${title}"
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Priorité par défaut"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "risque priorité moyenne"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Priorité par défaut"
 
@@ -483,13 +480,11 @@ msgstr "Budget (en Euros)"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Type de risque"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:854
-#, fuzzy
 msgid "report_timeline_risk_title"
 msgstr "${responsible} est responsable de cette tâche."
 
@@ -500,7 +495,6 @@ msgstr "Priorité"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:858
-#, fuzzy
 msgid "report_timeline_comment"
 msgstr ""
 "Veuillez saisir tout commentaire devant figurer dans le rapport\n"
@@ -508,13 +502,11 @@ msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:873
-#, fuzzy
 msgid "report_timeline_title"
 msgstr "Plan d'action :"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Plan d'action ${title}"
 
@@ -1610,7 +1602,6 @@ msgstr "Informations de contact"
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr "Informations de contact"
 
@@ -2086,7 +2077,6 @@ msgstr "Contenu"
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Éditer"
 
@@ -2213,7 +2203,6 @@ msgstr "Effacer cette mesure"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Revenir aux couleurs d’origine"
 
@@ -2331,7 +2320,6 @@ msgstr ""
 "Voulez-vous vraiment supprimer cette mesure ? Cette action est irréversible."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:206
-#, fuzzy
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -2420,7 +2408,6 @@ msgstr "Faible"
 
 #. Default: No need to stop working
 #: src/euphorie/client/templates/risk_evaluation.pt:63
-#, fuzzy
 msgid "severity_weak_help"
 msgstr "Faible"
 
@@ -2432,7 +2419,6 @@ msgstr "Moyenne"
 
 #. Default: Need to stop working for less than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:67
-#, fuzzy
 msgid "severity_not_severe_help"
 msgstr "Moyenne"
 
@@ -2444,7 +2430,6 @@ msgstr "Grave"
 
 #. Default: Need to stop working for more than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:71
-#, fuzzy
 msgid "severity_severe_help"
 msgstr "Grave"
 
@@ -2456,7 +2441,6 @@ msgstr "Très grave"
 
 #. Default: Irreversible injury, incurable illness, death
 #: src/euphorie/client/templates/risk_evaluation.pt:76
-#, fuzzy
 msgid "severity_very_severe_help"
 msgstr "Très grave"
 
@@ -2468,7 +2452,6 @@ msgstr "Faible"
 
 #. Default: Once per year
 #: src/euphorie/client/templates/risk_evaluation.pt:85
-#, fuzzy
 msgid "frequency_french_rare_help"
 msgstr "Faible"
 
@@ -2480,7 +2463,6 @@ msgstr "Moyenne"
 
 #. Default: Once per month
 #: src/euphorie/client/templates/risk_evaluation.pt:90
-#, fuzzy
 msgid "frequency_french_not_often_help"
 msgstr "Moyenne"
 
@@ -2492,7 +2474,6 @@ msgstr "Fréquente"
 
 #. Default: Once per week
 #: src/euphorie/client/templates/risk_evaluation.pt:95
-#, fuzzy
 msgid "frequency_french_often_help"
 msgstr "Fréquente"
 
@@ -2504,7 +2485,6 @@ msgstr "Très fréquente"
 
 #. Default: Minimum once per day
 #: src/euphorie/client/templates/risk_evaluation.pt:100
-#, fuzzy
 msgid "frequency_french_regularly_help"
 msgstr "Très fréquente"
 
@@ -2538,7 +2518,6 @@ msgstr "Ne s'applique pas"
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Non"
 
@@ -2704,7 +2683,6 @@ msgstr "${count} questions ont été remises à plus tard"
 
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
-#, fuzzy
 msgid "label_select_new_session_in_survey"
 msgstr ""
 "Démarrer une nouvelle session en choisissant l'un des outils sectoriels "
@@ -3726,7 +3704,6 @@ msgid "Active"
 msgstr "Actif"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "Un seul et unique état"
 

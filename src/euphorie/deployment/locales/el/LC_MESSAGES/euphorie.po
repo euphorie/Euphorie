@@ -418,19 +418,16 @@ msgstr "Σχέδιο δράσης ${title}"
 
 #. Default: Low
 #: src/euphorie/client/report.py:826
-#, fuzzy
 msgid "label_timeline_priority_low"
 msgstr "Προεπιλεγμένη προτεραιότητα"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:827
-#, fuzzy
 msgid "label_timeline_priority_medium"
 msgstr "κίνδυνος μεσαίας προτεραιότητας"
 
 #. Default: High
 #: src/euphorie/client/report.py:828
-#, fuzzy
 msgid "label_timeline_priority_high"
 msgstr "Προεπιλεγμένη προτεραιότητα"
 
@@ -478,25 +475,21 @@ msgstr "Προϋπολογισμός (σε Ευρώ)"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:852
-#, fuzzy
 msgid "label_risk_number"
 msgstr "Τύπος κινδύνου"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:854
-#, fuzzy
 msgid "report_timeline_risk_title"
 msgstr "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια."
 
 #. Default: Priority
 #: src/euphorie/client/report.py:856
-#, fuzzy
 msgid "report_timeline_priority"
 msgstr "Είναι"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:858
-#, fuzzy
 msgid "report_timeline_comment"
 msgstr ""
 "Παρακαλώ υποβάλλετε τυχόν πρόσφατα σχόλια που θα μπορούσαν να συμπεριληφθούν "
@@ -504,13 +497,11 @@ msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:873
-#, fuzzy
 msgid "report_timeline_title"
 msgstr "Σχέδιο δράσης:"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:903
-#, fuzzy
 msgid "filename_report_timeline"
 msgstr "Σχέδιο δράσης ${title}"
 
@@ -1421,7 +1412,6 @@ msgstr ""
 #. account and you enter data into the OiRA application we are asking you for
 #. the following information:
 #: src/euphorie/client/templates/conditions.pt:40
-#, fuzzy
 msgid "conditions_info_entry"
 msgstr ""
 "Οποιεσδήποτε πληροφορίες παρέχετε στα πεδία ελεύθερου κειμένου του εργαλείου "
@@ -1587,7 +1577,6 @@ msgstr "Πληροφορίες επικοινωνίας"
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
-#, fuzzy
 msgid "conditions_contact"
 msgstr "Πληροφορίες επικοινωνίας"
 
@@ -2045,7 +2034,6 @@ msgstr "Περιεχόμενα"
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
-#, fuzzy
 msgid "button_timeline"
 msgstr "Επεξεργασία"
 
@@ -2165,7 +2153,6 @@ msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:50
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Επαναφορά των αρχικών χρωμάτων"
 
@@ -2257,7 +2244,6 @@ msgstr ""
 "μπορεί να ανακληθεί."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:201
-#, fuzzy
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -2346,7 +2332,6 @@ msgstr "Μικρή"
 
 #. Default: No need to stop working
 #: src/euphorie/client/templates/risk_evaluation.pt:63
-#, fuzzy
 msgid "severity_weak_help"
 msgstr "Μικρή"
 
@@ -2358,7 +2343,6 @@ msgstr "Όχι πολύ σοβαρή "
 
 #. Default: Need to stop working for less than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:67
-#, fuzzy
 msgid "severity_not_severe_help"
 msgstr "Όχι πολύ σοβαρή "
 
@@ -2370,7 +2354,6 @@ msgstr "Σοβαρή"
 
 #. Default: Need to stop working for more than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:71
-#, fuzzy
 msgid "severity_severe_help"
 msgstr "Σοβαρή"
 
@@ -2382,7 +2365,6 @@ msgstr "Πολύ σοβαρή"
 
 #. Default: Irreversible injury, incurable illness, death
 #: src/euphorie/client/templates/risk_evaluation.pt:76
-#, fuzzy
 msgid "severity_very_severe_help"
 msgstr "Πολύ σοβαρή"
 
@@ -2394,7 +2376,6 @@ msgstr "Σπάνια"
 
 #. Default: Once per year
 #: src/euphorie/client/templates/risk_evaluation.pt:85
-#, fuzzy
 msgid "frequency_french_rare_help"
 msgstr "Σπάνια"
 
@@ -2406,7 +2387,6 @@ msgstr "Όχι πολύ συχνά"
 
 #. Default: Once per month
 #: src/euphorie/client/templates/risk_evaluation.pt:90
-#, fuzzy
 msgid "frequency_french_not_often_help"
 msgstr "Όχι πολύ συχνά"
 
@@ -2418,7 +2398,6 @@ msgstr "Συχνά"
 
 #. Default: Once per week
 #: src/euphorie/client/templates/risk_evaluation.pt:95
-#, fuzzy
 msgid "frequency_french_often_help"
 msgstr "Συχνά"
 
@@ -2430,7 +2409,6 @@ msgstr "Τακτικά "
 
 #. Default: Minimum once per day
 #: src/euphorie/client/templates/risk_evaluation.pt:100
-#, fuzzy
 msgid "frequency_french_regularly_help"
 msgstr "Τακτικά "
 
@@ -2464,7 +2442,6 @@ msgstr "Δεν ισχύει"
 
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
-#, fuzzy
 msgid "label_unknown"
 msgstr "Όχι"
 
@@ -2621,7 +2598,6 @@ msgstr "${count} ερωτήσεις αναβλήθηκαν"
 
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
-#, fuzzy
 msgid "label_select_new_session_in_survey"
 msgstr ""
 "Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω τομεακά εργαλεία"
@@ -3184,7 +3160,6 @@ msgstr "Δευτερεύον χρώμα"
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:260
-#, fuzzy
 msgid "message_not_delete_published_sector"
 msgstr "Δεν υπάρχουν τομείς για αυτή τη χώρα."
 
@@ -3281,7 +3256,6 @@ msgstr ""
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:235
-#, fuzzy
 msgid "message_no_delete_published_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση έρευνας."
 
@@ -3621,7 +3595,6 @@ msgid "Active"
 msgstr "Ενεργό"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
-#, fuzzy
 msgid "The One And Only state"
 msgstr "Η Μία και Μοναδική κατάσταση"
 
