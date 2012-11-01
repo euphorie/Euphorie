@@ -4,6 +4,11 @@ Changelog
 5.0 - Unreleased
 -----------------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add jQueryUI datepicker to the date fields in the risk action plan page [jcbrand]
+
 Bugfixes
 ~~~~~~~~
 
