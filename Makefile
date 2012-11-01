@@ -3,7 +3,8 @@ PYTHON		?= python2.6
 
 CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
 CSS_DIR		= src/euphorie/client/templates/style/main
-CSS_TARGETS	= $(CSS_DIR)/screen.min.css \
+CSS_TARGETS	= $(CSS_DIR)/datepicker.min.css \
+		  $(CSS_DIR)/screen.min.css \
 		  $(CSS_DIR)/screen-ie7.min.css \
 		  $(CSS_DIR)/screen-ie8.min.css \
 		  $(CSS_DIR)/screen-osha.min.css
