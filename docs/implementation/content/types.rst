@@ -24,7 +24,7 @@ which uniquely identifes the type of industry the survey is targeted to. This
 code is based on the revision 2 of the `NACE code`_, possibly extended with
 extra digits.
 
-.. _NACE code: http://ec.europa.eu/environment/emas/documents/nace_en.htm
+.. _NACE code: http://ec.europa.eu/competition/mergers/cases/index/nace_all.html
 
 
 Fields

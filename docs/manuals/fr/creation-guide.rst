@@ -191,6 +191,6 @@ Les acteurs du secteur sont généralement bien renseignés sur les risques  d�
 
 .. note::
 
-  Tous les documents requis sont disponibles sur le site Web de la communauté OiRA http://www.oira.osha.europa.eu/documentation
+  Tous les documents requis sont disponibles sur le site Web de la communauté OiRA http://www.oiraproject.eu/documentation
 
 

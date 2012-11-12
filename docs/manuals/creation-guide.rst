@@ -193,4 +193,4 @@ The sector is generally well-informed of the risks that are most likely to lead 
 
 .. note::
 
-  All the necessary documents are available on the OiRA community site http://www.oira.osha.europa.eu/documentation
+  All the necessary documents are available on the OiRA community site http://www.oiraproject.eu/documentation

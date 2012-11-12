@@ -6,7 +6,7 @@ This document explains how you can administer users and countries so that these 
 Log-in
 ------
 
-First you need to log in with an account with administrative privileges. Go to http://admin.oira.osha.europa.eu and you are prompted with a login form:
+First you need to log in with an account with administrative privileges. Go to http://admin.oiraproject.eu/ and you are prompted with a login form:
 
 .. image:: images/admin/admin_login.png
 

@@ -30,7 +30,7 @@ in cooperation with `Simplon`_ and `Cornelis Kolbach`_ in commission of
 .. _syslab: http://syslab.com/
 .. _TNO: http://www.tno.nl/index.cfm?Taal=2
 .. _Simplon: http://www.simplon.biz/
-.. _Cornelis Kolbach: http://cornae.org/
+.. _Cornelis Kolbach: http://www.cornae.com
 .. _The European Agency for Safety and Health at Work: http://osha.europa.eu/en/
 .. _Healthy Workplaces: http://osha.europa.eu/en/campaigns/hw2008
 

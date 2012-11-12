@@ -6,7 +6,7 @@ OiRA tools generator User Manual
 
 This User Manual is also available to download on:
 
-http://www.oira.osha.europa.eu
+http://www.oiraproject.eu/
 
 Note: the images in this User Manual are generally more legible in printed
 form (preferably in colour) than on the screen.
@@ -57,7 +57,7 @@ Logging in
    version, or Google Chrome (both are available to download for free).
    Alternatively Microsoft Internet Explorer version 7, or any later version.
 
-   You start on: admin.oira.osha.europa.eu
+   You start on: http://admin.oiraproject.eu/
 
    .. image:: images/editor/editor_1_login.png
 
@@ -236,7 +236,7 @@ Editing an OiRA tool
       haven't added any versions yet, you are still editing the "standard" version, which was
       added for you automatically. If you want to change title or description of the version
       container, you currently have to call its edit form directly like this:
-      http://admin.oira.osha.europa.eu/sectors/gb/bakery-sector/new-risk-assessment-2010/edit
+      http://admin.oiraproject.eu/sectors/gb/bakery-sector/new-risk-assessment-2010/edit
 
    .. warning::
 
@@ -295,7 +295,7 @@ Editing an OiRA tool
        .. image:: images/editor/editor_8_place_a_link.png
        
      * At 'URL' you enter the web address, this must
-       start with: 'http://'. Subsequently, you enter a title and indicate
+       start with: ``http://``. Subsequently, you enter a title and indicate
        whether the link should open in a new screen by selecting the box.
        Then click on 'Save'. The link will appear as underlined text. Modify
        the link:: double click on the link. Delete the link: delete the linked
@@ -1068,7 +1068,7 @@ Ready? Publish!
 
    From now on, the public can view and complete your OiRA tool. If it's a new
    OiRA tool we would like to be notified (oira@osha.europa.eu), and will put
-   the link onto our site: www.oira.osha.europa.eu. You don't have to notify
+   the link onto our site: www.oiraproject.eu. You don't have to notify
    us when you've updated the OiRA tool.
 
 ===============================

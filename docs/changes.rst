@@ -248,7 +248,7 @@ Bugfixes
   in the client. Previously it was possible to change to an email address
   with capital, after which login was no longer possible.  This fixes 
   a final part of `TNO ticket 194
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
 
 
 3.1.1 - April 27, 2012
@@ -283,7 +283,7 @@ Bugfixes
   in the client. Previously it was possible to change to an email address
   with capital, after which login was no longer possible.  This fixes 
   a final part of `TNO ticket 194
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
   [wichert]
 
 Other changes
@@ -307,12 +307,12 @@ Feature changes
 
 - Do not open list of all risks (under inventorisation) in a new window or tab.
   This fixes `TNO ticket 205
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/205>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/205>`_.
   [wichert]
 
 - Add a new column with the risk number to the Action plan xlsx rendering. This
   fixes `TNO ticket 203
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/203>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/203>`_.
   [wichert]
 
 - Update Dutch translations.
@@ -327,28 +327,28 @@ Bugfixes
 - Fix handling of text-style tags (strong/b/em/etc.) outside paragraphs
   when generating an RTF report. This fixes the second part of
   `TNO ticket 208
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
   [wichert]
 
 - Fix colour of bold text in reports. This fixes 
   `TNO ticket 208
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
   [wichert]
 
 - The identification report wrongly showed the problem description for
   unanswered risks. This fixes
   `TNO ticket 207
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/207>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/207>`_.
   [wichert]
 
 - Fix broken translations on risk action plan template. This fixes
   `TNO ticket 201
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/201>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/201>`_.
   [wichert]
 
 - Use problem description instead of risk title in action timeline. This fixes
   `TNO ticket 202
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/202>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/202>`_.
   [wichert]
 
 - No longer rotate the client navigation tree.
@@ -429,7 +429,7 @@ Feature changes
   compile screen-ie6.css. This allows Cornelis to use physical paths in his
   Prototype, while zrtresource will give us the proper browserresource paths in
   Euphorie. One caveat is that we now have to minify the browserresource file
-  (i.e http://localhost:4080/Plone2/client/++resource++screen-ie6.css) instead
+  (i.e ``http://localhost:4080/Plone2/client/++resource++screen-ie6.css``) instead
   of the filesystem file. 
   [jcbrand]
 
@@ -528,7 +528,7 @@ Bugfixes
 
 - Fix common solution adding in the client for IE 7. This fixes the second part
   of `TNO ticket 127
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/127>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/127>`_.
   [wichert]
 
 
@@ -570,7 +570,7 @@ Bug fixes
 
 - Fix bug in handling of counting risk states for the client survey status screen.
   This fixes the second part of `TNO ticket 155
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/155>`_.
   [wichert]
 
 - Added a euphorie.po for EN, so that we can also use the translation engine for
@@ -585,16 +585,16 @@ Bug fixes
 
 - Restore print button on identification report page; it seems users are
   unable to find the print function of their browser. This fixes
-  `TNO ticket 159 <http://code.simplon.biz/tracker/tno-euphorie/ticket/159>`_.
+  `TNO ticket 159 <https://code.simplon.biz/tracker/tno-euphorie/ticket/159>`_.
   [wichert].
 
 - Fix small errors in Dutch translation. This fixes
-  `TNO ticket 175 <http://code.simplon.biz/tracker/tno-euphorie/ticket/175>`_.
+  `TNO ticket 175 <https://code.simplon.biz/tracker/tno-euphorie/ticket/175>`_.
   [wichert].
 
 - Replace escape enters with proper newlines in downloadable report.  This
   fixes
-  `TNO ticket 174 <http://code.simplon.biz/tracker/tno-euphorie/ticket/174>`_.
+  `TNO ticket 174 <https://code.simplon.biz/tracker/tno-euphorie/ticket/174>`_.
   [wichert].
 
 - Added some ``<br/>`` tags to avoid the navigation vanishing in IE7
@@ -606,7 +606,7 @@ Bug fixes
 
 - Add report header styles for an extra depth level. This fixes problems
   when generating reports for deeply nested surveys. This fixes
-  `TNO ticket 176 <http://code.simplon.biz/tracker/tno-euphorie/ticket/176>`_.
+  `TNO ticket 176 <https://code.simplon.biz/tracker/tno-euphorie/ticket/176>`_.
   [wichert].
 
 
@@ -618,7 +618,7 @@ Feature changes
 
 - Enable the terms and conditions features introduced in release 2.3, but
   make it possible to disable it via a settings in the ``.ini`` file. This
-  fixes `ticket 107 <http://code.simplon.biz/tracker/euphorie/ticket/107>`_.
+  fixes `ticket 107 <https://code.simplon.biz/tracker/euphorie/ticket/107>`_.
   [wichert]
 
 - Replace downloadable action plan report with a RTF version. This solves
@@ -720,7 +720,7 @@ Bugfixes
 
 - Require NuPlone 1.0rc1 or later so ``formatDate`` does not raise exceptions
   for pre-1900 dates. This fixes `TNO ticket 150
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/150>`_.
   [wichert]
 
 - Do not accept pre-1900 dates in the action plan, since they break rendering
@@ -740,7 +740,7 @@ Feature changes
 
 - Perform basic verification of email addresses in the client registration
   logic. This fixes `TNO ticket 147
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/147>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/147>`_.
   [wichert]
 
 
@@ -748,11 +748,11 @@ Bugfixes
 ~~~~~~~~
 
 - Purge cached scaled logos when publishing a survey and updating the sector logo.
-  This fixes `TNO ticket 136 <http://code.simplon.biz/tracker/tno-euphorie/ticket/136>`_.
+  This fixes `TNO ticket 136 <https://code.simplon.biz/tracker/tno-euphorie/ticket/136>`_.
   [wichert]
 
 - Translate subject of password reminer email. This fixes
-  `TNO ticket 148 <http://code.simplon.biz/tracker/tno-euphorie/ticket/148>`_.
+  `TNO ticket 148 <https://code.simplon.biz/tracker/tno-euphorie/ticket/148>`_.
   [wichert]
 
 - Rewrite client company form to use z3c.form instead of repoze.formapi.
@@ -793,12 +793,12 @@ Bugfixes
 ~~~~~~~~
 
 - Fix spelling error in Dutch translation. This fixes `TNO ticket 131
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/131>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/131>`_.
   [wichert]
 
 - Correct bad image scaling test when displaying a module in the client, which
   prevented images from being visible in action plan and evaluation phases. This
-  fixes `TNO ticket 135 <http://code.simplon.biz/tracker/tno-euphorie/ticket/135>`_.
+  fixes `TNO ticket 135 <https://code.simplon.biz/tracker/tno-euphorie/ticket/135>`_.
   [wichert]
 
 
@@ -821,7 +821,7 @@ Feature changes
 - Replace the collected company details with more generic information. The
   previous list is still used in the `Dutch RI&E site <http://instrumenten.rie.nl>`_
   and is now implemented in `tno.euphorie <http//pypi.python.org/pypi/tno.euphorie/>`_.
-  This fixes `ticket 142 <http://code.simplon.biz/tracker/euphorie/ticket/142>`_.
+  This fixes `ticket 142 <https://code.simplon.biz/tracker/euphorie/ticket/142>`_.
   [wichert]
 
 - Add missing question field to profile questions, and update the XML export
@@ -840,7 +840,7 @@ Bugfixes
 
 - Fix creation of report downloads for sessions with non-ASCII characters in
   their title. This fixes `ticket 156
-  <http://code.simplon.biz/tracker/euphorie/ticket/156>`_.
+  <https://code.simplon.biz/tracker/euphorie/ticket/156>`_.
   [wichert]
 
 - Handle multiple buttons as returned by IE correctly in the company detail
@@ -851,7 +851,7 @@ Bugfixes
   [wichert]
 
 - Add publish permission to country managers. This fixes
-  `TNO ticket 126 <http://code.simplon.biz/tracker/tno-euphorie/ticket/126>`_
+  `TNO ticket 126 <https://code.simplon.biz/tracker/tno-euphorie/ticket/126>`_
   [wichert]
 
 - Declare dependency for question field in the module edit screen: it should
@@ -878,15 +878,15 @@ Bugfixes
 
 - Add ``Copy or Move`` permission information to the published state of 
   the survey workflow. This fixes
-  `TNO ticket 124 <http://code.simplon.biz/tracker/tno-euphorie/ticket/124>`_
+  `TNO ticket 124 <https://code.simplon.biz/tracker/tno-euphorie/ticket/124>`_
   [wichert]
 
 - Correct link colour in the reports. This fixes 
-  `TNO ticket 104 <http://code.simplon.biz/tracker/tno-euphorie/ticket/104>`_
+  `TNO ticket 104 <https://code.simplon.biz/tracker/tno-euphorie/ticket/104>`_
   [cornae]
 
 - Fix accidental yes/no swap in translations. This fixes
-  `TNO ticket 121 <http://code.simplon.biz/tracker/tno-euphorie/ticket/121>`_
+  `TNO ticket 121 <https://code.simplon.biz/tracker/tno-euphorie/ticket/121>`_
   [wichert]
 
 - Add french translations
@@ -911,7 +911,7 @@ Bugfixes
   [cornae]
 
 - Add XML import and export options to the site menu. This implements 
-  `ticket 121 <http://code.simplon.biz/tracker/euphorie/ticket/121>`_
+  `ticket 121 <https://code.simplon.biz/tracker/euphorie/ticket/121>`_
   [wichert]
 
 - Include policy and Top5 risks in identification. There is no need to
@@ -920,7 +920,7 @@ Bugfixes
   [wichert]
 
 - Include images in XML export of surveys. This fixes the last part of
-  `ticket 126 <http://code.simplon.biz/tracker/euphorie/ticket/126>`_
+  `ticket 126 <https://code.simplon.biz/tracker/euphorie/ticket/126>`_
   [wichert]
 
 - Work around jQuery selector bug on IE which caused a javascript error
@@ -931,7 +931,7 @@ Bugfixes
   [wichert]
 
 - Modify login form to use a link instead of a button to go back. This fixes
-  `TNO ticket 107 <http://code.simplon.biz/tracker/tno-euphorie/ticket/107>`_
+  `TNO ticket 107 <https://code.simplon.biz/tracker/tno-euphorie/ticket/107>`_
   [wichert]
 
 - Replace lorem ipsum text on profile page in the client with proper
@@ -942,11 +942,11 @@ Bugfixes
   [wichert]
 
 - Force the correct i18n domain in webhelper macros. This fixes
-  `TNO ticket 99 <http://code.simplon.biz/tracker/tno-euphorie/ticket/99>`_
+  `TNO ticket 99 <https://code.simplon.biz/tracker/tno-euphorie/ticket/99>`_
   [wichert]
 
 - Make updated legend item in versions tile translatable. This fixes
-  `TNO ticket 113 <http://code.simplon.biz/tracker/tno-euphorie/ticket/113>`_
+  `TNO ticket 113 <https://code.simplon.biz/tracker/tno-euphorie/ticket/113>`_
   [wichert]
 
 - Allow an extra depth level in surveys. This is needed for complicated
@@ -962,9 +962,9 @@ Bugfixes
   [wichert]
 
 - Add dependency on `Products.PasswordResetTool
-  <http://pypi.python.org/pypi/PasswordResetTool>`_ 2.0.3 or later and fix
-  password reset API. This fixes
-  `TNO ticket 111 <http://code.simplon.biz/tracker/tno-euphorie/ticket/111>`_.
+  <http://pypi.python.org/pypi/Products.PasswordResetTool>`_ 2.0.3 or later and
+  fix password reset API. This fixes
+  `TNO ticket 111 <https://code.simplon.biz/tracker/tno-euphorie/ticket/111>`_.
   [wichert]
 
 - Update styling in the online client to work with current versions of iOS.
@@ -983,17 +983,17 @@ Bugfixes
   [wichert]
 
 - Dutch translations updates. Fixes part of `TNO ticket 71
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/71>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/71>`_.
   [wichert]
 
 - Update client to fake a risk-present answer for top-5 risks. This prevents
   them from being listed as unanswered in reports. Part of `TNO ticket 93
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/93>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/93>`_.
   [wichert]
 
 - Fix preview feature to create a preview instead of doing a partial publish.
   This fixes `TNO ticket 95
-  <http://code.simplon.biz/tracker/tno-euphorie/ticket/95>`_.
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/95>`_.
   [wichert]
 
 - Adjust importrie utility script to use login name instead of sector title as
@@ -1001,12 +1001,12 @@ Bugfixes
   [wichert]
 
 - Add a new about page to the client. This fixes 
-  `ticket 153 <http://code.simplon.biz/tracker/euphorie/ticket/153>`_.
+  `ticket 153 <https://code.simplon.biz/tracker/euphorie/ticket/153>`_.
   [cornae, thomas, wichert].
 
 - Correct test for duplicate logins when creating new sectors or country
   managers. This fixes
-  `ticket 152 <http://code.simplon.biz/tracker/euphorie/ticket/152>`_.
+  `ticket 152 <https://code.simplon.biz/tracker/euphorie/ticket/152>`_.
   [wichert]
 
 - Improve display of multiple images for a risk in the CMS.
@@ -1017,24 +1017,24 @@ Bugfixes
 ------------------------
 
 - Correctly set risk type when generating a session in the client. This fixes
-  `TNO ticket 02 <http://code.simplon.biz/tracker/tno-euphorie/ticket/92>`_
-  and ticket `ticket 105 <http://code.simplon.biz/tracker/euphorie/ticket/105>`_.
+  `TNO ticket 02 <https://code.simplon.biz/tracker/tno-euphorie/ticket/92>`_
+  and ticket `ticket 105 <https://code.simplon.biz/tracker/euphorie/ticket/105>`_.
   [wichert]
 
 - Add an intermediate page with explanation and confirmation to the survey
   preview, similar to publication. This fixes
-  `TNO ticket 52 <http://code.simplon.biz/tracker/tno-euphorie/ticket/52>`_.
+  `TNO ticket 52 <https://code.simplon.biz/tracker/tno-euphorie/ticket/52>`_.
   [wichert]
 
 - Correct profile updates handling when not making any profile changes. This
   fixes problems with profile update appearing to do nothing.
-  Fixes `ticket 151 <http://code.simplon.biz/tracker/euphorie/ticket/151>`_,
-  `TNO ticket 36 <http://code.simplon.biz/tracker/tno-euphorie/ticket/36>`_ and
-  `TNO ticket 85 <http://code.simplon.biz/tracker/tno-euphorie/ticket/85>`_.
+  Fixes `ticket 151 <https://code.simplon.biz/tracker/euphorie/ticket/151>`_,
+  `TNO ticket 36 <https://code.simplon.biz/tracker/tno-euphorie/ticket/36>`_ and
+  `TNO ticket 85 <https://code.simplon.biz/tracker/tno-euphorie/ticket/85>`_.
   [wichert]
 
 - Change *Module* to *Submodule* in the addbar when already in a module.
-  Fixes `ticket 136 <http://code.simplon.biz/tracker/euphorie/ticket/136>`_.
+  Fixes `ticket 136 <https://code.simplon.biz/tracker/euphorie/ticket/136>`_.
   [wichert]
 
 

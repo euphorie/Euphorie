@@ -191,4 +191,4 @@ Branschen är normalt välinformerad om vilka risker som med störst sannolikhet
 
 .. 
 
-  Alla nödvändiga dokument är tillgängliga på OiRA:s webbplats http://www.oira.osha.europa.eu/documentation
+  Alla nödvändiga dokument är tillgängliga på OiRA:s webbplats http://www.oiraproject.eu/documentation

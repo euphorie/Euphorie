@@ -149,8 +149,8 @@ You will also need to configure the URL for the client in the ``euphorie.ini`` f
 
 .. _Plone: http://plone.org/
 .. _download: http://plone.org/download
-.. _installing an add-on product: http://plone.org/documentation/kb/third-party-products/installing
-.. _SQLAlchemy: http://sqlalchemy.org/
+.. _installing an add-on product: http://plone.org/documentation/kb/add-ons/installing
+.. _SQLAlchemy: http://www.sqlalchemy.org/
 .. _psycopg: http://initd.org/psycopg/
 .. _configuring Plone with Apache: http://plone.org/documentation/kb/plone-with-apache
 .. _configuring Plone with Enfold Proxy on Windows: http://plone.org/documentation/kb/managing-your-plone-sites-in-windows-with-enfold-proxy
