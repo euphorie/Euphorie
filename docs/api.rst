@@ -691,7 +691,7 @@ Module information
 | GET  | /users/<userid>/sessions/<session id>/<path>         | Request module information   |
 +------+------------------------------------------------------+------------------------------+
 | GET  | /users/<userid>/sessions/<session id>/<path>/<phase> | Request module information   |
-|      |                                                      | for the given phase.
+|      |                                                      | for the given phase.         |
 +------+------------------------------------------------------+------------------------------+
 
 .. note::
