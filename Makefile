@@ -50,9 +50,6 @@ bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setu
 check:: bin/test ${MO_FILES}
 	bin/test -s euphorie
 
-check:: bin/sphinx-build
-	$(MAKE) -C docs linkcheck
-
 jenkins: bin/test bin/sphinx-build ${MO_FILES}
 	bin/test --xml -s euphorie
 
