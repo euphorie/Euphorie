@@ -14,8 +14,8 @@ JS_DIR		= src/euphorie/client/templates
 JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
 JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.0.min.js \
-		  $(JS_DIR)/libraries/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.js \
-		  $(JS_DIR)/libraries/jquery-ui-1.9.1.custom/development-bundle/ui/i18n/jquery-ui-i18n.js
+		  $(JS_DIR)/libraries/jquery-ui-1.9.1.js \
+		  $(JS_DIR)/libraries/jquery-ui-i18n.js
 EXTRAS		= $(JS_DIR)/libraries/jquery.hoverIntent.js \
 		  $(JS_DIR)/libraries/jquery.bt.js  \
 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
