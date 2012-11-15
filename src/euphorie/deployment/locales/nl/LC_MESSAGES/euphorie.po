@@ -1787,7 +1787,7 @@ msgstr ""
 #. Default: The preview will be available at ${url}.
 #: src/euphorie/client/templates/preview.pt:23
 msgid "help_preview_url"
-msgstr ""
+msgstr "Deze preview is te bekijken via ${url}."
 
 #. Default: Tailor the risk assessment to your organisation
 #: src/euphorie/client/templates/profile.pt:16
@@ -2023,9 +2023,8 @@ msgstr ""
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:17
-#, fuzzy
 msgid "button_add"
-msgstr "Upload"
+msgstr "Voeg toe"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:39
 msgid ""
@@ -2041,11 +2040,10 @@ msgstr "Maatregel ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr ""
+msgstr "Verwijder deze maatregel"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
-#, fuzzy
 msgid "button_delete_measure"
 msgstr "Gebruik de standaard kleuren"
 
@@ -2056,7 +2054,7 @@ msgstr "Nieuwe maatregel toevoegen"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
 msgid "Description of the measure"
-msgstr ""
+msgstr "Beschrijving van de maatregel"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
@@ -2236,7 +2234,7 @@ msgstr "Blijvende gezondheidsschade"
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:59
 msgid "header_risk_severity"
-msgstr ""
+msgstr "Hoe ernstig is het effect van dit risico?"
 
 #. Default: Weak
 #: src/euphorie/client/templates/risk_evaluation.pt:62
@@ -3082,12 +3080,15 @@ msgstr "Steunkleur"
 #: src/euphorie/content/sector.py:260
 msgid "message_not_delete_published_sector"
 msgstr ""
+"Het is niet mogleijk om een sector met gepubliceerde RI&Es te verwijderen."
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
 #: src/euphorie/content/solution.py:30
 msgid "help_measure_action_plan"
 msgstr ""
+"Omschrijf de maatregel die uitgevoerd moet worden om dit risico weg te "
+"nemen. Deze informatie zal worden overgenomen in de maatregel."
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring.
 #. This information will be copied to the measure.
@@ -3175,6 +3176,7 @@ msgstr ""
 #: src/euphorie/content/survey.py:235
 msgid "message_no_delete_published_survey"
 msgstr ""
+"Een RI&E ckan niet worden verwijdert na publicatie. De-publiceer hem eerst."
 
 #. Default: You can not delete the only survey version.
 #: src/euphorie/content/survey.py:249
