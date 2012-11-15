@@ -232,7 +232,8 @@ class IdentificationReport(grok.View):
         return SessionManager.session.title
 
     def title(self, node, zodbnode):
-        if node.type != "risk" or node.identification in [u"n/a", u"yes", None]:
+        if node.type != "risk" or \
+                node.identification in [u"n/a", u"yes", None]:
             return node.title
         if zodbnode.problem_description and \
                 zodbnode.problem_description.strip():
@@ -475,7 +476,7 @@ class ActionPlanReportView(grok.View):
                 .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
                                 model.RISK_PRESENT_OR_TOP5_FILTER))\
                 .order_by(model.SurveyTreeItem.path)
-        return  query.all()
+        return query.all()
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -544,7 +545,7 @@ class ActionPlanReportDownload(grok.View):
     def addCompanyInformation(self, document):
         company = self.session.company
         t = lambda txt: translate(txt, context=self.request)
-        section = createSection(document, self.context, self.session, 
+        section = createSection(document, self.context, self.session,
                 self.request)
         normal_style = document.StyleSheet.ParagraphStyles.Normal
         missing = t(_("missing_data", default=u"Not provided"))
@@ -593,7 +594,7 @@ class ActionPlanReportDownload(grok.View):
     def addActionPlan(self, document):
         survey = self.request.survey
         t = lambda txt: translate(txt, context=self.request)
-        section = createSection(document, self.context, self.session, 
+        section = createSection(document, self.context, self.session,
                 self.request)
 
         section.append(Paragraph(
@@ -805,8 +806,8 @@ class ActionPlanTimeline(grok.View):
     def get_measures(self):
         """Find all data that should be included in the report.
 
-        The data is returned as a list of tuples containing a 
-        :py:class:`Risk <euphorie.client.model.Risk>` and 
+        The data is returned as a list of tuples containing a
+        :py:class:`Risk <euphorie.client.model.Risk>` and
         :py:class:`ActionPlan <euphorie.client.model.ActionPlan>`. Each
         entry in the list will correspond to a row in the generated Excel
         file.
@@ -834,10 +835,13 @@ class ActionPlanTimeline(grok.View):
             ('planning_end',
                 _('label_action_plan_end', default=u'Planning end')),
             ('action_plan',
-                _('label_measure_action_plan', default=u'General approach (to eliminate or reduce the risk)')),
+                _('label_measure_action_plan',
+                    default=u'General approach '
+                            u'(to eliminate or reduce the risk)')),
             ('prevention_plan',
                 _('label_measure_prevention_plan',
-                    default=u'Specific action(s) required to implement this approach')),
+                    default=u'Specific action(s) required to implement '
+                            u'this approach')),
             ('requirements',
                 _('label_measure_requirements', default=u'Requirements')),
             ('responsible',
@@ -865,7 +869,7 @@ class ActionPlanTimeline(grok.View):
         return priority
 
     def create_workbook(self):
-        """Create an Excel workbook containing the all risks and measures. 
+        """Create an Excel workbook containing the all risks and measures.
         """
         t = lambda txt: translate(txt, context=self.request)
         book = Workbook()
@@ -889,7 +893,8 @@ class ActionPlanTimeline(grok.View):
                 if key == 'priority':
                     value = self.priority_name(value)
                 elif key == 'title':
-                    zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+                    zodb_node = survey.restrictedTraverse(
+                            risk.zodb_path.split('/'))
                     if zodb_node.problem_description and \
                             zodb_node.problem_description.strip():
                         value = zodb_node.problem_description

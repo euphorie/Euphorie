@@ -10,7 +10,7 @@ class IdentificationReportTests(unittest.TestCase):
         return IdentificationReport(*a, **kw)
 
     def test_title_not_a_risk(self):
-        import mock 
+        import mock
         node = mock.Mock()
         node.type = 'module'
         node.title = u'My title'
@@ -18,7 +18,7 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, None), u'My title')
 
     def test_title_unanswered_risk(self):
-        import mock 
+        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = None
@@ -27,7 +27,7 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, None), u'My title')
 
     def test_title_empty_problem_description(self):
-        import mock 
+        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = u'no'
@@ -38,7 +38,7 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, zodb_node), u'My title')
 
     def test_title_risk_present_and_with_problem_description(self):
-        import mock 
+        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = u'no'
@@ -143,7 +143,7 @@ class HtmlToRtfTests(unittest.TestCase):
                     u"<p>Very <em>very <strong>bold</strong></em></p>",
                     u"<stylesheet>")))
 
-    def testItalicInText(self):
+    def testEmphasisInText(self):
         self.assertTrue(
                 "{\\i text}" in
                 self.render(self.HtmlToRtf(u"<em>text</em>",
@@ -191,7 +191,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         session = self._create_session(dbsession)
         session.addChild(Risk(session=session,
                               zodb_path='1',
-                              risk_id='1', 
+                              risk_id='1',
                               identification='no'))
         view = self.ActionPlanTimeline(None, None)
         view.session = session
@@ -209,7 +209,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
             session = self._create_session(dbsession, loginname=login)
             session.addChild(Risk(session=session,
                                   zodb_path='1',
-                                  risk_id='1', 
+                                  risk_id='1',
                                   identification='no',
                                   action_plans=[
                                       ActionPlan(action_plan=u'Measure 1')]))
@@ -229,7 +229,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         session.addChild(Risk(
             session=session,
             zodb_path='1',
-            risk_id='1', 
+            risk_id='1',
             identification='no',
             action_plans=[
                 ActionPlan(action_plan=u'Plan 2',
@@ -270,7 +270,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.model import Risk
         from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1/2/3', risk_id='1', 
+        risk = Risk(zodb_path='1/2/3', risk_id='1',
                 title=u'Risk title',
                 priority='high',
                 identification='no',
@@ -318,7 +318,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         from euphorie.client.tests.utils import testRequest
         from euphorie.client.model import Risk
         from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1/2/3', risk_id='1', 
+        risk = Risk(zodb_path='1/2/3', risk_id='1',
                 title=u'Risk title',
                 priority='high',
                 identification='no',
