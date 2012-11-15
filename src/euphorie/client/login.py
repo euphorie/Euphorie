@@ -16,6 +16,7 @@ from zope.i18n import translate
 from zope.component import getUtility
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from Products.statusmessages.interfaces import IStatusMessage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from euphorie.client import MessageFactory as _
@@ -159,8 +160,9 @@ class Reminder(grok.View):
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             if self._sendReminder():
-                self.notice = _(u"An email with a password reminder has been "
-                                u"sent to your address.")
+                flash = IStatusMessage(self.request).addStatusMessage
+                flash(_(u"An email with a password reminder has been "
+                        u"sent to your address."), "notice")
                 self.request.response.redirect(self.back_url)
 
 

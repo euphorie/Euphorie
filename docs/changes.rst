@@ -19,6 +19,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Really show the notification that a password reminder has been sent. This fixes
+  `TNO ticket 229 <https://code.simplon.biz/tracker/tno-euphorie/ticket/229>`_.
+
 - Added missing i18n statement on conditions page [thomasw]
 
 - i18n bugfix in risk action plan page. [thomasw]
