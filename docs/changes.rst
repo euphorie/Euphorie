@@ -16,6 +16,9 @@ Bugfixes
 
 - i18n bugfix in risk action plan page. [thomasw]
 
+- Fix bad link in introduction text for action plan report. This fixes
+  `TNO ticket 227 <https://code.simplon.biz/tracker/tno-euphorie/ticket/227>`_.
+
 - Do not silently ignore start and end dates for action plan measures of no
   date was provided. This fixes `TNO ticket 225
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/225>`_.
