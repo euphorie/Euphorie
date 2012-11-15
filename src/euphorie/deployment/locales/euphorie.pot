@@ -1,14 +1,14 @@
-# Translations template for Euphorie.
+# Translations template for PROJECT.
 # Copyright (C) 2012 Simplon B.V., SYSLAB.COM GmbH
-# This file is distributed under the same license as the Euphorie project.
+# This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 5.0dev\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-10-19 15:49+0200\n"
+"POT-Creation-Date: 2012-11-12 17:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,7 +244,7 @@ msgstr ""
 #: src/euphorie/client/report.py:372 src/euphorie/client/report.py:636
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:50
-#: src/euphorie/client/templates/webhelpers.pt:117
+#: src/euphorie/client/templates/webhelpers.pt:120
 msgid "warn_risk_present"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 #. included in this report.
 #: src/euphorie/client/report.py:646
 #: src/euphorie/client/templates/report_actionplan.pt:161
-#: src/euphorie/client/templates/webhelpers.pt:108
+#: src/euphorie/client/templates/webhelpers.pt:111
 msgid "top5_risk_not_present"
 msgstr ""
 
@@ -420,17 +420,13 @@ msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:837
-#: src/euphorie/client/templates/risk_actionplan.pt:71
-#: src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:837 src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:839
-#: src/euphorie/client/templates/risk_actionplan.pt:72
-#: src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:839 src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr ""
 
@@ -567,6 +563,7 @@ msgid "Your email address has been updated."
 msgstr ""
 
 #. Default: OiRA
+#. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
@@ -1987,12 +1984,6 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr ""
 
-#. Default: Day
-#: src/euphorie/client/templates/risk_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:123
-msgid "label_day"
-msgstr ""
-
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2005,22 +1996,10 @@ msgstr ""
 msgid "label_month"
 msgstr ""
 
-#. Default: Year
-#: src/euphorie/client/templates/risk_actionplan.pt:109
-#: src/euphorie/client/templates/risk_actionplan.pt:135
-msgid "label_year"
-msgstr ""
-
 #. Default: Please enter a valid year after 1900
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
-msgstr ""
-
-#. Default: Please leave any comments you may have on the question above in
-#. this field. These comments will be used in the action plan.
-#: src/euphorie/client/templates/risk_actionplan.pt:152
-msgid "label_comment"
 msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
@@ -2390,19 +2369,19 @@ msgid "oira_name_line_2"
 msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/client/templates/webhelpers.pt:85
+#: src/euphorie/client/templates/webhelpers.pt:88
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr ""
 
 #. Default: About
-#: src/euphorie/client/templates/webhelpers.pt:86
+#: src/euphorie/client/templates/webhelpers.pt:89
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
 msgstr ""
 
 #. Default: Legal and policy references
-#: src/euphorie/client/templates/webhelpers.pt:127
+#: src/euphorie/client/templates/webhelpers.pt:130
 msgid "header_legal_references"
 msgstr ""
 
@@ -3448,7 +3427,6 @@ msgid "header_regions"
 msgstr ""
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr ""
 
@@ -3457,7 +3435,6 @@ msgid "EFTA Countries"
 msgstr ""
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr ""
 
@@ -3847,37 +3824,14 @@ msgstr ""
 msgid "text_toggle_navtree"
 msgstr ""
 
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
-msgid "Regions"
-msgstr ""
-
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
-msgid "Potential Candidate Countries"
-msgstr ""
-
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr ""
 
-#. Default: Create a duplicate of the selected survey
-#: src/euphorie/deployment/tiles/templates/versions.pt:19
-msgid "help_add_version"
-msgstr ""
-
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
-msgstr ""
-
-#. Default: Publish the selected survey live with its latest changes.
-#: src/euphorie/deployment/tiles/templates/versions.pt:26
-msgid "help_publish"
-msgstr ""
-
-#. Default: Remove this survey from the online client.
-#: src/euphorie/deployment/tiles/templates/versions.pt:34
-msgid "title_help_unpublished"
 msgstr ""
 
 #. Default: Current
@@ -3900,12 +3854,6 @@ msgstr ""
 #. Default: Updated
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
-msgstr ""
-
-#. Default: Start to write a new survey. You will be asked whether you want to
-#. start off with a copy of an existing survey.
-#: src/euphorie/deployment/tiles/templates/versions.pt:71
-msgid "help_create_new_version"
 msgstr ""
 
 #. Default: Create new survey

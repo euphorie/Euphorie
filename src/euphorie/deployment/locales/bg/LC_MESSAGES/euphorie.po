@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-09-03 10:49+0200\n"
+"POT-Creation-Date: 2012-11-12 17:02+0100\n"
 "PO-Revision-Date: 2012-02-29 21:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -245,7 +245,7 @@ msgstr ""
 #: src/euphorie/client/report.py:372 src/euphorie/client/report.py:636
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:50
-#: src/euphorie/client/templates/webhelpers.pt:117
+#: src/euphorie/client/templates/webhelpers.pt:120
 msgid "warn_risk_present"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgstr "План за действие"
 #. included in this report.
 #: src/euphorie/client/report.py:646
 #: src/euphorie/client/templates/report_actionplan.pt:161
-#: src/euphorie/client/templates/webhelpers.pt:108
+#: src/euphorie/client/templates/webhelpers.pt:111
 msgid "top5_risk_not_present"
 msgstr ""
 
@@ -415,43 +415,41 @@ msgstr "Висок"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:833
-#: src/euphorie/client/templates/risk_actionplan.pt:89
+#: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr ""
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:835
-#: src/euphorie/client/templates/risk_actionplan.pt:115
+#: src/euphorie/client/templates/risk_actionplan.pt:120
 msgid "label_action_plan_end"
 msgstr ""
 
-#. Default: Action plan
+#. Default: General approach (to eliminate or reduce the risk)
 #: src/euphorie/client/report.py:837 src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
 
-#. Default: Prevention plan
+#. Default: Specific action(s) required to implement this approach
 #: src/euphorie/client/report.py:839 src/euphorie/content/solution.py:37
-#: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
-#: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Who is responsible?
 #: src/euphorie/client/report.py:844
-#: src/euphorie/client/templates/risk_actionplan.pt:73
+#: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr ""
 
 #. Default: Budget (in Euro)
 #: src/euphorie/client/report.py:847
-#: src/euphorie/client/templates/risk_actionplan.pt:78
+#: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr ""
 
@@ -575,6 +573,7 @@ msgid "Your email address has been updated."
 msgstr "Вашият имейл адрес беше актуализиран."
 
 #. Default: OiRA
+#. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
@@ -622,49 +621,49 @@ msgid "Sector information and grouping for the client."
 msgstr "Информация за сектор и групиране за клиента."
 
 #. Default: About
-#: src/euphorie/client/templates/about.pt:19
+#: src/euphorie/client/templates/about.pt:18
 msgid "title_about"
 msgstr "За нас"
 
 #. Default: What is the OiRA (Online Interactive Risk Assessment) project
-#: src/euphorie/client/templates/about.pt:21
+#: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
 msgstr "Какво е проектът OiRA (онлайн интерактивна оценка на риска)"
 
 #. Default: proper risk assessment is the key to healthy workplaces
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
 msgstr ""
 "правилната оценка на риска е от ключово значение за осигуряване на "
 "здравословни работни места"
 
 #. Default: easy-to-use and cost-free web application
-#: src/euphorie/client/templates/about.pt:29
+#: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
 msgstr "лесно за използване и без никакви разходи уеб приложение"
 
 #. Default: step-by-step risk assessment process
-#: src/euphorie/client/templates/about.pt:32
+#: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
 msgstr "поетапен процес на оценка на риска"
 
 #. Default: identification
-#: src/euphorie/client/templates/about.pt:35
+#: src/euphorie/client/templates/about.pt:34
 msgid "about_paragraph_1_identification"
 msgstr "определяне"
 
 #. Default: evaluation
-#: src/euphorie/client/templates/about.pt:37
+#: src/euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_evaluation"
 msgstr "оценяване"
 
 #. Default: preventive actions
-#: src/euphorie/client/templates/about.pt:39
+#: src/euphorie/client/templates/about.pt:38
 msgid "about_paragraph_1_preventive_actions"
 msgstr "превантивни действия"
 
 #. Default: reporting
-#: src/euphorie/client/templates/about.pt:42
+#: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
 msgstr "докладване"
 
@@ -674,7 +673,7 @@ msgstr "докладване"
 #. ${identification} and ${evaluation} of workplace risks, through decision
 #. making on ${preventive_actions} and the taking of action, to monitoring and
 #. ${reporting}.
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
 "Опитът показва, че ${key}. Ето затова EU-OSHA разработи ${easy} (“OiRA” - "
@@ -687,26 +686,26 @@ msgstr ""
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
 #. national level.
-#: src/euphorie/client/templates/about.pt:48
+#: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
 "Уеб приложението OiRA предлага достъп до секторните инструменти за оценка на "
 "риска, създадени и поддържани от секторните организации на национално ниво."
 
 #. Default: Why the OiRA project
-#: src/euphorie/client/templates/about.pt:53
+#: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
 msgstr "Защо беше създаден проектът OiRA"
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
 "Стратегия на Европейската общност за безопасност и здраве при работа "
 "2007-2012 г."
 
 #. Default: micro and small enterprises have some shortcomings
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
 msgstr "микро- и малките предприятия имат някои недостатъци"
 
@@ -718,7 +717,7 @@ msgstr "микро- и малките предприятия имат някои
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
 #. assessment and the adoption of a preventive policy in general which the OiRA
 #. project aims to overcome.
-#: src/euphorie/client/templates/about.pt:54
+#: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
 "${agency} призовава за разработването на опростени инструменти, за да се "
@@ -731,17 +730,17 @@ msgstr ""
 "цели да преодолее."
 
 #. Default: More information about the OiRA project (in English)
-#: src/euphorie/client/templates/about.pt:58
+#: src/euphorie/client/templates/about.pt:57
 msgid "about_oiraproject"
 msgstr "Повече информация за проекта OiRA (на английски език)"
 
 #. Default: Project Phases
-#: src/euphorie/client/templates/about.pt:60
+#: src/euphorie/client/templates/about.pt:59
 msgid "header_project_phases"
 msgstr "Фази на проекта"
 
 #. Default: Development and pilot phase – 2009-2011
-#: src/euphorie/client/templates/about.pt:61
+#: src/euphorie/client/templates/about.pt:60
 msgid "header_devel_phase"
 msgstr "Разработка и пилотна фаза – 2009-2011 г."
 
@@ -751,7 +750,7 @@ msgstr "Разработка и пилотна фаза – 2009-2011 г."
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
 #. guidance services.
-#: src/euphorie/client/templates/about.pt:65
+#: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
 "След техническата разработка на инструмента през 2009 г., през 2010 г. (до "
@@ -762,14 +761,14 @@ msgstr ""
 "разработването на подходящи услуги за поддръжка и ръководство."
 
 #. Default: Official launch of the project – September 2011
-#: src/euphorie/client/templates/about.pt:68
+#: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
 msgstr "Официално стартиране на проекта – септември 2011 г."
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
-#: src/euphorie/client/templates/about.pt:69
+#: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
 "Официалното стартиране на инструмента се планира за септември 2011 г., след "
@@ -777,7 +776,7 @@ msgstr ""
 "OiRA, схемата за обучение на OiRA и помощният отдел на OiRA бъдат готови."
 
 #. Default: Development partners
-#: src/euphorie/client/templates/about.pt:72
+#: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
 msgstr "Партньори в разработването"
 
@@ -788,7 +787,7 @@ msgstr "Партньори в разработването"
 #. enterprises MKB-Nederland and the Dutch Ministry for Employment. Further
 #. development of the application was realised with input and participation of
 #. trade unions FNV, CNV and MHP.
-#: src/euphorie/client/templates/about.pt:75
+#: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
 "Проектът OiRA и свързаното уеб приложение са разработени от ${eu-osha} на "
@@ -802,18 +801,18 @@ msgstr ""
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
-#: src/euphorie/client/templates/about.pt:77
+#: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
 msgstr ""
 "Следните технически партньори допринесоха за разработването на проекта ОiRA:"
 
-#: src/euphorie/client/templates/about.pt:82
-#: src/euphorie/client/templates/about.pt:85
-#: src/euphorie/client/templates/about.pt:88
+#: src/euphorie/client/templates/about.pt:81
+#: src/euphorie/client/templates/about.pt:84
+#: src/euphorie/client/templates/about.pt:87
 msgid "The Netherlands"
 msgstr "Холандия"
 
-#: src/euphorie/client/templates/about.pt:91
+#: src/euphorie/client/templates/about.pt:90
 msgid "Germany"
 msgstr "Германия"
 
@@ -821,7 +820,7 @@ msgstr "Германия"
 #. Committee in the development and implementation of the OiRA project. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
-#: src/euphorie/client/templates/about.pt:94
+#: src/euphorie/client/templates/about.pt:93
 msgid "about_partners_3"
 msgstr ""
 "На Агенцията също така бяха дадени стратегически и експертни съвети от "
@@ -830,38 +829,38 @@ msgstr ""
 "с интереси в Борда, от Комисията и от EU-OSHA."
 
 #. Default: Licenses
-#: src/euphorie/client/templates/about.pt:98
+#: src/euphorie/client/templates/about.pt:97
 msgid "header_licenses"
 msgstr "Лицензи"
 
 #. Default: The source code of the OiRA application is ${GPL} licensed.
-#: src/euphorie/client/templates/about.pt:100
+#: src/euphorie/client/templates/about.pt:99
 msgid "about_licenses_1"
 msgstr "Първичният код на приложението OiRA се лицензира според ${GPL}."
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons License"
 msgstr "Лиценз Криейтив комънс"
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 msgstr "Криейтив комънс договор-ShareAlike версия 2.5 Стандартен лиценз"
 
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "about_licenses_2"
 msgstr ""
 "Съдържанието на секторните инструменти OiRA е лицензирано според ${license}"
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
-#: src/euphorie/client/templates/about.pt:106
+#: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr ""
 "Секторните инструменти на OiRA могат да бъдат използвани безплатно от всички "
 "потребители."
 
 #. Default: Help
-#: src/euphorie/client/templates/about.pt:112
+#: src/euphorie/client/templates/about.pt:111
 #: src/euphorie/client/templates/actionplan.pt:83
 #: src/euphorie/client/templates/appendix.pt:57
 #: src/euphorie/client/templates/conditions.pt:111
@@ -880,7 +879,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:206
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:104
-#: src/euphorie/client/templates/risk_actionplan.pt:193
+#: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:171
 #: src/euphorie/client/templates/risk_identification.pt:85
 #: src/euphorie/client/templates/sessions.pt:94
@@ -977,7 +976,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:172
 #: src/euphorie/client/templates/report_company.pt:60
 #: src/euphorie/client/templates/report_identification.pt:70
-#: src/euphorie/client/templates/risk_actionplan.pt:156
+#: src/euphorie/client/templates/risk_actionplan.pt:161
 #: src/euphorie/client/templates/risk_evaluation.pt:134
 #: src/euphorie/client/templates/risk_identification.pt:48
 #: src/euphorie/client/templates/sessions.pt:70
@@ -1003,7 +1002,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:173
 #: src/euphorie/client/templates/report_company.pt:61
 #: src/euphorie/client/templates/report_identification.pt:71
-#: src/euphorie/client/templates/risk_actionplan.pt:157
+#: src/euphorie/client/templates/risk_actionplan.pt:162
 #: src/euphorie/client/templates/risk_evaluation.pt:135
 #: src/euphorie/client/templates/risk_identification.pt:49
 #: src/euphorie/client/templates/sessions.pt:71
@@ -1029,7 +1028,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:178
 #: src/euphorie/client/templates/report_company.pt:66
 #: src/euphorie/client/templates/report_identification.pt:76
-#: src/euphorie/client/templates/risk_actionplan.pt:162
+#: src/euphorie/client/templates/risk_actionplan.pt:167
 #: src/euphorie/client/templates/risk_evaluation.pt:140
 #: src/euphorie/client/templates/risk_identification.pt:54
 #: src/euphorie/client/templates/sessions.pt:74
@@ -1056,7 +1055,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:179
 #: src/euphorie/client/templates/report_company.pt:67
 #: src/euphorie/client/templates/report_identification.pt:77
-#: src/euphorie/client/templates/risk_actionplan.pt:163
+#: src/euphorie/client/templates/risk_actionplan.pt:168
 #: src/euphorie/client/templates/risk_evaluation.pt:141
 #: src/euphorie/client/templates/risk_identification.pt:55
 #: src/euphorie/client/templates/sessions.pt:75
@@ -1082,7 +1081,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:184
 #: src/euphorie/client/templates/report_company.pt:72
 #: src/euphorie/client/templates/report_identification.pt:82
-#: src/euphorie/client/templates/risk_actionplan.pt:168
+#: src/euphorie/client/templates/risk_actionplan.pt:173
 #: src/euphorie/client/templates/risk_evaluation.pt:146
 #: src/euphorie/client/templates/risk_identification.pt:63
 #: src/euphorie/client/templates/sessions.pt:78
@@ -1109,7 +1108,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:185
 #: src/euphorie/client/templates/report_company.pt:73
 #: src/euphorie/client/templates/report_identification.pt:83
-#: src/euphorie/client/templates/risk_actionplan.pt:169
+#: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_evaluation.pt:147
 #: src/euphorie/client/templates/risk_identification.pt:64
 #: src/euphorie/client/templates/sessions.pt:79
@@ -1135,7 +1134,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:190
 #: src/euphorie/client/templates/report_company.pt:78
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/risk_actionplan.pt:174
+#: src/euphorie/client/templates/risk_actionplan.pt:179
 #: src/euphorie/client/templates/risk_evaluation.pt:155
 #: src/euphorie/client/templates/risk_identification.pt:69
 #: src/euphorie/client/templates/sessions.pt:82
@@ -1162,7 +1161,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:191
 #: src/euphorie/client/templates/report_company.pt:79
 #: src/euphorie/client/templates/report_identification.pt:89
-#: src/euphorie/client/templates/risk_actionplan.pt:175
+#: src/euphorie/client/templates/risk_actionplan.pt:180
 #: src/euphorie/client/templates/risk_evaluation.pt:156
 #: src/euphorie/client/templates/risk_identification.pt:70
 #: src/euphorie/client/templates/sessions.pt:83
@@ -1188,7 +1187,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:196
 #: src/euphorie/client/templates/report_company.pt:84
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/risk_actionplan.pt:183
+#: src/euphorie/client/templates/risk_actionplan.pt:188
 #: src/euphorie/client/templates/risk_evaluation.pt:161
 #: src/euphorie/client/templates/risk_identification.pt:75
 #: src/euphorie/client/templates/sessions.pt:86
@@ -1214,7 +1213,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:197
 #: src/euphorie/client/templates/report_company.pt:85
 #: src/euphorie/client/templates/report_identification.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:184
+#: src/euphorie/client/templates/risk_actionplan.pt:189
 #: src/euphorie/client/templates/risk_evaluation.pt:162
 #: src/euphorie/client/templates/risk_identification.pt:76
 #: src/euphorie/client/templates/sessions.pt:87
@@ -1240,7 +1239,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:204
 #: src/euphorie/client/templates/report_company.pt:92
 #: src/euphorie/client/templates/report_identification.pt:102
-#: src/euphorie/client/templates/risk_actionplan.pt:191
+#: src/euphorie/client/templates/risk_actionplan.pt:196
 #: src/euphorie/client/templates/risk_evaluation.pt:169
 #: src/euphorie/client/templates/risk_identification.pt:83
 #: src/euphorie/client/templates/sessions.pt:93
@@ -1264,7 +1263,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:205
 #: src/euphorie/client/templates/report_company.pt:93
 #: src/euphorie/client/templates/report_identification.pt:103
-#: src/euphorie/client/templates/risk_actionplan.pt:192
+#: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:170
 #: src/euphorie/client/templates/risk_identification.pt:84
 #: src/euphorie/client/templates/start.pt:64
@@ -1285,7 +1284,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:207
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:105
-#: src/euphorie/client/templates/risk_actionplan.pt:194
+#: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:172
 #: src/euphorie/client/templates/risk_identification.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:58
@@ -1305,7 +1304,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:208
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:106
-#: src/euphorie/client/templates/risk_actionplan.pt:195
+#: src/euphorie/client/templates/risk_actionplan.pt:200
 #: src/euphorie/client/templates/risk_evaluation.pt:173
 #: src/euphorie/client/templates/risk_identification.pt:87
 #: src/euphorie/client/templates/sessions.pt:95
@@ -1534,6 +1533,12 @@ msgstr ""
 "поверителност могат да бъдат изпратени до служителя за защита на данните "
 "(DPO) на EU-OSHA на адрес: ${dpo-email} или до европейския надзорен орган по "
 "защита на данните (EDPS) на адрес ${edps-email}."
+
+#. Default: Agree and continue
+#: src/euphorie/client/templates/conditions.pt:104
+#, fuzzy
+msgid "agree_and_continue"
+msgstr "Продължаване"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -1788,7 +1793,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:52
-#: src/euphorie/client/templates/risk_actionplan.pt:142
+#: src/euphorie/client/templates/risk_actionplan.pt:147
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:30
 #: src/euphorie/client/templates/sessions.pt:63
@@ -1805,7 +1810,7 @@ msgstr ""
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:37
 #: src/euphorie/client/templates/report_company.pt:53
-#: src/euphorie/client/templates/risk_actionplan.pt:143
+#: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:121
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:64
@@ -1997,25 +2002,25 @@ msgstr "експерти по здравето и безопасността"
 
 #. Default: low priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:26
+#: src/euphorie/client/templates/risk_actionplan.pt:31
 msgid "risk_priority_low"
 msgstr ""
 
 #. Default: medium priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:96
-#: src/euphorie/client/templates/risk_actionplan.pt:27
+#: src/euphorie/client/templates/risk_actionplan.pt:32
 msgid "risk_priority_medium"
 msgstr ""
 
 #. Default: high priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:28
+#: src/euphorie/client/templates/risk_actionplan.pt:33
 msgid "risk_priority_high"
 msgstr ""
 
 #. Default: This is a ${priority} .
 #: src/euphorie/client/templates/report_actionplan.pt:93
-#: src/euphorie/client/templates/risk_actionplan.pt:25
+#: src/euphorie/client/templates/risk_actionplan.pt:30
 msgid "risk_priority"
 msgstr ""
 
@@ -2047,7 +2052,13 @@ msgstr ""
 msgid "info_referer_eu_institution"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:34
+#. Default: Add
+#: src/euphorie/client/templates/risk_actionplan.pt:17
+#, fuzzy
+msgid "button_add"
+msgstr "Качване"
+
+#: src/euphorie/client/templates/risk_actionplan.pt:39
 msgid ""
 "Select a standard solution. The main fields of this measure will be "
 "populated with the chosen solution."
@@ -2055,29 +2066,29 @@ msgstr ""
 "Изберете стандартно решение. Главните полета на тази мярка ще бъдат "
 "попълнени с избраното решение."
 
-#: src/euphorie/client/templates/risk_actionplan.pt:49
+#: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
 msgstr "Мярка ${index}"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:50
+#: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
 msgstr ""
 
 #. Default: Delete
-#: src/euphorie/client/templates/risk_actionplan.pt:50
+#: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "button_delete_measure"
 msgstr "Възстановяване на оригиналните цветове"
 
 #. Default: Add another measure
-#: src/euphorie/client/templates/risk_actionplan.pt:53
+#: src/euphorie/client/templates/risk_actionplan.pt:58
 msgid "label_add_measure"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:61
+#: src/euphorie/client/templates/risk_actionplan.pt:66
 msgid "Description of the measure"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:62
+#: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
 msgstr ""
 
@@ -2089,7 +2100,7 @@ msgstr ""
 #. be carried out (prevention plan and requirements). In most cases, the
 #. prevention officer will help in the implementation of the Plan: however, he
 #. must have the capability or have had the relevant training to do this.
-#: src/euphorie/client/templates/risk_actionplan.pt:63
+#: src/euphorie/client/templates/risk_actionplan.pt:68
 msgid "actionplan_measure_tooltip"
 msgstr ""
 
@@ -2097,47 +2108,47 @@ msgstr ""
 #. implementation of this measure. This person will have the authority to take
 #. the steps described in the Plan and/or the responsibility to ensure that
 #. they are carried out.
-#: src/euphorie/client/templates/risk_actionplan.pt:74
+#: src/euphorie/client/templates/risk_actionplan.pt:79
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 
 #. Default: Although some measures do not cost any money, most do. The measures
 #. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
-#: src/euphorie/client/templates/risk_actionplan.pt:79
+#: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 
 #. Default: Please enter the budget in whole Euros.
-#: src/euphorie/client/templates/risk_actionplan.pt:81
+#: src/euphorie/client/templates/risk_actionplan.pt:86
 msgid "error_invalid_budget"
 msgstr ""
 
 #. Default: Invalid day
-#: src/euphorie/client/templates/risk_actionplan.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:121
+#: src/euphorie/client/templates/risk_actionplan.pt:100
+#: src/euphorie/client/templates/risk_actionplan.pt:126
 msgid "error_invalid_day"
 msgstr ""
 
 #. Default: Month
-#: src/euphorie/client/templates/risk_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:123
+#: src/euphorie/client/templates/risk_actionplan.pt:102
+#: src/euphorie/client/templates/risk_actionplan.pt:128
 msgid "label_month"
 msgstr ""
 
 #. Default: Please enter a valid year after 1900
-#: src/euphorie/client/templates/risk_actionplan.pt:107
-#: src/euphorie/client/templates/risk_actionplan.pt:133
+#: src/euphorie/client/templates/risk_actionplan.pt:112
+#: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:200
+#: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:201
+#: src/euphorie/client/templates/risk_actionplan.pt:206
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -2512,19 +2523,19 @@ msgid "oira_name_line_2"
 msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/client/templates/webhelpers.pt:85
+#: src/euphorie/client/templates/webhelpers.pt:88
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr ""
 
 #. Default: About
-#: src/euphorie/client/templates/webhelpers.pt:86
+#: src/euphorie/client/templates/webhelpers.pt:89
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
 msgstr ""
 
 #. Default: Legal and policy references
-#: src/euphorie/client/templates/webhelpers.pt:127
+#: src/euphorie/client/templates/webhelpers.pt:130
 msgid "header_legal_references"
 msgstr ""
 
