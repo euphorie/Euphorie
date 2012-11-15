@@ -361,6 +361,8 @@ class IdentificationReportDownload(grok.View):
                 title = zodb_node.problem_description.strip()
             else:
                 title = node.title
+                if has_risk:
+                    title += u' [*]'
             section.append(
                     Paragraph(header_styles[node.depth],
                               u'%s %s' % (node.number, title)))
@@ -431,7 +433,8 @@ class ActionPlanReportView(grok.View):
         if zodbnode.problem_description and \
                 zodbnode.problem_description.strip():
             return zodbnode.problem_description
-        return node.title
+        else:
+            return node.title + u' [*]'
 
     def risk_status(self, node, zodbnode):
         if node.postponed or not node.identification:
