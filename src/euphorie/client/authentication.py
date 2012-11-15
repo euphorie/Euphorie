@@ -48,7 +48,7 @@ def graceful_recovery(default=None, log_args=True):
                 try:
                     exc_str = str(e)
                 except:
-                    exc_str = "<%s at 0x%x>" % ( e.__class__.__name__, id(e))
+                    exc_str = "<%s at 0x%x>" % (e.__class__.__name__, id(e))
 
                 log.critical(
                     "caught SQL-exception: "
@@ -56,7 +56,8 @@ def graceful_recovery(default=None, log_args=True):
                     exc_str,
                     func.__name__, ", ".join(
                         [repr(arg) for arg in args] +
-                        ["%s=%s" % (name, repr(value)) for (name, value) in kwargs.items()]
+                        ["%s=%s" % (name, repr(value))
+                         for (name, value) in kwargs.items()]
                         ), formatted_tb))
                 return default
             return value
@@ -64,15 +65,15 @@ def graceful_recovery(default=None, log_args=True):
     return decorator
 
 
-
-manage_addEuphorieAccountPlugin = PageTemplateFile("templates/addPasPlugin", globals(), 
-                __name__="manage_addEuphorieAccountPlugin")
+manage_addEuphorieAccountPlugin = PageTemplateFile(
+        "templates/addPasPlugin", globals(),
+        __name__="manage_addEuphorieAccountPlugin")
 
 
 def addEuphorieAccountPlugin(self, id, title='', REQUEST=None):
     """Add an EuphorieAccountPlugin to a Pluggable Authentication Service.
     """
-    p=EuphorieAccountPlugin(id, title)
+    p = EuphorieAccountPlugin(id, title)
     self._setObject(p.getId(), p)
 
     if REQUEST is not None:
@@ -87,10 +88,9 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
 
     manage_options = BasePlugin.manage_options + Cacheable.manage_options
 
-
     def __init__(self, id, title=None):
         self._setId(id)
-        self.title=title
+        self.title = title
 
     #
     # IExtractionPlugin implementation
@@ -134,8 +134,8 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     @graceful_recovery()
     def createUser(self, user_id, name):
         name = name.lower()
-        account=Session().query(model.Account)\
-                .filter(model.Account.loginname==name).first()
+        account = Session().query(model.Account)\
+                .filter(model.Account.loginname == name).first()
         return account
 
     #
@@ -146,55 +146,54 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
                        sort_by=None, max_results=None, **kw):
         if not exact_match:
             return []
-        
-        if id and login and id!=login:
+
+        if id and login and id != login:
             return []
 
-        login=login or id
+        login = login or id
         if self._isKnownAccount(login):
             return [dict(id=login, login=login)]
 
         return []
 
-    # 
+    #
     # IChallengePlugin implementation
     #
     def challenge(self, request, response):
         if not IClientSkinLayer.providedBy(request):
             return False
 
-        current_url=request.get("ACTUAL_URL", "")
-        query=request.get("QUERY_STRING")
+        current_url = request.get("ACTUAL_URL", "")
+        query = request.get("QUERY_STRING")
         if query:
             if not query.startswith("?"):
-                query="?"+query
-            current_url+=query
+                query = "?" + query
+            current_url += query
 
-        context=request.PUBLISHED
+        context = request.PUBLISHED
         if IBrowserView.providedBy(context):
-            context=aq_parent(context)
+            context = aq_parent(context)
 
-        login_url="%s/@@login?%s" % (context.absolute_url(), 
+        login_url = "%s/@@login?%s" % (context.absolute_url(),
                 urllib.urlencode(dict(came_from=current_url)))
         response.redirect(login_url, lock=True)
         return True
-
 
     #
     # Utility functiones
     #
     def _isKnownAccount(self, loginname):
         """Utility function to check if a loginname is valid."""
-        viewname=createViewName("_isKnownAccount", loginname)
-        keywords=dict(login=loginname)
-        result=self.ZCacheable_get(view_name=viewname, keywords=keywords,
+        viewname = createViewName("_isKnownAccount", loginname)
+        keywords = dict(login=loginname)
+        result = self.ZCacheable_get(view_name=viewname, keywords=keywords,
                 default=None)
         if result is not None:
             return result
 
-        matches=Session().query(model.Account)\
-                .filter(model.Account.loginname==loginname).count()
-        result=bool(matches)
+        matches = Session().query(model.Account)\
+                .filter(model.Account.loginname == loginname).count()
+        result = bool(matches)
 
         self.ZCacheable_set(result, view_name=viewname, keywords=keywords)
         return result
@@ -215,8 +214,8 @@ def authenticate(login, password):
 
     login = login.lower()
     account = Session().query(model.Account)\
-            .filter(model.Account.loginname==login)\
-            .filter(model.Account.password==password).first()
+            .filter(model.Account.loginname == login)\
+            .filter(model.Account.password == password).first()
     return account
 
 
