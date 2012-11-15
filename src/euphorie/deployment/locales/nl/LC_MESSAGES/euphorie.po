@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-09-03 10:49+0200\n"
+"POT-Creation-Date: 2012-10-19 15:49+0200\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -432,43 +432,45 @@ msgstr "hoog"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:833
-#: src/euphorie/client/templates/risk_actionplan.pt:89
+#: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr "Begindatum"
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:835
-#: src/euphorie/client/templates/risk_actionplan.pt:115
+#: src/euphorie/client/templates/risk_actionplan.pt:120
 msgid "label_action_plan_end"
 msgstr "Eind datum"
 
-#. Default: Action plan
-#: src/euphorie/client/report.py:837 src/euphorie/content/solution.py:29
+#. Default: General approach (to eliminate or reduce the risk)
+#: src/euphorie/client/report.py:837
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Plan van aanpak"
 
-#. Default: Prevention plan
-#: src/euphorie/client/report.py:839 src/euphorie/content/solution.py:37
-#: src/euphorie/content/templates/solution_view.pt:24
+#. Default: Specific action(s) required to implement this approach
+#: src/euphorie/client/report.py:839
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr "Preventie plan"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
-#: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: Who is responsible?
 #: src/euphorie/client/report.py:844
-#: src/euphorie/client/templates/risk_actionplan.pt:73
+#: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr "Wie is er verantwoordelijk?"
 
 #. Default: Budget (in Euro)
 #: src/euphorie/client/report.py:847
-#: src/euphorie/client/templates/risk_actionplan.pt:78
+#: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr "Budget (in Euro)"
 
@@ -638,47 +640,47 @@ msgid "Sector information and grouping for the client."
 msgstr "Branche-informatie en groepen voor de gebruiker"
 
 #. Default: About
-#: src/euphorie/client/templates/about.pt:19
+#: src/euphorie/client/templates/about.pt:18
 msgid "title_about"
 msgstr "Over"
 
 #. Default: What is the OiRA (Online Interactive Risk Assessment) project
-#: src/euphorie/client/templates/about.pt:21
+#: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
 msgstr ""
 
 #. Default: proper risk assessment is the key to healthy workplaces
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
 msgstr ""
 
 #. Default: easy-to-use and cost-free web application
-#: src/euphorie/client/templates/about.pt:29
+#: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
 msgstr ""
 
 #. Default: step-by-step risk assessment process
-#: src/euphorie/client/templates/about.pt:32
+#: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
 msgstr ""
 
 #. Default: identification
-#: src/euphorie/client/templates/about.pt:35
+#: src/euphorie/client/templates/about.pt:34
 msgid "about_paragraph_1_identification"
 msgstr "inventarisatie"
 
 #. Default: evaluation
-#: src/euphorie/client/templates/about.pt:37
+#: src/euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_evaluation"
 msgstr "evaluatie"
 
 #. Default: preventive actions
-#: src/euphorie/client/templates/about.pt:39
+#: src/euphorie/client/templates/about.pt:38
 msgid "about_paragraph_1_preventive_actions"
 msgstr "preventieve acties"
 
 #. Default: reporting
-#: src/euphorie/client/templates/about.pt:42
+#: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
 msgstr "rapportage"
 
@@ -688,29 +690,29 @@ msgstr "rapportage"
 #. ${identification} and ${evaluation} of workplace risks, through decision
 #. making on ${preventive_actions} and the taking of action, to monitoring and
 #. ${reporting}.
-#: src/euphorie/client/templates/about.pt:26
+#: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
 #. national level.
-#: src/euphorie/client/templates/about.pt:48
+#: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
 
 #. Default: Why the OiRA project
-#: src/euphorie/client/templates/about.pt:53
+#: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
 msgstr ""
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
 
 #. Default: micro and small enterprises have some shortcomings
-#: src/euphorie/client/templates/about.pt:55
+#: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
 msgstr ""
 
@@ -722,22 +724,22 @@ msgstr ""
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
 #. assessment and the adoption of a preventive policy in general which the OiRA
 #. project aims to overcome.
-#: src/euphorie/client/templates/about.pt:54
+#: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
 
 #. Default: More information about the OiRA project (in English)
-#: src/euphorie/client/templates/about.pt:58
+#: src/euphorie/client/templates/about.pt:57
 msgid "about_oiraproject"
 msgstr "Meer informatie over het OiRA project (engelstalig)"
 
 #. Default: Project Phases
-#: src/euphorie/client/templates/about.pt:60
+#: src/euphorie/client/templates/about.pt:59
 msgid "header_project_phases"
 msgstr "Projectfasen"
 
 #. Default: Development and pilot phase – 2009-2011
-#: src/euphorie/client/templates/about.pt:61
+#: src/euphorie/client/templates/about.pt:60
 msgid "header_devel_phase"
 msgstr "Ontwikkeling en pilotfase - 2009-2011"
 
@@ -747,19 +749,19 @@ msgstr "Ontwikkeling en pilotfase - 2009-2011"
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
 #. guidance services.
-#: src/euphorie/client/templates/about.pt:65
+#: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
 
 #. Default: Official launch of the project – September 2011
-#: src/euphorie/client/templates/about.pt:68
+#: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
 msgstr "Officiële lancering van het project - September 2011"
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
-#: src/euphorie/client/templates/about.pt:69
+#: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
 "De officiële lancering van dit hulpmiddel zal plaatsvinden in september "
@@ -767,7 +769,7 @@ msgstr ""
 "website, het trainingsrooster en de OiRA helpdesk beschikbaar zijn."
 
 #. Default: Development partners
-#: src/euphorie/client/templates/about.pt:72
+#: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
 msgstr "ontwikkelingspartners"
 
@@ -778,25 +780,25 @@ msgstr "ontwikkelingspartners"
 #. enterprises MKB-Nederland and the Dutch Ministry for Employment. Further
 #. development of the application was realised with input and participation of
 #. trade unions FNV, CNV and MHP.
-#: src/euphorie/client/templates/about.pt:75
+#: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
-#: src/euphorie/client/templates/about.pt:77
+#: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
 msgstr ""
 "De volgende technische partners hebben bijgedragen bij de ontwikkeling van "
 "het OiRA project:"
 
-#: src/euphorie/client/templates/about.pt:82
-#: src/euphorie/client/templates/about.pt:85
-#: src/euphorie/client/templates/about.pt:88
+#: src/euphorie/client/templates/about.pt:81
+#: src/euphorie/client/templates/about.pt:84
+#: src/euphorie/client/templates/about.pt:87
 msgid "The Netherlands"
 msgstr "Nederland"
 
-#: src/euphorie/client/templates/about.pt:91
+#: src/euphorie/client/templates/about.pt:90
 msgid "Germany"
 msgstr "Duitsland"
 
@@ -804,40 +806,40 @@ msgstr "Duitsland"
 #. Committee in the development and implementation of the OiRA project. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
-#: src/euphorie/client/templates/about.pt:94
+#: src/euphorie/client/templates/about.pt:93
 msgid "about_partners_3"
 msgstr ""
 
 #. Default: Licenses
-#: src/euphorie/client/templates/about.pt:98
+#: src/euphorie/client/templates/about.pt:97
 msgid "header_licenses"
 msgstr "Licentie"
 
 #. Default: The source code of the OiRA application is ${GPL} licensed.
-#: src/euphorie/client/templates/about.pt:100
+#: src/euphorie/client/templates/about.pt:99
 msgid "about_licenses_1"
 msgstr "De broncode van de OiRA tool heeft een ${GPL} licentie."
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons License"
 msgstr "Creative Commons License"
 
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 msgstr "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
-#: src/euphorie/client/templates/about.pt:104
+#: src/euphorie/client/templates/about.pt:103
 msgid "about_licenses_2"
 msgstr "De inhoud van de RI&E's zijn gelicenceerd onder de ${license}"
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
-#: src/euphorie/client/templates/about.pt:106
+#: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr "Deze OiRA branche RI&E's zijn gratis voor alle gebruikers."
 
 #. Default: Help
-#: src/euphorie/client/templates/about.pt:112
+#: src/euphorie/client/templates/about.pt:111
 #: src/euphorie/client/templates/actionplan.pt:83
 #: src/euphorie/client/templates/appendix.pt:57
 #: src/euphorie/client/templates/conditions.pt:111
@@ -856,7 +858,7 @@ msgstr "Deze OiRA branche RI&E's zijn gratis voor alle gebruikers."
 #: src/euphorie/client/templates/report_actionplan.pt:206
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:104
-#: src/euphorie/client/templates/risk_actionplan.pt:193
+#: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:171
 #: src/euphorie/client/templates/risk_identification.pt:85
 #: src/euphorie/client/templates/sessions.pt:94
@@ -872,14 +874,14 @@ msgstr "Help"
 #. deleted. This action is irreversable.
 #: src/euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_irreversible"
-msgstr ""
+msgstr "Als u klikt op 'Verwijder account' wordt uw account definitief verwijderd. Deze verwijdering kan niet ongedaan gemaakt worden."
 
 #. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
 msgid "warning_account_delete_surveys"
-msgstr ""
+msgstr "Let op! Als u uw account verwijdert, worden ook al uw ingevulde RIE's verwijderd. Wij raden u aan om (voordat u uw account verwijdert) van alle ingevulde RIE's de rapportage en plan van aanpak te printen of op te slaan op uw computer (download)."
 
 #. Default: Account data
 #: src/euphorie/client/templates/account-settings.pt:19
@@ -977,7 +979,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/report_actionplan.pt:172
 #: src/euphorie/client/templates/report_company.pt:60
 #: src/euphorie/client/templates/report_identification.pt:70
-#: src/euphorie/client/templates/risk_actionplan.pt:156
+#: src/euphorie/client/templates/risk_actionplan.pt:161
 #: src/euphorie/client/templates/risk_evaluation.pt:134
 #: src/euphorie/client/templates/risk_identification.pt:48
 #: src/euphorie/client/templates/sessions.pt:70
@@ -1003,7 +1005,7 @@ msgstr "Voorbereiding"
 #: src/euphorie/client/templates/report_actionplan.pt:173
 #: src/euphorie/client/templates/report_company.pt:61
 #: src/euphorie/client/templates/report_identification.pt:71
-#: src/euphorie/client/templates/risk_actionplan.pt:157
+#: src/euphorie/client/templates/risk_actionplan.pt:162
 #: src/euphorie/client/templates/risk_evaluation.pt:135
 #: src/euphorie/client/templates/risk_identification.pt:49
 #: src/euphorie/client/templates/sessions.pt:71
@@ -1029,7 +1031,7 @@ msgstr "Voorbereiding"
 #: src/euphorie/client/templates/report_actionplan.pt:178
 #: src/euphorie/client/templates/report_company.pt:66
 #: src/euphorie/client/templates/report_identification.pt:76
-#: src/euphorie/client/templates/risk_actionplan.pt:162
+#: src/euphorie/client/templates/risk_actionplan.pt:167
 #: src/euphorie/client/templates/risk_evaluation.pt:140
 #: src/euphorie/client/templates/risk_identification.pt:54
 #: src/euphorie/client/templates/sessions.pt:74
@@ -1056,7 +1058,7 @@ msgstr "Inventarisatie"
 #: src/euphorie/client/templates/report_actionplan.pt:179
 #: src/euphorie/client/templates/report_company.pt:67
 #: src/euphorie/client/templates/report_identification.pt:77
-#: src/euphorie/client/templates/risk_actionplan.pt:163
+#: src/euphorie/client/templates/risk_actionplan.pt:168
 #: src/euphorie/client/templates/risk_evaluation.pt:141
 #: src/euphorie/client/templates/risk_identification.pt:55
 #: src/euphorie/client/templates/sessions.pt:75
@@ -1082,7 +1084,7 @@ msgstr "Inventarisatie"
 #: src/euphorie/client/templates/report_actionplan.pt:184
 #: src/euphorie/client/templates/report_company.pt:72
 #: src/euphorie/client/templates/report_identification.pt:82
-#: src/euphorie/client/templates/risk_actionplan.pt:168
+#: src/euphorie/client/templates/risk_actionplan.pt:173
 #: src/euphorie/client/templates/risk_evaluation.pt:146
 #: src/euphorie/client/templates/risk_identification.pt:63
 #: src/euphorie/client/templates/sessions.pt:78
@@ -1109,7 +1111,7 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/report_actionplan.pt:185
 #: src/euphorie/client/templates/report_company.pt:73
 #: src/euphorie/client/templates/report_identification.pt:83
-#: src/euphorie/client/templates/risk_actionplan.pt:169
+#: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_evaluation.pt:147
 #: src/euphorie/client/templates/risk_identification.pt:64
 #: src/euphorie/client/templates/sessions.pt:79
@@ -1135,7 +1137,7 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/report_actionplan.pt:190
 #: src/euphorie/client/templates/report_company.pt:78
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/risk_actionplan.pt:174
+#: src/euphorie/client/templates/risk_actionplan.pt:179
 #: src/euphorie/client/templates/risk_evaluation.pt:155
 #: src/euphorie/client/templates/risk_identification.pt:69
 #: src/euphorie/client/templates/sessions.pt:82
@@ -1162,7 +1164,7 @@ msgstr "Plan van aanpak"
 #: src/euphorie/client/templates/report_actionplan.pt:191
 #: src/euphorie/client/templates/report_company.pt:79
 #: src/euphorie/client/templates/report_identification.pt:89
-#: src/euphorie/client/templates/risk_actionplan.pt:175
+#: src/euphorie/client/templates/risk_actionplan.pt:180
 #: src/euphorie/client/templates/risk_evaluation.pt:156
 #: src/euphorie/client/templates/risk_identification.pt:70
 #: src/euphorie/client/templates/sessions.pt:83
@@ -1188,7 +1190,7 @@ msgstr "Plan van aanpak"
 #: src/euphorie/client/templates/report_actionplan.pt:196
 #: src/euphorie/client/templates/report_company.pt:84
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/risk_actionplan.pt:183
+#: src/euphorie/client/templates/risk_actionplan.pt:188
 #: src/euphorie/client/templates/risk_evaluation.pt:161
 #: src/euphorie/client/templates/risk_identification.pt:75
 #: src/euphorie/client/templates/sessions.pt:86
@@ -1214,7 +1216,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/report_actionplan.pt:197
 #: src/euphorie/client/templates/report_company.pt:85
 #: src/euphorie/client/templates/report_identification.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:184
+#: src/euphorie/client/templates/risk_actionplan.pt:189
 #: src/euphorie/client/templates/risk_evaluation.pt:162
 #: src/euphorie/client/templates/risk_identification.pt:76
 #: src/euphorie/client/templates/sessions.pt:87
@@ -1240,7 +1242,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/report_actionplan.pt:204
 #: src/euphorie/client/templates/report_company.pt:92
 #: src/euphorie/client/templates/report_identification.pt:102
-#: src/euphorie/client/templates/risk_actionplan.pt:191
+#: src/euphorie/client/templates/risk_actionplan.pt:196
 #: src/euphorie/client/templates/risk_evaluation.pt:169
 #: src/euphorie/client/templates/risk_identification.pt:83
 #: src/euphorie/client/templates/sessions.pt:93
@@ -1264,7 +1266,7 @@ msgstr "Uitloggen"
 #: src/euphorie/client/templates/report_actionplan.pt:205
 #: src/euphorie/client/templates/report_company.pt:93
 #: src/euphorie/client/templates/report_identification.pt:103
-#: src/euphorie/client/templates/risk_actionplan.pt:192
+#: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:170
 #: src/euphorie/client/templates/risk_identification.pt:84
 #: src/euphorie/client/templates/start.pt:64
@@ -1285,7 +1287,7 @@ msgstr "RI&E's"
 #: src/euphorie/client/templates/report_actionplan.pt:207
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:105
-#: src/euphorie/client/templates/risk_actionplan.pt:194
+#: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:172
 #: src/euphorie/client/templates/risk_identification.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:58
@@ -1305,7 +1307,7 @@ msgstr "Status"
 #: src/euphorie/client/templates/report_actionplan.pt:208
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:106
-#: src/euphorie/client/templates/risk_actionplan.pt:195
+#: src/euphorie/client/templates/risk_actionplan.pt:200
 #: src/euphorie/client/templates/risk_evaluation.pt:173
 #: src/euphorie/client/templates/risk_identification.pt:87
 #: src/euphorie/client/templates/sessions.pt:95
@@ -1471,6 +1473,12 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
 msgstr ""
+
+#. Default: Agree and continue
+#: src/euphorie/client/templates/conditions.pt:104
+#, fuzzy
+msgid "agree_and_continue"
+msgstr "Ga verder"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -1736,7 +1744,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:52
-#: src/euphorie/client/templates/risk_actionplan.pt:142
+#: src/euphorie/client/templates/risk_actionplan.pt:147
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:30
 #: src/euphorie/client/templates/sessions.pt:63
@@ -1753,7 +1761,7 @@ msgstr "Vorige"
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:37
 #: src/euphorie/client/templates/report_company.pt:53
-#: src/euphorie/client/templates/risk_actionplan.pt:143
+#: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:121
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:64
@@ -1961,25 +1969,25 @@ msgstr ""
 
 #. Default: low priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:26
+#: src/euphorie/client/templates/risk_actionplan.pt:31
 msgid "risk_priority_low"
 msgstr "laag"
 
 #. Default: medium priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:96
-#: src/euphorie/client/templates/risk_actionplan.pt:27
+#: src/euphorie/client/templates/risk_actionplan.pt:32
 msgid "risk_priority_medium"
 msgstr "gemiddeld"
 
 #. Default: high priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:28
+#: src/euphorie/client/templates/risk_actionplan.pt:33
 msgid "risk_priority_high"
 msgstr "hoog"
 
 #. Default: This is a ${priority} .
 #: src/euphorie/client/templates/report_actionplan.pt:93
-#: src/euphorie/client/templates/risk_actionplan.pt:25
+#: src/euphorie/client/templates/risk_actionplan.pt:30
 msgid "risk_priority"
 msgstr "Dit is een risico in de categorie ${priority}."
 
@@ -2013,7 +2021,13 @@ msgstr ""
 msgid "info_referer_eu_institution"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:34
+#. Default: Add
+#: src/euphorie/client/templates/risk_actionplan.pt:17
+#, fuzzy
+msgid "button_add"
+msgstr "Upload"
+
+#: src/euphorie/client/templates/risk_actionplan.pt:39
 msgid ""
 "Select a standard solution. The main fields of this measure will be "
 "populated with the chosen solution."
@@ -2021,30 +2035,30 @@ msgstr ""
 "Kies een standaard oplosing. De gegevens van gekozen oplossing zullen worden "
 "ingevuld in de maatregel."
 
-#: src/euphorie/client/templates/risk_actionplan.pt:49
+#: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
 msgstr "Maatregel ${index}"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:50
+#: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
 msgstr ""
 
 #. Default: Delete
-#: src/euphorie/client/templates/risk_actionplan.pt:50
+#: src/euphorie/client/templates/risk_actionplan.pt:55
 #, fuzzy
 msgid "button_delete_measure"
 msgstr "Gebruik de standaard kleuren"
 
 #. Default: Add another measure
-#: src/euphorie/client/templates/risk_actionplan.pt:53
+#: src/euphorie/client/templates/risk_actionplan.pt:58
 msgid "label_add_measure"
 msgstr "Nieuwe maatregel toevoegen"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:61
+#: src/euphorie/client/templates/risk_actionplan.pt:66
 msgid "Description of the measure"
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:62
+#: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
 msgstr "Standaard oplossingen"
 
@@ -2056,7 +2070,7 @@ msgstr "Standaard oplossingen"
 #. be carried out (prevention plan and requirements). In most cases, the
 #. prevention officer will help in the implementation of the Plan: however, he
 #. must have the capability or have had the relevant training to do this.
-#: src/euphorie/client/templates/risk_actionplan.pt:63
+#: src/euphorie/client/templates/risk_actionplan.pt:68
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "In het plan van aanpak geeft u aan welke maatregelen genomen gaan worden om "
@@ -2073,7 +2087,7 @@ msgstr ""
 #. implementation of this measure. This person will have the authority to take
 #. the steps described in the Plan and/or the responsibility to ensure that
 #. they are carried out.
-#: src/euphorie/client/templates/risk_actionplan.pt:74
+#: src/euphorie/client/templates/risk_actionplan.pt:79
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Wijs iemand in de organisatie aan die verantwoordelijk is voor de "
@@ -2085,7 +2099,7 @@ msgstr ""
 #. Default: Although some measures do not cost any money, most do. The measures
 #. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
-#: src/euphorie/client/templates/risk_actionplan.pt:79
+#: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Alhoewel sommige maatregelen niets zullen kosten, zijn aan de meeste "
@@ -2093,29 +2107,49 @@ msgstr ""
 "in de jaarlijkse begroting, indien nodig."
 
 #. Default: Please enter the budget in whole Euros.
-#: src/euphorie/client/templates/risk_actionplan.pt:81
+#: src/euphorie/client/templates/risk_actionplan.pt:86
 msgid "error_invalid_budget"
 msgstr "Vul het budget in hele Euros in."
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+msgid "label_day"
+msgstr "Dag"
+
 #. Default: Invalid day
-#: src/euphorie/client/templates/risk_actionplan.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:121
+#: src/euphorie/client/templates/risk_actionplan.pt:100
+#: src/euphorie/client/templates/risk_actionplan.pt:126
 msgid "error_invalid_day"
 msgstr "Ongeldige dag"
 
 #. Default: Month
-#: src/euphorie/client/templates/risk_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:123
+#: src/euphorie/client/templates/risk_actionplan.pt:102
+#: src/euphorie/client/templates/risk_actionplan.pt:128
 msgid "label_month"
 msgstr "Maand"
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+msgid "label_year"
+msgstr "Jaar"
+
 #. Default: Please enter a valid year after 1900
-#: src/euphorie/client/templates/risk_actionplan.pt:107
-#: src/euphorie/client/templates/risk_actionplan.pt:133
+#: src/euphorie/client/templates/risk_actionplan.pt:112
+#: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr "Vul een geldig jaartal na 1900 in"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:200
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+msgid "label_comment"
+msgstr ""
+"In dit veld kunt u eventueel een opmerking plaatsen m.b.t. de bovenstaande "
+"vraag. Uw tekst wordt dan opgenomen in het plan van aanpak."
+
+#: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -2123,7 +2157,7 @@ msgstr ""
 "Weet u zeker dat u deze maatregel wil verwijderen? Dit kan niet "
 "teruggedraaid worden."
 
-#: src/euphorie/client/templates/risk_actionplan.pt:201
+#: src/euphorie/client/templates/risk_actionplan.pt:206
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -3649,6 +3683,7 @@ msgid "header_regions"
 msgstr "Regios"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "EU lidstaten"
 
@@ -3657,6 +3692,7 @@ msgid "EFTA Countries"
 msgstr "EFTA landen"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Kandidaat lden"
 
@@ -4066,15 +4102,43 @@ msgstr "Toon oudere versies"
 msgid "text_toggle_navtree"
 msgstr "Toggle"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+#, fuzzy
+msgid "Regions"
+msgstr "Regio"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+#, fuzzy
+msgid "Potential Candidate Countries"
+msgstr "Potentiële kandidaat EFTA landen"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versies"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+#, fuzzy
+msgid "help_add_version"
+msgstr "RI&E's"
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Nieuwe versie"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+#, fuzzy
+msgid "help_publish"
+msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+#, fuzzy
+msgid "title_help_unpublished"
+msgstr "De-publiceer \"${title}\""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4097,6 +4161,13 @@ msgstr "Huidig / Gepubliceerd"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Gepubliceerd"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+#, fuzzy
+msgid "help_create_new_version"
+msgstr "RI&E's"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4130,14 +4201,3 @@ msgid "legend_updated"
 msgstr ""
 "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
 "Publiceer om deze zichtbaar te maken voor de invuller (client)."
-
-#~ msgid "label_day"
-#~ msgstr "Dag"
-
-#~ msgid "label_year"
-#~ msgstr "Jaar"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "In dit veld kunt u eventueel een opmerking plaatsen m.b.t. de "
-#~ "bovenstaande vraag. Uw tekst wordt dan opgenomen in het plan van aanpak."

@@ -7,6 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Update Dutch translations. This fixes
+  `TNO ticket 223 <https://code.simplon.biz/tracker/tno-euphorie/ticket/223>`_.
+
 - Add jQueryUI datepicker to the date fields in the risk action plan page [jcbrand]
 
 - Modify RTF action plan report: add a ``[*]`` marker after titles for present risks
