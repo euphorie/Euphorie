@@ -180,7 +180,10 @@ class ActionPlanItemForm(formapi.Form):
     def valid_start_day(self):
         day = self.data["planning_start_day"]
         if day is None:
-            return
+            if not self.data["planning_start_year"]:
+                return
+            else:
+                yield _(u"Please provide the day of the month")
         if not 1 <= day <= 31:
             yield _(u"Invalid day of month")
 
@@ -207,7 +210,10 @@ class ActionPlanItemForm(formapi.Form):
     def valid_end_day(self):
         day = self.data["planning_end_day"]
         if day is None:
-            return
+            if not self.data["planning_end_year"]:
+                return
+            else:
+                yield _(u"Please provide the day of the month")
         if not 1 <= day <= 31:
             yield _(u"Invalid day of month")
 

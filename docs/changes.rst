@@ -13,7 +13,12 @@ Bugfixes
 ~~~~~~~~
 
 - Added missing i18n statement on conditions page [thomasw]
-- i18n bugfix in client/templates/risk_actionplan.pt [thomasw]
+
+- i18n bugfix in risk action plan page. [thomasw]
+
+- Do not silently ignore start and end dates for action plan measures of no
+  date was provided. This fixes `TNO ticket 225
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/225>`_.
 
 
 4.1.3 - October 1, 2012
@@ -43,7 +48,6 @@ Bugfixes
   - return a proper JSON error message if an unsupported HTTP method is used.
 
 
->>>>>>> stable-4
 4.1.1 - September 27, 2012
 --------------------------
 
