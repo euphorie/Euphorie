@@ -188,14 +188,14 @@ class ActionPlanItemForm(formapi.Form):
             yield _(u"Invalid day of month")
 
         try:
-            (__, maxday) = calendar.monthrange(self.data["planning_start_year"],
-                                            self.data["planning_start_month"])
-            if day>maxday:
+            (__, maxday) = calendar.monthrange(
+                    self.data["planning_start_year"],
+                    self.data["planning_start_month"])
+            if day > maxday:
                 yield _(u"Invalid day of month")
-        except TypeError:
+        except (ValueError, TypeError):
             # Invalid year most likely
             pass
-
 
     @formapi.validator("planning_start_year")
     def valid_start_year(self):
@@ -220,11 +220,11 @@ class ActionPlanItemForm(formapi.Form):
             yield _(u"Invalid day of month")
 
         try:
-            (__, maxday)=calendar.monthrange(self.data["planning_end_year"],
+            (__, maxday) = calendar.monthrange(self.data["planning_end_year"],
                                             self.data["planning_end_month"])
-            if day>maxday:
+            if day > maxday:
                 yield _(u"Invalid day of month")
-        except TypeError:
+        except (ValueError, TypeError):
             # Invalid year most likely
             pass
 
