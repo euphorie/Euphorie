@@ -1,15 +1,18 @@
 (function ($) {
     $.fn.enableDatePicker = function () { 
         var lang = $(this).attr('lang');
-        if ((lang == 'en') || (lang === undefined)) {
-            lang = '';
+        if (lang) {
+            if (lang.indexOf('-') !== -1) {
+                var parts = lang.split('-'),
+                    language = parts[0],
+                    territory= parts[1].toUpperCase();
+                lang=language+"-"+territory;
+                if ($.datepicker.regional[lang]===undefined)
+                    lang=language;
+            }
+            if ($.datepicker.regional[lang])
+                $.datepicker.setDefaults($.datepicker.regional[lang]);
         }
-        if (lang.indexOf('-') !== -1) {
-            var ls = lang.split('-'),
-                extension = ls[ls.length-1].toUpperCase();
-            lang = ls[0] + '-' + extension;
-        }
-        $.datepicker.setDefaults($.datepicker.regional[lang]);
         $(this).datepicker({
             showOn: "button",      
             dateFormat: "yy",
