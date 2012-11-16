@@ -12,8 +12,8 @@ Feature changes
 
 - Add jQueryUI datepicker to the date fields in the risk action plan page [jcbrand]
 
-- Modify RTF action plan report: add a ``[*]`` marker after titles for present risks
-  that do not have a problem description. This fixes 
+- Modify all reports to always add a marker for present risks so users can more
+  easily find them. This fixes 
   `TNO ticket 206 <https://code.simplon.biz/tracker/tno-euphorie/ticket/206>`_.
 
 Bugfixes

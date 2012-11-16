@@ -1388,6 +1388,11 @@ ol.toc li a:after {
 	margin-bottom: 20px;
 }
 
+.report .warning h4::after {
+        content: "⚠";
+}
+
+
 .report h4 a {
 	font-weight: normal !important;
 	font-style: normal;
