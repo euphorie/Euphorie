@@ -486,6 +486,10 @@ body,
 #measureTabs .current {
 	background-color: white;
 }
+#measureTabs .current.error {
+	background-color: #fcc694;
+	color: #874e0b;
+}
 
 #ActionPlanItemForm .solutions {
 	float: right;
@@ -2185,9 +2189,9 @@ textarea.error,
 input[type="text"].error,
 input[type="password"].error
  {
-	background-color: #fcc694;
-	color: #874e0b;
-	border-color: #874e0b;
+	background-color: #fcc694 !important;
+	color: #874e0b !important;
+	border-color: #874e0b !important;
 }
 
 /* @end */
