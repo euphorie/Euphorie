@@ -1,6 +1,6 @@
 (function ($) {
     $.fn.enableDatePicker = function () { 
-        var lang = $(this).attr('lang');
+        var lang = $("body").attr('lang');
         if (lang) {
             if (lang.indexOf('-') !== -1) {
                 var parts = lang.split('-'),

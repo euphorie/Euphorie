@@ -18,7 +18,7 @@
       }
     </style>
   </head>
-  <body tal:define="risk nocall:view/risk; data view/data"
+  <body tal:define="risk nocall:view/risk; data view/data" lang="${python:request.locale.getLocaleID()}"
         class="actionplan ${webhelpers/extra_css}">
 
    <h1>${view/title}</h1>
