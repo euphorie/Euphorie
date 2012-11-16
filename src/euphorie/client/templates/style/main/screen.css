@@ -487,8 +487,7 @@ body,
 	background-color: white;
 }
 #measureTabs .current.error {
-	background-color: #fcc694;
-	color: #874e0b;
+	color: #ff1c00;
 }
 
 #ActionPlanItemForm .solutions {
