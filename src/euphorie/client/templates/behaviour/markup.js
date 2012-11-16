@@ -311,9 +311,6 @@ $(document).ready(function() {
 
     var tmp;
 
-    // Automatically setup accordions
-    $(".accordion").accordion();
-
     // Numeric input fields
     $("input.numeric").numeric();
 
