@@ -19,6 +19,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Remove stray double quote in section titles in identification report. This fixes
+  `TNO ticket 222 <https://code.simplon.biz/tracker/tno-euphorie/ticket/222>`_.
+
 - Really show the notification that a password reminder has been sent. This fixes
   `TNO ticket 229 <https://code.simplon.biz/tracker/tno-euphorie/ticket/229>`_.
 

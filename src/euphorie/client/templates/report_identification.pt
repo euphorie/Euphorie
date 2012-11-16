@@ -33,7 +33,7 @@
 
     <tal:block repeat="node view/nodes">
       <tal:module condition="python:node.type!='risk'">
-        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}"</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
       </tal:module>
 
       <tal:risk condition="python:node.type=='risk'">
