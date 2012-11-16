@@ -47,7 +47,7 @@
 
       <p class="description">
         The temperature in a fridge is critical to storing food. If the temperature is too high or fluctuates too much food can start rotting quickly.
-      </p>      
+      </p>
       <fieldset>
         <label>This is a <select>
           <option>
@@ -62,7 +62,7 @@
         </select> .</label>
       </fieldset>
     </div>
-    
+
     <div class="solutions" id="standardSolutions">
       <p class="info">Select a standard solution. The main fields of this measure will be populated with the chosen solution.</p>
       <ol>
@@ -86,26 +86,27 @@
         </li>
       </ol>
     </div>
-    
+
     <div class="module-navigation-tabs" id="ActionPlanItemForm">
     	<nav class="nav nav-tabs" id="measureTabs">
     		<a href="#measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
+    		<a href="#measure-2" class="error">Measure 2 <span class="icon delete" title="Delete this measure">Delete</span></a>
                 <button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
     	</nav>
       <div class="tab-container current" id="measure-1">
         <div class="column">
           <fieldset class="condensed">
             <legend>Description <a href="#standardSolutions" class="button small solutions">Standard solutions</a>
-              <a href="#" class="icon info clicktip">How do I use this form?</a></legend> 
-            
+              <a href="#" class="icon info clicktip">How do I use this form?</a></legend>
+
             <textarea class="actionPlan" name="action_plan" placeholder="General approach (to eliminate or reduce the risk)" rows="6">
 </textarea>
-           
-            
+
+
             <textarea class="preventionPlan" name="prevention_plan" placeholder="Specific action(s) required to implement this approach" rows="3">
 </textarea>
-          
-            
+
+
             <textarea class="requirements" placeholder="Level of expertise and/or requirements needed" name="requirements" rows="3">
 </textarea>
           </fieldset>
@@ -116,10 +117,10 @@
             <fieldset class="condensed">
               <legend i18n:translate="label_action_plan_start">Planning start</legend>
               <fieldset class="date-eu">
-               
-                  <label for="planning_start_day" i18n:translate="label_day">Day</label> <input class="day error" value="12" type="number" placeholder="DD" name="planning_start.day:record" id="planning_start_day" maxlength="2" />
-               
-                  <label for="planning_start_month" i18n:translate="label_month">Month</label> <select class="month error" name="planning_start.month:record" id="planning_start_month">
+
+                  <input class="day" value="12" type="number" placeholder="DD" name="planning_start.day:record" id="planning_start_day" maxlength="2" />
+
+                  <label for="planning_start_month" i18n:translate="label_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month">
                     <option value="01" i18n:translate="">
                       January
                     </option>
@@ -157,19 +158,19 @@
                       December
                     </option>
                   </select>
-               
-                  <label for="planning_start_year" i18n:translate="label_year">Year</label> <input class="year enablePicker error" type="number" placeholder="YYYY" value="2012" name="planning_start.year:record" id="planning_start_year" maxlength="4" />
-               
+
+                  <input class="year enablePicker" type="number" placeholder="YYYY" value="2012" name="planning_start.year:record" id="planning_start_year" maxlength="4" />
+
               </fieldset>
             </fieldset>
             <fieldset class="condensed">
               <legend i18n:translate="label_action_plan_end">Planning end</legend>
-              
+
               <fieldset class="date-eu">
-              
+
                   <label for="planning_end_day" i18n:translate="label_day">Day</label> <input class="day" type="number" name="planning_end.day:record" placeholder="DD" id="planning_end_day" maxlength="2" />
-              
-                  <label for="planning_end_month" i18n:translate="label_month">Month</label> 
+
+                  <label for="planning_end_month" i18n:translate="label_month">Month</label>
                   <select class="month" name="planning_end.month:record" id="planning_end_month">
                     <option value="01" i18n:translate="">
                       January
@@ -208,10 +209,112 @@
                       December
                     </option>
                   </select>
-             
-                  <label for="planning_end_year" i18n:translate="label_year">Year</label> 
+
+                  <label for="planning_end_year" i18n:translate="label_year">Year</label>
                   <input class="year enablePicker" placeholder="YYYY" value="2012" type="number" name="planning_end.year:record" id="planning_end_year" size="4" maxlength="4" />
-                
+
+              </fieldset>
+            </fieldset>
+          </fieldset>
+        </div>
+      </div>
+      <div class="tab-container error" id="measure-2">
+        <div class="column">
+          <fieldset class="condensed">
+            <legend>Description <a href="#standardSolutions" class="button small solutions">Standard solutions</a>
+              <a href="#" class="icon info clicktip">How do I use this form?</a></legend>
+
+            <textarea class="actionPlan error" name="action_plan" placeholder="General approach (to eliminate or reduce the risk)" rows="6">
+</textarea>
+
+
+            <textarea class="preventionPlan" name="prevention_plan" placeholder="Specific action(s) required to implement this approach" rows="3">
+</textarea>
+
+
+            <textarea class="requirements" placeholder="Level of expertise and/or requirements needed" name="requirements" rows="3">
+</textarea>
+          </fieldset>
+        </div>
+        <div class="column">
+          <fieldset class="condensed">
+            <label i18n:translate="label_action_plan_responsible">Who is responsible? <a href="#" class="icon info clicktip">(More information)</a> <input type="text" class="responsible" name="responsible" /></label> <label i18n:translate="label_action_plan_budget">Budget (in Euro) <a href="#" class="icon info clicktip">(More information)</a> <input type="number" min="0" step="100" name="budget" class="budget" /></label>
+            <fieldset class="condensed error">
+              <legend i18n:translate="label_action_plan_start">Planning start</legend>
+              <fieldset class="date-eu">
+
+                <input class="day error" value="40" type="number" placeholder="Day" name="planning_start.day:record" id="planning_start_day-2" maxlength="2" />
+                <p class="focustip error target-id-planning_start_day-2">Enter a valid day</p>
+
+                  <label for="planning_start_month" i18n:translate="label_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month-2">
+                    <option value="01" i18n:translate=""> January </option>
+                    <option value="02" i18n:translate=""> February </option>
+                    <option value="03" i18n:translate=""> March </option>
+                    <option value="04" i18n:translate=""> April </option>
+                    <option value="05" i18n:translate=""> May </option>
+                    <option value="06" i18n:translate=""> June </option>
+                    <option value="07" i18n:translate=""> July </option>
+                    <option value="08" i18n:translate=""> August </option>
+                    <option value="09" i18n:translate=""> September </option>
+                    <option value="10" i18n:translate=""> October </option>
+                    <option value="11" i18n:translate=""> November </option>
+                    <option value="12" i18n:translate=""> December </option>
+                  </select>
+
+                  <input class="year enablePicker error" type="number" placeholder="Year" value="1980" name="planning_start.year:record" id="planning_start_year-2" maxlength="4" />
+                  <p class="focustip error target-id-planning_start_year-2">Year must be at least 2000</p>
+
+              </fieldset>
+            </fieldset>
+            <fieldset class="condensed">
+              <legend i18n:translate="label_action_plan_end">Planning end</legend>
+
+              <fieldset class="date-eu">
+
+                  <input class="day" type="number" name="planning_end.day:record" placeholder="DD" id="planning_end_day-2" maxlength="2" />
+
+                  <label for="planning_end_month" i18n:translate="label_month">Month</label>
+                  <select class="month" name="planning_end.month:record" id="planning_end_month-2">
+                    <option value="01" i18n:translate="">
+                      January
+                    </option>
+                    <option value="02" i18n:translate="">
+                      February
+                    </option>
+                    <option value="03" i18n:translate="">
+                      March
+                    </option>
+                    <option value="04" i18n:translate="">
+                      April
+                    </option>
+                    <option value="05" i18n:translate="">
+                      May
+                    </option>
+                    <option value="06" i18n:translate="">
+                      June
+                    </option>
+                    <option value="07" i18n:translate="">
+                      July
+                    </option>
+                    <option value="08" i18n:translate="">
+                      August
+                    </option>
+                    <option value="09" i18n:translate="">
+                      September
+                    </option>
+                    <option value="10" i18n:translate="">
+                      October
+                    </option>
+                    <option value="11" i18n:translate="">
+                      November
+                    </option>
+                    <option value="12" i18n:translate="">
+                      December
+                    </option>
+                  </select>
+
+                  <input class="year enablePicker" placeholder="YYYY" value="2012" type="number" name="planning_end.year:record" id="planning_end_year-2" size="4" maxlength="4" />
+
               </fieldset>
             </fieldset>
           </fieldset>
@@ -229,12 +332,12 @@
       </p>
     </div><!-- WTA: Information block ends here -->
 
-    
+
     <fieldset class="concise">
-      
+
       <textarea name="comments" cols="70" rows="5" class="span-15" placeholder="Please leave any comments you may have on the question above in this field"></textarea>
     </fieldset>
-    
+
     <ol id="steps">
       <li id="step-1" class="complete">
         <a href="#">Voorbereiden</a>
@@ -251,7 +354,7 @@
       <li id="step-5">Rapporten
       </li>
     </ol>
-    
+
     <ul id="navigation">
       <li id="home">
         <a href="index.html" lang="en-GB" xml:lang="en-GB"><strong>OiRA</strong><br/>
@@ -268,11 +371,11 @@
             <a href="settings.html">Account settings</a>
           </li>
     </ul>
-    
+
     <p id="appendix">
       <a href="#">Lorem</a> | <a href="#">Ipsum Dolor</a> | <a href="#">Sit</a>
     </p>
     <script type="text/javascript">$("input[placeholder], textarea[placeholder]").placeholder();</script>
-    
+
   </body>
 </html>
