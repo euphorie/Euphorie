@@ -19,6 +19,16 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Several fixes for the risk action plan form (client):
+
+  - i18n bugfix. [thomasw]
+
+  - Do not silently ignore start and end dates for action plan measures of no
+    date was provided. This fixes `TNO ticket 225
+    <https://code.simplon.biz/tracker/tno-euphorie/ticket/225>`_.
+
+  - Handle internal error for dates with large years.
+
 - Remove stray double quote in section titles in identification report. This fixes
   `TNO ticket 222 <https://code.simplon.biz/tracker/tno-euphorie/ticket/222>`_.
 
@@ -27,14 +37,9 @@ Bugfixes
 
 - Added missing i18n statement on conditions page [thomasw]
 
-- i18n bugfix in risk action plan page. [thomasw]
-
 - Fix bad link in introduction text for action plan report. This fixes
   `TNO ticket 227 <https://code.simplon.biz/tracker/tno-euphorie/ticket/227>`_.
 
-- Do not silently ignore start and end dates for action plan measures of no
-  date was provided. This fixes `TNO ticket 225
-  <https://code.simplon.biz/tracker/tno-euphorie/ticket/225>`_.
 
 
 4.1.3 - October 1, 2012

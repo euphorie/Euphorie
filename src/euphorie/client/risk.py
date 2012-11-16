@@ -205,6 +205,8 @@ class ActionPlanItemForm(formapi.Form):
 
         if year < 1900:
             yield _(u"Please enter a year after 1900")
+        elif year > 2100:
+            yield _(u"Please enter a year before 2100")
 
     @formapi.validator("planning_end_day")
     def valid_end_day(self):
@@ -234,6 +236,8 @@ class ActionPlanItemForm(formapi.Form):
 
         if year < 1900:
             yield _(u"Please enter a year after 1900")
+        elif year > 2100:
+            yield _(u"Please enter a year before 2100")
 
 
 
