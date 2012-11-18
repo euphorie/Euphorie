@@ -460,6 +460,10 @@ body,
 	box-shadow: 0 1px 4px rgba(0,0,0,0.2)
 }
 
+#ActionPlanItemForm .tab-container.error {
+	background-color: transparent;
+}
+
 #ActionPlanItemForm .column {
 	width: 274px;
 	float: left;
@@ -487,7 +491,7 @@ body,
 	background-color: white;
 }
 #measureTabs .current.error {
-	color: #ff1c00;
+	color: #ff9300;
 }
 
 #ActionPlanItemForm .solutions {
@@ -1834,16 +1838,7 @@ dl.accordion dt.ui-state-active a.button {
 
 /* @end */
 
-div.notice,
-div.error,
-div.success,
-div.warning,
-div.emphasis,
-p.notice,
-p.error,
-p.success,
-p.warning,
-p.emphasis {
+div.message,p.message {
 	padding: 10px;
 	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -1854,11 +1849,8 @@ p.emphasis {
 	width: 570px;
 }
 
-div.notice *:last-child,
-div.error *:last-child,
-div.success *:last-child,
-div.warning *:last-child,
-div.emphasis *:last-child
+div.message *:last-child,
+p.message *:last-child
  {
 	margin-bottom: 0;
 }
@@ -1906,25 +1898,25 @@ p.emphasis {
 	width: 563px;
 }
 
-.notice {
+.message.notice {
 	border-color: #008dae;
 	background-color: #8293ab;
 	color: white;
 }
 
-.error {
+.message..error {
 	border-color: #ff1c00;
 	background-color: #ff1c00;
 	color: white;
 }
 
-.success {
+.message..success {
 	border-color: #669900;
 	background-color: #3e6b52;
 	color: white
 }
 
-.warning {
+.message..warning {
 	border-color: #f6921d;
 	background-color: #c16800;
 	color: white;
