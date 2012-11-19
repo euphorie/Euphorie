@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-10-19 15:49+0200\n"
+"POT-Creation-Date: 2012-11-19 10:00+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -142,50 +142,50 @@ msgstr "Ja"
 msgid "label_no"
 msgstr "Nee"
 
-#: src/euphorie/client/login.py:111
+#: src/euphorie/client/login.py:112
 msgid "Please enter your email address"
 msgstr "Vul uw e-mail adres in"
 
-#: src/euphorie/client/login.py:117
+#: src/euphorie/client/login.py:118
 msgid "Unknown email address"
 msgstr "Onbekend e-mail adres"
 
-#: src/euphorie/client/login.py:125
+#: src/euphorie/client/login.py:126
 msgid "OiRA registration reminder"
 msgstr "RI&E registratie herinnering"
 
-#: src/euphorie/client/login.py:137 src/euphorie/client/login.py:143
-#: src/euphorie/client/login.py:149
+#: src/euphorie/client/login.py:138 src/euphorie/client/login.py:144
+#: src/euphorie/client/login.py:150
 msgid "An error occured while sending the password reminder"
 msgstr ""
 "Er is een fout opgetreden bij het versturen van de wachtwoord herinnering."
 
-#: src/euphorie/client/login.py:162
+#: src/euphorie/client/login.py:164
 msgid "An email with a password reminder has been sent to your address."
 msgstr "Er is een e-mail met wachtwoord herinnering verstuurd."
 
 #. Default: Please enter your email address
-#: src/euphorie/client/login.py:177
+#: src/euphorie/client/login.py:179
 msgid "error_missing_email"
 msgstr "Vul hier uw e-mail adres in"
 
 #. Default: Please enter a valid email address
-#: src/euphorie/client/login.py:180
+#: src/euphorie/client/login.py:182
 msgid "error_invalid_email"
 msgstr "Vul een geldig e-mail adres in."
 
 #. Default: Please enter a password
-#: src/euphorie/client/login.py:183
+#: src/euphorie/client/login.py:185
 msgid "error_missing_password"
 msgstr "Vul uw wachtwoord in"
 
 #. Default: Passwords do not match
-#: src/euphorie/client/login.py:186
+#: src/euphorie/client/login.py:188
 msgid "error_password_mismatch"
 msgstr "Wachtwoorden komen niet overeen"
 
 #. Default: An account with this email address already exists.
-#: src/euphorie/client/login.py:196 src/euphorie/client/login.py:202
+#: src/euphorie/client/login.py:198 src/euphorie/client/login.py:204
 msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mail adres"
 
@@ -245,27 +245,27 @@ msgstr ""
 "Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
 
 #. Default: You responded negatively to the above statement.
-#: src/euphorie/client/report.py:372 src/euphorie/client/report.py:636
+#: src/euphorie/client/report.py:375 src/euphorie/client/report.py:642
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:50
-#: src/euphorie/client/templates/webhelpers.pt:117
+#: src/euphorie/client/templates/webhelpers.pt:120
 msgid "warn_risk_present"
 msgstr "U heeft 'nee' ingevuld bij bovenstaande risico."
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:377 src/euphorie/client/report.py:641
+#: src/euphorie/client/report.py:380 src/euphorie/client/report.py:647
 #: src/euphorie/client/templates/report_actionplan.pt:91
 #: src/euphorie/client/templates/report_identification.pt:51
 msgid "risk_unanswered"
 msgstr "Dit risico is nog niet beoordeeld."
 
 #. Default: Identification report ${title}
-#: src/euphorie/client/report.py:394
+#: src/euphorie/client/report.py:397
 msgid "filename_report_identification"
 msgstr "Inventarisatie ${title}.doc"
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:448 src/euphorie/client/report.py:550
+#: src/euphorie/client/report.py:452 src/euphorie/client/report.py:554
 #: src/euphorie/client/templates/report_actionplan.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:45
 #: src/euphorie/client/templates/report_actionplan.pt:53
@@ -274,7 +274,7 @@ msgid "missing_data"
 msgstr "Niet ingevuld"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:528
+#: src/euphorie/client/report.py:532
 msgid "plan_report_intro_header"
 msgstr "Inleiding"
 
@@ -283,7 +283,7 @@ msgstr "Inleiding"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:530
+#: src/euphorie/client/report.py:534
 #: src/euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_1"
 msgstr ""
@@ -301,69 +301,69 @@ msgstr ""
 "geld worden opgelost."
 
 #. Default: Company details
-#: src/euphorie/client/report.py:554
+#: src/euphorie/client/report.py:558
 msgid "plan_report_company_header"
 msgstr "Bedrijfsgegevens"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:601
+#: src/euphorie/client/report.py:605
 msgid "plan_report_plan_header"
 msgstr "Plan van aanpak"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: src/euphorie/client/report.py:646
+#: src/euphorie/client/report.py:652
 #: src/euphorie/client/templates/report_actionplan.pt:161
-#: src/euphorie/client/templates/webhelpers.pt:108
+#: src/euphorie/client/templates/webhelpers.pt:111
 msgid "top5_risk_not_present"
 msgstr ""
 "Dit risico is niet aanwezig in uw organisatie, maar aangezien het een top-5 "
 "risico is het wel opgenomen in de rapportage."
 
 #. Default: This is a
-#: src/euphorie/client/report.py:660
+#: src/euphorie/client/report.py:666
 msgid "report_priority"
 msgstr "Dit is een risico in de categorie: "
 
 #. Default: Measure
-#: src/euphorie/client/report.py:670
+#: src/euphorie/client/report.py:676
 msgid "header_measure_single"
 msgstr "Maatregel"
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:673
+#: src/euphorie/client/report.py:679
 #: src/euphorie/client/templates/report_actionplan.pt:108
 msgid "header_measure"
 msgstr "Maatregel ${index}"
 
 #. Default: Action plan:
-#: src/euphorie/client/report.py:686
+#: src/euphorie/client/report.py:692
 #: src/euphorie/client/templates/report_actionplan.pt:111
 msgid "report_measure_actionplan"
 msgstr "Plan van aanpak"
 
 #. Default: Prevention plan:
-#: src/euphorie/client/report.py:692
+#: src/euphorie/client/report.py:698
 #: src/euphorie/client/templates/report_actionplan.pt:115
 msgid "report_measure_preventionplan"
 msgstr "Preventieplan"
 
 #. Default: Requirements:
-#: src/euphorie/client/report.py:698
+#: src/euphorie/client/report.py:704
 #: src/euphorie/client/templates/report_actionplan.pt:119
 msgid "report_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:707
+#: src/euphorie/client/report.py:713
 #: src/euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible"
 msgstr "${responsible} is verantwoordelijk voor deze maatregel."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:713
+#: src/euphorie/client/report.py:719
 #: src/euphorie/client/templates/report_actionplan.pt:127
 msgid "report_measure_responsible_and_start"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 "${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:722
+#: src/euphorie/client/report.py:728
 #: src/euphorie/client/templates/report_actionplan.pt:130
 msgid "report_measure_responsible_and_end"
 msgstr ""
@@ -379,7 +379,7 @@ msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:731
+#: src/euphorie/client/report.py:737
 #: src/euphorie/client/templates/report_actionplan.pt:143
 msgid "report_measure_full"
 msgstr ""
@@ -387,131 +387,135 @@ msgstr ""
 "${start} en eindigend op ${end}."
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:742
+#: src/euphorie/client/report.py:748
 #: src/euphorie/client/templates/report_actionplan.pt:133
 msgid "report_measure_start_only"
 msgstr "Deze maatregel begint op ${start}."
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:749
+#: src/euphorie/client/report.py:755
 #: src/euphorie/client/templates/report_actionplan.pt:136
 msgid "report_measure_end_only"
 msgstr "Deze maatregel eindigt op ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:756
+#: src/euphorie/client/report.py:762
 #: src/euphorie/client/templates/report_actionplan.pt:139
 msgid "report_measure_start_and_stop"
 msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:765
+#: src/euphorie/client/report.py:771
 #: src/euphorie/client/templates/report_actionplan.pt:147
 msgid "report_measure_budget"
 msgstr "Er is een budget van € ${amount} voor deze maatregel."
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:780
+#: src/euphorie/client/report.py:786
 msgid "filename_report_actionplan"
 msgstr "Plan van aanpak ${title}"
 
 #. Default: Low
-#: src/euphorie/client/report.py:826
+#: src/euphorie/client/report.py:832
 msgid "label_timeline_priority_low"
 msgstr "laag"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:827
+#: src/euphorie/client/report.py:833
 msgid "label_timeline_priority_medium"
 msgstr "gemiddeld"
 
 #. Default: High
-#: src/euphorie/client/report.py:828
+#: src/euphorie/client/report.py:834
 msgid "label_timeline_priority_high"
 msgstr "hoog"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:833
+#: src/euphorie/client/report.py:839
 #: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr "Begindatum"
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:835
+#: src/euphorie/client/report.py:841
 #: src/euphorie/client/templates/risk_actionplan.pt:120
 msgid "label_action_plan_end"
 msgstr "Eind datum"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:837
-#: src/euphorie/client/templates/risk_actionplan.pt:71
-#: src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:843 src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Plan van aanpak"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:839
-#: src/euphorie/client/templates/risk_actionplan.pt:72
-#: src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:847 src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr "Preventie plan"
 
 #. Default: Requirements
-#: src/euphorie/client/report.py:842 src/euphorie/content/solution.py:45
+#: src/euphorie/client/report.py:851 src/euphorie/content/solution.py:45
 msgid "label_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:844
+#: src/euphorie/client/report.py:853
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr "Wie is er verantwoordelijk?"
 
 #. Default: Budget (in Euro)
-#: src/euphorie/client/report.py:847
+#: src/euphorie/client/report.py:856
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr "Budget (in Euro)"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:852
+#: src/euphorie/client/report.py:861
 msgid "label_risk_number"
 msgstr "Risiconummer"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:854
+#: src/euphorie/client/report.py:863
 msgid "report_timeline_risk_title"
 msgstr "Risico"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:856
+#: src/euphorie/client/report.py:865
 msgid "report_timeline_priority"
 msgstr "Dit is een risico in de categorie: "
 
 #. Default: Comments
-#: src/euphorie/client/report.py:858
+#: src/euphorie/client/report.py:867
 msgid "report_timeline_comment"
 msgstr "Opmerkingen"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:873
+#: src/euphorie/client/report.py:882
 msgid "report_timeline_title"
 msgstr "Plan van aanpak"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:903
+#: src/euphorie/client/report.py:913
 msgid "filename_report_timeline"
 msgstr "Actielijst ${title}"
 
-#: src/euphorie/client/risk.py:185 src/euphorie/client/risk.py:191
-#: src/euphorie/client/risk.py:212 src/euphorie/client/risk.py:218
+#: src/euphorie/client/risk.py:186 src/euphorie/client/risk.py:218
+msgid "Please provide the day of the month"
+msgstr ""
+
+#: src/euphorie/client/risk.py:188 src/euphorie/client/risk.py:195
+#: src/euphorie/client/risk.py:220 src/euphorie/client/risk.py:226
 msgid "Invalid day of month"
 msgstr "Ongeldige dag van de maand"
 
-#: src/euphorie/client/risk.py:204 src/euphorie/client/risk.py:230
+#: src/euphorie/client/risk.py:207 src/euphorie/client/risk.py:238
 msgid "Please enter a year after 1900"
 msgstr "Vul een geldig jaartal na 1900 in"
+
+#: src/euphorie/client/risk.py:209 src/euphorie/client/risk.py:240
+msgid "Please enter a year before 2100"
+msgstr "Vul een geldig jaartal voor 2100 in"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -593,6 +597,7 @@ msgid "Your email address has been updated."
 msgstr "Uw e-mailadres is gewijzigd."
 
 #. Default: OiRA
+#. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
@@ -874,14 +879,20 @@ msgstr "Help"
 #. deleted. This action is irreversable.
 #: src/euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_irreversible"
-msgstr "Als u klikt op 'Verwijder account' wordt uw account definitief verwijderd. Deze verwijdering kan niet ongedaan gemaakt worden."
+msgstr ""
+"Als u klikt op 'Verwijder account' wordt uw account definitief verwijderd. "
+"Deze verwijdering kan niet ongedaan gemaakt worden."
 
 #. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
 msgid "warning_account_delete_surveys"
-msgstr "Let op! Als u uw account verwijdert, worden ook al uw ingevulde RIE's verwijderd. Wij raden u aan om (voordat u uw account verwijdert) van alle ingevulde RIE's de rapportage en plan van aanpak te printen of op te slaan op uw computer (download)."
+msgstr ""
+"Let op! Als u uw account verwijdert, worden ook al uw ingevulde RIE's "
+"verwijderd. Wij raden u aan om (voordat u uw account verwijdert) van alle "
+"ingevulde RIE's de rapportage en plan van aanpak te printen of op te slaan "
+"op uw computer (download)."
 
 #. Default: Account data
 #: src/euphorie/client/templates/account-settings.pt:19
@@ -1476,9 +1487,8 @@ msgstr ""
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
-#, fuzzy
 msgid "agree_and_continue"
-msgstr "Ga verder"
+msgstr "Ik ga akkoord"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -2053,8 +2063,8 @@ msgid "label_add_measure"
 msgstr "Nieuwe maatregel toevoegen"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
-msgid "Description of the measure"
-msgstr "Beschrijving van de maatregel"
+msgid "Description"
+msgstr "Beschrijving"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
@@ -2109,12 +2119,6 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr "Vul het budget in hele Euros in."
 
-#. Default: Day
-#: src/euphorie/client/templates/risk_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:123
-msgid "label_day"
-msgstr "Dag"
-
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2127,25 +2131,11 @@ msgstr "Ongeldige dag"
 msgid "label_month"
 msgstr "Maand"
 
-#. Default: Year
-#: src/euphorie/client/templates/risk_actionplan.pt:109
-#: src/euphorie/client/templates/risk_actionplan.pt:135
-msgid "label_year"
-msgstr "Jaar"
-
-#. Default: Please enter a valid year after 1900
+#. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr "Vul een geldig jaartal na 1900 in"
-
-#. Default: Please leave any comments you may have on the question above in
-#. this field. These comments will be used in the action plan.
-#: src/euphorie/client/templates/risk_actionplan.pt:152
-msgid "label_comment"
-msgstr ""
-"In dit veld kunt u eventueel een opmerking plaatsen m.b.t. de bovenstaande "
-"vraag. Uw tekst wordt dan opgenomen in het plan van aanpak."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -2549,19 +2539,19 @@ msgid "oira_name_line_2"
 msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/client/templates/webhelpers.pt:85
+#: src/euphorie/client/templates/webhelpers.pt:88
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr "Geproduceerd door ${EU-OSHA}"
 
 #. Default: About
-#: src/euphorie/client/templates/webhelpers.pt:86
+#: src/euphorie/client/templates/webhelpers.pt:89
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
 msgstr "Over"
 
 #. Default: Legal and policy references
-#: src/euphorie/client/templates/webhelpers.pt:127
+#: src/euphorie/client/templates/webhelpers.pt:130
 msgid "header_legal_references"
 msgstr "Wet- en regelgeving"
 
@@ -3685,7 +3675,6 @@ msgid "header_regions"
 msgstr "Regios"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "EU lidstaten"
 
@@ -3694,7 +3683,6 @@ msgid "EFTA Countries"
 msgstr "EFTA landen"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Kandidaat lden"
 
@@ -4104,43 +4092,15 @@ msgstr "Toon oudere versies"
 msgid "text_toggle_navtree"
 msgstr "Toggle"
 
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
-#, fuzzy
-msgid "Regions"
-msgstr "Regio"
-
-#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
-#, fuzzy
-msgid "Potential Candidate Countries"
-msgstr "Potentiële kandidaat EFTA landen"
-
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versies"
 
-#. Default: Create a duplicate of the selected survey
-#: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
-msgid "help_add_version"
-msgstr "RI&E's"
-
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Nieuwe versie"
-
-#. Default: Publish the selected survey live with its latest changes.
-#: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
-msgid "help_publish"
-msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
-
-#. Default: Remove this survey from the online client.
-#: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
-msgid "title_help_unpublished"
-msgstr "De-publiceer \"${title}\""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4163,13 +4123,6 @@ msgstr "Huidig / Gepubliceerd"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Gepubliceerd"
-
-#. Default: Start to write a new survey. You will be asked whether you want to
-#. start off with a copy of an existing survey.
-#: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
-msgid "help_create_new_version"
-msgstr "RI&E's"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4203,3 +4156,27 @@ msgid "legend_updated"
 msgstr ""
 "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
 "Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#, fuzzy
+#~ msgid "Regions"
+#~ msgstr "Regio"
+
+#, fuzzy
+#~ msgid "Potential Candidate Countries"
+#~ msgstr "Potentiële kandidaat EFTA landen"
+
+#, fuzzy
+#~ msgid "help_add_version"
+#~ msgstr "RI&E's"
+
+#, fuzzy
+#~ msgid "help_publish"
+#~ msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
+
+#, fuzzy
+#~ msgid "title_help_unpublished"
+#~ msgstr "De-publiceer \"${title}\""
+
+#, fuzzy
+#~ msgid "help_create_new_version"
+#~ msgstr "RI&E's"
