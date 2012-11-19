@@ -16,7 +16,7 @@
   <body class="${webhelpers/extra_css}">
     <h1 i18n:translate="title_updated">Survey was updated</h1>
 
-    <p class="notice" i18n:translate="expl_update">
+    <p class="message notice" i18n:translate="expl_update">
       This survey has been updated. Before you can continue any changes made
       in the survey will have to be merged in your session.
     </p>

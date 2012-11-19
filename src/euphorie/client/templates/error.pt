@@ -16,7 +16,7 @@
   <body class="error ${webhelpers/extra_css}">
     <h1 i18n:translate="title_error">Error</h1>
 
-    <p class="error" i18n:translate="expl_error">
+    <p class="message error" i18n:translate="expl_error">
       Something bad happened.
     </p>
     <ul id="navigation">

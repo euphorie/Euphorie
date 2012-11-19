@@ -18,7 +18,7 @@
 
     <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
     
-    <p class="error" tal:condition="view/error|nothing">${view/error}</p>
+    <p class="message error" tal:condition="view/error|nothing">${view/error}</p>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" tal:define="errors view/errors" action="${request/URL}">
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>

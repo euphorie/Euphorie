@@ -16,7 +16,7 @@
   <body class="error ${webhelpers/extra_css}">
     <h1 i18n:translate="title_error_notfound">Not found</h1>
 
-    <p class="error" i18n:translate="expl_error_notfound">
+    <p class="message error" i18n:translate="expl_error_notfound">
       The page you requested could not be found.
     </p>
     <ul id="navigation">

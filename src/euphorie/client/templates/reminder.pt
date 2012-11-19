@@ -17,8 +17,8 @@
     <h1 i18n:translate="header_welcome">Welcome</h1>
 
     <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
-    <p class="error" tal:condition="view/error|nothing">${view/error}</p>
-    <p class="notice" tal:condition="view/notice|nothing">${view/notice}</p>
+    <p class="message error" tal:condition="view/error|nothing">${view/error}</p>
+    <p class="message notice" tal:condition="view/notice|nothing">${view/notice}</p>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}/@@reminder">
       <input type="hidden" name="came_from" value="${view/back_url}"/>
