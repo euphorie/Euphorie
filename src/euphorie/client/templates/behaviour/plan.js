@@ -7,11 +7,17 @@
                     language = parts[0],
                     territory= parts[1].toUpperCase();
                 lang=language+"-"+territory;
-                if ($.datepicker.regional[lang]===undefined)
+                if ($.datepicker.regional[lang]===undefined) {
                     lang=language;
+                }
             }
-            if ($.datepicker.regional[lang])
+            if ($.datepicker.regional[lang]) {
                 $.datepicker.setDefaults($.datepicker.regional[lang]);
+            } else {
+                // 'en' is not included in the obj, so fall back to en-GB. 
+                // Otherwise we get a Taiwanese calendar.
+                $.datepicker.setDefaults($.datepicker.regional['en-GB']);
+            }
         }
         $(this).datepicker({
             showOn: "button",      
