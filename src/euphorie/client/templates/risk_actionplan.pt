@@ -63,7 +63,7 @@
             class="tab-container${python:' current' if repeat['actionplan'].start else ''}${python:' error' if errors else ''}" id="measure-${repeat/actionplan/number}">
             <div class="column">
               <fieldset class="condensed">
-                <legend><tal:span i18n:translate="">Description of the measure</tal:span>
+                <legend><tal:span i18n:translate="">Description</tal:span>
                   <a href="#standardSolutions" class="button small solutions" tal:condition="python:view.solutions" i18n:translate="">Standard solutions</a> 
                   <a class="icon info clicktip" href="${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_tooltip">You write down in the Plan what measure you will be taking in response to the risk. Removing the causes (tackling the source) is the preferred method: that way, the risk can no longer arise. You then write down what tasks have to be carried out in order for the risk to be removed, as well as the knowledge and experience that are needed for those tasks to be carried out (prevention plan and requirements). In most cases, the prevention officer will help in the implementation of the Plan: however, he must have the capability or have had the relevant training to do this.</a>
                 </legend>
