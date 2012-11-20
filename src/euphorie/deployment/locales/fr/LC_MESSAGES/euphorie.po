@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-11-19 10:00+0100\n"
+"POT-Creation-Date: 2012-11-20 16:58+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -446,13 +446,17 @@ msgid "label_action_plan_end"
 msgstr "Date de fin prévue"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:843 src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:843
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Décrivez cette mesure"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:847 src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:847
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr ""
 "Précisez les actions à mettre en place pour rendre cette mesure effective"
@@ -2281,6 +2285,12 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr "Veuillez saisir un nombre entier pour le budget en Euros."
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+msgid "label_day"
+msgstr "Jour"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2293,11 +2303,26 @@ msgstr "Jour invalide"
 msgid "label_month"
 msgstr "Mois"
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+msgid "label_year"
+msgstr "Année"
+
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr "Veuillez entrer une année valide après 1900"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_evaluation.pt:125
+msgid "label_comment"
+msgstr ""
+"Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce "
+"champ. Vous retrouverez ces commentaires à l'étape plan d'action."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -3885,6 +3910,7 @@ msgid "header_regions"
 msgstr "Régions"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "États membres de l'UE"
 
@@ -3893,6 +3919,7 @@ msgid "EFTA Countries"
 msgstr "Pays de l'EFTA"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Pays candidats"
 
@@ -4314,15 +4341,40 @@ msgstr "Afficher des versions antérieures "
 msgid "text_toggle_navtree"
 msgstr "Basculer"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr "Régions"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr "Pays candidat potentiel"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versions"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+msgid "help_add_version"
+msgstr "Créer un double de l’enquête sélectionnée "
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Créer un double"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+msgid "help_publish"
+msgstr ""
+"Publier l’enquête sélectionnée en direct avec les toutes dernières "
+"modifications. \t"
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+msgid "title_help_unpublished"
+msgstr "Supprimer cet outil OiRA des clients en ligne."
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4345,6 +4397,15 @@ msgstr "En cours / Publiée"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Mise à jour"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+msgid "help_create_new_version"
+msgstr ""
+"Commencez à écrire une nouvelle enquête. Il vous sera demandé si vous "
+"souhaitez\n"
+"commencer avec une copie d’une enquête existante.\t"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4380,40 +4441,6 @@ msgstr ""
 "éditées.\n"
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
-
-#~ msgid "label_day"
-#~ msgstr "Jour"
-
-#~ msgid "label_year"
-#~ msgstr "Année"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "Veuillez écrire tout commentaire relatif à la question ci-dessus dans ce "
-#~ "champ. Vous retrouverez ces commentaires à l'étape plan d'action."
-
-#~ msgid "Regions"
-#~ msgstr "Régions"
-
-#~ msgid "Potential Candidate Countries"
-#~ msgstr "Pays candidat potentiel"
-
-#~ msgid "help_add_version"
-#~ msgstr "Créer un double de l’enquête sélectionnée "
-
-#~ msgid "help_publish"
-#~ msgstr ""
-#~ "Publier l’enquête sélectionnée en direct avec les toutes dernières "
-#~ "modifications. \t"
-
-#~ msgid "title_help_unpublished"
-#~ msgstr "Supprimer cet outil OiRA des clients en ligne."
-
-#~ msgid "help_create_new_version"
-#~ msgstr ""
-#~ "Commencez à écrire une nouvelle enquête. Il vous sera demandé si vous "
-#~ "souhaitez\n"
-#~ "commencer avec une copie d’une enquête existante.\t"
 
 #~ msgid "reminder_email_footer"
 #~ msgstr "Par défaut :"

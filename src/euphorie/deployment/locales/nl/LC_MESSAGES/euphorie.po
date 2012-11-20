@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-11-19 10:00+0100\n"
+"POT-Creation-Date: 2012-11-20 16:58+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -443,13 +443,17 @@ msgid "label_action_plan_end"
 msgstr "Eind datum"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:843 src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:843
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Plan van aanpak"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:847 src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:847
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr "Preventie plan"
 
@@ -2119,6 +2123,12 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr "Vul het budget in hele Euros in."
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+msgid "label_day"
+msgstr "Dag"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2131,11 +2141,26 @@ msgstr "Ongeldige dag"
 msgid "label_month"
 msgstr "Maand"
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+msgid "label_year"
+msgstr "Jaar"
+
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr "Vul een geldig jaartal na 1900 in"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_evaluation.pt:125
+msgid "label_comment"
+msgstr ""
+"Vul hier eventuele opmerkingen in die moeten worden meegenomen in het "
+"rapport."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -3675,6 +3700,7 @@ msgid "header_regions"
 msgstr "Regios"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "EU lidstaten"
 
@@ -3683,6 +3709,7 @@ msgid "EFTA Countries"
 msgstr "EFTA landen"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Kandidaat lden"
 
@@ -4092,15 +4119,38 @@ msgstr "Toon oudere versies"
 msgid "text_toggle_navtree"
 msgstr "Toggle"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr "Regio's"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr "Potentiële kandidaat EFTA landen"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Versies"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+msgid "help_add_version"
+msgstr "Begin een nieuwe versie van de geselecteerde RI&E"
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Nieuwe versie"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+msgid "help_publish"
+msgstr "Publiceer de geselecteerde R&IE met alle laatste wijzigingen."
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+msgid "title_help_unpublished"
+msgstr "Verwijder deze RI&E uit de client."
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4123,6 +4173,14 @@ msgstr "Huidig / Gepubliceerd"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Gepubliceerd"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+msgid "help_create_new_version"
+msgstr ""
+"Maken van een nieuwe RI&E. U kunt beginnen met een lege RI&E of met een "
+"kopie van een bestaande RI&E."
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4156,27 +4214,3 @@ msgid "legend_updated"
 msgstr ""
 "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
 "Publiceer om deze zichtbaar te maken voor de invuller (client)."
-
-#, fuzzy
-#~ msgid "Regions"
-#~ msgstr "Regio"
-
-#, fuzzy
-#~ msgid "Potential Candidate Countries"
-#~ msgstr "Potentiële kandidaat EFTA landen"
-
-#, fuzzy
-#~ msgid "help_add_version"
-#~ msgstr "RI&E's"
-
-#, fuzzy
-#~ msgid "help_publish"
-#~ msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
-
-#, fuzzy
-#~ msgid "title_help_unpublished"
-#~ msgstr "De-publiceer \"${title}\""
-
-#, fuzzy
-#~ msgid "help_create_new_version"
-#~ msgstr "RI&E's"

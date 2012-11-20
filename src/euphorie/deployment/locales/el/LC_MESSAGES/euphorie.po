@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-11-19 10:00+0100\n"
+"POT-Creation-Date: 2012-11-20 16:58+0100\n"
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -444,13 +444,17 @@ msgid "label_action_plan_end"
 msgstr "Τέλος σχεδιασμού"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:843 src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:843
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Σχέδιο δράσης"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:847 src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:847
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr "Σχέδιο πρόληψης"
 
@@ -2238,6 +2242,12 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr "Παρακαλώ εισάγετε τον προϋπολογισμό σε ακέραια ευρώ."
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+msgid "label_day"
+msgstr "Ημέρα"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2250,11 +2260,26 @@ msgstr "Μη αποδεκτή ημέρα"
 msgid "label_month"
 msgstr "Μήνας"
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+msgid "label_year"
+msgstr "Έτος"
+
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr "Παρακαλώ εισάγετε ένα αποδεκτό έτος μετά το 1900"
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_evaluation.pt:125
+msgid "label_comment"
+msgstr ""
+"Αφήστε τυχόν σχόλια που μπορεί να έχετε σχετικά με την ερώτηση σε αυτό το "
+"πεδίο. Αυτά τα σχόλια θα χρησιμοποιηθούνσ το σχέδιο δράσης."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -3809,6 +3834,7 @@ msgid "header_regions"
 msgstr "Περιφέρειες"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "Κράτη μέλη ΕΕ"
 
@@ -3817,6 +3843,7 @@ msgid "EFTA Countries"
 msgstr "Χώρες ΕΖΕΣ"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Υποψήφιες χώρες "
 
@@ -4230,15 +4257,38 @@ msgstr "Εμφάνιση παλαιότερων εκδόσεων"
 msgid "text_toggle_navtree"
 msgstr "Εναλλαγή"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+msgid "Regions"
+msgstr "Περιφέρειες"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+msgid "Potential Candidate Countries"
+msgstr "Πιθανές υποψήφιες χώρες"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+msgid "help_add_version"
+msgstr "Δημιουργήστε ένα αντίγραφο της επιλεγμένης έρευνας"
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Αντίγραφο"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+msgid "help_publish"
+msgstr "Δημοσιεύστε την επιλεγμένη έρευνα με τις τελευταίες αλλαγές."
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+msgid "title_help_unpublished"
+msgstr "Αφαιρέστε αυτή την έρευνα από τον online πελάτη."
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4261,6 +4311,14 @@ msgstr "Τρέχουσα / Δημοσιευμένη"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Ενημερώθηκε"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+msgid "help_create_new_version"
+msgstr ""
+"Αρχίστε να συντάσσετε μια νέα έρευνα. Θα ερωτηθείτε εάν θέλετε να αρχίσετε "
+"με ένα αντίγραφο μιας υπάρχουσας έρευνας."
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4296,17 +4354,6 @@ msgstr ""
 "συγκεκριμένη στιγμή. Κάντε κλικ στο εικονίδιο ενημέρωσης για να εμφανιστούν "
 "όλες οι αλλαγές"
 
-#~ msgid "label_day"
-#~ msgstr "Ημέρα"
-
-#~ msgid "label_year"
-#~ msgstr "Έτος"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "Αφήστε τυχόν σχόλια που μπορεί να έχετε σχετικά με την ερώτηση σε αυτό το "
-#~ "πεδίο. Αυτά τα σχόλια θα χρησιμοποιηθούνσ το σχέδιο δράσης."
-
 #~ msgid "conditions_info_not_personal"
 #~ msgstr ""
 #~ "Σε κάθε περίπτωση, δεν χρησιμοποιούνται προσωπικά δεδομένα για την "
@@ -4325,23 +4372,3 @@ msgstr ""
 
 #~ msgid "reminder_email_footer"
 #~ msgstr "υπενθύμιση_email_υποσέλιδο"
-
-#~ msgid "Potential Candidate Countries"
-#~ msgstr "Πιθανές υποψήφιες χώρες"
-
-#~ msgid "Regions"
-#~ msgstr "Περιφέρειες"
-
-#~ msgid "help_create_new_version"
-#~ msgstr ""
-#~ "Αρχίστε να συντάσσετε μια νέα έρευνα. Θα ερωτηθείτε εάν θέλετε να "
-#~ "αρχίσετε με ένα αντίγραφο μιας υπάρχουσας έρευνας."
-
-#~ msgid "title_help_unpublished"
-#~ msgstr "Αφαιρέστε αυτή την έρευνα από τον online πελάτη."
-
-#~ msgid "help_publish"
-#~ msgstr "Δημοσιεύστε την επιλεγμένη έρευνα με τις τελευταίες αλλαγές."
-
-#~ msgid "help_add_version"
-#~ msgstr "Δημιουργήστε ένα αντίγραφο της επιλεγμένης έρευνας"

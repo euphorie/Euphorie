@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2012-11-19 10:00+0100\n"
+"POT-Creation-Date: 2012-11-20 16:58+0100\n"
 "PO-Revision-Date: 2012-02-29 21:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -426,13 +426,17 @@ msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:843 src/euphorie/content/solution.py:29
+#: src/euphorie/client/report.py:843
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:29
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:847 src/euphorie/content/solution.py:37
+#: src/euphorie/client/report.py:847
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:37
 msgid "label_measure_prevention_plan"
 msgstr ""
 
@@ -2134,6 +2138,13 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr ""
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+#, fuzzy
+msgid "label_day"
+msgstr "Съдържание на страница"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2146,11 +2157,26 @@ msgstr ""
 msgid "label_month"
 msgstr ""
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+#, fuzzy
+msgid "label_year"
+msgstr "Съдържание на страница"
+
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr ""
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_evaluation.pt:125
+#, fuzzy
+msgid "label_comment"
+msgstr "Страна"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -3618,6 +3644,7 @@ msgid "header_regions"
 msgstr ""
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:24
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
 msgstr "Страни-членки на ЕС"
 
@@ -3626,6 +3653,7 @@ msgid "EFTA Countries"
 msgstr "Страни от европейската асоциация за свободна търговия (EFTA)"
 
 #: src/euphorie/content/templates/sectorcontainer_view.pt:36
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
 msgstr "Страни-кандидати"
 
@@ -4034,15 +4062,43 @@ msgstr "Показване на по-стари версии"
 msgid "text_toggle_navtree"
 msgstr "Превключване"
 
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
+#, fuzzy
+msgid "Regions"
+msgstr "Регион"
+
+#: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
+#, fuzzy
+msgid "Potential Candidate Countries"
+msgstr "Потенциални кандидати за членство в EFTA"
+
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
 msgstr "Версии"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+#, fuzzy
+msgid "help_add_version"
+msgstr "Създаване на копие"
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Създаване на копие"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+#, fuzzy
+msgid "help_publish"
+msgstr "Публикуван"
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+#, fuzzy
+msgid "title_help_unpublished"
+msgstr "Премахване на публикация \"${title}"
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4065,6 +4121,13 @@ msgstr "Текущ / Публикуван"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Актуализиран"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+#, fuzzy
+msgid "help_create_new_version"
+msgstr "Оценяване"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
