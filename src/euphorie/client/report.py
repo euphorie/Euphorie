@@ -182,6 +182,14 @@ def createSection(document, survey, survey_session, request):
     return section
 
 
+def add_risk_presence_footnote(document, section, request):
+    t = lambda txt: translate(txt, context=request)
+    footer = t(_("report_survey_footer_risk_present",
+        default=u"Risks marked with [*] are present."))
+    footer = Paragraph(document.StyleSheet.ParagraphStyles.Footer, footer)
+    section.Footer.append(footer)
+
+
 class ReportView(grok.View):
     """Intro page for report phase.
 
@@ -339,6 +347,7 @@ class IdentificationReportDownload(grok.View):
         t = lambda txt: translate(txt, context=self.request)
         section = createSection(document, self.context, self.session,
                 self.request)
+        add_risk_presence_footnote(document, section, self.request)
 
         normal_style = document.StyleSheet.ParagraphStyles.Normal
         warning_style = document.StyleSheet.ParagraphStyles.Warning
@@ -599,6 +608,7 @@ class ActionPlanReportDownload(grok.View):
         t = lambda txt: translate(txt, context=self.request)
         section = createSection(document, self.context, self.session,
                 self.request)
+        add_risk_presence_footnote(document, section, self.request)
 
         section.append(Paragraph(
             document.StyleSheet.ParagraphStyles.Heading1,
