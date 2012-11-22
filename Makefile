@@ -36,7 +36,7 @@ TARGETS		= $(CSS_TARGETS) $(JS_TARGETS) $(MO_FILES)
 
 all: ${TARGETS}
 
-clean:
+clean::
 	-rm ${TARGETS}
 
 bin/buildout: bootstrap.py
@@ -55,6 +55,12 @@ jenkins: bin/test bin/sphinx-build ${MO_FILES}
 
 $(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${EXTRAS} $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
+
+docs:: bin/sphinx-build
+	make -C docs html
+
+clean::
+	rm -rf docs/.build
 
 pot: bin/buildout
 	bin/pybabel extract -F babel.cfg \
@@ -76,6 +82,6 @@ $(PLONE_PO_FILES): src/euphorie/deployment/locales/plone.pot
 .po.mo:
 	msgfmt -c --statistics -o $@~ $< && mv $@~ $@
 
-.PHONY: all clean jenkins pot
+.PHONY: all clean docs jenkins pot
 .SUFFIXES:
 .SUFFIXES: .po .mo .css .min.css

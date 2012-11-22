@@ -19,13 +19,24 @@
 # make it absolute, like shown here.
 #sys.path.append(os.path.abspath('some/directory'))
 
+import os
+import re
+
+
+def get_version():
+    setup_py = os.path.join(os.path.dirname(__file__), os.pardir, 'setup.py')
+    setup = open(setup_py).read()
+    release = re.search(r'version\s*=\s*([\'"])(.*)\1', setup).group(2)
+    version = re.match(r'[0-9]+(.[0-9+])', release).group(0)
+    return (version, release)
+
 
 # General configuration
 # ---------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = [ 'sphinx.ext.autodoc', 'sphinx.ext.todo']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo']
 #               'repoze.sphinx.autointerface' ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -44,10 +55,7 @@ copyright = '2009-2012, Simplon B.V. and SYSLAB.com GmbH'
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
 #
-# The short X.Y version.
-version = '3.2'
-# The full version, including alpha/beta/rc tags.
-release = '3.2'
+(version, release) = get_version()
 
 # There are two options for replacing |today|: either, you set today to
 # some non-false value, then it is used:
@@ -200,4 +208,3 @@ latex_logo = '.static/logo.png'
 # Options for extras
 # ------------------
 todo_include_todos = True
-
