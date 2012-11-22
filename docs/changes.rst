@@ -1,7 +1,7 @@
 Changelog
 =========
 
-5.0 - Unreleased
+5.0 - November 22, 2012
 -----------------------
 
 Feature changes

@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '5.0dev'
+version = '5.0'
 
 setup(name="Euphorie",
       version=version,
@@ -26,7 +26,7 @@ setup(name="Euphorie",
       package_dir={'': 'src'},
       namespace_packages=[],
       paster_plugins=["Babel"],
-      message_extractors = {"src": [
+      message_extractors={"src": [
             ("euphorie/**.py",    "lingua_python", None),
             ("euphorie/**.pt",    "lingua_xml", None),
             ("euphorie/**.xml",   "lingua_xml", None),
@@ -77,19 +77,19 @@ setup(name="Euphorie",
           "collective.zrtresource",
           "openpyxl",
       ],
-      tests_require = [
+      tests_require=[
           "collective.testcaselayer",
           "Products.PloneTestCase >=0.9.9",
           'mock',
           ],
-      extras_require = {
-        "sphinx": [ "Sphinx >=1.0",
-                    "repoze.sphinx.autointerface",
+      extras_require={
+        "sphinx": ["Sphinx >=1.0",
+                   "repoze.sphinx.autointerface",
                   ],
-        "tests" : [ "collective.testcaselayer",
-                    "Products.PloneTestCase >=0.9.9",
-                    "mock",
-                  ],
+        "tests": ["collective.testcaselayer",
+                  "Products.PloneTestCase >=0.9.9",
+                  "mock",
+                 ],
       },
       entry_points="""
       [z3c.autoinclude]
