@@ -21,7 +21,9 @@ from plone.indexer import indexer
 
 grok.templatedir("templates")
 
-TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget", klass="span-7")
+TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget",
+        klass="span-7")
+
 
 class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     """Survey Profile question.
@@ -32,34 +34,38 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     form.widget(title="euphorie.content.profilequestion.TextSpan7")
 
     question = schema.TextLine(
-            title = _("label_profilequestion_question", default=u"Question"),
-            description = _("help_profilequestion_question",
+            title=_("label_profilequestion_question", default=u"Question"),
+            description=_("help_profilequestion_question",
                 default=u"If this is to be an \"optional\" profile question, "
-                        u"it must be formulated as a question and be answerable "
-                        u"with YES or NO. If this is to be a \"repeatable\" profile "
-                        u"question (statement), it must be formulated as a prompt "
-                        u"to fill in multiple values."),
-            required = True)
+                        u"it must be formulated as a question and be "
+                        u"answerable with YES or NO. If this is to be a "
+                        u"\"repeatable\" profile question (statement), it "
+                        u"must be formulated as a prompt to fill in multiple "
+                        u"values."),
+            required=True)
     form.widget(question="euphorie.content.profilequestion.TextSpan7")
     form.order_after(question="title")
 
     description = HtmlText(
-            title = _("label_module_description", u"Description"),
-            description = _("help_module_description",
+            title=_("label_module_description", u"Description"),
+            description=_("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."))
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="question")
 
     type = schema.Choice(
-            title = _("label_profile_type", default=u"Type"),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(u"optional", title=_("profile_optional", default=u"Optional")),
-                            SimpleTerm(u"repeat", title=_("profile_repeat", default=u"Repeatable")),
-                            ]),
-            default = u"optional",
-            required = True)
-
+            title=_("label_profile_type", default=u"Type"),
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(
+                    u"optional",
+                    title=_("profile_optional", default=u"Optional")),
+                SimpleTerm(
+                    u"repeat",
+                    title=_("profile_repeat", default=u"Repeatable")),
+                ]),
+            default=u"optional",
+            required=True)
 
 
 class ProfileQuestion(dexterity.Container):
@@ -70,12 +76,10 @@ class ProfileQuestion(dexterity.Container):
     image = None
 
 
-
 @indexer(IProfileQuestion)
 def SearchableTextIndexer(obj):
     return " ".join([obj.title,
                      StripMarkup(obj.description)])
-
 
 
 class View(grok.View):
@@ -86,14 +90,15 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def _morph(self, child):
-        state=getMultiAdapter((child, self.request), name="plone_context_state")
-        return dict(id=child.id,
-                    title=child.title,
-                    url=state.view_url())
+        state = getMultiAdapter((child, self.request),
+                name="plone_context_state")
+        return {'id': child.id,
+                'title': child.title,
+                'url': state.view_url()}
 
     def update(self):
-        self.modules=[self._morph(child) for child in self.context.values()
-                      if IModule.providedBy(child)]
-        self.risks=[self._morph(child) for child in self.context.values()
-                    if IRisk.providedBy(child)]
-
+        self.modules = [self._morph(child)
+                        for child in self.context.values()
+                        if IModule.providedBy(child)]
+        self.risks = [self._morph(child) for child in self.context.values()
+                      if IRisk.providedBy(child)]
