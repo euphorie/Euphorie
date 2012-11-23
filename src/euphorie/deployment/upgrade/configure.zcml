@@ -193,5 +193,17 @@
 
   </genericsetup:upgradeSteps>
 
-</configure>
+  <genericsetup:upgradeSteps
+    source="12"
+    destination="13"
+    profile="euphorie.deployment:default"
+    >
 
+    <genericsetup:upgradeStep
+      title="Convert optional profile questions"
+      description="Convert all optional profile questions to optional modules."
+      handler=".v6.convert_optional_profiles"/>
+
+  </genericsetup:upgradeSteps>
+
+</configure>
