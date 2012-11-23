@@ -63,8 +63,7 @@ class ExportSurvey(grok.View):
                 self.exportModule(node, child)
 
     def exportProfileQuestion(self, parent, profile):
-        node = etree.SubElement(parent, "profile-question",
-                type=getToken(IProfileQuestion["type"], profile.type))
+        node = etree.SubElement(parent, "profile-question")
         if getattr(profile, "external_id", None):
             node.attrib["external-id"] = profile.external_id
         etree.SubElement(node, "title").text = profile.title

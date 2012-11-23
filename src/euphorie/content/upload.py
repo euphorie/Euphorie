@@ -226,9 +226,14 @@ class SurveyImporter(object):
             module.caption = caption
 
     def ImportProfileQuestion(self, node, survey):
-        profile = createContentInContainer(survey, "euphorie.profilequestion",
-                                        title=unicode(node.title))
-        profile.type = node.get("type")
+        type = node.get("type")
+        if type == 'optional':
+            profile = createContentInContainer(survey, "euphorie.module",
+                                            title=unicode(node.title))
+            profile.optional = True
+        else:
+            profile = createContentInContainer(survey,
+                    "euphorie.profilequestion", title=unicode(node.title))
         profile.description = el_unicode(node, 'description')
         profile.question = unicode(node.question)
         profile.external_id = attr_unicode(node, "external-id")
