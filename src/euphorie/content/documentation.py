@@ -11,11 +11,9 @@ class IDocumentationFolder(form.Schema, IBasic):
     """
 
 
-
 class View(grok.View):
     grok.context(IDocumentationFolder)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
     grok.template("documentation_view")
     grok.name("nuplone-view")
-

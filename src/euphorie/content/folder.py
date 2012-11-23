@@ -10,11 +10,9 @@ class IFolder(form.Schema, IBasic):
     pass
 
 
-
 class View(grok.View):
     grok.context(IFolder)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
     grok.template("folder_view")
-

@@ -11,7 +11,9 @@ class IConstructionFilter(Interface):
     """
 
     def __init__(fti, container):
-        """Adapt on the FTI of the object being created and the target container"""
+        """Adapt on the FTI of the object being created and the target
+        container.
+        """
 
     def allowed():
         """Check if construction is allowed."""
@@ -28,13 +30,13 @@ class ConditionalDexterityFTI(DexterityFTI):
     adapter.
     """
     def isConstructionAllowed(self, container):
-        if not super(ConditionalDexterityFTI, self).isConstructionAllowed(container):
+        if not super(ConditionalDexterityFTI, self)\
+                .isConstructionAllowed(container):
             return False
 
-        filter=queryMultiAdapter((self, container), IConstructionFilter, self.getId())
+        filter = queryMultiAdapter((self, container), IConstructionFilter,
+                self.getId())
         if filter is not None:
             return filter.allowed()
 
         return True
-
-

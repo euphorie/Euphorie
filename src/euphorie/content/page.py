@@ -16,20 +16,18 @@ class IPage(form.Schema, IRichDescription, IBasic):
     """A basic page.
     """
     description = HtmlText(
-            title = _("label_module_description", u"Description"),
-            description = _("help_module_description",
+            title=_("label_module_description", u"Description"),
+            description=_("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
-            required = True)
+            required=True)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 
-
     body = HtmlText(
-            title = _("label_body", u"Page content"),
-            required = True)
+            title=_("label_body", u"Page content"),
+            required=True)
     form.widget(body=WysiwygFieldWidget)
-
 
 
 @indexer(IPage)
@@ -45,4 +43,3 @@ class View(grok.View):
     grok.layer(NuPloneSkin)
     grok.template("page_view")
     grok.name("nuplone-view")
-

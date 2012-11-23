@@ -11,13 +11,14 @@ REGION_NAMES = {
         "eu": _(u"European Union"),
         }
 
+
 def getSurvey(context):
     from euphorie.content.surveygroup import ISurveyGroup
     from euphorie.content.survey import ISurvey
     obj = context
     while obj and not ISurveyGroup.providedBy(obj):
         if ISurvey.providedBy(obj):
-            return obj 
+            return obj
         obj = aq_parent(obj)
 
 
@@ -31,7 +32,7 @@ def StripMarkup(markup):
 
 def getTermTitleByValue(field, token):
     try:
-        term=field.vocabulary.getTerm(token)
+        term = field.vocabulary.getTerm(token)
     except LookupError:
         return token
 
@@ -43,7 +44,7 @@ def getTermTitleByValue(field, token):
 
 def getTermTitleByToken(field, token):
     try:
-        term=field.vocabulary.getTermByToken(str(token))
+        term = field.vocabulary.getTermByToken(str(token))
     except LookupError:
         return token
 
@@ -54,18 +55,19 @@ def getTermTitleByToken(field, token):
 
 
 def getRegionTitle(request, id, default=None):
-    names=request.locale.displayNames.territories
-    getters=[REGION_NAMES.get, names.get]
+    names = request.locale.displayNames.territories
+    getters = [REGION_NAMES.get, names.get]
     for getter in getters:
-        title=getter(id.upper())
+        title = getter(id.upper())
         if title is not None:
             return title
     return default if default is not None else id
 
 
-def summarizeCountries(container, request, current_country=None, permission=None):
+def summarizeCountries(container, request, current_country=None,
+        permission=None):
     from euphorie.content.country import ICountry
-    result={}
+    result = {}
     for country in container.values():
         if not ICountry.providedBy(country):
             continue
@@ -73,12 +75,13 @@ def summarizeCountries(container, request, current_country=None, permission=None
         if permission and not checkPermission(country, permission):
             continue
 
-        country_type=getattr(country, "country_type", "eu-member")
-        countries=result.setdefault(country_type, [])
-        countries.append({ "id": country.id,
-                           "title": getRegionTitle(request, country.id, country.title),
-                           "url" : country.absolute_url(),
-                           "current": (current_country==country.id),
+        country_type = getattr(country, "country_type", "eu-member")
+        countries = result.setdefault(country_type, [])
+        countries.append({"id": country.id,
+                          "title": getRegionTitle(request, country.id,
+                                      country.title),
+                          "url": country.absolute_url(),
+                          "current": (current_country == country.id),
                           })
     for ct in result.values():
         ct.sort(key=lambda c: c["title"])

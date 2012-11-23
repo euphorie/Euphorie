@@ -32,9 +32,8 @@ class Colour(schema.BytesLine):
     def fromUnicode(self, u):
         v = str(u)
         if not v.startswith("#"):
-            v="#%s" % v
+            v = "#%s" % v
 
         self.validate(v)
 
         return v
-

@@ -13,21 +13,22 @@ from euphorie.content import MessageFactory as _
 
 grok.templatedir("templates")
 
+
 class ICountry(form.Schema, IBasic):
     """Country grouping in the online client.
     """
 
     country_type = schema.Choice(
-            title = _("Country grouping"),
-            vocabulary = SimpleVocabulary([
+            title=_("Country grouping"),
+            vocabulary=SimpleVocabulary([
                 SimpleTerm(u"region", title=_("Region")),
                 SimpleTerm(u"eu-member", title=_(u"EU member state")),
                 SimpleTerm(u"efta", title=_(u"EFTA country")),
                 SimpleTerm(u"candidate-eu", title=_(u"Candidate country")),
-                SimpleTerm(u"potential-candidate-eu", title=_(u"Potential candidate country")),
+                SimpleTerm(u"potential-candidate-eu",
+                    title=_(u"Potential candidate country")),
                 ]),
             required=True)
-
 
 
 class Country(dexterity.Container):
@@ -39,7 +40,6 @@ class Country(dexterity.Container):
         return False
 
 
-
 class View(grok.View):
     grok.context(ICountry)
     grok.require("zope2.View")
@@ -49,13 +49,13 @@ class View(grok.View):
 
     def update(self):
         super(View, self).update()
-        names=self.request.locale.displayNames.territories
-        self.title=names.get(self.context.id.upper(), self.context.title)
-        self.sectors=[dict(id=sector.id,
-                           title=sector.title,
-                           url=sector.absolute_url())
-                      for sector in self.context.values()
-                      if ISector.providedBy(sector)]
+        names = self.request.locale.displayNames.territories
+        self.title = names.get(self.context.id.upper(), self.context.title)
+        self.sectors = [{'id': sector.id,
+                         'title': sector.title,
+                         'url': sector.absolute_url()}
+                         for sector in self.context.values()
+                         if ISector.providedBy(sector)]
         try:
             self.sectors.sort(key=lambda s: s["title"].lower())
         except UnicodeDecodeError:
@@ -72,25 +72,24 @@ class ManageUsers(grok.View):
     def update(self):
         from euphorie.content.countrymanager import ICountryManager
         super(ManageUsers, self).update()
-        names=self.request.locale.displayNames.territories
-        country=aq_inner(self.context)
-        self.title=names.get(country.id.upper(), country.title)
-        self.sectors=[dict(id=sector.id,
-                           login=sector.login,
-                           password=sector.password,
-                           title=sector.title,
-                           url=sector.absolute_url(),
-                           locked=sector.locked)
-                      for sector in country.values()
-                      if ISector.providedBy(sector)]
+        names = self.request.locale.displayNames.territories
+        country = aq_inner(self.context)
+        self.title = names.get(country.id.upper(), country.title)
+        self.sectors = [{'id': sector.id,
+                         'login': sector.login,
+                         'password': sector.password,
+                         'title': sector.title,
+                         'url': sector.absolute_url(),
+                         'locked': sector.locked)
+                        for sector in country.values()
+                        if ISector.providedBy(sector)]
         self.sectors.sort(key=lambda s: s["title"].lower())
 
-        self.managers=[dict(id=manager.id,
-                           login=manager.login,
-                           title=manager.title,
-                           url=manager.absolute_url(),
-                           locked=manager.locked)
-                      for manager in country.values()
-                      if ICountryManager.providedBy(manager)]
+        self.managers = [{'id': manager.id,
+                          'login': manager.login,
+                          'title': manager.title,
+                          'url': manager.absolute_url(),
+                          'locked': manager.locked)
+                         for manager in country.values()
+                         if ICountryManager.providedBy(manager)]
         self.managers.sort(key=lambda s: s["title"].lower())
-

@@ -35,7 +35,8 @@ from plone.indexer import indexer
 grok.templatedir("templates")
 
 
-TextLines4Rows = FieldWidgetFactory("z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
+TextLines4Rows = FieldWidgetFactory(
+        "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
 
 
 class IRisk(form.Schema, IRichDescription, IBasic):
@@ -43,33 +44,34 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     """
 
     title = schema.TextLine(
-            title = _("label_statement", default=u"Statement"),
-            description = _("help_statement",
+            title=_("label_statement", default=u"Statement"),
+            description=_("help_statement",
                 default=u"This is a short statement about a possible risk."),
-            required = True)
+            required=True)
     form.order_before(title="*")
 
     problem_description = schema.TextLine(
-            title = _("label_problem_description",
+            title=_("label_problem_description",
                     default=u"Inversed statement"),
-            description = _("help_problem_description",
+            description=_("help_problem_description",
                     default=u"This is the inverse of the statement: a "
                             u"short description of current (bad) situation."),
-            required = True)
+            required=True)
     form.widget(problem_description="euphorie.content.risk.TextLines4Rows")
     form.order_after(problem_description="title")
 
     description = HtmlText(
-            title = _("label_description", default=u"Description"),
-            description = _("help_risk_description",
+            title=_("label_description", default=u"Description"),
+            description=_("help_risk_description",
                 default=u"Describe the risk. Include any relevant "
                         u"information that may be helpful for users."),
-            required = True)
+            required=True)
     form.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(description="problem_description")
 
     legal_reference = HtmlText(
-            title = _("label_legal_reference", default=u"Legal and policy references"),
+            title=_("label_legal_reference",
+                default=u"Legal and policy references"),
             required=False)
     form.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(legal_reference="description")
@@ -79,214 +81,251 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             fields=["show_notapplicable"])
 
     show_notapplicable = schema.Bool(
-            title = _("label_show_notapplicable",
+            title=_("label_show_notapplicable",
                 default=u"Show `not applicable' option"),
-            description = _("help_show_notapplicable",
+            description=_("help_show_notapplicable",
                 default=u"Offer a `not applicable' option in addition "
                         u"to the standard yes/no options."),
-            default = False)
+            default=False)
 
     type = schema.Choice(
-            title = _("label_risk_type", default=u"Risk type"),
-            description = _("help_risk_type",
+            title=_("label_risk_type", default=u"Risk type"),
+            description=_("help_risk_type",
                 default=u"'Risk' is related to the workplace. 'Policy' is "
                         u"related to agreements, procedures and management "
                         u"decisions. It can be answered from behind a desk "
                         u"(no need to examine the workplace). 'Top 5' is one "
                         "of the top five risks of the sector."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(u"top5", title=_("risktype_top5", default=u"Top 5")),
-                            SimpleTerm(u"risk", title=_("risktype_risk", default="Risk")),
-                            SimpleTerm(u"policy", title=_("risktype_policy", default=u"Policy")),
+            vocabulary=SimpleVocabulary([
+                            SimpleTerm(u"top5",
+                                title=_("risktype_top5", default=u"Top 5")),
+                            SimpleTerm(u"risk",
+                                title=_("risktype_risk", default="Risk")),
+                            SimpleTerm(u"policy",
+                                title=_("risktype_policy", default=u"Policy")),
                             ]),
-            default = u"risk",
-            required = True)
+            default=u"risk",
+            required=True)
 
     depends("evaluation_method", "type", "==", "risk")
     evaluation_method = schema.Choice(
-            title = _("label_evaluation_method", default=u"Evaluation method"),
-            description = _("help_evaluation_method",
+            title=_("label_evaluation_method", default=u"Evaluation method"),
+            description=_("help_evaluation_method",
                 default=u"Select 'estimated' if calcuation is not necessary "
                         u"or not possible."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(u"direct", title=_("evalmethod_direct", default=u"Estimated")),
-                            SimpleTerm(u"calculated", title=_("evalmethod_calculated", default=u"Calculated")),
-                            ]),
-            default = u"calculated",
-            required = False)
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(u"direct",
+                    title=_("evalmethod_direct", default=u"Estimated")),
+                SimpleTerm(u"calculated",
+                    title=_("evalmethod_calculated", default=u"Calculated")),
+            ]),
+            default=u"calculated",
+            required=False)
 
     depends("default_priority", "type", "==", "risk")
     depends("default_priority", "evaluation_method", "==", "direct")
     default_priority = schema.Choice(
-            title = _("label_default_priority", default=u"Default priority"),
-            description = _("help_default_priority",
+            title=_("label_default_priority", default=u"Default priority"),
+            description=_("help_default_priority",
                 default=u"You can help the user by selecting a default "
                         u"priority. The user can still change the priority."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm("none", title=_("no_default", default=u"No default")),
-                            SimpleTerm("low", title=_("priority_low", default=u"Low")),
-                            SimpleTerm("medium", title=_("priority_medium", default=u"Medium")),
-                            SimpleTerm("high", title=_("priority_high", default="High")),
-                            ]),
-            required = False,
-            default = "none")
+            vocabulary=SimpleVocabulary([
+                SimpleTerm("none",
+                    title=_("no_default", default=u"No default")),
+                SimpleTerm("low", title=_("priority_low", default=u"Low")),
+                SimpleTerm("medium",
+                    title=_("priority_medium", default=u"Medium")),
+                SimpleTerm("high", title=_("priority_high", default="High")),
+            ]),
+            required=False,
+            default="none")
 
     form.fieldset("main_image",
             label=_("header_main_image", default=u"Main image"),
             description=_("intro_main_image",
-                default=u"The main image will get a more prominent position in "
-                        u"the client than the other images."),
+                default=u"The main image will get a more prominent position "
+                        u"in the client than the other images."),
             fields=["image", "caption"])
 
     image = filefield.NamedBlobImage(
-            title = _("label_image", default=u"Image file"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
+            title=_("label_image", default=u"Image file"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special "
+                        u"characters."),
+            required=False)
     caption = schema.TextLine(
-            title = _("label_caption", default=u"Image caption"),
+            title=_("label_caption", default=u"Image caption"),
             required=False)
 
     form.fieldset("secondary_images",
             label=_("header_secondary_images", default=u"Secondary images"),
-            fields=["image2", "caption2", "image3", "caption3", "image4", "caption4" ])
+            fields=["image2", "caption2", "image3", "caption3",
+                    "image4", "caption4"])
 
     image2 = filefield.NamedBlobImage(
-            title = _("label_image", default=u"Image file"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
+            title=_("label_image", default=u"Image file"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special "
+                        u"characters."),
+            required=False)
     caption2 = schema.TextLine(
-            title = _("label_caption", default=u"Image caption"),
+            title=_("label_caption", default=u"Image caption"),
             required=False)
 
     image3 = filefield.NamedBlobImage(
-            title = _("label_image", default=u"Image file"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
+            title=_("label_image", default=u"Image file"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special "
+                        u"characters."),
+            required=False)
     caption3 = schema.TextLine(
-            title = _("label_caption", default=u"Image caption"),
+            title=_("label_caption", default=u"Image caption"),
             required=False)
 
     image4 = filefield.NamedBlobImage(
-            title = _("label_image", default=u"Image file"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
-    caption4 = schema.TextLine(
-            title = _("label_caption", default=u"Image caption"),
+            title=_("label_image", default=u"Image file"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special "
+                        u"characters."),
             required=False)
-
+    caption4 = schema.TextLine(
+            title=_("label_caption", default=u"Image caption"),
+            required=False)
 
 
 class IFrenchEvaluation(form.Schema):
     depends("default_severity", "type", "==", "risk")
     depends("default_severity", "evaluation_method", "==", "calculated")
     default_severity = schema.Choice(
-            title = _("label_default_severity", default=u"Default severity"),
-            description = _("help_default_severity",
+            title=_("label_default_severity", default=u"Default severity"),
+            description=_("help_default_severity",
                 default=u"Indicate the severity if this risk occurs."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "weak", title=_("severity_weak", default=u"Weak")),
-                            SimpleTerm(5, "not-severe", title=_("severity_not_severe", default=u"Not very severe")),
-                            SimpleTerm(7, "severe", title=_("severity_severe", default=u"Severe")),
-                            SimpleTerm(10, "very-severe", title=_("severity_very_severe", default=u"Very severe")),
-                            ]),
-            required = True,
-            default = 0)
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(0, "none",
+                    title=_("no default", default=u"No default")),
+                SimpleTerm(1, "weak",
+                    title=_("severity_weak", default=u"Weak")),
+                SimpleTerm(5, "not-severe",
+                    title=_("severity_not_severe",
+                        default=u"Not very severe")),
+                SimpleTerm(7, "severe",
+                    title=_("severity_severe", default=u"Severe")),
+                SimpleTerm(10, "very-severe",
+                    title=_("severity_very_severe", default=u"Very severe")),
+            ]),
+            required=True,
+            default=0)
 
     depends("default_frequency", "type", "==", "risk")
     depends("default_frequency", "evaluation_method", "==", "calculated")
     default_frequency = schema.Choice(
-            title = _("label_default_frequency", default=u"Default frequency"),
-            description = _("help_default_frequency",
+            title=_("label_default_frequency", default=u"Default frequency"),
+            description=_("help_default_frequency",
                 default=u"Indicate how often this risk occurs in a "
                         u"normal situation."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "rare", title=_("frequency_french_rare", default=u"Rare")),
-                            SimpleTerm(3, "not-often", title=_("frequency_french_not_often", default=u"Not very often")),
-                            SimpleTerm(7, "often", title=_("frequency_french_often", default=u"Often")),
-                            SimpleTerm(9, "regularly", title=_("frequency_french_regularly", default=u"Very often or regularly")),
-                            ]),
-            required = True,
-            default = 0)
-
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(0, "none",
+                    title=_("no default", default=u"No default")),
+                SimpleTerm(1, "rare",
+                    title=_("frequency_french_rare", default=u"Rare")),
+                SimpleTerm(3, "not-often",
+                    title=_("frequency_french_not_often",
+                        default=u"Not very often")),
+                SimpleTerm(7, "often",
+                    title=_("frequency_french_often", default=u"Often")),
+                SimpleTerm(9, "regularly",
+                    title=_("frequency_french_regularly",
+                        default=u"Very often or regularly")),
+                ]),
+            required=True,
+            default=0)
 
 
 class IKinneyEvaluation(form.Schema):
     depends("default_probability", "type", "==", "risk")
     depends("default_probability", "evaluation_method", "==", "calculated")
     default_probability = schema.Choice(
-            title = _("label_default_probability", default=u"Default probability"),
-            description = _("help_default_probability",
+            title=_("label_default_probability",
+                default=u"Default probability"),
+            description=_("help_default_probability",
                 default=u"Indicate how likely occurence of this risk "
                         u"is in a normal situation."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "small", title=_("probability_small", default=u"Small")),
-                            SimpleTerm(3, "medium", title=_("probability_medium", default=u"Medium")),
-                            SimpleTerm(5, "large", title=_("probability_large", default=u"Large")),
-                            ]),
-            required = False,
-            default = 0)
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(0, "none",
+                    title=_("no default", default=u"No default")),
+                SimpleTerm(1, "small",
+                    title=_("probability_small", default=u"Small")),
+                SimpleTerm(3, "medium",
+                    title=_("probability_medium", default=u"Medium")),
+                SimpleTerm(5, "large",
+                    title=_("probability_large", default=u"Large")),
+            ]),
+            required=False,
+            default=0)
 
     depends("default_frequency", "type", "==", "risk")
     depends("default_frequency", "evaluation_method", "==", "calculated")
     default_frequency = schema.Choice(
-            title = _("label_default_frequency", default=u"Default frequency"),
-            description = _("help_default_frequency",
+            title=_("label_default_frequency", default=u"Default frequency"),
+            description=_("help_default_frequency",
                 default=u"Indicate how often this risk occurs in a "
                         u"normal situation."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "almost-never", title=_("frequency_almostnever", default=u"Almost never")),
-                            SimpleTerm(4, "regular", title=_("frequency_regularly", default=u"Regularly")),
-                            SimpleTerm(7, "constant", title=_("frequency_constantly", default=u"Constantly")),
-                            ]),
-            required = False,
-            default = 0)
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(0, "none",
+                    title=_("no default", default=u"No default")),
+                SimpleTerm(1, "almost-never",
+                    title=_("frequency_almostnever", default=u"Almost never")),
+                SimpleTerm(4, "regular",
+                    title=_("frequency_regularly", default=u"Regularly")),
+                SimpleTerm(7, "constant",
+                    title=_("frequency_constantly", default=u"Constantly")),
+            ]),
+            required=False,
+            default=0)
 
     depends("default_effect", "type", "==", "risk")
     depends("default_effect", "evaluation_method", "==", "calculated")
     default_effect = schema.Choice(
-            title = _("label_default_severity", default=u"Default severity"),
-            description = _("help_default_severity",
+            title=_("label_default_severity", default=u"Default severity"),
+            description=_("help_default_severity",
                 default=u"Indicate the severity if this risk occurs."),
-            vocabulary = SimpleVocabulary([
-                            SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                            SimpleTerm(1, "weak", title=_("effect_weak", default=u"Weak severity")),
-                            SimpleTerm(5, "significant", title=_("effect_significant", default=u"Significant severity")),
-                            SimpleTerm(10, "high", title=_("effect_high", default=u"High (very high) severity")),
-                            ]),
-            required = False,
-            default = 0)
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(0, "none",
+                    title=_("no default", default=u"No default")),
+                SimpleTerm(1, "weak",
+                    title=_("effect_weak", default=u"Weak severity")),
+                SimpleTerm(5, "significant",
+                    title=_("effect_significant",
+                        default=u"Significant severity")),
+                SimpleTerm(10, "high",
+                    title=_("effect_high",
+                        default=u"High (very high) severity")),
+            ]),
+            required=False,
+            default=0)
 
 
 class IKinneyRisk(IRisk, IKinneyEvaluation):
     form.fieldset("evaluation",
             label=_("header_evaluation", default=u"Evaluation"),
-            description = _("intro_evaluation",
+            description=_("intro_evaluation",
                 default=u"You can specify how the risks priority is "
                         u"evaluated. For more details see the online "
                         u"manual."),
             fields=["type", "evaluation_method",
                     "default_priority",
-                    "default_probability", "default_frequency", "default_effect",
-                   ])
-
+                    "default_probability", "default_frequency",
+                    "default_effect"])
 
 
 class IFrenchRisk(IRisk, IFrenchEvaluation):
     form.fieldset("evaluation",
             label=_("header_evaluation", default=u"Evaluation"),
-            description = _("intro_evaluation",
+            description=_("intro_evaluation",
                 default=u"You can specify how the risks priority is "
                         u"evaluated. For more details see the online "
                         u"manual."),
@@ -321,7 +360,6 @@ class Risk(dexterity.Container):
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
         return evaluation_algorithm(self)
-
 
 
 def EnsureInterface(risk):
@@ -370,25 +408,37 @@ class View(grok.View):
 
     def update(self):
         super(View, self).update()
-        context=aq_inner(self.context)
-        self.module_title=aq_parent(context).title
+        context = aq_inner(self.context)
+        self.module_title = aq_parent(context).title
         self.evaluation_algorithm = evaluation_algorithm(context)
-        self.type=getTermTitleByValue(IRisk["type"], context.type)
-        self.evaluation_method=getTermTitleByValue(IRisk["evaluation_method"], context.evaluation_method)
-        self.default_priority=getTermTitleByValue(IKinneyRisk["default_priority"], context.default_priority)
-        if self.evaluation_algorithm==u"french":
-            self.default_severity=getTermTitleByValue(IFrenchEvaluation["default_severity"], context.default_severity)
-            self.default_frequency=getTermTitleByValue(IFrenchEvaluation["default_frequency"], context.default_frequency)
+        self.type = getTermTitleByValue(IRisk["type"], context.type)
+        self.evaluation_method = getTermTitleByValue(
+                IRisk["evaluation_method"], context.evaluation_method)
+        self.default_priority = getTermTitleByValue(
+                IKinneyRisk["default_priority"], context.default_priority)
+        if self.evaluation_algorithm == u"french":
+            self.default_severity = getTermTitleByValue(
+                    IFrenchEvaluation["default_severity"],
+                    context.default_severity)
+            self.default_frequency = getTermTitleByValue(
+                    IFrenchEvaluation["default_frequency"],
+                    context.default_frequency)
         else:
-            self.default_probability=getTermTitleByValue(IKinneyEvaluation["default_probability"], context.default_probability)
-            self.default_frequency=getTermTitleByValue(IKinneyEvaluation["default_frequency"], context.default_frequency)
-            self.default_effect=getTermTitleByValue(IKinneyEvaluation["default_effect"], context.default_effect)
+            self.default_probability = getTermTitleByValue(
+                    IKinneyEvaluation["default_probability"],
+                    context.default_probability)
+            self.default_frequency = getTermTitleByValue(
+                    IKinneyEvaluation["default_frequency"],
+                    context.default_frequency)
+            self.default_effect = getTermTitleByValue(
+                    IKinneyEvaluation["default_effect"],
+                    context.default_effect)
 
-        self.solutions=[dict(id=solution.id,
-                             url=solution.absolute_url(),
-                             description=solution.description)
-                        for solution in context.values()
-                        if ISolution.providedBy(solution)]
+        self.solutions = [{'id': solution.id,
+                            'url': solution.absolute_url(),
+                            'description': solution.description}
+                           for solution in context.values()
+                           if ISolution.providedBy(solution)]
 
 
 class Add(dexterity.AddForm):
@@ -408,7 +458,7 @@ class Add(dexterity.AddForm):
 
     @property
     def schema(self):
-        if self.evaluation_algorithm==u"french":
+        if self.evaluation_algorithm == u"french":
             return IFrenchRisk
         else:
             return IKinneyRisk
@@ -469,8 +519,6 @@ class Edit(form.SchemaEditForm):
         self.widgets["title"].addClass("span-7")
 
 
-
-
 class ConstructionFilter(grok.MultiAdapter):
     """FTI construction filter for :py:class:`Risk` objects. This filter
      prevents creating of modules if the current container already contains a
@@ -485,16 +533,16 @@ class ConstructionFilter(grok.MultiAdapter):
     grok.name("euphorie.risk")
 
     def __init__(self, fti, container):
-        self.fti=fti
-        self.container=container
+        self.fti = fti
+        self.container = container
 
     def checkForModules(self):
         """Check if the container already contains a module. If so refuse to
         allow creation of a risk.
         """
         for key in self.container:
-            pt=self.container[key].portal_type
-            if pt=="euphorie.module":
+            pt = self.container[key].portal_type
+            if pt == "euphorie.module":
                 return False
         else:
             return True

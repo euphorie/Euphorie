@@ -37,24 +37,28 @@ log = logging.getLogger(__name__)
 
 class ISurveyGroup(form.Schema, IBasic):
     title = schema.TextLine(
-            title = _("label_title", default=u"Title"),
-            description = _("help_surveygroup_title",
+            title=_("label_title", default=u"Title"),
+            description=_("help_surveygroup_title",
                 default=u"The title of this survey. This title is used in "
                         u"the survey overview in the clients."),
-            required = True)
+            required=True)
     form.order_before(title="*")
 
     form.omitted("description")
 
     form.omitted(IEditForm, 'evaluation_algorithm')
     evaluation_algorithm = schema.Choice(
-            title = _("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
-            vocabulary = SimpleVocabulary([
-                SimpleTerm(u"kinney", title=_("algorithm_kinney", default=u"Standard three criteria")),
-                SimpleTerm(u"french", title=_("french", default=u"Simplified two criteria")),
+            title=_("label_survey_evaluation_algorithm",
+                default=u"Evaluation algorithm"),
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(u"kinney",
+                    title=_("algorithm_kinney",
+                        default=u"Standard three criteria")),
+                SimpleTerm(u"french",
+                    title=_("french", default=u"Simplified two criteria")),
                 ]),
-            default = u"kinney",
-            required = True)
+            default=u"kinney",
+            required=True)
 
 
 class SurveyGroup(dexterity.Container):
@@ -69,7 +73,6 @@ class SurveyGroup(dexterity.Container):
         return False
 
 
-
 class View(grok.View):
     grok.context(ISurveyGroup)
     grok.require("zope2.View")
@@ -77,10 +80,8 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def render(self):
-        latest=aq_inner(self.context).values()[0]
+        latest = aq_inner(self.context).values()[0]
         self.request.response.redirect(latest.absolute_url())
-
-
 
 
 class AddForm(dexterity.AddForm):
@@ -105,47 +106,48 @@ class AddForm(dexterity.AddForm):
         site = getUtility(ISiteRoot)
         catalog = getToolByName(self.context, "portal_catalog")
         startPath = "%s/sectors" % "/".join(site.getPhysicalPath())
-        startPathDepth = startPath.count("/")+1
+        startPathDepth = startPath.count("/") + 1
         query = \
-            {"path" : dict( query=startPath,
-                            depth=4,
-                            navtree=True),
-               "portal_type" : [ "euphorie.country", 
-                                "euphorie.sector", 
-                                "euphorie.surveygroup", 
-                                "euphorie.survey" ],
-               "sort_on" : "path",
-               "sort_order" : "asc"}
+            {"path": {'query': startPath,
+                      'depth': 4,
+                    'navtree': True},
+             "portal_type": ["euphorie.country",
+                             "euphorie.sector",
+                             "euphorie.surveygroup",
+                             "euphorie.survey"],
+             "sort_on": "path",
+             "sort_order": "asc"}
         tree = {}
         for brain in catalog.searchResults(query):
             path = brain.getPath().split("/")[startPathDepth:]
             if brain.portal_type == "euphorie.country":
-                tree[brain.id] = dict(id=brain.id, 
-                                    title=brain.Title, 
-                                    path=brain.getPath(), 
+                tree[brain.id] = dict(id=brain.id,
+                                    title=brain.Title,
+                                    path=brain.getPath(),
                                     sectors={})
             elif brain.portal_type == "euphorie.sector":
                 country = tree[path[0]]
-                country["sectors"][brain.id] = dict(id=brain.id, 
-                                                    title=brain.Title, 
-                                                    path=brain.getPath(), 
+                country["sectors"][brain.id] = dict(id=brain.id,
+                                                    title=brain.Title,
+                                                    path=brain.getPath(),
                                                     groups={})
             elif brain.portal_type == "euphorie.surveygroup":
                 country = tree[path[0]]
                 sector = country["sectors"][path[1]]
-                sector["groups"][brain.id] = dict(id=brain.id, 
-                                                title=brain.Title, 
-                                                path=brain.getPath(), 
+                sector["groups"][brain.id] = dict(id=brain.id,
+                                                title=brain.Title,
+                                                path=brain.getPath(),
                                                 surveys={})
             elif brain.portal_type == "euphorie.survey":
                 country = tree[path[0]]
                 sector = country["sectors"][path[1]]
                 group = sector["groups"][path[2]]
-                group["surveys"][brain.id] = dict(id=brain.id, 
-                                                title=brain.Title, 
-                                                path=brain.getPath(), 
+                group["surveys"][brain.id] = dict(id=brain.id,
+                                                title=brain.Title,
+                                                path=brain.getPath(),
                                                 url=brain.getURL())
-        my_sector_path = tree[self.my_country]["sectors"][self.my_sector]["path"]
+        my_sector_path = tree[self.my_country]["sectors"][
+                self.my_sector]["path"]
         countries = sorted(tree.values(), key=lambda x: x["title"])
         self.my_group = None
         for country in countries:
@@ -160,7 +162,7 @@ class AddForm(dexterity.AddForm):
                     self.my_group = sector["groups"][0]["id"]
                 for group in groups:
                     group["surveys"] = sorted(
-                                        group["surveys"].values(), 
+                                        group["surveys"].values(),
                                         key=lambda x: x["title"]
                                         )
 
@@ -169,31 +171,31 @@ class AddForm(dexterity.AddForm):
         countries = [c for c in countries if c["sectors"]]
         return countries
 
-
     def copyTemplate(self, source, target):
-        target=self.context[target.id] # Acquisition-wrap
+        target = self.context[target.id]  # Acquisition-wrap
         try:
             source._notifyOfCopyTo(target, op=0)
         except ConflictError:
             raise
 
-        copy=source._getCopy(target)
+        copy = source._getCopy(target)
 
-        today=datetime.date.today()
-        title=self.request.locale.dates.getFormatter("date", length="long").format(datetime.date.today())
-        copy.id=today.isoformat()
-        copy.title=title
-        target.evaluation_algorithm=aq_parent(source).evaluation_algorithm
+        today = datetime.date.today()
+        title = self.request.locale.dates.getFormatter("date", length="long")\
+                .format(datetime.date.today())
+        copy.id = today.isoformat()
+        copy.title = title
+        target.evaluation_algorithm = aq_parent(source).evaluation_algorithm
         target._setObject(copy.id, copy)
 
         if hasattr(copy, "published"):
             delattr(copy, "published")
-        copy=target[copy.id] # Acquisition-wrap
+        copy = target[copy.id]  # Acquisition-wrap
         copy.wl_clearLocks()
         copy._postCopy(target, op=0)
 
-        wt=getToolByName(copy, "portal_workflow")
-        if wt.getInfoFor(copy, "review_state")=="published":
+        wt = getToolByName(copy, "portal_workflow")
+        if wt.getInfoFor(copy, "review_state") == "published":
             wt.doActionFor(copy, "retract")
 
         notify(ObjectClonedEvent(target[copy.id]))
@@ -205,7 +207,7 @@ class AddForm(dexterity.AddForm):
 
         form = self.request.form
         if form["source"] != "scratch":
-            sector=aq_inner(self.context)
+            sector = aq_inner(self.context)
             if form["source"] == "other":
                 country_id = form["country"]
                 country = aq_parent(aq_parent(sector))[country_id]
@@ -221,7 +223,7 @@ class AddForm(dexterity.AddForm):
             survey = self.copyTemplate(survey, obj)
             self.immediate_view = survey.absolute_url()
         else:
-            title=translate(
+            title = translate(
                         _("survey_default_title", default=u"Standard"),
                         context=self.request)
 
@@ -229,7 +231,7 @@ class AddForm(dexterity.AddForm):
             survey = createContentInContainer(
                             obj, "euphorie.survey", title=title)
 
-            self.immediate_view=survey.absolute_url()
+            self.immediate_view = survey.absolute_url()
         return obj
 
 
@@ -240,37 +242,37 @@ class Unpublish(grok.View):
     grok.template("unpublish")
 
     def unpublish(self):
-        context=aq_inner(self.context)
-        published_survey=context[context.published]
+        context = aq_inner(self.context)
+        published_survey = context[context.published]
 
-        wt=getToolByName(context, "portal_workflow")
-        if wt.getInfoFor(published_survey, "review_state")!="published":
-            log.warning("Trying to unpublish survey %s which is not marked as published", "/".join(published_survey.getPhysicalPath()))
+        wt = getToolByName(context, "portal_workflow")
+        if wt.getInfoFor(published_survey, "review_state") != "published":
+            log.warning("Trying to unpublish survey %s which is not marked as "
+                        "published",
+                        "/".join(published_survey.getPhysicalPath()))
         else:
             wt.doActionFor(published_survey, "retract")
         notify(SurveyUnpublishEvent(published_survey))
 
-
     def post(self):
-        action=self.request.form.get("action", "cancel")
-        flash=IStatusMessage(self.request).addStatusMessage
-
-        if action=="unpublish":
+        action = self.request.form.get("action", "cancel")
+        flash = IStatusMessage(self.request).addStatusMessage
+        if action == "unpublish":
             self.unpublish()
-            flash(_("message_unpublish_success", default=u"This survey is now no longer available in the client."), "success")
-
+            flash(_("message_unpublish_success",
+                default=u"This survey is now no longer available in "
+                        u"the client."), "success")
         else:
-            flash(_("message_unpublish_cancel", default=u"Cancelled unpublish action."), "notice")
+            flash(_("message_unpublish_cancel",
+                default=u"Cancelled unpublish action."), "notice")
 
-        context=aq_inner(self.context)
+        context = aq_inner(self.context)
         self.request.response.redirect(context.absolute_url())
-
 
     def update(self):
         super(Unpublish, self).update()
-        if self.request.method=="POST":
+        if self.request.method == "POST":
             self.post()
-        
 
 
 class VersionCommand(grok.View):
@@ -279,23 +281,22 @@ class VersionCommand(grok.View):
     grok.layer(NuPloneSkin)
     grok.name("version-command")
 
-
     def render(self):
-        surveygroup=aq_inner(self.context)
-        action=self.request.form.get("action")
-        survey_id=self.request.form.get("survey")
-        response=self.request.response
-        if action=="publish":
-            response.redirect("%s/%s/@@publish" % (surveygroup.absolute_url(), survey_id))
-        elif action=="unpublish":
+        surveygroup = aq_inner(self.context)
+        action = self.request.form.get("action")
+        survey_id = self.request.form.get("survey")
+        response = self.request.response
+        if action == "publish":
+            response.redirect("%s/%s/@@publish" %
+                    (surveygroup.absolute_url(), survey_id))
+        elif action == "unpublish":
             response.redirect("%s//@@unpublish" % surveygroup.absolute_url())
-        elif action=="clone":
-            response.redirect("%s/++add++euphorie.survey?%s" % 
+        elif action == "clone":
+            response.redirect("%s/++add++euphorie.survey?%s" %
                     (surveygroup.absolute_url(),
                      urllib.urlencode(dict(survey=survey_id))))
         else:
             log.error("Invalid version command action: %r", action)
-
 
 
 @grok.subscribe(ISurvey, IActionSucceededEvent)
@@ -308,16 +309,15 @@ def handleSurveyPublish(survey, event):
     attribute of the SurveyGroup is set to the id of the published
     survey instance.
     """
-    if event.action not in [ "publish", "update"]:
+    if event.action not in ["publish", "update"]:
         return
-    
-    surveygroup=aq_parent(aq_inner(survey))
-    surveygroup.published=survey.id
+    surveygroup = aq_parent(aq_inner(survey))
+    surveygroup.published = survey.id
 
 
 @grok.subscribe(ISurvey, IObjectRemovedEvent)
 def handleSurveyRemoved(survey, event):
-    """Event handler (subscriber) for deletion of  
+    """Event handler (subscriber) for deletion of
     :py:obj:`ISurvey` objects. This handler performs necessary houskeeping
     tasks on the parent :py:class:`SurveyGroup`.
 
@@ -327,6 +327,5 @@ def handleSurveyRemoved(survey, event):
     If this survey gets deleted, we need to clear this attr.
     """
     parent = aq_parent(survey)
-    if ISurveyGroup.providedBy(parent) and parent.published==survey.id:
-        parent.published=None
-
+    if ISurveyGroup.providedBy(parent) and parent.published == survey.id:
+        parent.published = None

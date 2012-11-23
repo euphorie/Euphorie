@@ -15,14 +15,12 @@ class ISectorContainer(form.Schema, IRichDescription, IBasic):
     """Container for all sectors."""
 
 
-
 class SectorContainer(dexterity.Container):
     implements(ISectorContainer)
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return False
-
 
 
 class View(grok.View):
@@ -33,5 +31,5 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def update(self):
-        self.countries=summarizeCountries(aq_inner(self.context), self.request)
-
+        self.countries = summarizeCountries(aq_inner(self.context),
+                self.request)

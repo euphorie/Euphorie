@@ -10,6 +10,7 @@ from euphorie.content import utils
 
 grok.templatedir("templates")
 
+
 class ISolution(form.Schema):
     """A standard solution for a risk.
 
@@ -18,36 +19,39 @@ class ISolution(form.Schema):
     """
 
     description = schema.Text(
-            title = _("label_module_description", u"Description"),
-            description = _("help_module_description",
+            title=_("label_module_description", u"Description"),
+            description=_("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
-            required = True)
+            required=True)
     form.order_after(description="title")
 
     action_plan = schema.Text(
-            title = _("label_measure_action_plan", default=u"General approach (to eliminate or reduce the risk)"),
-            description = _("help_measure_action_plan",
+            title=_("label_measure_action_plan",
+                default=u"General approach (to eliminate or reduce the risk)"),
+            description=_("help_measure_action_plan",
                 default=u"Describe the action that can be taken to "
                         u"remove this risk. This information will be "
                         u"copied to the measure."),
-            required = True)
+            required=True)
 
     prevention_plan = schema.Text(
-            title = _("label_measure_prevention_plan", default=u"Specific action(s) required to implement this approach"),
-            description = _("help_measure_prevention_plan",
+            title=_("label_measure_prevention_plan",
+                default=u"Specific action(s) required to implement this "
+                        u"approach"),
+            description=_("help_measure_prevention_plan",
                 default=u"Describe what can be done to prevent this risk "
                         u"from (re)occuring. This information will be "
                         u"copied to the measure."),
-            required = False)
+            required=False)
 
     requirements = schema.Text(
-            title = _("label_measure_requirements", default=u"Requirements"),
-            description = _("help_measure_requirements",
+            title=_("label_measure_requirements", default=u"Requirements"),
+            description=_("help_measure_requirements",
                 default=u"Describe the standard requirements for the "
                         u"action plan and prevention plan. This "
                         u"information will be copied to the measure."),
-            required = False)
+            required=False)
 
 
 class Solution(dexterity.Item):
@@ -59,8 +63,8 @@ class Solution(dexterity.Item):
     def Title(self):
         survey = utils.getSurvey(self)
         return translate(
-                    Solution.title, 
-                    context=self.REQUEST, 
+                    Solution.title,
+                    context=self.REQUEST,
                     target_language=survey.language).encode('utf-8')
 
 
@@ -70,4 +74,3 @@ class View(grok.View):
     grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
     grok.template("solution_view")
-

@@ -4,7 +4,6 @@ del mf
 
 from Products.CMFCore.permissions import setDefaultRoles
 
-setDefaultRoles("Euphorie: Manage country", ("Manager",) )
-setDefaultRoles("Euphorie: Add new RIE Content", ("Manager",) )
-setDefaultRoles("Euphorie: Delete published content", ("Manager",) )
-
+setDefaultRoles("Euphorie: Manage country", ("Manager",))
+setDefaultRoles("Euphorie: Add new RIE Content", ("Manager",))
+setDefaultRoles("Euphorie: Delete published content", ("Manager",))

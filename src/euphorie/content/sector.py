@@ -49,6 +49,7 @@ from plonetheme.nuplone.utils import getPortal
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
 
+
 class ISector(form.Schema, IUser, IBasic):
     """Sector object.
 
@@ -68,26 +69,26 @@ class ISector(form.Schema, IUser, IBasic):
     dexterity.write_permission(locked="euphorie.content.ManageCountry")
 
     contact_name = schema.TextLine(
-            title = _("label_contact_name", default=u"Contact name"),
+            title=_("label_contact_name", default=u"Contact name"),
             required=True)
 
     form.order_after(contact_email="contact_name")
 
     logo = filefield.NamedBlobImage(
-            title = _("label_logo", default=u"Logo"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
+            title=_("label_logo", default=u"Logo"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special  "
+                        u"characters."),
+            required=False)
 
     main_colour = colour.Colour(
-            title = _("label_main_colour", default=u"Main colour"),
-            required = False)
+            title=_("label_main_colour", default=u"Main colour"),
+            required=False)
 
     support_colour = colour.Colour(
-            title = _("label_support_colour", default=u"Support colour"),
-            required = False)
-
+            title=_("label_support_colour", default=u"Support colour"),
+            required=False)
 
 
 class Sector(dexterity.Container):
@@ -124,18 +125,18 @@ class SectorLocalRoleProvider(grok.Adapter):
     grok.name("euphorie.sector")
 
     def getRoles(self, principal_id):
-        mt=getToolByName(self.context, "membrane_tool")
-        user=mt.getUserObject(user_id=principal_id, brain=True)
+        mt = getToolByName(self.context, "membrane_tool")
+        user = mt.getUserObject(user_id=principal_id, brain=True)
         if user is None:
             return ()
 
-        user=user._unrestrictedGetObject()
+        user = user._unrestrictedGetObject()
         if ISector.providedBy(user) and aq_base(user) is aq_base(self.context):
             return ("Sector",)
         return ()
 
     def getAllRoles(self):
-        info=UserProvider(self.context)
+        info = UserProvider(self.context)
         return [(info.getUserId(), ("Sector",))]
 
 
@@ -162,57 +163,57 @@ def getSurveys(context):
       * ``versions``: list of published versions
 
     """
-    current_version=None
+    current_version = None
     for sector in aq_chain(aq_inner(context)):
         if ISurvey.providedBy(sector):
-            current_version=aq_base(sector)
+            current_version = aq_base(sector)
         if ISector.providedBy(sector):
             break
     else:
         return []
 
-    result=[]
-    groups=[group for group in sector.values() if ISurveyGroup.providedBy(group)]
-    repository=getToolByName(context, "portal_repository")
-    allow_history=checkPermission(context, AccessPreviousVersions)
+    result = []
+    groups = [group for group in sector.values()
+                if ISurveyGroup.providedBy(group)]
+    repository = getToolByName(context, "portal_repository")
+    allow_history = checkPermission(context, AccessPreviousVersions)
 
     def morph(group, survey):
-        info=dict(id=survey.id,
-                  title=survey.title,
-                  url=survey.absolute_url(),
-                  published=survey.id==group.published,
-                  current=aq_base(survey) is current_version,
-                  modified=isDirty(survey),
-                  versions=[])
-
+        info = {'id': survey.id,
+                'title': survey.title,
+                'url': survey.absolute_url(),
+                'published': survey.id == group.published,
+                'current': aq_base(survey) is current_version,
+                'modified': isDirty(survey),
+                'versions': []}
         if not allow_history:
             return info
 
-        history=repository.getHistoryMetadata(survey)
+        history = repository.getHistoryMetadata(survey)
         if history:
-            for id in range(history.getLength(countPurged=False)-1, -1, -1):
-                meta=history.retrieve(id, countPurged=False)["metadata"]["sys_metadata"]
-                info["versions"].append(dict(
-                    timestamp=datetime.datetime.fromtimestamp(meta["timestamp"]),
-                    history_id=meta["parent"]["history_id"],
-                    version_id=meta["parent"]["version_id"],
-                    location_id=meta["parent"]["location_id"]))
+            for id in range(history.getLength(countPurged=False) - 1, -1, -1):
+                meta = history.retrieve(id,
+                        countPurged=False)["metadata"]["sys_metadata"]
+                info["versions"].append({
+                    'timestamp': datetime.datetime.fromtimestamp(
+                        meta["timestamp"]),
+                    'history_id': meta["parent"]["history_id"],
+                    'version_id': meta["parent"]["version_id"],
+                    'location_id': meta["parent"]["location_id"]})
             info["versions"].sort(key=lambda x: x["timestamp"], reverse=True)
         return info
 
     for group in groups:
-        info=dict(id=group.id,
-                  title=group.title,
-                  url=group.absolute_url(),
-                  published=bool(group.published))
-        info["surveys"]=[morph(group, survey)
-                         for survey in group.values()
-                         if ISurvey.providedBy(survey)]
+        info = {'id': group.id,
+                'title': group.title,
+                'url': group.absolute_url(),
+                'published': bool(group.published)}
+        info["surveys"] = [morph(group, survey)
+                           for survey in group.values()
+                           if ISurvey.providedBy(survey)]
         info["surveys"].sort(key=lambda s: s["title"].lower())
         result.append(info)
-
     result.sort(key=lambda g: g["title"].lower())
-
     return result
 
 
@@ -224,9 +225,9 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def update(self):
-        self.add_survey_url="%s/++add++euphorie.surveygroup" % \
+        self.add_survey_url = "%s/++add++euphorie.surveygroup" % \
                 aq_inner(self.context).absolute_url()
-        self.surveys=getSurveys(self.context)
+        self.surveys = getSurveys(self.context)
         super(View, self).update()
 
 
@@ -257,10 +258,9 @@ class Delete(actions.Delete):
         surveys = [s for s in cl_sector.values() if s.id != 'preview']
         if surveys:
             flash(
-                _("message_not_delete_published_sector", 
-                default=u"You can not delete a sector that contains published surveys."), 
-                "error"
-                )
+                _("message_not_delete_published_sector",
+                default=u"You can not delete a sector that contains published "
+                        u"surveys."), "error")
             self.request.response.redirect(context.absolute_url())
             return False
         return True
@@ -284,7 +284,7 @@ class Settings(form.SchemaEditForm):
     grok.layer(NuPloneSkin)
     grok.name("edit")
     grok.template("settings")
-    
+
     schema = ISector
     default_fieldset_label = None
 
@@ -297,7 +297,7 @@ class Settings(form.SchemaEditForm):
         self.support_bg_colour = config.get("support_bg_colour", '#e69d17')
 
     def extractData(self):
-        self.fields=self.fields.omit("title", "login")
+        self.fields = self.fields.omit("title", "login")
         if "title" in self.widgets:
             del self.widgets["title"]
         if "login" in self.widgets:
@@ -312,11 +312,10 @@ class VersionCommand(grok.View):
     grok.name("version-command")
 
     def render(self):
-        action=self.request.get("action")
-        if action=="new":
-            sector=aq_inner(self.context)
+        action = self.request.get("action")
+        if action == "new":
+            sector = aq_inner(self.context)
             self.request.response.redirect(
                     "%s/++add++euphorie.surveygroup" % sector.absolute_url())
         else:
             log.error("Invalid version command action: %r", action)
-

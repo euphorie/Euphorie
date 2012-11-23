@@ -14,6 +14,7 @@ from plone.uuid.interfaces import IAttributeUUID
 
 grok.templatedir("templates")
 
+
 class ICountryManager(form.Schema, IUser):
     """A country manager is responsible for managing sectors in their country.
     """
@@ -48,25 +49,28 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
     grok.name("euphorie.countrymanager")
 
     def getRoles(self, principal_id):
-        mt=getToolByName(self.context, "membrane_tool")
-        user=mt.getUserObject(user_id=principal_id, brain=True)
+        mt = getToolByName(self.context, "membrane_tool")
+        user = mt.getUserObject(user_id=principal_id, brain=True)
         if user is None:
             return ()
 
-        user=user._unrestrictedGetObject()
+        user = user._unrestrictedGetObject()
         if not ICountryManager.providedBy(user):
-            return  ()
+            return ()
 
-        if user.getPhysicalPath()[:-1]==aq_inner(self.context).getPhysicalPath():
-            return ("CountryManager","Editor","Contributor", "Reader", "Reviewer")
+        if user.getPhysicalPath()[:-1] == \
+                aq_inner(self.context).getPhysicalPath():
+            return ("CountryManager", "Editor", "Contributor", "Reader",
+                    "Reviewer")
         else:
             return ()
 
     def getAllRoles(self):
-        managers=[UserProvider(manager) for manager in self.context.values()
+        managers = [UserProvider(manager) for manager in self.context.values()
                   if ICountryManager.providedBy(manager)]
-        return [(manager.getUserId(), ("CountryyManager","Editor","Contributor", "Reader", "Reviewer"))
-                for manager in managers]
+        return [(manager.getUserId(),
+                 ("CountryyManager", "Editor", "Contributor", "Reader",
+                     "Reviewer")) for manager in managers]
 
 
 class View(grok.View):
@@ -75,4 +79,3 @@ class View(grok.View):
     grok.layer(NuPloneSkin)
     grok.template("countrymanager_view")
     grok.name("nuplone-view")
-

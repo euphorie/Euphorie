@@ -32,49 +32,51 @@ class IModule(form.Schema, IRichDescription, IBasic):
     A module is (hierarchical) grouping in a survey.
     """
     description = HtmlText(
-            title = _("label_module_description", u"Description"),
-            description = _("help_module_description",
+            title=_("label_module_description", u"Description"),
+            description=_("help_module_description",
                 default=u"Include any relevant information that may be "
                         u"helpful for users."),
-            required = False)
+            required=False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 
     optional = schema.Bool(
-            title = _("label_module_optional", default=u"This module is optional"),
-            description = _("help_module_optional",
+            title=_("label_module_optional",
+                default=u"This module is optional"),
+            description=_("help_module_optional",
                 default=u"Allow users to skip this module and "
                         u"everything inside it."),
-            required = False,
-            default = False)
+            required=False,
+            default=False)
 
     depends("question", "optional", "on")
     question = schema.TextLine(
-            title = _("label_module_question", default=u"Question"),
-            description = _("help_module_question",
+            title=_("label_module_question", default=u"Question"),
+            description=_("help_module_question",
                 default=u"The question to ask users if this module is "
                         u"optional. This has to be a yes/no question."),
-            required = False)
+            required=False)
 
     image = filefield.NamedBlobImage(
-            title = _("label_image", default=u"Image file"),
-            description = _("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format png, jpg "
-                        u"or gif and does not contain any special characters."),
-            required = False)
+            title=_("label_image", default=u"Image file"),
+            description=_("help_image_upload",
+                default=u"Upload an image. Make sure your image is of format "
+                        u"png, jpg or gif and does not contain any special "
+                        u"characters."),
+            required=False)
     caption = schema.TextLine(
-            title = _("label_caption", default=u"Image caption"),
+            title=_("label_caption", default=u"Image caption"),
             required=False)
 
     solution_direction = HtmlText(
-            title = _("label_solution_direction", default=u"Introduction action plan"),
-            description = _("help_solution_direction", 
+            title=_("label_solution_direction",
+                default=u"Introduction action plan"),
+            description=_("help_solution_direction",
                 default=u"This information will be shown to users when "
                         u"they enter this module while working on the "
                         u"action plan."),
-            required = False)
+            required=False)
     form.widget(solution_direction=WysiwygFieldWidget)
-
 
 
 class Module(dexterity.Container):
@@ -82,7 +84,6 @@ class Module(dexterity.Container):
 
     image = None
     caption = None
-
 
 
 @indexer(IModule)
@@ -93,7 +94,6 @@ def SearchableTextIndexer(obj):
                      StripMarkup(obj.solution_direction)])
 
 
-
 class View(grok.View):
     grok.context(IModule)
     grok.require("zope2.View")
@@ -102,18 +102,17 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def _morph(self, child):
-        state=getMultiAdapter((child, self.request), name="plone_context_state")
-        return dict(id=child.id,
-                    title=child.title,
-                    url=state.view_url())
+        state = getMultiAdapter((child, self.request),
+                name="plone_context_state")
+        return {'id': child.id,
+                'title': child.title,
+                'url': state.view_url()}
 
     def update(self):
-        self.modules=[self._morph(child) for child in self.context.values()
-                      if IModule.providedBy(child)]
-        self.risks=[self._morph(child) for child in self.context.values()
-                    if IRisk.providedBy(child)]
-
-
+        self.modules = [self._morph(child) for child in self.context.values()
+                        if IModule.providedBy(child)]
+        self.risks = [self._morph(child) for child in self.context.values()
+                      if IRisk.providedBy(child)]
 
 
 class Edit(form.SchemaEditForm):
@@ -128,17 +127,15 @@ class Edit(form.SchemaEditForm):
     @property
     def label(self):
         from euphorie.content.survey import ISurvey
-        container=aq_parent(aq_inner(self.context))
+        container = aq_parent(aq_inner(self.context))
         if ISurvey.providedBy(container):
             return _(u"Edit Module")
         else:
             return _(u"Edit Submodule")
 
-
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-
 
 
 class ConstructionFilter(grok.MultiAdapter):
@@ -158,36 +155,34 @@ class ConstructionFilter(grok.MultiAdapter):
     maxdepth = 3
 
     def __init__(self, fti, container):
-        self.fti=fti
-        self.container=container
+        self.fti = fti
+        self.container = container
 
     def checkDepth(self):
         """Check if creating a new module would create a too deeply nested
         structure.
         """
         from euphorie.content.survey import ISurvey
-        depth=1
+        depth = 1
         for position in aq_chain(self.container):
             if ISurvey.providedBy(position):
                 break
-            depth+=1
+            depth += 1
         else:
             return True
 
-        return depth<=self.maxdepth
-
+        return depth <= self.maxdepth
 
     def checkForRisks(self):
         """Check if the container already contains a risk. If so refuse to
         allow creation of a module.
         """
         for key in self.container:
-            pt=self.container[key].portal_type
-            if pt=="euphorie.risk":
+            pt = self.container[key].portal_type
+            if pt == "euphorie.risk":
                 return False
         else:
             return True
 
     def allowed(self):
         return self.checkDepth() and self.checkForRisks()
-
