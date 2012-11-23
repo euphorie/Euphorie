@@ -25,9 +25,7 @@ class ViewTests(EuphorieFunctionalTestCase):
         from euphorie.content.profilequestion import ProfileQuestion
         self.portal.survey = Survey(id='survey')
         survey = self.portal.survey
-        survey['5'] = ProfileQuestion(id='5',
-                question=u'Locations',
-                type='repeatable')
+        survey['5'] = ProfileQuestion(id='5', question=u'Locations')
         view = self.View(survey, None)
         view.survey = mock.Mock(return_value=survey)
         with mock.patch('euphorie.client.api.profile.extractProfile') \
@@ -39,7 +37,6 @@ class ViewTests(EuphorieFunctionalTestCase):
                     profile,
                     [{'id': '5',
                       'question': u'Locations',
-                      'type': 'repeatable',
                       'value': [u'London', u'Tokyo']}])
 
     def test_put_no_profile(self):
@@ -96,16 +93,14 @@ class ViewTests(EuphorieFunctionalTestCase):
         view.input = {}
         self.portal.survey = Survey(id='survey')
         survey = self.portal.survey
-        survey['5'] = ProfileQuestion(id='5',
-                question=u'Locations',
-                type='repeatable')
+        survey['5'] = ProfileQuestion(id='5', question=u'Locations')
         view.survey = mock.Mock(return_value=survey)
         response = view.do_PUT()
         self.assertEqual(response['type'], 'error')
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
-    def test_get(self):
+    def test_get_empty_profile(self):
         import datetime
         import json
         from z3c.saconfig import Session
@@ -138,7 +133,6 @@ class BrowserTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['title'], u'Dummy session')
         self.assertEqual(
                 response['profile'],
-                [{u'id': u'1',
-                  'question': u'Does this apply?',
-                  'type': u'optional',
-                  'value': False}])
+                [{'id': u'1',
+                  'question': u'List all your departments:',
+                  'value': []}])

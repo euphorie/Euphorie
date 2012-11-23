@@ -22,7 +22,6 @@ class View(JsonView):
             question = survey[key]
             info = {'id': question.id,
                     'question': question.question or question.title,
-                    'type': question.type,
                     'value': answer}
             result.append(info)
         return {'id': self.context.id,
@@ -38,9 +37,7 @@ class View(JsonView):
                     'message': 'Provided data does not match profile.'}
         for question in questions:
             input = self.input[question.id]
-            if question.type == 'optional' and isinstance(input, bool):
-                continue
-            if question.type == 'repeat' and isinstance(input, list) and \
+            if isinstance(input, list) and \
                     all(isinstance(v, unicode) for v in input):
                 continue
             return {'type': 'error',
