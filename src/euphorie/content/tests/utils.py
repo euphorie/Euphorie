@@ -35,9 +35,9 @@ PROFILE_SURVEY = \
              <title>ICT</title>
              <survey>
               <title>Software development</title>
-              <profile-question type="optional">
+              <profile-question>
                 <title>Profile one</title>
-                <question>Does this apply?</question>
+                <question>List all your departments:</question>
                 <description/>
                 <risk type="policy">
                   <title>New hires are not aware of design patterns.</title>
