@@ -12,16 +12,15 @@ class SurveyVersions(Tile):
             if ISector.providedBy(sector):
                 break
         else:
-            sector=aq_inner(self.context)
+            sector = aq_inner(self.context)
 
-        self.action_url="%s/@@version-command" % sector.absolute_url()
-        self.surveys=getSurveys(self.context)
-
+        self.action_url = "%s/@@version-command" % sector.absolute_url()
+        self.surveys = getSurveys(self.context)
 
     def __call__(self):
-        if not checkPermission(self.context, "CMFEditions: Access previous versions"):
+        if not checkPermission(self.context,
+                "CMFEditions: Access previous versions"):
             return None
 
         self.update()
         return self.index()
-

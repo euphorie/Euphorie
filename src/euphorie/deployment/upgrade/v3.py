@@ -44,7 +44,7 @@ def convert_solution_description_to_text(context):
 
 
 def add_wp_column_to_company(context):
-    session=Session()
+    session = Session()
     if TableExists(session, "company"):
         session.execute(
             "ALTER TABLE company ADD workers_participated bool DEFAULT NULL")

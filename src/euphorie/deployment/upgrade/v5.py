@@ -5,9 +5,11 @@ from euphorie.content.behaviour.richdescription import IRichDescription
 
 log = logging.getLogger(__name__)
 
+
 def reindex_solution_titles(context):
     catalog = getToolByName(context, 'portal_catalog')
-    ps = catalog(title='title_common_solution', portal_type='euphorie.solution')
+    ps = catalog(title='title_common_solution',
+            portal_type='euphorie.solution')
     i = 0
     for p in ps:
         try:
@@ -18,6 +20,7 @@ def reindex_solution_titles(context):
         i += 1
         if i == 100:
             transaction.commit()
+
 
 def reindex_richtext_descriptions(context):
     catalog = getToolByName(context, 'portal_catalog')

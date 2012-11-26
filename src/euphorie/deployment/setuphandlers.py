@@ -8,6 +8,7 @@ from euphorie.client.api.entry import API
 
 log = logging.getLogger(__name__)
 
+
 def setupVarious(context):
     # Ordinarily, GenericSetup handlers check for the existence of XML files.
     # Here, we are not parsing an XML file, but we use this text file as a
@@ -17,7 +18,7 @@ def setupVarious(context):
     if context.readDataFile('euphorie.deployment.txt') is None:
         return
 
-    site=context.getSite()
+    site = context.getSite()
     disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
@@ -68,41 +69,47 @@ COUNTRIES = {
         "rs": (u"Republic of Serbia", "potential-candidate-eu"),
         }
 
+
 for i in REGION_NAMES.items():
-    COUNTRIES[i[0]]=(i[1], "region")
+    COUNTRIES[i[0]] = (i[1], "region")
 
 
 def setupInitialContent(site):
     from Products.CMFCore.utils import getToolByName
 
-    present=site.objectIds()
-    wt=site.portal_workflow
+    present = site.objectIds()
+    wt = site.portal_workflow
 
-    for obj in [ "Members", "events", "news"]:
+    for obj in ["Members", "events", "news"]:
         if obj in present:
             site.manage_delObjects([obj])
             log.info("Removed default Plone %s folder", obj)
 
     if "sectors" not in present:
-        site.invokeFactory("euphorie.sectorcontainer", "sectors", title="Surveys")
-        mt=getToolByName(site, "portal_membership")
+        site.invokeFactory("euphorie.sectorcontainer",
+                "sectors", title="Surveys")
+        mt = getToolByName(site, "portal_membership")
         mt.setMembersFolderById("sectors")
         log.info("Added sectors folder")
 
-    sectors=site.sectors
+    sectors = site.sectors
     for (country_id, info) in COUNTRIES.items():
-        (title, country_type)=info
+        (title, country_type) = info
         if country_id not in sectors:
-            sectors.invokeFactory("euphorie.country", country_id, title=title, country_type=country_type)
+            sectors.invokeFactory("euphorie.country", country_id,
+                    title=title, country_type=country_type)
             log.info("Added country %s (%s)", country_id, title)
-        country=sectors[country_id]
+        country = sectors[country_id]
         if "help" not in country:
-            createContentInContainer(country, "euphorie.page", id="help", title=u"Help", checkConstraints=False)
-            log.info("Added help section for country %s (%s)", country_id, title)
-        help=country["help"]
+            createContentInContainer(country, "euphorie.page", id="help",
+                    title=u"Help", checkConstraints=False)
+            log.info("Added help section for country %s (%s)",
+                    country_id, title)
+        help = country["help"]
         if not INavigationRoot.providedBy(help):
             alsoProvides(help, INavigationRoot)
-            log.info("Made help for country %s (%s) a navigation root.", country_id, title)
+            log.info("Made help for country %s (%s) a navigation root.",
+                    country_id, title)
 
     if "client" not in present:
         site.invokeFactory("euphorie.client", "client", title="Client")
@@ -116,27 +123,27 @@ def setupInitialContent(site):
     if "documents" not in present:
         site.invokeFactory("euphorie.folder", "documents", title=u"Documents")
         log.info("Added documents folder")
-    documents=site.documents
+    documents = site.documents
 
     if not INavigationRoot.providedBy(documents):
         alsoProvides(documents, INavigationRoot)
         log.info("Made documentation folder a navigation root.")
 
-    lt=getToolByName(site, "portal_languages")
-    present_languages=documents.objectIds()
-    for (code,name) in lt.listSupportedLanguages():
+    lt = getToolByName(site, "portal_languages")
+    present_languages = documents.objectIds()
+    for (code, name) in lt.listSupportedLanguages():
         if code not in present_languages:
             documents.invokeFactory("euphorie.documentation", code, title=name)
             log.info("Added documentation folder for %s (%s)", name, code)
-        docs=documents[code]
+        docs = documents[code]
         if "help" not in docs:
-            createContentInContainer(docs, "euphorie.help", id="help", checkConstraints=False)
+            createContentInContainer(docs, "euphorie.help",
+                    id="help", checkConstraints=False)
             log.info("Added online help text for language %s (%s)", name, code)
         if "appendix" not in docs:
-            _createObjectByType("euphorie.page", docs, "appendix", title=u"Appendix")
+            _createObjectByType("euphorie.page", docs,
+                    "appendix", title=u"Appendix")
             log.info("Added appendix folder for language %s (%s)", name, code)
-
-
 
 
 def disableRedirectTracking(site):
@@ -144,17 +151,17 @@ def disableRedirectTracking(site):
     from zope.component import getSiteManager
     from zope.component.interfaces import IComponentRegistry
     from plone.app.redirector.interfaces import IRedirectionStorage
-    sm=getSiteManager(site)
+    sm = getSiteManager(site)
     if sm is None or not IComponentRegistry.providedBy(sm):
-        log.warn("Failed to find a site manager, can not remove IRedirectionStorage utility")
+        log.warn("Failed to find a site manager, can not remove "
+                 "IRedirectionStorage utility")
         return
 
     sm.unregisterUtility(provided=IRedirectionStorage)
 
 
 def setupVersioning(site):
-    repository=site.portal_repository
+    repository = site.portal_repository
     if "euphorie.survey" not in repository.getVersionableContentTypes():
         repository.setVersionableContentTypes(["euphorie.survey"])
         log.info("Enabled versioning for survey versions.")
-

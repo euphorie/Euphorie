@@ -5,10 +5,12 @@ from Products.PloneTestCase import PloneTestCase
 
 PloneTestCase.setupPloneSite()
 
-# This should in theory work in the afterSetUp() method, but it does not work there
+# This should in theory work in the afterSetUp() method, but it does not work
+# there.
 installProduct("membrane")
 
 TEST_INI = os.path.join(os.path.dirname(__file__), "test.ini")
+
 
 class EuphorieTestLayer(ptc.BasePTCLayer):
     def afterSetUp(self):
@@ -42,7 +44,7 @@ class EuphorieTestLayer(ptc.BasePTCLayer):
         from zope.component import getUtility
         from z3c.appconfig.interfaces import IAppConfig
 
-        appconfig=getUtility(IAppConfig)
+        appconfig = getUtility(IAppConfig)
         appconfig.loadConfig(TEST_INI, clear=True)
 
     def beforeTearDown(self):
@@ -50,7 +52,6 @@ class EuphorieTestLayer(ptc.BasePTCLayer):
         from z3c.saconfig import Session
         Session.remove()
         model.metadata.drop_all(Session.bind)
-
 
     # XXX testSetUp and testTearDown should not be neceesary, but it seems
     # SQL data is not correctly cleared at the end of a test method run,
@@ -74,7 +75,6 @@ class EuphorieTestCase(PloneTestCase.PloneTestCase):
     layer = EuphorieLayer
 
 
-
 class EuphorieFunctionalTestCase(PloneTestCase.FunctionalTestCase):
     layer = EuphorieLayer
 
@@ -86,10 +86,9 @@ class EuphorieFunctionalTestCase(PloneTestCase.FunctionalTestCase):
         from Products.PloneTestCase.setup import portal_owner
         from Products.PloneTestCase.setup import default_password
         from Products.Five.testbrowser import Browser
-        browser=Browser()
+        browser = Browser()
         browser.open("%s/@@login" % self.portal.absolute_url())
-        browser.getControl(name="__ac_name").value=portal_owner
-        browser.getControl(name="__ac_password").value=default_password
+        browser.getControl(name="__ac_name").value = portal_owner
+        browser.getControl(name="__ac_password").value = default_password
         browser.getForm(id="loginForm").submit()
         return browser
-

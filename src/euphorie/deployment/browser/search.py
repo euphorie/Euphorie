@@ -4,16 +4,16 @@ from Products.CMFCore.utils import getToolByName
 
 grok.templatedir("templates")
 
-SEARCHED_TYPES = [ "euphorie.documentation",
-                   "euphorie.help",
-                   "euphorie.sector",
-                   "euphorie.module",
-                   "euphorie.profilequestion",
-                   "euphorie.risk",
-                   "euphorie.survey",
-                   "euphorie.surveygroup",
-                   "euphorie.page",
-                   ]
+SEARCHED_TYPES = ["euphorie.documentation",
+                  "euphorie.help",
+                  "euphorie.sector",
+                  "euphorie.module",
+                  "euphorie.profilequestion",
+                  "euphorie.risk",
+                  "euphorie.survey",
+                  "euphorie.surveygroup",
+                  "euphorie.page",
+                  ]
 
 
 class Search(grok.View):
@@ -23,14 +23,12 @@ class Search(grok.View):
     grok.template("search")
 
     def update(self):
-        query=self.request.form.get("q", None)
-        self.did_search=(query is not None)
+        query = self.request.form.get("q", None)
+        self.did_search = (query is not None)
         if not query:
-            self.results=None
+            self.results = None
             return
 
-        ct=getToolByName(self.context, "portal_catalog")
-        self.results=ct.searchResults(SearchableText=query,
+        ct = getToolByName(self.context, "portal_catalog")
+        self.results = ct.searchResults(SearchableText=query,
                 portal_type=SEARCHED_TYPES)
-
-

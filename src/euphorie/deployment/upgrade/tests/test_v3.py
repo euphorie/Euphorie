@@ -3,7 +3,8 @@ from euphorie.deployment.tests.functional import EuphorieTestCase
 
 class set_evaluation_method_interfaces_tests(EuphorieTestCase):
     def set_evaluation_method_interfaces(self, *a, **kw):
-        from euphorie.deployment.upgrade.v3 import set_evaluation_method_interfaces
+        from euphorie.deployment.upgrade.v3 \
+                import set_evaluation_method_interfaces
         return set_evaluation_method_interfaces(*a, **kw)
 
     def test_empty_site(self):
