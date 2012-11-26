@@ -80,7 +80,7 @@ class ManageUsers(grok.View):
                          'password': sector.password,
                          'title': sector.title,
                          'url': sector.absolute_url(),
-                         'locked': sector.locked)
+                         'locked': sector.locked}
                         for sector in country.values()
                         if ISector.providedBy(sector)]
         self.sectors.sort(key=lambda s: s["title"].lower())
@@ -89,7 +89,7 @@ class ManageUsers(grok.View):
                           'login': manager.login,
                           'title': manager.title,
                           'url': manager.absolute_url(),
-                          'locked': manager.locked)
+                          'locked': manager.locked}
                          for manager in country.values()
                          if ICountryManager.providedBy(manager)]
         self.managers.sort(key=lambda s: s["title"].lower())
