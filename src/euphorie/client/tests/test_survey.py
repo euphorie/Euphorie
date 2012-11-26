@@ -1,7 +1,6 @@
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_parent
-from euphorie.client.survey import SurveyPublishTraverser
 from euphorie.client import model
 from euphorie.client.tests.database import DatabaseTests
 
@@ -106,4 +105,3 @@ class build_tree_aq_chain_tests(DatabaseTests):
         self.failUnless(isinstance(parent, PathGhost))
         self.assertEqual(parent.id, '1')
         self.failUnless(aq_base(aq_parent(aq_parent(context))) is root)
-

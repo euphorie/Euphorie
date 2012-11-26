@@ -7,15 +7,13 @@ class Mock(object):
         self.__dict__.update(kw)
 
 
-
 class CachingTests(unittest.TestCase):
     def callSession(self, request, manager):
-        locals.request=request
+        locals.request = request
         try:
             return manager.session
         finally:
             del locals.request
-        
 
     def testCachedSession(self):
         from euphorie.client.tests.utils import testRequest
@@ -23,7 +21,7 @@ class CachingTests(unittest.TestCase):
         from euphorie.client import session
         request = testRequest()
         marker = []
-        request.other["euphorie.session"]=marker
+        request.other["euphorie.session"] = marker
         mgr = session.SessionManagerFactory()
 
         locals.request = request
@@ -46,7 +44,6 @@ class CachingTests(unittest.TestCase):
             self.failUnless(mgr.id is marker)
         finally:
             del locals.request
-
 
 
 class SessionCreationTests(DatabaseTests):

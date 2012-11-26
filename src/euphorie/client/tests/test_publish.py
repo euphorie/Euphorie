@@ -6,10 +6,10 @@ from euphorie.client import publish
 class PublishTests(EuphorieTestCase):
     def createSectorSurvey(self):
         self.loginAsPortalOwner()
-        self.sectors=self.portal.sectors
+        self.sectors = self.portal.sectors
         createContentInContainer(self.sectors.nl, "euphorie.sector",
                 checkConstraints=False, title=u"dining")
-        self.sector=self.sectors.nl.dining
+        self.sector = self.sectors.nl.dining
 
         createContentInContainer(self.sector, "euphorie.surveygroup",
                 checkConstraints=False, title=u"Restaurants")
@@ -21,25 +21,24 @@ class PublishTests(EuphorieTestCase):
 
         createContentInContainer(self.survey, "euphorie.risk",
                 checkConstraints=False, title=u"Risk")
-        self.risk=self.survey['1']
+        self.risk = self.survey['1']
         return self.survey
 
-
     def testPublish(self):
-        survey=self.createSectorSurvey()
+        survey = self.createSectorSurvey()
         copy = publish.CopyToClient(survey)
         self.assertEqual('restaurants', 'restaurants')
         self.assertEqual(survey.objectIds(), copy.objectIds())
 
         brains = survey.portal_catalog(portal_type="euphorie.risk")
         self.assertEqual(len(brains), 1)
-        
+
         self.survey.manage_delObjects(["1"])
         copy = publish.CopyToClient(survey)
         self.assertEqual('restaurants', 'restaurants')
         self.assertEqual(survey.objectIds(), copy.objectIds())
 
-        # We had a problem whereby removed risks don't get uncatalogged, 
+        # We had a problem whereby removed risks don't get uncatalogged,
         # check that this has now been fixed.
         brains = survey.portal_catalog(portal_type="euphorie.risk")
         self.assertEqual(len(brains), 0)

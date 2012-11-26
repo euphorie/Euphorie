@@ -1,5 +1,6 @@
 import unittest
 
+
 class TestReify(unittest.TestCase):
     def reify(self, wrapped):
         from euphorie.decorators import reify
@@ -24,9 +25,7 @@ class TestReify(unittest.TestCase):
             """My doc"""
         decorator = self.reify(wrapped)
         self.assertEqual(decorator.__doc__, "My doc")
-        
 
 
 class Dummy(object):
     pass
-

@@ -170,8 +170,8 @@ class JsonView(grok.View):
         pass
 
     def __call__(self):
-        if self.check_update and \
-            wasSurveyUpdated(self.request.survey_session, self.request.survey):
+        if self.check_update and wasSurveyUpdated(
+                self.request.survey_session, self.request.survey):
             url = '%s/update' % self.request.survey_session.absolute_url()
             self.response.setHeader('Content-Type', 'application/json')
             return json.dumps(

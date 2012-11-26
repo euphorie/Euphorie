@@ -31,19 +31,19 @@ def testRequest():
     import sys
     from ZPublisher.HTTPRequest import HTTPRequest
     from ZPublisher.HTTPResponse import HTTPResponse
-    environ={"SERVER_NAME": "localhost",
-             "SERVER_PORT": "80",
-             "REQUEST_METHOD": "GET"}
-    request=HTTPRequest(sys.stdin, environ, HTTPResponse())
-    request._steps=["Plone"]
+    environ = {"SERVER_NAME": "localhost",
+               "SERVER_PORT": "80",
+               "REQUEST_METHOD": "GET"}
+    request = HTTPRequest(sys.stdin, environ, HTTPResponse())
+    request._steps = ["Plone"]
     return request
 
 
 def registerUserInClient(browser, link="register"):
     browser.getLink(link).click()
-    browser.getControl(name="email").value="guest@example.com"
-    browser.getControl(name="password1:utf8:ustring").value="guest"
-    browser.getControl(name="password2:utf8:ustring").value="guest"
+    browser.getControl(name="email").value = "guest@example.com"
+    browser.getControl(name="password1:utf8:ustring").value = "guest"
+    browser.getControl(name="password2:utf8:ustring").value = "guest"
     browser.getControl(name="next", index=1).click()
     # XXX Why does this not always happen??
     if "terms-and-conditions" in browser.url:
@@ -52,14 +52,15 @@ def registerUserInClient(browser, link="register"):
 
 class MockMailFixture(object):
     def __init__(self):
-        self.storage=storage=[]
+        self.storage = storage = []
 
         from Products.MailHost.MailHost import MailHost
+
         def send(self, *a, **kw):
             storage.append((a, kw))
-        self._original_send=MailHost.send
-        MailHost.send=send
+        self._original_send = MailHost.send
+        MailHost.send = send
 
     def __del__(self):
         from Products.MailHost.mailer import SMTPMailer
-        SMTPMailer.send=self._original_send
+        SMTPMailer.send = self._original_send

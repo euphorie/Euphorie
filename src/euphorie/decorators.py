@@ -1,5 +1,6 @@
 # Copied from repoze.bfg
 
+
 class reify(object):
     """ Put the result of a method which uses this (non-data)
     descriptor decorator in the instance dict after the first call,
@@ -9,7 +10,7 @@ class reify(object):
         self.wrapped = wrapped
         try:
             self.__doc__ = wrapped.__doc__
-        except: # pragma: no cover
+        except:  # pragma: no cover
             pass
 
     def __get__(self, inst, objtype=None):
@@ -18,4 +19,3 @@ class reify(object):
         val = self.wrapped(inst)
         setattr(inst, self.wrapped.__name__, val)
         return val
-

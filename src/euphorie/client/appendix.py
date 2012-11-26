@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import ISiteRoot
 from euphorie.client.interfaces import IClientSkinLayer
 
-log=logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
@@ -19,7 +19,6 @@ class About(grok.View):
     grok.template("about")
 
 
-
 class AppendixView(grok.View):
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
@@ -29,13 +28,12 @@ class AppendixView(grok.View):
     document = None
 
     def _getLanguages(self):
-        lt=getToolByName(self.context, "portal_languages")
-        lang=lt.getPreferredLanguage()
+        lt = getToolByName(self.context, "portal_languages")
+        lang = lt.getPreferredLanguage()
         if "-" in lang:
             return [lang, lang.split("-")[0], "en"]
         else:
             return [lang, "en"]
-
 
     def publishTraverse(self, request, name):
         """Catch the appendix document the user wants to see. This uses
@@ -45,18 +43,16 @@ class AppendixView(grok.View):
         if self.document is not None:
             raise NotFound(self, name, request)
 
-        documents=getUtility(ISiteRoot).documents
+        documents = getUtility(ISiteRoot).documents
         for lang in self._getLanguages():
-            docs=documents.get(lang, None)
-            app=docs.get("appendix", None)
+            docs = documents.get(lang, None)
+            app = docs.get("appendix", None)
             if app is None:
                 continue
-            self.document=app.get(name, None)
+            self.document = app.get(name, None)
             if self.document is not None:
                 break
         else:
             raise NotFound(self, name, request)
 
         return self
-
-

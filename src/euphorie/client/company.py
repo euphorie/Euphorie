@@ -14,6 +14,7 @@ from euphorie.client.session import SessionManager
 
 grok.templatedir("templates")
 
+
 class CompanySchema(form.Schema):
     # Note the ideal type, but there is no convenient country field
     country = schema.ASCIILine(
@@ -154,5 +155,3 @@ class Company(form.SchemaForm):
         self.applyChanges(data)
         url="%s/report/view" % self.request.survey.absolute_url()
         self.request.response.redirect(url)
-
-

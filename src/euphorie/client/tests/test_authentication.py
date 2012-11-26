@@ -11,16 +11,20 @@ class MockContext(object):
 
 class MockRequest(object):
     PUBLISHED = MockContext()
+
     def __init__(self, **kw):
         self.__dict__.update(kw)
+
     def get(self, key, default=None):
         return getattr(self, key, default)
+
     getHeader = get
+
 
 class MockResponse(object):
     def redirect(self, url, lock):
-        self.redirect_url=url
-        self.redirect_lock=lock
+        self.redirect_url = url
+        self.redirect_lock = lock
 
 
 class EuphorieAccountPluginTests(DatabaseTests):
@@ -117,7 +121,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def testEnumerateUsers_NoInexactMatch(self):
         session = Session()
-        account=model.Account(loginname='john', password=u'jane')
+        account = model.Account(loginname='john', password=u'jane')
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
@@ -135,7 +139,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def test_EnumerateUsers_search_by_login(self):
         session = Session()
-        account  =model.Account(loginname='john', password=u'jane')
+        account = model.Account(loginname='john', password=u'jane')
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
@@ -143,12 +147,13 @@ class EuphorieAccountPluginTests(DatabaseTests):
                 [{'id': 'john', 'login': 'john'}])
 
     def test_EnumerateUsers_search_by_login_and_id(self):
-        session=Session()
+        session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
-        plugin=EuphorieAccountPlugin('plugin')
+        plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
-                plugin.enumerateUsers(login='john', id='john', exact_match=True),
+                plugin.enumerateUsers(login='john', id='john',
+                    exact_match=True),
                 [{'id': 'john', 'login': 'john'}])
 
     def test_EnumerateUsers_unknown_account(self):
@@ -189,7 +194,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
                 QUERY_STRING='one=1')
         directlyProvides(request, IClientSkinLayer)
         response = MockResponse()
-        plugin=EuphorieAccountPlugin('plugin')
+        plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(plugin.challenge(request, response), True)
         self.assertEqual(
                 response.redirect_url,

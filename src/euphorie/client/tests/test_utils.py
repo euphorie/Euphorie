@@ -32,12 +32,12 @@ class TestURLs(EuphorieTestCase):
         self.client['en'] = ClientCountry('en')
         country = self.client['en']
         country["sector"] = ClientSector('sector')
-        country["sector"].title=u"Test sector"
-        country["sector"].id="sector"
+        country["sector"].title = u"Test sector"
+        country["sector"].id = "sector"
         sector = country["sector"]
         survey = Survey('survey')
-        survey.title = u'Test Survey' 
-        survey.language = 'en' 
+        survey.title = u'Test Survey'
+        survey.language = 'en'
         sector['survey'] = survey
 
     def testBaseURL(self):
@@ -47,7 +47,8 @@ class TestURLs(EuphorieTestCase):
         request = testRequest()
         request.client = self.client
         view = WebHelpers(self.client, request)
-        self.assertTrue(view._base_url().startswith(self.client.absolute_url()))
+        self.assertTrue(
+                view._base_url().startswith(self.client.absolute_url()))
         self.assertFalse(view._base_url().startswith(country.absolute_url()))
 
         view = WebHelpers(country, testRequest())
@@ -61,7 +62,7 @@ class TestURLs(EuphorieTestCase):
         view = WebHelpers(country, testRequest())
         self.assertFalse(view._base_url().startswith(survey.absolute_url()))
         self.assertTrue(view._base_url().startswith(country.absolute_url()))
-    
+
 
 class WebhelperTests(unittest.TestCase):
     def _createView(self, agent=None):

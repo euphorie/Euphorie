@@ -14,16 +14,21 @@ class EvaluationViewTests(unittest.TestCase):
     def reply(self, freq, effect, prob=None):
         from euphorie.content.risk import IFrenchEvaluation as IFr
         from euphorie.content.risk import IKinneyEvaluation as IKi
-        if prob is None: #French
+        if prob is None:  # French
             return {
-                "frequency": IFr['default_frequency'].vocabulary.getTermByToken(freq).value,
-                "severity": IFr['default_severity'].vocabulary.getTermByToken(effect).value,
+                "frequency": IFr['default_frequency'].vocabulary
+                        .getTermByToken(freq).value,
+                "severity": IFr['default_severity'].vocabulary
+                        .getTermByToken(effect).value,
                 }
-        else: #Kinney
+        else:  # Kinney
             return {
-                "frequency": IKi['default_frequency'].vocabulary.getTermByToken(freq).value,
-                "effect": IKi['default_effect'].vocabulary.getTermByToken(effect).value,
-                "probability": IKi['default_probability'].vocabulary.getTermByToken(prob).value,
+                "frequency": IKi['default_frequency'].vocabulary
+                        .getTermByToken(freq).value,
+                "effect": IKi['default_effect'].vocabulary
+                        .getTermByToken(effect).value,
+                "probability": IKi['default_probability'].vocabulary
+                        .getTermByToken(prob).value,
                 }
 
     def test_evaluation_algorithm_fallback(self):
@@ -74,10 +79,12 @@ class EvaluationViewTests(unittest.TestCase):
                 view.calculatePriority(risk, self.reply("often", "severe")),
                 "high")
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("often", "very-severe")),
+                view.calculatePriority(risk,
+                    self.reply("often", "very-severe")),
                 "high")
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("regularly", "severe")),
+                view.calculatePriority(risk,
+                    self.reply("regularly", "severe")),
                 "high")
             self.assertEqual(
                 view.calculatePriority(risk,
@@ -85,7 +92,8 @@ class EvaluationViewTests(unittest.TestCase):
                 "high")
             # Some medium priority items
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("rare", "very-severe")),
+                view.calculatePriority(risk,
+                    self.reply("rare", "very-severe")),
                 "medium")
             self.assertEqual(
                 view.calculatePriority(risk,
@@ -102,17 +110,18 @@ class EvaluationViewTests(unittest.TestCase):
             # Risks with weak severity are always low priority
             for freq in ["almost-never", "regular", "constant"]:
                 self.assertEqual(
-                        view.calculatePriority(risk, self.reply(freq, "weak", 'small')),
+                        view.calculatePriority(risk,
+                            self.reply(freq, "weak", 'small')),
                         "low")
-
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("constant", "significant", 'medium')),
+                view.calculatePriority(risk,
+                    self.reply("constant", "significant", 'medium')),
                 "high")
-
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("constant", "high", 'medium')),
+                view.calculatePriority(risk,
+                    self.reply("constant", "high", 'medium')),
                 "high")
-
             self.assertEqual(
-                view.calculatePriority(risk, self.reply("constant", "weak", 'medium')),
+                view.calculatePriority(risk,
+                    self.reply("constant", "weak", 'medium')),
                 "medium")
