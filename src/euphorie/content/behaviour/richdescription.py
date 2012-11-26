@@ -25,9 +25,9 @@ class IRichDescription(form.Schema):
     Replaces the standard description field with a rich text version.
     """
     description = schema.Text(
-            title = _(u"Summary"),
-            description = _(u'A short summary of the content.'),
-            required = False)
+            title=_(u"Summary"),
+            description=_(u'A short summary of the content.'),
+            required=False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 

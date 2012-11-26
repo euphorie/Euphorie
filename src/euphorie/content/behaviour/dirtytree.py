@@ -26,7 +26,7 @@ class IDirtyTreeRoot(Interface):
 def clearDirty(obj):
     """Explicitly clear the ditry flag on an object.
     """
-    obj.ditry=False
+    obj.dirty = False
 
 
 def isDirty(obj):
@@ -38,15 +38,13 @@ def isDirty(obj):
     return getattr(aq_base(obj), "dirty", False)
 
 
-
 def _touchTree(parent):
     """Helper function to update the dirty flag of the first parent
     :py:obj:`IDirtyTreeRoot`.
     """
     for parent in aq_chain(parent):
         if IDirtyTreeRoot.providedBy(parent):
-            parent.dirty=True
-
+            parent.dirty = True
 
 
 @grok.subscribe(Interface, IObjectMovedEvent)
@@ -60,7 +58,6 @@ def handleObjectMove(obj, event):
         _touchTree(event.newParent)
 
 
-
 @grok.subscribe(Interface, IObjectModifiedEvent)
 def handleObjectModified(obj, event):
     """Event handler for object moves. This includes objects added
@@ -69,11 +66,9 @@ def handleObjectModified(obj, event):
     _touchTree(event.object)
 
 
-
 @grok.subscribe(IDirtyTreeRoot, IActionSucceededEvent)
 def handleSurveyPublish(obj, event):
     """Event handler for workflow events on a dirty tree root. This
     resets the dirty flag.
     """
-    obj.dirty=False
-
+    obj.dirty = False

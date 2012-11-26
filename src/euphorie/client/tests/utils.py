@@ -1,5 +1,6 @@
 # coding=utf-8
 
+
 def addAccount(login="jane@example.com", password=u"Øle"):
     from z3c.saconfig import Session
     from euphorie.client import model

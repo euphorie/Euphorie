@@ -8,9 +8,9 @@ from euphorie.content.behaviour.uniqueid import INameFromUniqueId
 from euphorie.content.behaviour.uniqueid import UniqueNameChooser
 from euphorie.content.behaviour.uniqueid import IIdGenerationRoot
 
+
 class Mock(Acquisition.Implicit):
     implements(INameFromUniqueId)
-
 
 
 class IdGenerationTests(PlacelessSetup, unittest.TestCase):
@@ -21,48 +21,45 @@ class IdGenerationTests(PlacelessSetup, unittest.TestCase):
         provideAdapter(AttributeAnnotations)
 
     def makeRoot(self):
-        root=Mock()
+        root = Mock()
         alsoProvides(root, IAttributeAnnotatable, IIdGenerationRoot)
         return root
 
     def test_ValueErrorIfNoRoot(self):
-        chooser=UniqueNameChooser(Mock())
+        chooser = UniqueNameChooser(Mock())
         self.assertRaises(ValueError, chooser.chooseName, None, Mock())
 
-
     def testValueErrorIfRootNotAnnotatable(self):
-        root=Mock()
+        root = Mock()
         alsoProvides(root, IIdGenerationRoot)
-        chooser=UniqueNameChooser(root)
+        chooser = UniqueNameChooser(root)
         self.assertRaises(ValueError, chooser.chooseName, None, Mock())
 
     def testFirstIdIsOne(self):
-        root=self.makeRoot()
-        obj=Mock()
+        root = self.makeRoot()
+        obj = Mock()
         UniqueNameChooser(root).chooseName(None, obj)
         self.assertEqual(obj.id, "1")
 
     def testSecondIdIsTwo(self):
-        root=self.makeRoot()
-        obj=Mock()
-        chooser=UniqueNameChooser(root)
+        root = self.makeRoot()
+        obj = Mock()
+        chooser = UniqueNameChooser(root)
         chooser.chooseName(None, obj)
         del obj.id
         chooser.chooseName(None, obj)
         self.assertEqual(obj.id, "2")
 
     def testUseExitingIdIfPresent(self):
-        root=self.makeRoot()
-        obj=Mock()
-        obj.id="mock"
+        root = self.makeRoot()
+        obj = Mock()
+        obj.id = "mock"
         UniqueNameChooser(root).chooseName(None, obj)
         self.assertEqual(obj.id, "mock")
 
     def testExtraDepth(self):
-        root=self.makeRoot()
-        folder=Mock().__of__(root)
-        obj=Mock()
+        root = self.makeRoot()
+        folder = Mock().__of__(root)
+        obj = Mock()
         UniqueNameChooser(folder).chooseName(None, obj)
         self.assertEqual(obj.id, "1")
-
-

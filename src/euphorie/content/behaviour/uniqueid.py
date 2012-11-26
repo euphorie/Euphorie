@@ -5,9 +5,8 @@ Unique ids
 Within a survey every element must have a unique identification number. This is
 managed through two behaviours: a content type with the
 :obj:`IIdGenerationRoot` behaviour acts as a id numbering boundary. All items
-underneath this root will have a unique number. The `INameFromUniqueId behaviour`
-indicates that a type's instances should get unique numbers.
-
+underneath this root will have a unique number. The `INameFromUniqueId
+behaviour` indicates that a type's instances should get unique numbers.
 """
 
 from Acquisition import aq_chain
@@ -37,11 +36,10 @@ class INameFromUniqueId(Interface):
     within the context of IIdGenerationRoot.
     """
 
-    id = schema.TextLine(title=_(u"Identifier"),
-                         description=_(u"This is a unique identifier for this object."),
-                         required=True)
-
-
+    id = schema.TextLine(
+            title=_(u"Identifier"),
+            description=_(u"This is a unique identifier for this object."),
+            required=True)
 
 
 class UniqueNameChooser(NormalizingNameChooser):
@@ -63,14 +61,13 @@ class UniqueNameChooser(NormalizingNameChooser):
         else:
             raise ValueError("No id generation root found")
 
-        storage=IAnnotations(root, None)
+        storage = IAnnotations(root, None)
         if storage is None:
             raise ValueError("Id generation root is not annotatable")
 
-        next=storage.get("euphorie.content.behaviour.id", 1)
-        storage["euphorie.content.behaviour.id"]=next+1
-        object.id=str(next)
-
+        next = storage.get("euphorie.content.behaviour.id", 1)
+        storage["euphorie.content.behaviour.id"] = next + 1
+        object.id = str(next)
 
     def chooseName(self, name, object):
         if INameFromUniqueId.providedBy(object):
@@ -78,5 +75,3 @@ class UniqueNameChooser(NormalizingNameChooser):
             return object.id
         else:
             return super(UniqueNameChooser, self).chooseName(name, object)
-
-

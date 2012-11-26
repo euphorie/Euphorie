@@ -82,13 +82,13 @@ class ISurvey(form.Schema, IBasic):
             required=True)
 
     classification_code = schema.ASCIILine(
-           title=_("label_classification_code",
-               default=u"Classification code"),
-           description=_("help_classification_code",
-               default=u"A code identifying this sector. Classification "
-                       u"codes are defined by national standards bodies "
-                       u"and based on revision 2 of the NACE standard."),
-           required=False)
+            title=_("label_classification_code",
+                default=u"Classification code"),
+            description=_("help_classification_code",
+                default=u"A code identifying this sector. Classification "
+                        u"codes are defined by national standards bodies "
+                        u"and based on revision 2 of the NACE standard."),
+            required=False)
 
 
 class Survey(dexterity.Container):
