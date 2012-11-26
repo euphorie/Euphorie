@@ -76,6 +76,7 @@ Bugfixes
 - Fix for unicode error when providing non-ascii profile question values.
 
 
+
 5.0 - November 22, 2012
 -----------------------
 

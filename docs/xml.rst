@@ -138,9 +138,6 @@ very similar to the ``module`` element.
    | ``risk``                | No        | A risk (can be repeated)                  |
    +-------------------------+-----------+-------------------------------------------+
 
-The type of profile question is determined via a mandatory ``type`` attribute. This
-can be set to ``optional`` or ``repeat``.
-
 HTML tags used in the description must be properly escaped or wrapped in a CDATA block.
 
 A profile question must contain either modules or risks; it is an error to use both
@@ -152,7 +149,7 @@ Example
 
 .. code-block:: xml
 
-   <profile-question type="optional">
+   <profile-question>
      <title>Mobile access</title>
      <question>Do your employees work remotely?</question>
      <description>&lt;p&gt;Working out of the office can introduce many
@@ -382,9 +379,9 @@ The XML document below demonstrates all elements documented here.
        <language>en</language>
        <evaluation-optional>true</evaluation-optional>
 
-       <profile-question type="optional">
+       <profile-question>
          <title>Mobile access</title>
-         <question>Do your employees work remotely?</question>
+         <question>List your remote locations</question>
          <description>&lt;p&gt;Working out of the office can introduce many
            new risks that may not be under your direct control.&lt;/p&gt;
          </description>
