@@ -2353,13 +2353,13 @@ fieldset p.question {
 
 /* @group Fieldset Concise */
 
-form.concise fieldset label input,
+form.concise label input,
 fieldset.concise label input,
-form.concise fieldset label input,
+form.concise label input,
 fieldset.concise label input,
-form.concise fieldset label textarea,
+form.concise label textarea,
 fieldset.concise label textarea,
-form.concise fieldset label textarea,
+form.concise label textarea,
 fieldset.concise label textarea {
 	position: relative;
 	vertical-align: top;
@@ -2437,7 +2437,7 @@ form.compact fieldset.comprehensive label {
 	margin: 0;
 	padding: 0;
 	float: none;
-	width: 90px;
+	width: auto;
 }
 
 .concise fieldset.comprehensive,
@@ -2449,8 +2449,13 @@ form.compact fieldset.comprehensive label {
 fieldset.comprehensive label *,
 form.comprehensive fieldset label *,
 form.concise fieldset.comprehensive label *,
-form.compact fieldset.comprehensive label * {
+fieldset.concise fieldset.comprehensive label *,
+form.compact fieldset.comprehensive label *
+ {
 	position: static;
+	margin-right: 0;
+	float: none;
+	vertical-align: baseline;
 }
 
 fieldset.comprehensive p.question,
