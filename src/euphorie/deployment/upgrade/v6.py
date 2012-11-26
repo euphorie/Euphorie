@@ -11,7 +11,7 @@ from euphorie.content.profilequestion import ProfileQuestion
 log = logging.getLogger(__name__)
 
 
-def _convert_to_module(catalog, question):
+def _convert_to_module(question):
     log.info('Converting %s to module', '/'.join(question.getPhysicalPath()))
     parent = aq_parent(question)
     question = aq_base(question)
@@ -47,7 +47,7 @@ def _convert_optional_profiles(root, in_client):
             if type is not None:
                 del entry.type
             if type == 'optional':
-                module = _convert_to_module(catalog, entry)
+                module = _convert_to_module(entry)
                 if in_client:
                     survey = aq_parent(module)
                     published = survey.published
