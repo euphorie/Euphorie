@@ -57,6 +57,7 @@ class getTermTitleByToken(unittest.TestCase):
         field = make_field([(1, "token", u"Title")])
         self.assertEqual(self.getTermTitleByToken(field, "token"), u"Title")
 
+
 class Mock:
     pass
 

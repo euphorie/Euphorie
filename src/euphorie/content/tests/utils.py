@@ -50,37 +50,36 @@ PROFILE_SURVEY = \
 
 
 def _create(container, *args, **kwargs):
-    newid=container.invokeFactory(*args, **kwargs)
-    obj=getattr(container, newid)
+    newid = container.invokeFactory(*args, **kwargs)
+    obj = getattr(container, newid)
     obj.indexObject()
     return obj
 
 
-def createSector(portal, id="sector", title=u"Test Sector", login=None, password=None, country="nl", **kw):
-    sm=getSecurityManager()
-
+def createSector(portal, id="sector", title=u"Test Sector",
+        login=None, password=None, country="nl", **kw):
+    sm = getSecurityManager()
     try:
-        admin=aq_parent(portal).acl_users.getUserById("portal_owner")
+        admin = aq_parent(portal).acl_users.getUserById("portal_owner")
         newSecurityManager(None, admin)
-
         if hasattr(portal, "sectors"):
-            container=portal.sectors
+            container = portal.sectors
         else:
-            container=_create(portal, "euphorie.sectorcontainer", "sectors")
+            container = _create(portal, "euphorie.sectorcontainer", "sectors")
         if "nl" in container:
-            country=container["nl"]
+            country = container["nl"]
         else:
-            country=_create(container, "euphorie.country", "nl")
-        sector=_create(country, "euphorie.sector", id, title=title, **kw)
-        sector.login=login or title.lower()
-        sector.password=password if password is not None else sector.login
+            country = _create(container, "euphorie.country", "nl")
+        sector = _create(country, "euphorie.sector", id, title=title, **kw)
+        sector.login = login or title.lower()
+        sector.password = password if password is not None else sector.login
         return sector
     finally:
         setSecurityManager(sm)
 
 
-def addSurvey(sector, snippet=BASIC_SURVEY, surveygroup_title=u"Test survey", survey_title=u"Standard version"):
+def addSurvey(sector, snippet=BASIC_SURVEY, surveygroup_title=u"Test survey",
+        survey_title=u"Standard version"):
     from euphorie.content import upload
-    importer=upload.SurveyImporter(sector)
+    importer = upload.SurveyImporter(sector)
     return importer(snippet, surveygroup_title, survey_title)
-
