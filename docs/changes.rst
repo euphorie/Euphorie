@@ -4,7 +4,10 @@ Changelog
 5.0.1 - Unreleased
 -------------------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- IE8 fix in client. Adding a standard solution to an new/empty solution produces popup alerting user that they are overriding existing values. [jcbrand]
 
 
 5.0 - November 22, 2012
