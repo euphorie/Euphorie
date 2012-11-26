@@ -149,15 +149,11 @@ class View(grok.View):
                 'title': child.title,
                 'url': state.view_url()}
 
-    def profile_questions(self):
-        return [self._morph(child)
-                for child in self.context.ProfileQuestions()]
-
-    def modules(self):
-        return [self._morph(child) for child in self.context.values()
-                if IModule.providedBy(child)]
-
     def update(self):
+        self.children = [self._morph(child)
+                         for child in self.context.values()
+                         if IModule.providedBy(child) or
+                             IProfileQuestion.providedBy(child)]
         self.group = aq_parent(aq_inner(self.context))
         super(View, self).update()
 

@@ -1,13 +1,20 @@
 Changelog
 =========
 
-5.0.1 - Unreleased
+6.0 - Unreleased
 -------------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- CMS: update survey display to show profile questions and modules in a single
+  list. This makes the display simpler and allows better reordering.
 
 Bugfixes
 ~~~~~~~~
 
-- IE8 fix in client. Adding a standard solution to an new/empty solution produces popup alerting user that they are overriding existing values. [jcbrand]
+- IE8 fix in client. Adding a standard solution to an new/empty solution
+  produces popup alerting user that they are overriding existing values.
 
 
 5.0 - November 22, 2012

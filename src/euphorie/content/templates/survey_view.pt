@@ -26,29 +26,14 @@
         <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
       </dl>
 
-      <tal:block define="children view/profile_questions">
-        <h2 i18n:translate="header_profile_questions">Profile questions</h2>
-
-        <p tal:condition="not:python:children" i18n:translate="no_profile_questions">This survey has no profile questions.</p>
-
-        <tal:children condition="python:children">
-          <ol class="${python:'sortable' if can_edit and len(children)&gt;1 else None}">
-            <li tal:repeat="child children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
-          </ol>
-        </tal:children>
-      </tal:block>
-
-    <tal:block define="children view/modules">
-      <h2 i18n:translate="header_modules">Modules</h2>
-
-      <p tal:condition="not:python:children" i18n:translate="no_modules">This survey has no modules.</p>
+      <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
+      <p tal:condition="not:python:view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
 
       <tal:children condition="python:children">
-        <ol class="${python:'sortable' if can_edit and len(children)&gt;1 else None}" tal:condition="python:children">
-          <li tal:repeat="child children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
+        <ol class="${python:'sortable' if can_edit and len(view.children)&gt;1 else None}">
+          <li tal:repeat="child view.children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
         </ol>
       </tal:children>
-    </tal:block>
     </metal:content>
   </body>
 </html>
