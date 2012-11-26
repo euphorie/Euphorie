@@ -138,8 +138,15 @@
         },
 
         MeasureHasData: function(m) {
-            var data = $.map(m.find(":input:not(select)"),
-                                    function(i) { return Boolean($(i).val()); });
+            var data = $.map(m.find(":input:not(select)"), 
+                    function(i) { 
+                        var val = $(i).val();
+                        if (Boolean(val) && val !== $(i).attr('placeholder')) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
             return $.inArray(true, data)!==-1;
         },
 
