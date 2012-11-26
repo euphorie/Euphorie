@@ -1916,7 +1916,7 @@ p.emphasis {
 	color: white
 }
 
-.message..warning {
+.message.warning {
 	border-color: #f6921d;
 	background-color: #c16800;
 	color: white;
