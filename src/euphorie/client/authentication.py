@@ -105,20 +105,20 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     #
     # IAuthenticationPlugin implementation
     #
-    security.declarePrivate('_authenticate_token')
+    @security.private
     def _authenticate_token(self, credentials):
         token = credentials.get('api-token')
         if not token:
             return None
         return authenticate_token(token)
 
-    security.declarePrivate('_authenticate_login')
+    @security.private
     def _authenticate_login(self, credentials):
         login = credentials.get('login')
         password = credentials.get('password')
         return authenticate(login, password)
 
-    security.declarePrivate('authenticateCredentials')
+    @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
         account = self._authenticate_login(credentials)

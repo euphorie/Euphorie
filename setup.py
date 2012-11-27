@@ -36,6 +36,7 @@ setup(name="Euphorie",
       install_requires=[
           "Plone >=4.0b1",
           "Zope2 >=2.12",
+          'AccessControl >= 3.0',
           "Products.CMFEditions >=2.0b8",
           "Products.PasswordResetTool >=2.0.3",
           'Products.membrane >=2.1.3',
