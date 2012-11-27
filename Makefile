@@ -13,7 +13,7 @@ JS_PACK		= $(YUICOMPRESS) --charset utf-8
 JS_DIR		= src/euphorie/client/templates
 JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
-JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.0.min.js \
+JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.3.min.js \
 		  $(JS_DIR)/libraries/jquery-ui-1.9.1.js \
 		  $(JS_DIR)/libraries/jquery-ui-i18n.js
 EXTRAS		= $(JS_DIR)/libraries/jquery.hoverIntent.js \
