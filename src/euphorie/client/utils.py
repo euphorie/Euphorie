@@ -128,8 +128,8 @@ class WebHelpers(grok.View):
                     else 'darkMainColour')
             parts.append(
                     'brightSupportColour'
-                     if sector.support_background_bright
-                     else 'darkSupportColour')
+                    if sector.support_background_bright
+                    else 'darkSupportColour')
 
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')

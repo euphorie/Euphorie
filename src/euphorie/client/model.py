@@ -517,56 +517,56 @@ MODULE_WITH_RISK_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id == SurveyTreeItem.session_id,
-                   node.id == Risk.sql_risk_id,
-                   node.type == "risk",
-                   Risk.identification == "no",
-                   node.depth > SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path + "%")))))
+                 node.session_id == SurveyTreeItem.session_id,
+                 node.id == Risk.sql_risk_id,
+                 node.type == "risk",
+                 Risk.identification == "no",
+                 node.depth > SurveyTreeItem.depth,
+                 node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_OR_TOP5_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id == SurveyTreeItem.session_id,
-                   node.id == Risk.sql_risk_id,
-                   node.type == "risk",
-                   sql.or_(Risk.identification == "no",
-                           Risk.risk_type == "top5"),
-                   node.depth > SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path + "%")))))
+                 node.session_id == SurveyTreeItem.session_id,
+                 node.id == Risk.sql_risk_id,
+                 node.type == "risk",
+                 sql.or_(Risk.identification == "no",
+                     Risk.risk_type == "top5"),
+                 node.depth > SurveyTreeItem.depth,
+                 node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
-                   node.session_id == SurveyTreeItem.session_id,
-                   node.id == Risk.sql_risk_id,
-                   node.type == "risk",
-                   sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                   Risk.identification == "no",
-                   node.depth > SurveyTreeItem.depth,
-                   node.path.like(SurveyTreeItem.path + "%")))))
+                 node.session_id == SurveyTreeItem.session_id,
+                 node.id == Risk.sql_risk_id,
+                 node.type == "risk",
+                 sql.not_(Risk.risk_type.in_(["top5", "policy"])),
+                 Risk.identification == "no",
+                 node.depth > SurveyTreeItem.depth,
+                 node.path.like(SurveyTreeItem.path + "%")))))
 
 RISK_PRESENT_FILTER = \
-      sql.and_(SurveyTreeItem.type == "risk",
-               sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id == SurveyTreeItem.id,
-                   Risk.identification == "no"))))
+    sql.and_(SurveyTreeItem.type == "risk",
+            sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                Risk.identification == "no"))))
 
 RISK_PRESENT_OR_TOP5_FILTER = \
-      sql.and_(SurveyTreeItem.type == "risk",
-               sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id == SurveyTreeItem.id,
-                   sql.or_(Risk.identification == "no",
-                           Risk.risk_type == "top5")))))
+    sql.and_(SurveyTreeItem.type == "risk",
+            sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                sql.or_(Risk.identification == "no",
+                    Risk.risk_type == "top5")))))
 
 RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER = \
-      sql.and_(SurveyTreeItem.type == "risk",
-               sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
-                   Risk.sql_risk_id == SurveyTreeItem.id,
-                   sql.not_(Risk.risk_type.in_(['top5', 'policy'])),
-                   Risk.identification == "no"))))
+    sql.and_(SurveyTreeItem.type == "risk",
+            sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                sql.not_(Risk.risk_type.in_(['top5', 'policy'])),
+                Risk.identification == "no"))))
 del node
 
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",

@@ -6,7 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import ISiteRoot
 from euphorie.client.interfaces import IClientSkinLayer
 
-log=logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
@@ -18,28 +18,24 @@ class HelpView(grok.View):
     grok.template("help")
 
     def _getLanguages(self):
-        lt=getToolByName(self.context, "portal_languages")
-        lang=lt.getPreferredLanguage()
+        lt = getToolByName(self.context, "portal_languages")
+        lang = lt.getPreferredLanguage()
         if "-" in lang:
             return [lang, lang.split("-")[0], "en"]
         else:
             return [lang, "en"]
 
-
     def findHelp(self):
-        documents=getUtility(ISiteRoot).documents
+        documents = getUtility(ISiteRoot).documents
 
-        help=None
+        help = None
         for lang in self._getLanguages():
-            docs=documents.get(lang, None)
+            docs = documents.get(lang, None)
             if docs is None:
                 continue
-            help=docs.get("help", None)
+            help = docs.get("help", None)
             if help is not None:
                 return help
 
-
     def update(self):
-        self.help=self.findHelp()
-
-
+        self.help = self.findHelp()

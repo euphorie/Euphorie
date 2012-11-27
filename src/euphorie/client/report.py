@@ -354,10 +354,10 @@ class IdentificationReportDownload(grok.View):
         comment_style = document.StyleSheet.ParagraphStyles.Comment
         header_styles = {
                 0: document.StyleSheet.ParagraphStyles.Heading2,
-                1:  document.StyleSheet.ParagraphStyles.Heading3,
-                2:  document.StyleSheet.ParagraphStyles.Heading4,
-                3:  document.StyleSheet.ParagraphStyles.Heading5,
-                4:  document.StyleSheet.ParagraphStyles.Heading6,
+                1: document.StyleSheet.ParagraphStyles.Heading3,
+                2: document.StyleSheet.ParagraphStyles.Heading4,
+                3: document.StyleSheet.ParagraphStyles.Heading5,
+                4: document.StyleSheet.ParagraphStyles.Heading6,
                 }
 
         for node in self.getNodes():

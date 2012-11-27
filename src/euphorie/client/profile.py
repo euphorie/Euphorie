@@ -169,7 +169,7 @@ def set_session_profile(survey, survey_session, profile):
     :param dict profile: desired profile
     :rtype: :py:class:`euphorie.client.model.SurveySession`
     :return: the update session (this might be a new session)
-    
+
     This will rebuild the survey session tree if the profile has changed.
     """
     if not survey_session.hasTree():
@@ -236,7 +236,6 @@ class Profile(grok.View):
         new_profile = self.getDesiredProfile()
         self.session = set_session_profile(survey, self.session, new_profile)
         SessionManager.resume(self.session)
-
 
     def ProfileQuestions(self):
         """Return information for all profile questions in this survey.

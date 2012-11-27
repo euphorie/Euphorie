@@ -15,20 +15,22 @@ grok.templatedir("templates")
 
 
 def checkTermsAndConditions():
-    appconfig=getUtility(IAppConfig)
+    appconfig = getUtility(IAppConfig)
     try:
         return asBool(appconfig["euphorie"]["terms-and-conditions"])
     except KeyError:
         return True
     except ValueError:
-        log.error("Invalid value for terms-and-conditions flag in site configuration.")
+        log.error("Invalid value for terms-and-conditions flag "
+                  "in site configuration.")
         return False
 
 
 def approvedTermsAndConditions(account=None):
     if account is None:
-        account=getSecurityManager().getUser()
-    return account.tc_approved is not None and account.tc_approved==CONDITIONS_VERSION
+        account = getSecurityManager().getUser()
+    return account.tc_approved is not None and \
+            account.tc_approved == CONDITIONS_VERSION
 
 
 class TermsAndConditions(grok.View):
@@ -42,18 +44,17 @@ class TermsAndConditions(grok.View):
         return self.account.tc_approved is not None
 
     def update(self):
-        self.came_from=self.request.form.get("came_from")
+        self.came_from = self.request.form.get("came_from")
         if isinstance(self.came_from, list):
             # If came_from is both in the querystring and the form data
-            self.came_from=self.came_from[0]
+            self.came_from = self.came_from[0]
 
-        self.account=getSecurityManager().getUser()
-        if self.request.environ["REQUEST_METHOD"]=="POST":
-            self.account.tc_approved=CONDITIONS_VERSION
+        self.account = getSecurityManager().getUser()
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            self.account.tc_approved = CONDITIONS_VERSION
 
             if self.came_from:
                 self.request.response.redirect(self.came_from)
             else:
                 self.request.response.redirect(
                         aq_inner(self.context).absolute_url())
-

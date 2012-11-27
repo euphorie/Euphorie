@@ -52,18 +52,17 @@ class SessionManagerFactory(object):
 
         :rtype: :py:class:`euphorie.client.model.SurveySession` or None
         """
-        request=getRequest()
+        request = getRequest()
         if "euphorie.session" in request.other:
             return request.other["euphorie.session"]
 
-        id=self.id
+        id = self.id
         if id is None:
             return None
 
-        session=Session.query(model.SurveySession).get(id)
-        request.other["euphorie.session"]=session
+        session = Session.query(model.SurveySession).get(id)
+        request.other["euphorie.session"] = session
         return session
-
 
     def start(self, title, survey, account=None):
         """Create a new session and activate it.
@@ -76,11 +75,10 @@ class SessionManagerFactory(object):
         """
         survey_session = create_survey_session(title, survey, account)
         request = getRequest()
-        setCookie(request.response, getSecret(), SESSION_COOKIE, 
+        setCookie(request.response, getSecret(), SESSION_COOKIE,
                 survey_session.id)
         request.other['euphorie.session'] = survey_session
         return survey_session
-
 
     def resume(self, session):
         """Activate the given session.
@@ -88,32 +86,30 @@ class SessionManagerFactory(object):
         :param session: session to activate
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
-        request=getRequest()
-        request.other["euphorie.session"]=session
+        request = getRequest()
+        request.other["euphorie.session"] = session
         setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)
-
 
     def stop(self):
         """End the current active session.
         """
-        request=getRequest()
+        request = getRequest()
         if "euphorie.session" in request.other:
             del request.other["euphorie.session"]
         deleteCookie(request.response, SESSION_COOKIE)
 
-
-
     @property
     def id(self):
-        """The id of the current session, or None if there is no active session.
+        """The id of the current session, or None if there is no active
+        session.
 
         :rtype: int or None
         """
-        request=getRequest()
+        request = getRequest()
         if "euphorie.session" in request.other:
             return request.other["euphorie.session"].id
 
-        session_id=getCookie(request, getSecret(), "_eu_session")
+        session_id = getCookie(request, getSecret(), "_eu_session")
 
         try:
             return int(session_id)
@@ -121,12 +117,9 @@ class SessionManagerFactory(object):
             return None
 
 
-
-
 SessionManager = SessionManagerFactory()
 """Global instance of :py:class:`SessionManagerFactory`.
 """
 
 
-__all__ = ["SessionManager" ]
-
+__all__ = ["SessionManager"]

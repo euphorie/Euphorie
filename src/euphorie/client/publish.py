@@ -27,6 +27,7 @@ from webhelpers.html.builder import make_tag
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
 
+
 def CopyToClient(survey, preview=False):
     """Copy the survey to the online client part of the site.
 
@@ -57,51 +58,52 @@ def CopyToClient(survey, preview=False):
     # This is based on OFS.CopyContainer.manage_clone, modified to
     # use the sector id and title, skip security checks and remove
     # an existing object with the same id.
-    client=getPortal(survey).client
+    client = getPortal(survey).client
 
-    source=aq_inner(survey)
-    surveygroup=aq_parent(source)
-    sector=aq_parent(surveygroup)
-    country=aq_parent(sector)
+    source = aq_inner(survey)
+    surveygroup = aq_parent(source)
+    sector = aq_parent(surveygroup)
+    country = aq_parent(sector)
     from euphorie.content.sector import ISector
     assert ISector.providedBy(sector)
 
     if country.id not in client:
-        client.invokeFactory(
-            "euphorie.clientcountry", 
-            country.id,
-            title=country.title, 
-            country_type=country.country_type)
-
-    cl_country=client[country.id]
+        client.invokeFactory("euphorie.clientcountry", country.id,
+            title=country.title, country_type=country.country_type)
+    cl_country = client[country.id]
 
     if sector.id not in cl_country:
         cl_country.invokeFactory("euphorie.clientsector", sector.id)
-    target=cl_country[sector.id]
-    target.title=sector.title
-    target.logo=sector.logo
+    target = cl_country[sector.id]
+    target.title = sector.title
+    target.logo = sector.logo
     # Clear any scaled logos
     AnnotationStorage(target).storage.clear()
 
-    target.main_background_colour=getattr(sector, "main_colour", None)
+    target.main_background_colour = getattr(sector, "main_colour", None)
     if target.main_background_colour:
-        target.main_foreground_colour=utils.MatchColour(target.main_background_colour, 0.0, 0.6, 0.3)
-        target.main_background_bright=utils.IsBright(target.main_background_colour)
-    target.support_background_colour=getattr(sector, "support_colour", None)
-    if target.support_background_colour:
-        target.support_foreground_colour=utils.MatchColour(target.support_background_colour)
-        target.support_background_bright=utils.IsBright(target.support_background_colour)
+        target.main_foreground_colour = utils.MatchColour(
+                target.main_background_colour, 0.0, 0.6, 0.3)
+        target.main_background_bright = \
+                utils.IsBright(target.main_background_colour)
 
-    copy=source._getCopy(target)
+    target.support_background_colour = getattr(sector, "support_colour", None)
+    if target.support_background_colour:
+        target.support_foreground_colour = \
+                utils.MatchColour(target.support_background_colour)
+        target.support_background_bright = \
+                utils.IsBright(target.support_background_colour)
+
+    copy = source._getCopy(target)
     if preview:
-        copy.id="preview"
+        copy.id = "preview"
     else:
-        copy.id=surveygroup.id
-    copy.title=surveygroup.title
-    copy.evaluation_algorithm=surveygroup.evaluation_algorithm
-    copy.version=source.id
-    copy.published=datetime.datetime.now()
-    copy.preview=preview
+        copy.id = surveygroup.id
+    copy.title = surveygroup.title
+    copy.evaluation_algorithm = surveygroup.evaluation_algorithm
+    copy.version = source.id
+    copy.published = datetime.datetime.now()
+    copy.preview = preview
 
     if copy.id in target:
         # We must suppress events to prevent the can-not-delete-published-
@@ -113,13 +115,11 @@ def CopyToClient(survey, preview=False):
         target._delObject(copy.id, suppress_events=True)
 
     target._setObject(copy.id, copy, suppress_events=True)
-    copy=target[copy.id]
+    copy = target[copy.id]
     copy._postCopy(target, op=0)
 
     notify(ObjectPublishedEvent(source))
-
     return copy
-
 
 
 def PublishToClient(survey, preview=False):
@@ -133,17 +133,16 @@ def PublishToClient(survey, preview=False):
     the currently active Zope user to make sure content can be created in the
     client.
     """
-    pas=getToolByName(survey, "acl_users")
-    clientuser=pas.getUserById("client")
-    sm=getSecurityManager()
+    pas = getToolByName(survey, "acl_users")
+    clientuser = pas.getUserById("client")
+    sm = getSecurityManager()
     try:
         newSecurityManager(None, clientuser)
-        survey=CopyToClient(survey, preview)
-        survey.published=(survey.id, survey.title, datetime.datetime.now())
+        survey = CopyToClient(survey, preview)
+        survey.published = (survey.id, survey.title, datetime.datetime.now())
     finally:
         setSecurityManager(sm)
     return survey
-
 
 
 @grok.subscribe(ISurvey, IActionSucceededEvent)
@@ -152,12 +151,9 @@ def handleSurveyPublish(survey, event):
     :py:obj:`ISurvey` objects. This handler copies the survey to the
     client.
     """
-    if event.action not in [ "publish", "update"]:
+    if event.action not in ["publish", "update"]:
         return
-
     PublishToClient(survey, False)
-
-
 
 
 class PublishSurvey(form.Form):
@@ -174,60 +170,56 @@ class PublishSurvey(form.Form):
     grok.template("publish")
 
     def publish(self):
-        survey=aq_inner(self.context)
-        survey.published=datetime.datetime.now()
-        wt=getToolByName(survey, "portal_workflow")
-        state=wt.getInfoFor(survey, "review_state")
-        if state=="draft":
+        survey = aq_inner(self.context)
+        survey.published = datetime.datetime.now()
+        wt = getToolByName(survey, "portal_workflow")
+        state = wt.getInfoFor(survey, "review_state")
+        if state == "draft":
             wt.doActionFor(survey, "publish")
         else:
             wt.doActionFor(survey, "update")
 
     def is_surveygroup_published(self):
         """Check if this surveygroup has been published before."""
-        source=aq_inner(self.context)
-        surveygroup=aq_parent(source)
+        source = aq_inner(self.context)
+        surveygroup = aq_parent(source)
         return bool(surveygroup.published)
-
 
     def is_this_survey_published(self):
         """Check if this survey is currently published."""
-        source=aq_inner(self.context)
-        surveygroup=aq_parent(source)
-        return surveygroup.published==source.id
-
+        source = aq_inner(self.context)
+        surveygroup = aq_parent(source)
+        return surveygroup.published == source.id
 
     def client_url(self):
         """Return the URL this survey will have after it is published."""
-        config=getUtility(IAppConfig)
-        client_url=config.get("euphorie", {}).get("client")
+        config = getUtility(IAppConfig)
+        client_url = config.get("euphorie", {}).get("client")
         if client_url:
-            client_url=client_url.rstrip("/")
+            client_url = client_url.rstrip("/")
         else:
-            client_url=getPortal(self.context).client.absolute_url()
+            client_url = getPortal(self.context).client.absolute_url()
 
-        source=aq_inner(self.context)
-        surveygroup=aq_parent(source)
-        sector=aq_parent(surveygroup)
-        country=aq_parent(sector)
-
+        source = aq_inner(self.context)
+        surveygroup = aq_parent(source)
+        sector = aq_parent(surveygroup)
+        country = aq_parent(sector)
         return "/".join([client_url, country.id, sector.id, surveygroup.id])
-
 
     @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
-        state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")
+        state = getMultiAdapter((aq_inner(self.context), self.request),
+                name="plone_context_state")
         self.request.response.redirect(state.view_url())
-
 
     @button.buttonAndHandler(_(u"button_publish", default=u"Publish"))
     def handlePublish(self, action):
         self.publish()
         IStatusMessage(self.request).addStatusMessage(
                 _(u"Succesfully published the survey"), type="success")
-        state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")
+        state = getMultiAdapter((aq_inner(self.context), self.request),
+                name="plone_context_state")
         self.request.response.redirect(state.view_url())
-
 
 
 class PreviewSurvey(form.Form):
@@ -242,43 +234,41 @@ class PreviewSurvey(form.Form):
     grok.template("preview")
 
     def publish(self):
-        survey=aq_inner(self.context)
+        survey = aq_inner(self.context)
         return PublishToClient(survey, True)
-
 
     def preview_url(self):
         """Return the URL the preview will have."""
-        config=getUtility(IAppConfig)
-        client_url=config.get("euphorie", {}).get("client")
+        config = getUtility(IAppConfig)
+        client_url = config.get("euphorie", {}).get("client")
         if client_url:
-            client_url=client_url.rstrip("/")
+            client_url = client_url.rstrip("/")
         else:
-            client_url=getPortal(self.context).client.absolute_url()
+            client_url = getPortal(self.context).client.absolute_url()
 
-        source=aq_inner(self.context)
-        surveygroup=aq_parent(source)
-        sector=aq_parent(surveygroup)
-        country=aq_parent(sector)
+        source = aq_inner(self.context)
+        surveygroup = aq_parent(source)
+        sector = aq_parent(surveygroup)
+        country = aq_parent(sector)
 
         return "/".join([client_url, country.id, sector.id, "preview"])
 
-
     @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
-        state=getMultiAdapter((aq_inner(self.context), self.request), name="plone_context_state")
+        state = getMultiAdapter((aq_inner(self.context), self.request),
+                name="plone_context_state")
         self.request.response.redirect(state.view_url())
-
 
     @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
     def handlePreview(self, action):
         self.publish()
         url = make_tag('a', href=self.preview_url(), c=self.preview_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
-                _("message_preview_success", 
+                _("message_preview_success",
                     default=u"Succesfully created a preview for the survey. "
                             u"It can be accessed at ${url} .",
-                    mapping=dict(url=url)), type="success")
-        state=getMultiAdapter(
-                        (aq_inner(self.context), self.request), 
+                    mapping={'url': url}), type="success")
+        state = getMultiAdapter(
+                        (aq_inner(self.context), self.request),
                         name="plone_context_state")
         self.request.response.redirect(state.view_url())

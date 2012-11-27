@@ -52,7 +52,6 @@ class ProfileTests(EuphorieFunctionalTestCase):
         browser.getForm().submit()
 
 
-
 class UpdateTests(EuphorieFunctionalTestCase):
     # This test is disabled because the queries used in copySessionData
     # are not compatible with SQLite.
@@ -168,32 +167,31 @@ class UpdateTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.getControl(name="1:boolean").value, False)
         self.assertEqual(browser.getControl(name="2:boolean").value, True)
 
-
     # This test is disabled because the queries used in copySessionData
     # are not compatible with SQLite.
     def XtestSkipChildrenFalseForMandatoryModules(self):
-        """ Mandatory modules must have skip_children=False. It's possible that 
+        """ Mandatory modules must have skip_children=False. It's possible that
             the module was optional with skip_children=True and now after the
             update must be mandatory.
         """
-        survey="""<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
-                    <title>Sector title</title>
-                    <survey>
-                        <title>Survey title</title>
-                        <module optional="true">
-                            <title>Module Title</title>
-                            <description>&lt;p&gt;Testing ticket #3860&lt;/p&gt;</description>
-                            <question>What is the sound of one hand clapping?</question>
-                            <risk type="risk">
-                                <title>This risk exists</title>
-                                <problem-description>This risk doesn't exist</problem-description>
-                                <description>&lt;p&gt;asdg&lt;/p&gt;</description>
-                                <show-not-applicable>false</show-not-applicable>
-                                <evaluation-method>direct</evaluation-method>
-                            </risk>
-                        </module>
-                    </survey>
-                </sector>"""
+        survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+                      <title>Sector title</title>
+                      <survey>
+                          <title>Survey title</title>
+                          <module optional="true">
+                              <title>Module Title</title>
+                              <description>&lt;p&gt;Testing ticket #3860&lt;/p&gt;</description>
+                              <question>What is the sound of one hand clapping?</question>
+                              <risk type="risk">
+                                  <title>This risk exists</title>
+                                  <problem-description>This risk doesn't exist</problem-description>
+                                  <description>&lt;p&gt;asdg&lt;/p&gt;</description>
+                                  <show-not-applicable>false</show-not-applicable>
+                                  <evaluation-method>direct</evaluation-method>
+                              </risk>
+                          </module>
+                      </survey>
+                  </sector>"""
 
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)

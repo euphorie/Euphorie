@@ -37,6 +37,7 @@ log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
 
+
 class PathGhost(OFS.Traversable.Traversable, Acquisition.Implicit):
     """Dummy object to fake a traversable element.
 
@@ -54,7 +55,6 @@ class PathGhost(OFS.Traversable.Traversable, Acquisition.Implicit):
         return self.id
 
 
-
 class View(grok.View):
     """
     """
@@ -64,7 +64,6 @@ class View(grok.View):
     grok.template("survey_sessions")
     grok.name("index_html")
 
-
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -73,15 +72,14 @@ class View(grok.View):
         * `title`: session title
         * `modified`: timestamp of last session modification
         """
-        survey=aq_inner(self.context)
-        my_path=utils.RelativePath(self.request.client, survey)
-        account=getSecurityManager().getUser()
-        return [dict(id=session.id,
-                     title=session.title,
-                     modified=session.modified)
+        survey = aq_inner(self.context)
+        my_path = utils.RelativePath(self.request.client, survey)
+        account = getSecurityManager().getUser()
+        return [{'id': session.id,
+                 'title': session.title,
+                 'modified': session.modified}
                  for session in account.sessions
-                 if session.zodb_path==my_path]
-
+                 if session.zodb_path == my_path]
 
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
@@ -92,32 +90,29 @@ class View(grok.View):
         SessionManager.start(title=title, survey=survey)
         self.request.response.redirect("%s/start" % survey.absolute_url())
 
-
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session=Session.query(model.SurveySession).get(info["session"])
+        session = Session.query(model.SurveySession).get(info["session"])
         SessionManager.resume(session)
-        survey=self.request.client.restrictedTraverse(str(session.zodb_path))
+        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         self.request.response.redirect("%s/resume" % survey.absolute_url())
-
 
     def update(self):
         utils.setLanguage(self.request, self.context)
-
-        if self.request.environ["REQUEST_METHOD"]=="POST":
-            reply=self.request.form
-            if reply["action"]=="new":
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            reply = self.request.form
+            if reply["action"] == "new":
                 self._NewSurvey(reply)
-            elif reply["action"]=="continue":
+            elif reply["action"] == "continue":
                 self._ContinueSurvey(reply)
         else:
-            survey=aq_inner(self.context)
-            dbsession=SessionManager.session
+            survey = aq_inner(self.context)
+            dbsession = SessionManager.session
             if dbsession is not None and \
-                    dbsession.zodb_path==utils.RelativePath(self.request.client, survey):
-                self.request.response.redirect("%s/resume" % survey.absolute_url())
-
-
+                    dbsession.zodb_path == utils.RelativePath(
+                                        self.request.client, survey):
+                self.request.response.redirect(
+                        "%s/resume" % survey.absolute_url())
 
 
 class Start(grok.View):
@@ -135,17 +130,15 @@ class Start(grok.View):
 
     @memoize
     def has_introduction(self):
-        survey=aq_inner(self.context)
+        survey = aq_inner(self.context)
         return utils.HasText(getattr(survey, "introduction", None))
 
-
     def update(self):
-        survey=aq_inner(self.context)
-        if self.request.environ["REQUEST_METHOD"]!="POST":
+        survey = aq_inner(self.context)
+        if self.request.environ["REQUEST_METHOD"] != "POST":
             return
 
         self.request.response.redirect("%s/@@profile" % survey.absolute_url())
-
 
 
 class Resume(grok.CodeView):
@@ -159,12 +152,12 @@ class Resume(grok.CodeView):
     grok.name("resume")
 
     def render(self):
-        survey=aq_inner(self.context)
-        dbsession=SessionManager.session
+        survey = aq_inner(self.context)
+        dbsession = SessionManager.session
         if redirectOnSurveyUpdate(self.request):
             return
 
-        question=FindFirstQuestion(dbsession=dbsession)
+        question = FindFirstQuestion(dbsession=dbsession)
         if question is None:
             # No tree generated, so start over
             self.request.response.redirect("%s/start" % survey.absolute_url())
@@ -173,17 +166,16 @@ class Resume(grok.CodeView):
                     QuestionURL(survey, question, phase="identification"))
 
 
-
 class Identification(grok.View):
     """Survey identification start page.
 
     This view shows the introduction text for the identification phase. This
     includes an option to print a report with all questions.
-    
+
     This view is registered for :py:class:`PathGhost` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *identification* component of the URL.
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *identification* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -200,10 +192,10 @@ class Identification(grok.View):
         self.survey = survey = aq_parent(aq_inner(self.context))
         question = FindFirstQuestion(filter=self.question_filter)
         if question is not None:
-            self.next_url=QuestionURL(survey, question, phase="identification")
+            self.next_url = QuestionURL(survey, question,
+                    phase="identification")
         else:
-            self.next_url=None
-
+            self.next_url = None
 
 
 class Evaluation(grok.View):
@@ -212,11 +204,11 @@ class Evaluation(grok.View):
     This view shows the introduction text for the evaluation phase. If the
     survey allows it an optionn is given to skip the evaluation phase and
     proceed directly to the action plan phase.
-    
+
     This view is registered for :py:class:`PathGhost` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object for the
-    *evaluation* component of the URL.
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *evaluation* component of the URL.
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -233,12 +225,12 @@ class Evaluation(grok.View):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        self.survey=survey=aq_parent(aq_inner(self.context))
-        question=FindFirstQuestion(filter=self.question_filter)
+        self.survey = survey = aq_parent(aq_inner(self.context))
+        question = FindFirstQuestion(filter=self.question_filter)
         if question is not None:
-            self.next_url=QuestionURL(survey, question, phase="evaluation")
+            self.next_url = QuestionURL(survey, question, phase="evaluation")
         else:
-            self.next_url=None
+            self.next_url = None
 
 
 class ActionPlan(grok.View):
@@ -266,13 +258,12 @@ class ActionPlan(grok.View):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        self.survey=survey=aq_parent(aq_inner(self.context))
-        question=FindFirstQuestion(filter=self.question_filter)
+        self.survey = survey = aq_parent(aq_inner(self.context))
+        question = FindFirstQuestion(filter=self.question_filter)
         if question is not None:
-            self.next_url=QuestionURL(survey, question, phase="actionplan")
+            self.next_url = QuestionURL(survey, question, phase="actionplan")
         else:
-            self.next_url=None
-
+            self.next_url = None
 
 
 class Status(grok.View):
@@ -312,45 +303,42 @@ class Status(grok.View):
                WHERE session_id=%(sessionid)d
                GROUP BY module, status;"""
 
-
     def getStatus(self):
         # Note: Optional modules with a yes-answer are not distinguishable
         # from non-optional modules, and ignored.
-        session_id=SessionManager.id
-        query=self.query % dict(sessionid=session_id)
-        session=Session()
-        result=session.execute(query).fetchall()
+        session_id = SessionManager.id
+        query = self.query % dict(sessionid=session_id)
+        session = Session()
+        result = session.execute(query).fetchall()
 
-        modules={}
-        base_url="%s/identification" % self.request.survey.absolute_url()
+        modules = {}
+        base_url = "%s/identification" % self.request.survey.absolute_url()
         for row in result:
-            module=modules.setdefault(row.module, dict())
+            module = modules.setdefault(row.module, dict())
             if "url" not in module:
-                module["url"]="%s/%s" % (base_url, int(row.module))
-            module["path"]=row.module
-            if row.status!="ignore":
-                module["total"]=module.get("total", 0) + row.count
-            module[row.status]=dict(count=row.count)
+                module["url"] = "%s/%s" % (base_url, int(row.module))
+            module["path"] = row.module
+            if row.status != "ignore":
+                module["total"] = module.get("total", 0) + row.count
+            module[row.status] = {'count': row.count}
 
-        titles=dict(session.query(model.Module.path, model.Module.title)\
-                .filter(model.Module.session_id==session_id)\
+        titles = dict(session.query(model.Module.path, model.Module.title)
+                .filter(model.Module.session_id == session_id)
                 .filter(model.Module.path.in_(modules.keys())))
         for module in modules.values():
-            module["title"]=titles[module["path"]]
+            module["title"] = titles[module["path"]]
             for status in ["postponed", "ok", "risk"]:
                 if status in module:
-                    module[status]["width"]=int(570*(float(module[status]["count"])/module["total"]))
+                    module[status]["width"] = int(570 *
+                            (float(module[status]["count"]) / module["total"]))
 
-
-        self.status=modules.values()
+        self.status = modules.values()
         self.status.sort(key=lambda m: m["path"])
-
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
         self.getStatus()
-
 
 
 def find_sql_context(session_id, zodb_path):
@@ -411,10 +399,10 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
     """
     adapts(ISurvey, IClientSkinLayer)
 
-    phases=dict(identification=IIdentificationPhaseSkinLayer,
-                evaluation=IEvaluationPhaseSkinLayer,
-                actionplan=IActionPlanPhaseSkinLayer,
-                report=IReportPhaseSkinLayer)
+    phases = {'identification': IIdentificationPhaseSkinLayer,
+              'evaluation': IEvaluationPhaseSkinLayer,
+              'actionplan': IActionPlanPhaseSkinLayer,
+              'report': IReportPhaseSkinLayer}
 
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.
@@ -425,10 +413,10 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         if dbsession is None or \
                 dbsession.zodb_path != client_path:
 
-            # Allow for alternative session ids to be hardcoded in the 
+            # Allow for alternative session ids to be hardcoded in the
             # euphorie.ini file for automatic browser testing with Browsera
-            conf = getUtility(IAppConfig).get("euphorie",{})
-            debug_ids = conf.get("debug_sessions",'').strip().splitlines()
+            conf = getUtility(IAppConfig).get("euphorie", {})
+            debug_ids = conf.get('debug_sessions', '').strip().splitlines()
             for sid in debug_ids:
                 session = Session.query(model.SurveySession).get(sid)
                 if hasattr(session, 'zodb_path') and \
@@ -439,23 +427,25 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             return False
         return True
 
-
     def publishTraverse(self, request, name):
-        request.survey=self.context
+        request.survey = self.context
         utils.setLanguage(request, self.context, self.context.language)
 
-        if name not in ["view", "index_html"] and not self.hasValidSession(request):
+        if name not in ["view", "index_html"] and \
+                not self.hasValidSession(request):
             request.response.redirect(
-                    aq_parent(aq_parent(self.context)).absolute_url(), lock=True)
+                    aq_parent(aq_parent(self.context)).absolute_url(),
+                    lock=True)
             return self.context
 
         if name not in self.phases:
-            return super(SurveyPublishTraverser, self).publishTraverse(request, name)
+            return super(SurveyPublishTraverser, self)\
+                    .publishTraverse(request, name)
 
         # Decorate the request with the right skin layer and add to the aq path
         directlyProvides(request, self.phases[name],
                          *directlyProvidedBy(request))
-        self.context=PathGhost(name).__of__(self.context)
+        self.context = PathGhost(name).__of__(self.context)
 
         session = SessionManager.session
         tree_id = find_sql_context(session.id,

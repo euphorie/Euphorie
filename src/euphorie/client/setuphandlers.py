@@ -21,7 +21,7 @@ def add_account_plugin(pas):
 
 def setupVarious(context):
     if context.readDataFile('euphorie.client.txt') is None:
-        return   
+        return
 
     site = context.getSite()
     pas = site.acl_users

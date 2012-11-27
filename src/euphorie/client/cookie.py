@@ -27,15 +27,15 @@ def setCookie(response, secret, name, value, timeout=0):
     :param str value: value of the cookie
     :param int timeout: maximum lifetime of the cookie (in seconds)
     """
-    signature=_sign(secret, str(value))
-    cookie="%s%s" % (signature, value)
-    cookie=binascii.b2a_base64(cookie).rstrip()
+    signature = _sign(secret, str(value))
+    cookie = "%s%s" % (signature, value)
+    cookie = binascii.b2a_base64(cookie).rstrip()
     if timeout:
-        expires=rfc822.formatdate(time.time()+timeout)
-        response.setCookie(name, cookie, path="/", expires=expires, http_only=True)
+        expires = rfc822.formatdate(time.time() + timeout)
+        response.setCookie(name, cookie, path="/", expires=expires,
+                http_only=True)
     else:
         response.setCookie(name, cookie, path="/", http_only=True)
-
 
 
 def getCookie(request, secret, name):
@@ -49,23 +49,23 @@ def getCookie(request, secret, name):
     :param str secret: authentication secret used to sign the cookie
     :param str name: name of the cookie to get.
     """
-    cookie=request.cookies.get(name)
+    cookie = request.cookies.get(name)
     if not cookie:
         return None
 
     try:
-        cookie=binascii.a2b_base64(cookie)
+        cookie = binascii.a2b_base64(cookie)
     except binascii.Error:
         log.warn("Cookie with invalid base64 encoding: %r", cookie)
         return None
 
-    if len(cookie)<17:
+    if len(cookie) < 17:
         log.warn("Cookie is too short: %r", cookie)
         return None
 
-    (signature,value)=(cookie[:16], cookie[16:])
+    (signature, value) = (cookie[:16], cookie[16:])
 
-    if signature!=hmac.new(secret, value).digest():
+    if signature != hmac.new(secret, value).digest():
         log.warn("Cookie with invalid signature: %r %r", signature, value)
         return None
 
@@ -74,11 +74,9 @@ def getCookie(request, secret, name):
 
 def deleteCookie(response, name):
     """Remove an existing cookie.
-    
+
     :param response: HTTP response object
     :type response: :py:class:`ZPublisher.HTTPResponse.HTTPResponse`
     :param str name: name of the cookie to delete.
     """
     response.expireCookie(name)
-
-

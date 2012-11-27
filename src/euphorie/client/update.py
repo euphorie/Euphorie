@@ -21,7 +21,8 @@ def getSurveyTree(survey):
     while queue:
         node = queue.popleft()
         if node.portal_type not in \
-                ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk']:
+                ['euphorie.profilequestion', 'euphorie.module',
+                 'euphorie.risk']:
             continue
         nodes.append({
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
@@ -73,7 +74,8 @@ def treeChanges(session, survey):
     sestree = set(getSessionTree(session))
     results = set()
     for entry in surveytree:
-        nodes = [node for node in sestree if node.zodb_path == entry['zodb_path']]
+        nodes = [node for node in sestree
+                 if node.zodb_path == entry['zodb_path']]
         if nodes:
             for node in nodes:
                 sestree.remove(node)
@@ -82,13 +84,15 @@ def treeChanges(session, survey):
                 if entry['optional'] == False and \
                         nodes[0].skip_children == True:
                     # skip_children cannot be True if the module is not
-                    # optional, so this is requires a SessionTree update    
-                    results.add((entry["zodb_path"], nodes[0].type, "modified"))
+                    # optional, so this is requires a SessionTree update
+                    results.add(
+                            (entry["zodb_path"], nodes[0].type, "modified"))
                 elif entry['has_description'] != nodes[0].has_description:
-                    results.add((entry["zodb_path"], nodes[0].type, "modified"))
+                    results.add(
+                            (entry["zodb_path"], nodes[0].type, "modified"))
             if nodes[0].type == entry["type"] or \
-                    (nodes[0].type == "module" and \
-                    entry["type"] == "profilequestion"):
+                    (nodes[0].type == "module" and
+                     entry["type"] == "profilequestion"):
                 continue
             results.add((entry["zodb_path"], nodes[0].type, "remove"))
             results.add((entry["zodb_path"], entry["type"], "add"))
