@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.0 - Unreleased
+5.0.1 - Unreleased
 -------------------------
 
 Feature changes
