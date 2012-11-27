@@ -2,8 +2,6 @@ from five import grok
 from zope.interface import implements
 from zope import schema
 from zope.component import getMultiAdapter
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.vocabulary import SimpleTerm
 from plone.directives import form
 from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -36,12 +34,8 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     question = schema.TextLine(
             title=_("label_profilequestion_question", default=u"Question"),
             description=_("help_profilequestion_question",
-                default=u"If this is to be an \"optional\" profile question, "
-                        u"it must be formulated as a question and be "
-                        u"answerable with YES or NO. If this is to be a "
-                        u"\"repeatable\" profile question (statement), it "
-                        u"must be formulated as a prompt to fill in multiple "
-                        u"values."),
+                default=u"This is must be formulated as a prompt to fill in "
+                        u"multiple values."),
             required=True)
     form.widget(question="euphorie.content.profilequestion.TextSpan7")
     form.order_after(question="title")
@@ -54,26 +48,13 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="question")
 
-    type = schema.Choice(
-            title=_("label_profile_type", default=u"Type"),
-            vocabulary=SimpleVocabulary([
-                SimpleTerm(
-                    u"optional",
-                    title=_("profile_optional", default=u"Optional")),
-                SimpleTerm(
-                    u"repeat",
-                    title=_("profile_repeat", default=u"Repeatable")),
-                ]),
-            default=u"optional",
-            required=True)
-
 
 class ProfileQuestion(dexterity.Container):
     implements(IProfileQuestion, IQuestionContainer)
 
-    optional = False
     question = None
     image = None
+    optional = False
 
 
 @indexer(IProfileQuestion)

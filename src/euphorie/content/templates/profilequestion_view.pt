@@ -17,10 +17,6 @@
         <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
       </div>
 
-      <h2 i18n:translate="header_information">Information</h2>
-      <p tal:condition="python:context.type=='optional'" i18n:translate="profilequestion_type_optional">This is an optional profile item.</p>
-      <p tal:condition="python:context.type=='repeat'" i18n:translate="profilequestion_type_repeat">This is a repeatable profile item.</p>
-
       <tal:block condition="python:view.modules">
         <h2 i18n:translate="header_submodules">Submodules</h2>
         <ol class="${python:'sortable' if can_edit and len(view.modules)&gt;1 else None}" tal:condition="python:view.modules">

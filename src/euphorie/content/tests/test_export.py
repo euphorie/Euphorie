@@ -434,7 +434,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         view.exportProfileQuestion(root, profile)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <profile-question type="optional">\n'
+                '  <profile-question>\n'
                 '    <title>Office buildings</title>\n'
                 '    <question>Do you have an office building?</question>\n'
                 '  </profile-question>\n'
@@ -465,7 +465,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         view.exportProfileQuestion(root, profile)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <profile-question type="optional">\n'
+                '  <profile-question>\n'
                 '    <title>Office buildings</title>\n'
                 '    <question>Office buildings</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.'
@@ -494,7 +494,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         view.exportProfileQuestion(root, profile)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <profile-question type="optional">\n'
+                '  <profile-question>\n'
                 '    <title>Office buildings</title>\n'
                 '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.'
@@ -529,7 +529,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         view.exportProfileQuestion(root, profile)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <profile-question type="optional">\n'
+                '  <profile-question>\n'
                 '    <title>Office buildings</title>\n'
                 '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings '
@@ -622,7 +622,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '    <language>en-GB</language>\n'
                 '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
                 '    <evaluation-optional>false</evaluation-optional>\n'
-                '    <profile-question type="optional">\n'
+                '    <profile-question>\n'
                 '      <title>Office buildings</title>\n'
                 '      <question>Do you have an office buildings?</question>\n'
                 '      <description>&lt;p&gt;Owning property brings '

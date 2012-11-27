@@ -133,8 +133,7 @@ def extractProfile(survey, survey_session):
     :py:meth:`Profile.getDesiredProfile`.
 
     """
-    questions = [{'id': child.id, 'type': child.type}
-                 for child in survey.ProfileQuestions()]
+    questions = [child.id for child in survey.ProfileQuestions()]
     if not questions:
         return {}
 
@@ -150,11 +149,8 @@ def extractProfile(survey, survey_session):
 
     profile = {}
     for question in questions:
-        nodes = session_modules.get(question['id'], [])
-        if question['type'] == 'optional':
-            profile[question['id']] = bool(nodes)
-        else:
-            profile[question['id']] = [node.title for node in nodes]
+        nodes = session_modules.get(question, [])
+        profile[question] = [node.title for node in nodes]
 
     return profile
 
@@ -245,11 +241,9 @@ class Profile(grok.View):
 
         - ``id``: object id of the question
         - ``title``: title of the question
-        - ``type``: question type, one of `repeat` or `optional`
         """
         return [{'id': child.id,
-                 'question': child.question or child.title,
-                 'type': child.type}
+                 'question': child.question or child.title}
                 for child in self.context.ProfileQuestions()]
 
     def update(self):

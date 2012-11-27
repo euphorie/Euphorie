@@ -225,29 +225,9 @@ class ExtractProfileTests(TreeTests):
             title=u'Root', module_id='1', zodb_path='1'))
         self.assertEqual(self.extractProfile(survey, session), {})
 
-    def testOptionalProfileQuestionNotSelected(self):
-        survey = self.createClientSurvey()
-        survey.invokeFactory('euphorie.profilequestion', '1')
-        pq = survey['1']
-        pq.type = 'optional'
-        session = self.createSurveySession()
-        self.assertEqual(self.extractProfile(survey, session), {'1': False})
-
-    def testOptionalProfileQuestionSelected(self):
-        survey = self.createClientSurvey()
-        survey.invokeFactory('euphorie.profilequestion', '1')
-        pq = survey['1']
-        pq.type = 'optional'
-        session = self.createSurveySession()
-        session.addChild(model.Module(
-            title=u'Root', module_id='1', zodb_path='1'))
-        self.assertEqual(self.extractProfile(survey, session), {'1': True})
-
     def testRepeatableProfileQuestionNotSelected(self):
         survey = self.createClientSurvey()
         survey.invokeFactory('euphorie.profilequestion', '1')
-        pq = survey['1']
-        pq.type = 'repeat'
         session = self.createSurveySession()
         self.assertEqual(self.extractProfile(survey, session), {'1': []})
 
@@ -256,7 +236,6 @@ class ExtractProfileTests(TreeTests):
         survey.invokeFactory('euphorie.profilequestion', '1')
         pq = survey['1']
         pq.title = u'Repeatable profile question'
-        pq.type = 'repeat'
         session = self.createSurveySession()
         session.addChild(model.Module(
             title=u'First answer', module_id='1', zodb_path='1'))
@@ -288,58 +267,27 @@ class Profile_getDesiredProfile_Tests(TreeTests):
         survey = self.createClientSurvey()
         self.assertEqual(self.getDesiredProfile(survey, {"dummy": True}), {})
 
-    def testOptionalProfile_NoAnswer(self):
+    def test_profile_no_anwer(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "optional"
         self.assertEqual(self.getDesiredProfile(survey, {}), {})
 
-    def testOptionalProfile_FalseAnswer(self):
+    def test_profile_whitespace_answer(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "optional"
-        self.assertEqual(self.getDesiredProfile(survey, {"1": False}),
-                {"1": False})
-
-    def testOptionalProfile_TrueAnswer(self):
-        survey = self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "optional"
-        self.assertEqual(self.getDesiredProfile(survey, {"1": True}),
-                {"1": True})
-
-    def testRepeatProfile_NoAnswer(self):
-        survey = self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
-        self.assertEqual(self.getDesiredProfile(survey, {}), {})
-
-    def testRepeatProfile_WhitespaceAnswer(self):
-        survey = self.createClientSurvey()
-        survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
         self.assertEqual(self.getDesiredProfile(survey, {"1": [u"   "]}),
                 {"1": []})
 
-    def testRepeatProfile_TwoAnswers(self):
+    def test_profile_with_two_answers(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
         self.assertEqual(
                 self.getDesiredProfile(survey, {"1": [u"one", u"two"]}),
                 {"1": [u"one", "two"]})
 
-    def testRepeatProfile_StripWhitespace(self):
+    def test_profile_strip_whitespace(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
         self.assertEqual(
                 self.getDesiredProfile(survey, {"1": [u" *** "]}),
                 {"1": [u"***"]})
@@ -390,8 +338,6 @@ class Profile_setupSession_Tests(TreeTests):
     def test_NewSession_SimpleProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
         view = self.makeView(survey)
         session = view.session
         view.request.form["1"] = [u"one"]
@@ -402,8 +348,6 @@ class Profile_setupSession_Tests(TreeTests):
     def test_NewSession_EmptyProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "repeat"
         view = self.makeView(survey)
         session = view.session
         self.setupSession(view)
@@ -428,13 +372,11 @@ class Profile_setupSession_Tests(TreeTests):
         from euphorie.client.profile import BuildSurveyTree
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "optional"
         view = self.makeView(survey)
-        view.current_profile = {"1": True}
+        view.current_profile = {"1": [u'London']}
         session = view.session
-        BuildSurveyTree(survey, {"1": True}, session)
-        view.request.form["1"] = True
+        BuildSurveyTree(survey, {"1": [u'London']}, session)
+        view.request.form["1"] = [u'London']
         self.setupSession(view)
         self.failUnless(view.session is session)
         self.assertEqual(view.session.hasTree(), True)
@@ -443,12 +385,10 @@ class Profile_setupSession_Tests(TreeTests):
         from euphorie.client.profile import BuildSurveyTree
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        pq = survey["1"]
-        pq.type = "optional"
         view = self.makeView(survey)
-        view.current_profile = {"1": True}
+        view.current_profile = {"1": ['London']}
         session = view.session
-        BuildSurveyTree(survey, {"1": True}, session)
+        BuildSurveyTree(survey, {"1": ['London', 'Paris']}, session)
         view.request.form["1"] = False
         self.setupSession(view)
         self.failUnless(view.session is not session)

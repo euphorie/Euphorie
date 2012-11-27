@@ -354,7 +354,7 @@ class SurveyImporterTests(EuphorieTestCase):
 
     def testImportProfileQuestion(self):
         snippet = objectify.fromstring(
-        """<profile-question type="optional" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+        """<profile-question xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Laptop usage</title>
              <question>Do your employees use laptops?</question>
              <description>&lt;p&gt;Laptops are very common in the modern workplace.&lt;/p&gt;</description>
@@ -366,16 +366,31 @@ class SurveyImporterTests(EuphorieTestCase):
         profile = survey["1"]
         self.assertEqual(profile.title, u"Laptop usage")
         self.failUnless(isinstance(profile.title, unicode))
-        self.assertEqual(profile.type, "optional")
         self.assertEqual(profile.question, u"Do your employees use laptops?")
         self.failUnless(isinstance(profile.question, unicode))
         self.assertEqual(profile.description, u"<p>Laptops are very common in the modern workplace.</p>")
         self.failUnless(isinstance(profile.description, unicode))
         self.assertEqual(profile.keys(), [])
 
+    def testImportProfileQuestion_optional_type(self):
+        from euphorie.content.module import Module
+        snippet = objectify.fromstring(
+        """<profile-question type="optional"
+                xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+             <title>Laptop usage</title>
+             <question>Do your employees use laptops?</question>
+           </profile-question>""")
+        self.loginAsPortalOwner()
+        survey = self.createSurvey()
+        importer = upload.SurveyImporter(None)
+        importer.ImportProfileQuestion(snippet, survey)
+        profile = survey["1"]
+        self.assertTrue(isinstance(profile, Module))
+        self.assertEqual(profile.optional, True)
+
     def testImportProfileQuestion_WithModule(self):
         snippet = objectify.fromstring(
-        """<profile-question type="optional" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+        """<profile-question xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Laptop usage</title>
              <question>Do your employees use laptops?</question>
              <description>&lt;p&gt;Laptops are very common in the modern workplace.&lt;/p&gt;</description>
@@ -397,7 +412,7 @@ class SurveyImporterTests(EuphorieTestCase):
 
     def testImportProfileQuestion_WithRisk(self):
         snippet = objectify.fromstring(
-        """<profile-question type="optional" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+        """<profile-question xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Laptop usage</title>
              <question>Do your employees use laptops?</question>
              <description>&lt;p&gt;Laptops are very common in the modern workplace.&lt;/p&gt;</description>
@@ -468,7 +483,7 @@ class SurveyImporterTests(EuphorieTestCase):
         snippet = objectify.fromstring(
         """<survey optional="no" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>Software development</title>
-             <profile-question type="optional">
+             <profile-question>
                <title>Laptop usage</title>
                <question>Do your employees use laptops?</question>
                <description>&lt;p&gt;Laptops are very common in the modern workplace.&lt;/p&gt;</description>
@@ -494,7 +509,7 @@ class SurveyImporterTests(EuphorieTestCase):
                <title>Module one</title>
                <description/>
              </module>
-             <profile-question type="optional">
+             <profile-question>
                <title>Profile one</title>
                <question/>
                <description/>
@@ -503,7 +518,7 @@ class SurveyImporterTests(EuphorieTestCase):
                <title>Module two</title>
                <description/>
              </module>
-             <profile-question type="optional">
+             <profile-question>
                <title>Profile two</title>
                <question/>
                <description/>

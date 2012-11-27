@@ -17,6 +17,7 @@ Bugfixes
   produces popup alerting user that they are overriding existing values.
 
 
+
 5.0 - November 22, 2012
 -----------------------
 
