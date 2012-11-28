@@ -177,7 +177,7 @@ Add a new country
 +------+------------+------------------------------+
 | Verb | URI        | Description                  |
 +======+============+==============================+
-| PUT  | /countries | Add a new country.           |
+| POST | /countries | Add a new country.           |
 +------+------------+------------------------------+
 
 The request body must be a JSON block specifying the new profile::
@@ -197,7 +197,7 @@ Update country information
 +------+-----------------+------------------------------+
 | Verb | URI             | Description                  |
 +======+=================+==============================+
-| POST | /countries/<id> | Update country information.  |
+| PUT  | /countries/<id> | Update country information.  |
 +------+-----------------+------------------------------+
 
 The request body must be a JSON block specifying the changed fields::
@@ -284,7 +284,7 @@ Add new country manager
 +------+------------------------------------+------------------------------+
 | Verb | URI                                | Description                  |
 +======+====================================+==============================+
-| PUT  | /countries/<country id>/managers   | Add a new country manager.   |
+| POST | /countries/<country id>/managers   | Add a new country manager.   |
 +------+------------------------------------+------------------------------+
 
 The request body must be a JSON block with the necessary information::
@@ -309,7 +309,7 @@ Update country manager information
 +------+---------------------------------------+------------------------------+
 | Verb | URI                                   | Description                  |
 +======+=======================================+==============================+
-| POST | /countries/<country id>/managers/<id> | Update country manager       |
+| PUT  | /countries/<country id>/managers/<id> | Update country manager       |
 |      |                                       | information.                 |
 +------+---------------------------------------+------------------------------+
 
@@ -414,7 +414,7 @@ Add new sector organisation
 +------+------------------------------------+--------------------+
 | Verb | URI                                | Description        |
 +======+====================================+====================+
-| PUT  | /countries/<country id>/sectors    | Add a new sector.  |
+| POST | /countries/<country id>/sectors    | Add a new sector.  |
 +------+------------------------------------+--------------------+
 
 The request body must be a JSON block with the necessary information::
@@ -442,7 +442,7 @@ Update sector information
 +------+--------------------------------------+------------------------------+
 | Verb | URI                                  | Description                  |
 +======+======================================+==============================+
-| POST | /countries/<country id>/sectors/<id> | Update sector information.   |
+| PUT  | /countries/<country id>/sectors/<id> | Update sector information.   |
 +------+--------------------------------------+------------------------------+
 
 The request body must be a JSON block with the data that should be updated::
