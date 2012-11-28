@@ -66,7 +66,8 @@ Technical Information
 
    install
    xml
-   api
+   client-api
+   cms-api
    implementation/index
 
 

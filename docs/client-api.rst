@@ -4,7 +4,7 @@ Introduction
 This document describes the client API for the Euphorie. This API allows
 interface with the client component of an Euphorie system and can be used
 to implement a custom frontend. It exposes client users, surveys, surveys
-sessions and all interactions with them. It does allow for management of
+sessions and all interactions with them. It does not allow for management of
 sectors or surveys: this must be done through the standard Euphorie CMS
 system.
 
@@ -102,7 +102,7 @@ User authentication
 +------+---------------------+------------------------------+
 | Verb | URI                 | Description                  |
 +======+=====================+==============================+
-| POST | /users/authenticate |  Authenticate a user.        |
+| POST | /users/authenticate | Authenticate a user.         |
 +------+---------------------+------------------------------+
 
 In order to authenticate you must submit a JSON object with two keys:
@@ -135,7 +135,7 @@ authentication token and a list of existing sessions::
        ],
    }
 
-This token should be supplied in an ``X-Euphorie-Token`` HTTP header for all
+The token should be supplied in an ``X-Euphorie-Token`` HTTP header for all
 requests that require authentication.
 
 User details
@@ -209,7 +209,7 @@ List countries
 +------+----------+------------------------------+
 | Verb | URI      | Description                  |
 +======+==========+==============================+
-| GET  | /surveys |  List all defined countries  |
+| GET  | /surveys | List all defined countries   |
 +------+----------+------------------------------+
 
 Example response::
@@ -707,7 +707,7 @@ provided. The phase must be one of ``identification``, ``evaluation`` or
 Beyond the standard fields a module will return these extra fields:
 
 +------------------------+---------------+----------+--------------------------------+
-|  Field                 | Type          | Required |                                |
+| Field                  | Type          | Required |                                |
 +========================+===============+==========+================================+
 | ``image``              | object        | No       | An image related to the module.|
 |                        |               |          | This has three keys:           |
@@ -780,7 +780,7 @@ provided. The phase must be one of ``identification``, ``evaluation`` or
 Beyond the standard fields a risk will return these extra fields:
 
 +-------------------------+---------------+----------+--------------------------------+
-|  Field                  | Type          | Required |                                |
+| Field                   | Type          | Required |                                |
 +=========================+===============+==========+================================+
 | ``module-title``        | string        | Yes      | The title of the parent        |
 |                         |               |          | module.                        |
@@ -833,7 +833,7 @@ For risks with an evalution option of ``calculated`` these extra fields are incl
 
 
 +-------------------------+---------------+----------+--------------------------------+
-|  Field                  | Type          | Required |                                |
+| Field                   | Type          | Required |                                |
 +=========================+===============+==========+================================+
 | ``frequency-options``   | list of       | Yes      | A list of allowed frequency    |
 |                         | objects       |          | answers. Each entry is an      |
@@ -1017,7 +1017,7 @@ The request must be a JSON object with data for the action plan to be added. The
 only required field is ``plan``; all either items are optional.
 
 +-------------------------+---------------+----------+--------------------------------+
-|  Field                  | Type          | Required |                                |
+| Field                   | Type          | Required |                                |
 +=========================+===============+==========+================================+
 | ``plan``                | string        | Yes      | Description of actions needed  |
 |                         | string        |          | to remove the current risk.    |
@@ -1090,7 +1090,7 @@ session applies. The response is returned in the form of a JSON object
 containing all known information about the company. The possible fields are:
 
 +------------------------+---------------+----------+--------------------------------+
-|  Field                 | Type          | Required |                                |
+| Field                  | Type          | Required |                                |
 +========================+===============+==========+================================+
 | ``country``            | string        | No       | ISO country code.             .|
 +------------------------+---------------+----------+--------------------------------+
