@@ -13,6 +13,8 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Show our favicon in the client.
+
 - IE8 fix in client. Adding a standard solution to an new/empty solution
   produces popup alerting user that they are overriding existing values.
 
