@@ -1164,3 +1164,94 @@ Action plan timeline report
 
 This API call will return the action plan timeline. This is returned as
 a downloadable OpenXML (xlsx) file.
+
+
+API reference
+-------------
+
++--------+-----------------------------------------------------------------+-----------------------------------+
+| Verb   | URI                                                             | Description                       |
++========+=================================================================+===================================+
+| POST   | /users                                                          | Create a new user.                |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| POST   | /users/authenticate                                             | Authenticate a user.              |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>                                                 | Return user information.          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>                                                 | Update user information.          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys                                                        | List all defined countries        |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys/<country>                                              | List all sectors in a country.    |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys/<country>?details                                      | List all sectors in a country     |
+|        |                                                                 | including its surveys.            |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys/<country>?details&language=<lang>                      | List all sectors in a country     |
+|        |                                                                 | including all surveys in the      |
+|        |                                                                 | given language.                   |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys/<country>/<sectorid>                                   | List details of the given sector. |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /surveys/<country>/<sectorid>?language=<lang>                   | List details of the given sector, |
+|        |                                                                 | only including surveys in the     |
+|        |                                                                 | given language.                   |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| POST   | /users/<userid>/sessions                                        | Start a new survey session.       |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<survey id>                            | Get information on survey.        |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| DELETE | /users/<userid>/sessions/<session id>                           | Delete a survey session.          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/profile                   | Get survey profile.               |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/profile                   | Update survey profile.            |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/update                    | Get update information.           |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/update                    | Confirm survey update.            |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/identification            | Request idenfication info.        |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/evaluation                | Request evaluation info.          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/actionplan                | Request evaluation info.          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>                    | Request module information        |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>/<phase>            | Request module information        |
+|        |                                                                 | for the given phase.              |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/<path>/identification     | Update module status              |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>                    | Request risk information          |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>/<phase>            | Request risk information          |
+|        |                                                                 | for the given phase.              |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/<path>/identification     | Update risk status                |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/<path>/evaluation         | Update risk status                |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/<path>/actionplan         | Update risk status                |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>/actionplans        | List action plans                 |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/<path>/actionplans/<id>   | View action plan details.         |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| POST   | /users/<userid>/sessions/<session id>/<path>/actionplans        | Add new action plan.              |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/<path>/actionplans/<id>   | Update an action plan.            |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| DELETE | /users/<userid>/sessions/<session id>/<path>/actionplans/<id>   | Remove an action plan.            |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<session id>/company                   | Request company information       |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| PUT    | /users/<userid>/sessions/<session id>/company                   | Update company details.           |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<survey id>/report-identification      | Download identifcation report.    |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<survey id>/report-actionplan          | Download action plan report.      |
++--------+-----------------------------------------------------------------+-----------------------------------+
+| GET    | /users/<userid>/sessions/<survey id>/report-timeline            | Download action plan timeline.    |
++--------+-----------------------------------------------------------------+-----------------------------------+
