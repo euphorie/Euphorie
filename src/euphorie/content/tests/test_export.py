@@ -43,7 +43,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <image content-type="image/gif" filename="test.gif" '
-                '     caption="Capti&#248;n">aG90IHN0dWZmIGhlcmU=\n'
+                'caption="Capti&#248;n">aG90IHN0dWZmIGhlcmU=\n'
                 '</image>\n'
                 '</root>\n')
 
