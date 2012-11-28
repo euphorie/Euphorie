@@ -7,7 +7,7 @@ from zope import schema
 from zope.interface import Interface
 from zope.interface import Invalid
 from plone.namedfile.file import NamedBlobImage
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from plone.namedfile import field as filefield
 from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.form import form, field, button

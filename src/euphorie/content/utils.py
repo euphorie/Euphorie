@@ -2,7 +2,7 @@ import re
 from zope.schema.interfaces import ITitledTokenizedTerm
 from Acquisition import aq_parent
 from plonetheme.nuplone.utils import checkPermission
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 
 
 TAG = re.compile(u"<.*?>")

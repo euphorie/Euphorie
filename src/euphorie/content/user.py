@@ -19,7 +19,7 @@ from z3c.form.validator import SimpleFieldValidator
 from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from Products.membrane.interfaces import user as membrane
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Archetypes.event import ObjectEditedEvent

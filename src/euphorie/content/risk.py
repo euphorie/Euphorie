@@ -22,7 +22,7 @@ from htmllaundry.z3cform import HtmlText
 from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
 from euphorie.content.behaviour.richdescription import IRichDescription
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content.utils import getTermTitleByValue
 from euphorie.content.utils import StripMarkup
 from euphorie.content.solution import ISolution

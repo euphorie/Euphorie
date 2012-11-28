@@ -5,7 +5,7 @@ from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content import utils
 
 grok.templatedir("templates")

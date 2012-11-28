@@ -9,7 +9,7 @@ from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.sector import ISector
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 
 grok.templatedir("templates")
 

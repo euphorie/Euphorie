@@ -16,7 +16,7 @@ from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.schema.email import RFC822MailAddress
 from z3c.saconfig import Session
 from plone.directives import form
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer

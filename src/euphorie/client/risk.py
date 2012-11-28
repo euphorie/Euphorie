@@ -7,7 +7,7 @@ from z3c.saconfig import Session
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.client import model
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer

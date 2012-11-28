@@ -33,7 +33,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.Permissions import AccessPreviousVersions
 from Products.statusmessages.interfaces import IStatusMessage
 from borg.localrole.interfaces import ILocalRoleProvider
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content import colour
 from euphorie.content.behaviour.dirtytree import isDirty
 from euphorie.content.survey import ISurvey
@@ -274,7 +274,7 @@ class ColourPreview(grok.View):
     grok.template("colour-preview")
 
     def default_title(self):
-        from euphorie.client import MessageFactory as _
+        from .. import MessageFactory as _
         return _("title_tool", default=u"OiRA")
 
 

@@ -23,7 +23,7 @@ from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from euphorie.decorators import reify
 from euphorie.content.utils import StripMarkup
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import IClientSector
 
