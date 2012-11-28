@@ -19,7 +19,7 @@ from plonetheme.nuplone.utils import getPortal
 from plone.directives import form
 from plone.scale.storage import AnnotationStorage
 from euphorie.content.survey import ISurvey
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client import utils
 from euphorie.content.interfaces import ObjectPublishedEvent
 from webhelpers.html.builder import make_tag

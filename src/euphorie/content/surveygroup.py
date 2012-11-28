@@ -17,7 +17,7 @@ from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
 from five import grok

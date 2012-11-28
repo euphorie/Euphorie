@@ -5,7 +5,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.behaviour.richdescription import IRichDescription
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
 from plone.indexer import indexer
 

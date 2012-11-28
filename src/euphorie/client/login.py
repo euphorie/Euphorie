@@ -19,7 +19,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import setLanguage

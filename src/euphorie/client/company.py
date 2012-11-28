@@ -6,7 +6,7 @@ from zope.schema.vocabulary import SimpleTerm
 from z3c.form import button
 from z3c.form.form import applyChanges
 from plone.directives import form
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.survey import PathGhost

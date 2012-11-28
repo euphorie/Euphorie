@@ -8,7 +8,7 @@ from plone.directives import form
 from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from htmllaundry.z3cform import HtmlText
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.interfaces import IQuestionContainer

@@ -25,7 +25,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from htmllaundry.z3cform import HtmlText
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.Archetypes.utils import shasattr
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.module import IModule
 from euphorie.content.interfaces import IQuestionContainer

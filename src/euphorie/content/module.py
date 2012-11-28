@@ -16,7 +16,7 @@ from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.interfaces import IQuestionContainer
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.content.risk import IRisk
 from euphorie.content.utils import StripMarkup
 from plone.namedfile import field as filefield

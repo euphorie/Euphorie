@@ -25,7 +25,7 @@ from plonetheme.nuplone.utils import formatDate
 from euphorie.client.survey import PathGhost
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client import MessageFactory as _
+from .. import MessageFactory as _
 from euphorie.client.session import SessionManager
 from euphorie.client import model
 from euphorie.client.company import CompanySchema

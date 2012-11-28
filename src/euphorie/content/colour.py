@@ -3,7 +3,7 @@ from zope.interface import implements
 from zope import schema
 from zope.schema.interfaces import ValidationError
 from zope.schema.interfaces import IBytesLine
-from euphorie.content import MessageFactory as _
+from .. import MessageFactory as _
 
 VALID_COLOUR = re.compile(r"^#?[0-9a-f]+$")
 
