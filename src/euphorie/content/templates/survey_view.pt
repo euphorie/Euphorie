@@ -27,11 +27,10 @@
       </dl>
 
       <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
-      <p tal:condition="not:python:view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
-
-      <tal:children condition="python:children">
+      <p tal:condition="python:not view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
+      <tal:children condition="python:view.children">
         <ol class="${python:'sortable' if can_edit and len(view.children)&gt;1 else None}">
-          <li tal:repeat="child view.children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
+          <li tal:repeat="child view/children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
         </ol>
       </tal:children>
     </metal:content>

@@ -129,5 +129,5 @@ class ReportTests(EuphorieFunctionalTestCase):
                 ["trade-union"])
         self.assertEqual(
                 browser.getControl(
-                    name="form.widgets.workers_participated").value
+                    name="form.widgets.workers_participated").value,
                 ["True"])
