@@ -23,30 +23,30 @@
     <h1>
       Form test
     </h1>
-    
+
     <p>Introductory text.</p>
-    
+
     <form method="post" class="concise" action="#">
-      <fieldset>        
+      <fieldset>
         <fieldset class="comprehensive inputList">
-          <legend>Address block <a href="#" class="icon info clicktip">(More information)</a></legend> 
+          <legend>Address block <a href="#" class="icon info clicktip">(More information)</a></legend>
           <input class="span-5" placeholder="Address" name="address-postal" type="text" /> <br/>
           <input class="span-5" placeholder="Postal code" name="postalCode-postal" type="text" /><br/>
           <input class="span-5" placeholder="City" name="city-postal" type="text" />
         </fieldset>
- 
-        <label>Concise pattern text input <input type="text" /></label> 
-  
+
+        <label>Concise pattern text input <input type="text" /></label>
+
         <label>Concise checkbox pattern <input type="checkbox" name="or" id="or" /></label>
 
         <label>Concise select pattern <select><option>Lorem</option><option>Ipsum</option></select></label>
-        
+
         <fieldset class="comprehensive date-eu">
           <legend>Datum <span class="discrete">(Datum waarop de gegevens verzameld zijn)</span></legend>
-            <label for="planning_start_day">Day</label> 
+            <label for="planning_start_day">Day</label>
             <input class="day numeric" type="text" name="planning_start.day:record" id="planning_start_day" maxlength="2" />
-  
-            <label for="planning_start_month">Month</label> 
+
+            <label for="planning_start_month">Month</label>
             <select class="month" name="planning_start.month:record" id="planning_start_month">
               <option value="01">
                 January
@@ -85,50 +85,50 @@
                 December
               </option>
             </select>
- 
+
             <label for="planning_start_year">Year</label> <input class="numeric year" type="text" name="planning_start.year:record" id="planning_start_year" maxlength="4" />
-         
+
         </fieldset>
-        
+
         <fieldset class="comprehensive radioList">
-          <legend>Radio list with explanations</legend> 
+          <legend>Radio list with explanations</legend>
           <label>
             <input type="radio" name="personel" /> Maximaal 40 uur betaalde arbeid per week <br/>
             <span class="discrete">(alle werknemers samen)</span>
-            </label> 
+            </label>
             <label>
               <input type="radio" name="personel" /> Maximaal 25 werknemers <br/>
               <span class="discrete">(let op het gaat hier niet om FTE’s, maar om daadwerkelijke personen)</span>
-            </label> 
+            </label>
         </fieldset>
-        
+
         <fieldset class="comprehensive radioList">
-          <legend>Radio list with answer help</legend> 
+          <legend>Radio list with answer help</legend>
           <label>
             <input type="radio" name="personel" /> Maximaal 40 uur betaalde arbeid per week <br/>
             <a href="#" class="icon info clicktip">(More information)</a>
-            </label> 
+            </label>
             <label>
               <input type="radio" name="personel" /> Maximaal 25 werknemers <br/>
               <a href="#" class="icon info clicktip">(More information)</a>
-            </label> 
+            </label>
         </fieldset>
-        
-        
-        <label>Percentage (Concise context) <input type="text" class="numeric percentage" maxlength="2" /></label> 
-        
-        
+
+
+        <label>Percentage (Concise context) <input type="text" class="numeric percentage" maxlength="2" /></label>
+
+
 <!--[if lte IE 6]>
         <!- Following line prevents the last input item from disappearing in IE 6. Needs to follow the last label/fieldset in the form ->
         <hr style="height:0;visibility: hidden" />
 <![endif]-->
-        
+
         <fieldset class="comprehensive date-eu dependsOn-or">
             <legend>Datum van akkoord OR/medewerkersvertegenwoordiging</legend>
-            <label for="planning_start_day">Day</label> 
+            <label for="planning_start_day">Day</label>
             <input class="numeric day" type="text" placeholder="DD" name="planning_start.day:record" id="planning_start_day" maxlength="2" />
-  
-            <label for="planning_start_month">Month</label> 
+
+            <label for="planning_start_month">Month</label>
             <select class="month" name="planning_start.month:record" id="planning_start_month">
               <option value="01">
                 January
@@ -167,17 +167,17 @@
                 December
               </option>
             </select>
- 
+
             <label for="planning_start_year">Year</label> <input class="numeric year" type="text" name="planning_start.year:record" placeholder="YYYY" id="planning_start_year" maxlength="4" />
-         
+
         </fieldset>
       </fieldset>
       <p class="buttonBar">
         <button type="submit" name="next" value="previous" class="floatBefore back">Previous</button> <button type="submit" name="next" value="next" class="floatAfter">Next</button>
       </p>
-      
+
     </form>
-    
+
     <ol id="steps">
       <li id="step-1" class="complete current active">
         <a href="#">Voorbereiden</a>
@@ -193,7 +193,7 @@
       </li>
       <li id="step-5">Rapporten
       </li>
-    </ol>    
+    </ol>
 
     <ul id="navigation">
       <li id="home">
@@ -211,7 +211,7 @@
             <a href="settings.html">Account settings</a>
           </li>
     </ul>
-    
+
     <p id="appendix">
       <a href="#">Link to sector organisation</a> | <a href="#">Disclaimer</a> | Design by <a href="http://www.Corn%C3%A6.com">Cornae</a>
     </p>
