@@ -75,7 +75,7 @@
     	<nav class="nav nav-tabs" id="measureTabs">
     		<a href="#measure-1" class="current">Measure 1 <span class="icon delete" title="Delete this measure">Delete</span></a>
     		<a href="#measure-2" class="error">Measure 2 <span class="icon delete" title="Delete this measure">Delete</span></a>
-                <button type="submit" id="addMeasureButton" i18n:translate="label_add" class="small" title="Add another measure">Add another measure</button>
+                <button type="submit" id="addMeasureButton" class="small" title="Add another measure">Add another measure</button>
     	</nav>
       <div class="tab-container current" id="measure-1">
         <div class="column">
@@ -97,48 +97,48 @@
         </div>
         <div class="column">
           <fieldset class="condensed">
-            <label i18n:translate="label_action_plan_responsible">Who is responsible? <a href="#" class="icon info clicktip">(More information)</a> <input type="text" class="responsible" name="responsible" /></label> <label i18n:translate="label_action_plan_budget">Budget (in Euro) <a href="#" class="icon info clicktip">(More information)</a> <input type="number" min="0" step="100" name="budget" class="budget" /></label>
+            <label>Who is responsible? <a href="#" class="icon info clicktip">(More information)</a> <input type="text" class="responsible" name="responsible" /></label> <label>Budget (in Euro) <a href="#" class="icon info clicktip">(More information)</a> <input type="number" min="0" step="100" name="budget" class="budget" /></label>
             <fieldset class="condensed">
-              <legend i18n:translate="label_action_plan_start">Planning start</legend>
+              <legend>Planning start</legend>
               <fieldset class="date-eu">
 
                   <input class="day" value="12" type="number" placeholder="DD" name="planning_start.day:record" id="planning_start_day" maxlength="2" />
 
-                  <label for="planning_start_month" i18n:translate="label_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month">
-                    <option value="01" i18n:translate="">
+                  <label for="planning_start_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month">
+                    <option value="01">
                       January
                     </option>
-                    <option value="02" i18n:translate="">
+                    <option value="02">
                       February
                     </option>
-                    <option value="03" i18n:translate="">
+                    <option value="03">
                       March
                     </option>
-                    <option value="04" i18n:translate="">
+                    <option value="04">
                       April
                     </option>
-                    <option value="05" i18n:translate="">
+                    <option value="05">
                       May
                     </option>
-                    <option value="06" i18n:translate="">
+                    <option value="06">
                       June
                     </option>
-                    <option value="07" i18n:translate="">
+                    <option value="07">
                       July
                     </option>
-                    <option value="08" i18n:translate="">
+                    <option value="08">
                       August
                     </option>
-                    <option value="09" i18n:translate="">
+                    <option value="09">
                       September
                     </option>
-                    <option value="10" i18n:translate="">
+                    <option value="10">
                       October
                     </option>
-                    <option value="11" i18n:translate="">
+                    <option value="11">
                       November
                     </option>
-                    <option value="12" i18n:translate="">
+                    <option value="12">
                       December
                     </option>
                   </select>
@@ -148,53 +148,53 @@
               </fieldset>
             </fieldset>
             <fieldset class="condensed">
-              <legend i18n:translate="label_action_plan_end">Planning end</legend>
+              <legend>Planning end</legend>
 
               <fieldset class="date-eu">
 
-                  <label for="planning_end_day" i18n:translate="label_day">Day</label> <input class="day" type="number" name="planning_end.day:record" placeholder="DD" id="planning_end_day" maxlength="2" />
+                  <label for="planning_end_day">Day</label> <input class="day" type="number" name="planning_end.day:record" placeholder="DD" id="planning_end_day" maxlength="2" />
 
-                  <label for="planning_end_month" i18n:translate="label_month">Month</label>
+                  <label for="planning_end_month">Month</label>
                   <select class="month" name="planning_end.month:record" id="planning_end_month">
-                    <option value="01" i18n:translate="">
+                    <option value="01">
                       January
                     </option>
-                    <option value="02" i18n:translate="">
+                    <option value="02">
                       February
                     </option>
-                    <option value="03" i18n:translate="">
+                    <option value="03">
                       March
                     </option>
-                    <option value="04" i18n:translate="">
+                    <option value="04">
                       April
                     </option>
-                    <option value="05" i18n:translate="">
+                    <option value="05">
                       May
                     </option>
-                    <option value="06" i18n:translate="">
+                    <option value="06">
                       June
                     </option>
-                    <option value="07" i18n:translate="">
+                    <option value="07">
                       July
                     </option>
-                    <option value="08" i18n:translate="">
+                    <option value="08">
                       August
                     </option>
-                    <option value="09" i18n:translate="">
+                    <option value="09">
                       September
                     </option>
-                    <option value="10" i18n:translate="">
+                    <option value="10">
                       October
                     </option>
-                    <option value="11" i18n:translate="">
+                    <option value="11">
                       November
                     </option>
-                    <option value="12" i18n:translate="">
+                    <option value="12">
                       December
                     </option>
                   </select>
 
-                  <label for="planning_end_year" i18n:translate="label_year">Year</label>
+                  <label for="planning_end_year">Year</label>
                   <input class="year enablePicker" placeholder="YYYY" value="2012" type="number" name="planning_end.year:record" id="planning_end_year" size="4" maxlength="4" />
 
               </fieldset>
@@ -222,27 +222,27 @@
         </div>
         <div class="column">
           <fieldset class="condensed">
-            <label i18n:translate="label_action_plan_responsible">Who is responsible? <a href="#" class="icon info clicktip">(More information)</a> <input type="text" class="responsible" name="responsible" /></label> <label i18n:translate="label_action_plan_budget">Budget (in Euro) <a href="#" class="icon info clicktip">(More information)</a> <input type="number" min="0" step="100" name="budget" class="budget" /></label>
+            <label>Who is responsible? <a href="#" class="icon info clicktip">(More information)</a> <input type="text" class="responsible" name="responsible" /></label> <label>Budget (in Euro) <a href="#" class="icon info clicktip">(More information)</a> <input type="number" min="0" step="100" name="budget" class="budget" /></label>
             <fieldset class="condensed error">
-              <legend i18n:translate="label_action_plan_start">Planning start</legend>
+              <legend>Planning start</legend>
               <fieldset class="date-eu">
 
                 <input class="day error" value="40" type="number" placeholder="Day" name="planning_start.day:record" id="planning_start_day-2" maxlength="2" />
                 <p class="focustip error target-id-planning_start_day-2">Enter a valid day</p>
 
-                  <label for="planning_start_month" i18n:translate="label_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month-2">
-                    <option value="01" i18n:translate=""> January </option>
-                    <option value="02" i18n:translate=""> February </option>
-                    <option value="03" i18n:translate=""> March </option>
-                    <option value="04" i18n:translate=""> April </option>
-                    <option value="05" i18n:translate=""> May </option>
-                    <option value="06" i18n:translate=""> June </option>
-                    <option value="07" i18n:translate=""> July </option>
-                    <option value="08" i18n:translate=""> August </option>
-                    <option value="09" i18n:translate=""> September </option>
-                    <option value="10" i18n:translate=""> October </option>
-                    <option value="11" i18n:translate=""> November </option>
-                    <option value="12" i18n:translate=""> December </option>
+                  <label for="planning_start_month">Month</label> <select class="month" name="planning_start.month:record" id="planning_start_month-2">
+                    <option value="01"> January </option>
+                    <option value="02"> February </option>
+                    <option value="03"> March </option>
+                    <option value="04"> April </option>
+                    <option value="05"> May </option>
+                    <option value="06"> June </option>
+                    <option value="07"> July </option>
+                    <option value="08"> August </option>
+                    <option value="09"> September </option>
+                    <option value="10"> October </option>
+                    <option value="11"> November </option>
+                    <option value="12"> December </option>
                   </select>
 
                   <input class="year enablePicker error" type="number" placeholder="Year" value="1980" name="planning_start.year:record" id="planning_start_year-2" maxlength="4" />
@@ -251,48 +251,48 @@
               </fieldset>
             </fieldset>
             <fieldset class="condensed">
-              <legend i18n:translate="label_action_plan_end">Planning end</legend>
+              <legend>Planning end</legend>
 
               <fieldset class="date-eu">
 
                   <input class="day" type="number" name="planning_end.day:record" placeholder="DD" id="planning_end_day-2" maxlength="2" />
 
-                  <label for="planning_end_month" i18n:translate="label_month">Month</label>
+                  <label for="planning_end_month">Month</label>
                   <select class="month" name="planning_end.month:record" id="planning_end_month-2">
-                    <option value="01" i18n:translate="">
+                    <option value="01">
                       January
                     </option>
-                    <option value="02" i18n:translate="">
+                    <option value="02">
                       February
                     </option>
-                    <option value="03" i18n:translate="">
+                    <option value="03">
                       March
                     </option>
-                    <option value="04" i18n:translate="">
+                    <option value="04">
                       April
                     </option>
-                    <option value="05" i18n:translate="">
+                    <option value="05">
                       May
                     </option>
-                    <option value="06" i18n:translate="">
+                    <option value="06">
                       June
                     </option>
-                    <option value="07" i18n:translate="">
+                    <option value="07">
                       July
                     </option>
-                    <option value="08" i18n:translate="">
+                    <option value="08">
                       August
                     </option>
-                    <option value="09" i18n:translate="">
+                    <option value="09">
                       September
                     </option>
-                    <option value="10" i18n:translate="">
+                    <option value="10">
                       October
                     </option>
-                    <option value="11" i18n:translate="">
+                    <option value="11">
                       November
                     </option>
-                    <option value="12" i18n:translate="">
+                    <option value="12">
                       December
                     </option>
                   </select>
@@ -307,11 +307,11 @@
     </div>
 <hr/>
 
-    <div class="notice" tal:condition="view/legal_reference">
-      <h4 i18n:translate="header_legal_references">
+    <div class="notice">
+      <h4>
         Legal and policy references
       </h4>
-      <p tal:replace="structure view/legal_reference">
+      <p>
         The requirements for fridges are defined in section 13.1 section a of the health code.
       </p>
     </div><!-- WTA: Information block ends here -->

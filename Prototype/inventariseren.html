@@ -28,7 +28,7 @@
         <legend>The temperature of all fridges is checked daily</legend> <label><input type="radio" name="answer" value="yes" />Yes</label> <label><input type="radio" name="answer" value="no" />No</label> <label><input type="radio" name="answer" value="n/a" />Not applicable</label>
       </fieldset>
       <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="floatBefore back">Previous</button> <button type="submit" name="next" value="next" i18n:translate="label_next" class="floatAfter">Next</button>
+        <button type="submit" name="next" value="previous" class="floatBefore back">Previous</button> <button type="submit" name="next" value="next" class="floatAfter">Next</button>
       </p>
       <div class="emphasis">
         <p class="gallery">
@@ -54,7 +54,7 @@
             <img alt="" src="media/Smeg.png" class="floatBefore" />
           </a>
         </p>
-        <p class="description" tal:content="context/description">
+        <p class="description">
           The temperature in a fridge is critical to storing food. If the temperature is too high or fluctuates too much food can start rotting quickly.
         </p>
         <h4>
@@ -68,10 +68,10 @@
             <a href="#">A link to a popular brand of fridges</a>
           </li>
         </ul>
-        <h4 i18n:translate="header_legal_references">
+        <h4>
           Legal and policy references
         </h4>
-        <p tal:replace="structure view/legal_reference">
+        <p>
           The requirements for fridges are defined in section 13.1 section a of the health code.
         </p>
       </div><!-- WTA: Information block ends here -->

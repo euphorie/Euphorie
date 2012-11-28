@@ -25,7 +25,7 @@
     </h1>
     <form method="post" action="#">
       <fieldset class="comprehensive">
-        <legend tal:content="content/title">
+        <legend>
           The temperature of all fridges is checked daily
         </legend>
         <ul class="radioList">
@@ -35,27 +35,27 @@
           <li>
             <label><input type="radio" name="answer" value="no" />No</label>
           </li>
-          <li tal:condition="context/show_notapplicable">
+          <li>
             <label><input type="radio" name="answer" value="n/a" />Not applicable</label>
           </li>
         </ul>
       </fieldset><!-- WTA: This information block is generic and appears in all three phases -->
       
       <p class="buttonBar">     
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="floatBefore back">Previous</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="floatAfter">Next</button>
+        <button type="submit" name="next" value="previous" class="floatBefore back">Previous</button>
+        <button type="submit" name="next" value="next" class="floatAfter">Next</button>
       </p>
       
-      <img alt="" tal:condition="content/image" tal:attributes="src content/images/absolute_url" />
+      <img alt="" />
       
-      <p class="description" tal:content="context/description">
+      <p class="description">
         The temperature in a fridge is critical to storing food. If the temperature is too high or fluctuates too much food can start rotting quickly.
       </p>
-      <div tal:condition="view/legal_reference">
-        <h4 i18n:translate="header_legal_references">
+      <div>
+        <h4>
           Legal and policy references
         </h4>
-        <p tal:replace="structure view/legal_reference">
+        <p>
           The requirements for fridges are defined in section 13.1 section a of the health code.
         </p>
       </div>
