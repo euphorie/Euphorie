@@ -175,10 +175,10 @@ class AuthenticateTests(unittest.TestCase):
         import mock
         from zope.publisher.browser import TestRequest
         view = self.Authenticate(None, TestRequest())
+        view.user_url = mock.Mock(return_value='url')
         user = mock.Mock()
         user.title = u'Jane Doe'
         user.login = 'jane'
-        user.absolute_url.return_value = 'url'
         view.input = {'login': 'jane', 'password': 'john'}
         with mock.patch('euphorie.content.api.authentication.authenticate_credentials',
                 return_value=user):
