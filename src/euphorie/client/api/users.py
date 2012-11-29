@@ -1,14 +1,14 @@
 from z3c.saconfig import Session
 from five import grok
 from AccessControl.SecurityManagement import newSecurityManager
-from euphorie.client.authentication import authenticate
-from euphorie.client.api.authentication import authenticate_token
-from euphorie.client.api.authentication import generate_token
-from euphorie.client.survey import PathGhost
-from euphorie.client.api import JsonView
-from euphorie.client.model import Account
-from euphorie.client.api.account import login_available
-from euphorie.client.api.account import View as AccountView
+from euphorie.ghost import PathGhost
+from ..authentication import authenticate
+from ..model import Account
+from .authentication import authenticate_token
+from .authentication import generate_token
+from .account import login_available
+from .account import View as AccountView
+from . import JsonView
 
 
 def user_info(account, request):

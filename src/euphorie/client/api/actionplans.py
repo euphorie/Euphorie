@@ -1,10 +1,10 @@
 from five import grok
 from sqlalchemy.orm import object_session
-from euphorie.client.survey import PathGhost
-from euphorie.client.api import JsonView
-from euphorie.client.model import ActionPlan
-from euphorie.client.api.actionplan import plan_info
-from euphorie.client.api.actionplan import View as ActionPlanView
+from euphorie.ghost import PathGhost
+from ..model import ActionPlan
+from . import JsonView
+from .actionplan import plan_info
+from .actionplan import View as ActionPlanView
 
 
 class RiskActionPlans(PathGhost):

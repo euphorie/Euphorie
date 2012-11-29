@@ -22,10 +22,10 @@ from zope.i18n import translate
 from z3c.saconfig import Session
 from zExceptions import NotFound
 from plonetheme.nuplone.utils import formatDate
-from euphorie.client.survey import PathGhost
+from ..ghost import PathGhost
+from .. import MessageFactory as _
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
-from .. import MessageFactory as _
 from euphorie.client.session import SessionManager
 from euphorie.client import model
 from euphorie.client.company import CompanySchema

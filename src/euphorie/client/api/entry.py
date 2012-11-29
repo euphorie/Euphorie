@@ -1,11 +1,11 @@
 import pkg_resources
 from five import grok
 from zope.interface import directlyProvides
-from euphorie.client.api.interfaces import IClientAPISkinLayer
-from euphorie.client.api import JsonView
-from euphorie.client.api.users import Users
-from euphorie.client.api.surveys import Surveys
-from euphorie.client.survey import PathGhost
+from euphorie.ghost import PathGhost
+from . import JsonView
+from .interfaces import IClientAPISkinLayer
+from .users import Users
+from .surveys import Surveys
 
 
 class API(PathGhost):

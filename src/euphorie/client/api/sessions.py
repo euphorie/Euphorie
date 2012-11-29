@@ -2,13 +2,13 @@ from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
 from euphorie.content.survey import ISurvey
-from euphorie.client.survey import PathGhost
-from euphorie.client.model import SurveySession
-from euphorie.client.api import JsonView
-from euphorie.client.api.session import View as SessionView
-from euphorie.client.api.session import get_survey
-from euphorie.client.profile import set_session_profile
-from euphorie.client.session import create_survey_session
+from euphorie.ghost import PathGhost
+from ..model import SurveySession
+from . import JsonView
+from ..profile import set_session_profile
+from ..session import create_survey_session
+from .session import View as SessionView
+from .session import get_survey
 
 
 class Sessions(PathGhost):

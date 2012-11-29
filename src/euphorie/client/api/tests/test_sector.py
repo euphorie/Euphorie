@@ -47,7 +47,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
 
     def test_ignore_non_survey_child(self):
         from zope.publisher.browser import TestRequest
-        from euphorie.client.survey import PathGhost
+        from euphorie.ghost import PathGhost
         from euphorie.client.sector import ClientSector
         sector = ClientSector(id='ict', title=u'ICT')
         sector['gaming'] = PathGhost('gaming')

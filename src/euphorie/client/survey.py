@@ -4,7 +4,6 @@ Survey views
 """
 
 import logging
-import Acquisition
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
@@ -17,6 +16,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from sqlalchemy import sql
 from plone.memoize.instance import memoize
+from ..ghost import PathGhost
 from euphorie.content.survey import ISurvey
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
@@ -30,29 +30,11 @@ from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client import model
 from euphorie.client import utils
 from ZPublisher.BaseRequest import DefaultPublishTraverse
-import OFS.Traversable
 
 
 log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
-
-
-class PathGhost(OFS.Traversable.Traversable, Acquisition.Implicit):
-    """Dummy object to fake a traversable element.
-
-    This object is inserted into the acquisition chain by
-    :py:class:`SurveyPublishTraverser` when it needs to add components
-    to the acquisition chain when no corresponding object in the
-    ZODB or SQL databsae exists.
-    """
-
-    def __init__(self, id, request=None):
-        self.id = id
-        self.request = request
-
-    def getId(self):
-        return self.id
 
 
 class View(grok.View):

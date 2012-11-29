@@ -29,7 +29,7 @@
       name="index_html"/>
 
     <browser:defaultView
-      for="..survey.PathGhost"
+      for="euphorie.ghost.PathGhost"
       layer=".interfaces.IClientAPISkinLayer"
       name="index_html"/>
 
