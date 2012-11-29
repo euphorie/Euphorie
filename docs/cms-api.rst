@@ -62,7 +62,6 @@ authentication token and basic information on the user::
    {
        "token": "e1490672-4015-4572-a036-ba53c45e9509",
        "login": "security",
-       "email": "oira@security.com",
        "title": "UK security sector",
        "path": "/sectors/uk/security",
    }

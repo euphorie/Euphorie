@@ -60,10 +60,21 @@ class EuphorieAccountPluginTests(DatabaseTests):
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(plugin._authenticate_token({}), None)
 
-    def test_authenticate_token_call_authenticate(self):
+    def test_authenticate_token_call_client_authenticate(self):
         import mock
         plugin = EuphorieAccountPlugin('plugin')
-        with mock.patch('euphorie.client.authentication.authenticate_token',
+        with mock.patch(
+                'euphorie.client.authentication.authenticate_client_token',
+                return_value='result'):
+            self.assertEqual(
+                    plugin._authenticate_token({'api-token': 'y'}),
+                    'result')
+
+    def test_authenticate_token_call_cms_authenticate(self):
+        import mock
+        plugin = EuphorieAccountPlugin('plugin')
+        with mock.patch(
+                'euphorie.client.authentication.authenticate_cms_token',
                 return_value='result'):
             self.assertEqual(
                     plugin._authenticate_token({'api-token': 'y'}),

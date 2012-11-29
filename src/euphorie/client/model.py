@@ -179,6 +179,12 @@ class Account(BaseObject):
     def email(self):
         return self.loginname
 
+    # This synchs naming with euphorie.content.user.IUser and is needed by the
+    # authentication tools.
+    @property
+    def login(self):
+        return self.loginname
+
     # PAS BasicUser implementation
     def getId(self):
         """Return the userid. For client accounts the login name is also

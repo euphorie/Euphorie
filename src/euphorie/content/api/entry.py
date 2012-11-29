@@ -1,9 +1,10 @@
 import pkg_resources
 from five import grok
 from zope.interface import directlyProvides
+from AccessControl.SecurityManagement import getSecurityManager
 from .interfaces import ICMSAPISkinLayer
-from euphorie.json import JsonView
-from euphorie.client.survey import PathGhost
+from euphorie.ghost import PathGhost
+from . import JsonView
 
 
 class API(PathGhost):
@@ -28,8 +29,12 @@ class View(JsonView):
     def do_GET(self):
         self.request.response.setHeader('Content-Type', 'application/json')
         euphorie = pkg_resources.get_distribution('Euphorie')
+        user = getSecurityManager().getUser()
         return {'api-version': [1, 0],
-                'euphorie-version': euphorie.version}
+                'euphorie-version': euphorie.version,
+                'account': user.getUserName()
+                    if user.getId() is not None else None,
+                }
 
 
 def access_api(request):

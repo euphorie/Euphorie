@@ -19,9 +19,11 @@ from Products.PluggableAuthService.interfaces.plugins \
         import IUserEnumerationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client import model
-from euphorie.client.api.authentication import authenticate_token
+from .interfaces import IClientSkinLayer
+from . import model
+from .api.authentication import authenticate_token as authenticate_client_token
+from ..content.api.authentication \
+        import authenticate_token as authenticate_cms_token
 
 
 log = logging.getLogger(__name__)
@@ -110,7 +112,10 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         token = credentials.get('api-token')
         if not token:
             return None
-        return authenticate_token(token)
+        account = authenticate_client_token(token)
+        if account is None:
+            account = authenticate_cms_token(self, token)
+        return account
 
     @security.private
     def _authenticate_login(self, credentials):
@@ -125,7 +130,7 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         if account is None:
             account = self._authenticate_token(credentials)
         if account is not None:
-            return (account.loginname, account.loginname)
+            return (account.login, account.login)
         else:
             return None
 
