@@ -1,6 +1,6 @@
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from euphorie.interfaces import IAPISkinLayer
 
 
-class IClientAPISkinLayer(IDefaultBrowserLayer):
+class IClientAPISkinLayer(IAPISkinLayer):
     """Zope skin layer for client API.
     """

@@ -1,11 +1,11 @@
 from five import grok
-from euphorie.client.company import CompanySchema
-from euphorie.client.model import Company
-from euphorie.client.model import SurveySession
-from euphorie.client.api import JsonView
-from euphorie.client.api import get_json_bool
-from euphorie.client.api import get_json_string
-from euphorie.client.api import get_json_token
+from euphorie.json import get_json_bool
+from euphorie.json import get_json_string
+from euphorie.json import get_json_token
+from ..company import CompanySchema
+from ..model import Company
+from ..model import SurveySession
+from . import JsonView
 
 
 class View(JsonView):

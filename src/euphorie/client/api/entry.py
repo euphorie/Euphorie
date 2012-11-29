@@ -48,7 +48,7 @@ def access_api(request):
     request for API access and return an :py:class:`API` instance.
     """
     # Inform the publisher that we will never see WebDAV clients. This
-    # makes sure that we get acquisition duringn traversal even for
+    # makes sure that we get acquisition during traversal even for
     # request methods other than GET and POST.
     request.maybe_webdav_client = False
     directlyProvides(request, IClientAPISkinLayer, [])
