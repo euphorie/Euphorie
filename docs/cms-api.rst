@@ -63,7 +63,7 @@ authentication token and basic information on the user::
        "token": "e1490672-4015-4572-a036-ba53c45e9509",
        "login": "security",
        "title": "UK security sector",
-       "path": "/sectors/uk/security",
+       "url": "http://api.oira.com/countries/uk/sectors/security",
    }
 
 The token should be supplied in an ``X-Euphorie-Token`` HTTP header for all

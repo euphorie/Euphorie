@@ -1,5 +1,6 @@
 import hashlib
 import hmac
+from Acquisition import aq_parent
 from zope.component import getUtility
 from plone.keyring.interfaces import IKeyManager
 from five import grok
@@ -8,6 +9,7 @@ from Products.membrane.interfaces import IMembraneUserAuth
 from . import JsonView
 from .entry import API
 from ..user import IUser
+from ..countrymanager import ICountryManager
 
 
 def _get_user(context, login):
@@ -46,15 +48,11 @@ def authenticate_token(context, token):
 
 def authenticate_credentials(context, login, password):
     user = _get_user(context, login)
-    if user is None:
+    if user is None or user.locked:
         return None
     # We could check user.password directly, but lets defer to the membrane
     # auth framework so the password checking code is all in one place.
     auth = IMembraneUserAuth(user, None)
-    if auth is None:
-        return None
-    if auth.locked:
-        return None
     info = auth.authenticateCredentials(
             {'login': login, 'password': password})
     if info is None:
@@ -68,13 +66,24 @@ class Authenticate(JsonView):
     grok.name('authenticate')
     grok.require('zope2.Public')
 
+    def user_url(self, user):
+        parts = [self.context.absolute_url(),
+                 'countries',
+                 aq_parent(user).id]
+        if ICountryManager.providedBy(user):
+            parts.append('managers')
+        else:
+            parts.append('sectors')
+        parts.append(user.id)
+        return '/'.join(parts)
+
     def do_POST(self):
         """Try to authenticate a user.
         """
         try:
             login = self.input['login']
             password = self.input['password']
-        except (KeyError, TypeError):
+        except KeyError:
             self.request.response.setStatus(403)
             return {'type': 'error',
                     'message': 'Required data missing'}
@@ -88,5 +97,5 @@ class Authenticate(JsonView):
         return {'token': generate_token(user),
                 'title': user.title,
                 'login': user.login,
-                'path': user.absolute_url(),  # XXX Need to be API-ized?
+                'url': self.user_url(user),
                }
