@@ -5,6 +5,7 @@ from AccessControl.SecurityManagement import getSecurityManager
 from .interfaces import ICMSAPISkinLayer
 from euphorie.ghost import PathGhost
 from . import JsonView
+from .countries import Countries
 
 
 class API(PathGhost):
@@ -15,6 +16,7 @@ class API(PathGhost):
     """
 
     entry_points = {
+            'countries': Countries,
             }
 
     def __getitem__(self, key):
