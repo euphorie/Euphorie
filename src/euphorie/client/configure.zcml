@@ -29,6 +29,7 @@
         />
 
     <grok:grok package="." />
+    <grok:grok package="euphorie.json" />
 
     <browser:defaultView
       for=".client.IClient"

@@ -3,6 +3,8 @@ import datetime
 import logging
 import json
 import martian
+from zExceptions import NotFound
+from zExceptions import Unauthorized
 from zope.component import getMultiAdapter
 from zope.publisher.publish import mapply
 from five import grok
@@ -148,3 +150,37 @@ class JsonView(grok.View):
         else:
             response = mapply(renderer, (), self.request)
         return json.dumps(response)
+
+
+class GenericError(JsonView):
+    grok.context(Exception)
+    grok.name('index.html')
+
+    def do_GET(self):
+        return {'type': 'error',
+                'message': 'An unknown error occurred.'}
+
+
+class UnauthorizedError(JsonView):
+    grok.context(Unauthorized)
+    grok.name('index.html')
+
+    def __call__(self):
+        # Jump through hoops to prevent Zope2 Unauthorized handling from
+        # messing with our message.
+        result = {'type': 'error',
+                  'message': 'Access denied.'}
+        response = self.request.response
+        response.setHeader('Content-Type', 'application/json')
+        response._has_challenged = True
+        response.setBody(json.dumps(result), lock=True)
+        return response
+
+
+class NotFoundView(JsonView):
+    grok.context(NotFound)
+    grok.name('index.html')
+
+    def do_GET(self):
+        return {'type': 'error',
+                'message': 'Unknown resource requested'}
