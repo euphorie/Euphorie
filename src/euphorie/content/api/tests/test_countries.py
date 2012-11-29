@@ -7,7 +7,6 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         browser = Browser()
         browser.raiseHttpErrors = False
         browser.open('http://nohost/plone/api/countries')
-        print browser.contents
         self.assertTrue(browser.headers['Status'].startswith('401'))
 
     def test_authenticated_user(self):
