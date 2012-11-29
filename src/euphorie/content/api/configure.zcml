@@ -1,0 +1,21 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IContentish"
+      layer=".interfaces.IAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IFolderish"
+      layer=".interfaces.IAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="euphorie.ghost.PathGhost"
+      layer=".interfaces.IAPISkinLayer"
+      name="index_html"/>
+
+</configure>
+
