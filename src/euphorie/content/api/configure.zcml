@@ -17,5 +17,9 @@
       layer=".interfaces.IAPISkinLayer"
       name="index_html"/>
 
+    <adapter
+      factory=".country.CountryTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+
 </configure>
 
