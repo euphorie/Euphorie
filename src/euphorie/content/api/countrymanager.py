@@ -1,4 +1,3 @@
-from AccessControl import getSecurityManager
 from zExceptions import Unauthorized
 from zope.component import getUtility
 from zope.interface import Invalid
@@ -33,7 +32,6 @@ class View(JsonView):
                 'locked': self.context.locked}
 
     def do_PUT(self):
-        checkPermission = getSecurityManager().checkPermission
         permissions = ICountryManager.queryTaggedValue(WRITE_PERMISSIONS_KEY, {})
         try:
             for (field, attribute, getter) in self.attributes:
@@ -45,7 +43,7 @@ class View(JsonView):
                     permission = getUtility(IPermission, name=ztk_permission).title
                 else:
                     permission = ModifyPortalContent
-                if not checkPermission(permission, self.context):
+                if not self.has_permission(permission):
                     raise Unauthorized()
                 ICountryManager[attribute].validate(value)
                 setattr(self.context, attribute, value)

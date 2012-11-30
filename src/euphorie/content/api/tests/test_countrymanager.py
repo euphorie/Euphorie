@@ -30,11 +30,8 @@ class ViewTests(unittest.TestCase):
         from zExceptions import Unauthorized
         view = self.View(None, None)
         view.input = {'email': 'other'}
-        mock_security = mock.Mock()
-        mock_security.checkPermission.return_value = False
-        with mock.patch('euphorie.content.api.countrymanager.getSecurityManager',
-                return_value=mock_security):
-            self.assertRaises(Unauthorized, view.do_PUT)
+        view.has_permission = mock.Mock(return_value=False)
+        self.assertRaises(Unauthorized, view.do_PUT)
 
     def test_do_PUT_update_basics(self):
         import mock
@@ -46,15 +43,12 @@ class ViewTests(unittest.TestCase):
                       'password': u'Password',
                       'locked': True,
                       }
-        mock_security = mock.Mock()
-        mock_security.checkPermission.return_value = True
-        with mock.patch('euphorie.content.api.countrymanager.getSecurityManager',
-                return_value=mock_security):
-            view.do_PUT()
-            self.assertEqual(manager.title, u'New title')
-            self.assertEqual(manager.contact_email, 'email@example.com')
-            self.assertEqual(manager.password, u'Password')
-            self.assertEqual(manager.locked, True)
+        view.has_permission = mock.Mock(return_value=True)
+        view.do_PUT()
+        self.assertEqual(manager.title, u'New title')
+        self.assertEqual(manager.contact_email, 'email@example.com')
+        self.assertEqual(manager.password, u'Password')
+        self.assertEqual(manager.locked, True)
 
     def test_do_PUT_validate_fields(self):
         import mock
@@ -62,13 +56,10 @@ class ViewTests(unittest.TestCase):
         manager = CountryManager(locked=False)
         view = self.View(manager, None)
         view.input = {'locked': 'oops'}
-        mock_security = mock.Mock()
-        mock_security.checkPermission.return_value = True
-        with mock.patch('euphorie.content.api.countrymanager.getSecurityManager',
-                return_value=mock_security):
-            response = view.do_PUT()
-            self.assertEqual(response['type'], 'error')
-            self.assertEqual(manager.locked, False)
+        view.has_permission = mock.Mock(return_value=True)
+        response = view.do_PUT()
+        self.assertEqual(response['type'], 'error')
+        self.assertEqual(manager.locked, False)
 
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):
