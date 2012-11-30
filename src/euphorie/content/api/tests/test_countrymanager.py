@@ -25,41 +25,20 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(response['login'], 'mememe')
         self.assertEqual(response['locked'], True)
 
-    def test_do_PUT_no_permission(self):
+    def test_do_PUT_update_error(self):
         import mock
-        from zExceptions import Unauthorized
         view = self.View(None, None)
+        view.update_object = mock.Mock(side_effect=ValueError)
         view.input = {'email': 'other'}
-        view.has_permission = mock.Mock(return_value=False)
-        self.assertRaises(Unauthorized, view.do_PUT)
-
-    def test_do_PUT_update_basics(self):
-        import mock
-        from ...countrymanager import CountryManager
-        manager = CountryManager(id='id', login='login')
-        view = self.View(manager, None)
-        view.input = {'title': u'New title',
-                      'email': 'email@example.com',
-                      'password': u'Password',
-                      'locked': True,
-                      }
-        view.has_permission = mock.Mock(return_value=True)
-        view.do_PUT()
-        self.assertEqual(manager.title, u'New title')
-        self.assertEqual(manager.contact_email, 'email@example.com')
-        self.assertEqual(manager.password, u'Password')
-        self.assertEqual(manager.locked, True)
-
-    def test_do_PUT_validate_fields(self):
-        import mock
-        from ...countrymanager import CountryManager
-        manager = CountryManager(locked=False)
-        view = self.View(manager, None)
-        view.input = {'locked': 'oops'}
-        view.has_permission = mock.Mock(return_value=True)
         response = view.do_PUT()
         self.assertEqual(response['type'], 'error')
-        self.assertEqual(manager.locked, False)
+
+    def test_do_PUT_response(self):
+        import mock
+        view = self.View(None, None)
+        view.update_object = mock.Mock()
+        view.do_GET = mock.Mock(return_value='info')
+        self.assertEqual(view.do_PUT(), 'info')
 
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):

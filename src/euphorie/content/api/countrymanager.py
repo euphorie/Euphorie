@@ -1,10 +1,4 @@
-from zExceptions import Unauthorized
-from zope.component import getUtility
-from zope.interface import Invalid
-from zope.security.interfaces import IPermission
-from Products.CMFCore.permissions import ModifyPortalContent
 from five import grok
-from plone.autoform.interfaces import WRITE_PERMISSIONS_KEY
 from euphorie.json import get_json_bool
 from euphorie.json import get_json_string
 from ..countrymanager import ICountryManager
@@ -32,22 +26,9 @@ class View(JsonView):
                 'locked': self.context.locked}
 
     def do_PUT(self):
-        permissions = ICountryManager.queryTaggedValue(WRITE_PERMISSIONS_KEY, {})
         try:
-            for (field, attribute, getter) in self.attributes:
-                value = getter(self.input, field)
-                if value is None:
-                    continue
-                ztk_permission = permissions.get(attribute, None)
-                if ztk_permission is not None:
-                    permission = getUtility(IPermission, name=ztk_permission).title
-                else:
-                    permission = ModifyPortalContent
-                if not self.has_permission(permission):
-                    raise Unauthorized()
-                ICountryManager[attribute].validate(value)
-                setattr(self.context, attribute, value)
-        except (Invalid, ValueError) as e:
+            self.update_object(self.attributes, ICountryManager)
+        except ValueError as e:
             return {'type': 'error',
                     'message': str(e)}
         return self.do_GET()

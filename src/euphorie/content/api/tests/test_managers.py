@@ -91,3 +91,27 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(set(response), set(['managers']))
         self.assertEqual(response['managers'], [])
+
+    def test_add_new_manager(self):
+        import json
+        from ..authentication import generate_token
+        self.loginAsPortalOwner()
+        country = self.portal.sectors['nl']
+        country.invokeFactory('euphorie.countrymanager', 'manager',
+                login='manager', password=u'manager')
+        browser = Browser()
+        browser.handleErrors = False
+        browser.raiseHttpErrors = False
+        browser.addHeader('X-Euphorie-Token', generate_token(country['manager']))
+        browser.post('http://nohost/plone/api/countries/nl/managers',
+                json.dumps({'title': u'Jane Doe',
+                            'login': 'jane',
+                            'password': u'johny'}))
+        response = json.loads(browser.contents)
+        self.assertEqual(response['type'], 'countrymanager')
+        self.assertEqual(response['id'], 'jane-doe')
+        self.assertTrue('jane-doe' in country)
+        jane = country['jane-doe']
+        self.assertEqual(jane.title, u'Jane Doe')
+        self.assertEqual(jane.login, 'jane')
+        self.assertEqual(jane.password, u'johny')

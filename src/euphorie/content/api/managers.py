@@ -1,7 +1,12 @@
+from zExceptions import Unauthorized
 from Acquisition import aq_base
 from five import grok
 from euphorie.ghost import PathGhost
+from plone.dexterity.utils import createContent
+from plone.dexterity.utils import addContentToContainer
+from euphorie.json import get_json_string
 from ..countrymanager import ICountryManager
+from .countrymanager import View as CountryManagerView
 from . import JsonView
 
 
@@ -32,5 +37,24 @@ class View(JsonView):
     grok.require('zope2.View')
     grok.name('index_html')
 
+    attributes = CountryManagerView.attributes + [
+            ('login', 'login', get_json_string),
+            ]
+
     def do_GET(self):
         return {'managers': list_managers(self.context)}
+
+    def do_POST(self):
+        if not self.has_permission('Euphorie: Manage country'):
+            raise Unauthorized()
+
+        manager = createContent('euphorie.countrymanager')
+        try:
+            self.update_object(self.attributes, ICountryManager,
+                    manager.__of__(self.context))
+        except ValueError as e:
+            return {'type': 'error',
+                    'message': str(e)}
+        manager = addContentToContainer(self.context.country, manager, False)
+        view = CountryManagerView(manager, self.request)
+        return view.do_GET()

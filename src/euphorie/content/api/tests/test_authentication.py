@@ -86,7 +86,12 @@ class authenticate_token_tests(unittest.TestCase):
                 return_value='user'):
             with mock.patch('euphorie.content.api.authentication.generate_token',
                     return_value='1-hash'):
-                self.assertEqual(self.authenticate_token(None, '1-hash'), 'user')
+                with mock.patch('euphorie.content.api.authentication.IMembraneUserAuth') as mock_auth:
+                    mock_auth('user', None).getUserId.return_value = 'userid'
+                    mock_auth('user', None).getUserName.return_value = 'login'
+                    self.assertEqual(
+                            self.authenticate_token(None, '1-hash'),
+                            ('userid', 'login'))
 
     def test_invalid_token(self):
         import mock
