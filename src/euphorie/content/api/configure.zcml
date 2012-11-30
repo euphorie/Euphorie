@@ -4,17 +4,22 @@
 
     <browser:defaultView
       for="Products.CMFCore.interfaces.IContentish"
-      layer=".interfaces.IAPISkinLayer"
+      layer=".interfaces.ICMSAPISkinLayer"
       name="index_html"/>
 
     <browser:defaultView
       for="Products.CMFCore.interfaces.IFolderish"
-      layer=".interfaces.IAPISkinLayer"
+      layer=".interfaces.ICMSAPISkinLayer"
       name="index_html"/>
 
     <browser:defaultView
       for="euphorie.ghost.PathGhost"
-      layer=".interfaces.IAPISkinLayer"
+      layer=".interfaces.ICMSAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="plone.dexterity.interfaces.IDexterityContent"
+      layer=".interfaces.ICMSAPISkinLayer"
       name="index_html"/>
 
     <adapter
