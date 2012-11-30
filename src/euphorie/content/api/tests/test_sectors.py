@@ -88,3 +88,31 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(set(response), set(['sectors']))
         self.assertEqual(response['sectors'], [])
+
+    def test_add_new_sector(self):
+        import json
+        from ..authentication import generate_token
+        self.loginAsPortalOwner()
+        country = self.portal.sectors['nl']
+        country.invokeFactory('euphorie.countrymanager', 'manager',
+                login='manager', password=u'manager')
+        browser = Browser()
+        browser.handleErrors = False
+        browser.raiseHttpErrors = False
+        browser.addHeader('X-Euphorie-Token', generate_token(country['manager']))
+        browser.post('http://nohost/plone/api/countries/nl/sectors',
+                json.dumps({'title': u'IT development',
+                            'login': 'it',
+                            'contact': {
+                                'name': 'Jony Smith',
+                                'email': 'jony@example.com',
+                            },
+                            'password': u'cobol-for-the-win'}))
+        response = json.loads(browser.contents)
+        self.assertEqual(response['type'], 'sector')
+        self.assertEqual(response['id'], 'it-development')
+        self.assertTrue('it-development' in country)
+        sector = country['it-development']
+        self.assertEqual(sector.title, u'IT development')
+        self.assertEqual(sector.login, 'it')
+        self.assertEqual(sector.password, u'cobol-for-the-win')

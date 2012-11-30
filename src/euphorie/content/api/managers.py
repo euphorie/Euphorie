@@ -49,12 +49,18 @@ class View(JsonView):
             raise Unauthorized()
 
         manager = createContent('euphorie.countrymanager')
+        # Assign a temporary id. Without this security caching logic breaks due to use of
+        # getPhysicalPath() as cache id. This calls getId() to get the id,
+        # which uses __name__ if no id is set, but __name__ is a computer attribute which
+        # calls getId. BOOM!
+        manager.id = str(id(manager))
         try:
             self.update_object(self.attributes, ICountryManager,
                     manager.__of__(self.context))
         except ValueError as e:
             return {'type': 'error',
                     'message': str(e)}
+        del manager.id
         manager = addContentToContainer(self.context.country, manager, False)
         view = CountryManagerView(manager, self.request)
         return view.do_GET()
