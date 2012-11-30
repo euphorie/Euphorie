@@ -4,7 +4,7 @@ from five import grok
 from euphorie.ghost import PathGhost
 from plone.dexterity.utils import createContent
 from plone.dexterity.utils import addContentToContainer
-from euphorie.json import get_json_string
+from euphorie.json import get_json_unicode
 from ..countrymanager import ICountryManager
 from .countrymanager import View as CountryManagerView
 from . import JsonView
@@ -38,7 +38,7 @@ class View(JsonView):
     grok.name('index_html')
 
     attributes = CountryManagerView.attributes + [
-            ('login', 'login', get_json_string),
+            ('login', 'login', get_json_unicode),
             ]
 
     def do_GET(self):

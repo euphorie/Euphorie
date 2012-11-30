@@ -1,6 +1,6 @@
 from five import grok
 from euphorie.json import get_json_bool
-from euphorie.json import get_json_string
+from euphorie.json import get_json_unicode
 from euphorie.json import get_json_token
 from ..company import CompanySchema
 from ..model import Company
@@ -31,7 +31,7 @@ class View(JsonView):
     def do_PUT(self):
         company = self.context.company
         try:
-            company.country = get_json_string(self.input, 'country', False,
+            company.country = get_json_unicode(self.input, 'country', False,
                     company.country, length=3)
             company.employees = get_json_token(self.input, 'employees',
                     CompanySchema['employees'], False, company.employees)
