@@ -43,7 +43,8 @@ def authenticate_token(context, token):
     if user is None or generate_token(user) != token:
         return None
     else:
-        return user
+        auth = IMembraneUserAuth(user, None)
+        return (auth.getUserId(), auth.getUserName())
 
 
 def authenticate_credentials(context, login, password):

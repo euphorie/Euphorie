@@ -6,10 +6,8 @@ from z3c.saconfig import Session
 from Acquisition import aq_parent
 from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
-from OFS.Cache import Cacheable
 from zope.publisher.interfaces.browser import IBrowserView
 from Products.PluggableAuthService.utils import classImplements
-from Products.PluggableAuthService.utils import createViewName
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.interfaces.plugins \
         import IAuthenticationPlugin
@@ -84,11 +82,9 @@ def addEuphorieAccountPlugin(self, id, title='', REQUEST=None):
                 self.absolute_url())
 
 
-class EuphorieAccountPlugin(BasePlugin, Cacheable):
+class EuphorieAccountPlugin(BasePlugin):
     meta_type = "Euphorie account manager"
     security = ClassSecurityInfo()
-
-    manage_options = BasePlugin.manage_options + Cacheable.manage_options
 
     def __init__(self, id, title=None):
         self._setId(id)
@@ -121,16 +117,20 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     def _authenticate_login(self, credentials):
         login = credentials.get('login')
         password = credentials.get('password')
-        return authenticate(login, password)
+        account = authenticate(login, password)
+        if account is not None:
+            return (str(account.id), account.loginname)
+        else:
+            return None
 
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
-        account = self._authenticate_login(credentials)
-        if account is None:
-            account = self._authenticate_token(credentials)
-        if account is not None:
-            return (account.login, account.login)
+        uid_and_login = self._authenticate_login(credentials)
+        if uid_and_login is None:
+            uid_and_login = self._authenticate_token(credentials)
+        if uid_and_login is not None:
+            return uid_and_login
         else:
             return None
 
@@ -138,10 +138,11 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
     # IUserFactoryPlugin implementation
     @graceful_recovery()
     def createUser(self, user_id, name):
-        name = name.lower()
-        account = Session().query(model.Account)\
-                .filter(model.Account.loginname == name).first()
-        return account
+        try:
+            user_id = int(user_id)
+        except (TypeError, ValueError):
+            return None
+        return Session().query(model.Account).get(user_id)
 
     #
     # IUserEnumerationPlugin implementation
@@ -152,13 +153,17 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
         if not exact_match:
             return []
 
-        if id and login and id != login:
-            return []
-
-        login = login or id
-        if self._isKnownAccount(login):
-            return [dict(id=login, login=login)]
-
+        query = Session().query(model.Account)
+        if id is not None:
+            try:
+                query = query.filter(model.Account.id == int(id))
+            except ValueError:
+                return []
+        if login:
+            query = query.filter(model.Account.loginname == login)
+        account = query.first()
+        if account is not None:
+            return [{'id': str(account.id), 'login': account.loginname}]
         return []
 
     #
@@ -183,25 +188,6 @@ class EuphorieAccountPlugin(BasePlugin, Cacheable):
                 urllib.urlencode(dict(came_from=current_url)))
         response.redirect(login_url, lock=True)
         return True
-
-    #
-    # Utility functiones
-    #
-    def _isKnownAccount(self, loginname):
-        """Utility function to check if a loginname is valid."""
-        viewname = createViewName("_isKnownAccount", loginname)
-        keywords = dict(login=loginname)
-        result = self.ZCacheable_get(view_name=viewname, keywords=keywords,
-                default=None)
-        if result is not None:
-            return result
-
-        matches = Session().query(model.Account)\
-                .filter(model.Account.loginname == loginname).count()
-        result = bool(matches)
-
-        self.ZCacheable_set(result, view_name=viewname, keywords=keywords)
-        return result
 
 
 def authenticate(login, password):

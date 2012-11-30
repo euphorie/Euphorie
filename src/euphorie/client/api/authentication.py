@@ -27,4 +27,4 @@ def authenticate_token(token):
     if account is None or generate_token(account) != token:
         return None
     else:
-        return account
+        return (str(account_id), account.loginname)

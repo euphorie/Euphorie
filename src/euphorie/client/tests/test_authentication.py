@@ -97,7 +97,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         credentials = {'login': 'john', 'password': u'jane'}
-        self.assertTrue(plugin._authenticate_login(credentials) is account)
+        self.assertTrue(plugin._authenticate_login(credentials) is not None)
 
     def test_authenticate_login_not_case_sensitive(self):
         session = Session()
@@ -105,7 +105,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         credentials = {'login': 'JoHn', 'password': u'jane'}
-        self.assertTrue(plugin._authenticate_login(credentials) is account)
+        self.assertTrue(plugin._authenticate_login(credentials) is not None)
 
     def test_CreateUser_interface(self):
         from Products.PluggableAuthService.interfaces.plugins \
@@ -115,14 +115,14 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def test_CreateUser_unknown_account(self):
         plugin = EuphorieAccountPlugin('plugin')
-        self.assertEqual(plugin.createUser(None, 'john'), None)
+        self.assertEqual(plugin.createUser('1', 'john'), None)
 
     def testCreateUser_ValidAccount(self):
         session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
-        self.assertTrue(plugin.createUser(None, 'john') is account)
+        self.assertTrue(plugin.createUser('1', 'john') is account)
 
     def testEnumerateUsers_Interface(self):
         from Products.PluggableAuthService.interfaces.plugins \
@@ -136,15 +136,15 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
-                plugin.enumerateUsers(id='john', exact_match=False), [])
+                plugin.enumerateUsers(login='john', exact_match=False), [])
 
     def test_EnumerateUsers_search_by_id(self):
         session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
-        info = plugin.enumerateUsers(id='john', exact_match=True)
-        self.assertEqual(info, [{'id': 'john', 'login': 'john'}])
+        info = plugin.enumerateUsers(id='1', exact_match=True)
+        self.assertEqual(info, [{'id': '1', 'login': 'john'}])
         self.assertTrue(isinstance(info[0]['id'], str))
         self.assertTrue(isinstance(info[0]['login'], str))
 
@@ -155,7 +155,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
                 plugin.enumerateUsers(login='john', exact_match=True),
-                [{'id': 'john', 'login': 'john'}])
+                [{'id': '1', 'login': 'john'}])
 
     def test_EnumerateUsers_search_by_login_and_id(self):
         session = Session()
@@ -163,14 +163,14 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session.add(account)
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
-                plugin.enumerateUsers(login='john', id='john',
+                plugin.enumerateUsers(id='1', login='john',
                     exact_match=True),
-                [{'id': 'john', 'login': 'john'}])
+                [{'id': '1', 'login': 'john'}])
 
     def test_EnumerateUsers_unknown_account(self):
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(
-                plugin.enumerateUsers(id='john', exact_match=False), [])
+                plugin.enumerateUsers(id='1', exact_match=False), [])
 
     def test_Challenge_interface(self):
         from Products.PluggableAuthService.interfaces.plugins \

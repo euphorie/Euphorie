@@ -19,7 +19,7 @@ class AuthenticationTests(EuphorieTestCase):
     def testGetUserById_ValidAccount(self):
         from Acquisition import aq_base
         account = self.createAccount()
-        user = self.portal.acl_users.getUserById("john")
+        user = self.portal.acl_users.getUserById(str(account.id))
         self.failUnless(aq_base(user) is account)
         self.failUnless(isinstance(user.getId(), str))
 
