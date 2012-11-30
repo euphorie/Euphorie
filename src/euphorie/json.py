@@ -31,8 +31,18 @@ def vocabulary_options(field, request):
             if term.token != 'none']
 
 
+def _nested_get(input, name):
+    value = input
+    try:
+        for part in name.split('.'):
+            value = value[part]
+    except KeyError:
+        return None
+    return value
+
+
 def get_json_token(input, name, field, required=False, default=None):
-    value = input.get(name)
+    value = _nested_get(input, name)
     if value is None:
         if not required:
             return default
@@ -43,8 +53,8 @@ def get_json_token(input, name, field, required=False, default=None):
         raise ValueError('Invalid value for field %s' % name)
 
 
-def get_json_string(input, name, required=False, default=None, length=None):
-    value = input.get(name)
+def get_json_unicode(input, name, required=False, default=None, length=None):
+    value = _nested_get(input, name)
     if value is None:
         if not required:
             return default
@@ -56,8 +66,12 @@ def get_json_string(input, name, required=False, default=None, length=None):
     return value
 
 
+def get_json_string(input, name, required=False, default=None, length=None):
+    return str(get_json_unicode(input, name, required, default, length))
+
+
 def get_json_bool(input, name, required=False, default=None):
-    value = input.get(name)
+    value = _nested_get(input, name)
     if value is None:
         if not required:
             return default
@@ -68,7 +82,7 @@ def get_json_bool(input, name, required=False, default=None):
 
 
 def get_json_int(input, name, required=False, default=None):
-    value = input.get(name)
+    value = _nested_get(input, name)
     if value is None:
         if not required:
             return default
@@ -79,7 +93,7 @@ def get_json_int(input, name, required=False, default=None):
 
 
 def get_json_date(input, name, required=False, default=None):
-    value = input.get(name)
+    value = _nested_get(input, name)
     if value is None:
         if not required:
             return default
