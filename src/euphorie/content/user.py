@@ -60,7 +60,7 @@ class IUser(form.Schema):
             title=_("label_login_name", default=u"Login name"),
             required=True,
             constraint=validLoginValue)
-    dexterity.write_permission(login="euphorie.ManageCountry")
+    dexterity.write_permission(login="euphorie.content.ManageCountry")
 
     password = schema.Password(
             title=_("label_password", default=u"Password"),
@@ -70,7 +70,7 @@ class IUser(form.Schema):
             title=_("label_account_locked", default=u"Account is locked"),
             required=False,
             default=False)
-    dexterity.write_permission(locked="euphorie.ManageCountry")
+    dexterity.write_permission(locked="euphorie.content.ManageCountry")
 
 
 class UniqueLoginValidator(grok.MultiAdapter, SimpleFieldValidator):
