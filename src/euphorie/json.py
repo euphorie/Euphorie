@@ -203,4 +203,4 @@ class NotFoundView(JsonView):
 
     def do_GET(self):
         return {'type': 'error',
-                'message': 'Unknown resource requested'}
+                'message': 'Unknown resource requested.'}
