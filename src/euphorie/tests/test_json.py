@@ -236,6 +236,21 @@ class JsonViewTests(unittest.TestCase):
                 {'type': 'error',
                  'message': 'HTTP method not allowed'})
 
+    def test_do_OPTIONS_minimal(self):
+        from zope.publisher.browser import TestRequest
+        request = TestRequest()
+        view = self.JsonView(None, request)
+        view.do_OPTIONS()
+        self.assertEqual(request.response.getHeader('Allow'), 'OPTIONS')
+
+    def test_do_OPTIONS_with_GET_handler(self):
+        from zope.publisher.browser import TestRequest
+        request = TestRequest()
+        view = self.JsonView(None, request)
+        view.do_GET = lambda: None
+        view.do_OPTIONS()
+        self.assertEqual(request.response.getHeader('Allow'), 'GET,OPTIONS')
+
 
 class DummySchema(Interface):
     field = Choice(vocabulary=SimpleVocabulary([

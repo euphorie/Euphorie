@@ -138,6 +138,12 @@ class JsonView(grok.View):
         # Workaround for grok silliness
         pass
 
+    def do_OPTIONS(self):
+        methods = [name[3:] for name in dir(self)
+                   if name.startswith('do_')]
+        self.response.setHeader('Allow', ','.join(sorted(methods)))
+        return None
+
     def __call__(self):
         input = self.request.stdin.getvalue()
         if input:
