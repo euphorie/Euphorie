@@ -43,8 +43,29 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(view.do_PUT(), 'info')
 
 
-class ViewBrowserTests(EuphorieFunctionalTestCase):
-    def test_require_authentication(self):
+class ViewFunctionalTests(EuphorieFunctionalTestCase):
+    def View(self, *a, **kw):
+        from ..sector import View
+        return View(*a, **kw)
+
+    def test_do_DELETE_no_permission(self):
+        from zExceptions import Unauthorized
+        from ...sector import Sector
+        container = self.portal.sectors['nl']
+        container['it'] = Sector(id='manager')
+        view = self.View(container['it'], None)
+        self.assertRaises(Unauthorized, view.do_DELETE)
+
+    def test_do_DELETE_with_permission(self):
+        from ...sector import Sector
+        container = self.portal.sectors['nl']
+        container['it'] = Sector(id='it')
+        view = self.View(container['it'], None)
+        self.loginAsPortalOwner()
+        view.do_DELETE()
+        self.assertTrue('it' not in container)
+
+    def test_browser_require_authentication(self):
         self.loginAsPortalOwner()
         self.portal.sectors['nl'].invokeFactory('euphorie.countrymanager', 'manager')
         browser = Browser()
@@ -52,7 +73,7 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         browser.open('http://nohost/plone/api/countries/nl/managers/manager')
         self.assertTrue(browser.headers['Status'].startswith('401'))
 
-    def test_authenticated_user(self):
+    def test_browser_authenticated_user(self):
         import json
         from ...tests.utils import createSector
         from ..authentication import generate_token

@@ -41,8 +41,29 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(view.do_PUT(), 'info')
 
 
-class ViewBrowserTests(EuphorieFunctionalTestCase):
-    def test_require_authentication(self):
+class ViewFunctionalTests(EuphorieFunctionalTestCase):
+    def View(self, *a, **kw):
+        from ..countrymanager import View
+        return View(*a, **kw)
+
+    def test_do_DELETE_no_permission(self):
+        from zExceptions import Unauthorized
+        from ...countrymanager import CountryManager
+        container = self.portal.sectors['nl']
+        container['manager'] = CountryManager(id='manager')
+        view = self.View(container['manager'], None)
+        self.assertRaises(Unauthorized, view.do_DELETE)
+
+    def test_do_DELETE_with_permission(self):
+        from ...countrymanager import CountryManager
+        container = self.portal.sectors['nl']
+        container['manager'] = CountryManager(id='manager')
+        view = self.View(container['manager'], None)
+        self.loginAsPortalOwner()
+        view.do_DELETE()
+        self.assertTrue('manager' not in container)
+
+    def test_browser_require_authentication(self):
         self.loginAsPortalOwner()
         self.portal.sectors['nl'].invokeFactory('euphorie.countrymanager', 'manager')
         browser = Browser()
@@ -50,7 +71,7 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         browser.open('http://nohost/plone/api/countries/nl/managers/manager')
         self.assertTrue(browser.headers['Status'].startswith('401'))
 
-    def test_authenticated_user(self):
+    def test_browser_authenticated_user(self):
         import json
         from ...tests.utils import createSector
         from ..authentication import generate_token
@@ -64,7 +85,7 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         response = json.loads(browser.contents)
         self.assertEqual(response['type'], 'countrymanager')
 
-    def test_sector_can_not_modify_manager(self):
+    def test_browser_sector_can_not_modify_manager(self):
         import mock
         import json
         from ...tests.utils import createSector
