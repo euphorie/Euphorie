@@ -465,3 +465,45 @@ Delete sector organisation
 | DELETE | /countries/<country id>/sectors/<id> | Delete a sector.          |
 +--------+--------------------------------------+---------------------------+
 
+
+API reference
+-------------
+
++--------+---------------------------------------+-----------------------------------+
+| Verb   | URI                                   | Description                       |
++========+=======================================+===================================+
+| POST   | /authenticate                         | Authenticate a user.              |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries                            | List all defined countries.       |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<id>                       | Request country information.      |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<id>?details               | Request country information       |
+|        |                                       | including all sectors and country |
+|        |                                       | managers.                         |
++--------+---------------------------------------+-----------------------------------+
+| POST   | /countries                            | Add a new country.                |
++--------+---------------------------------------+-----------------------------------+
+| PUT    | /countries/<id>                       | Update country information.       |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<country id>/managers      | List all country managers         |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<country id>/managers/<id> | Request manager information.      |
++--------+---------------------------------------+-----------------------------------+
+| POST   | /countries/<country id>/managers      | Add a new country manager.        |
++--------+---------------------------------------+-----------------------------------+
+| PUT    | /countries/<country id>/managers/<id> | Update country manager            |
+|        |                                       | information.                      |
++--------+---------------------------------------+-----------------------------------+
+| DELETE | /countries/<country id>/managers/<id> | Delete a country manager.         |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<country id>/sectors       | List all sectors.                 |
++--------+---------------------------------------+-----------------------------------+
+| GET    | /countries/<country id>/sectors/<id>  | Request sector information.       |
++--------+---------------------------------------+-----------------------------------+
+| POST   | /countries/<country id>/sectors       | Add a new sector.                 |
++--------+---------------------------------------+-----------------------------------+
+| PUT    | /countries/<country id>/sectors/<id>  | Update sector information.        |
++--------+---------------------------------------+-----------------------------------+
+| DELETE | /countries/<country id>/sectors/<id>  | Delete a sector.                  |
++--------+---------------------------------------+-----------------------------------+
