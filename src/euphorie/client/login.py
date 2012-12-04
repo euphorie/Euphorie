@@ -223,7 +223,7 @@ class Register(grok.View):
             if account:
                 pas = getToolByName(self.context, "acl_users")
                 pas.updateCredentials(self.request, self.request.response,
-                        account.getId(), account.password)
+                        account.getUserName(), account.password)
 
                 country_url = aq_inner(self.context).absolute_url()
                 came_from = self.request.form.get("came_from")
