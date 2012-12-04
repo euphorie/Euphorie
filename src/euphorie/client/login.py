@@ -75,10 +75,10 @@ class LoginView(grok.View):
 
             user = getSecurityManager().getUser()
             if isinstance(user, model.Account) and \
-                    user.getId() == reply.get("__ac_name", '').lower():
+                    user.getUserName() == reply.get("__ac_name", '').lower():
                 pas = getToolByName(self.context, "acl_users")
                 pas.updateCredentials(self.request, self.request.response,
-                        user.getId(), reply.get("__ac_password", ""))
+                        user.getUserName(), reply.get("__ac_password", ""))
 
                 if checkTermsAndConditions() and \
                         not approvedTermsAndConditions(user):

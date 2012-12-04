@@ -186,11 +186,6 @@ class Account(BaseObject):
         return self.loginname
 
     # PAS BasicUser implementation
-    def getId(self):
-        """Return the userid. For client accounts the login name is also
-        used as userid."""
-        return self.loginname
-
     def getUserName(self):
         """Return the login name."""
         return self.loginname
