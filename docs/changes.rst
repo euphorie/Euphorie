@@ -18,6 +18,8 @@ Bugfixes
 - IE8 fix in client. Adding a standard solution to an new/empty solution
   produces popup alerting user that they are overriding existing values.
 
+- Fix for unicode error when providing non-ascii profile question values.
+
 
 5.0 - November 22, 2012
 -----------------------

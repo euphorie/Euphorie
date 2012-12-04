@@ -24,7 +24,7 @@
     <p tal:condition="python:view.profile_questions" i18n:translate="verify_profile">Please
     verify if the profile is still accurate.</p>
 
-    <form method="post">
+    <form method="post" accept-charset="UTF-8">
       <fieldset class="concise" tal:condition="python:view.profile_questions">
         <tal:block repeat="question view/profile_questions">
           <tal:block define="answer python:view.current_profile.get(question['id'])">
@@ -41,22 +41,22 @@
                 <legend tal:content="question/question">Restaurants</legend>
                 <ol>
                   <tal:block condition="python:not answer">
-                    <li><input type="text" name="${question/id}:utext:list"/>
+                    <li><input type="text" name="${question/id}:utf8:utext:list"/>
                     </li>
                     <noscript>
-                      <li><input type="text" name="${question/id}:utext:list"/>
+                      <li><input type="text" name="${question/id}:utf8:utext:list"/>
                       </li>
-                      <li><input type="text" name="${question/id}:utext:list"/>
+                      <li><input type="text" name="${question/id}:utf8:utext:list"/>
                       </li>
                     </noscript>
                   </tal:block>
                   <tal:block condition="python:answer">
-                    <li tal:repeat="title answer"><input type="text" name="${question/id}:utext:list" value="${title}"/></li>
+                    <li tal:repeat="title answer"><input type="text" name="${question/id}:utf8:utext:list" value="${title}"/></li>
                   </tal:block>
                 </ol>
                 <button type="button" 
                         i18n:translate="label_add_profile_module"
-                        value="${question/id}:utext:list" class="${question/id}:utext:list addButton jsOnly">Add</button>
+                        value="${question/id}:utf8:utext:list" class="${question/id}:utf8:utext:list addButton jsOnly">Add</button>
               </fieldset>
             </tal:block>
           </tal:block>
