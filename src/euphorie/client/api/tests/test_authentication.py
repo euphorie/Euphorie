@@ -62,8 +62,10 @@ class authenticate_token_tests(DatabaseTests):
         from euphorie.client.tests.utils import addAccount
         with mock.patch('euphorie.client.api.authentication.generate_token',
                 return_value='1-hash'):
-            account = addAccount()
-            self.assertTrue(self.authenticate_token('1-hash') is account)
+            addAccount()
+            self.assertEqual(
+                    self.authenticate_token('1-hash'),
+                    ('1', 'jane@example.com'))
 
     def test_invalid_token(self):
         import mock

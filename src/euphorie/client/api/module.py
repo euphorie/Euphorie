@@ -1,13 +1,13 @@
 from five import grok
-from euphorie.client.utils import HasText
-from euphorie.client.model import Module
-from euphorie.client.api import context_menu
-from euphorie.client.api import export_image
-from euphorie.client.api import JsonView
-from euphorie.client.navigation import FindPreviousQuestion
-from euphorie.client.navigation import FindNextQuestion
-from euphorie.client.module import EvaluationView as BaseEvaluation
-from euphorie.client.module import ActionPlanView as BaseActionPlan
+from euphorie.json import export_image
+from ..navigation import FindPreviousQuestion
+from ..navigation import FindNextQuestion
+from ..module import EvaluationView as BaseEvaluation
+from ..module import ActionPlanView as BaseActionPlan
+from ..utils import HasText
+from ..model import Module
+from . import context_menu
+from . import JsonView
 
 
 class View(JsonView):

@@ -1,0 +1,30 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IContentish"
+      layer=".interfaces.ICMSAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="Products.CMFCore.interfaces.IFolderish"
+      layer=".interfaces.ICMSAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="euphorie.ghost.PathGhost"
+      layer=".interfaces.ICMSAPISkinLayer"
+      name="index_html"/>
+
+    <browser:defaultView
+      for="plone.dexterity.interfaces.IDexterityContent"
+      layer=".interfaces.ICMSAPISkinLayer"
+      name="index_html"/>
+
+    <adapter
+      factory=".country.CountryTraverse"
+      provides="zope.publisher.interfaces.IPublishTraverse"/>
+
+</configure>
+

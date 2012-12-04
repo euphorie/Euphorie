@@ -63,7 +63,7 @@ class ViewTests(PlacelessSetup, unittest.TestCase):
             self.assertEqual(response['sectors'], ['sector-detailed-info'])
 
     def test_ignore_non_sector_child(self):
-        from euphorie.client.survey import PathGhost
+        from euphorie.ghost import PathGhost
         from zope.publisher.browser import TestRequest
         from euphorie.client.country import ClientCountry
         country = ClientCountry(id='nl', title=u'The Netherlands',

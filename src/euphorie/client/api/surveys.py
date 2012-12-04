@@ -1,9 +1,9 @@
 from Acquisition import aq_base
 from five import grok
-from euphorie.client.country import IClientCountry
-from euphorie.client.survey import PathGhost
-from euphorie.client.api import JsonView
-from euphorie.client.api.country import View as CountryView
+from euphorie.ghost import PathGhost
+from ..country import IClientCountry
+from . import JsonView
+from .country import View as CountryView
 
 
 class Surveys(PathGhost):

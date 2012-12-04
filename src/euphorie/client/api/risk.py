@@ -1,28 +1,28 @@
 from Acquisition import aq_parent
 from zope.component import adapts
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 from five import grok
 from euphorie.content.risk import evaluation_algorithm
 from euphorie.content.risk import IFrenchEvaluation
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
-from euphorie.client.utils import HasText
-from euphorie.client.model import Risk
-from euphorie.client.api import JsonView
-from euphorie.client.api import get_json_token
-from euphorie.client.api import vocabulary_token
-from euphorie.client.api import vocabulary_options
-from euphorie.client.api import context_menu
-from euphorie.client.api import export_image
-from euphorie.client.api.actionplans import RiskActionPlans
-from euphorie.client.api.actionplan import plan_info
-from euphorie.client.api.interfaces import IClientAPISkinLayer
-from euphorie.client.navigation import FindPreviousQuestion
-from euphorie.client.navigation import FindNextQuestion
-from euphorie.client.risk import EvaluationView as BaseEvaluation
-from euphorie.client.risk import ActionPlanView as BaseActionPlan
-from euphorie.client.risk import calculate_priority
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from euphorie.json import get_json_token
+from euphorie.json import vocabulary_token
+from euphorie.json import vocabulary_options
+from euphorie.json import export_image
+from ..utils import HasText
+from ..model import Risk
+from ..navigation import FindPreviousQuestion
+from ..navigation import FindNextQuestion
+from ..risk import EvaluationView as BaseEvaluation
+from ..risk import ActionPlanView as BaseActionPlan
+from ..risk import calculate_priority
+from . import JsonView
+from . import context_menu
+from .actionplans import RiskActionPlans
+from .actionplan import plan_info
+from .interfaces import IClientAPISkinLayer
 
 
 class View(JsonView):

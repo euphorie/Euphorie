@@ -95,7 +95,7 @@ class build_tree_aq_chain_tests(DatabaseTests):
         self.failUnless(aq_base(aq_parent(context)) is root)
 
     def testSetupContext_TwoSteps(self):
-        from euphorie.client.survey import PathGhost
+        from euphorie.ghost import PathGhost
         self.createSqlData()
         root = model.BaseObject()
         context = self.build_tree_aq_chain(root, self.q1.id)

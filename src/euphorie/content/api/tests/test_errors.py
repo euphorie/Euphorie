@@ -6,11 +6,11 @@ class GenericErrorTests(EuphorieFunctionalTestCase):
     def test_View(self):
         import json
         import mock
-        with mock.patch('euphorie.client.api.entry.View.do_GET',
+        with mock.patch('euphorie.content.api.entry.View.do_GET',
                 sideEffect=RuntimeError):
             browser = Browser()
             browser.raiseHttpErrors = False
-            browser.open('http://nohost/plone/client/api')
+            browser.open('http://nohost/plone/api')
             self.assertTrue(browser.headers['Status'].startswith('500'))
             response = json.loads(browser.contents)
             self.assertEqual(
@@ -25,7 +25,7 @@ class NotFoundViewTests(EuphorieFunctionalTestCase):
         import json
         browser = Browser()
         browser.raiseHttpErrors = False
-        browser.open('http://nohost/plone/client/api/unknown')
+        browser.open('http://nohost/plone/api/unknown')
         self.assertTrue(browser.headers['Status'].startswith('404'))
         self.assertEqual(browser.headers['Content-Type'], 'application/json')
         response = json.loads(browser.contents)
@@ -34,3 +34,19 @@ class NotFoundViewTests(EuphorieFunctionalTestCase):
                 set(['type', 'message']))
         self.assertEqual(response['type'], 'error')
         self.assertEqual(response['message'], 'Unknown resource requested.')
+
+
+class UnauthorizedViewTests(EuphorieFunctionalTestCase):
+    def test_view(self):
+        import json
+        browser = Browser()
+        browser.raiseHttpErrors = False
+        browser.open('http://nohost/plone/api/countries')
+        self.assertTrue(browser.headers['Status'].startswith('401'))
+        self.assertEqual(browser.headers['Content-Type'], 'application/json')
+        response = json.loads(browser.contents)
+        self.assertEqual(
+                set(response),
+                set(['type', 'message']))
+        self.assertEqual(response['type'], 'error')
+        self.assertEqual(response['message'], 'Access denied.')

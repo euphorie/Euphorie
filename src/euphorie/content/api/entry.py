@@ -1,11 +1,11 @@
 import pkg_resources
 from five import grok
 from zope.interface import directlyProvides
+from AccessControl.SecurityManagement import getSecurityManager
+from .interfaces import ICMSAPISkinLayer
 from euphorie.ghost import PathGhost
 from . import JsonView
-from .interfaces import IClientAPISkinLayer
-from .users import Users
-from .surveys import Surveys
+from .countries import Countries
 
 
 class API(PathGhost):
@@ -16,8 +16,7 @@ class API(PathGhost):
     """
 
     entry_points = {
-            'surveys': Surveys,
-            'users': Users,
+            'countries': Countries,
             }
 
     def __getitem__(self, key):
@@ -32,8 +31,12 @@ class View(JsonView):
     def do_GET(self):
         self.request.response.setHeader('Content-Type', 'application/json')
         euphorie = pkg_resources.get_distribution('Euphorie')
+        user = getSecurityManager().getUser()
         return {'api-version': [1, 0],
-                'euphorie-version': euphorie.version}
+                'euphorie-version': euphorie.version,
+                'account': user.getUserName()
+                    if user.getId() is not None else None,
+                }
 
 
 def access_api(request):
@@ -42,14 +45,12 @@ def access_api(request):
     :param request: request object
     :rtype: :py:class:`API` instance
 
-    This function is intended to be used in a traversal hook (specifically
-    :py:class:`ClientPublishTraverser
-    <euphorie.client.client.ClientPublishTraverser>`). It will configure the
-    request for API access and return an :py:class:`API` instance.
+    This function is intended to be used in a traversal hook. It will configure
+    the request for API access and return an :py:class:`API` instance.
     """
     # Inform the publisher that we will never see WebDAV clients. This
     # makes sure that we get acquisition during traversal even for
     # request methods other than GET and POST.
     request.maybe_webdav_client = False
-    directlyProvides(request, IClientAPISkinLayer, [])
+    directlyProvides(request, ICMSAPISkinLayer, [])
     return API('api', request)

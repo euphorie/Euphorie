@@ -1,6 +1,6 @@
 from euphorie.interfaces import IAPISkinLayer
 
 
-class IClientAPISkinLayer(IAPISkinLayer):
+class ICMSAPISkinLayer(IAPISkinLayer):
     """Zope skin layer for client API.
     """

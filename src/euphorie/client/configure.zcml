@@ -29,6 +29,7 @@
         />
 
     <grok:grok package="." />
+    <grok:grok package="euphorie.json" />
 
     <browser:defaultView
       for=".client.IClient"
@@ -50,7 +51,7 @@
         />
 
     <browser:defaultView
-        for=".survey.PathGhost"
+        for="euphorie.ghost.PathGhost"
         layer=".interfaces.IClientSkinLayer"
         name="index_html"
         />

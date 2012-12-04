@@ -1,10 +1,10 @@
 from five import grok
 from sqlalchemy.orm import object_session
-from euphorie.client.model import ActionPlan
-from euphorie.client.api import JsonView
-from euphorie.client.api import get_json_date
-from euphorie.client.api import get_json_int
-from euphorie.client.api import get_json_string
+from euphorie.json import get_json_date
+from euphorie.json import get_json_int
+from euphorie.json import get_json_unicode
+from ..model import ActionPlan
+from . import JsonView
 
 
 def plan_info(plan):
@@ -45,7 +45,7 @@ class View(JsonView):
                                 ('responsible', 'responsible'),
                                 ('reference', 'reference')]:
                 setattr(plan, attr,
-                        get_json_string(self.input, key, False,
+                        get_json_unicode(self.input, key, False,
                             getattr(plan, attr)))
             plan.budget = get_json_int(self.input, 'budget', False,
                     plan.budget)
