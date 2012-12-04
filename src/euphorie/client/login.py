@@ -14,6 +14,7 @@ from five import grok
 from zope.interface import Interface
 from zope.i18n import translate
 from zope.component import getUtility
+from plone.session.plugins.session import cookie_expiration_date
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
@@ -77,8 +78,12 @@ class LoginView(grok.View):
             if isinstance(user, model.Account) and \
                     user.getUserName() == reply.get("__ac_name", '').lower():
                 pas = getToolByName(self.context, "acl_users")
-                pas.updateCredentials(self.request, self.request.response,
+                response = self.request.response
+                pas.updateCredentials(self.request, response,
                         user.getUserName(), reply.get("__ac_password", ""))
+                if self.request.form.get('remember'):
+                    response.cookies['__ac']['expires'] = cookie_expiration_date(120)
+                    response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
 
                 if checkTermsAndConditions() and \
                         not approvedTermsAndConditions(user):

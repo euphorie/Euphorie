@@ -4,8 +4,20 @@ Changelog
 5.0.1 - Unreleased
 -------------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release changes the cookie format used to authenticate users in the
+client. As a result all currently logged in users will need to login again
+after upgrading to this version.
+
+
 Feature changes
 ~~~~~~~~~~~~~~~
+
+- Add a new API to manage country manager and sector CMS accounts.
+
+- Add option in the client login to remember a user.
 
 - CMS: update survey display to show profile questions and modules in a single
   list. This makes the display simpler and allows better reordering.
