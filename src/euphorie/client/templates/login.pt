@@ -31,7 +31,7 @@
         <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email autofocus" id="login_name" type="email" name="__ac_name" value="${request/__ac_name|nothing}"/></label>
         <label><tal:span i18n:translate="label_login_password">Password (<a i18n:name="forgot_link" href="${view/reminder_url}" i18n:translate="label_forgot_password">I forgot my password</a>)</tal:span> <input type="password" id="login_password" class="password" name="__ac_password:utf8:ustring"/></label>
         <fieldset class="comprehensive">
-          <label><input type="checkbox" name="remember" value="True"/> <tal:span i18n:translate="label_remember_login">Remember password</tal:span></label>
+          <label><input type="checkbox" name="remember" value="True"/> <tal:span i18n:translate="label_keep_logged_in">Keep me logged in.</tal:span></label>
         </fieldset>
         <hr />
         <p class="buttonBar">
