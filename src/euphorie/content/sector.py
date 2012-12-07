@@ -78,7 +78,7 @@ class ISector(form.Schema, IUser, IBasic):
             title=_("label_logo", default=u"Logo"),
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
-                        u"png, jpg or gif and does not contain any special  "
+                        u"png, jpg or gif and does not contain any special "
                         u"characters."),
             required=False)
 
