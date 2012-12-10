@@ -27,6 +27,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Remove extra space after risk severity in action plan report. This fixes
+  `TNO ticket 215 <https://code.simplon.biz/tracker/tno-euphorie/ticket/215>`_.
+
 - Fix broken translations for risk comments in identification phase. This fixes
   `TNO ticket 230 <https://code.simplon.biz/tracker/tno-euphorie/ticket/230>`_.
 
