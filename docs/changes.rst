@@ -15,6 +15,8 @@ after upgrading to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Display the survey introduction text on the survey view page in the CMS.
+
 - Add a new API to manage country manager and sector CMS accounts.
 
 - Add option in the client login to remember a user.

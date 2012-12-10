@@ -26,6 +26,11 @@
         <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
       </dl>
 
+      <tal:intro condition="python:context.introduction">
+        <h2 i18n:translate="label_introduction">Introduction text</h2>
+        <p tal:replace="structure context/introduction"/>
+      </tal:intro>
+
       <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
       <p tal:condition="python:not view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
       <tal:children condition="python:view.children">
