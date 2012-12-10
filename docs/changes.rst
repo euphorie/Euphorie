@@ -15,6 +15,9 @@ after upgrading to this version.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Sort sessions on client start screen so most recently modified sessions
+  are listed first.
+
 - Display the survey introduction text on the survey view page in the CMS.
 
 - Add a new API to manage country manager and sector CMS accounts.

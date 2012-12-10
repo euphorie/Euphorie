@@ -6,6 +6,38 @@ from euphorie.client.tests.utils import addSurvey
 
 
 class CountryTests(EuphorieFunctionalTestCase):
+    def View(self, *a, **kw):
+        from ..country import View
+        return View(*a, **kw)
+
+    def test_sessions_ordering(self):
+        import datetime
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from z3c.saconfig import Session
+        from AccessControl.SecurityManagement import newSecurityManager
+        from ..model import Account
+        from ..model import SurveySession
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        session = Session()
+        account = Account(loginname='johny',
+                sessions=[
+                    SurveySession(zodb_path='nl/ict/software-development',
+                        title=u'One',
+                        modified=datetime.datetime(2012, 12, 10)),
+                    SurveySession(zodb_path='nl/ict/software-development',
+                        title=u'Three',
+                        modified=datetime.datetime(2012, 12, 12)),
+                    SurveySession(zodb_path='nl/ict/software-development',
+                        title=u'Two',
+                        modified=datetime.datetime(2012, 12, 11))])
+        session.add(account)
+        newSecurityManager(None, account)
+        view = self.View(self.portal.client['nl'], None)
+        self.assertEqual(
+                [s['title'] for s in view.sessions()],
+                [u'Three', u'Two', 'One'])
+
     def test_surveys_filtered_by_language(self):
         from euphorie.client.tests.utils import registerUserInClient
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">

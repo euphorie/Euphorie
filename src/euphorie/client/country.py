@@ -57,6 +57,7 @@ class View(grok.View):
                                })
             except KeyError:
                 pass
+        result.sort(key=lambda s: s['modified'], reverse=True)
         return result
 
     def surveys(self):
