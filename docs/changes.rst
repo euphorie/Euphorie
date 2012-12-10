@@ -25,6 +25,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Fix broken translations for risk comments in identification phase. This fixes
+  `TNO ticket 230 <https://code.simplon.biz/tracker/tno-euphorie/ticket/230>`_.
+
 - Show our favicon in the client.
 
 - IE8 fix in client. Adding a standard solution to an new/empty solution
