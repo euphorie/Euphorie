@@ -91,12 +91,11 @@
           <p class="emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered">This risk still needs to be inventorised.</p>
 
             <p tal:condition="node/priority" class="priority-${node/priority}" i18n:translate="risk_priority"
-            >This is a <strong i18n:name="priority">
-                <tal:span tal:condition="python:node.priority=='low'" i18n:translate="risk_priority_low">low priority risk</tal:span>
-                <tal:span tal:condition="python:node.priority=='medium'" i18n:translate="risk_priority_medium">medium priority risk</tal:span>
-                <tal:span tal:condition="python:node.priority=='high'" i18n:translate="risk_priority_high">high priority risk</tal:span
+            >This is a <strong i18n:name="priority"
+              ><tal:span tal:condition="python:node.priority=='low'" i18n:translate="risk_priority_low">low priority risk</tal:span
+              ><tal:span tal:condition="python:node.priority=='medium'" i18n:translate="risk_priority_medium">medium priority risk</tal:span
+              ><tal:span tal:condition="python:node.priority=='high'" i18n:translate="risk_priority_high">high priority risk</tal:span
                 ></strong>.</p>
-
             <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
             <p tal:replace="structure zodbnode/description">
               This is a description of the risk.
