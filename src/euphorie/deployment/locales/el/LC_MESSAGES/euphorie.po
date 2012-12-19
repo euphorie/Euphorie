@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2011-03-30 13:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Default: Your country
@@ -740,8 +740,8 @@ msgstr "Γιατί το έργο OiRA"
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
-"Στρατηγική Ευρωπαϊκής Επιτροπής για την Υγεία και Ασφάλεια στην Εργασία "
-"2007-2012"
+"Στρατηγική Ευρωπαϊκής Επιτροπής για την Υγεία και Ασφάλεια στην Εργασία 2007-"
+"2012"
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
@@ -1600,9 +1600,8 @@ msgstr "Πληροφορίες επικοινωνίας"
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
-#, fuzzy
 msgid "agree_and_continue"
-msgstr "Συνέχεια"
+msgstr "Συμφωνώ και συνεχίζω"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -2175,11 +2174,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
-msgstr ""
+msgstr "Μέτρο ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr ""
+msgstr "Σβήσε αυτό το μέτρο"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55

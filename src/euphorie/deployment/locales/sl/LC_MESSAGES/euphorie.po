@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: \n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:20
@@ -472,7 +472,7 @@ msgstr "Vrsta tveganja"
 #. Default: Risk
 #: src/euphorie/client/report.py:873
 msgid "report_timeline_risk_title"
-msgstr ""
+msgstr "Tveganje"
 
 #. Default: Priority
 #: src/euphorie/client/report.py:875
@@ -482,12 +482,12 @@ msgstr "To je"
 #. Default: Comments
 #: src/euphorie/client/report.py:877
 msgid "report_timeline_comment"
-msgstr ""
+msgstr "Komentarji"
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:892
 msgid "report_timeline_title"
-msgstr ""
+msgstr "Časovnica"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:923
@@ -1529,9 +1529,8 @@ msgstr "Kontaktne informacije"
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
-#, fuzzy
 msgid "agree_and_continue"
-msgstr "Nadaljuj"
+msgstr "Potrdi in nadaljuj"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -1960,7 +1959,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:27
 #: src/euphorie/client/templates/report_identification.pt:25
 msgid "button_print"
-msgstr ""
+msgstr "Natisni"
 
 #. Default: automatically saved
 #: src/euphorie/client/templates/report_actionplan.pt:32
@@ -2058,11 +2057,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
-msgstr ""
+msgstr "Ukrep ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr ""
+msgstr "Izbriši ta ukrep"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
@@ -2072,7 +2071,7 @@ msgstr "Obnovi prvotne barve"
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:58
 msgid "label_add_measure"
-msgstr ""
+msgstr "Dodaj nov ukrep"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
 #, fuzzy
@@ -2488,7 +2487,7 @@ msgstr "${count} vprašanj je bilo prestavljenih"
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
 msgid "label_select_new_session_in_survey"
-msgstr ""
+msgstr "Začnite z novim ocenjevanjem tveganja."
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17

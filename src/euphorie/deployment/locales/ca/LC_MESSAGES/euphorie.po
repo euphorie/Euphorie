@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
+"Language: \n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:20
@@ -1557,9 +1557,8 @@ msgstr ""
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
-#, fuzzy
 msgid "agree_and_continue"
-msgstr "Continuar"
+msgstr "D'acord i continua"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -2093,7 +2092,7 @@ msgstr "Mesura ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr ""
+msgstr "Esborrar aquesta mesura"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
@@ -2103,10 +2102,9 @@ msgstr "Restaurar els colors originals"
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:58
 msgid "label_add_measure"
-msgstr ""
+msgstr "Afegir una altra mesura"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
-#, fuzzy
 msgid "Description"
 msgstr "Descripció"
 
@@ -2689,7 +2687,7 @@ msgstr ""
 #: src/euphorie/content/profilequestion.py:47
 #: src/euphorie/content/solution.py:21
 msgid "label_module_description"
-msgstr ""
+msgstr "Descripció"
 
 #. Default: Include any relevant information that may be helpful for users.
 #: src/euphorie/content/module.py:36 src/euphorie/content/page.py:20
@@ -4051,14 +4049,12 @@ msgid "text_toggle_navtree"
 msgstr "Commutar"
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
-#, fuzzy
 msgid "Regions"
-msgstr "Regió"
+msgstr "Regions"
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
-#, fuzzy
 msgid "Potential Candidate Countries"
-msgstr "Països candidats potencials de l'AELC"
+msgstr "Països candidats potentiels"
 
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
