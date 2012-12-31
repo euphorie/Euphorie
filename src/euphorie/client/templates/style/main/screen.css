@@ -1395,9 +1395,9 @@ ol.toc li a:after {
 	margin-bottom: 20px;
 }
 
-/*.report .warning h4::after {
+.report .warning h4::before {
         content: "⚠";
-}*/
+}
 
 
 .report h4 a {
