@@ -1395,9 +1395,9 @@ ol.toc li a:after {
 	margin-bottom: 20px;
 }
 
-.report .warning h4::after {
+/*.report .warning h4::after {
         content: "⚠";
-}
+}*/
 
 
 .report h4 a {
@@ -1466,31 +1466,45 @@ ol.toc li a:after {
 }
 
 .report p.priority-high {
-	position: absolute;
-	margin-top: -50px;
-	padding: 13px;
-	width: 60px;
-	height: 37px;
-	font-size: 12px;
-	text-align: center;
-	line-height: 17px;
-	-webkit-transform: rotate(-5deg);
-	-moz-transform: rotate(-5deg);
-	transform: rotate(-5deg);
-	background: url(riskBadge-high.png) center top;
-	margin-left: -61px;
-	color: #c16800;
-	text-indent: -270px;
-	overflow: hidden;
-	text-transform: capitalize;
-	display: none;
+	color: #fff5ec;
+	background-color: #c16800;
+	border: 3px double white;
+	padding: 10px;
+	position: relative;
 }
 
 .report p.priority-high strong {
-	color: #8d580d !important;
-	text-shadow: rgba(255,254,255,0.59) 0 1px 0;
-	text-indent: 0;
-	float: left;
+	color: white;
+}
+
+.report p.priority-high:after {
+	content:" ";
+	position:absolute;
+	bottom: -10px; /* value = - border-top-width - border-bottom-width */
+	left: 20px; /* controls horizontal position */
+	border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color: #e0e0e0 transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+	border-bottom-color: silver;
+	border-bottom-width: 0;
+	border-top-width: 10px;
+	border-top-color: silver;
+	border-right-color: #e0e0e0;
+	border-right-width: 10px;
+	border-left-width: 20px;
+	border-left-color: #e0e0e0;
+	
+	
+
+	top: -8px; /* controls horizontal position */
+	bottom:auto;
+	border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
+	border-color:#c16800 transparent;
+}
+
 }
 
 }
