@@ -1421,6 +1421,7 @@ ol.toc li a:after {
 
 .report img {
 	margin-bottom: 20px;
+	float: right;
 }
 
 .report blockquote.comments {
@@ -1471,6 +1472,7 @@ ol.toc li a:after {
 	border: 3px double white;
 	padding: 10px;
 	position: relative;
+	display: inline-block;
 }
 
 .report p.priority-high strong {
@@ -1547,7 +1549,14 @@ label .icon.sidemark {
 
 .icon.warning {
 	background-position: -16px 0;
-	background-color: transparent;}
+	background-color: transparent;
+	font-weight: bold;
+}
+
+.report .icon.warning {
+	color: #c16800 !important;
+
+}
 
 .comprehensive label .icon.info {
 	float: right;
