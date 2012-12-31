@@ -1470,7 +1470,7 @@ ol.toc li a:after {
 	color: #fff5ec;
 	background-color: #c16800;
 	border: 3px double white;
-	padding: 10px;
+	padding: 10px 25px;
 	position: relative;
 	display: inline-block;
 	border-radius: 6px
@@ -1556,7 +1556,6 @@ label .icon.sidemark {
 
 .report .icon.warning {
 	color: #c16800 !important;
-
 }
 
 .comprehensive label .icon.info {
