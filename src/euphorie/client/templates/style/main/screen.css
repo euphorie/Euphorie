@@ -1473,6 +1473,7 @@ ol.toc li a:after {
 	padding: 10px;
 	position: relative;
 	display: inline-block;
+	border-radius: 6px
 }
 
 .report p.priority-high strong {
