@@ -47,8 +47,8 @@ class ProfileTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getForm().submit()
         # Enter the profile information
-        browser.getControl(name="1:utext:list", index=0).value = "Profile 1"
-        browser.getControl(name="1:utext:list", index=1).value = "Profile 2"
+        browser.getControl(name="1:utf8:utext:list", index=0).value = "Profile 1"
+        browser.getControl(name="1:utf8:utext:list", index=1).value = "Profile 2"
         browser.getForm().submit()
 
 

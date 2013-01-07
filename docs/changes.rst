@@ -1,11 +1,34 @@
 Changelog
 =========
 
-5.0.1 - Unreleased
+5.1.1 - Unreleased
 -------------------------
+
+- ...
+
+
+5.1 - December 12, 2012
+-----------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release changes the cookie format used to authenticate users in the
+client. As a result all currently logged in users will need to login again
+after upgrading to this version.
+
 
 Feature changes
 ~~~~~~~~~~~~~~~
+
+- Sort sessions on client start screen so most recently modified sessions
+  are listed first.
+
+- Display the survey introduction text on the survey view page in the CMS.
+
+- Add a new API to manage country manager and sector CMS accounts.
+
+- Add option in the client login to remember a user.
 
 - CMS: update survey display to show profile questions and modules in a single
   list. This makes the display simpler and allows better reordering.
@@ -13,10 +36,18 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Remove extra space after risk severity in action plan report. This fixes
+  `TNO ticket 215 <https://code.simplon.biz/tracker/tno-euphorie/ticket/215>`_.
+
+- Fix broken translations for risk comments in identification phase. This fixes
+  `TNO ticket 230 <https://code.simplon.biz/tracker/tno-euphorie/ticket/230>`_.
+
 - Show our favicon in the client.
 
 - IE8 fix in client. Adding a standard solution to an new/empty solution
   produces popup alerting user that they are overriding existing values.
+
+- Fix for unicode error when providing non-ascii profile question values.
 
 
 5.0 - November 22, 2012

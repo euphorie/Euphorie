@@ -673,7 +673,7 @@ class ActionPlanReportDownload(grok.View):
                 else:
                     level = node.priority
                 section.append(Paragraph(normal_style,
-                    t(_("report_priority", default=u"This is a ")), level))
+                    t(_("report_priority", default=u"This is a ")), level, u'.'))
 
             for el in HtmlToRtf(zodb_node.description, normal_style):
                 section.append(el)

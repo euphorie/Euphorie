@@ -57,11 +57,13 @@ class View(grok.View):
         survey = aq_inner(self.context)
         my_path = utils.RelativePath(self.request.client, survey)
         account = getSecurityManager().getUser()
-        return [{'id': session.id,
+        result = [{'id': session.id,
                  'title': session.title,
                  'modified': session.modified}
                  for session in account.sessions
                  if session.zodb_path == my_path]
+        result.sort(key=lambda s: s['modified'], reverse=True)
+        return result
 
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
