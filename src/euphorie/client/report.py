@@ -89,6 +89,9 @@ def createDocument(survey_session):
     style.textProps.size = 24
     stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 6",
         style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
+    style.textProps.size = 22
+    stylesheet.ParagraphStyles.append(ParagraphStyle("Heading 7",
+        style.Copy(), ParagraphPropertySet(space_before=240, space_after=60)))
 
     stylesheet.ParagraphStyles.append(ParagraphStyle("Measure Heading",
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
@@ -358,6 +361,7 @@ class IdentificationReportDownload(grok.View):
                 2: document.StyleSheet.ParagraphStyles.Heading4,
                 3: document.StyleSheet.ParagraphStyles.Heading5,
                 4: document.StyleSheet.ParagraphStyles.Heading6,
+                5: document.StyleSheet.ParagraphStyles.Heading7,
                 }
 
         for node in self.getNodes():
@@ -373,7 +377,7 @@ class IdentificationReportDownload(grok.View):
             if has_risk:
                 title += u' [*]'
             section.append(
-                    Paragraph(header_styles[node.depth],
+                    Paragraph(header_styles.get(node.depth, header_styles[5]),
                               u'%s %s' % (node.number, title)))
 
             if node.type != "risk":
@@ -625,6 +629,7 @@ class ActionPlanReportDownload(grok.View):
                 2: document.StyleSheet.ParagraphStyles.Heading4,
                 3: document.StyleSheet.ParagraphStyles.Heading5,
                 4: document.StyleSheet.ParagraphStyles.Heading6,
+                5: document.StyleSheet.ParagraphStyles.Heading7,
                 }
 
         for node in self.getNodes():
@@ -640,7 +645,7 @@ class ActionPlanReportDownload(grok.View):
             if has_risk:
                 title += u' [*]'
 
-            section.append(Paragraph(header_styles[node.depth],
+            section.append(Paragraph(header_styles.get(node.depth, header_styles[5]),
                 u"%s %s" % (node.number, title)))
 
             if node.type != "risk":
