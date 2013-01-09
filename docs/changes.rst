@@ -1,8 +1,11 @@
 Changelog
 =========
 
-5.1.1 - Unreleased
--------------------------
+5.1.1 - January 9, 2013
+-----------------------
+
+Bugfixes
+~~~~~~~~
 
 - Update report generation to allow an depth level of nested submodules. This fixes
   `TNO ticket 233 <https://code.simplon.biz/tracker/tno-euphorie/ticket/233>`_.
