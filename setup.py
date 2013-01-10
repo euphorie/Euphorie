@@ -79,7 +79,7 @@ setup(name="Euphorie",
           "openpyxl",
       ],
       tests_require=[
-          "collective.testcaselayer",
+          "collective.testcaselayer >=1.6",
           "Products.PloneTestCase >=0.9.9",
           'mock',
           ],
