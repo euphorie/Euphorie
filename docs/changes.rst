@@ -4,8 +4,11 @@ Changelog
 5.1.1 - Unreleased
 -------------------------
 
-- ...
+Feature changes
+~~~~~~~~~~~~~~~
 
+- Remove country headings and instead show countries alphabetically (with EU at
+  the top). 
 
 5.1 - December 12, 2012
 -----------------------
