@@ -1,6 +1,12 @@
 Changelog
 =========
 
+6.0 - Unreleased
+-----------------
+
+- Upgrade to dexterity 1.2.1.
+
+
 5.1.1 - Unreleased
 -------------------------
 
