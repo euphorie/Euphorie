@@ -84,6 +84,31 @@ class GetSessionTreeTests(TreeTests):
 
 
 class TreeChangesTests(TreeTests):
+    def test_nothing_changes(self):
+        session = self.createSurveySession()
+        session_module = model.Module(title=u'Root', module_id='1',
+                zodb_path='1', skip_children=False)
+        session.addChild(session_module)
+        session_module.addChild(model.Risk(title=u'Risk 1', risk_id='2',
+            zodb_path='1/2', type='risk', identification='no'))
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.module', '1')
+        survey['1'].invokeFactory('euphorie.risk', '2')
+        self.assertEqual(update.treeChanges(session, survey), set())
+
+    def test_no_changes_with_repeated_profile(self):
+        session = self.createSurveySession()
+        for i in range(2):
+            session_module = model.Module(title=u'Root', module_id='1',
+                    zodb_path='1', skip_children=False, profile_index=i)
+            session.addChild(session_module)
+            session_module.addChild(model.Risk(title=u'Risk 1', risk_id='2',
+                zodb_path='1/2', type='risk', identification='no'))
+
+        survey = self.createClientSurvey()
+        survey.invokeFactory('euphorie.profilequestion', '1')
+        survey['1'].invokeFactory('euphorie.risk', '2')
+        self.assertEqual(update.treeChanges(session, survey), set())
 
     def testAddNewModule(self):
         session = self.createSurveySession()

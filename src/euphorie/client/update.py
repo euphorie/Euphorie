@@ -88,12 +88,16 @@ def treeChanges(session, survey):
                     results.add(
                             (entry["zodb_path"], nodes[0].type, "modified"))
                 elif entry['has_description'] != nodes[0].has_description:
+                    # Log module description changes since this changes
+                    # client behaviour: modules without description are
+                    # skipped.
                     results.add(
                             (entry["zodb_path"], nodes[0].type, "modified"))
             if nodes[0].type == entry["type"] or \
                     (nodes[0].type == "module" and
                      entry["type"] == "profilequestion"):
                 continue
+            # Flag a type change as remove & add
             results.add((entry["zodb_path"], nodes[0].type, "remove"))
             results.add((entry["zodb_path"], entry["type"], "add"))
         else:
