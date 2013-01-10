@@ -75,7 +75,10 @@ def summarizeCountries(container, request, current_country=None,
         if permission and not checkPermission(country, permission):
             continue
 
-        country_type = getattr(country, "country_type", "eu-member")
+
+        country_type = getattr(country, "country_type", "country")
+        if country_type != 'region':
+            country_type = 'country'
         countries = result.setdefault(country_type, [])
         countries.append({"id": country.id,
                           "title": getRegionTitle(request, country.id,

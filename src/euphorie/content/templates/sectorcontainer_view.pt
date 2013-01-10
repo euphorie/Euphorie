@@ -15,31 +15,11 @@
         <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy a survey.</p>
       </div>
       <tal:block define='countries python:view.countries.get("region")' condition="python:countries">
-        <h3 i18n:translate="header_regions">Regions</h3>
         <ul class="countries">
           <li tal:repeat="region countries" class="${region/id}"><a href="${region/url}">${region/title}</a></li>
         </ul>  
       </tal:block>
-      <tal:block define='countries python:view.countries.get("eu-member")' condition="python:countries">
-        <h3 i18n:translate="">EU Member States</h3>
-        <ul class="countries">
-          <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
-      </tal:block>
-      <tal:block define='countries python:view.countries.get("efta")' condition="python:countries">
-        <h3 i18n:translate="">EFTA Countries</h3>
-        <ul class="countries">
-          <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
-      </tal:block>
-      <tal:block define='countries python:view.countries.get("candidate-eu")' condition="python:countries">
-        <h3 i18n:translate="">Candidate Countries</h3>
-        <ul class="countries">
-          <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
-      </tal:block>
-      <tal:block define='countries python:view.countries.get("potential-candidate-eu")' condition="python:countries">
-        <h3 i18n:translate="">Potential Candidate EFTA Countries</h3>
+      <tal:block define='countries python:view.countries.get("country")' condition="python:countries">
         <ul class="countries">
           <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
         </ul>  
