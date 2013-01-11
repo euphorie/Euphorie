@@ -233,7 +233,7 @@ class Register(grok.View):
                 if checkTermsAndConditions():
                     self.request.response.redirect(
                             "%s/terms-and-conditions?%s" % (
-                                country_url,
+                                self.request.client.absolute_url(),
                                 urllib.urlencode({"came_from": came_from})))
                 else:
                     self.request.response.redirect(came_from)

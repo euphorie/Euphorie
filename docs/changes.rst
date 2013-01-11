@@ -16,6 +16,11 @@ Feature changes
 - Remove country headings and instead show countries alphabetically (with EU at
   the top). 
 
+Bugfixes
+~~~~~~~~
+
+- Registering from within a country skips terms and conditions page.
+
 5.1 - December 12, 2012
 -----------------------
 
