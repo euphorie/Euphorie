@@ -13,6 +13,7 @@ Bugfixes
 
 - Upgrade to dexterity 1.2.1.
 
+- Registering from within a country skips terms and conditions page.
 
 5.1.1 - Unreleased
 -------------------------
@@ -26,7 +27,6 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- Registering from within a country skips terms and conditions page.
 
 5.1 - December 12, 2012
 -----------------------
