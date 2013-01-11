@@ -1,3 +1,4 @@
+import sys
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -18,19 +19,22 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
-from htmllaundry.z3cform import HtmlText
-from euphorie.content.fti import ConditionalDexterityFTI
-from euphorie.content.fti import IConstructionFilter
-from euphorie.content.behaviour.richdescription import IRichDescription
-from .. import MessageFactory as _
-from euphorie.content.utils import getTermTitleByValue
-from euphorie.content.utils import StripMarkup
-from euphorie.content.solution import ISolution
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
+from htmllaundry.z3cform import HtmlText
+from .fti import ConditionalDexterityFTI
+from .fti import IConstructionFilter
+from .fti import check_fti_paste_allowed
+from .behaviour.richdescription import IRichDescription
+from .behaviour.uniqueid import INameFromUniqueId
+from .behaviour.uniqueid import get_next_id
+from .utils import getTermTitleByValue
+from .utils import StripMarkup
+from .solution import ISolution
+from .. import MessageFactory as _
 
 grok.templatedir("templates")
 
@@ -353,6 +357,19 @@ class Risk(dexterity.Container):
     caption3 = None
     image4 = None
     caption4 = None
+
+    def _get_id(self, orig_id):
+        """Pick an id for pasted content."""
+        frame = sys._getframe(1)
+        ob = frame.f_locals.get('ob')
+        if ob is not None and INameFromUniqueId.providedBy(ob):
+            return get_next_id(self)
+        return super(Risk, self)._get_id(orig_id)
+
+    def _verifyObjectPaste(self, object, validate_src=True):
+        super(Risk, self)._verifyObjectPaste(object, validate_src)
+        if validate_src:
+            check_fti_paste_allowed(self, object)
 
     def evaluation_algorithm(self):
         """Return the evaluation algorithm used by this risk. The

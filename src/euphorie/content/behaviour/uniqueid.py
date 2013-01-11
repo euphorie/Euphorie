@@ -42,6 +42,20 @@ class INameFromUniqueId(Interface):
             required=True)
 
 
+def get_next_id(context):
+    for root in aq_chain(context):
+        if IIdGenerationRoot.providedBy(root):
+            break
+    else:
+        raise ValueError('No id generation root found')
+    storage = IAnnotations(root, None)
+    if storage is None:
+        raise ValueError('Id generation root is not annotatable')
+    next = storage.get('euphorie.content.behaviour.id', 1)
+    storage['euphorie.content.behaviour.id'] = next + 1
+    return str(next)
+
+
 class UniqueNameChooser(NormalizingNameChooser):
     """INameChooser for INameFromUniqueId objects.
 
@@ -54,20 +68,7 @@ class UniqueNameChooser(NormalizingNameChooser):
         """Make sure the object has a unique id"""
         if getattr(object, "id", False):
             return
-
-        for root in aq_chain(self.context):
-            if IIdGenerationRoot.providedBy(root):
-                break
-        else:
-            raise ValueError("No id generation root found")
-
-        storage = IAnnotations(root, None)
-        if storage is None:
-            raise ValueError("Id generation root is not annotatable")
-
-        next = storage.get("euphorie.content.behaviour.id", 1)
-        storage["euphorie.content.behaviour.id"] = next + 1
-        object.id = str(next)
+        object.id = get_next_id(self.context)
 
     def chooseName(self, name, object):
         if INameFromUniqueId.providedBy(object):

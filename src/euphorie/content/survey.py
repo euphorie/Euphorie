@@ -7,6 +7,7 @@ structure containing modules, profile questions and questions. Both modules and
 profile questions are used to create the hierarchy.
 """
 
+import sys
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from ZODB.POSException import ConflictError
@@ -22,18 +23,21 @@ from plone.directives import form
 from plone.directives import dexterity
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
-from htmllaundry.z3cform import HtmlText
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.Archetypes.utils import shasattr
-from .. import MessageFactory as _
-from euphorie.content.profilequestion import IProfileQuestion
-from euphorie.content.module import IModule
-from euphorie.content.interfaces import IQuestionContainer
-from euphorie.content.interfaces import ISurveyUnpublishEvent
-from euphorie.content.utils import StripMarkup
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.skin import actions
 from plone.indexer import indexer
+from htmllaundry.z3cform import HtmlText
+from Products.statusmessages.interfaces import IStatusMessage
+from Products.Archetypes.utils import shasattr
+from .behaviour.uniqueid import INameFromUniqueId
+from .behaviour.uniqueid import get_next_id
+from .profilequestion import IProfileQuestion
+from .module import IModule
+from .fti import check_fti_paste_allowed
+from .interfaces import IQuestionContainer
+from .interfaces import ISurveyUnpublishEvent
+from .utils import StripMarkup
+from .. import MessageFactory as _
 
 
 grok.templatedir("templates")
@@ -106,6 +110,19 @@ class Survey(dexterity.Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return False
+
+    def _get_id(self, orig_id):
+        """Pick an id for pasted content."""
+        frame = sys._getframe(1)
+        ob = frame.f_locals.get('ob')
+        if ob is not None and INameFromUniqueId.providedBy(ob):
+            return get_next_id(self)
+        return super(Survey, self)._get_id(orig_id)
+
+    def _verifyObjectPaste(self, object, validate_src=True):
+        super(Survey, self)._verifyObjectPaste(object, validate_src)
+        if validate_src:
+            check_fti_paste_allowed(self, object)
 
     @property
     def hasProfile(self):

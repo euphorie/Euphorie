@@ -4,6 +4,13 @@ Changelog
 6.0 - Unreleased
 -----------------
 
+Bugfixes
+~~~~~~~~
+
+- Make sure pasted content does not violate any internal rules. It used to
+  be possible to do things like mix risks and modules in a single container
+  using copy & paste.
+
 - Upgrade to dexterity 1.2.1.
 
 

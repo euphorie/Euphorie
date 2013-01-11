@@ -1,3 +1,4 @@
+import sys
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -12,13 +13,16 @@ from plonetheme.nuplone.z3cform.directives import depends
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from htmllaundry.z3cform import HtmlText
-from euphorie.content.fti import ConditionalDexterityFTI
-from euphorie.content.fti import IConstructionFilter
-from euphorie.content.behaviour.richdescription import IRichDescription
-from euphorie.content.interfaces import IQuestionContainer
+from .fti import ConditionalDexterityFTI
+from .fti import IConstructionFilter
+from .fti import check_fti_paste_allowed
+from .behaviour.uniqueid import INameFromUniqueId
+from .behaviour.uniqueid import get_next_id
+from .behaviour.richdescription import IRichDescription
+from .interfaces import IQuestionContainer
 from .. import MessageFactory as _
-from euphorie.content.risk import IRisk
-from euphorie.content.utils import StripMarkup
+from .risk import IRisk
+from .utils import StripMarkup
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plone.indexer import indexer
@@ -84,6 +88,19 @@ class Module(dexterity.Container):
 
     image = None
     caption = None
+
+    def _get_id(self, orig_id):
+        """Pick an id for pasted content."""
+        frame = sys._getframe(1)
+        ob = frame.f_locals.get('ob')
+        if ob is not None and INameFromUniqueId.providedBy(ob):
+            return get_next_id(self)
+        return super(Module, self)._get_id(orig_id)
+
+    def _verifyObjectPaste(self, object, validate_src=True):
+        super(Module, self)._verifyObjectPaste(object, validate_src)
+        if validate_src:
+            check_fti_paste_allowed(self, object)
 
 
 @indexer(IModule)

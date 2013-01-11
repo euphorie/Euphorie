@@ -1,3 +1,4 @@
+import sys
 from five import grok
 from zope.interface import implements
 from zope import schema
@@ -8,16 +9,19 @@ from plone.directives import form
 from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from .. import MessageFactory as _
-from htmllaundry.z3cform import HtmlText
-from euphorie.content.behaviour.richdescription import IRichDescription
-from euphorie.content.interfaces import IQuestionContainer
-from euphorie.content.risk import IRisk
-from euphorie.content.utils import StripMarkup
-from euphorie.content.module import IModule
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
+from .. import MessageFactory as _
+from htmllaundry.z3cform import HtmlText
+from .behaviour.uniqueid import INameFromUniqueId
+from .behaviour.uniqueid import get_next_id
+from .behaviour.richdescription import IRichDescription
+from .fti import check_fti_paste_allowed
+from .interfaces import IQuestionContainer
+from .risk import IRisk
+from .utils import StripMarkup
+from .module import IModule
 
 grok.templatedir("templates")
 
@@ -74,6 +78,19 @@ class ProfileQuestion(dexterity.Container):
     optional = False
     question = None
     image = None
+
+    def _get_id(self, orig_id):
+        """Pick an id for pasted content."""
+        frame = sys._getframe(1)
+        ob = frame.f_locals.get('ob')
+        if ob is not None and INameFromUniqueId.providedBy(ob):
+            return get_next_id(self)
+        return super(ProfileQuestion, self)._get_id(orig_id)
+
+    def _verifyObjectPaste(self, object, validate_src=True):
+        super(ProfileQuestion, self)._verifyObjectPaste(object, validate_src)
+        if validate_src:
+            check_fti_paste_allowed(self, object)
 
 
 @indexer(IProfileQuestion)
