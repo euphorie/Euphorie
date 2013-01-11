@@ -14,17 +14,13 @@ TEST_INI = os.path.join(os.path.dirname(__file__), "test.ini")
 
 class EuphorieTestLayer(ptc.BasePTCLayer):
     def afterSetUp(self):
-        from Products.Five import zcml
-        from Products.Five import fiveconfigure
         from Testing.ZopeTestCase import installPackage
         import euphorie.deployment
         import euphorie.client.tests
 
-        fiveconfigure.debug_mode = True
-        zcml.load_config("configure.zcml", euphorie.deployment)
-        zcml.load_config("overrides.zcml", euphorie.deployment)
-        zcml.load_config("configure.zcml", euphorie.client.tests)
-        fiveconfigure.debug_mode = False
+        self.loadZCML("configure.zcml", package=euphorie.deployment)
+        self.loadZCML("overrides.zcml", package=euphorie.deployment)
+        self.loadZCML("configure.zcml", package=euphorie.client.tests)
 
         installPackage("plone.uuid")
         installPackage("collective.indexing")
