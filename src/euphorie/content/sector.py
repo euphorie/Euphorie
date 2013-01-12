@@ -275,7 +275,7 @@ class ColourPreview(grok.View):
 
     def default_title(self):
         from .. import MessageFactory as _
-        return _("title_tool", default=u"OiRA")
+        return _('title_tool', default=u'OiRA - Online interactive Risk Assessment')
 
 
 class Settings(form.SchemaEditForm):

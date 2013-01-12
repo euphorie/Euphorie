@@ -145,7 +145,7 @@ class WebHelpers(grok.View):
                 getattr(aq_base(sector), 'logo', None) is not None:
             return sector.Title()
         else:
-            return _('title_tool', default=u'OiRA')
+            return _('title_tool', default=u'OiRA - Online interactive Risk Assessment')
 
     @reify
     def client_url(self):

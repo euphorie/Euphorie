@@ -10,7 +10,7 @@
       i18n:domain="euphorie"
       tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools context/@@tools">
   <head>
-    <title><metal:title define-slot="title" i18n:translate="title_tool">OiRA</metal:title></title>
+    <title><metal:title define-slot="title" i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</metal:title></title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>

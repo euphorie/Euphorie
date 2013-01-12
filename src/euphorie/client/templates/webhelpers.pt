@@ -20,7 +20,7 @@
     <li id="home">
       <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='alien'">${webhelpers/sector/title}</a>
       <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='native'">
-        <strong i18n:translate="title_tool">OiRA</strong><br/>
+        <strong i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</strong><br/>
         <span tal:omit-tag="" i18n:translate="oira_name_line_1">Online interactive</span><br/>
         <span tal:omit-tag="" i18n:translate="oira_name_line_2">Risk Assessment</span></a>
     </li>
