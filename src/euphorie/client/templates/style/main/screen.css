@@ -285,6 +285,37 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Collapsible */
+
+.pat-collapsible .show-more-or-less .divider {
+	display: none;
+}
+
+.pat-collapsible .show-more-or-less strong {
+	cursor: pointer;
+}
+
+.pat-collapsible .show-more-or-less strong:hover {
+	text-decoration: underline;
+}
+
+.pat-collapsible.open .show-more {
+	display: none;
+}
+
+.pat-collapsible.closed .show-less{
+	display: none;
+}
+
+
+.pat-collapsible.in-progress .show-more,
+.pat-collapsible.in-progress .show-less {
+	visibility: hidden;
+}
+
+
+/* @end */
+
 /* @group Dropdown menu */
 
 .btn-group {
