@@ -1605,6 +1605,11 @@ h1 {
 	font: lighter 35px/50px Abadi-cl, Geneva, Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
+body.report h1
+ {
+	padding-right: 240px;
+}
+
 p {
 	margin-top: 0;
 	margin-bottom: 20px;
