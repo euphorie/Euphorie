@@ -1,3 +1,4 @@
+import unittest
 from zope.component import adapts
 from zope.component import provideAdapter
 from zope.interface import implements
@@ -59,3 +60,48 @@ class ConditionalDexterityFTITests(EuphorieTestCase):
             from zope.component import getGlobalSiteManager
             getGlobalSiteManager().unregisterAdapter(
                     Veto, name="euphorie.solution")
+
+
+class check_fti_paste_allowed_tests(unittest.TestCase):
+    def check_fti_paste_allowed(self, *a, **kw):
+        from ..fti import check_fti_paste_allowed
+        return check_fti_paste_allowed(*a, **kw)
+
+    def test_acceptable_paste(self):
+        import mock
+        content = mock.Mock()
+        content.portal_type = 'euphorie.risk'
+        fti = mock.Mock()
+        fti.isConstructionAllowed.return_value = True
+        with mock.patch('euphorie.content.fti.queryUtility', return_value=fti):
+            self.check_fti_paste_allowed('folder', content)
+            fti.isConstructionAllowed.assert_called_once_with('folder')
+
+    def test_refuse_non_portal_content(self):
+        import mock
+        self.assertRaises(self.check_fti_paste_allowed, None, mock.Mock())
+
+    def test_do_not_use_acquisition_to_get_portal_type(self):
+        from ...ghost import PathGhost
+        parent = PathGhost('parent')
+        parent.portal_type = 'euphorie.risk'
+        content = PathGhost('child').__of__(parent)
+        self.assertRaises(ValueError,
+                self.check_fti_paste_allowed, None, content)
+
+    def test_content_without_fti(self):
+        import mock
+        content = mock.Mock()
+        content.portal_type = 'euphorie.risk'
+        self.assertRaises(ValueError,
+                self.check_fti_paste_allowed, None, content)
+
+    def test_fti_does_not_allow_construction(self):
+        import mock
+        content = mock.Mock()
+        content.portal_type = 'euphorie.risk'
+        fti = mock.Mock()
+        fti.isConstructionAllowed.return_value = False
+        with mock.patch('euphorie.content.fti.queryUtility', return_value=fti):
+            self.assertRaises(ValueError,
+                    self.check_fti_paste_allowed, 'folder', content)
