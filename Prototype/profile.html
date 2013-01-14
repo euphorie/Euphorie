@@ -18,20 +18,12 @@
     </p>
 
     <form method="post">
-      <fieldset class="concise">
-        <label>
-          Optioneel ding
-
-          <input type="hidden" name="1:bool:default" value="" />
-          <input type="checkbox" name="1:bool" value="on" />
-        </label>
-
-        <label>
-          Vestigingen
-
-          <input class="addEntryField" type="text" name="dummy"/>
-          <button class="addButton" type="button" value="2:list">Add</button>
-        </label>
+      <fieldset class="comprehensive">
+        <legend>Vestigingen</legend>
+        <ol>
+          <li><input type="text" name="dummy"/></li>
+        </ol>
+        <button class="addButton" type="button" value="2:list">Add</button>
       </fieldset>
       <button class="floatAfter" type="submit">Continue</button>
     </form>
@@ -63,38 +55,19 @@
     <script type="text/javascript" src="libraries/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript" src="libraries/jquery.bt.js"></script>
     <script type="text/javascript" src="behaviour/markup.js"> </script>
-  <script type="text/javascript" defer="1">
+    <script type="text/javascript" defer="1">
     // <![CDATA[
-    $(document).ready(function() {
-        $(".addButton").click(function() {
-            var input = $(this).prev("input[type=text]");
-            var title = input.val();
+    $(".addButton").click(function() {
+        var button = $(this);
+        var field = button.attr("class").split(" ")[0];
+        var list = button.prev("ol");
+        var li = $("<li/>");
 
-            if (!title) {
-                return;
-            }
-
-            var li = $("<li/>");
-            var field = $(this).val();
-            $("<input type='hidden'/>")
-                .attr("name", field)
-                .attr("value", title)
-                .appendTo(li)
-                .after(title);
-            $("<button type='button'/>")
-                .addClass("removeButton")
-                .text("Remove")
-                .appendTo(li);
-
-            var list = input.parent().next("ul");
-            if (!list.length) {
-                list=$("<ul/>").insertAfter(input.parent());
-            }
-
-            li.appendTo(list);
-            input.val("");
-        });
-
+        $("<input type='text'/>")
+            .attr("name", field)
+            .appendTo(li);
+        li.appendTo(list)
+          .find("input").get(0).focus();
     });
     // ]]>
   </script>
