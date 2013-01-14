@@ -7,8 +7,21 @@ Changelog
 Upgrade notes
 ~~~~~~~~~~~~~
 
-This release upgrades the used Plone version to 4.2.3. You are advised to
+This release updates the profile version to *13*. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile to this version.
+
+This release also updates the used Plone version to 4.2.3. You are advised to
 perform the Plone migrations through the Zope Management Interface (ZMI).
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+Optional profile questions have been replaced with option modules. Previous
+versions supported both, and they did almost exactly the same thing which was a
+source of consution. All existing optional profile questions will automatically
+be converted to optional modules as part of the upgrade.
 
 
 Bugfixes
