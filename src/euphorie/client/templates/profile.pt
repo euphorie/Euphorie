@@ -23,7 +23,6 @@
       <fieldset class="concise">
         <tal:block repeat="question view/profile_questions">
           <tal:block define="answer python:view.current_profile.get(question['id'])">
-<<<<<<< HEAD
             <fieldset class="comprehensive">
               <legend tal:content="question/question">Restaurants</legend>
               <ol>
