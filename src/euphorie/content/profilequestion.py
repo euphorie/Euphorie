@@ -22,6 +22,10 @@ from .interfaces import IQuestionContainer
 from .risk import IRisk
 from .utils import StripMarkup
 from .module import IModule
+from .module import item_depth
+from .module import tree_depth
+from .module import ConstructionFilter
+
 
 grok.templatedir("templates")
 
@@ -91,6 +95,11 @@ class ProfileQuestion(dexterity.Container):
         super(ProfileQuestion, self)._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
+            if IQuestionContainer.providedBy(object):
+                my_depth = item_depth(self)
+                paste_depth = tree_depth(object)
+                if my_depth + paste_depth > ConstructionFilter.maxdepth:
+                    raise ValueError('Pasting would create a too deep structure.')
 
 
 @indexer(IProfileQuestion)

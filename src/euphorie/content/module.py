@@ -101,6 +101,11 @@ class Module(dexterity.Container):
         super(Module, self)._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
+            if IQuestionContainer.providedBy(object):
+                my_depth = item_depth(self)
+                paste_depth = tree_depth(object)
+                if my_depth + paste_depth > ConstructionFilter.maxdepth:
+                    raise ValueError('Pasting would create a too deep structure.')
 
 
 @indexer(IModule)
@@ -155,6 +160,31 @@ class Edit(form.SchemaEditForm):
         self.widgets["title"].addClass("span-7")
 
 
+def tree_depth(obj):
+    """Determine how deeply nested a module structure is. This is the opposite
+    of item_depth.
+    """
+    submodules = [v for v in obj.values() if IQuestionContainer.providedBy(v)]
+    if not submodules:
+        return 1
+    else:
+        return 1 + max(tree_depth(m) for m in submodules)
+
+
+def item_depth(item):
+    """Return the survey depth of an item.
+    """
+    from euphorie.content.survey import ISurvey
+    depth = 0
+    for position in aq_chain(item):
+        if ISurvey.providedBy(position):
+            break
+        depth += 1
+    else:
+        return None  # Not in a survey
+    return depth
+
+
 class ConstructionFilter(grok.MultiAdapter):
     """FTI construction filter for :py:class:`Module` objects. This filter
     does two things: it restricts the maximum depth at which a module can
@@ -179,16 +209,10 @@ class ConstructionFilter(grok.MultiAdapter):
         """Check if creating a new module would create a too deeply nested
         structure.
         """
-        from euphorie.content.survey import ISurvey
-        depth = 1
-        for position in aq_chain(self.container):
-            if ISurvey.providedBy(position):
-                break
-            depth += 1
-        else:
+        depth = item_depth(self.container)
+        if depth is None:
             return True
-
-        return depth <= self.maxdepth
+        return (depth + 1) <= self.maxdepth
 
     def checkForRisks(self):
         """Check if the container already contains a risk. If so refuse to

@@ -37,6 +37,24 @@ class ModuleTests(EuphorieTestCase):
         module = self.createModule()
         self.assertTrue(module.cb_isCopyable())
 
+    def test_verifyObjectPaste_acceptablePaste(self):
+        from Acquisition import aq_parent
+        self.loginAsPortalOwner()
+        target = self.createModule()
+        survey = aq_parent(target)
+        source = self._create(survey, 'euphorie.module', 'other')
+        target._verifyObjectPaste(source)
+
+    def test_verifyObjectPaste_block_if_result_too_deep(self):
+        from Acquisition import aq_parent
+        self.loginAsPortalOwner()
+        target = self.createModule()
+        survey = aq_parent(target)
+        source = self._create(survey, 'euphorie.module', 'other')
+        self._create(source, 'euphorie.module', 'other')
+        self.assertRaises(ValueError,
+                target._verifyObjectPaste(source))
+
 
 class ConstructionFilterTests(EuphorieTestCase):
     def _create(self, container, *args, **kwargs):
