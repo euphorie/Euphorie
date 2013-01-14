@@ -29,14 +29,11 @@ class ProfileTests(EuphorieFunctionalTestCase):
                           <risk type="policy">
                             <title>Module risk</title>
                             <description>&lt;p&gt;Module description.&lt;/p&gt;</description>
-                            <risk type="policy">
-                              <title>Module risk</title>
-                              <description>&lt;p&gt;Module description.&lt;/p&gt;</description>
-                              <evaluation-method>direct</evaluation-method>
-                            </risk>
-                          </module>
-                        </survey>
-                      </sector>"""
+                            <evaluation-method>direct</evaluation-method>
+                          </risk>
+                        </module>
+                      </survey>
+                    </sector>"""
 
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
