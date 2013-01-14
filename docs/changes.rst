@@ -4,6 +4,13 @@ Changelog
 6.0 - Unreleased
 -----------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release upgrades the used Plone version to 4.2.3. You are advised to
+perform the Plone migrations through the Zope Management Interface (ZMI).
+
+
 Bugfixes
 ~~~~~~~~
 
@@ -11,7 +18,7 @@ Bugfixes
   be possible to do things like mix risks and modules in a single container
   using copy & paste.
 
-- Upgrade to dexterity 1.2.1.
+- Upgrade to dexterity 1.2.1 and Plone 4.2.3.
 
 - Registering from within a country skips terms and conditions page.
 
