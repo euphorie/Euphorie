@@ -15,6 +15,11 @@ Bugfixes
 
 - Registering from within a country skips terms and conditions page.
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Added Finnish translations
+
 5.1.1 - Unreleased
 -------------------------
 
