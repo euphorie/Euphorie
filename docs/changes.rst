@@ -23,6 +23,8 @@ versions supported both, and they did almost exactly the same thing which was a
 source of consution. All existing optional profile questions will automatically
 be converted to optional modules as part of the upgrade.
 
+- Added translations for Finnish (FI) and Lithuanian (LT)
+
 
 Bugfixes
 ~~~~~~~~
@@ -35,10 +37,6 @@ Bugfixes
 
 - Registering from within a country skips terms and conditions page.
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- Added Finnish translations
 
 5.1.1 - Unreleased
 -------------------------
