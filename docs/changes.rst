@@ -7,6 +7,9 @@ Changelog
 Upgrade notes
 ~~~~~~~~~~~~~
 
+Python 2.7 is now fully supported and the recommended Python version to use.
+Python 2.6 is still supported.
+
 This release updates the profile version to *13*. Please use the upgrade
 feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
 profile to this version.
