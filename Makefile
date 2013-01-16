@@ -1,5 +1,5 @@
 YUICOMPRESS	?= yui-compressor
-PYTHON		?= python2.6
+PYTHON		?= python2.7
 
 CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
 CSS_DIR		= src/euphorie/client/templates/style/main
