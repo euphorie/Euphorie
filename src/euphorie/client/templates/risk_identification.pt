@@ -31,7 +31,7 @@
         <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
       </p>
       
-      <div class="emphasis" tal:condition="view/show_info">
+      <div class="message emphasis" tal:condition="view/show_info">
         <metal:call use-macro="webhelpers/macros/risk_info" />
        </div>
 
