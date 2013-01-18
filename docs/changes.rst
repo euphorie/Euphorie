@@ -17,17 +17,22 @@ profile to this version.
 This release also updates the used Plone version to 4.2.3. You are advised to
 perform the Plone migrations through the Zope Management Interface (ZMI).
 
+The Euphorie configuration file (``etc/euphorie.ini`` in the standard buildout)
+no longer needs to include the complete configuration. You now only need to
+specify details that are specific to your deployment such as the Google Analytics
+accounts and client URL.
 
 Feature changes
 ~~~~~~~~~~~~~~~
 
-Optional profile questions have been replaced with option modules. Previous
-versions supported both, and they did almost exactly the same thing which was a
-source of consution. All existing optional profile questions will automatically
-be converted to optional modules as part of the upgrade.
+- Optional profile questions have been replaced with option modules. Previous
+  versions supported both, and they did almost exactly the same thing which was
+  a source of consution. All existing optional profile questions will
+  automatically be converted to optional modules as part of the upgrade.
 
-- Added translations for Finnish (FI) and Lithuanian (LT)
+- Added Finnish (FI) and Lithuanian (LT) translations.
 
+- Include a default application configuration file.
 
 Bugfixes
 ~~~~~~~~
