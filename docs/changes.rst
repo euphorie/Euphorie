@@ -37,6 +37,15 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Correct rendering of strong text in the client to make sure it is easy to
+  read. This fixes `ticket 65
+  <https://github.com/euphorie/Euphorie/issues/65>`_ and
+  `TNO ticket 232 <https://code.simplon.biz/tracker/tno-euphorie/ticket/232>`_.
+
+- Fix several positioning bugs in the client user interface. This fixes
+  tickets `52 <https://github.com/euphorie/Euphorie/issues/52>`_ and
+  `63 <https://github.com/euphorie/Euphorie/issues/63>`_
+
 - Make sure pasted content does not violate any internal rules. It used to
   be possible to do things like mix risks and modules in a single container
   using copy & paste.
