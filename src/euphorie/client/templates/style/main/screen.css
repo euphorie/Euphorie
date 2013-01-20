@@ -2661,6 +2661,10 @@ input[disabled="disabled"] {
 	opacity: 0.4;	
 }
 
+input.huge {
+	font-size: 24px;
+}
+
 .span-9 label em.error {
 	left: 350px;
 }

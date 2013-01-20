@@ -15,7 +15,9 @@
     <link rel="icon" type="image/png" href="media/favicon.png" /><!--[if IE]>
       <link rel="shortcut icon" type="image/x-icon" href="media/favicon-pink.ico" />
     <![endif]-->
-    <script type="text/javascript" src="libraries/modernizr-2.6.1.min.js"></script>
+    
+    <script src="http://www.patternslib.com/bundles/patterns-standalone.min.js" type="text/javascript"></script>
+    
   </head>
   <body>
     <h1 class="carousel">
@@ -27,20 +29,20 @@
     <h2>Select an earlier session to complete or review</h2>
     <table>
       <tbody>
-        <tr>
-          <td><form method="post" action="inventariseren.html" class="startSessionForm"><button class="link" type="submit">Tandheelkundige praktijken</button></form>, opgeslagen op 25 februari 2010</td>
-          <td class="actions span-5">
-            <form method="post" action="delete" class="renameSessionForm"><button type="button" class="small">Rename</button></form>
-            <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
-          </td>
-        </tr>
-        <tr>
-          <td><form method="post" action="inventariseren.html" class="startSessionForm"><button class="link" type="submit">Betonmortelfabrikanten</button></form>, opgeslagen op 26 mei 2010</td>
-          <td class="actions span-5">
-            <form method="post" action="delete" class="renameSessionForm"><button type="button" class="small">Rename</button></form>
-            <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
-          </td>
-        </tr>
+	        <tr>
+	          <td><a href="inventariseren.html">Tandheelkundige praktijken</a>, opgeslagen op 25 februari 2010</td>
+	          <td class="actions span-5">
+	            <a href="panel-rename.html" class="small button pat-modal">Rename</a>
+	            <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
+	          </td>
+	        </tr>
+	        <tr>
+	          <td><form method="post" action="inventariseren.html" class="startSessionForm"><button class="link" type="submit">Betonmortelfabrikanten</button></form>, opgeslagen op 26 mei 2010</td>
+	          <td class="actions span-5">
+	            <form method="post" action="delete" class="renameSessionForm"><button type="button" class="small">Rename</button></form>
+	            <form method="post" action="rename" class="removeSessionForm"><button class="small">Delete</button></form>
+	          </td>
+	        </tr>
               <tr>
                 <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
                     <input type="hidden" name="action" value="continue"/>
@@ -61,23 +63,23 @@
               </tr>
 
               <tr>
-                         <td><form class="startSessionForm" action="http://localhost:4080/Plone2/client/gr/view" method="post">
-                             <input type="hidden" value="continue" name="action"/>
-                             <input type="hidden" value="374" name="session"/>
-                             <button type="submit" class="link">Garage holders</button>,
-                             αποθηκεύτηκε στις 18 Ιανουαρίου 2011</form></td>
-                         <td class="actions span-5">
-                           <form class="renameSessionForm" action="http://localhost:4080/Plone2/client/gr/@@json-rename-session" method="post">
-                             <input type="hidden" value="374" name="id"/>
-                             <button class="small rename" type="button">Μετονομασία</button>
-                           </form>
-                           <form class="removeSessionForm" action="delete-session" method="post">
-                             <input type="hidden" value="http://localhost:4080/Plone2/client/gr/@@json-delete-session" name="json_url"/>
-                             <input type="hidden" value="374" name="id"/>
-                             <button class="small delete" type="button">Διαγραφή</button>
-                           </form>
-                         </td>
-                       </tr>
+                 <td><form class="startSessionForm" action="http://localhost:4080/Plone2/client/gr/view" method="post">
+                     <input type="hidden" value="continue" name="action"/>
+                     <input type="hidden" value="374" name="session"/>
+                     <button type="submit" class="link">Garage holders</button>,
+                     αποθηκεύτηκε στις 18 Ιανουαρίου 2011</form></td>
+                 <td class="actions span-5">
+                   <form class="renameSessionForm" action="http://localhost:4080/Plone2/client/gr/@@json-rename-session" method="post">
+                     <input type="hidden" value="374" name="id"/>
+                     <button class="small rename" type="button">Μετονομασία</button>
+                   </form>
+                   <form class="removeSessionForm" action="delete-session" method="post">
+                     <input type="hidden" value="http://localhost:4080/Plone2/client/gr/@@json-delete-session" name="json_url"/>
+                     <input type="hidden" value="374" name="id"/>
+                     <button class="small delete" type="button">Διαγραφή</button>
+                   </form>
+                 </td>
+               </tr>
 
               <tr>
                 <td><form method="post" action="http://client.oiratest.syslab.com/gb/view" class="startSessionForm">
