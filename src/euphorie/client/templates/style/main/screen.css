@@ -2599,6 +2599,8 @@ p.emphasis {
 	display: block;
 	font-weight: bold;
 	margin-right: 0;
+	margin-top: 0;
+	padding-bottom: 5px;
 }
 
 .comprehensive .message.warning {
