@@ -71,17 +71,31 @@
     </tal:block>
   </metal:javascript>
 
-  <metal:survey define-macro="survey_tree" meta:interpolation="true">
+  <metal:survey define-macro="survey_tree_inner" meta:interpolation="true">
     <ol tal:condition="exists:tree" class="${python:'microns' if tree['leaf_module'] else None}">
       <li tal:repeat="item tree/children" class="${item/class}">
         <a href="${item/url}" title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"><strong class="counter">${item/number}</strong> ${item/title}</a>
         <tal:subtree condition="python:item['children']" define="tree python:item">
-          <metal:call use-macro="webhelpers/macros/survey_tree" />
+          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
         </tal:subtree>
       </li>
     </ol>
   </metal:survey>
 
+  <metal:survey define-macro="survey_tree" meta:interpolation="true">
+    <aside tal:condition="exists:tree" class="questions">
+      <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+      <li class="legend">
+        <ul class="legend">
+          <li class="unvisited" i18n:translate="">Unvisited</li>
+          <li class="postponed" i18n:translate="">Postponed</li>
+          <li class="unanswered" i18n:translate="">Unanswered</li>
+          <li class="answered" i18n:translate="">Answered</li>
+        </ul>
+      </li>
+    </aside>
+  </metal:survey>
+  
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
     <p id="appendix">
       <tal:block repeat="page webhelpers/appendix"
