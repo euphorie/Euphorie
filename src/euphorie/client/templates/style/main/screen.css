@@ -2598,6 +2598,11 @@ p.emphasis {
 	clear: left;
 	display: block;
 	font-weight: bold;
+	margin-right: 0;
+}
+
+.comprehensive .message.warning {
+	left: 0;
 }
 
 /* @end */
