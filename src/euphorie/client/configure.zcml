@@ -107,6 +107,11 @@
        />
 
     <browser:resourceDirectory
+        name="osha.style"
+        directory="templates/style/osha"
+       />
+
+    <browser:resourceDirectory
         name="euphorie.behaviour"
         directory="templates/behaviour"
        />
