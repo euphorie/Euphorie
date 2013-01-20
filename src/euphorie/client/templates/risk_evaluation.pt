@@ -101,7 +101,6 @@
             </label>
           </fieldset>
         </tal:french>
-
       </tal:block>
 
       <tal:block condition="python:risk.evaluation_method=='direct'">

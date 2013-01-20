@@ -27,12 +27,12 @@
       <a class="button-small printButton jsOnly" i18n:translate="button_print">Print</a>
     </div>
 
-    <div class="notice introduction">
+    <div class="message notice introduction">
       <p i18n:translate="plan_report_intro_1">By filling in the list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan. The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects might have been completed and perhaps new subjects need to be added.</p>
       <p i18n:translate="plan_report_intro_2">Your answers and report were <strong i18n:name="automatically_saved"><tal:span i18n:translate="plan_report_intro_2_automatically_saved">automatically saved</tal:span></strong> and may be found back or deleted at any time via the <a href="${webhelpers/survey_url}/start" i18n:name="preparation_step" i18n:translate="plan_report_intro_2_preparation_step">preparation step</a>.</p>
     </div>
 
-    <div class="notice comments" tal:condition="view/session/report_comment" tal:content="view/session/report_comment">
+    <div class="message notice comments" tal:condition="view/session/report_comment" tal:content="view/session/report_comment">
       Extra remarks for this particular survey.
     </div>
 

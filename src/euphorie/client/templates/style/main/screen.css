@@ -283,6 +283,62 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Legend */
+
+li.legend {
+	
+}
+
+ul.legend {
+	list-style-type: none;
+	background-color: #8d8783;
+	background-image: none;
+	overflow: hidden;
+	margin: 30px 12px 10px;
+	padding: 5px 5px 5px 9px;
+	border: 1px solid #9b948e;
+	box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+	border-radius: 4px
+}
+
+.legend li {
+	color: white;
+}
+
+#steps .legend li {
+	color: #f5f0ea;
+	text-shadow: none;
+}
+
+.legend li:before {
+	content: " ";
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-right: 6px;
+	margin-top: 1px;
+	background-image: url(microns.png);
+}
+
+.legend li.unvisited:before {
+	background: url(microns.png) -48px;
+}
+
+.legend li.postponed:before {
+	background-position: -32px;
+}
+
+.legend li.unanswered:before {
+}
+
+.legend li.answered:before {
+	background-position: -16px;
+}
+
+
+
+/* @end */
+
 /* @group Postit */
         
 .postit {
@@ -3768,14 +3824,14 @@ p.country.rs {
 	color: #412b02;
 }
 
-#steps li ol {
+#steps .questions {
 	position: absolute;
 	top: 70px;
 	left: -60px;
 	list-style-position: inside;
 	padding-left: 0;
 	padding-top: 10px;
-	padding-bottom: 30px;
+	padding-bottom: 10px;
 	margin: 0;
 	height: auto;
 	width: 190px;
@@ -3785,8 +3841,33 @@ p.country.rs {
 	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#918C88), to(#342F2A));
 }
 
+#steps li ol {
+	list-style-position: inside;
+	padding-left: 0;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	height: auto;
+	width: 190px;
+	list-style-type: none;
+	background-color: #3a332e;
+	background-image: url(steps.png);
+	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#918C88), to(#342F2A));
+	margin: 0 0 30px;
+}
+
+#steps .questions > ol {
+	float: left;
+	margin-bottom: 10px;
+}
+
+#steps>li>ol:after {
+	content: " ";
+	clear: both;
+	display: block;
+	float: left;
+}
+
 #steps>li>ol>li:last-child {
-	
 }
 
 body>#steps>li>ol {
