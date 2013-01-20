@@ -87,3 +87,13 @@ h1 {
     float: left;
     left: 100%;
 }
+
+#steps ol.microns li {
+
+	background-image: url(microns-osha.png) !important;
+
+}
+
+#steps ol.microns li a {
+	background-image: url(microns-osha.png) !important;
+}
