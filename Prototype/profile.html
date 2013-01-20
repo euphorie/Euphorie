@@ -10,6 +10,10 @@
   </head>
   <body>
     <h1>Fine dining</h1>
+    <h2>Commercial manned guarding</h2>
+    
+    
+    
     <p>
       Curabitur gravida fermentum sapien lacinia tempus. Fusce congue gravida
       leo non luctus. Morbi quis turpis neque, a tincidunt mi. Integer
@@ -18,14 +22,31 @@
     </p>
 
     <form method="post">
-      <fieldset class="comprehensive">
-        <legend>Vestigingen</legend>
-        <ol>
-          <li><input type="text" name="dummy"/></li>
-        </ol>
-        <button class="addButton" type="button" value="2:list">Add</button>
-      </fieldset>
-      <button class="floatAfter" type="submit">Continue</button>
+    
+    	<fieldset class="comprehensive radioList">
+    		<legend>Does your organisation provide mobile patrolling?</legend>
+    		<label><input type="radio" name="profilequestion" value="yes" /> Yes</label>
+    		<label><input type="radio" name="profilequestion" value="no" /> No</label>
+    	</fieldset>
+    	    	
+		<fieldset class="comprehensive radioList dependsOn-profilequestion-equals-yes">
+			<legend>Do you offer this service in multiple locations?</legend>
+			<label><input type="radio" name="profilequestiona" value="yes" /> Yes</label>
+			<label><input type="radio" name="profilequestiona" checked="checked" value="no" /> No</label>
+		</fieldset>  	
+    
+		<fieldset class="comprehensive dependsOn-profilequestion-equals-yes">
+	        <legend>
+	        	<span class="radioList dependsOn-profilequestiona-equals-no">Name of location you would like to assess</span>
+	        	<span class="radioList dependsOn-profilequestiona-equals-yes">Name of locations you would like to assess</span>
+	        </legend>
+	        <ol class="form-iteration">
+	          <li><input type="text" name="dummy"/> <button class="small remove">Remove</button></li>
+	        </ol>
+	        <button class="addButton dependsOn-profilequestiona-equals-yes" type="button" value="2:list">Add another item</button>
+      	</fieldset>
+      	
+      	<button class="floatAfter" type="submit">Continue</button>
     </form>
     <ol id="steps">
       <li>

@@ -2498,6 +2498,15 @@ button:disabled {
 
 /* @group Forms */
 
+/* @group Form iteration */
+
+ol.form-iteration {
+	list-style-type: none;
+	margin: 0 0 20px;
+}
+
+/* @end */
+
 /* @group Table forms and actions */
 
 table form {
