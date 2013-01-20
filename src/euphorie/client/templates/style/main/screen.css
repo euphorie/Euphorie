@@ -283,6 +283,62 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Legend */
+
+li.legend {
+	
+}
+
+ul.legend {
+	list-style-type: none;
+	background-color: #8d8783;
+	background-image: none;
+	overflow: hidden;
+	margin: 30px 12px -10px;
+	padding: 5px 5px 5px 9px;
+	border: 1px solid #9b948e;
+	box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+	border-radius: 4px
+}
+
+.legend li {
+	color: white;
+}
+
+#steps .legend li {
+	color: #f5f0ea;
+	text-shadow: none;
+}
+
+.legend li:before {
+	content: " ";
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-right: 6px;
+	margin-top: 1px;
+	background-image: url(microns.png);
+}
+
+.legend li.unvisited:before {
+	background: url(microns.png) -48px;
+}
+
+.legend li.postponed:before {
+	background-position: -32px;
+}
+
+.legend li.unanswered:before {
+}
+
+.legend li.answered:before {
+	background-position: -16px;
+}
+
+
+
+/* @end */
+
 /* @group Postit */
         
 .postit {
