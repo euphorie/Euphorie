@@ -3824,10 +3824,24 @@ p.country.rs {
 	color: #412b02;
 }
 
-#steps li ol {
+#steps .questions {
 	position: absolute;
 	top: 70px;
 	left: -60px;
+	list-style-position: inside;
+	padding-left: 0;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	margin: 0;
+	height: auto;
+	width: 190px;
+	list-style-type: none;
+	background-color: #3a332e;
+	background-image: url(steps.png);
+	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#918C88), to(#342F2A));
+}
+
+#steps li ol {
 	list-style-position: inside;
 	padding-left: 0;
 	padding-top: 10px;
