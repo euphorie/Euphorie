@@ -20,6 +20,59 @@ html {	height: 100%;
 	display: none;
 }
 
+/* @group Animations */
+
+/* @group Fade in */
+
+@-webkit-keyframes fade-in {
+	0% {
+   opacity: 0;
+}
+
+100% {
+	opacity: 1;
+}
+ }
+
+/* @end */
+
+/* @group Wiggle */
+
+@keyframes wiggle
+{
+0%   {
+	transform: rotate(-1);}
+50%  {
+	transform: rotate(1);}
+100%  {
+	transform: rotate(-1);}
+}
+
+/* @end */
+
+/* @group Alert pulse */
+
+@-webkit-keyframes myfirst
+{
+0%   {background-color: transparent;}
+50%  {background-color: #ff7a00;}
+100%  {background-color: transparent;}
+}
+
+@keyframes myfirst
+{
+0%   {background-color: transparent;}
+50%  {background-color: #ff7a00;}
+100%  {background-color: transparent;}
+}
+
+
+/* @end */
+
+
+
+/* @end */
+
 /* @group Blueprint */
 
 /* @group Reset */
@@ -283,10 +336,29 @@ body,
 	background: white url(body.png) repeat-y center 0;	
 }
 
+/* @group Auto scale */
+
+.pat-auto-scale {	
+	transform-origin: left top;
+	opacity: 0;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.pat-auto-scale.scaled {
+	opacity: 1;
+}
+
+
+
+/* @end */
+
 /* @group Modal */
 
 div.pat-modal {
-	-webkit-animation: fade-in 1s;
+	animation: fade-in 1s;
   position: fixed;
   top: 50%;
   left: 50%;
