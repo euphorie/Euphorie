@@ -49,7 +49,7 @@ function verifyDependencies(slave) {
             continue;
         }
 
-        $input = $(":input[name="+parts[1]+"]");
+        $input = $(":input[name='"+parts[1]+"']");
         if (!$input.length) {
             return false;
         }
@@ -90,7 +90,7 @@ function getDependMasters(el) {
             continue;
         }
 
-        $result=$result.add(":input[name="+parts[1]+"]");
+        $result=$result.add(":input[name='"+parts[1]+"']");
     }
 
     return $result;
