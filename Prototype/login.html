@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" id="session">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,7 +33,8 @@
 
 
       <fieldset class="concise">
-        <label>E-mail address <input type="email" /></label> <label>Password (<a href="#">I forgot my password</a>) <input type="password" /></label>
+        <label>E-mail address <input name="email" type="email" required="required" /></label> 
+        <label>Password (<a href="#">I forgot my password</a>) <input name="password" type="password" required="required" /></label>
         <fieldset class="comprehensive">
           <label><input type="checkbox" /> Keep me logged in.</label>
         </fieldset>
