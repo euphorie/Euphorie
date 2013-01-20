@@ -97,3 +97,7 @@ h1 {
 #steps ol.microns li a {
 	background-image: url(microns-osha.png) !important;
 }
+
+.legend li:before {
+	background-image: url(microns-osha.png);
+}
