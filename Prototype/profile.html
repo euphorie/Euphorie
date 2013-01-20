@@ -26,17 +26,17 @@
 
     	<fieldset class="comprehensive radioList">
     		<legend>Does your organisation provide mobile patrolling?</legend>
-    		<label><input type="radio" name="profilequestion" value="yes" /> Yes</label>
-    		<label><input type="radio" name="profilequestion" value="no" /> No</label>
+    		<label><input type="radio" required="required" class="presence" name="profilequestion" value="yes" /> Yes</label>
+    		<label><input type="radio" required="required" class="presence" name="profilequestion" value="no" /> No</label>
     	</fieldset>
 
 		<fieldset class="comprehensive radioList dependsOn-profilequestion-equals-yes">
 			<legend>Do you offer this service in multiple locations?</legend>
-			<label><input type="radio" name="profilequestiona" value="yes" /> Yes</label>
-			<label><input type="radio" name="profilequestiona" checked="checked" value="no" /> No</label>
+			<label><input type="radio" class="multiple" name="profilequestiona" value="yes" /> Yes</label>
+			<label><input type="radio" class="multiple" name="profilequestiona" value="no" /> No</label>
 		</fieldset>
 
-		<fieldset class="comprehensive dependsOn-profilequestion-equals-yes">
+		<fieldset class="comprehensive dependsOn-profilequestion-equals-yes dependsOn-profilequestiona">
 	        <legend>
 	        	<span class="dependsOn-profilequestiona-equals-no">Name of location you would like to assess</span>
 	        	<span class="dependsOn-profilequestiona-equals-yes">Name of locations you would like to assess</span>
@@ -55,8 +55,8 @@
 
       	<fieldset class="comprehensive radioList">
       		<legend>Does your organisation provide alarm response?</legend>
-      		<label><input type="radio" name="profilequestion-2" value="yes" /> Yes</label>
-      		<label><input type="radio" name="profilequestion-2" value="no" /> No</label>
+      		<label><input type="radio" required="required" class="presence" name="profilequestion-2" value="yes" /> Yes</label>
+      		<label><input type="radio" required="required" class="presence" name="profilequestion-2" value="no" /> No</label>
       	</fieldset>
       </section>
 
@@ -93,33 +93,52 @@
     <script type="text/javascript" defer="1">
     // <![CDATA[
 
-    function styleRemoveButton($root) {
-        var $buttons = $root.find(".remove");
-        if ($buttons.length>1)
-            $buttons.show();
-        else
+    function styleSection($section) {
+        var presence = $section.find("input.presence:checked").val()==="yes";
+        if (!presence) {
+            $section.find("input:not(.presence)").prop("required", false);
+            return;
+        }
+
+        $section.find("input").prop("required", true);
+        var multiple = $section.find("input.multiple:checked").val()==="yes",
+            $buttons = $section.find(".form-iterator .remove");
+        if (!multiple) {
+            $section.find(".form-iteration li:not(:first) input").prop("required", false);
             $buttons.hide();
+        } else {
+          if ($buttons.length>1)
+              $buttons.show();
+          else
+              $buttons.hide();
+        }
     }
 
     $(".addButton").on("click", function() {
         var $button = $(this),
+            $section = $button.closest("section"),
             $titles = $button.siblings(".form-iteration");
 
         $titles.find("li:last").clone()
             .find(":input").val("").end()
             .appendTo($titles);
-        styleRemoveButton($titles);
+        styleSection($section);
     });
 
     $(document).on("click", ".form-iteration .remove", function() {
         var $button = $(this),
-            $titles = $button.closest(".form-iteration");
+            $section = $button.closest("section");
         $button.closest("li").remove();
-        styleRemoveButton($titles);
+        styleSection($section);
     });
 
-    $(".form-iteration").each(function() {
-        styleRemoveButton($(this));
+    $(document).on("change", "input[type=radio]", function() {
+          var $section = $(this).closest("section");
+          styleSection($section);
+    });
+
+    $("section").each(function() {
+        styleSection($(this));
     });
     // ]]>
   </script>
