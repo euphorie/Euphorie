@@ -39,6 +39,7 @@ class ExportSurvey(grok.View):
         if caption:
             node.attrib["caption"] = caption
         node.text = image.data.encode("base64")
+        return node
 
     def exportSurvey(self, parent, survey):
         node = etree.SubElement(parent, "survey")
@@ -61,6 +62,7 @@ class ExportSurvey(grok.View):
                 self.exportProfileQuestion(node, child)
             if IModule.providedBy(child):
                 self.exportModule(node, child)
+        return node
 
     def exportProfileQuestion(self, parent, profile):
         node = etree.SubElement(parent, "profile-question")
@@ -78,6 +80,7 @@ class ExportSurvey(grok.View):
                 self.exportModule(node, child)
             elif IRisk.providedBy(child):
                 self.exportRisk(node, child)
+        return node
 
     def exportModule(self, parent, module):
         node = etree.SubElement(parent, "module",
@@ -100,6 +103,7 @@ class ExportSurvey(grok.View):
                 self.exportModule(node, child)
             elif IRisk.providedBy(child):
                 self.exportRisk(node, child)
+        return node
 
     def exportRisk(self, parent, risk):
         node = etree.SubElement(parent, "risk", type=risk.type)
@@ -149,7 +153,6 @@ class ExportSurvey(grok.View):
             sols = etree.SubElement(node, "solutions")
             for solution in solutions:
                 self.exportSolution(sols, solution)
-
         return node
 
     def exportSolution(self, parent, solution):
