@@ -42,7 +42,7 @@
 	        	<span class="dependsOn-profilequestiona-equals-yes">Name of locations you would like to assess</span>
 	        </legend>
 	        <ol class="form-iteration">
-	          <li><input type="text" name="dummy"/> <button type="button" class="small remove dependsOn-profilequestiona-equals-yes">Remove</button></li>
+	          <li><input type="text" name="dummy"/> <button type="button" class="small remove">Remove</button></li>
 	        </ol>
 	        <p class="buttons addButton dependsOn-profilequestiona-equals-yes">
 	        	<button class="small" type="button">Add another item</button>
@@ -101,16 +101,18 @@
         }
 
         $section.find("input").prop("required", true);
-        var multiple = $section.find("input.multiple:checked").val()==="yes",
-            $buttons = $section.find(".form-iterator .remove");
+        var multiple = $section.find("input.multiple:checked").val()==="yes";
         if (!multiple) {
-            $section.find(".form-iteration li:not(:first) input").prop("required", false);
-            $buttons.hide();
+            $section.find(".form-iteration li:not(:first)")
+                .hide()
+                .find("input").prop("required", false);
+            $section.find("button").hide();
         } else {
-          if ($buttons.length>1)
-              $buttons.show();
-          else
-              $buttons.hide();
+            var $buttons = $section.find("button");
+            $section.find(".form-iteration li").show();
+            $buttons.show();
+            if ($buttons.length<=2)
+              $buttons.filter(".remove").hide();
         }
     }
 
