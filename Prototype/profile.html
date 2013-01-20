@@ -10,18 +10,18 @@
   </head>
   <body>
     <h1>Fine dining</h1>
-    <h2>Commercial manned guarding</h2>
-    
-    
-    
-    <p>
-      Curabitur gravida fermentum sapien lacinia tempus. Fusce congue gravida
-      leo non luctus. Morbi quis turpis neque, a tincidunt mi. Integer
-      scelerisque consectetur odio, nec sagittis turpis porttitor at. Fusce
-      porta posuere accumsan.
-    </p>
 
     <form method="post">
+    
+    	
+    	<h2>Commercial manned guarding</h2>
+    	
+    	<p>
+    	  Curabitur gravida fermentum sapien lacinia tempus. Fusce congue gravida
+    	  leo non luctus. Morbi quis turpis neque, a tincidunt mi. Integer
+    	  scelerisque consectetur odio, nec sagittis turpis porttitor at. Fusce
+    	  porta posuere accumsan.
+    	</p>
     
     	<fieldset class="comprehensive radioList">
     		<legend>Does your organisation provide mobile patrolling?</legend>
@@ -43,7 +43,17 @@
 	        <ol class="form-iteration">
 	          <li><input type="text" name="dummy"/> <button class="small remove">Remove</button></li>
 	        </ol>
-	        <button class="addButton dependsOn-profilequestiona-equals-yes" type="button" value="2:list">Add another item</button>
+	        <p class="buttons addButton dependsOn-profilequestiona-equals-yes">
+	        	<button class="small" type="button" value="2:list">Add another item</button>
+	        </p>
+      	</fieldset>
+      	
+      	<h2>Alarm reponse</h2>
+      	
+      	<fieldset class="comprehensive radioList">
+      		<legend>Does your organisation provide alarm respons?</legend>
+      		<label><input type="radio" name="profilequestion-2" value="yes" /> Yes</label>
+      		<label><input type="radio" name="profilequestion-2" value="no" /> No</label>
       	</fieldset>
       	
       	<button class="floatAfter" type="submit">Continue</button>

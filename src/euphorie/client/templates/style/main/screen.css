@@ -2502,7 +2502,7 @@ button:disabled {
 
 ol.form-iteration {
 	list-style-type: none;
-	margin: 0 0 20px;
+	margin: 0;
 }
 
 /* @end */
