@@ -28,24 +28,23 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         image = MockImage("hot stuff here")
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportImage(root, image)
-        self.assertEqual(etree.tostring(root, pretty_print=True),
-                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <image>aG90IHN0dWZmIGhlcmU=\n'
-                '</image>\n'
-                '</root>\n')
+        node = view.exportImage(root, image)
+        self.assertTrue(node in root)
+        self.assertEqual(
+                etree.tostring(node, pretty_print=True),
+                '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0">'
+                'aG90IHN0dWZmIGhlcmU=\n</image>\n')
 
     def testImage_Full(self):
         image = MockImage("hot stuff here", "test.gif", "image/gif")
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportImage(root, image, u"Captiøn")
-        self.assertEqual(etree.tostring(root, pretty_print=True),
-                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <image content-type="image/gif" filename="test.gif" '
-                'caption="Capti&#248;n">aG90IHN0dWZmIGhlcmU=\n'
-                '</image>\n'
-                '</root>\n')
+        image = view.exportImage(root, image, u"Captiøn")
+        self.assertEqual(etree.tostring(image, pretty_print=True),
+                '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0" '
+                'content-type="image/gif" filename="test.gif" '
+                'caption="Capti&#xF8;n">aG90IHN0dWZmIGhlcmU=\n'
+                '</image>\n')
 
     def testSolution_Minimal(self):
         from euphorie.content.solution import Solution
@@ -56,15 +55,14 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         solution.requirements = None
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportSolution(root, solution)
-        self.assertEqual(etree.tostring(root, pretty_print=True),
-                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <solution>\n'
-                '    <description>&lt;p&gt;Test description&lt;/p&gt;'
+        node = view.exportSolution(root, solution)
+        self.assertTrue(node in root)
+        self.assertEqual(etree.tostring(node, pretty_print=True),
+                '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+                '  <description>&lt;p&gt;Test description&lt;/p&gt;'
                 '</description>\n'
-                '    <action-plan>Sample action plan</action-plan>\n'
-                '  </solution>\n'
-                '</root>\n')
+                '  <action-plan>Sample action plan</action-plan>\n'
+                '</solution>\n')
 
     def testSolution_Complete(self):
         from euphorie.content.solution import Solution
@@ -75,18 +73,16 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         solution.requirements = u"Requîrements"
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportSolution(root, solution)
-        self.assertEqual(etree.tostring(root, pretty_print=True),
-                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-                '  <solution>\n'
-                '    <description>&lt;p&gt;T&#233;st description&lt;/p&gt;'
+        node = view.exportSolution(root, solution)
+        self.assertEqual(etree.tostring(node, pretty_print=True),
+                '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+                '  <description>&lt;p&gt;T&#233;st description&lt;/p&gt;'
                 '</description>\n'
-                '    <action-plan>Sample acti&#248;n plan</action-plan>\n'
-                '    <prevention-plan>Sample prevention pl&#229;n'
+                '  <action-plan>Sample acti&#248;n plan</action-plan>\n'
+                '  <prevention-plan>Sample prevention pl&#229;n'
                 '</prevention-plan>\n'
-                '    <requirements>Requ&#238;rements</requirements>\n'
-                '  </solution>\n'
-                '</root>\n')
+                '  <requirements>Requ&#238;rements</requirements>\n'
+                '</solution>\n')
 
     def testRisk_Minimal(self):
         from euphorie.content.risk import Risk
@@ -99,7 +95,8 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         risk.show_notapplicable = False
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportRisk(root, risk)
+        node = view.exportRisk(root, risk)
+        self.assertTrue(node in root)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <risk type="top5">\n'
@@ -272,7 +269,8 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         module.solution_direction = None
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportModule(root, module)
+        node = view.exportModule(root, module)
+        self.assertTrue(node in root)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <module optional="false">\n'
@@ -431,7 +429,8 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile.type = "optional"
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportProfileQuestion(root, profile)
+        node = view.exportProfileQuestion(root, profile)
+        self.assertTrue(node in root)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <profile-question>\n'
@@ -557,7 +556,8 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         survey.language = "en-GB"
         root = self.root()
         view = ExportSurvey(None, None)
-        view.exportSurvey(root, survey)
+        node = view.exportSurvey(root, survey)
+        self.assertTrue(node in root)
         self.assertEqual(etree.tostring(root, pretty_print=True),
                 '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
                 '  <survey>\n'

@@ -153,6 +153,7 @@ class SurveyImporter(object):
         solution.prevention_plan = el_unicode(node, "prevention-plan")
         solution.requirements = el_unicode(node, "requirements")
         solution.external_id = attr_unicode(node, "external-id")
+        return solution
 
     def ImportRisk(self, node, module):
         risk = createContentInContainer(module, "euphorie.risk",
@@ -202,6 +203,7 @@ class SurveyImporter(object):
         if hasattr(node, "solutions"):
             for child in node.solutions.solution:
                 self.ImportSolution(child, risk)
+        return risk
 
     def ImportModule(self, node, survey):
         module = createContentInContainer(survey, "euphorie.module",
@@ -224,6 +226,7 @@ class SurveyImporter(object):
             (image, caption) = self.ImportImage(image)
             module.image = image
             module.caption = caption
+        return module
 
     def ImportProfileQuestion(self, node, survey):
         type = node.get("type")
@@ -243,6 +246,7 @@ class SurveyImporter(object):
 
         for child in node.iterchildren(tag=XMLNS + "module"):
             self.ImportModule(child, profile)
+        return profile
 
     def ImportSurvey(self, node, group, version_title):
         survey = createContentInContainer(group, "euphorie.survey",
@@ -251,13 +255,11 @@ class SurveyImporter(object):
         survey.language = el_string(node, "language")
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
-
         for child in node.iterchildren():
             if child.tag == XMLNS + "profile-question":
                 self.ImportProfileQuestion(child, survey)
             elif child.tag == XMLNS + "module":
                 self.ImportModule(child, survey)
-
         return survey
 
     def __call__(self, input, surveygroup_title, survey_title):
@@ -354,12 +356,14 @@ class ImportSector(form.Form):
     label = _("title_import_sector_survey",
             default=u"Import sector and survey")
 
+    importer_factory = SectorImporter
+
     @button.buttonAndHandler(_("button_upload", default=u"Upload"))
     def handleUpload(self, action):
         (data, errors) = self.extractData()
         input = data["file"].data
 
-        importer = SectorImporter(self.context)
+        importer = self.SectorImporter(self.context)
 
         try:
             sector = importer(input, data["sector_title"],

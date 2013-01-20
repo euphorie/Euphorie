@@ -73,9 +73,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         risk = self.createRisk()
         importer = upload.SurveyImporter(None)
-        importer.ImportSolution(snippet, risk)
+        solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
-        solution = risk["3"]
         self.assertEqual(solution.description, u"Add more abstraction layers")
         self.failUnless(isinstance(solution.description, unicode))
         self.assertEqual(solution.action_plan, u"Add another level")
@@ -98,8 +97,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         risk = self.createRisk()
         importer = upload.SurveyImporter(None)
-        importer.ImportSolution(snippet, risk)
-        solution = risk["3"]
+        solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(solution.description, u"Add more abstraction layers")
         self.assertEqual(solution.action_plan, u"Add another level")
         self.assertEqual(solution.prevention_plan, None)
@@ -118,8 +116,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         importer = upload.SurveyImporter(None)
-        importer.ImportRisk(snippet, module)
-        risk = module["2"]
+        risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.title, u"Are your desks at the right height?")
         self.failUnless(isinstance(risk.title, unicode))
         self.assertEqual(
@@ -155,8 +152,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         importer = upload.SurveyImporter(None)
-        importer.ImportRisk(snippet, module)
-        risk = module["2"]
+        risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.image.filename, "tiny.gif")
         self.assertEqual(risk.caption, u"Key image")
         self.assertEqual(risk.image2.filename, "tiny.gif")
@@ -176,8 +172,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         importer = upload.SurveyImporter(None)
-        importer.ImportRisk(snippet, module)
-        risk = module["2"]
+        risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.show_notapplicable, False)
         self.assertEqual(risk.evaluation_method, "direct")
         self.assertEqual(risk.default_priority, "high")
@@ -216,8 +211,7 @@ class SurveyImporterTests(EuphorieTestCase):
         group = aq_parent(aq_parent(module))
         group.evaluation_algorithm = u"french"
         importer = upload.SurveyImporter(None)
-        importer.ImportRisk(snippet, module)
-        risk = module["2"]
+        risk = importer.ImportRisk(snippet, module)
         self.assertTrue(IFrenchEvaluation.providedBy(risk))
         self.assertEqual(risk.show_notapplicable, False)
         self.assertEqual(risk.evaluation_method, "calculated")
@@ -240,8 +234,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         importer = upload.SurveyImporter(None)
-        importer.ImportRisk(snippet, module)
-        risk = module["2"]
+        risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.keys(), ["3"])
         solution = risk["3"]
         from euphorie.content.solution import Solution
@@ -258,8 +251,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportModule(snippet, survey)
-        module = survey["1"]
+        module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.title, u"Design patterns")
         self.failUnless(isinstance(module.title, unicode))
         self.assertEqual(module.optional, False)
@@ -286,8 +278,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportModule(snippet, survey)
-        module = survey["1"]
+        module = importer.ImportModule(snippet, survey)
         self.assertNotEqual(module.image, None)
         self.assertEqual(module.image.contentType, "image/gif")
         self.assertEqual(module.caption, u'My caption')
@@ -302,8 +293,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportModule(snippet, survey)
-        module = survey["1"]
+        module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.optional, True)
         self.assertEqual(module.question, u"Have you used design patterns?")
 
@@ -320,8 +310,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportModule(snippet, survey)
-        module = survey["1"]
+        module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.keys(), ["2"])
         module = module["2"]
         from euphorie.content.module import Module
@@ -342,8 +331,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportModule(snippet, survey)
-        module = survey["1"]
+        module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.keys(), ["2"])
         risk = module["2"]
         from euphorie.content.risk import Risk
@@ -362,8 +350,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportProfileQuestion(snippet, survey)
-        profile = survey["1"]
+        profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.title, u"Laptop usage")
         self.failUnless(isinstance(profile.title, unicode))
         self.assertEqual(profile.question, u"Do your employees use laptops?")
@@ -383,8 +370,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportProfileQuestion(snippet, survey)
-        profile = survey["1"]
+        profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertTrue(isinstance(profile, Module))
         self.assertEqual(profile.optional, True)
 
@@ -402,8 +388,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportProfileQuestion(snippet, survey)
-        profile = survey["1"]
+        profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.keys(), ["2"])
         module = profile["2"]
         from euphorie.content.module import Module
@@ -425,8 +410,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
-        importer.ImportProfileQuestion(snippet, survey)
-        profile = survey["1"]
+        profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.keys(), ["2"])
         risk = profile["2"]
         from euphorie.content.risk import Risk
@@ -446,9 +430,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
-        survey = surveygroup["fresh-import"]
         self.assertEqual(survey.keys(), [])
         self.assertEqual(survey.title, u"Fresh import")
         self.failUnless(isinstance(survey.title, unicode))
@@ -470,9 +453,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
-        survey = surveygroup["fresh-import"]
         self.assertEqual(survey.keys(), ["1"])
         module = survey["1"]
         from euphorie.content.module import Module
@@ -492,9 +474,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
-        survey = surveygroup["fresh-import"]
         self.assertEqual(survey.keys(), ["1"])
         profile = survey["1"]
         from euphorie.content.profilequestion import ProfileQuestion
@@ -527,9 +508,8 @@ class SurveyImporterTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
-        survey = surveygroup["fresh-import"]
         self.assertEqual(survey.keys(), ["1", "2", "3", "4"])
         children = survey.values()
         self.assertEquals(children[0].title, u"Module one")
