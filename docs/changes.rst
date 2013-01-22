@@ -57,6 +57,8 @@ Bugfixes
 
 - Registering from within a country skips terms and conditions page.
 
+- Datepicker didn't appear on newly created measures.
+
 
 5.1.1 - Unreleased
 -------------------------
