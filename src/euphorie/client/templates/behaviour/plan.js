@@ -78,14 +78,12 @@
             clone.find('#planning-start-day-1').attr('id', 'planning-start-day-' + number);
             clone.find('#planning-start-month-1').attr('id', 'planning-start-month-' + number);
             clone.find('#planning-start-year-1').attr('id', 'planning-start-year-' + number);
-
             clone.find('#planning-end-day-1').attr('id', 'planning-end-day-' + number);
             clone.find('#planning-end-month-1').attr('id', 'planning-end-month-' + number);
             clone.find('#planning-end-year-1').attr('id', 'planning-end-year-' + number);
-
             clone.find('.ui-datepicker-trigger').remove();
             clone.find('.enablePicker').each(function () {
-                $(this).enableDatePicker();
+                $(this).removeClass('hasDatepicker').enableDatePicker();
             });
             return $(clone);
         },
@@ -105,8 +103,8 @@
             $new_tab.addClass("current");
             $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
             $new_container.addClass("current").show('fast');
-        initPlaceHolders($new_container);
-        initTooltips($new_container);
+            initPlaceHolders($new_container);
+            initTooltips($new_container);
             ActionPlan.UpdateNumbering();
             ActionPlan.chevronize();
         },
