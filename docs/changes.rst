@@ -33,8 +33,8 @@ Feature changes
   a source of consution. All existing optional profile questions will
   automatically be converted to optional modules as part of the upgrade.
 
-- Added Finnish (FI) and Lithuanian (LT) translations.
-
+- Added translations for Finnish (FI) and Lithuanian (LT)
+- Updated Bulgarian translations.
 - Include a default application configuration file.
 
 Bugfixes
