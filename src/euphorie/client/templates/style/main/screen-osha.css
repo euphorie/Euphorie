@@ -2,32 +2,6 @@ h1 {
 	background-color: #003399;
 }
 
-.report p.priority-high {
-	position: relative;
-	margin-top: 0px;
-	padding: 0px;
-	width: 100%;
-	height: 100%;
-	text-align: left;
-	background: none !important;
-	margin-left: 0px;
-	color: black;
-	text-indent: 0;
-	overflow: none;
-	text-transform: none;
-    display: block;
-	-webkit-transform: none;
-	-moz-transform: none;
-	transform: none;
-}
-
-.report p.priority-high strong {
-	color: black !important;
-	text-shadow: rgba(255,254,255,0.59) 0 1px 0;
-	text-indent: 0;
-	float: none;
-}
-
 #steps li.complete,
 #steps li.current {
 	background-color: #996699;
@@ -62,7 +36,7 @@ h1 {
 	-webkit-transition: color 0.2s;
 }
 
-#steps li a:hover{
+#steps li a:hover {
 	color: #8e9fb8;
 }
 
