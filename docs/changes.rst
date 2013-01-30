@@ -59,6 +59,8 @@ Bugfixes
 
 - Datepicker didn't appear on newly created measures.
 
+- Compatibility with plone.app.search.
+
 
 5.1.1 - Unreleased
 -------------------------
