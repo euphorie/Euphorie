@@ -20,7 +20,7 @@ class IOnlineHelp(form.Schema):
     form.widget(introduction=WysiwygFieldWidget)
 
     authentication = HtmlText(
-            title=_("label_authentication", default=u"Authentication"),
+            title=_("label_help_authentication", default=u"Authentication"),
             description=_("help_authentication",
                 default=u"Describe the user handling. This text is "
                         u"linked from the login, password reminder and "
@@ -29,7 +29,7 @@ class IOnlineHelp(form.Schema):
     form.widget(authentication=WysiwygFieldWidget)
 
     sessions = HtmlText(
-            title=_("label_sessions", default=u"Sessions"),
+            title=_("label_help_sessions", default=u"Sessions"),
             description=_("help_sessions",
                 default=u"Describe the session handling. This text is "
                         u"linked from the session overview page."),
@@ -37,7 +37,7 @@ class IOnlineHelp(form.Schema):
     form.widget(sessions=WysiwygFieldWidget)
 
     preparation = HtmlText(
-            title=_("label_preparation", default=u"Preparation"),
+            title=_("label_help_preparation", default=u"Preparation"),
             description=_("help_preparation",
                 default=u"Document the first steps in a survey, including "
                         u"how to configure a profile (if needed). This "
@@ -46,7 +46,7 @@ class IOnlineHelp(form.Schema):
     form.widget(preparation=WysiwygFieldWidget)
 
     identification = HtmlText(
-            title=_("label_identification", default=u"Identification"),
+            title=_("label_help_identification", default=u"Identification"),
             description=_("help_identification",
                 default=u"Document the identification phase. This information "
                         u"is linked from all identification related pages"),
@@ -54,7 +54,7 @@ class IOnlineHelp(form.Schema):
     form.widget(identification=WysiwygFieldWidget)
 
     evaluation = HtmlText(
-            title=_("label_evaluation", default=u"Evaluation"),
+            title=_("label_help_evaluation", default=u"Evaluation"),
             description=_("help_evaluation",
                 default=u"Document the evaluation phase. This information "
                         u"is linked from all evaluation related pages"),
@@ -62,7 +62,7 @@ class IOnlineHelp(form.Schema):
     form.widget(evaluation=WysiwygFieldWidget)
 
     actionplan = HtmlText(
-            title=_("label_actionplan", default=u"Action plan"),
+            title=_("label_help_actionplan", default=u"Action plan"),
             description=_("help_actionplan",
                 default=u"Document the action plan phase. This information "
                         u"is linked from all action plan related pages"),
@@ -70,7 +70,7 @@ class IOnlineHelp(form.Schema):
     form.widget(actionplan=WysiwygFieldWidget)
 
     report = HtmlText(
-            title=_("label_reports", default=u"Reports"),
+            title=_("label_help_reports", default=u"Reports"),
             description=_("help_reports",
                 default=u"Describe the reporting options. This page is "
                         u"linked from report page."),
@@ -78,7 +78,7 @@ class IOnlineHelp(form.Schema):
     form.widget(report=WysiwygFieldWidget)
 
     finalwords = HtmlText(
-            title=_("label_finalwords", default=u"Final words"),
+            title=_("label_help_finalwords", default=u"Final words"),
             description=_("help_finalwords",
                 default=u"Any final words that should be shown at the end "
                         u"of the help. This information is not linked "
