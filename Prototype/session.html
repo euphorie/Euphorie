@@ -103,56 +103,6 @@
     <script type="text/javascript" src="libraries/jquery.bt.js"></script>
     <script type="text/javascript" src="libraries/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript" src="behaviour/markup.js"></script>
-    <script type="text/javascript">
-// <![CDATA[
-    $("form.renameSessionForm button").click(function() {
-        var $row = $(this).closest("tr"),
-            $startform = $row.find("form.startSessionForm"),
-            $startbutton = $startform.find("button"),
-            renamebutton = this,
-            $input;
-
-         if (renamebutton.state=='save') {
-                    $input = $row.find('input');
-                    $input.remove();
-                    $startbutton.text($input.val()).show();
-                    $startform.unbind("submit.rename");
-                    renamebutton.state=null;
-                    renamebutton.firstChild.innerHTML = $rename_label;
-        }
-        else {
-          renamebutton.state = 'save';
-          $rename_label = renamebutton.firstChild.innerHTML;
-          $save_value = document.getElementById('save_button_text').firstChild.nodeValue;
-          renamebutton.firstChild.innerHTML = $save_value;
-          $startform
-            .bind("submit.rename", function() {
-                  $input.remove();
-                  $startbutton.text($input.val()).show();
-                  $startform.unbind("submit.rename");
-                  renamebutton.state=null;
-                  renamebutton.firstChild.innerHTML = $rename_label;
-                  return false;
-             })
-        $startbutton.hide();
-        $input=$("<input/>")
-            .attr("type", "text")
-            .addClass("span-5")
-            .val($startbutton.text())
-            .insertAfter($startbutton)
-            .keyup(function(event) {
-                if (event.which==27) {
-                    $input.remove();
-                    $startbutton.show();
-                    $startform.unbind("submit.rename");
-                    renamebutton.state=null;
-                }
-            })
-            .focus();
-      }
-    });
-// ]]>
-    </script>
   </body>
 </html>
 
