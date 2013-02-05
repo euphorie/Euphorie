@@ -14,7 +14,7 @@ This release updates the profile version to *13*. Please use the upgrade
 feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
 profile to this version.
 
-This release also updates the used Plone version to 4.2.3. You are advised to
+This release also updates the used Plone version to 4.2.4. You are advised to
 perform the Plone migrations through the Zope Management Interface (ZMI).
 
 The Euphorie configuration file (``etc/euphorie.ini`` in the standard buildout)
@@ -53,7 +53,7 @@ Bugfixes
   be possible to do things like mix risks and modules in a single container
   using copy & paste.
 
-- Upgrade to dexterity 1.2.1 and Plone 4.2.3.
+- Upgrade to dexterity 1.2.1 and Plone 4.2.4.
 
 - Registering from within a country skips terms and conditions page.
 
