@@ -373,7 +373,7 @@ $(document).ready(function() {
 
     if (!(engine==="msie" && engine_version<70)) {
         // Title attributes get an on-hover tooltip 
-        $("*[title][rel!=fancybox]:not(form):not('.clicktip')").toolTip({shrinkToFit: true});
+        $("*[title][rel!=fancybox]:not(form):not('.clicktip,.pat-tooltip')").toolTip({shrinkToFit: true});
     }
     tmp = $(".autofocus:first");
     if (tmp.length) {
