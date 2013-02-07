@@ -49,14 +49,11 @@
   </metal:css>
 
   <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.libraries">
-    <!--[if lte IE 8]> <script type="text/javascript" src="${lib_url}/excanvas.min.js"></script> <![endif]-->
     <tal:block condition="webhelpers/debug_mode">
-      <script type="text/javascript" src="${lib_url}/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="${lib_url}/patterns.js"></script>
       <script type="text/javascript" src="${lib_url}/jquery-ui-1.9.1.js"></script>
       <script type="text/javascript" src="${lib_url}/jquery-ui-i18n.js"></script>
       <script type="text/javascript" src="${lib_url}/css_browser_selector.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery.hoverIntent.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery.bt.js"></script>
       <script type="text/javascript" src="${lib_url}/jcarousellite_1.0.1.js"></script>
       <script type="text/javascript" src="${lib_url}/jquery.numeric.js"></script>
       <script type="text/javascript" src="${lib_url}/jquery.scrollTo.js"></script>
