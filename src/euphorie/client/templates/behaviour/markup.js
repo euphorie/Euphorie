@@ -53,11 +53,6 @@ $(document).ready(function() {
         });
     }
 
-    tmp = $(".autofocus:first");
-    if (tmp.length) {
-        tmp.get(0).focus();
-    }
-
     $("a[rel=fancybox]").fancybox({
             "transitionIn"    : "elastic",
             "transitionOut"   : "elastic",
