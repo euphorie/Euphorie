@@ -30,21 +30,21 @@
     		<label><input type="radio" required="required" class="presence" name="profilequestion" value="no" /> No</label>
     	</fieldset>
 
-		<fieldset class="comprehensive radioList dependsOn-profilequestion-equals-yes">
+		<fieldset class="comprehensive radioList pat-depends" data-pat-depends="profilequestion=yes">
 			<legend>Do you offer this service in multiple locations?</legend>
 			<label><input type="radio" class="multiple" name="profilequestiona" value="yes" /> Yes</label>
 			<label><input type="radio" class="multiple" name="profilequestiona" value="no" /> No</label>
 		</fieldset>
 
-		<fieldset class="comprehensive dependsOn-profilequestion-equals-yes dependsOn-profilequestiona">
+		<fieldset class="comprehensive pat-depends" data-pat-depends="condition: profilequestion=yes and profilequestiona">
 	        <legend>
-	        	<span class="dependsOn-profilequestiona-equals-no">Name of location you would like to assess</span>
-	        	<span class="dependsOn-profilequestiona-equals-yes">Name of locations you would like to assess</span>
+	        	<span class="pat-depends" data-pat-depends="profilequestiona=no">Name of location you would like to assess</span>
+	        	<span class="pat-depends" data-pat-depends="profilequestiona=yes">Name of locations you would like to assess</span>
 	        </legend>
 	        <ol class="form-iteration">
 	          <li><input type="text" name="dummy"/> <button type="button" class="small remove">Remove</button></li>
 	        </ol>
-	        <p class="buttons addButton dependsOn-profilequestiona-equals-yes">
+	        <p class="buttons addButton pat-depends" data-pat-depends="profilequestiona=yes">
 	        	<button class="small" type="button">Add another item</button>
 	        </p>
       	</fieldset>

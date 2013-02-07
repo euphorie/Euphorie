@@ -23,67 +23,6 @@ var iphone = (navigator.userAgent.search("iPhone")!==-1);
 var idcount = 0;
 
 
-// Check if all dependenceis as spcified in `dependsOn` classes for
-// an element are satisfied.
-function verifyDependencies(slave) {
-    var $el = $(slave),
-        classes = $el.attr("class").split(" "),
-        $input, i, value, parts; 
-
-    for (i=0; i<classes.length; i++) {
-        parts = classes[i].split("-");
-        if (parts.length<2 || parts[0]!=="dependsOn") {
-            continue;
-        }
-
-        $input = $(":input[name='"+parts[1]+"']");
-        if (!$input.length) {
-            return false;
-        }
-
-        if ($input.attr("type")==="radio" || $input.attr("type")==="checkbox") {
-            value = $input.filter(":checked").val();
-        } else {
-            value = $input.val();
-        }
-
-        if ((parts.length===2 || parts[2]==="on") && !value) {
-            return false;
-        } else if (parts[2]==="off" && value) {
-            return false;
-        } else if (parts.length>3) {
-            if (parts[2]==="equals" && parts[3]!==value) {
-                return false;
-            } else if (parts[2]==="notEquals" && parts[3]===value) {
-                return false;
-            }
-        } 
-    }
-
-    return true;
-}
-
-
-// Return the list of all input elements on which the given element has
-// a declared dependency via `dependsOn` classes.
-function getDependMasters(el) {
-    var $classes = $(el).attr("class").split(" "),
-        $result = $(),
-        i, parts;
-
-    for (i=0; i<$classes.length; i++) {
-        parts = $classes[i].split("-");
-        if (parts.length<2 || parts[0]!=="dependsOn") {
-            continue;
-        }
-
-        $result=$result.add(":input[name='"+parts[1]+"']");
-    }
-
-    return $result;
-}
-
-
 function initPlaceHolders(root) {
     // check placeholder browser support
     if (!Modernizr.input.placeholder) {
@@ -118,27 +57,6 @@ function initPlaceHolders(root) {
     }
 }
 
-
-// Setup dependency-tracking behaviour.
-function initDepends(root) {
-    $("*[class*='dependsOn-']", root).each(function() {
-        var $slave = $(this);
-
-        if (verifyDependencies($slave)) {
-            $slave.show();
-        } else {
-            $slave.hide();
-        }
-
-        getDependMasters($slave).bind("change.depends", function() {
-            if (verifyDependencies($slave)) {
-                $slave.slideDown();
-            } else {
-                $slave.slideUp();
-            }
-        });
-    });
-}
 
 
 
@@ -180,7 +98,6 @@ $(document).ready(function() {
     }
 
     initPlaceHolders(document);
-    initDepends(document);
 
     // Set selected and hover attributes on checkboxes and radio buttons.
     // Allows for more flexible styling.
