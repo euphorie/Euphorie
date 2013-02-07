@@ -1304,7 +1304,8 @@ aside.sidebar .postit a {
 	margin-top: 2px;
 }
 
-#ActionPlanItemForm p.question {
+#ActionPlanItemForm p.question,
+#ActionPlanItemForm p.legend {
 	margin-bottom: 5px;
 }
 
@@ -2589,7 +2590,8 @@ dl.accordion dd {
 }
 
 dl.accordion .colborder hr,
-dl.accordion .colborder p.question {
+dl.accordion .colborder p.question,
+dl.accordion .colborder p.legend {
 	display: none;
 }
 
@@ -3191,7 +3193,8 @@ fieldset legend {
 	color: #3f3f3f;
 }
 
-fieldset p.question {
+fieldset p.question,
+fieldset p.legend {
 	width: 95%;
 	font-weight: normal;
 	font-style: normal;
@@ -3254,7 +3257,9 @@ fieldset.concise label input[type=checkbox] {
 }
 
 fieldset.concise p.question,
-form.concise fieldset p.question {
+fieldset.concise p.legend,
+form.concise fieldset p.question, 
+form.concise fieldset p.legend {
 	width: auto;
 	margin: 0;
 	padding: 0;
@@ -3307,9 +3312,13 @@ form.compact fieldset.comprehensive label *
 }
 
 fieldset.comprehensive p.question,
+fieldset.comprehensive p.legend,
 form.comprehensive fieldset p.question,
+form.comprehensive fieldset p.legend,
 form.concise fieldset.comprehensive p.question,
-form.compact fieldset.comprehensive p.question {
+form.concise fieldset.comprehensive p.legend,
+form.compact fieldset.comprehensive p.question,
+form.compact fieldset.comprehensive p.legend {
 	width: 90%;
 	display: inline;
 	text-align: left;
@@ -3340,7 +3349,8 @@ form.condensed fieldset label {
 	margin-bottom: 20px;
 }
 
-fieldset.condensed p.question {
+fieldset.condensed p.question,
+fieldset.condensed p.legend {
 	width: auto;
 }
 
@@ -3352,7 +3362,8 @@ fieldset.condensed label textarea {
 	margin-bottom: 0;
 }
 
-fieldset.condensed fieldset p.question {
+fieldset.condensed fieldset p.question,
+fieldset.condensed fieldset p.legend {
 	font-weight: normal;
 	font-style: normal;
 }
@@ -4998,7 +5009,8 @@ form.concise fieldset label {
 	line-height: 20px;
 }
 
-fieldset.concise p.question {
+fieldset.concise p.question,
+fieldset.concise p.legend {
 	width: auto;
 }
 
@@ -5018,7 +5030,8 @@ fieldset.concise label input[type="text"] {
 	width: 265px;
 }
 
-fieldset.concise fieldset p.question {
+fieldset.concise fieldset p.question,
+fieldset.concise fieldset p.legend {
 	font-weight: normal;
 	font-style: normal;
 }
@@ -5053,7 +5066,8 @@ form.comprehensive fieldset label {
 	line-height: 20px;
 }
 
-fieldset.comprehensive p.question {
+fieldset.comprehensive p.question,
+fieldset.comprehensive p.legend {
 	width: 100% !important;
 	margin: 0 0 20px;
 }
@@ -5068,7 +5082,8 @@ fieldset.comprehensive label textarea {
 	height: auto;
 }
 
-fieldset.comprehensive fieldset p.question {
+fieldset.comprehensive fieldset p.question,
+fieldset.comprehensive fieldset p.legend {
 	font-weight: normal;
 	font-style: normal;
 }

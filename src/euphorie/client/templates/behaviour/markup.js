@@ -74,12 +74,6 @@ $(document).ready(function() {
     // Numeric input fields
     $("input.numeric").numeric();
 
-    // Turn legend into p.question. Workaround for browsers which can not
-    // style legend elements.
-    $("legend").each(function() {
-        $(this).replaceWith('<p class="question">'+$(this).html()+'</p>');
-    });
-
     // PNG transparancy fix for MS Internet Explorer 6
     if (engine==="msie" && engine_version<70) {
         var fixImage = function(img) {

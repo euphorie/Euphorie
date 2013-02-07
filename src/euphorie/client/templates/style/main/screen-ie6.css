@@ -272,9 +272,13 @@ form.concise fieldset label {
 }
 
 fieldset.comprehensive p.question,
+fieldset.comprehensive p.legend,
 form.comprehensive fieldset p.question,
+form.comprehensive fieldset p.legend,
 form.concise fieldset.comprehensive p.question,
-form.compact fieldset.comprehensive p.question {
+form.concise fieldset.comprehensive p.legend,
+form.compact fieldset.comprehensive p.question,
+form.compact fieldset.comprehensive p.legend {
 	margin-left: -290px;
 	width: 270px;
 	margin-right: 0;
