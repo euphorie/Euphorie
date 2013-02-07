@@ -1,7 +1,7 @@
 /*!
  * (Intelligent) markup handling
  *
- * Copyright 2008, 2009 Simplon
+ * Copyright 2008-2013 Simplon B.V.
  */
 
 function GetBrowserVersion() {
@@ -20,47 +20,9 @@ function GetBrowserEngine() {
 var engine = GetBrowserEngine();
 var engine_version = GetBrowserVersion();
 var iphone = (navigator.userAgent.search("iPhone")!==-1);
-var idcount = 0;
 
 
-function initPlaceHolders(root) {
-    // check placeholder browser support
-    if (!Modernizr.input.placeholder) {
-        // set placeholder values
-        $(root).find('[placeholder]').each(function() {
-            if ($(this).val() === '') { // if field is empty
-                $(this).val( $(this).attr('placeholder') );
-            }
-        });
-		
-        // focus and blur of placeholders
-        $('[placeholder]', root).focus(function() {
-            if ($(this).val() === $(this).attr('placeholder')) {
-                $(this).val('');
-                $(this).removeClass('placeholder');
-            }
-        }).blur(function() {
-            if ($(this).val() === '' || $(this).val() === $(this).attr('placeholder')) {
-                $(this).val($(this).attr('placeholder'));
-                $(this).addClass('placeholder');
-            }
-        });
-		
-        // remove placeholders on submit
-        $('[placeholder]', root).closest('form').submit(function() {
-            $(this).find('[placeholder]').each(function() {
-                if ($(this).val() === $(this).attr('placeholder')) {
-                    $(this).val('');
-                }
-            });
-        });
-    }
-}
-
-
-
-
-$(".printButton").live("click", function() {
+$(".printButton").on("click", function() {
     window.print();
     return false;
 });
@@ -90,38 +52,6 @@ $(document).ready(function() {
             fixImage(this);
         });
     }
-
-    initPlaceHolders(document);
-
-    // Set selected and hover attributes on checkboxes and radio buttons.
-    // Allows for more flexible styling.
-    $("ul.radioList,ul.radioRow").each(function() {
-        var list = $(this);
-
-        list.find("li input")
-            .hover(
-                function() { $(this).parents("li").addClass("hover"); },
-                function() { $(this).parents("li").removeClass("hover"); })
-            .click(function() {
-                list.find("li").removeClass("selected");
-                list.find("li input:checked").parents("li").addClass("selected");
-            });
-
-        $("li input:checked", list).parents("li").addClass("selected");
-    });
-
-    function setSelectForCheckbox(el) {
-        var label = $(el).parents("label");
-        if (el.checked) {
-            $(label).addClass("selected");
-        } else {
-            $(label).removeClass("selected");
-        }
-    }
-
-    $("label input[type=checkbox]")
-        .click(function() { setSelectForCheckbox(this); })
-        .each(function() { setSelectForCheckbox(this); });
 
     tmp = $(".autofocus:first");
     if (tmp.length) {
