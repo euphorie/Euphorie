@@ -22,19 +22,6 @@ var engine_version = GetBrowserVersion();
 var iphone = (navigator.userAgent.search("iPhone")!==-1);
 var idcount = 0;
 
-function assertId(el) {
-    el = $(el);
-    var id = el.attr("id");
-
-    if (!id) {
-        idcount+=1;
-        id="id"+String(idcount);
-        el.attr("id", id);
-    }
-    return id;
-}
-
-
 
 // Check if all dependenceis as spcified in `dependsOn` classes for
 // an element are satisfied.
@@ -131,36 +118,6 @@ function initPlaceHolders(root) {
     }
 }
 
-function initTooltips(root) {
-    if (engine==="msie" && engine_version<80) {
-        $(".clicktip", root).each(function() { 
-            $(this).click(function() { return false; });
-        });
-    }
-    else {
-        // Clicktips are activated by clicking on an item
-        $(".clicktip", root).each(function() {
-            var id = assertId(this);
-            $(this).bt({trigger: "click",
-                        fill: "#8293ab",
-                        strokeStyle: "#8293ab", 
-                        contentSelector: "$('#" + id + "').html()"
-                        })
-                .click(function() { return false; });
-        });
-    }
-
-    $(".focustip", root).each(function() {
-        var target = $(this).attr("class").match(/target-id-([A-Za-z0-9_\-]+)/);
-        if (target) {
-            var id = assertId(this);
-            $("#"+target[1]).bt({
-                trigger: ["focus", "blur"],
-                contentSelector: "$('#" + id + "').html()"
-            });
-        }
-    });
-}
 
 // Setup dependency-tracking behaviour.
 function initDepends(root) {
@@ -182,121 +139,6 @@ function initDepends(root) {
         });
     });
 }
-
-
-// Animation function for fancy effect when showing a BeautyTips
-// tooltip. Use as the showTip option.
-function BeautyTipShow(box) {
-    var $content = $('.bt-content', box).hide(), /* hide the content until after the animation */
-        $canvas = $('canvas', box).hide(), /* hide the canvas for a moment */
-        origWidth = $canvas[0].width, /* jQuery's .width() doesn't work on canvas element */
-        origHeight = $canvas[0].height;
-    $(box).show(); /* show the wrapper, however elements inside (canvas, content) are now hidden */
-    $canvas
-      .css({width: origWidth * 0.5,
-            height: origHeight * 0.5,
-            left: origWidth * 0.25,
-            top: origHeight * 0.25,
-            opacity: 0.1})
-      .show()
-      .animate({width: origWidth,
-                height: origHeight,
-                left: 0,
-                top: 0,
-                opacity: 1},
-                400, 'easeOutBounce',
-                function(){
-                    $content.show();} /* show the content when animation is done */
-                );
-}
-
-// Animation function for fancy effect when hiding a BeautyTips
-// tooltip. Use as the hideTip option
-function BeautyTipHide(box, callback) {
-    $('.bt-content', box).hide();
-    var $canvas = $('canvas', box);
-    if ($canvas.length===0) { return; }
-    var origWidth = $canvas[0].width,
-        origHeight = $canvas[0].height;
-    $canvas
-      .animate({width: origWidth * 0.5,
-                height: origHeight * 0.5,
-                left: origWidth * 0.25,
-                top: origHeight * 0.25,
-                opacity: 0
-                },
-                400, 'swing', callback);
-}
-
-
-jQuery.fn.toolTip = function(content, options) {
-    var postShow = function(box) {
-        var tipsource = $(this);
-        var monitor = tipsource.add($(box));
-        var timer;
-
-        tipsource.data("btdelay.hover", true).data("btdelay.delay", 0);
-
-        var checkRemove = function() {
-            var hovered = tipsource.data("btdelay.hover");
-
-            if (hovered) {
-                tipsource.data("btdelay.delay", 0);
-            } else {
-                var delay = tipsource.data("btdelay.delay");
-                if (delay<5) {
-                    tipsource.data("btdelay.delay", delay+1);
-                } else {
-                    clearInterval(timer);
-                    monitor.unbind(".btdelay");
-                    tipsource.btOff();
-                }
-            }
-        };
-
-        monitor.bind("mouseenter.btdelay", function() { tipsource.data("btdelay.hover", true); })
-               .bind("mouseleave.btdelay", function() { tipsource.data("btdelay.hover", false); });
-        timer=setInterval(checkRemove, 100);
-    };
-
-    var opt = (typeof content === "string") ? options : content;
-    opt = jQuery.extend(opt, {trigger: "none", postShow: postShow});
-
-    return this.each(function(index) {
-        var hoverOpts = {
-                over : function() {
-                           if (!$(this).data("btdelay.hover")) {
-                               $(this).btOn();
-                           }
-                       },
-                out : function() { }
-                };
-    
-        $(this).bt(content, opt).hoverIntent(hoverOpts);
-    });
-};
-
-
-// Set some default styles for BeautyTip
-jQuery.bt.options.positions="top, right, left, bottom";
-jQuery.bt.options.showTip=BeautyTipShow;
-jQuery.bt.options.hideTip=BeautyTipHide;
-jQuery.bt.options.fill="#c16800";
-jQuery.bt.options.cornerRadius=0;
-jQuery.bt.options.strokeWidth=1;
-jQuery.bt.options.strokeStyle="#f6921d"; 
-jQuery.bt.options.shadow=true;
-jQuery.bt.options.shadowOffsetX=0;
-jQuery.bt.options.shadowOffsetY=0;
-jQuery.bt.options.shadowBlur=5;
-jQuery.bt.options.spikeLength= 10; 
-jQuery.bt.options.spikeGirth= 10;
-jQuery.bt.options.padding= 10;
-jQuery.bt.options.shadowColor="rgba(0,0,0,.6)";
-jQuery.bt.options.shadowOverlap=false;
-jQuery.bt.options.noShadowOpts={strokeStyle: "white",
-                                strokeWidth: 2
-                                };
 
 
 
@@ -339,7 +181,6 @@ $(document).ready(function() {
 
     initPlaceHolders(document);
     initDepends(document);
-    initTooltips(document);
 
     // Set selected and hover attributes on checkboxes and radio buttons.
     // Allows for more flexible styling.
@@ -371,10 +212,6 @@ $(document).ready(function() {
         .click(function() { setSelectForCheckbox(this); })
         .each(function() { setSelectForCheckbox(this); });
 
-    if (!(engine==="msie" && engine_version<70)) {
-        // Title attributes get an on-hover tooltip 
-        $("*[title][rel!=fancybox]:not(form):not('.clicktip,.pat-tooltip')").toolTip({shrinkToFit: true});
-    }
     tmp = $(".autofocus:first");
     if (tmp.length) {
         tmp.get(0).focus();
