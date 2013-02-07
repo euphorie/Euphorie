@@ -25,12 +25,9 @@
 
     <form accept-charset="UTF-8" method="post" action="${request/URL}">
       <fieldset class="concise" id="comments">
-        <label for="comment" class="superImpose" i18n:translate="label_report_comment">
-          Please leave any extra comments that should be included in the report
-          in this field.
-        </label>
         <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5"
-                  tal:content="view/session/report_comment"></textarea>
+          placeholder="Please leave any extra comments that should be included in the report in this field."
+          i18n:attributes="placeholder label_report_comment;">${view/session/report_comment}</textarea>
       </fieldset>
 
       <p class="buttonBar">

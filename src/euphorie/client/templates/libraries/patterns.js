@@ -1,5 +1,5 @@
 /**
- * Patterns bundle v1.1.0-1-g809dd9c-a2aa2f97
+ * Patterns bundle v1.1.0-15-gf5d1995-b138dd29
  *
  * See http://patternslib.com/ for more information.
  *
@@ -10850,8 +10850,6 @@ define('core/parser',[
     'jquery',
     './logger'
 ], function($, logger) {
-    var log = logger.getLogger('parser');
-
     function ArgumentParser(name) {
         this.order = [];
         this.parameters = {};
@@ -10860,6 +10858,7 @@ define('core/parser',[
         this.enum_conflicts = [];
         this.groups = {};
         this.possible_groups = {};
+        this.log = logger.getLogger(name + ".parser");
     }
 
     ArgumentParser.prototype = {
@@ -10973,12 +10972,12 @@ define('core/parser',[
                             throw ("Do not know how to convert value for " + name + " to " + spec.type);
                     }
                 } catch (e) {
-                    log.warn(e);
+                    this.log.warn(e);
                     return null;
                 }
 
             if (spec.choices && spec.choices.indexOf(value)===-1) {
-                log.warn("Illegal value for " + name + ": " + value);
+                this.log.warn("Illegal value for " + name + ": " + value);
                 return null;
             }
 
@@ -10987,7 +10986,7 @@ define('core/parser',[
 
         _set: function(opts, name, value) {
             if (!(name in this.parameters)) {
-                log.debug("Ignoring value for unknown argument " + name);
+                this.log.debug("Ignoring value for unknown argument " + name);
                 return;
             }
 
@@ -11020,7 +11019,7 @@ define('core/parser',[
 
                 matches = parts[i].match(this.named_param_pattern);
                 if (!matches) {
-                    log.warn("Invalid parameter: " + parts[i]);
+                    this.log.warn("Invalid parameter: " + parts[i]);
                     break;
                 }
 
@@ -11034,7 +11033,7 @@ define('core/parser',[
                     for (var field in subopt)
                         this._set(opts, name+"-"+field, subopt[field]);
                 } else {
-                    log.warn("Unknown named parameter " + matches[1]);
+                    this.log.warn("Unknown named parameter " + matches[1]);
                     continue;
                 }
             }
@@ -11076,7 +11075,7 @@ define('core/parser',[
                     break;
             }
             if (parts.length)
-                log.warn("Ignore extra arguments: " + parts.join(" "));
+                this.log.warn("Ignore extra arguments: " + parts.join(" "));
             return opts;
         },
 
@@ -11108,7 +11107,7 @@ define('core/parser',[
                         result[name]=this.parameters[name].value($el, name);
                         this.parameters[name].type=typeof result[name];
                     } catch(e) {
-                        log.error("Default function for " + name + " failed.");
+                        this.log.error("Default function for " + name + " failed.");
                     }
                 else
                     result[name]=this.parameters[name].value;
@@ -14125,12 +14124,9 @@ define('pat/tooltip',[
     parser.add_argument("position-policy", "auto", ["auto", "force"]);
     parser.add_argument("trigger", "click", ["click", "hover"]);
     parser.add_argument("closing", "auto", ["auto", "sticky", "close-button"]);
+    parser.add_argument("source", "title", ["ajax", "content", "title"]);
     parser.add_argument("delay", 0);
     parser.add_argument("class");
-    parser.add_argument("ajax", false);
-    parser.add_argument("title", function($el) {
-        return $el.attr("title");
-    });
 
     var tooltip = {
         name: "tooltip",
@@ -14142,8 +14138,12 @@ define('pat/tooltip',[
             return $el.each(function() {
                 var $trigger = $(this),
                     options = parser.parse($trigger, opts);
+                if (options.source==="title") {
+                    options.title=$trigger.attr("title");
+                    $trigger.removeAttr("title");
+                } else if (options.trigger==="hover")
+                    $trigger.removeAttr("title");
                 $trigger
-                    .removeAttr("title")
                     .data("patterns.tooltip", options)
                     .on("destroy", $trigger, tooltip.onDestroy);
                 tooltip.setupShowEvents($trigger);
@@ -14241,7 +14241,7 @@ define('pat/tooltip',[
             // trigger a hide as well.
             setTimeout(function() { tooltip.setupHideEvents($trigger); }, 50);
 
-            if (options.ajax) {
+            if (options.source==="ajax") {
                 var source = $trigger.attr("href").split("#"),
                     target_id = $container.find("progress").attr("id");
                 inject.execute([{
@@ -14306,10 +14306,18 @@ define('pat/tooltip',[
             if (options["class"])
                 $container.addClass(options["class"]);
             $container.css("visibility", "hidden");
-            if (options.ajax) {
-                $content = $("<progress/>", {"id": "tooltip-load-" + count});
-            } else {
-                $content = $("<p/>").text(options.title);
+            switch (options.source) {
+            case "ajax":
+                $content=$("<progress/>", {"id": "tooltip-load-" + count});
+                break;
+            case "title":
+                $content=$("<p/>").text(options.title);
+                break;
+            case "content":
+                $content=$trigger.children().clone();
+                if (!$content.length)
+                    $content=$("<p/>").text($trigger.text());
+                break;
             }
             $container.append(
                 $("<div/>").css("display", "block").append($content))
@@ -14488,7 +14496,7 @@ define('pat/tooltip',[
                 tip_offset = {},
                 position;
 
-            for (var i=0; i<options.position.length; i++) {
+            for (var i=0; i<options.position.list.length; i++) {
                 if (options.position.policy==="force" || tooltip.isVisible(status, options.position.list[i])) {
                     position = options.position.list[i];
                     break;

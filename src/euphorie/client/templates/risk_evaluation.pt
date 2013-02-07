@@ -60,20 +60,20 @@
             <label>
                 <input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
                 <tal:span i18n:translate="severity_weak">Weak</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="severity_weak_help">No need to stop working</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title severity_weak_help;" title="No need to stop working"></dfn>
             </label>
             <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
                 <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="severity_not_severe_help">Need to stop working for less than 3 days</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title severity_not_severe_help;" title="Need to stop working for less than 3 days"></dfn>
             </label>
             <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
                 <tal:span i18n:translate="severity_severe">Severe</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="severity_severe_help">Need to stop working for more than 3 days</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title severity_severe_help;" title="Need to stop working for more than 3 days"></dfn>
             </label>
             <label>
                 <input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
                 <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="severity_very_severe_help">Irreversible injury, incurable illness, death</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title severity_very_severe_help;" title="Irreversible injury, incurable illness, death"></dfn>
             </label>
           </fieldset>
 
@@ -82,22 +82,22 @@
             <label>
                 <input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
                 <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_rare_help">Once per year</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_rare_help;" title="Once per year"></dfn>
             </label>
             <label>
                 <input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
                 <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_not_often_help">Once per month</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_not_often_help;" title="Once per month"></dfn>
             </label>
             <label> 
                 <input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
                 <tal:span i18n:translate="frequency_french_often">Often</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_often_help">Once per week</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_often_help;" title="Once per week"></dfn>
             </label>
             <label>
                 <input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
                 <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br/>
-                <a href="#" class="icon info clicktip" i18n:translate="frequency_french_regularly_help">Minimum once per day</a>
+                <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_regularly_help;" title="Minimum once per day"></dfn>
             </label>
           </fieldset>
         </tal:french>

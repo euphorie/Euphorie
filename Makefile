@@ -13,15 +13,12 @@ JS_PACK		= $(YUICOMPRESS) --charset utf-8
 JS_DIR		= src/euphorie/client/templates
 JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
-JQUERY 		= $(JS_DIR)/libraries/jquery-1.8.3.min.js \
+EXTRAS		= $(JS_DIR)/libraries/patterns.js \
 		  $(JS_DIR)/libraries/jquery-ui-1.9.1.js \
-		  $(JS_DIR)/libraries/jquery-ui-i18n.js
-EXTRAS		= $(JS_DIR)/libraries/jquery.hoverIntent.js \
-		  $(JS_DIR)/libraries/jquery.bt.js  \
+		  $(JS_DIR)/libraries/jquery-ui-i18n.js \
 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
 		  $(JS_DIR)/libraries/css_browser_selector.js \
 		  $(JS_DIR)/libraries/jquery.numeric.js \
-		  $(JS_DIR)/libraries/jquery.placeholder.js \
 		  $(JS_DIR)/libraries/jquery.scrollTo.js \
 		  $(JS_DIR)/libraries/jquery.localscroll.js \
 		  $(JS_DIR)/libraries/fancybox/jquery.fancybox-1.3.1.pack.js \
@@ -50,10 +47,10 @@ bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setu
 check:: bin/test ${MO_FILES}
 	bin/test -s euphorie
 
-jenkins: bin/test bin/sphinx-build ${MO_FILES}
+jenkins: bin/test bin/sphinx-build $(MO_FILES)
 	bin/test --xml -s euphorie
 
-$(JS_DIR)/behaviour/common.min.js: ${JQUERY} ${EXTRAS} $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
+$(JS_DIR)/behaviour/common.min.js: $(EXTRAS) $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
 
 docs:: bin/sphinx-build

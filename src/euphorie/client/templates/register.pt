@@ -24,7 +24,7 @@
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <h2 i18n:translate="header_register">Register</h2>
       <fieldset class="concise">
-        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="autofocus email" type="email" name="email" value="${request/email|nothing}"/>
+        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
           <em class="error" tal:condition="exists:errors/email" tal:content="errors/email">Invalid login name</em></label>
         <label><tal:span i18n:translate="label_new_password">Desired password</tal:span> <input class="password" type="password" name="password1:utf8:ustring" />
           <em class="error" tal:condition="exists:errors/password" tal:content="errors/password">Invalid password</em></label>
