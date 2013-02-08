@@ -3,24 +3,27 @@ import random
 from Acquisition import aq_inner
 import lxml.etree
 import lxml.objectify
+from five import grok
 from zope import schema
 from zope.interface import Interface
 from zope.interface import Invalid
 from plone.namedfile.file import NamedBlobImage
+from plone.directives import form
 from .. import MessageFactory as _
 from plone.namedfile import field as filefield
 from z3c.form.interfaces import WidgetActionExecutionError
-from z3c.form import form, field, button
-from plone.z3cform.layout import wrap_form
+from z3c.form import button
 from plone.dexterity.utils import createContentInContainer
 from zope.component import getMultiAdapter
 from Products.statusmessages.interfaces import IStatusMessage
-from euphorie.content.risk import IRisk
-from euphorie.content.risk import IFrenchEvaluation
-from euphorie.content.risk import IKinneyEvaluation
-from euphorie.content.risk import EnsureInterface
-from euphorie.content.user import LoginField
-from euphorie.content.user import validLoginValue
+from .country import ICountry
+from .risk import IRisk
+from .risk import IFrenchEvaluation
+from .risk import IKinneyEvaluation
+from .risk import EnsureInterface
+from .user import LoginField
+from .user import validLoginValue
+from .sector import ISector
 
 
 NSMAP = {None: "http://xml.simplon.biz/euphorie/survey/1.0"}
@@ -320,16 +323,23 @@ class SectorImporter(SurveyImporter):
         return root
 
 
-class ImportSurvey(form.Form):
-    fields = field.Fields(IImportSurvey)
+class ImportSurvey(form.SchemaForm):
+    grok.context(ISector)
+    grok.require("euphorie.content.AddNewRIEContent")
+    grok.name("upload")
+    form.wrap(True)
+
+    schema = IImportSurvey
     ignoreContext = True
     form_name = _(u"Import survey version")
+
+    importer_factory = SurveyImporter
 
     @button.buttonAndHandler(_(u"Upload"))
     def handleUpload(self, action):
         (data, errors) = self.extractData()
         input = data["file"].data
-        importer = SurveyImporter(self.context)
+        importer = self.importer_factory(self.context)
         try:
             survey = importer(input,
                     data["surveygroup_title"], data["survey_title"])
@@ -347,11 +357,13 @@ class ImportSurvey(form.Form):
         self.request.response.redirect(state.view_url())
 
 
-ImportSurveyView = wrap_form(ImportSurvey)
+class ImportSector(form.SchemaForm):
+    grok.context(ICountry)
+    grok.require("euphorie.content.ManageCountry")
+    grok.name("upload")
+    form.wrap(True)
 
-
-class ImportSector(form.Form):
-    fields = field.Fields(IImportSector)
+    schema = IImportSector
     ignoreContext = True
     label = _("title_import_sector_survey",
             default=u"Import sector and survey")
@@ -363,7 +375,7 @@ class ImportSector(form.Form):
         (data, errors) = self.extractData()
         input = data["file"].data
 
-        importer = self.SectorImporter(self.context)
+        importer = self.importer_factory(self.context)
 
         try:
             sector = importer(input, data["sector_title"],
@@ -382,6 +394,3 @@ class ImportSector(form.Form):
         state = getMultiAdapter((sector, self.request),
                 name="plone_context_state")
         self.request.response.redirect(state.view_url())
-
-
-ImportSectorView = wrap_form(ImportSector)

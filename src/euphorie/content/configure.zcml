@@ -32,20 +32,6 @@
         title="Euphorie: Delete published content"
         />
 
-    <browser:page
-        for=".country.ICountry"
-        name="upload"
-        class=".upload.ImportSectorView"
-        permission="euphorie.content.ManageCountry"
-        />
-
-    <browser:page
-        for=".sector.ISector"
-        name="upload"
-        class=".upload.ImportSurveyView"
-        permission="euphorie.content.AddNewRIEContent"
-        />
-
     <grok:grok package="." />
 
     <five:registerClass
