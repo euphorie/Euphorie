@@ -1,5 +1,5 @@
 /**
- * Patterns bundle v1.1.0-15-gf5d1995-b138dd29
+ * Patterns bundle v1.1.0-24-g950564e-6389a421
  *
  * See http://patternslib.com/ for more information.
  *
@@ -12617,10 +12617,7 @@ define('pat/collapsible',[
         },
 
         _onClick: function(event) {
-            // XXX: hack to ignore clicks on a tooltip in our trigger element
-            if ($(event.target).attr("data-tooltip") === undefined) {
-                _.toggle(event.data);
-            }
+            _.toggle(event.data);
         },
 
         destroy: function($el) {
@@ -13098,6 +13095,17 @@ define('lib/depends_parse',[],function() {
             result0 = null;
             if (reportFailures === 0) {
               matchFailed("\"!=\"");
+            }
+          }
+          if (result0 === null) {
+            if (input.substr(pos, 2) === "~=") {
+              result0 = "~=";
+              pos += 2;
+            } else {
+              result0 = null;
+              if (reportFailures === 0) {
+                matchFailed("\"~=\"");
+              }
             }
           }
         }
@@ -13609,6 +13617,10 @@ define('lib/dependshandler',[
                             return value>node.value;
                         case ">=":
                             return value>=node.value;
+                        case "~=":
+                            if (value===null)
+                                return false;
+                            return value.indexOf(node.value)!=-1;
                     }
                     break;
                 case "truthy":
@@ -13864,7 +13876,8 @@ define('pat/modal',[
         },
 
         _init_div1: function($el) {
-            var $header = $("<div class='header' />");
+            var $header = $("<div class='header' />"),
+                activeElement = document.activeElement;
 
             $("<button type='button' class='close-panel'>Close</button>").appendTo($header);
 
@@ -13873,6 +13886,10 @@ define('pat/modal',[
                 .wrapAll("<div class='panel-content' />");
             $(".panel-content", $el).before($header);
             $el.children(":first:not(.header)").prependTo($header);
+
+            // Restore focus in case the active element was a child of $el and
+            // the focus was lost during the wrapping.
+            activeElement.focus();
 
             // event handlers remove modal - first arg to bind is ``this``
             $(document).on("click.pat-modal", ".close-panel",
@@ -14230,6 +14247,9 @@ define('pat/tooltip',[
         },
 
         show: function(event) {
+            // Stop bubbling, as it causes problems if ancestor
+            // is e.g. pat-collapsible.
+            event.stopPropagation();
             event.preventDefault();
             var $trigger = event.data,
                 $container = tooltip.getContainer($trigger, true),
