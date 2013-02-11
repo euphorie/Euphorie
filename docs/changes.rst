@@ -25,14 +25,12 @@ accounts and client URL.
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- Optional profile questions have been replaced with option modules. Previous
 - Add a legend to the client navigation tree to explain the used icons. This
   fixes `ticket 51 <https://github.com/euphorie/Euphorie/issues/51>`_.
-
+- Optional profile questions have been replaced with option modules. Previous
   versions supported both, and they did almost exactly the same thing which was
   a source of consution. All existing optional profile questions will
   automatically be converted to optional modules as part of the upgrade.
-
 - Added translations for Finnish (FI) and Lithuanian (LT)
 - Updated Bulgarian translations.
 - Include a default application configuration file.
