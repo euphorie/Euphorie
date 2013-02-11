@@ -29,14 +29,12 @@
   <metal:css define-macro="css" meta:interpolation="true" tal:define="base_url client/++resource++euphorie.style">
     <tal:block condition="webhelpers/debug_mode">
       <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.css" />
-      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/datepicker.css" />
       <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="all" href="++resource++screen-ie6.css"/> <![endif]-->
       <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.css"/> <![endif]-->
       <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie8.css" /> <![endif]-->
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
       <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.min.css" />
-      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/datepicker.min.css" />
       <!--[if lte IE 6]> <link rel="stylesheet" type="text/css" media="all" href="++resource++screen-ie6.css"/> <![endif]-->
       <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.min.css"/> <![endif]-->
       <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie8.min.css" /> <![endif]-->
