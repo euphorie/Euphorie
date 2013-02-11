@@ -844,36 +844,33 @@ class ActionPlanTimeline(grok.View):
             'high': _(u'label_timeline_priority_high', default=u'High'),
             }
 
-    plan_columns = [
-            ('planning_start',
+    columns = [
+            ('measure', 'planning_start',
                 _('label_action_plan_start', default=u'Planning start')),
-            ('planning_end',
+            ('measure', 'planning_end',
                 _('label_action_plan_end', default=u'Planning end')),
-            ('action_plan',
+            ('measure', 'action_plan',
                 _('label_measure_action_plan',
                     default=u'General approach '
                             u'(to eliminate or reduce the risk)')),
-            ('prevention_plan',
+            ('measure', 'prevention_plan',
                 _('label_measure_prevention_plan',
                     default=u'Specific action(s) required to implement '
                             u'this approach')),
-            ('requirements',
+            ('measure', 'requirements',
                 _('label_measure_requirements', default=u'Requirements')),
-            ('responsible',
+            ('measure', 'responsible',
                 _('label_action_plan_responsible',
                     default=u'Who is responsible?')),
-            ('budget',
+            ('measure', 'budget',
                 _('label_action_plan_budget', default=u'Budget (in Euro)')),
-            ]
-
-    risk_columns = [
-            ('number',
+            ('risk', 'number',
                 _('label_risk_number', default=u'Risk number')),
-            ('title',
+            ('risk', 'title',
                 _('report_timeline_risk_title', default=u'Risk')),
-            ('priority',
+            ('risk', 'priority',
                 _('report_timeline_priority', default=u'Priority')),
-            ('comment',
+            ('risk', 'comment',
                 _('report_timeline_comment', default=u'Comments')),
             ]
 
@@ -892,27 +889,23 @@ class ActionPlanTimeline(grok.View):
         sheet.title = t(_('report_timeline_title', default=u'Timeline'))
         survey = self.request.survey
 
-        all_columns = self.plan_columns + self.risk_columns
-        for (column, (key, title)) in enumerate(all_columns):
+        for (column, (type, key, title)) in enumerate(self.columns):
             sheet.cell(row=0, column=column).value = t(title)
 
-        for (row, (risk, plan)) in enumerate(self.get_measures(), 1):
+        for (row, (risk, measure)) in enumerate(self.get_measures(), 1):
             column = 0
-            for (key, title) in self.plan_columns:
-                value = getattr(plan, key, None)
-                if value is not None:
-                    sheet.cell(row=row, column=column).value = value
-                column += 1
-            for (key, title) in self.risk_columns:
-                value = getattr(risk, key, None)
-                if key == 'priority':
-                    value = self.priority_name(value)
-                elif key == 'title':
-                    zodb_node = survey.restrictedTraverse(
-                            risk.zodb_path.split('/'))
-                    if zodb_node.problem_description and \
-                            zodb_node.problem_description.strip():
-                        value = zodb_node.problem_description
+            zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+            for (type, key, title) in self.columns:
+                if type == 'measure':
+                    value = getattr(measure, key, None)
+                else:
+                    value = getattr(risk, key, None)
+                    if key == 'priority':
+                        value = self.priority_name(value)
+                    elif key == 'title':
+                        if zodb_node.problem_description and \
+                                zodb_node.problem_description.strip():
+                            value = zodb_node.problem_description
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1
