@@ -896,9 +896,10 @@ class ActionPlanTimeline(grok.View):
             column = 0
             zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
             for (type, key, title) in self.columns:
+                value = None
                 if type == 'measure':
                     value = getattr(measure, key, None)
-                else:
+                elif type == 'risk':
                     value = getattr(risk, key, None)
                     if key == 'priority':
                         value = self.priority_name(value)
