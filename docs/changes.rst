@@ -38,6 +38,8 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Dutch translation: Fix bad column header in timeline report.
+
 - Correct rendering of strong text in the client to make sure it is easy to
   read. This fixes `ticket 65
   <https://github.com/euphorie/Euphorie/issues/65>`_ and

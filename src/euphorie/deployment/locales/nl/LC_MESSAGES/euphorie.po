@@ -488,7 +488,7 @@ msgstr "Risico"
 #. Default: Priority
 #: src/euphorie/client/report.py:875
 msgid "report_timeline_priority"
-msgstr "Dit is een risico in de categorie: "
+msgstr "Categorie"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:877
