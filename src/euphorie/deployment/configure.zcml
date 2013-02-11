@@ -5,7 +5,6 @@
            i18n_domain="euphorie">
 
   <include package="z3c.appconfig" file="meta.zcml"/>
-  <include package="collective.zrtresource" />
   <include package="plonetheme.nuplone" />
   <include package="euphorie.content" />
   <include package="euphorie.client" />
