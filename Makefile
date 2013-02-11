@@ -2,12 +2,11 @@ YUICOMPRESS	?= yui-compressor
 PYTHON		?= python2.7
 
 CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
-CSS_DIR		= src/euphorie/client/templates/style/main
-CSS_TARGETS	= $(CSS_DIR)/datepicker.min.css \
-		  $(CSS_DIR)/screen.min.css \
-		  $(CSS_DIR)/screen-ie7.min.css \
-		  $(CSS_DIR)/screen-ie8.min.css \
-		  $(CSS_DIR)/screen-osha.min.css
+CSS_DIR		= src/euphorie/client/templates/style
+CSS_TARGETS	= $(CSS_DIR)/main/screen.min.css \
+		  $(CSS_DIR)/main/screen-ie7.min.css \
+		  $(CSS_DIR)/main/screen-ie8.min.css \
+		  $(CSS_DIR)/osha/screen.min.css
 
 JS_PACK		= $(YUICOMPRESS) --charset utf-8
 JS_DIR		= src/euphorie/client/templates

@@ -10,6 +10,9 @@ Upgrade notes
 Python 2.7 is now fully supported and the recommended Python version to use.
 Python 2.6 is still supported.
 
+zc.buildout has been updated to version 2. You will need to re-bootstrap your
+buildout when upgrading to Euphorie 6.
+
 This release updates the profile version to *13*. Please use the upgrade
 feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
 profile to this version.
@@ -25,20 +28,22 @@ accounts and client URL.
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- Optional profile questions have been replaced with option modules. Previous
+- IE 6 is no longer supported. IE 7 is only provisionally supported: it might
+  work, but any bugs will no longer be fixed.
 - Add a legend to the client navigation tree to explain the used icons. This
   fixes `ticket 51 <https://github.com/euphorie/Euphorie/issues/51>`_.
-
+- Optional profile questions have been replaced with option modules. Previous
   versions supported both, and they did almost exactly the same thing which was
   a source of consution. All existing optional profile questions will
   automatically be converted to optional modules as part of the upgrade.
-
 - Added translations for Finnish (FI) and Lithuanian (LT)
 - Updated Bulgarian translations.
 - Include a default application configuration file.
 
 Bugfixes
 ~~~~~~~~
+
+- Dutch translation: Fix bad column header in timeline report.
 
 - Correct rendering of strong text in the client to make sure it is easy to
   read. This fixes `ticket 65
@@ -53,7 +58,7 @@ Bugfixes
   be possible to do things like mix risks and modules in a single container
   using copy & paste.
 
-- Upgrade to dexterity 1.2.1 and Plone 4.2.4.
+- Upgrade to zc.buildout 2, dexterity 1.2.1 and Plone 4.2.4.
 
 - Registering from within a country skips terms and conditions page.
 
