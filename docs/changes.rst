@@ -10,6 +10,9 @@ Upgrade notes
 Python 2.7 is now fully supported and the recommended Python version to use.
 Python 2.6 is still supported.
 
+zc.buildout has been updated to version 2. You will need to re-bootstrap your
+buildout when upgrading to Euphorie 6.
+
 This release updates the profile version to *13*. Please use the upgrade
 feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
 profile to this version.
@@ -53,7 +56,7 @@ Bugfixes
   be possible to do things like mix risks and modules in a single container
   using copy & paste.
 
-- Upgrade to dexterity 1.2.1 and Plone 4.2.4.
+- Upgrade to zc.buildout 2, dexterity 1.2.1 and Plone 4.2.4.
 
 - Registering from within a country skips terms and conditions page.
 
