@@ -28,6 +28,8 @@ accounts and client URL.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- IE 6 is no longer supported. IE 7 is only provisionally supported: it might
+  work, but any bugs will no longer be fixed.
 - Add a legend to the client navigation tree to explain the used icons. This
   fixes `ticket 51 <https://github.com/euphorie/Euphorie/issues/51>`_.
 - Optional profile questions have been replaced with option modules. Previous
