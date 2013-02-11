@@ -6,13 +6,7 @@
 
 @import url("fontello/css/fontello.css");
 
-@font-face {
-	font-family: 'Abadi-cl';
-	src: url('abadi/abadi-mt-std-condensed_light-webfont.eot');
-	src: local('☺'), url('abadi/abadi-mt-std-condensed_light-webfont.woff') format('woff'), url('abadi/abadi-mt-std-condensed_light-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext);
 
 html {	height: 100%;
 	background: #8b8987 url(body.png) repeat-y center 0;	
@@ -2409,10 +2403,10 @@ body > h1 {
 	margin: 0 -50px 20px -170px;
 	text-shadow: 0px 1px 0px rgba(255, 255, 255,1);
 	padding-top: 204px;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 	padding-left: 170px;
 	background: #031c48 url(header.png) no-repeat 0 0;
-	font: lighter 35px/50px Abadi-cl, Geneva, Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font: lighter 35px/40px 'Open Sans Condensed', sans-serif;
 }
 
 body.report h1
