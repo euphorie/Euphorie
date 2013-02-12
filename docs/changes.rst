@@ -43,6 +43,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Do render bold text as white on a light background in the risk action plan
+  page for the client. This fixes `ticket 75
+  <https://github.com/euphorie/Euphorie/issues/75>`_.
+
 - Use a custom icon font to display the warning-icon in client reports. This
   helps for browsers/computers that do not include the unicode warning
   symbol in their font. This fixes `ticket 61

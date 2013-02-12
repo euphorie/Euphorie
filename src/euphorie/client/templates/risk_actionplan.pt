@@ -24,7 +24,7 @@
    <h1>${view/title}</h1>
    <form method="post" action="${context/absolute_url}">
 
-    <div class="warning last span-15" tal:define="show_statement python:True">
+    <div class="message warning last span-15" tal:define="show_statement python:True">
       <metal:call use-macro="webhelpers/macros/risk_info" />
       <fieldset tal:define="value data/priority">
         <label i18n:translate="risk_priority">This is a <select name="priority" i18n:name="priority">
