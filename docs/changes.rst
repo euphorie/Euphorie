@@ -43,6 +43,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Change default font in the client to a font which does not have problems
+  with Greek characters. This fixes `ticket 74
+  <https://github.com/euphorie/Euphorie/issues/74>`_.
+
 - Dutch translation: Fix bad column header in timeline report.
 
 - Correct rendering of strong text in the client to make sure it is easy to
