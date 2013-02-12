@@ -43,6 +43,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Use a custom icon font to display the warning-icon in client reports. This
+  helps for browsers/computers that do not include the unicode warning
+  symbol in their font. This fixes `ticket 61
+  <https://github.com/euphorie/Euphorie/issues/61>`_.
+
 - Change default font in the client to a font which does not have problems
   with Greek characters. This fixes `ticket 74
   <https://github.com/euphorie/Euphorie/issues/74>`_.
