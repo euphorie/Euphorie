@@ -17,7 +17,7 @@ in cooperation with `Simplon B.V.`_ and `Cornelis Kolbach`_ in commission of
 Introduction
 ============
 
-The euphorie risk assessment tool is based on hierarchical questionnaires. A
+The Euphorie risk assessment tool is based on hierarchical questionnaires. A
 questionnaire (or survey) covers all possible risks for a specific sector of
 industry.
 
@@ -30,5 +30,5 @@ More information
 ================
 
 For more information please see the `online documentation
-<http://packages.python.org/Euphorie/>`_.
+<http://euphorie.readthedocs.org>`_.
 
