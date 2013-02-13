@@ -20,15 +20,15 @@ from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
+from .interfaces import IClientSkinLayer
+from .utils import CreateEmailTo
+from .utils import setLanguage
+from .model import Account
+from .session import SessionManager
+from .country import IClientCountry
+from .conditions import checkTermsAndConditions
+from .conditions import approvedTermsAndConditions
 from .. import MessageFactory as _
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.utils import CreateEmailTo
-from euphorie.client.utils import setLanguage
-from euphorie.client import model
-from euphorie.client.session import SessionManager
-from euphorie.client.country import IClientCountry
-from euphorie.client.conditions import checkTermsAndConditions
-from euphorie.client.conditions import approvedTermsAndConditions
 
 log = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ EMAIL_RE = re.compile(
 grok.templatedir("templates")
 
 
-class LoginView(grok.View):
+class Login(grok.View):
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name("login")
@@ -55,6 +55,14 @@ class LoginView(grok.View):
         if not lang:
             return
         setLanguage(self.request, self.context, lang=lang[0])
+
+    def login(self, account, remember):
+        pas = getToolByName(self.context, "acl_users")
+        pas.updateCredentials(self.request, self.response,
+                account.loginname, account.password)
+        if remember:
+            self.response.cookies['__ac']['expires'] = cookie_expiration_date(120)
+            self.response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
 
     def update(self):
         context = aq_inner(self.context)
@@ -71,28 +79,22 @@ class LoginView(grok.View):
             reply = self.request.form
             if reply["next"] == "previous":
                 next = aq_parent(aq_inner(context)).absolute_url()
-                self.request.response.redirect(next)
+                self.response.redirect(next)
                 return
 
-            user = getSecurityManager().getUser()
-            if isinstance(user, model.Account) and \
-                    user.getUserName() == reply.get("__ac_name", '').lower():
-                pas = getToolByName(self.context, "acl_users")
-                response = self.request.response
-                pas.updateCredentials(self.request, response,
-                        user.getUserName(), reply.get("__ac_password", ""))
-                if self.request.form.get('remember'):
-                    response.cookies['__ac']['expires'] = cookie_expiration_date(120)
-                    response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
+            account = getSecurityManager().getUser()
+            if isinstance(account, Account) and \
+                    account.getUserName() == reply.get("__ac_name", '').lower():
+                self.login(account, bool(self.request.form.get('remember')))
 
                 if checkTermsAndConditions() and \
-                        not approvedTermsAndConditions(user):
-                    self.request.response.redirect(
+                        not approvedTermsAndConditions(account):
+                    self.response.redirect(
                         "%s/terms-and-conditions?%s" %
                         (context.absolute_url(),
                             urllib.urlencode({"came_from": came_from})))
                 else:
-                    self.request.response.redirect(came_from)
+                    self.response.redirect(came_from)
                 return
             self.error = True
 
@@ -117,8 +119,8 @@ class Reminder(grok.View):
             self.error = _(u"Please enter your email address")
             return False
 
-        account = Session.query(model.Account)\
-                .filter(model.Account.loginname == loginname).first()
+        account = Session.query(Account)\
+                .filter(Account.loginname == loginname).first()
         if not account:
             self.error = _(u"Unknown email address")
             return False
@@ -197,8 +199,8 @@ class Register(grok.View):
 
         session = Session()
         loginname = loginname.lower()
-        account = session.query(model.Account)\
-                .filter(model.Account.loginname == loginname).count()
+        account = session.query(Account)\
+                .filter(Account.loginname == loginname).count()
         if account:
             self.errors["email"] = _("error_email_in_use",
                 default=u"An account with this email address already exists.")
@@ -210,7 +212,7 @@ class Register(grok.View):
                 default=u"An account with this email address already exists.")
             return False
 
-        account = model.Account(loginname=loginname,
+        account = Account(loginname=loginname,
                                 password=reply.get("password1"))
         Session().add(account)
         log.info("Registered new account %s", loginname)
