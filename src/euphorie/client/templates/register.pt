@@ -24,9 +24,9 @@
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <h2 i18n:translate="header_register">Register</h2>
       <fieldset class="concise">
-        <label><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
+        <label class="${python:'error' if 'email' in errors else None}"><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
           <em class="message warning" tal:condition="exists:errors/email">${errors/email}</em></label>
-        <label><tal:span i18n:translate="label_new_password">Desired password</tal:span> <input class="password" type="password" name="password1:utf8:ustring" />
+        <label class="${python:'error' if 'password' in errors else None}"><tal:span i18n:translate="label_new_password">Desired password</tal:span> <input class="password" type="password" name="password1:utf8:ustring" />
           <em class="message warning" tal:condition="exists:errors/password">${errors/password}</em></label>
         <label><tal:span i18n:translate="label_password_confirm">Again password</tal:span> <input class="password" type="password"  name="password2:utf8:ustring"/> </label>
       </fieldset>
