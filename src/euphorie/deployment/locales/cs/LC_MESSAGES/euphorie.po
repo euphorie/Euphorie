@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-01-30 14:39+0200\n"
+"Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
+"POT-Creation-Date: 2013-02-13 16:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,49 +141,49 @@ msgstr ""
 msgid "label_no"
 msgstr ""
 
-#: src/euphorie/client/login.py:117
+#: src/euphorie/client/login.py:119
 msgid "Please enter your email address"
 msgstr "Prosím zadejte svou e-mailovou adresu"
 
-#: src/euphorie/client/login.py:123
+#: src/euphorie/client/login.py:125
 msgid "Unknown email address"
 msgstr "Neznámá e-mailová adresa"
 
-#: src/euphorie/client/login.py:131
+#: src/euphorie/client/login.py:133
 msgid "OiRA registration reminder"
 msgstr "Připomenutí registrace OiRA"
 
-#: src/euphorie/client/login.py:143 src/euphorie/client/login.py:149
-#: src/euphorie/client/login.py:155
+#: src/euphorie/client/login.py:145 src/euphorie/client/login.py:151
+#: src/euphorie/client/login.py:157
 msgid "An error occured while sending the password reminder"
 msgstr "Při odesílání připomenutí hesla se vyskytla chyba"
 
-#: src/euphorie/client/login.py:169
+#: src/euphorie/client/login.py:171
 msgid "An email with a password reminder has been sent to your address."
 msgstr "E-mail s připomenutím hesla byl zaslán na vaši adresu."
 
 #. Default: Please enter your email address
-#: src/euphorie/client/login.py:184
+#: src/euphorie/client/login.py:186
 msgid "error_missing_email"
 msgstr "Prosím zadejte svou e-mailovou adresu"
 
 #. Default: Please enter a valid email address
-#: src/euphorie/client/login.py:187
+#: src/euphorie/client/login.py:189
 msgid "error_invalid_email"
 msgstr "Prosím zadejte platnou e-mailovou adresu"
 
 #. Default: Please enter a password
-#: src/euphorie/client/login.py:190
+#: src/euphorie/client/login.py:192
 msgid "error_missing_password"
 msgstr "Prosím zadejte heslo"
 
 #. Default: Passwords do not match
-#: src/euphorie/client/login.py:193
+#: src/euphorie/client/login.py:195
 msgid "error_password_mismatch"
 msgstr "Hesla se neshodují"
 
 #. Default: An account with this email address already exists.
-#: src/euphorie/client/login.py:203 src/euphorie/client/login.py:209
+#: src/euphorie/client/login.py:205 src/euphorie/client/login.py:211
 msgid "error_email_in_use"
 msgstr "Účet s touto e-mailovou adresou již existuje."
 
@@ -249,7 +249,7 @@ msgstr ""
 #: src/euphorie/client/report.py:384 src/euphorie/client/report.py:652
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:51
-#: src/euphorie/client/templates/webhelpers.pt:135
+#: src/euphorie/client/templates/webhelpers.pt:128
 msgid "warn_risk_present"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr "Akční plán"
 #. included in this report.
 #: src/euphorie/client/report.py:662
 #: src/euphorie/client/templates/report_actionplan.pt:159
-#: src/euphorie/client/templates/webhelpers.pt:126
+#: src/euphorie/client/templates/webhelpers.pt:119
 msgid "top5_risk_not_present"
 msgstr ""
 
@@ -430,13 +430,17 @@ msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:853 src/euphorie/content/solution.py:30
+#: src/euphorie/client/report.py:853
+#: src/euphorie/client/templates/risk_actionplan.pt:71
+#: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
 msgstr "Akční plán"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:857 src/euphorie/content/solution.py:39
+#: src/euphorie/client/report.py:857
+#: src/euphorie/client/templates/risk_actionplan.pt:72
+#: src/euphorie/content/solution.py:39
 msgid "label_measure_prevention_plan"
 msgstr ""
 
@@ -458,32 +462,32 @@ msgid "label_action_plan_budget"
 msgstr ""
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:871
+#: src/euphorie/client/report.py:868
 msgid "label_risk_number"
 msgstr "Typ rizika"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:873
+#: src/euphorie/client/report.py:870
 msgid "report_timeline_risk_title"
 msgstr "Riziko"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:875
+#: src/euphorie/client/report.py:872
 msgid "report_timeline_priority"
 msgstr "Toto je"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:877
+#: src/euphorie/client/report.py:874
 msgid "report_timeline_comment"
 msgstr "Poznámky"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:892
+#: src/euphorie/client/report.py:889
 msgid "report_timeline_title"
 msgstr "Časový rozvrh"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:923
+#: src/euphorie/client/report.py:917
 msgid "filename_report_timeline"
 msgstr "Identifikační zpráva ${title}"
 
@@ -870,7 +874,7 @@ msgstr "Sektorové nástroje OiRA mohou používat zdarma všichni uživatelé."
 #: src/euphorie/client/templates/profile.pt:84
 #: src/euphorie/client/templates/register.pt:42
 #: src/euphorie/client/templates/reminder.pt:41
-#: src/euphorie/client/templates/report.pt:78
+#: src/euphorie/client/templates/report.pt:75
 #: src/euphorie/client/templates/report_actionplan.pt:204
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:104
@@ -970,7 +974,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/module_identification.pt:49
 #: src/euphorie/client/templates/profile.pt:58
-#: src/euphorie/client/templates/report.pt:44
+#: src/euphorie/client/templates/report.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:170
 #: src/euphorie/client/templates/report_company.pt:60
 #: src/euphorie/client/templates/report_identification.pt:70
@@ -996,7 +1000,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:38
 #: src/euphorie/client/templates/module_identification.pt:50
 #: src/euphorie/client/templates/profile.pt:59
-#: src/euphorie/client/templates/report.pt:45
+#: src/euphorie/client/templates/report.pt:42
 #: src/euphorie/client/templates/report_actionplan.pt:171
 #: src/euphorie/client/templates/report_company.pt:61
 #: src/euphorie/client/templates/report_identification.pt:71
@@ -1022,7 +1026,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/module_identification.pt:55
 #: src/euphorie/client/templates/profile.pt:63
-#: src/euphorie/client/templates/report.pt:50
+#: src/euphorie/client/templates/report.pt:47
 #: src/euphorie/client/templates/report_actionplan.pt:176
 #: src/euphorie/client/templates/report_company.pt:66
 #: src/euphorie/client/templates/report_identification.pt:76
@@ -1049,7 +1053,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:44
 #: src/euphorie/client/templates/module_identification.pt:56
 #: src/euphorie/client/templates/profile.pt:64
-#: src/euphorie/client/templates/report.pt:51
+#: src/euphorie/client/templates/report.pt:48
 #: src/euphorie/client/templates/report_actionplan.pt:177
 #: src/euphorie/client/templates/report_company.pt:67
 #: src/euphorie/client/templates/report_identification.pt:77
@@ -1075,7 +1079,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/module_identification.pt:64
 #: src/euphorie/client/templates/profile.pt:67
-#: src/euphorie/client/templates/report.pt:56
+#: src/euphorie/client/templates/report.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:182
 #: src/euphorie/client/templates/report_company.pt:72
 #: src/euphorie/client/templates/report_identification.pt:82
@@ -1102,7 +1106,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:50
 #: src/euphorie/client/templates/module_identification.pt:65
 #: src/euphorie/client/templates/profile.pt:68
-#: src/euphorie/client/templates/report.pt:57
+#: src/euphorie/client/templates/report.pt:54
 #: src/euphorie/client/templates/report_actionplan.pt:183
 #: src/euphorie/client/templates/report_company.pt:73
 #: src/euphorie/client/templates/report_identification.pt:83
@@ -1128,7 +1132,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/module_identification.pt:70
 #: src/euphorie/client/templates/profile.pt:71
-#: src/euphorie/client/templates/report.pt:62
+#: src/euphorie/client/templates/report.pt:59
 #: src/euphorie/client/templates/report_actionplan.pt:188
 #: src/euphorie/client/templates/report_company.pt:78
 #: src/euphorie/client/templates/report_identification.pt:88
@@ -1155,7 +1159,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:59
 #: src/euphorie/client/templates/module_identification.pt:71
 #: src/euphorie/client/templates/profile.pt:72
-#: src/euphorie/client/templates/report.pt:63
+#: src/euphorie/client/templates/report.pt:60
 #: src/euphorie/client/templates/report_actionplan.pt:189
 #: src/euphorie/client/templates/report_company.pt:79
 #: src/euphorie/client/templates/report_identification.pt:89
@@ -1181,7 +1185,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:64
 #: src/euphorie/client/templates/module_identification.pt:76
 #: src/euphorie/client/templates/profile.pt:75
-#: src/euphorie/client/templates/report.pt:68
+#: src/euphorie/client/templates/report.pt:65
 #: src/euphorie/client/templates/report_actionplan.pt:194
 #: src/euphorie/client/templates/report_company.pt:84
 #: src/euphorie/client/templates/report_identification.pt:94
@@ -1207,7 +1211,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:65
 #: src/euphorie/client/templates/module_identification.pt:77
 #: src/euphorie/client/templates/profile.pt:76
-#: src/euphorie/client/templates/report.pt:69
+#: src/euphorie/client/templates/report.pt:66
 #: src/euphorie/client/templates/report_actionplan.pt:195
 #: src/euphorie/client/templates/report_company.pt:85
 #: src/euphorie/client/templates/report_identification.pt:95
@@ -1233,7 +1237,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:72
 #: src/euphorie/client/templates/module_identification.pt:84
 #: src/euphorie/client/templates/profile.pt:82
-#: src/euphorie/client/templates/report.pt:76
+#: src/euphorie/client/templates/report.pt:73
 #: src/euphorie/client/templates/report_actionplan.pt:202
 #: src/euphorie/client/templates/report_company.pt:92
 #: src/euphorie/client/templates/report_identification.pt:102
@@ -1257,7 +1261,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:73
 #: src/euphorie/client/templates/module_identification.pt:85
 #: src/euphorie/client/templates/profile.pt:83
-#: src/euphorie/client/templates/report.pt:77
+#: src/euphorie/client/templates/report.pt:74
 #: src/euphorie/client/templates/report_actionplan.pt:203
 #: src/euphorie/client/templates/report_company.pt:93
 #: src/euphorie/client/templates/report_identification.pt:103
@@ -1278,7 +1282,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_actionplan.pt:87
 #: src/euphorie/client/templates/module_evaluation.pt:75
 #: src/euphorie/client/templates/module_identification.pt:87
-#: src/euphorie/client/templates/report.pt:79
+#: src/euphorie/client/templates/report.pt:76
 #: src/euphorie/client/templates/report_actionplan.pt:205
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:105
@@ -1298,7 +1302,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:76
 #: src/euphorie/client/templates/module_identification.pt:88
 #: src/euphorie/client/templates/profile.pt:85
-#: src/euphorie/client/templates/report.pt:80
+#: src/euphorie/client/templates/report.pt:77
 #: src/euphorie/client/templates/report_actionplan.pt:206
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:106
@@ -1758,7 +1762,7 @@ msgid "register_teaser"
 msgstr "Nemáte účet? Pak se prosím nejprve ${register_link}."
 
 #. Default: Your registration is a private matter. All your data is stored to
-#. be accessed only by you.
+#. be accessed only by you
 #: src/euphorie/client/templates/login.pt:44
 msgid "login_tooltip"
 msgstr ""
@@ -1787,7 +1791,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:42
 #: src/euphorie/client/templates/register.pt:36
 #: src/euphorie/client/templates/reminder.pt:35
-#: src/euphorie/client/templates/report.pt:37
+#: src/euphorie/client/templates/report.pt:34
 #: src/euphorie/client/templates/report_company.pt:53
 #: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:120
@@ -2104,6 +2108,13 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr ""
 
+#. Default: Day
+#: src/euphorie/client/templates/risk_actionplan.pt:97
+#: src/euphorie/client/templates/risk_actionplan.pt:123
+#, fuzzy
+msgid "label_day"
+msgstr "Obsah stránky"
+
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:100
 #: src/euphorie/client/templates/risk_actionplan.pt:126
@@ -2116,11 +2127,28 @@ msgstr ""
 msgid "label_month"
 msgstr ""
 
+#. Default: Year
+#: src/euphorie/client/templates/risk_actionplan.pt:109
+#: src/euphorie/client/templates/risk_actionplan.pt:135
+#, fuzzy
+msgid "label_year"
+msgstr "Obsah stránky"
+
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:112
 #: src/euphorie/client/templates/risk_actionplan.pt:138
 msgid "error_invalid_year"
 msgstr ""
+
+#. Default: Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan.
+#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_evaluation.pt:124
+#: src/euphorie/client/templates/risk_identification.pt:39
+msgid "label_comment"
+msgstr ""
+"Zde nezapisujte jakékoli poznámky nebo komentáře k výše uvedenému textu. "
+"Případné poznámky nebo komentáře uveďte v akčním plánu."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
@@ -2488,39 +2516,39 @@ msgstr ""
 msgid "oira_name_line_2"
 msgstr ""
 
-#: src/euphorie/client/templates/webhelpers.pt:90
+#: src/euphorie/client/templates/webhelpers.pt:83
 msgid "Unvisited"
 msgstr ""
 
-#: src/euphorie/client/templates/webhelpers.pt:91
+#: src/euphorie/client/templates/webhelpers.pt:84
 #, fuzzy
 msgid "Postponed"
 msgstr "${count} otázek bylo odloženo"
 
-#: src/euphorie/client/templates/webhelpers.pt:92
+#: src/euphorie/client/templates/webhelpers.pt:85
 #, fuzzy
 msgid "Unanswered"
 msgstr "Toto riziko musí být zařazeno do seznamu."
 
-#: src/euphorie/client/templates/webhelpers.pt:93
+#: src/euphorie/client/templates/webhelpers.pt:86
 #, fuzzy
 msgid "Answered"
 msgstr "Toto riziko musí být zařazeno do seznamu."
 
 #. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/client/templates/webhelpers.pt:103
+#: src/euphorie/client/templates/webhelpers.pt:96
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr ""
 
 #. Default: About
-#: src/euphorie/client/templates/webhelpers.pt:104
+#: src/euphorie/client/templates/webhelpers.pt:97
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
 msgstr ""
 
 #. Default: Legal and policy references
-#: src/euphorie/client/templates/webhelpers.pt:145
+#: src/euphorie/client/templates/webhelpers.pt:138
 msgid "header_legal_references"
 msgstr "Odkazy na právní předpisy a postupy"
 
@@ -3137,73 +3165,73 @@ msgid "message_unpublish_cancel"
 msgstr "Zrušená nepublikovaná akce."
 
 #. Default: Title of sector.
-#: src/euphorie/content/upload.py:70
+#: src/euphorie/content/upload.py:73
 msgid "label_sector_title"
 msgstr "Název sektoru."
 
 #. Default: If you do not specify a title it will be taken from the input file.
-#: src/euphorie/content/upload.py:71
+#: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
 msgstr "Pokud nespecifikujete název, bude použit ze vstupního souboru."
 
 #. Default: Login name
-#: src/euphorie/content/upload.py:77 src/euphorie/content/user.py:60
+#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:60
 msgid "label_login_name"
 msgstr "Přihlašovací jméno"
 
 #. Default: Title of imported survey.
-#: src/euphorie/content/upload.py:82 src/euphorie/content/upload.py:102
+#: src/euphorie/content/upload.py:85 src/euphorie/content/upload.py:105
 msgid "label_surveygroup_title"
 msgstr ""
 
 #. Default: If you do not specify a title it will be taken from the input.
-#: src/euphorie/content/upload.py:84 src/euphorie/content/upload.py:104
+#: src/euphorie/content/upload.py:87 src/euphorie/content/upload.py:107
 msgid "help_upload_surveygroup_title"
 msgstr "Pokud nespecifikujete název, bude použit ze vstupu."
 
 #. Default: Name for survey version
-#: src/euphorie/content/upload.py:90 src/euphorie/content/upload.py:110
+#: src/euphorie/content/upload.py:93 src/euphorie/content/upload.py:113
 msgid "label_upload_survey_title"
 msgstr ""
 
-#: src/euphorie/content/upload.py:92
+#: src/euphorie/content/upload.py:95
 msgid "Standard"
 msgstr "Standard"
 
 #. Default: XML file
-#: src/euphorie/content/upload.py:96 src/euphorie/content/upload.py:116
+#: src/euphorie/content/upload.py:99 src/euphorie/content/upload.py:119
 msgid "label_upload_filename"
 msgstr "Soubor XML"
 
-#: src/euphorie/content/upload.py:112
+#: src/euphorie/content/upload.py:115
 msgid "Survey import"
 msgstr ""
 
-#: src/euphorie/content/upload.py:326
+#: src/euphorie/content/upload.py:334
 msgid "Import survey version"
 msgstr ""
 
-#: src/euphorie/content/upload.py:328
+#: src/euphorie/content/upload.py:338
 msgid "Upload"
 msgstr "Nahrát"
 
 #. Default: Please upload a valid XML file
-#: src/euphorie/content/upload.py:339 src/euphorie/content/upload.py:375
+#: src/euphorie/content/upload.py:349 src/euphorie/content/upload.py:387
 msgid "error_invalid_xml"
 msgstr "Prosím nahrajte platný soubor XML"
 
 #. Default: Succesfully imported the survey
-#: src/euphorie/content/upload.py:343 src/euphorie/content/upload.py:379
+#: src/euphorie/content/upload.py:353 src/euphorie/content/upload.py:391
 msgid "upload_success"
 msgstr ""
 
 #. Default: Import sector and survey
-#: src/euphorie/content/upload.py:356
+#: src/euphorie/content/upload.py:368
 msgid "title_import_sector_survey"
 msgstr ""
 
 #. Default: Upload
-#: src/euphorie/content/upload.py:361
+#: src/euphorie/content/upload.py:373
 msgid "button_upload"
 msgstr "Nahrát"
 
@@ -3998,10 +4026,28 @@ msgstr "Potenciální kandidátské země"
 msgid "portlet_header_versions"
 msgstr "Verze"
 
+#. Default: Create a duplicate of the selected survey
+#: src/euphorie/deployment/tiles/templates/versions.pt:19
+#, fuzzy
+msgid "help_add_version"
+msgstr "Duplikát"
+
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
 msgstr "Duplikát"
+
+#. Default: Publish the selected survey live with its latest changes.
+#: src/euphorie/deployment/tiles/templates/versions.pt:26
+#, fuzzy
+msgid "help_publish"
+msgstr "Zveřejněná"
+
+#. Default: Remove this survey from the online client.
+#: src/euphorie/deployment/tiles/templates/versions.pt:34
+#, fuzzy
+msgid "title_help_unpublished"
+msgstr "Zrušit publikování \"${title}"
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4024,6 +4070,13 @@ msgstr "Aktuální /Publikovaná"
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
 msgstr "Aktualizovaná"
+
+#. Default: Start to write a new survey. You will be asked whether you want to
+#. start off with a copy of an existing survey.
+#: src/euphorie/deployment/tiles/templates/versions.pt:71
+#, fuzzy
+msgid "help_create_new_version"
+msgstr "Vyhodnocení"
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4067,40 +4120,11 @@ msgstr ""
 #~ msgid "profile_repeat"
 #~ msgstr "Opakovatelné"
 
-#, fuzzy
-#~ msgid "label_day"
-#~ msgstr "Obsah stránky"
-
-#, fuzzy
-#~ msgid "label_year"
-#~ msgstr "Obsah stránky"
-
-#~ msgid "label_comment"
-#~ msgstr ""
-#~ "Zde nezapisujte jakékoli poznámky nebo komentáře k výše uvedenému textu. "
-#~ "Případné poznámky nebo komentáře uveďte v akčním plánu."
-
 #~ msgid "EFTA Countries"
 #~ msgstr "Země Evropského sdružení volného obchodu"
 
 #~ msgid "Potential Candidate EFTA Countries"
 #~ msgstr "Potenciální kandidátské země"
-
-#, fuzzy
-#~ msgid "help_add_version"
-#~ msgstr "Duplikát"
-
-#, fuzzy
-#~ msgid "help_publish"
-#~ msgstr "Zveřejněná"
-
-#, fuzzy
-#~ msgid "title_help_unpublished"
-#~ msgstr "Zrušit publikování \"${title}"
-
-#, fuzzy
-#~ msgid "help_create_new_version"
-#~ msgstr "Vyhodnocení"
 
 #~ msgid "conditions_info_not_personal"
 #~ msgstr ""
