@@ -43,6 +43,10 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Use consistent styling of form error messages. This fixes tickets `45
+  <https://github.com/euphorie/Euphorie/issues/45>`_ and
+  `46 <https://github.com/euphorie/Euphorie/issues/46>`_.
+
 - Do render bold text as white on a light background in the risk action plan
   page for the client. This fixes `ticket 75
   <https://github.com/euphorie/Euphorie/issues/75>`_.
