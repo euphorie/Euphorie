@@ -38,7 +38,7 @@ clean::
 bin/buildout: bootstrap.py
 	$(PYTHON) bootstrap.py
 
-bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
+bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
 	bin/buildout -c devel.cfg -t 10
 	touch bin/test
 	touch bin/sphinx-build
@@ -58,7 +58,7 @@ docs:: bin/sphinx-build
 clean::
 	rm -rf docs/.build
 
-pot: bin/buildout
+pot: bin/pybabel
 	bin/pybabel extract -F babel.cfg \
 		--copyright-holder='Simplon B.V., SYSLAB.COM GmbH' \
 		--msgid-bugs-address='euphorie@lists.wiggy.net' \
