@@ -42,7 +42,7 @@
       </fieldset>
 
       <p><tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> first.</tal:span>
-      <dfn class="icon info pat-tooltip" href="${webhelpers/help_url}#authentication" i18n:attributes="title login_tooltip;" title="Your registration is a private matter. All your data is stored to be accessed only by you">.</dfn>
+      <a class="icon info pat-tooltip" data-pat-tooltip="position: lt; source: content" href="${webhelpers/help_url}#authentication" i18n:translate="login_tooltip">Your registration is a private matter. All your data is stored to be accessed only by you.</a>
       </p>
     </form>
 
