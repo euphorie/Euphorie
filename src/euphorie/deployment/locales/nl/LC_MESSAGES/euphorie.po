@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-02-15 12:09+0100\n"
+"POT-Creation-Date: 2013-02-15 12:16+0100\n"
 "PO-Revision-Date: 2013-01-30 14:30+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -511,7 +511,7 @@ msgstr "Actielijst ${title}"
 
 #: src/euphorie/client/risk.py:191 src/euphorie/client/risk.py:223
 msgid "Please provide the day of the month"
-msgstr ""
+msgstr "Vul de dag van de maand in"
 
 #: src/euphorie/client/risk.py:193 src/euphorie/client/risk.py:200
 #: src/euphorie/client/risk.py:225 src/euphorie/client/risk.py:231
@@ -989,6 +989,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/help.pt:60
 #: src/euphorie/client/templates/identification.pt:36
 #: src/euphorie/client/templates/layout.pt:25
+#: src/euphorie/client/templates/login.pt:70
 #: src/euphorie/client/templates/module_actionplan.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/module_identification.pt:49
@@ -1041,6 +1042,7 @@ msgstr "Voorbereiding"
 #: src/euphorie/client/templates/help.pt:66
 #: src/euphorie/client/templates/identification.pt:42
 #: src/euphorie/client/templates/layout.pt:31
+#: src/euphorie/client/templates/login.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:55
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/module_identification.pt:55
@@ -1094,6 +1096,7 @@ msgstr "Inventarisatie"
 #: src/euphorie/client/templates/help.pt:72
 #: src/euphorie/client/templates/identification.pt:48
 #: src/euphorie/client/templates/layout.pt:37
+#: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/module_actionplan.pt:61
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/module_identification.pt:64
@@ -1147,6 +1150,7 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/help.pt:78
 #: src/euphorie/client/templates/identification.pt:54
 #: src/euphorie/client/templates/layout.pt:43
+#: src/euphorie/client/templates/login.pt:73
 #: src/euphorie/client/templates/module_actionplan.pt:67
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/module_identification.pt:70
@@ -1752,7 +1756,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA?"
-msgstr ""
+msgstr "Wat is de RI&E?"
 
 #: src/euphorie/client/templates/login.pt:50
 msgid ""
@@ -1776,14 +1780,14 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:82
 #: src/euphorie/client/templates/login.pt:91
 msgid "Show more…"
-msgstr ""
+msgstr "Toon meer…"
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:67
 #: src/euphorie/client/templates/login.pt:82
 #: src/euphorie/client/templates/login.pt:91
 msgid "Show less…"
-msgstr ""
+msgstr "Toon minder…"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid ""
@@ -1812,19 +1816,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Wat moet ik doen?"
 
 #: src/euphorie/client/templates/login.pt:64
 msgid "There are four main stages to complete in the assessment process:"
-msgstr ""
-
-#: src/euphorie/client/templates/login.pt:70
-#, fuzzy
-msgid "Preparation"
-msgstr ""
-"Documenteer de eerste stappen van de RI&E, inclusief het instellen van een "
-"profiel. Op de startpagina van de RI&E wordt een link naar deze tekst "
-"geplaatst."
+msgstr "Er zijn vier stappen die u moet doorlopen voor een RI&E:"
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1832,13 +1828,6 @@ msgid ""
 "are about to begin and, in some cases, can allow you to further customise "
 "the assessment to the specific nature of your business."
 msgstr ""
-
-#: src/euphorie/client/templates/login.pt:71
-#, fuzzy
-msgid "Identification"
-msgstr ""
-"Documenteer de inventarisatie fase. Vanaf alle inventarisatie gerelateerde "
-"pagina's wordt een link naar deze tekst geplaatst."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1849,26 +1838,11 @@ msgid ""
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:72
-#, fuzzy
-msgid "Evaluation"
-msgstr ""
-"Documenteer de evaluatie fase. Vanaf alle evaluatie gerelateerde pagina's "
-"wordt een link naar deze tekst geplaatst."
-
-#: src/euphorie/client/templates/login.pt:72
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-
-#: src/euphorie/client/templates/login.pt:73
-#, fuzzy
-msgid "Action Plan"
-msgstr ""
-"Documenteer de fase van het Plan van aanpak. Vanaf alle pagina's die "
-"gerelateerd zijn aan het Plan van aanpak wordt een link naar deze tekst "
-"geplaatst."
 
 #: src/euphorie/client/templates/login.pt:73
 msgid ""
@@ -4377,6 +4351,25 @@ msgid "legend_updated"
 msgstr ""
 "Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
 "Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#~ msgid "Preparation"
+#~ msgstr "Voorbereiding"
+
+#~ msgid "Identification"
+#~ msgstr "Inventarisatie"
+
+#, fuzzy
+#~ msgid "Evaluation"
+#~ msgstr ""
+#~ "Documenteer de evaluatie fase. Vanaf alle evaluatie gerelateerde pagina's "
+#~ "wordt een link naar deze tekst geplaatst."
+
+#, fuzzy
+#~ msgid "Action Plan"
+#~ msgstr ""
+#~ "Documenteer de fase van het Plan van aanpak. Vanaf alle pagina's die "
+#~ "gerelateerd zijn aan het Plan van aanpak wordt een link naar deze tekst "
+#~ "geplaatst."
 
 #~ msgid "label_profile_type"
 #~ msgstr "Type"
