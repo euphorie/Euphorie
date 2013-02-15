@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-02-13 16:03+0100\n"
+"POT-Creation-Date: 2013-02-15 12:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -879,7 +879,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:93
 #: src/euphorie/client/templates/identification.pt:70
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/login.pt:50
+#: src/euphorie/client/templates/login.pt:102
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
 #: src/euphorie/client/templates/module_identification.pt:86
@@ -1763,38 +1763,201 @@ msgid "label_login_password"
 msgstr "Wachtwoord (${forgot_link})"
 
 #. Default: Keep me logged in.
-#: src/euphorie/client/templates/login.pt:34
+#: src/euphorie/client/templates/login.pt:35
 #, fuzzy
 msgid "label_keep_logged_in"
 msgstr "Logo"
 
 #. Default: Login
-#: src/euphorie/client/templates/login.pt:38
+#: src/euphorie/client/templates/login.pt:39
 msgid "label_login"
 msgstr "Logo"
 
 #. Default: Change country/language
-#: src/euphorie/client/templates/login.pt:39
+#: src/euphorie/client/templates/login.pt:40
 msgid "label_change_country"
 msgstr "Wijzig land/taal"
 
 #. Default: register
-#: src/euphorie/client/templates/login.pt:43
+#: src/euphorie/client/templates/login.pt:44
 msgid "label_register"
 msgstr "registreer"
 
 #. Default: Don't have an account? Then please ${register_link} first.
-#: src/euphorie/client/templates/login.pt:43
+#: src/euphorie/client/templates/login.pt:44
 msgid "register_teaser"
 msgstr "Hebt u nog geen account? ${register_link} u dan eerst."
 
 #. Default: Your registration is a private matter. All your data is stored to
-#. be accessed only by you
-#: src/euphorie/client/templates/login.pt:44
+#. be accessed only by you.
+#: src/euphorie/client/templates/login.pt:45
 msgid "login_tooltip"
 msgstr ""
 "Uw registratiegegevens zijn privé. De opgeslagen gegevens zijn niet voor "
 "anderen toegankelijk."
+
+#: src/euphorie/client/templates/login.pt:49
+msgid "What is OiRA?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:50
+msgid ""
+"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
+"that allows you to perform a health and safety risk assessment of your "
+"workplace or business."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:52
+msgid "Who is the OiRA tool for?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:53
+msgid ""
+"OiRA can be used by anyone wishing to assess health and safety-related risks "
+"that might exist in their workplace or working environments."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:56
+#: src/euphorie/client/templates/login.pt:67
+#: src/euphorie/client/templates/login.pt:82
+#: src/euphorie/client/templates/login.pt:91
+msgid "Show more…"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:56
+#: src/euphorie/client/templates/login.pt:67
+#: src/euphorie/client/templates/login.pt:82
+#: src/euphorie/client/templates/login.pt:91
+msgid "Show less…"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:58
+msgid ""
+"However, OiRA is designed to be of most value to smaller businesses who are "
+"aware of their legal health and safety obligations but may not be in a "
+"position to commission a full risk assessment by an external organisation."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:59
+msgid ""
+"Often, employees or owners of these businesses are responsible for health "
+"and safety-related activities alongside their other day-to-day "
+"responsibilities. OiRA is designed specifically to help people in this "
+"position by bringing together in one place the legal context, likely risks "
+"to be assessed and the ability to produce a report tailored to the "
+"business's requirements."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:60
+msgid ""
+"Previous experience of conducting a risk assessment is not required as OiRA "
+"contains all of the information you will need, including comprehensive "
+"support documentation and videos covering details of the assessment process "
+"and the tool's operation."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:63
+msgid "What do I have to do?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:64
+msgid "There are four main stages to complete in the assessment process:"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:70
+#, fuzzy
+msgid "Preparation"
+msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+
+#: src/euphorie/client/templates/login.pt:70
+msgid ""
+"${preparation} This gives you an overview of the particular assessment you "
+"are about to begin and, in some cases, can allow you to further customise "
+"the assessment to the specific nature of your business."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:71
+#, fuzzy
+msgid "Identification"
+msgstr "Identificatie"
+
+#: src/euphorie/client/templates/login.pt:71
+msgid ""
+"${identification} OiRA will present a series of potential health and safety "
+"hazards or problems that could exist in your organisation. You can then "
+"identify those that have been addressed or do not exist, those that need to "
+"be addressed and those you would like to 'park' just now and return to later."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:72
+#, fuzzy
+msgid "Evaluation"
+msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+
+#: src/euphorie/client/templates/login.pt:72
+msgid ""
+"${evaluation} Here you will be able to determine the level of risk attached "
+"to each of the items you identified as 'need to be addressed' in the "
+"'Identification' stage."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:73
+#, fuzzy
+msgid "Action Plan"
+msgstr "Actieplan"
+
+#: src/euphorie/client/templates/login.pt:73
+msgid ""
+"${action-plan} In the fourth stage of the assessment you will decide what "
+"steps you can take to address the risks you have now identified and what "
+"resources this might require."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:75
+msgid ""
+"You can then produce a report containing the level of detail you require and "
+"in a format that will make it easy to refer to and share electronically or "
+"in print."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:78
+msgid "How long will it take?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:79
+msgid ""
+"It's impossible to say how long an assessment will take as each one contains "
+"risks that are typically found in working environment(s) relevant to your "
+"business sector."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:84
+msgid ""
+"However, you can spend whatever time you have available on an assessment and "
+"then return to it when convenient to pick up from the same point you left "
+"off."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:87
+msgid "Why do I have to register?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:88
+msgid ""
+"The first thing you will be asked to do when you begin your first risk "
+"assessment is to create an OiRA account - this is a simple and quick process."
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:97
+msgid "Do I need to prepare?"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:98
+msgid ""
+"You can find any specific requirements regarding documentation you will be "
+"asked to refer to during the assessment on the first page after you start "
+"the assessment."
+msgstr ""
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
