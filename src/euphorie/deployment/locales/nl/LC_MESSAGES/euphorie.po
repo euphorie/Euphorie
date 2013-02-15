@@ -2712,22 +2712,19 @@ msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:83
 msgid "Unvisited"
-msgstr ""
+msgstr "Niet bekekeken"
 
 #: src/euphorie/client/templates/webhelpers.pt:84
-#, fuzzy
 msgid "Postponed"
-msgstr "${count} vragen zijn uitgesteld"
+msgstr "Overgeslagen"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
-#, fuzzy
 msgid "Unanswered"
-msgstr "Dit risico is nog niet beoordeeld."
+msgstr "Onbeantwoord"
 
 #: src/euphorie/client/templates/webhelpers.pt:86
-#, fuzzy
 msgid "Answered"
-msgstr "Dit risico is nog niet beoordeeld."
+msgstr "Beantwoord"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:96
