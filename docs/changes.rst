@@ -1,11 +1,13 @@
 Changelog
 =========
 
-6.0 - Unreleased
------------------
+6.0b1 - February 15, 2013
+-------------------------
 
 Upgrade notes
 ~~~~~~~~~~~~~
+
+**This is a beta release with incomplete translations.**
 
 Python 2.7 is now fully supported and the recommended Python version to use.
 Python 2.6 is still supported.

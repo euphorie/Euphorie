@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General substitutions.
 project = 'euphorie'
-copyright = '2009-2012, Simplon B.V. and SYSLAB.com GmbH'
+copyright = '2009-2013, Simplon B.V. and SYSLAB.com GmbH'
 
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
