@@ -28,6 +28,7 @@ accounts and client URL.
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add a small FAQ to the login page.
 - IE 6 is no longer supported. IE 7 is only provisionally supported: it might
   work, but any bugs will no longer be fixed.
 - Add a legend to the client navigation tree to explain the used icons. This
@@ -43,6 +44,12 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Correctly show the high-priority notice for risks in the online view of
+  the action plan report.
+
+- Start using the `Patterns <http://patternslib.com/>`_ library for the
+  client user interface.
+
 - Use consistent styling of form error messages. This fixes tickets `45
   <https://github.com/euphorie/Euphorie/issues/45>`_ and
   `46 <https://github.com/euphorie/Euphorie/issues/46>`_.
@@ -56,11 +63,11 @@ Bugfixes
   symbol in their font. This fixes `ticket 61
   <https://github.com/euphorie/Euphorie/issues/61>`_.
 
-- Change default font in the client to a font which does not have problems
-  with Greek characters. This fixes `ticket 74
+- Change default font for page titles in the client to a font which does not
+  have problems with Greek characters. This fixes `ticket 74
   <https://github.com/euphorie/Euphorie/issues/74>`_.
 
-- Dutch translation: Fix bad column header in timeline report.
+- Dutch Translation: Fix bad column header in timeline report.
 
 - Correct rendering of strong text in the client to make sure it is easy to
   read. This fixes `ticket 65
@@ -77,11 +84,12 @@ Bugfixes
 
 - Upgrade to zc.buildout 2, dexterity 1.2.1 and Plone 4.2.4.
 
-- Registering from within a country skips terms and conditions page.
+- Registering from within a country would incorrectly skip terms and conditions
+  page.
 
 - Datepicker didn't appear on newly created measures.
 
-- Compatibility with plone.app.search.
+- Fix compatibility with plone.app.search.
 
 
 5.1.1 - Unreleased
