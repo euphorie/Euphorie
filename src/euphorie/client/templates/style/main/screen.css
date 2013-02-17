@@ -2852,7 +2852,18 @@ button,
 	background-image: url(button-default.png);
 	background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#413C37), to(#726D68));
 	cursor: default !important;
-	display: inline-block;
+	display: block;
+	text-align: center;
+}
+
+button:before,a.button:before {
+	margin-right: 10px;
+}
+
+button.bar,
+a.button.bar {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 button:active,
