@@ -2667,10 +2667,8 @@ dl.accordion dt.ui-state-active a.button {
 /* @end */
 
 div.message,p.message {
-	padding: 10px;
-	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
-	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	padding: 20px;
+	box-shadow: 0 0 4px rgba(0,0,0,0.3), inset 0 0 60px rgba(0,0,0,0.1);
 	margin-bottom: 20px;
 	clear: left;
 	float: left;
@@ -2724,6 +2722,7 @@ div.emphasis,
 p.emphasis {
 	border: 4px double silver;
 	width: 563px;
+	background-color: white;
 }
 
 .message.notice {
