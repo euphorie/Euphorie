@@ -62,7 +62,7 @@ class IOnlineHelp(form.Schema):
     form.widget(evaluation=WysiwygFieldWidget)
 
     actionplan = HtmlText(
-            title=_("label_help_actionplan", default=u"Action plan"),
+            title=_("label_help_actionplan", default=u"Action Plan"),
             description=_("help_actionplan",
                 default=u"Document the action plan phase. This information "
                         u"is linked from all action plan related pages"),

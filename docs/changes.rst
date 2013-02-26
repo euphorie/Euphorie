@@ -4,7 +4,8 @@ Changelog
 6.0b2 - Unreleased
 -------------------------
 
-- ...
+- Renamed a default translation in content/help.py that lead to a duplication
+  in the pot file
 
 
 6.0b1 - February 15, 2013
