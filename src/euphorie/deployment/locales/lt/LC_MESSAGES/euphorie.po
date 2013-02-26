@@ -2007,7 +2007,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/updated.pt:48
 msgid "label_add_profile_module"
-msgstr ""
+msgstr "Įkelti"
 
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
@@ -3256,7 +3256,7 @@ msgstr "Vertinimą galima praleisti"
 #. Default: This option allows uses to skip the evaluation phase.
 #: src/euphorie/content/survey.py:76
 msgid "help_evaluation_optional"
-msgstr ""
+msgstr "Ši parinktis leidžia naudotojui praleisti vertinimo etapą."
 
 #. Default: Language
 #: src/euphorie/content/survey.py:83
