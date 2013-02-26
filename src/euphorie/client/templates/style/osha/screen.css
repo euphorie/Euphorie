@@ -63,9 +63,7 @@ body > h1 {
 }
 
 #steps ol.microns li {
-
 	background-image: url(microns-osha.png) !important;
-
 }
 
 #steps ol.microns li a {
@@ -78,7 +76,6 @@ body > h1 {
 
 a#oira_legal_show_anchor {
     float: right;
-
 }
 
 a#oira_legal_hide_anchor {
@@ -87,4 +84,18 @@ a#oira_legal_hide_anchor {
 
 h4.oira_legal_header {
     float: left;
+}
+
+.report #appendix img {
+    margin-bottom: 0;
+    float: none;
+}
+
+.report img.appendix_oira_logo { 
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.report .creative_commons_logo {
+    cursor: pointer;
 }
