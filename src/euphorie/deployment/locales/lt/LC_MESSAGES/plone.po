@@ -2,7 +2,7 @@
 # Copyright (C) 2010 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -18,19 +18,19 @@ msgstr ""
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
-msgstr "Prisijungęs klientas."
+msgstr "Internetinis klientas."
 
 #: euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
 msgid "Country information and grouping for the client."
-msgstr "Šalies informacija ir grupavimas klientui."
+msgstr "Šalies informacija ir kliento grupavimas."
 
 #: euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
 msgid "Sector information and grouping for the client."
-msgstr "Sektoriaus informacija ir grupavimas klientui."
+msgstr "Veiklos srities informacija ir kliento grupavimas."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
-msgstr "Katalogas visiems šalies sektoriams."
+msgstr "Visų šaliai priklausančių veiklos sričių aplankas."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
@@ -38,23 +38,23 @@ msgstr "Šalis"
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
 msgid "A manager for sectors in a country."
-msgstr "Šalies sektorių vadovas."
+msgstr "Šaliai priklausančių veiklos sričių administratorius."
 
 #: euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
 msgid "Country manager"
-msgstr "Šalies vadovas"
+msgstr "Šalies administratorius"
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:7
 msgid "A folder for all documentation for a specific language."
-msgstr "Katalogas visai dokumentacijai konkrečia kalba."
+msgstr "Visų konkrečia kalba parengtų dokumentų aplankas."
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:6
 msgid "Documentation"
-msgstr "Dokumentacija"
+msgstr "Dokumentai"
 
 #: euphorie/content/profiles/default/types/euphorie.folder.xml:6
 msgid "Folder"
-msgstr "Katalogas"
+msgstr "Aplankas"
 
 #: euphorie/content/profiles/default/types/euphorie.help.xml:8
 msgid "The help text for the client."
@@ -66,7 +66,7 @@ msgstr "Internetinis žinynas"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is grouping of risks"
-msgstr "Modulis yra rizikų grupavimas"
+msgstr "Modulis - tai rizikų grupavimas"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml:7
 msgid "Module"
@@ -83,8 +83,8 @@ msgstr "Puslapis"
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
 msgstr ""
-"Profilio klausimas naudojamas pasirenkamiems ar pakartojamiems moduliams "
-"kurti"
+"Profilio klausimas yra naudojamas kuriant papildomus arba pasikartojančius "
+"modulius"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -100,19 +100,21 @@ msgstr "Rizika"
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
-msgstr "Sektorius yra konkretaus pramonės tipo nacionalinė organizacija."
+msgstr ""
+"Šios veiklos srities nacionalinė organizacija priklauso tam tikram pramonės "
+"tipui."
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml:7
 msgid "Sector"
-msgstr "Sektorius"
+msgstr "Veiklos sritis"
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
 msgid "A folder which can contain sectors."
-msgstr "Katalogas, kuriame gali būti sektorių."
+msgstr "Aplankas, kuriame gali būti talpinamos veiklos sritys."
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
-msgstr "Sektoriaus katalogas"
+msgstr "Veiklos sričių aplankas"
 
 #: euphorie/content/profiles/default/types/euphorie.solution.xml:8
 msgid "A solution."
@@ -140,20 +142,20 @@ msgstr "Apklausa"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid "Sector workflow"
-msgstr "Sektoriaus darbo eiga"
+msgstr "Darbų srautas veiklos srityje"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
 "One-state workflow for sector objects, giving edit access to its contents to"
 " the sector user."
 msgstr ""
-"Vienos būsenos darbo eiga sektoriaus objektams, suteikianti turinio "
-"redagavimo prieigą sektoriaus naudotojui."
+"Vienos šalies veiklos srities objektų darbų srautas, veiklos srities "
+"naudotojui suteikiant turinio redagavimo teisę."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"
-msgstr "Aktyvi"
+msgstr "Aktyvus"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
-msgstr "Vienintelė būsena"
+msgstr "Viena ir vienintelė šalis"
