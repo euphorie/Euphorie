@@ -5198,6 +5198,30 @@ dl.accordion div.colborder {
 
 /* @end */
 
+
+textarea.span-15,
+#comments textarea {
+	width: 430px;
+}
+	
+	body {
+		width: 440px;
+		padding: 36px 20px 48px;
+}
+
+#navigation {
+	text-align: center;
+	margin-bottom: -10px;
+	margin-top: 50px;
+	margin-left: 0;
+	position: static;
+	width: 437px;
+	float: left;
+	clear: left;
+}
+	
+}
+
 /* @group Date picker */
 
 /* Component containers
@@ -5214,6 +5238,7 @@ div.ui-datepicker .ui-widget-header {
     color: #222222; 
 }
 .ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+
 button.ui-datepicker-trigger:hover,
 button.ui-datepicker-trigger { 
     margin: 0;
@@ -5226,7 +5251,9 @@ button.ui-datepicker-trigger {
     background-image: url(calendar.gif);
     background-position: center;
     cursor: pointer !important;
+    display: inline;
 }
+
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
 .ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
@@ -5437,29 +5464,6 @@ button.ui-datepicker-trigger {
 
 /* @end */
 
-
-textarea.span-15,
-#comments textarea {
-	width: 430px;
-}
-	
-	body {
-		width: 440px;
-		padding: 36px 20px 48px;
-}
-
-#navigation {
-	text-align: center;
-	margin-bottom: -10px;
-	margin-top: 50px;
-	margin-left: 0;
-	position: static;
-	width: 437px;
-	float: left;
-	clear: left;
-}
-	
-}
 
 
 /*	Retina media query.
