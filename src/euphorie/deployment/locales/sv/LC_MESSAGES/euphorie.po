@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-02-15 12:16+0100\n"
-"PO-Revision-Date: 2011-03-30 13:05+0200\n"
+"PO-Revision-Date: 2013-02-27 16:24+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
 "Language: \n"
@@ -500,7 +500,7 @@ msgstr "Lämna gärna extra kommentarer som bör ingå i denna områdesrapport."
 #. Default: Timeline
 #: src/euphorie/client/report.py:889
 msgid "report_timeline_title"
-msgstr "Handlingsplan:"
+msgstr "Handlingsplan"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:917

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-02-15 12:16+0100\n"
-"PO-Revision-Date: 2011-03-30 13:05+0200\n"
+"PO-Revision-Date: 2013-02-27 16:18+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Language: \n"
@@ -509,7 +509,7 @@ msgstr ""
 #. Default: Timeline
 #: src/euphorie/client/report.py:889
 msgid "report_timeline_title"
-msgstr "Plan d'action :"
+msgstr "Plan d'action"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:917

@@ -6,6 +6,7 @@ Changelog
 
 - Renamed a default translation in content/help.py that lead to a duplication
   in the pot file
+- Translations fix. Colon not allowed in excel worksheet titles.
 
 
 6.0b1 - February 15, 2013
