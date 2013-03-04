@@ -103,10 +103,9 @@
             $new_tab.addClass("current");
             $("#ActionPlanItemForm .tab-container").removeClass("current").hide();
             $new_container.addClass("current").show('fast');
-            initPlaceHolders($new_container);
-            initTooltips($new_container);
             ActionPlan.UpdateNumbering();
             ActionPlan.chevronize();
+            require("registry").scan($new_container);
         },
 
         findActive: function(measures) {

@@ -9,6 +9,9 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Correctly initialise a newly added measure for a risk. This fixes
+  `ticket 86 <https://github.com/euphorie/Euphorie/issues/86>`_.
+
 - Prevent users from entering non-digits in number input fields. This fixes
   part of `ticket 84 <https://github.com/euphorie/Euphorie/issues/84>`_.
 
