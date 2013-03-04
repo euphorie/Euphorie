@@ -12,7 +12,7 @@
             return false;
         });
 
-        $("input.numeric").numeric();
+        $("input.numeric,input[type=number]").numeric();
 
 
         $("a[rel=fancybox]").fancybox({

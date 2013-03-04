@@ -9,6 +9,8 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Prevent users from entering non-digits in number input fields.
+
 - Always order the measures for a risk based on moment of creation. This
   prevents unexpected ordering changes.
 
