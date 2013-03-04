@@ -279,9 +279,6 @@ class ActionPlanView(grok.View):
             return None
         return datetime.date(year, month, day)
 
-    def get_action_plans(self):
-        return sorted(self.context.action_plans, key=lambda k: k.id)
-
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
