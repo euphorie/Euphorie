@@ -477,8 +477,10 @@ class ActionPlan(BaseObject):
     reference = schema.Column(types.Text())
 
     risk = orm.relation(Risk,
-            backref=orm.backref("action_plans",
-                                cascade="all, delete, delete-orphan"))
+            backref=orm.backref(
+                "action_plans",
+                order_by=id,
+                cascade="all, delete, delete-orphan"))
 
 
 _instrumented = False

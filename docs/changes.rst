@@ -4,9 +4,18 @@ Changelog
 6.0b2 - Unreleased
 -------------------------
 
-- Renamed a default translation in content/help.py that lead to a duplication
-  in the pot file
-- Translations fix. Colon not allowed in excel worksheet titles.
+**This is a beta release with incomplete translations.**
+
+Bugfixes
+~~~~~~~~
+
+- Always order the measures for a risk based on moment of creation. This
+  prevents unexpected ordering changes.
+
+- Renamed a default translation in ``content/help.py```` that lead to a
+  duplication in the pot file
+
+- Fix bad translations for column headers in the action plan timeline.
 
 
 6.0b1 - February 15, 2013
