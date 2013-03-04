@@ -10,8 +10,10 @@ Bugfixes
 ~~~~~~~~
 
 - Prevent users from entering non-digits in number input fields. This fixes
-  the Euphorie part of `ticket 84
-  <https://github.com/euphorie/Euphorie/issues/84>`_.
+  part of `ticket 84 <https://github.com/euphorie/Euphorie/issues/84>`_.
+
+- Fix display of error messages in the risk action plan form. This fixes part
+  of `ticket 84 <https://github.com/euphorie/Euphorie/issues/84>`_.
 
 - Always order the measures for a risk based on moment of creation. This
   prevents unexpected ordering changes.

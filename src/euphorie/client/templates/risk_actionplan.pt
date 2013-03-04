@@ -40,7 +40,7 @@
         <ol>
           <li tal:repeat="solution view/solutions"><strong class="title">${solution/description}</strong>
             <p class="actionPlan">${solution/action_plan}</p>
-            <p class="preventionplan">${solution/prevention_plan}</p>
+            <p class="preventionPlan">${solution/prevention_plan}</p>
             <p class="requirements">${solution/requirements}</p>
           </li>
         </ol>
@@ -83,8 +83,7 @@
                   <tal:span i18n:translate="label_action_plan_budget">Budget (in Euro)</tal:span>
                   <a class="icon info pat-tooltip" data-pat-tooltip="source: content;" href="${webhelpers/help_url}#actionplan" i18n:translate="actionplan_measure_budget_tooltip">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</a>
                   <input type="number" min="0" step="100" class="budget" name="measure.budget:records" id="input-budget-${index}" value="${actionplan/budget|nothing}"/>
-                  <p class="focustip error target-id-input-budget-${index}" tal:condition="exists:errors/budget" i18n:translate="error_invalid_budget">
-                    Please enter the budget in whole Euros.</p>
+                  <em class="message error" tal:condition="exists:errors/budget" i18n:translate="error_invalid_budget">Please enter the budget in whole Euros.</em>
                 </label>
 
                 <fieldset tal:define="day_error exists:errors/planning_start_day;
@@ -97,7 +96,7 @@
                     <input placeholder="Day" i18n:attributes="placeholder label_day;" type="number" min="1" max="31" name="measure.planning_start_day:records" id="planning-start-day-${index}" maxlength="2"
                       class="day${python:' error' if day_error else ''}"
                       value="${actionplan/planning_start_day|actionplan/planning_start/day|nothing}"/>
-                    <p class="focustip error target-id-planning-start-day-${index}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
+                    <em class="message error" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</em>
 
                     <label for="planning-start-month-${index}" i18n:translate="label_month">Month</label>
                     <select name="measure.planning_start_month:records" id="planning-start-month-${index}" class="month"
@@ -109,7 +108,7 @@
                     <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" max="2100" name="measure.planning_start_year:records" id="planning-start-year-${index}" maxlength="4"
                             class="year enablePicker${python:' error' if year_error else ''}"
                             value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
-                      <p class="focustip error target-id-planning-start-year-${index}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</p>
+                      <em class="message error" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</em>
                   </fieldset>
                 </fieldset>
 
@@ -123,7 +122,7 @@
                     <input placeholder="Day" i18n:attributes="placeholder label_day;" type="number" min="1" max="31" name="measure.planning_end_day:records" id="planning-end-day-${index}" maxlength="2"
                       class="day${python:' error' if day_error else ''}"
                       value="${actionplan/planning_end_day|actionplan/planning_end/day|nothing}"/>
-                    <p class="focustip error target-id-planning-end-day-${index}" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</p>
+                    <em class="message error" tal:condition="day_error" i18n:translate="error_invalid_day">Invalid day</em>
 
                     <label for="planning-end-month-${index}" i18n:translate="label_month">Month</label>
                     <select name="measure.planning_end_month:records" id="planning-end-month-${index}" class="month"
@@ -135,7 +134,7 @@
                     <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" max="2100" name="measure.planning_end_year:records" id="planning-end-year-${index}" maxlength="4"
                       class="year enablePicker${python:' error' if year_error else ''}"
                       value="${actionplan/planning_end_year|actionplan/planning_end/year|nothing}"/>
-                      <p class="focustip error target-id-planning-end-year-${index}" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</p>
+                      <em class="message error" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</em>
                   </fieldset>
                 </fieldset>
               </fieldset>
