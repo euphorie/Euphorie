@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.0b2 - Unreleased
--------------------------
+6.0b2 - March 5, 2013 
+---------------------
 
 **This is a beta release with incomplete translations.**
 
