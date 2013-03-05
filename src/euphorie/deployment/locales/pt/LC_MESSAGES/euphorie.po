@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-02-15 12:16+0100\n"
+"POT-Creation-Date: 2013-02-26 16:01+0100\n"
 "PO-Revision-Date: 2012-11-09 05:20-0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2961,7 +2961,6 @@ msgid "help_evaluation"
 msgstr ""
 "Também pode ignorar esta fase e avançar diretamente para a fase ${link}."
 
-#. Default: Action plan
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
