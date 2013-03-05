@@ -448,8 +448,8 @@ class Risk(SurveyTreeItem):
                 onupdate="CASCADE", ondelete="CASCADE"),
             primary_key=True)
     risk_id = schema.Column(types.String(16), nullable=False)
-    risk_type = schema.Column(Enum(["risk", "policy", "top5"]),
-        default="risk", nullable=False, index=True)
+    risk_type = schema.Column(Enum([u"risk", u"policy", u"top5"]),
+        default=u"risk", nullable=False, index=True)
     identification = schema.Column(Enum([None, u"yes", u"no", "n/a"]))
     frequency = schema.Column(types.Integer())
     effect = schema.Column(types.Integer())
@@ -522,20 +522,20 @@ MODULE_WITH_RISK_FILTER = \
              sql.exists(sql.select([node.id]).where(sql.and_(
                  node.session_id == SurveyTreeItem.session_id,
                  node.id == Risk.sql_risk_id,
-                 node.type == "risk",
-                 Risk.identification == "no",
+                 node.type == u"risk",
+                 Risk.identification == u"no",
                  node.depth > SurveyTreeItem.depth,
                  node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_OR_TOP5_FILTER = \
-    sql.and_(SurveyTreeItem.type == "module",
+    sql.and_(SurveyTreeItem.type == u"module",
              SurveyTreeItem.skip_children == False,
              sql.exists(sql.select([node.id]).where(sql.and_(
                  node.session_id == SurveyTreeItem.session_id,
                  node.id == Risk.sql_risk_id,
                  node.type == "risk",
-                 sql.or_(Risk.identification == "no",
-                     Risk.risk_type == "top5"),
+                 sql.or_(Risk.identification == u"no",
+                     Risk.risk_type == u"top5"),
                  node.depth > SurveyTreeItem.depth,
                  node.path.like(SurveyTreeItem.path + "%")))))
 
@@ -545,9 +545,9 @@ MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER = \
              sql.exists(sql.select([node.id]).where(sql.and_(
                  node.session_id == SurveyTreeItem.session_id,
                  node.id == Risk.sql_risk_id,
-                 node.type == "risk",
-                 sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                 Risk.identification == "no",
+                 node.type == u"risk",
+                 sql.not_(Risk.risk_type.in_([u"top5", u"policy"])),
+                 Risk.identification == u"no",
                  node.depth > SurveyTreeItem.depth,
                  node.path.like(SurveyTreeItem.path + "%")))))
 
@@ -555,21 +555,21 @@ RISK_PRESENT_FILTER = \
     sql.and_(SurveyTreeItem.type == "risk",
             sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
                 Risk.sql_risk_id == SurveyTreeItem.id,
-                Risk.identification == "no"))))
+                Risk.identification == u"no"))))
 
 RISK_PRESENT_OR_TOP5_FILTER = \
     sql.and_(SurveyTreeItem.type == "risk",
             sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
                 Risk.sql_risk_id == SurveyTreeItem.id,
-                sql.or_(Risk.identification == "no",
-                    Risk.risk_type == "top5")))))
+                sql.or_(Risk.identification == u"no",
+                    Risk.risk_type == u"top5")))))
 
 RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER = \
     sql.and_(SurveyTreeItem.type == "risk",
             sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
                 Risk.sql_risk_id == SurveyTreeItem.id,
-                sql.not_(Risk.risk_type.in_(['top5', 'policy'])),
-                Risk.identification == "no"))))
+                sql.not_(Risk.risk_type.in_([u'top5', u'policy'])),
+                Risk.identification == u"no"))))
 del node
 
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
