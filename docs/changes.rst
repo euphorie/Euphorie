@@ -4,7 +4,10 @@ Changelog
 6.0b3 - Unreleased
 ---------------------
 
-- ...
+Bugfixes
+~~~~~~~~
+
+- Require a newer NuPlone[r] version to fix CMS add and edit forms.
 
 
 6.0b2 - March 5, 2013 
