@@ -737,10 +737,11 @@ ul.legend {
 }
 
 .legend li.answered:before {
+	background-position: -16px;
 }
 
 .legend li.answered.risk:before {
-	background-position: -16px;
+	background-position: 0;
 }
 
 
