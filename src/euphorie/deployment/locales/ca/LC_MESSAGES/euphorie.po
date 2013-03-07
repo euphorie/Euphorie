@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-02-26 16:01+0100\n"
+"POT-Creation-Date: 2013-03-07 09:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -422,13 +422,13 @@ msgstr "Elevada"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849
-#: src/euphorie/client/templates/risk_actionplan.pt:94
+#: src/euphorie/client/templates/risk_actionplan.pt:93
 msgid "label_action_plan_start"
 msgstr ""
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:851
-#: src/euphorie/client/templates/risk_actionplan.pt:120
+#: src/euphorie/client/templates/risk_actionplan.pt:119
 msgid "label_action_plan_end"
 msgstr ""
 
@@ -895,7 +895,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:204
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:104
-#: src/euphorie/client/templates/risk_actionplan.pt:198
+#: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:170
 #: src/euphorie/client/templates/risk_identification.pt:85
 #: src/euphorie/client/templates/sessions.pt:94
@@ -997,7 +997,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:170
 #: src/euphorie/client/templates/report_company.pt:60
 #: src/euphorie/client/templates/report_identification.pt:70
-#: src/euphorie/client/templates/risk_actionplan.pt:161
+#: src/euphorie/client/templates/risk_actionplan.pt:160
 #: src/euphorie/client/templates/risk_evaluation.pt:133
 #: src/euphorie/client/templates/risk_identification.pt:48
 #: src/euphorie/client/templates/sessions.pt:70
@@ -1023,7 +1023,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:171
 #: src/euphorie/client/templates/report_company.pt:61
 #: src/euphorie/client/templates/report_identification.pt:71
-#: src/euphorie/client/templates/risk_actionplan.pt:162
+#: src/euphorie/client/templates/risk_actionplan.pt:161
 #: src/euphorie/client/templates/risk_evaluation.pt:134
 #: src/euphorie/client/templates/risk_identification.pt:49
 #: src/euphorie/client/templates/sessions.pt:71
@@ -1050,7 +1050,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:176
 #: src/euphorie/client/templates/report_company.pt:66
 #: src/euphorie/client/templates/report_identification.pt:76
-#: src/euphorie/client/templates/risk_actionplan.pt:167
+#: src/euphorie/client/templates/risk_actionplan.pt:166
 #: src/euphorie/client/templates/risk_evaluation.pt:139
 #: src/euphorie/client/templates/risk_identification.pt:54
 #: src/euphorie/client/templates/sessions.pt:74
@@ -1077,7 +1077,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:177
 #: src/euphorie/client/templates/report_company.pt:67
 #: src/euphorie/client/templates/report_identification.pt:77
-#: src/euphorie/client/templates/risk_actionplan.pt:168
+#: src/euphorie/client/templates/risk_actionplan.pt:167
 #: src/euphorie/client/templates/risk_evaluation.pt:140
 #: src/euphorie/client/templates/risk_identification.pt:55
 #: src/euphorie/client/templates/sessions.pt:75
@@ -1104,7 +1104,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:182
 #: src/euphorie/client/templates/report_company.pt:72
 #: src/euphorie/client/templates/report_identification.pt:82
-#: src/euphorie/client/templates/risk_actionplan.pt:173
+#: src/euphorie/client/templates/risk_actionplan.pt:172
 #: src/euphorie/client/templates/risk_evaluation.pt:145
 #: src/euphorie/client/templates/risk_identification.pt:63
 #: src/euphorie/client/templates/sessions.pt:78
@@ -1131,7 +1131,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:183
 #: src/euphorie/client/templates/report_company.pt:73
 #: src/euphorie/client/templates/report_identification.pt:83
-#: src/euphorie/client/templates/risk_actionplan.pt:174
+#: src/euphorie/client/templates/risk_actionplan.pt:173
 #: src/euphorie/client/templates/risk_evaluation.pt:146
 #: src/euphorie/client/templates/risk_identification.pt:64
 #: src/euphorie/client/templates/sessions.pt:79
@@ -1158,7 +1158,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:188
 #: src/euphorie/client/templates/report_company.pt:78
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/risk_actionplan.pt:179
+#: src/euphorie/client/templates/risk_actionplan.pt:178
 #: src/euphorie/client/templates/risk_evaluation.pt:154
 #: src/euphorie/client/templates/risk_identification.pt:69
 #: src/euphorie/client/templates/sessions.pt:82
@@ -1185,7 +1185,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:189
 #: src/euphorie/client/templates/report_company.pt:79
 #: src/euphorie/client/templates/report_identification.pt:89
-#: src/euphorie/client/templates/risk_actionplan.pt:180
+#: src/euphorie/client/templates/risk_actionplan.pt:179
 #: src/euphorie/client/templates/risk_evaluation.pt:155
 #: src/euphorie/client/templates/risk_identification.pt:70
 #: src/euphorie/client/templates/sessions.pt:83
@@ -1211,7 +1211,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:194
 #: src/euphorie/client/templates/report_company.pt:84
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/risk_actionplan.pt:188
+#: src/euphorie/client/templates/risk_actionplan.pt:187
 #: src/euphorie/client/templates/risk_evaluation.pt:160
 #: src/euphorie/client/templates/risk_identification.pt:75
 #: src/euphorie/client/templates/sessions.pt:86
@@ -1237,7 +1237,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:195
 #: src/euphorie/client/templates/report_company.pt:85
 #: src/euphorie/client/templates/report_identification.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:189
+#: src/euphorie/client/templates/risk_actionplan.pt:188
 #: src/euphorie/client/templates/risk_evaluation.pt:161
 #: src/euphorie/client/templates/risk_identification.pt:76
 #: src/euphorie/client/templates/sessions.pt:87
@@ -1263,7 +1263,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:202
 #: src/euphorie/client/templates/report_company.pt:92
 #: src/euphorie/client/templates/report_identification.pt:102
-#: src/euphorie/client/templates/risk_actionplan.pt:196
+#: src/euphorie/client/templates/risk_actionplan.pt:195
 #: src/euphorie/client/templates/risk_evaluation.pt:168
 #: src/euphorie/client/templates/risk_identification.pt:83
 #: src/euphorie/client/templates/sessions.pt:93
@@ -1287,7 +1287,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:203
 #: src/euphorie/client/templates/report_company.pt:93
 #: src/euphorie/client/templates/report_identification.pt:103
-#: src/euphorie/client/templates/risk_actionplan.pt:197
+#: src/euphorie/client/templates/risk_actionplan.pt:196
 #: src/euphorie/client/templates/risk_evaluation.pt:169
 #: src/euphorie/client/templates/risk_identification.pt:84
 #: src/euphorie/client/templates/start.pt:64
@@ -1308,7 +1308,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:205
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:105
-#: src/euphorie/client/templates/risk_actionplan.pt:199
+#: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:171
 #: src/euphorie/client/templates/risk_identification.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:58
@@ -1328,7 +1328,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:206
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:106
-#: src/euphorie/client/templates/risk_actionplan.pt:200
+#: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:172
 #: src/euphorie/client/templates/risk_identification.pt:87
 #: src/euphorie/client/templates/sessions.pt:95
@@ -1954,7 +1954,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:52
-#: src/euphorie/client/templates/risk_actionplan.pt:147
+#: src/euphorie/client/templates/risk_actionplan.pt:146
 #: src/euphorie/client/templates/risk_evaluation.pt:119
 #: src/euphorie/client/templates/risk_identification.pt:30
 #: src/euphorie/client/templates/sessions.pt:63
@@ -1971,7 +1971,7 @@ msgstr ""
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
 #: src/euphorie/client/templates/report_company.pt:53
-#: src/euphorie/client/templates/risk_actionplan.pt:148
+#: src/euphorie/client/templates/risk_actionplan.pt:147
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:64
@@ -2287,53 +2287,53 @@ msgid "error_invalid_budget"
 msgstr ""
 
 #. Default: Day
-#: src/euphorie/client/templates/risk_actionplan.pt:97
-#: src/euphorie/client/templates/risk_actionplan.pt:123
+#: src/euphorie/client/templates/risk_actionplan.pt:96
+#: src/euphorie/client/templates/risk_actionplan.pt:122
 #, fuzzy
 msgid "label_day"
 msgstr "Contingut de la pàgina"
 
 #. Default: Invalid day
-#: src/euphorie/client/templates/risk_actionplan.pt:100
-#: src/euphorie/client/templates/risk_actionplan.pt:126
+#: src/euphorie/client/templates/risk_actionplan.pt:99
+#: src/euphorie/client/templates/risk_actionplan.pt:125
 msgid "error_invalid_day"
 msgstr ""
 
 #. Default: Month
-#: src/euphorie/client/templates/risk_actionplan.pt:102
-#: src/euphorie/client/templates/risk_actionplan.pt:128
+#: src/euphorie/client/templates/risk_actionplan.pt:101
+#: src/euphorie/client/templates/risk_actionplan.pt:127
 msgid "label_month"
 msgstr ""
 
 #. Default: Year
-#: src/euphorie/client/templates/risk_actionplan.pt:109
-#: src/euphorie/client/templates/risk_actionplan.pt:135
+#: src/euphorie/client/templates/risk_actionplan.pt:108
+#: src/euphorie/client/templates/risk_actionplan.pt:134
 #, fuzzy
 msgid "label_year"
 msgstr "Contingut de la pàgina"
 
 #. Default: Please enter a year between 2000 and 2100.
-#: src/euphorie/client/templates/risk_actionplan.pt:112
-#: src/euphorie/client/templates/risk_actionplan.pt:138
+#: src/euphorie/client/templates/risk_actionplan.pt:111
+#: src/euphorie/client/templates/risk_actionplan.pt:137
 msgid "error_invalid_year"
 msgstr ""
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
-#: src/euphorie/client/templates/risk_actionplan.pt:152
+#: src/euphorie/client/templates/risk_actionplan.pt:151
 #: src/euphorie/client/templates/risk_evaluation.pt:124
 #: src/euphorie/client/templates/risk_identification.pt:39
 #, fuzzy
 msgid "label_comment"
 msgstr "País"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:205
+#: src/euphorie/client/templates/risk_actionplan.pt:204
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:206
+#: src/euphorie/client/templates/risk_actionplan.pt:205
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -2706,14 +2706,12 @@ msgid "Postponed"
 msgstr "${count} preguntes s'han posposat"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
-#, fuzzy
-msgid "Unanswered"
-msgstr "Aquest risc encara s'ha d'inventariar."
+msgid "Risk not present"
+msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:86
-#, fuzzy
-msgid "Answered"
-msgstr "Aquest risc encara s'ha d'inventariar."
+msgid "Risk present"
+msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:96
@@ -4287,6 +4285,14 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Aquesta versió té canvis no publicats actualment. Faci clic a la "
 "icona d'actualització per activar tots els canvis"
+
+#, fuzzy
+#~ msgid "Unanswered"
+#~ msgstr "Aquest risc encara s'ha d'inventariar."
+
+#, fuzzy
+#~ msgid "Answered"
+#~ msgstr "Aquest risc encara s'ha d'inventariar."
 
 #, fuzzy
 #~ msgid "Preparation"
