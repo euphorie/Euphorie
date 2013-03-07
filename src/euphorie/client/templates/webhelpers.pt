@@ -82,8 +82,8 @@
         <ul class="legend">
           <li class="unvisited" i18n:translate="">Unvisited</li>
           <li class="postponed" i18n:translate="">Postponed</li>
-          <li class="unanswered" i18n:translate="">Unanswered</li>
-          <li class="answered" i18n:translate="">Answered</li>
+          <li class="answered" i18n:translate="">Risk not present</li>
+          <li class="answered risk" i18n:translate="">Risk present</li>
         </ul>
       </li>
     </aside>

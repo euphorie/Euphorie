@@ -9,6 +9,9 @@ Bugfixes
 
 - Require a newer NuPlone[r] version to fix CMS add and edit forms.
 
+- Correct the navigation tree legend: the description for answered risks was
+  not correct.
+
 
 6.0b2 - March 5, 2013 
 ---------------------
