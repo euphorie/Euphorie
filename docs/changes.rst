@@ -14,7 +14,7 @@ Bugfixes
 
 - Fixed IE9 navtree rendering bug.
 
-- updated the text for the new login splash screen
+- updated the text for the new login splash screen, temporarily outcommented
 
 6.0b2 - March 5, 2013 
 ---------------------

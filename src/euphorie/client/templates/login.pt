@@ -46,6 +46,7 @@
       </p>
     </form>
 
+    <!--
     <h2 i18n:translate="">What is OiRA?</h2>
     <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>
 
@@ -94,7 +95,7 @@
 
     <h4 i18n:translate="">Do I need to prepare?</h4>
     <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
-
+    -->
     <ul id="navigation">
       <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
