@@ -1,6 +1,12 @@
 Changelog
 =========
 
+6.0b3syslab4 (unreleased)
+-------------------------
+
+- Nothing changed yet.
+
+
 6.0b3syslab3 (2013-03-15)
 -------------------------
 
