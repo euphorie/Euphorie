@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-03-15 11:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -474,7 +474,7 @@ msgstr "Riziko"
 #. Default: Priority
 #: src/euphorie/client/report.py:872
 msgid "report_timeline_priority"
-msgstr "Toto je"
+msgstr "Priorita"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:874

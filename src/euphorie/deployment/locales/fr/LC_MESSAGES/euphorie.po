@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-02-27 16:18+0200\n"
+"PO-Revision-Date: 2013-03-15 11:51+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Language: \n"
@@ -492,7 +492,7 @@ msgstr "Type de risque"
 #. Default: Risk
 #: src/euphorie/client/report.py:870
 msgid "report_timeline_risk_title"
-msgstr "${responsible} est responsable de cette tâche."
+msgstr "Risques"
 
 #. Default: Priority
 #: src/euphorie/client/report.py:872
@@ -502,9 +502,7 @@ msgstr "Priorité"
 #. Default: Comments
 #: src/euphorie/client/report.py:874
 msgid "report_timeline_comment"
-msgstr ""
-"Veuillez saisir tout commentaire devant figurer dans le rapport\n"
-"dans ce champ."
+msgstr "Commentaires "
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:889
@@ -3263,7 +3261,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:96
 #: src/euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
-msgstr "Type de risque"
+msgstr "Code situation"
 
 #. Default: 'Risk' is related to the workplace. 'Policy' is related to
 #. agreements, procedures and management decisions. It can be answered from

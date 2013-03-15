@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-02-27 16:22+0200\n"
+"PO-Revision-Date: 2013-03-15 11:52+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Language: \n"
@@ -489,19 +489,17 @@ msgstr "Τύπος κινδύνου"
 #. Default: Risk
 #: src/euphorie/client/report.py:870
 msgid "report_timeline_risk_title"
-msgstr "Ο/Η ${responsible} είναι υπεύθυνος(-η) για αυτή την ενέργεια."
+msgstr "Κίνδυνος"
 
 #. Default: Priority
 #: src/euphorie/client/report.py:872
 msgid "report_timeline_priority"
-msgstr "Είναι"
+msgstr "Προτεραιότητα"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:874
 msgid "report_timeline_comment"
-msgstr ""
-"Παρακαλώ υποβάλλετε τυχόν πρόσφατα σχόλια που θα μπορούσαν να συμπεριληφθούν "
-"στην αναφορά σε αυτό το πεδίο."
+msgstr "Σχόλια"
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:889

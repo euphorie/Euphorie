@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2011-03-30 13:05+0200\n"
+"PO-Revision-Date: 2013-03-15 11:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -478,7 +478,7 @@ msgstr "Riesgo"
 #. Default: Priority
 #: src/euphorie/client/report.py:872
 msgid "report_timeline_priority"
-msgstr "Se trata de"
+msgstr "Prioridad"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:874
