@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-03-15 11:51+0200\n"
+"PO-Revision-Date: 2013-03-15 13:38+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Language: \n"
@@ -487,7 +487,7 @@ msgstr "Budget (en Euros)"
 #. Default: Risk number
 #: src/euphorie/client/report.py:868
 msgid "label_risk_number"
-msgstr "Type de risque"
+msgstr "Code situation"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:870
@@ -3261,7 +3261,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:96
 #: src/euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
-msgstr "Code situation"
+msgstr "Type de risque"
 
 #. Default: 'Risk' is related to the workplace. 'Policy' is related to
 #. agreements, procedures and management decisions. It can be answered from
