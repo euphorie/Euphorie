@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-03-15 11:58+0200\n"
+"PO-Revision-Date: 2013-03-15 15:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -465,7 +465,7 @@ msgstr ""
 #. Default: Risk number
 #: src/euphorie/client/report.py:868
 msgid "label_risk_number"
-msgstr "Rizikos numeris"
+msgstr "Rizikos ID"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:870

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-03-15 11:53+0200\n"
+"PO-Revision-Date: 2013-03-15 15:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -468,7 +468,7 @@ msgstr ""
 #. Default: Risk number
 #: src/euphorie/client/report.py:868
 msgid "label_risk_number"
-msgstr "Tipo de riesgo"
+msgstr "Código riesgo"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:870

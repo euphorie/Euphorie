@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-03-07 09:47+0100\n"
-"PO-Revision-Date: 2013-03-15 11:52+0200\n"
+"PO-Revision-Date: 2013-03-15 15:05+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Language: \n"
@@ -484,7 +484,7 @@ msgstr "Προϋπολογισμός (σε Ευρώ)"
 #. Default: Risk number
 #: src/euphorie/client/report.py:868
 msgid "label_risk_number"
-msgstr "Τύπος κινδύνου"
+msgstr "Ταυτότητα του Κινδύνου"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:870
