@@ -4516,6 +4516,7 @@ body>#steps>li>ol {
 	background-position: -48px 0;
 	text-indent: -100px;
 	border-style: none !important;
+	border-radius: 50%;
 }
 
 #steps ol.microns li.current {

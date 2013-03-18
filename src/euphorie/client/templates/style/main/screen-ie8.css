@@ -21,10 +21,10 @@
 	padding-top: 1px;
 }
 
-#steps li li.active>a,
+/*#steps li li.active>a,
 #steps li li.current>a {
 	background: url(ie-steps-deep.png) repeat-y 0 top;	
-}
+}*/
 
 #steps li li li.active,
 #steps li li li.current {
@@ -35,10 +35,10 @@
 	padding-top: 1px;
 }
 
-#steps li li li.active>a,
+/*#steps li li li.active>a,
 #steps li li li.current>a {
 	background: url(ie-steps-deeper.png) repeat-y 0 top;	
-}
+}*/
 
 button.small,
 .button-small {
