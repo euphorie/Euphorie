@@ -4,7 +4,7 @@ Changelog
 6.0b3syslab4 (unreleased)
 -------------------------
 
-- Nothing changed yet.
+- added translations in fr, el, lv for "Keep me logged in". Fixes #6846
 
 
 6.0b3syslab3 (2013-03-15)
