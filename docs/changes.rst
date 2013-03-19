@@ -4,7 +4,8 @@ Changelog
 6.0b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- added a body > in sector style before the h1 so that it is more specific 
+  again
 
 
 6.0b4 (2013-03-19)
