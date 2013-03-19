@@ -9952,7 +9952,9 @@ define('jquery', ['jquery/dist/jquery'], function (main) { return main; });
         output:  function(log_name, level, messages) {
             // console.log will magically appear in IE8 when the user opens the
             // F12 Developer Tools, so we have to test for it every time.
-            if (console===undefined || console.log===undefined)
+            if (console===undefined)
+                    return;
+            if (console.log===undefined)
                     return;
             if (log_name)
                 messages.unshift(log_name+":");
