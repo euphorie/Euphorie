@@ -1150,7 +1150,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:76
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
-msgstr "Prevencinių veiksmų planas"
+msgstr "Veiksmų planas"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:68
