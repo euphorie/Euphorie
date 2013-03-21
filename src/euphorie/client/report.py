@@ -839,9 +839,9 @@ class ActionPlanTimeline(grok.View):
         return query.all()
 
     priority_names = {
-            'low': _(u'label_timeline_priority_low', default=u'Low'),
-            'medium': _(u'label_timeline_priority_medium', default=u'Medium'),
-            'high': _(u'label_timeline_priority_high', default=u'High'),
+            'low': _(u'risk_priority_low', default=u'Low'),
+            'medium': _(u'risk_priority_medium', default=u'Medium'),
+            'high': _(u'risk_priority_high', default=u'High'),
             }
 
     columns = [

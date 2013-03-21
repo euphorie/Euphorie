@@ -6,6 +6,9 @@ Changelog
 
 - added a body > in sector style before the h1 so that it is more specific 
   again
+- exchanged translation labels for priority names to match the translations in
+  the action plan view. The timeline msgids seem to be fuzzy: the 
+  translation for low and high is translated as "default"
 
 
 6.0b4 (2013-03-19)
