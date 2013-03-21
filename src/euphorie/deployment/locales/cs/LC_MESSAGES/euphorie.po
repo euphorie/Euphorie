@@ -2134,19 +2134,19 @@ msgstr "odborníci v oblasti zdraví a bezpečnosti"
 #: src/euphorie/client/templates/report_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:31
 msgid "risk_priority_low"
-msgstr ""
+msgstr "nízká"
 
 #. Default: medium priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:96
 #: src/euphorie/client/templates/risk_actionplan.pt:32
 msgid "risk_priority_medium"
-msgstr ""
+msgstr "střední"
 
 #. Default: high priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:97
 #: src/euphorie/client/templates/risk_actionplan.pt:33
 msgid "risk_priority_high"
-msgstr ""
+msgstr "vysoká"
 
 #. Default: This is a ${priority}.
 #: src/euphorie/client/templates/report_actionplan.pt:93

@@ -4,7 +4,7 @@ Changelog
 6.0b5syslab2 (unreleased)
 -------------------------
 
-- Nothing changed yet.
+- fixed the wrong translations for the timeline xls export priorities
 
 
 6.0b5syslab1 (2013-03-21)

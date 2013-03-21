@@ -406,17 +406,17 @@ msgstr ""
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Нисък"
+msgstr "ниско"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "Среден"
+msgstr "средно"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Висок"
+msgstr "високо"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

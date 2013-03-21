@@ -421,7 +421,7 @@ msgstr "Handlingsplan ${title}.doc"
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Standard prioritet"
+msgstr "Låg"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
@@ -431,7 +431,7 @@ msgstr "Medium"
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Standard prioritet"
+msgstr "Hög"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

@@ -425,17 +425,17 @@ msgstr "Σχέδιο δράσης ${title}"
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Προεπιλεγμένη προτεραιότητα"
+msgstr "μικρή"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "κίνδυνος μεσαίας προτεραιότητας"
+msgstr "μεσαία"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Προεπιλεγμένη προτεραιότητα"
+msgstr "υψηλή"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

@@ -409,17 +409,17 @@ msgstr ""
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Prioridad por defecto"
+msgstr "bajo"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "riesgo de prioridad media"
+msgstr "medio"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Prioridad por defecto"
+msgstr "alto"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

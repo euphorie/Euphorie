@@ -406,17 +406,17 @@ msgstr ""
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Žemas"
+msgstr "maža"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "Vidutinis"
+msgstr "vidutinė"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Aukštas"
+msgstr "didelė"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

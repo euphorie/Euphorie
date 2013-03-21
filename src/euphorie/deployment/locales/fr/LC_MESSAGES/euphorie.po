@@ -427,17 +427,17 @@ msgstr "Plan d'action ${title}"
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Priorité par défaut"
+msgstr "bas"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "risque priorité moyenne"
+msgstr "moyen"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Priorité par défaut"
+msgstr "élevé"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849

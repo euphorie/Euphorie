@@ -402,17 +402,17 @@ msgstr ""
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "Predvolená priorita"
+msgstr "nízke"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "riziko so strednou prioritou"
+msgstr "stredné"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "Predvolená priorita"
+msgstr "vysoké"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849
