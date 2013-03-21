@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.0b5 (unreleased)
-------------------
+6.0b5syslab1 (2013-03-21)
+-------------------------
 
 - added a body > in sector style before the h1 so that it is more specific 
   again
