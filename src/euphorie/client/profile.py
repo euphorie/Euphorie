@@ -108,11 +108,9 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
             if not p:
                 continue
 
-            if isinstance(p, bool):
-                AddToTree(dbsession, child)
-            elif isinstance(p, list):
-                for i in range(len(p)):
-                    AddToTree(dbsession, child, title=p[i], profile_index=i)
+            assert isinstance(p, list)
+            for i in range(len(p)):
+                AddToTree(dbsession, child, title=p[i], profile_index=i)
         else:
             AddToTree(dbsession, child)
 
