@@ -109,8 +109,8 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
                 continue
 
             assert isinstance(p, list)
-            for i in range(len(p)):
-                AddToTree(dbsession, child, title=p[i], profile_index=i)
+            for (index, title) in enumerate(p):
+                AddToTree(dbsession, child, title=title, profile_index=index)
         else:
             AddToTree(dbsession, child)
 
@@ -141,6 +141,7 @@ def extractProfile(survey, survey_session):
             .filter(model.SurveyTreeItem.type == 'module')\
             .filter(model.SurveyTreeItem.session == survey_session)\
             .filter(model.SurveyTreeItem.depth == 1)\
+            .order_by(model.SurveyTreeItem.profile_index)\
             .all()
     for row in query:
         session_modules.setdefault(row.zodb_path, []).append(row)

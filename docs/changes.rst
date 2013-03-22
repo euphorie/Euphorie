@@ -4,7 +4,7 @@ Changelog
 6.0b5syslab3 (unreleased)
 -------------------------
 
-- Nothing changed yet.
+- Show titles for profile questions in the right order in the profile form.
 
 
 6.0b5syslab2 (2013-03-21)
