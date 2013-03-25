@@ -187,18 +187,6 @@ class BuildSurveyTreeTests(unittest.TestCase):
                 dbsession=dbsession)
         self.assertEqual(dbsession, [])
 
-    def testOptionalProfilePositive(self):
-        dbsession = MockSession()
-        BuildSurveyTree({'one': createContainer("13", True)},
-                        profile={"13": True}, dbsession=dbsession)
-        self.assertEqual(dbsession, [("13", None)])
-
-    def testOptionalProfileNegative(self):
-        dbsession = MockSession()
-        BuildSurveyTree({'one': createContainer("13", True)},
-                        profile={"13": False}, dbsession=dbsession)
-        self.assertEqual(dbsession, [])
-
     def testRepeatProfileNoAnswers(self):
         dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
