@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-03-07 09:47+0100\n"
+"POT-Creation-Date: 2013-03-25 00:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Generated-By: Babel 0.9.6\n"
 
 #. Default: Your country
@@ -252,7 +252,7 @@ msgstr ""
 #: src/euphorie/client/report.py:384 src/euphorie/client/report.py:652
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:51
-#: src/euphorie/client/templates/webhelpers.pt:128
+#: src/euphorie/client/templates/webhelpers.pt:126
 msgid "warn_risk_present"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr "Aktionsplan"
 #. included in this report.
 #: src/euphorie/client/report.py:662
 #: src/euphorie/client/templates/report_actionplan.pt:159
-#: src/euphorie/client/templates/webhelpers.pt:119
+#: src/euphorie/client/templates/webhelpers.pt:117
 msgid "top5_risk_not_present"
 msgstr ""
 
@@ -720,8 +720,8 @@ msgstr "Gründe für das OiRA-Projekt"
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
-"Gemeinschaftsstrategie für Gesundheit und Sicherheit am Arbeitsplatz "
-"2007-2012"
+"Gemeinschaftsstrategie für Gesundheit und Sicherheit am Arbeitsplatz 2007-"
+"2012"
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
@@ -893,7 +893,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:93
 #: src/euphorie/client/templates/identification.pt:70
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/login.pt:102
+#: src/euphorie/client/templates/login.pt:99
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
 #: src/euphorie/client/templates/module_identification.pt:86
@@ -997,7 +997,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:60
 #: src/euphorie/client/templates/identification.pt:36
 #: src/euphorie/client/templates/layout.pt:25
-#: src/euphorie/client/templates/login.pt:70
+#: src/euphorie/client/templates/login.pt:69
 #: src/euphorie/client/templates/module_actionplan.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/module_identification.pt:49
@@ -1050,7 +1050,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:66
 #: src/euphorie/client/templates/identification.pt:42
 #: src/euphorie/client/templates/layout.pt:31
-#: src/euphorie/client/templates/login.pt:71
+#: src/euphorie/client/templates/login.pt:70
 #: src/euphorie/client/templates/module_actionplan.pt:55
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/module_identification.pt:55
@@ -1104,7 +1104,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:72
 #: src/euphorie/client/templates/identification.pt:48
 #: src/euphorie/client/templates/layout.pt:37
-#: src/euphorie/client/templates/login.pt:72
+#: src/euphorie/client/templates/login.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:61
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/module_identification.pt:64
@@ -1158,7 +1158,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:78
 #: src/euphorie/client/templates/identification.pt:54
 #: src/euphorie/client/templates/layout.pt:43
-#: src/euphorie/client/templates/login.pt:73
+#: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/module_actionplan.pt:67
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/module_identification.pt:70
@@ -1829,7 +1829,7 @@ msgstr ""
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
-"workplace or business."
+"workplace."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:52
@@ -1839,129 +1839,110 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace or working environments."
+"that might exist in their workplace."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:56
-#: src/euphorie/client/templates/login.pt:67
-#: src/euphorie/client/templates/login.pt:82
-#: src/euphorie/client/templates/login.pt:91
+#: src/euphorie/client/templates/login.pt:66
+#: src/euphorie/client/templates/login.pt:80
+#: src/euphorie/client/templates/login.pt:89
 msgid "Show more…"
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:56
-#: src/euphorie/client/templates/login.pt:67
-#: src/euphorie/client/templates/login.pt:82
-#: src/euphorie/client/templates/login.pt:91
+#: src/euphorie/client/templates/login.pt:66
+#: src/euphorie/client/templates/login.pt:80
+#: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:58
-msgid ""
-"However, OiRA is designed to be of most value to smaller businesses who are "
-"aware of their legal health and safety obligations but may not be in a "
-"position to commission a full risk assessment by an external organisation."
+msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
-"Often, employees or owners of these businesses are responsible for health "
-"and safety-related activities alongside their other day-to-day "
-"responsibilities. OiRA is designed specifically to help people in this "
-"position by bringing together in one place the legal context, likely risks "
-"to be assessed and the ability to produce a report tailored to the "
-"business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work "
+"and helping them to produce a documented risk assessment including an action "
+"plan tailored to the business's requirements."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:60
-msgid ""
-"Previous experience of conducting a risk assessment is not required as OiRA "
-"contains all of the information you will need, including comprehensive "
-"support documentation and videos covering details of the assessment process "
-"and the tool's operation."
-msgstr ""
-
-#: src/euphorie/client/templates/login.pt:63
+#: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:64
+#: src/euphorie/client/templates/login.pt:63
 msgid "There are four main stages to complete in the assessment process:"
+msgstr ""
+
+#: src/euphorie/client/templates/login.pt:69
+msgid ""
+"${preparation} This gives you an overview of the particular assessment you "
+"are about to begin and can allow you to further customise the assessment to "
+"the specific nature of your business."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and, in some cases, can allow you to further customise "
-"the assessment to the specific nature of your business."
+"${identification} OiRA will present a series of potential health and safety "
+"hazards or problems that could exist in your workplace. By answering the "
+"statements/questions with either yes or no, you state if such hazards or "
+"problems are present. You can also decide to leave a question unanswered and "
+"thus put in on hold to be answered at a later stage."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:71
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your organisation. You can then "
-"identify those that have been addressed or do not exist, those that need to "
-"be addressed and those you would like to 'park' just now and return to later."
-msgstr ""
-
-#: src/euphorie/client/templates/login.pt:72
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:73
+#: src/euphorie/client/templates/login.pt:72
 msgid ""
-"${action-plan} In the fourth stage of the assessment you will decide what "
-"steps you can take to address the risks you have now identified and what "
-"resources this might require."
+"${action-plan} In the fourth stage of the assessment you can decide what "
+"steps you will take to address the risks you have identified previously and "
+"what resources this might require. Based on this, a report will be "
+"automatically produced in the next step."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:75
-msgid ""
-"You can then produce a report containing the level of detail you require and "
-"in a format that will make it easy to refer to and share electronically or "
-"in print."
-msgstr ""
-
-#: src/euphorie/client/templates/login.pt:78
+#: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:79
+#: src/euphorie/client/templates/login.pt:77
 msgid ""
-"It's impossible to say how long an assessment will take as each one contains "
-"risks that are typically found in working environment(s) relevant to your "
-"business sector."
+"It's impossible to say how long an assessment will take in general as the "
+"tools differ according to sectors and countries."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:84
+#: src/euphorie/client/templates/login.pt:82
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:87
+#: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:88
+#: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:97
+#: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
 msgstr ""
 
-#: src/euphorie/client/templates/login.pt:98
+#: src/euphorie/client/templates/login.pt:96
 msgid ""
-"You can find any specific requirements regarding documentation you will be "
-"asked to refer to during the assessment on the first page after you start "
-"the assessment."
+"You do not need any kind of specific preparation to start using the tool, "
+"however you should take some time to think about who is going to carry out "
+"the risk assessment, how workers are going to be involved in the process, "
+"etc."
 msgstr ""
 
 #. Default: Previous
@@ -2710,37 +2691,37 @@ msgstr ""
 msgid "oira_name_line_2"
 msgstr ""
 
-#: src/euphorie/client/templates/webhelpers.pt:83
+#: src/euphorie/client/templates/webhelpers.pt:82
 msgid "Unvisited"
 msgstr ""
 
-#: src/euphorie/client/templates/webhelpers.pt:84
+#: src/euphorie/client/templates/webhelpers.pt:83
 #, fuzzy
 msgid "Postponed"
 msgstr "${count} Fragen wurden aufgeschoben."
 
-#: src/euphorie/client/templates/webhelpers.pt:85
+#: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
 msgstr ""
 
-#: src/euphorie/client/templates/webhelpers.pt:86
+#: src/euphorie/client/templates/webhelpers.pt:85
 msgid "Risk present"
 msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
-#: src/euphorie/client/templates/webhelpers.pt:96
+#: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr ""
 
 #. Default: About
-#: src/euphorie/client/templates/webhelpers.pt:97
+#: src/euphorie/client/templates/webhelpers.pt:95
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
 msgstr ""
 
 #. Default: Legal and policy references
-#: src/euphorie/client/templates/webhelpers.pt:138
+#: src/euphorie/client/templates/webhelpers.pt:136
 msgid "header_legal_references"
 msgstr "Rechtliche und politische Referenzen"
 
