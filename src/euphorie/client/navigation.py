@@ -28,8 +28,12 @@ def FindNextQuestion(after, dbsession=None, filter=None):
             .filter(model.SurveyTreeItem.session == dbsession)\
             .filter(model.SurveyTreeItem.path > after.path)\
             .filter(sql.not_(model.SKIPPED_PARENTS))
-    if filter is not None:
-        query = query.filter(filter)
+    # Skip modules without a description.
+    if filter is None:
+        filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
+    else:
+        filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
+    query = query.filter(filter)
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
@@ -41,8 +45,12 @@ def FindPreviousQuestion(after, dbsession=None, filter=None):
             .filter(model.SurveyTreeItem.session == dbsession)\
             .filter(model.SurveyTreeItem.path < after.path)\
             .filter(sql.not_(model.SKIPPED_PARENTS))
-    if filter is not None:
-        query = query.filter(filter)
+    # Skip modules without a description.
+    if filter is None:
+        filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
+    else:
+        filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
+    query = query.filter(filter)
     return query.order_by(model.SurveyTreeItem.path.desc()).first()
 
 

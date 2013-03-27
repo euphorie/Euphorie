@@ -87,7 +87,7 @@ class TreeChangesTests(TreeTests):
     def test_nothing_changes(self):
         session = self.createSurveySession()
         session_module = model.Module(title=u'Root', module_id='1',
-                zodb_path='1', skip_children=False)
+                zodb_path='1', skip_children=False, has_description=False)
         session.addChild(session_module)
         session_module.addChild(model.Risk(title=u'Risk 1', risk_id='2',
             zodb_path='1/2', type='risk', identification='no'))
@@ -117,10 +117,11 @@ class TreeChangesTests(TreeTests):
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "add")]))
 
-    def testAddNewRisk(self):
+    def test_add_new_risk(self):
         session = self.createSurveySession()
         session.addChild(
-                model.Module(title=u"Root", module_id="1", zodb_path="1"))
+                model.Module(title=u"Root", module_id="1", zodb_path="1",
+                    has_description=False))
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         survey["1"].invokeFactory("euphorie.risk", "2")
@@ -144,10 +145,11 @@ class TreeChangesTests(TreeTests):
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "remove")]))
 
-    def testRemoveRisk(self):
+    def test_remove_risk(self):
         session = self.createSurveySession()
         session.addChild(
-                model.Module(title=u"Root", module_id="1", zodb_path="1"))
+                model.Module(title=u"Root", module_id="1", zodb_path="1",
+                    has_description=False))
         session.addChild(model.Risk(title=u"Risk 1", risk_id="1",
             zodb_path="1/1", type="risk", identification="no"))
         survey = self.createClientSurvey()
@@ -191,10 +193,10 @@ class TreeChangesTests(TreeTests):
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([('1', 'module', 'modified')]))
 
-    def testModuleMadeOptional(self):
+    def test_module_made_optionsl(self):
         session = self.createSurveySession()
         session_module = model.Module(title=u"Root", module_id="1",
-                zodb_path="1", skip_children=False)
+                zodb_path="1", has_description=False, skip_children=False)
         session.addChild(session_module)
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")

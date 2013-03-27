@@ -4,6 +4,9 @@ Changelog
 6.0b5syslab5 (unreleased)
 -------------------------
 
+- Include modules without a description in the navigation tree. This fixes 
+  `TNO ticket 236 <https://code.simplon.biz/tracker/tno-euphorie/ticket/236>`_.
+
 - Fix a typo in the Dutch translations. This fixes
   `TNO ticket 237 <https://code.simplon.biz/tracker/tno-euphorie/ticket/237>`_.
 

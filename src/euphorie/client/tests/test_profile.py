@@ -51,6 +51,24 @@ def createRisk(id):
     return Risk(id)
 
 
+def createModule(id):
+    from zope.interface import implements
+    from euphorie.content.module import IModule
+    from euphorie.content.interfaces import IQuestionContainer
+
+    class Module(dict):
+        implements(IModule, IQuestionContainer)
+        title = u'module'
+        description = None
+        optional = False
+        solution_direction = False
+
+        def __init__(self, id):
+            dict.__init__(self)
+            self.id = id
+    return Module(id)
+
+
 class AddToTreeTests(DatabaseTests):
     def setUp(self):
         from z3c.saconfig import Session
@@ -152,6 +170,15 @@ class AddToTreeTests(DatabaseTests):
         children = list(self.root.children())
         child = children[0]
         self.assertEqual(child.has_description, False)
+
+    def test_pretend_optional_module_has_description(self):
+        # This is necessary to make sure optional modules are never skipped.
+        module = createModule("13")
+        module.optional = True
+        AddToTree(self.root, module)
+        children = list(self.root.children())
+        child = children[0]
+        self.assertEqual(child.has_description, True)
 
 
 class BuildSurveyTreeTests(unittest.TestCase):

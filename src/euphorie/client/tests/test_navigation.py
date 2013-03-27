@@ -47,7 +47,8 @@ class FindNextQuestionTests(DatabaseTests):
         survey.addChild(mod1)
         q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/2")
         mod1.addChild(q1)
-        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2")
+        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2",
+                has_description=True)
         survey.addChild(mod2)
         self.failUnless(navigation.FindNextQuestion(q1, survey) is mod2)
 
@@ -56,11 +57,25 @@ class FindNextQuestionTests(DatabaseTests):
         mod1 = model.Module(title=u"Module 1", module_id="1", zodb_path="1",
                 skip_children=True)
         survey.addChild(mod1)
-        q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1")
+        q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1",
+                has_description=True)
         mod1.addChild(q1)
-        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2")
+        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2",
+                has_description=True)
         survey.addChild(mod2)
         self.failUnless(navigation.FindNextQuestion(mod1, survey) is mod2)
+
+    def test_ignore_module_without_description(self):
+        (session, survey) = createSurvey()
+        mod1 = model.Module(title=u"Module 1", module_id="1", zodb_path="1")
+        survey.addChild(mod1)
+        q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1")
+        mod1.addChild(q1)
+        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2", has_description=False)
+        survey.addChild(mod2)
+        mod3 = model.Module(title=u"Module 3", module_id="3", zodb_path="3", has_description=True)
+        survey.addChild(mod3)
+        self.failUnless(navigation.FindNextQuestion(q1, survey) is mod3)
 
 
 class FindPreviousQuestionTests(DatabaseTests):
@@ -92,13 +107,27 @@ class FindPreviousQuestionTests(DatabaseTests):
     def testQuestionAtPreviousModuleWithSkippedChildren(self):
         (session, survey) = createSurvey()
         mod1 = model.Module(title=u"Module 1", module_id="1", zodb_path="1",
-                skip_children=True)
+                has_description=True, skip_children=True)
         survey.addChild(mod1)
         q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1")
         mod1.addChild(q1)
         mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2")
         survey.addChild(mod2)
         self.failUnless(navigation.FindPreviousQuestion(mod2, survey) is mod1)
+
+    def test_skip_module_without_description(self):
+        (session, survey) = createSurvey()
+        mod1 = model.Module(title=u"Module 1", module_id="1", zodb_path="1",
+                has_description=True)
+        survey.addChild(mod1)
+        q1 = model.Risk(title=u"Risk 1", risk_id="1", zodb_path="1/1")
+        mod1.addChild(q1)
+        mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2",
+                has_description=False)
+        survey.addChild(mod2)
+        mod3 = model.Module(title=u"Module 3", module_id="3", zodb_path="3")
+        survey.addChild(mod3)
+        self.failUnless(navigation.FindPreviousQuestion(mod3, survey) is q1)
 
 
 class EvaluationNavigationTests(DatabaseTests):
