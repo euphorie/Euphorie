@@ -915,7 +915,7 @@ msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
 msgstr ""
-"Hou er rekening mee dat bij het wijzigin van uw e-mail adres uw login naam "
+"Hou er rekening mee dat bij het wijzigen van uw e-mail adres uw login naam "
 "ook wijzigt."
 
 #. Default: Password

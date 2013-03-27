@@ -4,7 +4,8 @@ Changelog
 6.0b5syslab5 (unreleased)
 -------------------------
 
-- Nothing changed yet.
+- Fix a typo in the Dutch translations. This fixes
+  `TNO ticket 237 <https://code.simplon.biz/tracker/tno-euphorie/ticket/237>`_.
 
 
 6.0b5syslab4 (2013-03-26)
