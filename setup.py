@@ -90,6 +90,7 @@ setup(name="Euphorie",
                         "mock",
                        ],
       },
+      setup_requires='PasteScript',
       entry_points="""
       [z3c.autoinclude]
       target = plone
