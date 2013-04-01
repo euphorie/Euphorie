@@ -21,7 +21,7 @@
         <dt i18n:translate="label_measure_action_plan">General approach (to eliminate or reduce the risk)</dt>
         <dd>${context/action_plan}</dd>
         <tal:block condition="context/prevention_plan">
-          <dt i18n:translate="label_measure_prevention_plan">Specific action(s) required to implement this approach<dt>
+          <dt i18n:translate="label_measure_prevention_plan">Specific action(s) required to implement this approach</dt>
           <dd>${context/prevention_plan}</dd>
         </tal:block>
         <tal:block condition="context/requirements">
