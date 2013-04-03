@@ -1,8 +1,10 @@
 Changelog
 =========
 
-6.0b5syslab5 (unreleased)
--------------------------
+6.0rc1 - April 3, 2013
+----------------------
+
+**This is a release candidate with incomplete translations.**
 
 Bugfixes
 ~~~~~~~~
@@ -17,46 +19,26 @@ Bugfixes
 - Fix a typo in the Dutch translations. This fixes
   `TNO ticket 237 <https://code.simplon.biz/tracker/tno-euphorie/ticket/237>`_.
 
-
-6.0b5syslab4 (2013-03-26)
--------------------------
-
-- Nothing changed yet.
-
-
-6.0b5syslab3 (2013-03-22)
--------------------------
-
 - Show titles for profile questions in the right order in the profile form.
 
+- Fixed the wrong translations for the timeline xls export priorities
 
-6.0b5syslab2 (2013-03-21)
--------------------------
+- Fix header styling in the client. added a body > in sector style before the h1 so that it is more specific 
 
-- fixed the wrong translations for the timeline xls export priorities
-
-
-6.0b5syslab1 (2013-03-21)
--------------------------
-
-- added a body > in sector style before the h1 so that it is more specific 
-  again
-- exchanged translation labels for priority names to match the translations in
-  the action plan view. The timeline msgids seem to be fuzzy: the 
-  translation for low and high is translated as "default"
+- Exchanged translation labels for priority names to match the translations in
+  the action plan view. The timeline msgids seem to be fuzzy: the translation
+  for low and high is translated as "default"
 
 
-6.0b4 (2013-03-19)
-------------------
+6.0b4 - March 19, 2013
+----------------------
 
-- added translations in fr, el, lv for "Keep me logged in". Fixes #6846
-
-
-6.0b3syslab3 (2013-03-15)
--------------------------
+**This is a beta release with incomplete translations.**
 
 Bugfixes
 ~~~~~~~~
+
+- Add translations in fr, el, lv for "Keep me logged in". Fixes #6846
 
 - Require a newer NuPlone[r] version to fix CMS add and edit forms.
 
@@ -66,6 +48,7 @@ Bugfixes
 - Fixed IE9 navtree rendering bug.
 
 - updated the text for the new login splash screen
+
 
 6.0b2 - March 5, 2013 
 ---------------------
@@ -186,8 +169,8 @@ Bugfixes
 - Fix compatibility with plone.app.search.
 
 
-5.1.1 - Unreleased
--------------------------
+5.1.1 - January 9, 2013
+-----------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
