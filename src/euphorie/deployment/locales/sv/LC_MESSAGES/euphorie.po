@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-03-25 00:58+0100\n"
+"POT-Creation-Date: 2013-04-03 14:53+0200\n"
 "PO-Revision-Date: 2013-02-27 16:24+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 0.9.5\n"
 
@@ -457,11 +457,13 @@ msgstr "Handlingsplan"
 #: src/euphorie/client/report.py:857
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
+#: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr "Förebyggande plan"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:861 src/euphorie/content/solution.py:49
+#: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Krav"
 
@@ -507,20 +509,20 @@ msgstr "Handlingsplan"
 msgid "filename_report_timeline"
 msgstr "Handlingsplan ${title}.doc"
 
-#: src/euphorie/client/risk.py:191 src/euphorie/client/risk.py:223
+#: src/euphorie/client/risk.py:189 src/euphorie/client/risk.py:221
 msgid "Please provide the day of the month"
 msgstr ""
 
-#: src/euphorie/client/risk.py:193 src/euphorie/client/risk.py:200
-#: src/euphorie/client/risk.py:225 src/euphorie/client/risk.py:231
+#: src/euphorie/client/risk.py:191 src/euphorie/client/risk.py:198
+#: src/euphorie/client/risk.py:223 src/euphorie/client/risk.py:229
 msgid "Invalid day of month"
 msgstr "Ogiltig månadsdag"
 
-#: src/euphorie/client/risk.py:212 src/euphorie/client/risk.py:243
+#: src/euphorie/client/risk.py:210 src/euphorie/client/risk.py:241
 msgid "Please enter a year after 1900"
 msgstr "Ange ett årtal efter år 1900"
 
-#: src/euphorie/client/risk.py:214 src/euphorie/client/risk.py:245
+#: src/euphorie/client/risk.py:212 src/euphorie/client/risk.py:243
 #, fuzzy
 msgid "Please enter a year before 2100"
 msgstr "Ange ett årtal efter år 1900"
@@ -883,7 +885,7 @@ msgstr "De branschanpassade OiRA-verktygen får användas kostnadsfritt av alla.
 #: src/euphorie/client/templates/help.pt:93
 #: src/euphorie/client/templates/identification.pt:70
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/login.pt:99
+#: src/euphorie/client/templates/login.pt:100
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
 #: src/euphorie/client/templates/module_identification.pt:86
