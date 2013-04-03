@@ -42,6 +42,7 @@ bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg de
 	bin/buildout -c devel.cfg -t 10
 	touch bin/test
 	touch bin/sphinx-build
+	touch bin/pybabel
 
 check:: bin/test ${MO_FILES}
 	bin/test -s euphorie
@@ -65,6 +66,7 @@ pot: bin/pybabel
 		--charset=utf-8 \
 		src/euphorie > $(EUPHORIE_POT)~
 	mv $(EUPHORIE_POT)~ $(EUPHORIE_POT)	
+	$(MAKE) $(MFLAGS) $(EUPHORIE_PO_FILES)
 
 $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
 	msgmerge --update $@ $<
