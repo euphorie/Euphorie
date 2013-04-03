@@ -4,6 +4,13 @@ Changelog
 6.0b5syslab5 (unreleased)
 -------------------------
 
+Bugfixes
+~~~~~~~~
+
+- Display risk information in the client evaluation page as a message so links
+  are readable. This fixes `ticket 93
+  <https://github.com/euphorie/Euphorie/issues/93>`_.
+
 - Include modules without a description in the navigation tree. This fixes 
   `TNO ticket 236 <https://code.simplon.biz/tracker/tno-euphorie/ticket/236>`_.
 

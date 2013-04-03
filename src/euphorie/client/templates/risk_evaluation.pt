@@ -17,7 +17,7 @@
     class="evaluation ${webhelpers/extra_css}">
     <h1>${view/title}</h1>
 
-    <div class="notice" tal:define="show_statement python:True">
+    <div class="message notice" tal:define="show_statement python:True">
       <metal:call use-macro="webhelpers/macros/risk_info" />
     </div>
 
