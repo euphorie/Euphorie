@@ -25,12 +25,6 @@ setup(name="Euphorie",
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=[],
-      paster_plugins=["Babel"],
-      message_extractors={"src": [
-          ("euphorie/**.py", "lingua_python", None),
-          ("euphorie/**.pt", "lingua_xml", None),
-          ("euphorie/**.xml", "lingua_xml", None),
-            ]},
       include_package_data=True,
       zip_safe=False,
       install_requires=[
@@ -90,7 +84,6 @@ setup(name="Euphorie",
                         "mock",
                        ],
       },
-      setup_requires='PasteScript',
       entry_points="""
       [z3c.autoinclude]
       target = plone
