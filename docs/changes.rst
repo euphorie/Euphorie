@@ -4,7 +4,7 @@ Changelog
 6.0rc2 - Unreleased
 ----------------------
 
-- ...
+- Added Hungarian translations [pysailor]
 
 
 6.0rc1 - April 3, 2013
