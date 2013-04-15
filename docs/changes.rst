@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.0rc2 - Unreleased
-----------------------
+6.0rc2 (2013-04-15)
+-------------------
 
 - Added Hungarian translations [pysailor]
 - changed heading in splash page to saisfy request in #7262 [pilz]
