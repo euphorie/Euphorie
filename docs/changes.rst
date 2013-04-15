@@ -5,6 +5,7 @@ Changelog
 ----------------------
 
 - Added Hungarian translations [pysailor]
+- changed heading in splash page to saisfy request in #7262 [pilz]
 
 
 6.0rc1 - April 3, 2013
