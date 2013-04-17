@@ -79,7 +79,7 @@ msgstr "zowel eigen personeel als een externe expert"
 #: src/euphorie/client/templates/report_actionplan.pt:52
 #: src/euphorie/client/templates/report_company.pt:35
 msgid "label_referer"
-msgstr "Hoe bent u bij deze site gevonden?"
+msgstr "Hoe heeft u bij deze site gevonden?"
 
 #. Default: an employers' organisation
 #: src/euphorie/client/company.py:58
@@ -126,7 +126,7 @@ msgstr "overig"
 #: src/euphorie/client/company.py:80
 #: src/euphorie/client/templates/report_actionplan.pt:62
 msgid "label_workers_participated"
-msgstr "Er zijn werknemers gevraagd deel te nemen in deze RI&E"
+msgstr "De werknemers zijn gevraagd deel te nemen aan deze RI&E"
 
 #. Default: Yes
 #: src/euphorie/client/company.py:84
@@ -242,7 +242,8 @@ msgstr "hoog"
 #: src/euphorie/client/templates/report_actionplan.pt:164
 msgid "report_survey_revision"
 msgstr ""
-"Dit rapport is gebaseerd op de RI&E '${title}' van revision datum ${date}."
+"Dit rapport is gebaseerd op de RI&E '${title}' met de versie van datum "
+"${date}."
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:187
@@ -323,8 +324,9 @@ msgstr "Plan van aanpak"
 #: src/euphorie/client/templates/webhelpers.pt:117
 msgid "top5_risk_not_present"
 msgstr ""
-"Dit risico is niet aanwezig in uw organisatie, maar aangezien het een top-5 "
-"risico is het wel opgenomen in de rapportage."
+"Dit risico is niet aanwezig in uw organisatie; aangezien het een door de "
+"branche vastgesteld top-5 risico betreft is het wel opgenomen in de "
+"rapportage."
 
 #. Default: This is a
 #: src/euphorie/client/report.py:676
@@ -657,22 +659,22 @@ msgstr "Over"
 #. Default: What is the OiRA (Online Interactive Risk Assessment) project
 #: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
-msgstr ""
+msgstr "Wat is het OiRA (Online Interactive Risk Assesment) project"
 
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr ""
+msgstr "een goede risico-inventarisatie is de sleutel tot een gezonde werkplek"
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
-msgstr ""
+msgstr "een eenvoudig te gebruiken en gratis web applicatie"
 
 #. Default: step-by-step risk assessment process
 #: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
-msgstr ""
+msgstr "een stap-voor-stap inventarisatie proces"
 
 #. Default: identification
 #: src/euphorie/client/templates/about.pt:34
@@ -701,8 +703,14 @@ msgstr "rapportage"
 #. making on ${preventive_actions} and the taking of action, to monitoring and
 #. ${reporting}.
 #: src/euphorie/client/templates/about.pt:25
+#, fuzzy
 msgid "about_paragraph_1"
 msgstr ""
+"De ervaring leert dat ${key}. Daarom heeft EU-OSHA een \n"
+"${easy} digitale RI&E ontwikkeld die MKB-bedrijven op weg kan helpen met de "
+"inventarisatie en evaluatie van werkgerelateerde risico's, beslissingen te "
+"nemen over ${preventive_actions}, actie te ondernemen, deze te monitoren en "
+"te ${reporting}."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -710,21 +718,25 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
+"De OiRA web-applicatie geeft toegang tot de branche RI&E's die gemaakt zijn "
+"en worden onderhouden door de brancheorganisaties op nationaal niveau."
 
 #. Default: Why the OiRA project
 #: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
-msgstr ""
+msgstr "Waarom het OiRA project"
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
+"De Europese Gemeenschap strategie voor Veiligheid en Gezondheid op het werk "
+"2007-2012"
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
-msgstr ""
+msgstr "MKB bedrijven hebben enige tekortkomingen"
 
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -737,6 +749,14 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
+"Het ${agency} staat voor de ontwikkeling van eenvoudige tools om de risico-"
+"inventarisatie te faciliteren. Sinds de Europese Kaderrichtlijn in 1989 is "
+"aangenomen, is risico-inventarisatie een algemeen begrip geworden voor "
+"preventie op de werkplek en meer dan honderdduizenden bedrijven in Europa "
+"beoordelen hun risico's regelmatig. Evengoed is er voldoende bewijs om te "
+"concluderen dat het ${smb} soms tegen problemen aanloopt, als het gaat om "
+"risico-inventarisatie en de toepassing van een preventief beleid in het "
+"algemeen, waarbij het OiRA-project deze wil helpen te overwinnen."
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
@@ -762,6 +782,8 @@ msgstr "Ontwikkeling en pilotfase - 2009-2011"
 #: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
+"Na de technische ontwikkeling van de tool in 2009 zijn diverse pilots "
+"gestart om de tool te testen en de ondersteuning op te zetten."
 
 #. Default: Official launch of the project – September 2011
 #: src/euphorie/client/templates/about.pt:67
@@ -774,14 +796,14 @@ msgstr "Officiële lancering van het project - September 2011"
 #: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
-"De officiële lancering van dit hulpmiddel zal plaatsvinden in september "
-"2011, als de doelstellingen van de testfase zijn bereiken en de OiRA "
-"website, het trainingsrooster en de OiRA helpdesk beschikbaar zijn."
+"De officiële lancering van deze tool zal plaatsvinden in september 2011, als "
+"de doelstellingen van de testfase zijn bereikt en de OiRA website en de OiRA "
+"helpdesk beschikbaar zijn."
 
 #. Default: Development partners
 #: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
-msgstr "ontwikkelingspartners"
+msgstr "ontwikkelpartners"
 
 #. Default: The OiRA project and its related web application has been developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
@@ -1974,7 +1996,7 @@ msgstr ""
 #. Default: The preview will be available at ${url}.
 #: src/euphorie/client/templates/preview.pt:23
 msgid "help_preview_url"
-msgstr "Deze preview is te bekijken via ${url}."
+msgstr "Deze preview is te bekijken via ${url} ."
 
 #. Default: Tailor the risk assessment to your organisation
 #: src/euphorie/client/templates/profile.pt:16
@@ -2152,7 +2174,7 @@ msgstr "Land"
 #. Default: health and safety experts
 #: src/euphorie/client/templates/report_actionplan.pt:58
 msgid "referer_health_safety_export"
-msgstr ""
+msgstr "arbodeskundigen"
 
 #. Default: low priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:95
@@ -2232,7 +2254,7 @@ msgstr "Verwijder deze maatregel"
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "button_delete_measure"
-msgstr "Gebruik de standaard kleuren"
+msgstr "Verwijder"
 
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:58
@@ -2324,7 +2346,7 @@ msgstr "Jaar"
 #: src/euphorie/client/templates/risk_actionplan.pt:111
 #: src/euphorie/client/templates/risk_actionplan.pt:137
 msgid "error_invalid_year"
-msgstr "Vul een geldig jaartal na 1900 in"
+msgstr "Vul een jaartal in tussen 2000 en 2100."
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
@@ -2333,8 +2355,8 @@ msgstr "Vul een geldig jaartal na 1900 in"
 #: src/euphorie/client/templates/risk_identification.pt:39
 msgid "label_comment"
 msgstr ""
-"Vul hier eventuele opmerkingen in die moeten worden meegenomen in het "
-"rapport."
+"Vul hier eventuele opmerkingen in die moeten worden meegenomen in het plan "
+"van aanpak."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:204
 msgid ""
@@ -2434,18 +2456,18 @@ msgstr "Zwak"
 #. Default: No need to stop working
 #: src/euphorie/client/templates/risk_evaluation.pt:63
 msgid "severity_weak_help"
-msgstr "Niet nog om te stoppen met werk"
+msgstr "Niet nodig om te stoppen met het werk"
 
 #. Default: Not very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:66
 #: src/euphorie/content/risk.py:217
 msgid "severity_not_severe"
-msgstr "Niet ernstig"
+msgstr "Niet zo ernstig"
 
 #. Default: Need to stop working for less than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:67
 msgid "severity_not_severe_help"
-msgstr "Niet meer dan drie dagen te stoppen met werk"
+msgstr "Het werken kan in minder dan 3 dagen hervat worden"
 
 #. Default: Severe
 #: src/euphorie/client/templates/risk_evaluation.pt:70
@@ -2456,7 +2478,7 @@ msgstr "Ernstig"
 #. Default: Need to stop working for more than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:71
 msgid "severity_severe_help"
-msgstr "Meer dan 3 dagen werkonderbreiking vereist"
+msgstr "Er kan meer dan 3 dagen niet gewerkt worden"
 
 #. Default: Very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:75
@@ -2592,7 +2614,7 @@ msgstr "Start een nieuwe RI&E in de volgende branche"
 #: src/euphorie/client/templates/survey_sessions.pt:50
 msgid "label_session_title"
 msgstr ""
-"Hier kunt u een naam opgeven. Dit maakt het eenvoudiger om later verder te "
+"Hier kunt u een titel opgeven. Dit maakt het eenvoudiger om later verder te "
 "gaan met deze RI&E."
 
 #. Default: Once you have started an RA, you will be able to stop before the
@@ -2657,7 +2679,7 @@ msgstr ""
 #. Default: The assessment is not complicated.
 #: src/euphorie/client/templates/start.pt:23
 msgid "header_not_complicated"
-msgstr "Een RI&E is niet ingewikkeld"
+msgstr "Een RI&E is niet ingewikkeld."
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
 #. RA is important. So important that the government has made it compulsory for
@@ -3728,7 +3750,7 @@ msgstr "Er zijn geen branches of sectoren voor dit land."
 #. Default: Country manager for ${country}.
 #: src/euphorie/content/templates/countrymanager_view.pt:15
 msgid "notice_country_manager"
-msgstr "Landmanager voor ${country}."
+msgstr "Landmanager voor ${country}"
 
 #. Default: Email address
 #: src/euphorie/content/templates/countrymanager_view.pt:19
@@ -4372,8 +4394,8 @@ msgstr "Publiceer"
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
 msgstr ""
-"${label} Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik "
-"op Publiceer om deze zichtbaar te maken voor de invuller (client)."
+"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
+"Publiceer om deze zichtbaar te maken voor de invuller (client)."
 
 #~ msgid "Unanswered"
 #~ msgstr "Onbeantwoord"
