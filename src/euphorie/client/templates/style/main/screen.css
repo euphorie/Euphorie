@@ -6,7 +6,7 @@
 
 @import url("fontello/css/fontello.css");
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext);
 
 html {	height: 100%;
 	background: #8b8987 url(body.png) repeat-y center 0;	
