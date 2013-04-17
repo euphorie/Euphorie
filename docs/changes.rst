@@ -4,7 +4,7 @@ Changelog
 6.0rc3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update Dutch translations.
 
 
 6.0rc2 (2013-04-15)
