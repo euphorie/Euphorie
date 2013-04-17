@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-17 12:17+0200\n"
+"POT-Creation-Date: 2013-04-17 15:42+0200\n"
 "PO-Revision-Date: 2013-03-15 15:13+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1820,7 +1820,7 @@ msgstr ""
 #. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
 msgid "login_whatis_oira_title"
-msgstr ""
+msgstr "Kas ir OiRA? (Online Interactive Risk Assessment)"
 
 #. Default: OiRA stands for Online Interactive Risk Assessment. It is a
 #. web-based tool that allows you to perform a health and safety risk
@@ -1828,17 +1828,22 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:50
 msgid "login_whatis_oira_text"
 msgstr ""
+"OiRA atšifrējums ir tiešsaistes interaktīvs riska novērtējums (Online "
+"interactive Risk Assessment). Tas ir tīmekļa rīks, kas ļauj veikt darba "
+"vides riska novērtēšanu Jūsu darbavietā. "
 
 #. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
 msgid "login_whois_oira_for_title"
-msgstr ""
+msgstr "Kam paredzēts OiRA rīks? "
 
 #. Default: OiRA can be used by anyone wishing to assess health and
 #. safety-related risks that might exist in their workplace.
 #: src/euphorie/client/templates/login.pt:53
 msgid "login_whois_oira_for_text_1"
 msgstr ""
+"OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska "
+"faktorus savā uzņēmumā."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1858,7 +1863,7 @@ msgstr ""
 #. businesses.
 #: src/euphorie/client/templates/login.pt:58
 msgid "login_whois_oira_for_text_2"
-msgstr ""
+msgstr "Taču OiRA ir vairāk piemērots mazo uzņēmumu vajadzībām."
 
 #. Default: OiRA is designed specifically to support them in assessing the
 #. risks at work and helping them to produce a documented risk assessment
@@ -1866,16 +1871,19 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:59
 msgid "login_whois_oira_for_text_3"
 msgstr ""
+"OiRA paredzēts, lai sniegtu atbalstu šiem uzņēmumiem riska novērtēšanā un "
+"palīdzētu sagatavot novērtējuma dokumentus, ieskaitot rīcības plānu, kas "
+"atbilst uzņēmuma prasībām."
 
 #. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
 msgid "login_what_todo_title"
-msgstr ""
+msgstr "Kas man jādara?"
 
 #. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
 msgid "login_what_todo_text_1"
-msgstr ""
+msgstr "Novērtēšanas procesā ietilpst četri galvenie posmi:"
 
 #. Default: ${preparation} This gives you an overview of the particular
 #. assessment you are about to begin and can allow you to further customise the
@@ -1883,6 +1891,8 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:69
 msgid "login_what_todo_text_2"
 msgstr ""
+"${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties "
+"uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
 
 #. Default: ${identification} OiRA will present a series of potential health
 #. and safety hazards or problems that could exist in your workplace. By
@@ -1892,6 +1902,11 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:70
 msgid "login_what_todo_text_3"
 msgstr ""
+"${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un "
+"iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
+"apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas "
+"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz, "
+"bet atbildēt uz to vēlākā posmā."
 
 #. Default: ${evaluation} Here you will be able to determine the level of risk
 #. attached to each of the items you identified as 'need to be addressed' in
@@ -1899,6 +1914,8 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:71
 msgid "login_what_todo_text_4"
 msgstr ""
+"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem, "
+"kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
 
 #. Default: ${action-plan} In the fourth stage of the assessment you can decide
 #. what steps you will take to address the risks you have identified previously
@@ -1907,17 +1924,23 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:72
 msgid "login_what_todo_text_5"
 msgstr ""
+"${action-plan} Ceturtajā novērtēšanas posmā Jūs varat izlemt, kādus "
+"pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un kādi "
+"resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā tiks "
+"automātiski sagatavots ziņojums."
 
 #. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
 msgid "login_how_long_title"
-msgstr ""
+msgstr "Cik laika tas prasīs?"
 
 #. Default: It's impossible to say how long an assessment will take in general
 #. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
 msgid "login_how_long_text_1"
 msgstr ""
+"Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams atbildēt "
+"uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
 
 #. Default: However, you can spend whatever time you have available on an
 #. assessment and then return to it when convenient to pick up from the same
@@ -1925,11 +1948,14 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:82
 msgid "login_how_long_text_2"
 msgstr ""
+"Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā "
+"brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
+"apstājāties iepriekšējā reizē."
 
 #. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
 msgid "login_why_register_title"
-msgstr ""
+msgstr "Kāpēc man jāreģistrējas? "
 
 #. Default: The first thing you will be asked to do when you begin your first
 #. risk assessment is to create an OiRA account - this is a simple and quick
@@ -1937,23 +1963,29 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:86
 msgid "login_why_register_text_1"
 msgstr ""
+"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu "
+"– tas ir vienkāršs un ātrs process."
 
 #. Default: Registering allows you to simply log in at any time to continue
 #. previous assessments or to start new ones.
 #: src/euphorie/client/templates/login.pt:91
 msgid "login_why_register_text_2"
 msgstr ""
+"Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš "
+"uzsāktos novērtējumus vai veiktu jaunus."
 
 #. Default: You have to make sure to be in possession of a printed, accurate
 #. and up-dated risk assessment (at any time).
 #: src/euphorie/client/templates/login.pt:92
 msgid "login_why_register_text_3"
 msgstr ""
+"Normatīvie akti nosaka, ka Jums obligāti jābūt aktuālam darba vides riska "
+"novērtējumam."
 
 #. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
 msgid "login_need_to_prepare_title"
-msgstr ""
+msgstr "Vai man jāsagatavojas?"
 
 #. Default: You do not need any kind of specific preparation to start using the
 #. tool, however you should take some time to think about who is going to carry
@@ -1962,6 +1994,9 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:96
 msgid "login_need_to_prepare_text"
 msgstr ""
+"Lai sāktu darbu ar OiRA, nav nepieciešama īpašas priekšzināšanas vai "
+"sagatavošanās. Tomēr Jums ir jāizdomā, kas veiks riska novērtēšanu, kādā "
+"veidā darbinieki būs iesaistīti šajā procesā utt."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4427,33 +4462,27 @@ msgstr ""
 "Noklikšķiniet uz atjaunināšanas ikonas, lai visas izmaiņas publicētu "
 "tiešsaistē."
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Šis risks vēl ir jāinventarizē."
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Šis risks vēl ir jāinventarizē."
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr ""
 #~ "Aprakstiet pirmās darbības aptaujā, tostarp profila konfigurēšanu (ja "
 #~ "nepieciešams). Uz šo lapu ved saite no aptaujas sākumlapas."
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr ""
 #~ "Aprakstiet identifikācijas posmu. Uz šo informāciju ved saite no visām ar "
 #~ "identifikāciju saistītajām lapām."
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
 #~ "Aprakstiet novērtēšanas posmu. Uz šo informāciju ved saites no visām ar "
 #~ "novērtēšanu saistītajām lapām."
 
-#, fuzzy
 #~ msgid "Action Plan"
 #~ msgstr ""
 #~ "Aprakstiet rīcības plāna posmu. Uz šo informāciju ved saites no visām ar "
