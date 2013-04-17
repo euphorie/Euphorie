@@ -7,11 +7,12 @@ Changelog
 - Update Dutch translations.
 
 
-6.0rc2 (2013-04-15)
--------------------
+6.0rc2 - April 15, 2013
+-----------------------
 
 - Added Hungarian translations [pysailor]
-- changed heading in splash page to saisfy request in #7262 [pilz]
+
+- Expand OiRA acronym in header on login page (agency #7262) [pilz]
 
 
 6.0rc1 - April 3, 2013
