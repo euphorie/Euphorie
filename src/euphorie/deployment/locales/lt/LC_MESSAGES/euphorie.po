@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-03 14:53+0200\n"
+"POT-Creation-Date: 2013-04-17 14:29+0200\n"
 "PO-Revision-Date: 2013-03-15 15:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -990,7 +990,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:63
 msgid "label_preparation"
-msgstr ""
+msgstr "Pasirengimas"
 
 #. Default: Preparation
 #: src/euphorie/client/templates/actionplan.pt:50
@@ -1016,7 +1016,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:64
 msgid "iphone_label_preparation"
-msgstr ""
+msgstr "Pasirengimas"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1044,7 +1044,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:68
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
-msgstr ""
+msgstr "Nustatymas"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:56
@@ -1070,7 +1070,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:67
 #: src/euphorie/client/templates/updated.pt:69
 msgid "iphone_label_identification"
-msgstr ""
+msgstr "Nustatymas"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:61
@@ -1098,7 +1098,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:72
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
-msgstr ""
+msgstr "Vertinimas"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:62
@@ -1124,7 +1124,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:71
 #: src/euphorie/client/templates/updated.pt:73
 msgid "iphone_label_evaluation"
-msgstr ""
+msgstr "Vertinimas"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:67
@@ -1178,7 +1178,7 @@ msgstr "Veiksmų planas"
 #: src/euphorie/client/templates/survey_sessions.pt:75
 #: src/euphorie/client/templates/updated.pt:77
 msgid "iphone_label_action_plan"
-msgstr "Prevencinių veiksmų planas"
+msgstr "Veiksmų planas"
 
 #. Default: Report
 #: src/euphorie/client/templates/actionplan.pt:73
@@ -1775,26 +1775,33 @@ msgstr ""
 "Jūsų registracija yra privati. Visus išsaugotus duomenis matyti galėsite tik "
 "jūs patys."
 
+#. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
-msgid "What is OiRA?"
-msgstr ""
+msgid "login_whatis_oira_title"
+msgstr "OiRA – kas tai (Online Interactive Risk Assessment)?"
 
+#. Default: OiRA stands for Online Interactive Risk Assessment. It is a
+#. web-based tool that allows you to perform a health and safety risk
+#. assessment of your workplace.
 #: src/euphorie/client/templates/login.pt:50
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
+msgid "login_whatis_oira_text"
 msgstr ""
+"OiRA – tai interaktyvi internetinė rizikos vertinimo priemonė (angl. OiRA – "
+"Online interactive Risk Assessment). Naudojantis šia internetine priemone "
+"galima atlikti profesinės rizikos vertinimą darbo vietoje."
 
+#. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
-msgid "Who is the OiRA tool for?"
-msgstr ""
+msgid "login_whois_oira_for_title"
+msgstr "Kam skirta OiRA priemonė?"
 
+#. Default: OiRA can be used by anyone wishing to assess health and
+#. safety-related risks that might exist in their workplace.
 #: src/euphorie/client/templates/login.pt:53
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+msgid "login_whois_oira_for_text_1"
 msgstr ""
+"OiRA gali naudotis visi norintys įvertinti esamą ar galimą riziką darbo "
+"vietoje. "
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1810,94 +1817,141 @@ msgstr ""
 msgid "Show less…"
 msgstr ""
 
+#. Default: However, OiRA is designed to be of most value to smaller
+#. businesses.
 #: src/euphorie/client/templates/login.pt:58
-msgid "However, OiRA is designed to be of most value to smaller businesses."
-msgstr ""
+msgid "login_whois_oira_for_text_2"
+msgstr "OiRA priemonė naudingiausia turėtų būti mažoms įmonėms."
 
+#. Default: OiRA is designed specifically to support them in assessing the
+#. risks at work and helping them to produce a documented risk assessment
+#. including an action plan tailored to the business's requirements.
 #: src/euphorie/client/templates/login.pt:59
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+msgid "login_whois_oira_for_text_3"
 msgstr ""
+"OiRA sukurta tam, kad padėtų įmonėms įvertinti darbe kylančią riziką ir "
+"parengti dokumentuotą rizikos vertinimą ir prevencinių veiksmų planą."
 
+#. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
-msgid "What do I have to do?"
-msgstr ""
+msgid "login_what_todo_title"
+msgstr "Kaip tai padaryti?"
 
+#. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
-msgid "There are four main stages to complete in the assessment process:"
-msgstr ""
+msgid "login_what_todo_text_1"
+msgstr "Yra keturi pagrindiniai rizikos vertinimo proceso etapai. "
 
+#. Default: ${preparation} This gives you an overview of the particular
+#. assessment you are about to begin and can allow you to further customise the
+#. assessment to the specific nature of your business.
 #: src/euphorie/client/templates/login.pt:69
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
+msgid "login_what_todo_text_2"
 msgstr ""
+"${preparation} Tai leidžia susidaryti bendrą vaizdą apie rizikos vertinimą, "
+"kurį ketinate atlikti, ir pritaikyti jį savo poreikiams, atsižvelgiant į "
+"jūsų veiklos pobūdį. "
 
+#. Default: ${identification} OiRA will present a series of potential health
+#. and safety hazards or problems that could exist in your workplace. By
+#. answering the statements/questions with either yes or no, you state if such
+#. hazards or problems are present. You can also decide to leave a question
+#. unanswered and thus put in on hold to be answered at a later stage.
 #: src/euphorie/client/templates/login.pt:70
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put in on hold to be answered at a later stage."
+msgid "login_what_todo_text_3"
 msgstr ""
+"${identification} OiRA priemonėje pateikiami įvairūs galimi pavojai ar "
+"problemos darbuotojų saugai ir sveikatai, esantys jūsų darbo vietoje. "
+"Atsakydami į teiginius/klausimus „taip“ arba „ne“, patvirtinate, ar tokie "
+"pavojai arba problemos yra jūsų įmonėje, ar ne. Be to, galite klausimą "
+"palikti neatsakytą ir atsakyti vėliau. "
 
+#. Default: ${evaluation} Here you will be able to determine the level of risk
+#. attached to each of the items you identified as 'need to be addressed' in
+#. the 'Identification' stage.
 #: src/euphorie/client/templates/login.pt:71
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
-msgstr ""
+msgid "login_what_todo_text_4"
+msgstr "${evaluation} Čia galėsite nustatyti kiekvienos rizikos lygį."
 
+#. Default: ${action-plan} In the fourth stage of the assessment you can decide
+#. what steps you will take to address the risks you have identified previously
+#. and what resources this might require. Based on this, a report will be
+#. automatically produced in the next step.
 #: src/euphorie/client/templates/login.pt:72
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
+msgid "login_what_todo_text_5"
 msgstr ""
+"${action-plan} Ketvirtame vertinimo etape turite nuspręsti, kokių priemonių "
+"imsitės nustatytai rizikai pašalinti/sumažinti ir kokių išteklių prireiks. "
+"Remiantis pateikta informacija, kitame etape bus automatiškai parengta "
+"ataskaita."
 
+#. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
-msgid "How long will it take?"
-msgstr ""
+msgid "login_how_long_title"
+msgstr "Kiek tai užtruks?"
 
+#. Default: It's impossible to say how long an assessment will take in general
+#. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
+msgid "login_how_long_text_1"
 msgstr ""
+"Sunku numatyti kiek laiko užtruks rizikos vertinimas, nes tai priklauso nuo "
+"ekonominės veiklos sektoriaus."
 
+#. Default: However, you can spend whatever time you have available on an
+#. assessment and then return to it when convenient to pick up from the same
+#. point you left off.
 #: src/euphorie/client/templates/login.pt:82
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
+msgid "login_how_long_text_2"
 msgstr ""
+"Tačiau vertinimui skirkite tiek laiko, kiek jo turite – bet kada galėsite "
+"tęsti nuo tos vietos, kur baigėte praeitą kartą."
 
+#. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
-msgid "Why do I have to register?"
-msgstr ""
+msgid "login_why_register_title"
+msgstr "Kodėl turiu užsiregistruoti? "
 
+#. Default: The first thing you will be asked to do when you begin your first
+#. risk assessment is to create an OiRA account - this is a simple and quick
+#. process.
 #: src/euphorie/client/templates/login.pt:86
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+msgid "login_why_register_text_1"
 msgstr ""
+"Pradėdami pirmąjį rizikos vertinimo etapą, pirmiausia turite susikurti OiRA "
+"paskyrą – tai nesudėtinga ir ilgai neužtruks."
 
+#. Default: Registering allows you to simply log in at any time to continue
+#. previous assessments or to start new ones.
+#: src/euphorie/client/templates/login.pt:91
+msgid "login_why_register_text_2"
+msgstr ""
+"Tik užsiregistravę, galėsite bet kada prisijungti ir tęsti ankstesnius "
+"rizikos vertinimus arba pradėti naujus."
+
+#. Default: You have to make sure to be in possession of a printed, accurate
+#. and up-dated risk assessment (at any time).
+#: src/euphorie/client/templates/login.pt:92
+msgid "login_why_register_text_3"
+msgstr ""
+"Įsitikinkite, kad turite atspausdintą, tikslų ir atnaujintą rizikos "
+"vertinimą."
+
+#. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
-msgid "Do I need to prepare?"
-msgstr ""
+msgid "login_need_to_prepare_title"
+msgstr "Ar turėčiau pasiruošti?"
 
+#. Default: You do not need any kind of specific preparation to start using the
+#. tool, however you should take some time to think about who is going to carry
+#. out the risk assessment, how workers are going to be involved in the
+#. process, etc.
 #: src/euphorie/client/templates/login.pt:96
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
+msgid "login_need_to_prepare_text"
 msgstr ""
+"Jums nereikia jokio specialaus pasiruošimo, kad galėtumėte pradėti naudotis "
+"priemone. Tačiau apsvarstykite, kas atliks rizikos vertinimą, kaip "
+"darbuotojai dalyvaus šiame procese ir pan."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42

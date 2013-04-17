@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-03 14:53+0200\n"
+"POT-Creation-Date: 2013-04-17 12:17+0200\n"
 "PO-Revision-Date: 2013-01-30 14:30+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -1778,32 +1778,28 @@ msgstr ""
 "Uw registratiegegevens zijn privé. De opgeslagen gegevens zijn niet voor "
 "anderen toegankelijk."
 
+#. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
-msgid "What is OiRA?"
-msgstr "Wat is OiRA?"
+msgid "login_whatis_oira_title"
+msgstr ""
 
+#. Default: OiRA stands for Online Interactive Risk Assessment. It is a
+#. web-based tool that allows you to perform a health and safety risk
+#. assessment of your workplace.
 #: src/euphorie/client/templates/login.pt:50
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
+msgid "login_whatis_oira_text"
 msgstr ""
-"OiRA (Online Interactive Risk Assessment) is een digitaal RI&E-instrument. "
-"Dit online instrument helpt u een Risico-inventarisatie en –evaluatie (RI&E) "
-"uit te voeren voor uw werkplek of bedrijf."
 
+#. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
-msgid "Who is the OiRA tool for?"
-msgstr "Voor wie?"
-
-#: src/euphorie/client/templates/login.pt:53
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+msgid "login_whois_oira_for_title"
 msgstr ""
-"De digitale RI&E kan door iedereen gebruikt worden die de mogelijke "
-"gezondheids- en veiligheidsrisico's op de werkplek of in het bedrijf wil "
-"beoordelen."
+
+#. Default: OiRA can be used by anyone wishing to assess health and
+#. safety-related risks that might exist in their workplace.
+#: src/euphorie/client/templates/login.pt:53
+msgid "login_whois_oira_for_text_1"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1819,132 +1815,114 @@ msgstr "Toon meer…"
 msgid "Show less…"
 msgstr "Toon minder…"
 
+#. Default: However, OiRA is designed to be of most value to smaller
+#. businesses.
 #: src/euphorie/client/templates/login.pt:58
-msgid "However, OiRA is designed to be of most value to smaller businesses."
+msgid "login_whois_oira_for_text_2"
 msgstr ""
-"Deze digitale RI&E biedt vooral een meerwaarde voor kleinere bedrijven die "
-"zich bewust zijn van de Arbowet-verplichting tot het maken van een risico-"
-"inventarisatie en –evaluatie."
 
+#. Default: OiRA is designed specifically to support them in assessing the
+#. risks at work and helping them to produce a documented risk assessment
+#. including an action plan tailored to the business's requirements.
 #: src/euphorie/client/templates/login.pt:59
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+msgid "login_whois_oira_for_text_3"
 msgstr ""
-"Werkgevers van kleinere bedrijven zijn verantwoordelijk voor de arbo-"
-"activiteiten naast hun andere dagelijkse verantwoordelijkheden en "
-"bedrijfsvoering. De digitale RI&E is specifiek ontworpen om hen te helpen "
-"door de risico's, de juridische context, de evaluatie en het plan van aanpak "
-"(rapportages) op één plek aan te bieden. \n"
-"Eerdere ervaring met het uitvoeren van een RI&E is niet vereist. De digitale "
-"RI&E leidt u stap-voor-stap door de inventarisatie en evaluatie en bevat "
-"extra informatie om het plan van aanpak samen te stellen."
 
+#. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
-msgid "What do I have to do?"
-msgstr "Wat moet ik doen?"
+msgid "login_what_todo_title"
+msgstr ""
 
+#. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
-msgid "There are four main stages to complete in the assessment process:"
-msgstr "Er zijn vier stappen die u moet doorlopen voor een RI&E:"
+msgid "login_what_todo_text_1"
+msgstr ""
 
+#. Default: ${preparation} This gives you an overview of the particular
+#. assessment you are about to begin and can allow you to further customise the
+#. assessment to the specific nature of your business.
 #: src/euphorie/client/templates/login.pt:69
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
+msgid "login_what_todo_text_2"
 msgstr ""
-"${preparation} De voorbereidingspagina geeft u een overzicht van de RI&E die "
-"u gaat invullen. Soms kunt u opties selecteren om de RI&E nog meer aan te "
-"laten sluiten bij uw bedrijf."
 
+#. Default: ${identification} OiRA will present a series of potential health
+#. and safety hazards or problems that could exist in your workplace. By
+#. answering the statements/questions with either yes or no, you state if such
+#. hazards or problems are present. You can also decide to leave a question
+#. unanswered and thus put in on hold to be answered at a later stage.
 #: src/euphorie/client/templates/login.pt:70
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put in on hold to be answered at a later stage."
+msgid "login_what_todo_text_3"
 msgstr ""
-"${identification} U brengt de gezondheids- en veiligheidsrisico's in uw "
-"bedrijf in kaart. Dat doet u door een reeks vragen te beantwoorden."
 
+#. Default: ${evaluation} Here you will be able to determine the level of risk
+#. attached to each of the items you identified as 'need to be addressed' in
+#. the 'Identification' stage.
 #: src/euphorie/client/templates/login.pt:71
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
+msgid "login_what_todo_text_4"
 msgstr ""
-"${evaluation} Het resultaat is een opsomming van de knelpunten in uw "
-"bedrijf. Bij elk knelpunt bekijkt u hoe groot de risico's zijn."
 
+#. Default: ${action-plan} In the fourth stage of the assessment you can decide
+#. what steps you will take to address the risks you have identified previously
+#. and what resources this might require. Based on this, a report will be
+#. automatically produced in the next step.
 #: src/euphorie/client/templates/login.pt:72
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
+msgid "login_what_todo_text_5"
 msgstr ""
-"${action-plan} U geeft aan hoe u de knelpunten oplost. Het programma helpt u "
-"daarbij. \n"
-"U kunt de rapporten afdrukken voor uzelf, voor uw medewerkers en voor uw "
-"arbodienst of arbodeskundige. Ook kunt u deze als bijlage per mail verzenden."
 
+#. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
-msgid "How long will it take?"
-msgstr "Hoeveel tijd kost het?"
+msgid "login_how_long_title"
+msgstr ""
 
+#. Default: It's impossible to say how long an assessment will take in general
+#. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
+msgid "login_how_long_text_1"
 msgstr ""
-"Het is niet mogelijk om aan te geven hoeveel tijd het kost om de RI&E in te "
-"vullen. Dat is afhankelijk van de specifieke brancherisico's en de grootte "
-"van uw bedrijf."
 
+#. Default: However, you can spend whatever time you have available on an
+#. assessment and then return to it when convenient to pick up from the same
+#. point you left off.
 #: src/euphorie/client/templates/login.pt:82
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
+msgid "login_how_long_text_2"
 msgstr ""
-"Als u begint met het invullen van de RI&E hoeft u deze niet in één keer af "
-"te maken. U kunt op elk moment stoppen en later weer verder gaan waar u "
-"gebleven was of wijzigen aanbrengen."
 
+#. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
-msgid "Why do I have to register?"
-msgstr "Moet ik me registreren?"
+msgid "login_why_register_title"
+msgstr ""
 
+#. Default: The first thing you will be asked to do when you begin your first
+#. risk assessment is to create an OiRA account - this is a simple and quick
+#. process.
 #: src/euphorie/client/templates/login.pt:86
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+msgid "login_why_register_text_1"
 msgstr ""
-"Om een RI&E te kunnen starten moet u zich eerst registreren met uw "
-"emailadres en een wachtwoord. Deze kunt u vervolgens gebruiken om in te "
-"loggen en de RI&E in te vullen. \n"
-"Zodra u dit hebt gedaan kunt u op elk moment inloggen om uw RI&E af te "
-"maken, te wijzigen of een nieuwe RI&E te starten. \n"
-"Binnen het OiRA systeem kunt u met uw account meerdere RI&E's aanmaken en "
-"bewerken."
 
+#. Default: Registering allows you to simply log in at any time to continue
+#. previous assessments or to start new ones.
+#: src/euphorie/client/templates/login.pt:91
+msgid "login_why_register_text_2"
+msgstr ""
+
+#. Default: You have to make sure to be in possession of a printed, accurate
+#. and up-dated risk assessment (at any time).
+#: src/euphorie/client/templates/login.pt:92
+msgid "login_why_register_text_3"
+msgstr ""
+
+#. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
-msgid "Do I need to prepare?"
-msgstr "Moet ik me voorbereiden?"
-
-#: src/euphorie/client/templates/login.pt:96
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
+msgid "login_need_to_prepare_title"
 msgstr ""
-"Nee, in de toelichtingen per risico worden de specifieke vereisten "
-"uitgelegd. Ook leest u daar of specifieke documenten nodig zijn en waar u "
-"meer informatie kunt vinden."
+
+#. Default: You do not need any kind of specific preparation to start using the
+#. tool, however you should take some time to think about who is going to carry
+#. out the risk assessment, how workers are going to be involved in the
+#. process, etc.
+#: src/euphorie/client/templates/login.pt:96
+msgid "login_need_to_prepare_text"
+msgstr ""
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4394,8 +4372,146 @@ msgstr "Publiceer"
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
 msgstr ""
-"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
-"Publiceer om deze zichtbaar te maken voor de invuller (client)."
+"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. "
+"Klik op Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#~ msgid "What is OiRA?"
+#~ msgstr "Wat is OiRA?"
+
+#~ msgid ""
+#~ "OiRA stands for Online Interactive Risk Assessment. It is a web-based "
+#~ "tool that allows you to perform a health and safety risk assessment of "
+#~ "your workplace."
+#~ msgstr ""
+#~ "OiRA (Online Interactive Risk Assessment) is een digitaal RI&E-"
+#~ "instrument. Dit online instrument helpt u een Risico-inventarisatie en –"
+#~ "evaluatie (RI&E) uit te voeren voor uw werkplek of bedrijf."
+
+#~ msgid "Who is the OiRA tool for?"
+#~ msgstr "Voor wie?"
+
+#~ msgid ""
+#~ "OiRA can be used by anyone wishing to assess health and safety-related "
+#~ "risks that might exist in their workplace."
+#~ msgstr ""
+#~ "De digitale RI&E kan door iedereen gebruikt worden die de mogelijke "
+#~ "gezondheids- en veiligheidsrisico's op de werkplek of in het bedrijf wil "
+#~ "beoordelen."
+
+#~ msgid "However, OiRA is designed to be of most value to smaller businesses."
+#~ msgstr ""
+#~ "Deze digitale RI&E biedt vooral een meerwaarde voor kleinere bedrijven "
+#~ "die zich bewust zijn van de Arbowet-verplichting tot het maken van een "
+#~ "risico-inventarisatie en –evaluatie."
+
+#~ msgid ""
+#~ "OiRA is designed specifically to support them in assessing the risks at "
+#~ "work and helping them to produce a documented risk assessment including "
+#~ "an action plan tailored to the business's requirements."
+#~ msgstr ""
+#~ "Werkgevers van kleinere bedrijven zijn verantwoordelijk voor de arbo-"
+#~ "activiteiten naast hun andere dagelijkse verantwoordelijkheden en "
+#~ "bedrijfsvoering. De digitale RI&E is specifiek ontworpen om hen te helpen "
+#~ "door de risico's, de juridische context, de evaluatie en het plan van "
+#~ "aanpak (rapportages) op één plek aan te bieden. \n"
+#~ "Eerdere ervaring met het uitvoeren van een RI&E is niet vereist. De "
+#~ "digitale RI&E leidt u stap-voor-stap door de inventarisatie en evaluatie "
+#~ "en bevat extra informatie om het plan van aanpak samen te stellen."
+
+#~ msgid "What do I have to do?"
+#~ msgstr "Wat moet ik doen?"
+
+#~ msgid "There are four main stages to complete in the assessment process:"
+#~ msgstr "Er zijn vier stappen die u moet doorlopen voor een RI&E:"
+
+#~ msgid ""
+#~ "${preparation} This gives you an overview of the particular assessment "
+#~ "you are about to begin and can allow you to further customise the "
+#~ "assessment to the specific nature of your business."
+#~ msgstr ""
+#~ "${preparation} De voorbereidingspagina geeft u een overzicht van de RI&E "
+#~ "die u gaat invullen. Soms kunt u opties selecteren om de RI&E nog meer "
+#~ "aan te laten sluiten bij uw bedrijf."
+
+#~ msgid ""
+#~ "${identification} OiRA will present a series of potential health and "
+#~ "safety hazards or problems that could exist in your workplace. By "
+#~ "answering the statements/questions with either yes or no, you state if "
+#~ "such hazards or problems are present. You can also decide to leave a "
+#~ "question unanswered and thus put in on hold to be answered at a later "
+#~ "stage."
+#~ msgstr ""
+#~ "${identification} U brengt de gezondheids- en veiligheidsrisico's in uw "
+#~ "bedrijf in kaart. Dat doet u door een reeks vragen te beantwoorden."
+
+#~ msgid ""
+#~ "${evaluation} Here you will be able to determine the level of risk "
+#~ "attached to each of the items you identified as 'need to be addressed' in "
+#~ "the 'Identification' stage."
+#~ msgstr ""
+#~ "${evaluation} Het resultaat is een opsomming van de knelpunten in uw "
+#~ "bedrijf. Bij elk knelpunt bekijkt u hoe groot de risico's zijn."
+
+#~ msgid ""
+#~ "${action-plan} In the fourth stage of the assessment you can decide what "
+#~ "steps you will take to address the risks you have identified previously "
+#~ "and what resources this might require. Based on this, a report will be "
+#~ "automatically produced in the next step."
+#~ msgstr ""
+#~ "${action-plan} U geeft aan hoe u de knelpunten oplost. Het programma "
+#~ "helpt u daarbij. \n"
+#~ "U kunt de rapporten afdrukken voor uzelf, voor uw medewerkers en voor uw "
+#~ "arbodienst of arbodeskundige. Ook kunt u deze als bijlage per mail "
+#~ "verzenden."
+
+#~ msgid "How long will it take?"
+#~ msgstr "Hoeveel tijd kost het?"
+
+#~ msgid ""
+#~ "It's impossible to say how long an assessment will take in general as the "
+#~ "tools differ according to sectors and countries."
+#~ msgstr ""
+#~ "Het is niet mogelijk om aan te geven hoeveel tijd het kost om de RI&E in "
+#~ "te vullen. Dat is afhankelijk van de specifieke brancherisico's en de "
+#~ "grootte van uw bedrijf."
+
+#~ msgid ""
+#~ "However, you can spend whatever time you have available on an assessment "
+#~ "and then return to it when convenient to pick up from the same point you "
+#~ "left off."
+#~ msgstr ""
+#~ "Als u begint met het invullen van de RI&E hoeft u deze niet in één keer "
+#~ "af te maken. U kunt op elk moment stoppen en later weer verder gaan waar "
+#~ "u gebleven was of wijzigen aanbrengen."
+
+#~ msgid "Why do I have to register?"
+#~ msgstr "Moet ik me registreren?"
+
+#~ msgid ""
+#~ "The first thing you will be asked to do when you begin your first risk "
+#~ "assessment is to create an OiRA account - this is a simple and quick "
+#~ "process."
+#~ msgstr ""
+#~ "Om een RI&E te kunnen starten moet u zich eerst registreren met uw "
+#~ "emailadres en een wachtwoord. Deze kunt u vervolgens gebruiken om in te "
+#~ "loggen en de RI&E in te vullen. \n"
+#~ "Zodra u dit hebt gedaan kunt u op elk moment inloggen om uw RI&E af te "
+#~ "maken, te wijzigen of een nieuwe RI&E te starten. \n"
+#~ "Binnen het OiRA systeem kunt u met uw account meerdere RI&E's aanmaken en "
+#~ "bewerken."
+
+#~ msgid "Do I need to prepare?"
+#~ msgstr "Moet ik me voorbereiden?"
+
+#~ msgid ""
+#~ "You do not need any kind of specific preparation to start using the tool, "
+#~ "however you should take some time to think about who is going to carry "
+#~ "out the risk assessment, how workers are going to be involved in the "
+#~ "process, etc."
+#~ msgstr ""
+#~ "Nee, in de toelichtingen per risico worden de specifieke vereisten "
+#~ "uitgelegd. Ook leest u daar of specifieke documenten nodig zijn en waar u "
+#~ "meer informatie kunt vinden."
 
 #~ msgid "Unanswered"
 #~ msgstr "Onbeantwoord"

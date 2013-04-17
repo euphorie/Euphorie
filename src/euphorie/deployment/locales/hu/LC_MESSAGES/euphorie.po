@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-03 14:53+0200\n"
+"POT-Creation-Date: 2013-04-17 12:17+0200\n"
 "PO-Revision-Date: 2013-04-08 08:29+0100\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1797,33 +1797,28 @@ msgid "login_tooltip"
 msgstr ""
 "A regisztrációja magánügy. Az összes tárolt adatához csak Ön férhet hozzá."
 
+#. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
-msgid "What is OiRA?"
-msgstr "Mi az OiRA?"
+msgid "login_whatis_oira_title"
+msgstr ""
 
+#. Default: OiRA stands for Online Interactive Risk Assessment. It is a
+#. web-based tool that allows you to perform a health and safety risk
+#. assessment of your workplace.
 #: src/euphorie/client/templates/login.pt:50
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
+msgid "login_whatis_oira_text"
 msgstr ""
-"Az OiRA az Online Interactive Risk Assessment (online interaktív "
-"kockázatértékelés) rövidítése. Ez egy internet-alapú eszköz, amelynek "
-"segítségével elvégezheti a munkahely egészségügyi és biztonsági "
-"kockázatértékelését."
 
+#. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
-msgid "Who is the OiRA tool for?"
-msgstr "Kinek készült az OiRA eszköz?"
-
-#: src/euphorie/client/templates/login.pt:53
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+msgid "login_whois_oira_for_title"
 msgstr ""
-"Az OiRA-t bárki felhasználhatja, aki az adott munkahelyen esetleg felmerülő "
-"egészségvédelemmel és biztonsággal kapcsolatos kockázatokat szeretné "
-"felmérni."
+
+#. Default: OiRA can be used by anyone wishing to assess health and
+#. safety-related risks that might exist in their workplace.
+#: src/euphorie/client/templates/login.pt:53
+msgid "login_whois_oira_for_text_1"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1839,125 +1834,114 @@ msgstr "Több információ…"
 msgid "Show less…"
 msgstr "Kevesebb információ…"
 
+#. Default: However, OiRA is designed to be of most value to smaller
+#. businesses.
 #: src/euphorie/client/templates/login.pt:58
-msgid "However, OiRA is designed to be of most value to smaller businesses."
+msgid "login_whois_oira_for_text_2"
 msgstr ""
-"Ugyanakkor az OiRA-t úgy alakítottuk ki, hogy leginkább a kisebb "
-"vállalkozások számára hasznos."
 
+#. Default: OiRA is designed specifically to support them in assessing the
+#. risks at work and helping them to produce a documented risk assessment
+#. including an action plan tailored to the business's requirements.
 #: src/euphorie/client/templates/login.pt:59
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+msgid "login_whois_oira_for_text_3"
 msgstr ""
-"Az OiRA-t kifejezetten arra terveztük, hogy ezeket a vállalkozásokat "
-"támogassa a munkahelyi kockázatok felmérésében, és segítségével egy "
-"dokumentált kockázatértékelést lehessen létrehozni, beleértve a vállalkozás "
-"igényeire szabott cselekvési tervet is."
 
+#. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
-msgid "What do I have to do?"
-msgstr "Mit kell tennem?"
+msgid "login_what_todo_title"
+msgstr ""
 
+#. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
-msgid "There are four main stages to complete in the assessment process:"
-msgstr "Az értékelési folyamat elvégzésének négy fő szakasza van:"
+msgid "login_what_todo_text_1"
+msgstr ""
 
+#. Default: ${preparation} This gives you an overview of the particular
+#. assessment you are about to begin and can allow you to further customise the
+#. assessment to the specific nature of your business.
 #: src/euphorie/client/templates/login.pt:69
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
+msgid "login_what_todo_text_2"
 msgstr ""
-"${preparation} Itt áttekintheti az adott értékelést, amelyet szeretne "
-"elkezdeni, és az Ön vállalkozásának speciális jellemtői szerint tovább "
-"alakíthatja az értékelést."
 
+#. Default: ${identification} OiRA will present a series of potential health
+#. and safety hazards or problems that could exist in your workplace. By
+#. answering the statements/questions with either yes or no, you state if such
+#. hazards or problems are present. You can also decide to leave a question
+#. unanswered and thus put in on hold to be answered at a later stage.
 #: src/euphorie/client/templates/login.pt:70
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put in on hold to be answered at a later stage."
+msgid "login_what_todo_text_3"
 msgstr ""
-"${identification} Az OiRA számos olyan potenciális egészségvedelmi vagy "
-"biztonsági veszélyt vagy problémát sorol fel, amelyek az Ön munkahelyén "
-"előfordulhatnak. Az állítások/kérdések igennel vagy nemmel történő "
-"megválaszolásával megadhatja, hogy az adott veszély vagy kockázat előfordul-"
-"e. Azt is választhatja, hogy egy egy kérdést megválaszolatlanul hagy, ezzel "
-"függőben hagyja és később is megválaszolhatja."
 
+#. Default: ${evaluation} Here you will be able to determine the level of risk
+#. attached to each of the items you identified as 'need to be addressed' in
+#. the 'Identification' stage.
 #: src/euphorie/client/templates/login.pt:71
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
+msgid "login_what_todo_text_4"
 msgstr ""
-"${evaluation} Itt megadhatja az 'Azonosítás' szakaszban 'kezelendő'-ként "
-"beazonosított tételekhez kapcsolódó kockázatok szintjét."
 
+#. Default: ${action-plan} In the fourth stage of the assessment you can decide
+#. what steps you will take to address the risks you have identified previously
+#. and what resources this might require. Based on this, a report will be
+#. automatically produced in the next step.
 #: src/euphorie/client/templates/login.pt:72
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
+msgid "login_what_todo_text_5"
 msgstr ""
-"${action-plan} Az értékelés negyedik szakaszában eldöntheti, hogy milyen "
-"lépéseket tesz a korábban azonosított kockázatok kezelésére, és milyen "
-"erőforrásokra lehet szükség. Ennek alapján a következő lépésben "
-"automatikusan létrejön egy jelentés."
 
+#. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
-msgid "How long will it take?"
-msgstr "Mennyi ideig tart?"
+msgid "login_how_long_title"
+msgstr ""
 
+#. Default: It's impossible to say how long an assessment will take in general
+#. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
+msgid "login_how_long_text_1"
 msgstr ""
-"Nem lehet megmondani, hogy általában mennyi ideig tart egy értékelés, mivel "
-"az eszközök ágazatonként és országonként különbözőek."
 
+#. Default: However, you can spend whatever time you have available on an
+#. assessment and then return to it when convenient to pick up from the same
+#. point you left off.
 #: src/euphorie/client/templates/login.pt:82
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
+msgid "login_how_long_text_2"
 msgstr ""
-"Ugyanakkor annyi időt tölthet az értékeléssel, ammennyi éppen a "
-"rendelkezésére áll, majd egy későbbi alkalmas időpontban újra megnyithatja, "
-"és ott folytathatja, ahol abbahagyta."
 
+#. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
-msgid "Why do I have to register?"
-msgstr "Miért kell regisztrálnom?"
+msgid "login_why_register_title"
+msgstr ""
 
+#. Default: The first thing you will be asked to do when you begin your first
+#. risk assessment is to create an OiRA account - this is a simple and quick
+#. process.
 #: src/euphorie/client/templates/login.pt:86
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+msgid "login_why_register_text_1"
 msgstr ""
-"Az első kockázatértékelés elkezdése előtt az első dolog az lesz, hogy létre "
-"kell hoznia egy OiRA felhasználói fiókot - ez egy egyszerű és gyors eljárás."
 
+#. Default: Registering allows you to simply log in at any time to continue
+#. previous assessments or to start new ones.
+#: src/euphorie/client/templates/login.pt:91
+msgid "login_why_register_text_2"
+msgstr ""
+
+#. Default: You have to make sure to be in possession of a printed, accurate
+#. and up-dated risk assessment (at any time).
+#: src/euphorie/client/templates/login.pt:92
+msgid "login_why_register_text_3"
+msgstr ""
+
+#. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
-msgid "Do I need to prepare?"
-msgstr "Fel kell készülni?"
-
-#: src/euphorie/client/templates/login.pt:96
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
+msgid "login_need_to_prepare_title"
 msgstr ""
-"Nincs szükség semmiféle külön felkészülésre az eszköz használatának "
-"elkezdése előtt, de azt végig kell gondolni, hogy ki végzi el a "
-"kockázatértékelést, hogyan vonják be a munkavállalókat a folyamatba stb."
+
+#. Default: You do not need any kind of specific preparation to start using the
+#. tool, however you should take some time to think about who is going to carry
+#. out the risk assessment, how workers are going to be involved in the
+#. process, etc.
+#: src/euphorie/client/templates/login.pt:96
+msgid "login_need_to_prepare_text"
+msgstr ""
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4280,3 +4264,135 @@ msgstr ""
 "${label} = Ez a verzió olyan módosításokkal rendelkezik, amelyek még "
 "nincsenek közzétéve. A frissítés ikonra kattintva az összes változtatást "
 "élesítheti"
+
+#~ msgid "What is OiRA?"
+#~ msgstr "Mi az OiRA?"
+
+#~ msgid ""
+#~ "OiRA stands for Online Interactive Risk Assessment. It is a web-based "
+#~ "tool that allows you to perform a health and safety risk assessment of "
+#~ "your workplace."
+#~ msgstr ""
+#~ "Az OiRA az Online Interactive Risk Assessment (online interaktív "
+#~ "kockázatértékelés) rövidítése. Ez egy internet-alapú eszköz, amelynek "
+#~ "segítségével elvégezheti a munkahely egészségügyi és biztonsági "
+#~ "kockázatértékelését."
+
+#~ msgid "Who is the OiRA tool for?"
+#~ msgstr "Kinek készült az OiRA eszköz?"
+
+#~ msgid ""
+#~ "OiRA can be used by anyone wishing to assess health and safety-related "
+#~ "risks that might exist in their workplace."
+#~ msgstr ""
+#~ "Az OiRA-t bárki felhasználhatja, aki az adott munkahelyen esetleg "
+#~ "felmerülő egészségvédelemmel és biztonsággal kapcsolatos kockázatokat "
+#~ "szeretné felmérni."
+
+#~ msgid "However, OiRA is designed to be of most value to smaller businesses."
+#~ msgstr ""
+#~ "Ugyanakkor az OiRA-t úgy alakítottuk ki, hogy leginkább a kisebb "
+#~ "vállalkozások számára hasznos."
+
+#~ msgid ""
+#~ "OiRA is designed specifically to support them in assessing the risks at "
+#~ "work and helping them to produce a documented risk assessment including "
+#~ "an action plan tailored to the business's requirements."
+#~ msgstr ""
+#~ "Az OiRA-t kifejezetten arra terveztük, hogy ezeket a vállalkozásokat "
+#~ "támogassa a munkahelyi kockázatok felmérésében, és segítségével egy "
+#~ "dokumentált kockázatértékelést lehessen létrehozni, beleértve a "
+#~ "vállalkozás igényeire szabott cselekvési tervet is."
+
+#~ msgid "What do I have to do?"
+#~ msgstr "Mit kell tennem?"
+
+#~ msgid "There are four main stages to complete in the assessment process:"
+#~ msgstr "Az értékelési folyamat elvégzésének négy fő szakasza van:"
+
+#~ msgid ""
+#~ "${preparation} This gives you an overview of the particular assessment "
+#~ "you are about to begin and can allow you to further customise the "
+#~ "assessment to the specific nature of your business."
+#~ msgstr ""
+#~ "${preparation} Itt áttekintheti az adott értékelést, amelyet szeretne "
+#~ "elkezdeni, és az Ön vállalkozásának speciális jellemtői szerint tovább "
+#~ "alakíthatja az értékelést."
+
+#~ msgid ""
+#~ "${identification} OiRA will present a series of potential health and "
+#~ "safety hazards or problems that could exist in your workplace. By "
+#~ "answering the statements/questions with either yes or no, you state if "
+#~ "such hazards or problems are present. You can also decide to leave a "
+#~ "question unanswered and thus put in on hold to be answered at a later "
+#~ "stage."
+#~ msgstr ""
+#~ "${identification} Az OiRA számos olyan potenciális egészségvedelmi vagy "
+#~ "biztonsági veszélyt vagy problémát sorol fel, amelyek az Ön munkahelyén "
+#~ "előfordulhatnak. Az állítások/kérdések igennel vagy nemmel történő "
+#~ "megválaszolásával megadhatja, hogy az adott veszély vagy kockázat "
+#~ "előfordul-e. Azt is választhatja, hogy egy egy kérdést megválaszolatlanul "
+#~ "hagy, ezzel függőben hagyja és később is megválaszolhatja."
+
+#~ msgid ""
+#~ "${evaluation} Here you will be able to determine the level of risk "
+#~ "attached to each of the items you identified as 'need to be addressed' in "
+#~ "the 'Identification' stage."
+#~ msgstr ""
+#~ "${evaluation} Itt megadhatja az 'Azonosítás' szakaszban 'kezelendő'-ként "
+#~ "beazonosított tételekhez kapcsolódó kockázatok szintjét."
+
+#~ msgid ""
+#~ "${action-plan} In the fourth stage of the assessment you can decide what "
+#~ "steps you will take to address the risks you have identified previously "
+#~ "and what resources this might require. Based on this, a report will be "
+#~ "automatically produced in the next step."
+#~ msgstr ""
+#~ "${action-plan} Az értékelés negyedik szakaszában eldöntheti, hogy milyen "
+#~ "lépéseket tesz a korábban azonosított kockázatok kezelésére, és milyen "
+#~ "erőforrásokra lehet szükség. Ennek alapján a következő lépésben "
+#~ "automatikusan létrejön egy jelentés."
+
+#~ msgid "How long will it take?"
+#~ msgstr "Mennyi ideig tart?"
+
+#~ msgid ""
+#~ "It's impossible to say how long an assessment will take in general as the "
+#~ "tools differ according to sectors and countries."
+#~ msgstr ""
+#~ "Nem lehet megmondani, hogy általában mennyi ideig tart egy értékelés, "
+#~ "mivel az eszközök ágazatonként és országonként különbözőek."
+
+#~ msgid ""
+#~ "However, you can spend whatever time you have available on an assessment "
+#~ "and then return to it when convenient to pick up from the same point you "
+#~ "left off."
+#~ msgstr ""
+#~ "Ugyanakkor annyi időt tölthet az értékeléssel, ammennyi éppen a "
+#~ "rendelkezésére áll, majd egy későbbi alkalmas időpontban újra "
+#~ "megnyithatja, és ott folytathatja, ahol abbahagyta."
+
+#~ msgid "Why do I have to register?"
+#~ msgstr "Miért kell regisztrálnom?"
+
+#~ msgid ""
+#~ "The first thing you will be asked to do when you begin your first risk "
+#~ "assessment is to create an OiRA account - this is a simple and quick "
+#~ "process."
+#~ msgstr ""
+#~ "Az első kockázatértékelés elkezdése előtt az első dolog az lesz, hogy "
+#~ "létre kell hoznia egy OiRA felhasználói fiókot - ez egy egyszerű és gyors "
+#~ "eljárás."
+
+#~ msgid "Do I need to prepare?"
+#~ msgstr "Fel kell készülni?"
+
+#~ msgid ""
+#~ "You do not need any kind of specific preparation to start using the tool, "
+#~ "however you should take some time to think about who is going to carry "
+#~ "out the risk assessment, how workers are going to be involved in the "
+#~ "process, etc."
+#~ msgstr ""
+#~ "Nincs szükség semmiféle külön felkészülésre az eszköz használatának "
+#~ "elkezdése előtt, de azt végig kell gondolni, hogy ki végzi el a "
+#~ "kockázatértékelést, hogyan vonják be a munkavállalókat a folyamatba stb."

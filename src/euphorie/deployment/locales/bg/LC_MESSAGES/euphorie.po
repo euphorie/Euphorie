@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-03 14:53+0200\n"
+"POT-Creation-Date: 2013-04-17 13:12+0200\n"
 "PO-Revision-Date: 2012-02-29 21:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -1004,7 +1004,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:63
 msgid "label_preparation"
-msgstr ""
+msgstr "Подготовка"
 
 #. Default: Preparation
 #: src/euphorie/client/templates/actionplan.pt:50
@@ -1030,7 +1030,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:64
 msgid "iphone_label_preparation"
-msgstr ""
+msgstr "Подготовка"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1058,7 +1058,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:68
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
-msgstr ""
+msgstr "Идентифициране на рисковете"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:56
@@ -1084,7 +1084,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:67
 #: src/euphorie/client/templates/updated.pt:69
 msgid "iphone_label_identification"
-msgstr ""
+msgstr "Идентифициране на рисковете"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:61
@@ -1112,7 +1112,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:72
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
-msgstr ""
+msgstr "Оценка"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:62
@@ -1138,7 +1138,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:71
 #: src/euphorie/client/templates/updated.pt:73
 msgid "iphone_label_evaluation"
-msgstr ""
+msgstr "Оценка"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:67
@@ -1166,7 +1166,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:76
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
-msgstr ""
+msgstr "План за действие"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:68
@@ -1192,7 +1192,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:75
 #: src/euphorie/client/templates/updated.pt:77
 msgid "iphone_label_action_plan"
-msgstr ""
+msgstr "План за действие"
 
 #. Default: Report
 #: src/euphorie/client/templates/actionplan.pt:73
@@ -1804,26 +1804,33 @@ msgstr ""
 "Вашата регистрация е лично дело. Всичките Ваши данни се съхраняват така, че "
 "да бъдат достъпни само от Вас."
 
+#. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
-msgid "What is OiRA?"
-msgstr ""
+msgid "login_whatis_oira_title"
+msgstr "Какво представлява OiRA (Online Interactive Risk Assessment)?"
 
+#. Default: OiRA stands for Online Interactive Risk Assessment. It is a
+#. web-based tool that allows you to perform a health and safety risk
+#. assessment of your workplace.
 #: src/euphorie/client/templates/login.pt:50
-msgid ""
-"OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
-"that allows you to perform a health and safety risk assessment of your "
-"workplace."
+msgid "login_whatis_oira_text"
 msgstr ""
+"OiRA означава онлайн интерактивна оценка на риска. Това е уеб базиран "
+"инструмент, чрез който могат да се извършват оценки на риска за здравето и "
+"безопасността на работното място."
 
+#. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
-msgid "Who is the OiRA tool for?"
-msgstr ""
+msgid "login_whois_oira_for_title"
+msgstr "За кого е предназначен инструментът OiRA?"
 
+#. Default: OiRA can be used by anyone wishing to assess health and
+#. safety-related risks that might exist in their workplace.
 #: src/euphorie/client/templates/login.pt:53
-msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+msgid "login_whois_oira_for_text_1"
 msgstr ""
+"OiRA може да бъде използван от всеки желаещ да оцени свързаните със здравето "
+"и безопасността рискове, които е възможно да съществуват на работното място."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1839,94 +1846,151 @@ msgstr ""
 msgid "Show less…"
 msgstr ""
 
+#. Default: However, OiRA is designed to be of most value to smaller
+#. businesses.
 #: src/euphorie/client/templates/login.pt:58
-msgid "However, OiRA is designed to be of most value to smaller businesses."
+msgid "login_whois_oira_for_text_2"
 msgstr ""
+"В същото време, OiRA е предназначен да бъде от най-голяма полза за по-"
+"малките предприятия."
 
+#. Default: OiRA is designed specifically to support them in assessing the
+#. risks at work and helping them to produce a documented risk assessment
+#. including an action plan tailored to the business's requirements.
 #: src/euphorie/client/templates/login.pt:59
-msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+msgid "login_whois_oira_for_text_3"
 msgstr ""
+"OiRA е разработен със специалната задача да ги подпомага при оценяването на "
+"рисковете на работното място и при изготвянето на документирана оценка на "
+"риска, включително план за действие, съобразен с изискванията за съответната "
+"стопанска дейност."
 
+#. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
-msgid "What do I have to do?"
-msgstr ""
+msgid "login_what_todo_title"
+msgstr "Каква трябва да направя?"
 
+#. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
-msgid "There are four main stages to complete in the assessment process:"
-msgstr ""
+msgid "login_what_todo_text_1"
+msgstr "Оценката се извършва на четири основни етапа:"
 
+#. Default: ${preparation} This gives you an overview of the particular
+#. assessment you are about to begin and can allow you to further customise the
+#. assessment to the specific nature of your business.
 #: src/euphorie/client/templates/login.pt:69
-msgid ""
-"${preparation} This gives you an overview of the particular assessment you "
-"are about to begin and can allow you to further customise the assessment to "
-"the specific nature of your business."
+msgid "login_what_todo_text_2"
 msgstr ""
+"${preparation} На този етап преглеждате конкретната оценка, която ви "
+"предстои да започнете, и имате възможност допълнително да я приспособите към "
+"специфичния характер на извършваната от вас стопанска дейност. "
 
+#. Default: ${identification} OiRA will present a series of potential health
+#. and safety hazards or problems that could exist in your workplace. By
+#. answering the statements/questions with either yes or no, you state if such
+#. hazards or problems are present. You can also decide to leave a question
+#. unanswered and thus put in on hold to be answered at a later stage.
 #: src/euphorie/client/templates/login.pt:70
-msgid ""
-"${identification} OiRA will present a series of potential health and safety "
-"hazards or problems that could exist in your workplace. By answering the "
-"statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put in on hold to be answered at a later stage."
+msgid "login_what_todo_text_3"
 msgstr ""
+"${identification} OiRA ви представя поредица от потенциални опасности или "
+"проблеми за здравето и безопасността, които е възможно да съществуват на "
+"Вашето работно място. Като отговаряте с „да“ или „не“ на твърденията/"
+"въпросите, потвърждавате дали въпросните опасности или проблеми са налице.  "
+"По Ваша преценка Вие може да подминавате въпроси и да отговаряте на по-късен "
+"етап. "
 
+#. Default: ${evaluation} Here you will be able to determine the level of risk
+#. attached to each of the items you identified as 'need to be addressed' in
+#. the 'Identification' stage.
 #: src/euphorie/client/templates/login.pt:71
-msgid ""
-"${evaluation} Here you will be able to determine the level of risk attached "
-"to each of the items you identified as 'need to be addressed' in the "
-"'Identification' stage."
+msgid "login_what_todo_text_4"
 msgstr ""
+"${evaluation} На този етап Ви се дава възможност да определите степента на "
+"риска за всеки от проблемите, срещу които сте отбелязали „за разрешаване“ "
+"при идентифицирането на рисковете. "
 
+#. Default: ${action-plan} In the fourth stage of the assessment you can decide
+#. what steps you will take to address the risks you have identified previously
+#. and what resources this might require. Based on this, a report will be
+#. automatically produced in the next step.
 #: src/euphorie/client/templates/login.pt:72
-msgid ""
-"${action-plan} In the fourth stage of the assessment you can decide what "
-"steps you will take to address the risks you have identified previously and "
-"what resources this might require. Based on this, a report will be "
-"automatically produced in the next step."
+msgid "login_what_todo_text_5"
 msgstr ""
+"${action-plan} На четвъртия етап от оценката можете да решите какви мерки ще "
+"предприемете по отношение на идентифицираните рискове и какви ресурси е "
+"вероятно да са Ви необходими.  Въз основа на тази информация на следващия "
+"етап автоматично се генерира доклад."
 
+#. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
-msgid "How long will it take?"
-msgstr ""
+msgid "login_how_long_title"
+msgstr "Колко време отнема?"
 
+#. Default: It's impossible to say how long an assessment will take in general
+#. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
-msgid ""
-"It's impossible to say how long an assessment will take in general as the "
-"tools differ according to sectors and countries."
+msgid "login_how_long_text_1"
 msgstr ""
+"Не е възможно като цяло да се определи времето за изготвяне на оценка, тъй "
+"като инструментите се различават при отделните икономически дейности и "
+"държави."
 
+#. Default: However, you can spend whatever time you have available on an
+#. assessment and then return to it when convenient to pick up from the same
+#. point you left off.
 #: src/euphorie/client/templates/login.pt:82
-msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
-"off."
+msgid "login_how_long_text_2"
 msgstr ""
+"От друга страна, можете да отделите на оценката толкова време, с колкото "
+"разполагате, а по-късно, при възможност,  да продължите от мястото, където "
+"сте прекъснали."
 
+#. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
-msgid "Why do I have to register?"
-msgstr ""
+msgid "login_why_register_title"
+msgstr "Защо да се регистрирам?"
 
+#. Default: The first thing you will be asked to do when you begin your first
+#. risk assessment is to create an OiRA account - this is a simple and quick
+#. process.
 #: src/euphorie/client/templates/login.pt:86
-msgid ""
-"The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+msgid "login_why_register_text_1"
 msgstr ""
+"При започване на първата си оценка за риска ще бъдете помолени да си "
+"създадете OiRA акаунт – лесно и бързо действие."
 
+#. Default: Registering allows you to simply log in at any time to continue
+#. previous assessments or to start new ones.
+#: src/euphorie/client/templates/login.pt:91
+msgid "login_why_register_text_2"
+msgstr ""
+"Регистрацията Ви предоставя достъп до собствения Ви акаунт по всяко време, "
+"за да можете да продължите предишни оценки или да започнете нови."
+
+#. Default: You have to make sure to be in possession of a printed, accurate
+#. and up-dated risk assessment (at any time).
+#: src/euphorie/client/templates/login.pt:92
+msgid "login_why_register_text_3"
+msgstr ""
+"Уверете се, че разполагате с разпечатана, точна и актуализирана оценка за "
+"риска (по всяко време)."
+
+#. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
-msgid "Do I need to prepare?"
-msgstr ""
+msgid "login_need_to_prepare_title"
+msgstr "Необходима ли е подготовка?"
 
+#. Default: You do not need any kind of specific preparation to start using the
+#. tool, however you should take some time to think about who is going to carry
+#. out the risk assessment, how workers are going to be involved in the
+#. process, etc.
 #: src/euphorie/client/templates/login.pt:96
-msgid ""
-"You do not need any kind of specific preparation to start using the tool, "
-"however you should take some time to think about who is going to carry out "
-"the risk assessment, how workers are going to be involved in the process, "
-"etc."
+msgid "login_need_to_prepare_text"
 msgstr ""
+"За използването на инструмента не е необходима специална подготовка, но все "
+"пак отделете време, за да обмислите кой ще извършва оценката на риска, как "
+"ще вземат участие работещите в процеса и т.н."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4282,23 +4346,18 @@ msgstr ""
 "публикувани. Кликнете върху иконата за актуализация, за да публикувате "
 "всички промени"
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Този риск все още е необходимо да бъде инвентаризиран."
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Този риск все още е необходимо да бъде инвентаризиран."
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr "Въведение"
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr "Определяне"
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
 #~ "Можете да посочите как се преценява приоритета на рисковете. За повече "
