@@ -438,55 +438,48 @@ msgstr "Elevada"
 #. Default: Planning start
 #: src/euphorie/client/report.py:849
 #: src/euphorie/client/templates/risk_actionplan.pt:93
-#, fuzzy
 msgid "label_action_plan_start"
-msgstr "Plano de ação"
+msgstr ""
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:851
 #: src/euphorie/client/templates/risk_actionplan.pt:119
-#, fuzzy
 msgid "label_action_plan_end"
-msgstr "Plano de ação"
+msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
 #: src/euphorie/client/report.py:853
 #: src/euphorie/client/templates/risk_actionplan.pt:71
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
-#, fuzzy
 msgid "label_measure_action_plan"
-msgstr "Plano de ação"
+msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
 #: src/euphorie/client/report.py:857
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
-#, fuzzy
 msgid "label_measure_prevention_plan"
-msgstr "Plano de ação"
+msgstr ""
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:861 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
-#, fuzzy
 msgid "label_measure_requirements"
-msgstr "Frequência padrão"
+msgstr ""
 
 #. Default: Who is responsible?
 #: src/euphorie/client/report.py:863
 #: src/euphorie/client/templates/risk_actionplan.pt:78
-#, fuzzy
 msgid "label_action_plan_responsible"
-msgstr "Plano de ação"
+msgstr ""
 
 #. Default: Budget (in Euro)
 #: src/euphorie/client/report.py:866
 #: src/euphorie/client/templates/risk_actionplan.pt:83
-#, fuzzy
 msgid "label_action_plan_budget"
-msgstr "Plano de ação"
+msgstr "Orçamento (em Euro)"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:868
@@ -532,7 +525,6 @@ msgid "Please enter a year after 1900"
 msgstr "Introduza um ano após 1900"
 
 #: src/euphorie/client/risk.py:212 src/euphorie/client/risk.py:243
-#, fuzzy
 msgid "Please enter a year before 2100"
 msgstr "Introduza um ano após 1900"
 
@@ -544,9 +536,8 @@ msgstr "Palavra-passe atual"
 #. Default: Desired password
 #: src/euphorie/client/settings.py:46
 #: src/euphorie/client/templates/register.pt:29
-#, fuzzy
 msgid "label_new_password"
-msgstr "Palavra-passe (${forgot_link})"
+msgstr ""
 
 #: src/euphorie/client/settings.py:51 src/euphorie/client/settings.py:62
 msgid "Your password for confirmation"
