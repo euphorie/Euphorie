@@ -1934,7 +1934,7 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:91
 msgid "login_why_register_text_2"
 msgstr ""
-". Kun olet rekisteröitynyt, voit koska tahansa kirjautua järjestelmään ja "
+"Kun olet rekisteröitynyt, voit koska tahansa kirjautua järjestelmään ja "
 "jatkaa kesken olevia arviointeja tai aloittaa uusia. "
 
 #. Default: You have to make sure to be in possession of a printed, accurate
