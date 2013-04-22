@@ -2993,7 +2993,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:77
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Teisinės ir politikos nuorodos"
+msgstr "Nuorodos į teisės aktus"
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:84
@@ -3094,7 +3094,7 @@ msgstr "Pagrindinis atvaizdas programoje bus labiau akcentuotas nei kiti."
 #. Default: Secondary images
 #: src/euphorie/content/risk.py:166
 msgid "header_secondary_images"
-msgstr "Šalutiniai atvaizdai"
+msgstr "Papildomi atvaizdai"
 
 #. Default: Default severity
 #: src/euphorie/content/risk.py:208 src/euphorie/content/risk.py:297
@@ -4132,7 +4132,7 @@ msgstr ""
 #: src/euphorie/deployment/tiles/tabs.py:57
 #: src/euphorie/deployment/tiles/tabs.py:70
 msgid "nav_usermanagement"
-msgstr "Naudotojų tvarkymas"
+msgstr "Administravimas"
 
 #. Default: Documents
 #: src/euphorie/deployment/tiles/tabs.py:63
