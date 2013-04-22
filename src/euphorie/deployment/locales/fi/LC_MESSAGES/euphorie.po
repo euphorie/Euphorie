@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-04-17 12:17+0200\n"
+"POT-Creation-Date: 2013-04-22 19:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -993,7 +993,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:63
 msgid "label_preparation"
-msgstr ""
+msgstr "Valmistelu"
 
 #. Default: Preparation
 #: src/euphorie/client/templates/actionplan.pt:50
@@ -1019,7 +1019,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:64
 msgid "iphone_label_preparation"
-msgstr ""
+msgstr "Valmistelu"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1047,7 +1047,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:68
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
-msgstr ""
+msgstr "Yksilöinti"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:56
@@ -1073,7 +1073,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:67
 #: src/euphorie/client/templates/updated.pt:69
 msgid "iphone_label_identification"
-msgstr ""
+msgstr "Yksilöinti"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:61
@@ -1101,7 +1101,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:72
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
-msgstr ""
+msgstr "Arviointi"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:62
@@ -1127,7 +1127,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:71
 #: src/euphorie/client/templates/updated.pt:73
 msgid "iphone_label_evaluation"
-msgstr ""
+msgstr "Arviointi"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:67
@@ -1155,7 +1155,7 @@ msgstr ""
 #: src/euphorie/client/templates/updated.pt:76
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
-msgstr ""
+msgstr "Toiminta"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:68
@@ -1181,7 +1181,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:75
 #: src/euphorie/client/templates/updated.pt:77
 msgid "iphone_label_action_plan"
-msgstr ""
+msgstr "Toiminta"
 
 #. Default: Report
 #: src/euphorie/client/templates/actionplan.pt:73
@@ -1782,7 +1782,7 @@ msgstr ""
 #. Default: What is OiRA (Online Interactive Risk Assessment)?
 #: src/euphorie/client/templates/login.pt:49
 msgid "login_whatis_oira_title"
-msgstr ""
+msgstr "Mikä OiRA on (Online Interactive Risk Assessment)?"
 
 #. Default: OiRA stands for Online Interactive Risk Assessment. It is a
 #. web-based tool that allows you to perform a health and safety risk
@@ -1790,17 +1790,22 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:50
 msgid "login_whatis_oira_text"
 msgstr ""
+"OiRA (Online interactive Risk Assessment) on vuorovaikutteinen "
+"riskinarvioinnin verkkotyökalu. Sen avulla voidaan suorittaa työpaikan "
+"terveys- ja turvallisuusriskejä koskevia arviointeja."
 
 #. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
 msgid "login_whois_oira_for_title"
-msgstr ""
+msgstr "Kenelle OiRA on tarkoitettu?"
 
 #. Default: OiRA can be used by anyone wishing to assess health and
 #. safety-related risks that might exist in their workplace.
 #: src/euphorie/client/templates/login.pt:53
 msgid "login_whois_oira_for_text_1"
 msgstr ""
+"OiRAa voi käyttää kuka tahansa, joka haluaa arvioida oman työpaikkansa "
+"mahdollisia työterveys- ja turvallisuusriskejä."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1821,6 +1826,8 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:58
 msgid "login_whois_oira_for_text_2"
 msgstr ""
+"Lähtökohtaisesti OiRA on kuitenkin suunniteltu apuvälineeksi pienten "
+"yritysten riskien arviointiin ja riskinarviointiasiakirjojen tuottamiseen"
 
 #. Default: OiRA is designed specifically to support them in assessing the
 #. risks at work and helping them to produce a documented risk assessment
@@ -1828,16 +1835,18 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:59
 msgid "login_whois_oira_for_text_3"
 msgstr ""
+"Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden sisältö "
+"räätälöidään kunkin yrityksen omien tarpeiden mukaan."
 
 #. Default: What do I have to do?
 #: src/euphorie/client/templates/login.pt:62
 msgid "login_what_todo_title"
-msgstr ""
+msgstr "Mitä minun on tehtävä?"
 
 #. Default: There are four main stages to complete in the assessment process:
 #: src/euphorie/client/templates/login.pt:63
 msgid "login_what_todo_text_1"
-msgstr ""
+msgstr "Riskinarviointimenettelyssä on neljää keskeistä vaihetta:"
 
 #. Default: ${preparation} This gives you an overview of the particular
 #. assessment you are about to begin and can allow you to further customise the
@@ -1845,6 +1854,9 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:69
 msgid "login_what_todo_text_2"
 msgstr ""
+"${preparation} Ensimmäinen vaihe on yleiskatsaus arviosta, jota olet "
+"aloittamassa. Tässä vaiheessa voit räätälöidä arvioinnin oman yrityksesi "
+"erityisluonteeseen sopivaksi. "
 
 #. Default: ${identification} OiRA will present a series of potential health
 #. and safety hazards or problems that could exist in your workplace. By
@@ -1854,6 +1866,11 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:70
 msgid "login_what_todo_text_3"
 msgstr ""
+"${identification} OiRA esittelee joukon työpaikkallasi mahdollisesti a "
+"esiintyviä työterveys- ja työturvallisuusriskejä ja -ongelmia. Vastaat "
+"väittämiin joko ”kyllä” tai ”ei” riippuen siitä, esiintyykö työpaikallasi "
+"kyseisiä riskejä tai ongelmia. Voit myös jättää kysymyksiä väliin ja vastata "
+"niihin myöhemmin. "
 
 #. Default: ${evaluation} Here you will be able to determine the level of risk
 #. attached to each of the items you identified as 'need to be addressed' in
@@ -1861,6 +1878,8 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:71
 msgid "login_what_todo_text_4"
 msgstr ""
+"${evaluation} Tässä kohdassa voit määrittää niiden ongelmien riskitason, "
+"jotka olet yksilöintivaiheessa merkinnyt toimenpiteitä vaativiksi."
 
 #. Default: ${action-plan} In the fourth stage of the assessment you can decide
 #. what steps you will take to address the risks you have identified previously
@@ -1869,17 +1888,23 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:72
 msgid "login_what_todo_text_5"
 msgstr ""
+"${action-plan} Arvioinnin neljännessä vaiheessa voit kirjata ne toimenpiteet "
+"istä ja resurssit joita tarvitaan aiemmin tunnistamiesi riskien "
+"poistamiseksi tai vähentämiseksi. Seuraavaksi ohjelma tuottaa kirjaamiesi "
+"tietojen pohjalta automaattisesti raportin."
 
 #. Default: How long will it take?
 #: src/euphorie/client/templates/login.pt:76
 msgid "login_how_long_title"
-msgstr ""
+msgstr "Kauanko arviointi kestää?"
 
 #. Default: It's impossible to say how long an assessment will take in general
 #. as the tools differ according to sectors and countries.
 #: src/euphorie/client/templates/login.pt:77
 msgid "login_how_long_text_1"
 msgstr ""
+"On mahdotonta sanoa, kuinka kauan riskien arviointi keskimäärin kestää, "
+"koska OiRAn sisältö ja laajuus vaihtelevat aloittain ja maittain. "
 
 #. Default: However, you can spend whatever time you have available on an
 #. assessment and then return to it when convenient to pick up from the same
@@ -1887,11 +1912,13 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:82
 msgid "login_how_long_text_2"
 msgstr ""
+"Voit kulloinkin käyttää arviointiin aikaa sen verran kuin sinulla sitä on, "
+"ja myöhemmin palata siihen kohtaan, johon viimeksi jäit. "
 
 #. Default: Why do I have to register?
 #: src/euphorie/client/templates/login.pt:85
 msgid "login_why_register_title"
-msgstr ""
+msgstr "Miksi minun on rekisteröidyttävä?"
 
 #. Default: The first thing you will be asked to do when you begin your first
 #. risk assessment is to create an OiRA account - this is a simple and quick
@@ -1899,23 +1926,29 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:86
 msgid "login_why_register_text_1"
 msgstr ""
+"Kun aloitat riskinarvioinnin, sinua pyydetään aivan ensimmäiseksi luomaan "
+"OiRA-käyttäjätili, mikä on helppo ja nopea toimenpide. "
 
 #. Default: Registering allows you to simply log in at any time to continue
 #. previous assessments or to start new ones.
 #: src/euphorie/client/templates/login.pt:91
 msgid "login_why_register_text_2"
 msgstr ""
+". Kun olet rekisteröitynyt, voit koska tahansa kirjautua järjestelmään ja "
+"jatkaa kesken olevia arviointeja tai aloittaa uusia. "
 
 #. Default: You have to make sure to be in possession of a printed, accurate
 #. and up-dated risk assessment (at any time).
 #: src/euphorie/client/templates/login.pt:92
 msgid "login_why_register_text_3"
 msgstr ""
+"Varmista, että sinulla on (aina) käytössäsi tulostettu, asianmukainen ja "
+"päivitetty riskien arviointi."
 
 #. Default: Do I need to prepare?
 #: src/euphorie/client/templates/login.pt:95
 msgid "login_need_to_prepare_title"
-msgstr ""
+msgstr "Miten valmistaudun?"
 
 #. Default: You do not need any kind of specific preparation to start using the
 #. tool, however you should take some time to think about who is going to carry
@@ -1924,6 +1957,9 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:96
 msgid "login_need_to_prepare_text"
 msgstr ""
+"OiRAn käyttö ei edellytä mitään tiettyjä valmisteluja, mutta sinun kannattaa "
+"etukäteen miettiä, kuka tekee itse riskinarvioinnin ja miten työntekijät "
+"otetaan mukaan prosessiin jne."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -3502,20 +3538,6 @@ msgstr "Tekstiä sisältävä sivu"
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr ""
-
-#: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid ""
-"The basic architecture of an Online interactive Risk Assessment consists of: "
-"profile questions (questions defining the company profile), modules (and "
-"potentially sub-modules), and risks (positive statements). Profile questions "
-"are used to determine whether particular modules apply to the end user at "
-"all or whether they should be repeated a number of times. Such questions are "
-"asked BEFORE starting the risk identification and evaluation. If the end-"
-"user does not confirm that an optional profile question is relevant the "
-"corresponding module will be skipped entirely. If the end-user enters more "
-"than one option to a profile question then the corresponding module will be "
-"repeated the specified number of times."
 msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
