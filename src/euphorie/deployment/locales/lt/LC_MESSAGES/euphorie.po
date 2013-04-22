@@ -223,17 +223,17 @@ msgstr ""
 #. Default: low priority risk
 #: src/euphorie/client/report.py:40
 msgid "report_priority_low"
-msgstr "žemo prioriteto riziką"
+msgstr "žemo prioriteto rizika"
 
 #. Default: medium priority risk
 #: src/euphorie/client/report.py:41
 msgid "report_priority_medium"
-msgstr "vidutinio prioriteto riziką"
+msgstr "vidutinio prioriteto rizika"
 
 #. Default: high priority risk
 #: src/euphorie/client/report.py:42
 msgid "report_priority_high"
-msgstr "aukšto prioriteto riziką"
+msgstr "aukšto prioriteto rizika"
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
@@ -245,7 +245,7 @@ msgstr ""
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:187
 msgid "report_survey_footer_risk_present"
-msgstr "Žvaigždute [*] pažymėta riziką yra aktuali."
+msgstr "Žvaigždute [*] pažymėta rizika yra aktuali."
 
 #. Default: You responded negatively to the above statement.
 #: src/euphorie/client/report.py:384 src/euphorie/client/report.py:652
@@ -472,7 +472,7 @@ msgstr "Rizikos ID"
 #. Default: Risk
 #: src/euphorie/client/report.py:870
 msgid "report_timeline_risk_title"
-msgstr "Riziką"
+msgstr "Rizika"
 
 #. Default: Priority
 #: src/euphorie/client/report.py:872
@@ -1345,7 +1345,7 @@ msgid "conditions_intro1"
 msgstr ""
 "OiRA (internetinio interaktyvaus rizikos vertinimo) programa yra Europos "
 "saugos ir sveikatos darbe agentūros (ES-OSHA) jūsų reikmėms sukurta "
-"priemonę. Ši privatumo politika taikoma visiems ES-OSHA produktams, "
+"priemonė. Ši privatumo politika taikoma visiems ES-OSHA produktams, "
 "paslaugoms ir internetiniams puslapiams, susijusiems su OiRA programa."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
@@ -1786,14 +1786,14 @@ msgstr "OiRA – kas tai (Online Interactive Risk Assessment)?"
 #: src/euphorie/client/templates/login.pt:50
 msgid "login_whatis_oira_text"
 msgstr ""
-"OiRA – tai interaktyvi internetinė rizikos vertinimo priemonę (angl. OiRA – "
+"OiRA – tai interaktyvi internetinė rizikos vertinimo priemonė (angl. OiRA – "
 "Online interactive Risk Assessment). Naudojantis šia internetine priemone "
 "galima atlikti profesinės rizikos vertinimą darbo vietoje."
 
 #. Default: Who is the OiRA tool for?
 #: src/euphorie/client/templates/login.pt:52
 msgid "login_whois_oira_for_title"
-msgstr "Kam skirta OiRA priemonę?"
+msgstr "Kam skirta OiRA priemonė?"
 
 #. Default: OiRA can be used by anyone wishing to assess health and
 #. safety-related risks that might exist in their workplace.
@@ -1821,7 +1821,7 @@ msgstr ""
 #. businesses.
 #: src/euphorie/client/templates/login.pt:58
 msgid "login_whois_oira_for_text_2"
-msgstr "OiRA priemonę naudingiausia turėtų būti mažoms įmonėms."
+msgstr "OiRA priemonė naudingiausia turėtų būti mažoms įmonėms."
 
 #. Default: OiRA is designed specifically to support them in assessing the
 #. risks at work and helping them to produce a documented risk assessment
@@ -2234,7 +2234,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
-msgstr "Priemonę ${index}"
+msgstr "Priemonė ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
@@ -2993,7 +2993,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:77
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Nuorodos į teisės aktus"
+msgstr "Teisinės ir politikos nuorodos"
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:84
@@ -3003,14 +3003,14 @@ msgstr "Nustatymas"
 #. Default: Show `not applicable' option
 #: src/euphorie/content/risk.py:88
 msgid "label_show_notapplicable"
-msgstr "Rodyti parinktį „neaktualu“"
+msgstr "Rodyti parinktį „netaikoma“"
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
 #: src/euphorie/content/risk.py:90
 msgid "help_show_notapplicable"
 msgstr ""
-"Pateikti parinktį „neaktualu“ vietoje standartinių taip / ne parinkčių."
+"Pateikti parinktį „netaikoma“ vietoje standartinių taip / ne parinkčių."
 
 #. Default: Risk type
 #: src/euphorie/content/risk.py:96
@@ -3034,7 +3034,7 @@ msgstr ""
 #. Default: Risk
 #: src/euphorie/content/risk.py:107
 msgid "risktype_risk"
-msgstr "Riziką"
+msgstr "Rizika"
 
 #. Default: Policy
 #: src/euphorie/content/risk.py:109
@@ -3094,7 +3094,7 @@ msgstr "Pagrindinis atvaizdas programoje bus labiau akcentuotas nei kiti."
 #. Default: Secondary images
 #: src/euphorie/content/risk.py:166
 msgid "header_secondary_images"
-msgstr "Papildomi atvaizdai"
+msgstr "Šalutiniai atvaizdai"
 
 #. Default: Default severity
 #: src/euphorie/content/risk.py:208 src/euphorie/content/risk.py:297
@@ -3124,7 +3124,7 @@ msgstr "Eksperto nustatytas dažnumas"
 #. Default: Indicate how often this risk occurs in a normal situation.
 #: src/euphorie/content/risk.py:231 src/euphorie/content/risk.py:278
 msgid "help_default_frequency"
-msgstr "Nurodyti, kaip dažnai riziką pasireiškia normaliose situacijose."
+msgstr "Nurodyti, kaip dažnai rizika pasireiškia normaliose situacijose."
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:256
@@ -3535,11 +3535,11 @@ msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
-msgstr "Riziką"
+msgstr "Rizika"
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:8
 msgid "A risk."
-msgstr "Riziką."
+msgstr "Rizika."
 
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:7
 #: src/euphorie/content/templates/user_mgmt.pt:26
@@ -3707,7 +3707,7 @@ msgstr ""
 #. Default: not applicable
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na_na"
-msgstr "neaktualu"
+msgstr "netaikoma"
 
 #. Default: Show '${na}'
 #: src/euphorie/content/templates/risk_view.pt:39
@@ -4039,7 +4039,7 @@ msgstr "Jokios šios šailes ekonominės veiklos nėra nurodytos."
 #: src/euphorie/content/templates/user_mgmt.pt:27
 #: src/euphorie/content/templates/user_mgmt.pt:68
 msgid "Login"
-msgstr "Prisijungimo vardas"
+msgstr "Prisijungimas"
 
 #: src/euphorie/content/templates/user_mgmt.pt:28
 msgid "Password"
@@ -4132,7 +4132,7 @@ msgstr ""
 #: src/euphorie/deployment/tiles/tabs.py:57
 #: src/euphorie/deployment/tiles/tabs.py:70
 msgid "nav_usermanagement"
-msgstr "Administravimas"
+msgstr "Naudotojų tvarkymas"
 
 #. Default: Documents
 #: src/euphorie/deployment/tiles/tabs.py:63
