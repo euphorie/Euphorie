@@ -52,34 +52,37 @@ class IdentificationView(grok.View):
             SessionManager.session.touch()
 
             if reply["next"] == "previous":
-                next = FindPreviousQuestion(self.context,
-                        filter=self.question_filter)
+                next = FindPreviousQuestion(
+                    self.context,
+                    filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, step back to intro page
                     url = "%s/identification" % \
-                            self.request.survey.absolute_url()
+                        self.request.survey.absolute_url()
                     self.request.response.redirect(url)
                     return
             else:
-                next = FindNextQuestion(self.context,
-                        filter=self.question_filter)
+                next = FindNextQuestion(
+                    self.context,
+                    filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, proceed to the evaluation
                     url = "%s/evaluation" % self.request.survey.absolute_url()
                     self.request.response.redirect(url)
                     return
 
-            url = QuestionURL(self.request.survey, next,
-                    phase="identification")
+            url = QuestionURL(
+                self.request.survey, next,
+                phase="identification")
             self.request.response.redirect(url)
         else:
             self.risk = risk = self.request.survey.restrictedTraverse(
-                                            self.context.zodb_path.split("/"))
+                self.context.zodb_path.split("/"))
             self.tree = getTreeData(self.request, self.context)
             self.title = self.context.parent.title
             self.show_info = risk.image or \
-                    HasText(risk.description) or \
-                    HasText(risk.legal_reference)
+                HasText(risk.description) or \
+                HasText(risk.legal_reference)
 
             super(IdentificationView, self).update()
 
@@ -99,7 +102,7 @@ class EvaluationView(grok.View):
     @property
     def use_problem_description(self):
         risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+            self.context.zodb_path.split("/"))
         text = risk.problem_description
         return bool(text and text.strip())
 
@@ -124,7 +127,7 @@ class EvaluationView(grok.View):
             return
 
         risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+            self.context.zodb_path.split("/"))
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -137,8 +140,9 @@ class EvaluationView(grok.View):
             SessionManager.session.touch()
 
             if reply["next"] == "previous":
-                next = FindPreviousQuestion(self.context,
-                        filter=self.question_filter)
+                next = FindPreviousQuestion(
+                    self.context,
+                    filter=self.question_filter)
 
                 if next is None:
                     # We ran out of questions, step back to intro page
@@ -146,8 +150,9 @@ class EvaluationView(grok.View):
                     self.request.response.redirect(url)
                     return
             else:
-                next = FindNextQuestion(self.context,
-                        filter=self.question_filter)
+                next = FindNextQuestion(
+                    self.context,
+                    filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, proceed to the action plan
                     url = "%s/actionplan" % self.request.survey.absolute_url()
@@ -159,8 +164,9 @@ class EvaluationView(grok.View):
         else:
             self.risk = risk
             self.title = self.context.parent.title
-            self.tree = getTreeData(self.request, self.context,
-                    filter=self.question_filter, phase="evaluation")
+            self.tree = getTreeData(
+                self.request, self.context,
+                filter=self.question_filter, phase="evaluation")
             super(EvaluationView, self).update()
 
 
@@ -192,8 +198,8 @@ class ActionPlanItemForm(formapi.Form):
 
         try:
             (__, maxday) = calendar.monthrange(
-                    self.data["planning_start_year"],
-                    self.data["planning_start_month"])
+                self.data["planning_start_year"],
+                self.data["planning_start_month"])
             if day > maxday:
                 yield _(u"Invalid day of month")
         except (ValueError, TypeError):
@@ -224,7 +230,7 @@ class ActionPlanItemForm(formapi.Form):
 
         try:
             (__, maxday) = calendar.monthrange(self.data["planning_end_year"],
-                                            self.data["planning_end_month"])
+                                               self.data["planning_end_month"])
             if day > maxday:
                 yield _(u"Invalid day of month")
         except (ValueError, TypeError):
@@ -261,7 +267,7 @@ class ActionPlanView(grok.View):
     @property
     def use_problem_description(self):
         risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+            self.context.zodb_path.split("/"))
         text = risk.problem_description
         return bool(text and text.strip())
 
@@ -298,7 +304,7 @@ class ActionPlanView(grok.View):
                 if not form.validate():
                     errors = True
                     reply['action_plans'][-1]['errors'] = \
-                            dict(form.errors._dict)
+                        dict(form.errors._dict)
                     continue
 
                 if len(measure) > 2:
@@ -316,7 +322,7 @@ class ActionPlanView(grok.View):
                             form.data["planning_end_year"],
                             form.data["planning_end_month"],
                             form.data["planning_end_day"]),
-                        ))
+                    ))
             if errors:
                 self.data = reply
             else:
@@ -331,24 +337,24 @@ class ActionPlanView(grok.View):
 
                 if reply["next"] == "previous":
                     next = FindPreviousQuestion(
-                            context, filter=self.question_filter)
+                        context, filter=self.question_filter)
                     if next is None:
                         # We ran out of questions, step back to intro page
                         url = "%s/evaluation" \
-                                    % self.request.survey.absolute_url()
+                              % self.request.survey.absolute_url()
                         self.request.response.redirect(url)
                         return
                 else:
                     next = FindNextQuestion(
-                            context, filter=self.question_filter)
+                        context, filter=self.question_filter)
                     if next is None:
                         # We ran out of questions, proceed to the report
                         url = "%s/report" % self.request.survey.absolute_url()
                         self.request.response.redirect(url)
                         return
 
-                url = QuestionURL(self.request.survey, next,
-                        phase="actionplan")
+                url = QuestionURL(
+                    self.request.survey, next, phase="actionplan")
                 self.request.response.redirect(url)
                 return
         else:
@@ -357,12 +363,13 @@ class ActionPlanView(grok.View):
             self.data = context
 
         self.risk = risk = self.request.survey.restrictedTraverse(
-                                        context.zodb_path.split("/"))
+            context.zodb_path.split("/"))
         self.title = context.parent.title
-        self.tree = getTreeData(self.request, context,
+        self.tree = getTreeData(
+            self.request, context,
             filter=self.question_filter, phase="actionplan")
         self.solutions = [solution for solution in risk.values()
-                            if ISolution.providedBy(solution)]
+                          if ISolution.providedBy(solution)]
         super(ActionPlanView, self).update()
 
 
