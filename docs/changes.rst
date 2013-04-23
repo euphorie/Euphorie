@@ -1,6 +1,12 @@
 Changelog
 =========
 
+6.0rc4 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
 6.0rc3 (2013-04-23)
 -------------------
 
