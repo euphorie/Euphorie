@@ -4,11 +4,11 @@ Changelog
 6.0rc4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use scheme-less URLs for fonts so they always use the same scheme as the current page.
 
 
-6.0rc3 (2013-04-23)
--------------------
+6.0rc3 = April 23, 2013
+-----------------------
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
 - Use https in stylesheets (for google fonts).
