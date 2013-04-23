@@ -4,7 +4,8 @@ Changelog
 6.0rc3 (unreleased)
 -------------------
 
-- Update Dutch translations.
+- Update Dutch, Latvian, Lithuanian and Finnish translations.
+- Use https in stylesheets (for google fonts).
 
 
 6.0rc2 - April 15, 2013
