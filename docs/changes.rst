@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.0rc3 (unreleased)
+6.0rc3 (2013-04-23)
 -------------------
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
