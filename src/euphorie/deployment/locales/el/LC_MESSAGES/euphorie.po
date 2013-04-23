@@ -425,17 +425,17 @@ msgstr "Σχέδιο δράσης ${title}"
 #. Default: Low
 #: src/euphorie/client/report.py:842
 msgid "label_timeline_priority_low"
-msgstr "μικρή"
+msgstr "Χαμηλή"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:843
 msgid "label_timeline_priority_medium"
-msgstr "μεσαία"
+msgstr "Μέτρια"
 
 #. Default: High
 #: src/euphorie/client/report.py:844
 msgid "label_timeline_priority_high"
-msgstr "υψηλή"
+msgstr "Υψηλή"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:849
@@ -1259,7 +1259,7 @@ msgstr "Σχέδιο δράσης"
 #: src/euphorie/client/templates/survey_sessions.pt:78
 #: src/euphorie/client/templates/updated.pt:80
 msgid "label_report"
-msgstr "Αναφορά"
+msgstr "Έκθεση"
 
 #. Default: Report
 #: src/euphorie/client/templates/actionplan.pt:74
@@ -1285,7 +1285,7 @@ msgstr "Αναφορά"
 #: src/euphorie/client/templates/survey_sessions.pt:79
 #: src/euphorie/client/templates/updated.pt:81
 msgid "iphone_report"
-msgstr "Αναφορά"
+msgstr "Έκθεση"
 
 #. Default: Logout
 #: src/euphorie/client/templates/actionplan.pt:81
@@ -2234,7 +2234,7 @@ msgstr "Υπενθύμιση κωδικού πρόσβασης"
 #. Default: Reporting
 #: src/euphorie/client/templates/report.pt:17
 msgid "header_reporting"
-msgstr "Σύνταξη αναφοράς"
+msgstr "Σύνταξη έκθεσης"
 
 #. Default: Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -2562,7 +2562,7 @@ msgstr "Διαρκώς"
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:48
 msgid "header_risk_effect"
-msgstr "Ποια είναι η σφοδρότητα της ζημιάς;"
+msgstr "Ποια είναι η σοβαρότητα επιπτώσεων της ζημιάς;"
 
 #. Default: Weak severity
 #: src/euphorie/client/templates/risk_evaluation.pt:50
