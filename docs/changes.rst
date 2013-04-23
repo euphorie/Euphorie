@@ -6,6 +6,7 @@ Changelog
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
 - Use https in stylesheets (for google fonts).
+- Added Hungarian translations
 
 
 6.0rc2 - April 15, 2013
