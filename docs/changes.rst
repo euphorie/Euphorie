@@ -6,6 +6,8 @@ Changelog
 
 - Use scheme-less URLs for fonts so they always use the same scheme as the current page.
 
+- Update Dutch translations.
+
 
 6.0rc3 = April 23, 2013
 -----------------------
