@@ -1,15 +1,16 @@
 Changelog
 =========
 
-6.0rc4 (unreleased)
--------------------
+6.0 - May 1, 2013
+-----------------
 
-- Use scheme-less URLs for fonts so they always use the same scheme as the current page.
+- Use scheme-less URLs for fonts so they always use the same scheme as the
+  current page.
 
 - Update Dutch translations.
 
 
-6.0rc3 = April 23, 2013
+6.0rc3 - April 23, 2013
 -----------------------
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
@@ -47,7 +48,8 @@ Bugfixes
 
 - Fixed the wrong translations for the timeline xls export priorities
 
-- Fix header styling in the client. added a body > in sector style before the h1 so that it is more specific 
+- Fix header styling in the client. Added a body > in sector style before the
+  h1 so that it is more specific 
 
 - Exchanged translation labels for priority names to match the translations in
   the action plan view. The timeline msgids seem to be fuzzy: the translation
