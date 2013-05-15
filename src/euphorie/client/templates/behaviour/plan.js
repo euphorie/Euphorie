@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.enableDatePicker = function () { 
+    $.fn.enableDatePicker = function () {
         var lang = $("body").attr('lang');
         if (lang) {
             if (lang.indexOf('-') !== -1) {
@@ -14,13 +14,13 @@
             if ($.datepicker.regional[lang]) {
                 $.datepicker.setDefaults($.datepicker.regional[lang]);
             } else {
-                // 'en' is not included in the obj, so fall back to en-GB. 
+                // 'en' is not included in the obj, so fall back to en-GB.
                 // Otherwise we get a Taiwanese calendar.
                 $.datepicker.setDefaults($.datepicker.regional['en-GB']);
             }
         }
         $(this).datepicker({
-            showOn: "button",      
+            showOn: "button",
             dateFormat: "yy",
             onSelect: function (dateText, inst) {
                 $(this).parent().find(".day").val(inst.selectedDay);
@@ -135,8 +135,8 @@
         },
 
         MeasureHasData: function(m) {
-            var data = $.map(m.find(":input:not(select)"), 
-                    function(i) { 
+            var data = $.map(m.find(":input:not(select)"),
+                    function(i) {
                         var val = $(i).val();
                         if (Boolean(val) && val !== $(i).attr('placeholder')) {
                             return true;
@@ -150,7 +150,7 @@
         toggleSolutionDropdown: function() {
             var $solutions = $("#standardSolutions"),
                 position;
-            
+
             if ($solutions.data("euphorie.visible")) {
                 $solutions
                     .data("euphorie.visible", false)
@@ -204,6 +204,19 @@
         }
     };
     $("#ActionPlanItemForm").ready(ActionPlan.init);
+    $("a.button.small.solutions").ready(function (a, b, c) {
+        var toggleFade = function() {
+            var $link = $("a.button.small.solutions");
+            $link.css("color", "white");
+            setTimeout(function() {
+                $link.removeAttr('style');
+            }, 500);
+        };
+        setTimeout( function () { toggleFade(); }, 1000);
+        setTimeout( function () { toggleFade(); }, 2000);
+        setTimeout( function () { toggleFade(); }, 3000);
+        }
+    );
 })(jQuery);
 
 /*jslint plusplus: true, unparam: true, sloppy: true, white: true, browser: true, devel: true */
