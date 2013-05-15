@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 13:17+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-01-30 14:30+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -1929,15 +1929,14 @@ msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Na registratie kunt u op elk moment inloggen om uw RI&E af te "
-"maken, te wijzigen of een nieuwe RI&E te starten."
+"Na registratie kunt u op elk moment inloggen om uw RI&E af te maken, te "
+"wijzigen of een nieuwe RI&E te starten."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
-msgstr ""
-"U moet altijd een accurate en actuele RI&E hebben."
+msgstr "U moet altijd een accurate en actuele RI&E hebben."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
@@ -4272,10 +4271,25 @@ msgstr "Documenten"
 msgid "nav_help"
 msgstr "Help"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Nieuw(e) ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Nieuw(e) Module"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Nieuw(e) Submodule"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Nieuw(e) Profielvraag"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Nieuw(e) Risico"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr "Nieuw(e) Standaardmaatregel"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4388,8 +4402,11 @@ msgstr "Publiceer"
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
 msgstr ""
-"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. Klik op "
-"Publiceer om deze zichtbaar te maken voor de invuller (client)."
+"${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. "
+"Klik op Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#~ msgid "button_add_factory"
+#~ msgstr "Nieuw(e) ${typename}"
 
 #~ msgid "Unanswered"
 #~ msgstr "Onbeantwoord"

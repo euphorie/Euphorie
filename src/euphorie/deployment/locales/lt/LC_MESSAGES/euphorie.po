@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-15 15:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1772,8 +1772,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Jūsų registracija yra privati. Visus išsaugotus duomenis matyti galėsite "
-"tik jūs patys."
+"Jūsų registracija yra privati. Visus išsaugotus duomenis matyti galėsite tik "
+"jūs patys."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -1785,9 +1785,9 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"OiRA – tai interaktyvi internetinė rizikos vertinimo priemonė (angl. OiRA "
-"– Online interactive Risk Assessment). Naudojantis šia internetine "
-"priemone galima atlikti profesinės rizikos vertinimą darbo vietoje."
+"OiRA – tai interaktyvi internetinė rizikos vertinimo priemonė (angl. OiRA – "
+"Online interactive Risk Assessment). Naudojantis šia internetine priemone "
+"galima atlikti profesinės rizikos vertinimą darbo vietoje."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1842,9 +1842,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} Tai leidžia susidaryti bendrą vaizdą apie rizikos "
-"vertinimą, kurį ketinate atlikti, ir pritaikyti jį savo poreikiams, "
-"atsižvelgiant į jūsų veiklos pobūdį. "
+"${preparation} Tai leidžia susidaryti bendrą vaizdą apie rizikos vertinimą, "
+"kurį ketinate atlikti, ir pritaikyti jį savo poreikiams, atsižvelgiant į "
+"jūsų veiklos pobūdį. "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1874,10 +1874,10 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} Ketvirtame vertinimo etape turite nuspręsti, kokių "
-"priemonių imsitės nustatytai rizikai pašalinti/sumažinti ir kokių "
-"išteklių prireiks. Remiantis pateikta informacija, kitame etape bus "
-"automatiškai parengta ataskaita."
+"${action-plan} Ketvirtame vertinimo etape turite nuspręsti, kokių priemonių "
+"imsitės nustatytai rizikai pašalinti/sumažinti ir kokių išteklių prireiks. "
+"Remiantis pateikta informacija, kitame etape bus automatiškai parengta "
+"ataskaita."
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
@@ -1888,8 +1888,8 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"Sunku numatyti kiek laiko užtruks rizikos vertinimas, nes tai priklauso "
-"nuo ekonominės veiklos sektoriaus."
+"Sunku numatyti kiek laiko užtruks rizikos vertinimas, nes tai priklauso nuo "
+"ekonominės veiklos sektoriaus."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1909,8 +1909,8 @@ msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"Pradėdami pirmąjį rizikos vertinimo etapą, pirmiausia turite susikurti "
-"OiRA paskyrą – tai nesudėtinga ir ilgai neužtruks."
+"Pradėdami pirmąjį rizikos vertinimo etapą, pirmiausia turite susikurti OiRA "
+"paskyrą – tai nesudėtinga ir ilgai neužtruks."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
@@ -1939,9 +1939,9 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Jums nereikia jokio specialaus pasiruošimo, kad galėtumėte pradėti "
-"naudotis priemone. Tačiau apsvarstykite, kas atliks rizikos vertinimą, "
-"kaip darbuotojai dalyvaus šiame procese ir pan."
+"Jums nereikia jokio specialaus pasiruošimo, kad galėtumėte pradėti naudotis "
+"priemone. Tačiau apsvarstykite, kas atliks rizikos vertinimą, kaip "
+"darbuotojai dalyvaus šiame procese ir pan."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4120,10 +4120,25 @@ msgstr "Dokumentai"
 msgid "nav_help"
 msgstr "Žinynas"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Įkelti ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Įkelti Modulį"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Įkelti Submodulį"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Įkelti Profilio klausimą"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Įkelti Riziką"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4236,6 +4251,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Šioje versijoje yra pakeitimų, kurie nebuvo publikuoti. Norėdami "
 "pakeitimus patvirtinti, paspauskite naujinimo piktogramą"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Įkelti ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

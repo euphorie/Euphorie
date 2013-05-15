@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-15 15:12+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1803,8 +1803,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"El registre és privat. Totes les seves dades quedaran desades i serà "
-"l'única persona que hi podrà accedir."
+"El registre és privat. Totes les seves dades quedaran desades i serà l'única "
+"persona que hi podrà accedir."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -1816,9 +1816,9 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"L’eina interactiva d’avaluació de riscos (OiRA) és una aplicació web que "
-"us permet realitzar l’avaluació de riscos laborals del vostre centre de "
-"treball o empresa."
+"L’eina interactiva d’avaluació de riscos (OiRA) és una aplicació web que us "
+"permet realitzar l’avaluació de riscos laborals del vostre centre de treball "
+"o empresa."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1859,10 +1859,10 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
-"No obstant això, l’eina ha estat especialment concebuda per ser "
-"utilitzada per petites empreses, com a recolzament en el procés "
-"d’avaluació dels riscos existents en els llocs de treball i per facilitar "
-"la generació de documentació que s’hi relaciona."
+"No obstant això, l’eina ha estat especialment concebuda per ser utilitzada "
+"per petites empreses, com a recolzament en el procés d’avaluació dels riscos "
+"existents en els llocs de treball i per facilitar la generació de "
+"documentació que s’hi relaciona."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
@@ -1878,9 +1878,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} Aquesta etapa us donarà una visió general de l’avaluació "
-"que esteu a punt d’iniciar i us permetrà adaptar-la a les particularitats "
-"de la vostra empresa."
+"${preparation} Aquesta etapa us donarà una visió general de l’avaluació que "
+"esteu a punt d’iniciar i us permetrà adaptar-la a les particularitats de la "
+"vostra empresa."
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1891,12 +1891,11 @@ msgid ""
 "thus put in on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA relaciona una sèrie de riscos o deficiències "
-"relacionats amb la seguretat i salut laboral que hi pot haver en el "
-"vostre centre de treball o empresa. En respondre afirmativament o "
-"negativament a les frases o preguntes proposades, estareu definint si "
-"aquestes deficiències o riscos són presents en el vostre centre de "
-"treball. També podeu deixar alguna pregunta sense contestar i respondre-"
-"la resposta més endavant."
+"relacionats amb la seguretat i salut laboral que hi pot haver en el vostre "
+"centre de treball o empresa. En respondre afirmativament o negativament a "
+"les frases o preguntes proposades, estareu definint si aquestes deficiències "
+"o riscos són presents en el vostre centre de treball. També podeu deixar "
+"alguna pregunta sense contestar i respondre-la resposta més endavant."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1904,9 +1903,9 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} En aquesta etapa hi haurà riscos pels quals caldrà "
-"determinar la seva severitat en relació amb els aspectes identificats en "
-"la fase anterior. "
+"${evaluation} En aquesta etapa hi haurà riscos pels quals caldrà determinar "
+"la seva severitat en relació amb els aspectes identificats en la fase "
+"anterior. "
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1929,8 +1928,8 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"No es pot preveure el temps que necessitareu per fer l’avaluació de "
-"riscos, ja que cada eina varia en funció del sector i del país."
+"No es pot preveure el temps que necessitareu per fer l’avaluació de riscos, "
+"ja que cada eina varia en funció del sector i del país."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1951,8 +1950,7 @@ msgid ""
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 "El primer que haureu de fer per poder accedir a l’eina i realitzar la "
-"primera avaluació de riscos és crear un compte OiRA: un pas senzill i "
-"ràpid"
+"primera avaluació de riscos és crear un compte OiRA: un pas senzill i ràpid"
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
@@ -1967,8 +1965,8 @@ msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
-"Assegureu-vos de disposar en tot moment de la darrera versió de "
-"l’avaluació de riscos actualitzada i impresa."
+"Assegureu-vos de disposar en tot moment de la darrera versió de l’avaluació "
+"de riscos actualitzada i impresa."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
@@ -3573,7 +3571,7 @@ msgstr "Una pàgina amb text"
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr ""
+msgstr "Pregunta de perfil"
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
@@ -4190,10 +4188,25 @@ msgstr "Documents"
 msgid "nav_help"
 msgstr "Ajuda"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Afegir ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Afegir Mòdul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Afegir Submòdul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Afegir Pregunta de perfil"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Afegir Risc"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4310,6 +4323,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Aquesta versió té canvis no publicats actualment. Faci clic a la "
 "icona d'actualització per activar tots els canvis"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Afegir ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

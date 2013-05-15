@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-02-27 16:24+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -1765,8 +1765,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Din registrering är en privat angelägenhet. All din lagrade information "
-"har endast du tillgång till."
+"Din registrering är en privat angelägenhet. All din lagrade information har "
+"endast du tillgång till."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -4216,10 +4216,25 @@ msgstr "Dokument"
 msgid "nav_help"
 msgstr "Hjälp"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Lägg till ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Lägg till Modul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Lägg till Delmodul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Lägg till Profilfråga"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Lägg till Risk"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr "Lägg till Lösning"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4334,6 +4349,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Denna version har förändringar som för närvarande inte är "
 "publicerade. Klicka på ikonen Uppdatera för att aktivera ändringarna"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Lägg till ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

@@ -12,7 +12,7 @@ class AddBarTile(Tile):
         if IModule.providedBy(self.context):
             for (i, action) in enumerate(actions):
                 if action.id == "euphorie.module":
-                    actions[i] = FactoryInfo(action[0],
+                    actions[i] = FactoryInfo("euphorie.submodule",
                             _(u"Submodule"), *action[2:])
                     break
         self.actions = sorted(actions, key=lambda x: x.title)

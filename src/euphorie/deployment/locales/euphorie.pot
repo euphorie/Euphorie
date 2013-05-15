@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 13:04+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3950,9 +3950,24 @@ msgstr ""
 msgid "nav_help"
 msgstr ""
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr ""
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr ""
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr ""
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr ""
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
 msgstr ""
 
 #. Default: Show older versions

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-25 09:07+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -1903,9 +1903,9 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"OiRA (Outil interactif d’évaluation des risques en ligne), est un "
-"logiciel disponible sur le web, vous permettant de réaliser l’évaluation "
-"des risques professionnels de votre entreprise."
+"OiRA (Outil interactif d’évaluation des risques en ligne), est un logiciel "
+"disponible sur le web, vous permettant de réaliser l’évaluation des risques "
+"professionnels de votre entreprise."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1946,10 +1946,9 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
-"Il a été spécialement conçu pour aider ces dernières à évaluer les "
-"risques dans l’environnement professionnel et à établir une évaluation "
-"des risques documentée comprenant un plan d’action adapté aux exigences "
-"de l’entreprise."
+"Il a été spécialement conçu pour aider ces dernières à évaluer les risques "
+"dans l’environnement professionnel et à établir une évaluation des risques "
+"documentée comprenant un plan d’action adapté aux exigences de l’entreprise."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
@@ -1965,10 +1964,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} Cette étape présente une vue d’ensemble de l’évaluation "
-"que vous êtes sur le point d’entamer et vous permet de personnaliser "
-"davantage l’évaluation en fonction des caractéristiques de votre "
-"entreprise. "
+"${preparation} Cette étape présente une vue d’ensemble de l’évaluation que "
+"vous êtes sur le point d’entamer et vous permet de personnaliser davantage "
+"l’évaluation en fonction des caractéristiques de votre entreprise. "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1982,8 +1980,8 @@ msgstr ""
 "potentiels en matière de santé et de sécurité qui pourraient exister dans "
 "votre entreprise. En répondant aux affirmations/questions par oui ou par "
 "non, vous indiquez pour chaque risque ou problème s’il est présent. Vous "
-"pouvez également décider de passer une question et donc choisir d’y "
-"répondre ultérieurement. "
+"pouvez également décider de passer une question et donc choisir d’y répondre "
+"ultérieurement. "
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1991,9 +1989,9 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} Ici, vous pouvez déterminer le niveau de risque "
-"correspondant aux éléments que vous aurez marqués comme «devant être "
-"traités» pendant l’étape d’«identification». "
+"${evaluation} Ici, vous pouvez déterminer le niveau de risque correspondant "
+"aux éléments que vous aurez marqués comme «devant être traités» pendant "
+"l’étape d’«identification». "
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -2004,9 +2002,9 @@ msgid ""
 msgstr ""
 "${action-plan} Lors de cette quatrième étape de l’évaluation, vous pouvez "
 "définir les mesures que vous allez prendre pour prévenir les risques "
-"identifiés précédemment et les ressources que cela pourrait nécessiter. "
-"Sur cette base, un rapport sera élaboré automatiquement au cours de la "
-"prochaine étape."
+"identifiés précédemment et les ressources que cela pourrait nécessiter. Sur "
+"cette base, un rapport sera élaboré automatiquement au cours de la prochaine "
+"étape."
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
@@ -2027,9 +2025,9 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
-"Toutefois, vous pouvez commencer par consacrer à votre évaluation un "
-"temps limité puis y revenir lorsque vous le désirez pour reprendre là où "
-"vous vous étiez arrêté. "
+"Toutefois, vous pouvez commencer par consacrer à votre évaluation un temps "
+"limité puis y revenir lorsque vous le désirez pour reprendre là où vous vous "
+"étiez arrêté. "
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
@@ -2068,10 +2066,10 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Vous n’avez besoin d’aucune préparation spécifique pour commencer à "
-"utiliser l’outil. Toutefois, vous devriez prendre le temps de vous "
-"organiser pour déterminer qui va réaliser l’évaluation du risque, comment "
-"les travailleurs seront associés à la procédure, etc."
+"Vous n’avez besoin d’aucune préparation spécifique pour commencer à utiliser "
+"l’outil. Toutefois, vous devriez prendre le temps de vous organiser pour "
+"déterminer qui va réaliser l’évaluation du risque, comment les travailleurs "
+"seront associés à la procédure, etc."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4480,10 +4478,25 @@ msgstr "Documents"
 msgid "nav_help"
 msgstr "Aide"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Ajouter ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Ajouter Module"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Ajouter Sous-module"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Ajouter Question de profil"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Ajouter Risque"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr "Ajouter Solution"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4603,6 +4616,9 @@ msgstr ""
 "éditées.\n"
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Ajouter ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

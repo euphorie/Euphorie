@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-15 14:13+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1785,10 +1785,10 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"Zkratka OiRA znamená on-line interaktivní vyhodnocení rizik – z "
-"anglického Online interactive Risk Assessment. Jedná se o internetový "
-"nástroj, který vám umožňuje provést vyhodnocení rizik v oblasti "
-"bezpečnosti a ochrany zdraví při práci na vašem pracovišti. "
+"Zkratka OiRA znamená on-line interaktivní vyhodnocení rizik – z anglického "
+"Online interactive Risk Assessment. Jedná se o internetový nástroj, který "
+"vám umožňuje provést vyhodnocení rizik v oblasti bezpečnosti a ochrany "
+"zdraví při práci na vašem pracovišti. "
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1799,9 +1799,9 @@ msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"Nástroj OiRA může využít každý, kdo si přeje vyhodnotit rizika "
-"související s bezpečností a ochranou zdraví, která se mohou vyskytnout na "
-"konkrétním pracovišti."
+"Nástroj OiRA může využít každý, kdo si přeje vyhodnotit rizika související s "
+"bezpečností a ochranou zdraví, která se mohou vyskytnout na konkrétním "
+"pracovišti."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1848,9 +1848,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} V rámci tohoto kroku získáte přehled o konkrétním "
-"hodnocení rizik, ke kterému se chystáte přistoupit, a budete mít možnost "
-"dále přizpůsobit toto hodnocení specifické povaze vašeho podnikání. "
+"${preparation} V rámci tohoto kroku získáte přehled o konkrétním hodnocení "
+"rizik, ke kterému se chystáte přistoupit, a budete mít možnost dále "
+"přizpůsobit toto hodnocení specifické povaze vašeho podnikání. "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1860,12 +1860,12 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put in on hold to be answered at a later stage."
 msgstr ""
-"${identification} Nástroj OiRA uvede řadu potenciálních rizik nebo "
-"problémů v oblasti ochrany zdraví a bezpečnosti, které se mohou na vašem "
-"pracovišti vyskytovat. Uvedením odpovědi „ano“ nebo „ne“ u jednotlivých "
-"vyjádření/otázek potvrdíte, zda se u vás dané riziko nebo problém "
-"vyskytuje. Můžete se rovněž rozhodnout ponechat otázku bez odpovědi, a "
-"odložit tak její zodpovězení na později. "
+"${identification} Nástroj OiRA uvede řadu potenciálních rizik nebo problémů "
+"v oblasti ochrany zdraví a bezpečnosti, které se mohou na vašem pracovišti "
+"vyskytovat. Uvedením odpovědi „ano“ nebo „ne“ u jednotlivých vyjádření/"
+"otázek potvrdíte, zda se u vás dané riziko nebo problém vyskytuje. Můžete se "
+"rovněž rozhodnout ponechat otázku bez odpovědi, a odložit tak její "
+"zodpovězení na později. "
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1884,10 +1884,10 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} Ve čtvrté etapě hodnocení se můžete rozhodnout, jaké kroky "
-"k vyřešení dříve identifikovaných rizik podniknete a jaké zdroje budou "
-"zapotřebí. Na základě tohoto postupu bude v následujícím kroku "
-"automaticky vytvořena hodnotící zpráva včetně plánu opatření."
+"${action-plan} Ve čtvrté etapě hodnocení se můžete rozhodnout, jaké kroky k "
+"vyřešení dříve identifikovaných rizik podniknete a jaké zdroje budou "
+"zapotřebí. Na základě tohoto postupu bude v následujícím kroku automaticky "
+"vytvořena hodnotící zpráva včetně plánu opatření."
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
@@ -1898,8 +1898,8 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"Vzhledem k tomu, že se jednotlivé nástroje liší podle odvětví a zemí, "
-"není možné obecně stanovit, jak dlouho bude hodnocení trvat."
+"Vzhledem k tomu, že se jednotlivé nástroje liší podle odvětví a zemí, není "
+"možné obecně stanovit, jak dlouho bude hodnocení trvat."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1907,9 +1907,9 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
-"Můžete však hodnocením strávit libovolně dlouho dobu, podle toho, kolik "
-"času máte k dispozici, a poté se k němu v příhodnou chvíli vrátit a začít "
-"tam, kde jste minule skončili."
+"Můžete však hodnocením strávit libovolně dlouho dobu, podle toho, kolik času "
+"máte k dispozici, a poté se k němu v příhodnou chvíli vrátit a začít tam, "
+"kde jste minule skončili."
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
@@ -1950,9 +1950,9 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Před zahájením práce s tímto nástrojem není nutná žádná konkrétní "
-"příprava, avšak měli byste věnovat určitý čas promyšlení toho, kdo bude "
-"hodnocení rizik provádět, jak se na něm budou podílet pracovníci atd."
+"Před zahájením práce s tímto nástrojem není nutná žádná konkrétní příprava, "
+"avšak měli byste věnovat určitý čas promyšlení toho, kdo bude hodnocení "
+"rizik provádět, jak se na něm budou podílet pracovníci atd."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4123,7 +4123,7 @@ msgstr "Relevantnost: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:16
 msgid "Submodule"
-msgstr ""
+msgstr "Dílčí modul"
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:43
@@ -4146,10 +4146,25 @@ msgstr "Dokumenty"
 msgid "nav_help"
 msgstr "Nápověda"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Přidat ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Přidat Modul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Přidat Dílčí modul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Přidat Profilová otázka"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Přidat Riziko"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4266,6 +4281,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Tato verze obsahuje změny, které nejsou v současné době "
 "publikované. Pro aktivaci všech změn klikněte na ikonu aktualizace"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Přidat ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

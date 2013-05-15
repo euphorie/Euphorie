@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-04-08 08:29+0100\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3537,7 +3537,7 @@ msgstr "Oldal szöveggel"
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr ""
+msgstr "Profilkérdés"
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
@@ -4127,7 +4127,7 @@ msgstr "Relevancia: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:16
 msgid "Submodule"
-msgstr ""
+msgstr "Részmodul"
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:43
@@ -4150,10 +4150,25 @@ msgstr "Dokumentumok"
 msgid "nav_help"
 msgstr "Súgó"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "${typename} hozzáadása"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Modul hozzáadása"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Részmodul hozzáadása"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Profilkérdés hozzáadása"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Kockázat hozzáadása"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4267,6 +4282,9 @@ msgstr ""
 "${label} = Ez a verzió olyan módosításokkal rendelkezik, amelyek még "
 "nincsenek közzétéve. A frissítés ikonra kattintva az összes változtatást "
 "élesítheti"
+
+#~ msgid "button_add_factory"
+#~ msgstr "${typename} hozzáadása"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

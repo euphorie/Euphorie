@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1773,8 +1773,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Vaša registracija je zasebna zadeva. Vsi vaši podatki se shranijo, dostop "
-"do njih pa imate samo vi."
+"Vaša registracija je zasebna zadeva. Vsi vaši podatki se shranijo, dostop do "
+"njih pa imate samo vi."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -4078,7 +4078,7 @@ msgstr "Pomembnost: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:16
 msgid "Submodule"
-msgstr ""
+msgstr "Podmodul"
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:43
@@ -4101,10 +4101,25 @@ msgstr "Dokumenti"
 msgid "nav_help"
 msgstr "Pomoč"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Dodaj ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Dodaj Modul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Dodaj Podmodul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Dodaj Profilno vprašanje"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Dodaj Tveganje"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4221,6 +4236,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Ta različlica ima spremembe, ki trenutno niso objavljene. "
 "Kliknite ikono za posodobitev, da posodobite vse spremembe"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Dodaj ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-15 15:13+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1840,8 +1840,8 @@ msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides "
-"riska faktorus savā uzņēmumā."
+"OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska "
+"faktorus savā uzņēmumā."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1885,9 +1885,8 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} Tā sniedz Jums informāciju par novērtējumu, ko "
-"gatavojaties uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem "
-"darba apstākļiem."
+"${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties "
+"uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1897,11 +1896,11 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put in on hold to be answered at a later stage."
 msgstr ""
-"${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem "
-"un iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
+"${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un "
+"iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
 "apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas "
-"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu "
-"uzreiz, bet atbildēt uz to vēlākā posmā."
+"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz, "
+"bet atbildēt uz to vēlākā posmā."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1909,8 +1908,8 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem "
-"jautājumiem, kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
+"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem, "
+"kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1920,9 +1919,9 @@ msgid ""
 "automatically produced in the next step."
 msgstr ""
 "${action-plan} Ceturtajā novērtēšanas posmā Jūs varat izlemt, kādus "
-"pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un "
-"kādi resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā "
-"tiks automātiski sagatavots ziņojums."
+"pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un kādi "
+"resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā tiks "
+"automātiski sagatavots ziņojums."
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
@@ -1933,8 +1932,8 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams "
-"atbildēt uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
+"Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams atbildēt "
+"uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1942,9 +1941,9 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
-"Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā "
-"dotajā brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no "
-"vietas, kurā apstājāties iepriekšējā reizē."
+"Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā "
+"brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
+"apstājāties iepriekšējā reizē."
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
@@ -1955,16 +1954,16 @@ msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA "
-"kontu – tas ir vienkāršs un ātrs process."
+"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu "
+"– tas ir vienkāršs un ātrs process."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu "
-"iepriekš uzsāktos novērtējumus vai veiktu jaunus."
+"Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš "
+"uzsāktos novērtējumus vai veiktu jaunus."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
@@ -4305,10 +4304,25 @@ msgstr "Dokumenti"
 msgid "nav_help"
 msgstr "Palīdzība"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Pievienot: ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Pievienot: Modulis"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Pievienot: Apakšmodulis"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Pievienot: Profila jautājums"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Pievienot: Risks"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr "Pievienot: Risinājums"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4426,6 +4440,9 @@ msgstr ""
 "${label} = šajā versijā ir izmaiņas, kas pašlaik nav publicētas. "
 "Noklikšķiniet uz atjaunināšanas ikonas, lai visas izmaiņas publicētu "
 "tiešsaistē."
+
+#~ msgid "button_add_factory"
+#~ msgstr "Pievienot: ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

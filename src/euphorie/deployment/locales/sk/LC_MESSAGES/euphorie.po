@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1728,8 +1728,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Vaša registrácia je súkromná záležitosť. Ku všetkým vašim uchovávaným "
-"dátam máte prístup iba vy."
+"Vaša registrácia je súkromná záležitosť. Ku všetkým vašim uchovávaným dátam "
+"máte prístup iba vy."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -4055,10 +4055,25 @@ msgstr "Dokumenty"
 msgid "nav_help"
 msgstr "Pomocník"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Pridať ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Pridať Modul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Pridať Submodul"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Pridať Profilová otázka"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Pridať Riziko"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4175,6 +4190,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Táto verzia má zmeny, ktoré momentálne nie sú zverejnené. "
 "Kliknutím na ikonu aktualizácie vyvolajte všetky aktívne zmeny"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Pridať ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

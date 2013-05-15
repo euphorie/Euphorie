@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2012-11-09 05:20-0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1846,8 +1846,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"O seu registo é um assunto privado. Todos os dados são guardados para "
-"serem acedidos apenas por si."
+"O seu registo é um assunto privado. Todos os dados são guardados para serem "
+"acedidos apenas por si."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -4332,10 +4332,25 @@ msgstr "Documentos"
 msgid "nav_help"
 msgstr "Ajuda"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Adicionar ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Adicionar Módulo"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Adicionar Submódulo"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Adicionar Perguntas do perfil"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Adicionar Risco"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr "Adicionar Solução padrão"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4453,6 +4468,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Esta versão contém alterações que não estão publicadas "
 "atualmente. Clique no ícone de atualização para ativar todas as alterações"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Adicionar ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

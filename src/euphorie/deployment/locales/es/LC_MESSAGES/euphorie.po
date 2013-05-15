@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-01 12:19+0200\n"
+"POT-Creation-Date: 2013-05-15 13:50+0200\n"
 "PO-Revision-Date: 2013-03-15 15:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -1799,8 +1799,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Su registro es privado. Todos sus datos se almacenarán para que sólo "
-"usted pueda acceder a ellos."
+"Su registro es privado. Todos sus datos se almacenarán para que sólo usted "
+"pueda acceder a ellos."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -1812,9 +1812,9 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"La herramienta interactiva de evaluación de riesgos (OiRA) es una "
-"aplicación web que le permite realizar una evaluación de riesgos "
-"laborales en su lugar de trabajo."
+"La herramienta interactiva de evaluación de riesgos (OiRA) es una aplicación "
+"web que le permite realizar una evaluación de riesgos laborales en su lugar "
+"de trabajo."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1826,8 +1826,8 @@ msgid ""
 "that might exist in their workplace."
 msgstr ""
 "OiRA puede ser utilizada por todo aquel que quiera evaluar los riesgos "
-"relacionados con la seguridad y la salud que puedan existir en su lugar "
-"de trabajo."
+"relacionados con la seguridad y la salud que puedan existir en su lugar de "
+"trabajo."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1856,9 +1856,9 @@ msgid ""
 "plan tailored to the business's requirements."
 msgstr ""
 "No obstante, la herramienta ha sido especialmente concebida para ser "
-"utilizada por las empresas pequeñas: para apoyarlas en el proceso de "
-"evaluar los riesgos en sus lugares de trabajo y de documentar los "
-"resultados de la evaluación."
+"utilizada por las empresas pequeñas: para apoyarlas en el proceso de evaluar "
+"los riesgos en sus lugares de trabajo y de documentar los resultados de la "
+"evaluación."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
@@ -1875,8 +1875,7 @@ msgid ""
 "the specific nature of your business."
 msgstr ""
 "${preparation} Esta etapa da una visión general de la evaluación que va a "
-"realizar y le permite adaptarla  a la naturaleza específica de su "
-"empresa.  "
+"realizar y le permite adaptarla  a la naturaleza específica de su empresa.  "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1887,11 +1886,11 @@ msgid ""
 "thus put in on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA le mostrará una serie de peligros potenciales o "
-"problemas relacionados con la seguridad y la salud en su lugar de "
-"trabajo.  Al responder afirmativamente o negativamente a las "
-"proposiciones o preguntas propuestas,  estará seleccionando o excluyendo "
-"esos peligros o problemas.  También puede dejar alguna pregunta en "
-"suspenso (sin contestar) y darle respuesta más adelante."
+"problemas relacionados con la seguridad y la salud en su lugar de trabajo.  "
+"Al responder afirmativamente o negativamente a las proposiciones o preguntas "
+"propuestas,  estará seleccionando o excluyendo esos peligros o problemas.  "
+"También puede dejar alguna pregunta en suspenso (sin contestar) y darle "
+"respuesta más adelante."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1899,8 +1898,8 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} En esta etapa deberá determinar el nivel de riesgo asociado "
-"a cada uno de los puntos que identificó como «a tratar» en la etapa de "
+"${evaluation} En esta etapa deberá determinar el nivel de riesgo asociado a "
+"cada uno de los puntos que identificó como «a tratar» en la etapa de "
 "«identificación»."
 
 #: src/euphorie/client/templates/login.pt:72
@@ -1925,9 +1924,9 @@ msgid ""
 "tools differ according to sectors and countries."
 msgstr ""
 "No se puede calcular cuánto tiempo dura en general el proceso porque las "
-"herramientas varían en función de los sectores y de los países,  pero "
-"puede utilizar el tiempo del que disponga ahora y retomar la evaluación "
-"en otro momento en el punto en el que la interrumpió."
+"herramientas varían en función de los sectores y de los países,  pero puede "
+"utilizar el tiempo del que disponga ahora y retomar la evaluación en otro "
+"momento en el punto en el que la interrumpió."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1961,8 +1960,8 @@ msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
-"Asegúrese de que dispone en todo momento de una evaluación impresa, "
-"precisa y actualizada."
+"Asegúrese de que dispone en todo momento de una evaluación impresa, precisa "
+"y actualizada."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
@@ -1976,9 +1975,9 @@ msgid ""
 "etc."
 msgstr ""
 "Para comenzar a utilizar la herramienta, no necesita ningún tipo de "
-"preparación específica pero tómese su tiempo para pensar quién va a "
-"realizar la evaluación de riesgos, de qué manera van a estar implicados "
-"sus trabajadores en el proceso, etc."
+"preparación específica pero tómese su tiempo para pensar quién va a realizar "
+"la evaluación de riesgos, de qué manera van a estar implicados sus "
+"trabajadores en el proceso, etc."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -4181,10 +4180,25 @@ msgstr "Documentos"
 msgid "nav_help"
 msgstr "Ayuda"
 
-#. Default: Add ${typename}
-#: src/euphorie/deployment/tiles/templates/addbar.pt:10
-msgid "button_add_factory"
-msgstr "Agregar ${typename}"
+#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+msgid "Add Module"
+msgstr "Agregar Módulo"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+msgid "Add Submodule"
+msgstr "Agregar Submódulo"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+msgid "Add Profile question"
+msgstr "Agregar Pregunta de perfil"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+msgid "Add Risk"
+msgstr "Agregar Riesgo"
+
+#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+msgid "Add Solution"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4301,6 +4315,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Esta versión tiene cambios sin publicar. Haga clic en el icono de "
 "actualizar para publicar todos los cambios"
+
+#~ msgid "button_add_factory"
+#~ msgstr "Agregar ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""
