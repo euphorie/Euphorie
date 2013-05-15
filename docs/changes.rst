@@ -4,8 +4,9 @@ Changelog
 6.0.1 - Unreleased
 ------------------
 
-- ...
-
+- Changed tiles/AddBar to explicitly list every "Add" button with full label.
+  Needed for languages where the object of "add" needs a different word form
+  than the nominative case, such as Lithuanian [thomas]
 
 6.0 - May 1, 2013
 -----------------
