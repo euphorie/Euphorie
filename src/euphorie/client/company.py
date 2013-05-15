@@ -115,8 +115,8 @@ class Company(form.SchemaForm):
 
     def countries(self):
         names = [{'id': key.lower(), 'title': value}
-                  for (key, value) in
-                      self.request.locale.displayNames.territories.items()]
+                 for (key, value) in
+                 self.request.locale.displayNames.territories.items()]
         names.sort(key=lambda c: c["title"])
         return names
 
