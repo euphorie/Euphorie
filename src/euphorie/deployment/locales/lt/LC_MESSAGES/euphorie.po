@@ -3683,12 +3683,12 @@ msgstr ""
 #. Default: not applicable
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na_na"
-msgstr "netaikoma"
+msgstr "neaktualu"
 
 #. Default: Show '${na}'
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na"
-msgstr "Rodyti '${na}"
+msgstr "Rodyti ‚${na}‘"
 
 #. Default: Yes
 #: src/euphorie/content/templates/risk_view.pt:40
