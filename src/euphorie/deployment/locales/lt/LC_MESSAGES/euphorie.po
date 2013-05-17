@@ -2993,7 +2993,7 @@ msgstr "Nustatymas"
 #. Default: Show `not applicable' option
 #: src/euphorie/content/risk.py:88
 msgid "label_show_notapplicable"
-msgstr "Rodyti parinktį „netaikoma“"
+msgstr "Rodyti parinktį „neaktualu“"
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
