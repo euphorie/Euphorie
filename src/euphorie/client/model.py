@@ -105,8 +105,8 @@ class SurveyTreeItem(BaseObject):
 
     def children(self, filter=None):
         query = Session.query(SurveyTreeItem)\
-               .filter(SurveyTreeItem.session_id == self.session_id)\
-               .filter(SurveyTreeItem.depth == self.depth + 1)
+            .filter(SurveyTreeItem.session_id == self.session_id)\
+            .filter(SurveyTreeItem.depth == self.depth + 1)
         if self.path:
             query = query.filter(SurveyTreeItem.path.like(self.path + "%"))
         if filter is not None:
@@ -119,8 +119,8 @@ class SurveyTreeItem(BaseObject):
         if klass is None:
             klass = SurveyTreeItem
         query = Session.query(klass)\
-                .filter(klass.session_id == self.session_id)\
-                .filter(klass.parent_id == self.parent_id)
+            .filter(klass.session_id == self.session_id)\
+            .filter(klass.parent_id == self.parent_id)
         if filter is not None:
             query = query.filter(sql.or_(klass.id == self.id, filter))
         return query.order_by(klass.path)
@@ -128,8 +128,8 @@ class SurveyTreeItem(BaseObject):
     def addChild(self, item):
         sqlsession = Session()
         query = sqlsession.query(SurveyTreeItem.path)\
-                .filter(SurveyTreeItem.session_id == self.session_id)\
-                .filter(SurveyTreeItem.depth == self.depth + 1)
+            .filter(SurveyTreeItem.session_id == self.session_id)\
+            .filter(SurveyTreeItem.depth == self.depth + 1)
         if self.path:
             query = query.filter(SurveyTreeItem.path.like(self.path + "%"))
 
@@ -151,11 +151,11 @@ class SurveyTreeItem(BaseObject):
         session = Session()
         if self.path:
             filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
-                            SurveyTreeItem.path.like(self.path + "%"),
-                            SurveyTreeItem.id != self.id)
+                              SurveyTreeItem.path.like(self.path + "%"),
+                              SurveyTreeItem.id != self.id)
         else:
             filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
-                            SurveyTreeItem.id != self.id)
+                              SurveyTreeItem.id != self.id)
         session.execute(SurveyTreeItem.__table__.delete().where(filter))
         self.session.touch()
         datamanager.mark_changed(session)
