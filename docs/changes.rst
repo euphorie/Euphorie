@@ -7,6 +7,8 @@ Changelog
 - Changed tiles/AddBar to explicitly list every "Add" button with full label.
   Needed for languages where the object of "add" needs a different word form
   than the nominative case, such as Lithuanian [thomas]
+- Include the top-level module in the downloadble action plan spreadsheet.
+
 
 6.0 - May 1, 2013
 -----------------

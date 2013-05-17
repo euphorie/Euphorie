@@ -865,18 +865,23 @@ class ActionPlanTimeline(grok.View):
         """Find all data that should be included in the report.
 
         The data is returned as a list of tuples containing a
+        :py:class:`Module <euphorie.client.model.Module>`,
         :py:class:`Risk <euphorie.client.model.Risk>` and
         :py:class:`ActionPlan <euphorie.client.model.ActionPlan>`. Each
         entry in the list will correspond to a row in the generated Excel
         file.
         """
-        query = Session.query(model.SurveyTreeItem, model.ActionPlan)\
-            .outerjoin(model.ActionPlan)\
-            .filter(model.SurveyTreeItem.type == 'risk')\
-            .filter(model.SurveyTreeItem.session == self.session)\
+        query = Session.query(model.Module, model.Risk, model.ActionPlan)\
+            .filter(sql.and_(model.Module.depth == 1,
+                             model.Module.session == self.session))\
             .filter(sql.not_(model.SKIPPED_PARENTS))\
             .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
                             model.RISK_PRESENT_OR_TOP5_FILTER))\
+            .join((model.Risk,
+                   sql.and_(model.Risk.path.startswith(model.Module.path),
+                            model.Risk.session == self.session)))\
+            .join((model.ActionPlan,
+                   model.ActionPlan.risk_id == model.Risk.id))\
             .order_by(model.ActionPlan.planning_start,
                       model.SurveyTreeItem.path)
         return query.all()
@@ -909,6 +914,8 @@ class ActionPlanTimeline(grok.View):
             _('label_action_plan_budget', default=u'Budget (in Euro)')),
         ('risk', 'number',
             _('label_risk_number', default=u'Risk number')),
+        ('module', 'title',
+            _('label_toplevel_module', default=u'Top-level Module')),
         ('risk', 'title',
             _('report_timeline_risk_title', default=u'Risk')),
         ('risk', 'priority',
@@ -935,7 +942,9 @@ class ActionPlanTimeline(grok.View):
         for (column, (type, key, title)) in enumerate(self.columns):
             sheet.cell(row=0, column=column).value = t(title)
 
-        for (row, (risk, measure)) in enumerate(self.get_measures(), 1):
+        for (row, (module, risk, measure)) in \
+                enumerate(self.get_measures(), 1):
+
             column = 0
             zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
             for (type, key, title) in self.columns:
@@ -950,6 +959,9 @@ class ActionPlanTimeline(grok.View):
                         if zodb_node.problem_description and \
                                 zodb_node.problem_description.strip():
                             value = zodb_node.problem_description
+                elif type == 'module':
+                    value = getattr(module, key, None)
+
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1
