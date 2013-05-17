@@ -880,7 +880,7 @@ class ActionPlanTimeline(grok.View):
             .join((model.Risk,
                    sql.and_(model.Risk.path.startswith(model.Module.path),
                             model.Risk.session == self.session)))\
-            .join((model.ActionPlan,
+            .outerjoin((model.ActionPlan,
                    model.ActionPlan.risk_id == model.Risk.id))\
             .order_by(model.ActionPlan.planning_start,
                       model.SurveyTreeItem.path)
@@ -912,10 +912,10 @@ class ActionPlanTimeline(grok.View):
                 default=u'Who is responsible?')),
         ('measure', 'budget',
             _('label_action_plan_budget', default=u'Budget (in Euro)')),
-        ('risk', 'number',
-            _('label_risk_number', default=u'Risk number')),
         ('module', 'title',
             _('label_toplevel_module', default=u'Top-level Module')),
+        ('risk', 'number',
+            _('label_risk_number', default=u'Risk number')),
         ('risk', 'title',
             _('report_timeline_risk_title', default=u'Risk')),
         ('risk', 'priority',

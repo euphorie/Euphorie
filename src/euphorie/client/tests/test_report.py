@@ -121,46 +121,46 @@ class HtmlToRtfTests(unittest.TestCase):
 
     def testInvalidHtmlFallback(self):
         self.assertTrue(
-                "text\\par" in
-                self.render(self.HtmlToRtf(u"<p>text</p>", u"<stylesheet>")))
+            "text\\par" in
+            self.render(self.HtmlToRtf(u"<p>text</p>", u"<stylesheet>")))
 
     def testBasicParagraph(self):
         self.assertTrue(
-                "Simple text\\par" in
-                self.render(self.HtmlToRtf(u"<p>Simple text</p>",
-                                           u"<stylesheet>")), [])
+            "Simple text\\par" in
+            self.render(self.HtmlToRtf(u"<p>Simple text</p>",
+                                       u"<stylesheet>")), [])
 
     def testItalicInText(self):
         self.assertTrue(
-                "Simple {\\i text}\\par" in
-                self.render(self.HtmlToRtf(u"<p>Simple <em>text</em></p>",
-                                           u"<stylesheet>")))
+            "Simple {\\i text}\\par" in
+            self.render(self.HtmlToRtf(u"<p>Simple <em>text</em></p>",
+                                       u"<stylesheet>")))
 
     def testBoldAndItalicText(self):
         self.assertTrue(
-                "Very {\\i very }{\\b\\i bold}\\par" in
-                self.render(self.HtmlToRtf(
-                    u"<p>Very <em>very <strong>bold</strong></em></p>",
-                    u"<stylesheet>")))
+            "Very {\\i very }{\\b\\i bold}\\par" in
+            self.render(self.HtmlToRtf(
+                u"<p>Very <em>very <strong>bold</strong></em></p>",
+                u"<stylesheet>")))
 
     def testEmphasisInText(self):
         self.assertTrue(
-                "{\\i text}" in
-                self.render(self.HtmlToRtf(u"<em>text</em>",
-                                           u"<stylesheet>")))
+            "{\\i text}" in
+            self.render(self.HtmlToRtf(u"<em>text</em>",
+                                       u"<stylesheet>")))
 
     def testInlineEntity(self):
         self.assertTrue(
-                "Simple & clean\\par" in
-                self.render(self.HtmlToRtf(
-                    u"<p>Simple &amp; clean</p>",
-                    u"<stylesheet>")))
+            "Simple & clean\\par" in
+            self.render(self.HtmlToRtf(
+                u"<p>Simple &amp; clean</p>",
+                u"<stylesheet>")))
 
     def testInlineEntityDigit(self):
         self.assertTrue(
-                "Simple \r clean\\par" in
-                self.render(self.HtmlToRtf(u"<p>Simple &#13; clean</p>",
-                                           u"<stylesheet>")))
+            "Simple \r clean\\par" in
+            self.render(self.HtmlToRtf(u"<p>Simple &#13; clean</p>",
+                                       u"<stylesheet>")))
 
     def test_link_in_text(self):
         # This demonstrates TNO Euphorie ticket 186
@@ -179,41 +179,55 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         from euphorie.client.model import Account
         from euphorie.client.model import SurveySession
         session = SurveySession(
-                account=Account(loginname=loginname, password=u'john'),
-                zodb_path='survey')
+            account=Account(loginname=loginname, password=u'john'),
+            zodb_path='survey')
         dbsession.add(session)
         return session
 
     def test_get_measures_return_risks_without_measures(self):
         from z3c.saconfig import Session
-        from euphorie.client.model import Risk
         dbsession = Session()
         session = self._create_session(dbsession)
-        session.addChild(Risk(session=session,
-                              zodb_path='1',
-                              risk_id='1',
-                              identification='no'))
+        module = session.addChild(model.Module(
+            session=session,
+            zodb_path='1',
+            module_id='1',
+        ))
+        module.addChild(model.Risk(
+            session=session,
+            zodb_path='1/2',
+            risk_id='1',
+            identification='no'
+        ))
         view = self.ActionPlanTimeline(None, None)
         view.session = session
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
-        self.assertEqual(measures[0][1], None)
+        self.assertEqual(measures[0][2], None)
 
     def test_get_measures_filter_on_session(self):
         from z3c.saconfig import Session
-        from euphorie.client.model import Risk
-        from euphorie.client.model import ActionPlan
         dbsession = Session()
         sessions = []
         for login in ['jane', 'john']:
             session = self._create_session(dbsession, loginname=login)
-            session.addChild(Risk(session=session,
-                                  zodb_path='1',
-                                  risk_id='1',
-                                  identification='no',
-                                  action_plans=[
-                                      ActionPlan(action_plan=u'Measure 1')]))
+            module = session.addChild(model.Module(
+                session=session,
+                zodb_path='1',
+                module_id='1',
+            ))
+            module.addChild(
+                model.Risk(
+                    session=session,
+                    zodb_path='1/2',
+                    risk_id='1',
+                    identification='no',
+                    action_plans=[
+                        model.ActionPlan(
+                            action_plan=u'Measure 1')
+                    ]))
             sessions.append(session)
+
         view = self.ActionPlanTimeline(None, None)
         view.session = sessions[0]
         measures = view.get_measures()
@@ -222,27 +236,30 @@ class ActionPlanTimelineTests(EuphorieTestCase):
     def test_get_measures_order_by_start_date(self):
         import datetime
         from z3c.saconfig import Session
-        from euphorie.client.model import Risk
-        from euphorie.client.model import ActionPlan
         dbsession = Session()
         session = self._create_session(dbsession)
-        session.addChild(Risk(
+        module = session.addChild(model.Module(
             session=session,
             zodb_path='1',
+            module_id='1',
+        ))
+        module.addChild(model.Risk(
+            session=session,
+            zodb_path='1/2',
             risk_id='1',
             identification='no',
             action_plans=[
-                ActionPlan(action_plan=u'Plan 2',
+                model.ActionPlan(action_plan=u'Plan 2',
                            planning_start=datetime.date(2011, 12, 15)),
-                ActionPlan(action_plan=u'Plan 1',
+                model.ActionPlan(action_plan=u'Plan 1',
                            planning_start=datetime.date(2011, 11, 15))]))
         view = self.ActionPlanTimeline(None, None)
         view.session = session
         measures = view.get_measures()
         self.assertEqual(len(measures), 2)
         self.assertEqual(
-                [row[1].action_plan for row in measures],
-                [u'Plan 1', u'Plan 2'])
+            [row[2].action_plan for row in measures],
+            [u'Plan 1', u'Plan 2'])
 
     def test_priority_name_known_priority(self):
         view = self.ActionPlanTimeline(None, None)
@@ -268,29 +285,34 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         import datetime
         import mock
         from euphorie.client.tests.utils import testRequest
-        from euphorie.client.model import Risk
-        from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1/2/3', risk_id='1',
-                title=u'Risk title',
-                priority='high',
-                identification='no',
-                path='001002003',
-                comment=u'Risk comment')
-        plan = ActionPlan(action_plan=u'Plan 2',
-                           planning_start=datetime.date(2011, 12, 15),
-                           budget=500)
+        from euphorie.client import model
+        module = model.Module(
+            zodb_path='1',
+            title=u'Top-level Module title',
+        )
+        risk = model.Risk(
+            zodb_path='1/2/3', risk_id='1',
+            title=u'Risk title',
+            priority='high',
+            identification='no',
+            path='001002003',
+            comment=u'Risk comment')
+        plan = model.ActionPlan(
+            action_plan=u'Plan 2',
+            planning_start=datetime.date(2011, 12, 15),
+            budget=500)
         request = testRequest()
         request.survey = mock.Mock()
         zodb_node = mock.Mock()
         zodb_node.problem_description = u'This is wrong.'
         request.survey.restrictedTraverse.return_value = zodb_node
         view = self.ActionPlanTimeline(None, request)
-        view.get_measures = lambda: [(risk, plan)]
+        view.get_measures = lambda: [(module, risk, plan)]
         sheet = view.create_workbook().worksheets[0]
         # planning start
         self.assertEqual(
-                sheet.cell('A2').value.date(),
-                datetime.date(2011, 12, 15))
+            sheet.cell('A2').value.date(),
+            datetime.date(2011, 12, 15))
         # planning end
         self.assertEqual(sheet.cell('B2').value, None)
         # action plan
@@ -303,30 +325,37 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         self.assertEqual(sheet.cell('F2').value, None)
         # budget
         self.assertEqual(sheet.cell('G2').value, 500)
+        # module title
+        self.assertEqual(sheet.cell('H2').value, u'Top-level Module title')
         # risk number
-        self.assertEqual(sheet.cell('H2').value, u'1.2.3')
+        self.assertEqual(sheet.cell('I2').value, u'1.2.3')
         # risk title
-        self.assertEqual(sheet.cell('I2').value, u'This is wrong.')
+        self.assertEqual(sheet.cell('J2').value, u'This is wrong.')
         # risk priority
-        self.assertEqual(sheet.cell('J2').value, u'High')
+        self.assertEqual(sheet.cell('K2').value, u'High')
         # risk comment
-        self.assertEqual(sheet.cell('K2').value, u'Risk comment')
+        self.assertEqual(sheet.cell('L2').value, u'Risk comment')
 
     def test_create_workbook_no_problem_description(self):
         import datetime
         import mock
         from euphorie.client.tests.utils import testRequest
-        from euphorie.client.model import Risk
-        from euphorie.client.model import ActionPlan
-        risk = Risk(zodb_path='1/2/3', risk_id='1',
-                title=u'Risk title',
-                priority='high',
-                identification='no',
-                path='001002003',
-                comment=u'Risk comment')
-        plan = ActionPlan(action_plan=u'Plan 2',
-                           planning_start=datetime.date(2011, 12, 15),
-                           budget=500)
+        from euphorie.client import model
+        module = model.Module(
+            zodb_path='1',
+            title=u'Top-level Module title',
+        )
+        risk = model.Risk(
+            zodb_path='1/2/3', risk_id='1',
+            title=u'Risk title',
+            priority='high',
+            identification='no',
+            path='001002003',
+            comment=u'Risk comment')
+        plan = model.ActionPlan(
+            action_plan=u'Plan 2',
+            planning_start=datetime.date(2011, 12, 15),
+            budget=500)
         request = testRequest()
         request.survey = mock.Mock()
         zodb_node = mock.Mock()
@@ -334,9 +363,9 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         zodb_node.problem_description = u'  '
         request.survey.restrictedTraverse.return_value = zodb_node
         view = self.ActionPlanTimeline(None, request)
-        view.get_measures = lambda: [(risk, plan)]
+        view.get_measures = lambda: [(module, risk, plan)]
         sheet = view.create_workbook().worksheets[0]
-        self.assertEqual(sheet.cell('I2').value, u'Risk title')
+        self.assertEqual(sheet.cell('J2').value, u'Risk title')
 
     def test_render_value(self):
         from euphorie.client.tests.utils import testRequest
@@ -349,9 +378,9 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         view.render()
         response = request.response
         self.assertEqual(
-                response.headers['content-type'],
-                'application/vnd.openxmlformats-'
-                                    'officedocument.spreadsheetml.sheet')
+            response.headers['content-type'],
+            'application/vnd.openxmlformats-'
+            'officedocument.spreadsheetml.sheet')
         self.assertEqual(
-                response.headers['content-disposition'],
-                'attachment; filename="Timeline for Acme.xlsx"')
+            response.headers['content-disposition'],
+            'attachment; filename="Timeline for Acme.xlsx"')
