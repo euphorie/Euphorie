@@ -184,6 +184,40 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         dbsession.add(session)
         return session
 
+    def test_get_measures_with_correct_module(self):
+        from z3c.saconfig import Session
+        dbsession = Session()
+        session = self._create_session(dbsession)
+        # This first module should be ignored, it doesn't contain any risks
+        session.addChild(model.Module(
+            session=session,
+            zodb_path='1',
+            module_id='1',
+        ))
+        # Between the next two modules, the first one (root-level) must be
+        # returned.
+        module = session.addChild(model.Module(
+            session=session,
+            zodb_path='1',
+            module_id='2',
+        ))
+        module = module.addChild(model.Module(
+            session=session,
+            zodb_path='1/2',
+            module_id='3',
+        ))
+        module.addChild(model.Risk(
+            session=session,
+            zodb_path='1/2/3',
+            risk_id='1',
+            identification='no'
+        ))
+        view = self.ActionPlanTimeline(None, None)
+        view.session = session
+        measures = view.get_measures()
+        self.assertEqual(len(measures), 1)
+        self.assertEqual(measures[0][0].module_id, u'2')
+
     def test_get_measures_return_risks_without_measures(self):
         from z3c.saconfig import Session
         dbsession = Session()
