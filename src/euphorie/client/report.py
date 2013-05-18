@@ -913,7 +913,7 @@ class ActionPlanTimeline(grok.View):
         ('measure', 'budget',
             _('label_action_plan_budget', default=u'Budget (in Euro)')),
         ('module', 'title',
-            _('label_toplevel_module', default=u'Top-level Module')),
+            _('label_section', default=u'Section')),
         ('risk', 'number',
             _('label_risk_number', default=u'Risk number')),
         ('risk', 'title',
