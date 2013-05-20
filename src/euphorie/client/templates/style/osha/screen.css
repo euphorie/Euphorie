@@ -99,3 +99,13 @@ h4.oira_legal_header {
 .report .creative_commons_logo {
     cursor: pointer;
 }
+
+/* @group Old IE warning */
+.ie4 body, .ie5 body, .ie6 body, .ie7 body, .ie8 body {
+    background: #404449 url(Browser-warning.png) no-repeat fixed center center !important;
+}
+.ie4 body *, .ie5 body *, .ie6 body *, .ie7 body *, .ie8 body * {
+    display: none;
+}
+/* @end */
+
