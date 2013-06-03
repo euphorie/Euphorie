@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.0.1 - Unreleased
+6.0.1 (2013-06-03)
 ------------------
 
 - Changed tiles/AddBar to explicitly list every "Add" button with full label.
