@@ -86,10 +86,12 @@
                   <em class="message error" tal:condition="exists:errors/budget" i18n:translate="error_invalid_budget">Please enter the budget in whole Euros.</em>
                 </label>
 
-                <fieldset tal:define="day_error exists:errors/planning_start_day;
+                <fieldset tal:define="date_error exists:errors/planning_start_date;
+                                      day_error exists:errors/planning_start_day;
                                       year_error exists:errors/planning_start_year;
                                       error python:day_error or year_error"
                   class="condensed${python:' error' if error else ''}">
+                  <em class="message error" tal:condition="date_error" i18n:translate="error_start_not_before_end">Start date is not before end date</em>
                   <legend i18n:translate="label_action_plan_start">Planning start</legend>
 
                   <fieldset class="date-eu">
