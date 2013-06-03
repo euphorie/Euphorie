@@ -106,7 +106,7 @@
                     </select>
 
                     <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" max="2100" name="measure.planning_start_year:records" id="planning-start-year-${index}" maxlength="4"
-                            class="year enablePicker${python:' error' if year_error else ''}"
+                            class="year enablePicker dateRange${python:' error' if year_error else ''}"
                             value="${actionplan/planning_start_year|actionplan/planning_start/year|nothing}"/>
                       <em class="message error" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</em>
                   </fieldset>
@@ -132,7 +132,7 @@
                     </select>
 
                     <input placeholder="Year" i18n:attributes="placeholder label_year;" type="number" min="2000" max="2100" name="measure.planning_end_year:records" id="planning-end-year-${index}" maxlength="4"
-                      class="year enablePicker${python:' error' if year_error else ''}"
+                      class="year enablePicker dateRange${python:' error' if year_error else ''}"
                       value="${actionplan/planning_end_year|actionplan/planning_end/year|nothing}"/>
                       <em class="message error" tal:condition="year_error" i18n:translate="error_invalid_year">Please enter a year between 2000 and 2100.</em>
                   </fieldset>

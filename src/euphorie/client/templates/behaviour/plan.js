@@ -19,14 +19,63 @@
                 $.datepicker.setDefaults($.datepicker.regional['en-GB']);
             }
         }
-        $(this).datepicker({
+        function getDate(elem) {
+            return new Date(elem.val(), elem.parent().find(".month").val() - 1, elem.parent().find(".day").val());
+        }
+        function updateDefaultDate(elem) {
+            saved_value = elem.val();
+            elem.datepicker("option", "defaultDate", getDate(elem));
+            elem.val(saved_value);
+        }
+        function updateDateRange(id, date) {
+            if (id.contains('start')) {
+                other = id.replace('start', 'end');
+                minOrMax = 'minDate'
+            } else if (id.contains('end')) {
+                other = id.replace('end', 'start');
+                minOrMax = 'maxDate'
+            }
+            saved_value = $('#'+other).val();
+            $('#'+other).datepicker("option", minOrMax, date);
+            $('#'+other).val(saved_value);
+        }
+        options = {
             showOn: "button",
             dateFormat: "yy",
             onSelect: function (dateText, inst) {
                 $(this).parent().find(".day").val(inst.selectedDay);
                 $(this).parent().find(".month").val(inst.selectedMonth+1);
+                updateDefaultDate($(this));
+                if ($(this).hasClass('dateRange')) {
+                    id = $(this).attr('id');
+                    date = new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay);
+                    updateDateRange(id, date);
+                }
             }
-        });
+        }
+        if ($(this).val() != '') {
+            options['defaultDate'] = getDate($(this));
+        }
+        if ($(this).hasClass('dateRange')) {
+            id = $(this).attr('id');
+            if (id.contains('start')) {
+                other = id.replace('start', 'end');
+                minOrMax = 'maxDate'
+            } else if (id.contains('end')) {
+                other = id.replace('end', 'start');
+                minOrMax = 'minDate'
+            }
+            if ($('#'+other).val() != '') {
+                date = getDate($('#'+other));
+                options[minOrMax] = date;
+            }
+            $(this).parent().find(".month, .year").on('change', function (event) {
+                year = $(this).parent().find(".year");
+                updateDefaultDate(year);
+                updateDateRange(year.attr('id'), getDate(year));
+            });
+        }
+        $(this).datepicker(options);
     };
 
     var ActionPlan = {
