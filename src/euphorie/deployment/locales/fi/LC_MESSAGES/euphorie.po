@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-05-15 13:50+0200\n"
-"PO-Revision-Date: 2013-04-23 09:40+0200\n"
+"PO-Revision-Date: 2013-06-04 11:05+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1781,7 +1781,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr "Mikä OiRA on (Online Interactive Risk Assessment)?"
+msgstr "Mikä OiRA (Online Interactive Risk Assessment) on?"
 
 #: src/euphorie/client/templates/login.pt:50
 msgid ""
@@ -1796,16 +1796,15 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
 msgstr ""
-"Kenelle OiRA on tarkoitettu?OiRAa voi käyttää kuka tahansa, joka haluaa "
-"arvioida oman työpaikkansa mahdollisia työterveys- ja turvallisuusriskejä."
+"Kenelle OiRA on tarkoitettu?"
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"Lähtökohtaisesti OiRA on kuitenkin suunniteltu apuvälineeksi pienten "
-"yritysten riskien arviointiin ja riskinarviointiasiakirjojen tuottamiseen"
+"OiRAa voi käyttää kuka tahansa, joka haluaa arvioida oman työpaikkansa "
+"mahdollisia työterveys- ja turvallisuusriskejä."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1824,15 +1823,17 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden sisältö "
-"räätälöidään kunkin yrityksen omien tarpeiden mukaan."
+"Lähtökohtaisesti OiRA on "
+"kuitenkin suunniteltu apuvälineeksi pienten yritysten riskien arviointiin ja "
+"riskinarviointiasiakirjojen tuottamiseen."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
-msgstr ""
+msgstr "Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden sisältö "
+"räätälöidään kunkin yrityksen omien tarpeiden mukaan."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
