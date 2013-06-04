@@ -1802,24 +1802,28 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr ""
+msgstr "Wat is OiRA?"
 
 #: src/euphorie/client/templates/login.pt:50
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
-msgstr ""
+msgstr "OiRA staat voor Online interactive Risk Assessment. Het is een op het "
+"web gebaseerde tool om risicoanalyses op het gebied van gezondheid en "
+"veiligheid op uw werkplek uit te voeren."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
-msgstr ""
+msgstr "Voor wie is OiRA bedoeld?"
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
+"OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied "
+"van gezondheid en veiligheid op de werkplek wil beoordelen."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1838,21 +1842,25 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
+"De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om "
+"deze te ondersteunen bij het beoordelen van risico’s op de werkplek en te "
+"helpen om risicoanalyse te documenteren en een op de vereisten van de "
+"ondernemingen toegesneden actieplan op te stellen."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
-msgstr ""
+msgstr " "
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Wat moet ik doen?"
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "There are four main stages to complete in the assessment process:"
-msgstr ""
+msgstr "De risicoanalyse bestaat uit vier hoofdfasen."
 
 #: src/euphorie/client/templates/login.pt:69
 msgid ""
@@ -1860,6 +1868,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
+"${preparation} De voorbereiding geeft u een overzicht van de beoordeling die "
+"u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw "
+"onderneming aan te passen. "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1869,6 +1880,11 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put in on hold to be answered at a later stage."
 msgstr ""
+"${identification} OiRA presenteert een reeks potentiële gezondheids- en "
+"veiligheidsproblemen die bij u op de werkplek aanwezig kunnen zijn. Door de "
+"stellingen/vragen met ja of nee te beantwoorden verklaart u of dergelijke "
+"gevaren of problemen al dan niet bestaan. U kunt vragen voorlopig "
+"onbeantwoord laten en er later op terugkomen. "
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1876,6 +1892,8 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
+"${evaluation} Hier bepaalt u het risiconiveau van elk van de items die u in "
+"de fase ‘identificatie’ geïdentificeerd hebt als ‘moet worden aangepakt’. "
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1884,16 +1902,22 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
+"${action-plan} In de vierde fase van de beoordeling kunt u besluiten welke "
+"maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en "
+"welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens "
+"automatisch een verslag opgesteld. "
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
-msgstr ""
+msgstr "Hoe lang duurt een risicoanalyse?"
 
 #: src/euphorie/client/templates/login.pt:77
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
+"De duur van een risicoanalyse varieert en is afhankelijk van de per sector "
+"en land verschillende gebruikte tools."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1901,32 +1925,41 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
+"Het is echter mogelijk om een risicobeoordeling aan te vangen en op een "
+"later tijdstip, wanneer het beter uitkomt, vanaf dat punt weer verder te "
+"gaan."
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
-msgstr ""
+msgstr "Waarom moet ik me aanmelden?"
 
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
+"U wordt verzocht aan het begin van uw eerste risicoanalyse een OiRA-account "
+"aan te maken – dat gaat eenvoudig en snel."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
+"Na deze eerste aanmelding kunt u zich op elk moment opnieuw aanmelden om "
+"verder te gaan met eerdere beoordelingen of een nieuwe aan te vangen."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
+"Zorg ervoor dat u (op elk moment) over een gedrukte, nauwkeurige en "
+"bijgewerkte risicoanalyse beschikt."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
-msgstr ""
+msgstr "Moet ik me voorbereiden?"
 
 #: src/euphorie/client/templates/login.pt:96
 msgid ""
@@ -1935,6 +1968,9 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
+"Het gebruik van de tool vergt geen enkele speciale voorbereiding. U dient er "
+"evenwel over na te denken wie de risicoanalyse gaat uitvoeren, hoe uw "
+"werknemers bij het proces betrokken zullen worden, enz."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
