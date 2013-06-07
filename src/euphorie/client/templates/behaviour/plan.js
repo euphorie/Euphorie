@@ -1,5 +1,50 @@
 (function ($) {
     $.fn.enableDatePicker = function () {
+        var mixin = {
+            getDate: function () {
+                if (this.val() === '') {
+                    return null;
+                }
+                return new Date(this.val(), this.parent().find(".month").val() - 1, this.parent().find(".day").val());
+            },
+
+            restrictDateRange: function (other) {
+                /* Restrict the available dates that can be chosen for a
+                 * datepicker widget.
+                 *
+                 * Parameters:
+                 *  other: if truthy, then restrict the sibling date picker,
+                 *         otherwise restrict the current datepicker.
+                 */
+                var id = this.attr('id'),
+                    minOrMax, $other, $el_to_restrict, saved_value, date;
+                if (id.indexOf('start') != -1) {
+                    $other = $('#'+id.replace('start', 'end')).extend(mixin);
+                    minOrMax = other && 'minDate' || 'maxDate';
+                } else if (id.indexOf('end') != -1) {
+                    $other = $('#'+id.replace('end', 'start')).extend(mixin);
+                    minOrMax = other && 'maxDate' || 'minDate';
+                }
+                if (other) {
+                    date = this.getDate();
+                    $el_to_restrict = $other;
+                } else {
+                    date = $other.getDate();
+                    $el_to_restrict = this;
+                }
+                saved_value = $el_to_restrict.val();
+                if (date) {
+                    $el_to_restrict.datepicker("option", minOrMax, date).val(saved_value);
+                }
+            }
+        };
+        this.extend(mixin);
+
+        $(this).parent().find(".day, .month, .year").on('change', function (event) {
+            $year = $(this).parent().find(".year").extend(mixin);
+            $year.restrictDateRange(true);
+        });
+
         var lang = $("body").attr('lang');
         if (lang) {
             if (lang.indexOf('-') !== -1) {
@@ -19,63 +64,22 @@
                 $.datepicker.setDefaults($.datepicker.regional['en-GB']);
             }
         }
-        function getDate(elem) {
-            return new Date(elem.val(), elem.parent().find(".month").val() - 1, elem.parent().find(".day").val());
-        }
-        function updateDefaultDate(elem) {
-            saved_value = elem.val();
-            elem.datepicker("option", "defaultDate", getDate(elem));
-            elem.val(saved_value);
-        }
-        function updateDateRange(id, date) {
-            if (id.contains('start')) {
-                other = id.replace('start', 'end');
-                minOrMax = 'minDate'
-            } else if (id.contains('end')) {
-                other = id.replace('end', 'start');
-                minOrMax = 'maxDate'
-            }
-            saved_value = $('#'+other).val();
-            $('#'+other).datepicker("option", minOrMax, date);
-            $('#'+other).val(saved_value);
-        }
-        options = {
+
+        var options = {
             showOn: "button",
             dateFormat: "yy",
-            onSelect: function (dateText, inst) {
-                $(this).parent().find(".day").val(inst.selectedDay);
-                $(this).parent().find(".month").val(inst.selectedMonth+1);
-                updateDefaultDate($(this));
-                if ($(this).hasClass('dateRange')) {
-                    id = $(this).attr('id');
-                    date = new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay);
-                    updateDateRange(id, date);
-                }
+            defaultDate: this.getDate(),
+            onSelect: function (dateText, el) {
+                var $this = $(this).extend(mixin),
+                    day = el.selectedDay,
+                    month = el.selectedMonth,
+                    year = el.selectedYear;
+                $this.parent().find(".day").val(day);
+                $this.parent().find(".month").val(month+1);
+                $this.restrictDateRange(true);
             }
-        }
-        if ($(this).val() != '') {
-            options['defaultDate'] = getDate($(this));
-        }
-        if ($(this).hasClass('dateRange')) {
-            id = $(this).attr('id');
-            if (id.contains('start')) {
-                other = id.replace('start', 'end');
-                minOrMax = 'maxDate'
-            } else if (id.contains('end')) {
-                other = id.replace('end', 'start');
-                minOrMax = 'minDate'
-            }
-            if ($('#'+other).val() != '') {
-                date = getDate($('#'+other));
-                options[minOrMax] = date;
-            }
-            $(this).parent().find(".month, .year").on('change', function (event) {
-                year = $(this).parent().find(".year");
-                updateDefaultDate(year);
-                updateDateRange(year.attr('id'), getDate(year));
-            });
-        }
-        $(this).datepicker(options);
+        };
+        this.datepicker(options).restrictDateRange();
     };
 
     var ActionPlan = {
