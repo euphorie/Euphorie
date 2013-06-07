@@ -91,8 +91,8 @@
                                       year_error exists:errors/planning_start_year;
                                       error python:day_error or year_error"
                   class="condensed${python:' error' if error else ''}">
-                  <em class="message error" tal:condition="date_error" i18n:translate="error_start_not_before_end">Start date is not before end date</em>
                   <legend i18n:translate="label_action_plan_start">Planning start</legend>
+                  <em class="message error" tal:condition="date_error" i18n:translate="error_start_not_before_end">Start date is not before end date</em>
 
                   <fieldset class="date-eu">
                     <input placeholder="Day" i18n:attributes="placeholder label_day;" type="number" min="1" max="31" name="measure.planning_start_day:records" id="planning-start-day-${index}" maxlength="2"
