@@ -248,6 +248,27 @@ class ActionPlanItemForm(formapi.Form):
         elif year > 2100:
             yield _(u"Please enter a year before 2100")
 
+    @formapi.validator
+    def start_date_before_end_date(self):
+        start_year = self.data["planning_start_year"]
+        start_month = self.data["planning_start_month"]
+        start_day = self.data["planning_start_day"]
+        end_year = self.data["planning_end_year"]
+        end_month = self.data["planning_end_month"]
+        end_day = self.data["planning_end_day"]
+        if None in [start_day, start_month, start_year,
+                    end_day, end_month, end_year, ]:
+            return
+
+        try:
+            start_date = datetime.datetime(start_year, start_month, start_day)
+            end_date = datetime.datetime(end_year, end_month, end_day)
+        except:
+            # no proper dates, leave to other validators
+            return
+        if not start_date <= end_date:
+            yield _(u"Start date is not before end date")
+
 
 class ActionPlanView(grok.View):
     grok.context(model.Risk)
@@ -305,6 +326,11 @@ class ActionPlanView(grok.View):
                     errors = True
                     reply['action_plans'][-1]['errors'] = \
                         dict(form.errors._dict)
+                    if u'Start date is not before end date' in \
+                            form.errors._messages:
+                        reply['action_plans'][-1]['errors'][
+                            'planning_start_date'] = [
+                                u'Start date is not before end date']
                     continue
 
                 if len(measure) > 2:
