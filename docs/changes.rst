@@ -6,8 +6,9 @@ Changelog
 
 - Changed tiles/AddBar to explicitly list every "Add" button with full label.
   Needed for languages where the object of "add" needs a different word form
-  than the nominative case, such as Lithuanian [thomas]
+  than the nominative case, such as Lithuanian
 - Include the top-level module in the downloadble action plan spreadsheet.
+- Ensure that end date cannot be before start date in the action plan.
 
 
 6.0 - May 1, 2013
@@ -30,9 +31,8 @@ Changelog
 6.0rc2 - April 15, 2013
 -----------------------
 
-- Added Hungarian translations [pysailor]
-
-- Expand OiRA acronym in header on login page (agency #7262) [pilz]
+- Added Hungarian translations
+- Expand OiRA acronym in header on login page (agency #7262)
 
 
 6.0rc1 - April 3, 2013
