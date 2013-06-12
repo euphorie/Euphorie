@@ -1853,7 +1853,7 @@ msgid ""
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
 "problems are present. You can also decide to leave a question unanswered and "
-"thus put in on hold to be answered at a later stage."
+"thus put it on hold to be answered at a later stage."
 msgstr ""
 
 #: src/euphorie/client/templates/login.pt:71
