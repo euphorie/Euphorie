@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-03-15 15:16+0200\n"
+"PO-Revision-Date: 2013-06-12 13:10+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -466,9 +466,8 @@ msgstr ""
 
 #. Default: Section
 #: src/euphorie/client/report.py:916
-#, fuzzy
 msgid "label_section"
-msgstr "Atvaizdo pavadinimas"
+msgstr "Skyrius"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:918
@@ -1611,7 +1610,7 @@ msgstr ""
 #. Default: Run evaluation
 #: src/euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Veikimo vertinimas"
+msgstr "Vertinimas"
 
 #. Default: Go to action plan
 #: src/euphorie/client/templates/evaluation.pt:38
