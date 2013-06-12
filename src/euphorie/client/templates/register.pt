@@ -13,7 +13,7 @@
     <metal:meta use-macro="webhelpers/macros/headers"/>
     <metal:css use-macro="webhelpers/macros/css"/>
   </head>
-  <body>
+  <body class="${webhelpers/extra_css}">
     <h1 i18n:translate="header_register">Register</h1>
 
     <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
