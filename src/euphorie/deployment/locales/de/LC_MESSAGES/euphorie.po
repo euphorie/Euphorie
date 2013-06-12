@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-05-15 13:50+0200\n"
+"POT-Creation-Date: 2013-06-12 12:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -407,34 +407,34 @@ msgid "filename_report_actionplan"
 msgstr ""
 
 #. Default: Low
-#: src/euphorie/client/report.py:885
+#: src/euphorie/client/report.py:890
 msgid "label_timeline_priority_low"
 msgstr "niedrig"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:886
+#: src/euphorie/client/report.py:891
 msgid "label_timeline_priority_medium"
 msgstr "mittel"
 
 #. Default: High
-#: src/euphorie/client/report.py:887
+#: src/euphorie/client/report.py:892
 msgid "label_timeline_priority_high"
 msgstr "hoch"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:892
-#: src/euphorie/client/templates/risk_actionplan.pt:93
+#: src/euphorie/client/report.py:897
+#: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr ""
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:894
-#: src/euphorie/client/templates/risk_actionplan.pt:119
+#: src/euphorie/client/report.py:899
+#: src/euphorie/client/templates/risk_actionplan.pt:121
 msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:896
+#: src/euphorie/client/report.py:901
 #: src/euphorie/client/templates/risk_actionplan.pt:71
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
@@ -442,7 +442,7 @@ msgid "label_measure_action_plan"
 msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:900
+#: src/euphorie/client/report.py:905
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
@@ -450,50 +450,56 @@ msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Requirements
-#: src/euphorie/client/report.py:904 src/euphorie/content/solution.py:49
+#: src/euphorie/client/report.py:909 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:906
+#: src/euphorie/client/report.py:911
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr ""
 
 #. Default: Budget (in Euro)
-#: src/euphorie/client/report.py:909
+#: src/euphorie/client/report.py:914
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr ""
 
+#. Default: Section
+#: src/euphorie/client/report.py:916
+#, fuzzy
+msgid "label_section"
+msgstr "Bildtitel"
+
 #. Default: Risk number
-#: src/euphorie/client/report.py:911
+#: src/euphorie/client/report.py:918
 msgid "label_risk_number"
 msgstr "Gefährdungstyp"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:913
+#: src/euphorie/client/report.py:920
 msgid "report_timeline_risk_title"
 msgstr ""
 
 #. Default: Priority
-#: src/euphorie/client/report.py:915
+#: src/euphorie/client/report.py:922
 msgid "report_timeline_priority"
 msgstr "Dies ist eine"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:917
+#: src/euphorie/client/report.py:924
 msgid "report_timeline_comment"
 msgstr ""
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:932
+#: src/euphorie/client/report.py:939
 msgid "report_timeline_title"
 msgstr ""
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:960
+#: src/euphorie/client/report.py:972
 msgid "filename_report_timeline"
 msgstr "Ermittlungsbericht ${title}"
 
@@ -514,6 +520,10 @@ msgstr "Bitte geben Sie ein Jahr nach 1900 ein."
 #, fuzzy
 msgid "Please enter a year before 2100"
 msgstr "Bitte geben Sie ein Jahr nach 1900 ein."
+
+#: src/euphorie/client/risk.py:270
+msgid "Start date is not before end date"
+msgstr ""
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -906,7 +916,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:204
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:104
-#: src/euphorie/client/templates/risk_actionplan.pt:197
+#: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:170
 #: src/euphorie/client/templates/risk_identification.pt:85
 #: src/euphorie/client/templates/sessions.pt:94
@@ -1008,7 +1018,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:170
 #: src/euphorie/client/templates/report_company.pt:60
 #: src/euphorie/client/templates/report_identification.pt:70
-#: src/euphorie/client/templates/risk_actionplan.pt:160
+#: src/euphorie/client/templates/risk_actionplan.pt:162
 #: src/euphorie/client/templates/risk_evaluation.pt:133
 #: src/euphorie/client/templates/risk_identification.pt:48
 #: src/euphorie/client/templates/sessions.pt:70
@@ -1034,7 +1044,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:171
 #: src/euphorie/client/templates/report_company.pt:61
 #: src/euphorie/client/templates/report_identification.pt:71
-#: src/euphorie/client/templates/risk_actionplan.pt:161
+#: src/euphorie/client/templates/risk_actionplan.pt:163
 #: src/euphorie/client/templates/risk_evaluation.pt:134
 #: src/euphorie/client/templates/risk_identification.pt:49
 #: src/euphorie/client/templates/sessions.pt:71
@@ -1061,7 +1071,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:176
 #: src/euphorie/client/templates/report_company.pt:66
 #: src/euphorie/client/templates/report_identification.pt:76
-#: src/euphorie/client/templates/risk_actionplan.pt:166
+#: src/euphorie/client/templates/risk_actionplan.pt:168
 #: src/euphorie/client/templates/risk_evaluation.pt:139
 #: src/euphorie/client/templates/risk_identification.pt:54
 #: src/euphorie/client/templates/sessions.pt:74
@@ -1088,7 +1098,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:177
 #: src/euphorie/client/templates/report_company.pt:67
 #: src/euphorie/client/templates/report_identification.pt:77
-#: src/euphorie/client/templates/risk_actionplan.pt:167
+#: src/euphorie/client/templates/risk_actionplan.pt:169
 #: src/euphorie/client/templates/risk_evaluation.pt:140
 #: src/euphorie/client/templates/risk_identification.pt:55
 #: src/euphorie/client/templates/sessions.pt:75
@@ -1115,7 +1125,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:182
 #: src/euphorie/client/templates/report_company.pt:72
 #: src/euphorie/client/templates/report_identification.pt:82
-#: src/euphorie/client/templates/risk_actionplan.pt:172
+#: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_evaluation.pt:145
 #: src/euphorie/client/templates/risk_identification.pt:63
 #: src/euphorie/client/templates/sessions.pt:78
@@ -1142,7 +1152,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:183
 #: src/euphorie/client/templates/report_company.pt:73
 #: src/euphorie/client/templates/report_identification.pt:83
-#: src/euphorie/client/templates/risk_actionplan.pt:173
+#: src/euphorie/client/templates/risk_actionplan.pt:175
 #: src/euphorie/client/templates/risk_evaluation.pt:146
 #: src/euphorie/client/templates/risk_identification.pt:64
 #: src/euphorie/client/templates/sessions.pt:79
@@ -1169,7 +1179,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:188
 #: src/euphorie/client/templates/report_company.pt:78
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/risk_actionplan.pt:178
+#: src/euphorie/client/templates/risk_actionplan.pt:180
 #: src/euphorie/client/templates/risk_evaluation.pt:154
 #: src/euphorie/client/templates/risk_identification.pt:69
 #: src/euphorie/client/templates/sessions.pt:82
@@ -1196,7 +1206,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:189
 #: src/euphorie/client/templates/report_company.pt:79
 #: src/euphorie/client/templates/report_identification.pt:89
-#: src/euphorie/client/templates/risk_actionplan.pt:179
+#: src/euphorie/client/templates/risk_actionplan.pt:181
 #: src/euphorie/client/templates/risk_evaluation.pt:155
 #: src/euphorie/client/templates/risk_identification.pt:70
 #: src/euphorie/client/templates/sessions.pt:83
@@ -1222,7 +1232,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:194
 #: src/euphorie/client/templates/report_company.pt:84
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/risk_actionplan.pt:187
+#: src/euphorie/client/templates/risk_actionplan.pt:189
 #: src/euphorie/client/templates/risk_evaluation.pt:160
 #: src/euphorie/client/templates/risk_identification.pt:75
 #: src/euphorie/client/templates/sessions.pt:86
@@ -1248,7 +1258,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:195
 #: src/euphorie/client/templates/report_company.pt:85
 #: src/euphorie/client/templates/report_identification.pt:95
-#: src/euphorie/client/templates/risk_actionplan.pt:188
+#: src/euphorie/client/templates/risk_actionplan.pt:190
 #: src/euphorie/client/templates/risk_evaluation.pt:161
 #: src/euphorie/client/templates/risk_identification.pt:76
 #: src/euphorie/client/templates/sessions.pt:87
@@ -1274,7 +1284,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:202
 #: src/euphorie/client/templates/report_company.pt:92
 #: src/euphorie/client/templates/report_identification.pt:102
-#: src/euphorie/client/templates/risk_actionplan.pt:195
+#: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:168
 #: src/euphorie/client/templates/risk_identification.pt:83
 #: src/euphorie/client/templates/sessions.pt:93
@@ -1298,7 +1308,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:203
 #: src/euphorie/client/templates/report_company.pt:93
 #: src/euphorie/client/templates/report_identification.pt:103
-#: src/euphorie/client/templates/risk_actionplan.pt:196
+#: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:169
 #: src/euphorie/client/templates/risk_identification.pt:84
 #: src/euphorie/client/templates/start.pt:64
@@ -1319,7 +1329,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:205
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:105
-#: src/euphorie/client/templates/risk_actionplan.pt:198
+#: src/euphorie/client/templates/risk_actionplan.pt:200
 #: src/euphorie/client/templates/risk_evaluation.pt:171
 #: src/euphorie/client/templates/risk_identification.pt:86
 #: src/euphorie/content/templates/colour-preview.pt:58
@@ -1339,7 +1349,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:206
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:106
-#: src/euphorie/client/templates/risk_actionplan.pt:199
+#: src/euphorie/client/templates/risk_actionplan.pt:201
 #: src/euphorie/client/templates/risk_evaluation.pt:172
 #: src/euphorie/client/templates/risk_identification.pt:87
 #: src/euphorie/client/templates/sessions.pt:95
@@ -1966,7 +1976,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:52
-#: src/euphorie/client/templates/risk_actionplan.pt:146
+#: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:119
 #: src/euphorie/client/templates/risk_identification.pt:30
 #: src/euphorie/client/templates/sessions.pt:63
@@ -1983,7 +1993,7 @@ msgstr ""
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
 #: src/euphorie/client/templates/report_company.pt:53
-#: src/euphorie/client/templates/risk_actionplan.pt:147
+#: src/euphorie/client/templates/risk_actionplan.pt:149
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:64
@@ -2298,54 +2308,59 @@ msgstr ""
 msgid "error_invalid_budget"
 msgstr ""
 
+#. Default: Start date is not before end date
+#: src/euphorie/client/templates/risk_actionplan.pt:95
+msgid "error_start_not_before_end"
+msgstr ""
+
 #. Default: Day
-#: src/euphorie/client/templates/risk_actionplan.pt:96
-#: src/euphorie/client/templates/risk_actionplan.pt:122
+#: src/euphorie/client/templates/risk_actionplan.pt:98
+#: src/euphorie/client/templates/risk_actionplan.pt:124
 #, fuzzy
 msgid "label_day"
 msgstr "Seiteninhalt"
 
 #. Default: Invalid day
-#: src/euphorie/client/templates/risk_actionplan.pt:99
-#: src/euphorie/client/templates/risk_actionplan.pt:125
+#: src/euphorie/client/templates/risk_actionplan.pt:101
+#: src/euphorie/client/templates/risk_actionplan.pt:127
 msgid "error_invalid_day"
 msgstr ""
 
 #. Default: Month
-#: src/euphorie/client/templates/risk_actionplan.pt:101
-#: src/euphorie/client/templates/risk_actionplan.pt:127
+#: src/euphorie/client/templates/risk_actionplan.pt:103
+#: src/euphorie/client/templates/risk_actionplan.pt:129
 msgid "label_month"
 msgstr ""
 
 #. Default: Year
-#: src/euphorie/client/templates/risk_actionplan.pt:108
-#: src/euphorie/client/templates/risk_actionplan.pt:134
+#: src/euphorie/client/templates/risk_actionplan.pt:110
+#: src/euphorie/client/templates/risk_actionplan.pt:136
 #, fuzzy
 msgid "label_year"
 msgstr "Seiteninhalt"
 
 #. Default: Please enter a year between 2000 and 2100.
-#: src/euphorie/client/templates/risk_actionplan.pt:111
-#: src/euphorie/client/templates/risk_actionplan.pt:137
+#: src/euphorie/client/templates/risk_actionplan.pt:113
+#: src/euphorie/client/templates/risk_actionplan.pt:139
 msgid "error_invalid_year"
 msgstr ""
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
-#: src/euphorie/client/templates/risk_actionplan.pt:151
+#: src/euphorie/client/templates/risk_actionplan.pt:153
 #: src/euphorie/client/templates/risk_evaluation.pt:124
 #: src/euphorie/client/templates/risk_identification.pt:39
 #, fuzzy
 msgid "label_comment"
 msgstr "Land"
 
-#: src/euphorie/client/templates/risk_actionplan.pt:204
+#: src/euphorie/client/templates/risk_actionplan.pt:206
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
 
-#: src/euphorie/client/templates/risk_actionplan.pt:205
+#: src/euphorie/client/templates/risk_actionplan.pt:207
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -4133,7 +4148,7 @@ msgstr "${number} Ergebnisse gefunden."
 msgid "search_result_relevance"
 msgstr "Relevanz: ${percentage}"
 
-#: src/euphorie/deployment/tiles/addbar.py:16
+#: src/euphorie/deployment/tiles/addbar.py:18
 msgid "Submodule"
 msgstr ""
 
