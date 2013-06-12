@@ -1661,13 +1661,13 @@ msgstr "Въведение"
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Удостоверяване"
+msgstr "Регистрация"
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
 #: src/euphorie/client/templates/help.pt:36
 msgid "help_header_sessions"
-msgstr ""
+msgstr "Как Вие да извършите оценка на риска"
 
 #. Default: Preparation
 #: src/euphorie/client/templates/help.pt:22
@@ -1685,7 +1685,7 @@ msgstr "Определяне"
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_evaluation"
-msgstr "Оценяване"
+msgstr "Оценка"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/help.pt:25
@@ -1703,7 +1703,7 @@ msgstr "Доклад"
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_finalwords"
-msgstr "Последни думи"
+msgstr "Какво се случва след това?"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -2842,9 +2842,8 @@ msgstr ""
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Удостоверяване"
+msgstr "Регистрация"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2855,9 +2854,8 @@ msgstr ""
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
-msgstr "Въведение"
+msgstr "Как Вие да извършите оценка на риска"
 
 #. Default: Describe the session handling. This text is linked from the session
 #. overview page.
@@ -2868,9 +2866,8 @@ msgstr ""
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
-msgstr "Въведение"
+msgstr "Подготовка"
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
@@ -2881,9 +2878,8 @@ msgstr ""
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
-msgstr "Въведение"
+msgstr "Определяне"
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2894,9 +2890,8 @@ msgstr ""
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
-msgstr "Стартиране на оценяването"
+msgstr "Оценка"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
@@ -2933,9 +2928,8 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
-msgstr "Последни думи"
+msgstr "Какво се случва след това"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
