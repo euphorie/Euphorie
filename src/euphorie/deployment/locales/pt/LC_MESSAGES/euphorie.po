@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-26 15:53+0200\n"
-"PO-Revision-Date: 2013-06-26 11:34+0200\n"
+"PO-Revision-Date: 2013-06-26 15:26+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -483,9 +483,8 @@ msgstr "Orçamento (em Euro)"
 
 #. Default: Section
 #: src/euphorie/client/report.py:916
-#, fuzzy
 msgid "label_section"
-msgstr "Captura de imagem"
+msgstr "Seção"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:918

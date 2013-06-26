@@ -7,8 +7,8 @@ Changelog
 - Fixed #7261: Typo in splash page
 - Added Bulgarian help headers, per #7317
 - Portuguese translations of the splash page. #7870.
-- Minor translation fixes and updates. #7830, #7766.
 - Translate label_keep_logged_in per #7823.
+- Minor translation fixes and updates. #7830, #7766, #7810, #7829.
 - Made Kosovo, Montenegro and Republic of Serbia translatable,
   and added bulgarian translations per #7808.
 
