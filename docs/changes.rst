@@ -9,6 +9,8 @@ Changelog
 - Portuguese translations of the splash page. #7870.
 - Minor translation fixes and updates. #7830, #7766.
 - Translate label_keep_logged_in per #7823.
+- Made Kosovo, Montenegro and Republic of Serbia translatable,
+  and added bulgarian translations per #7808.
 
 
 6.0.1 (2013-06-03)

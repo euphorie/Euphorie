@@ -3524,15 +3524,15 @@ msgstr "Европейски съюз"
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Косово"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Черна гора"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Република Сърбия"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
