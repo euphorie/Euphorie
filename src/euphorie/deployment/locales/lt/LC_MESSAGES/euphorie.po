@@ -1754,7 +1754,7 @@ msgstr "Slaptažodis (${forgot_link})"
 #. Default: Keep me logged in.
 #: src/euphorie/client/templates/login.pt:35
 msgid "label_keep_logged_in"
-msgstr ""
+msgstr "Palikti mane prisijungusį (-ią)"
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:39

@@ -1782,9 +1782,8 @@ msgstr "Парола (${forgot_link})"
 
 #. Default: Keep me logged in.
 #: src/euphorie/client/templates/login.pt:35
-#, fuzzy
 msgid "label_keep_logged_in"
-msgstr "XML файл"
+msgstr "Запази статуса ми на регистриран"
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:39

@@ -6,6 +6,7 @@ Changelog
 
 - Fixed #7261: Typo in splash page
 - Added bulgarian help headers, per #7317
+- #7823: Translate label_keep_logged_in
 
 
 6.0.1 (2013-06-03)
