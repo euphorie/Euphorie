@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-03-15 15:12+0200\n"
+"PO-Revision-Date: 2013-06-26 12:39+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1847,14 +1847,14 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show more…"
-msgstr ""
+msgstr "Mostrar més…"
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
-msgstr ""
+msgstr "Mostrar menys"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
@@ -1904,7 +1904,7 @@ msgstr ""
 "centre de treball o empresa. En respondre afirmativament o negativament a "
 "les frases o preguntes proposades, estareu definint si aquestes deficiències "
 "o riscos són presents en el vostre centre de treball. També podeu deixar "
-"alguna pregunta sense contestar i respondre-la resposta més endavant."
+"alguna pregunta sense contestar i respondre-la més endavant."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""

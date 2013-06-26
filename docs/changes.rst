@@ -5,8 +5,10 @@ Changelog
 ------------------
 
 - Fixed #7261: Typo in splash page
-- Added bulgarian help headers, per #7317
-- #7823: Translate label_keep_logged_in
+- Added Bulgarian help headers, per #7317
+- Portuguese translations of the splash page. #7870.
+- Minor translation fixes and updates. #7830, #7766.
+- Translate label_keep_logged_in per #7823.
 
 
 6.0.1 (2013-06-03)
