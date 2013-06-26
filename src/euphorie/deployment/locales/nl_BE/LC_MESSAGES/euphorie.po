@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-06-26 12:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -473,7 +473,7 @@ msgstr "Onderschrift afbeelding"
 #. Default: Risk number
 #: src/euphorie/client/report.py:918
 msgid "label_risk_number"
-msgstr "Risiconummer"
+msgstr "Risico ID"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:920
@@ -488,7 +488,7 @@ msgstr "Prioriteit"
 #. Default: Comments
 #: src/euphorie/client/report.py:924
 msgid "report_timeline_comment"
-msgstr "Opmerkingen"
+msgstr "Commentaar"
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:939
