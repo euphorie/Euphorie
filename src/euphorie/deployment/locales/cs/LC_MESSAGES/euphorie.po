@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-06-12 12:58+0200\n"
+"POT-Creation-Date: 2013-06-26 15:53+0200\n"
 "PO-Revision-Date: 2013-03-15 14:13+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3475,6 +3475,18 @@ msgstr "Účet \"${title}\" byl odemčen."
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
 msgstr "Evropská unie"
+
+#: src/euphorie/content/utils.py:16
+msgid "Kosovo"
+msgstr ""
+
+#: src/euphorie/content/utils.py:17
+msgid "Montenegro"
+msgstr ""
+
+#: src/euphorie/content/utils.py:18
+msgid "Republic of Serbia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
