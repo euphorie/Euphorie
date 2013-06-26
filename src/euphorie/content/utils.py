@@ -9,6 +9,13 @@ TAG = re.compile(u"<.*?>")
 
 REGION_NAMES = {
         "eu": _(u"European Union"),
+        
+        # This are areas whose country codes have not stabilized enough
+        # to have arrived in the Unicode consortiums translations,
+        # or were we use and old/incorrect country code.
+        "CS": _(u"Kosovo"),
+        "ME": _(u"Montenegro"),
+        "RS": _(u"Republic of Serbia"),
         }
 
 
