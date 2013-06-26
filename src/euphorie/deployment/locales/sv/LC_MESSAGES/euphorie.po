@@ -3541,15 +3541,15 @@ msgstr ""
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Republiken Serbien"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
