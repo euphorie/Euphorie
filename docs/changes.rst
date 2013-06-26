@@ -8,7 +8,7 @@ Changelog
 - Added Bulgarian help headers, per #7317
 - Portuguese translations of the splash page. #7870.
 - Translate label_keep_logged_in per #7823.
-- Minor translation fixes and updates. #7830, #7766, #7810.
+- Minor translation fixes and updates. #7830, #7766, #7810, #7829.
 
 
 6.0.1 (2013-06-03)
