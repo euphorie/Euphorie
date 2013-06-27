@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-01-30 14:30+0200\n"
+"PO-Revision-Date: 2013-06-27 22:07+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
 "Language: \n"
@@ -1824,7 +1824,7 @@ msgstr "Toon meer…"
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
-msgstr "Toon minder…"
+msgstr "Toon minder"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."

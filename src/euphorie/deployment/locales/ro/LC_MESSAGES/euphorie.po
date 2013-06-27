@@ -1,22 +1,23 @@
-# Swedish translations for Euphorie.
-# Copyright (C) 2011 EU-OSHA, Syslab.com
-# This file is distributed under the same license as the Euphorie project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# Translations template for PROJECT.
+# Copyright (C) 2013 Simplon B.V., SYSLAB.COM GmbH
+# This file is distributed under the same license as the PROJECT project.
+# JC Brand <brand@syslab.com>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-06-27 22:09+0200\n"
-"Last-Translator: \n"
-"Language-Team: es <LL@li.org>\n"
-"Language: es\n"
+"POT-Creation-Date: 2013-06-26 10:59+0200\n"
+"PO-Revision-Date: 2013-06-27 22:08+0200\n"
+"Last-Translator: JC Brand <brand@syslab.com>\n"
+"Language-Team: Romanian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Generated-By: Babel 0.9.6\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -28,52 +29,51 @@ msgstr ""
 #: src/euphorie/client/company.py:25
 #: src/euphorie/client/templates/report_actionplan.pt:44
 msgid "label_employee_numbers"
-msgstr "Número de empleados"
+msgstr ""
 
 #. Default: 1 to 9 employees
 #: src/euphorie/client/company.py:27
 #: src/euphorie/client/templates/report_actionplan.pt:46
 msgid "employee_numbers_1_to_9"
-msgstr "de 1 a 9 empleados"
+msgstr ""
 
 #. Default: 10 to 49 employees
 #: src/euphorie/client/company.py:29
 #: src/euphorie/client/templates/report_actionplan.pt:47
 msgid "employee_numbers_10_to_49"
-msgstr "de 10 a 49 empleados"
+msgstr ""
 
 #. Default: 50 to 249 employees
 #: src/euphorie/client/company.py:31
 #: src/euphorie/client/templates/report_actionplan.pt:48
 msgid "employee_numbers_50_to_249"
-msgstr "de 50 a 249 empleados"
+msgstr ""
 
 #. Default: 250 or more employees
 #: src/euphorie/client/company.py:33
 #: src/euphorie/client/templates/report_actionplan.pt:49
 msgid "employee_numbers_250_or_more"
-msgstr "250 o más empleados"
+msgstr ""
 
 #. Default: The risk assessment was conducted by
 #: src/euphorie/client/company.py:39
 msgid "label_conductor"
-msgstr "La evaluación de riesgos la ha realizado"
+msgstr ""
 
 #. Default: own staff
 #: src/euphorie/client/company.py:42
 msgid "conductor_staff"
-msgstr "el personal propio"
+msgstr ""
 
 #. Default: an external consultant or service provider
 #: src/euphorie/client/company.py:44
 msgid "conductor_third_party"
-msgstr "un consultor o proveedor de servicios externo"
+msgstr ""
 
 #. Default: both own staff and an external consultant or service provider
 #: src/euphorie/client/company.py:46
 msgid "conductor_both"
 msgstr ""
-"tanto el personal propio como un consultor o proveedor de servicios externo"
 
 #. Default: Through which channel did you learn about this tool?
 #: src/euphorie/client/company.py:53
@@ -127,7 +127,7 @@ msgstr ""
 #: src/euphorie/client/company.py:80
 #: src/euphorie/client/templates/report_actionplan.pt:62
 msgid "label_workers_participated"
-msgstr "Se ha invitado a los usuarios a participar en la evaluación de riesgos"
+msgstr ""
 
 #. Default: Yes
 #: src/euphorie/client/company.py:84
@@ -145,51 +145,49 @@ msgstr ""
 
 #: src/euphorie/client/login.py:119
 msgid "Please enter your email address"
-msgstr "Introduzca su dirección de correo electrónico"
+msgstr ""
 
 #: src/euphorie/client/login.py:125
 msgid "Unknown email address"
-msgstr "Dirección de correo electrónico desconocida"
+msgstr ""
 
 #: src/euphorie/client/login.py:133
 msgid "OiRA registration reminder"
-msgstr "Recordatorio de registro OiRA"
+msgstr ""
 
 #: src/euphorie/client/login.py:145 src/euphorie/client/login.py:151
 #: src/euphorie/client/login.py:157
 msgid "An error occured while sending the password reminder"
-msgstr "Se ha producido un error al enviar el recordatorio de contraseña"
+msgstr ""
 
 #: src/euphorie/client/login.py:171
 msgid "An email with a password reminder has been sent to your address."
 msgstr ""
-"Se a enviado a su dirección un mensaje de correo electrónico con un "
-"recordatorio de contraseña"
 
 #. Default: Please enter your email address
 #: src/euphorie/client/login.py:186
 msgid "error_missing_email"
-msgstr "Introduzca su dirección de correo electrónico"
+msgstr ""
 
 #. Default: Please enter a valid email address
 #: src/euphorie/client/login.py:189
 msgid "error_invalid_email"
-msgstr "Introduzca una dirección de correo electrónico válida"
+msgstr ""
 
 #. Default: Please enter a password
 #: src/euphorie/client/login.py:192
 msgid "error_missing_password"
-msgstr "Introduzca una contraseña"
+msgstr ""
 
 #. Default: Passwords do not match
 #: src/euphorie/client/login.py:195
 msgid "error_password_mismatch"
-msgstr "Las contraseñas no coinciden"
+msgstr ""
 
 #. Default: An account with this email address already exists.
 #: src/euphorie/client/login.py:205 src/euphorie/client/login.py:211
 msgid "error_email_in_use"
-msgstr "Ya existe una cuenta con esta dirección de correo electrónico."
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:209 src/euphorie/client/publish.py:256
@@ -205,7 +203,7 @@ msgstr ""
 #: src/euphorie/client/publish.py:215
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
 msgid "button_publish"
-msgstr "Publicar"
+msgstr ""
 
 #: src/euphorie/client/publish.py:219
 msgid "Succesfully published the survey"
@@ -214,7 +212,7 @@ msgstr ""
 #. Default: Create preview
 #: src/euphorie/client/publish.py:262
 msgid "button_preview"
-msgstr "Crear vista previa"
+msgstr ""
 
 #. Default: Succesfully created a preview for the survey. It can be accessed at
 #. ${url} .
@@ -225,17 +223,17 @@ msgstr ""
 #. Default: low priority risk
 #: src/euphorie/client/report.py:40
 msgid "report_priority_low"
-msgstr "riesgo de baja prioridad"
+msgstr ""
 
 #. Default: medium priority risk
 #: src/euphorie/client/report.py:41
 msgid "report_priority_medium"
-msgstr "riesgo de prioridad media"
+msgstr ""
 
 #. Default: high priority risk
 #: src/euphorie/client/report.py:42
 msgid "report_priority_high"
-msgstr "riesgo de alta prioridad"
+msgstr ""
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
@@ -262,12 +260,12 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:91
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
-msgstr "Se debe seguir registrando el riesgo."
+msgstr ""
 
 #. Default: Identification report ${title}
 #: src/euphorie/client/report.py:422
 msgid "filename_report_identification"
-msgstr "Informe de identificación ${title}"
+msgstr ""
 
 #. Default: Not provided
 #: src/euphorie/client/report.py:478 src/euphorie/client/report.py:581
@@ -276,12 +274,12 @@ msgstr "Informe de identificación ${title}"
 #: src/euphorie/client/templates/report_actionplan.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:63
 msgid "missing_data"
-msgstr "No suministrado"
+msgstr ""
 
 #. Default: Introduction
 #: src/euphorie/client/report.py:558
 msgid "plan_report_intro_header"
-msgstr "Introducción"
+msgstr ""
 
 #. Default: By filling in the list of questions, you have completed a risk
 #. assessment. This assessment is used to draw up an action plan. The progress
@@ -292,21 +290,16 @@ msgstr "Introducción"
 #: src/euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_1"
 msgstr ""
-"Al rellenar la lista de preguntas, completará una evaluación de riesgos. "
-"Esta evaluación se utiliza para esbozar un plan de acción. El progreso de "
-"este plan de acción se debe discutir anualmente y se debe escribir un "
-"pequeño informe sobre el progreso. Es posible que se hayan concluido algunos "
-"asuntos y que se deban añadir otros nuevos."
 
 #. Default: Company details
 #: src/euphorie/client/report.py:585
 msgid "plan_report_company_header"
-msgstr "Detalles de la empresa"
+msgstr ""
 
 #. Default: Action plan
 #: src/euphorie/client/report.py:636
 msgid "plan_report_plan_header"
-msgstr "Plan de acción"
+msgstr ""
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
@@ -320,7 +313,7 @@ msgstr ""
 #. Default: This is a
 #: src/euphorie/client/report.py:704
 msgid "report_priority"
-msgstr "Se trata de"
+msgstr ""
 
 #. Default: Measure
 #: src/euphorie/client/report.py:716
@@ -409,17 +402,17 @@ msgstr ""
 #. Default: Low
 #: src/euphorie/client/report.py:890
 msgid "label_timeline_priority_low"
-msgstr "bajo"
+msgstr ""
 
 #. Default: Medium
 #: src/euphorie/client/report.py:891
 msgid "label_timeline_priority_medium"
-msgstr "medio"
+msgstr ""
 
 #. Default: High
 #: src/euphorie/client/report.py:892
 msgid "label_timeline_priority_high"
-msgstr "alto"
+msgstr ""
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:897
@@ -470,37 +463,37 @@ msgstr ""
 #. Default: Section
 #: src/euphorie/client/report.py:916
 msgid "label_section"
-msgstr "Sección"
+msgstr ""
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:918
 msgid "label_risk_number"
-msgstr "Código riesgo"
+msgstr ""
 
 #. Default: Risk
 #: src/euphorie/client/report.py:920
 msgid "report_timeline_risk_title"
-msgstr "Riesgo"
+msgstr ""
 
 #. Default: Priority
 #: src/euphorie/client/report.py:922
 msgid "report_timeline_priority"
-msgstr "Prioridad"
+msgstr ""
 
 #. Default: Comments
 #: src/euphorie/client/report.py:924
 msgid "report_timeline_comment"
-msgstr "Comentarios"
+msgstr ""
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:939
 msgid "report_timeline_title"
-msgstr "Tiempo"
+msgstr ""
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:972
 msgid "filename_report_timeline"
-msgstr "Informe de identificación ${title}"
+msgstr ""
 
 #: src/euphorie/client/risk.py:195 src/euphorie/client/risk.py:227
 msgid "Please provide the day of the month"
@@ -509,16 +502,15 @@ msgstr ""
 #: src/euphorie/client/risk.py:197 src/euphorie/client/risk.py:204
 #: src/euphorie/client/risk.py:229 src/euphorie/client/risk.py:235
 msgid "Invalid day of month"
-msgstr "día de mes no válido"
+msgstr ""
 
 #: src/euphorie/client/risk.py:216 src/euphorie/client/risk.py:247
 msgid "Please enter a year after 1900"
-msgstr "Introduzca un año después de 1900"
+msgstr ""
 
 #: src/euphorie/client/risk.py:218 src/euphorie/client/risk.py:249
-#, fuzzy
 msgid "Please enter a year before 2100"
-msgstr "Introduzca un año después de 1900"
+msgstr ""
 
 #: src/euphorie/client/risk.py:270
 msgid "Start date is not before end date"
@@ -527,7 +519,7 @@ msgstr ""
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
 msgid "label_old_password"
-msgstr "Contraseña actual"
+msgstr ""
 
 #. Default: Desired password
 #: src/euphorie/client/settings.py:46
@@ -537,52 +529,52 @@ msgstr ""
 
 #: src/euphorie/client/settings.py:51 src/euphorie/client/settings.py:62
 msgid "Your password for confirmation"
-msgstr "Contraseña de confirmación"
+msgstr ""
 
 #. Default: Account settings
 #: src/euphorie/client/settings.py:77 src/euphorie/client/settings.py:158
 msgid "title_account_settings"
-msgstr "Ajustes de cuenta"
+msgstr ""
 
 #: src/euphorie/client/settings.py:84 src/euphorie/client/settings.py:219
 msgid "Save changes"
-msgstr "Guardar cambios"
+msgstr ""
 
 #: src/euphorie/client/settings.py:93 src/euphorie/client/settings.py:236
 msgid "There were no changes to be saved."
-msgstr "Ningún cambio que guardar."
+msgstr ""
 
 #: src/euphorie/client/settings.py:97 src/euphorie/client/settings.py:133
 #: src/euphorie/client/settings.py:229
 msgid "Invalid password"
-msgstr "Contraseña no válida"
+msgstr ""
 
 #: src/euphorie/client/settings.py:99
 msgid "Your password was successfully changed."
-msgstr "Su contraseña se ha cambiado correctamente."
+msgstr ""
 
 #. Default: Delete account
 #: src/euphorie/client/settings.py:113
 msgid "title_account_delete"
-msgstr "Borrar cuenta"
+msgstr ""
 
 #: src/euphorie/client/settings.py:124
 #: src/euphorie/client/templates/account-settings.pt:23
 msgid "Delete account"
-msgstr "Borrar cuenta"
+msgstr ""
 
 #: src/euphorie/client/settings.py:189
 msgid "Confirm OiRA email address change"
-msgstr "Confirmar cambio de dirección de correo electrónico OiRA"
+msgstr ""
 
 #: src/euphorie/client/settings.py:201 src/euphorie/client/settings.py:207
 #: src/euphorie/client/settings.py:213
 msgid "An error occured while sending the confirmation email."
-msgstr "Se ha producido un error al enviar el correo de confirmación."
+msgstr ""
 
 #: src/euphorie/client/settings.py:243
 msgid "This email address is not available."
-msgstr "La dirección de correo electrónico no está disponible."
+msgstr ""
 
 #. Default: Please confirm your new email address by clicking on the link in
 #. the email that will be sent in a few minutes to "${email}". Please note that
@@ -590,14 +582,10 @@ msgstr "La dirección de correo electrónico no está disponible."
 #: src/euphorie/client/settings.py:247
 msgid "email_change_pending"
 msgstr ""
-"Confirme su nueva dirección de correo electrónico haciendo clic en el enlace "
-"del correo electrónico que se enviará en unos minutos a \"${email}\". Tenga "
-"en cuenta que la nueva dirección de correo electrónico será también su "
-"nombre de login."
 
 #: src/euphorie/client/settings.py:281
 msgid "Your email address has been updated."
-msgstr "Su dirección de correo electrónico se ha actualizado."
+msgstr ""
 
 #. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
@@ -636,60 +624,60 @@ msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
-msgstr "El cliente online."
+msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
 msgid "Country information and grouping for the client."
-msgstr "Información de país y grupo del cliente."
+msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
 msgid "Sector information and grouping for the client."
-msgstr "Información de sector y grupo del cliente."
+msgstr ""
 
 #. Default: About
 #: src/euphorie/client/templates/about.pt:18
 msgid "title_about"
-msgstr "Información sobre"
+msgstr ""
 
 #. Default: What is the OiRA (Online Interactive Risk Assessment) project
 #: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
-msgstr "Qué es el proyecto OiRA (evaluación de riesgos interactiva online)"
+msgstr ""
 
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr "la evaluación de riesgos adecuada es la clave de la salud laboral"
+msgstr ""
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
-msgstr "aplicación web rentable y fácil de usar"
+msgstr ""
 
 #. Default: step-by-step risk assessment process
 #: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
-msgstr "proceso de evaluación de riesgos paso a paso"
+msgstr ""
 
 #. Default: identification
 #: src/euphorie/client/templates/about.pt:34
 msgid "about_paragraph_1_identification"
-msgstr "identificación"
+msgstr ""
 
 #. Default: evaluation
 #: src/euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_evaluation"
-msgstr "evaluación"
+msgstr ""
 
 #. Default: preventive actions
 #: src/euphorie/client/templates/about.pt:38
 msgid "about_paragraph_1_preventive_actions"
-msgstr "acciones preventivas"
+msgstr ""
 
 #. Default: reporting
 #: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
-msgstr "realización de informes"
+msgstr ""
 
 #. Default: Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the “OiRA” - Online interactive Risk Assessment) that can help
@@ -700,12 +688,6 @@ msgstr "realización de informes"
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
-"La experiencia demuestra que ${key}. Por este motivo EU-OSHA desarrolló "
-"${easy} (“OiRA” - Evaluación de riesgos interactiva online) que puede ayudar "
-"a las organizaciones pequeñas a implantar ${step} – comenzando con la "
-"${identification} y ${evaluation} de los riesgos en el lugar de trabajo, "
-"pasando por la toma de decisiones sobre ${preventive_actions} y emprendiendo "
-"acciones de control y ${reporting}."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -713,26 +695,21 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
-"La aplicación web OiRA otorga acceso a las herramientas de evaluación de "
-"riesgos sectoriales creadas y mantenidas por organizaciones sectoriales a "
-"nivel nacional."
 
 #. Default: Why the OiRA project
 #: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
-msgstr "El motivo del proyecto OiRA"
+msgstr ""
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
 msgstr ""
-"Estrategia de la comunidad europea sobre seguridad e higiene laborales "
-"2007-2012"
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
-msgstr "las medianas y pequeñas empresas  tienen defectos"
+msgstr ""
 
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -745,29 +722,21 @@ msgstr "las medianas y pequeñas empresas  tienen defectos"
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
-"La ${agency} solicita el desarrollo de herramientas sencillas para facilitar "
-"la evaluación de riesgos. Desde la adopción de la directiva marco europea de "
-"1989, la evaluación de riesgos se ha convertido en un concepto habitual de "
-"la prevención organizativa en el lugar de trabajo y cientos de miles de "
-"empresas de toda Europa evalúan sus riesgos con regularidad. Sin embargo, "
-"hay evidencias suficientes para concluir que ${smb} en lo referente a la "
-"evaluación de riesgos y a la adopción de una política de prevención en "
-"general que el proyecto OiRA pretende superar."
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
 msgid "about_oiraproject"
-msgstr "Más información sobre el proyecto OiRA (en inglés)"
+msgstr ""
 
 #. Default: Project Phases
 #: src/euphorie/client/templates/about.pt:59
 msgid "header_project_phases"
-msgstr "Fases del proyecto"
+msgstr ""
 
 #. Default: Development and pilot phase – 2009-2011
 #: src/euphorie/client/templates/about.pt:60
 msgid "header_devel_phase"
-msgstr "Fase de desarrollo y piloto – 2009-2011"
+msgstr ""
 
 #. Default: After the technical development of the tool in 2009, in 2010 (until
 #. the first half of 2011) the Agency is piloting the development and diffusion
@@ -778,17 +747,11 @@ msgstr "Fase de desarrollo y piloto – 2009-2011"
 #: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
-"Tras el desarrollo técnico de la herramienta en 2009, en 2010 (hasta la "
-"primera mitad de 2011) la Agencia está dirigiendo el modelo de difusión y "
-"desarrollo tanto a nivel de la UE (trabajando con los comités de diálogo "
-"social sectoriales) como a nivel de los estados miembro (con algunos estados "
-"miembro) como parte de las pruebas de la herramienta y del desarrollo de la "
-"asistencia y los servicios de ayuda adecuados."
 
 #. Default: Official launch of the project – September 2011
 #: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
-msgstr "Lanzamiento oficial del proyecto – Septiembre de 2011"
+msgstr ""
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
@@ -796,15 +759,11 @@ msgstr "Lanzamiento oficial del proyecto – Septiembre de 2011"
 #: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
-"El lanzamiento oficial de la herramienta está programado para septiembre de "
-"2011, una vez que se alcancen los objetivos de la fase de pruebas y cuando "
-"la página web de OiRa, el  programa de formación de OiRa y el servicio de "
-"ayuda de Oira estén listos."
 
 #. Default: Development partners
 #: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
-msgstr "Socios de desarrollo"
+msgstr ""
 
 #. Default: The OiRA project and its related web application has been developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
@@ -816,30 +775,22 @@ msgstr "Socios de desarrollo"
 #: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
-"El proyecto OiRA y la aplicación web relacionada ha sido desarrollada por "
-"${eu-osha} en base al instrumento RA holandés (llamado ${RIE}) que, "
-"financiado por el gobierno holandés, fue inicialmente desarrollado por TNO "
-"en colaboración con la patronal de pequeñas y medianas empresas MKB-"
-"Nederland y el ministerio de trabajo holandés. La aplicación se continuó "
-"desarrollando con la participación y ayuda de los sindicatos FNV, CNV y MHP."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
 #: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
 msgstr ""
-"Los siguientes socios técnicos han contribuido al desarrollo del proyecto "
-"OiRA:"
 
 #: src/euphorie/client/templates/about.pt:81
 #: src/euphorie/client/templates/about.pt:84
 #: src/euphorie/client/templates/about.pt:87
 msgid "The Netherlands"
-msgstr "Países Bajos"
+msgstr ""
 
 #: src/euphorie/client/templates/about.pt:90
 msgid "Germany"
-msgstr "Alemania"
+msgstr ""
 
 #. Default: The Agency was also given strategic and expert advice by a Steering
 #. Committee in the development and implementation of the OiRA project. Members
@@ -848,42 +799,34 @@ msgstr "Alemania"
 #: src/euphorie/client/templates/about.pt:93
 msgid "about_partners_3"
 msgstr ""
-"La Agencia ha recibido asesoramiento experto y estratégico por parte del "
-"comité directivo sobre el desarrollo y la implantación del proyecto OiRA. "
-"Los miembros y suplentes del comité directivo fueron nombrados por grupos de "
-"interés de la Junta directiva, por la comisión y por EU-OSHA."
 
 #. Default: Licenses
 #: src/euphorie/client/templates/about.pt:97
 msgid "header_licenses"
-msgstr "Licencias"
+msgstr ""
 
 #. Default: The source code of the OiRA application is ${GPL} licensed.
 #: src/euphorie/client/templates/about.pt:99
 msgid "about_licenses_1"
-msgstr "El código fuente de la aplicación OiRA tiene una licencia ${GPL}."
+msgstr ""
 
 #: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons License"
-msgstr "Licencia Creative Commons"
+msgstr ""
 
 #: src/euphorie/client/templates/about.pt:103
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
-msgstr "Licencia genérica Creative Commons Attribution-ShareAlike 2.5"
+msgstr ""
 
 #. Default: The content of OiRA sectoral tools is licensed under a ${license}
 #: src/euphorie/client/templates/about.pt:103
 msgid "about_licenses_2"
 msgstr ""
-"El contenido de las herramientas de sector OiRA tiene una licencia bajo "
-"${license}"
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr ""
-"Las herramientas de sector OiRA las pueden utilizar de forma gratuita todos "
-"los usuarios."
 
 #. Default: Help
 #: src/euphorie/client/templates/about.pt:111
@@ -922,8 +865,6 @@ msgstr ""
 #: src/euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_irreversible"
 msgstr ""
-"Al hacer clic en 'Borrar cuenta', se borrará permanentemente su cuenta. Esta "
-"acción es irreversible."
 
 #. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
@@ -1016,7 +957,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:63
 msgid "label_preparation"
-msgstr "Preparación"
+msgstr ""
 
 #. Default: Preparation
 #: src/euphorie/client/templates/actionplan.pt:50
@@ -1042,7 +983,7 @@ msgstr "Preparación"
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:64
 msgid "iphone_label_preparation"
-msgstr "Preparación"
+msgstr ""
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1070,7 +1011,7 @@ msgstr "Preparación"
 #: src/euphorie/client/templates/updated.pt:68
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
-msgstr "Identificación"
+msgstr ""
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:56
@@ -1096,7 +1037,7 @@ msgstr "Identificación"
 #: src/euphorie/client/templates/survey_sessions.pt:67
 #: src/euphorie/client/templates/updated.pt:69
 msgid "iphone_label_identification"
-msgstr "Identificación"
+msgstr ""
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:61
@@ -1124,7 +1065,7 @@ msgstr "Identificación"
 #: src/euphorie/client/templates/updated.pt:72
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
-msgstr "Evaluación"
+msgstr ""
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/actionplan.pt:62
@@ -1150,7 +1091,7 @@ msgstr "Evaluación"
 #: src/euphorie/client/templates/survey_sessions.pt:71
 #: src/euphorie/client/templates/updated.pt:73
 msgid "iphone_label_evaluation"
-msgstr "Evaluación"
+msgstr ""
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:67
@@ -1178,7 +1119,7 @@ msgstr "Evaluación"
 #: src/euphorie/client/templates/updated.pt:76
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
-msgstr "Plan de acción"
+msgstr ""
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/actionplan.pt:68
@@ -1204,7 +1145,7 @@ msgstr "Plan de acción"
 #: src/euphorie/client/templates/survey_sessions.pt:75
 #: src/euphorie/client/templates/updated.pt:77
 msgid "iphone_label_action_plan"
-msgstr "Plan de acción"
+msgstr ""
 
 #. Default: Report
 #: src/euphorie/client/templates/actionplan.pt:73
@@ -1352,15 +1293,13 @@ msgstr ""
 #. Default: Terms and conditions
 #: src/euphorie/client/templates/conditions.pt:18
 msgid "header_terms"
-msgstr "Términos y condiciones"
+msgstr ""
 
 #. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
 #: src/euphorie/client/templates/conditions.pt:21
 msgid "terms_changed"
 msgstr ""
-"Los términos y condiciones han cambiado desde su última visita. Lea los "
-"nuevos términos y condiciones detenidamente antes de continuar."
 
 #. Default: The OiRA (Online interactive Risk Assessment) application is an
 #. instrument put at your disposal by the European Agency for Safety and Health
@@ -1369,11 +1308,6 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
 msgstr ""
-"La herramienta OiRA es un instrumento facilitado por la agencia europea de "
-"seguridad y salud en el trabajo (EU-OSHA). Esta política de privacidad se "
-"aplica a todos los productos, servicios y páginas web ofrecidas por EU-OSHA "
-"en el marco de la herramienta OiRA (Evaluación de riesgos interactiva "
-"online)."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
 #. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
@@ -1384,17 +1318,11 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:34
 msgid "conditions_intro2"
 msgstr ""
-"Sus datos personales se procesan conforme a la normativa (CE) N° 45/2001 del "
-"Parlamento Europeo y del Consejo del 18 de diciembre de 2000 sobre la "
-"protección de las personas con respecto al procesamiento de datos personales "
-"por  parte de las instituciones comunitarias y del libre movimiento de "
-"dichos datos. Encontrará más detalles sobre la política de privacidad de EU-"
-"OSHA y el texto completo de la normativa en: ${url}."
 
 #. Default: The Information we collect and for what purposes
 #: src/euphorie/client/templates/conditions.pt:38
 msgid "conditions_info_header"
-msgstr "La información recopilada y el fin"
+msgstr ""
 
 #. Default: The kind of information we collect: when you sign up for an OiRA
 #. account and you enter data into the OiRA application we are asking you for
@@ -1402,10 +1330,6 @@ msgstr "La información recopilada y el fin"
 #: src/euphorie/client/templates/conditions.pt:40
 msgid "conditions_info_entry"
 msgstr ""
-"Cualquier información indicada en los campos de texto libres de la "
-"herramienta y en el plan de acción - (por ejemplo, al introducir una medida "
-"para afrontar un riesgo, la persona responsable de la medida, etc). La "
-"introducción de la información en el campo libre es voluntaria."
 
 #. Default: Email account: this is necessary to access the online application,
 #. edit the input data, and delete the OiRA account. You can enter any valid
@@ -1413,10 +1337,6 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:44
 msgid "conditions_info_email"
 msgstr ""
-"Cuenta de correo electrónico: es necesaria para acceder a la herramienta "
-"online, editar los datos de entrada y borrar la cuenta OiRA. Puede "
-"introducir cualquier dirección de correo electrónico válida. Las direcciones "
-"no se utilizarán con fines comerciales."
 
 #. Default: Any information you provide in the free text fields of the
 #. application (e.g. when you input a measure to tackle a risk, the person
@@ -1425,10 +1345,6 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:48
 msgid "conditions_info_text"
 msgstr ""
-"Cualquier información indicada en los campos de texto libres de la "
-"herramienta y en el plan de acción - (por ejemplo, al introducir una medida "
-"para afrontar un riesgo, la persona responsable de la medida, etc). La "
-"introducción de la información en el campo libre es voluntaria."
 
 #. Default: Cookies – When you visit the site and select a language, we send a
 #. cookie to your computer or other device to store your language selection.
@@ -1442,16 +1358,6 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:52
 msgid "conditions_info_cookies"
 msgstr ""
-"Cookies – Al visitar una página y seleccionar un idioma, enviamos una cookie "
-"a su ordenador o a otro dispositivo para almacenar su selección de idioma. "
-"Esta cookie permanece en su explorador hasta que lo cierra. Al visitar una "
-"página y registrarse, enviamos una cookie con su información de registro "
-"para mantenerle registrado durante su visita. La cookie permanece en su "
-"equipo hasta que cierra el explorador. La mayoría de los exploradores están "
-"inicialmente configurados para aceptar las cookies, pero puede cambiar su "
-"explorador para rechazar todas las cookies o para indicarle cuándo se envía "
-"una. Sin embargo, algunas funciones y servicios no funcionarán correctamente "
-"si lo hace."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1462,12 +1368,6 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:56
 msgid "conditions_info_logs"
 msgstr ""
-"Información de registro– Al acceder al servicio, nuestros servidores "
-"registran automáticamente la información que su explorador envía al visitar "
-"una página web. Estos registros del servidor pueden incluir información como "
-"la solicitud web, su interacción con un servicio, el tipo de explorador, el "
-"idioma del explorador, la fecha y la hora de la solicitud. Las direcciones "
-"IP no se almacenan en el sistema."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
@@ -1476,44 +1376,38 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
 msgstr ""
-"Además de los objetivos anteriores, podremos utilizar la información "
-"recopilada para:"
 
 #. Default: Data controller
 #: src/euphorie/client/templates/conditions.pt:69
 msgid "conditions_datacontroller_header"
-msgstr "Controlador de datos"
+msgstr ""
 
 #. Default: The data controller is the European Agency for Safety and Health at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
 msgstr ""
-"El controlador de los datos es Andrew Smith, Agencia europea de seguridad y "
-"salud en el trabajo, Bilbao."
 
 #. Default: Conservation and processing of information
 #: src/euphorie/client/templates/conditions.pt:75
 msgid "conditions_conservation_header"
-msgstr "Conservación y procesamiento de la información"
+msgstr ""
 
 #. Default: We keep your data, which is inaccessible for external users, until
 #. you delete your account and your session(s).
 #: src/euphorie/client/templates/conditions.pt:77
 msgid "conditions_conservation_keep_data"
 msgstr ""
-"Mantenemos los datos inaccesibles a usuarios externos hasta que borra su "
-"cuenta y sus sesiones."
 
 #. Default: EU-OSHA stores data on our servers in Halle, Germany.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "EU-OSHA almacena los datos en sus servidores en Halle, Alemania."
+msgstr ""
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
 msgid "conditions_datareview_header"
-msgstr "Revisión y borrado de información"
+msgstr ""
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
 #. review, control and delete the information stored in your Account and in
@@ -1521,14 +1415,11 @@ msgstr "Revisión y borrado de información"
 #: src/euphorie/client/templates/conditions.pt:87
 msgid "conditions_datareview"
 msgstr ""
-"Puede utilizar los ajustes de la cuenta y las sesiones OiRA guardadas para "
-"revisar, controlar y borrar la información almacenada en su cuenta y en sus "
-"sesiones."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
 msgid "conditions_security_header"
-msgstr "Seguridad de la información"
+msgstr ""
 
 #. Default: We take appropriate security measures to protect against
 #. unauthorized access to or unauthorized alteration, disclosure or destruction
@@ -1540,72 +1431,59 @@ msgstr "Seguridad de la información"
 #: src/euphorie/client/templates/conditions.pt:93
 msgid "conditions_security"
 msgstr ""
-"Restringimos el acceso a la información personal al usuario autorizado. "
-"Tomamos las medidas de seguridad adecuadas para proteger frente a las "
-"alteraciones o accesos no autorizados, la divulgación de información "
-"confidencial o la destrucción de datos. Se incluyen revisiones internas de "
-"las prácticas de recopilación, almacenamiento y procesamiento de los datos, "
-"así como de las medidas de seguridad, incluida la codificación de las "
-"comunicaciones y medidas de seguridad físicas para impedir accesos no "
-"autorizados a los sistemas en los que se almacenan los datos personales. "
-"Ninguna persona puede acceder a los datos de ningún modo. Las direcciones IP "
-"no se guardan para que no se identifique a los usuarios finales a través de "
-"su acceso."
 
 #. Default: Contact information
 #: src/euphorie/client/templates/conditions.pt:97
 msgid "conditions_contact_header"
-msgstr "Información de contacto"
+msgstr ""
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
-msgstr "Información de contacto"
+msgstr ""
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
 msgid "agree_and_continue"
-msgstr "Aceptar y continuar"
+msgstr ""
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
 msgid "email_change_header"
-msgstr "Estimado usuario,"
+msgstr ""
 
 #. Default: Your email address and account name on ${url} will be changed to
 #. '${email}' when you click the confirmation link below.
 #: src/euphorie/client/templates/confirm-email.pt:8
 msgid "email_change_intro"
 msgstr ""
-"Su dirección de correo electrónico y el nombre de la cuenta en ${url} se "
-"cambiarán a '${email}' al hacer clic en el enlace de confirmación siguiente."
 
 #. Default: Please ignore this email if you didn't request for a change.
 #: src/euphorie/client/templates/confirm-email.pt:15
 msgid "email_change_epilogue"
-msgstr "Ignore este mensaje si no ha solicitado un cambio"
+msgstr ""
 
 #. Default: Error
 #: src/euphorie/client/templates/error.pt:17
 msgid "title_error"
-msgstr "Error"
+msgstr ""
 
 #. Default: Something bad happened.
 #: src/euphorie/client/templates/error.pt:19
 msgid "expl_error"
-msgstr "Ha ocurrido un error."
+msgstr ""
 
 #. Default: Not found
 #: src/euphorie/client/templates/error_notfound.pt:17
 msgid "title_error_notfound"
-msgstr "No encontrada"
+msgstr ""
 
 #. Default: The page you requested could not be found.
 #: src/euphorie/client/templates/error_notfound.pt:19
 msgid "expl_error_notfound"
-msgstr "La página solicitada no se ha encontrado."
+msgstr ""
 
 #. Default: You have indicated that there are possible risks in your
 #. organisation. During this evaluation phase you can assess the magnitude of
@@ -1617,15 +1495,13 @@ msgstr ""
 #. Default: action plan
 #: src/euphorie/client/templates/evaluation.pt:28
 msgid "help_skip_evaluation_link"
-msgstr "plan de acción"
+msgstr ""
 
 #. Default: You can also skip this phase and proceed directly to the ${link}
 #. phase.
 #: src/euphorie/client/templates/evaluation.pt:25
 msgid "help_skip_evaluation"
 msgstr ""
-"También puede saltarse esta fase y continuar directamente con la fase "
-"${link}."
 
 #. Default: There are no risks that need to be evaluated. You can proceed
 #. directly to the action plan phase.
@@ -1636,29 +1512,29 @@ msgstr ""
 #. Default: Run evaluation
 #: src/euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Realizar evaluación"
+msgstr ""
 
 #. Default: Go to action plan
 #: src/euphorie/client/templates/evaluation.pt:38
 msgid "label_jump_to_actionplan"
-msgstr "Ir al plan de acción"
+msgstr ""
 
 #. Default: Help
 #: src/euphorie/client/templates/help.pt:17
 msgid "title_help"
-msgstr "Ayuda"
+msgstr ""
 
 #. Default: Introduction
 #: src/euphorie/client/templates/help.pt:19
 #: src/euphorie/client/templates/help.pt:30
 msgid "help_header_introduction"
-msgstr "Introducción"
+msgstr ""
 
 #. Default: Authentication
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Autentificación"
+msgstr ""
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
@@ -1670,37 +1546,37 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:22
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_start"
-msgstr "Preparación"
+msgstr ""
 
 #. Default: Identification
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:42
 msgid "help_header_identification"
-msgstr "Identificación"
+msgstr ""
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_evaluation"
-msgstr "Evaluación"
+msgstr ""
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_actionplan"
-msgstr "Plan de acción"
+msgstr ""
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
 #: src/euphorie/client/templates/help.pt:51
 msgid "help_header_report"
-msgstr "Informe"
+msgstr ""
 
 #. Default: Final words
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_finalwords"
-msgstr "Palabras finales"
+msgstr ""
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -1727,23 +1603,23 @@ msgstr ""
 #. Default: You can print the ${list-of-risks}.
 #: src/euphorie/client/templates/identification.pt:25
 msgid "intro_identification"
-msgstr "Puede imprimir la ${list-of-risks}."
+msgstr ""
 
 #. Default: Start Risk Identification
 #: src/euphorie/client/templates/identification.pt:30
 msgid "label_start_identification"
-msgstr "Iniciar identificación de riesgos"
+msgstr ""
 
 #. Default: Welcome
 #: src/euphorie/client/templates/login.pt:18
 #: src/euphorie/client/templates/reminder.pt:17
 msgid "header_welcome"
-msgstr "Bienvenido"
+msgstr ""
 
 #. Default: request an email reminder
 #: src/euphorie/client/templates/login.pt:22
 msgid "request_an_email_reminder"
-msgstr "solicitar un mensaje recordatorio"
+msgstr ""
 
 #. Default: Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder} of your login
@@ -1751,14 +1627,11 @@ msgstr "solicitar un mensaje recordatorio"
 #: src/euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
 msgstr ""
-"El nombre de usuario y/o la contraseña se han introducido de forma "
-"incorrecta. Compruébelos y vuelva a intentarlo o "
-"${request_an_email_reminder} con la información de login."
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:29
 msgid "header_login"
-msgstr "Login"
+msgstr ""
 
 #. Default: Email address
 #: src/euphorie/client/templates/login.pt:31
@@ -1770,49 +1643,47 @@ msgstr ""
 #. Default: I forgot my password
 #: src/euphorie/client/templates/login.pt:32
 msgid "label_forgot_password"
-msgstr "Olvidé mi contraseña"
+msgstr ""
 
 #. Default: Password (${forgot_link})
 #: src/euphorie/client/templates/login.pt:32
 msgid "label_login_password"
-msgstr "Contraseña (${forgot_link})"
+msgstr ""
 
 #. Default: Keep me logged in.
 #: src/euphorie/client/templates/login.pt:35
 msgid "label_keep_logged_in"
-msgstr "Seguir conectado"
+msgstr ""
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:39
 msgid "label_login"
-msgstr "Login"
+msgstr ""
 
 #. Default: Change country/language
 #: src/euphorie/client/templates/login.pt:40
 msgid "label_change_country"
-msgstr "Cambiar país/idioma"
+msgstr ""
 
 #. Default: register
 #: src/euphorie/client/templates/login.pt:44
 msgid "label_register"
-msgstr "registrarse"
+msgstr ""
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: src/euphorie/client/templates/login.pt:44
 msgid "register_teaser"
-msgstr "¿No tiene una cuenta? ${register_link} primero."
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:45
 msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Su registro es privado. Todos sus datos se almacenarán para que sólo usted "
-"pueda acceder a ellos."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr "¿Qué es OiRA (Online Interactive Risk Assessment)?"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:50
 msgid ""
@@ -1820,42 +1691,34 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"La herramienta interactiva de evaluación de riesgos (OiRA) es una aplicación "
-"web que le permite realizar una evaluación de riesgos laborales en su lugar "
-"de trabajo."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
-msgstr "¿Quiénes son los destinatarios de OiRA? "
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"OiRA puede ser utilizada por todo aquel que quiera evaluar los riesgos "
-"relacionados con la seguridad y la salud que puedan existir en su lugar de "
-"trabajo."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show more…"
-msgstr "Mostrar más…"
+msgstr "Mai multe…"
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
-msgstr "Mostrar menos"
+msgstr "Mai puţine"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"La herramienta incluye un plan de acción adaptado a los requisitos "
-"específicos de la empresa."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
@@ -1863,18 +1726,14 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
-"No obstante, la herramienta ha sido especialmente concebida para ser "
-"utilizada por las empresas pequeñas: para apoyarlas en el proceso de evaluar "
-"los riesgos en sus lugares de trabajo y de documentar los resultados de la "
-"evaluación."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
-msgstr "¿Qué debo hacer?"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "There are four main stages to complete in the assessment process:"
-msgstr "El proceso de evaluación consta de cuatro etapas principales: "
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:69
 msgid ""
@@ -1882,8 +1741,6 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} Esta etapa da una visión general de la evaluación que va a "
-"realizar y le permite adaptarla  a la naturaleza específica de su empresa.  "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1893,12 +1750,6 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put it on hold to be answered at a later stage."
 msgstr ""
-"${identification} OiRA le mostrará una serie de peligros potenciales o "
-"problemas relacionados con la seguridad y la salud en su lugar de trabajo.  "
-"Al responder afirmativamente o negativamente a las proposiciones o preguntas "
-"propuestas,  estará seleccionando o excluyendo esos peligros o problemas.  "
-"También puede dejar alguna pregunta en suspenso (sin contestar) y darle "
-"respuesta más adelante."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1906,9 +1757,6 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} En esta etapa deberá determinar el nivel de riesgo asociado a "
-"cada uno de los puntos que identificó como «a tratar» en la etapa de "
-"«identificación»."
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1917,24 +1765,16 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} En la cuarta etapa de la evaluación deberá decidir las "
-"medidas que adoptará para abordar los riesgos identificados anteriormente "
-"así como los recursos que necesita.  Basándose en esta información, en la "
-"próxima etapa la herramienta elaborará automáticamente un informe. "
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
-msgstr "¿Cuánto tiempo dura el proceso?"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:77
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"No se puede calcular cuánto tiempo dura en general el proceso porque las "
-"herramientas varían en función de los sectores y de los países,  pero puede "
-"utilizar el tiempo del que disponga ahora y retomar la evaluación en otro "
-"momento en el punto en el que la interrumpió."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1945,35 +1785,29 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
-msgstr "¿Por qué debo registrarme?"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"Lo primero que deberá hacer cuando comience su evaluación de riesgos es "
-"crear una cuenta OiRA: un proceso sencillo y elemental."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Al estar registrado, puede conectarse en cualquier momento para continuar "
-"con la evaluación en curso o para comenzar otra nueva."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
-"Asegúrese de que dispone en todo momento de una evaluación impresa, precisa "
-"y actualizada."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
-msgstr "¿Necesito algún tipo de preparación previa?"
+msgstr ""
 
 #: src/euphorie/client/templates/login.pt:96
 msgid ""
@@ -1982,10 +1816,6 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Para comenzar a utilizar la herramienta, no necesita ningún tipo de "
-"preparación específica pero tómese su tiempo para pensar quién va a realizar "
-"la evaluación de riesgos, de qué manera van a estar implicados sus "
-"trabajadores en el proceso, etc."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -2034,7 +1864,7 @@ msgstr ""
 #. Default: The preview will be available at ${url}.
 #: src/euphorie/client/templates/preview.pt:23
 msgid "help_preview_url"
-msgstr "La vista previa estará disponible en ${url}."
+msgstr ""
 
 #. Default: Tailor the risk assessment to your organisation
 #: src/euphorie/client/templates/profile.pt:16
@@ -2057,7 +1887,7 @@ msgstr ""
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
 msgid "label_continue"
-msgstr "Continuar"
+msgstr ""
 
 #. Default: Publish survey
 #: src/euphorie/client/templates/publish.pt:15
@@ -2101,35 +1931,33 @@ msgstr ""
 #. Default: Privacy statement
 #: src/euphorie/client/templates/register.pt:33
 msgid "label_privacy_statement"
-msgstr "Declaración de privacidad"
+msgstr ""
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/reminder-email.pt:6
 msgid "reminder_email_header"
-msgstr "Estimado usuario,"
+msgstr ""
 
 #. Default: You have requested a password reminder for the OiRA website. Your
 #. login information is:
 #: src/euphorie/client/templates/reminder-email.pt:8
 msgid "reminder_email_intro"
 msgstr ""
-"Ha solicitado un recordatorio de contraseña para la página web OiRA. Su "
-"información de login es:"
 
 #. Default: Email
 #: src/euphorie/client/templates/reminder-email.pt:12
 msgid "reminder_email_login"
-msgstr "Correo electrónico"
+msgstr ""
 
 #. Default: Password
 #: src/euphorie/client/templates/reminder-email.pt:13
 msgid "reminder_email_password"
-msgstr "Contraseña"
+msgstr ""
 
 #. Default: Password reminder
 #: src/euphorie/client/templates/reminder.pt:25
 msgid "header_password_reminder"
-msgstr "Recordatorio de contraseña"
+msgstr ""
 
 #. Default: Reporting
 #: src/euphorie/client/templates/report.pt:17
@@ -2159,7 +1987,7 @@ msgstr ""
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
 msgid "button_timeline"
-msgstr "Editar"
+msgstr ""
 
 #. Default: Download
 #: src/euphorie/client/templates/report_actionplan.pt:26
@@ -2171,35 +1999,33 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:27
 #: src/euphorie/client/templates/report_identification.pt:25
 msgid "button_print"
-msgstr "Imprimir"
+msgstr ""
 
 #. Default: automatically saved
 #: src/euphorie/client/templates/report_actionplan.pt:32
 msgid "plan_report_intro_2_automatically_saved"
-msgstr "guardado automáticamente"
+msgstr ""
 
 #. Default: preparation step
 #: src/euphorie/client/templates/report_actionplan.pt:32
 msgid "plan_report_intro_2_preparation_step"
-msgstr "paso preparatorio"
+msgstr ""
 
 #. Default: Your answers and report were ${automatically_saved} and may be
 #. found back or deleted at any time via the ${preparation_step}.
 #: src/euphorie/client/templates/report_actionplan.pt:32
 msgid "plan_report_intro_2"
 msgstr ""
-"Sus respuestas e informes se han ${automatically_saved} y podrán recuperarse "
-"o borrarse en cualquier momento a través de ${preparation_step}."
 
 #. Default: Country
 #: src/euphorie/client/templates/report_actionplan.pt:40
 msgid "label_country"
-msgstr "País"
+msgstr ""
 
 #. Default: health and safety experts
 #: src/euphorie/client/templates/report_actionplan.pt:58
 msgid "referer_health_safety_export"
-msgstr "expertos de seguridad y salud"
+msgstr ""
 
 #. Default: low priority risk
 #: src/euphorie/client/templates/report_actionplan.pt:95
@@ -2255,40 +2081,36 @@ msgstr ""
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:17
-#, fuzzy
 msgid "button_add"
-msgstr "Cargar"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:39
 msgid ""
 "Select a standard solution. The main fields of this measure will be "
 "populated with the chosen solution."
 msgstr ""
-"Seleccione una solución estándar. Los campos principales de esta medida se "
-"rellenarán con la solución elegida."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
-msgstr "Medida ${index}"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr "Borrar esta medida"
+msgstr ""
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "button_delete_measure"
-msgstr "Restaurar los colores originales"
+msgstr ""
 
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:58
 msgid "label_add_measure"
-msgstr "Añadirr otra medida"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
-#, fuzzy
 msgid "Description"
-msgstr "Descripción"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
@@ -2334,9 +2156,8 @@ msgstr ""
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Contenido de página"
+msgstr ""
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
@@ -2353,9 +2174,8 @@ msgstr ""
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Contenido de página"
+msgstr ""
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
@@ -2368,9 +2188,8 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:153
 #: src/euphorie/client/templates/risk_evaluation.pt:124
 #: src/euphorie/client/templates/risk_identification.pt:39
-#, fuzzy
 msgid "label_comment"
-msgstr "País"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:206
 msgid ""
@@ -2575,7 +2394,7 @@ msgstr ""
 #. Default: Currently unknown
 #: src/euphorie/client/templates/risk_identification.pt:26
 msgid "label_unknown"
-msgstr "Login"
+msgstr ""
 
 #. Default: Session
 #: src/euphorie/client/templates/sessions.pt:18
@@ -2680,32 +2499,32 @@ msgstr ""
 #. Default: Status
 #: src/euphorie/client/templates/status.pt:17
 msgid "title_status"
-msgstr "Estado"
+msgstr ""
 
 #. Default: Questions answered per module
 #: src/euphorie/client/templates/status.pt:18
 msgid "header_questions_answered"
-msgstr "Preguntas respondidas por módulo"
+msgstr ""
 
 #. Default: ${count} questions were answersed
 #: src/euphorie/client/templates/status.pt:23
 msgid "status_answered"
-msgstr "Se han respondido ${count} preguntas"
+msgstr ""
 
 #. Default: ${count} answers indicated a risk
 #: src/euphorie/client/templates/status.pt:25
 msgid "status_risk"
-msgstr "${count} respuestas indicadas como riesgo"
+msgstr ""
 
 #. Default: ${count} questions were postponed
 #: src/euphorie/client/templates/status.pt:27
 msgid "status_postponed"
-msgstr "Se han pospuesto ${count} preguntas"
+msgstr ""
 
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
 msgid "label_select_new_session_in_survey"
-msgstr "Iniciar una nueva sesion para esta herramienta."
+msgstr ""
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
@@ -2721,12 +2540,12 @@ msgstr ""
 #. Default: Please verify if the profile is still accurate.
 #: src/euphorie/client/templates/updated.pt:24
 msgid "verify_profile"
-msgstr "Verifique si el perfil sigue siendo adecuado."
+msgstr ""
 
 #. Default: Update
 #: src/euphorie/client/templates/updated.pt:56
 msgid "label_accept update"
-msgstr "Actualizar"
+msgstr ""
 
 #. Default: Online interactive
 #: src/euphorie/client/templates/webhelpers.pt:24
@@ -2743,9 +2562,8 @@ msgid "Unvisited"
 msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:83
-#, fuzzy
 msgid "Postponed"
-msgstr "Se han pospuesto ${count} preguntas"
+msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
@@ -2770,41 +2588,41 @@ msgstr ""
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:136
 msgid "header_legal_references"
-msgstr "Referencias legales y de política"
+msgstr ""
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
-msgstr "El color especificado no es válido."
+msgstr ""
 
 #: src/euphorie/content/country.py:22
 msgid "Country grouping"
-msgstr "Grupo de país"
+msgstr ""
 
 #: src/euphorie/content/country.py:24
 msgid "Region"
-msgstr "Región"
+msgstr ""
 
 #: src/euphorie/content/country.py:25
 msgid "EU member state"
-msgstr "Miembro de la UE"
+msgstr ""
 
 #: src/euphorie/content/country.py:26
 msgid "EFTA country"
-msgstr "País EFTA"
+msgstr ""
 
 #: src/euphorie/content/country.py:27
 msgid "Candidate country"
-msgstr "País candidato"
+msgstr ""
 
 #: src/euphorie/content/country.py:29
 msgid "Potential candidate country"
-msgstr "País potencialmente candidato"
+msgstr ""
 
 #. Default: Introduction
 #: src/euphorie/content/help.py:15
 #: src/euphorie/content/templates/help_view.pt:15
 msgid "label_help_introduction"
-msgstr "Introducción"
+msgstr ""
 
 #. Default: Generic introduction for the client. This text is not associated
 #. with specific pages.
@@ -2815,9 +2633,8 @@ msgstr ""
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Autentificación"
+msgstr ""
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2828,9 +2645,8 @@ msgstr ""
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
-msgstr "Introducción"
+msgstr ""
 
 #. Default: Describe the session handling. This text is linked from the session
 #. overview page.
@@ -2841,9 +2657,8 @@ msgstr ""
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
-msgstr "Introducción"
+msgstr ""
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
@@ -2854,9 +2669,8 @@ msgstr ""
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
-msgstr "Iniciar identificación de riesgos"
+msgstr ""
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2867,9 +2681,8 @@ msgstr ""
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
-msgstr "Realizar evaluación"
+msgstr ""
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
@@ -2880,9 +2693,8 @@ msgstr ""
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
-msgstr "Plan de acción"
+msgstr ""
 
 #. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
@@ -2893,9 +2705,8 @@ msgstr ""
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
-msgstr "Informes"
+msgstr ""
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -2906,9 +2717,8 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
-msgstr "Palabras finales"
+msgstr ""
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -2921,7 +2731,7 @@ msgstr ""
 #: src/euphorie/content/profilequestion.py:52
 #: src/euphorie/content/solution.py:22
 msgid "label_module_description"
-msgstr "Descripción"
+msgstr ""
 
 #. Default: Include any relevant information that may be helpful for users.
 #: src/euphorie/content/module.py:40 src/euphorie/content/page.py:20
@@ -2933,7 +2743,7 @@ msgstr ""
 #. Default: This module is optional
 #: src/euphorie/content/module.py:48
 msgid "label_module_optional"
-msgstr "Este módulo es opcional"
+msgstr ""
 
 #. Default: Allow users to skip this module and everything inside it.
 #: src/euphorie/content/module.py:50
@@ -2943,7 +2753,7 @@ msgstr ""
 #. Default: Question
 #: src/euphorie/content/module.py:58
 msgid "label_module_question"
-msgstr "Pregunta"
+msgstr ""
 
 #. Default: The question to ask users if this module is optional. This has to
 #. be a yes/no question.
@@ -2956,7 +2766,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:171 src/euphorie/content/risk.py:182
 #: src/euphorie/content/risk.py:193
 msgid "label_image"
-msgstr "Archivo de imagen"
+msgstr ""
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and does not contain any special characters.
@@ -2965,15 +2775,13 @@ msgstr "Archivo de imagen"
 #: src/euphorie/content/risk.py:194 src/euphorie/content/sector.py:79
 msgid "help_image_upload"
 msgstr ""
-"Cargar una imagen. Asegúrese de que su imagen tiene el formato png, jpg o "
-"gif y que no contiene caracteres especiales."
 
 #. Default: Image caption
 #: src/euphorie/content/module.py:72 src/euphorie/content/risk.py:162
 #: src/euphorie/content/risk.py:178 src/euphorie/content/risk.py:189
 #: src/euphorie/content/risk.py:200
 msgid "label_caption"
-msgstr "Imagen"
+msgstr ""
 
 #. Default: Introduction action plan
 #: src/euphorie/content/module.py:76
@@ -2988,21 +2796,21 @@ msgstr ""
 
 #: src/euphorie/content/module.py:154
 msgid "Edit Module"
-msgstr "Editar módulo"
+msgstr ""
 
 #: src/euphorie/content/module.py:156
 msgid "Edit Submodule"
-msgstr "Editar submódulo"
+msgstr ""
 
 #. Default: Page content
 #: src/euphorie/content/page.py:28
 msgid "label_body"
-msgstr "Contenido de página"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
 msgid "label_profilequestion_question"
-msgstr "Pregunta"
+msgstr ""
 
 #. Default: This is must be formulated as a prompt to fill in multiple values.
 #: src/euphorie/content/profilequestion.py:44
@@ -3034,7 +2842,7 @@ msgstr ""
 #. Default: Description
 #: src/euphorie/content/risk.py:68
 msgid "label_description"
-msgstr "Descripción"
+msgstr ""
 
 #. Default: Describe the risk. Include any relevant information that may be
 #. helpful for users.
@@ -3046,30 +2854,29 @@ msgstr ""
 #: src/euphorie/content/risk.py:77
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Referencias legales y de política"
+msgstr ""
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:84
 msgid "header_identification"
-msgstr "Identificación"
+msgstr ""
 
 #. Default: Show `not applicable' option
 #: src/euphorie/content/risk.py:88
 msgid "label_show_notapplicable"
-msgstr "Mostrar opción `no aplicable'"
+msgstr ""
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
 #: src/euphorie/content/risk.py:90
 msgid "help_show_notapplicable"
 msgstr ""
-"Ofrecer una opción `no aplicable' además de las opciones estándar sí/no."
 
 #. Default: Risk type
 #: src/euphorie/content/risk.py:96
 #: src/euphorie/content/templates/risk_view.pt:35
 msgid "label_risk_type"
-msgstr "Tipo de riesgo"
+msgstr ""
 
 #. Default: 'Risk' is related to the workplace. 'Policy' is related to
 #. agreements, procedures and management decisions. It can be answered from
@@ -3087,39 +2894,39 @@ msgstr ""
 #. Default: Risk
 #: src/euphorie/content/risk.py:107
 msgid "risktype_risk"
-msgstr "Riesgo"
+msgstr ""
 
 #. Default: Policy
 #: src/euphorie/content/risk.py:109
 msgid "risktype_policy"
-msgstr "Política"
+msgstr ""
 
 #. Default: Evaluation method
 #: src/euphorie/content/risk.py:116
 #: src/euphorie/content/templates/risk_view.pt:43
 msgid "label_evaluation_method"
-msgstr "Método de evaluación"
+msgstr ""
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
 #: src/euphorie/content/risk.py:117
 msgid "help_evaluation_method"
-msgstr "Seleccionar 'estimado' si el cálculo no es necesario o no es posible."
+msgstr ""
 
 #. Default: Estimated
 #: src/euphorie/content/risk.py:122
 msgid "evalmethod_direct"
-msgstr "Estimado"
+msgstr ""
 
 #. Default: Calculated
 #: src/euphorie/content/risk.py:124
 msgid "evalmethod_calculated"
-msgstr "Calculado"
+msgstr ""
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:132
 #: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_default_priority"
-msgstr "Prioridad por defecto"
+msgstr ""
 
 #. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
@@ -3130,31 +2937,29 @@ msgstr ""
 #. Default: No default
 #: src/euphorie/content/risk.py:138
 msgid "no_default"
-msgstr "Ninguna opción por defecto"
+msgstr ""
 
 #. Default: Main image
 #: src/euphorie/content/risk.py:148
 msgid "header_main_image"
-msgstr "Imagen principal"
+msgstr ""
 
 #. Default: The main image will get a more prominent position in the client
 #. than the other images.
 #: src/euphorie/content/risk.py:149
 msgid "intro_main_image"
 msgstr ""
-"La imagen principal tendrá una posición más destacada para el cliente que "
-"las demás."
 
 #. Default: Secondary images
 #: src/euphorie/content/risk.py:166
 msgid "header_secondary_images"
-msgstr "Imágenes secundarias"
+msgstr ""
 
 #. Default: Default severity
 #: src/euphorie/content/risk.py:208 src/euphorie/content/risk.py:297
 #: src/euphorie/content/templates/risk_view.pt:53
 msgid "label_default_severity"
-msgstr "Gravedad por defecto"
+msgstr ""
 
 #. Default: Indicate the severity if this risk occurs.
 #: src/euphorie/content/risk.py:209 src/euphorie/content/risk.py:298
@@ -3166,94 +2971,90 @@ msgstr ""
 #: src/euphorie/content/risk.py:263 src/euphorie/content/risk.py:283
 #: src/euphorie/content/risk.py:302
 msgid "no default"
-msgstr "Ninguna opción por defecto"
+msgstr ""
 
 #. Default: Default frequency
 #: src/euphorie/content/risk.py:230 src/euphorie/content/risk.py:277
 #: src/euphorie/content/templates/risk_view.pt:55
 #: src/euphorie/content/templates/risk_view.pt:62
 msgid "label_default_frequency"
-msgstr "Frecuencia por defecto"
+msgstr ""
 
 #. Default: Indicate how often this risk occurs in a normal situation.
 #: src/euphorie/content/risk.py:231 src/euphorie/content/risk.py:278
 msgid "help_default_frequency"
 msgstr ""
-"Indicar con qué frecuencia se produce el riesgo en una situación normal."
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:256
 #: src/euphorie/content/templates/risk_view.pt:60
 msgid "label_default_probability"
-msgstr "Probabilidad por defecto"
+msgstr ""
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
 #: src/euphorie/content/risk.py:258
 msgid "help_default_probability"
 msgstr ""
-"Indicar la probabilidad de que ocurra este riesgo en una situación normal."
 
 #. Default: Almost never
 #: src/euphorie/content/risk.py:285
 msgid "frequency_almostnever"
-msgstr "Casi nunca"
+msgstr ""
 
 #. Default: Weak severity
 #: src/euphorie/content/risk.py:304
 msgid "effect_weak"
-msgstr "Gravedad leve"
+msgstr ""
 
 #. Default: Significant severity
 #: src/euphorie/content/risk.py:306
 msgid "effect_significant"
-msgstr "Gravedad importante"
+msgstr ""
 
 #. Default: High (very high) severity
 #: src/euphorie/content/risk.py:309
 msgid "effect_high"
-msgstr "Gravedad alta (muy alta)"
+msgstr ""
 
 #. Default: Evaluation
 #: src/euphorie/content/risk.py:318 src/euphorie/content/risk.py:331
 msgid "header_evaluation"
-msgstr "Evaluación"
+msgstr ""
 
 #. Default: You can specify how the risks priority is evaluated. For more
 #. details see the online manual.
 #: src/euphorie/content/risk.py:319 src/euphorie/content/risk.py:332
 msgid "intro_evaluation"
 msgstr ""
-"Puede especificar cómo se evalúa la prioridad de los riesgos. Para obtener "
-"más detalles consulte el manual online."
 
 #. Default: Contact name
 #: src/euphorie/content/sector.py:72
 msgid "label_contact_name"
-msgstr "Nombre de contacto"
+msgstr ""
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
 #: src/euphorie/content/templates/settings.pt:58
 msgid "label_logo"
-msgstr "Logotipo"
+msgstr ""
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
 #: src/euphorie/content/templates/settings.pt:41
 msgid "label_main_colour"
-msgstr "Color principal"
+msgstr ""
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
 #: src/euphorie/content/templates/settings.pt:50
 msgid "label_support_colour"
-msgstr "Color secundario"
+msgstr ""
 
 #. Default: You can not delete a sector that contains published surveys.
 #: src/euphorie/content/sector.py:261
 msgid "message_not_delete_published_sector"
-msgstr "No hay sectores para este país."
+msgstr ""
 
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
@@ -3276,12 +3077,12 @@ msgstr ""
 #. Default: Common solution
 #: src/euphorie/content/solution.py:59
 msgid "title_common_solution"
-msgstr "Solución habitual"
+msgstr ""
 
 #. Default: Version name
 #: src/euphorie/content/survey.py:52 src/euphorie/content/survey.py:180
 msgid "label_survey_title"
-msgstr "Nombre de la versión"
+msgstr ""
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
@@ -3293,7 +3094,7 @@ msgstr ""
 #: src/euphorie/content/survey.py:62
 #: src/euphorie/content/templates/survey_view.pt:30
 msgid "label_introduction"
-msgstr "Texto introductorio"
+msgstr ""
 
 #. Default: The introduction text is shown when starting a new survey session.
 #. If no introduction is provided here a standard text will be shown.Please
@@ -3306,7 +3107,7 @@ msgstr ""
 #. Default: Evaluation may be skipped
 #: src/euphorie/content/survey.py:74
 msgid "label_evaluation_optional"
-msgstr "label_evaluation_optional"
+msgstr ""
 
 #. Default: This option allows uses to skip the evaluation phase.
 #: src/euphorie/content/survey.py:76
@@ -3330,15 +3131,12 @@ msgstr ""
 #: src/euphorie/content/survey.py:91
 msgid "help_classification_code"
 msgstr ""
-"Un código identificador de este sector. Los códigos de clasificación los "
-"definen las entidades normativas nacionales y conforme a la revisión 2 de la "
-"norma NACE."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:246
 msgid "message_no_delete_published_survey"
-msgstr "Acción sin publicar cancelada."
+msgstr ""
 
 #. Default: You can not delete the only survey version.
 #: src/euphorie/content/survey.py:261
@@ -3348,7 +3146,7 @@ msgstr ""
 #. Default: Title
 #: src/euphorie/content/surveygroup.py:40
 msgid "label_title"
-msgstr "Título"
+msgstr ""
 
 #. Default: The title of this survey. This title is used in the survey overview
 #. in the clients.
@@ -3359,7 +3157,7 @@ msgstr ""
 #. Default: Evaluation algorithm
 #: src/euphorie/content/surveygroup.py:51
 msgid "label_survey_evaluation_algorithm"
-msgstr "Algoritmo de evaluación"
+msgstr ""
 
 #. Default: Standard three criteria
 #: src/euphorie/content/surveygroup.py:55
@@ -3370,12 +3168,12 @@ msgstr ""
 #. Default: Simplified two criteria
 #: src/euphorie/content/surveygroup.py:58
 msgid "french"
-msgstr "Dos criterios simplificados"
+msgstr ""
 
 #. Default: Standard
 #: src/euphorie/content/surveygroup.py:227
 msgid "survey_default_title"
-msgstr "Estándar"
+msgstr ""
 
 #. Default: This survey is now no longer available in the client.
 #: src/euphorie/content/surveygroup.py:262
@@ -3385,22 +3183,22 @@ msgstr ""
 #. Default: Cancelled unpublish action.
 #: src/euphorie/content/surveygroup.py:266
 msgid "message_unpublish_cancel"
-msgstr "Acción sin publicar cancelada."
+msgstr ""
 
 #. Default: Title of sector.
 #: src/euphorie/content/upload.py:73
 msgid "label_sector_title"
-msgstr "Título del sector"
+msgstr ""
 
 #. Default: If you do not specify a title it will be taken from the input file.
 #: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
-msgstr "Si no especifica un título se tomará del archivo de entrada."
+msgstr ""
 
 #. Default: Login name
 #: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:60
 msgid "label_login_name"
-msgstr "Nombre de login"
+msgstr ""
 
 #. Default: Title of imported survey.
 #: src/euphorie/content/upload.py:85 src/euphorie/content/upload.py:105
@@ -3410,7 +3208,7 @@ msgstr ""
 #. Default: If you do not specify a title it will be taken from the input.
 #: src/euphorie/content/upload.py:87 src/euphorie/content/upload.py:107
 msgid "help_upload_surveygroup_title"
-msgstr "Si no especifica un título se tomará del texto introducido."
+msgstr ""
 
 #. Default: Name for survey version
 #: src/euphorie/content/upload.py:93 src/euphorie/content/upload.py:113
@@ -3419,12 +3217,12 @@ msgstr ""
 
 #: src/euphorie/content/upload.py:95
 msgid "Standard"
-msgstr "Estándar"
+msgstr ""
 
 #. Default: XML file
 #: src/euphorie/content/upload.py:99 src/euphorie/content/upload.py:119
 msgid "label_upload_filename"
-msgstr "Archivo XML"
+msgstr ""
 
 #: src/euphorie/content/upload.py:115
 msgid "Survey import"
@@ -3436,12 +3234,12 @@ msgstr ""
 
 #: src/euphorie/content/upload.py:338
 msgid "Upload"
-msgstr "Cargar"
+msgstr ""
 
 #. Default: Please upload a valid XML file
 #: src/euphorie/content/upload.py:349 src/euphorie/content/upload.py:387
 msgid "error_invalid_xml"
-msgstr "Cargue un archivo XML válido"
+msgstr ""
 
 #. Default: Succesfully imported the survey
 #: src/euphorie/content/upload.py:353 src/euphorie/content/upload.py:391
@@ -3456,132 +3254,132 @@ msgstr ""
 #. Default: Upload
 #: src/euphorie/content/upload.py:373
 msgid "button_upload"
-msgstr "Cargar"
+msgstr ""
 
 #. Default: This login name is already taken.
 #: src/euphorie/content/user.py:34
 msgid "error_existing_login"
-msgstr "El nombre de login ya existe."
+msgstr ""
 
 #. Default: A login name may only consist of lowercase letters and numbers.
 #: src/euphorie/content/user.py:40
 msgid "error_invalid_login"
-msgstr "El nombre de login sólo puede tener minúsculas y números."
+msgstr ""
 
 #. Default: Name
 #: src/euphorie/content/user.py:52
 msgid "label_user_title"
-msgstr "Nombre"
+msgstr ""
 
 #. Default: Contact email address
 #: src/euphorie/content/user.py:56
 msgid "label_contact_email"
-msgstr "Dirección de correo electrónico de contacto"
+msgstr ""
 
 #. Default: Password
 #: src/euphorie/content/user.py:66
 #: src/euphorie/content/templates/settings.pt:79
 msgid "label_password"
-msgstr "Contraseña"
+msgstr ""
 
 #. Default: Account is locked
 #: src/euphorie/content/user.py:70
 msgid "label_account_locked"
-msgstr "La cuenta está bloqueada"
+msgstr ""
 
 #. Default: Account "${title}" has been locked.
 #: src/euphorie/content/user.py:233
 msgid "message_user_locked"
-msgstr "La cuenta \"${title}\" se ha bloqueado."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:237
 msgid "message_user_unlocked"
-msgstr "La cuenta \"${title}\" se ha desbloqueado."
+msgstr ""
 
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
-msgstr "Unión Europea"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
-msgstr "Resumen"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:29
 msgid "A short summary of the content."
-msgstr "Un breve resumen del contenido."
+msgstr ""
 
 #: src/euphorie/content/behaviour/uniqueid.py:40
 msgid "Identifier"
-msgstr "Identificador"
+msgstr ""
 
 #: src/euphorie/content/behaviour/uniqueid.py:41
 msgid "This is a unique identifier for this object."
-msgstr "Se trata de un identificador exclusivo del objeto."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
-msgstr "País"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
-msgstr "Una carpeta para todos los sectores de un país."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.countrymanager.xml:6
 msgid "Country manager"
-msgstr "Gestor de país"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.countrymanager.xml:7
 msgid "A manager for sectors in a country."
-msgstr "Un gestor de sectores en un país."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.documentation.xml:6
 msgid "Documentation"
-msgstr "Documentación"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.documentation.xml:7
 msgid "A folder for all documentation for a specific language."
-msgstr "Una carpeta para toda la documentación de un idioma específico."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.folder.xml:6
 msgid "Folder"
-msgstr "Carpeta"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.help.xml:7
 msgid "Online help"
-msgstr "Ayuda online"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.help.xml:8
 msgid "The help text for the client."
-msgstr "El texto de ayuda del cliente."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.module.xml:7
 msgid "Module"
-msgstr "Módulo"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is a grouping of risks"
-msgstr "Un módulo es un grupo de riesgos"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.page.xml:7
 msgid "Page"
-msgstr "Página"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.page.xml:8
 msgid "A page with text"
-msgstr "Una página con texto"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr "Pregunta de perfil"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
-msgstr "Riesgo"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:8
 msgid "A risk."
-msgstr "Un riesgo."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:7
 #: src/euphorie/content/templates/user_mgmt.pt:26
@@ -3591,15 +3389,14 @@ msgstr ""
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
 msgstr ""
-"Un sector es la organización nacional de un tipo específico de industria."
 
 #: src/euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
-msgstr "Carpeta de sectores"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
 msgid "A folder which can contain sectors."
-msgstr "Una carpeta que puede contener sectores."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.solution.xml:7
 msgid "Solution"
@@ -3615,7 +3412,7 @@ msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:8
 msgid "A version of a survey."
-msgstr "Una versión de un estudio."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
 msgid "Survey"
@@ -3623,32 +3420,30 @@ msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
 msgid "A survey."
-msgstr "Un estudio."
+msgstr ""
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid "Sector workflow"
-msgstr "Flujo de trabajo de sector"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
 "One-state workflow for sector objects, giving edit access to its contents to "
 "the sector user."
 msgstr ""
-"Flujo de trabajo de un estado para objetos de sector con acceso de edición a "
-"los contenidos para el usuario del sector."
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:17
 msgid "Active"
-msgstr "Activo"
+msgstr ""
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
 msgid "The One And Only state"
-msgstr "El único estado"
+msgstr ""
 
 #. Default: OiRA
 #: src/euphorie/content/templates/colour-preview.pt:51
 msgid "titld_tool"
-msgstr "OiRA"
+msgstr ""
 
 #. Default: Select a sector for which you would like to view or copy a survey.
 #: src/euphorie/content/templates/country_view.pt:15
@@ -3658,65 +3453,63 @@ msgstr ""
 #. Default: There are no sectors for this country.
 #: src/euphorie/content/templates/country_view.pt:18
 msgid "message_no_sectors"
-msgstr "No hay sectores para este país."
+msgstr ""
 
 #. Default: Country manager for ${country}.
 #: src/euphorie/content/templates/countrymanager_view.pt:15
 msgid "notice_country_manager"
-msgstr "Gestor de país para ${country}."
+msgstr ""
 
 #. Default: Email address
 #: src/euphorie/content/templates/countrymanager_view.pt:19
 msgid "email"
-msgstr "Dirección de correo electrónico"
+msgstr ""
 
 #. Default: Documentation
 #: src/euphorie/content/templates/documentation_view.pt:12
 msgid "title_country_documentation"
-msgstr "Documentación"
+msgstr ""
 
 #. Default: online client
 #: src/euphorie/content/templates/documentation_view.pt:15
 msgid "intro_documenation_client"
-msgstr "cliente online"
+msgstr ""
 
 #. Default: Here you can manage the documentation for the ${client}.
 #: src/euphorie/content/templates/documentation_view.pt:14
 msgid "intro_documenation"
-msgstr "Aquí puede gestionar la documentación para el ${client}."
+msgstr ""
 
 #. Default: appendix
 #: src/euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix_appendix"
-msgstr "apéndice"
+msgstr ""
 
 #. Default: Pages created in the ${appendix} folder are available via links in
 #. the footer of the online client.
 #: src/euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
-"Las páginas creadas en la carpeta ${appendix} están disponibles a través de "
-"los enlaces situados en el pie del cliente online."
 
 #. Default: online help
 #: src/euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help_online_help"
-msgstr "ayuda online"
+msgstr ""
 
 #. Default: The ${online_help} text can also be modified.
 #: src/euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help"
-msgstr "El texto ${online_help} también se puede modificar."
+msgstr ""
 
 #. Default: This folder is empty.
 #: src/euphorie/content/templates/folder_view.pt:17
 msgid "folder_no_children"
-msgstr "Esta carpeta está vacía."
+msgstr ""
 
 #. Default: Client help text
 #: src/euphorie/content/templates/help_view.pt:12
 msgid "title_client_help"
-msgstr "Texto de ayuda de cliente"
+msgstr ""
 
 #. Default: Information
 #: src/euphorie/content/templates/module_view.pt:22
@@ -3750,27 +3543,27 @@ msgstr ""
 #. Default: not applicable
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na_na"
-msgstr "no procede"
+msgstr ""
 
 #. Default: Show '${na}'
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "risk_show_na"
-msgstr "Mostrar '${na}"
+msgstr ""
 
 #. Default: Yes
 #: src/euphorie/content/templates/risk_view.pt:40
 msgid "yes"
-msgstr "Sí"
+msgstr ""
 
 #. Default: No
 #: src/euphorie/content/templates/risk_view.pt:41
 msgid "no"
-msgstr "No"
+msgstr ""
 
 #. Default: Default effect
 #: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_effect"
-msgstr "Efecto por defecto"
+msgstr ""
 
 #. Default: Standard solutions
 #: src/euphorie/content/templates/risk_view.pt:76
@@ -3801,12 +3594,12 @@ msgstr ""
 #. Default: You can also ${add_link}.
 #: src/euphorie/content/templates/sector_view.pt:31
 msgid "survey_list_footer"
-msgstr "Puede tambien ${add_link}."
+msgstr ""
 
 #. Default: Sectors
 #: src/euphorie/content/templates/sectorcontainer_view.pt:12
 msgid "title_sectors"
-msgstr "Sectores"
+msgstr ""
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
@@ -3817,28 +3610,28 @@ msgstr ""
 #. Default: Settings
 #: src/euphorie/content/templates/settings.pt:12
 msgid "header_settings"
-msgstr "Ajustes"
+msgstr ""
 
 #. Default: Please provide a description of your sector
 #: src/euphorie/content/templates/settings.pt:16
 msgid "label_sector_description"
-msgstr "Introduzca una descripción del sector"
+msgstr ""
 
 #. Default: Preview
 #: src/euphorie/content/templates/settings.pt:20
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
-msgstr "Vista previa"
+msgstr ""
 
 #. Default: Colour scheme
 #: src/euphorie/content/templates/settings.pt:27
 msgid "header_colour_scheme"
-msgstr "Programa de colores"
+msgstr ""
 
 #. Default: Restore to original colours
 #: src/euphorie/content/templates/settings.pt:30
 msgid "button_reset_colours"
-msgstr "Restaurar los colores originales"
+msgstr ""
 
 #: src/euphorie/content/templates/settings.pt:33
 #: src/euphorie/content/templates/settings.pt:60
@@ -3854,9 +3647,6 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:33
 msgid "help_sector_colours"
 msgstr ""
-"El color que seleccione aquí se aplicará sólo a la aplicación del cliente. "
-"Intente elegir colores con el suficiente contraste para que el texto de "
-"todos los botones sea legible."
 
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
@@ -3864,9 +3654,6 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:36
 msgid "help_colour_picker"
 msgstr ""
-"Utilice el lápiz de color para seleccionar los colores de su organización. "
-"Es mejor utilizar un color más oscuro para el color principal y otro más "
-"claro para el secundario."
 
 #. Default: The logo will appear on both the client side app that your user
 #. group will see as well as on this editor environment in the top left corner.
@@ -3876,26 +3663,21 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
 msgstr ""
-"El logotipo aparecerá tanto en la aplicación del cliente que verá su grupo "
-"de usuarios, como en este entorno del editor en la esquina superior "
-"izquierda. Asegúrese de que su imagen tenga el formato png, jpg o gif y de "
-"que no contenga caracteres especiales. El nuevo logotipo estará visible tras "
-"guardar los cambios."
 
 #. Default: Which logo you would like to display in the top left corner?
 #: src/euphorie/content/templates/settings.pt:62
 msgid "label_logo_selection"
-msgstr "¿Qué logotipo desea mostrar en la esquina superior izquierda?"
+msgstr ""
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:69
 msgid "logo_my_own"
-msgstr "Mi propio"
+msgstr ""
 
 #. Default: transparent
 #: src/euphorie/content/templates/settings.pt:75
 msgid "logo_instructions_transparent"
-msgstr "transparente"
+msgstr ""
 
 #. Default: You may get the best results if you upload a logo as a
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
@@ -3904,40 +3686,32 @@ msgstr "transparente"
 #: src/euphorie/content/templates/settings.pt:74
 msgid "logo_instructions"
 msgstr ""
-"Es posible que obtenga mejores resultados si carga un logotipo como archivo "
-"PNG ${transparent} de al menos 100 píxeles de altura. La carga de imágenes "
-"más grandes también es posible, el logotipo se reducirá automáticamente al "
-"tamaño correcto."
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
 #: src/euphorie/content/templates/settings.pt:81
 msgid "help_sector_password"
 msgstr ""
-"Esta es la contraseña que necesita para iniciar sesión en este entorno del "
-"editor."
 
 #. Default: Contact person
 #: src/euphorie/content/templates/settings.pt:87
 msgid "label_contact_person"
-msgstr "Persona de contacto"
+msgstr ""
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
 #: src/euphorie/content/templates/settings.pt:89
 msgid "help_sector_contactperson"
 msgstr ""
-"Indicar el nombre de la persona responsable de las herramientas OiRA de este "
-"sector."
 
 #. Default: Save changes
 #: src/euphorie/content/templates/settings.pt:98
 msgid "button_save_changes"
-msgstr "Guardar cambios"
+msgstr ""
 
 #: src/euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
-msgstr "Solución estándar"
+msgstr ""
 
 #. Default: The form will allow you to create a new survey revision.
 #: src/euphorie/content/templates/survey_add.pt:11
@@ -3947,7 +3721,7 @@ msgstr ""
 #. Default: Choose a base revision
 #: src/euphorie/content/templates/survey_add.pt:20
 msgid "label_survey_base"
-msgstr "Elegir una revisión base"
+msgstr ""
 
 #. Default: Create
 #: src/euphorie/content/templates/survey_add.pt:25
@@ -3978,15 +3752,13 @@ msgstr ""
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
-msgstr "Preguntas de perfil"
+msgstr ""
 
 #. Default: This survey has no profile questions or modules.
 #: src/euphorie/content/templates/survey_view.pt:35
-#, fuzzy
 msgid "no_profile_questions_or_modules"
-msgstr "Pregunta"
+msgstr ""
 
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
@@ -4047,7 +3819,7 @@ msgstr ""
 #. Default: Unpublish "${title}"
 #: src/euphorie/content/templates/unpublish.pt:12
 msgid "title_unpublish"
-msgstr "No publicar \"${title}"
+msgstr ""
 
 #. Default: Are you sure you want to unpublish this survey?
 #: src/euphorie/content/templates/unpublish.pt:19
@@ -4058,41 +3830,41 @@ msgstr ""
 #: src/euphorie/content/templates/unpublish.pt:23
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
 msgid "button_unpublish"
-msgstr "No publicar"
+msgstr ""
 
 #. Default: Manage users in ${country}
 #: src/euphorie/content/templates/user_mgmt.pt:12
 msgid "header_user_management"
-msgstr "Gestionar usuarios en ${country}"
+msgstr ""
 
 #. Default: Add new sector
 #: src/euphorie/content/templates/user_mgmt.pt:14
 msgid "button_add_sector"
-msgstr "Añadir nuevo sector"
+msgstr ""
 
 #. Default: Add country manager
 #: src/euphorie/content/templates/user_mgmt.pt:15
 msgid "button_add_country_manager"
-msgstr "Añadir gestor de país"
+msgstr ""
 
 #. Default: Sectors
 #: src/euphorie/content/templates/user_mgmt.pt:19
 msgid "header_sectors"
-msgstr "Sectores"
+msgstr ""
 
 #. Default: There are no sectors for this country.
 #: src/euphorie/content/templates/user_mgmt.pt:21
 msgid "country_no_sectors"
-msgstr "No hay sectores para este país."
+msgstr ""
 
 #: src/euphorie/content/templates/user_mgmt.pt:27
 #: src/euphorie/content/templates/user_mgmt.pt:68
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #: src/euphorie/content/templates/user_mgmt.pt:28
 msgid "Password"
-msgstr "Contraseña"
+msgstr ""
 
 #. Default: Edit
 #: src/euphorie/content/templates/user_mgmt.pt:40
@@ -4100,38 +3872,38 @@ msgstr "Contraseña"
 #: src/euphorie/deployment/tiles/templates/addbar.pt:9
 #: src/euphorie/deployment/tiles/templates/versions.pt:58
 msgid "button_edit"
-msgstr "Editar"
+msgstr ""
 
 #. Default: Lock
 #: src/euphorie/content/templates/user_mgmt.pt:41
 #: src/euphorie/content/templates/user_mgmt.pt:79
 msgid "button_lock"
-msgstr "Bloquear"
+msgstr ""
 
 #. Default: Unlock
 #: src/euphorie/content/templates/user_mgmt.pt:47
 #: src/euphorie/content/templates/user_mgmt.pt:80
 msgid "button_unlock"
-msgstr "Desbloquear"
+msgstr ""
 
 #. Default: Country managers
 #: src/euphorie/content/templates/user_mgmt.pt:59
 msgid "header_country_managers"
-msgstr "Gestores de país"
+msgstr ""
 
 #. Default: There are no country managers for this country.
 #: src/euphorie/content/templates/user_mgmt.pt:60
 msgid "country_no_managers"
-msgstr "No hay gestores de país para este país."
+msgstr ""
 
 #: src/euphorie/content/templates/user_mgmt.pt:67
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. Default: XML export
 #: src/euphorie/deployment/browser/sitemenu.py:37
 msgid "menu_export"
-msgstr "Exportación XML"
+msgstr ""
 
 #. Default: Import survey
 #: src/euphorie/deployment/browser/sitemenu.py:42
@@ -4141,32 +3913,32 @@ msgstr ""
 #. Default: Search
 #: src/euphorie/deployment/browser/templates/search.pt:10
 msgid "header_search"
-msgstr "Buscar"
+msgstr ""
 
 #. Default: Search
 #: src/euphorie/deployment/browser/templates/search.pt:17
 msgid "button_search"
-msgstr "Buscar"
+msgstr ""
 
 #. Default: Search results
 #: src/euphorie/deployment/browser/templates/search.pt:22
 msgid "header_search_results"
-msgstr "Resultados de la búsqueda"
+msgstr ""
 
 #. Default: No items found.
 #: src/euphorie/deployment/browser/templates/search.pt:24
 msgid "search_no_results"
-msgstr "No se han encontrado artículos."
+msgstr ""
 
 #. Default: ${number} results found.
 #: src/euphorie/deployment/browser/templates/search.pt:26
 msgid "search_result_intro"
-msgstr "${number} resultados encontrados."
+msgstr ""
 
 #. Default: Relevance: ${percentage}
 #: src/euphorie/deployment/browser/templates/search.pt:28
 msgid "search_result_relevance"
-msgstr "Relevancia: ${percentage}"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/addbar.py:18
 msgid "Submodule"
@@ -4181,33 +3953,33 @@ msgstr ""
 #: src/euphorie/deployment/tiles/tabs.py:57
 #: src/euphorie/deployment/tiles/tabs.py:70
 msgid "nav_usermanagement"
-msgstr "Gestión de usuarios"
+msgstr ""
 
 #. Default: Documents
 #: src/euphorie/deployment/tiles/tabs.py:63
 msgid "nav_documents"
-msgstr "Documentos"
+msgstr ""
 
 #. Default: Help
 #: src/euphorie/deployment/tiles/tabs.py:80
 msgid "nav_help"
-msgstr "Ayuda"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:11
 msgid "Add Module"
-msgstr "Agregar Módulo"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:13
 msgid "Add Submodule"
-msgstr "Agregar Submódulo"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:15
 msgid "Add Profile question"
-msgstr "Agregar Pregunta de perfil"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:17
 msgid "Add Risk"
-msgstr "Agregar Riesgo"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:19
 msgid "Add Solution"
@@ -4216,85 +3988,81 @@ msgstr ""
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
 msgid "title_toggle_navtree"
-msgstr "Mostrar versiones anteriores"
+msgstr ""
 
 #. Default: Toggle
 #: src/euphorie/deployment/tiles/templates/scripts.pt:15
 msgid "text_toggle_navtree"
-msgstr "Cambiar"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:9
 msgid "Regions"
-msgstr "Regiones"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:16
 msgid "EU Member States"
-msgstr "Estados miembro de la UE"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:23
 msgid "Candidate Countries"
-msgstr "Países candidatos"
+msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
 msgid "Potential Candidate Countries"
-msgstr "Posibles países candidatos"
+msgstr ""
 
 #. Default: Versions
 #: src/euphorie/deployment/tiles/templates/versions.pt:11
 msgid "portlet_header_versions"
-msgstr "Versiones"
+msgstr ""
 
 #. Default: Create a duplicate of the selected survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
-msgstr "Duplicada"
+msgstr ""
 
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
-msgstr "Duplicada"
+msgstr ""
 
 #. Default: Publish the selected survey live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
-msgstr "Publicada"
+msgstr ""
 
 #. Default: Remove this survey from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
-msgstr "No publicar \"${title}"
+msgstr ""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
 #: src/euphorie/deployment/tiles/templates/versions.pt:79
 msgid "label_current"
-msgstr "Actual"
+msgstr ""
 
 #. Default: Published
 #: src/euphorie/deployment/tiles/templates/versions.pt:48
 #: src/euphorie/deployment/tiles/templates/versions.pt:78
 msgid "label_published"
-msgstr "Publicada"
+msgstr ""
 
 #. Default: Current / Published
 #: src/euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
-msgstr "Actual/publicada"
+msgstr ""
 
 #. Default: Updated
 #: src/euphorie/deployment/tiles/templates/versions.pt:59
 msgid "button_updated"
-msgstr "Actualizada"
+msgstr ""
 
 #. Default: Start to write a new survey. You will be asked whether you want to
 #. start off with a copy of an existing survey.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
-msgstr "Evaluación"
+msgstr ""
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
@@ -4304,213 +4072,25 @@ msgstr ""
 #. Default: Legend
 #: src/euphorie/deployment/tiles/templates/versions.pt:76
 msgid "header_legend"
-msgstr "Leyenda"
+msgstr ""
 
 #. Default: ${label} Version that is currently online
 #: src/euphorie/deployment/tiles/templates/versions.pt:78
 msgid "legend_published"
-msgstr "${label} Versión actualmente online"
+msgstr ""
 
 #. Default: ${label} Version you are currently reviewing
 #: src/euphorie/deployment/tiles/templates/versions.pt:79
 msgid "legend_current"
-msgstr "${label} Versión que se está revisando"
+msgstr ""
 
 #. Default: Update
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "label_update"
-msgstr "Actualizar"
+msgstr ""
 
 #. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
 msgstr ""
-"${label} = Esta versión tiene cambios sin publicar. Haga clic en el icono de "
-"actualizar para publicar todos los cambios"
-
-#~ msgid "button_add_factory"
-#~ msgstr "Agregar ${typename}"
-
-#~ msgid "login_tooltip"
-#~ msgstr ""
-#~ "Su registro es privado. Todos sus datos se almacenarán para que sólo "
-#~ "usted pueda acceder a ellos."
-
-#~ msgid "login_whatis_oira_title"
-#~ msgstr "¿Qué es OiRA (Online Interactive Risk Assessment)?"
-
-#~ msgid "login_whatis_oira_text"
-#~ msgstr ""
-#~ "La herramienta interactiva de evaluación de riesgos (OiRA) es una "
-#~ "aplicación web que le permite realizar una evaluación de riesgos "
-#~ "laborales en su lugar de trabajo."
-
-#~ msgid "login_whois_oira_for_title"
-#~ msgstr "¿Quiénes son los destinatarios de OiRA? "
-
-#~ msgid "login_whois_oira_for_text_1"
-#~ msgstr ""
-#~ "OiRA puede ser utilizada por todo aquel que quiera evaluar los riesgos "
-#~ "relacionados con la seguridad y la salud que puedan existir en su lugar "
-#~ "de trabajo."
-
-#~ msgid "login_whois_oira_for_text_2"
-#~ msgstr ""
-#~ "No obstante, la herramienta ha sido especialmente concebida para ser "
-#~ "utilizada por las empresas pequeñas: para apoyarlas en el proceso de "
-#~ "evaluar los riesgos en sus lugares de trabajo y de documentar los "
-#~ "resultados de la evaluación."
-
-#~ msgid "login_whois_oira_for_text_3"
-#~ msgstr ""
-#~ "La herramienta incluye un plan de acción adaptado a los requisitos "
-#~ "específicos de la empresa."
-
-#~ msgid "login_what_todo_title"
-#~ msgstr "¿Qué debo hacer?"
-
-#~ msgid "login_what_todo_text_1"
-#~ msgstr "El proceso de evaluación consta de cuatro etapas principales: "
-
-#~ msgid "login_what_todo_text_2"
-#~ msgstr ""
-#~ "${preparation} Esta etapa da una visión general de la evaluación que va a "
-#~ "realizar y le permite adaptarla  a la naturaleza específica de su "
-#~ "empresa.  "
-
-#~ msgid "login_what_todo_text_3"
-#~ msgstr ""
-#~ "${identification} OiRA le mostrará una serie de peligros potenciales o "
-#~ "problemas relacionados con la seguridad y la salud en su lugar de "
-#~ "trabajo.  Al responder afirmativamente o negativamente a las "
-#~ "proposiciones o preguntas propuestas,  estará seleccionando o excluyendo "
-#~ "esos peligros o problemas.  También puede dejar alguna pregunta en "
-#~ "suspenso (sin contestar) y darle respuesta más adelante."
-
-#~ msgid "login_what_todo_text_4"
-#~ msgstr ""
-#~ "${evaluation} En esta etapa deberá determinar el nivel de riesgo asociado "
-#~ "a cada uno de los puntos que identificó como «a tratar» en la etapa de "
-#~ "«identificación»."
-
-#~ msgid "login_what_todo_text_5"
-#~ msgstr ""
-#~ "${action-plan} En la cuarta etapa de la evaluación deberá decidir las "
-#~ "medidas que adoptará para abordar los riesgos identificados anteriormente "
-#~ "así como los recursos que necesita.  Basándose en esta información, en la "
-#~ "próxima etapa la herramienta elaborará automáticamente un informe. "
-
-#~ msgid "login_how_long_title"
-#~ msgstr "¿Cuánto tiempo dura el proceso?"
-
-#~ msgid "login_how_long_text_1"
-#~ msgstr ""
-#~ "No se puede calcular cuánto tiempo dura en general el proceso porque las "
-#~ "herramientas varían en función de los sectores y de los países,  pero "
-#~ "puede utilizar el tiempo del que disponga ahora y retomar la evaluación "
-#~ "en otro momento en el punto en el que la interrumpió."
-
-#~ msgid "login_why_register_title"
-#~ msgstr "¿Por qué debo registrarme?"
-
-#~ msgid "login_why_register_text_1"
-#~ msgstr ""
-#~ "Lo primero que deberá hacer cuando comience su evaluación de riesgos es "
-#~ "crear una cuenta OiRA: un proceso sencillo y elemental."
-
-#~ msgid "login_why_register_text_2"
-#~ msgstr ""
-#~ "Al estar registrado, puede conectarse en cualquier momento para continuar "
-#~ "con la evaluación en curso o para comenzar otra nueva."
-
-#~ msgid "login_why_register_text_3"
-#~ msgstr ""
-#~ "Asegúrese de que dispone en todo momento de una evaluación impresa, "
-#~ "precisa y actualizada."
-
-#~ msgid "login_need_to_prepare_title"
-#~ msgstr "¿Necesito algún tipo de preparación previa?"
-
-#~ msgid "login_need_to_prepare_text"
-#~ msgstr ""
-#~ "Para comenzar a utilizar la herramienta, no necesita ningún tipo de "
-#~ "preparación específica pero tómese su tiempo para pensar quién va a "
-#~ "realizar la evaluación de riesgos, de qué manera van a estar implicados "
-#~ "sus trabajadores en el proceso, etc."
-
-#, fuzzy
-#~ msgid ""
-#~ "The basic architecture of an Online interactive Risk Assessment consists "
-#~ "of: profile questions (questions defining the company profile), modules "
-#~ "(and potentially sub-modules), and risks (positive statements). Profile "
-#~ "questions are used to determine whether particular modules apply to the "
-#~ "end user at all or whether they should be repeated a number of times. "
-#~ "Such questions are asked BEFORE starting the risk identification and "
-#~ "evaluation. If the end-user does not confirm that an optional profile "
-#~ "question is relevant the corresponding module will be skipped entirely. "
-#~ "If the end-user enters more than one option to a profile question then "
-#~ "the corresponding module will be repeated the specified number of times."
-#~ msgstr ""
-#~ "La arquitectura básica de una evaluación de riesgos interactiva online "
-#~ "consiste en: - preguntas de perfil (preguntas que definen el perfil de la "
-#~ "empresa) - módulos y posibles submódulos - riesgos (declaraciones "
-#~ "positivas) Las preguntas de perfil se utilizan para determinar si se "
-#~ "aplican módulos particulares al usuario final  (OPCIONAL) o si se deben "
-#~ "repetir un número de veces (REPETIBLES). Dichas preguntas se realizan "
-#~ "ANTES de iniciar la evaluación e identificación de riesgos. Si el usuario "
-#~ "final no confirma que una pregunta de perfil opcional es relevante "
-#~ "(activando la casilla), el módulo correspondiente se omitirá "
-#~ "completamente. Si el usuario final introduce más de una opción en una "
-#~ "pregunta de perfil repetible, el módulo correspondiente se repetirá el "
-#~ "número de veces especificado."
-
-#~ msgid "Unanswered"
-#~ msgstr "Se debe seguir registrando el riesgo."
-
-#~ msgid "Answered"
-#~ msgstr "Se debe seguir registrando el riesgo."
-
-#~ msgid "Preparation"
-#~ msgstr "Introducción"
-
-#~ msgid "Identification"
-#~ msgstr "Puede imprimir la ${list-of-risks}."
-
-#~ msgid "Evaluation"
-#~ msgstr ""
-#~ "Puede especificar cómo se evalúa la prioridad de los riesgos. Para "
-#~ "obtener más detalles consulte el manual online."
-
-#~ msgid "label_profile_type"
-#~ msgstr "Tipo"
-
-#~ msgid "profile_optional"
-#~ msgstr "Opcional"
-
-#~ msgid "profile_repeat"
-#~ msgstr "Repetible"
-
-#~ msgid "EFTA Countries"
-#~ msgstr "Países EFTA"
-
-#~ msgid "Potential Candidate EFTA Countries"
-#~ msgstr "Países EFTA posibles candidatos"
-
-#~ msgid "conditions_info_not_personal"
-#~ msgstr ""
-#~ "En ningún caso se emplearán datos personales para procesar los datos."
-
-#~ msgid "conditions_info_use_statistics"
-#~ msgstr ""
-#~ "Crear estadísticas mediante el uso de datos anónimos agregados de forma "
-#~ "exclusiva sobre los riesgos de un sector. Estas estadísticas se "
-#~ "transferirán exclusivamente a los desarrolladores de la herramienta."
-
-#~ msgid "conditions_info_use_develop"
-#~ msgstr ""
-#~ "Ofrecer, mantener, proteger y mejorar nuestros servicios y desarrollar "
-#~ "servicios nuevos."
-
-#~ msgid "reminder_email_footer"
-#~ msgstr "reminder_email_footer"

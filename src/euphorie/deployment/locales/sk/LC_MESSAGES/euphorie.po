@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-06-27 22:08+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1767,14 +1767,14 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show more…"
-msgstr ""
+msgstr "Zobraziť viac…"
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
-msgstr ""
+msgstr "Zobraziť menej"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."

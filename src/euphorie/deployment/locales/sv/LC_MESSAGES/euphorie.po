@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-02-27 16:24+0200\n"
+"PO-Revision-Date: 2013-06-27 22:08+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
 "Language: \n"
@@ -1804,14 +1804,14 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show more…"
-msgstr ""
+msgstr "Visa mer…"
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
 #: src/euphorie/client/templates/login.pt:80
 #: src/euphorie/client/templates/login.pt:89
 msgid "Show less…"
-msgstr ""
+msgstr "Visa mindre"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
