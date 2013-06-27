@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-06-27 22:04+0200\n"
+"PO-Revision-Date: 2013-06-27 22:13+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
 "Language: \n"
@@ -34,25 +34,25 @@ msgstr "Αριθμός υπαλλήλων"
 #: src/euphorie/client/company.py:27
 #: src/euphorie/client/templates/report_actionplan.pt:46
 msgid "employee_numbers_1_to_9"
-msgstr "1 έως 9 υπάλληλοι"
+msgstr "1 ως 9 εργαζόμενοι"
 
 #. Default: 10 to 49 employees
 #: src/euphorie/client/company.py:29
 #: src/euphorie/client/templates/report_actionplan.pt:47
 msgid "employee_numbers_10_to_49"
-msgstr "10 έως 49 υπάλληλοι"
+msgstr "10 ως 49 εργαζόμενοι"
 
 #. Default: 50 to 249 employees
 #: src/euphorie/client/company.py:31
 #: src/euphorie/client/templates/report_actionplan.pt:48
 msgid "employee_numbers_50_to_249"
-msgstr "50 έως 249 υπάλληλοι"
+msgstr "50 ως 249 εργαζόμενοι"
 
 #. Default: 250 or more employees
 #: src/euphorie/client/company.py:33
 #: src/euphorie/client/templates/report_actionplan.pt:49
 msgid "employee_numbers_250_or_more"
-msgstr "250 ή περισσότεροι υπάλληλοι"
+msgstr "250 ή περισσότεροι εργαζόμενοι"
 
 #. Default: The risk assessment was conducted by
 #: src/euphorie/client/company.py:39
@@ -80,7 +80,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:52
 #: src/euphorie/client/templates/report_company.pt:35
 msgid "label_referer"
-msgstr "Μέσω ποιου καναλιού μάθατε για αυτό το εργαλείο;"
+msgstr "Πληροφορηθήκατε για αυτό το εργαλείο από:"
 
 #. Default: an employers' organisation
 #: src/euphorie/client/company.py:58
@@ -127,7 +127,7 @@ msgstr "άλλο κανάλι"
 #: src/euphorie/client/company.py:80
 #: src/euphorie/client/templates/report_actionplan.pt:62
 msgid "label_workers_participated"
-msgstr "Προσκλήθηκαν εργαζόμενοι για να μετάσχουν στην αξιολόγηση κινδύνου"
+msgstr "Προσκλήθηκαν εργαζόμενοι για να μετάσχουν στην εκτίμηση κινδύνου:"
 
 #. Default: Yes
 #: src/euphorie/client/company.py:84
@@ -2242,11 +2242,11 @@ msgstr "Σύνταξη έκθεσης"
 #: src/euphorie/client/templates/report.pt:19
 msgid "report_intro"
 msgstr ""
-"Τώρα που έχετε ολοκληρώσει την αναγνώριση όλων των κινδύων στην επιχείρησή "
-"σας και έχετε καταρτίσει ένα σχέδιο δράσης, μπορείτε να δημιουργήσετε μια "
-"αναφορά με τα αποτελέσματά σας. Μπορείτε, εφόσον το επιθμείτε, να προσθέσετε "
-"ορισμένα πρόσθετα σχόλια που θα μπορούσαν να συμπεριληφθούν στην αναφορά στο "
-"παρακάτω πεδίο."
+"Τώρα που έχετε ολοκληρώσει την ταυτοποίηση των κινδύνων στην επιχείρησή σας "
+"και έχετε καταρτίσει ένα σχέδιο δράσης, μπορείτε να δημιουργήσετε μιαν "
+"αναφορά (έκθεση ΕΚ) στην οποία θα παρατίθενται όλα τα αποτελέσματά σας. "
+"Μπορείτε, αν θέλετε, να εισάγετε ορισμένα πρόσθετα σχόλια που εκτιμάτε ότι "
+"πρέπει να συμπεριλαμβάνονται σε αυτή την αναφορά, στο παρακάτω πεδίο."
 
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
@@ -3728,6 +3728,18 @@ msgstr "Ο λογαριασμός \"${title}\" έχει ξεκλειδωθεί."
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
 msgstr "Ευρωπαϊκή Ένωση "
+
+#: src/euphorie/content/utils.py:16
+msgid "Kosovo"
+msgstr ""
+
+#: src/euphorie/content/utils.py:17
+msgid "Montenegro"
+msgstr ""
+
+#: src/euphorie/content/utils.py:18
+msgid "Republic of Serbia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

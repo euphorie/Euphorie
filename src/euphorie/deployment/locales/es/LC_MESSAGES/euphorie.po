@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-06-27 22:09+0200\n"
+"PO-Revision-Date: 2013-06-27 22:13+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -3502,6 +3502,18 @@ msgstr "La cuenta \"${title}\" se ha desbloqueado."
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
 msgstr "Unión Europea"
+
+#: src/euphorie/content/utils.py:16
+msgid "Kosovo"
+msgstr ""
+
+#: src/euphorie/content/utils.py:17
+msgid "Montenegro"
+msgstr ""
+
+#: src/euphorie/content/utils.py:18
+msgid "Republic of Serbia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

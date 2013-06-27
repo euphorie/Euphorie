@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-06-12 12:58+0200\n"
-"PO-Revision-Date: 2013-06-27 22:06+0200\n"
+"PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3450,6 +3450,18 @@ msgstr "Paskyros \"${title}\" užblokavimas panaikintas."
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
 msgstr "Europos Sąjunga"
+
+#: src/euphorie/content/utils.py:16
+msgid "Kosovo"
+msgstr ""
+
+#: src/euphorie/content/utils.py:17
+msgid "Montenegro"
+msgstr ""
+
+#: src/euphorie/content/utils.py:18
+msgid "Republic of Serbia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

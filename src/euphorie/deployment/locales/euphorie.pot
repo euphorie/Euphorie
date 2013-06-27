@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-06-26 10:59+0200\n"
+"POT-Creation-Date: 2013-06-26 15:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3299,6 +3299,18 @@ msgstr ""
 
 #: src/euphorie/content/utils.py:11
 msgid "European Union"
+msgstr ""
+
+#: src/euphorie/content/utils.py:16
+msgid "Kosovo"
+msgstr ""
+
+#: src/euphorie/content/utils.py:17
+msgid "Montenegro"
+msgstr ""
+
+#: src/euphorie/content/utils.py:18
+msgid "Republic of Serbia"
 msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
