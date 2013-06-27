@@ -11,6 +11,7 @@ Changelog
 - Minor translation fixes and updates. #7830, #7766, #7810, #7829.
 - Made Kosovo, Montenegro and Republic of Serbia translatable,
   and added bulgarian translations per #7808.
+- Greek translation fixes #7704
 
 
 6.0.1 (2013-06-03)
