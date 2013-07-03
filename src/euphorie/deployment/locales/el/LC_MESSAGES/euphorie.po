@@ -2566,22 +2566,22 @@ msgstr "Διαρκώς"
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:48
 msgid "header_risk_effect"
-msgstr "Ποια είναι η σοβαρότητα επιπτώσεων της ζημιάς;"
+msgstr "Ποια είναι η σοβαρότητα των επιπτώσεων?"
 
 #. Default: Weak severity
 #: src/euphorie/client/templates/risk_evaluation.pt:50
 msgid "effect_injury_no_absence"
-msgstr "Μικρή σφοδρότητα"
+msgstr "Μικρή σοβαρότητα επιπτώσεων"
 
 #. Default: Significant severity
 #: src/euphorie/client/templates/risk_evaluation.pt:52
 msgid "effect_injury_with_absence"
-msgstr "Σημαντική σφοδρότητα"
+msgstr "Μέτρια σοβαρότητα επιπτώσεων"
 
 #. Default: High (very high) severity
 #: src/euphorie/client/templates/risk_evaluation.pt:54
 msgid "effect_permanent_damage"
-msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
+msgstr "Μεγάλη σοβαρότητα επιπτώσεων"
 
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:59
@@ -2679,7 +2679,7 @@ msgstr "Τακτικά "
 #. Default: Select the priority of this risk
 #: src/euphorie/client/templates/risk_evaluation.pt:108
 msgid "header_risk_priority"
-msgstr "Επιλέξτε την προτεραιότητα για αυτό τον κίνδυνο"
+msgstr "Επιλέξτε την επικινδυνότητα για αυτόν τον κίνδυνο"
 
 #. Default: Low
 #: src/euphorie/client/templates/risk_evaluation.pt:110
@@ -2691,7 +2691,7 @@ msgstr "Χαμηλή"
 #: src/euphorie/client/templates/risk_evaluation.pt:112
 #: src/euphorie/content/risk.py:141
 msgid "priority_medium"
-msgstr "Μέση"
+msgstr "Μέτρια"
 
 #. Default: High
 #: src/euphorie/client/templates/risk_evaluation.pt:114
@@ -4047,7 +4047,7 @@ msgstr "Μπορείτε επίσης να ${add_link}."
 #. Default: Sectors
 #: src/euphorie/content/templates/sectorcontainer_view.pt:12
 msgid "title_sectors"
-msgstr "Τομείς"
+msgstr "Κλάδοι"
 
 #. Default: Please choose a country of which you would like to view or copy a
 #. survey.
@@ -4325,7 +4325,7 @@ msgstr "Προσθήκη εθνικού διευθυντή"
 #. Default: Sectors
 #: src/euphorie/content/templates/user_mgmt.pt:19
 msgid "header_sectors"
-msgstr "Τομείς"
+msgstr "Κλάδοι"
 
 #. Default: There are no sectors for this country.
 #: src/euphorie/content/templates/user_mgmt.pt:21
