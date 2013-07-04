@@ -4315,12 +4315,12 @@ msgstr "Διαχείριση χρηστών στην ${country}"
 #. Default: Add new sector
 #: src/euphorie/content/templates/user_mgmt.pt:14
 msgid "button_add_sector"
-msgstr "Προσθήκη νέου τομέα"
+msgstr "Προσθήκη νέου κλάδου"
 
 #. Default: Add country manager
 #: src/euphorie/content/templates/user_mgmt.pt:15
 msgid "button_add_country_manager"
-msgstr "Προσθήκη εθνικού διευθυντή"
+msgstr "Προσθήκη εθνικού διαχειριστή"
 
 #. Default: Sectors
 #: src/euphorie/content/templates/user_mgmt.pt:19
@@ -4364,7 +4364,7 @@ msgstr "Ξεκλείδωμα"
 #. Default: Country managers
 #: src/euphorie/content/templates/user_mgmt.pt:59
 msgid "header_country_managers"
-msgstr "Εθνικοί διευθυντές"
+msgstr "Εθνικοί διαχειριστές"
 
 #. Default: There are no country managers for this country.
 #: src/euphorie/content/templates/user_mgmt.pt:60
