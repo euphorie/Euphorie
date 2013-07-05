@@ -28,7 +28,7 @@ msgstr "Η χώρα σας "
 #: src/euphorie/client/company.py:25
 #: src/euphorie/client/templates/report_actionplan.pt:44
 msgid "label_employee_numbers"
-msgstr "Αριθμός υπαλλήλων"
+msgstr "αριθμός εργαζομένων"
 
 #. Default: 1 to 9 employees
 #: src/euphorie/client/company.py:27
@@ -57,7 +57,7 @@ msgstr "250 ή περισσότεροι εργαζόμενοι"
 #. Default: The risk assessment was conducted by
 #: src/euphorie/client/company.py:39
 msgid "label_conductor"
-msgstr "Η αξιολόγηση κινδύνου πραγματοποιήθηκε από"
+msgstr "Η εκτίμηση κινδύνου πραγματοποιήθηκε από:"
 
 #. Default: own staff
 #: src/euphorie/client/company.py:42
