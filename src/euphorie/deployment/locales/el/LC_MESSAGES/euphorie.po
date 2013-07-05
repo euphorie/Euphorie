@@ -1924,11 +1924,14 @@ msgstr ""
 "ιδιαίτερες ανάγκες κάθε επιχείρησης."
 
 #: src/euphorie/client/templates/login.pt:59
+# Important: we need the translation to contain a single blank character.
+# If we leave this translation simply empty, the English default will be
+# displayed
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
-msgstr ""
+msgstr " "
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
@@ -2749,13 +2752,13 @@ msgstr "ή…"
 #: src/euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
 msgstr ""
-"Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω τομεακά εργαλεία"
+"Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω κλαδικά εργαλεία"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:58
 #: src/euphorie/client/templates/survey_sessions.pt:50
 msgid "label_session_title"
-msgstr "Εισάγετε έναν τίτλο για την Αξιολόγηση Κινδύνου"
+msgstr "Εισάγετε έναν τίτλο για την Εκτίμηση Κινδύνου σας"
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
