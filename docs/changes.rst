@@ -12,6 +12,8 @@ Changelog
 - Made Kosovo, Montenegro and Republic of Serbia translatable,
   and added bulgarian translations per #7808.
 - Greek translation fixes #7704
+- Commented out IE8 warning, until we have a solution for translating
+  it #7929 
 
 
 6.0.1 (2013-06-03)
