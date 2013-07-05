@@ -29,7 +29,7 @@ msgstr "Alterar país/idioma"
 #: src/euphorie/client/company.py:25
 #: src/euphorie/client/templates/report_actionplan.pt:44
 msgid "label_employee_numbers"
-msgstr "Número de funcionários"
+msgstr "Número de trabalhadores"
 
 #. Default: 1 to 9 employees
 #: src/euphorie/client/company.py:27
