@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-06-12 12:58+0200\n"
+"POT-Creation-Date: 2013-07-14 17:21+0200\n"
 "PO-Revision-Date: 2013-06-27 22:13+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,34 +220,38 @@ msgid "message_preview_success"
 msgstr ""
 
 #. Default: low priority risk
-#: src/euphorie/client/report.py:40
+#: src/euphorie/client/report.py:41
 msgid "report_priority_low"
 msgstr "alacsony prioritású kockázat"
 
 #. Default: medium priority risk
-#: src/euphorie/client/report.py:41
+#: src/euphorie/client/report.py:42
 msgid "report_priority_medium"
 msgstr "közepes prioritású kockázat"
 
 #. Default: high priority risk
-#: src/euphorie/client/report.py:42
+#: src/euphorie/client/report.py:43
 msgid "report_priority_high"
 msgstr "magas prioritású kockázat"
 
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
-#: src/euphorie/client/report.py:179
+#: src/euphorie/client/report.py:189
 #: src/euphorie/client/templates/report_actionplan.pt:164
 msgid "report_survey_revision"
 msgstr ""
 
+#: src/euphorie/client/report.py:202
+msgid "Page ${number} of ${total}"
+msgstr ""
+
 #. Default: Risks marked with [*] are present.
-#: src/euphorie/client/report.py:200
+#: src/euphorie/client/report.py:221
 msgid "report_survey_footer_risk_present"
 msgstr "A [*] jellel jelölt kockázatok találhatók meg."
 
 #. Default: You responded negatively to the above statement.
-#: src/euphorie/client/report.py:398 src/euphorie/client/report.py:676
+#: src/euphorie/client/report.py:419 src/euphorie/client/report.py:697
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:51
 #: src/euphorie/client/templates/webhelpers.pt:126
@@ -255,19 +259,19 @@ msgid "warn_risk_present"
 msgstr ""
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:404 src/euphorie/client/report.py:682
+#: src/euphorie/client/report.py:425 src/euphorie/client/report.py:703
 #: src/euphorie/client/templates/report_actionplan.pt:91
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
 msgstr "Ezt a kockázatot fel kell venni."
 
 #. Default: Identification report ${title}
-#: src/euphorie/client/report.py:422
+#: src/euphorie/client/report.py:443
 msgid "filename_report_identification"
 msgstr "Azonosítási jelentés ${title}"
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:478 src/euphorie/client/report.py:581
+#: src/euphorie/client/report.py:499 src/euphorie/client/report.py:602
 #: src/euphorie/client/templates/report_actionplan.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:45
 #: src/euphorie/client/templates/report_actionplan.pt:53
@@ -276,7 +280,7 @@ msgid "missing_data"
 msgstr "Nincs megadva"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:558
+#: src/euphorie/client/report.py:579
 msgid "plan_report_intro_header"
 msgstr "Bevezetés"
 
@@ -285,7 +289,7 @@ msgstr "Bevezetés"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:560
+#: src/euphorie/client/report.py:581
 #: src/euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_1"
 msgstr ""
@@ -296,142 +300,142 @@ msgstr ""
 "kell megadni."
 
 #. Default: Company details
-#: src/euphorie/client/report.py:585
+#: src/euphorie/client/report.py:606
 msgid "plan_report_company_header"
 msgstr "Vállalati adatok"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:636
+#: src/euphorie/client/report.py:657
 msgid "plan_report_plan_header"
 msgstr "Cselekvési terv"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: src/euphorie/client/report.py:689
+#: src/euphorie/client/report.py:710
 #: src/euphorie/client/templates/report_actionplan.pt:159
 #: src/euphorie/client/templates/webhelpers.pt:117
 msgid "top5_risk_not_present"
 msgstr ""
 
 #. Default: This is a
-#: src/euphorie/client/report.py:704
+#: src/euphorie/client/report.py:725
 msgid "report_priority"
 msgstr "Ez egy"
 
 #. Default: Measure
-#: src/euphorie/client/report.py:716
+#: src/euphorie/client/report.py:737
 msgid "header_measure_single"
 msgstr ""
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:720
+#: src/euphorie/client/report.py:741
 #: src/euphorie/client/templates/report_actionplan.pt:106
 msgid "header_measure"
 msgstr ""
 
 #. Default: Action plan:
-#: src/euphorie/client/report.py:734
+#: src/euphorie/client/report.py:755
 #: src/euphorie/client/templates/report_actionplan.pt:109
 msgid "report_measure_actionplan"
 msgstr ""
 
 #. Default: Prevention plan:
-#: src/euphorie/client/report.py:740
+#: src/euphorie/client/report.py:761
 #: src/euphorie/client/templates/report_actionplan.pt:113
 msgid "report_measure_preventionplan"
 msgstr ""
 
 #. Default: Requirements:
-#: src/euphorie/client/report.py:747
+#: src/euphorie/client/report.py:768
 #: src/euphorie/client/templates/report_actionplan.pt:117
 msgid "report_measure_requirements"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:757
+#: src/euphorie/client/report.py:778
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_responsible"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:764
+#: src/euphorie/client/report.py:785
 #: src/euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_start"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:774
+#: src/euphorie/client/report.py:795
 #: src/euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_responsible_and_end"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:784
+#: src/euphorie/client/report.py:805
 #: src/euphorie/client/templates/report_actionplan.pt:141
 msgid "report_measure_full"
 msgstr ""
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:796
+#: src/euphorie/client/report.py:817
 #: src/euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_start_only"
 msgstr ""
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:805
+#: src/euphorie/client/report.py:826
 #: src/euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_end_only"
 msgstr ""
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:813
+#: src/euphorie/client/report.py:834
 #: src/euphorie/client/templates/report_actionplan.pt:137
 msgid "report_measure_start_and_stop"
 msgstr ""
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:823
+#: src/euphorie/client/report.py:844
 #: src/euphorie/client/templates/report_actionplan.pt:145
 msgid "report_measure_budget"
 msgstr ""
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:838
+#: src/euphorie/client/report.py:859
 msgid "filename_report_actionplan"
 msgstr ""
 
 #. Default: Low
-#: src/euphorie/client/report.py:890
+#: src/euphorie/client/report.py:911
 msgid "label_timeline_priority_low"
 msgstr "Alacsony"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:891
+#: src/euphorie/client/report.py:912
 msgid "label_timeline_priority_medium"
 msgstr "Közepes"
 
 #. Default: High
-#: src/euphorie/client/report.py:892
+#: src/euphorie/client/report.py:913
 msgid "label_timeline_priority_high"
 msgstr "Magas"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:897
+#: src/euphorie/client/report.py:918
 #: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr ""
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:899
+#: src/euphorie/client/report.py:920
 #: src/euphorie/client/templates/risk_actionplan.pt:121
 msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:901
+#: src/euphorie/client/report.py:922
 #: src/euphorie/client/templates/risk_actionplan.pt:71
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
@@ -439,7 +443,7 @@ msgid "label_measure_action_plan"
 msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:905
+#: src/euphorie/client/report.py:926
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
@@ -447,56 +451,56 @@ msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Requirements
-#: src/euphorie/client/report.py:909 src/euphorie/content/solution.py:49
+#: src/euphorie/client/report.py:930 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:911
+#: src/euphorie/client/report.py:932
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr ""
 
 #. Default: Budget (in Euro)
-#: src/euphorie/client/report.py:914
+#: src/euphorie/client/report.py:935
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr ""
 
 #. Default: Section
-#: src/euphorie/client/report.py:916
+#: src/euphorie/client/report.py:937
 #, fuzzy
 msgid "label_section"
 msgstr "Képfelirat"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:918
+#: src/euphorie/client/report.py:939
 msgid "label_risk_number"
 msgstr "Kockázat száma"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:920
+#: src/euphorie/client/report.py:941
 msgid "report_timeline_risk_title"
 msgstr "Kockázat"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:922
+#: src/euphorie/client/report.py:943
 msgid "report_timeline_priority"
 msgstr "Prioritás"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:924
+#: src/euphorie/client/report.py:945
 msgid "report_timeline_comment"
 msgstr "Megjegyzések"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:939
+#: src/euphorie/client/report.py:960
 msgid "report_timeline_title"
 msgstr ""
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:972
+#: src/euphorie/client/report.py:993
 msgid "filename_report_timeline"
 msgstr "${title} ütemezése"
 
