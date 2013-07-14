@@ -6,6 +6,7 @@ import lxml.html
 import htmllaundry
 from rtfng.Elements import Document
 from rtfng.Elements import StyleSheet
+from rtfng.document.base import RawCode
 from rtfng.document.character import TEXT
 from rtfng.document.paragraph import Paragraph
 from rtfng.document.paragraph import Cell
@@ -43,6 +44,10 @@ PRIORITY_NAMES = {
 }
 
 
+# These are coded incorrectly in pyrtf-ng: the field name must be all caps
+PAGE_NUMBER   = RawCode(r'{\field{\fldinst PAGE}}')
+TOTAL_PAGES   = RawCode(r'{\field{\fldinst NUMPAGES}}')
+
 def createDocument(survey_session):
     from rtfng.Styles import TextStyle
     from rtfng.Styles import ParagraphStyle
@@ -70,6 +75,11 @@ def createDocument(survey_session):
     stylesheet.ParagraphStyles.append(ParagraphStyle(
         "Footer",
         style.Copy(), ParagraphPropertySet()))
+    pagenumber_style = ParagraphStyle("PageNumber", style.Copy())
+    pagenumber_style.SetBasedOn(stylesheet.ParagraphStyles.Footer)
+    pagenumber_style.SetParagraphPropertySet(
+            ParagraphPropertySet(alignment=ParagraphPropertySet.RIGHT))
+    stylesheet.ParagraphStyles.append(pagenumber_style)
 
     style.textProps.italic = False
     style.textProps.size = 36
@@ -186,9 +196,20 @@ def createSection(document, survey, survey_session, request):
     footer = Paragraph(
         document.StyleSheet.ParagraphStyles.Footer,
         "".join(["\u%s?" % str(ord(e)) for e in footer]))
+
     section = Section()
+    page_header = []
+    for part in t(_(u'Page ${number} of ${total}')).split():
+        if part == '${number}':
+            page_header.append(PAGE_NUMBER)
+        elif part == '${total}':
+            page_header.append(TOTAL_PAGES)
+        else:
+            page_header.append(part + u' ')
     section.Header.append(Paragraph(
         document.StyleSheet.ParagraphStyles.Footer, survey_session.title))
+    section.Header.append(Paragraph(
+        document.StyleSheet.ParagraphStyles.PageNumber, *page_header))
     section.Footer.append(footer)
     section.SetBreakType(section.PAGE)
     document.Sections.append(section)
