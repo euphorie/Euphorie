@@ -246,7 +246,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Pagina ${number} van ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:221
