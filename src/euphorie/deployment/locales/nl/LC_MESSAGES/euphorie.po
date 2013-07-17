@@ -3373,7 +3373,7 @@ msgstr "Standaard maatregel"
 #. Default: Version name
 #: src/euphorie/content/survey.py:52 src/euphorie/content/survey.py:180
 msgid "label_survey_title"
-msgstr "Titel"
+msgstr "Versie"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.

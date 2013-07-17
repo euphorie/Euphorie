@@ -46,6 +46,12 @@
     <subscriber handler=".login.SectorLoginHandler" />
 
     <adapter
+      for=".survey.ISurvey zope.schema.interfaces.IField"
+      factory=".survey.SurveyAttributeField"
+      
+      />
+
+    <adapter
       factory=".user.UserProvider"
       provides="Products.membrane.interfaces.user.IMembraneUserObject"
       />

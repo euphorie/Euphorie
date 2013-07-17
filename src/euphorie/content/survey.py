@@ -13,6 +13,7 @@ from Acquisition import aq_parent
 from ZODB.POSException import ConflictError
 from OFS.event import ObjectClonedEvent
 from zope.interface import implements
+from zope.component import adapts
 from zope.component import getMultiAdapter
 from zope.event import notify
 from zope import schema
@@ -37,6 +38,7 @@ from .fti import check_fti_paste_allowed
 from .interfaces import IQuestionContainer
 from .interfaces import ISurveyUnpublishEvent
 from .utils import StripMarkup
+from .datamanager import ParentAttributeField
 from .. import MessageFactory as _
 
 
@@ -95,6 +97,13 @@ class ISurvey(form.Schema, IBasic):
             required=False)
 
 
+
+class SurveyAttributeField(ParentAttributeField):
+    parent_mapping = {
+            'survey_title': 'title',
+    }
+
+
 class Survey(dexterity.Container):
     """A risk assessment survey.
 
@@ -125,6 +134,15 @@ class Survey(dexterity.Container):
             check_fti_paste_allowed(self, object)
 
     @property
+    def surveygroup_title(self):
+        import pdb ; pdb.set_trace()
+        return u'Oops'
+
+    @surveygroup_title.setter
+    def surveygroup_title(self, value):
+        import pdb ; pdb.set_trace
+        print value
+
     def hasProfile(self):
         """Check if this survey has any profile questions.
 
@@ -184,6 +202,17 @@ class ISurveyAddSchema(form.Schema):
             required=True)
 
 
+class ISurveyEditSchema(ISurvey):
+    survey_title = schema.TextLine(
+            title=_("label_title", default=u"Title"),
+            description=_("help_surveygroup_title",
+                default=u"The title of this survey. This title is used in "
+                        u"the survey overview in the clients."),
+            required=True)
+    form.order_before(survey_title="*")
+
+
+
 class AddForm(dexterity.AddForm):
     """Custom add form for :obj:`Survey` instances. This form is
     needlessly complicated: it should use a schema and a vocabulary
@@ -230,6 +259,15 @@ class AddForm(dexterity.AddForm):
         survey = self.copyTemplate(template, data["title"])
         self.immediate_view = survey.absolute_url()
         return survey
+
+
+class Edit(form.SchemaEditForm):
+    grok.context(ISurvey)
+    grok.require("cmf.ModifyPortalContent")
+    grok.layer(NuPloneSkin)
+    grok.name("edit")
+
+    schema = ISurveyEditSchema
 
 
 class Delete(actions.Delete):

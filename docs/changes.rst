@@ -4,8 +4,13 @@ Changelog
 6.0.2 (Unreleased)
 ------------------
 
+- Make it possible to edit the survey group title from a survey edit screen.
+  This addresses part of `TNO ticket 200
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/200>`_.
+
 - Add page number to RTF reports. This fixes 
   `TNO ticket 241 <https://code.simplon.biz/tracker/tno-euphorie/ticket/241>`_.
+
 - Fixed #7261: Typo in splash page
 - Added Bulgarian help headers, per #7317
 - Portuguese translations of the splash page. #7870.
