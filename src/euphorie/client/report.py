@@ -201,11 +201,12 @@ def createSection(document, survey, survey_session, request):
     page_header = []
     for part in t(_(u'Page ${number} of ${total}')).split():
         if part == '${number}':
-            page_header.append(PAGE_NUMBER)
+            page_header.extend(PAGE_NUMBER)
         elif part == '${total}':
             page_header.append(TOTAL_PAGES)
         else:
-            page_header.append(part + u' ')
+            page_header.append(part)
+        page_header.append(' ')
     section.Header.append(Paragraph(
         document.StyleSheet.ParagraphStyles.Footer, survey_session.title))
     section.Header.append(Paragraph(
