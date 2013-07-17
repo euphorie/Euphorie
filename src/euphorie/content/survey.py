@@ -101,6 +101,7 @@ class ISurvey(form.Schema, IBasic):
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {
             'survey_title': 'title',
+            'obsolete': 'obsolete',
     }
 
 
@@ -211,6 +212,15 @@ class ISurveyEditSchema(ISurvey):
             required=True)
     form.order_before(survey_title="*")
 
+    obsolete = schema.Bool(
+            title=_("label_survey_obsolete",
+                default=u"Obsolete survey"),
+            description=_("help_survey_obsolete",
+                default=u"This survey is obsolete; it has been retired or "
+                        u"replaced with another survey."),
+            default=False,
+            required=False)
+    form.order_before(obsolete="introduction")
 
 
 class AddForm(dexterity.AddForm):

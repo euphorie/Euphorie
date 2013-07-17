@@ -46,6 +46,15 @@ class ISurveyGroup(form.Schema, IBasic):
 
     form.omitted("description")
 
+    obsolete = schema.Bool(
+            title=_("label_survey_obsolete",
+                default=u"Obsolete survey"),
+            description=_("help_survey_obsolete",
+                default=u"This survey is obsolete; it has been retired or "
+                        u"replaced with another survey."),
+            default=False,
+            required=False)
+
     form.omitted(IEditForm, 'evaluation_algorithm')
     evaluation_algorithm = schema.Choice(
             title=_("label_survey_evaluation_algorithm",
@@ -67,6 +76,7 @@ class SurveyGroup(dexterity.Container):
 
     published = None
     evaluation_algorithm = u"kinney"
+    obsolete = False
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
