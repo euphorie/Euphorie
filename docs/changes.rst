@@ -4,6 +4,11 @@ Changelog
 6.0.2 (Unreleased)
 ------------------
 
+- Add an *obsolete* flag to survey groups. When a survey with this flag is set
+  is published it will be put into a new group of obsolete surveys in the
+  client.  This addresses part of `TNO ticket 200
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/200>`_.
+
 - Make it possible to edit the survey group title from a survey edit screen.
   This addresses part of `TNO ticket 200
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/200>`_.

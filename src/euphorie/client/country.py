@@ -60,17 +60,11 @@ class View(grok.View):
         result.sort(key=lambda s: s['modified'], reverse=True)
         return result
 
-    def surveys(self):
-        """Return a list of all available surveys for this country and current
-        language. For each survey a dictionary is returned with the following
-        keys:
+    def _updateSurveys(self):
+        self.surveys = []
+        self.obsolete_surveys = []
 
-        * `id`: unique identifier for the survey (unique within the country
-          only)
-        * `title`: title of the survey, includes name of the sector
-        """
         language = self.request.locale.id.language
-        surveys = []
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue
@@ -83,11 +77,16 @@ class View(grok.View):
                 if survey.language and survey.language != language and not \
                         survey.language.strip().startswith(language):
                     continue
-
-                surveys.append(dict(id="%s/%s" % (sector.id, survey.id),
-                                    title=survey.title))
-
-        return sorted(surveys, key=lambda s: s["title"])
+                info = {"id": "%s/%s" % (sector.id, survey.id),
+                        "title": survey.title}
+                if getattr(survey, 'obsolete', False):
+                    # getattr needed for surveys which were published before
+                    # the obsolete flag added.
+                    self.obsolete_surveys.append(info)
+                else:
+                    self.surveys.append(info)
+        self.surveys.sort(key=lambda s: s["title"])
+        self.obsolete_surveys.sort(key=lambda s: s["title"])
 
     def _NewSurvey(self, info):
         """Utility method to start a new survey session."""
@@ -116,13 +115,13 @@ class View(grok.View):
 
     def update(self):
         utils.setLanguage(self.request, self.context)
-
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             if reply["action"] == "new":
                 self._NewSurvey(reply)
             elif reply["action"] == "continue":
                 self._ContinueSurvey(reply)
+        self._updateSurveys()
 
 
 class DeleteSession(grok.CodeView):

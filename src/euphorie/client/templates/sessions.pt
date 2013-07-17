@@ -53,6 +53,9 @@
         <label><tal:span i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</tal:span> 
           <select name="survey">
             <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
+            <optgroup tal:condition="view/obsolete_surveys" label="Obsolete surveys" i18n:attributes="label">
+              <option tal:repeat="survey view/obsolete_surveys" value="${survey/id}">${survey/title}</option>
+            </optgroup>
           </select>
         </label>
         <label><tal:span i18n:translate="label_session_title">Enter a title for your Risk Assessment</tal:span>
