@@ -1,12 +1,15 @@
 Changelog
 =========
 
-6.0.2 (Unreleased)
-------------------
+6.1 - Unreleased
+----------------
 
-- Add an *obsolete* flag to survey groups. When a survey with this flag is set
-  is published it will be put into a new group of obsolete surveys in the
-  client.  This addresses part of `TNO ticket 200
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add a new *obsolete* flag to survey groups. When a survey with this flag is
+  set is published it will be put into a new group of obsolete surveys in the
+  client. This addresses part of `TNO ticket 200
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/200>`_.
 
 - Make it possible to edit the survey group title from a survey edit screen.
@@ -16,26 +19,41 @@ Changelog
 - Add page number to RTF reports. This fixes 
   `TNO ticket 241 <https://code.simplon.biz/tracker/tno-euphorie/ticket/241>`_.
 
-- Fixed #7261: Typo in splash page
-- Added Bulgarian help headers, per #7317
-- Portuguese translations of the splash page. #7870.
-- Translate label_keep_logged_in per #7823.
-- Minor translation fixes and updates. #7830, #7766, #7810, #7829.
-- Made Kosovo, Montenegro and Republic of Serbia translatable,
-  and added bulgarian translations per #7808.
-- Greek translation fixes #7704
-- Commented out IE8 warning, until we have a solution for translating
-  it #7929 
-- PT translation fixes #7934
+Bugfixes
+~~~~~~~~
+
+- Fixed a typo in the client splash page. OSHA ticket #7261.
+
+- Translation updates:
+
+  - Add Bulgarian help headers. OSHA ticket #7317.
+
+  - Add Portuguese translations of the splash page. OSHA ticket #7870.
+
+  - Translate ``label_keep_logged_in`` on the client login page. OSHA ticket #7823.
+
+  - Several minor translation fixes and updates. SOAH tickets #7830, #7766,
+    #7810 and #7829.
+
+  - Kosovo, Montenegro and Republic of Serbia are now translatable, and add
+    bulgarian translations. OSHA ticket #7808.
+
+  - Greek translation fixes. OSHA ticket #7704
+
+  - Portugese translation fixes. OSHA ticket #7934
+- Commented out the IE8 warning in the client until we have a solution for
+  translating it. OSHA ticket #7929 
 
 
-6.0.1 (2013-06-03)
-------------------
+6.0.1 - June 3, 2013
+--------------------
 
 - Changed tiles/AddBar to explicitly list every "Add" button with full label.
   Needed for languages where the object of "add" needs a different word form
-  than the nominative case, such as Lithuanian
+  than the nominative case, such as Lithuanian.
+
 - Include the top-level module in the downloadble action plan spreadsheet.
+
 - Ensure that end date cannot be before start date in the action plan.
 
 
