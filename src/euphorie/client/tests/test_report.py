@@ -190,25 +190,21 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         session = self._create_session(dbsession)
         # This first module should be ignored, it doesn't contain any risks
         session.addChild(model.Module(
-            session=session,
             zodb_path='1',
             module_id='1',
         ))
         # Between the next two modules, the first one (root-level) must be
         # returned.
         module = session.addChild(model.Module(
-            session=session,
-            zodb_path='1',
+            zodb_path='2',
             module_id='2',
         ))
         module = module.addChild(model.Module(
-            session=session,
-            zodb_path='1/2',
+            zodb_path='2/3',
             module_id='3',
         ))
         module.addChild(model.Risk(
-            session=session,
-            zodb_path='1/2/3',
+            zodb_path='2/3/4',
             risk_id='1',
             identification='no'
         ))

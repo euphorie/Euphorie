@@ -54,7 +54,10 @@ class SurveyTreeItem(BaseObject):
     sorted tree.
     """
     __tablename__ = "tree"
-    __table_args__ = (schema.UniqueConstraint("session_id", "path"), {})
+    __table_args__ = (schema.UniqueConstraint("session_id", "path"),
+                      schema.UniqueConstraint("session_id",
+                          "zodb_path", "profile_index"),
+                      {})
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(types.Integer(),
@@ -143,6 +146,7 @@ class SurveyTreeItem(BaseObject):
         item.depth = self.depth + 1
         item.path = (self.path and self.path or "") + "%03d" % index
         item.parent_id = self.id
+        item.profile_index = self.profile_index
         sqlsession.add(item)
         self.session.touch()
         return item

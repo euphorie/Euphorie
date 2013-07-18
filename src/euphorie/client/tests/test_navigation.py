@@ -32,12 +32,12 @@ class FindNextQuestionTests(DatabaseTests):
         survey.addChild(child)
         self.failUnless(navigation.FindNextQuestion(child, survey) is None)
 
-    def testQuestionAtSameModule(self):
+    def test_Question_at_same_level_as_module(self):
         (session, survey) = createSurvey()
         session.add(survey)
         child = model.Risk(title=u"Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
-        sister = model.Risk(title=u"Risk", risk_id="2", zodb_path="1")
+        sister = model.Risk(title=u"Risk", risk_id="2", zodb_path="2")
         survey.addChild(sister)
         self.failUnless(navigation.FindNextQuestion(child, survey) is sister)
 
@@ -378,15 +378,15 @@ class GetTreeDataTests(DatabaseTests):
         self.assertEqual(len(mod1_data["children"]), 0)
         self.assertEqual(mod1_data["leaf_module"], False)
 
-    def testListSiblingModulesOfParentIfRisk(self):
+    def test_list_sibling_modules_of_parent_if_risk(self):
         self.createSqlData()
         self.mod1.removeChildren()
         mod11 = self.mod1.addChild(model.Module(
             title=u"module 1.1", module_id="11", zodb_path="a/a"))
         mod12 = self.mod1.addChild(model.Module(
-            title=u"module 1.2", module_id="12", zodb_path="a/a"))
+            title=u"module 1.2", module_id="12", zodb_path="a/b"))
         q111 = mod11.addChild(model.Risk(
-            title=u"question 1.1.1", risk_id="111", zodb_path="a/a/a"))
+            title=u"question 1.1.1", risk_id="111", zodb_path="a/b/c"))
         data = navigation.getTreeData(self.request, q111)
         mod1_data = data["children"][0]
         self.assertEqual(len(mod1_data["children"]), 2)

@@ -145,15 +145,16 @@ class AddToTreeTests(DatabaseTests):
 
     def testContainerWithTitleAndProfile(self):
         # This is a test for #96
-        container = createContainer("1")
-        container["2"] = createContainer("2")
+        container = createContainer("2")
+        container["2"] = createContainer("3")
         AddToTree(self.root, container, [],
                 title=u"Top level title", profile_index=1)
         children = list(self.root.children())
         self.assertEqual(len(children), 1)
         child = children[0]
         self.assertEqual(child.title, u"Top level title")
-        self.assertEqual(child.profile_index, 1)
+        # Profile index is forced back to 0 since root has profile index 0
+        self.assertEqual(child.profile_index, 0)
 
     def test_item_with_description(self):
         question = createRisk("13")
