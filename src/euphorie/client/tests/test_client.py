@@ -30,6 +30,9 @@ class ViewTests(unittest.TestCase):
         from euphorie.client.country import View
 
         class Request:
+            environ = {'REQUEST_METHOD': 'GET'}
+            form = {}
+
             def __init__(self, language):
                 self.language = language
 
@@ -39,7 +42,8 @@ class ViewTests(unittest.TestCase):
                 raise AttributeError(key)
 
         view = View(country, Request(language))
-        return view.surveys()
+        view.update()
+        return view.surveys
 
     def test_surveys_NoSurveys(self):
         country = ClientCountry()
