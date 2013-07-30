@@ -2,20 +2,20 @@
 # Copyright (C) 2012 Syslab.com, GmbH
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-07-17 16:47+0200\n"
-"PO-Revision-Date: 2013-06-27 22:12+0200\n"
+"PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Default: Your country
@@ -213,7 +213,8 @@ msgstr ""
 msgid "button_preview"
 msgstr "Създаване на преглед"
 
-#. Default: Succesfully created a preview for the survey. It can be accessed at
+#. Default: Succesfully created a preview for the survey. It can be accessed
+#. at
 #. ${url} .
 #: src/euphorie/client/publish.py:268
 msgid "message_preview_success"
@@ -248,7 +249,7 @@ msgstr ""
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:221
 msgid "report_survey_footer_risk_present"
-msgstr ""
+msgstr "Рисковете, отбелязани със [*], са налични."
 
 #. Default: You responded negatively to the above statement.
 #: src/euphorie/client/report.py:419 src/euphorie/client/report.py:697
@@ -294,8 +295,8 @@ msgstr "Въведение"
 msgid "plan_report_intro_1"
 msgstr ""
 "Попълвайки списъка с въпросите, Вие извършихте оценка на риска. Тази оценка "
-"ще бъде използвана за създаване на план за действие. Напредъкът на този план "
-"за действие трябва да бъде обсъждан ежегодно и трябва да се пише малък "
+"ще бъде използвана за създаване на план за действие. Напредъкът на този план"
+" за действие трябва да бъде обсъждан ежегодно и трябва да се пише малък "
 "доклад за напредъка. Определени теми може да са били завършени и може би е "
 "необходимо да бъдат добавени нови теми."
 
@@ -309,7 +310,8 @@ msgstr "Данни за фирмата"
 msgid "plan_report_plan_header"
 msgstr "План за действие"
 
-#. Default: This risk is not present in your organisation, but since the sector
+#. Default: This risk is not present in your organisation, but since the
+#. sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
 #: src/euphorie/client/report.py:710
@@ -505,7 +507,7 @@ msgstr "Времева скала за ${title}"
 
 #: src/euphorie/client/risk.py:195 src/euphorie/client/risk.py:227
 msgid "Please provide the day of the month"
-msgstr ""
+msgstr "Посочете ден от месеца"
 
 #: src/euphorie/client/risk.py:197 src/euphorie/client/risk.py:204
 #: src/euphorie/client/risk.py:229 src/euphorie/client/risk.py:235
@@ -517,13 +519,12 @@ msgid "Please enter a year after 1900"
 msgstr "Моля, въведете година след 1900 г."
 
 #: src/euphorie/client/risk.py:218 src/euphorie/client/risk.py:249
-#, fuzzy
 msgid "Please enter a year before 2100"
-msgstr "Моля, въведете година след 1900 г."
+msgstr "Посочете година преди 2100 г."
 
 #: src/euphorie/client/risk.py:270
 msgid "Start date is not before end date"
-msgstr ""
+msgstr "Началната дата не е преди крайната дата"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -586,15 +587,16 @@ msgid "This email address is not available."
 msgstr "Този имейл адрес не е наличен."
 
 #. Default: Please confirm your new email address by clicking on the link in
-#. the email that will be sent in a few minutes to "${email}". Please note that
+#. the email that will be sent in a few minutes to "${email}". Please note
+#. that
 #. the new email address is also your new login name.
 #: src/euphorie/client/settings.py:247
 msgid "email_change_pending"
 msgstr ""
 "Моля, потвърдете новия си имейл адрес, като кликнете върху връзката в имейл "
 "съобщението, което ще бъде изпратено след няколко минути на \"${email}\". "
-"Моля, обърнете внимание, че новият имейл адрес представлява също и новото Ви "
-"име за вход."
+"Моля, обърнете внимание, че новият имейл адрес представлява също и новото Ви"
+" име за вход."
 
 #: src/euphorie/client/settings.py:281
 msgid "Your email address has been updated."
@@ -705,10 +707,10 @@ msgid "about_paragraph_1"
 msgstr ""
 "Опитът показва, че ${key}. Ето затова EU-OSHA разработи ${easy} (“OiRA” - "
 "онлайн интерактивна оценка на риска), която може да помогне на микро- и "
-"малки организации да внедрят ${step} – като се започне с ${identification} и "
-"${evaluation} на рисковете на работното място и се премине през вземане на "
-"решения относно ${preventive_actions} и предприемане на действия и се стигне "
-"до наблюдаване и ${reporting}."
+"малки организации да внедрят ${step} – като се започне с ${identification} и"
+" ${evaluation} на рисковете на работното място и се премине през вземане на "
+"решения относно ${preventive_actions} и предприемане на действия и се стигне"
+" до наблюдаване и ${reporting}."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -716,8 +718,8 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
-"Уеб приложението OiRA предлага достъп до секторните инструменти за оценка на "
-"риска, създадени и поддържани от секторните организации на национално ниво."
+"Уеб приложението OiRA предлага достъп до секторните инструменти за оценка на"
+" риска, създадени и поддържани от секторните организации на национално ниво."
 
 #. Default: Why the OiRA project
 #: src/euphorie/client/templates/about.pt:52
@@ -742,7 +744,8 @@ msgstr "микро- и малките предприятия имат някои
 #. organising prevention in the workplace, and hundreds of thousands of
 #. companies all over Europe assess their risks regularly. Nevertheless, there
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
-#. assessment and the adoption of a preventive policy in general which the OiRA
+#. assessment and the adoption of a preventive policy in general which the
+#. OiRA
 #. project aims to overcome.
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
@@ -750,11 +753,11 @@ msgstr ""
 "${agency} призовава за разработването на опростени инструменти, за да се "
 "подпомогне оценката на риска. От приемането на европейската рамкова "
 "директива през 1989 г., оценката на риска се превърна в познато понятие за "
-"организиране на превенцията на работното място и стотици хиляди фирми в цяла "
-"Европа редовно оценяват своите рискове. Въпреки това, съществуват достатъчно "
-"данни, за да бъде направено заключението, че ${smb} що се отнася до оценката "
-"на риска и приемането на превантивна политика като цяло, което проектът OiRA "
-"цели да преодолее."
+"организиране на превенцията на работното място и стотици хиляди фирми в цяла"
+" Европа редовно оценяват своите рискове. Въпреки това, съществуват "
+"достатъчно данни, за да бъде направено заключението, че ${smb} що се отнася "
+"до оценката на риска и приемането на превантивна политика като цяло, което "
+"проектът OiRA цели да преодолее."
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
@@ -771,8 +774,10 @@ msgstr "Фази на проекта"
 msgid "header_devel_phase"
 msgstr "Разработка и пилотна фаза – 2009-2011 г."
 
-#. Default: After the technical development of the tool in 2009, in 2010 (until
-#. the first half of 2011) the Agency is piloting the development and diffusion
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until
+#. the first half of 2011) the Agency is piloting the development and
+#. diffusion
 #. model at both EU level (working with the Sectoral Social Dialogue
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
@@ -783,8 +788,8 @@ msgstr ""
 "След техническата разработка на инструмента през 2009 г., през 2010 г. (до "
 "първата половина на 2011 г.) агенцията внедрява пилотно модела на "
 "разработване и разпространение, както на нивото на ЕС (работейки със "
-"секторните комитети за социален диалог), така и на нивото на страните-членки "
-"(с няколко страни-членки), като част от тестването на инструмента и "
+"секторните комитети за социален диалог), така и на нивото на страните-членки"
+" (с няколко страни-членки), като част от тестването на инструмента и "
 "разработването на подходящи услуги за поддръжка и ръководство."
 
 #. Default: Official launch of the project – September 2011
@@ -792,7 +797,8 @@ msgstr ""
 msgid "header_launch"
 msgstr "Официално стартиране на проекта – септември 2011 г."
 
-#. Default: The official launch of the tool is planned for September 2011, once
+#. Default: The official launch of the tool is planned for September 2011,
+#. once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
 #: src/euphorie/client/templates/about.pt:68
@@ -807,7 +813,8 @@ msgstr ""
 msgid "header_development_partners"
 msgstr "Партньори в разработването"
 
-#. Default: The OiRA project and its related web application has been developed
+#. Default: The OiRA project and its related web application has been
+#. developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
 #. financed by the Dutch government, was initially developed by TNO in
 #. collaboration with the employers organisation for small and medium-sized
@@ -843,8 +850,10 @@ msgstr "Холандия"
 msgid "Germany"
 msgstr "Германия"
 
-#. Default: The Agency was also given strategic and expert advice by a Steering
-#. Committee in the development and implementation of the OiRA project. Members
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
 #: src/euphorie/client/templates/about.pt:93
@@ -883,8 +892,8 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr ""
-"Секторните инструменти на OiRA могат да бъдат използвани безплатно от всички "
-"потребители."
+"Секторните инструменти на OiRA могат да бъдат използвани безплатно от всички"
+" потребители."
 
 #. Default: Help
 #: src/euphorie/client/templates/about.pt:111
@@ -926,7 +935,8 @@ msgstr ""
 "Като кликнете върху 'Изтриване на акаунт', Вашият акаунт ще бъде изтрит "
 "завинаги. Това действие е необратимо."
 
-#. Default: Please note that by deleting your account, also all your filled out
+#. Default: Please note that by deleting your account, also all your filled
+#. out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
@@ -948,8 +958,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
+"Please bear in mind that by changing the email address, your login name will"
+" also change."
 msgstr ""
 
 #. Default: Password
@@ -976,7 +986,8 @@ msgid "expl_actionplan_2"
 msgstr ""
 
 #. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks. There are no risks which need require any attention during this
+#. bottlenecks. There are no risks which need require any attention during
+#. this
 #. phase, so please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
@@ -1355,7 +1366,8 @@ msgstr ""
 msgid "header_terms"
 msgstr "Условия"
 
-#. Default: The terms and conditions have changed since your last visit. Please
+#. Default: The terms and conditions have changed since your last visit.
+#. Please
 #. read the new terms and conditions carefully before proceding.
 #: src/euphorie/client/templates/conditions.pt:21
 msgid "terms_changed"
@@ -1364,8 +1376,10 @@ msgstr ""
 "условия внимателно преди да продължите."
 
 #. Default: The OiRA (Online interactive Risk Assessment) application is an
-#. instrument put at your disposal by the European Agency for Safety and Health
-#. at Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. instrument put at your disposal by the European Agency for Safety and
+#. Health
+#. at Work (EU-OSHA). This Privacy Policy applies to all products, services
+#. and
 #. websites offered by EU-OSHA in the framework of the OiRA application.
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
@@ -1377,8 +1391,10 @@ msgstr ""
 "приложението OiRA."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
-#. the protection of individuals with regard to the processing of personal data
+#. 45/2001 of the European Parliament and of the Council of 18 December 2000
+#. on
+#. the protection of individuals with regard to the processing of personal
+#. data
 #. by the Community institutions and bodies and on the free movement of such
 #. data. Further details of the privacy policy of EU-OSHA and the full text of
 #. the Regulation can be accessed at: ${url}.
@@ -1443,8 +1459,8 @@ msgstr ""
 msgid "conditions_info_cookies"
 msgstr ""
 "Бисквитки – Когато посетите сайта и изберете език, ние изпращаме бисквитка "
-"до Вашия компютър или друго устройство, за да съхраним избрания от Вас език. "
-"Тази бисквитка остава във Вашия браузер, докато го затворите. Когато "
+"до Вашия компютър или друго устройство, за да съхраним избрания от Вас език."
+" Тази бисквитка остава във Вашия браузер, докато го затворите. Когато "
 "посетите сайта и влезете, ние изпращаме бисквитка с Вашата информация за "
 "вход, за да Ви държим влезнали в сайта. Тази бисквитка остава на Вашия "
 "компютър, докато затворите Вашия браузер. Повечето браузери са настроени "
@@ -1465,13 +1481,14 @@ msgstr ""
 "Информация за вход – Когато ползвате достъп до услугата, нашите сървъри "
 "автоматично записват информация, която Вашият браузер изпраща, когато "
 "посещавате даден уебсайт. Тези регистрационни файлове на сървърите може да "
-"включват информация, като например Вашата уеб заявка, Вашето взаимодествие с "
-"услуга, тип на браузера, език на интерфейса на браузера, датата и времето на "
-"Вашата заявка. IP адреси не се съхраняват на системата."
+"включват информация, като например Вашата уеб заявка, Вашето взаимодествие с"
+" услуга, тип на браузера, език на интерфейса на браузера, датата и времето "
+"на Вашата заявка. IP адреси не се съхраняват на системата."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
-#. services and develop new services. In any case no personal data will be used
+#. services and develop new services. In any case no personal data will be
+#. used
 #. for processing of data.
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
@@ -1486,7 +1503,8 @@ msgstr ""
 msgid "conditions_datacontroller_header"
 msgstr "Контрол на данни"
 
-#. Default: The data controller is the European Agency for Safety and Health at
+#. Default: The data controller is the European Agency for Safety and Health
+#. at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
@@ -1533,9 +1551,11 @@ msgid "conditions_security_header"
 msgstr "Сигурност на информацията"
 
 #. Default: We take appropriate security measures to protect against
-#. unauthorized access to or unauthorized alteration, disclosure or destruction
+#. unauthorized access to or unauthorized alteration, disclosure or
+#. destruction
 #. of data. These include internal reviews of our data collection, storage and
-#. processing practices and security measures, including appropriate encryption
+#. processing practices and security measures, including appropriate
+#. encryption
 #. of communication and physical security measures to guard against
 #. unauthorized access to systems where we store personal data. IP addresses
 #. are not saved so that end-users can not be identified through their access.
@@ -1548,9 +1568,9 @@ msgstr ""
 "събиране, съхранение и обработка на данните и на мерките ни за сигурност, "
 "включително криптирането на комуникациите и мерките за физическа сигурност, "
 "за предпазване срещу неупълномощен достъп до системите, където съхраняваме "
-"личните данни. Данните не са достъпни за никого, по никакъв начин. IP адреси "
-"не се запазват, така че крайните потребители не могат да бъда идентифицирани "
-"чрез техния достъп."
+"личните данни. Данните не са достъпни за никого, по никакъв начин. IP адреси"
+" не се запазват, така че крайните потребители не могат да бъда "
+"идентифицирани чрез техния достъп."
 
 #. Default: Contact information
 #: src/euphorie/client/templates/conditions.pt:97
@@ -1558,7 +1578,8 @@ msgid "conditions_contact_header"
 msgstr "Информация за контакт"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
-#. Any enquiries and complaints regarding our privacy policy can be sent to the
+#. Any enquiries and complaints regarding our privacy policy can be sent to
+#. the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
@@ -1566,8 +1587,8 @@ msgstr ""
 "EU-OSHA редовно прави преглед на спазването на тази политика за "
 "поверителност. Запитвания и оплаквания относно нашата политика за "
 "поверителност могат да бъдат изпратени до служителя за защита на данните "
-"(DPO) на EU-OSHA на адрес: ${dpo-email} или до европейския надзорен орган по "
-"защита на данните (EDPS) на адрес ${edps-email}."
+"(DPO) на EU-OSHA на адрес: ${dpo-email} или до европейския надзорен орган по"
+" защита на данните (EDPS) на адрес ${edps-email}."
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
@@ -1718,8 +1739,10 @@ msgid "intro_print_identification_1"
 msgstr ""
 
 #. Default: You can also distribute the list among the workers and invite them
-#. to participate in identifying the hazards/problems, evaluating the risks and
-#. deciding on preventive action. Their feedback can be taken into account when
+#. to participate in identifying the hazards/problems, evaluating the risks
+#. and
+#. deciding on preventive action. Their feedback can be taken into account
+#. when
 #. filling in this tool.
 #: src/euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
@@ -1836,11 +1859,12 @@ msgstr "За кого е предназначен инструментът OiRA?
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks"
+" that might exist in their workplace."
 msgstr ""
-"OiRA може да бъде използван от всеки желаещ да оцени свързаните със здравето "
-"и безопасността рискове, които е възможно да съществуват на работното място."
+"OiRA може да бъде използван от всеки желаещ да оцени свързаните със здравето"
+" и безопасността рискове, които е възможно да съществуват на работното "
+"място."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1864,14 +1888,14 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work"
+" and helping them to produce a documented risk assessment including an "
+"action plan tailored to the business's requirements."
 msgstr ""
 "OiRA е разработен със специалната задача да ги подпомага при оценяването на "
 "рисковете на работното място и при изготвянето на документирана оценка на "
-"риска, включително план за действие, съобразен с изискванията за съответната "
-"стопанска дейност."
+"риска, включително план за действие, съобразен с изискванията за съответната"
+" стопанска дейност."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
@@ -1888,23 +1912,23 @@ msgid ""
 "the specific nature of your business."
 msgstr ""
 "${preparation} На този етап преглеждате конкретната оценка, която ви "
-"предстои да започнете, и имате възможност допълнително да я приспособите към "
-"специфичния характер на извършваната от вас стопанска дейност. "
+"предстои да започнете, и имате възможност допълнително да я приспособите към"
+" специфичния характер на извършваната от вас стопанска дейност. "
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and"
+" thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA ви представя поредица от потенциални опасности или "
 "проблеми за здравето и безопасността, които е възможно да съществуват на "
-"Вашето работно място. Като отговаряте с „да“ или „не“ на твърденията/"
-"въпросите, потвърждавате дали въпросните опасности или проблеми са налице.  "
-"По Ваша преценка Вие може да подминавате въпроси и да отговаряте на по-късен "
-"етап. "
+"Вашето работно място. Като отговаряте с „да“ или „не“ на "
+"твърденията/въпросите, потвърждавате дали въпросните опасности или проблеми "
+"са налице.  По Ваша преценка Вие може да подминавате въпроси и да отговаряте"
+" на по-късен етап. "
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1923,8 +1947,8 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} На четвъртия етап от оценката можете да решите какви мерки ще "
-"предприемете по отношение на идентифицираните рискове и какви ресурси е "
+"${action-plan} На четвъртия етап от оценката можете да решите какви мерки ще"
+" предприемете по отношение на идентифицираните рискове и какви ресурси е "
 "вероятно да са Ви необходими.  Въз основа на тази информация на следващия "
 "етап автоматично се генерира доклад."
 
@@ -1945,8 +1969,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and"
+" then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "От друга страна, можете да отделите на оценката толкова време, с колкото "
@@ -1960,7 +1984,8 @@ msgstr "Защо да се регистрирам?"
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+"assessment is to create an OiRA account - this is a simple and quick "
+"process."
 msgstr ""
 "При започване на първата си оценка за риска ще бъдете помолени да си "
 "създадете OiRA акаунт – лесно и бързо действие."
@@ -1998,8 +2023,8 @@ msgstr ""
 "въпроси се използват, за да се определи дали определени модули се отнасят "
 "към крайния потребител въобще  (НЕ ЗАДЪЛЖИТЕЛНИ), или дали те трябва да се "
 "повтарят даден брой пъти (ПОВТАРЯЩИ СЕ). Такива въпроси се задават ПРЕДИ "
-"започване на определянето и оценяването на риска. Ако крайният потребител не "
-"потвърди, че даден незадължителен профилиращ въпрос е от значение (чрез "
+"започване на определянето и оценяването на риска. Ако крайният потребител не"
+" потвърди, че даден незадължителен профилиращ въпрос е от значение (чрез "
 "поставяне на отметка в кутийка), тогава съответният модул ще бъде пропуснат "
 "изцяло. Ако крайният потребител въведе повече от една опция за повтарящ се "
 "профилиращ въпрос, тогава съответният модул ще бъде повторен посочения брой "
@@ -2082,7 +2107,8 @@ msgstr "Продължаване"
 msgid "header_publish"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey? After publication the
+#. Default: Are you sure you want to publish this survey? After publication
+#. the
 #. survey will appear in the online client and be accessible by all users.
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
@@ -2253,7 +2279,8 @@ msgstr ""
 msgid "warn_fix_errors"
 msgstr ""
 
-#. Default: Please fill out your company details on this form. The data on this
+#. Default: Please fill out your company details on this form. The data on
+#. this
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
@@ -2332,8 +2359,10 @@ msgstr ""
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 
-#. Default: Although some measures do not cost any money, most do. The measures
-#. should therefore be budgeted for; include them in the annual budget round if
+#. Default: Although some measures do not cost any money, most do. The
+#. measures
+#. should therefore be budgeted for; include them in the annual budget round
+#. if
 #. necessary.
 #: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
@@ -2347,7 +2376,7 @@ msgstr ""
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 msgid "error_start_not_before_end"
-msgstr ""
+msgstr "Началната дата не е преди крайната дата"
 
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
@@ -2646,10 +2675,12 @@ msgstr ""
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
-#. ended the RA, the data will be stored too. For security reasons it is better
+#. ended the RA, the data will be stored too. For security reasons it is
+#. better
 #. to officially log out. Of course your must remember your e-mail address,
 #. password and the title that you have given the RA. You can start the stored
-#. RA again at a later date: select the title of the RA. You can save more than
+#. RA again at a later date: select the title of the RA. You can save more
+#. than
 #. one RA, provided you have given them different titles names.
 #: src/euphorie/client/templates/sessions.pt:62
 #: src/euphorie/client/templates/survey_sessions.pt:51
@@ -2670,7 +2701,8 @@ msgstr "Запознати ли сте с всички рискове?"
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
-#. exposed to hazardous substances? A risk assessment helps you to define these
+#. exposed to hazardous substances? A risk assessment helps you to define
+#. these
 #. risks and tackle them head on. A risk assessment consists of two parts: a
 #. <dynamic element> with all the risks to your company and an <dynamic
 #. element> to deal with them. These two components allow you to limit the
@@ -2680,11 +2712,11 @@ msgstr "Запознати ли сте с всички рискове?"
 msgid "intro_risk_aware"
 msgstr ""
 "Включително рисковете за Вашите служители и оборудване? Какво би станало, "
-"ако настъпи злополука на една от машините? Какво се случва, ако работник или "
-"служител е изложен на въздействието на опасни вещества? Оценката на риска Ви "
-"помага за идентифициране на тези рискове и за справяне с пораждащите ги "
-"причини. Оценката на риска се състои основно от две части: <dynamic element> "
-"с всички рискове във вашето предприятие, както и <dynamic element> с "
+"ако настъпи злополука на една от машините? Какво се случва, ако работник или"
+" служител е изложен на въздействието на опасни вещества? Оценката на риска "
+"Ви помага за идентифициране на тези рискове и за справяне с пораждащите ги "
+"причини. Оценката на риска се състои основно от две части: <dynamic element>"
+" с всички рискове във вашето предприятие, както и <dynamic element> с "
 "подробности за това как да се справите с тези рискове. Тези два компонента "
 "Ви дават възможност да ограничите рисковете за Вашите служители и за "
 "предприятието, а следователно и финансовия риск."
@@ -2695,7 +2727,8 @@ msgid "header_not_complicated"
 msgstr "Оценката не е сложна."
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA is important. So important that the government has made it compulsory for
+#. RA is important. So important that the government has made it compulsory
+#. for
 #. almost all entrepreneurs with employees.
 #: src/euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
@@ -2774,20 +2807,19 @@ msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:82
 msgid "Unvisited"
-msgstr ""
+msgstr "Непосетен"
 
 #: src/euphorie/client/templates/webhelpers.pt:83
-#, fuzzy
 msgid "Postponed"
-msgstr "${count} въпроса бяха отложени"
+msgstr "Отложен"
 
 #: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
-msgstr ""
+msgstr "Рискът не е наличен"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
 msgid "Risk present"
-msgstr ""
+msgstr "Рискът е наличен"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:94
@@ -2864,7 +2896,8 @@ msgstr ""
 msgid "label_help_sessions"
 msgstr "Как Вие да извършите оценка на риска"
 
-#. Default: Describe the session handling. This text is linked from the session
+#. Default: Describe the session handling. This text is linked from the
+#. session
 #. overview page.
 #: src/euphorie/content/help.py:33
 msgid "help_sessions"
@@ -2886,7 +2919,7 @@ msgstr ""
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
 msgid "label_help_identification"
-msgstr "Определяне"
+msgstr "2. Идентифициране"
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2913,7 +2946,8 @@ msgstr ""
 msgid "label_help_actionplan"
 msgstr "План за действие"
 
-#. Default: Document the action plan phase. This information is linked from all
+#. Default: Document the action plan phase. This information is linked from
+#. all
 #. action plan related pages
 #: src/euphorie/content/help.py:66
 msgid "help_actionplan"
@@ -2922,9 +2956,8 @@ msgstr ""
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
-msgstr "Доклади"
+msgstr "5. Доклад"
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -3008,7 +3041,8 @@ msgstr "Описание на изображение"
 msgid "label_solution_direction"
 msgstr ""
 
-#. Default: This information will be shown to users when they enter this module
+#. Default: This information will be shown to users when they enter this
+#. module
 #. while working on the action plan.
 #: src/euphorie/content/module.py:78
 msgid "help_solution_direction"
@@ -3150,7 +3184,8 @@ msgstr "Изчислен"
 msgid "label_default_priority"
 msgstr "Приоритет по подразбиране"
 
-#. Default: You can help the user by selecting a default priority. The user can
+#. Default: You can help the user by selecting a default priority. The user
+#. can
 #. still change the priority.
 #: src/euphorie/content/risk.py:133
 msgid "help_default_priority"
@@ -3352,7 +3387,8 @@ msgstr ""
 msgid "label_classification_code"
 msgstr ""
 
-#. Default: A code identifying this sector. Classification codes are defined by
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
 #. national standards bodies and based on revision 2 of the NACE standard.
 #: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
@@ -3366,7 +3402,8 @@ msgstr ""
 msgid "label_title"
 msgstr "Име"
 
-#. Default: The title of this survey. This title is used in the survey overview
+#. Default: The title of this survey. This title is used in the survey
+#. overview
 #. in the clients.
 #: src/euphorie/content/survey.py:209 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
@@ -3432,7 +3469,8 @@ msgstr "Отменено действието по снемане от публ�
 msgid "label_sector_title"
 msgstr "Име на сектор."
 
-#. Default: If you do not specify a title it will be taken from the input file.
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
 #: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
 msgstr "Ако не посочите име, то ще бъде взето от файла за въвеждане."
@@ -3573,7 +3611,7 @@ msgstr "Това е уникален идентификатор за този о
 
 #: src/euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
-msgstr "Страна"
+msgstr "Държава"
 
 #: src/euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
@@ -3682,8 +3720,8 @@ msgstr "Работен поток на сектор"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Работен поток с едно състояние за обектите на сектора, даващ достъп за "
 "редактиране на съдържанието на потребителя на сектора."
@@ -3746,8 +3784,8 @@ msgstr "приложение"
 #: src/euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
-"Страници, създадени в папката ${appendix} са достъпни чрез връзките в долния "
-"колонтитул на онлайн клиента."
+"Страници, създадени в папката ${appendix} са достъпни чрез връзките в долния"
+" колонтитул на онлайн клиента."
 
 #. Default: online help
 #: src/euphorie/content/templates/documentation_view.pt:22
@@ -3915,14 +3953,16 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:36
 msgid "help_colour_picker"
 msgstr ""
-"Моля, използвайте избирачите за цветове по-долу, за да изберете цветовете на "
-"Вашата организация. За най-добри резултати използвайте по-тъмен цвят за "
+"Моля, използвайте избирачите за цветове по-долу, за да изберете цветовете на"
+" Вашата организация. За най-добри резултати използвайте по-тъмен цвят за "
 "главния цвят и по-светъл цвят за поддържащия цвят."
 
 #. Default: The logo will appear on both the client side app that your user
-#. group will see as well as on this editor environment in the top left corner.
+#. group will see as well as on this editor environment in the top left
+#. corner.
 #. Make sure your image is of format png, jpg or gif and does not contain any
-#. special characters. The new logo will only become visible after you've saved
+#. special characters. The new logo will only become visible after you've
+#. saved
 #. your changes.
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
@@ -3955,8 +3995,8 @@ msgstr "прозрачен"
 #: src/euphorie/content/templates/settings.pt:74
 msgid "logo_instructions"
 msgstr ""
-"Можете да получите най-добрите резултати ако качите лого като ${transparent} "
-"PNG файл с най-малко 100 пиксела височина. Качването на по-големи "
+"Можете да получите най-добрите резултати ако качите лого като ${transparent}"
+" PNG файл с най-малко 100 пиксела височина. Качването на по-големи "
 "изображения е приемливо, но логото ще бъде скалирано надолу до правилния "
 "размер автоматично."
 
@@ -4034,9 +4074,8 @@ msgstr "Профилиращи въпроси"
 
 #. Default: This survey has no profile questions or modules.
 #: src/euphorie/content/templates/survey_view.pt:35
-#, fuzzy
 msgid "no_profile_questions_or_modules"
-msgstr "Въпрос"
+msgstr "Проучването не съдържа въпроси по профила или модули."
 
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
@@ -4367,7 +4406,8 @@ msgstr "${label} Версия, която преглеждате в момент
 msgid "label_update"
 msgstr "Актуализация"
 
-#. Default: ${label} = This version has changes that are currently unpublished.
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
 #. Click the update icon to bring all the changes live
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
@@ -4381,8 +4421,8 @@ msgstr ""
 
 #~ msgid "login_tooltip"
 #~ msgstr ""
-#~ "Вашата регистрация е лично дело. Всичките Ваши данни се съхраняват така, "
-#~ "че да бъдат достъпни само от Вас."
+#~ "Вашата регистрация е лично дело. Всичките Ваши данни се съхраняват така, че "
+#~ "да бъдат достъпни само от Вас."
 
 #~ msgid "login_whatis_oira_title"
 #~ msgstr "Какво представлява OiRA (Online Interactive Risk Assessment)?"
@@ -4390,17 +4430,17 @@ msgstr ""
 #~ msgid "login_whatis_oira_text"
 #~ msgstr ""
 #~ "OiRA означава онлайн интерактивна оценка на риска. Това е уеб базиран "
-#~ "инструмент, чрез който могат да се извършват оценки на риска за здравето "
-#~ "и безопасността на работното място."
+#~ "инструмент, чрез който могат да се извършват оценки на риска за здравето и "
+#~ "безопасността на работното място."
 
 #~ msgid "login_whois_oira_for_title"
 #~ msgstr "За кого е предназначен инструментът OiRA?"
 
 #~ msgid "login_whois_oira_for_text_1"
 #~ msgstr ""
-#~ "OiRA може да бъде използван от всеки желаещ да оцени свързаните със "
-#~ "здравето и безопасността рискове, които е възможно да съществуват на "
-#~ "работното място."
+#~ "OiRA може да бъде използван от всеки желаещ да оцени свързаните със здравето"
+#~ " и безопасността рискове, които е възможно да съществуват на работното "
+#~ "място."
 
 #~ msgid "login_whois_oira_for_text_2"
 #~ msgstr ""
@@ -4409,10 +4449,10 @@ msgstr ""
 
 #~ msgid "login_whois_oira_for_text_3"
 #~ msgstr ""
-#~ "OiRA е разработен със специалната задача да ги подпомага при оценяването "
-#~ "на рисковете на работното място и при изготвянето на документирана оценка "
-#~ "на риска, включително план за действие, съобразен с изискванията за "
-#~ "съответната стопанска дейност."
+#~ "OiRA е разработен със специалната задача да ги подпомага при оценяването на "
+#~ "рисковете на работното място и при изготвянето на документирана оценка на "
+#~ "риска, включително план за действие, съобразен с изискванията за съответната"
+#~ " стопанска дейност."
 
 #~ msgid "login_what_todo_title"
 #~ msgstr "Каква трябва да направя?"
@@ -4423,45 +4463,45 @@ msgstr ""
 #~ msgid "login_what_todo_text_2"
 #~ msgstr ""
 #~ "${preparation} На този етап преглеждате конкретната оценка, която ви "
-#~ "предстои да започнете, и имате възможност допълнително да я приспособите "
-#~ "към специфичния характер на извършваната от вас стопанска дейност. "
+#~ "предстои да започнете, и имате възможност допълнително да я приспособите към"
+#~ " специфичния характер на извършваната от вас стопанска дейност. "
 
 #~ msgid "login_what_todo_text_3"
 #~ msgstr ""
 #~ "${identification} OiRA ви представя поредица от потенциални опасности или "
 #~ "проблеми за здравето и безопасността, които е възможно да съществуват на "
-#~ "Вашето работно място. Като отговаряте с „да“ или „не“ на твърденията/"
-#~ "въпросите, потвърждавате дали въпросните опасности или проблеми са "
-#~ "налице.  По Ваша преценка Вие може да подминавате въпроси и да отговаряте "
-#~ "на по-късен етап. "
+#~ "Вашето работно място. Като отговаряте с „да“ или „не“ на "
+#~ "твърденията/въпросите, потвърждавате дали въпросните опасности или проблеми "
+#~ "са налице.  По Ваша преценка Вие може да подминавате въпроси и да отговаряте"
+#~ " на по-късен етап. "
 
 #~ msgid "login_what_todo_text_4"
 #~ msgstr ""
-#~ "${evaluation} На този етап Ви се дава възможност да определите степента "
-#~ "на риска за всеки от проблемите, срещу които сте отбелязали „за "
-#~ "разрешаване“ при идентифицирането на рисковете. "
+#~ "${evaluation} На този етап Ви се дава възможност да определите степента на "
+#~ "риска за всеки от проблемите, срещу които сте отбелязали „за разрешаване“ "
+#~ "при идентифицирането на рисковете. "
 
 #~ msgid "login_what_todo_text_5"
 #~ msgstr ""
-#~ "${action-plan} На четвъртия етап от оценката можете да решите какви мерки "
-#~ "ще предприемете по отношение на идентифицираните рискове и какви ресурси "
-#~ "е вероятно да са Ви необходими.  Въз основа на тази информация на "
-#~ "следващия етап автоматично се генерира доклад."
+#~ "${action-plan} На четвъртия етап от оценката можете да решите какви мерки ще"
+#~ " предприемете по отношение на идентифицираните рискове и какви ресурси е "
+#~ "вероятно да са Ви необходими.  Въз основа на тази информация на следващия "
+#~ "етап автоматично се генерира доклад."
 
 #~ msgid "login_how_long_title"
 #~ msgstr "Колко време отнема?"
 
 #~ msgid "login_how_long_text_1"
 #~ msgstr ""
-#~ "Не е възможно като цяло да се определи времето за изготвяне на оценка, "
-#~ "тъй като инструментите се различават при отделните икономически дейности "
-#~ "и държави."
+#~ "Не е възможно като цяло да се определи времето за изготвяне на оценка, тъй "
+#~ "като инструментите се различават при отделните икономически дейности и "
+#~ "държави."
 
 #~ msgid "login_how_long_text_2"
 #~ msgstr ""
 #~ "От друга страна, можете да отделите на оценката толкова време, с колкото "
-#~ "разполагате, а по-късно, при възможност,  да продължите от мястото, "
-#~ "където сте прекъснали."
+#~ "разполагате, а по-късно, при възможност,  да продължите от мястото, където "
+#~ "сте прекъснали."
 
 #~ msgid "login_why_register_title"
 #~ msgstr "Защо да се регистрирам?"
@@ -4473,8 +4513,8 @@ msgstr ""
 
 #~ msgid "login_why_register_text_2"
 #~ msgstr ""
-#~ "Регистрацията Ви предоставя достъп до собствения Ви акаунт по всяко "
-#~ "време, за да можете да продължите предишни оценки или да започнете нови."
+#~ "Регистрацията Ви предоставя достъп до собствения Ви акаунт по всяко време, "
+#~ "за да можете да продължите предишни оценки или да започнете нови."
 
 #~ msgid "login_why_register_text_3"
 #~ msgstr ""
@@ -4486,35 +4526,34 @@ msgstr ""
 
 #~ msgid "login_need_to_prepare_text"
 #~ msgstr ""
-#~ "За използването на инструмента не е необходима специална подготовка, но "
-#~ "все пак отделете време, за да обмислите кой ще извършва оценката на "
-#~ "риска, как ще вземат участие работещите в процеса и т.н."
+#~ "За използването на инструмента не е необходима специална подготовка, но все "
+#~ "пак отделете време, за да обмислите кой ще извършва оценката на риска, как "
+#~ "ще вземат участие работещите в процеса и т.н."
 
-#, fuzzy
 #~ msgid ""
-#~ "The basic architecture of an Online interactive Risk Assessment consists "
-#~ "of: profile questions (questions defining the company profile), modules "
-#~ "(and potentially sub-modules), and risks (positive statements). Profile "
-#~ "questions are used to determine whether particular modules apply to the "
-#~ "end user at all or whether they should be repeated a number of times. "
-#~ "Such questions are asked BEFORE starting the risk identification and "
-#~ "evaluation. If the end-user does not confirm that an optional profile "
-#~ "question is relevant the corresponding module will be skipped entirely. "
-#~ "If the end-user enters more than one option to a profile question then "
-#~ "the corresponding module will be repeated the specified number of times."
+#~ "The basic architecture of an Online interactive Risk Assessment consists of:"
+#~ " profile questions (questions defining the company profile), modules (and "
+#~ "potentially sub-modules), and risks (positive statements). Profile questions"
+#~ " are used to determine whether particular modules apply to the end user at "
+#~ "all or whether they should be repeated a number of times. Such questions are"
+#~ " asked BEFORE starting the risk identification and evaluation. If the end-"
+#~ "user does not confirm that an optional profile question is relevant the "
+#~ "corresponding module will be skipped entirely. If the end-user enters more "
+#~ "than one option to a profile question then the corresponding module will be "
+#~ "repeated the specified number of times."
 #~ msgstr ""
-#~ "Основната структура на онлайн интерактивната оценка на риска се състои  "
-#~ "от: - профилиращи въпроси (въпроси, определящи профила на фирмата) - "
-#~ "модули и потенциални подмодули - рискове (положителни твърдения) "
-#~ "Профилиращите въпроси се използват, за да се определи дали определени "
-#~ "модули се отнасят към крайния потребител въобще  (НЕ ЗАДЪЛЖИТЕЛНИ), или "
-#~ "дали те трябва да се повтарят даден брой пъти (ПОВТАРЯЩИ СЕ). Такива "
-#~ "въпроси се задават ПРЕДИ започване на определянето и оценяването на "
-#~ "риска. Ако крайният потребител не потвърди, че даден незадължителен "
-#~ "профилиращ въпрос е от значение (чрез поставяне на отметка в кутийка), "
-#~ "тогава съответният модул ще бъде пропуснат изцяло. Ако крайният "
-#~ "потребител въведе повече от една опция за повтарящ се профилиращ въпрос, "
-#~ "тогава съответният модул ще бъде повторен посочения брой пъти."
+#~ "Основната структура на онлайн интерактивната оценка на риска се състои  от: "
+#~ "- профилиращи въпроси (въпроси, определящи профила на фирмата) - модули и "
+#~ "потенциални подмодули - рискове (положителни твърдения) Профилиращите "
+#~ "въпроси се използват, за да се определи дали определени модули се отнасят "
+#~ "към крайния потребител въобще  (НЕ ЗАДЪЛЖИТЕЛНИ), или дали те трябва да се "
+#~ "повтарят даден брой пъти (ПОВТАРЯЩИ СЕ). Такива въпроси се задават ПРЕДИ "
+#~ "започване на определянето и оценяването на риска. Ако крайният потребител не"
+#~ " потвърди, че даден незадължителен профилиращ въпрос е от значение (чрез "
+#~ "поставяне на отметка в кутийка), тогава съответният модул ще бъде пропуснат "
+#~ "изцяло. Ако крайният потребител въведе повече от една опция за повтарящ се "
+#~ "профилиращ въпрос, тогава съответният модул ще бъде повторен посочения брой "
+#~ "пъти."
 
 #~ msgid "Unanswered"
 #~ msgstr "Този риск все още е необходимо да бъде инвентаризиран."

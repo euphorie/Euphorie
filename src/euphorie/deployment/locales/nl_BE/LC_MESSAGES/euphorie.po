@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-07-17 16:47+0200\n"
-"PO-Revision-Date: 2013-06-27 22:14+0200\n"
+"PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: \n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -124,7 +124,8 @@ msgstr ""
 #: src/euphorie/client/company.py:80
 #: src/euphorie/client/templates/report_actionplan.pt:62
 msgid "label_workers_participated"
-msgstr "Arbeiders werden uitgenodigd om deel te nemen aan de risicobeoordeling"
+msgstr ""
+"Arbeiders werden uitgenodigd om deel te nemen aan de risicobeoordeling"
 
 #. Default: Yes
 #: src/euphorie/client/company.py:84
@@ -212,7 +213,8 @@ msgstr ""
 msgid "button_preview"
 msgstr "Voorbeeld maken"
 
-#. Default: Succesfully created a preview for the survey. It can be accessed at
+#. Default: Succesfully created a preview for the survey. It can be accessed
+#. at
 #. ${url} .
 #: src/euphorie/client/publish.py:268
 msgid "message_preview_success"
@@ -246,9 +248,8 @@ msgstr ""
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:221
-#, fuzzy
 msgid "report_survey_footer_risk_present"
-msgstr "Opmerkingen"
+msgstr "Risico’s gemarkeerd met [*] zijn aanwezig."
 
 #. Default: You responded negatively to the above statement.
 #: src/euphorie/client/report.py:419 src/euphorie/client/report.py:697
@@ -296,8 +297,8 @@ msgstr ""
 "Door het invullen van de vragen hebt u een risicobeoordeling uitgevoerd. Op "
 "basis van deze beoordeling wordt een actieplan opgesteld. De voortgang van "
 "dit actieplan moet jaarlijks worden besproken en er moet een kort rapport "
-"worden opgemaakt over de stand van zaken. Bepaalde onderwerpen zijn mogelijk "
-"afgerond en misschien moeten er nieuwe onderwerpen worden toegevoegd."
+"worden opgemaakt over de stand van zaken. Bepaalde onderwerpen zijn mogelijk"
+" afgerond en misschien moeten er nieuwe onderwerpen worden toegevoegd."
 
 #. Default: Company details
 #: src/euphorie/client/report.py:606
@@ -309,7 +310,8 @@ msgstr "Bedrijfsgegevens"
 msgid "plan_report_plan_header"
 msgstr "Actieplan"
 
-#. Default: This risk is not present in your organisation, but since the sector
+#. Default: This risk is not present in your organisation, but since the
+#. sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
 #: src/euphorie/client/report.py:710
@@ -505,7 +507,7 @@ msgstr "Tijdslijn voor ${title}"
 
 #: src/euphorie/client/risk.py:195 src/euphorie/client/risk.py:227
 msgid "Please provide the day of the month"
-msgstr ""
+msgstr "Vul de dag van de maand in"
 
 #: src/euphorie/client/risk.py:197 src/euphorie/client/risk.py:204
 #: src/euphorie/client/risk.py:229 src/euphorie/client/risk.py:235
@@ -517,13 +519,12 @@ msgid "Please enter a year after 1900"
 msgstr "Voer een jaartal in na 1900"
 
 #: src/euphorie/client/risk.py:218 src/euphorie/client/risk.py:249
-#, fuzzy
 msgid "Please enter a year before 2100"
-msgstr "Voer een jaartal in na 1900"
+msgstr "Vul een jaartal vóór 2100 in"
 
 #: src/euphorie/client/risk.py:270
 msgid "Start date is not before end date"
-msgstr ""
+msgstr "Startdatum ligt na einddatum"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -547,7 +548,7 @@ msgstr "Accountinstellingen"
 
 #: src/euphorie/client/settings.py:84 src/euphorie/client/settings.py:219
 msgid "Save changes"
-msgstr "Wijzigingen opslaan"
+msgstr "Veranderingen opslaan"
 
 #: src/euphorie/client/settings.py:93 src/euphorie/client/settings.py:236
 msgid "There were no changes to be saved."
@@ -586,14 +587,15 @@ msgid "This email address is not available."
 msgstr "Dit e-mailadres is niet beschikbaar."
 
 #. Default: Please confirm your new email address by clicking on the link in
-#. the email that will be sent in a few minutes to "${email}". Please note that
+#. the email that will be sent in a few minutes to "${email}". Please note
+#. that
 #. the new email address is also your new login name.
 #: src/euphorie/client/settings.py:247
 msgid "email_change_pending"
 msgstr ""
-"Bevestig uw nieuwe e-mailadres door te klikken op de link in de e-mail die u "
-"over een aantal minuten ontvangt op \"${email}\". Denk eraan dat het nieuwe "
-"e-mailadres ook uw nieuwe loginnaam is."
+"Bevestig uw nieuwe e-mailadres door te klikken op de link in de e-mail die u"
+" over een aantal minuten ontvangt op \"${email}\". Denk eraan dat het nieuwe"
+" e-mailadres ook uw nieuwe loginnaam is."
 
 #: src/euphorie/client/settings.py:281
 msgid "Your email address has been updated."
@@ -659,7 +661,8 @@ msgstr "Wat is het OiRA-project (Online Interactive Risk Assessment)"
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr "een degelijke risicobeoordeling is de sleutel tot een gezonde werkplek"
+msgstr ""
+"een degelijke risicobeoordeling is de sleutel tot een gezonde werkplek"
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
@@ -700,12 +703,13 @@ msgstr "rapportering"
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
-"Ervaring toont ons dat ${key}. Daarom heeft EU-OSHA een ${easy} (het â€œOiRAâ"
-"€ - Online interactive Risk Assessment) ontwikkelt dat micro-ondernemingen "
-"en kleine ondernemingen kan helpen om een {step} aan te nemen â€“ starten "
-"met de ${identification} en ${evaluation} van risico's op de werkvloer, door "
-"middel van  het nemen van beslissingen over ${preventive_actions} en het "
-"ondernemen van actie, voor monitoring en ${reporting}."
+"Ervaring toont ons dat ${key}. Daarom heeft EU-OSHA een ${easy} (het "
+"â€œOiRAâ€ - Online interactive Risk Assessment) ontwikkelt dat micro-"
+"ondernemingen en kleine ondernemingen kan helpen om een {step} aan te nemen "
+"â€“ starten met de ${identification} en ${evaluation} van risico's op de "
+"werkvloer, door middel van  het nemen van beslissingen over "
+"${preventive_actions} en het ondernemen van actie, voor monitoring en "
+"${reporting}."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -713,8 +717,8 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
-"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelinginstrumenten "
-"voor uw sector die worden samengesteld en bijgewerkt door sectoriële "
+"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelinginstrumenten"
+" voor uw sector die worden samengesteld en bijgewerkt door sectoriële "
 "organisaties op nationaal niveau."
 
 #. Default: Why the OiRA project
@@ -740,7 +744,8 @@ msgstr "micro-ondernemingen en kleine ondernemingen hebben tekortkomingen"
 #. organising prevention in the workplace, and hundreds of thousands of
 #. companies all over Europe assess their risks regularly. Nevertheless, there
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
-#. assessment and the adoption of a preventive policy in general which the OiRA
+#. assessment and the adoption of a preventive policy in general which the
+#. OiRA
 #. project aims to overcome.
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
@@ -769,8 +774,10 @@ msgstr "Projectfase"
 msgid "header_devel_phase"
 msgstr "Ontwikkelings- en pilootfase â€“ 2009-2011"
 
-#. Default: After the technical development of the tool in 2009, in 2010 (until
-#. the first half of 2011) the Agency is piloting the development and diffusion
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until
+#. the first half of 2011) the Agency is piloting the development and
+#. diffusion
 #. model at both EU level (working with the Sectoral Social Dialogue
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
@@ -782,15 +789,16 @@ msgstr ""
 "Agentschap in 2010 (tot de eerste helft van 2011) het ontwikkelings- en "
 "diffusiemodel aan een voorafgaande test op EU-niveau (samenwerken met de "
 "Sectoral Social Dialogue Committees) en op het niveau van de lidstaten (met "
-"verschillende lidstaten) als onderdeel van de testfase van het instrument en "
-"de ontwikkeling van geschikte ondersteuning- adviesservices."
+"verschillende lidstaten) als onderdeel van de testfase van het instrument en"
+" de ontwikkeling van geschikte ondersteuning- adviesservices."
 
 #. Default: Official launch of the project – September 2011
 #: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
 msgstr "Officiële lancering van het project â€“ September 2011"
 
-#. Default: The official launch of the tool is planned for September 2011, once
+#. Default: The official launch of the tool is planned for September 2011,
+#. once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
 #: src/euphorie/client/templates/about.pt:68
@@ -805,7 +813,8 @@ msgstr ""
 msgid "header_development_partners"
 msgstr "Ontwikkelingspartners"
 
-#. Default: The OiRA project and its related web application has been developed
+#. Default: The OiRA project and its related web application has been
+#. developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
 #. financed by the Dutch government, was initially developed by TNO in
 #. collaboration with the employers organisation for small and medium-sized
@@ -815,13 +824,14 @@ msgstr "Ontwikkelingspartners"
 #: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
-"Het OiRA-project en de verwante webapplicatie werden ontwikkeld door de ${eu-"
-"osha} die gebaseerd werd op het Nederlandse beoordelinginstrument (${RIE} "
-"genoemd), dat gefinancierd werd door de Nederlandse overheid en initieel "
-"werd ontwikkeld door TNO in samenwerking met de werknemersorganisatie voor "
-"kleine en middelgrote ondernemingen MKB-Nederland en het Nederlandse "
-"Ministerie voor Werkgelegenheid. De applicatie werd verder ontwikkeld met de "
-"inbreng en deelname van de vakbonden FNV, CNV en MHP."
+"Het OiRA-project en de verwante webapplicatie werden ontwikkeld door de "
+"${eu-osha} die gebaseerd werd op het Nederlandse beoordelinginstrument "
+"(${RIE} genoemd), dat gefinancierd werd door de Nederlandse overheid en "
+"initieel werd ontwikkeld door TNO in samenwerking met de "
+"werknemersorganisatie voor kleine en middelgrote ondernemingen MKB-Nederland"
+" en het Nederlandse Ministerie voor Werkgelegenheid. De applicatie werd "
+"verder ontwikkeld met de inbreng en deelname van de vakbonden FNV, CNV en "
+"MHP."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
@@ -841,8 +851,10 @@ msgstr "Nederland"
 msgid "Germany"
 msgstr "Duitsland"
 
-#. Default: The Agency was also given strategic and expert advice by a Steering
-#. Committee in the development and implementation of the OiRA project. Members
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
 #: src/euphorie/client/templates/about.pt:93
@@ -925,7 +937,8 @@ msgstr ""
 "Door te klikken op 'Account verwijderen', wordt uw account definitief "
 "verwijderd. Deze actie is onomkeerbaar."
 
-#. Default: Please note that by deleting your account, also all your filled out
+#. Default: Please note that by deleting your account, also all your filled
+#. out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
@@ -949,8 +962,8 @@ msgstr "Ongekend e-mailadres"
 
 #: src/euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
+"Please bear in mind that by changing the email address, your login name will"
+" also change."
 msgstr ""
 
 #. Default: Password
@@ -977,7 +990,8 @@ msgid "expl_actionplan_2"
 msgstr "Actieplan"
 
 #. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks. There are no risks which need require any attention during this
+#. bottlenecks. There are no risks which need require any attention during
+#. this
 #. phase, so please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
@@ -1356,7 +1370,8 @@ msgstr "Accountinstellingen"
 msgid "header_terms"
 msgstr "Algemene voorwaarden"
 
-#. Default: The terms and conditions have changed since your last visit. Please
+#. Default: The terms and conditions have changed since your last visit.
+#. Please
 #. read the new terms and conditions carefully before proceding.
 #: src/euphorie/client/templates/conditions.pt:21
 msgid "terms_changed"
@@ -1365,21 +1380,25 @@ msgstr ""
 "nieuwe algemene voorwaarden aandachtig door voordat u verdergaat."
 
 #. Default: The OiRA (Online interactive Risk Assessment) application is an
-#. instrument put at your disposal by the European Agency for Safety and Health
-#. at Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. instrument put at your disposal by the European Agency for Safety and
+#. Health
+#. at Work (EU-OSHA). This Privacy Policy applies to all products, services
+#. and
 #. websites offered by EU-OSHA in the framework of the OiRA application.
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
 msgstr ""
-"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat "
-"u ter beschikking wordt gesteld door het Europees Agentschap voor de "
+"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat"
+" u ter beschikking wordt gesteld door het Europees Agentschap voor de "
 "veiligheid en gezondheid op het werk (EU-OSHA). Dit privacybeleid is van "
 "toepassing voor alle producten, diensten en websites die worden aangeboden "
 "door EU-OSHA in het kader van de OiRA-applicatie."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
-#. the protection of individuals with regard to the processing of personal data
+#. 45/2001 of the European Parliament and of the Council of 18 December 2000
+#. on
+#. the protection of individuals with regard to the processing of personal
+#. data
 #. by the Community institutions and bodies and on the free movement of such
 #. data. Further details of the privacy policy of EU-OSHA and the full text of
 #. the Regulation can be accessed at: ${url}.
@@ -1391,8 +1410,8 @@ msgstr ""
 "betreffende de bescherming van natuurlijke personen in verband met de "
 "verwerking van persoonsgegevens door de communautaire instellingen en "
 "organen en betreffende het vrije verkeer van die gegevens. Meer informatie "
-"over het privacybeleid van EU-OSHA en de volledige tekst van de  Verordening "
-"vindt u op: ${url}."
+"over het privacybeleid van EU-OSHA en de volledige tekst van de  Verordening"
+" vindt u op: ${url}."
 
 #. Default: The Information we collect and for what purposes
 #: src/euphorie/client/templates/conditions.pt:38
@@ -1447,13 +1466,13 @@ msgstr ""
 "Cookies â€“ Wanneer u de site bezoekt en een taal selecteert, sturen we een "
 "cookie naar uw computer of ander apparaat om uw taalkeuze op te slaan. Deze "
 "cookie blijft in uw browser tot u deze sluit. Wanneer u de site bezoekt en "
-"zich aanmeldt, sturen we een cookie met uw logininformatie om u aangemeld te "
-"houden tijdens uw bezoek. Deze cookie blijft op uw computer tot u uw browser "
-"sluit. De meeste browsers zijn initieel ingesteld om cookies te aanvaarden, "
-"maar u kunt uw browser opnieuw instellen om alle cookies te weigeren of om "
-"aan te geven wanneer er een cookie wordt verstuurd. Sommige functies en "
-"diensten kunnen mogelijk niet correct functioneren als uw cookies zijn "
-"uitgeschakeld."
+"zich aanmeldt, sturen we een cookie met uw logininformatie om u aangemeld te"
+" houden tijdens uw bezoek. Deze cookie blijft op uw computer tot u uw "
+"browser sluit. De meeste browsers zijn initieel ingesteld om cookies te "
+"aanvaarden, maar u kunt uw browser opnieuw instellen om alle cookies te "
+"weigeren of om aan te geven wanneer er een cookie wordt verstuurd. Sommige "
+"functies en diensten kunnen mogelijk niet correct functioneren als uw "
+"cookies zijn uitgeschakeld."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1464,16 +1483,17 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:56
 msgid "conditions_info_logs"
 msgstr ""
-"Logboekinformatie â€“ Wanneer u de dienst gebruikt, registreren onze servers "
-"automatisch informatie die uw browser verstuurt wanneer u een website "
+"Logboekinformatie â€“ Wanneer u de dienst gebruikt, registreren onze servers"
+" automatisch informatie die uw browser verstuurt wanneer u een website "
 "bezoekt. De logboeken van deze server kunnen informatie bevatten zoals uw "
-"webverzoek, uw interactie met een dienst, browsertype, browsertaal, de datum "
-"en het tijdstip van uw verzoek. IP-adressen worden niet bewaard in het "
+"webverzoek, uw interactie met een dienst, browsertype, browsertaal, de datum"
+" en het tijdstip van uw verzoek. IP-adressen worden niet bewaard in het "
 "systeem."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
-#. services and develop new services. In any case no personal data will be used
+#. services and develop new services. In any case no personal data will be
+#. used
 #. for processing of data.
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
@@ -1488,7 +1508,8 @@ msgstr ""
 msgid "conditions_datacontroller_header"
 msgstr "Houder van persoonsgegevens"
 
-#. Default: The data controller is the European Agency for Safety and Health at
+#. Default: The data controller is the European Agency for Safety and Health
+#. at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
@@ -1526,7 +1547,8 @@ msgstr "Uw informatie controleren en verwijderen"
 msgid "conditions_datareview"
 msgstr ""
 "U kunt de accountinstellingen en uw bewaarde OiRA-sessie(s) gebruiken om de "
-"informatie in uw account en in uw sessie(s) te controleren en te verwijderen."
+"informatie in uw account en in uw sessie(s) te controleren en te "
+"verwijderen."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
@@ -1534,9 +1556,11 @@ msgid "conditions_security_header"
 msgstr "Informatieveiligheid"
 
 #. Default: We take appropriate security measures to protect against
-#. unauthorized access to or unauthorized alteration, disclosure or destruction
+#. unauthorized access to or unauthorized alteration, disclosure or
+#. destruction
 #. of data. These include internal reviews of our data collection, storage and
-#. processing practices and security measures, including appropriate encryption
+#. processing practices and security measures, including appropriate
+#. encryption
 #. of communication and physical security measures to guard against
 #. unauthorized access to systems where we store personal data. IP addresses
 #. are not saved so that end-users can not be identified through their access.
@@ -1560,7 +1584,8 @@ msgid "conditions_contact_header"
 msgstr "Contactinformatie"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
-#. Any enquiries and complaints regarding our privacy policy can be sent to the
+#. Any enquiries and complaints regarding our privacy policy can be sent to
+#. the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
@@ -1629,7 +1654,8 @@ msgstr "actieplan"
 #. phase.
 #: src/euphorie/client/templates/evaluation.pt:25
 msgid "help_skip_evaluation"
-msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+msgstr ""
+"U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 
 #. Default: There are no risks that need to be evaluated. You can proceed
 #. directly to the action plan phase.
@@ -1662,7 +1688,7 @@ msgstr "Inleiding"
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Authenticatie"
+msgstr "Registratie"
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
@@ -1674,25 +1700,25 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/help.pt:22
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_start"
-msgstr "Voorbereiding"
+msgstr "1. Voorbereiding"
 
 #. Default: Identification
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:42
 msgid "help_header_identification"
-msgstr "Identificatie"
+msgstr "2. Identificatie"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_evaluation"
-msgstr "Evaluatie"
+msgstr "3. Evaluatie"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_actionplan"
-msgstr "Actieplan"
+msgstr "4. Actieplan"
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
@@ -1704,7 +1730,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_finalwords"
-msgstr "Tot slot"
+msgstr "Wat gebeurt er vervolgens?"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -1716,8 +1742,10 @@ msgid "intro_print_identification_1"
 msgstr "Identificatierapport ${title}"
 
 #. Default: You can also distribute the list among the workers and invite them
-#. to participate in identifying the hazards/problems, evaluating the risks and
-#. deciding on preventive action. Their feedback can be taken into account when
+#. to participate in identifying the hazards/problems, evaluating the risks
+#. and
+#. deciding on preventive action. Their feedback can be taken into account
+#. when
 #. filling in this tool.
 #: src/euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
@@ -1811,6 +1839,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
+"Uw registratie is een persoonlijke aangelegenheid. Al uw opgeslagen gegevens"
+" zijn alleen voor uzelf toegankelijk."
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -1823,8 +1853,8 @@ msgid ""
 "workplace."
 msgstr ""
 "OiRA staat voor Online interactive Risk Assessment. Het is een op het web "
-"gebaseerde tool om risicoanalyses op het gebied van gezondheid en veiligheid "
-"op uw werkplek uit te voeren."
+"gebaseerde tool om risicoanalyses op het gebied van gezondheid en veiligheid"
+" op uw werkplek uit te voeren."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
@@ -1832,11 +1862,11 @@ msgstr "Voor wie is OiRA bedoeld?"
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks"
+" that might exist in their workplace."
 msgstr ""
-"OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied "
-"van gezondheid en veiligheid op de werkplek wil beoordelen."
+"OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied"
+" van gezondheid en veiligheid op de werkplek wil beoordelen."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1855,16 +1885,16 @@ msgstr "Toon minder"
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om "
-"deze te ondersteunen bij het beoordelen van risico’s op de werkplek en te "
+"De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om"
+" deze te ondersteunen bij het beoordelen van risico’s op de werkplek en te "
 "helpen om risicoanalyse te documenteren en een op de vereisten van de "
 "ondernemingen toegesneden actieplan op te stellen."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work"
+" and helping them to produce a documented risk assessment including an "
+"action plan tailored to the business's requirements."
 msgstr " "
 
 #: src/euphorie/client/templates/login.pt:62
@@ -1881,8 +1911,8 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} De voorbereiding geeft u een overzicht van de beoordeling die "
-"u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw "
+"${preparation} De voorbereiding geeft u een overzicht van de beoordeling die"
+" u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw "
 "onderneming aan te passen. "
 
 #: src/euphorie/client/templates/login.pt:70
@@ -1890,8 +1920,8 @@ msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and"
+" thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA presenteert een reeks potentiële gezondheids- en "
 "veiligheidsproblemen die bij u op de werkplek aanwezig kunnen zijn. Door de "
@@ -1916,8 +1946,8 @@ msgid ""
 "automatically produced in the next step."
 msgstr ""
 "${action-plan} In de vierde fase van de beoordeling kunt u besluiten welke "
-"maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en "
-"welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens "
+"maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en"
+" welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens "
 "automatisch een verslag opgesteld. "
 
 #: src/euphorie/client/templates/login.pt:76
@@ -1934,8 +1964,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and"
+" then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "Het is echter mogelijk om een risicobeoordeling aan te vangen en op een "
@@ -1949,7 +1979,8 @@ msgstr "Waarom moet ik me aanmelden?"
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+"assessment is to create an OiRA account - this is a simple and quick "
+"process."
 msgstr ""
 "U wordt verzocht aan het begin van uw eerste risicoanalyse een OiRA-account "
 "aan te maken – dat gaat eenvoudig en snel."
@@ -1981,8 +2012,8 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Het gebruik van de tool vergt geen enkele speciale voorbereiding. U dient er "
-"evenwel over na te denken wie de risicoanalyse gaat uitvoeren, hoe uw "
+"Het gebruik van de tool vergt geen enkele speciale voorbereiding. U dient er"
+" evenwel over na te denken wie de risicoanalyse gaat uitvoeren, hoe uw "
 "werknemers bij het proces betrokken zullen worden, enz."
 
 #. Default: Previous
@@ -2062,7 +2093,8 @@ msgstr "Ga verder"
 msgid "header_publish"
 msgstr "Gepubliceerd"
 
-#. Default: Are you sure you want to publish this survey? After publication the
+#. Default: Are you sure you want to publish this survey? After publication
+#. the
 #. survey will appear in the online client and be accessible by all users.
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
@@ -2144,8 +2176,8 @@ msgstr ""
 "Door het invullen van de vragen hebt u een risicobeoordeling uitgevoerd. Op "
 "basis van deze beoordeling wordt een actieplan opgesteld. De voortgang van "
 "dit actieplan moet jaarlijks worden besproken en er moet een kort rapport "
-"worden opgemaakt over de stand van zaken. Bepaalde onderwerpen zijn mogelijk "
-"afgerond en misschien moeten er nieuwe onderwerpen worden toegevoegd."
+"worden opgemaakt over de stand van zaken. Bepaalde onderwerpen zijn mogelijk"
+" afgerond en misschien moeten er nieuwe onderwerpen worden toegevoegd."
 
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
@@ -2191,8 +2223,8 @@ msgstr "voorbereidingsstap"
 #: src/euphorie/client/templates/report_actionplan.pt:32
 msgid "plan_report_intro_2"
 msgstr ""
-"Uw antwoorden en het rapport werden ${automatically_saved} en zijn op eender "
-"welk moment terug te vinden of te verwijderen via de ${preparation_step}."
+"Uw antwoorden en het rapport werden ${automatically_saved} en zijn op eender"
+" welk moment terug te vinden of te verwijderen via de ${preparation_step}."
 
 #. Default: Country
 #: src/euphorie/client/templates/report_actionplan.pt:40
@@ -2238,13 +2270,14 @@ msgstr ""
 msgid "warn_fix_errors"
 msgstr ""
 
-#. Default: Please fill out your company details on this form. The data on this
+#. Default: Please fill out your company details on this form. The data on
+#. this
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
 msgstr ""
-"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat "
-"u ter beschikking wordt gesteld door het Europees Agentschap voor de "
+"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat"
+" u ter beschikking wordt gesteld door het Europees Agentschap voor de "
 "veiligheid en gezondheid op het werk (EU-OSHA). Dit privacybeleid is van "
 "toepassing voor alle producten, diensten en websites die worden aangeboden "
 "door EU-OSHA in het kader van de OiRA-applicatie."
@@ -2322,8 +2355,10 @@ msgstr ""
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 
-#. Default: Although some measures do not cost any money, most do. The measures
-#. should therefore be budgeted for; include them in the annual budget round if
+#. Default: Although some measures do not cost any money, most do. The
+#. measures
+#. should therefore be budgeted for; include them in the annual budget round
+#. if
 #. necessary.
 #: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
@@ -2337,7 +2372,7 @@ msgstr "Voer een geldig e-mailadres in"
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 msgid "error_start_not_before_end"
-msgstr ""
+msgstr "Startdatum ligt na einddatum"
 
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
@@ -2392,8 +2427,8 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
-"De huidige gegevens in de velden 'Actieplan', 'Preventieplan' en 'Vereisten' "
-"van deze maatregel zullen worden overschreven. Deze actie kan niet worden "
+"De huidige gegevens in de velden 'Actieplan', 'Preventieplan' en 'Vereisten'"
+" van deze maatregel zullen worden overschreven. Deze actie kan niet worden "
 "teruggedraaid. Weet u zeker dat u wilt doorgaan?"
 
 #. Default: What is the chance of this risk occurring?
@@ -2645,10 +2680,12 @@ msgstr "Titel van de sector."
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
-#. ended the RA, the data will be stored too. For security reasons it is better
+#. ended the RA, the data will be stored too. For security reasons it is
+#. better
 #. to officially log out. Of course your must remember your e-mail address,
 #. password and the title that you have given the RA. You can start the stored
-#. RA again at a later date: select the title of the RA. You can save more than
+#. RA again at a later date: select the title of the RA. You can save more
+#. than
 #. one RA, provided you have given them different titles names.
 #: src/euphorie/client/templates/sessions.pt:62
 #: src/euphorie/client/templates/survey_sessions.pt:51
@@ -2669,7 +2706,8 @@ msgstr "Vragen beantwoord per module"
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
-#. exposed to hazardous substances? A risk assessment helps you to define these
+#. exposed to hazardous substances? A risk assessment helps you to define
+#. these
 #. risks and tackle them head on. A risk assessment consists of two parts: a
 #. <dynamic element> with all the risks to your company and an <dynamic
 #. element> to deal with them. These two components allow you to limit the
@@ -2687,7 +2725,8 @@ msgid "header_not_complicated"
 msgstr "Belangrijkste afbeelding"
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA is important. So important that the government has made it compulsory for
+#. RA is important. So important that the government has made it compulsory
+#. for
 #. almost all entrepreneurs with employees.
 #: src/euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
@@ -2761,21 +2800,19 @@ msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:82
 msgid "Unvisited"
-msgstr ""
+msgstr "Niet bezocht"
 
 #: src/euphorie/client/templates/webhelpers.pt:83
-#, fuzzy
 msgid "Postponed"
-msgstr "${count} vragen zijn uitgesteld"
+msgstr "Uitgesteld"
 
 #: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
-msgstr ""
+msgstr "Risico niet aanwezig"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
-#, fuzzy
 msgid "Risk present"
-msgstr "Risicotype"
+msgstr "Risico aanwezig"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:94
@@ -2837,9 +2874,8 @@ msgstr "Inleiding"
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Authenticatie"
+msgstr "Registratie"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2850,11 +2886,11 @@ msgstr "Authenticatie"
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
-msgstr "Beschrijving"
+msgstr "Uitvoeren van uw risicobeoordeling"
 
-#. Default: Describe the session handling. This text is linked from the session
+#. Default: Describe the session handling. This text is linked from the
+#. session
 #. overview page.
 #: src/euphorie/content/help.py:33
 msgid "help_sessions"
@@ -2863,22 +2899,21 @@ msgstr "Met dit wachtwoord kunt u zich aanmelden op de opmaakomgeving."
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
-msgstr "Voer evaluatie uit"
+msgstr "1. Voorbereiding"
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
 #: src/euphorie/content/help.py:41
 msgid "help_preparation"
-msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+msgstr ""
+"U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
-msgstr "Identificatie"
+msgstr "2. Identificatie"
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2889,24 +2924,24 @@ msgstr "Identificatie"
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
-msgstr "Voer evaluatie uit"
+msgstr "3. Evaluatie"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
 #: src/euphorie/content/help.py:58
 msgid "help_evaluation"
-msgstr "U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
+msgstr ""
+"U kunt deze fase ook overslaan en direct doorgaan met de ${link}-fase."
 
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
-msgstr "Actieplan"
+msgstr "4. Actieplan"
 
-#. Default: Document the action plan phase. This information is linked from all
+#. Default: Document the action plan phase. This information is linked from
+#. all
 #. action plan related pages
 #: src/euphorie/content/help.py:66
 msgid "help_actionplan"
@@ -2915,9 +2950,8 @@ msgstr "Actieplan"
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
-msgstr "Rapporten"
+msgstr "5. Verslag"
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -2928,9 +2962,8 @@ msgstr "Rapporten"
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
-msgstr "Tot slot"
+msgstr "Wat gebeurt er vervolgens?"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -3002,7 +3035,8 @@ msgstr "Onderschrift afbeelding"
 msgid "label_solution_direction"
 msgstr "Geef een beschrijving van uw sector"
 
-#. Default: This information will be shown to users when they enter this module
+#. Default: This information will be shown to users when they enter this
+#. module
 #. while working on the action plan.
 #: src/euphorie/content/module.py:78
 msgid "help_solution_direction"
@@ -3143,7 +3177,8 @@ msgstr "Berekend"
 msgid "label_default_priority"
 msgstr "Standaardprioriteit"
 
-#. Default: You can help the user by selecting a default priority. The user can
+#. Default: You can help the user by selecting a default priority. The user
+#. can
 #. still change the priority.
 #: src/euphorie/content/risk.py:133
 msgid "help_default_priority"
@@ -3346,25 +3381,27 @@ msgstr "Afbeelding"
 #: src/euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr ""
-"Een code die deze sector identificeert. Classificatiecodes worden omschreven "
-"door nationale normalisatie-instellingen en zijn gebaseerd op revisie 2 van "
-"de NACE-norm."
+"Een code die deze sector identificeert. Classificatiecodes worden omschreven"
+" door nationale normalisatie-instellingen en zijn gebaseerd op revisie 2 van"
+" de NACE-norm."
 
-#. Default: A code identifying this sector. Classification codes are defined by
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
 #. national standards bodies and based on revision 2 of the NACE standard.
 #: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
 msgstr ""
-"Een code die deze sector identificeert. Classificatiecodes worden omschreven "
-"door nationale normalisatie-instellingen en zijn gebaseerd op revisie 2 van "
-"de NACE-norm."
+"Een code die deze sector identificeert. Classificatiecodes worden omschreven"
+" door nationale normalisatie-instellingen en zijn gebaseerd op revisie 2 van"
+" de NACE-norm."
 
 #. Default: Title
 #: src/euphorie/content/survey.py:208 src/euphorie/content/surveygroup.py:40
 msgid "label_title"
 msgstr "Titel"
 
-#. Default: The title of this survey. This title is used in the survey overview
+#. Default: The title of this survey. This title is used in the survey
+#. overview
 #. in the clients.
 #: src/euphorie/content/survey.py:209 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
@@ -3430,7 +3467,8 @@ msgstr "Ongedaan maken van publicatie geannuleerd."
 msgid "label_sector_title"
 msgstr "Titel van de sector."
 
-#. Default: If you do not specify a title it will be taken from the input file.
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
 #: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
 msgstr "Als u geen titel opgeeft, wordt deze uit het importbestand gehaald."
@@ -3543,15 +3581,15 @@ msgstr "Europese Unie"
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Republiek Servië"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3681,8 +3719,8 @@ msgstr "Sectorworkflow"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "De workflow van één staat voor sectorobjecten, geeft toegang voor het "
 "bewerken van de inhoud aan de sectorgebruiker."
@@ -3919,16 +3957,18 @@ msgstr ""
 "een lichtere kleur voor de steunkleur."
 
 #. Default: The logo will appear on both the client side app that your user
-#. group will see as well as on this editor environment in the top left corner.
+#. group will see as well as on this editor environment in the top left
+#. corner.
 #. Make sure your image is of format png, jpg or gif and does not contain any
-#. special characters. The new logo will only become visible after you've saved
+#. special characters. The new logo will only become visible after you've
+#. saved
 #. your changes.
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
 msgstr ""
 "Het logo zal verschijnen in de gebruikerssite-applicatie die uw "
-"gebruikersgroep zal zien, alsook in deze opmaakomgeving bovenaan links. Zorg "
-"ervoor dat uw afbeelding png, jpg of gif is en geen speciale karakters "
+"gebruikersgroep zal zien, alsook in deze opmaakomgeving bovenaan links. Zorg"
+" ervoor dat uw afbeelding png, jpg of gif is en geen speciale karakters "
 "bevat. Het nieuwe logo wordt zichtbaar van zodra u uw wijzigingen hebt "
 "opgeslagen."
 
@@ -4032,9 +4072,8 @@ msgstr "Profielvragen"
 
 #. Default: This survey has no profile questions or modules.
 #: src/euphorie/content/templates/survey_view.pt:35
-#, fuzzy
 msgid "no_profile_questions_or_modules"
-msgstr "Profielvragen"
+msgstr "Deze enquête heeft geen profielvragen of modules."
 
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
@@ -4369,7 +4408,8 @@ msgstr "${label} versie die u momenteel bekijkt"
 msgid "label_update"
 msgstr "Bijwerken"
 
-#. Default: ${label} = This version has changes that are currently unpublished.
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
 #. Click the update icon to bring all the changes live
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
@@ -4391,22 +4431,22 @@ msgstr ""
 #~ msgid "login_whatis_oira_text"
 #~ msgstr ""
 #~ "OiRA staat voor Online interactive Risk Assessment. Het is een op het web "
-#~ "gebaseerde tool om risicoanalyses op het gebied van gezondheid en "
-#~ "veiligheid op uw werkplek uit te voeren. "
+#~ "gebaseerde tool om risicoanalyses op het gebied van gezondheid en veiligheid"
+#~ " op uw werkplek uit te voeren. "
 
 #~ msgid "login_whois_oira_for_title"
 #~ msgstr "Voor wie is OiRA bedoeld?"
 
 #~ msgid "login_whois_oira_for_text_1"
 #~ msgstr ""
-#~ "OiRA kan gebruikt worden door iedereen die potentiële risico’s op het "
-#~ "gebied van gezondheid en veiligheid op de werkplek wil beoordelen."
+#~ "OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied"
+#~ " van gezondheid en veiligheid op de werkplek wil beoordelen."
 
 #~ msgid "login_whois_oira_for_text_2"
 #~ msgstr ""
-#~ "De tool is echter in eerste instantie opgezet voor kleinere ondernemingen "
-#~ "om deze te ondersteunen bij het beoordelen van risico’s op de werkplek en "
-#~ "te helpen om risicoanalyse te documenteren en een op de vereisten van de "
+#~ "De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om"
+#~ " deze te ondersteunen bij het beoordelen van risico’s op de werkplek en te "
+#~ "helpen om risicoanalyse te documenteren en een op de vereisten van de "
 #~ "ondernemingen toegesneden actieplan op te stellen."
 
 #~ msgid "login_what_todo_title"
@@ -4417,38 +4457,37 @@ msgstr ""
 
 #~ msgid "login_what_todo_text_2"
 #~ msgstr ""
-#~ "${preparation} De voorbereiding geeft u een overzicht van de beoordeling "
-#~ "die u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard "
-#~ "van uw onderneming aan te passen. "
+#~ "${preparation} De voorbereiding geeft u een overzicht van de beoordeling die"
+#~ " u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw "
+#~ "onderneming aan te passen. "
 
 #~ msgid "login_what_todo_text_3"
 #~ msgstr ""
 #~ "${identification} OiRA presenteert een reeks potentiële gezondheids- en "
-#~ "veiligheidsproblemen die bij u op de werkplek aanwezig kunnen zijn. Door "
-#~ "de stellingen/vragen met ja of nee te beantwoorden verklaart u of "
-#~ "dergelijke gevaren of problemen al dan niet bestaan. U kunt vragen "
-#~ "voorlopig onbeantwoord laten en er later op terugkomen. "
+#~ "veiligheidsproblemen die bij u op de werkplek aanwezig kunnen zijn. Door de "
+#~ "stellingen/vragen met ja of nee te beantwoorden verklaart u of dergelijke "
+#~ "gevaren of problemen al dan niet bestaan. U kunt vragen voorlopig "
+#~ "onbeantwoord laten en er later op terugkomen. "
 
 #~ msgid "login_what_todo_text_4"
 #~ msgstr ""
-#~ "${evaluation} Hier bepaalt u het risiconiveau van elk van de items die u "
-#~ "in de fase ‘identificatie’ geïdentificeerd hebt als ‘moet worden "
-#~ "aangepakt’. "
+#~ "${evaluation} Hier bepaalt u het risiconiveau van elk van de items die u in "
+#~ "de fase ‘identificatie’ geïdentificeerd hebt als ‘moet worden aangepakt’. "
 
 #~ msgid "login_what_todo_text_5"
 #~ msgstr ""
-#~ "${action-plan} In de vierde fase van de beoordeling kunt u besluiten "
-#~ "welke maatregelen u wilt nemen om de eerder vastgestelde risico's aan te "
-#~ "pakken en welke middelen daarvoor nodig zijn. Op basis hiervan wordt "
-#~ "vervolgens automatisch een verslag opgesteld. "
+#~ "${action-plan} In de vierde fase van de beoordeling kunt u besluiten welke "
+#~ "maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en"
+#~ " welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens "
+#~ "automatisch een verslag opgesteld. "
 
 #~ msgid "login_how_long_title"
 #~ msgstr "Hoe lang duurt een risicoanalyse?"
 
 #~ msgid "login_how_long_text_1"
 #~ msgstr ""
-#~ "De duur van een risicoanalyse varieert en is afhankelijk van de per "
-#~ "sector en land verschillende gebruikte tools."
+#~ "De duur van een risicoanalyse varieert en is afhankelijk van de per sector "
+#~ "en land verschillende gebruikte tools."
 
 #~ msgid "login_how_long_text_2"
 #~ msgstr ""
@@ -4461,8 +4500,8 @@ msgstr ""
 
 #~ msgid "login_why_register_text_1"
 #~ msgstr ""
-#~ "U wordt verzocht aan het begin van uw eerste risicoanalyse een OiRA-"
-#~ "account aan te maken – dat gaat eenvoudig en snel."
+#~ "U wordt verzocht aan het begin van uw eerste risicoanalyse een OiRA-account "
+#~ "aan te maken – dat gaat eenvoudig en snel."
 
 #~ msgid "login_why_register_text_2"
 #~ msgstr ""
@@ -4479,35 +4518,33 @@ msgstr ""
 
 #~ msgid "login_need_to_prepare_text"
 #~ msgstr ""
-#~ "Het gebruik van de tool vergt geen enkele speciale voorbereiding. U dient "
-#~ "er evenwel over na te denken wie de risicoanalyse gaat uitvoeren, hoe uw "
+#~ "Het gebruik van de tool vergt geen enkele speciale voorbereiding. U dient er"
+#~ " evenwel over na te denken wie de risicoanalyse gaat uitvoeren, hoe uw "
 #~ "werknemers bij het proces betrokken zullen worden, enz."
 
-#, fuzzy
 #~ msgid ""
-#~ "The basic architecture of an Online interactive Risk Assessment consists "
-#~ "of: profile questions (questions defining the company profile), modules "
-#~ "(and potentially sub-modules), and risks (positive statements). Profile "
-#~ "questions are used to determine whether particular modules apply to the "
-#~ "end user at all or whether they should be repeated a number of times. "
-#~ "Such questions are asked BEFORE starting the risk identification and "
-#~ "evaluation. If the end-user does not confirm that an optional profile "
-#~ "question is relevant the corresponding module will be skipped entirely. "
-#~ "If the end-user enters more than one option to a profile question then "
-#~ "the corresponding module will be repeated the specified number of times."
+#~ "The basic architecture of an Online interactive Risk Assessment consists of:"
+#~ " profile questions (questions defining the company profile), modules (and "
+#~ "potentially sub-modules), and risks (positive statements). Profile questions"
+#~ " are used to determine whether particular modules apply to the end user at "
+#~ "all or whether they should be repeated a number of times. Such questions are"
+#~ " asked BEFORE starting the risk identification and evaluation. If the end-"
+#~ "user does not confirm that an optional profile question is relevant the "
+#~ "corresponding module will be skipped entirely. If the end-user enters more "
+#~ "than one option to a profile question then the corresponding module will be "
+#~ "repeated the specified number of times."
 #~ msgstr ""
-#~ "De basisarchitectuur van een Online interactive Risk Assessment bestaat "
-#~ "uit: - profielvragen (vragen die het bedrijfsprofiel omschrijven) - "
-#~ "modules en mogelijk submodules - risico's (bevestigende stellingen) "
-#~ "Profielvragen worden gebruikt om te bepalen of specifieke modules van "
-#~ "toepassing zijn op de eindgebruiker (OPTIONEEL), of ze een aantal keren "
-#~ "moeten worden herhaald (HERHAALBAAR). Dergelijke vragen worden gesteld "
-#~ "VOORAFGAAND aan de risico-identificatie en evaluatie. Als de "
-#~ "eindgebruiker niet bevestigt dat een optionele profielvraag relevant is "
-#~ "(door het vakje aan te vinken), dan wordt de overeenstemmende module "
-#~ "volledig overgeslagen. Als de eindgebruiker meer dan één optie invoert "
-#~ "voor een herhaalbare profielvraag dan zal de overeenstemmende module het "
-#~ "vermelde aantal keren worden herhaald."
+#~ "De basisarchitectuur van een Online interactive Risk Assessment bestaat uit:"
+#~ " - profielvragen (vragen die het bedrijfsprofiel omschrijven) - modules en "
+#~ "mogelijk submodules - risico's (bevestigende stellingen) Profielvragen "
+#~ "worden gebruikt om te bepalen of specifieke modules van toepassing zijn op "
+#~ "de eindgebruiker (OPTIONEEL), of ze een aantal keren moeten worden herhaald "
+#~ "(HERHAALBAAR). Dergelijke vragen worden gesteld VOORAFGAAND aan de risico-"
+#~ "identificatie en evaluatie. Als de eindgebruiker niet bevestigt dat een "
+#~ "optionele profielvraag relevant is (door het vakje aan te vinken), dan wordt"
+#~ " de overeenstemmende module volledig overgeslagen. Als de eindgebruiker meer"
+#~ " dan één optie invoert voor een herhaalbare profielvraag dan zal de "
+#~ "overeenstemmende module het vermelde aantal keren worden herhaald."
 
 #~ msgid "Unanswered"
 #~ msgstr "Dit risico is nog niet beoordeeld."

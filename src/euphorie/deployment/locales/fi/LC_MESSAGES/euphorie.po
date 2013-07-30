@@ -2,20 +2,20 @@
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2013-07-17 16:47+0200\n"
-"PO-Revision-Date: 2013-06-28 11:02+0200\n"
+"PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+"Language: \n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -212,7 +212,8 @@ msgstr ""
 msgid "button_preview"
 msgstr "Luo esikatselu"
 
-#. Default: Succesfully created a preview for the survey. It can be accessed at
+#. Default: Succesfully created a preview for the survey. It can be accessed
+#. at
 #. ${url} .
 #: src/euphorie/client/publish.py:268
 msgid "message_preview_success"
@@ -295,8 +296,8 @@ msgstr ""
 "Täyttäessäsi kysymysluettelon olet suorittanut riskinarvioinnin. Tätä "
 "arviointia käytetään toimintasuunnitelman luontiin. Tämän "
 "toimintasuunnitelman kehittymistä on tarkasteltava vuosittain, ja "
-"prosessista on kirjoitettava lyhyt raportti. Tietyt asiat on ehkä suoritettu "
-"ja uusia asioita täytyy ehkä lisätä."
+"prosessista on kirjoitettava lyhyt raportti. Tietyt asiat on ehkä suoritettu"
+" ja uusia asioita täytyy ehkä lisätä."
 
 #. Default: Company details
 #: src/euphorie/client/report.py:606
@@ -308,7 +309,8 @@ msgstr "Yritystiedot"
 msgid "plan_report_plan_header"
 msgstr "Toimintasuunnitelma"
 
-#. Default: This risk is not present in your organisation, but since the sector
+#. Default: This risk is not present in your organisation, but since the
+#. sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
 #: src/euphorie/client/report.py:710
@@ -521,7 +523,7 @@ msgstr "Anna ennen vuotta 2100 oleva vuosi"
 
 #: src/euphorie/client/risk.py:270
 msgid "Start date is not before end date"
-msgstr ""
+msgstr "Alkamispäivämäärä ei ole ennen päättymispäivämäärää"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -584,13 +586,14 @@ msgid "This email address is not available."
 msgstr "Tämä sähköposti ei ole käytettävissä."
 
 #. Default: Please confirm your new email address by clicking on the link in
-#. the email that will be sent in a few minutes to "${email}". Please note that
+#. the email that will be sent in a few minutes to "${email}". Please note
+#. that
 #. the new email address is also your new login name.
 #: src/euphorie/client/settings.py:247
 msgid "email_change_pending"
 msgstr ""
-"Vahvista uusi sähköpostiosoitteesi napauttamalla linkkiä sähköpostissa, joka "
-"lähetetään muutaman minuutin sisällä osoitteeseen \"${email}\". Ota "
+"Vahvista uusi sähköpostiosoitteesi napauttamalla linkkiä sähköpostissa, joka"
+" lähetetään muutaman minuutin sisällä osoitteeseen \"${email}\". Ota "
 "huomioon, että uusi sähköpostiosoite on myös sinun uusi kirjautumisnimesi."
 
 #: src/euphorie/client/settings.py:281
@@ -701,8 +704,8 @@ msgstr "raportointi"
 msgid "about_paragraph_1"
 msgstr ""
 "Kokemus osoittaa, että ${key}. Sen vuoksi on luotu EU-OSHAn kehittämä "
-"${easy} (”OiRA” - Vuorovaikutteinen riskinarviointiprojekti verkossa), jonka "
-"avulla mikro- ja pienyrityksille saadaan ${step} – sen alussa on "
+"${easy} (”OiRA” - Vuorovaikutteinen riskinarviointiprojekti verkossa), jonka"
+" avulla mikro- ja pienyrityksille saadaan ${step} – sen alussa on "
 "työpaikkariskien ${identification} ja ${evaluation}, minkä jälkeen tulevat "
 "${preventive_actions} sekä toimenpiteet, tarkkailu ja ${reporting}."
 
@@ -712,8 +715,8 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
-"OiRA-verkkosovelluksessa on toimialojen riskinarviointityökaluja, jotka ovat "
-"luoneet ja joita ylläpitää toimialaorganisaatiot kansallisella tasolla."
+"OiRA-verkkosovelluksessa on toimialojen riskinarviointityökaluja, jotka ovat"
+" luoneet ja joita ylläpitää toimialaorganisaatiot kansallisella tasolla."
 
 #. Default: Why the OiRA project
 #: src/euphorie/client/templates/about.pt:52
@@ -736,7 +739,8 @@ msgstr "mikro- ja pienyrityksillä on joitakin puutteita"
 #. organising prevention in the workplace, and hundreds of thousands of
 #. companies all over Europe assess their risks regularly. Nevertheless, there
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
-#. assessment and the adoption of a preventive policy in general which the OiRA
+#. assessment and the adoption of a preventive policy in general which the
+#. OiRA
 #. project aims to overcome.
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
@@ -745,8 +749,8 @@ msgstr ""
 "riskinarviointia. EU:n puitedirektiivin hyväksymisen jälkeen 1989 "
 "riskinarvioinnista on tullut tuttu käsite ennaltaehkäisyn järjestämisessä "
 "työpaikalla, ja sadattuhannet yritykset koko Euroopassa arvioivat riskejään "
-"säännöllisesti. Kuitenkin on tekijöitä, joiden perusteella voidaan päätellä, "
-"että ${smb}, kun kyseessä ovat riskinhallinta ja ehkäisevät toimenpiteet "
+"säännöllisesti. Kuitenkin on tekijöitä, joiden perusteella voidaan päätellä,"
+" että ${smb}, kun kyseessä ovat riskinhallinta ja ehkäisevät toimenpiteet "
 "yleensä. OiRA-projektin tarkoituksena on auttaa tässä."
 
 #. Default: More information about the OiRA project (in English)
@@ -764,8 +768,10 @@ msgstr "Projektin vaiheet"
 msgid "header_devel_phase"
 msgstr "Kehitys- ja pilottivaihe – 2009-2011"
 
-#. Default: After the technical development of the tool in 2009, in 2010 (until
-#. the first half of 2011) the Agency is piloting the development and diffusion
+#. Default: After the technical development of the tool in 2009, in 2010
+#. (until
+#. the first half of 2011) the Agency is piloting the development and
+#. diffusion
 #. model at both EU level (working with the Sectoral Social Dialogue
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
@@ -776,8 +782,8 @@ msgstr ""
 "Työkalu kehitettiin vuonna 2009. Sen jälkeen vuonna 2010 (vuoden 2011 "
 "ensimmäiseen puoliskoon saakka) virasto on toteuttanut kehityksen ja "
 "diffuusiomallin pilotointia sekä EU-tasolla (tehden yhteistyötä "
-"työmarkkinapuolten neuvottelukomitean kanssa) että jäsenvaltiotasolla (monen "
-"jäsenvaltion kanssa) osana työkalun testausta ja sopivan tuki- ja "
+"työmarkkinapuolten neuvottelukomitean kanssa) että jäsenvaltiotasolla (monen"
+" jäsenvaltion kanssa) osana työkalun testausta ja sopivan tuki- ja "
 "opastuspalvelujen kehitystä."
 
 #. Default: Official launch of the project – September 2011
@@ -785,7 +791,8 @@ msgstr ""
 msgid "header_launch"
 msgstr "Projektin virallinen julkistaminen – syyskuussa 2011"
 
-#. Default: The official launch of the tool is planned for September 2011, once
+#. Default: The official launch of the tool is planned for September 2011,
+#. once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
 #: src/euphorie/client/templates/about.pt:68
@@ -800,7 +807,8 @@ msgstr ""
 msgid "header_development_partners"
 msgstr "Kehityskumppanit"
 
-#. Default: The OiRA project and its related web application has been developed
+#. Default: The OiRA project and its related web application has been
+#. developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
 #. financed by the Dutch government, was initially developed by TNO in
 #. collaboration with the employers organisation for small and medium-sized
@@ -812,9 +820,9 @@ msgid "about_partners_1"
 msgstr ""
 "OiRA-projektin ja sen verkkosovelluksen on kehittänyt ${eu-osha} perustuen "
 "hollantilaisten riskien arvioinnin menetelmään (tunnetaan nimellä ${RIE}), "
-"jonka on rahoittanut Alankomaiden hallitus. Sen on alun perin kehittänyt TNO "
-"yhteistyössä pienten ja keskikokoisten yritysten työnantajaorganisaation MKB-"
-"Nederland ja Alankomaiden työministeriön kanssa. Sovellusta kehitettiin "
+"jonka on rahoittanut Alankomaiden hallitus. Sen on alun perin kehittänyt TNO"
+" yhteistyössä pienten ja keskikokoisten yritysten työnantajaorganisaation "
+"MKB-Nederland ja Alankomaiden työministeriön kanssa. Sovellusta kehitettiin "
 "edelleen yhdessä ammattijärjestöjen FNV, CNV ja MHP kanssa."
 
 #. Default: The following technical partners contributed to the development of
@@ -835,8 +843,10 @@ msgstr "Alankomaat"
 msgid "Germany"
 msgstr "Saksa"
 
-#. Default: The Agency was also given strategic and expert advice by a Steering
-#. Committee in the development and implementation of the OiRA project. Members
+#. Default: The Agency was also given strategic and expert advice by a
+#. Steering
+#. Committee in the development and implementation of the OiRA project.
+#. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
 #: src/euphorie/client/templates/about.pt:93
@@ -915,7 +925,8 @@ msgstr ""
 "Napauttamalla 'Poista tili' tilisi poistuu pysyvästi. Tätä poistoa ei voi "
 "peruuttaa."
 
-#. Default: Please note that by deleting your account, also all your filled out
+#. Default: Please note that by deleting your account, also all your filled
+#. out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
@@ -937,8 +948,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
+"Please bear in mind that by changing the email address, your login name will"
+" also change."
 msgstr ""
 
 #. Default: Password
@@ -965,7 +976,8 @@ msgid "expl_actionplan_2"
 msgstr ""
 
 #. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks. There are no risks which need require any attention during this
+#. bottlenecks. There are no risks which need require any attention during
+#. this
 #. phase, so please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
@@ -1344,7 +1356,8 @@ msgstr ""
 msgid "header_terms"
 msgstr "Käyttöehdot"
 
-#. Default: The terms and conditions have changed since your last visit. Please
+#. Default: The terms and conditions have changed since your last visit.
+#. Please
 #. read the new terms and conditions carefully before proceding.
 #: src/euphorie/client/templates/conditions.pt:21
 msgid "terms_changed"
@@ -1353,20 +1366,24 @@ msgstr ""
 "käyttöehdot huolellisesti, ennen kuin jatkat."
 
 #. Default: The OiRA (Online interactive Risk Assessment) application is an
-#. instrument put at your disposal by the European Agency for Safety and Health
-#. at Work (EU-OSHA). This Privacy Policy applies to all products, services and
+#. instrument put at your disposal by the European Agency for Safety and
+#. Health
+#. at Work (EU-OSHA). This Privacy Policy applies to all products, services
+#. and
 #. websites offered by EU-OSHA in the framework of the OiRA application.
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
 msgstr ""
 "OiRA (Vuorovaikutteinen riskinarviointiprojekti verkossa) -sovellus on "
 "Euroopan työterveys- ja työturvallisuusviraston (EU-OSHA) käyttöösi antama "
-"menetelmä. Tämä tietosuojakäytäntö pätee kaikkiin EU-OSHAn OiRA-soveulluksen "
-"puitteissa tarjoamiin tuotteisiin, palveluihin ja verkkosivuihin."
+"menetelmä. Tämä tietosuojakäytäntö pätee kaikkiin EU-OSHAn OiRA-soveulluksen"
+" puitteissa tarjoamiin tuotteisiin, palveluihin ja verkkosivuihin."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
-#. the protection of individuals with regard to the processing of personal data
+#. 45/2001 of the European Parliament and of the Council of 18 December 2000
+#. on
+#. the protection of individuals with regard to the processing of personal
+#. data
 #. by the Community institutions and bodies and on the free movement of such
 #. data. Further details of the privacy policy of EU-OSHA and the full text of
 #. the Regulation can be accessed at: ${url}.
@@ -1376,8 +1393,8 @@ msgstr ""
 "Henkilökohtaisten tietojesi käsittely noudattaa Euroopan parlamentin ja "
 "neuvoston 18. joulukuuta 2000 antamaa asetusta (EY) N:o 45/2001 yksilöiden "
 "suojelusta yhteisöjen toimielinten ja elinten suorittamassa henkilötietojen "
-"käsittelyssä ja näiden tietojen vapaasta liikkuvuudesta. Lisätiedot EU-OSHAn "
-"tietosuojakäytännöstä ja koko asetus ovat luettavissa osoitteessa: ${url}."
+"käsittelyssä ja näiden tietojen vapaasta liikkuvuudesta. Lisätiedot EU-OSHAn"
+" tietosuojakäytännöstä ja koko asetus ovat luettavissa osoitteessa: ${url}."
 
 #. Default: The Information we collect and for what purposes
 #: src/euphorie/client/templates/conditions.pt:38
@@ -1433,9 +1450,9 @@ msgstr ""
 "kirjaudut sisään, lähetämme evästeen, jotta pysyt sisäänkirjautuneena "
 "vierailusi ajan. Tämä eväste on tietokoneessasi, kunnes suljet selaimesi. "
 "Useimpien selaimien alkuperäiset asetukset hyväksyvät evästeet, mutta voit "
-"muuttaa asetukset niin, että selaimesi ei hyväksy mitään evästeitä tai antaa "
-"ilmoituksen evästettä lähetettäessä. Jotkut toiminnot ja palvelut eivät ehkä "
-"toimi kunnolla, jos evästeitä ei ole hyväksytty."
+"muuttaa asetukset niin, että selaimesi ei hyväksy mitään evästeitä tai antaa"
+" ilmoituksen evästettä lähetettäessä. Jotkut toiminnot ja palvelut eivät "
+"ehkä toimi kunnolla, jos evästeitä ei ole hyväksytty."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1446,15 +1463,16 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:56
 msgid "conditions_info_logs"
 msgstr ""
-"Lokitiedot – Kun tulet palveluun, meidän palvelimemme kirjaa automaattisesti "
-"tiedot, jotka selaimesi lähettää, aina kun vierailet sivullamme. Nämä "
+"Lokitiedot – Kun tulet palveluun, meidän palvelimemme kirjaa automaattisesti"
+" tiedot, jotka selaimesi lähettää, aina kun vierailet sivullamme. Nämä "
 "palvelinlokit voivat sisältää sellaisia tietoja kuin hakupyyntösi, jonkin "
 "palvelun käyttösi, selaintyyppisi, selaimen kieli, pyyntösi päivämäärä ja "
 "aika. IP-osoitteet eivät tallennu järjestelmään."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
-#. services and develop new services. In any case no personal data will be used
+#. services and develop new services. In any case no personal data will be
+#. used
 #. for processing of data.
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
@@ -1469,13 +1487,14 @@ msgstr ""
 msgid "conditions_datacontroller_header"
 msgstr "Tietojen käsittelystä vastaava"
 
-#. Default: The data controller is the European Agency for Safety and Health at
+#. Default: The data controller is the European Agency for Safety and Health
+#. at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
 msgstr ""
-"Tietojen käsittelystä vastaa Euroopan työterveys- ja työturvallisuusvirasto, "
-"Bilbao."
+"Tietojen käsittelystä vastaa Euroopan työterveys- ja työturvallisuusvirasto,"
+" Bilbao."
 
 #. Default: Conservation and processing of information
 #: src/euphorie/client/templates/conditions.pt:75
@@ -1507,7 +1526,8 @@ msgstr "Tietojesi tarkistus ja poisto"
 msgid "conditions_datareview"
 msgstr ""
 "Voit käyttää tiliasetuksia ja tallennettuja OiRA-istuntojasi tilissäsi ja "
-"istuinnoissasi tallennettujen tietojen tarkistukseen, valvontaan ja poistoon."
+"istuinnoissasi tallennettujen tietojen tarkistukseen, valvontaan ja "
+"poistoon."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
@@ -1515,9 +1535,11 @@ msgid "conditions_security_header"
 msgstr "Tietojen turvallisuus"
 
 #. Default: We take appropriate security measures to protect against
-#. unauthorized access to or unauthorized alteration, disclosure or destruction
+#. unauthorized access to or unauthorized alteration, disclosure or
+#. destruction
 #. of data. These include internal reviews of our data collection, storage and
-#. processing practices and security measures, including appropriate encryption
+#. processing practices and security measures, including appropriate
+#. encryption
 #. of communication and physical security measures to guard against
 #. unauthorized access to systems where we store personal data. IP addresses
 #. are not saved so that end-users can not be identified through their access.
@@ -1538,7 +1560,8 @@ msgid "conditions_contact_header"
 msgstr "Yhteystiedot"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
-#. Any enquiries and complaints regarding our privacy policy can be sent to the
+#. Any enquiries and complaints regarding our privacy policy can be sent to
+#. the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
@@ -1641,7 +1664,7 @@ msgstr "Johdanto"
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Todentaminen"
+msgstr "Rekisteröinti"
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
@@ -1653,25 +1676,25 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:22
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_start"
-msgstr "Valmistelu"
+msgstr "1. Valmistelu"
 
 #. Default: Identification
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:42
 msgid "help_header_identification"
-msgstr "Tunnistus"
+msgstr "2. Tunnistaminen"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_evaluation"
-msgstr "Arviointi"
+msgstr "3. Arviointi"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_actionplan"
-msgstr "Toimintasuunnitelma"
+msgstr "4. Toimintasuunnitelma"
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
@@ -1683,7 +1706,7 @@ msgstr "Raportti"
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_finalwords"
-msgstr "Loppusanat"
+msgstr "Mitä tapahtuu seuraavaksi?"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -1695,8 +1718,10 @@ msgid "intro_print_identification_1"
 msgstr ""
 
 #. Default: You can also distribute the list among the workers and invite them
-#. to participate in identifying the hazards/problems, evaluating the risks and
-#. deciding on preventive action. Their feedback can be taken into account when
+#. to participate in identifying the hazards/problems, evaluating the risks
+#. and
+#. deciding on preventive action. Their feedback can be taken into account
+#. when
 #. filling in this tool.
 #: src/euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
@@ -1812,8 +1837,8 @@ msgstr "Kenelle OiRA on tarkoitettu?"
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks"
+" that might exist in their workplace."
 msgstr ""
 "OiRAa voi käyttää kuka tahansa, joka haluaa arvioida oman työpaikkansa "
 "mahdollisia työterveys- ja turvallisuusriskejä."
@@ -1840,9 +1865,9 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work"
+" and helping them to produce a documented risk assessment including an "
+"action plan tailored to the business's requirements."
 msgstr ""
 "Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden sisältö "
 "räätälöidään kunkin yrityksen omien tarpeiden mukaan."
@@ -1870,14 +1895,14 @@ msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and"
+" thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA esittelee joukon työpaikkallasi mahdollisesti a "
 "esiintyviä työterveys- ja työturvallisuusriskejä ja -ongelmia. Vastaat "
 "väittämiin joko ”kyllä” tai ”ei” riippuen siitä, esiintyykö työpaikallasi "
-"kyseisiä riskejä tai ongelmia. Voit myös jättää kysymyksiä väliin ja vastata "
-"niihin myöhemmin. "
+"kyseisiä riskejä tai ongelmia. Voit myös jättää kysymyksiä väliin ja vastata"
+" niihin myöhemmin. "
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1895,8 +1920,8 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} Arvioinnin neljännessä vaiheessa voit kirjata ne toimenpiteet "
-"istä ja resurssit joita tarvitaan aiemmin tunnistamiesi riskien "
+"${action-plan} Arvioinnin neljännessä vaiheessa voit kirjata ne toimenpiteet"
+" istä ja resurssit joita tarvitaan aiemmin tunnistamiesi riskien "
 "poistamiseksi tai vähentämiseksi. Seuraavaksi ohjelma tuottaa kirjaamiesi "
 "tietojen pohjalta automaattisesti raportin."
 
@@ -1914,8 +1939,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and"
+" then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "Voit kulloinkin käyttää arviointiin aikaa sen verran kuin sinulla sitä on, "
@@ -1928,7 +1953,8 @@ msgstr "Miksi minun on rekisteröidyttävä?"
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+"assessment is to create an OiRA account - this is a simple and quick "
+"process."
 msgstr ""
 "Kun aloitat riskinarvioinnin, sinua pyydetään aivan ensimmäiseksi luomaan "
 "OiRA-käyttäjätili, mikä on helppo ja nopea toimenpide. "
@@ -1960,8 +1986,8 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"OiRAn käyttö ei edellytä mitään tiettyjä valmisteluja, mutta sinun kannattaa "
-"etukäteen miettiä, kuka tekee itse riskinarvioinnin ja miten työntekijät "
+"OiRAn käyttö ei edellytä mitään tiettyjä valmisteluja, mutta sinun kannattaa"
+" etukäteen miettiä, kuka tekee itse riskinarvioinnin ja miten työntekijät "
 "otetaan mukaan prosessiin jne."
 
 #. Default: Previous
@@ -2041,7 +2067,8 @@ msgstr "Jatka"
 msgid "header_publish"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey? After publication the
+#. Default: Are you sure you want to publish this survey? After publication
+#. the
 #. survey will appear in the online client and be accessible by all users.
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
@@ -2212,7 +2239,8 @@ msgstr ""
 msgid "warn_fix_errors"
 msgstr ""
 
-#. Default: Please fill out your company details on this form. The data on this
+#. Default: Please fill out your company details on this form. The data on
+#. this
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
@@ -2289,8 +2317,10 @@ msgstr ""
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 
-#. Default: Although some measures do not cost any money, most do. The measures
-#. should therefore be budgeted for; include them in the annual budget round if
+#. Default: Although some measures do not cost any money, most do. The
+#. measures
+#. should therefore be budgeted for; include them in the annual budget round
+#. if
 #. necessary.
 #: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
@@ -2304,7 +2334,7 @@ msgstr ""
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 msgid "error_start_not_before_end"
-msgstr ""
+msgstr "Alkamispäivämäärä ei ole ennen päättymispäivämäärää"
 
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
@@ -2317,7 +2347,7 @@ msgstr "Sivun sisältö"
 #: src/euphorie/client/templates/risk_actionplan.pt:101
 #: src/euphorie/client/templates/risk_actionplan.pt:127
 msgid "error_invalid_day"
-msgstr "Virheellinen päiväys"
+msgstr "Päivä on virheellinen"
 
 #. Default: Month
 #: src/euphorie/client/templates/risk_actionplan.pt:103
@@ -2328,15 +2358,14 @@ msgstr "Kuukausi"
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Sivun sisältö"
+msgstr "Vuosi"
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
 #: src/euphorie/client/templates/risk_actionplan.pt:139
 msgid "error_invalid_year"
-msgstr "Kirjoita vuosi väliltä 2000 ja 2100."
+msgstr "Ilmoita oikea vuosi vuoden 1900 jälkeen"
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
@@ -2606,10 +2635,12 @@ msgstr ""
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
-#. ended the RA, the data will be stored too. For security reasons it is better
+#. ended the RA, the data will be stored too. For security reasons it is
+#. better
 #. to officially log out. Of course your must remember your e-mail address,
 #. password and the title that you have given the RA. You can start the stored
-#. RA again at a later date: select the title of the RA. You can save more than
+#. RA again at a later date: select the title of the RA. You can save more
+#. than
 #. one RA, provided you have given them different titles names.
 #: src/euphorie/client/templates/sessions.pt:62
 #: src/euphorie/client/templates/survey_sessions.pt:51
@@ -2630,7 +2661,8 @@ msgstr ""
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
-#. exposed to hazardous substances? A risk assessment helps you to define these
+#. exposed to hazardous substances? A risk assessment helps you to define
+#. these
 #. risks and tackle them head on. A risk assessment consists of two parts: a
 #. <dynamic element> with all the risks to your company and an <dynamic
 #. element> to deal with them. These two components allow you to limit the
@@ -2646,7 +2678,8 @@ msgid "header_not_complicated"
 msgstr ""
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA is important. So important that the government has made it compulsory for
+#. RA is important. So important that the government has made it compulsory
+#. for
 #. almost all entrepreneurs with employees.
 #: src/euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
@@ -2720,20 +2753,19 @@ msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:82
 msgid "Unvisited"
-msgstr ""
+msgstr "Käyttämätön"
 
 #: src/euphorie/client/templates/webhelpers.pt:83
-#, fuzzy
 msgid "Postponed"
-msgstr "${count} kysymystä on lykätty"
+msgstr "Lykätty"
 
 #: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
-msgstr ""
+msgstr "Riskiä ei havaittavissa"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
 msgid "Risk present"
-msgstr ""
+msgstr "Riski havaittavissa"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:94
@@ -2795,9 +2827,8 @@ msgstr ""
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Todentaminen"
+msgstr "Rekisteröinti"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2808,11 +2839,11 @@ msgstr ""
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
-msgstr "Johdanto"
+msgstr "Riskinarviointisi toteuttaminen"
 
-#. Default: Describe the session handling. This text is linked from the session
+#. Default: Describe the session handling. This text is linked from the
+#. session
 #. overview page.
 #: src/euphorie/content/help.py:33
 msgid "help_sessions"
@@ -2821,9 +2852,8 @@ msgstr ""
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
-msgstr "Johdanto"
+msgstr "1. Valmistelu"
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
@@ -2834,9 +2864,8 @@ msgstr ""
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
-msgstr "Johdanto"
+msgstr "2. Tunnistaminen"
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2847,9 +2876,8 @@ msgstr ""
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
-msgstr "Suorita arviointi"
+msgstr "3. Arviointi"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
@@ -2860,11 +2888,11 @@ msgstr ""
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
-msgstr "Toimintasuunnitelma"
+msgstr "4. Toimintasuunnitelma"
 
-#. Default: Document the action plan phase. This information is linked from all
+#. Default: Document the action plan phase. This information is linked from
+#. all
 #. action plan related pages
 #: src/euphorie/content/help.py:66
 msgid "help_actionplan"
@@ -2873,9 +2901,8 @@ msgstr ""
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
-msgstr "Raportit"
+msgstr "5. Raportti"
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -2886,9 +2913,8 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
-msgstr "Loppusanat"
+msgstr "Mitä tapahtuu seuraavaksi?"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -2960,7 +2986,8 @@ msgstr "Kuvan otsikko"
 msgid "label_solution_direction"
 msgstr ""
 
-#. Default: This information will be shown to users when they enter this module
+#. Default: This information will be shown to users when they enter this
+#. module
 #. while working on the action plan.
 #: src/euphorie/content/module.py:78
 msgid "help_solution_direction"
@@ -3101,7 +3128,8 @@ msgstr "Laskettu"
 msgid "label_default_priority"
 msgstr "Oletusprioriteetti"
 
-#. Default: You can help the user by selecting a default priority. The user can
+#. Default: You can help the user by selecting a default priority. The user
+#. can
 #. still change the priority.
 #: src/euphorie/content/risk.py:133
 msgid "help_default_priority"
@@ -3303,7 +3331,8 @@ msgstr ""
 msgid "label_classification_code"
 msgstr ""
 
-#. Default: A code identifying this sector. Classification codes are defined by
+#. Default: A code identifying this sector. Classification codes are defined
+#. by
 #. national standards bodies and based on revision 2 of the NACE standard.
 #: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
@@ -3317,7 +3346,8 @@ msgstr ""
 msgid "label_title"
 msgstr "Otsikko"
 
-#. Default: The title of this survey. This title is used in the survey overview
+#. Default: The title of this survey. This title is used in the survey
+#. overview
 #. in the clients.
 #: src/euphorie/content/survey.py:209 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
@@ -3383,7 +3413,8 @@ msgstr "Peruutettu julkistamaton toimenpide."
 msgid "label_sector_title"
 msgstr "Toimialan nimitys"
 
-#. Default: If you do not specify a title it will be taken from the input file.
+#. Default: If you do not specify a title it will be taken from the input
+#. file.
 #: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
 msgstr "Jos et anna nimitystä, se otetaan syötetiedostosta."
@@ -3496,15 +3527,15 @@ msgstr "Euroopan unioni"
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Serbian tasavalta"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3633,8 +3664,8 @@ msgstr "Toimialan työnkulku"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Yhden valtion työnkulku toimialaobjekteille antaen mahdollisuuden toimialan "
 "käyttäjälle muokata sen sisältöä."
@@ -3868,9 +3899,11 @@ msgstr ""
 "Pääväriksi on parempi valita tummempi väri ja tukiväriksi vaaleampi."
 
 #. Default: The logo will appear on both the client side app that your user
-#. group will see as well as on this editor environment in the top left corner.
+#. group will see as well as on this editor environment in the top left
+#. corner.
 #. Make sure your image is of format png, jpg or gif and does not contain any
-#. special characters. The new logo will only become visible after you've saved
+#. special characters. The new logo will only become visible after you've
+#. saved
 #. your changes.
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
@@ -4315,7 +4348,8 @@ msgstr "${label} Tällä hetkellä tarkistamasi versio"
 msgid "label_update"
 msgstr "Päivitys"
 
-#. Default: ${label} = This version has changes that are currently unpublished.
+#. Default: ${label} = This version has changes that are currently
+#. unpublished.
 #. Click the update icon to bring all the changes live
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
@@ -4328,8 +4362,8 @@ msgstr ""
 
 #~ msgid "login_tooltip"
 #~ msgstr ""
-#~ "Rekisteröintisi on yksityisluontoinen asia. Vain sinä tallennat tietosi "
-#~ "ja pääset niihin käsiksi."
+#~ "Rekisteröintisi on yksityisluontoinen asia. Vain sinä tallennat tietosi ja "
+#~ "pääset niihin käsiksi."
 
 #~ msgid "login_whatis_oira_title"
 #~ msgstr "Mikä OiRA on (Online Interactive Risk Assessment)?"
@@ -4355,8 +4389,8 @@ msgstr ""
 
 #~ msgid "login_whois_oira_for_text_3"
 #~ msgstr ""
-#~ "Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden "
-#~ "sisältö räätälöidään kunkin yrityksen omien tarpeiden mukaan."
+#~ "Sen avulla voidaan esimerkiksi laatia toimintasuunnitelmia, joiden sisältö "
+#~ "räätälöidään kunkin yrityksen omien tarpeiden mukaan."
 
 #~ msgid "login_what_todo_title"
 #~ msgstr "Mitä minun on tehtävä?"
@@ -4375,8 +4409,8 @@ msgstr ""
 #~ "${identification} OiRA esittelee joukon työpaikkallasi mahdollisesti a "
 #~ "esiintyviä työterveys- ja työturvallisuusriskejä ja -ongelmia. Vastaat "
 #~ "väittämiin joko ”kyllä” tai ”ei” riippuen siitä, esiintyykö työpaikallasi "
-#~ "kyseisiä riskejä tai ongelmia. Voit myös jättää kysymyksiä väliin ja "
-#~ "vastata niihin myöhemmin. "
+#~ "kyseisiä riskejä tai ongelmia. Voit myös jättää kysymyksiä väliin ja vastata"
+#~ " niihin myöhemmin. "
 
 #~ msgid "login_what_todo_text_4"
 #~ msgstr ""
@@ -4385,10 +4419,10 @@ msgstr ""
 
 #~ msgid "login_what_todo_text_5"
 #~ msgstr ""
-#~ "${action-plan} Arvioinnin neljännessä vaiheessa voit kirjata ne "
-#~ "toimenpiteet istä ja resurssit joita tarvitaan aiemmin tunnistamiesi "
-#~ "riskien poistamiseksi tai vähentämiseksi. Seuraavaksi ohjelma tuottaa "
-#~ "kirjaamiesi tietojen pohjalta automaattisesti raportin."
+#~ "${action-plan} Arvioinnin neljännessä vaiheessa voit kirjata ne toimenpiteet"
+#~ " istä ja resurssit joita tarvitaan aiemmin tunnistamiesi riskien "
+#~ "poistamiseksi tai vähentämiseksi. Seuraavaksi ohjelma tuottaa kirjaamiesi "
+#~ "tietojen pohjalta automaattisesti raportin."
 
 #~ msgid "login_how_long_title"
 #~ msgstr "Kauanko arviointi kestää?"
@@ -4400,8 +4434,8 @@ msgstr ""
 
 #~ msgid "login_how_long_text_2"
 #~ msgstr ""
-#~ "Voit kulloinkin käyttää arviointiin aikaa sen verran kuin sinulla sitä "
-#~ "on, ja myöhemmin palata siihen kohtaan, johon viimeksi jäit. "
+#~ "Voit kulloinkin käyttää arviointiin aikaa sen verran kuin sinulla sitä on, "
+#~ "ja myöhemmin palata siihen kohtaan, johon viimeksi jäit. "
 
 #~ msgid "login_why_register_title"
 #~ msgstr "Miksi minun on rekisteröidyttävä?"
@@ -4426,31 +4460,26 @@ msgstr ""
 
 #~ msgid "login_need_to_prepare_text"
 #~ msgstr ""
-#~ "OiRAn käyttö ei edellytä mitään tiettyjä valmisteluja, mutta sinun "
-#~ "kannattaa etukäteen miettiä, kuka tekee itse riskinarvioinnin ja miten "
-#~ "työntekijät otetaan mukaan prosessiin jne."
+#~ "OiRAn käyttö ei edellytä mitään tiettyjä valmisteluja, mutta sinun kannattaa"
+#~ " etukäteen miettiä, kuka tekee itse riskinarvioinnin ja miten työntekijät "
+#~ "otetaan mukaan prosessiin jne."
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Tämä riski täytyy vielä inventoida."
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Tämä riski täytyy vielä inventoida."
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr "Johdanto"
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr "Tunnistus"
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
-#~ "Voit määrittää, kuinka riskin prioriteetti on arvioitu. Lisätietoja "
-#~ "löytyy verkossa olevasta käsikirjasta."
+#~ "Voit määrittää, kuinka riskin prioriteetti on arvioitu. Lisätietoja löytyy "
+#~ "verkossa olevasta käsikirjasta."
 
 #~ msgid "label_profile_type"
 #~ msgstr "Tyyppi"
