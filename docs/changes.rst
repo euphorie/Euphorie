@@ -42,7 +42,7 @@ Bugfixes
 
   - Portugese translation fixes. OSHA ticket #7934
 
-  - Applied new translations in 12 languages. OSHA ticket #7938
+  - Applied new translations in 13 languages. OSHA tickets #7938, #8190
 
 - Commented out the IE8 warning in the client until we have a solution for
   translating it. OSHA ticket #7929 
