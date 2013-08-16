@@ -19,6 +19,10 @@ Feature changes
 - Add page number to RTF reports. This fixes 
   `TNO ticket 241 <https://code.simplon.biz/tracker/tno-euphorie/ticket/241>`_.
 
+- Added MIT Licensed script to display browser warning so that we can support 
+  translations. This addresses part of
+  `OSHA ticket 7847 <https://projects.syslab.com/issues/7847>`_.
+
 Bugfixes
 ~~~~~~~~
 
