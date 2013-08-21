@@ -36,8 +36,8 @@ Bugfixes
 
   - Translate ``label_keep_logged_in`` on the client login page. OSHA ticket #7823.
 
-  - Several minor translation fixes and updates. SOAH tickets #7830, #7766,
-    #7810 and #7829.
+  - Several minor translation fixes and updates. OSHA tickets #7830, #7766,
+    #7810, #7829 and #8369.
 
   - Kosovo, Montenegro and Republic of Serbia are now translatable, and add
     bulgarian translations. OSHA ticket #7808.

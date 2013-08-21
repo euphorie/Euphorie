@@ -2,7 +2,7 @@
 # Copyright (C) 2013 Simplon B.V., SYSLAB.COM GmbH
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -3117,7 +3117,7 @@ msgstr "Apskaičiavimo"
 #: src/euphorie/content/risk.py:132
 #: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_default_priority"
-msgstr "Eksperto priskirtas prioritetas"
+msgstr "Eksperto priskirtas rizikos lygis"
 
 #. Default: You can help the user by selecting a default priority. The user
 #. can
