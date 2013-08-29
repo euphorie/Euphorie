@@ -25,6 +25,8 @@ Feature changes
 
 - For OSHA, show the legend only in the identification phase [pysailor]
 
+- Added missing CA translations in the "ancient browser" warnings, OSHA #8418
+
 Bugfixes
 ~~~~~~~~
 
