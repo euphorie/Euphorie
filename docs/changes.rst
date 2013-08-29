@@ -23,6 +23,8 @@ Feature changes
   translations. This addresses part of
   `OSHA ticket 7847 <https://projects.syslab.com/issues/7847>`_.
 
+- For OSHA, show the legend only in the identification phase [pysailor]
+
 Bugfixes
 ~~~~~~~~
 

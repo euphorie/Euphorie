@@ -40,8 +40,8 @@ body > h1 {
 	color: #8e9fb8;
 }
 
-/* Screen.css limits this to 45% which is then somehow overridden 
- * by Fancybox. If we however then don't use FancyBox, the image 
+/* Screen.css limits this to 45% which is then somehow overridden
+ * by Fancybox. If we however then don't use FancyBox, the image
  * is too small.
  */
 .gallery img {
@@ -74,6 +74,11 @@ body > h1 {
 	background-image: url(microns-osha.png);
 }
 
+body.evaluation ul.legend,
+body.actionplan ul.legend {
+    display: none;
+}
+
 a#oira_legal_show_anchor {
     float: right;
 }
@@ -91,7 +96,7 @@ h4.oira_legal_header {
     float: none;
 }
 
-.report img.appendix_oira_logo { 
+.report img.appendix_oira_logo {
     margin-right: 15px;
     cursor: pointer;
 }
