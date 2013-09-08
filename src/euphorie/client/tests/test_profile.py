@@ -196,32 +196,32 @@ class BuildSurveyTreeTests(unittest.TestCase):
         from euphorie.client import profile
         profile.AddToTree = self._AddToTree
 
-    def testEmptyProfileNoQuestions(self):
-        BuildSurveyTree(dict(), dbsession=MockSession())
+    def test_empty_profile_no_question(self):
+        BuildSurveyTree({}, dbsession=MockSession())
 
-    def testEmptyProfileWithQuestion(self):
+    def test_empty_profile_with_question(self):
         dbsession = MockSession()
-        BuildSurveyTree(dict(one=createRisk("13")), dbsession=dbsession)
+        BuildSurveyTree({'one': createRisk("13")}, dbsession=dbsession)
         self.assertEqual(dbsession, [("13", None)])
 
-    def testEmptyProfileWithContainer(self):
+    def test_empty_profile_with_container(self):
         dbsession = MockSession()
-        BuildSurveyTree(dict(one=createContainer("13")), dbsession=dbsession)
+        BuildSurveyTree({'one': createContainer("13")}, dbsession=dbsession)
         self.assertEqual(dbsession, [("13", None)])
 
-    def testEmptyProfileWithProfileQuestion(self):
+    def test_empty_profile_with_profile_question(self):
         dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
                 dbsession=dbsession)
         self.assertEqual(dbsession, [])
 
-    def testRepeatProfileNoAnswers(self):
+    def test_profile_without_answers(self):
         dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
                         profile={"13": []}, dbsession=dbsession)
         self.assertEqual(dbsession, [])
 
-    def testRepeatProfileMultipleAnswers(self):
+    def test_profile_with_multiple_answers(self):
         dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
                         profile={"13": ["one", "two"]}, dbsession=dbsession)
