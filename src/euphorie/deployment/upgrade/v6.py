@@ -1,6 +1,9 @@
 import collections
 import datetime
 import logging
+from sqlalchemy.engine.reflection import Inspector
+from z3c.saconfig import Session
+from zope.sqlalchemy import datamanager
 from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -76,4 +79,8 @@ def add_skip_evaluation_to_model(context):
                for c in inspector.get_columns(model.Risk.__table__.name)]
     if 'skip_evaluation' not in columns:
         log.info('Adding skip_evaluation column for risks')
-        session.execute('ALTER TABLE risk ADD COLUMN skip_evaluation BOOL DEFAULT \'f\' NOT NULL')
+        session.execute(
+            "ALTER TABLE %s ADD skip_evaluation BOOL DEFAULT 'f' NOT NULL" %
+            model.Risk.__table__.name)
+        datamanager.mark_changed(session)
+
