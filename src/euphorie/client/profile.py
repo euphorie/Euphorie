@@ -19,7 +19,7 @@ from euphorie.client.utils import RelativePath
 grok.templatedir("templates")
 
 
-def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
+def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_children=False):
     """Add a new node to the session tree.
 
     :param root: parent node of the new child
@@ -79,7 +79,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
     child.profile_index = profile_index
     root.addChild(child)
 
-    if IQuestionContainer.providedBy(node):
+    if IQuestionContainer.providedBy(node) and not skip_children:
         for grandchild in node.values():
             AddToTree(child, grandchild, zodb_path, None, profile_index)
     return child
@@ -108,7 +108,8 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
                 continue
 
             assert isinstance(p, list)
-            profile_question = AddToTree(dbsession, child, title=child.title, profile_index=-1)
+            profile_question = AddToTree(dbsession, child, title=child.title,
+                    profile_index=-1, skip_children=True)
             for (index, title) in enumerate(p):
                 AddToTree(profile_question, child, title=title, profile_index=index)
         else:
