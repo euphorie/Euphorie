@@ -82,8 +82,7 @@ class EvaluationView(grok.View):
     grok.name("index_html")
 
     phase = "evaluation"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
-                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
+    question_filter = model.EVALUATION_FILTER
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -121,8 +120,7 @@ class ActionPlanView(grok.View):
     grok.name("index_html")
 
     phase = "actionplan"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                              model.RISK_PRESENT_OR_TOP5_FILTER)
+    question_filter = model.ACTION_PLAN_FILTER
 
     @property
     def use_solution_direction(self):

@@ -574,6 +574,16 @@ RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER = \
                 Risk.sql_risk_id == SurveyTreeItem.id,
                 sql.not_(Risk.risk_type.in_([u'top5', u'policy'])),
                 Risk.identification == u"no"))))
+
+EVALUATION_FILTER = \
+    sql.or_(MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
+            RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
+
+
+ACTION_PLAN_FILTER = \
+        sql.or_(MODULE_WITH_RISK_OR_TOP5_FILTER,
+                RISK_PRESENT_OR_TOP5_FILTER)
+
 del node
 
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",

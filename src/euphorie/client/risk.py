@@ -96,8 +96,7 @@ class EvaluationView(grok.View):
 
     phase = "evaluation"
     risk_present = True
-    question_filter = sql.or_(model.MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER,
-                              model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
+    question_filter = model.EVALUATION_FILTER
 
     @property
     def use_problem_description(self):
@@ -278,8 +277,7 @@ class ActionPlanView(grok.View):
     grok.name("index_html")
 
     phase = "actionplan"
-    question_filter = sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                              model.RISK_PRESENT_OR_TOP5_FILTER)
+    question_filter = model.ACTION_PLAN_FILTER
 
     @property
     def risk_present(self):
