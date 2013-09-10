@@ -146,7 +146,8 @@ class SurveyTreeItem(BaseObject):
         item.depth = self.depth + 1
         item.path = (self.path and self.path or "") + "%03d" % index
         item.parent_id = self.id
-        item.profile_index = self.profile_index
+        if self.profile_index != -1:
+            item.profile_index = self.profile_index
         sqlsession.add(item)
         self.session.touch()
         return item
@@ -307,6 +308,14 @@ class SurveySession(BaseObject):
         sqlsession.add(item)
         self.touch()
         return item
+
+    def children(self, filter=None):
+        query = Session.query(SurveyTreeItem)\
+            .filter(SurveyTreeItem.session_id == self.id)\
+            .filter(SurveyTreeItem.depth == 1)
+        if filter is not None:
+            query = query.filter(filter)
+        return query.order_by(SurveyTreeItem.path)
 
     def copySessionData(self, other):
         """Copy all user data from another session to this one.

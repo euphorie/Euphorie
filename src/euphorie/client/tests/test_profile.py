@@ -6,14 +6,6 @@ from euphorie.client.tests.database import DatabaseTests
 from euphorie.client.tests.test_update import TreeTests
 
 
-class MockSession(list):
-    def reset(self):
-        pass
-
-    def removeChildren(self):
-        pass
-
-
 def createContainer(id, profile=False):
     from zope.interface import implements
     from euphorie.content.interfaces import IQuestionContainer
@@ -182,50 +174,62 @@ class AddToTreeTests(DatabaseTests):
         self.assertEqual(child.has_description, True)
 
 
-class BuildSurveyTreeTests(unittest.TestCase):
+class BuildSurveyTreeTests(DatabaseTests):
     def setUp(self):
-        from euphorie.client import profile
-
-        def AddToTree(dbsession, child, title=None, profile_index=0):
-            dbsession.append((child.id, title))
-
-        self._AddToTree = profile.AddToTree
-        profile.AddToTree = AddToTree
-
-    def tearDown(self):
-        from euphorie.client import profile
-        profile.AddToTree = self._AddToTree
+        from z3c.saconfig import Session
+        super(BuildSurveyTreeTests, self).setUp()
+        self.session = Session()
+        account = model.Account(loginname=u"jane", password=u"secret")
+        self.session.add(account)
+        self.survey = model.SurveySession(title=u"Survey", zodb_path="survey",
+                account=account)
+        self.session.add(self.survey)
+        self.session.flush()
 
     def test_empty_profile_no_question(self):
-        BuildSurveyTree({}, dbsession=MockSession())
+        BuildSurveyTree({}, dbsession=self.survey)
+        self.assertTrue(not self.survey.hasTree())
 
-    def test_empty_profile_with_question(self):
-        dbsession = MockSession()
-        BuildSurveyTree({'one': createRisk("13")}, dbsession=dbsession)
-        self.assertEqual(dbsession, [("13", None)])
+    def test_empty_profile_with_risk(self):
+        BuildSurveyTree({'one': createRisk("13")}, dbsession=self.survey)
+        self.assertTrue(self.survey.hasTree())
+        children = self.survey.children().all()
+        self.assertEqual(len(children), 1)
+        self.assertEqual(children[0].zodb_path, '13')
+        self.assertEqual(children[0].children().count(), 0)
 
     def test_empty_profile_with_container(self):
-        dbsession = MockSession()
-        BuildSurveyTree({'one': createContainer("13")}, dbsession=dbsession)
-        self.assertEqual(dbsession, [("13", None)])
+        BuildSurveyTree({'one': createContainer("13")}, dbsession=self.survey)
+        self.assertTrue(self.survey.hasTree())
+        children = self.survey.children().all()
+        self.assertEqual(len(children), 1)
+        self.assertEqual(children[0].zodb_path, '13')
+        self.assertEqual(children[0].children().count(), 0)
 
     def test_empty_profile_with_profile_question(self):
-        dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
-                dbsession=dbsession)
-        self.assertEqual(dbsession, [])
+                dbsession=self.survey)
+        self.assertTrue(not self.survey.hasTree())
 
     def test_profile_without_answers(self):
-        dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
-                        profile={"13": []}, dbsession=dbsession)
-        self.assertEqual(dbsession, [])
+                        profile={"13": []}, dbsession=self.survey)
+        self.assertTrue(not self.survey.hasTree())
 
     def test_profile_with_multiple_answers(self):
-        dbsession = MockSession()
         BuildSurveyTree({'one': createContainer("13", True)},
-                        profile={"13": ["one", "two"]}, dbsession=dbsession)
-        self.assertEqual(dbsession, [("13", "one"), ("13", "two")])
+                        profile={"13": ["one", "two"]}, dbsession=self.survey)
+        self.assertTrue(self.survey.hasTree())
+        children = self.survey.children().all()
+        self.assertEqual(len(children), 1)
+        self.assertEqual(children[0].zodb_path, '13')
+        self.assertEqual(children[0].profile_index, -1)
+        grandchildren = children[0].children().all()
+        self.assertEqual(len(grandchildren), 2)
+        self.assertEqual(grandchildren[0].title, 'one')
+        self.assertEqual(grandchildren[0].profile_index, 0)
+        self.assertEqual(grandchildren[1].title, 'two')
+        self.assertEqual(grandchildren[1].profile_index, 1)
 
 
 class ExtractProfileTests(TreeTests):
