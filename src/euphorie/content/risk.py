@@ -123,7 +123,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 SimpleTerm(u"calculated",
                     title=_("evalmethod_calculated", default=u"Calculated")),
                 SimpleTerm(u"fixed",
-                    title=_("evalmethod_fixed", default=u"Set by sector orgnisation")),
+                    title=_("evalmethod_fixed", default=u"Set by sector organisation")),
             ]),
             default=u"calculated",
             required=False)
