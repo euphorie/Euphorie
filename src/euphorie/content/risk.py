@@ -122,9 +122,24 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                     title=_("evalmethod_direct", default=u"Estimated")),
                 SimpleTerm(u"calculated",
                     title=_("evalmethod_calculated", default=u"Calculated")),
+                SimpleTerm(u"fixed",
+                    title=_("evalmethod_fixed", default=u"Set by sector orgnisation")),
             ]),
             default=u"calculated",
             required=False)
+
+    depends("fixed_priority", "type", "==", "risk")
+    depends("fixed_priority", "evaluation_method", "==", "fixed")
+    fixed_priority = schema.Choice(
+            title=_("label_fixed_priority", default=u"priority"),
+            vocabulary=SimpleVocabulary([
+                SimpleTerm("low", title=_("priority_low", default=u"Low")),
+                SimpleTerm("medium",
+                    title=_("priority_medium", default=u"Medium")),
+                SimpleTerm("high", title=_("priority_high", default="High")),
+            ]),
+            required=False,
+            default="low")
 
     depends("default_priority", "type", "==", "risk")
     depends("default_priority", "evaluation_method", "==", "direct")
@@ -142,7 +157,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 SimpleTerm("high", title=_("priority_high", default="High")),
             ]),
             required=False,
-            default="none")
+            default="low")
 
     form.fieldset("main_image",
             label=_("header_main_image", default=u"Main image"),
@@ -244,7 +259,7 @@ class IFrenchEvaluation(form.Schema):
                 SimpleTerm(9, "regularly",
                     title=_("frequency_french_regularly",
                         default=u"Very often or regularly")),
-                ]),
+            ]),
             required=True,
             default=0)
 
@@ -321,6 +336,7 @@ class IKinneyRisk(IRisk, IKinneyEvaluation):
                         u"evaluated. For more details see the online "
                         u"manual."),
             fields=["type", "evaluation_method",
+                    "fixed_priority",
                     "default_priority",
                     "default_probability", "default_frequency",
                     "default_effect"])
@@ -334,9 +350,9 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
                         u"evaluated. For more details see the online "
                         u"manual."),
             fields=["type", "evaluation_method",
+                    "fixed_priority",
                     "default_priority",
-                    "default_severity", "default_frequency",
-                   ])
+                    "default_severity", "default_frequency"])
 
 
 class Risk(dexterity.Container):
@@ -377,6 +393,14 @@ class Risk(dexterity.Container):
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
         return evaluation_algorithm(self)
+
+    @property
+    def fixed_priority(self):
+        return self.default_priority
+
+    @fixed_priority.setter
+    def fixed_priority(self, value):
+        self.default_priority = value
 
 
 def EnsureInterface(risk):
