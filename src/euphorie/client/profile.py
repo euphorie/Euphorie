@@ -64,6 +64,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
         child = model.Risk(title=title,
                          risk_id=node.id,
                          risk_type=node.type,
+                         skip_evaluation=(node.evaluation_method == 'fixed'),
                          probability=node.default_probability,
                          frequency=node.default_frequency,
                          effect=effect,
