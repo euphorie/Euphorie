@@ -7,6 +7,10 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Add a new *fixed* evaluation method for risks. If this is used the sector
+  organisation can set the risk priority directly, and the risk will be skipped
+  during evaluation.
+
 - Add a new *obsolete* flag to survey groups. When a survey with this flag is
   set is published it will be put into a new group of obsolete surveys in the
   client. This addresses part of `TNO ticket 200

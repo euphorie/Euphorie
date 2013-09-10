@@ -454,6 +454,12 @@ class Risk(SurveyTreeItem):
     risk_id = schema.Column(types.String(16), nullable=False)
     risk_type = schema.Column(Enum([u"risk", u"policy", u"top5"]),
         default=u"risk", nullable=False, index=True)
+    #: Skip-evaluation flag. This is only used to indicate if the sector
+    #: set the evaluation method to `fixed`, not for policy behaviour
+    #: such as not evaluation top-5 risks. That policy behaviour is
+    #: handled via the question_filter on client views so it can be modified
+    #: in custom deployments.
+    skip_evaluation = schema.Column(types.Boolean(), default=False, nullable=False)
     identification = schema.Column(Enum([None, u"yes", u"no", "n/a"]))
     frequency = schema.Column(types.Integer())
     effect = schema.Column(types.Integer())
@@ -514,47 +520,51 @@ SKIPPED_PARENTS = \
         parent.skip_children == True))
 del parent
 
-node = orm.aliased(SurveyTreeItem)
+
+child_node = orm.aliased(SurveyTreeItem)
 
 RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = \
     sql.or_(SurveyTreeItem.type != "module",
             SurveyTreeItem.has_description)
 
+# Used by tno.euphorie
 MODULE_WITH_RISK_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,
-             sql.exists(sql.select([node.id]).where(sql.and_(
-                 node.session_id == SurveyTreeItem.session_id,
-                 node.id == Risk.sql_risk_id,
-                 node.type == u"risk",
+             sql.exists(sql.select([child_node.id]).where(sql.and_(
+                 child_node.session_id == SurveyTreeItem.session_id,
+                 child_node.id == Risk.sql_risk_id,
+                 child_node.type == u"risk",
                  Risk.identification == u"no",
-                 node.depth > SurveyTreeItem.depth,
-                 node.path.like(SurveyTreeItem.path + "%")))))
+                 child_node.depth > SurveyTreeItem.depth,
+                 child_node.path.like(SurveyTreeItem.path + "%")))))
 
 MODULE_WITH_RISK_OR_TOP5_FILTER = \
     sql.and_(SurveyTreeItem.type == u"module",
              SurveyTreeItem.skip_children == False,
-             sql.exists(sql.select([node.id]).where(sql.and_(
-                 node.session_id == SurveyTreeItem.session_id,
-                 node.id == Risk.sql_risk_id,
-                 node.type == "risk",
+             sql.exists(sql.select([child_node.id]).where(sql.and_(
+                 child_node.session_id == SurveyTreeItem.session_id,
+                 child_node.id == Risk.sql_risk_id,
+                 child_node.type == "risk",
                  sql.or_(Risk.identification == u"no",
                      Risk.risk_type == u"top5"),
-                 node.depth > SurveyTreeItem.depth,
-                 node.path.like(SurveyTreeItem.path + "%")))))
+                 child_node.depth > SurveyTreeItem.depth,
+                 child_node.path.like(SurveyTreeItem.path + "%")))))
 
-MODULE_WITH_RISK_NO_TOP5_NO_POLICY_FILTER = \
+MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = \
     sql.and_(SurveyTreeItem.type == "module",
              SurveyTreeItem.skip_children == False,
-             sql.exists(sql.select([node.id]).where(sql.and_(
-                 node.session_id == SurveyTreeItem.session_id,
-                 node.id == Risk.sql_risk_id,
-                 node.type == u"risk",
+             sql.exists(sql.select([child_node.id]).where(sql.and_(
+                 child_node.session_id == SurveyTreeItem.session_id,
+                 child_node.id == Risk.sql_risk_id,
+                 child_node.type == u"risk",
                  sql.not_(Risk.risk_type.in_([u"top5", u"policy"])),
+                 sql.not_(Risk.skip_evaluation == True),
                  Risk.identification == u"no",
-                 node.depth > SurveyTreeItem.depth,
-                 node.path.like(SurveyTreeItem.path + "%")))))
+                 child_node.depth > SurveyTreeItem.depth,
+                 child_node.path.like(SurveyTreeItem.path + "%")))))
 
+# Used by tno.euphorie
 RISK_PRESENT_FILTER = \
     sql.and_(SurveyTreeItem.type == "risk",
             sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
@@ -568,13 +578,24 @@ RISK_PRESENT_OR_TOP5_FILTER = \
                 sql.or_(Risk.identification == u"no",
                     Risk.risk_type == u"top5")))))
 
-RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER = \
+RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = \
     sql.and_(SurveyTreeItem.type == "risk",
             sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
                 Risk.sql_risk_id == SurveyTreeItem.id,
                 sql.not_(Risk.risk_type.in_([u'top5', u'policy'])),
+                sql.not_(Risk.skip_evaluation == True),
                 Risk.identification == u"no"))))
-del node
+
+EVALUATION_FILTER = \
+    sql.or_(MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER,
+            RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER)
+
+
+ACTION_PLAN_FILTER = \
+        sql.or_(MODULE_WITH_RISK_OR_TOP5_FILTER,
+                RISK_PRESENT_OR_TOP5_FILTER)
+
+del child_node
 
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
            "SKIPPED_PARENTS", "MODULE_WITH_RISK_FILTER",

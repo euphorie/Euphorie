@@ -7,7 +7,7 @@ from euphorie.client.tests.utils import registerUserInClient
 
 
 class SurveyTests(EuphorieFunctionalTestCase):
-    def testPolicyGetsHighPriority(self):
+    def test_policy_gets_high_priority(self):
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/93
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector title</title>
@@ -48,7 +48,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
                      "survey-title/actionplan/1/1")
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
-    def testTop5GetsHighPriority(self):
+    def test_top5_gets_high_priority(self):
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/93
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector title</title>
@@ -89,7 +89,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
                      "survey-title/actionplan/1/1")
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
-    def testTop5SkippedInEvaluation(self):
+    def test_top5_skipped_in_evaluation(self):
         # Test for http://code.simplon.biz/tracker/euphorie/ticket/105
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector title</title>

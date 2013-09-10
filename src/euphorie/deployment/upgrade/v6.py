@@ -7,6 +7,7 @@ from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from plone.dexterity.utils import createContent
 from euphorie.content.profilequestion import ProfileQuestion
+from euphorie.client import model
 
 log = logging.getLogger(__name__)
 
@@ -66,3 +67,13 @@ def convert_optional_profiles(context):
     site = aq_parent(aq_inner(context))
     _convert_optional_profiles(site['sectors'], False)
     _convert_optional_profiles(site['client'], True)
+
+
+def add_skip_evaluation_to_model(context):
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    columns = [c['name']
+               for c in inspector.get_columns(model.Risk.__table__.name)]
+    if 'skip_evaluation' not in columns:
+        log.info('Adding skip_evaluation column for risks')
+        session.execute('ALTER TABLE risk ADD COLUMN skip_evaluation BOOL DEFAULT \'f\' NOT NULL')
