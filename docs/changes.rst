@@ -7,6 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Modify handling of profile questions in the client: include the profile
+  question in the survey tree to make the naming more intuitive for users.
+
 - Add a new *obsolete* flag to survey groups. When a survey with this flag is
   set is published it will be put into a new group of obsolete surveys in the
   client. This addresses part of `TNO ticket 200
