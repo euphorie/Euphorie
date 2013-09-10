@@ -122,3 +122,29 @@ class convert_optional_profiles_tests(EuphorieTestCase):
         self.assertEqual(survey.published[0], 'version-id')
         self.assertEqual(survey.published[1], u'Version title')
         self.assertTrue(isinstance(survey.published[2], datetime.datetime))
+
+
+class add_skip_evaluation_to_model_tests(DatabaseTests):
+    create_tables = False
+
+    def add_skip_evaluation_to_model(self):
+        from euphorie.deployment.upgrade.v6 import add_skip_evaluation_to_model
+        add_skip_evaluation_to_model(None)
+
+    def test_column_present(self):
+        import mock
+        from z3c.saconfig import Session
+        session = Session()
+        session.execute('CREATE TABLE risk (skip_evaluation TEXT)')
+        session.execute = mock.Mock()
+        self.add_skip_evaluation_to_model()
+        self.assertTrue(not session.execute.called)
+
+    def test_column_not_present(self):
+        import mock
+        from z3c.saconfig import Session
+        session = Session()
+        session.execute('CREATE TABLE risk (foo INT)')
+        session.execute = mock.Mock()
+        self.add_skip_evaluation_to_model()
+        self.assertTrue(session.execute.called)

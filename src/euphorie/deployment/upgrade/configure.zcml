@@ -206,4 +206,16 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="13"
+    destination="14"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add skip-evaluation column to SQL model."
+      description="This flag is necesary for the fixed-priority evaluation method."
+      handler=".v6.add_skip_evaluation_to_model"/>
+
+  </genericsetup:upgradeSteps>
 </configure>
