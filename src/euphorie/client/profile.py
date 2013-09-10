@@ -19,7 +19,7 @@ from euphorie.client.utils import RelativePath
 grok.templatedir("templates")
 
 
-def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
+def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_children=False):
     """Add a new node to the session tree.
 
     :param root: parent node of the new child
@@ -32,9 +32,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
     :param title: title for the generated node. Defaults to the title of the
            ZODB object
     :type title: unicode or None
-    :param profile_index: profile answer index (for repetable profile
-           questions)
-    :param profile_index: int
+    :param int profile_index: profile answer index number.
     """
     title = title or node.title
 
@@ -75,16 +73,17 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0):
         if node.type in ['top5', 'policy']:
             child.priority = 'high'
     else:
-        return
+        return None  # Should never happen
 
     zodb_path = zodb_path + [node.id]
     child.zodb_path = "/".join(zodb_path)
     child.profile_index = profile_index
     root.addChild(child)
 
-    if IQuestionContainer.providedBy(node):
+    if IQuestionContainer.providedBy(node) and not skip_children:
         for grandchild in node.values():
             AddToTree(child, grandchild, zodb_path, None, profile_index)
+    return child
 
 
 def BuildSurveyTree(survey, profile={}, dbsession=None):
@@ -110,8 +109,10 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
                 continue
 
             assert isinstance(p, list)
+            profile_question = AddToTree(dbsession, child, title=child.title,
+                    profile_index=-1, skip_children=True)
             for (index, title) in enumerate(p):
-                AddToTree(dbsession, child, title=title, profile_index=index)
+                AddToTree(profile_question, child, title=title, profile_index=index)
         else:
             AddToTree(dbsession, child)
 
@@ -141,7 +142,8 @@ def extractProfile(survey, survey_session):
                             model.SurveyTreeItem.title)\
             .filter(model.SurveyTreeItem.type == 'module')\
             .filter(model.SurveyTreeItem.session == survey_session)\
-            .filter(model.SurveyTreeItem.depth == 1)\
+            .filter(model.SurveyTreeItem.profile_index >= 0)\
+            .filter(model.SurveyTreeItem.zodb_path.in_(questions))\
             .order_by(model.SurveyTreeItem.profile_index)\
             .all()
     for row in query:
