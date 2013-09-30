@@ -260,9 +260,9 @@
     $("a.button.small.solutions").ready(function (a, b, c) {
         var toggleFade = function() {
             var $link = $("a.button.small.solutions");
-            $link.css("color", "white");
+            $link.addClass('solutions-highlight');
             setTimeout(function() {
-                $link.removeAttr('style');
+                $link.removeClass('solutions-highlight');
             }, 500);
         };
         setTimeout( function () { toggleFade(); }, 1000);
