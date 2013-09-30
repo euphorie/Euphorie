@@ -2,6 +2,30 @@ body > h1 {
 	background-color: #003399;
 }
 
+#ActionPlanItemForm .solutions {
+    padding: 4px 4px;
+    margin-top: 0;
+	font-size: 12px;
+    font-weight: normal;
+    color: black;
+    text-shadow: none;
+    background: lightgray;
+}
+
+#ActionPlanItemForm .solutions:hover {
+	text-shadow: rgba(255,255,255,0.83) 0 1px 0;
+	border: 1px solid black;
+}
+
+#ActionPlanItemForm .solutions-highlight {
+    color: white;
+    background: gray;
+}
+
+#standardSolutions {
+    margin-top: 20px;
+}
+
 #steps li.complete,
 #steps li.current {
 	background-color: #996699;
