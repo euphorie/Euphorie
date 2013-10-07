@@ -122,7 +122,7 @@ class RiskPresentNoTop5FilterTests(DatabaseTests):
 
     def query(self):
         return self.session.query(model.SurveyTreeItem)\
-                .filter(model.RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER)
+                .filter(model.RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER)
 
     def testValidRisk(self):
         self.createData()

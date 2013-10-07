@@ -1,3 +1,4 @@
+from euphorie.client.tests.database import DatabaseTests
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
 
