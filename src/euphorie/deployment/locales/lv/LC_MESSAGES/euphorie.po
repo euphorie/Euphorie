@@ -2,20 +2,20 @@
 # Copyright (C) 2012 Simplon B.V., SYSLAB.COM GmbH
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-07-17 16:47+0200\n"
+"POT-Creation-Date: 2013-10-08 13:49+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
-"Language: \n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -212,8 +212,7 @@ msgstr "Aptauja ir veiksmīgi publicēta."
 msgid "button_preview"
 msgstr "Izveidot priekšskatījumu"
 
-#. Default: Succesfully created a preview for the survey. It can be accessed
-#. at
+#. Default: Succesfully created a preview for the survey. It can be accessed at
 #. ${url} .
 #: src/euphorie/client/publish.py:268
 msgid "message_preview_success"
@@ -250,12 +249,12 @@ msgid "Page ${number} of ${total}"
 msgstr ""
 
 #. Default: Risks marked with [*] are present.
-#: src/euphorie/client/report.py:221
+#: src/euphorie/client/report.py:222
 msgid "report_survey_footer_risk_present"
 msgstr "Pastāv ar [*] iezīmētie riski."
 
 #. Default: You responded negatively to the above statement.
-#: src/euphorie/client/report.py:419 src/euphorie/client/report.py:697
+#: src/euphorie/client/report.py:420 src/euphorie/client/report.py:698
 #: src/euphorie/client/templates/report_actionplan.pt:90
 #: src/euphorie/client/templates/report_identification.pt:51
 #: src/euphorie/client/templates/webhelpers.pt:126
@@ -263,19 +262,19 @@ msgid "warn_risk_present"
 msgstr "Jūs uz iepriekšējo apgalvojumu atbildējāt noliedzoši."
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:425 src/euphorie/client/report.py:703
+#: src/euphorie/client/report.py:426 src/euphorie/client/report.py:704
 #: src/euphorie/client/templates/report_actionplan.pt:91
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
 msgstr "Šis risks vēl ir jāinventarizē."
 
 #. Default: Identification report ${title}
-#: src/euphorie/client/report.py:443
+#: src/euphorie/client/report.py:444
 msgid "filename_report_identification"
 msgstr "Identifikācijas pārskats ${title}"
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:499 src/euphorie/client/report.py:602
+#: src/euphorie/client/report.py:500 src/euphorie/client/report.py:603
 #: src/euphorie/client/templates/report_actionplan.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:45
 #: src/euphorie/client/templates/report_actionplan.pt:53
@@ -284,7 +283,7 @@ msgid "missing_data"
 msgstr "Nav norādīts"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:579
+#: src/euphorie/client/report.py:580
 msgid "plan_report_intro_header"
 msgstr "Ievads"
 
@@ -293,7 +292,7 @@ msgstr "Ievads"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:581
+#: src/euphorie/client/report.py:582
 #: src/euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_1"
 msgstr ""
@@ -303,20 +302,19 @@ msgstr ""
 "daļa plāna būs paveikta vai tas būs jāpapildina."
 
 #. Default: Company details
-#: src/euphorie/client/report.py:606
+#: src/euphorie/client/report.py:607
 msgid "plan_report_company_header"
 msgstr "Informācija par uzņēmumu"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:657
+#: src/euphorie/client/report.py:658
 msgid "plan_report_plan_header"
 msgstr "Rīcības plāns"
 
-#. Default: This risk is not present in your organisation, but since the
-#. sector
+#. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: src/euphorie/client/report.py:710
+#: src/euphorie/client/report.py:711
 #: src/euphorie/client/templates/report_actionplan.pt:159
 #: src/euphorie/client/templates/webhelpers.pt:117
 msgid "top5_risk_not_present"
@@ -325,124 +323,124 @@ msgstr ""
 "par vienu no 5 viskritiskākajiem riskiem, tāpēc tas jāiekļauj pārskatā."
 
 #. Default: This is a
-#: src/euphorie/client/report.py:725
+#: src/euphorie/client/report.py:726
 msgid "report_priority"
 msgstr "Šis ir"
 
 #. Default: Measure
-#: src/euphorie/client/report.py:737
+#: src/euphorie/client/report.py:738
 msgid "header_measure_single"
 msgstr "Līdzeklis"
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:741
+#: src/euphorie/client/report.py:742
 #: src/euphorie/client/templates/report_actionplan.pt:106
 msgid "header_measure"
 msgstr "Līdzeklis ${index}"
 
 #. Default: Action plan:
-#: src/euphorie/client/report.py:755
+#: src/euphorie/client/report.py:756
 #: src/euphorie/client/templates/report_actionplan.pt:109
 msgid "report_measure_actionplan"
 msgstr "Rīcības plāns:"
 
 #. Default: Prevention plan:
-#: src/euphorie/client/report.py:761
+#: src/euphorie/client/report.py:762
 #: src/euphorie/client/templates/report_actionplan.pt:113
 msgid "report_measure_preventionplan"
 msgstr "Profilakses plāns:"
 
 #. Default: Requirements:
-#: src/euphorie/client/report.py:768
+#: src/euphorie/client/report.py:769
 #: src/euphorie/client/templates/report_actionplan.pt:117
 msgid "report_measure_requirements"
 msgstr "Prasības:"
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:778
+#: src/euphorie/client/report.py:779
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_responsible"
 msgstr "${responsible} atbild par šo uzdevumu."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:785
+#: src/euphorie/client/report.py:786
 #: src/euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_responsible_and_start"
 msgstr "${responsible} atbild par šo uzdevumu, kas sākas: ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:795
+#: src/euphorie/client/report.py:796
 #: src/euphorie/client/templates/report_actionplan.pt:128
 msgid "report_measure_responsible_and_end"
 msgstr "${responsible} atbild par šo uzdevumu, kas beidzas: ${end}."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:805
+#: src/euphorie/client/report.py:806
 #: src/euphorie/client/templates/report_actionplan.pt:141
 msgid "report_measure_full"
 msgstr ""
 "${responsible} atbild par šo uzdevumu, kas sākas ${start} un beidzas ${end}."
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:817
+#: src/euphorie/client/report.py:818
 #: src/euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_start_only"
 msgstr "Šī uzdevuma izpildes sākums: ${start}."
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:826
+#: src/euphorie/client/report.py:827
 #: src/euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_end_only"
 msgstr "Šī uzdevuma izpildes beigas: ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:834
+#: src/euphorie/client/report.py:835
 #: src/euphorie/client/templates/report_actionplan.pt:137
 msgid "report_measure_start_and_stop"
 msgstr "Šis uzdevums sākas ${start} un beidzas ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:844
+#: src/euphorie/client/report.py:845
 #: src/euphorie/client/templates/report_actionplan.pt:145
 msgid "report_measure_budget"
 msgstr "Šim līdzeklim pieejamais budžets ir: ${amount}."
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:859
+#: src/euphorie/client/report.py:860
 msgid "filename_report_actionplan"
 msgstr "Rīcības plāns ${title}"
 
 #. Default: Low
-#: src/euphorie/client/report.py:911
+#: src/euphorie/client/report.py:912
 msgid "label_timeline_priority_low"
 msgstr "Zema"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:912
+#: src/euphorie/client/report.py:913
 msgid "label_timeline_priority_medium"
 msgstr "Vidēja"
 
 #. Default: High
-#: src/euphorie/client/report.py:913
+#: src/euphorie/client/report.py:914
 msgid "label_timeline_priority_high"
 msgstr "Augsta"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:918
+#: src/euphorie/client/report.py:919
 #: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr "Plānošanas sākums"
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:920
+#: src/euphorie/client/report.py:921
 #: src/euphorie/client/templates/risk_actionplan.pt:121
 msgid "label_action_plan_end"
 msgstr "Plānošanas beigas"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:922
+#: src/euphorie/client/report.py:923
 #: src/euphorie/client/templates/risk_actionplan.pt:71
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
@@ -450,7 +448,7 @@ msgid "label_measure_action_plan"
 msgstr "Rīcības plāns"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:926
+#: src/euphorie/client/report.py:927
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
@@ -458,76 +456,76 @@ msgid "label_measure_prevention_plan"
 msgstr "Aizsardzības plāns"
 
 #. Default: Requirements
-#: src/euphorie/client/report.py:930 src/euphorie/content/solution.py:49
+#: src/euphorie/client/report.py:931 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr "Prasības"
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:932
+#: src/euphorie/client/report.py:933
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr "Kurš ir atbildīgs?"
 
 #. Default: Budget (in Euro)
-#: src/euphorie/client/report.py:935
+#: src/euphorie/client/report.py:936
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr "Budžets"
 
 #. Default: Section
-#: src/euphorie/client/report.py:937
+#: src/euphorie/client/report.py:938
 msgid "label_section"
 msgstr "Struktūrvienība"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:939
+#: src/euphorie/client/report.py:940
 msgid "label_risk_number"
 msgstr "Riska identifikācija"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:941
+#: src/euphorie/client/report.py:942
 msgid "report_timeline_risk_title"
 msgstr "Risks"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:943
+#: src/euphorie/client/report.py:944
 msgid "report_timeline_priority"
 msgstr "Prioritāte"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:945
+#: src/euphorie/client/report.py:946
 msgid "report_timeline_comment"
 msgstr "Komentāri"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:960
+#: src/euphorie/client/report.py:961
 msgid "report_timeline_title"
 msgstr "Laika grafiks"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:993
+#: src/euphorie/client/report.py:994
 msgid "filename_report_timeline"
 msgstr "Laika grafiks: ${title}"
 
-#: src/euphorie/client/risk.py:195 src/euphorie/client/risk.py:227
+#: src/euphorie/client/risk.py:194 src/euphorie/client/risk.py:226
 msgid "Please provide the day of the month"
 msgstr "Lūdzu, ievadiet mēneša datumu"
 
-#: src/euphorie/client/risk.py:197 src/euphorie/client/risk.py:204
-#: src/euphorie/client/risk.py:229 src/euphorie/client/risk.py:235
+#: src/euphorie/client/risk.py:196 src/euphorie/client/risk.py:203
+#: src/euphorie/client/risk.py:228 src/euphorie/client/risk.py:234
 msgid "Invalid day of month"
 msgstr "Nederīga mēneša diena"
 
-#: src/euphorie/client/risk.py:216 src/euphorie/client/risk.py:247
+#: src/euphorie/client/risk.py:215 src/euphorie/client/risk.py:246
 msgid "Please enter a year after 1900"
 msgstr "Lūdzu, ievadiet gadu, kas ir vēlāks par 1900. gadu."
 
-#: src/euphorie/client/risk.py:218 src/euphorie/client/risk.py:249
+#: src/euphorie/client/risk.py:217 src/euphorie/client/risk.py:248
 msgid "Please enter a year before 2100"
 msgstr "Lūdzu, ievadiet gadskaitli pirms 2l00."
 
-#: src/euphorie/client/risk.py:270
+#: src/euphorie/client/risk.py:269
 msgid "Start date is not before end date"
 msgstr "Sākuma datums nav pirms beigu datuma"
 
@@ -592,8 +590,7 @@ msgid "This email address is not available."
 msgstr "Šī e-pasta adrese nav pieejama."
 
 #. Default: Please confirm your new email address by clicking on the link in
-#. the email that will be sent in a few minutes to "${email}". Please note
-#. that
+#. the email that will be sent in a few minutes to "${email}". Please note that
 #. the new email address is also your new login name.
 #: src/euphorie/client/settings.py:247
 msgid "email_change_pending"
@@ -747,8 +744,7 @@ msgstr "mikrouzņēmumiem un maziem uzņēmumiem ir daži trūkumi"
 #. organising prevention in the workplace, and hundreds of thousands of
 #. companies all over Europe assess their risks regularly. Nevertheless, there
 #. is sufficient evidence to conclude that ${smb} when it comes to risk
-#. assessment and the adoption of a preventive policy in general which the
-#. OiRA
+#. assessment and the adoption of a preventive policy in general which the OiRA
 #. project aims to overcome.
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
@@ -757,9 +753,9 @@ msgstr ""
 "novērtēšanu. Kopš  Eiropas Pamatdirektīvas pieņemšanas 1989. gadā riska "
 "novērtēšana ir kļuvusi par labi zināmu jēdzienu saistībā ar profilaktisku "
 "pasākumu ieviešanu darba vietā. Simtiem tūkstošu uzņēmumu visā Eiropā "
-"regulāri veic riska novērtēšanu. Tomēr ir pietiekams pamats domāt, ka ${smb}"
-" riska novērtēšanas un aizsardzības politikas ieviešanā. OiRA projekta "
-"mērķis ir šos trūkumus novērst."
+"regulāri veic riska novērtēšanu. Tomēr ir pietiekams pamats domāt, ka ${smb} "
+"riska novērtēšanas un aizsardzības politikas ieviešanā. OiRA projekta mērķis "
+"ir šos trūkumus novērst."
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
@@ -776,10 +772,8 @@ msgstr "Projekta posmi"
 msgid "header_devel_phase"
 msgstr "Izstrādes un izmēģinājuma posms 2009.-2011. g."
 
-#. Default: After the technical development of the tool in 2009, in 2010
-#. (until
-#. the first half of 2011) the Agency is piloting the development and
-#. diffusion
+#. Default: After the technical development of the tool in 2009, in 2010 (until
+#. the first half of 2011) the Agency is piloting the development and diffusion
 #. model at both EU level (working with the Sectoral Social Dialogue
 #. Committees) and at Member State level (with several Member States) as part
 #. of the testing of the tool and the development of appropriate support and
@@ -789,9 +783,9 @@ msgid "devel_phase"
 msgstr ""
 "2009. gadā notika rīka tehniskā izstrāde, bet 2010. gadā (līdz 2011. gada "
 "pirmajai pusei) aģentūra izmēģināja izstrādes un izplatīšanas modeli gan ES "
-"līmenī (sadarbojoties ar sektoru sociālā dialoga komitejām), gan dalībvalstu"
-" līmenī (sadarbojoties ar atsevišķām dalībvalstīm). Moduļa izmēģināšana bija"
-" daļa no rīka testēšanas un piemērotu palīdzības un padomu sniegšanas "
+"līmenī (sadarbojoties ar sektoru sociālā dialoga komitejām), gan dalībvalstu "
+"līmenī (sadarbojoties ar atsevišķām dalībvalstīm). Moduļa izmēģināšana bija "
+"daļa no rīka testēšanas un piemērotu palīdzības un padomu sniegšanas "
 "pakalpojumu izstrādes."
 
 #. Default: Official launch of the project – September 2011
@@ -799,24 +793,22 @@ msgstr ""
 msgid "header_launch"
 msgstr "Oficiāla projekta atklāšana – 2011. gada septembris"
 
-#. Default: The official launch of the tool is planned for September 2011,
-#. once
+#. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
 #. website, the OiRA training scheme and OiRA help desk will be ready.
 #: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
 "Pēc izmēģinājuma posma mērķu sasniegšanas un OiRA tīmekļa vietnes, mācību "
-"shēmas un palīdzības dienesta sagatavošanas 2011. gada septembrī notika OiRA"
-" rīka oficiālā atklāšana."
+"shēmas un palīdzības dienesta sagatavošanas 2011. gada septembrī notika OiRA "
+"rīka oficiālā atklāšana."
 
 #. Default: Development partners
 #: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
 msgstr "Attīstības modeļi"
 
-#. Default: The OiRA project and its related web application has been
-#. developed
+#. Default: The OiRA project and its related web application has been developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
 #. financed by the Dutch government, was initially developed by TNO in
 #. collaboration with the employers organisation for small and medium-sized
@@ -829,9 +821,9 @@ msgstr ""
 "OiRA projektu un tam domāto tīmekļa lietotni izstrādāja ${eu-osha}, par "
 "pamatu izmantojot riska novērtēšanas rīku (${RIE}) no Nīderlandes. Šo rīku "
 "ar Nīderlandes valdības finansējuma palīdzību izstrādāja TNO, sadarbojoties "
-"ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-"
-"Nederland\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības "
-"FNV, CNV un MHP palīdzēja turpināt lietotnes izstrādi."
+"ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-Nederland"
+"\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības FNV, CNV un "
+"MHP palīdzēja turpināt lietotnes izstrādi."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
@@ -849,10 +841,8 @@ msgstr "Nīderlande"
 msgid "Germany"
 msgstr "Vācija"
 
-#. Default: The Agency was also given strategic and expert advice by a
-#. Steering
-#. Committee in the development and implementation of the OiRA project.
-#. Members
+#. Default: The Agency was also given strategic and expert advice by a Steering
+#. Committee in the development and implementation of the OiRA project. Members
 #. and alternates of the Steering Committee were appointed by the interest
 #. groups at the Board, by the Commission and by EU-OSHA.
 #: src/euphorie/client/templates/about.pt:93
@@ -860,8 +850,7 @@ msgid "about_partners_3"
 msgstr ""
 "OiRA projekta izstrādes un ieviešanas laikā Aģentūra saņēma stratēģiskus un "
 "ekspertu padomus no Koordinācijas komitejas.  Komitejas locekļus un viņu "
-"aizstājējus iecēla padomes interešu grupas, Komisija un EU-OSHA "
-"organizācija."
+"aizstājējus iecēla padomes interešu grupas, Komisija un EU-OSHA organizācija."
 
 #. Default: Licenses
 #: src/euphorie/client/templates/about.pt:97
@@ -931,8 +920,7 @@ msgstr ""
 "Noklikšķinot uz \"Dzēst kontu\", jūsu konts tiks uz visiem laikiem dzēsts. "
 "Konta dzēšana ir neatgriezeniska."
 
-#. Default: Please note that by deleting your account, also all your filled
-#. out
+#. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
 #. reports screen prior to deleting your account if you want to keep any.
 #: src/euphorie/client/templates/account-delete.pt:20
@@ -957,11 +945,10 @@ msgstr "Mainīt e-pasta adresi"
 
 #: src/euphorie/client/templates/account-settings.pt:24
 msgid ""
-"Please bear in mind that by changing the email address, your login name will"
-" also change."
+"Please bear in mind that by changing the email address, your login name will "
+"also change."
 msgstr ""
-"Lūdzu, ņemiet vērā: mainot e-pasta adresi, mainīsies arī jūsu "
-"pieteikumvārds."
+"Lūdzu, ņemiet vērā: mainot e-pasta adresi, mainīsies arī jūsu pieteikumvārds."
 
 #. Default: Password
 #: src/euphorie/client/templates/account-settings.pt:27
@@ -995,14 +982,13 @@ msgstr ""
 "veikšanai (profilakses plāns un prasības)."
 
 #. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks. There are no risks which need require any attention during
-#. this
+#. bottlenecks. There are no risks which need require any attention during this
 #. phase, so please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:35
 msgid "expl_actionplan_empty"
 msgstr ""
-"Jūs esat identificējis riska nopietnību katrā vājajā vietā. Šajā posmā vairs"
-" nav risku, kam būtu jāpievērš uzmanība, tādēļ pārejiet uz pārskatu."
+"Jūs esat identificējis riska nopietnību katrā vājajā vietā. Šajā posmā vairs "
+"nav risku, kam būtu jāpievērš uzmanība, tādēļ pārejiet uz pārskatu."
 
 #. Default: Create action plan
 #: src/euphorie/client/templates/actionplan.pt:42
@@ -1377,8 +1363,7 @@ msgstr "Iestatījumi"
 msgid "header_terms"
 msgstr "Noteikumi un nosacījumi"
 
-#. Default: The terms and conditions have changed since your last visit.
-#. Please
+#. Default: The terms and conditions have changed since your last visit. Please
 #. read the new terms and conditions carefully before proceding.
 #: src/euphorie/client/templates/conditions.pt:21
 msgid "terms_changed"
@@ -1387,24 +1372,20 @@ msgstr ""
 "turpināt, lūdzu, rūpīgi izlasiet jaunos noteikumus un nosacījumus."
 
 #. Default: The OiRA (Online interactive Risk Assessment) application is an
-#. instrument put at your disposal by the European Agency for Safety and
-#. Health
-#. at Work (EU-OSHA). This Privacy Policy applies to all products, services
-#. and
+#. instrument put at your disposal by the European Agency for Safety and Health
+#. at Work (EU-OSHA). This Privacy Policy applies to all products, services and
 #. websites offered by EU-OSHA in the framework of the OiRA application.
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
 msgstr ""
 "OiRA lietotne jeb interaktīvā riska novērtēšana tiešsaistē ir rīks, ko "
-"piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA)."
-" Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem un "
+"piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA). "
+"Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem un "
 "tīmekļa vietnēm, kuras EU-OSHA piedāvā OiRA lietotnē."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
-#. 45/2001 of the European Parliament and of the Council of 18 December 2000
-#. on
-#. the protection of individuals with regard to the processing of personal
-#. data
+#. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
+#. the protection of individuals with regard to the processing of personal data
 #. by the Community institutions and bodies and on the free movement of such
 #. data. Further details of the privacy policy of EU-OSHA and the full text of
 #. the Regulation can be accessed at: ${url}.
@@ -1429,8 +1410,8 @@ msgstr "Ievāktās informācijas veidi un nolūki"
 msgid "conditions_info_entry"
 msgstr ""
 "Kādu informāciju mēs ievācam: kad jūs reģistrējat OiRA kontu un ievadāt "
-"datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums lūdzam"
-" norādīt tālāk minēto informāciju."
+"datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums lūdzam "
+"norādīt tālāk minēto informāciju."
 
 #. Default: Email account: this is necessary to access the online application,
 #. edit the input data, and delete the OiRA account. You can enter any valid
@@ -1468,8 +1449,8 @@ msgstr ""
 "Sīkfaili – brīdī, kad apmeklējat šo vietni un atlasāt valodu, mēs uz jūsu "
 "datoru vai citu ierīci nosūtām sīkfailu, lai tas saglabātu informāciju par "
 "izvēlēto valodu. Sīkfails paliek jūsu pārlūkprogrammā līdz brīdim, kad to "
-"aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs nosūtām sīkfailu"
-" ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma laikā paliktu "
+"aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs nosūtām sīkfailu "
+"ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma laikā paliktu "
 "pieteicies sistēmā. Sīkfails paliek datorā līdz pārlūkprogrammas "
 "aizvēršanai. Daudzām pārlūkprogrammām sākotnējie iestatījumi paredz pieņemt "
 "sīkfailus, taču jūs varat mainīt iestatījumus tā, lai visi sīkfaili tiktu "
@@ -1487,16 +1468,15 @@ msgstr ""
 msgid "conditions_info_logs"
 msgstr ""
 "Žurnālu informācija – kad jūs piekļūstat šim pakalpojumam, mūsu serveri "
-"automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, kad"
-" apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda "
+"automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, kad "
+"apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda "
 "informācija kā jūsu tīmekļa pieprasījums, mijiedarbība ar pakalpojumu, "
 "pārlūkprogrammas veids, pārlūkprogrammas valoda, pieprasījuma datums un "
 "laiks. Sistēmā netiek saglabātas IP adreses."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
-#. services and develop new services. In any case no personal data will be
-#. used
+#. services and develop new services. In any case no personal data will be used
 #. for processing of data.
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
@@ -1511,8 +1491,7 @@ msgstr ""
 msgid "conditions_datacontroller_header"
 msgstr "Datu izmantošanas uzraugs"
 
-#. Default: The data controller is the European Agency for Safety and Health
-#. at
+#. Default: The data controller is the European Agency for Safety and Health at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
@@ -1559,11 +1538,9 @@ msgid "conditions_security_header"
 msgstr "Informācijas drošība"
 
 #. Default: We take appropriate security measures to protect against
-#. unauthorized access to or unauthorized alteration, disclosure or
-#. destruction
+#. unauthorized access to or unauthorized alteration, disclosure or destruction
 #. of data. These include internal reviews of our data collection, storage and
-#. processing practices and security measures, including appropriate
-#. encryption
+#. processing practices and security measures, including appropriate encryption
 #. of communication and physical security measures to guard against
 #. unauthorized access to systems where we store personal data. IP addresses
 #. are not saved so that end-users can not be identified through their access.
@@ -1573,8 +1550,8 @@ msgstr ""
 "Mēs izmantojam piemērotus drošības līdzekļus, lai nepieļautu nesankcionētu "
 "piekļuvi datiem, to nesankcionētu mainīšanu, atklāšanu vai iznīcināšanu: "
 "datu krājuma iekšējas pārbaudes, noteiktas uzglabāšanas un apstrādes "
-"metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas šifrēšanu un"
-" fiziskus aizsardzības līdzekļus, lai nepieļautu nesankcionētu piekļuvi "
+"metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas šifrēšanu un "
+"fiziskus aizsardzības līdzekļus, lai nepieļautu nesankcionētu piekļuvi "
 "sistēmām, kurās uzglabājam personas datus. Dati nevienam nav nekādā veidā "
 "pieejami. Mēs nesaglabājam IP adreses, lai tās nevarētu izmantot lietotāja "
 "identificēšanai."
@@ -1585,8 +1562,7 @@ msgid "conditions_contact_header"
 msgstr "Kontaktinformācija"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
-#. Any enquiries and complaints regarding our privacy policy can be sent to
-#. the
+#. Any enquiries and complaints regarding our privacy policy can be sent to the
 #. DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}.
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
@@ -1750,10 +1726,8 @@ msgstr ""
 "varat ievadīt rīkā."
 
 #. Default: You can also distribute the list among the workers and invite them
-#. to participate in identifying the hazards/problems, evaluating the risks
-#. and
-#. deciding on preventive action. Their feedback can be taken into account
-#. when
+#. to participate in identifying the hazards/problems, evaluating the risks and
+#. deciding on preventive action. Their feedback can be taken into account when
 #. filling in this tool.
 #: src/euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
@@ -1874,8 +1848,8 @@ msgstr "Kam paredzēts OiRA rīks? "
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks"
-" that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks "
+"that might exist in their workplace."
 msgstr ""
 "OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska "
 "faktorus savā uzņēmumā."
@@ -1900,9 +1874,9 @@ msgstr "Taču OiRA ir vairāk piemērots mazo uzņēmumu vajadzībām."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work"
-" and helping them to produce a documented risk assessment including an "
-"action plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work "
+"and helping them to produce a documented risk assessment including an action "
+"plan tailored to the business's requirements."
 msgstr ""
 "OiRA paredzēts, lai sniegtu atbalstu šiem uzņēmumiem riska novērtēšanā un "
 "palīdzētu sagatavot novērtējuma dokumentus, ieskaitot rīcības plānu, kas "
@@ -1930,14 +1904,14 @@ msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and"
-" thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and "
+"thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un "
 "iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
 "apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas "
-"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz,"
-" bet atbildēt uz to vēlākā posmā."
+"identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz, "
+"bet atbildēt uz to vēlākā posmā."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1945,8 +1919,8 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem,"
-" kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
+"${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem, "
+"kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1974,8 +1948,8 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
-"However, you can spend whatever time you have available on an assessment and"
-" then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and "
+"then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā "
@@ -1989,11 +1963,10 @@ msgstr "Kāpēc man jāreģistrējas? "
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick "
-"process."
+"assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu"
-" – tas ir vienkāršs un ātrs process."
+"Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu "
+"– tas ir vienkāršs un ātrs process."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
@@ -2110,14 +2083,13 @@ msgstr "Turpināt"
 msgid "header_publish"
 msgstr "Publicēt aptauju"
 
-#. Default: Are you sure you want to publish this survey? After publication
-#. the
+#. Default: Are you sure you want to publish this survey? After publication the
 #. survey will appear in the online client and be accessible by all users.
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
 msgstr ""
-"Vai tiešām vēlaties publicēt šo aptauju? Pēc publicēšanas aptauja parādīsies"
-" tiešsaistes klientā un tai varēs piekļūt visi lietotāji."
+"Vai tiešām vēlaties publicēt šo aptauju? Pēc publicēšanas aptauja parādīsies "
+"tiešsaistes klientā un tai varēs piekļūt visi lietotāji."
 
 #. Default: Are you sure you want to republish this survey? This will make all
 #. changes made public.
@@ -2165,8 +2137,8 @@ msgstr "Ļ. cien. lietotāj!"
 #: src/euphorie/client/templates/reminder-email.pt:8
 msgid "reminder_email_intro"
 msgstr ""
-"Jūs pieprasījāt paroles atgādinājumu OiRA tīmekļa vietnei. Jūsu pieteikšanās"
-" informācija ir šāda:"
+"Jūs pieprasījāt paroles atgādinājumu OiRA tīmekļa vietnei. Jūsu pieteikšanās "
+"informācija ir šāda:"
 
 #. Default: Email
 #: src/euphorie/client/templates/reminder-email.pt:12
@@ -2291,8 +2263,7 @@ msgstr "Informācija par uzņēmumu"
 msgid "warn_fix_errors"
 msgstr "Lūdzu, izlabojiet norādītās kļūdas."
 
-#. Default: Please fill out your company details on this form. The data on
-#. this
+#. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
@@ -2327,8 +2298,8 @@ msgid ""
 "Select a standard solution. The main fields of this measure will be "
 "populated with the chosen solution."
 msgstr ""
-"Atlasiet standarta risinājumu. Šī līdzekļa galvenie lauki tiks aizpildīti ar"
-" informāciju par izvēlēto risinājumu."
+"Atlasiet standarta risinājumu. Šī līdzekļa galvenie lauki tiks aizpildīti ar "
+"informāciju par izvēlēto risinājumu."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
@@ -2383,14 +2354,12 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:79
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
-"Uzticiet kādam uzņēmuma darbiniekam atbildību par šī līdzekļa ieviešanu. Šim"
-" darbiniekam būs pilnvaras veikt plānā minētās darbības un/vai pienākums "
+"Uzticiet kādam uzņēmuma darbiniekam atbildību par šī līdzekļa ieviešanu. Šim "
+"darbiniekam būs pilnvaras veikt plānā minētās darbības un/vai pienākums "
 "gādāt par to izpildi."
 
-#. Default: Although some measures do not cost any money, most do. The
-#. measures
-#. should therefore be budgeted for; include them in the annual budget round
-#. if
+#. Default: Although some measures do not cost any money, most do. The measures
+#. should therefore be budgeted for; include them in the annual budget round if
 #. necessary.
 #: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
@@ -2453,8 +2422,7 @@ msgstr ""
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
-msgstr ""
-"Vai tiešām vēlaties dzēst šo līdzekli? Šāda rīcība ir neatgriezeniska."
+msgstr "Vai tiešām vēlaties dzēst šo līdzekli? Šāda rīcība ir neatgriezeniska."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:207
 msgid ""
@@ -2473,19 +2441,19 @@ msgstr "Cik liela ir šī riska rašanās iespējamība?"
 
 #. Default: Small
 #: src/euphorie/client/templates/risk_evaluation.pt:30
-#: src/euphorie/content/risk.py:265
+#: src/euphorie/content/risk.py:280
 msgid "probability_small"
 msgstr "Neliela"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:32
-#: src/euphorie/content/risk.py:267
+#: src/euphorie/content/risk.py:282
 msgid "probability_medium"
 msgstr "Vidēja"
 
 #. Default: Large
 #: src/euphorie/client/templates/risk_evaluation.pt:34
-#: src/euphorie/content/risk.py:269
+#: src/euphorie/content/risk.py:284
 msgid "probability_large"
 msgstr "Liela"
 
@@ -2502,13 +2470,13 @@ msgstr "Gandrīz nekad"
 
 #. Default: Regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:42
-#: src/euphorie/content/risk.py:287
+#: src/euphorie/content/risk.py:302
 msgid "frequency_regularly"
 msgstr "Regulāri"
 
 #. Default: Constantly
 #: src/euphorie/client/templates/risk_evaluation.pt:44
-#: src/euphorie/content/risk.py:289
+#: src/euphorie/content/risk.py:304
 msgid "frequency_constantly"
 msgstr "Nepārtraukti"
 
@@ -2539,7 +2507,7 @@ msgstr "Kāda ir kaitējuma bīstamības pakāpe?"
 
 #. Default: Weak
 #: src/euphorie/client/templates/risk_evaluation.pt:62
-#: src/euphorie/content/risk.py:215
+#: src/euphorie/content/risk.py:230
 msgid "severity_weak"
 msgstr "Zema bīstamības pakāpe"
 
@@ -2550,7 +2518,7 @@ msgstr "Nav nepieciešamības pārtraukt darbu"
 
 #. Default: Not very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:66
-#: src/euphorie/content/risk.py:217
+#: src/euphorie/content/risk.py:232
 msgid "severity_not_severe"
 msgstr "Ne īpaši augsta bīstamības pakāpe"
 
@@ -2561,7 +2529,7 @@ msgstr "Ir nepieciešams pārtraukt darbu uz ne vairāk kā 3 dienām"
 
 #. Default: Severe
 #: src/euphorie/client/templates/risk_evaluation.pt:70
-#: src/euphorie/content/risk.py:220
+#: src/euphorie/content/risk.py:235
 msgid "severity_severe"
 msgstr "Augsta bīstamības pakāpe"
 
@@ -2572,7 +2540,7 @@ msgstr "Ir nepieciešams pārtraukt darbu uz vairāk nekā 3 dienām"
 
 #. Default: Very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:75
-#: src/euphorie/content/risk.py:222
+#: src/euphorie/content/risk.py:237
 msgid "severity_very_severe"
 msgstr "Ļoti augsta bīstamības pakāpe"
 
@@ -2583,7 +2551,7 @@ msgstr "Neatgriezeniski ievainojumi, neizārstējamas slimības, nāve"
 
 #. Default: Rare
 #: src/euphorie/client/templates/risk_evaluation.pt:84
-#: src/euphorie/content/risk.py:238
+#: src/euphorie/content/risk.py:253
 msgid "frequency_french_rare"
 msgstr "Reti"
 
@@ -2594,7 +2562,7 @@ msgstr "Reizi gadā"
 
 #. Default: Not very often
 #: src/euphorie/client/templates/risk_evaluation.pt:89
-#: src/euphorie/content/risk.py:240
+#: src/euphorie/content/risk.py:255
 msgid "frequency_french_not_often"
 msgstr "Ne pārāk bieži"
 
@@ -2605,7 +2573,7 @@ msgstr "Reizi mēnesī"
 
 #. Default: Often
 #: src/euphorie/client/templates/risk_evaluation.pt:94
-#: src/euphorie/content/risk.py:243
+#: src/euphorie/content/risk.py:258
 msgid "frequency_french_often"
 msgstr "Bieži"
 
@@ -2616,7 +2584,7 @@ msgstr "Reizi nedēļā"
 
 #. Default: Very often or regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:99
-#: src/euphorie/content/risk.py:245
+#: src/euphorie/content/risk.py:260
 msgid "frequency_french_regularly"
 msgstr "Ļoti bieži vai regulāri"
 
@@ -2632,19 +2600,19 @@ msgstr "Atlasiet šī riska prioritātes līmeni"
 
 #. Default: Low
 #: src/euphorie/client/templates/risk_evaluation.pt:110
-#: src/euphorie/content/risk.py:139
+#: src/euphorie/content/risk.py:136 src/euphorie/content/risk.py:154
 msgid "priority_low"
 msgstr "Zems"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:112
-#: src/euphorie/content/risk.py:141
+#: src/euphorie/content/risk.py:138 src/euphorie/content/risk.py:156
 msgid "priority_medium"
 msgstr "Vidējs"
 
 #. Default: High
 #: src/euphorie/client/templates/risk_evaluation.pt:114
-#: src/euphorie/content/risk.py:142
+#: src/euphorie/content/risk.py:139 src/euphorie/content/risk.py:157
 msgid "priority_high"
 msgstr "Augsts"
 
@@ -2713,12 +2681,10 @@ msgstr "Ievadiet Riska novērtēšanas nosaukumu"
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
-#. ended the RA, the data will be stored too. For security reasons it is
-#. better
+#. ended the RA, the data will be stored too. For security reasons it is better
 #. to officially log out. Of course your must remember your e-mail address,
 #. password and the title that you have given the RA. You can start the stored
-#. RA again at a later date: select the title of the RA. You can save more
-#. than
+#. RA again at a later date: select the title of the RA. You can save more than
 #. one RA, provided you have given them different titles names.
 #: src/euphorie/client/templates/sessions.pt:62
 #: src/euphorie/client/templates/survey_sessions.pt:51
@@ -2726,10 +2692,10 @@ msgid "session_title_tooltip"
 msgstr ""
 "Pēc riska novērtēšanas sākuma varēsit to pārtraukt pirms beigām. Ja iziesit "
 "no sistēmas, dati tiks saglabāti. Ja vienkārši pārtrauksit riska "
-"novērtēšanas procedūru, arī tad dati tiks saglabāti. Drošības iemeslu dēļ ir"
-" vēlams iziet no sistēmas paredzētajā veidā. Protams, jums ir jāatceras sava"
-" e-pasta adrese, parole un riska novērtēšanai piešķirtais nosaukums. Iesākto"
-" riska novērtēšanas procedūru varat turpināt vēlāk, atlasot vajadzīgās "
+"novērtēšanas procedūru, arī tad dati tiks saglabāti. Drošības iemeslu dēļ ir "
+"vēlams iziet no sistēmas paredzētajā veidā. Protams, jums ir jāatceras sava "
+"e-pasta adrese, parole un riska novērtēšanai piešķirtais nosaukums. Iesākto "
+"riska novērtēšanas procedūru varat turpināt vēlāk, atlasot vajadzīgās "
 "procedūras nosaukumu. Varat arī saglabāt vairāk nekā vienu riska "
 "novērtēšanas procedūru, ja vien tām ir piešķirti atšķirīgi nosaukumi."
 
@@ -2747,8 +2713,7 @@ msgstr "Vai esat informēts par visiem riskiem?"
 
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
-#. exposed to hazardous substances? A risk assessment helps you to define
-#. these
+#. exposed to hazardous substances? A risk assessment helps you to define these
 #. risks and tackle them head on. A risk assessment consists of two parts: a
 #. <dynamic element> with all the risks to your company and an <dynamic
 #. element> to deal with them. These two components allow you to limit the
@@ -2757,12 +2722,12 @@ msgstr "Vai esat informēts par visiem riskiem?"
 #: src/euphorie/client/templates/start.pt:21
 msgid "intro_risk_aware"
 msgstr ""
-"Tostarp jūsu darbinieku un aprīkojuma apdraudējumu? Ja nu notiktu negadījums"
-" ar kādu no iekārtām? Ja nu darbinieks saskaras ar bīstamām vielām? Riska "
+"Tostarp jūsu darbinieku un aprīkojuma apdraudējumu? Ja nu notiktu negadījums "
+"ar kādu no iekārtām? Ja nu darbinieks saskaras ar bīstamām vielām? Riska "
 "novērtēšana ļauj jums noteikt riskus un tos risināt. Riska novērtēšanai ir "
 "divas daļas: <dynamic element>, kas norāda visus riskus attiecībā uz "
-"uzņēmumu, un <dynamic element>, kas attiecas uz šo risku novēršanu. Šie divi"
-" elementi ļauj jums ierobežot riskus, kam pakļauti jūsu darbinieki un "
+"uzņēmumu, un <dynamic element>, kas attiecas uz šo risku novēršanu. Šie divi "
+"elementi ļauj jums ierobežot riskus, kam pakļauti jūsu darbinieki un "
 "uzņēmums, tādējādi samazinot arī finanšu risku."
 
 #. Default: The assessment is not complicated.
@@ -2771,8 +2736,7 @@ msgid "header_not_complicated"
 msgstr "Novērtēšana nav nekas sarežģīts."
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA is important. So important that the government has made it compulsory
-#. for
+#. RA is important. So important that the government has made it compulsory for
 #. almost all entrepreneurs with employees.
 #: src/euphorie/client/templates/start.pt:24
 msgid "intro_not_complicated"
@@ -2832,8 +2796,7 @@ msgstr ""
 #. Default: Please verify if the profile is still accurate.
 #: src/euphorie/client/templates/updated.pt:24
 msgid "verify_profile"
-msgstr ""
-"Lūdzu, pārbaudiet, vai profilā minētā informācija joprojām ir precīza."
+msgstr "Lūdzu, pārbaudiet, vai profilā minētā informācija joprojām ir precīza."
 
 #. Default: Update
 #: src/euphorie/client/templates/updated.pt:56
@@ -2947,8 +2910,7 @@ msgstr ""
 msgid "label_help_sessions"
 msgstr "Sesijas"
 
-#. Default: Describe the session handling. This text is linked from the
-#. session
+#. Default: Describe the session handling. This text is linked from the session
 #. overview page.
 #: src/euphorie/content/help.py:33
 msgid "help_sessions"
@@ -3008,8 +2970,7 @@ msgstr ""
 msgid "label_help_actionplan"
 msgstr "Rīcības plāns"
 
-#. Default: Document the action plan phase. This information is linked from
-#. all
+#. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
 #: src/euphorie/content/help.py:66
 msgid "help_actionplan"
@@ -3085,26 +3046,26 @@ msgstr ""
 "šo jautājumu jābūt \"jā\" vai \"nē\"."
 
 #. Default: Image file
-#: src/euphorie/content/module.py:65 src/euphorie/content/risk.py:155
-#: src/euphorie/content/risk.py:171 src/euphorie/content/risk.py:182
-#: src/euphorie/content/risk.py:193
+#: src/euphorie/content/module.py:65 src/euphorie/content/risk.py:170
+#: src/euphorie/content/risk.py:186 src/euphorie/content/risk.py:197
+#: src/euphorie/content/risk.py:208
 msgid "label_image"
 msgstr "Attēla fails"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and does not contain any special characters.
-#: src/euphorie/content/module.py:66 src/euphorie/content/risk.py:156
-#: src/euphorie/content/risk.py:172 src/euphorie/content/risk.py:183
-#: src/euphorie/content/risk.py:194 src/euphorie/content/sector.py:79
+#: src/euphorie/content/module.py:66 src/euphorie/content/risk.py:171
+#: src/euphorie/content/risk.py:187 src/euphorie/content/risk.py:198
+#: src/euphorie/content/risk.py:209 src/euphorie/content/sector.py:79
 msgid "help_image_upload"
 msgstr ""
 "Augšupielādējiet attēlu. Tam jābūt png, jpg vai gif formātā, un tajā "
 "nedrīkst būt nekādu īpašu rakstzīmju."
 
 #. Default: Image caption
-#: src/euphorie/content/module.py:72 src/euphorie/content/risk.py:162
-#: src/euphorie/content/risk.py:178 src/euphorie/content/risk.py:189
-#: src/euphorie/content/risk.py:200
+#: src/euphorie/content/module.py:72 src/euphorie/content/risk.py:177
+#: src/euphorie/content/risk.py:193 src/euphorie/content/risk.py:204
+#: src/euphorie/content/risk.py:215
 msgid "label_caption"
 msgstr "Attēla paraksts"
 
@@ -3113,8 +3074,7 @@ msgstr "Attēla paraksts"
 msgid "label_solution_direction"
 msgstr "Ievads rīcības plānā"
 
-#. Default: This information will be shown to users when they enter this
-#. module
+#. Default: This information will be shown to users when they enter this module
 #. while working on the action plan.
 #: src/euphorie/content/module.py:78
 msgid "help_solution_direction"
@@ -3146,8 +3106,8 @@ msgid "help_profilequestion_question"
 msgstr ""
 "Ja šim ir jābūt \"neobligātam\" profila jautājumam, tas jānoformulē kā "
 "jautājums, uz kuru atbild ar JĀ vai NĒ. Ja šim ir jābūt \"atkārtojamam\" "
-"profila jautājumam (apgalvojumam), tas jānoformulē kā uzvedne, kurā jāievada"
-" vairākas vērtības."
+"profila jautājumam (apgalvojumam), tas jānoformulē kā uzvedne, kurā jāievada "
+"vairākas vērtības."
 
 #. Default: Statement
 #: src/euphorie/content/risk.py:51
@@ -3225,8 +3185,8 @@ msgid "help_risk_type"
 msgstr ""
 "\"Risks\" ir saistīts ar darba vietu. \"Politika\" ir saistīta ar "
 "argumentiem, procedūrām un vadības lēmumiem. To var risināt birokrātiskā "
-"veidā (nav vajadzības pārbaudīt darba vietu). \"5 izplatītākie\" ir viens no"
-" pieciem izplatītākajiem riskiem attiecīgajā sektorā."
+"veidā (nav vajadzības pārbaudīt darba vietu). \"5 izplatītākie\" ir viens no "
+"pieciem izplatītākajiem riskiem attiecīgajā sektorā."
 
 #. Default: Top 5
 #: src/euphorie/content/risk.py:105
@@ -3253,8 +3213,8 @@ msgstr "Novērtēšanas metode"
 #: src/euphorie/content/risk.py:117
 msgid "help_evaluation_method"
 msgstr ""
-"Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens "
-"novērtējums\"."
+"Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens novērtējums"
+"\"."
 
 #. Default: Estimated
 #: src/euphorie/content/risk.py:122
@@ -3266,112 +3226,123 @@ msgstr "Aptuvens novērtējums"
 msgid "evalmethod_calculated"
 msgstr "Aprēķins"
 
+#. Default: Set by sector organisation
+#: src/euphorie/content/risk.py:126
+#, fuzzy
+msgid "evalmethod_fixed"
+msgstr "Aptuvens novērtējums"
+
+#. Default: priority
+#: src/euphorie/content/risk.py:134
+#, fuzzy
+msgid "label_fixed_priority"
+msgstr "Prioritāte pēc noklusējuma"
+
 #. Default: Default priority
-#: src/euphorie/content/risk.py:132
+#: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_default_priority"
 msgstr "Prioritāte pēc noklusējuma"
 
-#. Default: You can help the user by selecting a default priority. The user
-#. can
+#. Default: You can help the user by selecting a default priority. The user can
 #. still change the priority.
-#: src/euphorie/content/risk.py:133
+#: src/euphorie/content/risk.py:148
 msgid "help_default_priority"
 msgstr ""
 "Varat palīdzēt lietotājam, atlasot prioritāti, kas tiks lietota pēc "
 "noklusējuma. Lietotājs tik un tā varēs pats mainīt prioritātes līmeni."
 
 #. Default: No default
-#: src/euphorie/content/risk.py:138
+#: src/euphorie/content/risk.py:153
 msgid "no_default"
 msgstr "Bez noklusējuma"
 
 #. Default: Main image
-#: src/euphorie/content/risk.py:148
+#: src/euphorie/content/risk.py:163
 msgid "header_main_image"
 msgstr "Galvenais attēls"
 
 #. Default: The main image will get a more prominent position in the client
 #. than the other images.
-#: src/euphorie/content/risk.py:149
+#: src/euphorie/content/risk.py:164
 msgid "intro_main_image"
 msgstr "Galvenais attēls klientā būs pamanāmākā vietā, nekā citi attēli."
 
 #. Default: Secondary images
-#: src/euphorie/content/risk.py:166
+#: src/euphorie/content/risk.py:181
 msgid "header_secondary_images"
 msgstr "Sekundārie attēli"
 
 #. Default: Default severity
-#: src/euphorie/content/risk.py:208 src/euphorie/content/risk.py:297
+#: src/euphorie/content/risk.py:223 src/euphorie/content/risk.py:312
 #: src/euphorie/content/templates/risk_view.pt:53
 msgid "label_default_severity"
 msgstr "Bīstamība pēc noklusējuma"
 
 #. Default: Indicate the severity if this risk occurs.
-#: src/euphorie/content/risk.py:209 src/euphorie/content/risk.py:298
+#: src/euphorie/content/risk.py:224 src/euphorie/content/risk.py:313
 msgid "help_default_severity"
 msgstr "Norādiet bīstamības pakāpi, ko izraisa šī riska īstenošanās."
 
 #. Default: No default
-#: src/euphorie/content/risk.py:213 src/euphorie/content/risk.py:236
-#: src/euphorie/content/risk.py:263 src/euphorie/content/risk.py:283
-#: src/euphorie/content/risk.py:302
+#: src/euphorie/content/risk.py:228 src/euphorie/content/risk.py:251
+#: src/euphorie/content/risk.py:278 src/euphorie/content/risk.py:298
+#: src/euphorie/content/risk.py:317
 msgid "no default"
 msgstr "Bez noklusējuma"
 
 #. Default: Default frequency
-#: src/euphorie/content/risk.py:230 src/euphorie/content/risk.py:277
+#: src/euphorie/content/risk.py:245 src/euphorie/content/risk.py:292
 #: src/euphorie/content/templates/risk_view.pt:55
 #: src/euphorie/content/templates/risk_view.pt:62
 msgid "label_default_frequency"
 msgstr "Biežums pēc noklusējuma"
 
 #. Default: Indicate how often this risk occurs in a normal situation.
-#: src/euphorie/content/risk.py:231 src/euphorie/content/risk.py:278
+#: src/euphorie/content/risk.py:246 src/euphorie/content/risk.py:293
 msgid "help_default_frequency"
 msgstr "Norādiet, cik bieži šāds risks pastāv normālos apstākļos."
 
 #. Default: Default probability
-#: src/euphorie/content/risk.py:256
+#: src/euphorie/content/risk.py:271
 #: src/euphorie/content/templates/risk_view.pt:60
 msgid "label_default_probability"
 msgstr "Iespējamība pēc noklusējuma"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
-#: src/euphorie/content/risk.py:258
+#: src/euphorie/content/risk.py:273
 msgid "help_default_probability"
 msgstr "Norādiet, cik ticama ir šī riska rašanās normālos apstākļos."
 
 #. Default: Almost never
-#: src/euphorie/content/risk.py:285
+#: src/euphorie/content/risk.py:300
 msgid "frequency_almostnever"
 msgstr "Gandrīz nekad"
 
 #. Default: Weak severity
-#: src/euphorie/content/risk.py:304
+#: src/euphorie/content/risk.py:319
 msgid "effect_weak"
 msgstr "Zema bīstamības pakāpe"
 
 #. Default: Significant severity
-#: src/euphorie/content/risk.py:306
+#: src/euphorie/content/risk.py:321
 msgid "effect_significant"
 msgstr "Ievērojama bīstamības pakāpe"
 
 #. Default: High (very high) severity
-#: src/euphorie/content/risk.py:309
+#: src/euphorie/content/risk.py:324
 msgid "effect_high"
 msgstr "Augsta (ļoti augsta) bīstamības pakāpe"
 
 #. Default: Evaluation
-#: src/euphorie/content/risk.py:318 src/euphorie/content/risk.py:331
+#: src/euphorie/content/risk.py:333 src/euphorie/content/risk.py:347
 msgid "header_evaluation"
 msgstr "Novērtēšana"
 
 #. Default: You can specify how the risks priority is evaluated. For more
 #. details see the online manual.
-#: src/euphorie/content/risk.py:319 src/euphorie/content/risk.py:332
+#: src/euphorie/content/risk.py:334 src/euphorie/content/risk.py:348
 msgid "intro_evaluation"
 msgstr ""
 "Varat norādīt riska prioritātes novērtēšanas veidu. Sīkāku informāciju "
@@ -3486,8 +3457,7 @@ msgstr "Valoda"
 msgid "label_classification_code"
 msgstr "Klasifikācijas kods"
 
-#. Default: A code identifying this sector. Classification codes are defined
-#. by
+#. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
 #: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
@@ -3500,8 +3470,7 @@ msgstr ""
 msgid "label_title"
 msgstr "Nosaukums"
 
-#. Default: The title of this survey. This title is used in the survey
-#. overview
+#. Default: The title of this survey. This title is used in the survey overview
 #. in the clients.
 #: src/euphorie/content/survey.py:209 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
@@ -3570,8 +3539,7 @@ msgstr "Atcelta publikācijas izņemšanas darbība."
 msgid "label_sector_title"
 msgstr "Sektora nosaukums."
 
-#. Default: If you do not specify a title it will be taken from the input
-#. file.
+#. Default: If you do not specify a title it will be taken from the input file.
 #: src/euphorie/content/upload.py:74
 msgid "help_sector_title"
 msgstr "Ja nenorādīsit nosaukumu, tas tiks izveidots no ievades faila."
@@ -3821,11 +3789,11 @@ msgstr "Sektora darbplūsma"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to"
-" the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
-"Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem"
-" atļauju to rediģēt."
+"Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem "
+"atļauju to rediģēt."
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:17
 msgid "Active"
@@ -3885,8 +3853,8 @@ msgstr "pielikums"
 #: src/euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
-"Lapas, kas izveidotas mapē \"${appendix}\", ir pieejamas, izmantojot saites,"
-" kas redzamas tiešsaistes klienta lapas apakšdaļā."
+"Lapas, kas izveidotas mapē \"${appendix}\", ir pieejamas, izmantojot saites, "
+"kas redzamas tiešsaistes klienta lapas apakšdaļā."
 
 #. Default: online help
 #: src/euphorie/content/templates/documentation_view.pt:22
@@ -3896,7 +3864,8 @@ msgstr "tiešsaistes palīdzība"
 #. Default: The ${online_help} text can also be modified.
 #: src/euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help"
-msgstr "Tekstu, kas redzams sadaļā \"${online_help}\", arī ir iespējams mainīt."
+msgstr ""
+"Tekstu, kas redzams sadaļā \"${online_help}\", arī ir iespējams mainīt."
 
 #. Default: This folder is empty.
 #: src/euphorie/content/templates/folder_view.pt:17
@@ -4060,11 +4029,9 @@ msgstr ""
 "gaišāku krāsu kā papildkrāsu."
 
 #. Default: The logo will appear on both the client side app that your user
-#. group will see as well as on this editor environment in the top left
-#. corner.
+#. group will see as well as on this editor environment in the top left corner.
 #. Make sure your image is of format png, jpg or gif and does not contain any
-#. special characters. The new logo will only become visible after you've
-#. saved
+#. special characters. The new logo will only become visible after you've saved
 #. your changes.
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
@@ -4096,10 +4063,10 @@ msgstr "caurspīdīgu logotipu"
 #: src/euphorie/content/templates/settings.pt:74
 msgid "logo_instructions"
 msgstr ""
-"Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG failu,"
-" kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī lielākus "
-"attēlus, bet šādā gadījumā logotips tiks automātiski samazināts līdz "
-"pareizajam izmēram."
+"Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG failu, "
+"kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī lielākus attēlus, "
+"bet šādā gadījumā logotips tiks automātiski samazināts līdz pareizajam "
+"izmēram."
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
@@ -4519,8 +4486,7 @@ msgstr "${label}: versija, kuru pašlaik pārskatāt"
 msgid "label_update"
 msgstr "Atjaunināta"
 
-#. Default: ${label} = This version has changes that are currently
-#. unpublished.
+#. Default: ${label} = This version has changes that are currently unpublished.
 #. Click the update icon to bring all the changes live
 #: src/euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
@@ -4551,8 +4517,8 @@ msgstr ""
 
 #~ msgid "login_whois_oira_for_text_1"
 #~ msgstr ""
-#~ "OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides riska "
-#~ "faktorus savā uzņēmumā."
+#~ "OiRA var izmantot ikviens, kas vēlas novērtēt iespējamos darba vides "
+#~ "riska faktorus savā uzņēmumā."
 
 #~ msgid "login_whois_oira_for_text_2"
 #~ msgstr "Taču OiRA ir vairāk piemērots mazo uzņēmumu vajadzībām."
@@ -4571,55 +4537,56 @@ msgstr ""
 
 #~ msgid "login_what_todo_text_2"
 #~ msgstr ""
-#~ "${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties "
-#~ "uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
+#~ "${preparation} Tā sniedz Jums informāciju par novērtējumu, ko "
+#~ "gatavojaties uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem "
+#~ "darba apstākļiem."
 
 #~ msgid "login_what_todo_text_3"
 #~ msgstr ""
-#~ "${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem un "
-#~ "iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
+#~ "${identification} OiRA piedāvās sarakstu ar darba vides riska faktoriem "
+#~ "un iespējamām problēmām, kas var pastāvēt Jūsu darbavietā. Atbildot uz "
 #~ "apgalvojumiem ar „jā” vai „nē”, Jūs šos riska faktorus vai problēmas "
-#~ "identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz,"
-#~ " bet atbildēt uz to vēlākā posmā."
+#~ "identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu "
+#~ "uzreiz, bet atbildēt uz to vēlākā posmā."
 
 #~ msgid "login_what_todo_text_4"
 #~ msgstr ""
-#~ "${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem jautājumiem,"
-#~ " kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
+#~ "${evaluation} Šajā posmā Jūs varēsiet noteikt riska pakāpi tiem "
+#~ "jautājumiem, kurus Jūs iepriekš atzīmējāt ar atbildi „nē”. "
 
 #~ msgid "login_what_todo_text_5"
 #~ msgstr ""
 #~ "${action-plan} Ceturtajā novērtēšanas posmā Jūs varat izlemt, kādus "
-#~ "pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un kādi "
-#~ "resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā tiks "
-#~ "automātiski sagatavots ziņojums."
+#~ "pasākumus  veiksiet, lai risinātu iepriekš noteiktos riska faktorus un "
+#~ "kādi resursi tam būs nepieciešami. Pamatojoties uz šo, nākamajā posmā "
+#~ "tiks automātiski sagatavots ziņojums."
 
 #~ msgid "login_how_long_title"
 #~ msgstr "Cik laika tas prasīs?"
 
 #~ msgid "login_how_long_text_1"
 #~ msgstr ""
-#~ "Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams atbildēt "
-#~ "uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
+#~ "Tā kā rīki atšķiras atkarībā no nozarēm un valstīm, ir neiespējams "
+#~ "atbildēt uz jautājumu par to, cik ilgi notiek novērtēšana kopumā."
 
 #~ msgid "login_how_long_text_2"
 #~ msgstr ""
-#~ "Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā dotajā "
-#~ "brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
-#~ "apstājāties iepriekšējā reizē."
+#~ "Tomēr Jūs varat novērtēšanai izmantot visu laiku, kas ir Jūsu rīcībā "
+#~ "dotajā brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no "
+#~ "vietas, kurā apstājāties iepriekšējā reizē."
 
 #~ msgid "login_why_register_title"
 #~ msgstr "Kāpēc man jāreģistrējas? "
 
 #~ msgid "login_why_register_text_1"
 #~ msgstr ""
-#~ "Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu"
-#~ " – tas ir vienkāršs un ātrs process."
+#~ "Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA "
+#~ "kontu – tas ir vienkāršs un ātrs process."
 
 #~ msgid "login_why_register_text_2"
 #~ msgstr ""
-#~ "Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš "
-#~ "uzsāktos novērtējumus vai veiktu jaunus."
+#~ "Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu "
+#~ "iepriekš uzsāktos novērtējumus vai veiktu jaunus."
 
 #~ msgid "login_why_register_text_3"
 #~ msgstr ""
@@ -4636,28 +4603,29 @@ msgstr ""
 #~ "veidā darbinieki būs iesaistīti šajā procesā utt."
 
 #~ msgid ""
-#~ "The basic architecture of an Online interactive Risk Assessment consists of:"
-#~ " profile questions (questions defining the company profile), modules (and "
-#~ "potentially sub-modules), and risks (positive statements). Profile questions"
-#~ " are used to determine whether particular modules apply to the end user at "
-#~ "all or whether they should be repeated a number of times. Such questions are"
-#~ " asked BEFORE starting the risk identification and evaluation. If the end-"
-#~ "user does not confirm that an optional profile question is relevant the "
-#~ "corresponding module will be skipped entirely. If the end-user enters more "
-#~ "than one option to a profile question then the corresponding module will be "
-#~ "repeated the specified number of times."
+#~ "The basic architecture of an Online interactive Risk Assessment consists "
+#~ "of: profile questions (questions defining the company profile), modules "
+#~ "(and potentially sub-modules), and risks (positive statements). Profile "
+#~ "questions are used to determine whether particular modules apply to the "
+#~ "end user at all or whether they should be repeated a number of times. "
+#~ "Such questions are asked BEFORE starting the risk identification and "
+#~ "evaluation. If the end-user does not confirm that an optional profile "
+#~ "question is relevant the corresponding module will be skipped entirely. "
+#~ "If the end-user enters more than one option to a profile question then "
+#~ "the corresponding module will be repeated the specified number of times."
 #~ msgstr ""
 #~ "Arhitektūra, kas ir pamatā Riska interaktīvajai novērtēšanai tiešsaistē, "
-#~ "sastāv no: - profila jautājumiem (jautājumiem, kas definē uzņēmuma profilu);"
-#~ " - moduļiem un, iespējams, apakšmoduļiem; - riskiem (pozitīviem "
+#~ "sastāv no: - profila jautājumiem (jautājumiem, kas definē uzņēmuma "
+#~ "profilu); - moduļiem un, iespējams, apakšmoduļiem; - riskiem (pozitīviem "
 #~ "apgalvojumiem). Profila jautājumus izmanto, lai noteiktu, vai konkrēti "
-#~ "moduļi vispār ir attiecināmi uz gala lietotāju (NEOBLIGĀTI), vai arī moduļi "
-#~ "jāatkārto vairākas reizes (ATKĀRTOJAMI). Šie jautājumi ir jāuzdod PIRMS "
-#~ "risku identificēšanas un novērtēšanas. Ja gala lietotājs neapstiprina, ka "
-#~ "neobligāts profila jautājums ir uz viņu attiecināms (atzīmējot lodziņu), "
-#~ "konkrētais modulis tiks pilnībā izlaists. Ja gala lietotājs ievadīs vairāk "
-#~ "nekā vienu opciju, atbildot uz atkārtojamu profila jautājumu, konkrētais "
-#~ "modulis tiks atkārtots atbilstoši norādītajam reižu skaitam."
+#~ "moduļi vispār ir attiecināmi uz gala lietotāju (NEOBLIGĀTI), vai arī "
+#~ "moduļi jāatkārto vairākas reizes (ATKĀRTOJAMI). Šie jautājumi ir jāuzdod "
+#~ "PIRMS risku identificēšanas un novērtēšanas. Ja gala lietotājs "
+#~ "neapstiprina, ka neobligāts profila jautājums ir uz viņu attiecināms "
+#~ "(atzīmējot lodziņu), konkrētais modulis tiks pilnībā izlaists. Ja gala "
+#~ "lietotājs ievadīs vairāk nekā vienu opciju, atbildot uz atkārtojamu "
+#~ "profila jautājumu, konkrētais modulis tiks atkārtots atbilstoši "
+#~ "norādītajam reižu skaitam."
 
 #~ msgid "Unanswered"
 #~ msgstr "Šis risks vēl ir jāinventarizē."
