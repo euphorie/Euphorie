@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-10-08 13:49+0200\n"
+"POT-Creation-Date: 2013-10-10 21:16+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3109,7 +3109,7 @@ msgstr "Becsült"
 msgid "evalmethod_calculated"
 msgstr "Számított"
 
-#. Default: Set by sector organisation
+#. Default: Skip during evaluation phase
 #: src/euphorie/content/risk.py:126
 #, fuzzy
 msgid "evalmethod_fixed"
