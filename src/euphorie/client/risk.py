@@ -133,7 +133,7 @@ class EvaluationView(grok.View):
             self.context.comment = reply.get("comment")
             if risk.evaluation_method == "direct":
                 self.context.priority = reply.get("priority")
-            else:
+            elif risk.evaluation_method == 'calculated':
                 self.calculatePriority(risk, reply)
 
             SessionManager.session.touch()
