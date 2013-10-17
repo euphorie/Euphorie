@@ -3329,7 +3329,7 @@ msgstr "Κατ' εκτίμηση"
 msgid "evalmethod_calculated"
 msgstr "Υπολογισμένος"
 
-#. Default: Skip during evaluation phase
+#. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 #, fuzzy
 msgid "evalmethod_fixed"

@@ -2929,7 +2929,7 @@ msgstr ""
 msgid "evalmethod_calculated"
 msgstr ""
 
-#. Default: Skip during evaluation phase
+#. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 msgid "evalmethod_fixed"
 msgstr ""

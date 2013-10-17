@@ -3104,7 +3104,7 @@ msgstr "Schätzung"
 msgid "evalmethod_calculated"
 msgstr "Berechnung"
 
-#. Default: Skip during evaluation phase
+#. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 #, fuzzy
 msgid "evalmethod_fixed"

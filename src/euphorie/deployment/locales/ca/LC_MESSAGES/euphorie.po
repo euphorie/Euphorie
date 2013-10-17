@@ -3123,7 +3123,7 @@ msgstr "Aproximat"
 msgid "evalmethod_calculated"
 msgstr "Calculat"
 
-#. Default: Skip during evaluation phase
+#. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 #, fuzzy
 msgid "evalmethod_fixed"
