@@ -2976,7 +2976,7 @@ msgstr "À propos"
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:136
 msgid "header_legal_references"
-msgstr "Références juridiques et politiques"
+msgstr "Références juridiques et techniques"
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
