@@ -486,7 +486,7 @@ msgstr "Rizika"
 #. Default: Priority
 #: src/euphorie/client/report.py:944
 msgid "report_timeline_priority"
-msgstr "Prioritetas"
+msgstr "Rizikos dydis"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:946
