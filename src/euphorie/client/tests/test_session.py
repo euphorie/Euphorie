@@ -119,24 +119,6 @@ class SessionManagerFactoryTests(TreeTests):
             finally:
                 setSecurityManager(sm)
 
-    def test_session_block_other_account(self):
-        import mock
-        from AccessControl.SecurityManagement import getSecurityManager
-        from AccessControl.SecurityManagement import setSecurityManager
-        from AccessControl.SecurityManagement import newSecurityManager
-        from .. import model
-        session = self.createSurveySession()
-        with mock.patch('euphorie.client.session.SessionManagerFactory.id', new_callable=mock.PropertyMock) as mock_id:
-            mock_id.return_value = session.id
-            mgr = self.SessionManagerFactory()
-            sm = getSecurityManager()
-            attacker = model.Account(loginname="evil", password=u"layer")
-            try:
-                newSecurityManager(None, attacker)
-                self.assertEqual(mgr.session, None)
-            finally:
-                setSecurityManager(sm)
-
     def test_resume_enforce_same_account(self):
         from AccessControl.SecurityManagement import getSecurityManager
         from AccessControl.SecurityManagement import setSecurityManager

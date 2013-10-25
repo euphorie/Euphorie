@@ -124,12 +124,26 @@ class EuphorieAccountPlugin(BasePlugin):
             return None
 
     @security.private
+    def _get_survey_session(self):
+        for parent in self.REQUEST.other['PARENTS']:
+            if isinstance(parent, model.SurveySession):
+                return parent
+        else:
+            return None
+
+    @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
         if uid_and_login is not None:
+            session = self._get_survey_session()
+            if session is not None:
+                # Verify if current session matches the user. This prevents
+                # a cookie hijack attack.
+                if str(session.account_id) != uid_and_login[0]:
+                    return None
             return uid_and_login
         else:
             return None
