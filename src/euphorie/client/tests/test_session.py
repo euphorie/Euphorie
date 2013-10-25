@@ -81,3 +81,22 @@ class SessionCreationTests(DatabaseTests):
                 self.failUnless(request.other["euphorie.session"] is ses)
         finally:
             del locals.request
+
+
+class SessionResumeTests(DatabaseTests):
+    def test_enforce_same_account(self):
+        from AccessControl.SecurityManagement import getSecurityManager
+        from AccessControl.SecurityManagement import setSecurityManager
+        from AccessControl.SecurityManagement import newSecurityManager
+        from euphorie.client import model
+        from ..session import SessionManagerFactory
+        sm = getSecurityManager()
+        mgr = SessionManagerFactory()
+        victim = model.Account(loginname="test", password=u"test")
+        attacker = model.Account(loginname="evil", password=u"layer")
+        session = model.SurveySession(account=victim)
+        try:
+            newSecurityManager(None, attacker)
+            self.assertRaises(ValueError, mgr.resume, session)
+        finally:
+            setSecurityManager(sm)

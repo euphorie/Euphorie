@@ -1,5 +1,6 @@
 import logging
 from z3c.saconfig import Session
+from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
@@ -86,6 +87,10 @@ class SessionManagerFactory(object):
         :param session: session to activate
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
+        account = aq_base(getSecurityManager().getUser())
+        if session.account is not account:
+            raise ValueError('Can only resume session for current user.')
+
         request = getRequest()
         request.other["euphorie.session"] = session
         setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)

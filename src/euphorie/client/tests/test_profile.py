@@ -332,13 +332,12 @@ class Profile_setupSession_Tests(TreeTests):
         from AccessControl.SecurityManagement import newSecurityManager
         setRequest(self.portal.REQUEST)
         sm = getSecurityManager()
-        account = Account(loginname="test", password=u"test")
         # Add stub for copySessionData since it tries to run SQL code which
         # SQLite does not handle (UPDATE FROM)
         _copySessionData = SurveySession.copySessionData
         SurveySession.copySessionData = lambda *a: None
         try:
-            newSecurityManager(None, account)
+            newSecurityManager(None, self.session.account)
             return view.setupSession()
         finally:
             SurveySession.copySessionData = _copySessionData
