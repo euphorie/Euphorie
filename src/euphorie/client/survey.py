@@ -7,6 +7,7 @@ import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
+from zExceptions import Unauthorized
 from five import grok
 from zope.interface import directlyProvides
 from zope.interface import directlyProvidedBy
@@ -77,6 +78,9 @@ class View(grok.View):
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(model.SurveySession).get(info["session"])
+        account = aq_base(getSecurityManager().getUser())
+        if session.account is not account:
+            raise Unauthorized()
         SessionManager.resume(session)
         survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         self.request.response.redirect("%s/resume" % survey.absolute_url())
