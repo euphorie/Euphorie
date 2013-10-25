@@ -62,6 +62,13 @@ class SessionManagerFactory(object):
             return None
 
         session = Session.query(model.SurveySession).get(id)
+        if session is None:
+            return None
+        current_user = aq_base(getSecurityManager().getUser())
+        if session.account is not current_user:
+            log.warn('User %s tried to hijack session from %s',
+                    getattr(current_user, 'loginname', repr(current_user)), session.account.loginname)
+            return None
         request.other["euphorie.session"] = session
         return session
 
@@ -107,6 +114,8 @@ class SessionManagerFactory(object):
     def id(self):
         """The id of the current session, or None if there is no active
         session.
+
+        This method does not perform any security checks.
 
         :rtype: int or None
         """

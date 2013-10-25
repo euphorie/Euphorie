@@ -38,7 +38,7 @@ def setRequest(request):
 
 
 def getRequest():
-    return locals.request
+    return getattr(locals, 'request', None)
 
 
 def getSecret():

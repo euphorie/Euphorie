@@ -45,9 +45,11 @@ class EuphorieTestLayer(ptc.BasePTCLayer):
 
     def beforeTearDown(self):
         from euphorie.client import model
+        from euphorie.client import utils
         from z3c.saconfig import Session
         Session.remove()
         model.metadata.drop_all(Session.bind)
+        utils.setRequest(None)
 
     # XXX testSetUp and testTearDown should not be neceesary, but it seems
     # SQL data is not correctly cleared at the end of a test method run,

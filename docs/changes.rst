@@ -37,6 +37,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- Security fix: modify client to always check if a request session belongs
+  to the current user.
+
 - Fixed a typo in the client splash page. OSHA ticket #7261.
 
 - Translation updates:
