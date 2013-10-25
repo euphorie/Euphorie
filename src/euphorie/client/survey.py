@@ -78,8 +78,11 @@ class View(grok.View):
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(model.SurveySession).get(info["session"])
-        account = aq_base(getSecurityManager().getUser())
-        if session.account is not account:
+        current_user = aq_base(getSecurityManager().getUser())
+        if session.account is not current_user:
+            log.warn('User %s tried to hijack session from %s',
+                    getattr(current_user, 'loginname', repr(current_user)),
+                    session.account.loginname)
             raise Unauthorized()
         SessionManager.resume(session)
         survey = self.request.client.restrictedTraverse(str(session.zodb_path))
