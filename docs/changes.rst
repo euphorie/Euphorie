@@ -62,6 +62,8 @@ Bugfixes
 
   - Applied new translations in 13 languages. OSHA tickets #7938, #8190
 
+  - Applied new translations in SK and SL, OSHA ticket #8780
+
 - Commented out the IE8 warning in the client until we have a solution for
   translating it. OSHA ticket #7929 
 

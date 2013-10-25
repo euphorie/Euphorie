@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-10-10 21:16+0200\n"
-"PO-Revision-Date: 2013-07-30 16:00+0200\n"
+"POT-Creation-Date: 2013-10-25 15:09+0200\n"
+"PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Stran ${number} od ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1869,6 +1869,12 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put it on hold to be answered at a later stage."
 msgstr ""
+"${identification} Projekt OiRA bo predstavil serijo morebitnih nevarnosti za "
+"zdravje in varnost ali težav, ki bi lahko obstajale na vašem delovnem mestu. "
+"Z odgovori na izjave/vprašanja z da ali ne boste navedli, če tovrstne "
+"nevarnosti ali težave že obstajajo. Če želite, lahko pustite kakšno "
+"vprašanje neodgovorjeno ter ga tako začasno odložite na stran in bo nanj "
+"odgovorjeno pozneje."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -2590,7 +2596,7 @@ msgstr ""
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
 msgid "label_obsolete_survey_group"
-msgstr ""
+msgstr "Zastarele ankete"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3081,15 +3087,13 @@ msgstr "Izračunano"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
-#, fuzzy
 msgid "evalmethod_fixed"
-msgstr "Predvideno"
+msgstr "Preskočite ocenjevanje"
 
 #. Default: priority
 #: src/euphorie/content/risk.py:134
-#, fuzzy
 msgid "label_fixed_priority"
-msgstr "Privzeta prioriteta"
+msgstr "prednost"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -3319,16 +3323,15 @@ msgstr ""
 
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:216 src/euphorie/content/surveygroup.py:50
-#, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Izberite osnovno revizijo"
+msgstr "Zastarela anketa"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:218 src/euphorie/content/surveygroup.py:52
-#, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Izberite osnovno revizijo"
+msgstr ""
+"Ta anketa je zastarela; bila je umaknjena, ali zamenjana z drugo anketo."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.

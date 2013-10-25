@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-10-10 21:16+0200\n"
-"PO-Revision-Date: 2013-06-27 22:15+0200\n"
+"POT-Creation-Date: 2013-10-25 15:09+0200\n"
+"PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -242,12 +242,12 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Strana ${number} z ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
 msgid "report_survey_footer_risk_present"
-msgstr ""
+msgstr "Riziká označené hviezdičkou [*] sú prítomné."
 
 #. Default: You responded negatively to the above statement.
 #: src/euphorie/client/report.py:420 src/euphorie/client/report.py:698
@@ -466,9 +466,8 @@ msgstr ""
 
 #. Default: Section
 #: src/euphorie/client/report.py:938
-#, fuzzy
 msgid "label_section"
-msgstr "Text k obrázku"
+msgstr "Sekcia"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:940
@@ -478,7 +477,7 @@ msgstr "Typ rizika"
 #. Default: Risk
 #: src/euphorie/client/report.py:942
 msgid "report_timeline_risk_title"
-msgstr ""
+msgstr "Riziko"
 
 #. Default: Priority
 #: src/euphorie/client/report.py:944
@@ -488,12 +487,12 @@ msgstr "Toto je"
 #. Default: Comments
 #: src/euphorie/client/report.py:946
 msgid "report_timeline_comment"
-msgstr ""
+msgstr "Komentáre"
 
 #. Default: Timeline
 #: src/euphorie/client/report.py:961
 msgid "report_timeline_title"
-msgstr ""
+msgstr "Časová os"
 
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:994
@@ -502,7 +501,7 @@ msgstr "Správa o identifikácii ${title}"
 
 #: src/euphorie/client/risk.py:194 src/euphorie/client/risk.py:226
 msgid "Please provide the day of the month"
-msgstr ""
+msgstr "Uveďte, prosím, deň v mesiaci"
 
 #: src/euphorie/client/risk.py:196 src/euphorie/client/risk.py:203
 #: src/euphorie/client/risk.py:228 src/euphorie/client/risk.py:234
@@ -514,13 +513,12 @@ msgid "Please enter a year after 1900"
 msgstr "Zadajte prosím neskorší rok ako 1900"
 
 #: src/euphorie/client/risk.py:217 src/euphorie/client/risk.py:248
-#, fuzzy
 msgid "Please enter a year before 2100"
-msgstr "Zadajte prosím neskorší rok ako 1900"
+msgstr "Zadajte, prosím, rok pred 2100"
 
 #: src/euphorie/client/risk.py:269
 msgid "Start date is not before end date"
-msgstr ""
+msgstr "Dátum začiatku nie je skorší ako dátum ukončenia"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -544,7 +542,7 @@ msgstr "Nastavenie konta"
 
 #: src/euphorie/client/settings.py:84 src/euphorie/client/settings.py:219
 msgid "Save changes"
-msgstr "Uložiť zmeny"
+msgstr "Uložte zmeny"
 
 #: src/euphorie/client/settings.py:93 src/euphorie/client/settings.py:236
 msgid "There were no changes to be saved."
@@ -1502,9 +1500,8 @@ msgstr "Informácie o kontaktoch"
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
-#, fuzzy
 msgid "agree_and_continue"
-msgstr "Pokračovať"
+msgstr "Súhlasím a pokračovať"
 
 #. Default: Dear user,
 #: src/euphorie/client/templates/confirm-email.pt:6
@@ -1532,7 +1529,7 @@ msgstr "Chyba"
 #. Default: Something bad happened.
 #: src/euphorie/client/templates/error.pt:19
 msgid "expl_error"
-msgstr "Stalo sa niečo zlé."
+msgstr "Prepáčte, ale vyskytla sa nečakaná chyba."
 
 #. Default: Not found
 #: src/euphorie/client/templates/error_notfound.pt:17
@@ -1593,7 +1590,7 @@ msgstr "Úvod"
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Overovanie"
+msgstr "Registrácia"
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
@@ -1605,25 +1602,25 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:22
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_start"
-msgstr "Príprava"
+msgstr "1. Príprava"
 
 #. Default: Identification
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:42
 msgid "help_header_identification"
-msgstr "Identifikácia"
+msgstr "2. Identifikácia"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_evaluation"
-msgstr "Vyhodnotenie"
+msgstr "3. Hodnotenie"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_actionplan"
-msgstr "Akčný plán"
+msgstr "4. Plán činnosti"
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
@@ -1635,7 +1632,7 @@ msgstr "Správa"
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_finalwords"
-msgstr "Záverečné slová"
+msgstr "Čo sa bude diať ďalej?"
 
 #. Default: You may want to print out the list of risks you cannot immediately
 #. answer and look for the information at the relevant workplace (by walking
@@ -1662,12 +1659,12 @@ msgstr ""
 #. Default: You can print the ${list-of-risks}.
 #: src/euphorie/client/templates/identification.pt:25
 msgid "intro_identification"
-msgstr "Môžete vytlačiť ${list-of-risks}."
+msgstr "Môžete vytlačiť ${zoznam rizík}."
 
 #. Default: Start Risk Identification
 #: src/euphorie/client/templates/identification.pt:30
 msgid "label_start_identification"
-msgstr "Spustiť identifikáciu rizík"
+msgstr "Identifikácia počiatočného rizika"
 
 #. Default: Welcome
 #: src/euphorie/client/templates/login.pt:18
@@ -1692,7 +1689,7 @@ msgstr ""
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:29
 msgid "header_login"
-msgstr "Prihlásiť"
+msgstr "Prihlásenie"
 
 #. Default: Email address
 #: src/euphorie/client/templates/login.pt:31
@@ -1714,12 +1711,12 @@ msgstr "Heslo (${forgot_link})"
 #. Default: Keep me logged in.
 #: src/euphorie/client/templates/login.pt:35
 msgid "label_keep_logged_in"
-msgstr ""
+msgstr "Chcem byť prihlásený."
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:39
 msgid "label_login"
-msgstr "Prihlásiť"
+msgstr "Prihlásenie"
 
 #. Default: Change country/language
 #: src/euphorie/client/templates/login.pt:40
@@ -1746,7 +1743,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:49
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr ""
+msgstr "Čo je to OiRA (Online interaktívne hodnotenie rizika)?"
 
 #: src/euphorie/client/templates/login.pt:50
 msgid ""
@@ -1754,16 +1751,21 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
+"OiRA znamená Online Interactive Risk Assessment (Online interaktívne "
+"hodnotenie rizika). Ide o webový nástroj, ktorý vám umožňuje vykonať "
+"hodnotenie zdravotného a bezpečnostného rizika na vašom pracovisku."
 
 #: src/euphorie/client/templates/login.pt:52
 msgid "Who is the OiRA tool for?"
-msgstr ""
+msgstr "Pre koho je určený nástroj OiRA?"
 
 #: src/euphorie/client/templates/login.pt:53
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
+"Nástroj OiRA môže používať každý, kto chce zhodnotiť riziká spojené so "
+"zdravím a bezpečnosťou, ktoré by mohli existovať na vašom pracovisku."
 
 #: src/euphorie/client/templates/login.pt:56
 #: src/euphorie/client/templates/login.pt:66
@@ -1781,7 +1783,7 @@ msgstr "Zobraziť menej"
 
 #: src/euphorie/client/templates/login.pt:58
 msgid "However, OiRA is designed to be of most value to smaller businesses."
-msgstr ""
+msgstr "Nástroj OiRA je však určený najmä pre menšie podniky."
 
 #: src/euphorie/client/templates/login.pt:59
 msgid ""
@@ -1789,14 +1791,17 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
+"Nástroj OiRA je určený špecificky na ich podporu pri hodnotení rizík pri "
+"práci a na pomoc pri vytvorení zdokumentovaného hodnotenia rizika, vrátane "
+"plánu činnosti upraveného podľa požiadaviek príslušnej spoločnosti."
 
 #: src/euphorie/client/templates/login.pt:62
 msgid "What do I have to do?"
-msgstr ""
+msgstr "Čo musím urobiť?"
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "There are four main stages to complete in the assessment process:"
-msgstr ""
+msgstr "V procese hodnotenia je potrebné vyplniť štyri hlavné fázy:"
 
 #: src/euphorie/client/templates/login.pt:69
 msgid ""
@@ -1804,6 +1809,9 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
+"${preparation} Toto vám poskytuje prehľad o príslušnom hodnotení, ktoré sa "
+"chystáte začať a umožní vám to ďalej upraviť hodnotenie podľa špecifickej "
+"podstaty vašej spoločnosti."
 
 #: src/euphorie/client/templates/login.pt:70
 msgid ""
@@ -1813,6 +1821,12 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put it on hold to be answered at a later stage."
 msgstr ""
+"${identification} Nástroj OiRA bude predstavovať sériu potenciálnych "
+"zdravotných a bezpečnostných rizík alebo problémov, ktoré by mohli existovať "
+"na vašom pracovisku. Ak odpoviete na vyhlásenia/otázky buď áno alebo nie, "
+"vyhlasujete tým, či tieto riziká alebo problémy sú prítomné alebo nie. "
+"Takisto sa môžete rozhodnúť nechať otázku nezodpovedanú, a teda ju odložiť a "
+"odpovedať na ňu neskôr."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1820,6 +1834,9 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
+"${evaluation} Tu budete môcť stanoviť mieru rizika spojenú s každou položkou "
+"identifikovanou ako „položka, ktorá sa musí riešiť“ v priebehu fázy "
+"„Identifikácie“."
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
@@ -1828,16 +1845,22 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
+"${action-plan} Vo štvrtej fáze hodnotenia sa môžete rozhodnúť, aké kroky "
+"prijmete na riešenie rizík, ktoré ste identifikovali predtým a aké zdroje by "
+"si to mohlo vyžadovať. Na základe toho sa v nasledujúcom kroku automaticky "
+"vypracuje správa."
 
 #: src/euphorie/client/templates/login.pt:76
 msgid "How long will it take?"
-msgstr ""
+msgstr "Ako dlho to bude trvať?"
 
 #: src/euphorie/client/templates/login.pt:77
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
+"Nedá sa povedať, koľko času hodnotenie vo všeobecnosti zaberie, keďže "
+"nástroje sa líšia v závislosti od sektorov a krajín."
 
 #: src/euphorie/client/templates/login.pt:82
 msgid ""
@@ -1845,32 +1868,41 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
+"Na hodnotení však môžete stráviť taký čas, aký máte k dispozícii a následne "
+"sa môžete k hodnoteniu vrátiť, keď bude vhodné použiť rovnaké miesto, z "
+"ktorého ste odišli."
 
 #: src/euphorie/client/templates/login.pt:85
 msgid "Why do I have to register?"
-msgstr ""
+msgstr "Prečo sa musím zaregistrovať?"
 
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
+"Prvá vec, ktorá sa bude od vás požadovať po začatí vášho prvého hodnotenia "
+"rizika, je vytvorenie účtu OiRA - je to jednoduchý a rýchly proces."
 
 #: src/euphorie/client/templates/login.pt:91
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
+"Registrácia vám umožňuje jednoducho sa kedykoľvek prihlásiť a pokračovať v "
+"predchádzajúcich hodnoteniach alebo začať nové hodnotenia."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
+"Musíte sa uistiť, že máte vytlačené, presné a aktuálne hodnotenie rizika "
+"(kedykoľvek)."
 
 #: src/euphorie/client/templates/login.pt:95
 msgid "Do I need to prepare?"
-msgstr ""
+msgstr "Potrebujem sa pripraviť?"
 
 #: src/euphorie/client/templates/login.pt:96
 msgid ""
@@ -1879,6 +1911,9 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
+"Nepotrebujete žiadnu špecifickú prípravu na začatie používania nástroja, "
+"mali by ste však istý čas venovať zamysleniu sa nad tým, kto vykoná "
+"hodnotenie rizika, ako budú pracovníci zapojení do procesu, atď."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -2064,7 +2099,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:27
 #: src/euphorie/client/templates/report_identification.pt:25
 msgid "button_print"
-msgstr ""
+msgstr "Tlačiť"
 
 #. Default: automatically saved
 #: src/euphorie/client/templates/report_actionplan.pt:32
@@ -2162,11 +2197,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:54
 msgid "Measure ${index}"
-msgstr ""
+msgstr "Opatrenie ${index}"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:55
 msgid "Delete this measure"
-msgstr ""
+msgstr "Vymazať toto opatrenie"
 
 #. Default: Delete
 #: src/euphorie/client/templates/risk_actionplan.pt:55
@@ -2222,7 +2257,7 @@ msgstr ""
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 msgid "error_start_not_before_end"
-msgstr ""
+msgstr "Dátum začiatku nie je skorší ako dátum ukončenia"
 
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
@@ -2277,6 +2312,9 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
+"Aktuálny text v poliach „Plán činnosti“, „Plán prevencie“ a „Požiadavky“ "
+"tohto opatrenia sa prepíše. Táto akcia sa nedá vrátiť. Ste si istí, že "
+"chcete pokračovať?"
 
 #. Default: What is the chance of this risk occurring?
 #: src/euphorie/client/templates/risk_evaluation.pt:28
@@ -2358,7 +2396,7 @@ msgstr ""
 #. Default: No need to stop working
 #: src/euphorie/client/templates/risk_evaluation.pt:63
 msgid "severity_weak_help"
-msgstr ""
+msgstr "Nie je potrebné zastaviť prácu"
 
 #. Default: Not very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:66
@@ -2369,7 +2407,7 @@ msgstr ""
 #. Default: Need to stop working for less than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:67
 msgid "severity_not_severe_help"
-msgstr ""
+msgstr "Je potrebné zastaviť prácu na menej ako 3 dni"
 
 #. Default: Severe
 #: src/euphorie/client/templates/risk_evaluation.pt:70
@@ -2380,7 +2418,7 @@ msgstr ""
 #. Default: Need to stop working for more than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:71
 msgid "severity_severe_help"
-msgstr ""
+msgstr "Je potrebné zastaviť prácu na viac ako 3 dni"
 
 #. Default: Very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:75
@@ -2391,7 +2429,7 @@ msgstr ""
 #. Default: Irreversible injury, incurable illness, death
 #: src/euphorie/client/templates/risk_evaluation.pt:76
 msgid "severity_very_severe_help"
-msgstr ""
+msgstr "nevratné poranenie, nevyliečiteľná choroba, smrť"
 
 #. Default: Rare
 #: src/euphorie/client/templates/risk_evaluation.pt:84
@@ -2402,7 +2440,7 @@ msgstr ""
 #. Default: Once per year
 #: src/euphorie/client/templates/risk_evaluation.pt:85
 msgid "frequency_french_rare_help"
-msgstr ""
+msgstr "Raz za rok"
 
 #. Default: Not very often
 #: src/euphorie/client/templates/risk_evaluation.pt:89
@@ -2413,7 +2451,7 @@ msgstr ""
 #. Default: Once per month
 #: src/euphorie/client/templates/risk_evaluation.pt:90
 msgid "frequency_french_not_often_help"
-msgstr ""
+msgstr "Raz za mesiac"
 
 #. Default: Often
 #: src/euphorie/client/templates/risk_evaluation.pt:94
@@ -2424,7 +2462,7 @@ msgstr ""
 #. Default: Once per week
 #: src/euphorie/client/templates/risk_evaluation.pt:95
 msgid "frequency_french_often_help"
-msgstr ""
+msgstr "Raz za týždeň"
 
 #. Default: Very often or regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:99
@@ -2435,7 +2473,7 @@ msgstr ""
 #. Default: Minimum once per day
 #: src/euphorie/client/templates/risk_evaluation.pt:100
 msgid "frequency_french_regularly_help"
-msgstr ""
+msgstr "Minimálne raz za deň"
 
 #. Default: Select the priority of this risk
 #: src/euphorie/client/templates/risk_evaluation.pt:108
@@ -2514,7 +2552,7 @@ msgstr ""
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
 msgid "label_obsolete_survey_group"
-msgstr ""
+msgstr "Zastaralé prieskumy"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -2603,7 +2641,7 @@ msgstr "${count} otázok bolo odložených"
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
 msgid "label_select_new_session_in_survey"
-msgstr ""
+msgstr "Začnite novú reláciu pre tento prieskum."
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
@@ -2638,20 +2676,19 @@ msgstr ""
 
 #: src/euphorie/client/templates/webhelpers.pt:82
 msgid "Unvisited"
-msgstr ""
+msgstr "Nenavštívené"
 
 #: src/euphorie/client/templates/webhelpers.pt:83
-#, fuzzy
 msgid "Postponed"
-msgstr "${count} otázok bolo odložených"
+msgstr "Odložené"
 
 #: src/euphorie/client/templates/webhelpers.pt:84
 msgid "Risk not present"
-msgstr ""
+msgstr "Riziko nie je prítomné"
 
 #: src/euphorie/client/templates/webhelpers.pt:85
 msgid "Risk present"
-msgstr ""
+msgstr "Riziko je prítomné"
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:94
@@ -2713,9 +2750,8 @@ msgstr ""
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Overovanie"
+msgstr "Registrácia"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
@@ -2726,9 +2762,8 @@ msgstr ""
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
-msgstr "Úvod"
+msgstr "Vykonanie hodnotenia rizika"
 
 #. Default: Describe the session handling. This text is linked from the session
 #. overview page.
@@ -2739,9 +2774,8 @@ msgstr ""
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
-msgstr "Úvod"
+msgstr "1. Príprava"
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
@@ -2752,9 +2786,8 @@ msgstr ""
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
-msgstr "Spustiť identifikáciu rizík"
+msgstr "2. Identifikácia"
 
 #. Default: Document the identification phase. This information is linked from
 #. all identification related pages
@@ -2765,9 +2798,8 @@ msgstr ""
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
-msgstr "Spustiť vyhodnotenie"
+msgstr "3. Hodnotenie"
 
 #. Default: Document the evaluation phase. This information is linked from all
 #. evaluation related pages
@@ -2778,9 +2810,8 @@ msgstr ""
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
-msgstr "Akčný plán"
+msgstr "4. Plán činnosti"
 
 #. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
@@ -2791,9 +2822,8 @@ msgstr ""
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
-msgstr "Správy"
+msgstr "5. Správa"
 
 #. Default: Describe the reporting options. This page is linked from report
 #. page.
@@ -2804,9 +2834,8 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
-msgstr "Záverečné slová"
+msgstr "Čo sa bude diať ďalej?"
 
 #. Default: Any final words that should be shown at the end of the help. This
 #. information is not linked directly.
@@ -3000,7 +3029,7 @@ msgstr "Metóda vyhodnotenia"
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
 #: src/euphorie/content/risk.py:117
 msgid "help_evaluation_method"
-msgstr ""
+msgstr "Zvoľte „odhad“, ak nie je potrebný alebo možný výpočet."
 
 #. Default: Estimated
 #: src/euphorie/content/risk.py:122
@@ -3014,15 +3043,13 @@ msgstr "Vypočítané"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
-#, fuzzy
 msgid "evalmethod_fixed"
-msgstr "Odhadnuté"
+msgstr "Preskočiť hodnotenie"
 
 #. Default: priority
 #: src/euphorie/content/risk.py:134
-#, fuzzy
 msgid "label_fixed_priority"
-msgstr "Predvolená priorita"
+msgstr "priorita"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -3184,7 +3211,7 @@ msgstr ""
 #. Default: Common solution
 #: src/euphorie/content/solution.py:59
 msgid "title_common_solution"
-msgstr "Spoločné riešenie"
+msgstr "Opatrenie"
 
 #. Default: Version name
 #: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:199
@@ -3254,22 +3281,23 @@ msgstr ""
 
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:216 src/euphorie/content/surveygroup.py:50
-#, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Vyberte základnú revíziu"
+msgstr "Zastaralý prieskum"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:218 src/euphorie/content/surveygroup.py:52
-#, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Vyberte základnú revíziu"
+msgstr ""
+"Tento prieskum je zastaralý; odstránil sa alebo sa nahradil iným prieskumom."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
 #: src/euphorie/content/survey.py:294
 msgid "message_no_delete_published_survey"
 msgstr ""
+"Nemôžete vymazať zverejnenú verziu nástroja OiRA. Najskôr prosím zrušte jej "
+"zverejnenie."
 
 #. Default: You can not delete the only survey version.
 #: src/euphorie/content/survey.py:309
@@ -3425,15 +3453,15 @@ msgstr "Európska únia"
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Čierna Hora"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Srbská republika"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3505,7 +3533,7 @@ msgstr "Strana s textom"
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr "Profilová otázka"
+msgstr "Otázka v profile"
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
@@ -3701,7 +3729,7 @@ msgstr "Nie"
 #. Default: Default effect
 #: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_effect"
-msgstr "Predvolený efekt"
+msgstr "Predvolená závažnosť"
 
 #. Default: Standard solutions
 #: src/euphorie/content/templates/risk_view.pt:76
@@ -3732,7 +3760,7 @@ msgstr ""
 #. Default: You can also ${add_link}.
 #: src/euphorie/content/templates/sector_view.pt:31
 msgid "survey_list_footer"
-msgstr ""
+msgstr "Takisto môžete ${add_link}."
 
 #. Default: Sectors
 #: src/euphorie/content/templates/sectorcontainer_view.pt:12
@@ -3906,9 +3934,8 @@ msgstr "Profilové otázky"
 
 #. Default: This survey has no profile questions or modules.
 #: src/euphorie/content/templates/survey_view.pt:35
-#, fuzzy
 msgid "no_profile_questions_or_modules"
-msgstr "Otázka"
+msgstr "Tento prieskum nemá žiadne otázky alebo moduly v profile."
 
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
@@ -4129,11 +4156,11 @@ msgstr "Pridať Profilová otázka"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:17
 msgid "Add Risk"
-msgstr "Pridať Riziko"
+msgstr "Pridať riziko"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:19
 msgid "Add Solution"
-msgstr ""
+msgstr "Pridať opatrenie"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4259,23 +4286,18 @@ msgstr ""
 #~ "Vaša registrácia je súkromná záležitosť. Ku všetkým vašim uchovávaným "
 #~ "dátam máte prístup iba vy."
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Toto riziko je ešte potrebné katalogizovať."
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Toto riziko je ešte potrebné katalogizovať."
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr "Úvod"
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr "Môžete vytlačiť ${list-of-risks}."
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
 #~ "Môžete určiť, ako sa vyhodnocuje priorita rizík. Ďalšie informácie "
