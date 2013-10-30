@@ -1,19 +1,13 @@
 Changelog
 =========
 
-6.2 - Unrerelased
-----------------------
-
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ..
-
+6.1.1 - October 30, 2013
+-----------------------
 
 Bugfixes
 ~~~~~~~~
 
-- ..
+- Fix a packaging error which broke the 6.1.1 release.
 
 
 6.1 - October 30, 2013
