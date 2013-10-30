@@ -487,9 +487,8 @@ msgstr "Budget (in Euro)"
 
 #. Default: Section
 #: src/euphorie/client/report.py:938
-#, fuzzy
 msgid "label_section"
-msgstr "Onderschrift"
+msgstr "Sectie"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:940
@@ -540,7 +539,7 @@ msgstr "Vul een geldig jaartal voor 2100 in"
 
 #: src/euphorie/client/risk.py:269
 msgid "Start date is not before end date"
-msgstr ""
+msgstr "Begin datum moet voor einddatum liggen"
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -2342,7 +2341,7 @@ msgstr "Vul het budget in hele Euros in."
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 msgid "error_start_not_before_end"
-msgstr ""
+msgstr "Begin datum moet voor einddatum liggen"
 
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
@@ -3203,15 +3202,13 @@ msgstr "Berekend"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
-#, fuzzy
 msgid "evalmethod_fixed"
-msgstr "Geschat"
+msgstr "Sla evaluatie over"
 
 #. Default: priority
 #: src/euphorie/content/risk.py:134
-#, fuzzy
 msgid "label_fixed_priority"
-msgstr "Standaard prioriteit"
+msgstr "Prioriteit"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -3636,15 +3633,15 @@ msgstr "Europese Unie"
 
 #: src/euphorie/content/utils.py:16
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:17
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/euphorie/content/utils.py:18
 msgid "Republic of Serbia"
-msgstr ""
+msgstr "Servische Republiek"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
