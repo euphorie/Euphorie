@@ -26,13 +26,8 @@ Feature changes
 - Add page number to RTF reports. This fixes 
   `TNO ticket 241 <https://code.simplon.biz/tracker/tno-euphorie/ticket/241>`_.
 
-- Added MIT Licensed script to display browser warning so that we can support 
-  translations. This addresses part of
-  `OSHA ticket 7847 <https://projects.syslab.com/issues/7847>`_.
+- For OSHA, show the legend only in the identification phase.
 
-- For OSHA, show the legend only in the identification phase [pysailor]
-
-- Added missing CA translations in the "ancient browser" warnings, OSHA #8418
 
 Bugfixes
 ~~~~~~~~
@@ -60,12 +55,15 @@ Bugfixes
 
   - Portugese translation fixes. OSHA ticket #7934
 
-  - Applied new translations in 13 languages. OSHA tickets #7938, #8190
+  - Applied new translations in 15 languages. OSHA tickets #7938, #8190, #8780
 
-  - Applied new translations in SK and SL, OSHA ticket #8780
+  - Added MIT Licensed script to display browser warning so that we can support
+    translations. This addresses part of `OSHA ticket 7847
+    <https://projects.syslab.com/issues/7847>`_ and 
+    `OSHA ticket 7929 <https://projects.syslab.com/issues/7929`_.
 
-- Commented out the IE8 warning in the client until we have a solution for
-  translating it. OSHA ticket #7929 
+  - Added missing CA translations in the "ancient browser" warnings. This fixes
+    `OSHA ticket 8418 <https://projects.syslab.com/issues/8418>`_.
 
 
 6.0.1 - June 3, 2013
