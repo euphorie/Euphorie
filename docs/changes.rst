@@ -1,24 +1,19 @@
 Changelog
 =========
 
-6.2 - Unrerelased
-----------------------
-
-Feature changes
-~~~~~~~~
-
-- ...
+6.1.2 - October 31, 2013
+------------------------
 
 Bugfixes
 ~~~~~~~~
 
-- If a survey title was modified through the survey version edit form
-  the title was not updated in the index, which caused the old title
-  to still be shown in the navigation tree.
+- If a survey title was modified through the survey version edit form the title
+  was not updated in the index, which caused the old title to still be shown in
+  the navigation tree.
 
 
 6.1.1 - October 30, 2013
------------------------
+------------------------
 
 Bugfixes
 ~~~~~~~~
