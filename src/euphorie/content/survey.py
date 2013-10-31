@@ -13,7 +13,6 @@ from Acquisition import aq_parent
 from ZODB.POSException import ConflictError
 from OFS.event import ObjectClonedEvent
 from zope.interface import implements
-from zope.component import adapts
 from zope.component import getMultiAdapter
 from zope.event import notify
 from zope import schema
@@ -98,7 +97,6 @@ class ISurvey(form.Schema, IBasic):
             required=False)
 
 
-
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {
             'survey_title': 'title',
@@ -134,16 +132,6 @@ class Survey(dexterity.Container):
         super(Survey, self)._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
-
-    @property
-    def surveygroup_title(self):
-        import pdb ; pdb.set_trace()
-        return u'Oops'
-
-    @surveygroup_title.setter
-    def surveygroup_title(self, value):
-        import pdb ; pdb.set_trace
-        print value
 
     def hasProfile(self):
         """Check if this survey has any profile questions.
