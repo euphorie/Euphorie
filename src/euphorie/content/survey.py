@@ -19,6 +19,7 @@ from zope.event import notify
 from zope import schema
 from five import grok
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 from zope.container.interfaces import INameChooser
 from plone.directives import form
 from plone.directives import dexterity
