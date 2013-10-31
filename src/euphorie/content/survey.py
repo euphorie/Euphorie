@@ -279,6 +279,14 @@ class Edit(form.SchemaEditForm):
 
     schema = ISurveyEditSchema
 
+    def applyChanges(self, data):
+        changes = super(Edit, self).applyChanges(data)
+        if changes:
+            # Reindex our parents title.
+            catalog = getToolByName(self.context, 'portal_catalog')
+            catalog.indexObject(aq_parent(aq_inner(self.context)))
+        return changes
+
 
 class Delete(actions.Delete):
     """Special delete action class which prevents deletion of published surveys

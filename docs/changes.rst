@@ -12,7 +12,9 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- If a survey title was modified through the survey version edit form
+  the title was not updated in the index, which caused the old title
+  to still be shown in the navigation tree.
 
 
 6.1.1 - October 30, 2013
