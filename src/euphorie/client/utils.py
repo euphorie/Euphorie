@@ -19,6 +19,7 @@ from AccessControl import getSecurityManager
 from zope.component import getUtility
 from zope.interface import Interface
 from plone.memoize.instance import memoize
+from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from euphorie.decorators import reify
@@ -90,6 +91,8 @@ class WebHelpers(grok.View):
                 self.sector = obj
                 break
         self.debug_mode = Globals.DevelopmentMode
+        user = getSecurityManager().getUser()
+        self.anonymous = isAnonymous(user)
 
     @property
     def macros(self):
