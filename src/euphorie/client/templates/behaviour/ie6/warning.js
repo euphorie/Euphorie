@@ -27,6 +27,7 @@ var msg_html = "<br clear=all><p><b>Български</b>: Уеб прилож�
 "<p><b>Svenska</b>: Denna webbapplikation är inte kompatibel med den webbläsare du använder. Vissa funktioner fungerar kanske inte som tänkt. Uppgradera till en nyare version eller använd en annan webbläsare, t.ex. Crome, Firefox eller Safari, för att förbättra upplevelsen.</p>"+
 "";
 var _lang_bg = document.createElement('span');
+
 _lang_bg.innerHTML = msg_html;
 var msg3 = "";
 var br1 = "Internet Explorer 9+";
@@ -49,6 +50,9 @@ var _l = document.createElement('div');
 var _h = document.createElement('h1');
 var _p1 = document.createElement('p');
 var _p2 = document.createElement('p');
+var _x = document.createElement('a');
+var _top_close = document.createElement('button');
+var _bot_close = document.createElement('button');
 var _ul = document.createElement('ul');
 var _li1 = document.createElement('li');
 var _li2 = document.createElement('li');
@@ -72,6 +76,8 @@ _body.appendChild(_d);
 /*_d.appendChild(_h);
 _d.appendChild(_p1);
 _d.appendChild(_p2);*/
+_d.appendChild(_top_close);
+_top_close.setAttribute('id','_tc');
 _d.appendChild(_ul);
 _ul.appendChild(_li1);
 _ul.appendChild(_li2);
@@ -89,8 +95,11 @@ _li3.appendChild(_lit3);
 _li4.appendChild(_lit4);
 _li5.appendChild(_lit5);
 _d.appendChild(_lang_bg);
+_d.appendChild(_bot_close);
+_bot_close.setAttribute('id','_bc');
 _d.setAttribute('id','_d');
 _l.setAttribute('id','_l');
+_x.setAttribute('id','_x');
 _h.setAttribute('id','_h');
 _p1.setAttribute('id','_p1');
 _p2.setAttribute('id','_p2');
@@ -119,7 +128,6 @@ _dl.style.position = "absolute";
 _dl.style.top = "0px";
 _dl.style.left = "0px";
 _dl.style.filter = "alpha(opacity=50)";
-_dl.style.background = "#fff";
 var _dd = document.getElementById('_d');
 _ddw = 660;
 _ddh = 500;
@@ -135,6 +143,27 @@ _dd.style.fontFamily = "'Lucida Grande','Lucida Sans Unicode',Arial,Verdana,sans
 _dd.style.listStyleType = "none";
 _dd.style.color = "#4F4F4F";
 _dd.style.fontSize = "10px";
+_dd.style.zIndex = '99';
+
+var _tc = document.getElementById('_tc');
+var _bc = document.getElementById('_bc');
+_tc.appendChild(document.createTextNode('close'));
+_tc.style.marginRight = 'auto';
+_tc.style.marginLeft = 'auto';
+_tc.style.marginBottom = '1em';
+
+_bc.appendChild(document.createTextNode('close'));
+_bc.style.marginRight = 'auto';
+_bc.style.marginLeft = 'auto';
+_bc.style.marginBottom = '1em';
+
+var close = function () {
+    _body.removeChild(_d);
+    _body.removeChild(_l);
+};
+_tc.onclick = close;
+_bc.onclick = close;
+
 /*_h.appendChild(document.createTextNode(msg1));*/
 /*var _hd = document.getElementById('_h');
 _hd.style.display = "block";
@@ -156,7 +185,8 @@ _uld.style.listStylePosition = "outside";
 _uld.style.listStyleType = "none";
 _uld.style.margin = "0 px auto";
 _uld.style.padding = "0px";
-_uld.style.paddingLeft = "10px";
+_uld.style.paddingLeft = "0px";
+_uld.style.marginLeft = "0px";
 var _li1d = document.getElementById('_li1');
 var _li2d = document.getElementById('_li2');
 var _li3d = document.getElementById('_li3');
@@ -169,15 +199,16 @@ var _li4ds = _li4d.style;
 var _li5ds = _li5d.style;
 _li1ds.background = _li2ds.background = _li3ds.background = _li4ds.background = _li5ds.background = "transparent url('"+imgPath+"background_browser.gif') no-repeat scroll left top";
 _li1ds.cursor = _li2ds.cursor = _li3ds.cursor = _li4ds.cursor = _li5ds.cursor = "pointer";
-_li1d.onclick = function() {window.location = url1 };
- _li2d.onclick = function() {window.location = url2 };
- _li3d.onclick = function() {window.location = url3 };
- _li4d.onclick = function() {window.location = url4 };
- _li5d.onclick = function() {window.location = url5 };
+_li1d.onclick = function() {window.location = url1;};
+ _li2d.onclick = function() {window.location = url2;};
+ _li3d.onclick = function() {window.location = url3;};
+ _li4d.onclick = function() {window.location = url4;};
+ _li5d.onclick = function() {window.location = url5;};
  _li1ds.styleFloat = _li2ds.styleFloat = _li3ds.styleFloat = _li4ds.styleFloat = _li5ds.styleFloat = "left";
 _li1ds.width = _li2ds.width = _li3ds.width = _li4ds.width = _li5ds.width = "120px";
 _li1ds.height = _li2ds.height = _li3ds.height = _li4ds.height = _li5ds.height = "122px";
 _li1ds.margin = _li2ds.margin = _li3ds.margin = _li4ds.margin = _li5ds.margin = "0 10px 10px 0";
+_li1ds.display = _li2ds.display = _li3ds.display = _li4ds.display = _li5ds.display = "inline-block";
 var _ico1d = document.getElementById('_ico1');
 var _ico2d = document.getElementById('_ico2');
 var _ico3d = document.getElementById('_ico3');
@@ -188,6 +219,7 @@ var _ico2ds = _ico2d.style;
 var _ico3ds = _ico3d.style;
 var _ico4ds = _ico4d.style;
 var _ico5ds = _ico5d.style;
+_ico1ds.cursor = _ico2ds.cursor = _ico3ds.cursor = _ico4ds.cursor = _ico5ds.cursor = "pointer";
 _ico1ds.width = _ico2ds.width = _ico3ds.width = _ico4ds.width = _ico5ds.width = "100px";
 _ico1ds.height = _ico2ds.height = _ico3ds.height = _ico4ds.height = _ico5ds.height = "100px";
 _ico1ds.margin = _ico2ds.margin = _ico3ds.margin = _ico4ds.margin = _ico5ds.margin = "1px auto";
@@ -218,5 +250,5 @@ _lit1ds.lineHeight = _lit2ds.lineHeight = _lit3ds.lineHeight = _lit4ds.lineHeigh
 _lit1ds.margin = _lit2ds.margin = _lit3ds.margin = _lit4ds.margin = _lit5ds.margin = "1px auto";
 _lit1ds.width = _lit2ds.width = _lit3ds.width = _lit4ds.width = _lit5ds.width = "118px";
 _lit1ds.textAlign = _lit2ds.textAlign = _lit3ds.textAlign = _lit4ds.textAlign = _lit5ds.textAlign = "center";
+_lit1ds.cursor = _lit2ds.cursor = _lit3ds.cursor = _lit4ds.cursor = _lit5ds.cursor = "pointer";
 }
-
