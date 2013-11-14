@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-10-10 21:16+0200\n"
+"POT-Creation-Date: 2013-11-14 11:17+0100\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -617,7 +617,7 @@ msgid "Your email address has been updated."
 msgstr "Η διεύθυνση email σας έχει αλλάξει. "
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:148 src/euphorie/client/templates/about.pt:13
+#: src/euphorie/client/utils.py:151 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
@@ -911,7 +911,6 @@ msgstr ""
 #: src/euphorie/client/templates/appendix.pt:57
 #: src/euphorie/client/templates/conditions.pt:111
 #: src/euphorie/client/templates/evaluation.pt:78
-#: src/euphorie/client/templates/help.pt:93
 #: src/euphorie/client/templates/identification.pt:70
 #: src/euphorie/client/templates/layout.pt:61
 #: src/euphorie/client/templates/login.pt:100
@@ -1327,6 +1326,7 @@ msgstr "Αποσύνδεση"
 #. Default: Surveys
 #: src/euphorie/client/templates/actionplan.pt:82
 #: src/euphorie/client/templates/evaluation.pt:77
+#: src/euphorie/client/templates/help.pt:93
 #: src/euphorie/client/templates/identification.pt:69
 #: src/euphorie/client/templates/layout.pt:59
 #: src/euphorie/client/templates/module_actionplan.pt:85
@@ -1368,6 +1368,7 @@ msgstr "Κατάσταση"
 #. Default: Settings
 #: src/euphorie/client/templates/actionplan.pt:85
 #: src/euphorie/client/templates/evaluation.pt:80
+#: src/euphorie/client/templates/help.pt:95
 #: src/euphorie/client/templates/identification.pt:72
 #: src/euphorie/client/templates/layout.pt:62
 #: src/euphorie/client/templates/module_actionplan.pt:88
@@ -3514,13 +3515,13 @@ msgid "title_common_solution"
 msgstr "Κοινή λύση"
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:199
+#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:188
 msgid "label_survey_title"
 msgstr "Όνομα έκδοσης"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:200
+#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
 msgid "help_survey_title"
 msgstr ""
 "Αυτός είναι ο τίτλος αυτής της έκδοσης έρευνας. Αυτό το όνομα δεν "
@@ -3576,27 +3577,27 @@ msgstr ""
 "προτύπου NACE."
 
 #. Default: Title
-#: src/euphorie/content/survey.py:208 src/euphorie/content/surveygroup.py:40
+#: src/euphorie/content/survey.py:197 src/euphorie/content/surveygroup.py:40
 msgid "label_title"
 msgstr "Τίτλος"
 
 #. Default: The title of this survey. This title is used in the survey overview
 #. in the clients.
-#: src/euphorie/content/survey.py:209 src/euphorie/content/surveygroup.py:41
+#: src/euphorie/content/survey.py:198 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
 msgstr ""
 "Ο τίτλος αυτής της έρευνας. Αυτός ο τίτλος χρησιμοποιείται στην "
 "προεπισκόπηση της έρευνας στους πελάτες"
 
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:216 src/euphorie/content/surveygroup.py:50
+#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
 msgstr "Επιλέξτε βασική αναθεώρηση"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
-#: src/euphorie/content/survey.py:218 src/euphorie/content/surveygroup.py:52
+#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 #, fuzzy
 msgid "help_survey_obsolete"
 msgstr ""
@@ -3605,12 +3606,12 @@ msgstr ""
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
-#: src/euphorie/content/survey.py:294
+#: src/euphorie/content/survey.py:291
 msgid "message_no_delete_published_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση έρευνας."
 
 #. Default: You can not delete the only survey version.
-#: src/euphorie/content/survey.py:309
+#: src/euphorie/content/survey.py:306
 msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση έρευνας."
 
