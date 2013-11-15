@@ -6,6 +6,7 @@ Survey views
 import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from Acquisition import aq_base
 from AccessControl import getSecurityManager
 from zExceptions import Unauthorized
 from five import grok
