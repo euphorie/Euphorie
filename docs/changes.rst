@@ -1,19 +1,15 @@
 Changelog
 =========
 
-6.2 - Unrerelased
-----------------------
-
-Feature changes
-~~~~~~~~~~~~~~~
- 
-- ...
-
+6.1.3 - November 15, 2013
+-------------------------
 
 Bugfixes
 ~~~~~~~~
 
 - Added missing English text for the "outdated browser" warning. OSHA #9094
+- Add missing import statement to euphorie/client/survey.py (couldn't resume
+  surveys as a result).
 
 
 6.1.2 - October 31, 2013
