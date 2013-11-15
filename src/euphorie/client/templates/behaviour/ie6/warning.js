@@ -1,7 +1,8 @@
 
 var msg1 = "Warning";
 var msg2 = "";
-var msg_html = "<br clear=all><p><b>Български</b>: Уеб приложението не е съвместимо с версията на уеб браузъра, която използвате. Възможно е някои функции да не работят, както се очаква. За да подобрите изпълнението, обновете версията на браузъра или използвайте друг браузър, например Google Chrome, Mozilla Firefox или Safari.</p>" +
+var msg_html = "<br clear=all><p><b>English</b>: This web application is not compatible with the version of the webbrowser you are using. Some features may not work as designed. To improve your experience please upgrade to a newer version or use an alternative browser, such as Crome, Firefox or Safari.</p>" +
+"<p><b>Български</b>: Уеб приложението не е съвместимо с версията на уеб браузъра, която използвате. Възможно е някои функции да не работят, както се очаква. За да подобрите изпълнението, обновете версията на браузъра или използвайте друг браузър, например Google Chrome, Mozilla Firefox или Safari.</p>" +
 "<p><b>Català</b>: Aquesta aplicació web no és compatible amb la versió del navegador web que s'està utilitzant. Algunes característiques poden no funcionar segons el previst. Si us plau, actualitzeu el navegador amb una nova versió o utilitzi un navegador alternatiu, com Crome, Firefox o Safari.</p>"+
 "<p><b>Čeština</b>: Tato webová aplikace není kompatibilní s verzí prohlížeče, kterou používáte. Některé prvky nemusí fungovat tak, jak byly navrženy. Za účelem zajištění optimální funkčnosti prosím upgradujte na novější verzi nebo použijte jiný prohlížeč, například Chrome, Firefox nebo Safari.</p>"+
 "<p><b>Dansk</b>: Denne webapplikation er ikke kompatibel med den webbrowserversion, du anvender. Visse elementer funger måske ikke efter hensigten. For bedre at kunne udnytte anvendelsesmulighederne bør du opgradere til en nyere version eller anvende en anden browser, for eksempel Crome, Firefox eller Safari.</p>"+

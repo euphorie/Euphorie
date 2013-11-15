@@ -13,7 +13,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Added missing English text for the "outdated browser" warning. OSHA #9094
 
 
 6.1.2 - October 31, 2013
