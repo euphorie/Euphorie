@@ -4260,7 +4260,7 @@ p.country.rs {
 }
 
 #steps li a:hover{
-	color: #8e9fb8;
+	color: white;
 }
 
 #steps li.complete {
@@ -4308,11 +4308,6 @@ p.country.rs {
 #steps li.current a,
 #steps li.current a strong {
 	color: #6d4803;
-}
-
-#steps li.current a:hover,
-#steps li.complete a:hover {
-	color: #412b02;
 }
 
 #steps .questions {

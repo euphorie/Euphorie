@@ -43,11 +43,6 @@ body > h1 {
 	color: white;
 }
 
-#steps li.current a:hover,
-#steps li.complete a:hover {
-	color: #000;
-}
-
 #steps li a {
 	width: 113px;
 	display: block;
@@ -62,7 +57,6 @@ body > h1 {
 }
 
 #steps li a:hover {
-	color: #8e9fb8;
 }
 
 /* Screen.css limits this to 45% which is then somehow overridden
