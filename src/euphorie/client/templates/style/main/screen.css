@@ -4258,18 +4258,18 @@ p.country.rs {
 	background-color: #e69d17;
 }
 
-#steps li.complete:before,#steps li.current:before {
+#steps li.complete:after,#steps li.current:after {
 	content: "\e810";
 	color: rgba(0,0,0,0.3);
 	font: 39px fontello;
 	top: -3px;
 	float: left;
-	margin-top: -12px;
+	margin-top: -33px;
 	margin-left: -41px;
 }
 
-#steps li.complete:first-child:before,
-#steps li.current:first-child:before {
+#steps li.complete:first-child:after,
+#steps li.current:first-child:after {
 	display: none;;
 }
 
@@ -4439,53 +4439,40 @@ body>#steps>li>ol {
 
 /* @group Normal */
 
-#steps li>a {
-	background: url(tabs.png) 0 -100px;
+#steps li:before {
+	margin-left: -30px;
+	width: 27px;
+	display: inline-block;
+	text-align: center;
+	font: 17px fontello;
+	float: left;
 }
 
-#steps li#step-2>a {
-	background-position: -158px -100px;
+#steps li.complete:before,
+#steps li.current:before {
+	color: white;
 }
 
-#steps li#step-3>a {
-	background-position: -316px -100px;
+#steps li#step-1:before {
+	content: "\e80c";
+	font-size: 15px;
+	line-height: 20px;
 }
 
-#steps li#step-4>a {
-	background-position: -475px -100px;
+#steps li#step-2:before {
+	content: "\2714";
 }
 
-#steps li#step-5>a {
-	background-position: -632px -100px;
+#steps li#step-3:before {
+	content: "\e80f";
 }
 
-/* @end */
-
-/* @group Complete */
-
-#steps li.complete>a,
-#steps li.current>a {
-	background: url(tabs.png) 0 -50px;
+#steps li#step-4:before {
+	content: "\e80d";
 }
 
-#steps li#step-2.complete>a,
-#steps li#step-2.current>a {
-	background-position: -156px -50px;
-}
-
-#steps li#step-3.complete>a,
-#steps li#step-3.current>a {
-	background-position: -318px -50px;
-}
-
-#steps li.complete#step-4>a,
-#steps li.current#step-4>a {
-	background-position: -475px -50px;
-}
-
-#steps li.complete#step-5>a,
-#steps li.current#step-5>a {
-	background-position: -630px -50px;
+#steps li#step-5:before {
+	content: "\e80e";
 }
 
 /* @end */
