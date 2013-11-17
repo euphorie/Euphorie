@@ -2109,8 +2109,11 @@ ol.toc li a:after {
 /* @group Comments */
 
 #comments textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	display: block;
-	width: 99%;
+	width: 100%;
 }
 
 #comments label.superImpose {
@@ -2665,7 +2668,10 @@ div.message,p.message {
 	margin-bottom: 20px;
 	clear: left;
 	float: left;
-	width: 570px;
+	width: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 div.message *:last-child,
@@ -2714,7 +2720,7 @@ p.warning img {
 div.emphasis,
 p.emphasis {
 	border: 4px double silver;
-	width: 563px;
+	width: 100%;
 	background-color: white;
 }
 
@@ -5237,7 +5243,7 @@ fieldset.comprehensive fieldset p.legend {
 
 textarea.span-15,
 #comments textarea {
-	width: 270px;
+	width: 100%;
 }
 
 /* @group Homepage */
