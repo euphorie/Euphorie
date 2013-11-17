@@ -509,7 +509,6 @@ div.pat-modal {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
-	text-shadow: white 0 1px 0;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
@@ -631,7 +630,6 @@ div.pat-modal.tiny-link .wizard-box .panel-body {
 .pat-modal .header h1,
 .pat-modal .header h3 {
 	margin: 0;
-	text-shadow: rgba(0,0,0,0.68) 0 -1px 0;
 	color: rgba(254,255,254,0.93);
 	font: 16px/20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	letter-spacing: 1px;
@@ -715,7 +713,6 @@ ul.legend {
 
 #steps .legend li {
 	color: #f5f0ea;
-	text-shadow: none;
 }
 
 .legend li:before {
@@ -767,7 +764,6 @@ ul.legend {
 	border: 5px double #e3e1da;
 	font: 13px/24px Georgia, "Times New Roman", Times, serif;
 	letter-spacing: 1px;
-	text-shadow: white 0 1px 0;
 	box-sizing: border-box;
 	margin-right: 0;
 	margin-left: 0;
@@ -1015,7 +1011,6 @@ aside.sidebar .postit a {
 	padding: 10px 10px 15px;
 	border: 5px double #e3e1da;
 	letter-spacing: 1px;
-	text-shadow: white 0 1px 0;
 	box-sizing: border-box;
 	margin-right: 0;
 	margin-left: 0;
@@ -1324,7 +1319,6 @@ aside.sidebar .postit a {
 	display: inline-block;
 	top: 0;
 	position: relative;
-	text-shadow: none;
 	text-align: center;
 	border-radius: 4px;
 	margin-right: 0;
@@ -2403,7 +2397,6 @@ img.floatAfter {
 
 body > h1 {
 	margin: 0 -50px 20px -170px;
-	text-shadow: 0px 1px 0px rgba(255, 255, 255,1);
 	padding-top: 204px;
 	padding-bottom: 10px;
 	padding-left: 170px;
@@ -2572,7 +2565,6 @@ dl.accordion dt.ui-state-active {
 	background-image: none;
 	color: black;
 	font-weight: bold;
-	text-shadow: none;
 	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0);
 	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0);
 	box-shadow: 0 2px 5px rgba(0,0,0,0);
@@ -2842,7 +2834,6 @@ button,
 	margin-left: 0;
 	color: #c8c3be;
 	border: 1px solid #7f7f7f;
-	text-shadow: 0px -1px 0px rgba(0,0,0,1);
 	line-height: 17px;
 	border-bottom: 1px solid #7f7f7f;
 	font-size: 13px;
@@ -2870,7 +2861,6 @@ button:active,
 .button-medium:active,
 .accordion dt:active {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#413C37), to(#726D68));
-	text-shadow: rgba(0,0,0,0.5) 0 2px 3px;
 }
 
 button.small,
@@ -2884,7 +2874,6 @@ button.small,
 	background-image: url(button-default.png);
 	color: #c8c3be;
 	border: 1px solid #7f7f7f;
-	text-shadow: 0px -1px 0px rgba(0,0,0,1);
 	background-color: #332e29;
 	-webkit-background-size: 100%;
 	-moz-background-size: 100%;
@@ -2924,7 +2913,6 @@ button.back,
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.6);
 	color: #7f7f7f;
 	border-style: none;
 	border-bottom-style: solid;
@@ -2952,7 +2940,6 @@ button.link {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	text-shadow: none;
 	text-decoration: underline !important;
 	cursor: pointer !important;
 	letter-spacing: 0;
@@ -3730,7 +3717,6 @@ body.alien #navigation li#home a {
 	height: 50px;
 	overflow: hidden;
 	padding: 45px 0 0 18px;
-	text-shadow: 0 1px 2px black;
 	letter-spacing: 0;	
 	position: absolute;
 	top: 0;
@@ -3754,7 +3740,6 @@ html.status h2 {
 	padding: 10px;
 	font-size: 16px;
 	color: #3f3f3f;
-	text-shadow: 0 0 1px rgba(255,255,255,0.8);
 	background-color: #e1dddb;
 	margin: 0;
 }
@@ -3772,7 +3757,6 @@ dl.status dt {
 	color: white;
 	padding-left: 10px;
 	position: relative;
-	text-shadow: 0 1px 0px rgba(0,0,0,0.4);
 	clear: left;
 	width: 570px;
 	text-decoration: none;
@@ -4260,7 +4244,6 @@ p.country.rs {
 	padding: 10px 5px 0 40px;
 	font-size: 12px;
 	color: #7e8ca2;
-	text-shadow: rgba(0,0,0,0.83) 0 1px 0;
 	font-weight: bold;
 	margin: -10px -5px -20px -40px;
 	position: relative;
@@ -4278,12 +4261,10 @@ p.country.rs {
 
 #steps li.complete a {
 	color: #6d4803;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current {
 	color: #6d4803;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 	background: #e69d17 url(tabs.png) -316px -170px;
 	height: 40px;
 }
@@ -4312,7 +4293,6 @@ p.country.rs {
 #steps li.current a,
 #steps li.current a strong {
 	color: #6d4803;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.3);
 }
 
 #steps li.current a:hover,
@@ -4399,7 +4379,6 @@ body>#steps>li>ol {
 	line-height: 15px;
 	font-size: 12px;
 	background-image: none;
-	text-shadow: 0px 1px 0px rgba(0,0,0,1) !important;
 	font-weight: normal;
 	font-style: normal;
 	margin-right: 0;
@@ -4426,7 +4405,6 @@ body>#steps>li>ol {
 	padding-left: 2px;
 	text-align: right;
 	background: none !important;
-	text-shadow: 0px 1px 0px rgba(0,0,0,1) !important;
 	-webkit-transition: color 0.5s;
 }
 
@@ -4791,7 +4769,6 @@ table .actions {
 
 #steps>li.complete>a {
 	background: #e69d17 none no-repeat -384px -160px;	color: #6d4803;
-	text-shadow: 0px 2px 0px rgba(255,255,255,0.3);
 	height: 45px;
 	border-bottom: 2px solid #b4974b;
 }
@@ -4803,7 +4780,6 @@ table .actions {
 #steps li.current a,
 #steps li.current a strong {
 	color: #6d4803;
-	text-shadow: 0px 2px 0px rgba(255,255,255,0.3);
 	background: #e69d17 url(tabs-mobile-retina.png) no-repeat -256px -160px !important;
 }
 
@@ -5126,7 +5102,6 @@ textarea.span-15,
 #homepage h1 {
 	height: 175px;
 	color: rgba(255,255,255,0.65);
-	text-shadow: black 0 -1px 0;
 	background-color: #031c48;
 	margin-top: 0;
 }
@@ -5245,7 +5220,6 @@ button.ui-datepicker-trigger:hover,
 button.ui-datepicker-trigger { 
     margin: 0;
     padding: 0 0 0 1em;
-    text-shadow: None;
     border: 0;
     color: white;
     background-color: transparent;
@@ -5491,7 +5465,6 @@ button.ui-datepicker-trigger {
 }
 
 .deCornae #steps>li>a {
-	text-shadow: none !important;
 }
 
 .deCornae>#steps>li>a:hover{
