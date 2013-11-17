@@ -4206,7 +4206,6 @@ p.country.rs {
 	width: 790px;
 	margin: 0 0 0 -160px;
 	color: white;
-	background: url(tabs.png) 0 0;
 }
 
 #steps li {
@@ -4215,7 +4214,7 @@ p.country.rs {
 	padding: 10px 5px 0 40px;
 	color: #565b7d;
 	width: 113px;
-	height: 40px;
+	height: 30px;
 }
 
 #steps li li {
@@ -4256,7 +4255,22 @@ p.country.rs {
 }
 
 #steps li.complete {
-	background: #e69d17 url(tabs.png) -632px -170px;
+	background-color: #e69d17;
+}
+
+#steps li.complete:before,#steps li.current:before {
+	content: "\e810";
+	color: rgba(0,0,0,0.3);
+	font: 39px fontello;
+	top: -3px;
+	float: left;
+	margin-top: -12px;
+	margin-left: -41px;
+}
+
+#steps li.complete:first-child:before,
+#steps li.current:first-child:before {
+	display: none;;
 }
 
 #steps li.complete a {
@@ -4265,29 +4279,37 @@ p.country.rs {
 
 #steps li.current {
 	color: #6d4803;
-	background: #e69d17 url(tabs.png) -316px -170px;
-	height: 40px;
+	background-color: #e69d17;
+}
+
+#steps > li.current > a:after {
+	content: " ";
+	display: block;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	
+	border-top: 10px solid #e69d17;
+	position: absolute;
+	top: 40px;
+	left: 68px;
 }
 
 #steps li.complete:first-child,
 #steps li.complete#step-1 {
-	background-position: -158px -170px;
 }
 
 #steps li.current:first-child,
 #steps li.current#step-1 {
-	background-position: 0 -170px;
 }
 
 #steps li.complete:last-child,
 #steps li.complete#step-5 {
-	background-position: -157px -170px;
 }
 
 #steps li.current:last-child,
 #steps li.current#step-5 {
-	background-position: -316px -170px;
-	background-repeat: no-repeat;
 }
 
 #steps li.current a,
@@ -4314,7 +4336,6 @@ p.country.rs {
 	list-style-type: none;
 	background-color: #3a332e;
 	background-image: url(steps.png);
-	background: -webkit-gradient(linear, 100% 100%, 0% 100%, from(#918C88), to(#342F2A));
 }
 
 #steps li ol {
@@ -5446,55 +5467,3 @@ button.ui-datepicker-trigger {
 	Overrides styles for devices with a 
 	device-pixel-ratio of 2+, such as iPhone 4.
 -----------------------------------------------    */
-
-@media 
-	only screen and (-webkit-min-device-pixel-ratio: 2),
-	only screen and (min-device-pixel-ratio: 2) {
-	
-	body {
-	
-	}
-	
-}
-
-@media only screen and (min-width: 768px) {
-
-
-.deCornae #steps li {
-	color: rgba(0,0,0,0.37);
-}
-
-.deCornae #steps>li>a {
-}
-
-.deCornae>#steps>li>a:hover{
-	text-decoration: underline;
-}
-
-#steps li.complete {
-	background: #e69d17 url(tabs.png) -632px -170px;
-}
-
-.deCornae #steps li.complete {
-	background-image: url(tabs-deCornae.png);
-}
-
-.deCornae #steps li.current {
-	background-image: url(tabs-deCornae.png) -316px -170px;
-}
-
-.deCornae #steps li.current a:hover,
-.deCornae #steps li.complete a:hover {
-	color: inherit;
-	text-decoration: none !important;
-}
-
-.deCornae #steps li>a {
-	background: url(tabs-deCornae.png)  0 -100px;
-}
-
-.deCornae #steps>li.complete>a,
-.deCornae #steps>li.current>a {
-	background: url(tabs-deCornae.png) 0 -50px;
-}
-}

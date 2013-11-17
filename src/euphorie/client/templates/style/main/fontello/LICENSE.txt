@@ -1,13 +1,13 @@
 Font license info
 
 
-## Entypo
+## Web Symbols
 
-   Copyright (C) 2012 by Daniel Bruce
+   Copyright (c) 2011 by Just Be Nice studio. All rights reserved.
 
-   Author:    Daniel Buce
+   Author:    Just Be Nice studio
    License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://www.entypo.com
+   Homepage:  http://www.justbenicestudio.com/
 
 
 ## Font Awesome
@@ -15,8 +15,26 @@ Font license info
    Copyright (C) 2012 by Dave Gandy
 
    Author:    Dave Gandy
-   License:   CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
+   License:   SIL ()
    Homepage:  http://fortawesome.github.com/Font-Awesome/
+
+
+## Fontelico
+
+   Copyright (C) 2012 by Fontello project
+
+   Author:    Crowdsourced, for Fontello project
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://fontello.com
+
+
+## Entypo
+
+   Copyright (C) 2012 by Daniel Bruce
+
+   Author:    Daniel Bruce
+   License:   CC BY-SA (http://creativecommons.org/licenses/by-sa/2.0/)
+   Homepage:  http://www.entypo.com
 
 
 ## Typicons
@@ -28,21 +46,21 @@ Font license info
    Homepage:  http://typicons.com/
 
 
-## Web Symbols
+## MFG Labs
 
-   Copyright (c) 2011 by Just Be Nice studio. All rights reserved.
+   Copyright (C) 2012 by Daniel Bruce
 
-   Author:    Just Be Nice studio
+   Author:    MFG Labs
    License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://www.justbenicestudio.com/studio/websymbols/
+   Homepage:  http://www.mfglabs.com/
 
 
-## Fontelico
+## Elusive
 
-   Copyright (C) 2012 by Fontello project
+   Copyright (C) 2013 by Aristeides Stathopoulos
 
-   Author:    Crowdsourced, for Fontello project
+   Author:    Aristeides Stathopoulos
    License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://fontello.com
+   Homepage:  http://aristeides.com/
 
 
