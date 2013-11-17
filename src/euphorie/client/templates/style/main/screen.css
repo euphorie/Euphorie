@@ -4918,11 +4918,11 @@ p#country {
 body > h1 {
 	margin-left: -20px;
 	background-image: none;
-	background-color: #c8c3be;
 	font-size: 30px;
 	line-height: 32px;
 	margin-right: -20px;
 	padding: 20px;
+	background-color: #c8c3be !important;
 }
 
 #login h1 {
@@ -4936,11 +4936,12 @@ html {
 body {
 	padding-left: 20px;
 	padding-right: 20px;
-	float: left;
 	background-image: none;
 	background-color: #eae9e7;
 	overflow-x: hidden;
 	max-width: auto;
+	padding-bottom: 110px;
+	width: auto;
 }
 
 table .actions {
@@ -5056,14 +5057,11 @@ dl.accordion div.colborder {
 /* @group Navigation */
 
 #navigation {
-	text-align: center;
-	margin-bottom: -10px;
-	margin-top: 50px;
-	margin-left: 0;
 	position: static;
-	width: 280px;
-	float: left;
-	clear: left;
+	clear: both;
+	margin: 50px 0 -9px;
+	width: auto;
+	text-align: center;
 }
 
 #navigation li#home {
