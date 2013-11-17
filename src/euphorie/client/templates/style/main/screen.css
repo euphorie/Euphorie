@@ -4267,7 +4267,8 @@ p.country.rs {
 	background-color: #e69d17;
 }
 
-#steps li.complete:after,#steps li.current:after {
+#steps > li.complete:after,
+#steps > li.current:after {
 	content: "\e810";
 	color: rgba(0,0,0,0.3);
 	font: 39px fontello;
