@@ -4449,8 +4449,8 @@ body>#steps>li>ol {
 /* @group Normal */
 
 #steps li:before {
-	margin-left: -30px;
-	width: 27px;
+	margin-left: 0;
+	width: 16px;
 	display: inline-block;
 	text-align: center;
 	font: 17px fontello;
