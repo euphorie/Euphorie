@@ -4305,22 +4305,6 @@ p.country.rs {
 	left: 68px;
 }
 
-#steps li.complete:first-child,
-#steps li.complete#step-1 {
-}
-
-#steps li.current:first-child,
-#steps li.current#step-1 {
-}
-
-#steps li.complete:last-child,
-#steps li.complete#step-5 {
-}
-
-#steps li.current:last-child,
-#steps li.current#step-5 {
-}
-
 #steps li.current a,
 #steps li.current a strong {
 	color: #6d4803;
@@ -4448,9 +4432,9 @@ body>#steps>li>ol {
 
 /* @group Normal */
 
-#steps li:before {
-	margin-left: 0;
-	width: 16px;
+#steps > li:before {
+	margin-left: -30px;
+	width: 27px;
 	display: inline-block;
 	text-align: center;
 	font: 17px fontello;
