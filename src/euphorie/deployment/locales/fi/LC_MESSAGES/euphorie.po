@@ -1005,7 +1005,7 @@ msgstr ""
 #: src/euphorie/client/templates/survey_sessions.pt:62
 #: src/euphorie/client/templates/updated.pt:63
 msgid "label_preparation"
-msgstr "Valmistelu"
+msgstr "Suunnittelu"
 
 #. Default: Preparation
 #: src/euphorie/client/templates/actionplan.pt:50
@@ -1031,7 +1031,7 @@ msgstr "Valmistelu"
 #: src/euphorie/client/templates/survey_sessions.pt:63
 #: src/euphorie/client/templates/updated.pt:64
 msgid "iphone_label_preparation"
-msgstr "Valmistelu"
+msgstr "Suunnittelu"
 
 #. Default: Identification
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1654,7 +1654,7 @@ msgstr ""
 #: src/euphorie/client/templates/help.pt:22
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_start"
-msgstr "1. Valmistelu"
+msgstr "1. Suunnittelu"
 
 #. Default: Identification
 #: src/euphorie/client/templates/help.pt:23
@@ -2819,7 +2819,7 @@ msgstr ""
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
 msgid "label_help_preparation"
-msgstr "1. Valmistelu"
+msgstr "1. Suunnittelu"
 
 #. Default: Document the first steps in a survey, including how to configure a
 #. profile (if needed). This page is linked from the survey start page.
