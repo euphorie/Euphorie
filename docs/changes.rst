@@ -4,7 +4,7 @@ Changelog
 6.2 (unreleased)
 ----------------
 
-- New translations in Italian (IT) and Icelandic (IS). OSHA #9136
+- New translations in Italian (IT) and Icelandic (IS). OSHA #8434
 
 
 6.1.3 (2013-11-15)
