@@ -394,6 +394,16 @@ class Risk(dexterity.Container):
         """
         return evaluation_algorithm(self)
     
+    @property
+    def fixed_priority(self):
+        if hasattr(self, '_fixed_priority'):
+            return self._fixed_priority
+        return self.default_priority
+    
+    @fixed_priority.setter
+    def fixed_priority(self, value):
+        self._fixed_priority = value
+
 
 def EnsureInterface(risk):
     """Make sure a risk has the correct interface set for, matching the
