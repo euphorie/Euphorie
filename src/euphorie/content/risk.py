@@ -393,7 +393,15 @@ class Risk(dexterity.Container):
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
         return evaluation_algorithm(self)
-    
+
+    @property
+    def fixed_priority(self):
+        return self.default_priority
+
+    @fixed_priority.setter
+    def fixed_priority(self, value):
+        self.default_priority = value
+
 
 def EnsureInterface(risk):
     """Make sure a risk has the correct interface set for, matching the
