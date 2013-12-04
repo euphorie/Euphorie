@@ -50,10 +50,7 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_childr
             else:
                 child.postponed = False
     elif IRisk.providedBy(node):
-        if node.evaluation_method == "fixed":
-            priority = getattr(node, "default_priority", None)
-        else:
-            priority = getattr(node, "fixed_priority", None)
+        priority = getattr(node, "default_priority", None)
         if priority == "none":
             priority = None
 
