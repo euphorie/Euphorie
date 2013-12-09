@@ -4,6 +4,11 @@ Changelog
 6.2 (unreleased)
 ----------------
 
+- Move register link up in the frontpage to make it more noticable: too many
+  people missed it in its original position, leading to support requests. This
+  fixed `TNO ticket 247
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/247`_.
+
 - New translations in Italian (IT) and Icelandic (IS). OSHA #8434
 
 
