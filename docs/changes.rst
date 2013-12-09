@@ -4,12 +4,20 @@ Changelog
 6.2 (unreleased)
 ----------------
 
+Bugfixes
+~~~~~~~~
+
+- Fix error in generation of RTF reports for sessions with a depth larger
+  than 4. This fixes `TNO ticket 245
+  <https://code.simplon.biz/tracker/tno-euphorie/ticket/245`_.
+
 - Move register link up in the frontpage to make it more noticable: too many
   people missed it in its original position, leading to support requests. This
-  fixed `TNO ticket 247
+  fixes `TNO ticket 247
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/247`_.
 
 - New translations in Italian (IT) and Icelandic (IS). OSHA #8434
+
 
 
 6.1.3 - November 15, 2013

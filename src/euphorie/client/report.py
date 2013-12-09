@@ -408,7 +408,7 @@ class IdentificationReportDownload(grok.View):
             if has_risk:
                 title += u' [*]'
             section.append(
-                Paragraph(header_styles[node.depth],
+                Paragraph(header_styles.get(node.depth, header_styles[4]),
                           u'%s %s' % (node.number, title)))
 
             if node.type != "risk":
@@ -685,7 +685,7 @@ class ActionPlanReportDownload(grok.View):
                 title += u' [*]'
 
             section.append(Paragraph(
-                header_styles[node.depth],
+                header_styles.get(node.depth, header_styles[4]),
                 u"%s %s" % (node.number, title)))
 
             if node.type != "risk":
