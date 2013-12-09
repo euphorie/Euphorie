@@ -7,15 +7,16 @@ Changelog
 - New translations in Italian (IT) and Icelandic (IS). OSHA #8434
 
 
-6.1.3 (2013-11-15)
-------------------
+6.1.3 - November 15, 2013
+-------------------------
 
 Bugfixes
 ~~~~~~~~
 
 - Added missing English text for the "outdated browser" warning. OSHA #9094
-- Add missing import statement to euphorie/client/survey.py (couldn't resume
-  surveys as a result).
+
+- Add missing import statement. This caused a site error when trying to
+  resume an existing session in the client.
 
 
 6.1.2 - October 31, 2013
