@@ -18,6 +18,7 @@ Bugfixes
 
 - New translations in Italian (IT) and Icelandic (IS). OSHA #8434
 
+- New translations in Maltese (MT). OSHA #8435
 
 
 6.1.3 - November 15, 2013
