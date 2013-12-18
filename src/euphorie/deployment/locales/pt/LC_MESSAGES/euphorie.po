@@ -35,25 +35,25 @@ msgstr "Número de trabalhadores"
 #: src/euphorie/client/company.py:27
 #: src/euphorie/client/templates/report_actionplan.pt:46
 msgid "employee_numbers_1_to_9"
-msgstr "1 a 9 funcionários"
+msgstr "1 a 9 trabalhadores"
 
 #. Default: 10 to 49 employees
 #: src/euphorie/client/company.py:29
 #: src/euphorie/client/templates/report_actionplan.pt:47
 msgid "employee_numbers_10_to_49"
-msgstr "10 a 49 funcionários"
+msgstr "10 a 49 trabalhadores"
 
 #. Default: 50 to 249 employees
 #: src/euphorie/client/company.py:31
 #: src/euphorie/client/templates/report_actionplan.pt:48
 msgid "employee_numbers_50_to_249"
-msgstr "50 a 249 funcionários"
+msgstr "50 a 249 trabalhadores"
 
 #. Default: 250 or more employees
 #: src/euphorie/client/company.py:33
 #: src/euphorie/client/templates/report_actionplan.pt:49
 msgid "employee_numbers_250_or_more"
-msgstr "250 ou mais funcionários"
+msgstr "250 ou mais trabalhadores"
 
 #. Default: The risk assessment was conducted by
 #: src/euphorie/client/company.py:39

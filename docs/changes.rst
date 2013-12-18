@@ -20,6 +20,8 @@ Bugfixes
 
 - New translations in Maltese (MT). OSHA #8435
 
+- Translation fixes in PT. OSHA #9193
+
 
 6.1.3 - November 15, 2013
 -------------------------
