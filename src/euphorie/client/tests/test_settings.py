@@ -282,3 +282,27 @@ class ChangeEmailTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, "http://nohost/plone/client")
         self.assertEqual(
                 Session.query(Account.loginname).first()[0], "new-login")
+
+
+class ClientAvailabilityTests(EuphorieFunctionalTestCase):
+    def setUp(self):
+        from Products.Five.testbrowser import Browser
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import registerUserInClient
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        super(ClientAvailabilityTests, self).setUp()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        survey = self.portal.client["nl"]["ict"]["software-development"]
+        self.browser = Browser()
+        self.browser.open(survey.absolute_url())
+        registerUserInClient(self.browser)
+
+    def testSectorsOnClient(self):
+        browser = self.browser
+        browser.open("http://nohost/plone")
+        browser.getLink("Surveys").click()
+        self.assertTrue('Sectors' in browser.contents)
+        url = "http://nohost/plone/client/%s" % browser.url.split('/')[-1]
+        browser.open(url)
+        self.assertTrue('Sectors' in browser.contents)
