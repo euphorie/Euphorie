@@ -130,6 +130,23 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.isHtml, False)
         self.assertEqual(browser.headers.maintype, "image")
 
+    def testFixedPriorityForm(self):
+        # See https://github.com/euphorie/Euphorie/pull/98
+        self.loginAsPortalOwner()
+        risk = self.createRisk()
+        risk.title = u"Risk title"
+        risk.description = u"<p>Description</p>"
+        risk.problem_description = u"Problem description"
+        browser = self.adminBrowser()
+        browser.open("%s/@@edit" % risk.absolute_url())
+        browser.getControl(
+                name="form.widgets.evaluation_method").value = [u"fixed"]
+        browser.getControl(
+                name="form.widgets.default_priority").value = [u"low"]
+        browser.getControl(
+                name="form.widgets.fixed_priority").value = [u"high"]
+        browser.getControl(name="form.buttons.save").click()
+        self.assertEqual(risk.fixed_priority, u"high")
 
 class ConstructionFilterTests(EuphorieTestCase):
     def _create(self, container, *args, **kwargs):
