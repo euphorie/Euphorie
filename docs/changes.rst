@@ -7,6 +7,8 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Restore add buttons for non-survey content in the content editor.
+
 - Fix error in generation of RTF reports for sessions with a depth larger
   than 4. This fixes `TNO ticket 245
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/245`_.

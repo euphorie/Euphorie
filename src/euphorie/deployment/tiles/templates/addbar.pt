@@ -7,16 +7,20 @@
      tal:omit-tag=""
 ><div class="buttonBar">
   <a class="button floatBefore" tal:condition="view/can_edit" href="${context/absolute_url}/@@edit" i18n:translate="button_edit">Edit</a>
-  <span tal:omit-tag="" tal:repeat="factory view/actions">
-    <a class="button floatAfter" tal:condition="python:factory.id=='euphorie.module'"
-        href="${factory/url}" title="${factory/description}" i18n:translate="">Add Module</a>
-    <a class="button floatAfter" tal:condition="python:factory.id=='euphorie.submodule'"
-        href="${factory/url}" title="${factory/description}" i18n:translate="">Add Submodule</a>
-    <a class="button floatAfter" tal:condition="python:factory.id=='euphorie.profilequestion'"
-        href="${factory/url}" title="${factory/description}" i18n:translate="">Add Profile question</a>
-    <a class="button floatAfter" tal:condition="python:factory.id=='euphorie.risk'"
-        href="${factory/url}" title="${factory/description}" i18n:translate="">Add Risk</a>
-    <a class="button floatAfter" tal:condition="python:factory.id=='euphorie.solution'"
-        href="${factory/url}" title="${factory/description}" i18n:translate="">Add Solution</a>
-  </span>
+  <tal:factory omit-tag="" repeat="factory view/actions">
+    <tal:button switch="python:factory.id">
+      <a class="button floatAfter" tal:case="string:euphorie.module"
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Module</a>
+      <a class="button floatAfter" tal:case="string:euphorie.submodule"
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Submodule</a>
+      <a class="button floatAfter" tal:case="string:euphorie.profilequestion"
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Profile question!!</a>
+      <a class="button floatAfter" tal:case="string:euphorie.risk"
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Risk</a>
+      <a class="button floatAfter" tal:case="string:euphorie.solution"
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Solution</a>
+      <a class="button floatAfter" tal:case="default"
+         href="${factory/url}" title="${factory/description}" i18n:translate="button_add_factory">Add <tal:span i18n:name="typename">${factory/title}</tal:span></a>
+    </tal:button>
+  </tal:factory>
 </div></div>
