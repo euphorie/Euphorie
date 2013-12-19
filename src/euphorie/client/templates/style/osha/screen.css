@@ -138,3 +138,8 @@ Syslab reference: #7929
 
 #navigation li#home a {
 }
+
+body.language-fr #navigation li#home {
+    right: 465px;
+    width: 300px;
+}
