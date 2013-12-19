@@ -10,7 +10,6 @@
       metal:use-macro="context/@@layout/macros/layout">
   <body>
     <metal:title fill-slot="title">${context/title}</metal:title>
-    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
     <metal:content fill-slot="content" tal:define="children context/values">
       <p class="introduction">${context/description}</p>
 
