@@ -136,6 +136,11 @@ class WebHelpers(grok.View):
 
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')
+
+        lt = getToolByName(self.context, 'portal_languages')
+        lang = lt.getPreferredLanguage()
+        parts.append('language-%s' % lang)
+
         return ' ' + ' '.join(parts)
 
     @reify

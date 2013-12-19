@@ -7,7 +7,8 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
-- ...
+- In the client, write the current language as class into the body tag, so that
+  language specific CSS rules can be applied.
 
 
 6.2 - December 19, 2013
