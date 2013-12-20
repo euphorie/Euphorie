@@ -393,11 +393,16 @@ class Risk(dexterity.Container):
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
         return evaluation_algorithm(self)
-
+    
     @property
     def fixed_priority(self):
-        return self.default_priority
-
+        priority = self.default_priority
+        # 'none' is acceptable for default_priority, but not for fixed_priority,
+        # so in that case default it to 'low'.
+        if priority == 'none':
+            return 'low'
+        return priority
+    
     @fixed_priority.setter
     def fixed_priority(self, value):
         self.default_priority = value
@@ -559,6 +564,11 @@ class Edit(form.SchemaEditForm):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
 
+    def extractData(self, setErrors=True):
+        data = super(Edit, self).extractData(setErrors)
+        if data[0]['evaluation_method'] == 'fixed':
+            del data[0]['default_priority']
+        return data
 
 class ConstructionFilter(grok.MultiAdapter):
     """FTI construction filter for :py:class:`Risk` objects. This filter

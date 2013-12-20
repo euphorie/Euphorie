@@ -9,6 +9,9 @@ Bugfixes
 
 - In the client, write the current language as class into the body tag, so that
   language specific CSS rules can be applied.
+  
+- The default_priority field could overwrite the fixed_priority field when saving
+  a Risk from the edit form.
 
 
 6.2 - December 19, 2013
