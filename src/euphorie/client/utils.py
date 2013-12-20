@@ -79,7 +79,6 @@ class WebHelpers(grok.View):
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name('webhelpers')
-    grok.require('zope2.View')
     grok.template('webhelpers')
 
     sector = None

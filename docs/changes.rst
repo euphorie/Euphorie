@@ -7,6 +7,10 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
+- Fix display of not-found page when accessing acquisitioned content from outside
+  the client in the client. This fixes `issue 99
+  <https://github.com/euphorie/Euphorie/issues/99>`_.
+
 - In the client, write the current language as class into the body tag, so that
   language specific CSS rules can be applied.
   

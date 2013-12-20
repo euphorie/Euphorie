@@ -304,5 +304,6 @@ class ClientAvailabilityTests(EuphorieFunctionalTestCase):
         browser.getLink("Surveys").click()
         self.assertTrue('Sectors' in browser.contents)
         url = "http://nohost/plone/client/%s" % browser.url.split('/')[-1]
+        browser.raiseHttpErrors = False
         browser.open(url)
-        self.assertTrue('Sectors' in browser.contents)
+        self.assertTrue('404 Not Found' in str(browser.headers))
