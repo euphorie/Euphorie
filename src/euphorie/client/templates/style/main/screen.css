@@ -4274,7 +4274,7 @@ p.country.rs {
 	font: 39px fontello;
 	top: -3px;
 	float: left;
-	margin-top: -33px;
+	margin-top: -12px;
 	margin-left: -41px;
 }
 
@@ -4940,6 +4940,50 @@ table .actions {
 	text-align: left;
 }
 
+/* @group Gallery */
+
+.gallery {
+	width: auto;
+	float: none;
+	overflow: hidden;
+}
+
+.gallery a {
+	float: left;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 45px;
+	height: 45px;
+	margin-right: 10px;
+}
+
+.gallery a:first-child {
+	width: 100%;
+	height: auto;
+	margin-right: 0;
+}
+
+.gallery img {
+	max-width: 45px;
+	max-height: 45px;
+	float: none;
+	cursor: pointer;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.gallery a:first-child img {
+	max-height: auto;
+	max-width: auto;
+	width: 100%;
+	float: none;
+}
+
+
+
+/* @end */
+
 /* @group Steps */
 
 #steps {
@@ -4953,23 +4997,27 @@ table .actions {
 	width: auto;
 	background-color: white;
 	border-top: 1px solid silver;
-	height: 80px;
+	height: 55px;
 }
 
 #steps > li {
-	height: 100px;
+	height: 55px;
 	padding: 0;
 	text-align: center;
+	font-size: 9px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 #steps > li:before {
 	width: auto;
 	display: block;
 	float: none;
-	padding-top: 14px;
-	font-size: 32px;
-	height: 45px;
+	font-size: 23px;
+	height: 35px;
 	margin: 0;
+	line-height: 45px;
 }
 
 #steps > li:after {
@@ -4977,9 +5025,16 @@ table .actions {
 }
 
 #steps > li a {
-	padding: 0;
-	width: auto;
-	margin: 0;
+	padding: 0 !important;
+	width: 100%;
+	margin: 0 !important;
+	text-align: center !important;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 9px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 #steps .questions {
@@ -5102,10 +5157,12 @@ input[type="radio"] {
 fieldset.comprehensive.radioList label,
 form.concise fieldset.comprehensive.radioList label {
 	padding-bottom: 8px;
+	padding-left: 25px;
 }
 
 fieldset.comprehensive.radioList label input {
 	margin-top: -1px;
+	margin-left: -25px;
 }
 
 /* @group Fieldset Concise */

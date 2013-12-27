@@ -43,22 +43,6 @@ body > h1 {
 	color: white;
 }
 
-#steps li a {
-	width: 113px;
-	display: block;
-	text-decoration: none;
-	padding: 10px 5px 20px 40px;
-	font-size: 12px;
-	color: #8fa1c5;
-	font-weight: bold;
-	margin: -10px -5px -20px -40px;
-	position: relative;
-	-webkit-transition: color 0.2s;
-}
-
-#steps li a:hover {
-}
-
 /* Screen.css limits this to 45% which is then somehow overridden
  * by Fancybox. If we however then don't use FancyBox, the image
  * is too small.
