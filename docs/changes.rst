@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.2.1 - Unreleased
------------------------
+6.2.1 - January 02, 2014
+------------------------
 
 Bugfixes
 ~~~~~~~~
@@ -16,6 +16,8 @@ Bugfixes
   
 - The default_priority field could overwrite the fixed_priority field when saving
   a Risk from the edit form.
+
+- Improvements for the mobile view
 
 - Re-ran yui-compression for the CSS files, since some changes had not made it in previously
 
