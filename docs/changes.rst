@@ -17,6 +17,8 @@ Bugfixes
 - The default_priority field could overwrite the fixed_priority field when saving
   a Risk from the edit form.
 
+- Re-ran yui-compression for the CSS files, since some changes had not made it in previously
+
 
 6.2 - December 19, 2013
 -----------------------
