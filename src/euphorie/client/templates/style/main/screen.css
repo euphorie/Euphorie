@@ -5039,8 +5039,15 @@ table .actions {
 	line-height: 45px;
 }
 
-#steps > li:after {
-	display: none;
+#steps > li.complete:after,
+#steps > li.current:after {
+	content: "\e810";
+	color: rgba(0,0,0,0.3);
+	font: 54px fontello;
+	top: 9px;
+	float: left;
+	position: absolute;
+	margin-left: -58px;
 }
 
 #steps > li a {
