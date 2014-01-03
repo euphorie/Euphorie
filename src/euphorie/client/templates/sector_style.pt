@@ -9,7 +9,6 @@
 }</tal:block>
 <tal:block condition="python:colours">
 #navigation li a {
-    color: ${colours/main_foreground};
     background-color: ${colours/main_background};
 }
 body > h1 {
@@ -20,13 +19,9 @@ body > h1 {
     color: ${colours/support_foreground};
     background-color: ${colours/support_background};
 }
-#steps li.complete a,
-#steps li.current a {
-     color: ${colours/support_foreground};
-}
 
-#steps li a,
-#steps li a:hover {
-    color: ${colours/main_foreground};
-} </tal:block>
+#steps > li.current > a:after {
+  border-top-color: ${colours/support_background};
+}
+</tal:block>
 </tal:block>
