@@ -33,16 +33,6 @@ body > h1 {
 	border-top-color: #996699;
 }
 
-#steps li {
-	color: #4b68a2;
-}
-
-#steps li.complete a,
-#steps li.current a,
-#steps li.current a strong {
-	color: white;
-}
-
 /* Screen.css limits this to 45% which is then somehow overridden
  * by Fancybox. If we however then don't use FancyBox, the image
  * is too small.

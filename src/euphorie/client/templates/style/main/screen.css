@@ -4218,7 +4218,7 @@ p.country.rs {
 	font-size: 12px;
 	float: left;
 	padding: 10px 5px 0 40px;
-	color: #565b7d;
+	color: white;
 	width: 20%;
 	height: 40px;
 	-webkit-box-sizing: border-box;
@@ -4251,12 +4251,26 @@ p.country.rs {
 	text-decoration: none;
 	padding: 10px 5px 0 40px;
 	font-size: 12px;
-	color: #7e8ca2;
+	color: white;
 	font-weight: bold;
 	margin: -10px -5px -20px -40px;
 	position: relative;
 	-webkit-transition: color 0.2s;
 	/* height: 30px; This makes the button flow into text */
+}
+
+#steps li.complete:before,
+#steps li.current:before,
+#steps > li.complete > a,
+#steps > li.current > a {
+	color: white;
+}
+
+.brightSupportColour #steps li.complete:before,
+.brightSupportColour #steps li.current:before,
+.brightSupportColour #steps > li.complete > a,
+.brightSupportColour #steps > li.current > a {
+	color: black;
 }
 
 #steps li a:hover{
@@ -4283,10 +4297,6 @@ p.country.rs {
 	display: none;;
 }
 
-#steps li.complete a {
-	color: #6d4803;
-}
-
 #steps li.current {
 	color: #6d4803;
 	background-color: #e69d17;
@@ -4304,11 +4314,6 @@ p.country.rs {
 	position: absolute;
 	top: 40px;
 	left: 68px;
-}
-
-#steps li.current a,
-#steps li.current a strong {
-	color: #6d4803;
 }
 
 #steps .questions {
@@ -4385,7 +4390,6 @@ body>#steps>li>ol {
 	padding: 4px 10px 4px 45px;
 	display: block;
 	width: 135px;
-	color: #d6d6d6;
 	line-height: 15px;
 	font-size: 12px;
 	background-image: none;
@@ -4394,6 +4398,7 @@ body>#steps>li>ol {
 	margin-right: 0;
 	float: left;
 	background-color: transparent;
+	color: #d6d6d6;
 }
 
 #steps li li.warning>a,
