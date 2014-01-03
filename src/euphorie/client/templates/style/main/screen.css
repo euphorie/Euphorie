@@ -4270,7 +4270,7 @@ p.country.rs {
 .brightSupportColour #steps li.current:before,
 .brightSupportColour #steps > li.complete > a,
 .brightSupportColour #steps > li.current > a {
-	color: rgba(0,0,0,0.8);
+	color: rgba(0,0,0,0.6);
 }
 
 #steps li a:hover{
