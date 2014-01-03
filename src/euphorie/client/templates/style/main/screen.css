@@ -5029,6 +5029,11 @@ table .actions {
 	color: rgba(0,0,0,0.8);
 }
 
+#steps > li.complete,
+#steps > li.current {
+	color: white;
+}
+
 #steps > li:before {
 	width: auto;
 	display: block;
