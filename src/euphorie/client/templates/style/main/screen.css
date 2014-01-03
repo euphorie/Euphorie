@@ -5043,11 +5043,10 @@ table .actions {
 #steps > li.current:after {
 	content: "\e810";
 	color: rgba(0,0,0,0.3);
-	font: 54px fontello;
+	font: 54px/87px fontello;
 	position: absolute;
 	z-index: 10;
 	margin-left: -10.5%;
-	top: 9px;
 }
 
 #steps > li a {
