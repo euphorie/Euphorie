@@ -5044,10 +5044,10 @@ table .actions {
 	content: "\e810";
 	color: rgba(0,0,0,0.3);
 	font: 54px fontello;
-	top: 9px;
-	float: left;
 	position: absolute;
-	margin-left: -58px;
+	z-index: 10;
+	margin-left: -10.5%;
+	top: 9px;
 }
 
 #steps > li a {
