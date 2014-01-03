@@ -7,7 +7,7 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Improvements for the mobile view
 
 
 6.2.1 - January 02, 2014
