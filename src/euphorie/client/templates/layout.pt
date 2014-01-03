@@ -54,7 +54,7 @@
 
     <ul id="navigation">
       <metal:home use-macro="webhelpers/macros/homelink"/>
-      <tal:block condition="webhelpers/authenticated">t
+      <tal:block condition="webhelpers/authenticated">
         <li><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
         <li><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
       </tal:block>
