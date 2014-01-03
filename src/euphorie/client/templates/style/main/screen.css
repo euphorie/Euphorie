@@ -4251,25 +4251,30 @@ p.country.rs {
 	text-decoration: none;
 	padding: 10px 5px 0 40px;
 	font-size: 12px;
+	color: white;
 	font-weight: bold;
 	margin: -10px -5px -20px -40px;
 	position: relative;
-	color: white;
+	-webkit-transition: color 0.2s;
+	/* height: 30px; This makes the button flow into text */
 }
 
 #steps li.complete:before,
 #steps li.current:before,
-#steps li.complete a,
-#steps li.current a {
+#steps > li.complete > a,
+#steps > li.current > a {
 	color: white;
-
 }
 
 .brightSupportColour #steps li.complete:before,
 .brightSupportColour #steps li.current:before,
-.brightSupportColour #steps li.complete a,
-.brightSupportColour #steps li.current a {
-	color: rgba(0,0,0,0.6);
+.brightSupportColour #steps > li.complete > a,
+.brightSupportColour #steps > li.current > a {
+	color: black;
+}
+
+#steps li a:hover{
+	color: white;
 }
 
 #steps li.complete {
@@ -4293,6 +4298,7 @@ p.country.rs {
 }
 
 #steps li.current {
+	color: #6d4803;
 	background-color: #e69d17;
 }
 
@@ -4438,6 +4444,7 @@ body>#steps>li>ol {
 
 #steps li.complete:before,
 #steps li.current:before {
+	color: white;
 }
 
 #steps li#step-1:before {
