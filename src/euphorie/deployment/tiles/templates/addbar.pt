@@ -14,7 +14,7 @@
       <a class="button floatAfter" tal:case="string:euphorie.submodule"
           href="${factory/url}" title="${factory/description}" i18n:translate="">Add Submodule</a>
       <a class="button floatAfter" tal:case="string:euphorie.profilequestion"
-          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Profile question!!</a>
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Profile question</a>
       <a class="button floatAfter" tal:case="string:euphorie.risk"
           href="${factory/url}" title="${factory/description}" i18n:translate="">Add Risk</a>
       <a class="button floatAfter" tal:case="string:euphorie.solution"
