@@ -40,7 +40,7 @@
                   <li tal:repeat="title answer"><input type="text" name="${question/id}:utf8:utext:list" value="${title}"/></li>
                 </tal:block>
               </ol>
-              <button type="button" 
+              <button type="button"
                       i18n:translate="label_add_profile_module"
                       value="${question/id}:utf8:utext:list" class="${question/id}:utf8:utext:list addButton jsOnly">Add</button>
             </fieldset>
@@ -59,19 +59,19 @@
           <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
         </a>
       </li>
-      <li id="step-2">
+      <li id="step-2" class="disabled">
         <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
         <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
       </li>
-      <li id="step-3">
+      <li id="step-3" class="disabled">
         <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
         <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
       </li>
-      <li id="step-4">
+      <li id="step-4" class="disabled">
         <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
         <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
       </li>
-      <li id="step-5">
+      <li id="step-5" class="disabled">
         <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
         <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
       </li>
