@@ -69,6 +69,26 @@ The available options are:
    |                          | and conditions of the site.           |
    +--------------------------+---------------------------------------+
 
+Google analytics
+----------------
+
+Euphorie includes complete Google Analytics support. To enable this you
+will need to configure the GA account, and optionally the domain name to
+use. This must be done separately for the CMS and the client.
+
+::
+
+    [tile:footer]
+    type=analytics
+    account=UA-111111-1
+    domain=.example.com
+
+    [tile:client-analytics]
+    type=analytics
+    account=UA-111111-1
+    domain=.example.com
+
+
 SQL database
 ------------
 

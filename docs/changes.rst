@@ -9,6 +9,8 @@ Bugfixes
 
 - Improvements for the mobile view
 
+- Remove default Google Analytics account information.
+
 
 6.2.1 - January 02, 2014
 ------------------------
