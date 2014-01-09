@@ -87,6 +87,8 @@ class Login(grok.View):
             if isinstance(account, Account) and \
                     account.getUserName() == reply.get("__ac_name", '').lower():
                 self.login(account, bool(self.request.form.get('remember')))
+                v_url = urlparse.urlsplit(self.url()+'/success').path
+                trigger_extra_pageview(self.request, v_url)
 
                 if checkTermsAndConditions() and \
                         not approvedTermsAndConditions(account):
