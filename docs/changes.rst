@@ -4,6 +4,18 @@ Changelog
 6.2.2 - Unreleased
 ------------------
 
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add three new virtual page views for Google Analytics in the client:
+
+  * /*<country>*/register/success - used after succefully registering a new
+    account.
+  * /*<country>*/*<sector>*/*<survey>*/start - used when starting a new survey
+    session.
+  * /*<country>*/*<sector>*/*<survey>*/resume - used when resuming a survey
+    session.
+
 Bugfixes
 ~~~~~~~~
 

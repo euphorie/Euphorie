@@ -20,6 +20,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
+from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from .interfaces import IClientSkinLayer
 from .utils import CreateEmailTo
 from .utils import setLanguage
@@ -216,6 +217,8 @@ class Register(grok.View):
                                 password=reply.get("password1"))
         Session().add(account)
         log.info("Registered new account %s", loginname)
+        v_url = urlparse.urlsplit(self.url()+'/success').path
+        trigger_extra_pageview(self.request, v_url)
         return account
 
     def update(self):

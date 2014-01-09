@@ -4,6 +4,7 @@ Survey views
 """
 
 import logging
+import urlparse
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition import aq_base
@@ -18,6 +19,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from sqlalchemy import sql
 from plone.memoize.instance import memoize
+from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from ..ghost import PathGhost
 from euphorie.content.survey import ISurvey
 from euphorie.client.interfaces import IClientSkinLayer
@@ -74,6 +76,8 @@ class View(grok.View):
         if not title:
             title = survey.Title()
         SessionManager.start(title=title, survey=survey)
+        v_url = urlparse.urlsplit(self.url()+'/resume').path
+        trigger_extra_pageview(self.request, v_url)
         self.request.response.redirect("%s/start" % survey.absolute_url())
 
     def _ContinueSurvey(self, info):
@@ -87,6 +91,8 @@ class View(grok.View):
             raise Unauthorized()
         SessionManager.resume(session)
         survey = self.request.client.restrictedTraverse(str(session.zodb_path))
+        v_url = urlparse.urlsplit(self.url()+'/resume').path
+        trigger_extra_pageview(self.request, v_url)
         self.request.response.redirect("%s/resume" % survey.absolute_url())
 
     def update(self):
