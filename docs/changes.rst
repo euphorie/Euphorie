@@ -9,8 +9,8 @@ Feature changes
 
 - Add four new virtual page views for Google Analytics in the client:
 
-  * .../login/success - used after succefull login
-  * /*<country>*/register/success - used after succefully registering a new
+  * .../login/success - used after successfull login
+  * /*<country>*/register/success - used after successfully registering a new
     account.
   * /*<country>*/*<sector>*/*<survey>*/start - used when starting a new survey
     session.
