@@ -91,7 +91,7 @@
       <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a tal:condition="is_anonymous" href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
       <li><a tal:condition="is_anonymous" href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
-      <li><a tal:condition="is_anonymous" href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+      <li><a tal:condition="python:is_anonymous and webhelpers.survey_url()" href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
       <li><a tal:condition="is_anonymous" href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
     </ul>
 
