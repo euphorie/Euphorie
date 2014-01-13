@@ -25,7 +25,7 @@
 
         $("a[rel=download]").click(function(e) {
             if (typeof _gaq==="object") {
-                var href = this.target.href,
+                var href = e.target.href,
                     path = href.replace(new RegExp("https?://" + location.host + "/", "i"), "/");
                  _gaq.push(["_trackPageview", path]);
             }
