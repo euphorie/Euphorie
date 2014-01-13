@@ -19,7 +19,15 @@
             "transitionIn"    : "elastic",
             "transitionOut"   : "elastic",
             "titlePosition"   : "over"
-            });
+        });
+
+        $("a[rel=download]").click(function(e) {
+            if (typeof _gaq==="object") {
+                var href = this.target.href,
+                    path = href.replace(new RegExp("https?://" + location.host + "/", "i"), "/");
+                 _gaq.push(["_trackPageview", path]);
+            }
+        });
 
         if ($.browser.msie) {
             var browser_version = Number($.browser.version.split(".", 1)[0]);

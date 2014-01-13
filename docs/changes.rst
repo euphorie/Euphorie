@@ -7,6 +7,8 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Track report downloads as a virtual pageview in Google Analytics.
+
 - Add four new virtual page views for Google Analytics in the client:
 
   * .../login/success - used after successfull login
