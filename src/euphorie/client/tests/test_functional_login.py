@@ -55,6 +55,21 @@ class LoginTests(EuphorieFunctionalTestCase):
                                             auth_cookie['expires'].tzinfo)
         self.assertTrue(delta.days > 100)
 
+    def test_extra_ga_pageview_post_login(self):
+        import re
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.tests.utils import addSurvey
+        from euphorie.client.tests.utils import addAccount
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        addAccount(password='secret')
+        browser = Browser()
+        browser.open(self.portal.client.nl.absolute_url())
+        browser.getControl(name='__ac_name').value = 'JANE@example.com'
+        browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
+        browser.getControl(name="next").click()
+        self.assertTrue(re.search('trackPageview.*login/success', browser.contents) is not None)
+
 
 class RegisterTests(EuphorieTestCase):
     def afterSetUp(self):
