@@ -7,6 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
+- Track clicks on externals links using an `external-link` event in Google
+  Analytics.
+
 - Track report downloads as a virtual pageview in Google Analytics.
 
 - Add four new virtual page views for Google Analytics in the client:

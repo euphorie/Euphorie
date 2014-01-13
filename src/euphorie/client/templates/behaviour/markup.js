@@ -5,6 +5,8 @@
  */
 
 (function($) {
+        var is_href_internal = new RegExp("^https?://"+window.location.host, "i");
+
         $(".jsOnly").show();
 
         $(".printButton").on("click", function() {
@@ -27,6 +29,14 @@
                     path = href.replace(new RegExp("https?://" + location.host + "/", "i"), "/");
                  _gaq.push(["_trackPageview", path]);
             }
+        });
+
+        $("a").click(function() {
+            if (typeof _gaq!=="object")
+                return;
+            if (is_href_internal.test(event.target.href))
+                return;
+            _gaq.push(["_trackEvent", "external-link", "click", event.target.href]);
         });
 
         if ($.browser.msie) {
