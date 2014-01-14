@@ -25,9 +25,12 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- Improvements for the mobile view
+- Various styling improvements for the online client on mobile devices.
 
 - Remove default Google Analytics account information.
+
+- Remove the *Status* button on the help page if the user is not in a survey
+  session.
 
 
 6.2.1 - January 02, 2014
