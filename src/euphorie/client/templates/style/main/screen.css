@@ -1254,7 +1254,8 @@ aside.sidebar .postit a {
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 1px solid silver;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.2)
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	margin-bottom: 20px;
 }
 
 #ActionPlanItemForm .tab-container.error {
