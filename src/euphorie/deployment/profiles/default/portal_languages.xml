@@ -23,12 +23,14 @@
    <element value="eu"/>
    <element value="fr"/>
    <element value="hu"/>
+   <element value="is"/>
    <element value="it"/>
    <element value="lt"/>
    <element value="lv"/>
    <element value="mt"/>
    <element value="nl"/>
    <element value="nl-be"/>
+   <element value="no"/>
    <element value="pl"/>
    <element value="pt"/>
    <element value="ro"/>
