@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Translation corrections in IS (OSHA #9345)
 
 
 6.3.0 - January 14, 2014

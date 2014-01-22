@@ -2,7 +2,7 @@
 # Copyright (C) 2013 Simplon B.V., SYSLAB.COM GmbH
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -333,19 +333,19 @@ msgstr "Þetta er"
 #. Default: Measure
 #: src/euphorie/client/report.py:738
 msgid "header_measure_single"
-msgstr "Ráðstöfun"
+msgstr "Lausn"
 
 #. Default: Measure ${index}
 #: src/euphorie/client/report.py:742
 #: src/euphorie/client/templates/report_actionplan.pt:106
 msgid "header_measure"
-msgstr "Ráðstöfun ${index}"
+msgstr "Lausn ${index}"
 
 #. Default: Action plan:
 #: src/euphorie/client/report.py:756
 #: src/euphorie/client/templates/report_actionplan.pt:109
 msgid "report_measure_actionplan"
-msgstr "Almenn nálgun (til að fjarlægja áhættuna eða draga úr henni)"
+msgstr "Almenn nálgun (Fjarlægja skal hættur eða gera þær ásættanlegar)"
 
 #. Default: Prevention plan:
 #: src/euphorie/client/report.py:762
@@ -450,7 +450,7 @@ msgstr "Lok skipulagningar"
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
-msgstr "Almenn nálgun (til að fjarlægja áhættuna eða draga úr henni)"
+msgstr "Almenn nálgun (Fjarlægja skal hættur eða gera þær ásættanlegar)"
 
 #. Default: Specific action(s) required to implement this approach
 #: src/euphorie/client/report.py:927
@@ -458,13 +458,13 @@ msgstr "Almenn nálgun (til að fjarlægja áhættuna eða draga úr henni)"
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
-msgstr "Sérstök/sérstakar ráðstafanir sem þarf til að innleiða þessa áætlun"
+msgstr "Aðgerðir til að lausn komi að notum"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:931 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
-msgstr "Nauðsynlegt reynslustig og/eða kröfur"
+msgstr "Þekking og reynsla sem er nauðsynleg"
 
 #. Default: Who is responsible?
 #: src/euphorie/client/report.py:933
@@ -1456,7 +1456,7 @@ msgstr ""
 msgid "conditions_info_text"
 msgstr ""
 "Allar upplýsingar sem þú veitir í hina frjálsu textareiti verkfærisins (t.d."
-" þegar þú færir inn ráðstöfun til að takast á við áhættu, aðilann sem ber "
+" þegar þú færir inn lausn til að takast á við áhættu, aðilann sem ber "
 "ábyrgð á aðgerðinni o.s.frv.). Innfærsla upplýsinga í frjálsu textareitina "
 "er frjáls."
 
@@ -2363,7 +2363,7 @@ msgstr "Lýsing"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:67
 msgid "Standard solutions"
-msgstr "Almennar lausnir"
+msgstr "Ráðlagðar lausnir"
 
 #. Default: You write down in the Plan what measure you will be taking in
 #. response to the risk. Removing the causes (tackling the source) is the
@@ -2493,7 +2493,7 @@ msgstr "Litlar"
 #: src/euphorie/client/templates/risk_evaluation.pt:32
 #: src/euphorie/content/risk.py:282
 msgid "probability_medium"
-msgstr "Miðlungs"
+msgstr "Meðal"
 
 #. Default: Large
 #: src/euphorie/client/templates/risk_evaluation.pt:34
@@ -2895,7 +2895,7 @@ msgstr "Um"
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:136
 msgid "header_legal_references"
-msgstr "Tilvísanir um lagaleg atriði og stefnumótun"
+msgstr "Lög og reglugerðir"
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
@@ -3121,7 +3121,7 @@ msgstr "Breyta einingu"
 
 #: src/euphorie/content/module.py:156
 msgid "Edit Submodule"
-msgstr "Breyta undireiningu"
+msgstr "Breyta undirflokki"
 
 #. Default: Page content
 #: src/euphorie/content/page.py:28
@@ -3186,7 +3186,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:77
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Tilvísanir um lagaleg atriði og stefnumótun"
+msgstr "Lög og reglugerðir"
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:84
@@ -3262,7 +3262,7 @@ msgstr "Reiknað"
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 msgid "evalmethod_fixed"
-msgstr "Slepptu mati"
+msgstr "Mati sleppt"
 
 #. Default: priority
 #: src/euphorie/content/risk.py:134
@@ -3309,7 +3309,7 @@ msgstr "Annars konar myndir"
 #: src/euphorie/content/risk.py:223 src/euphorie/content/risk.py:312
 #: src/euphorie/content/templates/risk_view.pt:53
 msgid "label_default_severity"
-msgstr "Sjálfgefinn alvarleiki"
+msgstr "Gefnar afleiðingar"
 
 #. Default: Indicate the severity if this risk occurs.
 #: src/euphorie/content/risk.py:224 src/euphorie/content/risk.py:313
@@ -3321,14 +3321,14 @@ msgstr "Tilgreindu alvarleikann ef þessi áhætta kemur upp."
 #: src/euphorie/content/risk.py:278 src/euphorie/content/risk.py:298
 #: src/euphorie/content/risk.py:317
 msgid "no default"
-msgstr "Ekkert sjálfgefið"
+msgstr "Ekki ákveðið"
 
 #. Default: Default frequency
 #: src/euphorie/content/risk.py:245 src/euphorie/content/risk.py:292
 #: src/euphorie/content/templates/risk_view.pt:55
 #: src/euphorie/content/templates/risk_view.pt:62
 msgid "label_default_frequency"
-msgstr "Sjálfgefin tíðni"
+msgstr "Ákvörðuð tíðni"
 
 #. Default: Indicate how often this risk occurs in a normal situation.
 #: src/euphorie/content/risk.py:246 src/euphorie/content/risk.py:293
@@ -3339,7 +3339,7 @@ msgstr "Tilgreindu hve oft þessi áhætta kemur upp við eðlilegar aðstæður
 #: src/euphorie/content/risk.py:271
 #: src/euphorie/content/templates/risk_view.pt:60
 msgid "label_default_probability"
-msgstr "Sjálfgefin líkindi"
+msgstr "Ákvörðuð líkindi"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
@@ -3356,7 +3356,7 @@ msgstr "Næstum því aldrei"
 #. Default: Weak severity
 #: src/euphorie/content/risk.py:319
 msgid "effect_weak"
-msgstr "Lítill alvarleiki"
+msgstr "Litlar afleiðingar"
 
 #. Default: Significant severity
 #: src/euphorie/content/risk.py:321
@@ -3778,7 +3778,7 @@ msgstr "Síða með texta"
 
 #: src/euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
-msgstr "Lýsingarspurning"
+msgstr "Spurning"
 
 #: src/euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
@@ -3915,7 +3915,7 @@ msgstr "Einnig er hægt að breyta textanum í ${online_help}."
 #. Default: This folder is empty.
 #: src/euphorie/content/templates/folder_view.pt:17
 msgid "folder_no_children"
-msgstr "Þessi mappa er tóm. ."
+msgstr "Þessi mappa er tóm."
 
 #. Default: Client help text
 #: src/euphorie/content/templates/help_view.pt:12
@@ -3932,7 +3932,7 @@ msgstr "Upplýsingar"
 #. Default: This module is mandatory.
 #: src/euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
-msgstr "Þessi  ${number} er skyldubundin."
+msgstr "Ekki er hægt að sleppa þessum ${number}."
 
 #. Default: This module is optional.
 #: src/euphorie/content/templates/module_view.pt:24
@@ -3943,7 +3943,7 @@ msgstr "Þessi ${number} valkvæð. "
 #: src/euphorie/content/templates/module_view.pt:27
 #: src/euphorie/content/templates/profilequestion_view.pt:21
 msgid "header_submodules"
-msgstr "Undireiningar"
+msgstr "Undirflokkar"
 
 #. Default: Risks
 #: src/euphorie/content/templates/module_view.pt:34
@@ -3974,12 +3974,12 @@ msgstr "Nei"
 #. Default: Default effect
 #: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_effect"
-msgstr "Sjálfgefinn alvarleiki"
+msgstr "Gefnar afleiðingar"
 
 #. Default: Standard solutions
 #: src/euphorie/content/templates/risk_view.pt:76
 msgid "header_solutions"
-msgstr "Staðlaðar ráðstafanir "
+msgstr "Ráðlagðar lausnir"
 
 #. Default: Solution ${number}
 #: src/euphorie/content/templates/risk_view.pt:79
@@ -4139,7 +4139,7 @@ msgstr "Vista breytingar"
 
 #: src/euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
-msgstr "Staðallausn"
+msgstr "Óska niðurstaða"
 
 #. Default: The form will allow you to create a new survey revision.
 #: src/euphorie/content/templates/survey_add.pt:11
@@ -4181,7 +4181,7 @@ msgstr "Ekki stillt"
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
 msgid "header_modules_and_profile_questions"
-msgstr "Einingar og lýsingarspurningar"
+msgstr "Flokkar og spurningar"
 
 #. Default: This survey has no profile questions or modules.
 #: src/euphorie/content/templates/survey_view.pt:35
@@ -4376,7 +4376,7 @@ msgstr "Mikilvægi: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:18
 msgid "Submodule"
-msgstr "Undireining"
+msgstr "Undirflokk"
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:43
@@ -4401,15 +4401,15 @@ msgstr "Hjálp"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:11
 msgid "Add Module"
-msgstr "Bæta við einingu"
+msgstr "Bæta við flokki"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:13
 msgid "Add Submodule"
-msgstr "Bæta við undireiningu"
+msgstr "Bæta við undirflokki"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:15
 msgid "Add Profile question"
-msgstr "Bæta við lýsingarspurningu"
+msgstr "Bæta við spurningu"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:17
 msgid "Add Risk"
@@ -4417,7 +4417,7 @@ msgstr "Bæta við áhættu"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:19
 msgid "Add Solution"
-msgstr "Bæta við ráðstöfun"
+msgstr "Bæta við lausn"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
