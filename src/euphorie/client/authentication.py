@@ -38,7 +38,7 @@ def graceful_recovery(default=None, log_args=True):
         def wrapper(*args, **kwargs):
             try:
                 value = func(*args, **kwargs)
-            except sqlalchemy.exc.SQLAlchemyError, e:
+            except sqlalchemy.exc.SQLAlchemyError as e:
                 if log_args is False:
                     args = ()
                     kwargs = {}

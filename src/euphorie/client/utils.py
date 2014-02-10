@@ -234,7 +234,7 @@ class WebHelpers(grok.View):
         try:
             return self.request.client.restrictedTraverse(
                     session.zodb_path.split('/'))
-        except KeyError, e:
+        except KeyError as e:
             # This can happen when a survey has been unpublished while the
             # current user still has it in his session.
             log.error(e)

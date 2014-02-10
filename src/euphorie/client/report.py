@@ -195,7 +195,7 @@ def createSection(document, survey, survey_session, request):
     # rtfng does not like unicode footers
     footer = Paragraph(
         document.StyleSheet.ParagraphStyles.Footer,
-        "".join(["\u%s?" % str(ord(e)) for e in footer]))
+        "".join(["\\u%s?" % str(ord(e)) for e in footer]))
 
     section = Section()
     page_header = []

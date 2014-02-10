@@ -195,19 +195,19 @@ class NewEmail(form.SchemaForm):
         try:
             mailhost.send(mail, login, site.email_from_address, immediate=True)
             log.info("Sent email confirmation to %s", account.email)
-        except MailHostError, e:
+        except MailHostError as e:
             log.error("MailHost error sending email confirmation to %s: %s",
                     account.email, e)
             flash(_(u"An error occured while sending the confirmation email."),
                     "error")
             return False
-        except smtplib.SMTPException, e:
+        except smtplib.SMTPException as e:
             log.error("smtplib error sending password reminder to %s: %s",
                     account.email, e)
             flash(_(u"An error occured while sending the confirmation email."),
                     "error")
             return False
-        except socket.error, e:
+        except socket.error as e:
             log.error("Socket error sending password reminder to %s: %s",
                     account.email, e[1])
             flash(_(u"An error occured while sending the confirmation email."),

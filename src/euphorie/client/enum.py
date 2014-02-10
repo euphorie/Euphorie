@@ -118,4 +118,4 @@ if __name__ == '__main__':
     except AssertionError:
         pass
 
-    print list(t.select().execute())
+    print(list(t.select().execute()))

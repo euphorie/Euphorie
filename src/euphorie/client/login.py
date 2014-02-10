@@ -142,19 +142,19 @@ class Reminder(grok.View):
             mailhost.send(mail, account.email, site.email_from_address,
                     immediate=True)
             log.info("Sent password reminder to %s", account.email)
-        except MailHostError, e:
+        except MailHostError as e:
             log.error("MailHost error sending password reminder to %s: %s",
                     account.email, e)
             self.error = _(
                     u"An error occured while sending the password reminder")
             return False
-        except smtplib.SMTPException, e:
+        except smtplib.SMTPException as e:
             log.error("smtplib error sending password reminder to %s: %s",
                     account.email, e)
             self.error = _(
                     u"An error occured while sending the password reminder")
             return False
-        except socket.error, e:
+        except socket.error as e:
             log.error("Socket error sending password reminder to %s: %s",
                     account.email, e[1])
             self.error = _(

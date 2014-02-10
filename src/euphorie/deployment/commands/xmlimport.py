@@ -173,23 +173,23 @@ def main(app, args):
             trans.setUser("-commandline-")
             trans.note("Import of %s" % arg)
             trans.commit()
-        except lxml.etree.XMLSyntaxError, e:
+        except lxml.etree.XMLSyntaxError as e:
             transaction.abort()
             log.error(e.message)
             log.error("Invalid input file")
-        except RuntimeError, e:
+        except RuntimeError as e:
             transaction.abort()
             log.error(e.message)
-        except zExceptions.Unauthorized, e:
+        except zExceptions.Unauthorized as e:
             transaction.abort()
             log.error(e.message)
             log.error("This is mostly likely due to too deep nesting "
                       "in the survey.")
-        except zExceptions.BadRequest, e:
+        except zExceptions.BadRequest as e:
             transaction.abort()
             log.error(e.message)
             log.error("This is mostly likely due to illegal input data.")
-        except Exception, e:
+        except Exception as e:
             transaction.abort()
             raise
 
