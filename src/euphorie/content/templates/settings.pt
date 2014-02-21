@@ -26,7 +26,7 @@
         <dt>
             <tal:span i18n:translate="header_colour_scheme">
                 Colour scheme
-            </tal:span> 
+            </tal:span>
             <button id="resetColours" class="micro" i18n:translate="button_reset_colours">Restore to original colours</button>
         </dt>
           <dd class="section colourPicker">
@@ -38,16 +38,16 @@
             </p>
             <div id="mainColour" class="picker">
                 <label for="colour-1" tal:define="widget view/widgets/main_colour">
-                    <tal:span i18n:translate="label_main_colour">Main colour</tal:span>: 
+                    <tal:span i18n:translate="label_main_colour">Main colour</tal:span>:
                     <input type="text" id="colour-1" name="${widget/name}" value="${widget/value}"/>
-                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/> 
+                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
                     <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
                 </label>
                 <div id="picker-main"></div>
             </div>
             <div id="supportColour" class="picker">
                 <label for="colour-2" tal:define="widget view/widgets/support_colour">
-                    <tal:span i18n:translate="label_support_colour">Support colour</tal:span>: 
+                    <tal:span i18n:translate="label_support_colour">Support colour</tal:span>:
                     <input type="text" id="colour-2" name="${widget/name}" value="${widget/value}"/>
                     <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
                 </label>
@@ -62,7 +62,7 @@
               <legend i18n:translate="label_logo_selection">Which logo you would like to display in the top left corner?</legend>
               <ul class="radioList">
                 <li>
-                  <label><input type="radio" checked="${python:'checked' if not widget.allow_nochange else None}" name="${widget/name}.action" value="remove" />Official OiRA Logo
+                  <label><input type="radio" checked="${python:'checked' if not widget.allow_nochange else None}" name="${widget/name}.action" value="remove" /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
                   </label>
                 </li>
                 <li>
@@ -105,7 +105,7 @@
     <tal:container define="
                         main_colour         view/main_colour;
                         support_colour      view/support_colour;
-                        main_bg_colour      view/main_bg_colour; 
+                        main_bg_colour      view/main_bg_colour;
                         support_bg_colour   view/support_bg_colour;">
     <script type="text/javascript">
 // <![CDATA[
@@ -141,7 +141,7 @@ function UpdatePreview(fb) {
         main_background = colour_1 ? colour_1 : "${main_bg_colour}",
         main_background_hsl = fb.RGBToHSL(fb.unpack(main_background)),
         main_foreground = fb.pack(fb.HSLToRGB(MatchColour(main_background_hsl, 0.0, 0.60, 0.3))),
-                                   
+
         support_background = colour_2 ? colour_2 : "${support_bg_colour}",
         support_background_hsl = fb.RGBToHSL(fb.unpack(support_background)),
         support_foreground = fb.pack(fb.HSLToRGB(MatchColour(support_background_hsl, 0.2, 0.65)));
