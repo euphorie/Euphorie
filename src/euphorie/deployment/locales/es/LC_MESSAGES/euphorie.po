@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-02-21 13:09+0100\n"
+"POT-Creation-Date: 2014-02-21 14:49+0100\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -3933,6 +3933,11 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:62
 msgid "label_logo_selection"
 msgstr "¿Qué logotipo desea mostrar en la esquina superior izquierda?"
+
+#. Default: Official OiRA Logo
+#: src/euphorie/content/templates/settings.pt:65
+msgid "Official OiRA Logo"
+msgstr ""
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:69
