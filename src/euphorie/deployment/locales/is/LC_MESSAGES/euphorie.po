@@ -664,43 +664,43 @@ msgstr "Um"
 #: src/euphorie/client/templates/about.pt:20
 msgid "header_what_is_oira"
 msgstr ""
-"Hvað er OiRA  verkefnið (Online Interactive Risk Assessment, gagnvirkt "
-"áhættumat á netinu)"
+"Hvað er OiRA? (Online Interactive Risk Assessment, Rafrænt gagnvirkt "
+"áhættumat)"
 
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr "rétt áhættumat er lykillinn að hollum vinnustöðum"
+msgstr ""
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
 msgid "about_paragraph_1_easy"
-msgstr "verkfæri á netinu sem er auðvelt í notkun og án tilkostnaðar"
+msgstr "sem er auðvelt í notkun og ókeypis."
 
 #. Default: step-by-step risk assessment process
 #: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
-msgstr "áhættumatsferli skref fyrir skref"
+msgstr ""
 
 #. Default: identification
 #: src/euphorie/client/templates/about.pt:34
 msgid "about_paragraph_1_identification"
-msgstr "auðkenning"
+msgstr "greina"
 
 #. Default: evaluation
 #: src/euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_evaluation"
-msgstr "mat"
+msgstr "meta"
 
 #. Default: preventive actions
 #: src/euphorie/client/templates/about.pt:38
 msgid "about_paragraph_1_preventive_actions"
-msgstr "forvarnir"
+msgstr "úrbætur"
 
 #. Default: reporting
 #: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
-msgstr "skýrslugerð"
+msgstr ""
 
 #. Default: Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the “OiRA” - Online interactive Risk Assessment) that can help
@@ -711,12 +711,13 @@ msgstr "skýrslugerð"
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1"
 msgstr ""
-"Reynslan sýnir að ${key}.  Þetta er ástæðan fyrir því að ESB-OSHA (Evrópska "
-"vinnuverndarstofnunin þróaði  ${easy} (“OiRA” - tækið, gagnvirkt áhættumat á "
-"netinu) sem getur auðveldað örsmáum og litlum fyrirtækjum að taka í notkun  "
-"${step} – sem hefst á ${identification} og  ${evaluation} áhættum á "
-"vinnustað, með ákvarðanatöku um ${preventive_actions}, aðgerðum og eftirliti "
-"${reporting}."
+"Reynslan sýnir að vandað áhættumat er lykillinn að góðum og öruggum "
+"vinnustað. Það er ástæðan fyrir því að Evrópska vinnuverndarstofnunin "
+"(ESB-OSHA) hefur þróaði rafrænt gagnvirkt áhættumatsverkfæri ${easy} "
+"Verkfærið auðveldar litlum og meðalstórum fyrirtækjum að gera áhættumat "
+"skref fyrir skref. Áhættumat gengur út á ${identification} og ${evaluation} "
+"hættur í vinnuumhverfinu. Taka ákvarðanir um ${preventive_actions} og greina "
+"frá því í einfaldri skýrslu."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -724,23 +725,26 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:47
 msgid "about_paragraph_2"
 msgstr ""
-"OiRA forritið á netinu veitir aðgang að tækjum fyrir áhættumat sem samtök í "
-"atvinnusviðum á landsgrundvelli búa til og halda við."
+"OiRA verkfærið er hægt að nálgast á netinu, það hjálpar öllum fyrirtækjum í "
+"landinu að gera áhættumat og endurskoða það."
 
 #. Default: Why the OiRA project
 #: src/euphorie/client/templates/about.pt:52
 msgid "header_why_oira"
-msgstr "Til hvers er OiRA verkefnið "
+msgstr "Markmið OiRA "
 
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
-msgstr "Áætlun Evrópubandalagsins um heilsu og öryggi á vinnustöðum 2007-2012"
+msgstr "Evrópubandalagið leggur fram einföld tæki til að hjálpa fyrirtækjum "
+"að gera áhættumat."
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
-msgstr "örsmá og lítil fyrirtæki hafa ýmsa annmarka"
+msgstr "litil og meðalstór fyrirtæki eiga í erfiðleikum með gera áhættumat "
+"og innleiða vinnuverndarstarf. Áhættumat með aðstoð OiRA verkfærisins á "
+"hjálpa þessum fyrirtækjum."
 
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -753,18 +757,16 @@ msgstr "örsmá og lítil fyrirtæki hafa ýmsa annmarka"
 #: src/euphorie/client/templates/about.pt:53
 msgid "about_paragraph_3"
 msgstr ""
-" ${agency} fer fram á þróun á einföldum tækjum til að auðvelda áhættumat. "
-"Síðan Evróputilskipunin var innleidd árið 1989 hefur áhættumat orðið "
-"kunnuglegt hugtak í sambandi við að skipuleggja forvarnir á vinnustöðum og "
-"mörg hundruð þúsunda fyrirtækja um alla Evrópu meta áhættu sína með "
-"reglubundnum hætti.  Þrátt fyrir þetta eru nægileg gögn til staðar til að "
-"álykta að ${smb} þegar framkvæma á áhættumat og innleiða almenna "
-"forvarnarstefnu sem OiRA verkefnið leitast við að vinna bug á."
+"${agency} Síðan Evróputilskipunin um skriflega áætlun um öryggi og "
+"heilbrigði á vinnustöðum var innleidd árið 1989 hefur áhættumat orðið "
+"sífellt þekktara hugtak. Í dag meta mörg hundruð þúsund fyrirtæki um alla "
+"Evrópu áhættu starfa með reglubundnum hætti. Þrátt fyrir það sýnir sig að "
+"að ${smb}"
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
 msgid "about_oiraproject"
-msgstr "Nánari upplýsingar um OiRA verkefnið (á ensku)"
+msgstr "Nánari upplýsingar um OiRA verkfærið (á ensku)"
 
 #. Default: Project Phases
 #: src/euphorie/client/templates/about.pt:59
@@ -774,7 +776,7 @@ msgstr "Verkefnissetningar"
 #. Default: Development and pilot phase – 2009-2011
 #: src/euphorie/client/templates/about.pt:60
 msgid "header_devel_phase"
-msgstr "Þróunar- og undirbúningsfasi– 2009-2011"
+msgstr "Þróun og undirbúningur –  2009-2011"
 
 #. Default: After the technical development of the tool in 2009, in 2010 (until
 #. the first half of 2011) the Agency is piloting the development and diffusion
@@ -785,17 +787,14 @@ msgstr "Þróunar- og undirbúningsfasi– 2009-2011"
 #: src/euphorie/client/templates/about.pt:64
 msgid "devel_phase"
 msgstr ""
-"Eftir tækniþróun tækisins árið 2009 þá undirbýr stofnunin tilraunanotkun "
-"þróunar- og drefingargerðarinnar árið 2019 (og á fyrri hluta ársins 2011) "
-"bæði á vettvangi ESB (í samvinnu við nefndir um skoðanaskipti hinna ýmsu "
-"atvinnusviða) og á vettvangi aðildarríkjanna (ásamt nokkrum aðildarríkjum) "
-"sem þátt í að prófa tækið og þróa viðeigandi stuðnings- og "
-"leiðbeiningarþjónustu."
+"Eftir þróun verkfærisins árið 2009 þá undirbjó stofnunin tilraunaútgáfu í "
+"samvinnu við hagsmunaaðila á vinnumarkaði innan ESB. Verkfærið var prófað og "
+"þróað með viðeigandi stuðningi og leiðbeiningum."
 
 #. Default: Official launch of the project – September 2011
 #: src/euphorie/client/templates/about.pt:67
 msgid "header_launch"
-msgstr "Opinbert upphaf verkefnisins - september  2011"
+msgstr "Upphaf verkefnisins - september 2011"
 
 #. Default: The official launch of the tool is planned for September 2011, once
 #. the objectives of the testing phase have been reached and once the OiRA
@@ -803,14 +802,13 @@ msgstr "Opinbert upphaf verkefnisins - september  2011"
 #: src/euphorie/client/templates/about.pt:68
 msgid "phase_launch"
 msgstr ""
-"Áætlað er að taka tækið opinberlega í notkun í september 2011 þegar "
-"markmiðum prófunarfasans hefur verið náð og þegar OiRA vefsíðan, "
-"þjálfunaráætlun OiRA og þjónustuborð OiRA verða tilbúin."
+"Verkfærið var tekið opinberlega í notkun í september 2011 þegar OiRA "
+"vefsíðan, þjálfunaráætlun OiRA og þjónustuborð OiRA voru tilbúin."
 
 #. Default: Development partners
 #: src/euphorie/client/templates/about.pt:71
 msgid "header_development_partners"
-msgstr "Samstarfsaðilar í þróuninni"
+msgstr "Samstarfsaðilar"
 
 #. Default: The OiRA project and its related web application has been developed
 #. by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which,
@@ -822,12 +820,12 @@ msgstr "Samstarfsaðilar í þróuninni"
 #: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
-"OiRA verkfærið og tengt forrit þess á netinu hefur verið þróað af ${eu-osha} "
+"OiRA verkfærið og tengt forrit þess á netinu var þróað af ${eu-osha} "
 "sem byggt er á hollenska RA-verkfærinu (sem kallast ${RIE}) sem var "
 "fjármagnað af hollensku ríkisstjórninni og var upphaflega þróað af TNO í "
 "samvinnu við vinnuveitendasambandið fyrir lítil og meðalstór fyrirtæki MKB "
 "Nederland og hollenska atvinnumálaráðuneytið. Frekari þróun forritsins átti "
-"sér stað með framlagi og þátttöku hollensku verkalýðssamtakanna FNV,  CNV og "
+"sér stað með framlagi og þátttöku hollensku verkalýðssamtakanna FNV, CNV og "
 "MHP."
 
 #. Default: The following technical partners contributed to the development of
@@ -835,8 +833,7 @@ msgstr ""
 #: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
 msgstr ""
-"Eftirfarandi tæknilegir aðilar lögðu sitt af mörkum við þróun OiRA "
-"verkfærisins:"
+"Eftirfarandi aðilar lögðu sitt af mörkum við þróun OiRA verkfærisins:"
 
 #: src/euphorie/client/templates/about.pt:81
 #: src/euphorie/client/templates/about.pt:84
@@ -856,9 +853,9 @@ msgstr "Þýskaland"
 msgid "about_partners_3"
 msgstr ""
 "Stofnunin naut einnig ráðgjafar um stefnumótun og sérfræðileg atriði hjá "
-"stýrinefndinni um þróun og innleiðingu OiRA verkefnisins. Meðlimir og "
-"varamenn stýrinefndarinnar voru tilnefndir af hagsmunahópum hjá ráðinu, "
-"framkvæmdastjórninni og AF ESB-OSHA."
+"stýrinefnd um þróun og innleiðingu OiRA verkefnisins. Meðlimir og varamenn "
+"stýrinefndarinnar voru tilnefndir af hagsmunahópum hjá ráðinu, "
+"framkvæmdastjórninni og AF ESB-OSHA"
 
 #. Default: Licenses
 #: src/euphorie/client/templates/about.pt:97
@@ -882,14 +879,13 @@ msgstr "Creative Commons Attribution-ShareAlike 2.5 almennt leyfi"
 #: src/euphorie/client/templates/about.pt:103
 msgid "about_licenses_2"
 msgstr ""
-"Innihald OiRA verkfæra fyrir atvinnusvið er háð leyfi samkvæmt ${license}"
+"Innihald OiRA verkfæra fyrir atvinnugreinina er háð leyfi samkvæmt ${license}"
 
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
 msgstr ""
-" OiRA verkfærin  fyrir atvinnusvið eru til notkunar endurgjaldslaust fyrir "
-"alla notendur"
+"OiRA verkfærin eru ókeypis fyrir alla notendur"
 
 #. Default: Help
 #: src/euphorie/client/templates/about.pt:111
@@ -1826,7 +1822,7 @@ msgstr "Láttu mig vera skráða(n) inn."
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:44
 msgid "label_login"
-msgstr "Innskráning"
+msgstr "Notandanafn"
 
 #. Default: Change country/language
 #: src/euphorie/client/templates/login.pt:45
@@ -3343,7 +3339,7 @@ msgstr "Nafn tengiliðar"
 #: src/euphorie/content/sector.py:78
 #: src/euphorie/content/templates/settings.pt:58
 msgid "label_logo"
-msgstr "Táknmynd"
+msgstr "Merki (logo)"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
@@ -3459,8 +3455,7 @@ msgstr "Heiti"
 #: src/euphorie/content/survey.py:198 src/euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
 msgstr ""
-"Heiti þessa OiRA verkfæris. Þetta heiti er notað í yfirliti yfir OiRA "
-"verkfæri hjá biðlurunum."
+"Nafn á OiRA verkfærinu. Nafnið er notað í yfirliti fyrir OiRA verkfærin."
 
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
@@ -3493,13 +3488,13 @@ msgstr ""
 #. Default: Evaluation algorithm
 #: src/euphorie/content/surveygroup.py:60
 msgid "label_survey_evaluation_algorithm"
-msgstr "Reiknirit fyrir mat"
+msgstr "Reikniforrit"
 
 #. Default: Standard three criteria
 #: src/euphorie/content/surveygroup.py:64
 #: src/euphorie/content/templates/surveygroup_add.pt:83
 msgid "algorithm_kinney"
-msgstr "Þrjár almennar viðmiðanir"
+msgstr "Þrjár forsendur"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/surveygroup.py:67
@@ -3610,7 +3605,7 @@ msgstr "Nafn"
 #. Default: Contact email address
 #: src/euphorie/content/user.py:56
 msgid "label_contact_email"
-msgstr "Tölvupóstfang tengis"
+msgstr "Netfang tengiliðs"
 
 #. Default: Password
 #: src/euphorie/content/user.py:66
@@ -3732,7 +3727,7 @@ msgstr "Áhætta."
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:7
 #: src/euphorie/content/templates/user_mgmt.pt:26
 msgid "Sector"
-msgstr "Atvinnusvið"
+msgstr "Atvinnugrein"
 
 #: src/euphorie/content/profiles/default/types/euphorie.sector.xml:8
 msgid "A sector is national organisation for a specific type of industry."
@@ -3967,7 +3962,7 @@ msgstr "Stillingar"
 #. Default: Please provide a description of your sector
 #: src/euphorie/content/templates/settings.pt:16
 msgid "label_sector_description"
-msgstr "Gefðu lýsingu á atvinnusviði þínu"
+msgstr "Lýsing á atvinnugrein"
 
 #. Default: Preview
 #: src/euphorie/content/templates/settings.pt:20
@@ -3999,8 +3994,8 @@ msgstr "Upplýsingar"
 #: src/euphorie/content/templates/settings.pt:33
 msgid "help_sector_colours"
 msgstr ""
-"Þeir litir sem þú velur eiga eingöngu við um notendaviðmót tækisins. Veldu "
-"liti sem eru með nægilega skörp skil þannig að textinn á hverjum hnappi sé "
+"Litir sem þú velur eiga eingöngu við um notendaviðmót verkfærisins. Veldu "
+"liti sem eru með nægilega skörp skil, þannig að textinn á hverjum hnappi sé "
 "læsilegur."
 
 #. Default: Please use the colour pickers below to select your organisation's
@@ -4009,8 +4004,8 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:36
 msgid "help_colour_picker"
 msgstr ""
-"Notaðu litavalshnappanna til að velja liti fyrir fyrirtæki þitt. Best er að "
-"nota dekkri lit sem aðallit og ljósari fyrir stuðningslit."
+"Notaðu litavalshnappanna til að velja liti fyrir fyrirtækið þitt. Best er að "
+"nota dökka liti sem aðalliti og ljósari fyrir stuðningsliti."
 
 #. Default: The logo will appear on both the client side app that your user
 #. group will see as well as on this editor environment in the top left corner.
@@ -4020,30 +4015,30 @@ msgstr ""
 #: src/euphorie/content/templates/settings.pt:60
 msgid "help_sector_logo"
 msgstr ""
-"Kennimerkið birtist bæði á notendahlið verkfærisins sem notendahópur þinn "
-"mun sjá og einnig í ritstjórnarumhverfinu efst í vinstra horni. Myndin þarf "
-"að vera á forminu png, jpg eða gif og má ekki innihalda neina sérstafi. Nýja "
-"kennimerkið birtist ekki fyrr en þú hefur vistað breytingarnar."
+"Merkið (logo) birtist bæði í notendaumhverfi og í ritstjórnarumhverfinu efst "
+"í vinstra horni. Myndin þarf að vera á forminu png, jpg eða gif og má ekki "
+"innihalda neina sértæka stafi. Nýja merkið birtist ekki fyrr en þú hefur "
+"vistað breytingarnar."
 
 #. Default: Which logo you would like to display in the top left corner?
 #: src/euphorie/content/templates/settings.pt:62
 msgid "label_logo_selection"
-msgstr "Hvaða kennimerki viltu birta efst í vinstra horninu?"
+msgstr "Hvaða merki (logo) viltu birta efst í vinstra horninu?"
 
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:65
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Opinbert merki (logo) OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:69
 msgid "logo_my_own"
-msgstr "Mitt eigið"
+msgstr "Merkið mitt"
 
 #. Default: transparent
 #: src/euphorie/content/templates/settings.pt:75
 msgid "logo_instructions_transparent"
-msgstr "gagnsætt"
+msgstr "gegnsæ"
 
 #. Default: You may get the best results if you upload a logo as a
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
@@ -4052,16 +4047,16 @@ msgstr "gagnsætt"
 #: src/euphorie/content/templates/settings.pt:74
 msgid "logo_instructions"
 msgstr ""
-"Bestur árangur fæst ef þú hleður upp kennimerki sem ${transparent} PNG skrá "
-"sem er minnst 100 pixlar á hæð. Það er í lagi að hala upp stærri myndum en "
-"kennimerkið verður sjálfkrafa smækkað niður í rétta stærð."
+"Bestur árangur fæst ef þú hleður upp merki (logo) sem er ${transparent} PNG "
+"skrá sem er minnst 100 pixlar á hæð. Það er í lagi að hlaða upp stærri "
+"myndum, en merkið verður sjálfkrafa minnkað niður í rétta stærð."
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
 #: src/euphorie/content/templates/settings.pt:81
 msgid "help_sector_password"
 msgstr ""
-"Þetta er lykilorðið sem þú þarft til að skrá þig inn á þetta ritþórsumhverfi."
+"Þetta er lykilorðið sem þú þarft til að skrá þig inn í þetta ritþórsumhverfi."
 
 #. Default: Contact person
 #: src/euphorie/content/templates/settings.pt:87
@@ -4073,7 +4068,8 @@ msgstr "Tengiliður"
 #: src/euphorie/content/templates/settings.pt:89
 msgid "help_sector_contactperson"
 msgstr ""
-"Skráðu nafn þess aðila sem ber ábyrgð á OiRA verkfærum á þessu atvinnusviði."
+"Skráðu nafn þess aðila sem ber ábyrgð á OiRA verkfærinu í þessari "
+"atvinnugrein."
 
 #. Default: Save changes
 #: src/euphorie/content/templates/settings.pt:98
@@ -4134,7 +4130,7 @@ msgstr "Þessi könnun inniheldur engar lýsingarspurningar né einingar. "
 #. Default: The form will allow you to create a new survey.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
 msgid "intro_add_surveygroup"
-msgstr "Með eyðublaðinu er hægt að mynda nýja endurskoðun á OiRA verkfærinu."
+msgstr "Hér er hægt að búa til nýtt OiRA verkfæri."
 
 #. Default: How would you like to start
 #: src/euphorie/content/templates/surveygroup_add.pt:18
@@ -4144,21 +4140,20 @@ msgstr "Hvernig viltu byrja"
 #. Default: Create a new survey from scratch
 #: src/euphorie/content/templates/surveygroup_add.pt:19
 msgid "survey_source_scratch"
-msgstr "Mynda nýtt OiRA verkfæri frá grunni"
+msgstr "Búa til nýtt OiRA verkfæri frá grunni"
 
 #. Default: Base my new survey on an existing survey of my organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr ""
-"Byggja á nýja OiRA verkfærinu eða á OiRA verkfæri sem er til staðar fyrir "
-"fyrirtæki mitt"
+"Búa til nýtt OiRA verkfæri upp úr verkfæri sem er þegar í notkun hjá "
+"fyrirtækinu."
 
 #. Default: Base my new survey on an existing survey of another organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr ""
-"Byggja nýja OiRA verkfærið á OiRA verkfæri sem er til staðar fyrir annað "
-"fyrirtæki"
+"Búa til nýtt OiRA verkfæri upp úr verkfæri sem er í notkun hjá öðru fyrirtæki"
 
 #. Default: Choose a survey
 #: src/euphorie/content/templates/surveygroup_add.pt:28
@@ -4181,13 +4176,12 @@ msgstr "Veldu land"
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
-"Þetta það reiknirit fyrir mat sem mælt er með sem byggt er á Kinney-"
-"aðferðinni "
+"Þetta reikniforrit byggir á þríhliða aðferðafræði Kinney"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/templates/surveygroup_add.pt:87
 msgid "algorithm_french"
-msgstr "Tvö einfölduð viðmið"
+msgstr "Tvær forsendur"
 
 #: src/euphorie/content/templates/surveygroup_add.pt:89
 msgid "This is a simpler evaluation algorithm using only two criteria."
