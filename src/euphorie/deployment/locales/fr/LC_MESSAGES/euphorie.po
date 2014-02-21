@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2013-11-14 11:17+0100\n"
+"POT-Creation-Date: 2014-02-21 13:09+0100\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -148,50 +148,50 @@ msgstr "Oui"
 msgid "label_no"
 msgstr "Non"
 
-#: src/euphorie/client/login.py:119
+#: src/euphorie/client/login.py:122
 msgid "Please enter your email address"
 msgstr "Veuillez saisir votre adresse e-mail"
 
-#: src/euphorie/client/login.py:125
+#: src/euphorie/client/login.py:128
 msgid "Unknown email address"
 msgstr "Adresse e-mail inconnue "
 
-#: src/euphorie/client/login.py:133
+#: src/euphorie/client/login.py:136
 msgid "OiRA registration reminder"
 msgstr "Rappel d’inscription OiRA"
 
-#: src/euphorie/client/login.py:145 src/euphorie/client/login.py:151
-#: src/euphorie/client/login.py:157
+#: src/euphorie/client/login.py:148 src/euphorie/client/login.py:154
+#: src/euphorie/client/login.py:160
 msgid "An error occured while sending the password reminder"
 msgstr "Une erreur s’est produite lors de l’envoi du rappel du mot de passe"
 
-#: src/euphorie/client/login.py:171
+#: src/euphorie/client/login.py:174
 msgid "An email with a password reminder has been sent to your address."
 msgstr ""
 "Un e-mail contenant un rappel du mot de passe a été envoyé à votre adresse."
 
 #. Default: Please enter your email address
-#: src/euphorie/client/login.py:186
+#: src/euphorie/client/login.py:189
 msgid "error_missing_email"
 msgstr "Veuillez saisir votre adresse e-mail"
 
 #. Default: Please enter a valid email address
-#: src/euphorie/client/login.py:189
+#: src/euphorie/client/login.py:192
 msgid "error_invalid_email"
 msgstr "Veuillez entrer une adresse email valide"
 
 #. Default: Please enter a password
-#: src/euphorie/client/login.py:192
+#: src/euphorie/client/login.py:195
 msgid "error_missing_password"
 msgstr "Veuillez saisir un mot de passe "
 
 #. Default: Passwords do not match
-#: src/euphorie/client/login.py:195
+#: src/euphorie/client/login.py:198
 msgid "error_password_mismatch"
 msgstr "Les mots de passe ne correspondent pas "
 
 #. Default: An account with this email address already exists.
-#: src/euphorie/client/login.py:205 src/euphorie/client/login.py:211
+#: src/euphorie/client/login.py:208 src/euphorie/client/login.py:214
 msgid "error_email_in_use"
 msgstr "Il existe déjà un compte associé à cette adresse e-mail."
 
@@ -620,7 +620,7 @@ msgid "Your email address has been updated."
 msgstr "Votre adresse email a été actualisée."
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:151 src/euphorie/client/templates/about.pt:13
+#: src/euphorie/client/utils.py:155 src/euphorie/client/templates/about.pt:13
 #: src/euphorie/client/templates/actionplan.pt:12
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
@@ -932,7 +932,7 @@ msgstr ""
 #: src/euphorie/client/templates/evaluation.pt:78
 #: src/euphorie/client/templates/identification.pt:70
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/login.pt:100
+#: src/euphorie/client/templates/login.pt:101
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
 #: src/euphorie/client/templates/module_identification.pt:86
@@ -1063,7 +1063,7 @@ msgstr "Aller au rapport"
 #: src/euphorie/client/templates/help.pt:60
 #: src/euphorie/client/templates/identification.pt:36
 #: src/euphorie/client/templates/layout.pt:25
-#: src/euphorie/client/templates/login.pt:69
+#: src/euphorie/client/templates/login.pt:70
 #: src/euphorie/client/templates/module_actionplan.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/module_identification.pt:49
@@ -1116,7 +1116,7 @@ msgstr "Préparation"
 #: src/euphorie/client/templates/help.pt:66
 #: src/euphorie/client/templates/identification.pt:42
 #: src/euphorie/client/templates/layout.pt:31
-#: src/euphorie/client/templates/login.pt:70
+#: src/euphorie/client/templates/login.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:55
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/module_identification.pt:55
@@ -1170,7 +1170,7 @@ msgstr "Identification"
 #: src/euphorie/client/templates/help.pt:72
 #: src/euphorie/client/templates/identification.pt:48
 #: src/euphorie/client/templates/layout.pt:37
-#: src/euphorie/client/templates/login.pt:71
+#: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/module_actionplan.pt:61
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/module_identification.pt:64
@@ -1224,7 +1224,7 @@ msgstr "Évaluation"
 #: src/euphorie/client/templates/help.pt:78
 #: src/euphorie/client/templates/identification.pt:54
 #: src/euphorie/client/templates/layout.pt:43
-#: src/euphorie/client/templates/login.pt:72
+#: src/euphorie/client/templates/login.pt:73
 #: src/euphorie/client/templates/module_actionplan.pt:67
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/module_identification.pt:70
@@ -1854,49 +1854,17 @@ msgstr ""
 msgid "header_login"
 msgstr "Connexion"
 
-#. Default: Email address
-#: src/euphorie/client/templates/login.pt:31
-#: src/euphorie/client/templates/register.pt:27
-#: src/euphorie/client/templates/reminder.pt:30
-msgid "label_email"
-msgstr "Adresse e-mail"
-
-#. Default: I forgot my password
-#: src/euphorie/client/templates/login.pt:32
-msgid "label_forgot_password"
-msgstr "J'ai oublié mon mot de passe"
-
-#. Default: Password (${forgot_link})
-#: src/euphorie/client/templates/login.pt:32
-msgid "label_login_password"
-msgstr "Mot de passe (${forgot_link})"
-
-#. Default: Keep me logged in.
-#: src/euphorie/client/templates/login.pt:35
-msgid "label_keep_logged_in"
-msgstr "Garder ma session active"
-
-#. Default: Login
-#: src/euphorie/client/templates/login.pt:39
-msgid "label_login"
-msgstr "Connexion"
-
-#. Default: Change country/language
-#: src/euphorie/client/templates/login.pt:40
-msgid "label_change_country"
-msgstr "Changer le pays/la langue"
-
 #. Default: register
-#: src/euphorie/client/templates/login.pt:44
+#: src/euphorie/client/templates/login.pt:31
 msgid "label_register"
 msgstr "vous inscrire"
 
 #. Default: Don't have an account? Then please ${register_link} first.
-#: src/euphorie/client/templates/login.pt:44
+#: src/euphorie/client/templates/login.pt:31
 msgid "register_teaser"
 msgstr "Pas encore de compte ? Veuillez tout d'abord ${register_link}."
 
-#: src/euphorie/client/templates/login.pt:45
+#: src/euphorie/client/templates/login.pt:32
 msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
@@ -1905,11 +1873,43 @@ msgstr ""
 "concernant sont conservés de façon à ce que\n"
 "vous soyez le seul à pouvoir y accéder."
 
-#: src/euphorie/client/templates/login.pt:49
+#. Default: Email address
+#: src/euphorie/client/templates/login.pt:36
+#: src/euphorie/client/templates/register.pt:27
+#: src/euphorie/client/templates/reminder.pt:30
+msgid "label_email"
+msgstr "Adresse e-mail"
+
+#. Default: I forgot my password
+#: src/euphorie/client/templates/login.pt:37
+msgid "label_forgot_password"
+msgstr "J'ai oublié mon mot de passe"
+
+#. Default: Password (${forgot_link})
+#: src/euphorie/client/templates/login.pt:37
+msgid "label_login_password"
+msgstr "Mot de passe (${forgot_link})"
+
+#. Default: Keep me logged in.
+#: src/euphorie/client/templates/login.pt:40
+msgid "label_keep_logged_in"
+msgstr "Garder ma session active"
+
+#. Default: Login
+#: src/euphorie/client/templates/login.pt:44
+msgid "label_login"
+msgstr "Connexion"
+
+#. Default: Change country/language
+#: src/euphorie/client/templates/login.pt:45
+msgid "label_change_country"
+msgstr "Changer le pays/la langue"
+
+#: src/euphorie/client/templates/login.pt:50
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr "Qu’est-ce que OiRA (Online Interactive Risk Assessment)?"
 
-#: src/euphorie/client/templates/login.pt:50
+#: src/euphorie/client/templates/login.pt:51
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
@@ -1919,11 +1919,11 @@ msgstr ""
 "disponible sur le web, vous permettant de réaliser l’évaluation des risques "
 "professionnels de votre entreprise."
 
-#: src/euphorie/client/templates/login.pt:52
+#: src/euphorie/client/templates/login.pt:53
 msgid "Who is the OiRA tool for?"
 msgstr "À qui OiRA est-il destiné?"
 
-#: src/euphorie/client/templates/login.pt:53
+#: src/euphorie/client/templates/login.pt:54
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
@@ -1932,27 +1932,27 @@ msgstr ""
 "matière de santé et de sécurité susceptibles d’exister sur son lieu de "
 "travail. "
 
-#: src/euphorie/client/templates/login.pt:56
-#: src/euphorie/client/templates/login.pt:66
-#: src/euphorie/client/templates/login.pt:80
-#: src/euphorie/client/templates/login.pt:89
+#: src/euphorie/client/templates/login.pt:57
+#: src/euphorie/client/templates/login.pt:67
+#: src/euphorie/client/templates/login.pt:81
+#: src/euphorie/client/templates/login.pt:90
 msgid "Show more…"
 msgstr "Afficher davantage…"
 
-#: src/euphorie/client/templates/login.pt:56
-#: src/euphorie/client/templates/login.pt:66
-#: src/euphorie/client/templates/login.pt:80
-#: src/euphorie/client/templates/login.pt:89
+#: src/euphorie/client/templates/login.pt:57
+#: src/euphorie/client/templates/login.pt:67
+#: src/euphorie/client/templates/login.pt:81
+#: src/euphorie/client/templates/login.pt:90
 msgid "Show less…"
 msgstr "Réduire"
 
-#: src/euphorie/client/templates/login.pt:58
+#: src/euphorie/client/templates/login.pt:59
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 "Toutefois, l’outil a surtout été pensé pour être utilisé par les petites "
 "entreprises."
 
-#: src/euphorie/client/templates/login.pt:59
+#: src/euphorie/client/templates/login.pt:60
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
@@ -1962,15 +1962,15 @@ msgstr ""
 "dans l’environnement professionnel et à établir une évaluation des risques "
 "documentée comprenant un plan d’action adapté aux exigences de l’entreprise."
 
-#: src/euphorie/client/templates/login.pt:62
+#: src/euphorie/client/templates/login.pt:63
 msgid "What do I have to do?"
 msgstr "Que dois-je faire?"
 
-#: src/euphorie/client/templates/login.pt:63
+#: src/euphorie/client/templates/login.pt:64
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "La procédure d’évaluation comprend quatre étapes principales: "
 
-#: src/euphorie/client/templates/login.pt:69
+#: src/euphorie/client/templates/login.pt:70
 msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
@@ -1980,7 +1980,7 @@ msgstr ""
 "vous êtes sur le point d’entamer et vous permet de personnaliser davantage "
 "l’évaluation en fonction des caractéristiques de votre entreprise. "
 
-#: src/euphorie/client/templates/login.pt:70
+#: src/euphorie/client/templates/login.pt:71
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
@@ -1995,7 +1995,7 @@ msgstr ""
 "pouvez également décider de passer une question et donc choisir d’y répondre "
 "ultérieurement. "
 
-#: src/euphorie/client/templates/login.pt:71
+#: src/euphorie/client/templates/login.pt:72
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
@@ -2005,7 +2005,7 @@ msgstr ""
 "aux éléments que vous aurez marqués comme «devant être traités» pendant "
 "l’étape d’«identification». "
 
-#: src/euphorie/client/templates/login.pt:72
+#: src/euphorie/client/templates/login.pt:73
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
 "steps you will take to address the risks you have identified previously and "
@@ -2018,11 +2018,11 @@ msgstr ""
 "cette base, un rapport sera élaboré automatiquement au cours de la prochaine "
 "étape."
 
-#: src/euphorie/client/templates/login.pt:76
+#: src/euphorie/client/templates/login.pt:77
 msgid "How long will it take?"
 msgstr "Combien de temps cela va-t-il prendre?"
 
-#: src/euphorie/client/templates/login.pt:77
+#: src/euphorie/client/templates/login.pt:78
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
@@ -2031,7 +2031,7 @@ msgstr ""
 "nécessaire à l’établissement d’une évaluation car cela dépend de l’outil "
 "sectoriel que vous utilisez et de la situation de votre entreprise . "
 
-#: src/euphorie/client/templates/login.pt:82
+#: src/euphorie/client/templates/login.pt:83
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
@@ -2041,11 +2041,11 @@ msgstr ""
 "limité puis y revenir lorsque vous le désirez pour reprendre là où vous vous "
 "étiez arrêté. "
 
-#: src/euphorie/client/templates/login.pt:85
+#: src/euphorie/client/templates/login.pt:86
 msgid "Why do I have to register?"
 msgstr "Pourquoi dois-je m’enregistrer?"
 
-#: src/euphorie/client/templates/login.pt:86
+#: src/euphorie/client/templates/login.pt:87
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
@@ -2053,13 +2053,13 @@ msgstr ""
 "La première chose qui vous sera demandée lorsque vous commencerez votre "
 "première évaluation des risques sera de créer un compte OiRA. "
 
-#: src/euphorie/client/templates/login.pt:91
+#: src/euphorie/client/templates/login.pt:92
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr "Il s’agit d’une procédure simple et rapide."
 
-#: src/euphorie/client/templates/login.pt:92
+#: src/euphorie/client/templates/login.pt:93
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
@@ -2067,11 +2067,11 @@ msgstr ""
 "L’enregistrement vous permettra de vous connecter à tout moment pour "
 "continuer une évaluation en cours ou en débuter une nouvelle. "
 
-#: src/euphorie/client/templates/login.pt:95
+#: src/euphorie/client/templates/login.pt:96
 msgid "Do I need to prepare?"
 msgstr "Dois-je me préparer?"
 
-#: src/euphorie/client/templates/login.pt:96
+#: src/euphorie/client/templates/login.pt:97
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
@@ -4041,7 +4041,7 @@ msgid "documentation_online_help"
 msgstr "Le texte d’${online_help} peut également être modifié. "
 
 #. Default: This folder is empty.
-#: src/euphorie/content/templates/folder_view.pt:17
+#: src/euphorie/content/templates/folder_view.pt:16
 msgid "folder_no_children"
 msgstr "Le dossier est vide."
 
@@ -4538,25 +4538,30 @@ msgstr "Documents"
 msgid "nav_help"
 msgstr "Aide"
 
-#: src/euphorie/deployment/tiles/templates/addbar.pt:11
+#: src/euphorie/deployment/tiles/templates/addbar.pt:12
 msgid "Add Module"
 msgstr "Ajouter Module"
 
-#: src/euphorie/deployment/tiles/templates/addbar.pt:13
+#: src/euphorie/deployment/tiles/templates/addbar.pt:14
 msgid "Add Submodule"
 msgstr "Ajouter Sous-module"
 
-#: src/euphorie/deployment/tiles/templates/addbar.pt:15
+#: src/euphorie/deployment/tiles/templates/addbar.pt:16
 msgid "Add Profile question"
 msgstr "Ajouter Question de profil"
 
-#: src/euphorie/deployment/tiles/templates/addbar.pt:17
+#: src/euphorie/deployment/tiles/templates/addbar.pt:18
 msgid "Add Risk"
 msgstr "Ajouter Risque"
 
-#: src/euphorie/deployment/tiles/templates/addbar.pt:19
+#: src/euphorie/deployment/tiles/templates/addbar.pt:20
 msgid "Add Solution"
 msgstr "Ajouter Solution"
+
+#. Default: Add ${typename}
+#: src/euphorie/deployment/tiles/templates/addbar.pt:22
+msgid "button_add_factory"
+msgstr "Ajouter ${typename}"
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14
@@ -4676,9 +4681,6 @@ msgstr ""
 "éditées.\n"
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
-
-#~ msgid "button_add_factory"
-#~ msgstr "Ajouter ${typename}"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""
