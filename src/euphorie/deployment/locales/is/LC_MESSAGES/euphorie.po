@@ -3050,8 +3050,7 @@ msgstr "Lýsing"
 #: src/euphorie/content/solution.py:23
 msgid "help_module_description"
 msgstr ""
-"Bætið við öllum nauðsynlegum upplýsingum sem geta komið endanlegum notanda "
-"til góða."
+"Bætið við öllum nauðsynlegum upplýsingum sem geta komið notandanum til góða."
 
 #. Default: This module is optional
 #: src/euphorie/content/module.py:48
@@ -3061,7 +3060,7 @@ msgstr "Þessi hluti er valkvæður"
 #. Default: Allow users to skip this module and everything inside it.
 #: src/euphorie/content/module.py:50
 msgid "help_module_optional"
-msgstr "Endanlegur notandi getur sleppt þessum hluta og öllu sem í honum er."
+msgstr "Notandinn getur sleppt þessum hluta."
 
 #. Default: Question
 #: src/euphorie/content/module.py:58
@@ -3091,7 +3090,7 @@ msgstr "Myndaskrá"
 #: src/euphorie/content/risk.py:209 src/euphorie/content/sector.py:79
 msgid "help_image_upload"
 msgstr ""
-"Mynd hlaðið upp. Myndin þarf að vera á forminu png, jpg eða gif og má ekki "
+"Mynd sett inn. Myndin þarf að vera á forminu png, jpg eða gif og má ekki "
 "innihalda neina sértæka stafi."
 
 #. Default: Image caption
@@ -3112,8 +3111,8 @@ msgstr "Lausn"
 #: src/euphorie/content/module.py:78
 msgid "help_solution_direction"
 msgstr ""
-"Þessar upplýsingar birtast í þrepi aðgerðaáætlunarinnar og þurfa að "
-"innihalda yfirlit yfir almennar lausnir sem tengjast þessari einingu."
+"Þessar upplýsingar birtast í aðgerðaáætlunni og þurfa að sýna yfirlit "
+"lausna í flokknum"
 
 #: src/euphorie/content/module.py:154
 msgid "Edit Module"
@@ -3152,8 +3151,8 @@ msgstr "Jákvæð yfirlýsing"
 #: src/euphorie/content/risk.py:52
 msgid "help_statement"
 msgstr ""
-"Þetta er stutt jákvæð yfirlýsing um hugsanlega áhættu (t.d. byggingunni er "
-"vel við haldið.)"
+"Sett er fram stutt jákvæð yfirlýsing um hugsanlega áhættu (t.d. byggingunni "
+"er vel við haldið)"
 
 #. Default: Inversed statement
 #: src/euphorie/content/risk.py:58
@@ -3166,8 +3165,8 @@ msgstr "Neikvæð yfirlýsing"
 #: src/euphorie/content/risk.py:60
 msgid "help_problem_description"
 msgstr ""
-"Þetta er öfugt við jákvæða yfirlýsingu (t.d. byggingunni er ekki vel við "
-"haldið.)"
+"Sett er fram stutt neikvæð yfirlýsing (t.d. byggingunni er ekki vel við "
+"haldið)"
 
 #. Default: Description
 #: src/euphorie/content/risk.py:68
@@ -3179,8 +3178,7 @@ msgstr "Lýsing"
 #: src/euphorie/content/risk.py:69
 msgid "help_risk_description"
 msgstr ""
-"Gefðu lýsingu á áhættunni. Bættu við öllum upplýsingum sem gætu komið "
-"endanlegum notanda til góða."
+"Lýsing á áhættunni. Allar upplýsingar sem geta komið notenda til góða."
 
 #. Default: Legal and policy references
 #: src/euphorie/content/risk.py:77
@@ -3203,8 +3201,7 @@ msgstr "Sýna valkostinn „á ekki við\""
 #: src/euphorie/content/risk.py:90
 msgid "help_show_notapplicable"
 msgstr ""
-"Bjóða upp á valkostinn „á ekki við\" til viðbótar við hina almennu já/nei "
-"valkosti."
+"Boðið er upp á valkostinn „á ekki við” til viðbótar við já/nei."
 
 #. Default: Risk type
 #: src/euphorie/content/risk.py:96
@@ -3219,9 +3216,9 @@ msgstr "Tegund áhættu"
 #: src/euphorie/content/risk.py:97
 msgid "help_risk_type"
 msgstr ""
-"„Forgangsáhætta\" er ein af þeim miklu áhættum á atvinnusviðinu. „áhætta\" "
-"er tengd vinnustaðnum eða við verkið sem vinna skal. „Stefna\"  vísar til "
-"samninga, viðmiðunarreglna og ákvarðana stjórnenda."
+"„Forgangsáhætta” er áhætta sem er mikil og þekkt í starfsgreininni. "
+"„áhætta” fjallar um áhættur í vinnuumhverfinu almennt. „Stefna” vísar til "
+"samninga, viðmiðunarreglna og yfirlýsinga stjórnenda."
 
 #. Default: Top 5
 #: src/euphorie/content/risk.py:105
@@ -3298,7 +3295,7 @@ msgstr "Aðalmynd"
 #. than the other images.
 #: src/euphorie/content/risk.py:164
 msgid "intro_main_image"
-msgstr "Aðalmyndin fær hærri stöðu í biðlaranum en hinar myndirnar."
+msgstr "Aðalmyndin hefur forgang á aðrar myndir."
 
 #. Default: Secondary images
 #: src/euphorie/content/risk.py:181
@@ -3314,7 +3311,7 @@ msgstr "Gefnar afleiðingar"
 #. Default: Indicate the severity if this risk occurs.
 #: src/euphorie/content/risk.py:224 src/euphorie/content/risk.py:313
 msgid "help_default_severity"
-msgstr "Tilgreindu alvarleikann ef þessi áhætta kemur upp."
+msgstr "Hversu alvarlegt verður atvikið ef það gerist?"
 
 #. Default: No default
 #: src/euphorie/content/risk.py:228 src/euphorie/content/risk.py:251
@@ -3333,7 +3330,7 @@ msgstr "Ákvörðuð tíðni"
 #. Default: Indicate how often this risk occurs in a normal situation.
 #: src/euphorie/content/risk.py:246 src/euphorie/content/risk.py:293
 msgid "help_default_frequency"
-msgstr "Tilgreindu hve oft þessi áhætta kemur upp við eðlilegar aðstæður."
+msgstr "Tilgreindu hversu oft þessi áhætta kemur upp við dagleg störf."
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:271
@@ -3346,7 +3343,7 @@ msgstr "Ákvörðuð líkindi"
 #: src/euphorie/content/risk.py:273
 msgid "help_default_probability"
 msgstr ""
-"Tilgreindu hver líklegt sé að þessi áhætta komi upp við eðlilegar aðstæður."
+"Hversu líklegt er að þessi áhætta komi upp við dagleg störf?"
 
 #. Default: Almost never
 #: src/euphorie/content/risk.py:300
@@ -3361,12 +3358,12 @@ msgstr "Litlar afleiðingar"
 #. Default: Significant severity
 #: src/euphorie/content/risk.py:321
 msgid "effect_significant"
-msgstr "Umtalsverður alvarleiki"
+msgstr "Umtalsverðar afleiðingar"
 
 #. Default: High (very high) severity
 #: src/euphorie/content/risk.py:324
 msgid "effect_high"
-msgstr "Mikill (mjög mikill) alvarleiki"
+msgstr "Umtalsverðar afleiðingar"
 
 #. Default: Evaluation
 #: src/euphorie/content/risk.py:333 src/euphorie/content/risk.py:347
@@ -3378,8 +3375,8 @@ msgstr "Mat"
 #: src/euphorie/content/risk.py:334 src/euphorie/content/risk.py:348
 msgid "intro_evaluation"
 msgstr ""
-"Þú getur tilgreint hvernig forgangur áhættu er metinn. Sjá nánar í handbók á"
-" netinu."
+"Hér er tilgreint hvernig forgangur áhættu er metinn. Sjá nánar í handbók á "
+"netinu."
 
 #. Default: Contact name
 #: src/euphorie/content/sector.py:72
@@ -3414,31 +3411,26 @@ msgstr "Þú getur ekki eytt atvinnusviði sem inniheldur útgefin OiRA verkfær
 #: src/euphorie/content/solution.py:32
 msgid "help_measure_action_plan"
 msgstr ""
-"Gefðu lýsingu á almennu verklagi þínu til að fjarlægja áhættuna eða draga úr"
-" henni (ef hún er óhjákvæmileg)."
+"Lýsið almennu verklagi við að fjarlægja áhættu eða draga úr henni."
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring.
 #. This information will be copied to the measure.
 #: src/euphorie/content/solution.py:42
 msgid "help_measure_prevention_plan"
 msgstr ""
-"Lýstu sérstökum aðgerðum sem þarf til að framkvæma þessa aðgerð (fjarlægja "
-"eða minnka áhættuna)."
+"Lýsið sérstökum aðgerðum sem þarf til að fjarlægja eða minnka áhættuna."
 
 #. Default: Describe the standard requirements for the action plan and
 #. prevention plan. This information will be copied to the measure.
 #: src/euphorie/content/solution.py:50
 msgid "help_measure_requirements"
 msgstr ""
-"Gefðu lýsingu á: 1) hver er almenn aðferð þín við að fjarlægja hættuna (eða "
-"ef hún er óhjákvæmileg) draga úr hættunni; 2) sérstökum aðgerðum sem "
-"nauðsynlegar eru til að framkvæma þessar aðgerðir (að fjarlægja eða draga úr"
-" hættunni); 3) hvaða sérfræðiþekking er nauðsynleg til að framkvæma "
-"aðgerðina, til dæmis „heilbrigð skynsemi (ekki þörf á sérstakri "
-"sérfræðiþekkingu frá evrópsku vinnuverndarstofnuninni (OSH)“, „engin þörf á "
-"sérfræðiþekkingu frá OSH en lágmarks þekking eða þjálfun varðandi OSH og/eða"
-" samráð við leiðbeiningarþjónustu OSH“ eða „OSH sérfræðiþekking nauðsynleg“."
-" Þú getur einnig lýst hér viðbótarkröfum (ef einhverjar eru)."
+"Lýsið: 1) hvernig á að fjarlægja hættuna eða draga úr henni; 2) sérstökum "
+"aðgerðum sem eru nauðsynlegar til að fjarlægja hættuna eða draga úr henni; "
+"3) hvaða þekking er nauðsynleg? Stundum dugar heilbrigð skynsemi.  Stundum "
+"þarf almenna þekkingu, stundum þarf sérfræðiþekkingu. Í erfiðum tilfellum "
+"getur þurft að leita til utanaðkomandi aðila, t.d. viðurkennds þjónustuaðila "
+"í vinnuvernd."
 
 #. Default: Common solution
 #: src/euphorie/content/solution.py:59
@@ -3448,14 +3440,14 @@ msgstr "Ráðstöfun"
 #. Default: Version name
 #: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:188
 msgid "label_survey_title"
-msgstr "Gerðarnafn"
+msgstr "Útgáfunafn"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
 #: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
 msgid "help_survey_title"
 msgstr ""
-"Þetta er heiti þessarar útgáfu af OiRA. Þetta heiti er aldrei birt notendum."
+"Heiti þessarar útgáfu af OiRA, það birtist aldrei notendum."
 
 #. Default: Introduction text
 #: src/euphorie/content/survey.py:64
@@ -3470,10 +3462,10 @@ msgstr "Inngangur"
 #: src/euphorie/content/survey.py:65
 msgid "help_introduction"
 msgstr ""
-"Inngangstextinn birtist þegar byrjað er á nýrri lotu við að búa til OiRA "
-"verkfæri. Ef enginn inngangur er settur hér inn birtist staðlaður texti. "
-"Hafðu þennan texta stuttan þannig að hann komist auðveldlega fyrir á litlum "
-"áhöldum svo sem símum og spjaldtölvum."
+"Inngangstextinn birtist þegar byrjað er á nýju OiRA verkfæri. Ef enginn "
+"inngangur er settur hér inn birtist staðlaður texti. Hafðu þennan texta "
+"stuttan þannig að hann komist auðveldlega fyrir í litlum tækjum svo sem "
+"símum og spjaldtölvum."
 
 #. Default: Evaluation may be skipped
 #: src/euphorie/content/survey.py:76
@@ -3503,8 +3495,7 @@ msgstr "Flokkunarkóði"
 #: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
 msgstr ""
-"Kóði til að auðkenna þetta atvinnusvið. Flokkunarkóðar eru skilgreindir af "
-"staðlastofnunum hvers lands og eru byggðar á 2. endurskoðun NACE staðalsins."
+"Auðkenningakóði fyrir atvinnugreinina sem byggður er á NACE staðlinum."
 
 #. Default: Title
 #: src/euphorie/content/survey.py:197 src/euphorie/content/surveygroup.py:40
@@ -3766,7 +3757,7 @@ msgstr "Eining"
 
 #: src/euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is a grouping of risks"
-msgstr "Eining er hópur af áhættum"
+msgstr "Flokkur samanstendur af mörgum áhættum"
 
 #: src/euphorie/content/profiles/default/types/euphorie.page.xml:7
 msgid "Page"
