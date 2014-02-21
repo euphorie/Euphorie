@@ -1382,8 +1382,8 @@ msgid "conditions_intro1"
 msgstr ""
 "OiRA verkfærið (OiRA gagnvirkt áhættumat) er verkfæri sem þú færð í hendur "
 "frá Evrópsku vinnuverndarstofnuninni (EU-OSHA). Þessi stefna varðandi "
-"friðhelgi einkalífsins á við um allar vörur, þjónustu og vefsetur sem EU-"
-"OSHA býður upp á innan sviðs OiRA verkfærisins."
+"friðhelgi einkalífsins á við um allar vörur, þjónustu og vefsetur sem "
+"EU-OSHA býður upp á innan sviðs OiRA verkfærisins."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
 #. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
@@ -1412,9 +1412,8 @@ msgstr "Upplýsingarnar sem við söfnum og í hvaða tilgangi"
 #: src/euphorie/client/templates/conditions.pt:40
 msgid "conditions_info_entry"
 msgstr ""
-"Þær tegundir upplýsinga sem við söfnum: Þegar þú skráir þig fyrir reikningi "
-"hjá OiRA og færir gögn inn í OiRA verkfærið þá biðjum við um eftirfarandi "
-"upplýsingar"
+"Þær tegundir upplýsinga sem við söfnum: Þegar þú skráir þig sem notandi OiRA "
+"og færir gögn inn í OiRA verkfærið þá er beðið um eftirfarandi upplýsingar"
 
 #. Default: Email account: this is necessary to access the online application,
 #. edit the input data, and delete the OiRA account. You can enter any valid
@@ -1423,9 +1422,8 @@ msgstr ""
 msgid "conditions_info_email"
 msgstr ""
 "Tölvupóstfang: þetta er nauðsynlegt til að fá aðgang að verkfærinu, breyta "
-"innfærslugögnum og eyða OiRA reikningnum. Þú getur skráð hvaða gilt "
-"tölvupóstfang sem er. Tölvupóstföng verða ekki notuð í viðskiptalegum "
-"tilgangi."
+"og eyða innfærslugögnum í OiRA. Þú getur skráð hvaða gilt tölvupóstfang sem "
+"er. Tölvupóstföng verða ekki notuð í viðskiptalegum tilgangi."
 
 #. Default: Any information you provide in the free text fields of the
 #. application (e.g. when you input a measure to tackle a risk, the person
@@ -1435,9 +1433,8 @@ msgstr ""
 msgid "conditions_info_text"
 msgstr ""
 "Allar upplýsingar sem þú veitir í hina frjálsu textareiti verkfærisins (t.d. "
-"þegar þú færir inn lausn til að takast á við áhættu, aðilann sem ber ábyrgð "
-"á aðgerðinni o.s.frv.). Innfærsla upplýsinga í frjálsu textareitina er "
-"frjáls."
+"þegar þú færir inn ráðstöfun til að takast á við áhættu, aðilann sem ber "
+"ábyrgð á aðgerðinni o.s.frv.). Innfærsla upplýsinga í textareitina er frjáls."
 
 #. Default: Cookies – When you visit the site and select a language, we send a
 #. cookie to your computer or other device to store your language selection.
@@ -1459,8 +1456,8 @@ msgstr ""
 "þinni stendur. Þessi vafrakaka er til staðar í vafranum þar til þú lokar "
 "honum. Flestir vafrar eru upphaflega settir upp til að taka við vafrakökum "
 "en þú getur endurstillt vafrann þinn þannig að hann hafni öllum vafrakökum "
-"eða til að gefa til kynna þegar verið er að senda dúsu. Þó getur verið að "
-"sum atriði og þjónusta virki ekki rétt ef vafrakökurnar eru aftengdar."
+"eða til að gefa til kynna þegar verið er að senda vafraköku. Þó getur verið "
+"að sum atriði og þjónusta virki ekki rétt ef vafrakökurnar eru aftengdar."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1484,11 +1481,10 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
 msgstr ""
-"Að viðbættum þeim tilgangi sem kemur fram hér að framan gætum Að viðbættum "
-"þeim tilgangi sem kemur fram hér að framan gætum við notað upplýsingarnar "
-"sem við söfnum til að útvega, viðhalda, verja og bæta þjónustu okkar og þróa "
-"nýja þjónustu. Hvað sem öðru líður verða engar persónulegar upplýsingar "
-"notaðar við vinnslu gagna."
+"Að viðbættum þeim tilgangi sem kemur fram hér að framan gætum við notað "
+"upplýsingarnar sem við söfnum til að útvega, viðhalda, verja og bæta "
+"þjónustu okkar og þróa nýja þjónustu. Hvað sem öðru líður verða engar "
+"persónulegar upplýsingar notaðar við vinnslu gagna."
 
 #. Default: Data controller
 #: src/euphorie/client/templates/conditions.pt:69
@@ -1499,25 +1495,25 @@ msgstr "Gagnastjórnun"
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
-msgstr "Gagnastjórnun er í höndum Evrópsku vinnuverndarstofnuninni í Bilbao."
+msgstr "Gagnastjórnun er í höndum Evrópsku vinnuverndarstofnuninnar í Bilbao."
 
 #. Default: Conservation and processing of information
 #: src/euphorie/client/templates/conditions.pt:75
 msgid "conditions_conservation_header"
-msgstr "Varðveisla og úrvinnsla upplýsinga"
+msgstr "Varðveisla og úrvinnsla gagna"
 
 #. Default: We keep your data, which is inaccessible for external users, until
 #. you delete your account and your session(s).
 #: src/euphorie/client/templates/conditions.pt:77
 msgid "conditions_conservation_keep_data"
 msgstr ""
-"Víð varðveitum gögn þín, sem eru óaðgengileg utanaðkomandi notendum, þar til "
-"þú eyðir reikningnum þínum og notkunarlotu(m)."
+"Víð varðveitum gögn þín, þau eru óaðgengileg utanaðkomandi notendum, þar til "
+"þú eyðir þínum upplýsingum."
 
 #. Default: EU-OSHA stores data on our servers in Halle, Germany.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "ESB-OSHA vistar gögn þín  á netþjónum okkar í Halle, Þýskalandi."
+msgstr "ESB-OSHA vistar gögn þín á netþjónum okkar í Halle, Þýskalandi."
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
@@ -1530,8 +1526,8 @@ msgstr "Gögn þín yfirfarin og fjarlægð"
 #: src/euphorie/client/templates/conditions.pt:87
 msgid "conditions_datareview"
 msgstr ""
-"Þú getur notað stillingar reikningsins og vistaða(r) OiRA lotu(r) til að "
-"endurskoða, stjórna og eyða upplýsingum í reikningi þínum og notkunarlotu(m)."
+"Þú getur notað stillingar þínar og vistaða(r) OiRA lotu(r) til að "
+"endurskoða, stjórna og eyða upplýsingum."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
@@ -1548,18 +1544,18 @@ msgstr "Öryggi upplýsinga"
 #: src/euphorie/client/templates/conditions.pt:93
 msgid "conditions_security"
 msgstr ""
-"Við gerum viðeigandi verndarráðstafanir til að verjast óleyfilegum "
-"breytingum, upplýsingagjöf eða eyðingu gagna. Þetta nær meðal annars yfir "
-"innra eftirlit með gagnasöfnun okkar, geymslu og úrvinnsluaðferðum svo og "
+"Við gerum viðeigandi ráðstafanir til að verjast óleyfilegum breytingum, "
+"upplýsingagjöf eða eyðingu gagna. Þetta nær meðal annars yfir innra eftirlit "
+"með gagnasöfnun okkar, geymslu og úrvinnsluaðferðum svo og "
 "öryggisráðstöfunum, til dæmis viðeigandi dulkóðun á samskiptum og efnislegar "
 "öryggisaðgerðir til að verjast óleyfilegum aðgangi að þeim kerfum þar sem "
-"við geymum persónuupplýsingar. IP vistföng eru ekki vistuð þannig að ekki er "
-"hægt greina endanlega notendur gegnum aðgang þeirra."
+"við geymum persónuupplýsingar. IP vefföng eru ekki vistuð þannig að ekki er "
+"hægt greina notendur gegnum aðgang þeirra."
 
 #. Default: Contact information
 #: src/euphorie/client/templates/conditions.pt:97
 msgid "conditions_contact_header"
-msgstr "Upplýsingar um að hafa samband"
+msgstr "Upplýsingar"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
@@ -1567,12 +1563,11 @@ msgstr "Upplýsingar um að hafa samband"
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
 msgstr ""
-"Evrópska vinnuverndarstofnunin (OSHA) fer reglulega yfir reglufylgni við "
-"þessa stefnu varðandi friðhelgi einkalífsins. Allar fyrirspurnir og "
-"umkvartanir vegna stefnu okkar varðandi friðhelgi einkalífsins er hægt að "
-"senda til gagnaverndarstjóra Evrópsku vinnuverndarstofnunarinnar (OSHA) á "
-"${dpo-email} eða til evrópsku persónuverndarstofnunarinnar (EDPS á ${edps-"
-"email}."
+"Evrópska vinnuverndarstofnunin (OSHA) fer reglulega yfir þessa stefnu "
+"varðandi friðhelgi einkalífsins. Allar fyrirspurnir og kvartanir vegna "
+"stefnu okkar varðandi friðhelgi einkalífsins er hægt að senda til "
+"gagnaverndarstjóra Evrópsku vinnuverndarstofnunarinnar (OSHA) á ${dpo-email} "
+"eða til evrópsku persónuverndarstofnunarinnar (EDPS á ${edps-email})."
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
