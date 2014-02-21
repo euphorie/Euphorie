@@ -2,7 +2,7 @@
 # Copyright (C) 2010 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -157,3 +157,21 @@ msgstr "Virkt"
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
 msgstr "Hið eina og sanna ástand"
+
+#. Default: Title
+#: plone.app.dexterity/behaviors/metadata.py:29
+# Manually added
+msgid "label_title"
+msgstr "Titill"
+
+#. Default: Description
+#: plone.app.dexterity/behaviors/metadata.py:34
+# Manually added
+msgid "label_description"
+msgstr "Lýsing"
+
+#. Default: A short summary of the content.
+#: plone.app.dexterity/behaviors/metadata.py:35
+# Manually added
+msgid "help_description"
+msgstr "Stutt innihaldslýsing"
