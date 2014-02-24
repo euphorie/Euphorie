@@ -126,7 +126,7 @@ msgstr ""
 #: src/euphorie/client/company.py:80
 #: src/euphorie/client/templates/report_actionplan.pt:62
 msgid "label_workers_participated"
-msgstr "Darbuotojai buvo pakviesti prisidėti prie rizikos vertinimo proceso"
+msgstr "Darbuotojai buvo įtraukti į rizikos vertinimo procesą"
 
 #. Default: Yes
 #: src/euphorie/client/company.py:84

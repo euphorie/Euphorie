@@ -15,6 +15,7 @@ Bugfixes
 - Added missing i18n statement around "Official OiRA logo" in the settings
   form
 - Translation corrections in IS (OSHA #9345)
+- Translation corrections in LT (OSHA #9510)
 
 
 6.3.0 - January 14, 2014
