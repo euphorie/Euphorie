@@ -5333,13 +5333,17 @@ textarea.span-15,
 	top: 34px;
 	left: 20px;
 	z-index: 11;
-	width: 280px;
 	display: block;
+	width: 280px;
+	background-position: -16px;
+	margin: 0;
 }
 
 #homepage #navigation li#home a {
-	width: 190px;
 	float: left;
+	width: 190px;
+	text-align: left;
+	padding-left: 0;
 }
 
 
