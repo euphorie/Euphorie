@@ -16,7 +16,8 @@ Bugfixes
   form
 - Translation corrections in IS (OSHA #9345)
 - Translation corrections in LT (OSHA #9510)
-- Translation corrections in BG (OSHA #9324
+- Translation corrections in BG (OSHA #9324)
+- Fix logo positioning on homepage in mobile view
 
 
 6.3.0 - January 14, 2014
