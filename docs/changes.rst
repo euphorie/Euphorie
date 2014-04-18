@@ -47,11 +47,6 @@ Bugfixes
 6.3.1 - March 2, 2014
 ---------------------
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ...
-
 Bugfixes
 ~~~~~~~~
 
