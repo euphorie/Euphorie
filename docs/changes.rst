@@ -7,7 +7,8 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- For the left-hand navigation in the OSHA styles, make the current menu
+  item white and bolder (OSHA #8472)
 
 Bugfixes
 ~~~~~~~~

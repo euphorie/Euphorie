@@ -114,3 +114,8 @@ body.language-fr #navigation li#home {
     right: 465px;
     width: 300px;
 }
+
+#steps .questions li.current > a {
+    color: #FFFFFF;
+    font-weight: bolder;
+}
