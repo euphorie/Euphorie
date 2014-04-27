@@ -66,12 +66,12 @@ msgstr "lastno osebje"
 #. Default: an external consultant or service provider
 #: src/euphorie/client/company.py:44
 msgid "conductor_third_party"
-msgstr "zunanji svetovalec ali ponudnik storitev"
+msgstr "zunanji ali ponudnik storitev"
 
 #. Default: both own staff and an external consultant or service provider
 #: src/euphorie/client/company.py:46
 msgid "conductor_both"
-msgstr "oba: lastno osebje in zunanji svetovalec ali ponudnik storitev"
+msgstr "oba: strokovni delavec in zunanji ali ponudnik storitev"
 
 #. Default: Through which channel did you learn about this tool?
 #: src/euphorie/client/company.py:53
@@ -309,7 +309,7 @@ msgstr "Podatki o podjetju"
 #. Default: Action plan
 #: src/euphorie/client/report.py:658
 msgid "plan_report_plan_header"
-msgstr "Akcijski načrt"
+msgstr "Načrt ukrepov"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "conditions_info_text"
 msgstr ""
 "Vse informacije, ki jih vnesete v polja aplikacije za poljubno besedilo in v "
-"akcijski načrt (npr. ko vnesete ukrep za reševanje tveganja, osebo, "
+"načrt ukrepov (npr. ko vnesete ukrep za reševanje tveganja, osebo, "
 "odgovorno za ta ukrep itd.). Vnos informacij v polja za poljubno besedilo je "
 "prostovoljen."
 
@@ -1597,7 +1597,7 @@ msgstr ""
 #. Default: action plan
 #: src/euphorie/client/templates/evaluation.pt:28
 msgid "help_skip_evaluation_link"
-msgstr "akcijski načrt"
+msgstr "načrt ukrepov"
 
 #. Default: You can also skip this phase and proceed directly to the ${link}
 #. phase.
@@ -1615,12 +1615,12 @@ msgstr ""
 #. Default: Run evaluation
 #: src/euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Zaženi ocenjevanje"
+msgstr "Začni z ocenjevanjem"
 
 #. Default: Go to action plan
 #: src/euphorie/client/templates/evaluation.pt:38
 msgid "label_jump_to_actionplan"
-msgstr "Pojdi na akcijski načrt"
+msgstr "Pojdi na načrt ukrepov"
 
 #. Default: Help
 #: src/euphorie/client/templates/help.pt:17
@@ -1667,7 +1667,7 @@ msgstr "3. Ovrednotenje"
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_actionplan"
-msgstr "4. Akcijski načrt"
+msgstr "4. Načrt ukrepov"
 
 #. Default: Report
 #: src/euphorie/client/templates/help.pt:26
@@ -1842,7 +1842,7 @@ msgid ""
 msgstr ""
 "Orodje OiRA je oblikovano posebej tako, da jim je v pomoč pri ocenjevanju "
 "tveganj pri delu in pri pripravi dokumentirane ocene tveganja, ki vključuje "
-"akcijski načrt, narejen po meri za potrebe podjetja."
+"načrt ukrepov, narejen po meri za potrebe podjetja."
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "What do I have to do?"
@@ -2750,7 +2750,7 @@ msgstr ""
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:136
 msgid "header_legal_references"
-msgstr "Pravni sklici in sklici pravilnika"
+msgstr "Zakonodaja in drugi viri"
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
@@ -2856,7 +2856,7 @@ msgstr ""
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
 msgid "label_help_actionplan"
-msgstr "4. Akcijski načrt"
+msgstr "4. Načrt ukrepov"
 
 #. Default: Document the action plan phase. This information is linked from all
 #. action plan related pages
@@ -3018,7 +3018,7 @@ msgstr ""
 #: src/euphorie/content/risk.py:77
 #: src/euphorie/content/templates/risk_view.pt:72
 msgid "label_legal_reference"
-msgstr "Pravni sklici in sklici pravilnika"
+msgstr "Zakonodaja in drugi viri"
 
 #. Default: Identification
 #: src/euphorie/content/risk.py:84
