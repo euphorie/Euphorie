@@ -1630,7 +1630,7 @@ msgstr "Siirry toimintasuunnitelmaan"
 #. Default: Help
 #: src/euphorie/client/templates/help.pt:17
 msgid "title_help"
-msgstr "Apu"
+msgstr "Ohjeet"
 
 #. Default: Introduction
 #: src/euphorie/client/templates/help.pt:19
@@ -2685,7 +2685,7 @@ msgstr "${count} kysymystä on lykätty"
 #. Default: Start a new session for this survey.
 #: src/euphorie/client/templates/survey_sessions.pt:48
 msgid "label_select_new_session_in_survey"
-msgstr "Aloita uusi istunto tätä kyselyä varten."
+msgstr "Luo uusi lomake riskien arviointia varten."
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
@@ -4193,7 +4193,7 @@ msgstr "Dokumentit"
 #. Default: Help
 #: src/euphorie/deployment/tiles/tabs.py:80
 msgid "nav_help"
-msgstr "Apu"
+msgstr "Ohjeet"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:12
 msgid "Add Module"
