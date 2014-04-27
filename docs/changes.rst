@@ -13,7 +13,8 @@ Bugfixes
 ~~~~~~~~
 
 - Translation corrections in SL (OSHA #9584)
-- Translation correction in FI (OSHA #9806)
+- Translation corrections in FI (OSHA #9806)
+- Translation corrections in BG (OSHA #9790)
 
 
 6.3.1 - March 2, 2014

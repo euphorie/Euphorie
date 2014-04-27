@@ -1875,7 +1875,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "What do I have to do?"
-msgstr "Каква трябва да направя?"
+msgstr "Какво трябва да направя?"
 
 #: src/euphorie/client/templates/login.pt:64
 msgid "There are four main stages to complete in the assessment process:"
