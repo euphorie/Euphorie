@@ -431,6 +431,8 @@ class Company(BaseObject):
         "trade-union", "national-public-institution", "eu-institution",
         "health-safety-experts", "other"]))
     workers_participated = schema.Column(types.Boolean())
+    needs_met = schema.Column(types.Boolean())
+    recommend_tool = schema.Column(types.Boolean())
 
 
 class Module(SurveyTreeItem):

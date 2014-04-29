@@ -86,6 +86,29 @@ class CompanySchema(form.Schema):
             ]),
             required=False)
 
+    needs_met = schema.Choice(
+        title=_(
+            "label_needs_met",
+            default=u"Did this OiRA tool meet to your needs?"),
+        vocabulary=SimpleVocabulary([
+            SimpleTerm(True, title=_("label_yes", default=u"Yes")),
+            SimpleTerm(False, title=_("label_no", default=u"No")),
+        ]),
+        required=False
+    )
+
+    recommend_tool = schema.Choice(
+        title=_(
+            "label_recommend_tool",
+            default=u"Would you recommend this OiRA tool to an enterprise "
+            u"similar to yours ?"),
+        vocabulary=SimpleVocabulary([
+            SimpleTerm(True, title=_("label_yes", default=u"Yes")),
+            SimpleTerm(False, title=_("label_no", default=u"No")),
+        ]),
+        required=False
+    )
+
 
 class Company(form.SchemaForm):
     """Update the company details.

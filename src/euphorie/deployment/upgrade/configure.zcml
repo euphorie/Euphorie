@@ -45,7 +45,7 @@
 
     <genericsetup:upgradeStep
       title="Update SQL account model"
-      description="Add a terms-and-conditions column to the account table." 
+      description="Add a terms-and-conditions column to the account table."
       handler=".v2.addTermsAndConditionsColumn"
       />
 
@@ -88,14 +88,14 @@
       description="This step will add grouping data to existing countries."
       handler=".v2.addCountryGrouping"
       />
-      
+
     <genericsetup:upgradeStep
       title="Add regions"
       description="This step will add new countries and regions to the CMS."
       handler=".v2.updateInitialContent"
       />
   </genericsetup:upgradeSteps>
-  
+
   <genericsetup:upgradeSteps
     source="7"
     destination="8"
@@ -107,7 +107,7 @@
       description="This step will add grouping data to existing CMS and client countries."
       handler=".v2.addCountryGrouping"
       />
-      
+
   </genericsetup:upgradeSteps>
 
   <genericsetup:upgradeSteps
@@ -118,25 +118,25 @@
 
     <genericsetup:upgradeStep
       title="Evaluation types"
-      description="This step migrate data in preparation for multiple evaluation method support." 
+      description="This step migrate data in preparation for multiple evaluation method support."
       handler=".v3.set_evaluation_method_interfaces"
       />
 
     <genericsetup:upgradeStep
       title="Standard solutions"
-      description="This step converts the solution description to plain text." 
+      description="This step converts the solution description to plain text."
       handler=".v3.convert_solution_description_to_text"
       />
 
     <genericsetup:upgradeStep
       title="New Company column: 'Workers Participated'"
-      description="This step adds a new column 'workers_participated' to the company table." 
+      description="This step adds a new column 'workers_participated' to the company table."
       handler=".v3.add_wp_column_to_company"
       />
 
     <genericsetup:upgradeStep
       title="Lowercase all client login names"
-      description="This is required for the case-insensitive client logins." 
+      description="This is required for the case-insensitive client logins."
       handler=".v3.lowercase_login"/>
   </genericsetup:upgradeSteps>
 
@@ -218,4 +218,18 @@
       handler=".v6.add_skip_evaluation_to_model"/>
 
   </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="14"
+    destination="15"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add 2 new questions to the company survey"
+      description="This step will create the necessary columns in the SQL backend."
+      handler=".v7.add_columns_to_company_survey"/>
+
+  </genericsetup:upgradeSteps>
+
 </configure>
