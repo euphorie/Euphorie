@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-02-21 14:58+0100\n"
+"POT-Creation-Date: 2014-04-29 17:35+0200\n"
 "PO-Revision-Date: 2013-11-26 11:53+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,18 +129,31 @@ msgid "label_workers_participated"
 msgstr "Starfsmönnum var boðið að taka þátt í áhættumatinu"
 
 #. Default: Yes
-#: src/euphorie/client/company.py:84
+#: src/euphorie/client/company.py:84 src/euphorie/client/company.py:94
+#: src/euphorie/client/company.py:106
 #: src/euphorie/client/templates/module_identification.pt:34
 #: src/euphorie/client/templates/risk_identification.pt:22
 msgid "label_yes"
 msgstr "Já"
 
 #. Default: No
-#: src/euphorie/client/company.py:85
+#: src/euphorie/client/company.py:85 src/euphorie/client/company.py:95
+#: src/euphorie/client/company.py:107
 #: src/euphorie/client/templates/module_identification.pt:37
 #: src/euphorie/client/templates/risk_identification.pt:23
 msgid "label_no"
 msgstr "Nei"
+
+#. Default: Did this OiRA tool meet to your needs?
+#: src/euphorie/client/company.py:90
+msgid "label_needs_met"
+msgstr ""
+
+#. Default: Would you recommend this OiRA tool to an enterprise similar to
+#. yours ?
+#: src/euphorie/client/company.py:101
+msgid "label_recommend_tool"
+msgstr ""
 
 #: src/euphorie/client/login.py:122
 msgid "Please enter your email address"
@@ -712,12 +725,12 @@ msgstr ""
 msgid "about_paragraph_1"
 msgstr ""
 "Reynslan sýnir að vandað áhættumat er lykillinn að góðum og öruggum "
-"vinnustað. Það er ástæðan fyrir því að Evrópska vinnuverndarstofnunin "
-"(ESB-OSHA) hefur þróaði rafrænt gagnvirkt áhættumatsverkfæri ${easy} "
-"Verkfærið auðveldar litlum og meðalstórum fyrirtækjum að gera áhættumat "
-"skref fyrir skref. Áhættumat gengur út á ${identification} og ${evaluation} "
-"hættur í vinnuumhverfinu. Taka ákvarðanir um ${preventive_actions} og greina "
-"frá því í einfaldri skýrslu."
+"vinnustað. Það er ástæðan fyrir því að Evrópska vinnuverndarstofnunin (ESB-"
+"OSHA) hefur þróaði rafrænt gagnvirkt áhættumatsverkfæri ${easy} Verkfærið "
+"auðveldar litlum og meðalstórum fyrirtækjum að gera áhættumat skref fyrir "
+"skref. Áhættumat gengur út á ${identification} og ${evaluation} hættur í "
+"vinnuumhverfinu. Taka ákvarðanir um ${preventive_actions} og greina frá því "
+"í einfaldri skýrslu."
 
 #. Default: The OiRA web application gives access to the sectoral Risk
 #. Assessment tools created and maintained by sectoral organisations at
@@ -736,15 +749,17 @@ msgstr "Markmið OiRA "
 #. Default: European Community Strategy on Health and Safety at Work 2007-2012
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_paragraph3_agency"
-msgstr "Evrópubandalagið leggur fram einföld tæki til að hjálpa fyrirtækjum "
-"að gera áhættumat."
+msgstr ""
+"Evrópubandalagið leggur fram einföld tæki til að hjálpa fyrirtækjum að gera "
+"áhættumat."
 
 #. Default: micro and small enterprises have some shortcomings
 #: src/euphorie/client/templates/about.pt:54
 msgid "about_partners_3_smb"
-msgstr "litil og meðalstór fyrirtæki eiga í erfiðleikum með gera áhættumat "
-"og innleiða vinnuverndarstarf. Áhættumat með aðstoð OiRA verkfærisins á "
-"hjálpa þessum fyrirtækjum."
+msgstr ""
+"litil og meðalstór fyrirtæki eiga í erfiðleikum með gera áhættumat og "
+"innleiða vinnuverndarstarf. Áhættumat með aðstoð OiRA verkfærisins á hjálpa "
+"þessum fyrirtækjum."
 
 #. Default: The ${agency} calls for the development of simple tools to
 #. facilitate risk assessment. Since the adoption of the European Framework
@@ -760,8 +775,8 @@ msgstr ""
 "${agency} Síðan Evróputilskipunin um skriflega áætlun um öryggi og "
 "heilbrigði á vinnustöðum var innleidd árið 1989 hefur áhættumat orðið "
 "sífellt þekktara hugtak. Í dag meta mörg hundruð þúsund fyrirtæki um alla "
-"Evrópu áhættu starfa með reglubundnum hætti. Þrátt fyrir það sýnir sig að "
-"að ${smb}"
+"Evrópu áhættu starfa með reglubundnum hætti. Þrátt fyrir það sýnir sig að að "
+"${smb}"
 
 #. Default: More information about the OiRA project (in English)
 #: src/euphorie/client/templates/about.pt:57
@@ -820,20 +835,18 @@ msgstr "Samstarfsaðilar"
 #: src/euphorie/client/templates/about.pt:74
 msgid "about_partners_1"
 msgstr ""
-"OiRA verkfærið og tengt forrit þess á netinu var þróað af ${eu-osha} "
-"sem byggt er á hollenska RA-verkfærinu (sem kallast ${RIE}) sem var "
-"fjármagnað af hollensku ríkisstjórninni og var upphaflega þróað af TNO í "
-"samvinnu við vinnuveitendasambandið fyrir lítil og meðalstór fyrirtæki MKB "
-"Nederland og hollenska atvinnumálaráðuneytið. Frekari þróun forritsins átti "
-"sér stað með framlagi og þátttöku hollensku verkalýðssamtakanna FNV, CNV og "
-"MHP."
+"OiRA verkfærið og tengt forrit þess á netinu var þróað af ${eu-osha} sem "
+"byggt er á hollenska RA-verkfærinu (sem kallast ${RIE}) sem var fjármagnað "
+"af hollensku ríkisstjórninni og var upphaflega þróað af TNO í samvinnu við "
+"vinnuveitendasambandið fyrir lítil og meðalstór fyrirtæki MKB Nederland og "
+"hollenska atvinnumálaráðuneytið. Frekari þróun forritsins átti sér stað með "
+"framlagi og þátttöku hollensku verkalýðssamtakanna FNV, CNV og MHP."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
 #: src/euphorie/client/templates/about.pt:76
 msgid "about_partners_2"
-msgstr ""
-"Eftirfarandi aðilar lögðu sitt af mörkum við þróun OiRA verkfærisins:"
+msgstr "Eftirfarandi aðilar lögðu sitt af mörkum við þróun OiRA verkfærisins:"
 
 #: src/euphorie/client/templates/about.pt:81
 #: src/euphorie/client/templates/about.pt:84
@@ -884,8 +897,7 @@ msgstr ""
 #. Default: The OiRA sectoral tools can be used for free by all users.
 #: src/euphorie/client/templates/about.pt:105
 msgid "about_licenses_3"
-msgstr ""
-"OiRA verkfærin eru ókeypis fyrir alla notendur"
+msgstr "OiRA verkfærin eru ókeypis fyrir alla notendur"
 
 #. Default: Help
 #: src/euphorie/client/templates/about.pt:111
@@ -904,7 +916,7 @@ msgstr ""
 #: src/euphorie/client/templates/reminder.pt:41
 #: src/euphorie/client/templates/report.pt:75
 #: src/euphorie/client/templates/report_actionplan.pt:204
-#: src/euphorie/client/templates/report_company.pt:94
+#: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:170
@@ -1014,7 +1026,7 @@ msgstr "Fara í skýrslu"
 #: src/euphorie/client/templates/profile.pt:58
 #: src/euphorie/client/templates/report.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:170
-#: src/euphorie/client/templates/report_company.pt:60
+#: src/euphorie/client/templates/report_company.pt:62
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_actionplan.pt:162
 #: src/euphorie/client/templates/risk_evaluation.pt:133
@@ -1040,7 +1052,7 @@ msgstr "Undirbúningur"
 #: src/euphorie/client/templates/profile.pt:59
 #: src/euphorie/client/templates/report.pt:42
 #: src/euphorie/client/templates/report_actionplan.pt:171
-#: src/euphorie/client/templates/report_company.pt:61
+#: src/euphorie/client/templates/report_company.pt:63
 #: src/euphorie/client/templates/report_identification.pt:71
 #: src/euphorie/client/templates/risk_actionplan.pt:163
 #: src/euphorie/client/templates/risk_evaluation.pt:134
@@ -1067,7 +1079,7 @@ msgstr "Undirbúningur"
 #: src/euphorie/client/templates/profile.pt:63
 #: src/euphorie/client/templates/report.pt:47
 #: src/euphorie/client/templates/report_actionplan.pt:176
-#: src/euphorie/client/templates/report_company.pt:66
+#: src/euphorie/client/templates/report_company.pt:68
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_actionplan.pt:168
 #: src/euphorie/client/templates/risk_evaluation.pt:139
@@ -1094,7 +1106,7 @@ msgstr "Greining"
 #: src/euphorie/client/templates/profile.pt:64
 #: src/euphorie/client/templates/report.pt:48
 #: src/euphorie/client/templates/report_actionplan.pt:177
-#: src/euphorie/client/templates/report_company.pt:67
+#: src/euphorie/client/templates/report_company.pt:69
 #: src/euphorie/client/templates/report_identification.pt:77
 #: src/euphorie/client/templates/risk_actionplan.pt:169
 #: src/euphorie/client/templates/risk_evaluation.pt:140
@@ -1121,7 +1133,7 @@ msgstr "Greining"
 #: src/euphorie/client/templates/profile.pt:67
 #: src/euphorie/client/templates/report.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:182
-#: src/euphorie/client/templates/report_company.pt:72
+#: src/euphorie/client/templates/report_company.pt:74
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_evaluation.pt:145
@@ -1148,7 +1160,7 @@ msgstr "Mat"
 #: src/euphorie/client/templates/profile.pt:68
 #: src/euphorie/client/templates/report.pt:54
 #: src/euphorie/client/templates/report_actionplan.pt:183
-#: src/euphorie/client/templates/report_company.pt:73
+#: src/euphorie/client/templates/report_company.pt:75
 #: src/euphorie/client/templates/report_identification.pt:83
 #: src/euphorie/client/templates/risk_actionplan.pt:175
 #: src/euphorie/client/templates/risk_evaluation.pt:146
@@ -1175,7 +1187,7 @@ msgstr "Mat"
 #: src/euphorie/client/templates/profile.pt:71
 #: src/euphorie/client/templates/report.pt:59
 #: src/euphorie/client/templates/report_actionplan.pt:188
-#: src/euphorie/client/templates/report_company.pt:78
+#: src/euphorie/client/templates/report_company.pt:80
 #: src/euphorie/client/templates/report_identification.pt:88
 #: src/euphorie/client/templates/risk_actionplan.pt:180
 #: src/euphorie/client/templates/risk_evaluation.pt:154
@@ -1202,7 +1214,7 @@ msgstr "Aðgerðaáætlun"
 #: src/euphorie/client/templates/profile.pt:72
 #: src/euphorie/client/templates/report.pt:60
 #: src/euphorie/client/templates/report_actionplan.pt:189
-#: src/euphorie/client/templates/report_company.pt:79
+#: src/euphorie/client/templates/report_company.pt:81
 #: src/euphorie/client/templates/report_identification.pt:89
 #: src/euphorie/client/templates/risk_actionplan.pt:181
 #: src/euphorie/client/templates/risk_evaluation.pt:155
@@ -1228,7 +1240,7 @@ msgstr "Aðgerðaáætlun"
 #: src/euphorie/client/templates/profile.pt:75
 #: src/euphorie/client/templates/report.pt:65
 #: src/euphorie/client/templates/report_actionplan.pt:194
-#: src/euphorie/client/templates/report_company.pt:84
+#: src/euphorie/client/templates/report_company.pt:86
 #: src/euphorie/client/templates/report_identification.pt:94
 #: src/euphorie/client/templates/risk_actionplan.pt:189
 #: src/euphorie/client/templates/risk_evaluation.pt:160
@@ -1254,7 +1266,7 @@ msgstr "Skýrsla"
 #: src/euphorie/client/templates/profile.pt:76
 #: src/euphorie/client/templates/report.pt:66
 #: src/euphorie/client/templates/report_actionplan.pt:195
-#: src/euphorie/client/templates/report_company.pt:85
+#: src/euphorie/client/templates/report_company.pt:87
 #: src/euphorie/client/templates/report_identification.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:190
 #: src/euphorie/client/templates/risk_evaluation.pt:161
@@ -1280,7 +1292,7 @@ msgstr "Skýrsla"
 #: src/euphorie/client/templates/profile.pt:82
 #: src/euphorie/client/templates/report.pt:73
 #: src/euphorie/client/templates/report_actionplan.pt:202
-#: src/euphorie/client/templates/report_company.pt:92
+#: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:102
 #: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:168
@@ -1305,7 +1317,7 @@ msgstr "Útskráning"
 #: src/euphorie/client/templates/profile.pt:83
 #: src/euphorie/client/templates/report.pt:74
 #: src/euphorie/client/templates/report_actionplan.pt:203
-#: src/euphorie/client/templates/report_company.pt:93
+#: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:169
@@ -1326,7 +1338,7 @@ msgstr "Mat mitt"
 #: src/euphorie/client/templates/module_identification.pt:87
 #: src/euphorie/client/templates/report.pt:76
 #: src/euphorie/client/templates/report_actionplan.pt:205
-#: src/euphorie/client/templates/report_company.pt:95
+#: src/euphorie/client/templates/report_company.pt:97
 #: src/euphorie/client/templates/report_identification.pt:105
 #: src/euphorie/client/templates/risk_actionplan.pt:200
 #: src/euphorie/client/templates/risk_evaluation.pt:171
@@ -1347,7 +1359,7 @@ msgstr " Staða"
 #: src/euphorie/client/templates/profile.pt:85
 #: src/euphorie/client/templates/report.pt:77
 #: src/euphorie/client/templates/report_actionplan.pt:206
-#: src/euphorie/client/templates/report_company.pt:96
+#: src/euphorie/client/templates/report_company.pt:98
 #: src/euphorie/client/templates/report_identification.pt:106
 #: src/euphorie/client/templates/risk_actionplan.pt:201
 #: src/euphorie/client/templates/risk_evaluation.pt:172
@@ -1382,8 +1394,8 @@ msgid "conditions_intro1"
 msgstr ""
 "OiRA verkfærið (OiRA gagnvirkt áhættumat) er verkfæri sem þú færð í hendur "
 "frá Evrópsku vinnuverndarstofnuninni (EU-OSHA). Þessi stefna varðandi "
-"friðhelgi einkalífsins á við um allar vörur, þjónustu og vefsetur sem "
-"EU-OSHA býður upp á innan sviðs OiRA verkfærisins."
+"friðhelgi einkalífsins á við um allar vörur, þjónustu og vefsetur sem EU-"
+"OSHA býður upp á innan sviðs OiRA verkfærisins."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
 #. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
@@ -2004,7 +2016,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:41
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
-#: src/euphorie/client/templates/report_company.pt:52
+#: src/euphorie/client/templates/report_company.pt:54
 #: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:119
 #: src/euphorie/client/templates/risk_identification.pt:30
@@ -2021,7 +2033,7 @@ msgstr "Fyrra"
 #: src/euphorie/client/templates/register.pt:36
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
-#: src/euphorie/client/templates/report_company.pt:53
+#: src/euphorie/client/templates/report_company.pt:55
 #: src/euphorie/client/templates/risk_actionplan.pt:149
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:31
@@ -4170,8 +4182,7 @@ msgstr "Veldu land"
 #: src/euphorie/content/templates/surveygroup_add.pt:85
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr ""
-"Þetta reikniforrit byggir á þríhliða aðferðafræði Kinney"
+msgstr "Þetta reikniforrit byggir á þríhliða aðferðafræði Kinney"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/templates/surveygroup_add.pt:87

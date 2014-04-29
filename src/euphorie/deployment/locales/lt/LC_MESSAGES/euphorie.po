@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-02-21 14:49+0100\n"
+"POT-Creation-Date: 2014-04-29 17:35+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,17 +129,30 @@ msgid "label_workers_participated"
 msgstr "Darbuotojai buvo įtraukti į rizikos vertinimo procesą"
 
 #. Default: Yes
-#: src/euphorie/client/company.py:84
+#: src/euphorie/client/company.py:84 src/euphorie/client/company.py:94
+#: src/euphorie/client/company.py:106
 #: src/euphorie/client/templates/module_identification.pt:34
 #: src/euphorie/client/templates/risk_identification.pt:22
 msgid "label_yes"
 msgstr ""
 
 #. Default: No
-#: src/euphorie/client/company.py:85
+#: src/euphorie/client/company.py:85 src/euphorie/client/company.py:95
+#: src/euphorie/client/company.py:107
 #: src/euphorie/client/templates/module_identification.pt:37
 #: src/euphorie/client/templates/risk_identification.pt:23
 msgid "label_no"
+msgstr ""
+
+#. Default: Did this OiRA tool meet to your needs?
+#: src/euphorie/client/company.py:90
+msgid "label_needs_met"
+msgstr ""
+
+#. Default: Would you recommend this OiRA tool to an enterprise similar to
+#. yours ?
+#: src/euphorie/client/company.py:101
+msgid "label_recommend_tool"
 msgstr ""
 
 #: src/euphorie/client/login.py:122
@@ -889,7 +902,7 @@ msgstr "OiRA priemones nemokai gali naudoti visi naudotojai."
 #: src/euphorie/client/templates/reminder.pt:41
 #: src/euphorie/client/templates/report.pt:75
 #: src/euphorie/client/templates/report_actionplan.pt:204
-#: src/euphorie/client/templates/report_company.pt:94
+#: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:199
 #: src/euphorie/client/templates/risk_evaluation.pt:170
@@ -991,7 +1004,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:58
 #: src/euphorie/client/templates/report.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:170
-#: src/euphorie/client/templates/report_company.pt:60
+#: src/euphorie/client/templates/report_company.pt:62
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_actionplan.pt:162
 #: src/euphorie/client/templates/risk_evaluation.pt:133
@@ -1017,7 +1030,7 @@ msgstr "Pasirengimas"
 #: src/euphorie/client/templates/profile.pt:59
 #: src/euphorie/client/templates/report.pt:42
 #: src/euphorie/client/templates/report_actionplan.pt:171
-#: src/euphorie/client/templates/report_company.pt:61
+#: src/euphorie/client/templates/report_company.pt:63
 #: src/euphorie/client/templates/report_identification.pt:71
 #: src/euphorie/client/templates/risk_actionplan.pt:163
 #: src/euphorie/client/templates/risk_evaluation.pt:134
@@ -1044,7 +1057,7 @@ msgstr "Pasirengimas"
 #: src/euphorie/client/templates/profile.pt:63
 #: src/euphorie/client/templates/report.pt:47
 #: src/euphorie/client/templates/report_actionplan.pt:176
-#: src/euphorie/client/templates/report_company.pt:66
+#: src/euphorie/client/templates/report_company.pt:68
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_actionplan.pt:168
 #: src/euphorie/client/templates/risk_evaluation.pt:139
@@ -1071,7 +1084,7 @@ msgstr "Nustatymas"
 #: src/euphorie/client/templates/profile.pt:64
 #: src/euphorie/client/templates/report.pt:48
 #: src/euphorie/client/templates/report_actionplan.pt:177
-#: src/euphorie/client/templates/report_company.pt:67
+#: src/euphorie/client/templates/report_company.pt:69
 #: src/euphorie/client/templates/report_identification.pt:77
 #: src/euphorie/client/templates/risk_actionplan.pt:169
 #: src/euphorie/client/templates/risk_evaluation.pt:140
@@ -1098,7 +1111,7 @@ msgstr "Nustatymas"
 #: src/euphorie/client/templates/profile.pt:67
 #: src/euphorie/client/templates/report.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:182
-#: src/euphorie/client/templates/report_company.pt:72
+#: src/euphorie/client/templates/report_company.pt:74
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_evaluation.pt:145
@@ -1125,7 +1138,7 @@ msgstr "Vertinimas"
 #: src/euphorie/client/templates/profile.pt:68
 #: src/euphorie/client/templates/report.pt:54
 #: src/euphorie/client/templates/report_actionplan.pt:183
-#: src/euphorie/client/templates/report_company.pt:73
+#: src/euphorie/client/templates/report_company.pt:75
 #: src/euphorie/client/templates/report_identification.pt:83
 #: src/euphorie/client/templates/risk_actionplan.pt:175
 #: src/euphorie/client/templates/risk_evaluation.pt:146
@@ -1152,7 +1165,7 @@ msgstr "Vertinimas"
 #: src/euphorie/client/templates/profile.pt:71
 #: src/euphorie/client/templates/report.pt:59
 #: src/euphorie/client/templates/report_actionplan.pt:188
-#: src/euphorie/client/templates/report_company.pt:78
+#: src/euphorie/client/templates/report_company.pt:80
 #: src/euphorie/client/templates/report_identification.pt:88
 #: src/euphorie/client/templates/risk_actionplan.pt:180
 #: src/euphorie/client/templates/risk_evaluation.pt:154
@@ -1179,7 +1192,7 @@ msgstr "Veiksmų planas"
 #: src/euphorie/client/templates/profile.pt:72
 #: src/euphorie/client/templates/report.pt:60
 #: src/euphorie/client/templates/report_actionplan.pt:189
-#: src/euphorie/client/templates/report_company.pt:79
+#: src/euphorie/client/templates/report_company.pt:81
 #: src/euphorie/client/templates/report_identification.pt:89
 #: src/euphorie/client/templates/risk_actionplan.pt:181
 #: src/euphorie/client/templates/risk_evaluation.pt:155
@@ -1205,7 +1218,7 @@ msgstr "Veiksmų planas"
 #: src/euphorie/client/templates/profile.pt:75
 #: src/euphorie/client/templates/report.pt:65
 #: src/euphorie/client/templates/report_actionplan.pt:194
-#: src/euphorie/client/templates/report_company.pt:84
+#: src/euphorie/client/templates/report_company.pt:86
 #: src/euphorie/client/templates/report_identification.pt:94
 #: src/euphorie/client/templates/risk_actionplan.pt:189
 #: src/euphorie/client/templates/risk_evaluation.pt:160
@@ -1231,7 +1244,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:76
 #: src/euphorie/client/templates/report.pt:66
 #: src/euphorie/client/templates/report_actionplan.pt:195
-#: src/euphorie/client/templates/report_company.pt:85
+#: src/euphorie/client/templates/report_company.pt:87
 #: src/euphorie/client/templates/report_identification.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:190
 #: src/euphorie/client/templates/risk_evaluation.pt:161
@@ -1257,7 +1270,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:82
 #: src/euphorie/client/templates/report.pt:73
 #: src/euphorie/client/templates/report_actionplan.pt:202
-#: src/euphorie/client/templates/report_company.pt:92
+#: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:102
 #: src/euphorie/client/templates/risk_actionplan.pt:197
 #: src/euphorie/client/templates/risk_evaluation.pt:168
@@ -1282,7 +1295,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:83
 #: src/euphorie/client/templates/report.pt:74
 #: src/euphorie/client/templates/report_actionplan.pt:203
-#: src/euphorie/client/templates/report_company.pt:93
+#: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:198
 #: src/euphorie/client/templates/risk_evaluation.pt:169
@@ -1303,7 +1316,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:87
 #: src/euphorie/client/templates/report.pt:76
 #: src/euphorie/client/templates/report_actionplan.pt:205
-#: src/euphorie/client/templates/report_company.pt:95
+#: src/euphorie/client/templates/report_company.pt:97
 #: src/euphorie/client/templates/report_identification.pt:105
 #: src/euphorie/client/templates/risk_actionplan.pt:200
 #: src/euphorie/client/templates/risk_evaluation.pt:171
@@ -1324,7 +1337,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:85
 #: src/euphorie/client/templates/report.pt:77
 #: src/euphorie/client/templates/report_actionplan.pt:206
-#: src/euphorie/client/templates/report_company.pt:96
+#: src/euphorie/client/templates/report_company.pt:98
 #: src/euphorie/client/templates/report_identification.pt:106
 #: src/euphorie/client/templates/risk_actionplan.pt:201
 #: src/euphorie/client/templates/risk_evaluation.pt:172
@@ -1963,7 +1976,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:41
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
-#: src/euphorie/client/templates/report_company.pt:52
+#: src/euphorie/client/templates/report_company.pt:54
 #: src/euphorie/client/templates/risk_actionplan.pt:148
 #: src/euphorie/client/templates/risk_evaluation.pt:119
 #: src/euphorie/client/templates/risk_identification.pt:30
@@ -1980,7 +1993,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:36
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
-#: src/euphorie/client/templates/report_company.pt:53
+#: src/euphorie/client/templates/report_company.pt:55
 #: src/euphorie/client/templates/risk_actionplan.pt:149
 #: src/euphorie/client/templates/risk_evaluation.pt:120
 #: src/euphorie/client/templates/risk_identification.pt:31
