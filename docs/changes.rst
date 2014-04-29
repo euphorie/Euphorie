@@ -9,6 +9,7 @@ Feature changes
 
 - For the left-hand navigation in the OSHA styles, make the current menu
   item white and bolder (OSHA #8472)
+- Add two more questions to the company survey (OSHA #9281)
 
 Bugfixes
 ~~~~~~~~
