@@ -89,7 +89,7 @@ class CompanySchema(form.Schema):
     needs_met = schema.Choice(
         title=_(
             "label_needs_met",
-            default=u"Did this OiRA tool meet to your needs?"),
+            default=u"Did this OiRA tool meet your needs?"),
         vocabulary=SimpleVocabulary([
             SimpleTerm(True, title=_("label_yes", default=u"Yes")),
             SimpleTerm(False, title=_("label_no", default=u"No")),
