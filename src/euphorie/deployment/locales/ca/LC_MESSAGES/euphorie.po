@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-04-29 17:35+0200\n"
+"POT-Creation-Date: 2014-05-01 12:57+0200\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,16 +144,18 @@ msgstr ""
 msgid "label_no"
 msgstr ""
 
-#. Default: Did this OiRA tool meet to your needs?
+#. Default: Did this OiRA tool meet your needs?
 #: src/euphorie/client/company.py:90
+#: src/euphorie/client/templates/report_actionplan.pt:66
 msgid "label_needs_met"
-msgstr ""
+msgstr "L’eina OiRA ha respost a les seves necessitats?"
 
 #. Default: Would you recommend this OiRA tool to an enterprise similar to
-#. yours ?
+#. yours?
 #: src/euphorie/client/company.py:101
+#: src/euphorie/client/templates/report_actionplan.pt:70
 msgid "label_recommend_tool"
-msgstr ""
+msgstr "Recomanaria l’eina OiRA a altres empreses semblants a la vostra?"
 
 #: src/euphorie/client/login.py:122
 msgid "Please enter your email address"
@@ -252,7 +254,7 @@ msgstr "risc de prioritat elevada"
 #. Default: This report was based on the survey '${title}' of revision date
 #. ${date}.
 #: src/euphorie/client/report.py:189
-#: src/euphorie/client/templates/report_actionplan.pt:164
+#: src/euphorie/client/templates/report_actionplan.pt:172
 msgid "report_survey_revision"
 msgstr ""
 
@@ -266,16 +268,16 @@ msgid "report_survey_footer_risk_present"
 msgstr " Els riscos marcats amb [*] estan presents."
 
 #. Default: You responded negatively to the above statement.
-#: src/euphorie/client/report.py:420 src/euphorie/client/report.py:698
-#: src/euphorie/client/templates/report_actionplan.pt:90
+#: src/euphorie/client/report.py:420 src/euphorie/client/report.py:734
+#: src/euphorie/client/templates/report_actionplan.pt:98
 #: src/euphorie/client/templates/report_identification.pt:51
 #: src/euphorie/client/templates/webhelpers.pt:126
 msgid "warn_risk_present"
 msgstr ""
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:426 src/euphorie/client/report.py:704
-#: src/euphorie/client/templates/report_actionplan.pt:91
+#: src/euphorie/client/report.py:426 src/euphorie/client/report.py:740
+#: src/euphorie/client/templates/report_actionplan.pt:99
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
 msgstr "Aquest risc encara s'ha d'inventariar."
@@ -286,16 +288,19 @@ msgid "filename_report_identification"
 msgstr "Informe d'identificació ${title}"
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:500 src/euphorie/client/report.py:603
+#: src/euphorie/client/report.py:500 src/euphorie/client/report.py:510
+#: src/euphorie/client/report.py:520 src/euphorie/client/report.py:623
 #: src/euphorie/client/templates/report_actionplan.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:45
 #: src/euphorie/client/templates/report_actionplan.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:63
+#: src/euphorie/client/templates/report_actionplan.pt:67
+#: src/euphorie/client/templates/report_actionplan.pt:71
 msgid "missing_data"
 msgstr "No facilitat"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:580
+#: src/euphorie/client/report.py:600
 msgid "plan_report_intro_header"
 msgstr "Introducció"
 
@@ -304,7 +309,7 @@ msgstr "Introducció"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:582
+#: src/euphorie/client/report.py:602
 #: src/euphorie/client/templates/report_actionplan.pt:31
 msgid "plan_report_intro_1"
 msgstr ""
@@ -315,142 +320,142 @@ msgstr ""
 "se n'hagin d'afegir de nous."
 
 #. Default: Company details
-#: src/euphorie/client/report.py:607
+#: src/euphorie/client/report.py:627
 msgid "plan_report_company_header"
 msgstr "Informació de l'empresa"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:658
+#: src/euphorie/client/report.py:694
 msgid "plan_report_plan_header"
 msgstr "Pla d'acció"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the top 5 most critical risks it must be
 #. included in this report.
-#: src/euphorie/client/report.py:711
-#: src/euphorie/client/templates/report_actionplan.pt:159
+#: src/euphorie/client/report.py:747
+#: src/euphorie/client/templates/report_actionplan.pt:167
 #: src/euphorie/client/templates/webhelpers.pt:117
 msgid "top5_risk_not_present"
 msgstr ""
 
 #. Default: This is a
-#: src/euphorie/client/report.py:726
+#: src/euphorie/client/report.py:762
 msgid "report_priority"
 msgstr "Es tracta d'una"
 
 #. Default: Measure
-#: src/euphorie/client/report.py:738
+#: src/euphorie/client/report.py:774
 msgid "header_measure_single"
 msgstr ""
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:742
-#: src/euphorie/client/templates/report_actionplan.pt:106
+#: src/euphorie/client/report.py:778
+#: src/euphorie/client/templates/report_actionplan.pt:114
 msgid "header_measure"
 msgstr ""
 
 #. Default: Action plan:
-#: src/euphorie/client/report.py:756
-#: src/euphorie/client/templates/report_actionplan.pt:109
+#: src/euphorie/client/report.py:792
+#: src/euphorie/client/templates/report_actionplan.pt:117
 msgid "report_measure_actionplan"
 msgstr ""
 
 #. Default: Prevention plan:
-#: src/euphorie/client/report.py:762
-#: src/euphorie/client/templates/report_actionplan.pt:113
+#: src/euphorie/client/report.py:798
+#: src/euphorie/client/templates/report_actionplan.pt:121
 msgid "report_measure_preventionplan"
 msgstr ""
 
 #. Default: Requirements:
-#: src/euphorie/client/report.py:769
-#: src/euphorie/client/templates/report_actionplan.pt:117
+#: src/euphorie/client/report.py:805
+#: src/euphorie/client/templates/report_actionplan.pt:125
 msgid "report_measure_requirements"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:779
-#: src/euphorie/client/templates/report_actionplan.pt:123
+#: src/euphorie/client/report.py:815
+#: src/euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_responsible"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:786
-#: src/euphorie/client/templates/report_actionplan.pt:125
+#: src/euphorie/client/report.py:822
+#: src/euphorie/client/templates/report_actionplan.pt:133
 msgid "report_measure_responsible_and_start"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:796
-#: src/euphorie/client/templates/report_actionplan.pt:128
+#: src/euphorie/client/report.py:832
+#: src/euphorie/client/templates/report_actionplan.pt:136
 msgid "report_measure_responsible_and_end"
 msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:806
-#: src/euphorie/client/templates/report_actionplan.pt:141
+#: src/euphorie/client/report.py:842
+#: src/euphorie/client/templates/report_actionplan.pt:149
 msgid "report_measure_full"
 msgstr ""
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:818
-#: src/euphorie/client/templates/report_actionplan.pt:131
+#: src/euphorie/client/report.py:854
+#: src/euphorie/client/templates/report_actionplan.pt:139
 msgid "report_measure_start_only"
 msgstr ""
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:827
-#: src/euphorie/client/templates/report_actionplan.pt:134
+#: src/euphorie/client/report.py:863
+#: src/euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_end_only"
 msgstr ""
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:835
-#: src/euphorie/client/templates/report_actionplan.pt:137
+#: src/euphorie/client/report.py:871
+#: src/euphorie/client/templates/report_actionplan.pt:145
 msgid "report_measure_start_and_stop"
 msgstr ""
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:845
-#: src/euphorie/client/templates/report_actionplan.pt:145
+#: src/euphorie/client/report.py:881
+#: src/euphorie/client/templates/report_actionplan.pt:153
 msgid "report_measure_budget"
 msgstr ""
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:860
+#: src/euphorie/client/report.py:896
 msgid "filename_report_actionplan"
 msgstr ""
 
 #. Default: Low
-#: src/euphorie/client/report.py:912
+#: src/euphorie/client/report.py:948
 msgid "label_timeline_priority_low"
 msgstr "Baixa"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:913
+#: src/euphorie/client/report.py:949
 msgid "label_timeline_priority_medium"
 msgstr "Mitjana"
 
 #. Default: High
-#: src/euphorie/client/report.py:914
+#: src/euphorie/client/report.py:950
 msgid "label_timeline_priority_high"
 msgstr "Elevada"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:919
+#: src/euphorie/client/report.py:955
 #: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
 msgstr ""
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:921
+#: src/euphorie/client/report.py:957
 #: src/euphorie/client/templates/risk_actionplan.pt:121
 msgid "label_action_plan_end"
 msgstr ""
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:923
+#: src/euphorie/client/report.py:959
 #: src/euphorie/client/templates/risk_actionplan.pt:71
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
@@ -458,7 +463,7 @@ msgid "label_measure_action_plan"
 msgstr ""
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:927
+#: src/euphorie/client/report.py:963
 #: src/euphorie/client/templates/risk_actionplan.pt:72
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
@@ -466,55 +471,55 @@ msgid "label_measure_prevention_plan"
 msgstr ""
 
 #. Default: Requirements
-#: src/euphorie/client/report.py:931 src/euphorie/content/solution.py:49
+#: src/euphorie/client/report.py:967 src/euphorie/content/solution.py:49
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:933
+#: src/euphorie/client/report.py:969
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
 msgstr ""
 
 #. Default: Budget (in Euro)
-#: src/euphorie/client/report.py:936
+#: src/euphorie/client/report.py:972
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 msgid "label_action_plan_budget"
 msgstr ""
 
 #. Default: Section
-#: src/euphorie/client/report.py:938
+#: src/euphorie/client/report.py:974
 msgid "label_section"
 msgstr "Secció"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:940
+#: src/euphorie/client/report.py:976
 msgid "label_risk_number"
 msgstr "Codi de risc"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:942
+#: src/euphorie/client/report.py:978
 msgid "report_timeline_risk_title"
 msgstr "Risc"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:944
+#: src/euphorie/client/report.py:980
 msgid "report_timeline_priority"
 msgstr "Prioritat"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:946
+#: src/euphorie/client/report.py:982
 msgid "report_timeline_comment"
 msgstr "Comentaris"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:961
+#: src/euphorie/client/report.py:997
 msgid "report_timeline_title"
 msgstr "Cronologia"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:994
+#: src/euphorie/client/report.py:1030
 msgid "filename_report_timeline"
 msgstr "Cronologia per a ${title}"
 
@@ -918,7 +923,7 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:42
 #: src/euphorie/client/templates/reminder.pt:41
 #: src/euphorie/client/templates/report.pt:75
-#: src/euphorie/client/templates/report_actionplan.pt:204
+#: src/euphorie/client/templates/report_actionplan.pt:212
 #: src/euphorie/client/templates/report_company.pt:96
 #: src/euphorie/client/templates/report_identification.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:199
@@ -1020,7 +1025,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:49
 #: src/euphorie/client/templates/profile.pt:58
 #: src/euphorie/client/templates/report.pt:41
-#: src/euphorie/client/templates/report_actionplan.pt:170
+#: src/euphorie/client/templates/report_actionplan.pt:178
 #: src/euphorie/client/templates/report_company.pt:62
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_actionplan.pt:162
@@ -1046,7 +1051,7 @@ msgstr "Preparació"
 #: src/euphorie/client/templates/module_identification.pt:50
 #: src/euphorie/client/templates/profile.pt:59
 #: src/euphorie/client/templates/report.pt:42
-#: src/euphorie/client/templates/report_actionplan.pt:171
+#: src/euphorie/client/templates/report_actionplan.pt:179
 #: src/euphorie/client/templates/report_company.pt:63
 #: src/euphorie/client/templates/report_identification.pt:71
 #: src/euphorie/client/templates/risk_actionplan.pt:163
@@ -1073,7 +1078,7 @@ msgstr "Preparació"
 #: src/euphorie/client/templates/module_identification.pt:55
 #: src/euphorie/client/templates/profile.pt:63
 #: src/euphorie/client/templates/report.pt:47
-#: src/euphorie/client/templates/report_actionplan.pt:176
+#: src/euphorie/client/templates/report_actionplan.pt:184
 #: src/euphorie/client/templates/report_company.pt:68
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_actionplan.pt:168
@@ -1100,7 +1105,7 @@ msgstr "Identificació"
 #: src/euphorie/client/templates/module_identification.pt:56
 #: src/euphorie/client/templates/profile.pt:64
 #: src/euphorie/client/templates/report.pt:48
-#: src/euphorie/client/templates/report_actionplan.pt:177
+#: src/euphorie/client/templates/report_actionplan.pt:185
 #: src/euphorie/client/templates/report_company.pt:69
 #: src/euphorie/client/templates/report_identification.pt:77
 #: src/euphorie/client/templates/risk_actionplan.pt:169
@@ -1127,7 +1132,7 @@ msgstr "Identificació"
 #: src/euphorie/client/templates/module_identification.pt:64
 #: src/euphorie/client/templates/profile.pt:67
 #: src/euphorie/client/templates/report.pt:53
-#: src/euphorie/client/templates/report_actionplan.pt:182
+#: src/euphorie/client/templates/report_actionplan.pt:190
 #: src/euphorie/client/templates/report_company.pt:74
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_actionplan.pt:174
@@ -1154,7 +1159,7 @@ msgstr "Avaluació"
 #: src/euphorie/client/templates/module_identification.pt:65
 #: src/euphorie/client/templates/profile.pt:68
 #: src/euphorie/client/templates/report.pt:54
-#: src/euphorie/client/templates/report_actionplan.pt:183
+#: src/euphorie/client/templates/report_actionplan.pt:191
 #: src/euphorie/client/templates/report_company.pt:75
 #: src/euphorie/client/templates/report_identification.pt:83
 #: src/euphorie/client/templates/risk_actionplan.pt:175
@@ -1181,7 +1186,7 @@ msgstr "Avaluació"
 #: src/euphorie/client/templates/module_identification.pt:70
 #: src/euphorie/client/templates/profile.pt:71
 #: src/euphorie/client/templates/report.pt:59
-#: src/euphorie/client/templates/report_actionplan.pt:188
+#: src/euphorie/client/templates/report_actionplan.pt:196
 #: src/euphorie/client/templates/report_company.pt:80
 #: src/euphorie/client/templates/report_identification.pt:88
 #: src/euphorie/client/templates/risk_actionplan.pt:180
@@ -1208,7 +1213,7 @@ msgstr "Pla d’acció"
 #: src/euphorie/client/templates/module_identification.pt:71
 #: src/euphorie/client/templates/profile.pt:72
 #: src/euphorie/client/templates/report.pt:60
-#: src/euphorie/client/templates/report_actionplan.pt:189
+#: src/euphorie/client/templates/report_actionplan.pt:197
 #: src/euphorie/client/templates/report_company.pt:81
 #: src/euphorie/client/templates/report_identification.pt:89
 #: src/euphorie/client/templates/risk_actionplan.pt:181
@@ -1234,7 +1239,7 @@ msgstr "Pla d’acció"
 #: src/euphorie/client/templates/module_identification.pt:76
 #: src/euphorie/client/templates/profile.pt:75
 #: src/euphorie/client/templates/report.pt:65
-#: src/euphorie/client/templates/report_actionplan.pt:194
+#: src/euphorie/client/templates/report_actionplan.pt:202
 #: src/euphorie/client/templates/report_company.pt:86
 #: src/euphorie/client/templates/report_identification.pt:94
 #: src/euphorie/client/templates/risk_actionplan.pt:189
@@ -1260,7 +1265,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:77
 #: src/euphorie/client/templates/profile.pt:76
 #: src/euphorie/client/templates/report.pt:66
-#: src/euphorie/client/templates/report_actionplan.pt:195
+#: src/euphorie/client/templates/report_actionplan.pt:203
 #: src/euphorie/client/templates/report_company.pt:87
 #: src/euphorie/client/templates/report_identification.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:190
@@ -1286,7 +1291,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:84
 #: src/euphorie/client/templates/profile.pt:82
 #: src/euphorie/client/templates/report.pt:73
-#: src/euphorie/client/templates/report_actionplan.pt:202
+#: src/euphorie/client/templates/report_actionplan.pt:210
 #: src/euphorie/client/templates/report_company.pt:94
 #: src/euphorie/client/templates/report_identification.pt:102
 #: src/euphorie/client/templates/risk_actionplan.pt:197
@@ -1311,7 +1316,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:85
 #: src/euphorie/client/templates/profile.pt:83
 #: src/euphorie/client/templates/report.pt:74
-#: src/euphorie/client/templates/report_actionplan.pt:203
+#: src/euphorie/client/templates/report_actionplan.pt:211
 #: src/euphorie/client/templates/report_company.pt:95
 #: src/euphorie/client/templates/report_identification.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:198
@@ -1332,7 +1337,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_evaluation.pt:75
 #: src/euphorie/client/templates/module_identification.pt:87
 #: src/euphorie/client/templates/report.pt:76
-#: src/euphorie/client/templates/report_actionplan.pt:205
+#: src/euphorie/client/templates/report_actionplan.pt:213
 #: src/euphorie/client/templates/report_company.pt:97
 #: src/euphorie/client/templates/report_identification.pt:105
 #: src/euphorie/client/templates/risk_actionplan.pt:200
@@ -1353,7 +1358,7 @@ msgstr ""
 #: src/euphorie/client/templates/module_identification.pt:88
 #: src/euphorie/client/templates/profile.pt:85
 #: src/euphorie/client/templates/report.pt:77
-#: src/euphorie/client/templates/report_actionplan.pt:206
+#: src/euphorie/client/templates/report_actionplan.pt:214
 #: src/euphorie/client/templates/report_company.pt:98
 #: src/euphorie/client/templates/report_identification.pt:106
 #: src/euphorie/client/templates/risk_actionplan.pt:201
@@ -2225,25 +2230,25 @@ msgid "referer_health_safety_export"
 msgstr "experts en salut i seguretat"
 
 #. Default: low priority risk
-#: src/euphorie/client/templates/report_actionplan.pt:95
+#: src/euphorie/client/templates/report_actionplan.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:31
 msgid "risk_priority_low"
 msgstr ""
 
 #. Default: medium priority risk
-#: src/euphorie/client/templates/report_actionplan.pt:96
+#: src/euphorie/client/templates/report_actionplan.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:32
 msgid "risk_priority_medium"
 msgstr ""
 
 #. Default: high priority risk
-#: src/euphorie/client/templates/report_actionplan.pt:97
+#: src/euphorie/client/templates/report_actionplan.pt:105
 #: src/euphorie/client/templates/risk_actionplan.pt:33
 msgid "risk_priority_high"
 msgstr ""
 
 #. Default: This is a ${priority}.
-#: src/euphorie/client/templates/report_actionplan.pt:93
+#: src/euphorie/client/templates/report_actionplan.pt:101
 #: src/euphorie/client/templates/risk_actionplan.pt:30
 msgid "risk_priority"
 msgstr ""

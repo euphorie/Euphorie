@@ -11,8 +11,9 @@ msgstr ""
 "PO-Revision-Date: 2013-11-26 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
@@ -144,8 +145,8 @@ msgstr "Verkflæði verksviðs"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to"
-" the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to "
+"the sector user."
 msgstr ""
 "Eins-ástands verkflæði fyrir viðföng atvinnusviðs sem gefur notanda "
 "atvinnusviðsins aðgang til breytinga á inni haldi þess. "
@@ -158,20 +159,14 @@ msgstr "Virkt"
 msgid "The One And Only state "
 msgstr "Hið eina og sanna ástand"
 
-#. Default: Title
-#: plone.app.dexterity/behaviors/metadata.py:29
 # Manually added
-msgid "label_title"
-msgstr "Titill"
+#~ msgid "label_title"
+#~ msgstr "Titill"
 
-#. Default: Description
-#: plone.app.dexterity/behaviors/metadata.py:34
 # Manually added
-msgid "label_description"
-msgstr "Lýsing"
+#~ msgid "label_description"
+#~ msgstr "Lýsing"
 
-#. Default: A short summary of the content.
-#: plone.app.dexterity/behaviors/metadata.py:35
 # Manually added
-msgid "help_description"
-msgstr "Stutt innihaldslýsing"
+#~ msgid "help_description"
+#~ msgstr "Stutt innihaldslýsing"
