@@ -63,11 +63,11 @@
         <dd tal:condition="python:company.workers_participated is None"><em i18n:translate="missing_data">Not provided</em></dd>
         <dd tal:condition="python:company.workers_participated is not None">${view/workers_participated}</dd>
 
-        <dt i18n:translate="label_needs_met">Workers were invited to participate in the risk assessment</dt>
+        <dt i18n:translate="label_needs_met">Did this OiRA tool meet your needs?</dt>
         <dd tal:condition="python:company.needs_met is None"><em i18n:translate="missing_data">Not provided</em></dd>
         <dd tal:condition="python:company.needs_met is not None">${view/needs_met}</dd>
 
-        <dt i18n:translate="label_recommend_tool">Workers were invited to participate in the risk assessment</dt>
+        <dt i18n:translate="label_recommend_tool">Would you recommend this OiRA tool to an enterprise similar to yours?</dt>
         <dd tal:condition="python:company.recommend_tool is None"><em i18n:translate="missing_data">Not provided</em></dd>
         <dd tal:condition="python:company.recommend_tool is not None">${view/recommend_tool}</dd>
     </dl>
