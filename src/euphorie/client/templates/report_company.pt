@@ -43,11 +43,13 @@
             <label><input type="radio" name="${widget/name}" value="other" checked="${python:'checked' if 'other' in value else None}"/> <tal:span i18n:translate="referer_other">other channel</tal:span></label>
             <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         </fieldset>
-        
+
         <tal:widget replace="structure view/widgets/workers_participated/render" />
+        <tal:widget replace="structure view/widgets/needs_met/render" />
+        <tal:widget replace="structure view/widgets/recommend_tool/render" />
     </fieldset>
 
-      
+
       <p class="buttonBar">
         <button type="submit" name="form.buttons.previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
         <button type="submit" name="form.buttons.next" i18n:translate="label_next" class="next floatAfter">Next</button>

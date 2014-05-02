@@ -77,7 +77,10 @@ class ViewTests(unittest.TestCase):
                 employees='1-9',
                 conductor='both',
                 referer='other',
-                workers_participated=True)
+                workers_participated=True,
+                needs_met=False,
+                recommend_tool=True,
+        )
         return SurveySession(company=company)
 
     def test_do_GET_result(self):
@@ -88,7 +91,7 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(
                 set(response),
                 set(['type', 'country', 'employees', 'conductor', 'referer',
-                     'workers-participated']))
+                     'workers-participated', 'needs-met', 'recommend-tool']))
         self.assertEqual(response['type'], 'company')
 
     def test_do_GET_no_company_data(self):
@@ -133,3 +136,5 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(context.company.country, u'nl')
         self.assertEqual(context.company.employees, u'1-9')
         self.assertEqual(context.company.workers_participated, True)
+        self.assertEqual(context.company.needs_met, False)
+        self.assertEqual(context.company.recommend_tool, True)

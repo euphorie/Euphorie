@@ -7,7 +7,7 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- Add two more questions to the company survey (OSHA #9281)
 
 Bugfixes
 ~~~~~~~~

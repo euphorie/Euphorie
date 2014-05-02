@@ -502,6 +502,26 @@ class ActionPlanReportView(grok.View):
             term = field.vocabulary.getTerm(company.workers_participated)
             return t(term.title)
 
+    def needs_met(self):
+        company = self.session.company
+        field = CompanySchema["needs_met"]
+        t = lambda txt: translate(txt, context=self.request)
+        if company.needs_met is None:
+            return t(_("missing_data", "Not provided"))
+        else:
+            term = field.vocabulary.getTerm(company.needs_met)
+            return t(term.title)
+
+    def recommend_tool(self):
+        company = self.session.company
+        field = CompanySchema["recommend_tool"]
+        t = lambda txt: translate(txt, context=self.request)
+        if company.recommend_tool is None:
+            return t(_("missing_data", "Not provided"))
+        else:
+            term = field.vocabulary.getTerm(company.recommend_tool)
+            return t(term.title)
+
     def show_negate_warning(self, node, zodbnode):
         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return False
@@ -644,6 +664,22 @@ class ActionPlanReportDownload(grok.View):
             Cell(Paragraph(
                 normal_style, t(term.title)
                 if company.workers_participated else missing)))
+        field = CompanySchema["needs_met"]
+        if company.needs_met:
+            term = field.vocabulary.getTerm(company.needs_met)
+        table.append(
+            Cell(Paragraph(normal_style, t(field.title))),
+            Cell(Paragraph(
+                normal_style, t(term.title)
+                if company.needs_met else missing)))
+        field = CompanySchema["recommend_tool"]
+        if company.recommend_tool:
+            term = field.vocabulary.getTerm(company.recommend_tool)
+        table.append(
+            Cell(Paragraph(normal_style, t(field.title))),
+            Cell(Paragraph(
+                normal_style, t(term.title)
+                if company.recommend_tool else missing)))
         section.append(table)
 
     def addActionPlan(self, document):

@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2012-06-26 14:58+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: English\n"
+"Language: en_ZA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
-"Language: en_ZA\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -159,7 +159,5 @@ msgid "The One And Only state "
 msgstr "The One And Only state "
 
 # XXX: This is not yet translated in plone.app.locales, so I added it here!
-#. Default: "Used in item listings and search results."
-#: Archetypes/ExtensibleMetadata.py:94
-msgid "help_description"
-msgstr "Кратко обобщение на съдържанието."
+#~ msgid "help_description"
+#~ msgstr "Кратко обобщение на съдържанието."

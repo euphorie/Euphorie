@@ -26,6 +26,8 @@ class View(JsonView):
                 'referer': getattr(company, 'referer', None),
                 'workers-participated':
                     getattr(company, 'workers_participated', None),
+                'needs-met': getattr(company, 'needs_met', None),
+                'recommend-tool': getattr(company, 'recommend_tool', None),
                }
 
     def do_PUT(self):
@@ -42,6 +44,12 @@ class View(JsonView):
             company.workers_participated = get_json_bool(self.input,
                     'workers-participated', False,
                     company.workers_participated)
+            company.needs_met = get_json_bool(self.input,
+                    'needs-met', False,
+                    company.needs_met)
+            company.recommend_tool = get_json_bool(self.input,
+                    'recommend-tool', False,
+                    company.recommend_tool)
         except (KeyError, ValueError) as e:
             return {'type': 'error',
                     'message': str(e)}
