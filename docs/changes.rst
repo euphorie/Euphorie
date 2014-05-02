@@ -1,15 +1,28 @@
 Changelog
 =========
 
-6.3.2 - Unreleased
+6.3.3 (unreleased)
 ------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Add two more questions to the company survey (OSHA #9281)
+
+Bugfixes
+~~~~~~~~
+
+- ...
+
+
+6.3.2 - May 2, 2014
+-------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
 
 - For the left-hand navigation in the OSHA styles, make the current menu
   item white and bolder (OSHA #8472)
-- Add two more questions to the company survey (OSHA #9281)
 
 Bugfixes
 ~~~~~~~~
