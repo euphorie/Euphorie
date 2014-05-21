@@ -59,7 +59,7 @@ COUNTRIES = {
 
         "hr": (u"Republic of Croatia", "candidate-eu"),
         "is": (u"Republic of Iceland", "candidate-eu"),
-        "mk": (u"Republic of Macedonia", "candidate-eu"),
+        "mk": (u"F.Y.R. Macedonia", "candidate-eu"),
         "me": (u"Montenegro", "candidate-eu"),
         "tr": (u"Republic of Turkey", "candidate-eu"),
 

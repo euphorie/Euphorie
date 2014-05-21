@@ -9,6 +9,7 @@ from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.sector import ISector
+from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from .. import MessageFactory as _
 
 grok.templatedir("templates")
@@ -50,6 +51,8 @@ class View(grok.View):
     def update(self):
         super(View, self).update()
         names = self.request.locale.displayNames.territories
+        # Hook in potential custom country names
+        names.update(CUSTOM_COUNTRY_NAMES)
         self.title = names.get(self.context.id.upper(), self.context.title)
         self.sectors = [{'id': sector.id,
                          'title': sector.title,

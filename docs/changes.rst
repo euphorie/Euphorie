@@ -8,6 +8,8 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Add two more questions to the company survey (OSHA #9281)
+- Customise the name of "Macedonia" to "F.Y.R. Macedonia" due to
+  political sensitivities
 
 Bugfixes
 ~~~~~~~~

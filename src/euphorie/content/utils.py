@@ -8,15 +8,19 @@ from .. import MessageFactory as _
 TAG = re.compile(u"<.*?>")
 
 REGION_NAMES = {
-        "eu": _(u"European Union"),
-        
-        # This are areas whose country codes have not stabilized enough
-        # to have arrived in the Unicode consortiums translations,
-        # or were we use and old/incorrect country code.
-        "CS": _(u"Kosovo"),
-        "ME": _(u"Montenegro"),
-        "RS": _(u"Republic of Serbia"),
-        }
+    "eu": _(u"European Union"),
+}
+
+CUSTOM_COUNTRY_NAMES = {
+    # This are areas whose country codes have not stabilized enough
+    # to have arrived in the Unicode consortiums translations,
+    # or where we use and old/incorrect country code.
+    "CS": _(u"Kosovo"),
+    "ME": _(u"Montenegro"),
+    "RS": _(u"Republic of Serbia"),
+    # Political issue, Macedonia can't be called Macedonia...
+    "MK": _(u"F.Y.R. Macedonia"),
+}
 
 
 def getSurvey(context):
@@ -63,7 +67,7 @@ def getTermTitleByToken(field, token):
 
 def getRegionTitle(request, id, default=None):
     names = request.locale.displayNames.territories
-    getters = [REGION_NAMES.get, names.get]
+    getters = [REGION_NAMES.get, CUSTOM_COUNTRY_NAMES.get, names.get]
     for getter in getters:
         title = getter(id.upper())
         if title is not None:
@@ -81,7 +85,6 @@ def summarizeCountries(container, request, current_country=None,
 
         if permission and not checkPermission(country, permission):
             continue
-
 
         country_type = getattr(country, "country_type", "country")
         if country_type != 'region':
