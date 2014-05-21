@@ -491,12 +491,12 @@ msgstr ""
 #. Default: Section
 #: src/euphorie/client/report.py:974
 msgid "label_section"
-msgstr "Oddelek"
+msgstr "Modul"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:976
 msgid "label_risk_number"
-msgstr "Vrsta tveganja"
+msgstr "Številka modula"
 
 #. Default: Risk
 #: src/euphorie/client/report.py:978
@@ -506,7 +506,7 @@ msgstr "Tveganje"
 #. Default: Priority
 #: src/euphorie/client/report.py:980
 msgid "report_timeline_priority"
-msgstr "To je"
+msgstr "Prioriteta tveganja"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:982
