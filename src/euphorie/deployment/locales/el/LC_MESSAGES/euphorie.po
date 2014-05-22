@@ -3786,11 +3786,11 @@ msgstr "Ευρωπαϊκή Ένωση "
 
 #: src/euphorie/content/utils.py:18
 msgid "Kosovo"
-msgstr "Kοσσυφοπέδιο"
+msgstr "Κοσσυφοπέδιο"
 
 #: src/euphorie/content/utils.py:19
 msgid "Montenegro"
-msgstr "Mαυροβούνιο"
+msgstr "Μαυροβούνιο"
 
 #: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
