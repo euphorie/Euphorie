@@ -1,5 +1,7 @@
 import re
 from zope.schema.interfaces import ITitledTokenizedTerm
+from zope.i18n import translate
+from zope.i18nmessageid.message import Message
 from Acquisition import aq_parent
 from plonetheme.nuplone.utils import checkPermission
 from .. import MessageFactory as _
@@ -71,6 +73,8 @@ def getRegionTitle(request, id, default=None):
     for getter in getters:
         title = getter(id.upper())
         if title is not None:
+            if isinstance(title, Message):
+                title = translate(title, context=request)
             return title
     return default if default is not None else id
 
