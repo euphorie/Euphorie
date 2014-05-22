@@ -3798,7 +3798,7 @@ msgstr "Δημοκρατία της Σερβίας"
 
 #: src/euphorie/content/utils.py:22
 msgid "F.Y.R. Macedonia"
-msgstr "ΠΓΔΜ"
+msgstr "ΠΓΔ Μακεδονίας"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
