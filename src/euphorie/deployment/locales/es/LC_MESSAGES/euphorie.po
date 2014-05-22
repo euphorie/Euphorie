@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-01 12:57+0200\n"
+"POT-Creation-Date: 2014-05-22 10:41+0200\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -2804,27 +2804,27 @@ msgstr "Referencias legales y de política"
 msgid "The specified colour is not valid."
 msgstr "El color especificado no es válido."
 
-#: src/euphorie/content/country.py:22
+#: src/euphorie/content/country.py:23
 msgid "Country grouping"
 msgstr "Grupo de país"
 
-#: src/euphorie/content/country.py:24
+#: src/euphorie/content/country.py:25
 msgid "Region"
 msgstr "Región"
 
-#: src/euphorie/content/country.py:25
+#: src/euphorie/content/country.py:26
 msgid "EU member state"
 msgstr "Miembro de la UE"
 
-#: src/euphorie/content/country.py:26
+#: src/euphorie/content/country.py:27
 msgid "EFTA country"
 msgstr "País EFTA"
 
-#: src/euphorie/content/country.py:27
+#: src/euphorie/content/country.py:28
 msgid "Candidate country"
 msgstr "País candidato"
 
-#: src/euphorie/content/country.py:29
+#: src/euphorie/content/country.py:30
 msgid "Potential candidate country"
 msgstr "País potencialmente candidato"
 
@@ -3556,17 +3556,21 @@ msgstr "La cuenta \"${title}\" se ha desbloqueado."
 msgid "European Union"
 msgstr "Unión Europea"
 
-#: src/euphorie/content/utils.py:16
+#: src/euphorie/content/utils.py:18
 msgid "Kosovo"
 msgstr ""
 
-#: src/euphorie/content/utils.py:17
+#: src/euphorie/content/utils.py:19
 msgid "Montenegro"
 msgstr ""
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
 msgstr "República de Serbia"
+
+#: src/euphorie/content/utils.py:22
+msgid "F.Y.R. Macedonia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

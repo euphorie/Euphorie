@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-01 12:57+0200\n"
+"POT-Creation-Date: 2014-05-22 10:41+0200\n"
 "PO-Revision-Date: 2013-11-26 11:53+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,8 @@ msgstr "Uppfyllti OiRA áhættumatið þarfir þínar?"
 #: src/euphorie/client/company.py:101
 #: src/euphorie/client/templates/report_actionplan.pt:70
 msgid "label_recommend_tool"
-msgstr "Mundir þú mæla með þessu OiRA áhættumati við fyrirtæki í þinni starfsgrein?"
+msgstr ""
+"Mundir þú mæla með þessu OiRA áhættumati við fyrirtæki í þinni starfsgrein?"
 
 #: src/euphorie/client/login.py:122
 msgid "Please enter your email address"
@@ -2872,27 +2873,27 @@ msgstr "Lög og reglugerðir"
 msgid "The specified colour is not valid."
 msgstr "Valinn litur er ógildur."
 
-#: src/euphorie/content/country.py:22
+#: src/euphorie/content/country.py:23
 msgid "Country grouping"
 msgstr "Flokkun landa"
 
-#: src/euphorie/content/country.py:24
+#: src/euphorie/content/country.py:25
 msgid "Region"
 msgstr "Svæði"
 
-#: src/euphorie/content/country.py:25
+#: src/euphorie/content/country.py:26
 msgid "EU member state"
 msgstr "Aðildarríki ESB"
 
-#: src/euphorie/content/country.py:26
+#: src/euphorie/content/country.py:27
 msgid "EFTA country"
 msgstr "EFTA land"
 
-#: src/euphorie/content/country.py:27
+#: src/euphorie/content/country.py:28
 msgid "Candidate country"
 msgstr "Umsóknarland"
 
-#: src/euphorie/content/country.py:29
+#: src/euphorie/content/country.py:30
 msgid "Potential candidate country"
 msgstr "Væntanlegt umsóknarland"
 
@@ -3644,17 +3645,21 @@ msgstr "Reikningurinn „${title}\" hefur verið aflæstur."
 msgid "European Union"
 msgstr "Evrópusambandið"
 
-#: src/euphorie/content/utils.py:16
+#: src/euphorie/content/utils.py:18
 msgid "Kosovo"
 msgstr "Kósovó"
 
-#: src/euphorie/content/utils.py:17
+#: src/euphorie/content/utils.py:19
 msgid "Montenegro"
 msgstr "Svartfjallaland"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
 msgstr "Serbía"
+
+#: src/euphorie/content/utils.py:22
+msgid "F.Y.R. Macedonia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

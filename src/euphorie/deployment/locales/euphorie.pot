@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-01 12:57+0200\n"
+"POT-Creation-Date: 2014-05-22 10:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2622,27 +2622,27 @@ msgstr ""
 msgid "The specified colour is not valid."
 msgstr ""
 
-#: src/euphorie/content/country.py:22
+#: src/euphorie/content/country.py:23
 msgid "Country grouping"
 msgstr ""
 
-#: src/euphorie/content/country.py:24
+#: src/euphorie/content/country.py:25
 msgid "Region"
 msgstr ""
 
-#: src/euphorie/content/country.py:25
+#: src/euphorie/content/country.py:26
 msgid "EU member state"
 msgstr ""
 
-#: src/euphorie/content/country.py:26
+#: src/euphorie/content/country.py:27
 msgid "EFTA country"
 msgstr ""
 
-#: src/euphorie/content/country.py:27
+#: src/euphorie/content/country.py:28
 msgid "Candidate country"
 msgstr ""
 
-#: src/euphorie/content/country.py:29
+#: src/euphorie/content/country.py:30
 msgid "Potential candidate country"
 msgstr ""
 
@@ -3350,16 +3350,20 @@ msgstr ""
 msgid "European Union"
 msgstr ""
 
-#: src/euphorie/content/utils.py:16
+#: src/euphorie/content/utils.py:18
 msgid "Kosovo"
 msgstr ""
 
-#: src/euphorie/content/utils.py:17
+#: src/euphorie/content/utils.py:19
 msgid "Montenegro"
 msgstr ""
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
+msgstr ""
+
+#: src/euphorie/content/utils.py:22
+msgid "F.Y.R. Macedonia"
 msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28

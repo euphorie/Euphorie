@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-01 12:57+0200\n"
+"POT-Creation-Date: 2014-05-22 10:41+0200\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2774,27 +2774,27 @@ msgstr "Zakonodaja in drugi viri"
 msgid "The specified colour is not valid."
 msgstr "Specificirana barva ni veljavna."
 
-#: src/euphorie/content/country.py:22
+#: src/euphorie/content/country.py:23
 msgid "Country grouping"
 msgstr "Združevanje držav"
 
-#: src/euphorie/content/country.py:24
+#: src/euphorie/content/country.py:25
 msgid "Region"
 msgstr "Država"
 
-#: src/euphorie/content/country.py:25
+#: src/euphorie/content/country.py:26
 msgid "EU member state"
 msgstr "Država članica EU"
 
-#: src/euphorie/content/country.py:26
+#: src/euphorie/content/country.py:27
 msgid "EFTA country"
 msgstr "Država EFTA"
 
-#: src/euphorie/content/country.py:27
+#: src/euphorie/content/country.py:28
 msgid "Candidate country"
 msgstr "Država kandidatka"
 
-#: src/euphorie/content/country.py:29
+#: src/euphorie/content/country.py:30
 msgid "Potential candidate country"
 msgstr "Potencialna država kandidatka"
 
@@ -3510,17 +3510,21 @@ msgstr "Račun \"${title}\" je odklenjen."
 msgid "European Union"
 msgstr "Evropska unija"
 
-#: src/euphorie/content/utils.py:16
+#: src/euphorie/content/utils.py:18
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: src/euphorie/content/utils.py:17
+#: src/euphorie/content/utils.py:19
 msgid "Montenegro"
 msgstr "Črna Gora"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
 msgstr "Republika Srbija"
+
+#: src/euphorie/content/utils.py:22
+msgid "F.Y.R. Macedonia"
+msgstr ""
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"

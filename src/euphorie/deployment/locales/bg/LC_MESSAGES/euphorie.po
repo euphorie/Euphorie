@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-01 12:57+0200\n"
+"POT-Creation-Date: 2014-05-22 10:41+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -2828,27 +2828,27 @@ msgstr ""
 msgid "The specified colour is not valid."
 msgstr "Посоченият цвят не е валиден."
 
-#: src/euphorie/content/country.py:22
+#: src/euphorie/content/country.py:23
 msgid "Country grouping"
 msgstr "Групиране на страни"
 
-#: src/euphorie/content/country.py:24
+#: src/euphorie/content/country.py:25
 msgid "Region"
 msgstr "Регион"
 
-#: src/euphorie/content/country.py:25
+#: src/euphorie/content/country.py:26
 msgid "EU member state"
 msgstr "Страна-членка ЕС"
 
-#: src/euphorie/content/country.py:26
+#: src/euphorie/content/country.py:27
 msgid "EFTA country"
 msgstr "Страна-членка на европейската асоциация за свободна търговия (EFTA)"
 
-#: src/euphorie/content/country.py:27
+#: src/euphorie/content/country.py:28
 msgid "Candidate country"
 msgstr "Страна-кандидат"
 
-#: src/euphorie/content/country.py:29
+#: src/euphorie/content/country.py:30
 msgid "Potential candidate country"
 msgstr "Потенциална страна-кандидат"
 
@@ -3572,17 +3572,21 @@ msgstr "Акаунт \"${title}\" е отключен."
 msgid "European Union"
 msgstr "Европейски съюз"
 
-#: src/euphorie/content/utils.py:16
+#: src/euphorie/content/utils.py:18
 msgid "Kosovo"
 msgstr "Косово"
 
-#: src/euphorie/content/utils.py:17
+#: src/euphorie/content/utils.py:19
 msgid "Montenegro"
 msgstr "Черна гора"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Republic of Serbia"
 msgstr "Република Сърбия"
+
+#: src/euphorie/content/utils.py:22
+msgid "F.Y.R. Macedonia"
+msgstr "БЮРМ"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
