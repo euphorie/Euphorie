@@ -4,10 +4,18 @@ Changelog
 6.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+Feature changes
+~~~~~~~~~~~~~~~
+
+- ...
+
+Bugfixes
+~~~~~~~~
+
+- ...
 
 
-6.3.3 (2014-05-23)
+6.3.3 May 23, 2014
 ------------------
 
 Feature changes
@@ -16,12 +24,7 @@ Feature changes
 - Add two more questions to the company survey (OSHA #9281)
 - Customise the name of "Macedonia" to "F.Y.R. Macedonia" due to
   political sensitivities (OSHA #10100)
-- Translation correntions in SL
-
-Bugfixes
-~~~~~~~~
-
-- ...
+- Translation correntions in SL (OSHA #10059 #9589)
 
 
 6.3.2 - May 2, 2014
@@ -104,7 +107,7 @@ Bugfixes
 
 - In the client, write the current language as class into the body tag, so that
   language specific CSS rules can be applied.
-  
+
 - The default_priority field could overwrite the fixed_priority field when saving
   a Risk from the edit form.
 
@@ -191,7 +194,7 @@ Feature changes
   This addresses part of `TNO ticket 200
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/200>`_.
 
-- Add page number to RTF reports. This fixes 
+- Add page number to RTF reports. This fixes
   `TNO ticket 241 <https://code.simplon.biz/tracker/tno-euphorie/ticket/241>`_.
 
 - For OSHA, show the legend only in the identification phase.
@@ -227,7 +230,7 @@ Bugfixes
 
   - Added MIT Licensed script to display browser warning so that we can support
     translations. This addresses part of `OSHA ticket 7847
-    <https://projects.syslab.com/issues/7847>`_ and 
+    <https://projects.syslab.com/issues/7847>`_ and
     `OSHA ticket 7929 <https://projects.syslab.com/issues/7929`_.
 
   - Added missing CA translations in the "ancient browser" warnings. This fixes
@@ -282,7 +285,7 @@ Bugfixes
   are readable. This fixes `ticket 93
   <https://github.com/euphorie/Euphorie/issues/93>`_.
 
-- Include modules without a description in the navigation tree. This fixes 
+- Include modules without a description in the navigation tree. This fixes
   `TNO ticket 236 <https://code.simplon.biz/tracker/tno-euphorie/ticket/236>`_.
 
 - Fix a typo in the Dutch translations. This fixes
@@ -293,7 +296,7 @@ Bugfixes
 - Fixed the wrong translations for the timeline xls export priorities
 
 - Fix header styling in the client. Added a body > in sector style before the
-  h1 so that it is more specific 
+  h1 so that it is more specific
 
 - Exchanged translation labels for priority names to match the translations in
   the action plan view. The timeline msgids seem to be fuzzy: the translation
@@ -320,7 +323,7 @@ Bugfixes
 - updated the text for the new login splash screen
 
 
-6.0b2 - March 5, 2013 
+6.0b2 - March 5, 2013
 ---------------------
 
 **This is a beta release with incomplete translations.**
@@ -446,7 +449,7 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Remove country headings and instead show countries alphabetically (with EU at
-  the top). 
+  the top).
 
 Bugfixes
 ~~~~~~~~
@@ -508,7 +511,7 @@ Feature changes
 - Add jQueryUI datepicker to the date fields in the risk action plan page [jcbrand]
 
 - Modify all reports to always add a marker for present risks so users can more
-  easily find them. This fixes 
+  easily find them. This fixes
   `TNO ticket 206 <https://code.simplon.biz/tracker/tno-euphorie/ticket/206>`_.
 
 Bugfixes
@@ -544,7 +547,7 @@ Bugfixes
 ~~~~~~~~
 
 - Client API changes:
-  
+
   - Return the update-hint as JSON data.
   - Remove invalid next-step hint which was included on the session action-plan
     response if a survey has no risks present.
@@ -559,7 +562,7 @@ Bugfixes
 ~~~~~~~~
 
 - Client API changes:
-  
+
   - return a proper JSON error message if invalid JSON data is received.
   - return a proper JSON error message if an unsupported HTTP method is used.
 
@@ -754,19 +757,19 @@ Bugfixes
 ~~~~~~~~
 
 - Small grammar fix in Dutch translation for action plan introduction text.
-  This fixes `TNO ticket 220 
+  This fixes `TNO ticket 220
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/220>`_.
   [wichert]
 
 - Add missing introductionary sentence in a direct survey view in the
   client which explains that a user can create a new survey. This fixes
-  `TNO ticket 193 
+  `TNO ticket 193
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/193>`_.
   [wichert]
 
 - Fix case handling of email addresses when changing the email address
   in the client. Previously it was possible to change to an email address
-  with capital, after which login was no longer possible.  This fixes 
+  with capital, after which login was no longer possible.  This fixes
   a final part of `TNO ticket 194
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
 
@@ -791,7 +794,7 @@ Feature changes
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/211>`_.
   [wichert]
 
-- Use a slightly larger image size for the module views, and enable 
+- Use a slightly larger image size for the module views, and enable
   image zoom (fancybox). This fixes `TNO ticket 209
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/209>`_.
   [wichert]
@@ -801,7 +804,7 @@ Bugfixes
 
 - Fix case handling of email addresses when changing the email address
   in the client. Previously it was possible to change to an email address
-  with capital, after which login was no longer possible.  This fixes 
+  with capital, after which login was no longer possible.  This fixes
   a final part of `TNO ticket 194
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/194>`_.
   [wichert]
@@ -850,7 +853,7 @@ Bugfixes
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
   [wichert]
 
-- Fix colour of bold text in reports. This fixes 
+- Fix colour of bold text in reports. This fixes
   `TNO ticket 208
   <https://code.simplon.biz/tracker/tno-euphorie/ticket/208>`_.
   [wichert]
@@ -901,7 +904,7 @@ Bugfixes
 Upgrade notes
 ~~~~~~~~~~~~~
 
-Development of Euphorie and related projecst has moved to the 
+Development of Euphorie and related projecst has moved to the
 `euphorie organisation <https://github.com/euphorie>`_ on github.
 
 This release updates the profile version to *9*. Please use the upgrade
@@ -935,7 +938,7 @@ Feature changes
   `4 <https://github.com/euphorie/Euphorie/issues/4>`_.
   [cornae, wichert]
 
-- Add another evaluation algorithm (French) for calculating risk priorities. 
+- Add another evaluation algorithm (French) for calculating risk priorities.
   [wichert]
 
 - Upgrade client to jQuery 1.4.4 and jQuery UI 1.7.3.
@@ -950,7 +953,7 @@ Feature changes
   Prototype, while zrtresource will give us the proper browserresource paths in
   Euphorie. One caveat is that we now have to minify the browserresource file
   (i.e ``http://localhost:4080/Plone2/client/++resource++screen-ie6.css``) instead
-  of the filesystem file. 
+  of the filesystem file.
   [jcbrand]
 
 - Add delete validation on a sector to check that it doesn't contain any
@@ -963,7 +966,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- Fix positioning of comments in the inventorisation report. This fixes 
+- Fix positioning of comments in the inventorisation report. This fixes
   TNO ticket 192.
   [cornae]
 
@@ -983,7 +986,7 @@ Bugfixes
   client surveys were cataloged.
   [wichert]
 
-- Hide hover beautytips on IE6 and clicktips on IE6 and IE7 
+- Hide hover beautytips on IE6 and clicktips on IE6 and IE7
   [jcbrand]
 
 - For extra robustness add extra check in new survey creation logic to make
@@ -994,10 +997,10 @@ Bugfixes
   [jcbrand]
 
 - #15: AttributeError *is_region* when publishing from a country not yet in the
-  client. 
+  client.
   [jcbrand]
 
-- For SurveyGroup, hide Evaluation Algorithm field on @@edit. 
+- For SurveyGroup, hide Evaluation Algorithm field on @@edit.
   [jcbrand]
 
 - Allow the default sector colours to be customized via the euphorie.ini file
@@ -1009,7 +1012,7 @@ Bugfixes
   <https://github.com/euphorie/Euphorie/issues/3>`_.
   [wichert]
 
-- Fixed Terms&Conditions page for anonymouse users. 
+- Fixed Terms&Conditions page for anonymouse users.
   [jcbrand]
 
 - During action plan phase, include all measures on request when validation
@@ -1120,7 +1123,7 @@ Bug fixes
 - Added some ``<br/>`` tags to avoid the navigation vanishing in IE7
   [pilz]
 
-- Update the minified css files from the originals to reflect recent 
+- Update the minified css files from the originals to reflect recent
   changes cornae did to fix ie compatibility .
   [pilz]
 
@@ -1160,7 +1163,7 @@ Bugfixes
 
 - The i18n msgid "label_login" was used for 2 different meanings. In
   content/user.py and content/upload.py, the msgid "label_login_name"
-  is now used for the LoginField 
+  is now used for the LoginField
   [thomas]
 
 - Added msgid "label_preview", Default "Preview", as disambiguation
@@ -1221,7 +1224,7 @@ Feature changes
   [brand]
 
 - Switch the client to the new OiRA logo.
-  [cornae,pilz,wichert] 
+  [cornae,pilz,wichert]
 
 - When making a copy of a survey reset its workflow state back to *draft*. This
   allows deleting of content in a new survey that is based on a published
@@ -1336,7 +1339,7 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Update the French translation of the survey creation guide.
-  [pilz] 
+  [pilz]
 
 - Replace the collected company details with more generic information. The
   previous list is still used in the `Dutch RI&E site <http://instrumenten.rie.nl>`_
@@ -1396,12 +1399,12 @@ profile to this version.
 Bugfixes
 ~~~~~~~~
 
-- Add ``Copy or Move`` permission information to the published state of 
+- Add ``Copy or Move`` permission information to the published state of
   the survey workflow. This fixes
   `TNO ticket 124 <https://code.simplon.biz/tracker/tno-euphorie/ticket/124>`_
   [wichert]
 
-- Correct link colour in the reports. This fixes 
+- Correct link colour in the reports. This fixes
   `TNO ticket 104 <https://code.simplon.biz/tracker/tno-euphorie/ticket/104>`_
   [cornae]
 
@@ -1430,7 +1433,7 @@ Bugfixes
   <https://bugzilla.mozilla.org/show_bug.cgi?id=492214>`_).
   [cornae]
 
-- Add XML import and export options to the site menu. This implements 
+- Add XML import and export options to the site menu. This implements
   `ticket 121 <https://code.simplon.biz/tracker/euphorie/ticket/121>`_
   [wichert]
 
@@ -1520,7 +1523,7 @@ Bugfixes
   password when no password is explcitly provided.
   [wichert]
 
-- Add a new about page to the client. This fixes 
+- Add a new about page to the client. This fixes
   `ticket 153 <https://code.simplon.biz/tracker/euphorie/ticket/153>`_.
   [cornae, thomas, wichert].
 
@@ -1577,7 +1580,7 @@ This release contains a completely overhauled editing backend and several fixes.
 
 - Documentation update
   [pilz, nielsen]
- 
+
 1.0
 ---
 
@@ -1621,7 +1624,7 @@ Released on February 24th, 2010
   [wichert]
 
 
-1.0b1 
+1.0b1
 -----
 
 Released on February 23rd, 2010
