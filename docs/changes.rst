@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.3.3 (unreleased)
+6.3.3 (2014-05-23)
 ------------------
 
 Feature changes
