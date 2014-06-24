@@ -7,7 +7,8 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- Differentiate between the CSS classes given to the active node in the
+  navigation tree, and its parent. (OSHA #9953)
 
 Bugfixes
 ~~~~~~~~
