@@ -349,7 +349,7 @@ class GetTreeDataTests(DatabaseTests):
         self.assertEqual(mod1["current_parent"], True)
         self.assertEqual(mod1["leaf_module"], True)
         self.assertEqual(mod1["active"], True)
-        self.assertEqual(mod1["class"], "active current")
+        self.assertEqual(mod1["class"], "active current_parent")
         self.assertEqual(mod1["url"], "http://nohost/identification/1")
         self.assertEqual(len(mod1["children"]), 1)
         q1 = mod1["children"][0]
