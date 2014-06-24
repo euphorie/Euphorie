@@ -118,10 +118,10 @@ def getTreeData(request, context, phase="identification", filter=None):
                 'url': base_url + "/".join(obj.short_path)
                 }
         cls = []
-        if info["active"]:
-            cls.append("active")
-        if info["current"] or info["current_parent"]:
-            cls.append("current")
+        for key in ["active", "current", "current_parent"]:
+            if info[key]:
+                cls.append(key)
+
         if obj.postponed:
             cls.append("postponed")
         else:
