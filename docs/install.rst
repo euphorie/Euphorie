@@ -8,6 +8,12 @@ requirements for running an Euphorie site are:
 * a SQL database
 * two separate virtual hosts
 
+Development files required on the host operating system:
+
+* libffi (Foreign Function Interface library development files)
+
+e.g. on Debian/Ubuntu: ``sudo apt-get install libffi-dev``
+
 Plone instalation
 -----------------
 To install Euphorie you will first need to `download`_ and install Plone.
@@ -61,7 +67,7 @@ The available options are:
    +--------------------------+---------------------------------------+
    | options                  | Description                           |
    +==========================+=======================================+
-   | ``client``               | URL for the client (see alse          |
+   | ``client``               | URL for the client (see also          |
    |                          | :ref:`Virtual hosting`.               |
    +--------------------------+---------------------------------------+
    | ``terms-and-conditions`` | Boolean flag indicating it the client |

@@ -9,6 +9,7 @@ Feature changes
 
 - Differentiate between the CSS classes given to the active node in the
   navigation tree, and its parent. (OSHA #9953)
+- CMS user's passwords are now hashed. Requires libffi-dev to be installed on OS. (OSHA #10285)
 
 Bugfixes
 ~~~~~~~~
