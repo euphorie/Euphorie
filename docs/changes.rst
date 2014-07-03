@@ -13,7 +13,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Translation corrections in IT (OSHA #10039 #10370)
 
 
 6.3.3 - May 23, 2014

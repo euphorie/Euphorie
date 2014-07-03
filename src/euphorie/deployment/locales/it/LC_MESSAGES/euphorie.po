@@ -1689,7 +1689,7 @@ msgstr "Avanzare direttamente con il procedimento del piano d'azione."
 #. Default: Run evaluation
 #: src/euphorie/client/templates/evaluation.pt:37
 msgid "label_run_evaluation"
-msgstr "Valutazione in corso"
+msgstr "Vai alla valutazione"
 
 #. Default: Go to action plan
 #: src/euphorie/client/templates/evaluation.pt:38
@@ -1776,10 +1776,6 @@ msgstr ""
 #: src/euphorie/client/templates/identification.pt:22
 msgid "intro_print_identification_2"
 msgstr ""
-"Potete distribuire i contenuti fra i lavoratori e/o i loro rappresentanti e "
-"invitarli a partecipare all'identificazione dei pericoli/problemi, valutando "
-"i rischi e decidendo le misure preventive. Il feedback dovrebbe essere fatto "
-"nell'account durante la compilazione in questo strumento."
 
 #. Default: list of all risks
 #: src/euphorie/client/templates/identification.pt:26
