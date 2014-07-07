@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Corrected typo in PT
 
 
 6.3.4 - July 07, 2014

@@ -1951,7 +1951,7 @@ msgid ""
 "the specific nature of your business."
 msgstr ""
 "${preparation} Esta etapa dá uma visão geral da avaliação que vai realizar e "
-"enquadra a avaliação nas caraterísticas específicas da sua empresa."
+"enquadra a avaliação nas características específicas da sua empresa."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
