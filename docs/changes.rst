@@ -1,14 +1,22 @@
 Changelog
 =========
 
-6.3.5 (unreleased)
+6.3.5 - Unreleased
 ------------------
 
-- Nothing changed yet.
+Feature changes
+~~~~~~~~~~~~~~~
+
+- ...
+
+Bugfixes
+~~~~~~~~
+
+- ...
 
 
-6.3.4 (2014-07-07)
-------------------
+6.3.4 - July 07, 2014
+---------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
