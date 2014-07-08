@@ -1,32 +1,36 @@
 import re
+import bcrypt
+import logging
+from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from zExceptions import Unauthorized
+from Products.Archetypes.event import ObjectEditedEvent
+from Products.CMFCore.interfaces import ISiteRoot
+from Products.membrane.interfaces import user as membrane
+from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
+from plone.directives import dexterity
+from plone.directives import form
+from plone.uuid.interfaces import IUUID
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from z3c.form.datamanager import AttributeField
+from z3c.form.interfaces import IAddForm
+from z3c.form.interfaces import IDataManager
+from z3c.form.interfaces import IValidator
+from z3c.form.validator import SimpleFieldValidator
+from zExceptions import Unauthorized
 from zope import schema
 from zope.component import adapts
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
-from zope.interface import Invalid
 from zope.interface import Interface
+from zope.interface import Invalid
 from zope.schema import ValidationError
-from z3c.form.interfaces import IValidator
-from z3c.form.interfaces import IAddForm
-from z3c.form.validator import SimpleFieldValidator
-from plone.directives import dexterity
-from plone.directives import form
-from plone.uuid.interfaces import IUUID
-from .. import MessageFactory as _
-from Products.membrane.interfaces import user as membrane
-from Products.CMFCore.interfaces import ISiteRoot
-from Products.Archetypes.event import ObjectEditedEvent
-from Products.statusmessages.interfaces import IStatusMessage
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 
-
+log = logging.getLogger(__name__)
 RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
 
 
@@ -143,8 +147,13 @@ class UserAuthentication(grok.Adapter, UserProvider):
             return None
 
         if candidate == real:
+            log.warn("Passwords should not be stored unhashed. Please run "
+                "the upgrade step to make sure all plaintext passwords are "
+                "hashed.")
             return (self.getUserId(), self.getUserName())
 
+        if bcrypt.hashpw(candidate, real) == real:
+            return (self.getUserId(), self.getUserName())
         return None
 
 
@@ -168,7 +177,19 @@ class UserChanger(grok.Adapter, UserProvider):
         """
         if userid != self.getUserId():
             raise ValueError("Userid changes are not allowed")
-        self.context.password = password
+        self.context.password = bcrypt.hashpw(password, bcrypt.gensalt())
+
+
+class PasswordDataManager(AttributeField, grok.MultiAdapter):
+    """ Hash passwords before storing them
+    """
+    grok.implements(IDataManager)
+    grok.adapts(IUser, schema.interfaces.IPassword)
+
+    def set(self, value):
+        super(PasswordDataManager, self).set(
+            bcrypt.hashpw(value, bcrypt.gensalt())
+        )
 
 
 class UserProperties(grok.Adapter, UserProvider):
