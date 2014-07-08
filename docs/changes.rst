@@ -4,11 +4,6 @@ Changelog
 6.3.5 - Unreleased
 ------------------
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ...
-
 Bugfixes
 ~~~~~~~~
 
