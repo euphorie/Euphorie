@@ -232,4 +232,16 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="15"
+    destination="16"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Hash all IUser passwords stored in the ZODB."
+      description="This step ensures that passwords for Sectors and Country Managers are hashed."
+      handler=".v8.hash_passwords"/>
+
+  </genericsetup:upgradeSteps>
 </configure>
