@@ -25,7 +25,6 @@
             <tr>
                 <th i18n:translate="">Sector</th> 
                 <th i18n:translate="">Login</th> 
-                <th i18n:translate="">Password</th> 
                 <th class="actions">&nbsp;</th>
             </tr>
         </thead>
@@ -33,7 +32,6 @@
         <tr tal:repeat="sector view/sectors">
             <td><a href="${sector/url}">${sector/title}</a></td>
             <td>${sector/login}</td>
-            <td>${sector/password}</td>
             <td class="actions">
                 <form method="post" action="${sector/url}/@@lock">
                     <tal:csrf replace="structure context/@@authenticator/authenticator"/>
