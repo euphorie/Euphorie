@@ -13,7 +13,7 @@ from zope.interface import implements
 import Acquisition
 import OFS.Traversable
 from AccessControl.PermissionRole import _what_not_even_god_should_do
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from euphorie.client.enum import Enum
 

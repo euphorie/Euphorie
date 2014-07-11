@@ -1,4 +1,4 @@
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 from euphorie.deployment.tests.functional import EuphorieTestCase
 
 

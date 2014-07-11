@@ -1,5 +1,4 @@
-from zope.app.component.hooks import getSite
-
+from zope.component.hooks import getSite
 from euphorie.client import model
 from euphorie.client import session
 from euphorie.client import utils
