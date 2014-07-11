@@ -14,6 +14,7 @@ from five import grok
 from zope.interface import Interface
 from zope.i18n import translate
 from zope.component import getUtility
+from plone import api
 from plone.session.plugins.session import cookie_expiration_date
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -185,18 +186,20 @@ class Register(grok.View):
     def _tryRegistration(self):
         reply = self.request.form
         loginname = reply.get("email")
+
+
         if not loginname:
             self.errors["email"] = _("error_missing_email",
                     default=u"Please enter your email address")
         elif not EMAIL_RE.match(loginname):
             self.errors["email"] = _("error_invalid_email",
                     default=u"Please enter a valid email address")
-        if not reply.get("password1"):
-            self.errors["password"] = _("error_missing_password",
-                    default=u"Please enter a password")
-        elif reply.get("password1") != reply.get("password2"):
-            self.errors["password"] = _("error_password_mismatch",
-                    default=u"Passwords do not match")
+
+        regtool = api.portal.get_tool('portal_registration')
+        err = regtool.testPasswordValidity(reply.get('password1'), reply.get('password2'))
+        if err:
+            self.errors['password'] = err
+
         if self.errors:
             return False
 
