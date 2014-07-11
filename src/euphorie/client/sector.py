@@ -43,11 +43,10 @@ class ClientSector(dexterity.Container):
 grok.templatedir("templates")
 
 
-class View(grok.CodeView):
+class View(grok.View):
     grok.context(IClientSector)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)
-    grok.template("sector")
 
     def render(self):
         self.request.response.redirect(

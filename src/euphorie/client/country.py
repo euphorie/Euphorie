@@ -124,7 +124,7 @@ class View(grok.View):
         self._updateSurveys()
 
 
-class DeleteSession(grok.CodeView):
+class DeleteSession(grok.View):
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -138,7 +138,7 @@ class DeleteSession(grok.CodeView):
         self.request.response.redirect(self.context.absolute_url())
 
 
-class JsonRenameSession(grok.CodeView):
+class JsonRenameSession(grok.View):
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -153,7 +153,7 @@ class JsonRenameSession(grok.CodeView):
         return dict(result="ok")
 
 
-class JsonDeleteSession(grok.CodeView):
+class JsonDeleteSession(grok.View):
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)

@@ -246,7 +246,7 @@ class Register(grok.View):
                     self.request.response.redirect(came_from)
 
 
-class Logout(grok.CodeView):
+class Logout(grok.View):
     grok.context(Interface)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)

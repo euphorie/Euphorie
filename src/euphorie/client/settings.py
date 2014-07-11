@@ -150,7 +150,7 @@ class NewEmail(form.SchemaForm):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.name("new-email")
-    grok.template("new-email")
+    # grok.template("new-email")
 
     schema = EmailChangeSchema
     email_template = ViewPageTemplateFile("templates/confirm-email.pt")

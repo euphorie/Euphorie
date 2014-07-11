@@ -139,7 +139,7 @@ class Start(grok.View):
         self.request.response.redirect("%s/@@profile" % survey.absolute_url())
 
 
-class Resume(grok.CodeView):
+class Resume(grok.View):
     """Survey resume screen.
 
     This view is used when a user resumes an existing session.
