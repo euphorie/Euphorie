@@ -12,8 +12,11 @@
     <metal:title fill-slot="title" i18n:translate="header_settings">Settings</metal:title>
     <metal:content fill-slot="content">
       <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
-        <fieldset class="condensed" tal:define="widget view/widgets/description">
-          <label><tal:span i18n:translate="label_sector_description">Please provide a description of your sector</tal:span> <textarea class="span-13" rows="5" name="${widget/name}">${widget/value}</textarea><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/></label>
+        <fieldset class="condensed" tal:define="widget nocall:view/widgets/description">
+          <label>
+              <tal:span i18n:translate="label_sector_description">Please provide a description of your sector</tal:span>
+              <textarea class="span-13" rows="5" name="${widget/name}">${widget/value}</textarea><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+          </label>
         </fieldset>
 
         <fieldset class="client-preview">
@@ -37,7 +40,7 @@
                 Please use the colour pickers below to select your organisation's colours. It's best to use a darker colour for the main colour and a lighter colour for the support colour.
             </p>
             <div id="mainColour" class="picker">
-                <label for="colour-1" tal:define="widget view/widgets/main_colour">
+                <label for="colour-1" tal:define="widget nocall:view/widgets/main_colour">
                     <tal:span i18n:translate="label_main_colour">Main colour</tal:span>:
                     <input type="text" id="colour-1" name="${widget/name}" value="${widget/value}"/>
                     <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
@@ -46,7 +49,7 @@
                 <div id="picker-main"></div>
             </div>
             <div id="supportColour" class="picker">
-                <label for="colour-2" tal:define="widget view/widgets/support_colour">
+                <label for="colour-2" tal:define="widget nocall:view/widgets/support_colour">
                     <tal:span i18n:translate="label_support_colour">Support colour</tal:span>:
                     <input type="text" id="colour-2" name="${widget/name}" value="${widget/value}"/>
                     <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
@@ -56,7 +59,7 @@
           </dd>
 
           <dt i18n:translate="label_logo">Logo</dt>
-          <dd class="section" tal:define="widget view/widgets/logo">
+          <dd class="section" tal:define="widget nocall:view/widgets/logo">
             <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on both the client side app that your user group will see as well as on this editor environment in the top left corner. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes.</dfn>
             <fieldset class="comprehensive">
               <legend i18n:translate="label_logo_selection">Which logo you would like to display in the top left corner?</legend>
