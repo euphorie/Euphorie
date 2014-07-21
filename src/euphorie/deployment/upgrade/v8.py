@@ -3,6 +3,7 @@ from plone import api
 from plone.dexterity import utils
 from z3c.form.interfaces import IDataManager
 from euphorie.content.user import IUser
+from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 import logging
 import zope.component
 
@@ -31,3 +32,24 @@ def hash_passwords(context):
             if field and field.interface == IUser:
                 dm = zope.component.getMultiAdapter(
                     (o, field), IDataManager).set(password)
+
+
+def register_password_policy(context):
+    pas = api.portal.get_tool('acl_users')
+
+    if not pas.objectIds([EuphoriePasswordPolicy.meta_type]):
+        plugin = EuphoriePasswordPolicy(
+            EuphoriePasswordPolicy.id,
+            EuphoriePasswordPolicy.meta_type
+        )
+        pas._setObject(plugin.getId(), plugin)
+        plugin = getattr(pas, plugin.getId())
+
+        infos = [info for info in pas.plugins.listPluginTypeInfo()
+            if plugin.testImplements(info["interface"])
+        ]
+        plugin.manage_activateInterfaces([info["id"] for info in infos])
+        for info in infos:
+            for i in range(len(pas.plugins.listPluginIds(info["interface"]))):
+                pas.plugins.movePluginsUp(info["interface"], [plugin.getId()])
+

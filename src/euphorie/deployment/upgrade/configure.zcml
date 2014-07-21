@@ -243,5 +243,10 @@
       description="This step ensures that passwords for Sectors and Country Managers are hashed."
       handler=".v8.hash_passwords"/>
 
+    <genericsetup:upgradeStep
+      title="Register custom password policy"
+      description="Euphorie now has a custom password policy"
+      handler=".v8.register_password_policy"/>
+
   </genericsetup:upgradeSteps>
 </configure>
