@@ -15,6 +15,7 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plone import api
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IDataManager
@@ -37,6 +38,16 @@ RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
 class DuplicateLoginError(ValidationError):
     __doc__ = _("error_existing_login",
             default=u"This login name is already taken.")
+
+
+class InvalidPasswordError(ValidationError):
+
+    def __init__(self, value, doc):
+        self.value = value
+        self.doc = doc
+
+    def doc(self):
+        return self.doc
 
 
 def validLoginValue(value):
@@ -77,9 +88,7 @@ class IUser(form.Schema):
     dexterity.write_permission(locked="euphorie.content.ManageCountry")
 
 
-class UniqueLoginValidator(grok.MultiAdapter, SimpleFieldValidator):
-    grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IAddForm, LoginField, Interface)
+class BaseValidator(SimpleFieldValidator):
 
     def __init__(self, context, request, view, field, widget):
         self.context = context
@@ -88,14 +97,29 @@ class UniqueLoginValidator(grok.MultiAdapter, SimpleFieldValidator):
         self.field = field
         self.widget = widget
 
+class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
+    grok.implements(IValidator)
+    grok.adapts(Interface, Interface, IAddForm, LoginField, Interface)
+
     def validate(self, value):
         super(UniqueLoginValidator, self).validate(value)
-
         site = getUtility(ISiteRoot)
         for parent in aq_chain(site):
             if hasattr(aq_base(parent), "acl_users"):
                 if parent.acl_users.searchUsers(login=value, exact_match=True):
                     raise DuplicateLoginError(value)
+
+
+class PasswordValidator(grok.MultiAdapter, BaseValidator):
+    grok.implements(IValidator)
+    grok.adapts(Interface, Interface, IAddForm, schema.Password, Interface)
+
+    def validate(self, value):
+        super(PasswordValidator, self).validate(value)
+        regtool = api.portal.get_tool('portal_registration')
+        err = regtool.pasValidation('password', value)
+        if err:
+            raise InvalidPasswordError(value, err)
 
 
 class UserProvider(object):
