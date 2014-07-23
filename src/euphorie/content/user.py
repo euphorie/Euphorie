@@ -18,6 +18,7 @@ from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plone import api
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
+from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IDataManager
 from z3c.form.interfaces import IValidator
 from z3c.form.validator import SimpleFieldValidator
@@ -44,10 +45,10 @@ class InvalidPasswordError(ValidationError):
 
     def __init__(self, value, doc):
         self.value = value
-        self.doc = doc
+        self._doc = doc
 
     def doc(self):
-        return self.doc
+        return self._doc
 
 
 def validLoginValue(value):
@@ -112,7 +113,7 @@ class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
 
 class PasswordValidator(grok.MultiAdapter, BaseValidator):
     grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IAddForm, schema.Password, Interface)
+    grok.adapts(Interface, Interface, IForm, schema.Password, Interface)
 
     def validate(self, value):
         super(PasswordValidator, self).validate(value)
