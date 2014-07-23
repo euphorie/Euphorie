@@ -31,10 +31,10 @@ class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
         elif len([l for l in password if l.isupper()]) == 0:
             # Must have capital letter(s)
             failed = True
-        elif not re.match("[1-9]"):
+        elif not re.search("[1-9]", password):
             # Must have numbers(s)
             failed = True
-        elif not re.match("[^a-zA-Z1-9"):
+        elif not re.search("[^a-zA-Z1-9]", password):
             # Must have special chars (i.e. not alphanumerical)
             failed = True
 
