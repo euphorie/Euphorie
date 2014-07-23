@@ -119,6 +119,7 @@ class SectorAsUserTests(EuphorieTestCase):
 
 
 class SectorBrowserTests(EuphorieFunctionalTestCase):
+
     def testDuplicateLoginNotAllowed(self):
         # Test for http://code.simplon.biz/tracker/euphorie/ticket/152
         from euphorie.content.tests.utils import createSector
@@ -138,6 +139,28 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
                 name="form.widgets.contact_email").value = "john@example.com"
         browser.getControl(name="form.buttons.save").click()
         self.assertTrue("This login name is already taken" in browser.contents)
+
+    def testPasswordPolicy(self):
+        from euphorie.content.tests.utils import createSector
+        createSector(self.portal, login="sector")
+        browser = self.adminBrowser()
+        browser.open(
+                "%s/sectors/nl/@@manage-users" % self.portal.absolute_url())
+        browser.getLink("Add new sector").click()
+        browser.getControl(name="form.widgets.title").value = "New sector"
+        browser.getControl(name="form.widgets.login").value = "sector"
+        browser.getControl(name="form.widgets.password").value = "secret"
+        browser.getControl(
+                name="form.widgets.password.confirm").value = "secret"
+        browser.getControl(
+                name="form.widgets.contact_name").value = "Max Mustermann"
+        browser.getControl(
+                name="form.widgets.contact_email").value = "max@example.com"
+        browser.getControl(name="form.buttons.save").click()
+        self.assertTrue(
+            u"Your password must contain at least 5 characters, "
+            u"including at least one capital letter, one number and "
+            u"one special character (e.g. $, # or @')." in browser.contents)
 
 
 class PermissionTests(EuphorieTestCase):
