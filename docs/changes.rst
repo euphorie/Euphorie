@@ -1,13 +1,22 @@
 Changelog
 =========
 
-6.3.6 - Unreleased
+7.0.0 - Unreleased
 ------------------
 
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release is dependent on Plone 4.3 and higher.
+
+This release updates the profile version. Please use the upgrade
+feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
+profile.
+  
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- Add a password policy (OSHA #10286)
 
 Bugfixes
 ~~~~~~~~
@@ -32,7 +41,7 @@ Feature changes
 
 - Differentiate between the CSS classes given to the active node in the
   navigation tree, and its parent. (OSHA #9953)
-- CMS user's passwords are now hashed. Requires libffi-dev to be installed on OS. (OSHA #10285)
+- CMS user's passwords are now hashed. (OSHA #10285)
 
 Bugfixes
 ~~~~~~~~
