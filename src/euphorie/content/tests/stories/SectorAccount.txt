@@ -33,8 +33,8 @@ Lets go to the user management screen and add a user:
 >>> browser.getLink("Add new sector").click()
 >>> browser.getControl(name="form.widgets.title").value="Fine Dining"
 >>> browser.getControl(name="form.widgets.login").value="dining"
->>> browser.getControl(name="form.widgets.password").value="s3cr3t"
->>> browser.getControl(name="form.widgets.password.confirm").value="s3cr3t"
+>>> browser.getControl(name="form.widgets.password").value="S3cr3t!"
+>>> browser.getControl(name="form.widgets.password.confirm").value="S3cr3t!"
 >>> browser.getControl(name="form.widgets.contact_name").value="John Doe"
 >>> browser.getControl(name="form.widgets.contact_email").value="john@example.com"
 >>> browser.getControl(name="form.buttons.save").click()
@@ -53,7 +53,7 @@ also automatically redirect to the homepage of the sector:
 
 >>> browser.open(portal.absolute_url()+"/@@login")
 >>> browser.getControl(name="__ac_name").value="dining"
->>> browser.getControl(name="__ac_password").value="s3cr3t"
+>>> browser.getControl(name="__ac_password").value="S3cr3t!"
 >>> browser.getForm(id="loginForm").submit()
 >>> "You have been logged in." in browser.contents
 True
