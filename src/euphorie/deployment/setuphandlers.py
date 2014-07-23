@@ -1,10 +1,12 @@
 import logging
-from zope.interface import alsoProvides
-from plone.dexterity.utils import createContentInContainer
 from Products.CMFPlone.utils import _createObjectByType
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from euphorie.content.utils import REGION_NAMES
 from euphorie.client.api.entry import API
+from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
+from euphorie.content.utils import REGION_NAMES
+from plone import api
+from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.dexterity.utils import createContentInContainer
+from zope.interface import alsoProvides
 
 log = logging.getLogger(__name__)
 
@@ -22,6 +24,7 @@ def setupVarious(context):
     disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
+    registerPasswordPolicy(site)
 
 
 COUNTRIES = {
@@ -165,3 +168,23 @@ def setupVersioning(site):
     if "euphorie.survey" not in repository.getVersionableContentTypes():
         repository.setVersionableContentTypes(["euphorie.survey"])
         log.info("Enabled versioning for survey versions.")
+
+
+def registerPasswordPolicy(site):
+    pas = api.portal.get_tool('acl_users')
+    if not pas.objectIds([EuphoriePasswordPolicy.meta_type]):
+        plugin = EuphoriePasswordPolicy(
+            EuphoriePasswordPolicy.id,
+            EuphoriePasswordPolicy.meta_type
+        )
+        pas._setObject(plugin.getId(), plugin)
+        plugin = getattr(pas, plugin.getId())
+
+        infos = [info for info in pas.plugins.listPluginTypeInfo()
+            if plugin.testImplements(info["interface"])
+        ]
+        plugin.manage_activateInterfaces([info["id"] for info in infos])
+        for info in infos:
+            for i in range(len(pas.plugins.listPluginIds(info["interface"]))):
+                pas.plugins.movePluginsUp(info["interface"], [plugin.getId()])
+
