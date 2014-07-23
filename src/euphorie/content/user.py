@@ -7,6 +7,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Products.Archetypes.event import ObjectEditedEvent
+from Products.Archetypes.BaseObject import shasattr
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
 from Products.statusmessages.interfaces import IStatusMessage
@@ -179,6 +180,15 @@ class UserAuthentication(grok.Adapter, UserProvider):
 
         if bcrypt.hashpw(candidate, real) == real:
             return (self.getUserId(), self.getUserName())
+
+        if not shasattr(self.context, '_v_login_attempts'):
+            self.context._v_login_attempts = 0
+        self.context._v_login_attempts += 1
+
+        if self.context._v_login_attempts == 3:
+            log.warn("Account locked for %s, due to more than 3 unsuccessful "
+                    "login attempts" % self.getUserName())
+            self.context.locked = True
         return None
 
 
