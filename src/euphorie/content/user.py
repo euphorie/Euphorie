@@ -187,27 +187,26 @@ class UserAuthentication(grok.Adapter, UserProvider):
             self.context._v_login_attempts = 0
             return (self.getUserId(), self.getUserName())
 
-        if max_attempts > 0:
-            return self.applyStrikesPolicy(max_attempts)
-        return
+        return self.applyLockoutPolicy(max_attempts)
 
-    def applyStrikesPolicy(self, max_attempts):
+    def applyLockoutPolicy(self, max_attempts):
+        if not max_attempts:
+            return
         if not shasattr(self.context, '_v_login_attempts'):
             self.context._v_login_attempts = 0
         self.context._v_login_attempts += 1
 
-        IStatusMessage(self.context.REQUEST).add(
-            _("message_lock_warn",
-                default=u"Please be aware that your account " \
-                        u"will be locked after %s invalid login attempts." \
-                        % max_attempts,
-            ), "warn"
-        )
-        if self.context._v_login_attempts == max_attempts:
+        if self.context._v_login_attempts <= max_attempts:
+            IStatusMessage(self.context.REQUEST).add(
+                _("message_lock_warn",
+                    default=u"Please be aware that your account " \
+                            u"will be locked after %s more failed login attempts." \
+                            % (max_attempts - self.context._v_login_attempts),
+                ), "warn"
+            )
+        else:
             log.warn("Account locked for %s, due to more than %s unsuccessful "
-                    "login attempts"
-                    % (self.getUserName()), max_attempts)
-
+                    "login attempts" % (self.getUserName(), max_attempts))
             IStatusMessage(self.context.REQUEST).add(
                 _("message_user_locked",
                 default=u'Account "${title}" has been locked.',
