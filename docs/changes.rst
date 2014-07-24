@@ -17,6 +17,10 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Add a password policy (OSHA #10286)
+- Lock users out after a certain amount of failed login attempts.
+  Configured with the *max_login_attempts* setting in euphorie.ini.
+  Set to 0 to disable completely. (OSHA #10286)
+
 
 Bugfixes
 ~~~~~~~~

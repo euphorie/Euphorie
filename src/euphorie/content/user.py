@@ -6,10 +6,12 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from Products.Archetypes.event import ObjectEditedEvent
 from Products.Archetypes.BaseObject import shasattr
+from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFCore.interfaces import ISiteRoot
+from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.membrane.interfaces import user as membrane
+from Products.membrane.interfaces.plugins import IMembraneUserManagerPlugin
 from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
 from plone.directives import dexterity
@@ -17,10 +19,11 @@ from plone.directives import form
 from plone.uuid.interfaces import IUUID
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plone import api
+from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
-from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IDataManager
+from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from z3c.form.validator import SimpleFieldValidator
 from zExceptions import Unauthorized
@@ -166,30 +169,52 @@ class UserAuthentication(grok.Adapter, UserProvider):
     def authenticateCredentials(self, credentials):
         if self.context.locked:
             return None
-
         candidate = credentials.get("password", None)
         real = getattr(aq_base(self.context), "password", None)
         if candidate is None or real is None:
             return None
+        conf = getUtility(IAppConfig).get("euphorie", {})
+        max_attempts = int(conf.get('max_login_attempts', 0).strip())
 
-        if candidate == real:
+        if candidate == real: # XXX: Plain passwords should be deprecated
             log.warn("Passwords should not be stored unhashed. Please run "
                 "the upgrade step to make sure all plaintext passwords are "
                 "hashed.")
+            self.context._v_login_attempts = 0
             return (self.getUserId(), self.getUserName())
 
         if bcrypt.hashpw(candidate, real) == real:
+            self.context._v_login_attempts = 0
             return (self.getUserId(), self.getUserName())
 
+        if max_attempts > 0:
+            return self.applyStrikesPolicy(max_attempts)
+        return
+
+    def applyStrikesPolicy(self, max_attempts):
         if not shasattr(self.context, '_v_login_attempts'):
             self.context._v_login_attempts = 0
         self.context._v_login_attempts += 1
 
-        if self.context._v_login_attempts == 3:
-            log.warn("Account locked for %s, due to more than 3 unsuccessful "
-                    "login attempts" % self.getUserName())
+        IStatusMessage(self.context.REQUEST).add(
+            _("message_lock_warn",
+                default=u"Please be aware that your account " \
+                        u"will be locked after %s invalid login attempts." \
+                        % max_attempts,
+            ), "warn"
+        )
+        if self.context._v_login_attempts == max_attempts:
+            log.warn("Account locked for %s, due to more than %s unsuccessful "
+                    "login attempts"
+                    % (self.getUserName()), max_attempts)
+
+            IStatusMessage(self.context.REQUEST).add(
+                _("message_user_locked",
+                default=u'Account "${title}" has been locked.',
+                mapping=dict(title=self.context.title)
+                ), "warn"
+            )
             self.context.locked = True
-        return None
 
 
 class UserChanger(grok.Adapter, UserProvider):
