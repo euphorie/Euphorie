@@ -9,9 +9,7 @@ from Acquisition import aq_parent
 from Products.Archetypes.BaseObject import shasattr
 from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFCore.interfaces import ISiteRoot
-from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.membrane.interfaces import user as membrane
-from Products.membrane.interfaces.plugins import IMembraneUserManagerPlugin
 from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
 from plone.directives import dexterity
@@ -192,7 +190,6 @@ class UserAuthentication(grok.Adapter, UserProvider):
         if bcrypt.hashpw(candidate, real) == real:
             self.context._v_login_attempts = 0
             return (self.getUserId(), self.getUserName())
-
         return self.applyLockoutPolicy(max_attempts)
 
     def applyLockoutPolicy(self, max_attempts):
