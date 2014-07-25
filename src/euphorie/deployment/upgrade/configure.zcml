@@ -244,9 +244,14 @@
       handler=".v8.hash_passwords"/>
 
     <genericsetup:upgradeStep
-      title="Register custom password policy"
+      title="Add custom password policy"
       description="Euphorie now has a custom password policy"
       handler=".v8.register_password_policy"/>
+
+    <genericsetup:upgradeStep
+      title="Add custom user manager (for membrane users)"
+      description="The default membrane user manager doesn't give IStatusMessage messages when login fails."
+      handler=".v8.register_user_manager"/>
 
   </genericsetup:upgradeSteps>
 </configure>

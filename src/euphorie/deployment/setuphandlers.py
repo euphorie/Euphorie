@@ -1,8 +1,10 @@
 import logging
 from Products.CMFPlone.utils import _createObjectByType
+from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
 from euphorie.client.api.entry import API
 from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
+from euphorie.content.user import EuphorieUserManager
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.dexterity.utils import createContentInContainer
@@ -24,7 +26,8 @@ def setupVarious(context):
     disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
-    registerPasswordPolicy(site)
+    addUserManager(site)
+    addPasswordPolicy(site)
 
 
 COUNTRIES = {
@@ -170,7 +173,9 @@ def setupVersioning(site):
         log.info("Enabled versioning for survey versions.")
 
 
-def registerPasswordPolicy(site):
+def addPasswordPolicy(site):
+    """ The password policy is a PAS plugin.
+    """
     pas = api.portal.get_tool('acl_users')
     if not pas.objectIds([EuphoriePasswordPolicy.meta_type]):
         plugin = EuphoriePasswordPolicy(
@@ -188,3 +193,17 @@ def registerPasswordPolicy(site):
             for i in range(len(pas.plugins.listPluginIds(info["interface"]))):
                 pas.plugins.movePluginsUp(info["interface"], [plugin.getId()])
 
+
+def addUserManager(site):
+    """ The user manager is a PAS plugin responsible for authentication.
+    """
+    pas = api.portal.get_tool('acl_users')
+    if not pas.objectIds([EuphorieUserManager.meta_type]):
+        plugin = EuphorieUserManager(
+            EuphorieUserManager.id,
+            EuphorieUserManager.meta_type
+        )
+        pas._setObject(plugin.getId(), plugin)
+        activatePluginInterfaces(site, plugin.id)
+        # Deactivate the default membrane user manager
+        pas.plugins.removePluginById('membrane_users')
