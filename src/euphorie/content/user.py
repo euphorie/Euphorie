@@ -212,7 +212,7 @@ class UserAuthentication(grok.Adapter, UserProvider):
         if candidate is None or real is None:
             return None
         conf = getUtility(IAppConfig).get("euphorie", {})
-        max_attempts = int(conf.get('max_login_attempts', 0).strip())
+        max_attempts = int(conf.get('max_login_attempts', '0').strip())
 
         if candidate == real: # XXX: Plain passwords should be deprecated
             log.warn("Passwords should not be stored unhashed. Please run "
