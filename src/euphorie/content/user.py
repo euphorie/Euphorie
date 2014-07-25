@@ -168,6 +168,12 @@ class UserAuthentication(grok.Adapter, UserProvider):
 
     def authenticateCredentials(self, credentials):
         if self.context.locked:
+            IStatusMessage(self.context.REQUEST).add(
+                _("message_user_locked",
+                default=u'Account "${title}" has been locked.',
+                mapping=dict(title=self.context.title)
+                ), "warn"
+            )
             return None
         candidate = credentials.get("password", None)
         real = getattr(aq_base(self.context), "password", None)
