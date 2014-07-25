@@ -3,6 +3,7 @@ from plone import api
 from plone.dexterity import utils
 from z3c.form.interfaces import IDataManager
 from euphorie.content.user import IUser
+from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.deployment import setuphandlers
 import logging
 import zope.component
@@ -35,7 +36,4 @@ def hash_passwords(context):
 
 
 def register_password_policy(context):
-    setuphandlers.addPasswordPolicy(context)
-
-def register_user_manager(context):
-    setuphandlers.addUserManager(context)
+    setuphandlers.registerPasswordPolicy(context)

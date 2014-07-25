@@ -2,8 +2,6 @@ import re
 import bcrypt
 import logging
 from .. import MessageFactory as _
-from App.class_init import default__class_init__ as InitializeClass
-from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -11,10 +9,9 @@ from Acquisition import aq_parent
 from Products.Archetypes.BaseObject import shasattr
 from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFCore.interfaces import ISiteRoot
-from Products.membrane.interfaces import user as user_ifaces
-from Products.membrane.config import TOOLNAME
+from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.membrane.interfaces import user as membrane
-from Products.membrane.plugins.usermanager import MembraneUserManager
+from Products.membrane.interfaces.plugins import IMembraneUserManagerPlugin
 from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
 from plone.directives import dexterity
@@ -159,35 +156,6 @@ class UserProvider(object):
         return self.context.login
 
 
-class EuphorieUserManager(MembraneUserManager):
-    """ The default membrane user manager doesn't provide IStatusMessage
-        messages to the user when login fails.
-    """
-    meta_type = "Euphorie User Manager"
-    id = "euphorie_user_manager"
-    security = ClassSecurityInfo()
-
-    def authenticateCredentials(self, credentials):
-        """ See IAuthenticationPlugin.
-        """
-        mbtool = api.portal.get_tool(TOOLNAME)
-        member = mbtool.getUserObject(login=credentials.get('login'))
-        if member is None:
-            IStatusMessage(self.REQUEST).add(
-                _("message_invalid_login",
-                default=u"Invalid login credentials"), "warn"
-            )
-            return None
-        # Delegate to member object
-        auth = user_ifaces.IMembraneUserAuth(member, None)
-        if auth is None:
-            return None
-        return auth.authenticateCredentials(credentials)
-    security.declarePrivate('authenticateCredentials')
-
-InitializeClass(EuphorieUserManager)
-
-
 class UserAuthentication(grok.Adapter, UserProvider):
     """Account authentication routines.
 
@@ -200,12 +168,6 @@ class UserAuthentication(grok.Adapter, UserProvider):
 
     def authenticateCredentials(self, credentials):
         if self.context.locked:
-            IStatusMessage(self.context.REQUEST).add(
-                _("message_user_locked",
-                default=u'Account "${title}" has been locked.',
-                mapping=dict(title=self.context.title)
-                ), "warn"
-            )
             return None
         candidate = credentials.get("password", None)
         real = getattr(aq_base(self.context), "password", None)
