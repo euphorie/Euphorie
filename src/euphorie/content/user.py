@@ -33,6 +33,8 @@ from zope.event import notify
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.schema import ValidationError
+from p01.widget.password.interfaces import IPasswordConfirmationWidget
+from p01.widget.password.widget import PasswordConfirmationValidator
 
 log = logging.getLogger(__name__)
 RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
@@ -113,9 +115,9 @@ class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
                     raise DuplicateLoginError(value)
 
 
-class PasswordValidator(grok.MultiAdapter, BaseValidator):
+class PasswordValidator(grok.MultiAdapter, PasswordConfirmationValidator):
     grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IForm, schema.Password, Interface)
+    grok.adapts(Interface, Interface, IForm, schema.Password, IPasswordConfirmationWidget)
 
     def validate(self, value):
         super(PasswordValidator, self).validate(value)
