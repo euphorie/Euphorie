@@ -1,10 +1,12 @@
-import re
 from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
 from Products.PlonePAS.plugins import passwordpolicy
 from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content import MessageFactory as _
+from zope import globalrequest
 from zope.interface import implements
+import re
 
 
 class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
@@ -19,6 +21,11 @@ class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
     def validateUserInfo(self, user, set_id, set_info ):
         """ See IValidationPlugin. Used to validate password property
         """
+        if IClientSkinLayer.providedBy(globalrequest.getRequest()):
+            # We don't enforce the custom password policy for client users
+            return super(EuphoriePasswordPolicy, self).validateUserInfo(
+                    user, set_id, set_info)
+
         if not set_info:
             return []
         password = set_info.get('password', None)
