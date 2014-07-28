@@ -27,6 +27,12 @@ from ..content.api.authentication \
 log = logging.getLogger(__name__)
 
 
+class NotImplementedError(Exception):
+
+    def __init__(self, message):
+        self.message = message
+
+
 def graceful_recovery(default=None, log_args=True):
     """Decorator to safely use SQLAlchemy in PAS plugins. This decorator
     makes sure SQL exceptions are caught and logged.
@@ -179,6 +185,25 @@ class EuphorieAccountPlugin(BasePlugin):
         if account is not None:
             return [{'id': str(account.id), 'login': account.loginname}]
         return []
+
+    def updateUser(self, user_id, login_name ):
+        """ Changes the user's username. New method available since Plone 4.3.
+            Euphorie doesn't support this.
+        """
+        return False
+
+    def updateEveryLoginName(self, quit_on_first_error=True):
+        """Update login names of all users to their canonical value.
+
+        This should be done after changing the login_transform
+        property of PAS.
+
+        You can set quit_on_first_error to False to report all errors
+        before quitting with an error.  This can be useful if you want
+        to know how many problems there are, if any.
+        """
+        raise NotImplementedError(
+                "updateEveryLoginName method is not implemented by Euphorie")
 
     #
     # IChallengePlugin implementation
