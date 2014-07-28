@@ -248,7 +248,7 @@ class WebHelpers(grok.View):
         phase is returned.
         """
         survey = self._survey
-        if survey is None:
+        if not survey:
             return None
 
         url = survey.absolute_url()
