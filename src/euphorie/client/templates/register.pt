@@ -25,9 +25,9 @@
       <h2 i18n:translate="header_register">Register</h2>
       <fieldset class="concise">
         <label class="${python:'error' if 'email' in errors else None}"><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
-          <em class="message warning" tal:condition="exists:errors/email">${errors/email}</em></label>
+          <em class="message warning" tal:condition="errors/email|nothing">${errors/email}</em></label>
         <label class="${python:'error' if 'password' in errors else None}"><tal:span i18n:translate="label_new_password">Desired password</tal:span> <input class="password" type="password" name="password1:utf8:ustring" />
-          <em class="message warning" tal:condition="exists:errors/password">${errors/password}</em></label>
+          <em class="message warning" tal:condition="errors/password|nothing">${errors/password}</em></label>
         <label><tal:span i18n:translate="label_password_confirm">Again password</tal:span> <input class="password" type="password"  name="password2:utf8:ustring"/> </label>
       </fieldset>
       <p class="discrete"><a href="${webhelpers/country_url}/appendix/privacy-statement" i18n:translate="label_privacy_statement">Privacy statement</a></p>
