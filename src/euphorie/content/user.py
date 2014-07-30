@@ -201,12 +201,12 @@ class UserAuthentication(grok.Adapter, UserProvider):
             self.context._v_login_attempts = 0
         self.context._v_login_attempts += 1
 
-        if self.context._v_login_attempts <= max_attempts:
+        if self.context._v_login_attempts < max_attempts:
             IStatusMessage(self.context.REQUEST).add(
                 _("message_lock_warn",
-                    default=u"Please be aware that your account " \
-                            u"will be locked after %s more failed login attempts." \
-                            % (max_attempts - self.context._v_login_attempts),
+                    default=u"Please be aware that you have %s more login " \
+                            u"attempts before your account will be locked." \
+                            % (max_attempts-self.context._v_login_attempts),
                 ), "warn"
             )
         else:
