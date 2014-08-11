@@ -21,7 +21,7 @@
     </p>
     <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}" class="concise">
     <fieldset>
-        <label tal:define="widget view/widgets/country; value widget/value">
+        <label tal:define="widget nocall:view/widgets/country; value widget/value">
             <tal:span i18n:translate="label_company_country">Your country</tal:span>
             <select name="${widget/name}" tal:define="value python:value or webhelpers.country()">
                 <option tal:repeat="country view/countries" value="${country/id}" selected="${python:'selected' if value==country['id'] else None}">${country/title}</option>
@@ -31,7 +31,7 @@
         <tal:widget replace="structure view/widgets/employees/render" />
         <tal:widget replace="structure view/widgets/conductor/render" />
 
-        <fieldset class="comprehensive radioList" tal:define="widget view/widgets/referer; value widget/value">
+        <fieldset class="comprehensive radioList" tal:define="widget nocall:view/widgets/referer; value widget/value">
             <legend i18n:translate="label_referer">Through which channel did you learn about this tool?</legend>
             <label><input type="radio" name="${widget/name}" value="employers-organisation" checked="${python:'checked' if 'employers-organisation' in value else None}"/> <tal:span i18n:translate="referer_employers_organisation">an employers' organisation</tal:span></label>
             <label><input type="radio" name="${widget/name}" value="trade-union" checked="${python:'checked' if 'trade-union' in value else None}"/> <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
