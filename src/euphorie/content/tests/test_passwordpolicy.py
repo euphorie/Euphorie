@@ -31,12 +31,12 @@ class PasswordPolicyTests(EuphorieTestCase):
         self.assertEqual(len(status.show()), 0)
         self.assertFalse(sector.locked)
 
-        auth.applyLockoutPolicy(1)
+        auth.applyLockoutPolicy(2)
         self.assertEqual(len(status.show()), 1)
         self.assertEqual(auth.context._v_login_attempts, 1)
         self.assertFalse(sector.locked)
 
-        auth.applyLockoutPolicy(1)
+        auth.applyLockoutPolicy(2)
         self.assertEqual(len(status.show()), 1)
         self.assertEqual(auth.context._v_login_attempts, 2)
         self.assertTrue(sector.locked)
