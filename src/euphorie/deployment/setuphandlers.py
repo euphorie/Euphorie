@@ -1,5 +1,7 @@
 import logging
 from Products.CMFPlone.utils import _createObjectByType
+from Products.PlonePAS.plugins.passwordpolicy import PasswordPolicyPlugin
+from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
 from euphorie.client.api.entry import API
 from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
@@ -172,6 +174,13 @@ def setupVersioning(site):
 
 def registerPasswordPolicy(site):
     pas = api.portal.get_tool('acl_users')
+
+    # Deactivate the default policy
+    for oid in pas.objectIds([PasswordPolicyPlugin.meta_type]):
+        if oid in pas.plugins._getPlugins(IValidationPlugin):
+            pas.plugins.deactivatePlugin(IValidationPlugin, oid)
+
+    # Activate the Euphorie policy
     if not pas.objectIds([EuphoriePasswordPolicy.meta_type]):
         plugin = EuphoriePasswordPolicy(
             EuphoriePasswordPolicy.id,
@@ -187,4 +196,3 @@ def registerPasswordPolicy(site):
         for info in infos:
             for i in range(len(pas.plugins.listPluginIds(info["interface"]))):
                 pas.plugins.movePluginsUp(info["interface"], [plugin.getId()])
-
