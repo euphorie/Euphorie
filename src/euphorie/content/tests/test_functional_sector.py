@@ -160,7 +160,7 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
         self.assertTrue(
             u"Your password must contain at least 5 characters, "
             u"including at least one capital letter, one number and "
-            u"one special character (e.g. $, # or @')." in browser.contents)
+            u"one special character (e.g. $, # or @)." in browser.contents)
 
 
 class PermissionTests(EuphorieTestCase):
