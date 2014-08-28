@@ -49,7 +49,7 @@ class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
             return [{'id':'password','error': _(
                 u"Your password must contain at least 5 characters, "
                 u"including at least one capital letter, one number and "
-                u"one special character (e.g. $, # or @')."
+                u"one special character (e.g. $, # or @)."
             )}]
         else:
             return []
