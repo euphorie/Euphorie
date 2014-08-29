@@ -46,8 +46,9 @@ class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
             failed = True
 
         if failed:
-            return [{'id':'password','error': _(
-                u"Your password must contain at least 5 characters, "
+            return [{'id': 'password', 'error': _(
+                u"password_policy_conditions",
+                default=u"Your password must contain at least 5 characters, "
                 u"including at least one capital letter, one number and "
                 u"one special character (e.g. $, # or @)."
             )}]
