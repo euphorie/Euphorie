@@ -12,20 +12,19 @@ This release is dependent on Plone 4.3 and higher.
 This release updates the profile version. Please use the upgrade
 feature in ``portal_setup`` to upgrade the ``euphorie.deployment:default``
 profile.
-  
+
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- Add a password policy (OSHA #10286)
+- Add and enforce a password policy (OSHA #10286)
+- When a sector our country manager is created, the new user receives an e-mail
+  for setting the password; the admin no longer chooses the password initially
+- On existing country and sector manager accounts, an admin can still manually
+  set a new password.
 - Lock users out after a certain amount of failed login attempts.
   Configured with the *max_login_attempts* setting in euphorie.ini.
   Set to 0 to disable completely. (OSHA #10286)
 
-
-Bugfixes
-~~~~~~~~
-
-- ...
 
 
 6.3.5 - July 08, 2014
