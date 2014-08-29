@@ -1,7 +1,7 @@
 Changelog
 =========
 
-7.0.0 - Unreleased
+7.0.0 (2014-08-29)
 ------------------
 
 Upgrade notes
