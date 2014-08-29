@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-22 10:41+0200\n"
+"POT-Creation-Date: 2014-08-29 16:16+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr "Ezzel az e-mailcímmel már létezik egy felhasználói fiók."
 #. Default: Cancel
 #: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:257
 #: src/euphorie/client/settings.py:140 src/euphorie/client/settings.py:255
-#: src/euphorie/content/templates/settings.pt:99
+#: src/euphorie/content/templates/settings.pt:102
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
@@ -3009,6 +3009,14 @@ msgstr "Almodul szerkesztése"
 msgid "label_body"
 msgstr "Oldal tartalma"
 
+#. Default: Your password must contain at least 5 characters, including at
+#. least one capital letter, one number and one special character (e.g. $, # or
+#. @).
+#: src/euphorie/content/passwordpolicy.py:49
+#, fuzzy
+msgid "password_policy_conditions"
+msgstr "Jelszó megerősítése"
+
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
 msgid "label_profilequestion_question"
@@ -3256,19 +3264,19 @@ msgstr "Kapcsolattartó neve"
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
-#: src/euphorie/content/templates/settings.pt:58
+#: src/euphorie/content/templates/settings.pt:61
 msgid "label_logo"
 msgstr "Logó"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
-#: src/euphorie/content/templates/settings.pt:41
+#: src/euphorie/content/templates/settings.pt:44
 msgid "label_main_colour"
 msgstr "Fő szín"
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
-#: src/euphorie/content/templates/settings.pt:50
+#: src/euphorie/content/templates/settings.pt:53
 msgid "label_support_colour"
 msgstr "Kiegészítő szín"
 
@@ -3433,7 +3441,7 @@ msgid "help_sector_title"
 msgstr "Ha nem ad meg címet, akkor azt a bemeneti fájl adataiból vesszük át."
 
 #. Default: Login name
-#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:60
+#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:80
 msgid "label_login_name"
 msgstr "Bejelentkezési név"
 
@@ -3494,63 +3502,71 @@ msgid "button_upload"
 msgstr "Feltöltés"
 
 #. Default: This login name is already taken.
-#: src/euphorie/content/user.py:34
+#: src/euphorie/content/user.py:44
 msgid "error_existing_login"
 msgstr "Ez a bejelentkezési név már foglalt."
 
 #. Default: A login name may only consist of lowercase letters and numbers.
-#: src/euphorie/content/user.py:40
+#: src/euphorie/content/user.py:60
 msgid "error_invalid_login"
 msgstr "A bejelentkezési név csak kisbetűkből és számokból állhat."
 
 #. Default: Name
-#: src/euphorie/content/user.py:52
+#: src/euphorie/content/user.py:72
 msgid "label_user_title"
 msgstr "Név"
 
 #. Default: Contact email address
-#: src/euphorie/content/user.py:56
+#: src/euphorie/content/user.py:76
 msgid "label_contact_email"
 msgstr "Kapcsolattartó e-mailcíme"
 
 #. Default: Password
-#: src/euphorie/content/user.py:66
-#: src/euphorie/content/templates/settings.pt:79
+#: src/euphorie/content/user.py:86
+#: src/euphorie/content/templates/settings.pt:82
 msgid "label_password"
 msgstr ""
 
 #. Default: Account is locked
-#: src/euphorie/content/user.py:70
+#: src/euphorie/content/user.py:90
 msgid "label_account_locked"
 msgstr "A felhasználói fiókot zárolták"
 
 #. Default: Account "${title}" has been locked.
-#: src/euphorie/content/user.py:233
+#: src/euphorie/content/user.py:172 src/euphorie/content/user.py:216
+#: src/euphorie/content/user.py:318
 msgid "message_user_locked"
 msgstr "Felhasználói fiókot \"${title}\" zárolták."
 
+#. Default: Please be aware that you have %s more login attempts before your
+#. account will be locked.
+#: src/euphorie/content/user.py:206
+#, fuzzy
+msgid "message_lock_warn"
+msgstr "Felhasználói fiókot \"${title}\" zárolták."
+
 #. Default: Account "${title}" has been unlocked.
-#: src/euphorie/content/user.py:237
+#: src/euphorie/content/user.py:322
 msgid "message_user_unlocked"
 msgstr "Felhasználói fiókot \"${title}\" feloldották."
 
-#: src/euphorie/content/utils.py:11
+#: src/euphorie/content/utils.py:13
 msgid "European Union"
 msgstr "Európai Unió"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Kosovo"
 msgstr "Koszovó"
 
-#: src/euphorie/content/utils.py:19
+#: src/euphorie/content/utils.py:21
 msgid "Montenegro"
 msgstr "Montenegró"
 
-#: src/euphorie/content/utils.py:20
+#: src/euphorie/content/utils.py:22
 msgid "Republic of Serbia"
 msgstr "Szerb Köztársaság"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
 msgstr ""
 
@@ -3868,30 +3884,30 @@ msgid "header_settings"
 msgstr "Beállítások"
 
 #. Default: Please provide a description of your sector
-#: src/euphorie/content/templates/settings.pt:16
+#: src/euphorie/content/templates/settings.pt:17
 msgid "label_sector_description"
 msgstr "Kérjük, adja meg az ágazatának leírását"
 
 #. Default: Preview
-#: src/euphorie/content/templates/settings.pt:20
+#: src/euphorie/content/templates/settings.pt:23
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
 msgstr "Előnézet"
 
 #. Default: Colour scheme
-#: src/euphorie/content/templates/settings.pt:27
+#: src/euphorie/content/templates/settings.pt:30
 msgid "header_colour_scheme"
 msgstr "Színséma"
 
 #. Default: Restore to original colours
-#: src/euphorie/content/templates/settings.pt:30
+#: src/euphorie/content/templates/settings.pt:33
 msgid "button_reset_colours"
 msgstr "Eredeti színek visszaállítása"
 
-#: src/euphorie/content/templates/settings.pt:33
-#: src/euphorie/content/templates/settings.pt:60
-#: src/euphorie/content/templates/settings.pt:81
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:63
+#: src/euphorie/content/templates/settings.pt:84
+#: src/euphorie/content/templates/settings.pt:92
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr ""
@@ -3899,7 +3915,7 @@ msgstr ""
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text on each button legible.
-#: src/euphorie/content/templates/settings.pt:33
+#: src/euphorie/content/templates/settings.pt:36
 msgid "help_sector_colours"
 msgstr ""
 "Az itt kiválasztott színek csak az alkalmazás ügyfél-oldalára vonatkoznak. "
@@ -3909,7 +3925,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:39
 msgid "help_colour_picker"
 msgstr ""
 "A vállalat színeinek kiválasztásához használja a lenti színválasztót. az a "
@@ -3921,7 +3937,7 @@ msgstr ""
 #. Make sure your image is of format png, jpg or gif and does not contain any
 #. special characters. The new logo will only become visible after you've saved
 #. your changes.
-#: src/euphorie/content/templates/settings.pt:60
+#: src/euphorie/content/templates/settings.pt:63
 msgid "help_sector_logo"
 msgstr ""
 "A logó megjelenik az ügyféloldali alkalmazáson is, amelyet a felhasználói "
@@ -3931,22 +3947,22 @@ msgstr ""
 "elmentette a változtatásokat."
 
 #. Default: Which logo you would like to display in the top left corner?
-#: src/euphorie/content/templates/settings.pt:62
+#: src/euphorie/content/templates/settings.pt:65
 msgid "label_logo_selection"
 msgstr "Melyik logót szeretné megjeleníteni a bal felső sarokban?"
 
 #. Default: Official OiRA Logo
-#: src/euphorie/content/templates/settings.pt:65
+#: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
 msgstr ""
 
 #. Default: My own
-#: src/euphorie/content/templates/settings.pt:69
+#: src/euphorie/content/templates/settings.pt:72
 msgid "logo_my_own"
 msgstr "Sajátom"
 
 #. Default: transparent
-#: src/euphorie/content/templates/settings.pt:75
+#: src/euphorie/content/templates/settings.pt:78
 msgid "logo_instructions_transparent"
 msgstr "átlátszó"
 
@@ -3954,7 +3970,7 @@ msgstr "átlátszó"
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
 #. images is fine, the logo will be scaled down to the right size
 #. automatically.
-#: src/euphorie/content/templates/settings.pt:74
+#: src/euphorie/content/templates/settings.pt:77
 msgid "logo_instructions"
 msgstr ""
 "Jobb eredményt érhet el, ha legalább 100 pixel magasságú ${transparent} PNG "
@@ -3963,26 +3979,26 @@ msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: src/euphorie/content/templates/settings.pt:81
+#: src/euphorie/content/templates/settings.pt:84
 msgid "help_sector_password"
 msgstr ""
 "Ez az a jelszó, amellyel bejelentkezhet ebbe a szerkesztői környezetbe."
 
 #. Default: Contact person
-#: src/euphorie/content/templates/settings.pt:87
+#: src/euphorie/content/templates/settings.pt:90
 msgid "label_contact_person"
 msgstr "Kapcsolattartó személy"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:92
 msgid "help_sector_contactperson"
 msgstr ""
 "Adja meg annak a személynek a nevét, aki ennek az ágazatnak az OiRA "
 "eszközeiért felelős."
 
 #. Default: Save changes
-#: src/euphorie/content/templates/settings.pt:98
+#: src/euphorie/content/templates/settings.pt:101
 msgid "button_save_changes"
 msgstr "Változások elmentése"
 
@@ -4135,45 +4151,41 @@ msgid "country_no_sectors"
 msgstr "Ehhez az országhoz nincsenek ágazatok."
 
 #: src/euphorie/content/templates/user_mgmt.pt:27
-#: src/euphorie/content/templates/user_mgmt.pt:68
+#: src/euphorie/content/templates/user_mgmt.pt:66
 msgid "Login"
 msgstr "Bejelentkezés"
 
-#: src/euphorie/content/templates/user_mgmt.pt:28
-msgid "Password"
-msgstr "Jelszó"
-
 #. Default: Edit
-#: src/euphorie/content/templates/user_mgmt.pt:40
-#: src/euphorie/content/templates/user_mgmt.pt:78
+#: src/euphorie/content/templates/user_mgmt.pt:38
+#: src/euphorie/content/templates/user_mgmt.pt:76
 #: src/euphorie/deployment/tiles/templates/addbar.pt:9
 #: src/euphorie/deployment/tiles/templates/versions.pt:58
 msgid "button_edit"
 msgstr "Szerkesztés"
 
 #. Default: Lock
-#: src/euphorie/content/templates/user_mgmt.pt:41
-#: src/euphorie/content/templates/user_mgmt.pt:79
+#: src/euphorie/content/templates/user_mgmt.pt:39
+#: src/euphorie/content/templates/user_mgmt.pt:77
 msgid "button_lock"
 msgstr "Zárolás"
 
 #. Default: Unlock
-#: src/euphorie/content/templates/user_mgmt.pt:47
-#: src/euphorie/content/templates/user_mgmt.pt:80
+#: src/euphorie/content/templates/user_mgmt.pt:45
+#: src/euphorie/content/templates/user_mgmt.pt:78
 msgid "button_unlock"
 msgstr "Feloldás"
 
 #. Default: Country managers
-#: src/euphorie/content/templates/user_mgmt.pt:59
+#: src/euphorie/content/templates/user_mgmt.pt:57
 msgid "header_country_managers"
 msgstr "Országos igazgatók"
 
 #. Default: There are no country managers for this country.
-#: src/euphorie/content/templates/user_mgmt.pt:60
+#: src/euphorie/content/templates/user_mgmt.pt:58
 msgid "country_no_managers"
 msgstr "Ehhez az országhoz nincsenek országos igazgatók."
 
-#: src/euphorie/content/templates/user_mgmt.pt:67
+#: src/euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
 msgstr "Név"
 
@@ -4379,6 +4391,9 @@ msgstr ""
 "${label} = Ez a verzió olyan módosításokkal rendelkezik, amelyek még "
 "nincsenek közzétéve. A frissítés ikonra kattintva az összes változtatást "
 "élesítheti"
+
+#~ msgid "Password"
+#~ msgstr "Jelszó"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

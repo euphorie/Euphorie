@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-22 10:41+0200\n"
+"POT-Creation-Date: 2014-08-29 16:16+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -207,7 +207,7 @@ msgstr "Er bestaat al een account met dit e-mail adres"
 #. Default: Cancel
 #: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:257
 #: src/euphorie/client/settings.py:140 src/euphorie/client/settings.py:255
-#: src/euphorie/content/templates/settings.pt:99
+#: src/euphorie/content/templates/settings.pt:102
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
@@ -3090,6 +3090,14 @@ msgstr "Bewerk Submodule"
 msgid "label_body"
 msgstr "Pagina inhoud"
 
+#. Default: Your password must contain at least 5 characters, including at
+#. least one capital letter, one number and one special character (e.g. $, # or
+#. @).
+#: src/euphorie/content/passwordpolicy.py:49
+#, fuzzy
+msgid "password_policy_conditions"
+msgstr "Uw wachtwoord ter bevestiging"
+
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
 msgid "label_profilequestion_question"
@@ -3352,19 +3360,19 @@ msgstr "Naam contactpersoon"
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
-#: src/euphorie/content/templates/settings.pt:58
+#: src/euphorie/content/templates/settings.pt:61
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
-#: src/euphorie/content/templates/settings.pt:41
+#: src/euphorie/content/templates/settings.pt:44
 msgid "label_main_colour"
 msgstr "Hoofdkleur"
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
-#: src/euphorie/content/templates/settings.pt:50
+#: src/euphorie/content/templates/settings.pt:53
 msgid "label_support_colour"
 msgstr "Steunkleur"
 
@@ -3545,7 +3553,7 @@ msgid "help_sector_title"
 msgstr "Als u geen titel opgeeft, wordt deze uit de import gehaald."
 
 #. Default: Login name
-#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:60
+#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:80
 msgid "label_login_name"
 msgstr "Login"
 
@@ -3606,63 +3614,71 @@ msgid "button_upload"
 msgstr "Upload"
 
 #. Default: This login name is already taken.
-#: src/euphorie/content/user.py:34
+#: src/euphorie/content/user.py:44
 msgid "error_existing_login"
 msgstr "Deze gebruikersnaam bestaat al"
 
 #. Default: A login name may only consist of lowercase letters and numbers.
-#: src/euphorie/content/user.py:40
+#: src/euphorie/content/user.py:60
 msgid "error_invalid_login"
 msgstr "De gebruikersnaam mag alleen kleine letters en cijfers bevatten."
 
 #. Default: Name
-#: src/euphorie/content/user.py:52
+#: src/euphorie/content/user.py:72
 msgid "label_user_title"
 msgstr "Naam"
 
 #. Default: Contact email address
-#: src/euphorie/content/user.py:56
+#: src/euphorie/content/user.py:76
 msgid "label_contact_email"
 msgstr "E-mailadres"
 
 #. Default: Password
-#: src/euphorie/content/user.py:66
-#: src/euphorie/content/templates/settings.pt:79
+#: src/euphorie/content/user.py:86
+#: src/euphorie/content/templates/settings.pt:82
 msgid "label_password"
 msgstr "Wachtwoord"
 
 #. Default: Account is locked
-#: src/euphorie/content/user.py:70
+#: src/euphorie/content/user.py:90
 msgid "label_account_locked"
 msgstr "Het account is geblokkeerd"
 
 #. Default: Account "${title}" has been locked.
-#: src/euphorie/content/user.py:233
+#: src/euphorie/content/user.py:172 src/euphorie/content/user.py:216
+#: src/euphorie/content/user.py:318
 msgid "message_user_locked"
 msgstr "Het account \"${title}\" is geblokkeerd."
 
+#. Default: Please be aware that you have %s more login attempts before your
+#. account will be locked.
+#: src/euphorie/content/user.py:206
+#, fuzzy
+msgid "message_lock_warn"
+msgstr "Het account \"${title}\" is geblokkeerd."
+
 #. Default: Account "${title}" has been unlocked.
-#: src/euphorie/content/user.py:237
+#: src/euphorie/content/user.py:322
 msgid "message_user_unlocked"
 msgstr "Het account \"${title}\" is vrijgegeven."
 
-#: src/euphorie/content/utils.py:11
+#: src/euphorie/content/utils.py:13
 msgid "European Union"
 msgstr "Europese Unie"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: src/euphorie/content/utils.py:19
+#: src/euphorie/content/utils.py:21
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:20
+#: src/euphorie/content/utils.py:22
 msgid "Republic of Serbia"
 msgstr "Servische Republiek"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
 msgstr ""
 
@@ -3981,30 +3997,30 @@ msgid "header_settings"
 msgstr "Instellingen"
 
 #. Default: Please provide a description of your sector
-#: src/euphorie/content/templates/settings.pt:16
+#: src/euphorie/content/templates/settings.pt:17
 msgid "label_sector_description"
 msgstr "Omschrijving van de branche"
 
 #. Default: Preview
-#: src/euphorie/content/templates/settings.pt:20
+#: src/euphorie/content/templates/settings.pt:23
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
 msgstr "Preview"
 
 #. Default: Colour scheme
-#: src/euphorie/content/templates/settings.pt:27
+#: src/euphorie/content/templates/settings.pt:30
 msgid "header_colour_scheme"
 msgstr "Kleurinstellingen"
 
 #. Default: Restore to original colours
-#: src/euphorie/content/templates/settings.pt:30
+#: src/euphorie/content/templates/settings.pt:33
 msgid "button_reset_colours"
 msgstr "Gebruik de standaard kleuren"
 
-#: src/euphorie/content/templates/settings.pt:33
-#: src/euphorie/content/templates/settings.pt:60
-#: src/euphorie/content/templates/settings.pt:81
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:63
+#: src/euphorie/content/templates/settings.pt:84
+#: src/euphorie/content/templates/settings.pt:92
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Informatie"
@@ -4012,7 +4028,7 @@ msgstr "Informatie"
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text on each button legible.
-#: src/euphorie/content/templates/settings.pt:33
+#: src/euphorie/content/templates/settings.pt:36
 msgid "help_sector_colours"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -4022,7 +4038,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:39
 msgid "help_colour_picker"
 msgstr ""
 "Het kleurenpalet hieronder kunt u gebruiken om de kleuren van uw organisatie "
@@ -4034,7 +4050,7 @@ msgstr ""
 #. Make sure your image is of format png, jpg or gif and does not contain any
 #. special characters. The new logo will only become visible after you've saved
 #. your changes.
-#: src/euphorie/content/templates/settings.pt:60
+#: src/euphorie/content/templates/settings.pt:63
 msgid "help_sector_logo"
 msgstr ""
 "Het logo zal zowel in de client RI&E als ook in de beheer RI&E linksboven "
@@ -4042,22 +4058,22 @@ msgstr ""
 "zijn opgeslagen."
 
 #. Default: Which logo you would like to display in the top left corner?
-#: src/euphorie/content/templates/settings.pt:62
+#: src/euphorie/content/templates/settings.pt:65
 msgid "label_logo_selection"
 msgstr "Welk logo wilt u linksboven tonen?"
 
 #. Default: Official OiRA Logo
-#: src/euphorie/content/templates/settings.pt:65
+#: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
 msgstr ""
 
 #. Default: My own
-#: src/euphorie/content/templates/settings.pt:69
+#: src/euphorie/content/templates/settings.pt:72
 msgid "logo_my_own"
 msgstr "Mijn logo"
 
 #. Default: transparent
-#: src/euphorie/content/templates/settings.pt:75
+#: src/euphorie/content/templates/settings.pt:78
 msgid "logo_instructions_transparent"
 msgstr "transparant"
 
@@ -4065,7 +4081,7 @@ msgstr "transparant"
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
 #. images is fine, the logo will be scaled down to the right size
 #. automatically.
-#: src/euphorie/content/templates/settings.pt:74
+#: src/euphorie/content/templates/settings.pt:77
 msgid "logo_instructions"
 msgstr ""
 "Neem voor het beste resultaat een ${transparent} PNG bestand van tenminste "
@@ -4074,18 +4090,18 @@ msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: src/euphorie/content/templates/settings.pt:81
+#: src/euphorie/content/templates/settings.pt:84
 msgid "help_sector_password"
 msgstr "Met dit wachtwoord kunt u inloggen op de beheeromgeving."
 
 #. Default: Contact person
-#: src/euphorie/content/templates/settings.pt:87
+#: src/euphorie/content/templates/settings.pt:90
 msgid "label_contact_person"
 msgstr "Contactpersoon"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:92
 msgid "help_sector_contactperson"
 msgstr ""
 "De kleuren die u hier kiest zijn alleen van toepassing voor de client-"
@@ -4093,7 +4109,7 @@ msgstr ""
 "zodat de tekst op de knoppen leesbaar blijft."
 
 #. Default: Save changes
-#: src/euphorie/content/templates/settings.pt:98
+#: src/euphorie/content/templates/settings.pt:101
 msgid "button_save_changes"
 msgstr "Bewaar wijzigingen"
 
@@ -4250,45 +4266,41 @@ msgid "country_no_sectors"
 msgstr "Er zijn geen branches in dit land"
 
 #: src/euphorie/content/templates/user_mgmt.pt:27
-#: src/euphorie/content/templates/user_mgmt.pt:68
+#: src/euphorie/content/templates/user_mgmt.pt:66
 msgid "Login"
 msgstr "Login"
 
-#: src/euphorie/content/templates/user_mgmt.pt:28
-msgid "Password"
-msgstr "Wachtwoord"
-
 #. Default: Edit
-#: src/euphorie/content/templates/user_mgmt.pt:40
-#: src/euphorie/content/templates/user_mgmt.pt:78
+#: src/euphorie/content/templates/user_mgmt.pt:38
+#: src/euphorie/content/templates/user_mgmt.pt:76
 #: src/euphorie/deployment/tiles/templates/addbar.pt:9
 #: src/euphorie/deployment/tiles/templates/versions.pt:58
 msgid "button_edit"
 msgstr "Wijzig"
 
 #. Default: Lock
-#: src/euphorie/content/templates/user_mgmt.pt:41
-#: src/euphorie/content/templates/user_mgmt.pt:79
+#: src/euphorie/content/templates/user_mgmt.pt:39
+#: src/euphorie/content/templates/user_mgmt.pt:77
 msgid "button_lock"
 msgstr "Blokkeren"
 
 #. Default: Unlock
-#: src/euphorie/content/templates/user_mgmt.pt:47
-#: src/euphorie/content/templates/user_mgmt.pt:80
+#: src/euphorie/content/templates/user_mgmt.pt:45
+#: src/euphorie/content/templates/user_mgmt.pt:78
 msgid "button_unlock"
 msgstr "Activeren"
 
 #. Default: Country managers
-#: src/euphorie/content/templates/user_mgmt.pt:59
+#: src/euphorie/content/templates/user_mgmt.pt:57
 msgid "header_country_managers"
 msgstr "Landbeheerders"
 
 #. Default: There are no country managers for this country.
-#: src/euphorie/content/templates/user_mgmt.pt:60
+#: src/euphorie/content/templates/user_mgmt.pt:58
 msgid "country_no_managers"
 msgstr "Er zijn geen landbeheerders voor dit land."
 
-#: src/euphorie/content/templates/user_mgmt.pt:67
+#: src/euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
 msgstr "Naam"
 
@@ -4495,6 +4507,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. "
 "Klik op Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#~ msgid "Password"
+#~ msgstr "Wachtwoord"
 
 #~ msgid "Unanswered"
 #~ msgstr "Onbeantwoord"

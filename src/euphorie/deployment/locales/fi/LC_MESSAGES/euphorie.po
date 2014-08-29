@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-05-22 10:41+0200\n"
+"POT-Creation-Date: 2014-08-29 16:16+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr "Tämän sähköpostiosoitteen sisältävä tili on jo olemassa."
 #. Default: Cancel
 #: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:257
 #: src/euphorie/client/settings.py:140 src/euphorie/client/settings.py:255
-#: src/euphorie/content/templates/settings.pt:99
+#: src/euphorie/content/templates/settings.pt:102
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
@@ -2989,6 +2989,14 @@ msgstr "Muokkaa alamoduulia"
 msgid "label_body"
 msgstr "Sivun sisältö"
 
+#. Default: Your password must contain at least 5 characters, including at
+#. least one capital letter, one number and one special character (e.g. $, # or
+#. @).
+#: src/euphorie/content/passwordpolicy.py:49
+#, fuzzy
+msgid "password_policy_conditions"
+msgstr "Salasanasi vahvistusta varten"
+
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
 msgid "label_profilequestion_question"
@@ -3234,19 +3242,19 @@ msgstr "Yhteyshenkilön nimi"
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
-#: src/euphorie/content/templates/settings.pt:58
+#: src/euphorie/content/templates/settings.pt:61
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
-#: src/euphorie/content/templates/settings.pt:41
+#: src/euphorie/content/templates/settings.pt:44
 msgid "label_main_colour"
 msgstr "Pääväri"
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
-#: src/euphorie/content/templates/settings.pt:50
+#: src/euphorie/content/templates/settings.pt:53
 msgid "label_support_colour"
 msgstr "Tukiväri"
 
@@ -3411,7 +3419,7 @@ msgid "help_sector_title"
 msgstr "Jos et anna nimitystä, se otetaan syötetiedostosta."
 
 #. Default: Login name
-#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:60
+#: src/euphorie/content/upload.py:80 src/euphorie/content/user.py:80
 msgid "label_login_name"
 msgstr "Kirjautumisnimi"
 
@@ -3472,63 +3480,71 @@ msgid "button_upload"
 msgstr "Lähetys"
 
 #. Default: This login name is already taken.
-#: src/euphorie/content/user.py:34
+#: src/euphorie/content/user.py:44
 msgid "error_existing_login"
 msgstr "Tämä kirjautumisnimi on jo käytössä."
 
 #. Default: A login name may only consist of lowercase letters and numbers.
-#: src/euphorie/content/user.py:40
+#: src/euphorie/content/user.py:60
 msgid "error_invalid_login"
 msgstr "Kirjautumisnimessä saa olla vain pieniä kirjaimia ja numeroita."
 
 #. Default: Name
-#: src/euphorie/content/user.py:52
+#: src/euphorie/content/user.py:72
 msgid "label_user_title"
 msgstr "Nimi"
 
 #. Default: Contact email address
-#: src/euphorie/content/user.py:56
+#: src/euphorie/content/user.py:76
 msgid "label_contact_email"
 msgstr "Yhteyshenkilön sähköpostiosoite"
 
 #. Default: Password
-#: src/euphorie/content/user.py:66
-#: src/euphorie/content/templates/settings.pt:79
+#: src/euphorie/content/user.py:86
+#: src/euphorie/content/templates/settings.pt:82
 msgid "label_password"
 msgstr ""
 
 #. Default: Account is locked
-#: src/euphorie/content/user.py:70
+#: src/euphorie/content/user.py:90
 msgid "label_account_locked"
 msgstr "Tili on lukittu"
 
 #. Default: Account "${title}" has been locked.
-#: src/euphorie/content/user.py:233
+#: src/euphorie/content/user.py:172 src/euphorie/content/user.py:216
+#: src/euphorie/content/user.py:318
 msgid "message_user_locked"
 msgstr "Tili \"${title}\" on lukittu."
 
+#. Default: Please be aware that you have %s more login attempts before your
+#. account will be locked.
+#: src/euphorie/content/user.py:206
+#, fuzzy
+msgid "message_lock_warn"
+msgstr "Tili \"${title}\" on lukittu."
+
 #. Default: Account "${title}" has been unlocked.
-#: src/euphorie/content/user.py:237
+#: src/euphorie/content/user.py:322
 msgid "message_user_unlocked"
 msgstr "Tilin \"${title}\" lukitus on poistettu."
 
-#: src/euphorie/content/utils.py:11
+#: src/euphorie/content/utils.py:13
 msgid "European Union"
 msgstr "Euroopan unioni"
 
-#: src/euphorie/content/utils.py:18
+#: src/euphorie/content/utils.py:20
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: src/euphorie/content/utils.py:19
+#: src/euphorie/content/utils.py:21
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:20
+#: src/euphorie/content/utils.py:22
 msgid "Republic of Serbia"
 msgstr "Serbian tasavalta"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
 msgstr ""
 
@@ -3846,30 +3862,30 @@ msgid "header_settings"
 msgstr "Asetukset"
 
 #. Default: Please provide a description of your sector
-#: src/euphorie/content/templates/settings.pt:16
+#: src/euphorie/content/templates/settings.pt:17
 msgid "label_sector_description"
 msgstr "Anna toimialasi kuvaus"
 
 #. Default: Preview
-#: src/euphorie/content/templates/settings.pt:20
+#: src/euphorie/content/templates/settings.pt:23
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
 msgstr "Esikatselu"
 
 #. Default: Colour scheme
-#: src/euphorie/content/templates/settings.pt:27
+#: src/euphorie/content/templates/settings.pt:30
 msgid "header_colour_scheme"
 msgstr "Värikaavio"
 
 #. Default: Restore to original colours
-#: src/euphorie/content/templates/settings.pt:30
+#: src/euphorie/content/templates/settings.pt:33
 msgid "button_reset_colours"
 msgstr "Palauta alkuperäiset värit"
 
-#: src/euphorie/content/templates/settings.pt:33
-#: src/euphorie/content/templates/settings.pt:60
-#: src/euphorie/content/templates/settings.pt:81
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:63
+#: src/euphorie/content/templates/settings.pt:84
+#: src/euphorie/content/templates/settings.pt:92
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr ""
@@ -3877,7 +3893,7 @@ msgstr ""
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text on each button legible.
-#: src/euphorie/content/templates/settings.pt:33
+#: src/euphorie/content/templates/settings.pt:36
 msgid "help_sector_colours"
 msgstr ""
 "Tässä valittuja värejä käytetään vain sovelluksen asiakaspuolella. Yritä "
@@ -3887,7 +3903,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:39
 msgid "help_colour_picker"
 msgstr ""
 "Valitse organisaatiosi värit alla olevilla väripoimintatyökalulla. "
@@ -3898,7 +3914,7 @@ msgstr ""
 #. Make sure your image is of format png, jpg or gif and does not contain any
 #. special characters. The new logo will only become visible after you've saved
 #. your changes.
-#: src/euphorie/content/templates/settings.pt:60
+#: src/euphorie/content/templates/settings.pt:63
 msgid "help_sector_logo"
 msgstr ""
 "Logo näkyy sekä käyttäjäryhmäsi asiakassovelluksessa että tässä "
@@ -3907,22 +3923,22 @@ msgstr ""
 "Uusi logo näkyy vasta muutosten tallennuksen jälkeen."
 
 #. Default: Which logo you would like to display in the top left corner?
-#: src/euphorie/content/templates/settings.pt:62
+#: src/euphorie/content/templates/settings.pt:65
 msgid "label_logo_selection"
 msgstr "Minkä logon haluat näkyvän vasemmassa yläkulmassa?"
 
 #. Default: Official OiRA Logo
-#: src/euphorie/content/templates/settings.pt:65
+#: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
 msgstr ""
 
 #. Default: My own
-#: src/euphorie/content/templates/settings.pt:69
+#: src/euphorie/content/templates/settings.pt:72
 msgid "logo_my_own"
 msgstr "Omani"
 
 #. Default: transparent
-#: src/euphorie/content/templates/settings.pt:75
+#: src/euphorie/content/templates/settings.pt:78
 msgid "logo_instructions_transparent"
 msgstr "läpinäkyvä"
 
@@ -3930,7 +3946,7 @@ msgstr "läpinäkyvä"
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
 #. images is fine, the logo will be scaled down to the right size
 #. automatically.
-#: src/euphorie/content/templates/settings.pt:74
+#: src/euphorie/content/templates/settings.pt:77
 msgid "logo_instructions"
 msgstr ""
 "Saat mahdollisesti parhaan tuloksen, kun lähettämäsi kuva on ${transparent} "
@@ -3940,25 +3956,25 @@ msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: src/euphorie/content/templates/settings.pt:81
+#: src/euphorie/content/templates/settings.pt:84
 msgid "help_sector_password"
 msgstr ""
 "Tarvitset tämän salasanan, jotta voit kirjautua tähän editointiympäristöön."
 
 #. Default: Contact person
-#: src/euphorie/content/templates/settings.pt:87
+#: src/euphorie/content/templates/settings.pt:90
 msgid "label_contact_person"
 msgstr "Yhteyshenkilö"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: src/euphorie/content/templates/settings.pt:89
+#: src/euphorie/content/templates/settings.pt:92
 msgid "help_sector_contactperson"
 msgstr ""
 "Anna sen henkilön nimi, joka on vastuussa tämän toimialan OiRA-työkaluista."
 
 #. Default: Save changes
-#: src/euphorie/content/templates/settings.pt:98
+#: src/euphorie/content/templates/settings.pt:101
 msgid "button_save_changes"
 msgstr "Tallenna muutokset"
 
@@ -4111,45 +4127,41 @@ msgid "country_no_sectors"
 msgstr "Tämän maan kohdalla ei ole toimialoja."
 
 #: src/euphorie/content/templates/user_mgmt.pt:27
-#: src/euphorie/content/templates/user_mgmt.pt:68
+#: src/euphorie/content/templates/user_mgmt.pt:66
 msgid "Login"
 msgstr "Sisäänkirjautuminen"
 
-#: src/euphorie/content/templates/user_mgmt.pt:28
-msgid "Password"
-msgstr "Salasana"
-
 #. Default: Edit
-#: src/euphorie/content/templates/user_mgmt.pt:40
-#: src/euphorie/content/templates/user_mgmt.pt:78
+#: src/euphorie/content/templates/user_mgmt.pt:38
+#: src/euphorie/content/templates/user_mgmt.pt:76
 #: src/euphorie/deployment/tiles/templates/addbar.pt:9
 #: src/euphorie/deployment/tiles/templates/versions.pt:58
 msgid "button_edit"
 msgstr "Muokkaa"
 
 #. Default: Lock
-#: src/euphorie/content/templates/user_mgmt.pt:41
-#: src/euphorie/content/templates/user_mgmt.pt:79
+#: src/euphorie/content/templates/user_mgmt.pt:39
+#: src/euphorie/content/templates/user_mgmt.pt:77
 msgid "button_lock"
 msgstr "Lukitse"
 
 #. Default: Unlock
-#: src/euphorie/content/templates/user_mgmt.pt:47
-#: src/euphorie/content/templates/user_mgmt.pt:80
+#: src/euphorie/content/templates/user_mgmt.pt:45
+#: src/euphorie/content/templates/user_mgmt.pt:78
 msgid "button_unlock"
 msgstr "Poista lukitus"
 
 #. Default: Country managers
-#: src/euphorie/content/templates/user_mgmt.pt:59
+#: src/euphorie/content/templates/user_mgmt.pt:57
 msgid "header_country_managers"
 msgstr "Maajohtajat"
 
 #. Default: There are no country managers for this country.
-#: src/euphorie/content/templates/user_mgmt.pt:60
+#: src/euphorie/content/templates/user_mgmt.pt:58
 msgid "country_no_managers"
 msgstr "Tämän maan kohdalla ei ole maajohtajia."
 
-#: src/euphorie/content/templates/user_mgmt.pt:67
+#: src/euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
 msgstr "Nimi"
 
@@ -4358,6 +4370,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Tässä versiossa on muutoksia, joita ei ole vielä julkaistu. "
 "Julkaise muutokset painamalla päivityskuvaketta"
+
+#~ msgid "Password"
+#~ msgstr "Salasana"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""
