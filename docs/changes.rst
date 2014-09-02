@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Translation fixes in FI (OSHA #10635)
 
 
 7.0.0 - August 29, 2014

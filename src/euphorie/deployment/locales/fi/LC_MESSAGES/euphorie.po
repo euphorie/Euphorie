@@ -1661,7 +1661,7 @@ msgstr "Johdanto"
 #: src/euphorie/client/templates/help.pt:20
 #: src/euphorie/client/templates/help.pt:33
 msgid "help_header_authentication"
-msgstr "Rekisteröinti"
+msgstr "Rekisteröityminen"
 
 #. Default: Sessions
 #: src/euphorie/client/templates/help.pt:21
@@ -1777,8 +1777,8 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Rekisteröintisi on yksityisluontoinen asia. Vain sinä tallennat tietosi ja "
-"pääset niihin käsiksi."
+"Rekisteröityminen turvaa yksityisyytesi.  Kaikki sovelluksessa antamasi "
+"tiedot jäävät sinun käyttöösi, eikä niihin ole pääsyä muilla."
 
 #. Default: Email address
 #: src/euphorie/client/templates/login.pt:36
@@ -2814,7 +2814,7 @@ msgstr ""
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
 msgid "label_help_authentication"
-msgstr "Rekisteröinti"
+msgstr "Rekisteröityminen"
 
 #. Default: Describe the user handling. This text is linked from the login,
 #. password reminder and registration pages.
