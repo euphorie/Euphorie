@@ -13,14 +13,16 @@
  <start_neutral value="False"/>
  <supported_langs>
    <element value="bg"/>
-   <element value="cs"/>
    <element value="ca"/>
+   <element value="cs"/>
    <element value="da"/>
    <element value="de"/>
    <element value="el"/>
    <element value="en"/>
    <element value="es"/>
+   <element value="et"/>
    <element value="eu"/>
+   <element value="fi"/>
    <element value="fr"/>
    <element value="hu"/>
    <element value="is"/>
