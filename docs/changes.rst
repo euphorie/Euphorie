@@ -4,11 +4,6 @@ Changelog
 7.0.1 (unreleased)
 ------------------
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ...
-
 Bugfixes
 ~~~~~~~~
 
