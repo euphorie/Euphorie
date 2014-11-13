@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-08-29 16:16+0200\n"
+"POT-Creation-Date: 2014-11-13 18:18+0100\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1507,10 +1507,10 @@ msgstr ""
 "Vaše podatke, ki niso dostopni zunanjim uporabnikom, obdržimo, dokler ne "
 "izbrišete svojega računa in sej(e)."
 
-#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "Shranjuje podatke EU-OSHA na naših strežnikih v Halle, Nemčija."
+msgstr "Shranjuje podatke EU-OSHA na naših strežnikih v Zamudio, Španija"
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
@@ -2993,6 +2993,7 @@ msgstr "Vsebina strani"
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/tests/test_passwordpolicy.py:13
 #, fuzzy
 msgid "password_policy_conditions"
 msgstr "Vaše geslo za potrditev"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-08-29 16:16+0200\n"
+"POT-Creation-Date: 2014-11-13 18:18+0100\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1563,10 +1563,10 @@ msgstr ""
 "Os seus dados são guardados, mas de forma inacessível a utilizadores "
 "externos, até apagar a sua conta e sessão(ões)."
 
-#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "EU-OSHA guarda os dados nos nossos servidores em Halle, Alemanha."
+msgstr "EU-OSHA guarda os dados nos nossos servidores em Zamudio, Espanha."
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
@@ -3156,6 +3156,7 @@ msgstr "Conteúdo da página"
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/tests/test_passwordpolicy.py:13
 #, fuzzy
 msgid "password_policy_conditions"
 msgstr "A sua palavra-passe para confirmação"

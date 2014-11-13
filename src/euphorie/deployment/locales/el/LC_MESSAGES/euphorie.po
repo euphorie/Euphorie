@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-08-29 16:16+0200\n"
+"POT-Creation-Date: 2014-11-13 18:18+0100\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -1570,10 +1570,10 @@ msgstr ""
 "Φυλάσσουμε τα δεδομένα σας τα οποία είναι μη προσβάσιμα σε εξωτερικούς "
 "χρήστες μέχρι να διαγράψετε το λογαριασμό σας και την ενότητά(-ές) σας."
 
-#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "Το EU-OSHA αποθηκεύει δεδομένα στους server μας στο Halle, Γερμανία."
+msgstr "Το EU-OSHA αποθηκεύει δεδομένα στους server μας στο Zamudio, Ισπανία."
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
@@ -3223,6 +3223,7 @@ msgstr "Περιεχόμενο σελίδας"
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/tests/test_passwordpolicy.py:13
 #, fuzzy
 msgid "password_policy_conditions"
 msgstr "Ο κωδικός πρόσβασής σας για επιβεβαίωση"

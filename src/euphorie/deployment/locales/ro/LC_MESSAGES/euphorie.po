@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-08-29 16:16+0200\n"
+"POT-Creation-Date: 2014-11-13 18:18+0100\n"
 "PO-Revision-Date: 2013-06-27 22:08+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Romanian\n"
@@ -1422,7 +1422,7 @@ msgstr ""
 msgid "conditions_conservation_keep_data"
 msgstr ""
 
-#. Default: EU-OSHA stores data on our servers in Halle, Germany.
+#. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
 msgstr ""
@@ -2839,6 +2839,7 @@ msgstr ""
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/tests/test_passwordpolicy.py:13
 msgid "password_policy_conditions"
 msgstr ""
 

@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Terms & Conditions: Change location, due to move of servers (OSHA #10858)
 
 
 7.0.1 - September 03, 2014
