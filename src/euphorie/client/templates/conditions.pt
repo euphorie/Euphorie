@@ -22,7 +22,7 @@
     The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding.
     </p>
     </tal:if>
-    
+
     <form action="${request/getURL}" method="POST" class="concise">
       <fieldset class="concise">
         <input type="hidden" name="came_from" value="${view/came_from}" tal:condition="view/came_from"/>
@@ -69,13 +69,13 @@
           <h2 i18n:translate="conditions_datacontroller_header">Data controller</h2>
 
           <p i18n:translate="condtions_datacontroller">
-            The data controller is the European Agency for Safety and Health at Work, Bilbao. 
+            The data controller is the European Agency for Safety and Health at Work, Bilbao.
           </p>
 
           <h2 i18n:translate="conditions_conservation_header">Conservation and processing of information</h2>
 
           <p i18n:translate="conditions_conservation_keep_data">
-            We keep your data, which is inaccessible for external users, until you delete your account and your session(s). 
+            We keep your data, which is inaccessible for external users, until you delete your account and your session(s).
           </p>
 
           <p i18n:translate="conditions_conservation_storage">
@@ -85,7 +85,7 @@
           <h2 i18n:translate="conditions_datareview_header">Reviewing and removing your information</h2>
 
           <p i18n:translate="conditions_datareview">
-            You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s). 
+            You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s).
           </p>
 
           <h2 i18n:translate="conditions_security_header">Information security</h2>
@@ -97,7 +97,7 @@
           <h2 i18n:translate="conditions_contact_header">Contact information</h2>
 
           <p i18n:translate="conditions_contact">
-            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.  
+            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.
           </p>
         </div>
         <p class="buttonBar" tal:condition="not:isAnonymous">
@@ -118,11 +118,11 @@
         var $conditions = $(this),
             button = $("#agreeButton")[0],
             at_bottom;
-        
+
         if (!button.disabled) {
             return;
         }
- 
+
         at_bottom=(this.scrollHeight-$conditions.scrollTop())<=$conditions.innerHeight();
         if (at_bottom) {
             button.disabled=false;
