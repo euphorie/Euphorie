@@ -94,7 +94,7 @@
         onDeleteMeasure: function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if (!confirm(delete_confirm_text)) {
+            if (!confirm($('#delete_confirm_text').text())) {
                 return false;
             }
 
@@ -229,7 +229,7 @@
             var $measure = $("#ActionPlanItemForm .tab-container.current");
 
             if (ActionPlan.MeasureHasData($measure)) {
-                if (!confirm(replace_confirm_text)) {
+                if (!confirm($('#replace_confirm_text').text())) {
                     return;
                 }
             }
