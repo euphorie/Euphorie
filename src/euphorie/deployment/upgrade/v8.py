@@ -1,10 +1,13 @@
 # -*- coding: UTF-8 -*-
+from euphorie.client import model
+from euphorie.content.user import IUser
+from euphorie.deployment import setuphandlers
 from plone import api
 from plone.dexterity import utils
+from sqlalchemy.engine.reflection import Inspector
 from z3c.form.interfaces import IDataManager
-from euphorie.content.user import IUser
-from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
-from euphorie.deployment import setuphandlers
+from z3c.saconfig import Session
+from zope.sqlalchemy import datamanager
 import logging
 import zope.component
 
@@ -37,3 +40,14 @@ def hash_passwords(context):
 
 def register_password_policy(context):
     setuphandlers.registerPasswordPolicy(context)
+
+
+def make_user_columns_nullable(context):
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    log.info('Making the username column of account table nullable')
+    session.execute(
+        "ALTER TABLE %s ALTER COLUMN loginname DROP NOT NULL;" %
+        model.Account.__table__.name,
+    )
+    datamanager.mark_changed(session)
