@@ -28,8 +28,17 @@
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <h2 i18n:translate="header_login">Login</h2>
 
-      <p class="discrete"><tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> first.</tal:span>
-      <a class="icon info pat-tooltip" data-pat-tooltip="position: lt; source: content" href="${webhelpers/help_url}#authentication" i18n:translate="">Your registration is a private matter. All your data is stored to be accessed only by you.</a>
+      <p class="discrete" tal:define="allow_tryouts view/allow_tryouts|nothing">
+        <tal:if_no_tryouts condition="not:allow_tryouts">
+            <tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> first.</tal:span>
+            <a class="icon info pat-tooltip" data-pat-tooltip="position: lt; source: content" href="${webhelpers/help_url}#authentication" i18n:translate="">Your registration is a private matter. All your data is stored to be accessed only by you.</a>
+        </tal:if_no_tryouts>
+        <tal:if_tryouts condition="allow_tryouts">
+            <tal:span i18n:translate="register_teaser">
+                Don't have an account? Please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> or first
+                <a i18n:name="tryout_link" i18n:translate="label_guest_tryout" href="${view/tryout_url}">try it out without registering</a>.
+            </tal:span> <a class="icon info pat-tooltip" data-pat-tooltip="position: lt; source: content" href="${webhelpers/help_url}#authentication" i18n:translate="">Your registration is a private matter. All your data is stored to be accessed only by you.</a>
+        </tal:if_tryouts>
       </p>
 
       <fieldset class="concise">

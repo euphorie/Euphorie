@@ -7,7 +7,9 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- Allow anonymous accounts for visitors who want to try out surveys without
+  logging in. The feature needs to be enabled with the "allow_tryouts" option
+  under the [Euphorie] section in the euphorie.ini file (OSHA #10972)
 
 Bugfixes
 ~~~~~~~~
