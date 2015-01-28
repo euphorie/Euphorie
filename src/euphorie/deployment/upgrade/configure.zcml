@@ -249,17 +249,4 @@
       handler=".v8.register_password_policy"/>
 
   </genericsetup:upgradeSteps>
-
-  <genericsetup:upgradeSteps
-    source="16"
-    destination="17"
-    profile="euphorie.deployment:default"
-    >
-
-    <genericsetup:upgradeStep
-      title="Enable support for anonymous user accounts"
-      description="Make the username and password columns nullable"
-      handler=".v8.make_user_columns_nullable"/>
-
-  </genericsetup:upgradeSteps>
 </configure>
