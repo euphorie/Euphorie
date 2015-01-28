@@ -249,4 +249,17 @@
       handler=".v8.register_password_policy"/>
 
   </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="16"
+    destination="17"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Indicate whether an account is a guest account, converted from one, or neither."
+      description="Add a new column to the Account table to store this."
+      handler=".v8.add_column_to_account"/>
+
+  </genericsetup:upgradeSteps>
 </configure>
