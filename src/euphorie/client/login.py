@@ -1,8 +1,9 @@
 import cgi
+import datetime
 import logging
 import re
-import socket
 import smtplib
+import socket
 import urllib
 import urlparse
 from Acquisition import aq_inner
@@ -10,10 +11,12 @@ from Acquisition import aq_parent
 from Acquisition import aq_chain
 from AccessControl import getSecurityManager
 from z3c.saconfig import Session
+from z3c.appconfig.interfaces import IAppConfig
 from five import grok
 from zope.interface import Interface
 from zope.i18n import translate
 from zope.component import getUtility
+from plone import api
 from plone.session.plugins.session import cookie_expiration_date
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
@@ -76,6 +79,10 @@ class Login(grok.View):
         else:
             came_from = aq_parent(context).absolute_url()
 
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.allow_tryouts = settings.get('allow_tryouts', False)
+
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             if reply["next"] == "previous":
@@ -105,6 +112,28 @@ class Login(grok.View):
                 urllib.urlencode({'came_from': came_from}))
         self.register_url = "%s/@@register?%s" % (context.absolute_url(),
                 urllib.urlencode({'came_from': came_from}))
+        self.tryout_url = "%s/@@tryout?%s" % (context.absolute_url(),
+                urllib.urlencode({'came_from': came_from}))
+
+
+class Tryout(Login):
+    grok.context(Interface)
+    grok.require("zope2.View")
+    grok.layer(IClientSkinLayer)
+    grok.name("tryout")
+
+    def createGuestAccount(self):
+        account = Account(loginname="guest-%s" % datetime.datetime.now().isoformat())
+        Session().add(account)
+        return account
+
+    def update(self):
+        came_from = self.request.form.get("came_from")
+        if not came_from:
+            self.request.response.redirect(api.portal.get().absolute_url())
+        account = self.createGuestAccount()
+        self.login(account, False)
+        self.request.response.redirect(came_from)
 
 
 class Reminder(grok.View):
@@ -216,7 +245,7 @@ class Register(grok.View):
             return False
 
         account = Account(loginname=loginname,
-                                password=reply.get("password1"))
+                          password=reply.get("password1"))
         Session().add(account)
         log.info("Registered new account %s", loginname)
         v_url = urlparse.urlsplit(self.url()+'/success').path
