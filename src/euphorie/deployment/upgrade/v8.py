@@ -1,11 +1,15 @@
 # -*- coding: UTF-8 -*-
+from euphorie.content.user import IUser
+from euphorie.deployment import setuphandlers
+from euphorie.deployment.upgrade.utils import ColumnExists
 from plone import api
 from plone.dexterity import utils
 from z3c.form.interfaces import IDataManager
-from euphorie.content.user import IUser
-from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
-from euphorie.deployment import setuphandlers
+from z3c.saconfig import Session
+from zope.sqlalchemy import datamanager
+from sqlalchemy.exc import InternalError
 import logging
+import transaction
 import zope.component
 
 log = logging.getLogger(__name__)
@@ -37,3 +41,29 @@ def hash_passwords(context):
 
 def register_password_policy(context):
     setuphandlers.registerPasswordPolicy(context)
+
+
+def add_column_to_account(context):
+    """ Adds a new column to the Account table which indicates whether the
+        account in question is a guest account, a converted guest account or
+        neither.
+    """
+    session = Session()
+    if ColumnExists(session, "account", "account_type"):
+        log.info("account_type column already exists in Account table!")
+        return
+
+    log.info('Adding account_type column to Account table')
+    q = "ALTER TABLE account ADD COLUMN account_type CHARACTER varying(16)";
+    try:
+        session.execute(q)
+    except InternalError, e:
+        # There might be previous SQL queries which failed due to the
+        # account_type column not yet being in the Account table. For example,
+        # the authenticate method in authentication.py does such a query.
+        session.rollback()
+        transaction.commit()
+        session.execute(q)
+
+    datamanager.mark_changed(session)
+    transaction.get().commit()
