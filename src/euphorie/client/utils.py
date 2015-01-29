@@ -27,6 +27,7 @@ from euphorie.content.utils import StripMarkup
 from .. import MessageFactory as _
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import IClientSector
+from euphorie.client import config
 
 locals = threading.local()
 log = logging.getLogger(__name__)
@@ -92,6 +93,7 @@ class WebHelpers(grok.View):
         self.debug_mode = Globals.DevelopmentMode
         user = getSecurityManager().getUser()
         self.anonymous = isAnonymous(user)
+        self.is_guest_account = getattr(user, 'account_type', None) == config.GUEST_ACCOUNT
 
     @property
     def macros(self):
