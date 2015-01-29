@@ -279,6 +279,15 @@ class Register(grok.View):
                     self.request.response.redirect(came_from)
 
 
+class ConvertGuest(Register):
+    """ Convert a guest account into a proper member account
+    """
+    grok.context(Interface)
+    grok.require("zope2.View")
+    grok.layer(IClientSkinLayer)
+    grok.name("convert-guest")
+
+
 class Logout(grok.View):
     grok.context(Interface)
     grok.require("zope2.View")
