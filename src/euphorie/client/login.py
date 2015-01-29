@@ -13,6 +13,7 @@ from AccessControl import getSecurityManager
 from z3c.saconfig import Session
 from z3c.appconfig.interfaces import IAppConfig
 from five import grok
+from euphorie.client import config
 from zope.interface import Interface
 from zope.i18n import translate
 from zope.component import getUtility
@@ -123,7 +124,10 @@ class Tryout(Login):
     grok.name("tryout")
 
     def createGuestAccount(self):
-        account = Account(loginname="guest-%s" % datetime.datetime.now().isoformat())
+        account = Account(
+            loginname="guest-%s" % datetime.datetime.now().isoformat(),
+            account_type=config.GUEST_ACCOUNT
+        )
         Session().add(account)
         return account
 
