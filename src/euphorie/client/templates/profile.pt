@@ -77,7 +77,7 @@
       </li>
     </ol>
 
-    <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="help_section string:preparation"/>
+    <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:preparation"/>
     <metal:css use-macro="webhelpers/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
   <script type="text/javascript" defer="1">
