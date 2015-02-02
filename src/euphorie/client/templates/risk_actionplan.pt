@@ -192,7 +192,7 @@
       </li>
     </ol>
 
-    <metal:css use-macro="webhelpers/macros/topnav" tal:define="help_section string:actionplan"/>
+    <metal:css use-macro="webhelpers/macros/topnav" tal:define="site_section string:actionplan"/>
     <metal:css use-macro="webhelpers/macros/appendix"/>
     <metal:js  use-macro="webhelpers/macros/javascript"/>
 

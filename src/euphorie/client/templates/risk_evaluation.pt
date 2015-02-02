@@ -163,7 +163,7 @@
       </li>
     </ol>
 
-    <metal:css use-macro="webhelpers/macros/topnav" tal:define="help_section string:evaluation"/>
+    <metal:css use-macro="webhelpers/macros/topnav" tal:define="site_section string:evaluation"/>
     <metal:css use-macro="webhelpers/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
