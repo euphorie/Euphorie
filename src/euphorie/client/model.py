@@ -184,7 +184,7 @@ class Account(BaseObject):
     password = schema.Column(types.Unicode(64))
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
-            Enum([u"guest", u"converted"]), default=None, nullable=True)
+            Enum([u"guest", u"converted", None]), default=None, nullable=True)
 
     @property
     def email(self):
