@@ -16,7 +16,7 @@ from five import grok
 from euphorie.client import config
 from zope.interface import Interface
 from zope.i18n import translate
-from zope.component import getUtility
+from zope import component
 from plone import api
 from plone.session.plugins.session import cookie_expiration_date
 from Products.CMFCore.interfaces import ISiteRoot
@@ -25,10 +25,10 @@ from Products.statusmessages.interfaces import IStatusMessage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
+from euphorie.client import model
 from .interfaces import IClientSkinLayer
 from .utils import CreateEmailTo
 from .utils import setLanguage
-from .model import Account
 from .session import SessionManager
 from .country import IClientCountry
 from .conditions import checkTermsAndConditions
@@ -69,6 +69,16 @@ class Login(grok.View):
             self.response.cookies['__ac']['expires'] = cookie_expiration_date(120)
             self.response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
 
+    def transferGuestSession(self, session_id):
+        """ Transfer guest session to an existing user account
+        """
+        if not session_id:
+            return
+        account = getSecurityManager().getUser()
+        session = Session.query(model.SurveySession).get(session_id)
+        session.account_id = account.id
+        SessionManager.resume(session)
+
     def update(self):
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
@@ -80,7 +90,8 @@ class Login(grok.View):
         else:
             came_from = aq_parent(context).absolute_url()
 
-        appconfig = getUtility(IAppConfig)
+        account = getSecurityManager().getUser()
+        appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.allow_tryouts = settings.get('allow_tryouts', False)
 
@@ -91,9 +102,10 @@ class Login(grok.View):
                 self.response.redirect(next)
                 return
 
-            account = getSecurityManager().getUser()
-            if isinstance(account, Account) and \
+            if isinstance(account, model.Account) and \
                     account.getUserName() == reply.get("__ac_name", '').lower():
+
+                self.transferGuestSession(reply.get('guest_session_id'))
                 self.login(account, bool(self.request.form.get('remember')))
                 v_url = urlparse.urlsplit(self.url()+'/success').path
                 trigger_extra_pageview(self.request, v_url)
@@ -124,7 +136,7 @@ class Tryout(Login):
     grok.name("tryout")
 
     def createGuestAccount(self):
-        account = Account(
+        account = model.Account(
             loginname="guest-%s" % datetime.datetime.now().isoformat(),
             account_type=config.GUEST_ACCOUNT
         )
@@ -155,13 +167,13 @@ class Reminder(grok.View):
             self.error = _(u"Please enter your email address")
             return False
 
-        account = Session.query(Account)\
-                .filter(Account.loginname == loginname).first()
+        account = Session.query(model.Account)\
+                .filter(model.Account.loginname == loginname).first()
         if not account:
             self.error = _(u"Unknown email address")
             return False
 
-        site = getUtility(ISiteRoot)
+        site = component.getUtility(ISiteRoot)
         mailhost = getToolByName(self.context, "MailHost")
         body = self.email_template(
                 loginname=account.loginname,
@@ -235,8 +247,8 @@ class Register(grok.View):
 
         session = Session()
         loginname = loginname.lower()
-        account = session.query(Account)\
-                .filter(Account.loginname == loginname).count()
+        account = session.query(model.Account)\
+                .filter(model.Account.loginname == loginname).count()
         if account:
             self.errors["email"] = _("error_email_in_use",
                 default=u"An account with this email address already exists.")
@@ -248,7 +260,7 @@ class Register(grok.View):
                 default=u"An account with this email address already exists.")
             return False
 
-        account = Account(loginname=loginname,
+        account = model.Account(loginname=loginname,
                           password=reply.get("password1"))
         Session().add(account)
         log.info("Registered new account %s", loginname)
@@ -277,15 +289,6 @@ class Register(grok.View):
                                 urllib.urlencode({"came_from": came_from})))
                 else:
                     self.request.response.redirect(came_from)
-
-
-class ConvertGuest(Register):
-    """ Convert a guest account into a proper member account
-    """
-    grok.context(Interface)
-    grok.require("zope2.View")
-    grok.layer(IClientSkinLayer)
-    grok.name("convert-guest")
 
 
 class Logout(grok.View):
