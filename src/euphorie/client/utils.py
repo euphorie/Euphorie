@@ -85,6 +85,7 @@ class WebHelpers(grok.View):
     sector = None
 
     def __init__(self, context, request):
+        from euphorie.client.session import SessionManager
         super(WebHelpers, self).__init__(context, request)
         for obj in aq_chain(aq_inner(context)):
             if IClientSector.providedBy(obj):
@@ -93,7 +94,10 @@ class WebHelpers(grok.View):
         self.debug_mode = Globals.DevelopmentMode
         user = getSecurityManager().getUser()
         self.anonymous = isAnonymous(user)
-        self.is_guest_account = getattr(user, 'account_type', None) == config.GUEST_ACCOUNT
+        account = getattr(user, 'account_type', None)
+        self.is_guest_account = account == config.GUEST_ACCOUNT
+        self.guest_session_id = self.is_guest_account and \
+                SessionManager.session.id or None
 
     @property
     def macros(self):
