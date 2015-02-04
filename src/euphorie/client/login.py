@@ -260,8 +260,17 @@ class Register(grok.View):
                 default=u"An account with this email address already exists.")
             return False
 
-        account = model.Account(loginname=loginname,
-                          password=reply.get("password1"))
+        guest_session_id = self.request.form.get('guest_session_id')
+        if guest_session_id:
+            account = getSecurityManager().getUser()
+            account.loginname = loginname
+            account.password = reply.get("password1")
+            account.account_type = config.CONVERTED_ACCOUNT
+        else:
+            account = model.Account(
+                loginname=loginname,
+                password=reply.get("password1")
+            )
         Session().add(account)
         log.info("Registered new account %s", loginname)
         v_url = urlparse.urlsplit(self.url()+'/success').path
