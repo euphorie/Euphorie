@@ -2,6 +2,25 @@ body > h1 {
 	background-color: #003399;
 }
 
+section.report-blurb {
+	border: 3px solid #996699;
+    max-width: 590px;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+section.report-blurb .report-examples {
+    display: table;
+}
+
+section.report-blurb .report-examples li {
+    display: table-cell;
+}
+
+section.report-blurb .report-examples li img {
+    width: 95%;
+}
+
 #ActionPlanItemForm .solutions {
     padding: 4px 4px;
     margin-top: 0;
