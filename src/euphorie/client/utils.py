@@ -97,7 +97,7 @@ class WebHelpers(grok.View):
         account = getattr(user, 'account_type', None)
         self.is_guest_account = account == config.GUEST_ACCOUNT
         self.guest_session_id = self.is_guest_account and \
-                SessionManager.session.id or None
+                SessionManager.session and SessionManager.session.id or None
 
     @property
     def macros(self):
