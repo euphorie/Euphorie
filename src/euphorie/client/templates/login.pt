@@ -28,11 +28,11 @@
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <h2 i18n:translate="header_login">Login</h2>
 
-      <p class="discrete" tal:define="allow_tryouts view/allow_tryouts|nothing; is_guest_account webhelpers/is_guest_account|nothing">
-        <tal:if_no_tryouts condition="not:allow_tryouts">
+      <p class="discrete" tal:define="allow_guest_account view/allow_guest_account|nothing; is_guest_account webhelpers/is_guest_account|nothing">
+        <tal:if_no_tryouts condition="not:allow_guest_account">
             <tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> first.</tal:span>
         </tal:if_no_tryouts>
-        <tal:if_tryouts_allowed condition="allow_tryouts">
+        <tal:if_tryouts_allowed condition="allow_guest_account">
             <tal:guest_account condition="is_guest_account">
                 <tal:span i18n:translate="guest_register_teaser">Don't have an account? Please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a>.</tal:span>
                 <input type="hidden" name="guest_session_id" tal:attributes="value webhelpers/guest_session_id"/>
