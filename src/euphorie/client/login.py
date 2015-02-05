@@ -93,7 +93,7 @@ class Login(grok.View):
         account = getSecurityManager().getUser()
         appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.allow_guest_account = settings.get('allow_guest_account', False)
+        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
