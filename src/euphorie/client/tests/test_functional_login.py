@@ -1,11 +1,44 @@
 # coding=utf-8
-
-from euphorie.deployment.tests.functional import EuphorieTestCase
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
+from euphorie.deployment.tests.functional import EuphorieTestCase
+from z3c.appconfig.interfaces import IAppConfig
+from zope.interface import alsoProvides
+from zope import component
+import re
+
+
+class GuestAccountTests(EuphorieFunctionalTestCase):
+
+    def test_guest_login(self):
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.tests.utils import addSurvey
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        self.logout()
+        alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)
+        browser = Browser()
+        appconfig = component.getUtility(IAppConfig)
+        allow_guest_accounts = appconfig['euphorie'].get('allow_guest_accounts', False)
+        appconfig['euphorie']['allow_guest_accounts'] = True
+        browser.open("%s/@@login" % self.portal.client.nl.absolute_url())
+        self.assertTrue(
+            re.search('try it out without registering', browser.contents)
+            is not None)
+        browser.open("%s/@@tryout?came_from=%s" % (
+            self.portal.client.nl.absolute_url(),
+            self.portal.client.nl.absolute_url()
+        ))
+        browser.open("%s/@@login" % self.portal.client.nl.absolute_url())
+        self.assertTrue(
+            re.search('try it out without registering', browser.contents)
+            is None)
+        appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
 
 class LoginTests(EuphorieFunctionalTestCase):
+
     def test_login_not_case_sensitive(self):
         from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addSurvey
@@ -56,7 +89,6 @@ class LoginTests(EuphorieFunctionalTestCase):
         self.assertTrue(delta.days > 100)
 
     def test_extra_ga_pageview_post_login(self):
-        import re
         from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addSurvey
         from euphorie.client.tests.utils import addAccount
@@ -73,8 +105,6 @@ class LoginTests(EuphorieFunctionalTestCase):
 
 class RegisterTests(EuphorieTestCase):
     def afterSetUp(self):
-        from zope.interface import alsoProvides
-        from euphorie.client.interfaces import IClientSkinLayer
         super(RegisterTests, self).afterSetUp()
         self.loginAsPortalOwner()
         alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)

@@ -131,7 +131,7 @@ class Login(grok.View):
 
 class Tryout(Login):
     grok.context(Interface)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.name("tryout")
 
@@ -146,10 +146,10 @@ class Tryout(Login):
     def update(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            self.request.response.redirect(api.portal.get().absolute_url())
+            return self.request.response.redirect(api.portal.get().absolute_url())
         account = self.createGuestAccount()
         self.login(account, False)
-        self.request.response.redirect(came_from)
+        return self.request.response.redirect(came_from)
 
 
 class Reminder(grok.View):

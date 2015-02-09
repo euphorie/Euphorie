@@ -1,7 +1,8 @@
 from euphorie.client.tests.database import DatabaseTests
 from euphorie.client import model
+from euphorie.client import config
 from z3c.saconfig import Session
-import unittest
+from sqlalchemy.exc import StatementError
 
 
 def createSurvey():
@@ -181,7 +182,8 @@ class ModuleWithRiskFilterTests(DatabaseTests):
         self.assertEqual(self.query().count(), 0)
 
 
-class AccountTests(unittest.TestCase):
+class AccountTests(DatabaseTests):
+
     def testGlobalRoles(self):
         user = model.Account()
         self.assertEqual(user.getRoles(), ("EuphorieUser",))
@@ -220,3 +222,16 @@ class AccountTests(unittest.TestCase):
     def testNoOtherRole(self):
         user = model.Account()
         self.assertEqual(user.allowed(None, "Manager"), False)
+
+    def testAccountType(self):
+        (self.session, self.survey) = createSurvey()
+        account = self.survey.account
+        self.assertEqual(account.account_type, None)
+        account.account_type = config.GUEST_ACCOUNT
+        self.assertEqual(account.account_type, config.GUEST_ACCOUNT)
+        self.session.flush() # check that exception is not raised
+        account.account_type = config.CONVERTED_ACCOUNT
+        self.session.flush() # check that exception is not raised
+        self.assertEqual(account.account_type, config.CONVERTED_ACCOUNT)
+        account.account_type = 'invalid'
+        self.assertRaises(StatementError, self.session.flush)
