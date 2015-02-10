@@ -1935,7 +1935,7 @@ msgstr "Þó getur þú notað þann tíma sem þú hefur tiltækan við að fra
 
 #: src/euphorie/client/templates/login.pt:86
 msgid "Why do I have to register?"
-msgstr "HVERS VEGNA ÞARF AÐ SKRÁ SIG?"
+msgstr "Hvers vegna þarf að skrá sig?"
 
 #: src/euphorie/client/templates/login.pt:87
 msgid ""
@@ -1959,7 +1959,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:96
 msgid "Do I need to prepare?"
-msgstr "ÞARF SÉRSTAKAN UNDIRBÚNING?"
+msgstr "Þarf sérstakan undirbúning?"
 
 #: src/euphorie/client/templates/login.pt:97
 msgid ""
