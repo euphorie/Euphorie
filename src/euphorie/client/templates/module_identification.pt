@@ -15,6 +15,7 @@
   </head>
   <body tal:define="module nocall:view/module" class="identification ${webhelpers/extra_css}">
     <h1>${module/title}</h1>
+    <tal:block replace="tile:statusmessages"/>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
       <a tal:define="images module/@@images; scale python:images.scale('image', width=200, height=500, direction='thumbnail')"
