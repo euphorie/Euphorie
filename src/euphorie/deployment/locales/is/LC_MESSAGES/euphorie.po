@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-11-13 18:18+0100\n"
+"POT-Creation-Date: 2015-02-10 19:19+0100\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,8 +177,7 @@ msgstr "Villa kom upp við sendingu á áminningu um lykilorð"
 
 #: src/euphorie/client/login.py:174
 msgid "An email with a password reminder has been sent to your address."
-msgstr ""
-"Tölvupóstur með lykilorðinu hefur verið sendur á tölvupóstfang þitt."
+msgstr "Tölvupóstur með lykilorðinu hefur verið sendur á tölvupóstfang þitt."
 
 #. Default: Please enter your email address
 #: src/euphorie/client/login.py:189
@@ -970,7 +969,9 @@ msgstr "Breyta tölvupóstfangi"
 msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
-msgstr "Hafðu í huga að ef þú breytir tölvupóstfangi þínu þá breytist innskráningarnafn þitt um leið."
+msgstr ""
+"Hafðu í huga að ef þú breytir tölvupóstfangi þínu þá breytist "
+"innskráningarnafn þitt um leið."
 
 #. Default: Password
 #: src/euphorie/client/templates/account-settings.pt:27
@@ -984,7 +985,10 @@ msgstr "Lykilorð"
 #. measures.
 #: src/euphorie/client/templates/actionplan.pt:20
 msgid "expl_actionplan_1"
-msgstr "Þegar búið er að greina og meta hættur þarf að gera aðgerðaáætlun um útbætur. Best er að fjarlægja hættur en ef það er ekki hægt þarf að grípa til annarra ráðstafanna."
+msgstr ""
+"Þegar búið er að greina og meta hættur þarf að gera aðgerðaáætlun um "
+"útbætur. Best er að fjarlægja hættur en ef það er ekki hægt þarf að grípa "
+"til annarra ráðstafanna."
 
 #. Default: Removing the causes (tackling the source) is the preferred method:
 #. that way, the risk can no longer arise. You then write down what tasks have
@@ -1629,7 +1633,8 @@ msgstr "Síðan sem þú baðst um fannst ekki."
 #. risk for each bottleneck.
 #: src/euphorie/client/templates/evaluation.pt:19
 msgid "help_risks_present"
-msgstr "Núna er búið að greina hættur í vinnuumhverfinu. Þá þarf að meta áhættuna."
+msgstr ""
+"Núna er búið að greina hættur í vinnuumhverfinu. Þá þarf að meta áhættuna."
 
 #. Default: action plan
 #: src/euphorie/client/templates/evaluation.pt:28
@@ -1774,7 +1779,9 @@ msgstr "fáðu áminningu í tölvupósti"
 #. information.
 #: src/euphorie/client/templates/login.pt:20
 msgid "incorrect_login"
-msgstr "Rangt notendanafn eða lykilorð. Athugaðu málið og reyndu aftur eða fáðu {request_an_email_reminder} um innskráningarupplýsingar þínar."
+msgstr ""
+"Rangt notendanafn eða lykilorð. Athugaðu málið og reyndu aftur eða fáðu "
+"{request_an_email_reminder} um innskráningarupplýsingar þínar."
 
 #. Default: Login
 #: src/euphorie/client/templates/login.pt:29
@@ -1840,7 +1847,10 @@ msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
-msgstr "OiRA er skammstöfun fyrir rafrænt gagnvirkt áhættumat sem er á netinu. OiRA = Online interactive Risk Assessment. OiRA gerir þér kleift að framkvæma áhættumat fyrir vinnustaðinn þinn."
+msgstr ""
+"OiRA er skammstöfun fyrir rafrænt gagnvirkt áhættumat sem er á netinu. OiRA "
+"= Online interactive Risk Assessment. OiRA gerir þér kleift að framkvæma "
+"áhættumat fyrir vinnustaðinn þinn."
 
 #: src/euphorie/client/templates/login.pt:53
 msgid "Who is the OiRA tool for?"
@@ -1850,7 +1860,9 @@ msgstr "Fyir hverja er OiRA verkfærið?"
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
-msgstr "Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og til að uppfylla lagaskyldur sínar."
+msgstr ""
+"Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og til að uppfylla "
+"lagaskyldur sínar."
 
 #: src/euphorie/client/templates/login.pt:57
 #: src/euphorie/client/templates/login.pt:67
@@ -1868,14 +1880,18 @@ msgstr "Sýndu mér minna…"
 
 #: src/euphorie/client/templates/login.pt:59
 msgid "However, OiRA is designed to be of most value to smaller businesses."
-msgstr "OiRA verkfærið er fyrst og fremst ætlað litlum og meðalstórum fyrirtækjum."
+msgstr ""
+"OiRA verkfærið er fyrst og fremst ætlað litlum og meðalstórum fyrirtækjum."
 
 #: src/euphorie/client/templates/login.pt:60
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
-msgstr "OiRA verkfærið hjálpar fyrirtækjum að finna og meta áhættur í starfsumhverfinu. Verkfærið býr til aðgerðaráætlun um úrbætur sem fyrirtækið þarf að framkvæma."
+msgstr ""
+"OiRA verkfærið hjálpar fyrirtækjum að finna og meta áhættur í "
+"starfsumhverfinu. Verkfærið býr til aðgerðaráætlun um úrbætur sem fyrirtækið "
+"þarf að framkvæma."
 
 #: src/euphorie/client/templates/login.pt:63
 msgid "What do I have to do?"
@@ -1890,7 +1906,9 @@ msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
-msgstr "${preparation} Hafa yfirsýn og þekkingu á starfseminni sem á að taka fyrir í áhættumatinu."
+msgstr ""
+"${preparation} Hafa yfirsýn og þekkingu á starfseminni sem á að taka fyrir í "
+"áhættumatinu."
 
 #: src/euphorie/client/templates/login.pt:71
 msgid ""
@@ -1899,14 +1917,20 @@ msgid ""
 "statements/questions with either yes or no, you state if such hazards or "
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put it on hold to be answered at a later stage."
-msgstr "${identification} OIRA verkfærið tekur á flestu í starfsumhverfinu sem skiptir máli fyrir öryggi og heilbrigði starfsfólks. Hættur eru greindar þannig að settar eru fram fullyrðingar sem svara þarf með já eða nei. Einnig er hægt er að sleppa því að svara fullyrðingum eða svara þeim síðar."
+msgstr ""
+"${identification} OIRA verkfærið tekur á flestu í starfsumhverfinu sem "
+"skiptir máli fyrir öryggi og heilbrigði starfsfólks. Hættur eru greindar "
+"þannig að settar eru fram fullyrðingar sem svara þarf með já eða nei. Einnig "
+"er hægt er að sleppa því að svara fullyrðingum eða svara þeim síðar."
 
 #: src/euphorie/client/templates/login.pt:72
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
-msgstr "${evaluation} Í verkfærinu þarf að meta áhættustig fullyrðinga sem svarað er neitandi. Valið er stig áhættu. Lágt, Miðlungs eða Hátt."
+msgstr ""
+"${evaluation} Í verkfærinu þarf að meta áhættustig fullyrðinga sem svarað er "
+"neitandi. Valið er stig áhættu. Lágt, Miðlungs eða Hátt."
 
 #: src/euphorie/client/templates/login.pt:73
 msgid ""
@@ -1914,7 +1938,11 @@ msgid ""
 "steps you will take to address the risks you have identified previously and "
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
-msgstr "${action-plan} Í aðgerðaáætluninni er valið til hvaða úrbóta skuli gripið til að takast á við þá  áhættuþætti sem hafa verið greindir. Verkfærið býður upp á lausnir sem hægt er að velja. Einnig er hægt að setja fram eigin lausnir. Verkfærið býr að lokum til skýrslu með þeim lausnum sem valdar voru."
+msgstr ""
+"${action-plan} Í aðgerðaáætluninni er valið til hvaða úrbóta skuli gripið "
+"til að takast á við þá  áhættuþætti sem hafa verið greindir. Verkfærið býður "
+"upp á lausnir sem hægt er að velja. Einnig er hægt að setja fram eigin "
+"lausnir. Verkfærið býr að lokum til skýrslu með þeim lausnum sem valdar voru."
 
 #: src/euphorie/client/templates/login.pt:77
 msgid "How long will it take?"
@@ -1924,14 +1952,19 @@ msgstr "Hvað langan tíma tekur þetta?"
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
-msgstr "Það er ómögulegt að segja hvað langan tíma það tekur að framkvæma áhættumatið. Vinnustaðir eru ólíkir og aðstæður mismunandi."
+msgstr ""
+"Það er ómögulegt að segja hvað langan tíma það tekur að framkvæma "
+"áhættumatið. Vinnustaðir eru ólíkir og aðstæður mismunandi."
 
 #: src/euphorie/client/templates/login.pt:83
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
 "off."
-msgstr "Þó getur þú notað þann tíma sem þú hefur tiltækan við að framkvæma mat og síðan snúa aftur til þess þegar þér hentar og halda áfram frá þeim stað sem þú hættir."
+msgstr ""
+"Þó getur þú notað þann tíma sem þú hefur tiltækan við að framkvæma mat og "
+"síðan snúa aftur til þess þegar þér hentar og halda áfram frá þeim stað sem "
+"þú hættir."
 
 #: src/euphorie/client/templates/login.pt:86
 msgid "Why do I have to register?"
@@ -1941,13 +1974,17 @@ msgstr "Hvers vegna þarf að skrá sig?"
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
-msgstr "Það fyrsta sem þú ert beðinn um að gera þegar þú byrjar á OiRA áhættumati er að stofna aðgang. - það er einfalt og fljótlegt."
+msgstr ""
+"Það fyrsta sem þú ert beðinn um að gera þegar þú byrjar á OiRA áhættumati er "
+"að stofna aðgang. - það er einfalt og fljótlegt."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
-msgstr "Þegar þú hefur stofnað aðgang geturðu skráð þig inn hvenær sem er til að halda áfram með fyrra mat eða hafið nýtt."
+msgstr ""
+"Þegar þú hefur stofnað aðgang geturðu skráð þig inn hvenær sem er til að "
+"halda áfram með fyrra mat eða hafið nýtt."
 
 #: src/euphorie/client/templates/login.pt:93
 msgid ""
@@ -1967,7 +2004,10 @@ msgid ""
 "however you should take some time to think about who is going to carry out "
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
-msgstr "Þú þarft engan sérstakan undirbúning til að nota OiRA verkfærið. Ákveða þarf hver eigi að framkvæma áhættumatið. Mikilvægt er að hafa samstarf við starfsfólkið."
+msgstr ""
+"Þú þarft engan sérstakan undirbúning til að nota OiRA verkfærið. Ákveða þarf "
+"hver eigi að framkvæma áhættumatið. Mikilvægt er að hafa samstarf við "
+"starfsfólkið."
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
@@ -2136,7 +2176,10 @@ msgstr "Skýrsla"
 #. be included in this report in the field below.
 #: src/euphorie/client/templates/report.pt:19
 msgid "report_intro"
-msgstr "Nú er aðgerðaáætlun lokið og hægt er að vista skýrslu með öllum niðurstöðum. Hægt er að bæta við athugasemdum um skýrsluna. Setjið þær í reitin hér fyrir neðan."
+msgstr ""
+"Nú er aðgerðaáætlun lokið og hægt er að vista skýrslu með öllum niðurstöðum. "
+"Hægt er að bæta við athugasemdum um skýrsluna. Setjið þær í reitin hér fyrir "
+"neðan."
 
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
@@ -2222,7 +2265,9 @@ msgstr "Áhættustig ${priority_value}"
 #. Default: Company details
 #: src/euphorie/client/templates/report_company.pt:17
 msgid "hader_company_details"
-msgstr "Viltu taka þátt í að bæta OiRA verkfærið? Vinsamlegast taktu þátt í könnuninni hér að neðan."
+msgstr ""
+"Viltu taka þátt í að bæta OiRA verkfærið? Vinsamlegast taktu þátt í "
+"könnuninni hér að neðan."
 
 #. Default: Please fix the indicated errors.
 #: src/euphorie/client/templates/report_company.pt:18
@@ -2233,7 +2278,9 @@ msgstr "Það þarf að lagfæra villurnar sem bent er á."
 #. form will also appear in the report.
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "company_details_intro"
-msgstr "Þér er frjálst að veita upplýsingar hér að neðan. Þeim er ætlað að bæta verkfærið og þjónustuna. Þessi gögn munu ekki birtast í skýrslunni."
+msgstr ""
+"Þér er frjálst að veita upplýsingar hér að neðan. Þeim er ætlað að bæta "
+"verkfærið og þjónustuna. Þessi gögn munu ekki birtast í skýrslunni."
 
 #. Default: Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc.
@@ -2652,7 +2699,14 @@ msgstr "Skráðu nafn áhættumatsins"
 #: src/euphorie/client/templates/sessions.pt:62
 #: src/euphorie/client/templates/survey_sessions.pt:51
 msgid "session_title_tooltip"
-msgstr "Þegar þú hefur hafið vinnu í OiRA verkfærinu geturðu hætt hvenær sem er. Hægt er að byrja aftur síðar með því að velja sama áhættumat. Hægt er að vista fleiri en eitt áhættumat ef þú hefur gefið þeim mismunandi nöfn. Nauðsynlegt er að muna tölvupóstfang, lykilorð og nafnið sem þú gafst áhættumatinu. Þegar þú villt hætta að vinna í áhættumatinu notar þú hnappinn Útskráning. Þú skráist einnig út ef þú lokar vafranum þínum. Af öryggisástæðum er æskilegt að skrá sig út með virkum hætti."
+msgstr ""
+"Þegar þú hefur hafið vinnu í OiRA verkfærinu geturðu hætt hvenær sem er. "
+"Hægt er að byrja aftur síðar með því að velja sama áhættumat. Hægt er að "
+"vista fleiri en eitt áhættumat ef þú hefur gefið þeim mismunandi nöfn. "
+"Nauðsynlegt er að muna tölvupóstfang, lykilorð og nafnið sem þú gafst "
+"áhættumatinu. Þegar þú villt hætta að vinna í áhættumatinu notar þú hnappinn "
+"Útskráning. Þú skráist einnig út ef þú lokar vafranum þínum. Af "
+"öryggisástæðum er æskilegt að skrá sig út með virkum hætti."
 
 #: src/euphorie/client/templates/sessions.pt:103
 #: src/euphorie/client/templates/survey_sessions.pt:92
