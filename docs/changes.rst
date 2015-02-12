@@ -4,15 +4,13 @@ Changelog
 7.0.2 - unreleased
 ------------------
 
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ...
-
 Bugfixes
 ~~~~~~~~
 
 - Terms & Conditions: Change location, due to move of servers (OSHA #10858)
+- Fix a bug in delete confirmation so that double quotes (which can come from
+  translations) no longer break the Javascript (OSHA #10925)
+- Translations changes in Icelandic (OSHA #11294)
 
 
 7.0.1 - September 03, 2014
