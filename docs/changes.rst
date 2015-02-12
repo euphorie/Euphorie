@@ -1,14 +1,22 @@
 Changelog
 =========
 
-7.0.3 (unreleased)
+7.0.3 - unreleased
 ------------------
 
-- Nothing changed yet.
+Bugfixes
+~~~~~~~~
+
+- ...
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- ...
 
 
-7.0.2 (2015-02-12)
-------------------
+7.0.2 - February 12, 2015
+-------------------------
 
 Bugfixes
 ~~~~~~~~
