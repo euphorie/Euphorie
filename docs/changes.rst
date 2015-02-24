@@ -7,7 +7,7 @@ Changelog
 Bugfixes
 ~~~~~~~~
 
-- ...
+- More translation changes in IS #11424
 
 Feature changes
 ~~~~~~~~~~~~~~~

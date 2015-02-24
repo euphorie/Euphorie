@@ -148,7 +148,7 @@ msgstr "Nei"
 #: src/euphorie/client/company.py:90
 #: src/euphorie/client/templates/report_actionplan.pt:66
 msgid "label_needs_met"
-msgstr "Uppfyllti OiRA áhættumatið þarfir þínar?"
+msgstr "Uppfyllti OiRA verkfærið væntingar þínar?"
 
 #. Default: Would you recommend this OiRA tool to an enterprise similar to
 #. yours?
@@ -156,7 +156,7 @@ msgstr "Uppfyllti OiRA áhættumatið þarfir þínar?"
 #: src/euphorie/client/templates/report_actionplan.pt:70
 msgid "label_recommend_tool"
 msgstr ""
-"Mundir þú mæla með þessu OiRA áhættumati við fyrirtæki í þinni starfsgrein?"
+"Mundir þú mæla með OiRA verkfærinu við önnur fyrirtæki?"
 
 #: src/euphorie/client/login.py:122
 msgid "Please enter your email address"
@@ -1854,7 +1854,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/login.pt:53
 msgid "Who is the OiRA tool for?"
-msgstr "Fyir hverja er OiRA verkfærið?"
+msgstr "Fyrir hverja er OiRA verkfærið?"
 
 #: src/euphorie/client/templates/login.pt:54
 msgid ""
