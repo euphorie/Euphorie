@@ -2,6 +2,7 @@ from Acquisition import aq_inner
 from five import grok
 from euphorie.client import model
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.navigation import FindPreviousQuestion
@@ -11,8 +12,7 @@ from euphorie.client.navigation import getTreeData
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.client.update import redirectOnSurveyUpdate
-from sqlalchemy import sql
-
+from euphorie.content.interfaces import ICustomRisksModule
 
 grok.templatedir("templates")
 
@@ -58,10 +58,17 @@ class IdentificationView(grok.View):
             else:
                 next = FindNextQuestion(context, filter=self.question_filter)
                 if next is None:
-                    # We ran out of questions, proceed to the evaluation
-                    url = "%s/evaluation" % self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
+                    if not ICustomRisksModule.providedBy(module):
+                        # We ran out of questions, proceed to the evaluation
+                        url = "%s/evaluation" % self.request.survey.absolute_url()
+                        return self.request.response.redirect(url)
+                    else:
+                        # The user will now be allowed to create custom
+                        # (user-defined) risks.
+                        url = "%s/customization/%d" % (
+                                self.request.survey.absolute_url(),
+                                int(self.context.path))
+                        return self.request.response.redirect(url)
 
             url = QuestionURL(self.request.survey, next,
                     phase="identification")
@@ -74,13 +81,33 @@ class IdentificationView(grok.View):
             super(IdentificationView, self).update()
 
 
+class CustomizationView(grok.View):
+    grok.context(model.Module)
+    grok.require("euphorie.client.ViewSurvey")
+    grok.layer(ICustomizationPhaseSkinLayer)
+    grok.template("module_customization")
+    grok.name("index_html")
+
+    phase = "customization"
+
+    def update(self):
+        if redirectOnSurveyUpdate(self.request):
+            return
+
+        survey = self.request.survey
+        self.module = survey.restrictedTraverse(
+                self.context.zodb_path.split("/"))
+        self.title = self.context.title
+        self.tree = getTreeData(self.request, self.context, phase=self.phase)
+        return super(CustomizationView, self).update()
+
+
 class EvaluationView(grok.View):
     grok.context(model.Module)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IEvaluationPhaseSkinLayer)
     grok.template("module_evaluation")
     grok.name("index_html")
-
     phase = "evaluation"
     question_filter = model.EVALUATION_FILTER
 
