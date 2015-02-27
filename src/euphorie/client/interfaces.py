@@ -12,6 +12,10 @@ class IIdentificationPhaseSkinLayer(Interface):
     """Skin layer used during the identification phase."""
 
 
+class ICustomizationPhaseSkinLayer(Interface):
+    """Skin layer used during the evaluation phase."""
+
+
 class IEvaluationPhaseSkinLayer(Interface):
     """Skin layer used during the evaluation phase."""
 

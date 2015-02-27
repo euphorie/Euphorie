@@ -1,4 +1,5 @@
 import datetime
+import random
 import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -7,10 +8,14 @@ from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from OFS.event import ObjectWillBeRemovedEvent
 from five import grok
+from plone import api
+from zope.interface import alsoProvides
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
+from zope import component
 from z3c.form import button
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import getToolByName
@@ -21,6 +26,7 @@ from plone.scale.storage import AnnotationStorage
 from euphorie.content.survey import ISurvey
 from .. import MessageFactory as _
 from euphorie.client import utils
+from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from webhelpers.html.builder import make_tag
 
@@ -123,6 +129,36 @@ def CopyToClient(survey, preview=False):
     return copy
 
 
+def EnableCustomRisks(survey):
+    """In order to allow the user to add custom risks, we create a new special
+    module (marked with ICustomRisksModule) in which they may be created.
+    """
+    appconfig = component.getUtility(IAppConfig)
+    if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
+        return
+    args = dict(
+            container=survey,
+            type="euphorie.module",
+            id="custom-risks",
+            title=_('My custom risks'),
+            safe_id=False,
+            description=_(
+                u"You can now add risks in your organisation which were "\
+                u"not yet covered by this tool."
+            ),
+            optional=True,
+            question=
+                u"Would you now like to add your own defined risks to this "\
+                u"tool?"
+        )
+    try:
+        module = api.content.create(**args)
+    except api.exc.InvalidParameterError:
+        args['id'] = "custom-risks-"+str(random.randint(0, 99999999))
+        module = api.content.create(**args)
+    alsoProvides(module, ICustomRisksModule)
+
+
 def PublishToClient(survey, preview=False):
     """Publish a survey in the online client part of the site.
 
@@ -140,6 +176,7 @@ def PublishToClient(survey, preview=False):
     try:
         newSecurityManager(None, clientuser)
         survey = CopyToClient(survey, preview)
+        EnableCustomRisks(survey)
         survey.published = (survey.id, survey.title, datetime.datetime.now())
     finally:
         setSecurityManager(sm)
