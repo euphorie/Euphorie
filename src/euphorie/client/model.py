@@ -256,7 +256,6 @@ class AccountChangeRequest(BaseObject):
 class SurveySession(BaseObject):
     """Information about a users session.
     """
-
     __tablename__ = "session"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
@@ -471,6 +470,7 @@ class Risk(SurveyTreeItem):
     #: handled via the question_filter on client views so it can be modified
     #: in custom deployments.
     skip_evaluation = schema.Column(types.Boolean(), default=False, nullable=False)
+    is_custom_risk = schema.Column(types.Boolean(), default=False, nullable=False)
     identification = schema.Column(Enum([None, u"yes", u"no", "n/a"]))
     frequency = schema.Column(types.Integer())
     effect = schema.Column(types.Integer())

@@ -1,10 +1,13 @@
 # -*- coding: UTF-8 -*-
+from euphorie.client import model
+from euphorie.content.user import IUser
+from euphorie.deployment import setuphandlers
 from plone import api
 from plone.dexterity import utils
+from sqlalchemy.engine.reflection import Inspector
 from z3c.form.interfaces import IDataManager
-from euphorie.content.user import IUser
-from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
-from euphorie.deployment import setuphandlers
+from z3c.saconfig import Session
+from zope.sqlalchemy import datamanager
 import logging
 import zope.component
 
@@ -37,3 +40,16 @@ def hash_passwords(context):
 
 def register_password_policy(context):
     setuphandlers.registerPasswordPolicy(context)
+
+
+def add_column_for_custom_risks(context):
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    columns = [c['name']
+               for c in inspector.get_columns(model.Risk.__table__.name)]
+    if 'is_custom_risk' not in columns:
+        log.info('Adding is_custom_risk column for risks')
+        session.execute(
+            "ALTER TABLE %s ADD is_custom_risk BOOL NOT NULL DEFAULT FALSE" %
+            model.Risk.__table__.name)
+        datamanager.mark_changed(session)

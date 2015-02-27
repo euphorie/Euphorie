@@ -249,4 +249,17 @@
       handler=".v8.register_password_policy"/>
 
   </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="16"
+    destination="17"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Enable custom user-defined risks."
+      description="Add a new bool column to the Risk table, is_custom_risk"
+      handler=".v8.add_column_for_custom_risks"/>
+
+  </genericsetup:upgradeSteps>
 </configure>
