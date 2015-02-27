@@ -261,5 +261,10 @@
       description="Add a new column to the Account table to store this."
       handler=".v8.add_column_to_account"/>
 
+    <genericsetup:upgradeStep
+      title="Enable custom user-defined risks."
+      description="Add a new bool column to the Risk table, is_custom_risk"
+      handler=".v8.add_column_for_custom_risks"/>
+
   </genericsetup:upgradeSteps>
 </configure>
