@@ -28,3 +28,8 @@ class IQuestionContainer(Interface):
     """Marker interface for objects that are used for grouping, but
     not for risks.
     """
+
+class ICustomRisksModule(Interface):
+    """Marker interface to mark a module specifically designated for adding
+    custom risks.
+    """
