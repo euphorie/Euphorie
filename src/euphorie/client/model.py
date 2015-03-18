@@ -467,7 +467,7 @@ class Risk(SurveyTreeItem):
             schema.ForeignKey(SurveyTreeItem.id,
                 onupdate="CASCADE", ondelete="CASCADE"),
             primary_key=True)
-    risk_id = schema.Column(types.String(16), nullable=False)
+    risk_id = schema.Column(types.String(16), nullable=True)
     risk_type = schema.Column(Enum([u"risk", u"policy", u"top5"]),
         default=u"risk", nullable=False, index=True)
     #: Skip-evaluation flag. This is only used to indicate if the sector
