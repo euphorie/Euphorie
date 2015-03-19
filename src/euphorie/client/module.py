@@ -77,7 +77,8 @@ class IdentificationView(grok.View):
                     phase="identification")
             self.request.response.redirect(url)
         else:
-            self.tree = getTreeData(self.request, context)
+            self.tree = getTreeData(self.request, context,
+                    filter=model.NO_CUSTOM_RISKS_FILTER)
             self.title = context.title
             self.module = module
 
@@ -103,7 +104,9 @@ class CustomizationView(grok.View):
         session = SessionManager.session
         self.module = survey.restrictedTraverse(self.context.zodb_path.split("/"))
         self.title = self.context.title
-        self.tree = getTreeData(self.request, self.context, phase="identification")
+        self.tree = getTreeData(
+                self.request, self.context, phase="identification",
+                filter=model.NO_CUSTOM_RISKS_FILTER)
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
