@@ -1,18 +1,13 @@
 Changelog
 =========
 
-7.0.3 (2015-03-19)
-------------------
+7.0.3 - February 03, 2015
+-------------------------
 
 Bugfixes
 ~~~~~~~~
 
 - More translation changes in IS #11424
-
-Feature changes
-~~~~~~~~~~~~~~~
-
-- ...
 
 
 7.0.2 - February 12, 2015
