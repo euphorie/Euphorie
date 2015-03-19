@@ -257,9 +257,14 @@
     >
 
     <genericsetup:upgradeStep
-      title="Enable custom user-defined risks."
+      title="Add new column to identify custom risks."
       description="Add a new bool column to the Risk table, is_custom_risk"
       handler=".v8.add_column_for_custom_risks"/>
+
+    <genericsetup:upgradeStep
+      title="Allow custom risks"
+      description="Allow column risk_id of the Risk table to be nullable."
+      handler=".v8.make_risk_id_column_nullable"/>
 
   </genericsetup:upgradeSteps>
 </configure>
