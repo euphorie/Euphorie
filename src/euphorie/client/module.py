@@ -61,18 +61,17 @@ class IdentificationView(grok.View):
                     return
             else:
                 next = FindNextQuestion(context, filter=self.question_filter)
-                if next is None:
-                    if not ICustomRisksModule.providedBy(module):
-                        # We ran out of questions, proceed to the evaluation
-                        url = "%s/evaluation" % self.request.survey.absolute_url()
-                        return self.request.response.redirect(url)
-                    else:
-                        # The user will now be allowed to create custom
-                        # (user-defined) risks.
-                        url = "%s/customization/%d" % (
-                                self.request.survey.absolute_url(),
-                                int(self.context.path))
-                        return self.request.response.redirect(url)
+                if next is None and not ICustomRisksModule.providedBy(module):
+                    # We ran out of questions, proceed to the evaluation
+                    url = "%s/evaluation" % self.request.survey.absolute_url()
+                    return self.request.response.redirect(url)
+                elif next is None or getattr(next, 'is_custom_risk', None):
+                    # The user will now be allowed to create custom
+                    # (user-defined) risks.
+                    url = "%s/customization/%d" % (
+                            self.request.survey.absolute_url(),
+                            int(self.context.path))
+                    return self.request.response.redirect(url)
 
             url = QuestionURL(self.request.survey, next,
                     phase="identification")
@@ -93,6 +92,7 @@ class CustomizationView(grok.View):
     grok.name("index_html")
 
     phase = "customization"
+    question_filter = None
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -103,19 +103,15 @@ class CustomizationView(grok.View):
         session = SessionManager.session
         self.module = survey.restrictedTraverse(self.context.zodb_path.split("/"))
         self.title = self.context.title
-        self.tree = getTreeData(self.request, self.context, phase=self.phase)
+        self.tree = getTreeData(self.request, self.context, phase="identification")
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             if reply.get("next") == "previous":
-                next = FindPreviousQuestion(context,
-                        filter=self.question_filter)
-                if next is None:
-                    # We ran out of questions, step back to intro page
-                    url = "%s/identification" % \
-                            self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
+                url = "%s/identification/%d" % (
+                        self.request.survey.absolute_url(),
+                        int(self.context.path))
+                return self.request.response.redirect(url)
 
             elif reply.get("next") == "next":
                 # We ran out of questions, proceed to the evaluation
