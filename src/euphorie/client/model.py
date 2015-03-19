@@ -540,6 +540,14 @@ del parent
 
 child_node = orm.aliased(SurveyTreeItem)
 
+NO_CUSTOM_RISKS_FILTER = \
+    sql.not_(sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
+            Risk.sql_risk_id == SurveyTreeItem.id,
+            Risk.is_custom_risk == True))
+    )))
+
 RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = \
     sql.or_(SurveyTreeItem.type != "module",
             SurveyTreeItem.has_description)
