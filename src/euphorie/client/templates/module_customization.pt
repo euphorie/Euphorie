@@ -15,20 +15,20 @@
 </head>
 <body tal:define="module nocall:view/module" class="identification ${webhelpers/extra_css}">
     <h1 i18n:translate="title_add_custom_risks">Add custom risks</h1>
+    <tal:block replace="tile:statusmessages"/>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
     <fieldset class="comprehensive">
         <legend>Risk Description</legend> <textarea name="description"></textarea>
+        <em tal:condition="python:request.get('errors', {}).get('description')" class="validation warning message" data-validate-constraint="required">This value is required.</em>
     </fieldset>
 
-    <fieldset class="comprehensive radioList">
+    <fieldset class="checklist radioList comprehensive">
         <legend i18n:translate="header_risk_priority">Select the priority of this risk</legend>
-        <label><input type="radio" name="priority" value="low"/>
-        <tal:span i18n:translate="priority_low">Low</tal:span></label>
-        <label><input type="radio" name="priority" value="medium"/>
-        <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
-        <label><input type="radio" name="priority" value="high"/>
-        <tal:span i18n:translate="priority_high">High</tal:span></label>
+        <label><input type="radio" name="priority" value="low"/> <tal:span i18n:translate="priority_low">Low</tal:span></label>
+        <label><input type="radio" name="priority" value="medium"/> <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+        <label><input type="radio" name="priority" value="high"/> <tal:span i18n:translate="priority_high">High</tal:span></label>
+        <em tal:condition="python:request.get('errors', {}).get('priority')" class="validation warning message" data-validate-constraint="required">This value is required.</em>
     </fieldset>
 
     <fieldset class="comprehensive">
@@ -42,11 +42,16 @@
     </p>
     </form>
 
-    <tal:if_has_risks condition="python:False">
+    <tal:if_has_risks define="risks view/get_custom_risks" condition="risks">
     <h2 i18n:translate="list_custom_risks">My existing custom risks:</h2>
-    <ul>
-        <li tal:repeat="item view/get_custom_risks|nothing">Risk Name</li>
-    </ul>
+    <table>
+        <tr><th>Risk Title</th> <th>Risk Priority</th> <th>Comments</th></tr>
+        <tr tal:repeat="item risks">
+            <td tal:content="item/title"></td>
+            <td tal:content="item/priority"></td>
+            <td tal:content="item/comment"></td>
+        </tr>
+    </table>
     </tal:if_has_risks>
 
     <ol id="steps" tal:define="survey_url webhelpers/survey_url">
