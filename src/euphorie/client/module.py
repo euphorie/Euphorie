@@ -1,18 +1,22 @@
 from Acquisition import aq_inner
-from five import grok
+from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.client import model
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-from euphorie.client.navigation import FindPreviousQuestion
+from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
+from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import QuestionURL
 from euphorie.client.navigation import getTreeData
 from euphorie.client.session import SessionManager
-from euphorie.client.utils import HasText
 from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.client.utils import HasText
+from euphorie.content import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
+from five import grok
+from sqlalchemy import sql
+from z3c.saconfig import Session
 
 grok.templatedir("templates")
 
@@ -94,12 +98,70 @@ class CustomizationView(grok.View):
         if redirectOnSurveyUpdate(self.request):
             return
 
+        context = aq_inner(self.context)
         survey = self.request.survey
-        self.module = survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+        session = SessionManager.session
+        self.module = survey.restrictedTraverse(self.context.zodb_path.split("/"))
         self.title = self.context.title
         self.tree = getTreeData(self.request, self.context, phase=self.phase)
+
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            reply = self.request.form
+            if reply.get("next") == "previous":
+                next = FindPreviousQuestion(context,
+                        filter=self.question_filter)
+                if next is None:
+                    # We ran out of questions, step back to intro page
+                    url = "%s/identification" % \
+                            self.request.survey.absolute_url()
+                    self.request.response.redirect(url)
+                    return
+
+            elif reply.get("next") == "next":
+                # We ran out of questions, proceed to the evaluation
+                url = "%s/evaluation" % self.request.survey.absolute_url()
+                return self.request.response.redirect(url)
+
+            if not reply.get("description") or not reply.get("priority"):
+                IStatusMessage(self.request).add(
+                        _(u"Please fill in the required fields"),
+                        type="error")
+                self.request.set('errors', {
+                    'description': not reply.get("description"),
+                    'priority': not reply.get("priority"),
+                });
+                return;
+
+            risk = model.Risk(
+                comment=reply.get('comment'),
+                priority=reply['priority'],
+                risk_id=None,
+                risk_type='risk', # XXX Could it also be top5 or policy?
+                skip_evaluation=True,
+                title=reply['description'],
+            )
+            risk.is_custom_risk = True
+            risk.skip_children = False
+            risk.postponed = False
+            risk.has_description = None
+            risk.zodb_path = "/".join([session.zodb_path] + ['customization'] + ['1'])
+            risk.profile_index = 0 # XXX: not sure what this is for
+            self.context.addChild(risk)
+            IStatusMessage(self.request).add(
+                    _(u"Your custom risk has been succesfully created."),
+                    type="success")
         return super(CustomizationView, self).update()
+
+    def get_custom_risks(self):
+        session = SessionManager.session
+        query = Session.query(model.Risk).filter(
+            sql.and_(
+                model.Risk.is_custom_risk == True,
+                model.Risk.path.startswith(model.Module.path),
+                model.Risk.session == session
+            )
+        )
+        return query.all()
 
 
 class EvaluationView(grok.View):
