@@ -60,17 +60,17 @@ class IdentificationView(grok.View):
                     self.request.response.redirect(url)
                     return
             else:
-                next = FindNextQuestion(context, filter=self.question_filter)
-                if next is None and not ICustomRisksModule.providedBy(module):
-                    # We ran out of questions, proceed to the evaluation
-                    url = "%s/evaluation" % self.request.survey.absolute_url()
-                    return self.request.response.redirect(url)
-                elif next is None or getattr(next, 'is_custom_risk', None):
+                if ICustomRisksModule.providedBy(module):
                     # The user will now be allowed to create custom
                     # (user-defined) risks.
                     url = "%s/customization/%d" % (
                             self.request.survey.absolute_url(),
                             int(self.context.path))
+                    return self.request.response.redirect(url)
+                next = FindNextQuestion(context, filter=self.question_filter)
+                if next is None:
+                    # We ran out of questions, proceed to the evaluation
+                    url = "%s/evaluation" % self.request.survey.absolute_url()
                     return self.request.response.redirect(url)
 
             url = QuestionURL(self.request.survey, next,
@@ -81,7 +81,6 @@ class IdentificationView(grok.View):
                     filter=model.NO_CUSTOM_RISKS_FILTER)
             self.title = context.title
             self.module = module
-
             super(IdentificationView, self).update()
 
 
@@ -157,7 +156,7 @@ class CustomizationView(grok.View):
             sql.and_(
                 model.Risk.is_custom_risk == True,
                 model.Risk.path.startswith(model.Module.path),
-                model.Risk.session == session
+                model.Risk.session_id == session.id
             )
         )
         return query.all()
