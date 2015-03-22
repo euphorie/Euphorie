@@ -254,6 +254,7 @@ class SurveyImporter(object):
     def ImportSurvey(self, node, group, version_title):
         survey = createContentInContainer(group, "euphorie.survey",
                                         title=version_title)
+        survey.introduction = el_unicode(node, 'introduction')
         survey.classification_code = el_string(node, "classification-code")
         survey.language = el_string(node, "language")
         survey.evaluation_optional = el_bool(node, "evaluation-optional")

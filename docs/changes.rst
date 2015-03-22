@@ -1,7 +1,7 @@
 Changelog
 =========
 
-7.0.2 - unreleased
+7.0.4 (unreleased)
 ------------------
 
 Feature changes
@@ -14,7 +14,29 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- When a survey gets imported from XML, make sure that the 'introduction' text
+  gets imported too. Fixes #105
+
+
+7.0.3 (2015-03-19)
+------------------
+
+Bugfixes
+~~~~~~~~
+
+- More translation changes in IS #11424
+
+
+7.0.2 - February 12, 2015
+-------------------------
+
+Bugfixes
+~~~~~~~~
+
 - Terms & Conditions: Change location, due to move of servers (OSHA #10858)
+- Fix a bug in delete confirmation so that double quotes (which can come from
+  translations) no longer break the Javascript (OSHA #10925)
+- Translations changes in Icelandic (OSHA #11294)
 
 
 7.0.1 - September 03, 2014
