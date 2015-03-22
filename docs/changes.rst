@@ -12,7 +12,8 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- When a survey gets imported from XML, make sure that the 'introduction' text
+  gets imported too. Fixes #105
 
 
 7.0.3 (2015-03-19)
