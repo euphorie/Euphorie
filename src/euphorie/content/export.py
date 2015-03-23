@@ -49,7 +49,7 @@ class ExportSurvey(grok.View):
         if StripMarkup(survey.introduction):
             etree.SubElement(node, "introduction").text = survey.introduction
         if survey.classification_code:
-            etree.SubElement(node, "classification_code").text = \
+            etree.SubElement(node, "classification-code").text = \
                     survey.classification_code
         etree.SubElement(node, "language").text = survey.language
         etree.SubElement(node, "evaluation-algorithm").text = \
