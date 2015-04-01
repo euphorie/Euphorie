@@ -436,7 +436,7 @@ msgstr "Aðgerðaáætlun ${title}"
 #. Default: Low
 #: src/euphorie/client/report.py:948
 msgid "label_timeline_priority_low"
-msgstr "Lágt"
+msgstr "Lá"
 
 #. Default: Medium
 #: src/euphorie/client/report.py:949
@@ -446,7 +446,7 @@ msgstr "Miðlungs"
 #. Default: High
 #: src/euphorie/client/report.py:950
 msgid "label_timeline_priority_high"
-msgstr "Hátt"
+msgstr "Há"
 
 #. Default: Planning start
 #: src/euphorie/client/report.py:955
@@ -1803,8 +1803,7 @@ msgid ""
 "Your registration is a private matter. All your data is stored to be "
 "accessed only by you."
 msgstr ""
-"Skráning þín er einkamál þitt. Öll gögn þín eru vistuð þar sem aðeins þú "
-"hefur aðgang. "
+"Gögnin eru vistuð og aðeins þú hefur aðgang að þeim."
 
 #. Default: Email address
 #: src/euphorie/client/templates/login.pt:36
@@ -2613,7 +2612,7 @@ msgstr "Veldu stig þessarar áhættu"
 #: src/euphorie/client/templates/risk_evaluation.pt:110
 #: src/euphorie/content/risk.py:136 src/euphorie/content/risk.py:154
 msgid "priority_low"
-msgstr "Lágt"
+msgstr "Lá"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:112
@@ -2625,7 +2624,7 @@ msgstr "Miðlungs"
 #: src/euphorie/client/templates/risk_evaluation.pt:114
 #: src/euphorie/content/risk.py:139 src/euphorie/content/risk.py:157
 msgid "priority_high"
-msgstr "Hátt"
+msgstr "Há"
 
 #. Default: Not applicable
 #: src/euphorie/client/templates/risk_identification.pt:25

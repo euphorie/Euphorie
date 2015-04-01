@@ -16,6 +16,8 @@ Bugfixes
 
 - When a survey gets imported from XML, make sure that the 'introduction' text
   gets imported too. Fixes #105
+- XML export: the node for classification_code of a Survey had a typo that
+  prevented correct import of that value
 
 
 7.0.3 (2015-03-19)
