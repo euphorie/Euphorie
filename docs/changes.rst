@@ -1,13 +1,13 @@
 Changelog
 =========
 
-7.0.4 (unreleased)
-------------------
+7.0.4 - April 1, 2015
+---------------------
 
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- More IS translation changes #11552
 
 Bugfixes
 ~~~~~~~~
@@ -18,8 +18,8 @@ Bugfixes
   prevented correct import of that value
 
 
-7.0.3 (2015-03-19)
-------------------
+7.0.3 - March 19, 2015
+----------------------
 
 Bugfixes
 ~~~~~~~~
