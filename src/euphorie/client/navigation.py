@@ -2,6 +2,7 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 from euphorie.client.session import SessionManager
 from euphorie.client import model
+from euphorie.content.profilequestion import IProfileQuestion
 
 
 def QuestionURL(survey, question, phase):
@@ -115,6 +116,7 @@ def getTreeData(request, context, phase="identification", filter=None):
                 'children': [],
                 'type': obj.type,
                 'leaf_module': False,
+                'depth': obj.depth,
                 'url': base_url + "/".join(obj.short_path)
                 }
         cls = []
@@ -149,8 +151,17 @@ def getTreeData(request, context, phase="identification", filter=None):
             # For modules which do not skip children, include the list of
             # children.
             me = first(lambda x: x["current"], result["children"])
-            me["children"] = [morph(obj)
-                              for obj in context.children(filter=filter)]
+            children = []
+            for obj in context.children(filter=filter):
+                info = morph(obj)
+                if obj.depth == 2:
+                    module = request.survey.restrictedTraverse(obj.zodb_path.split('/'))
+                    if IProfileQuestion.providedBy(module):
+                        info['type'] = u'location'
+                        info['children'] = [
+                            morph(sub) for sub in obj.children(filter=filter)]
+                children.append(info)
+            me["children"] = children
             types = set([c["type"] for c in me["children"]])
             me["leaf_module"] = "risk" in types
     elif isinstance(context, model.Risk):
@@ -168,6 +179,10 @@ def getTreeData(request, context, phase="identification", filter=None):
         while len(parents) > 1:
             parent = parents.pop()
             new = morph(parent)
+            if isinstance(parent, model.Module) and parent.depth == 2:
+                module = request.survey.restrictedTraverse(parent.zodb_path.split('/'))
+                if IProfileQuestion.providedBy(module):
+                    new['type'] = u'location'
             new["children"] = result["children"]
             result["children"] = [new]
 
