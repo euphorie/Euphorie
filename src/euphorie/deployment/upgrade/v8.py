@@ -1,13 +1,15 @@
 # -*- coding: UTF-8 -*-
+from euphorie.client import model
 from euphorie.content.user import IUser
 from euphorie.deployment import setuphandlers
 from euphorie.deployment.upgrade.utils import ColumnExists
 from plone import api
 from plone.dexterity import utils
+from sqlalchemy.engine.reflection import Inspector
+from sqlalchemy.exc import InternalError
 from z3c.form.interfaces import IDataManager
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
-from sqlalchemy.exc import InternalError
 import logging
 import transaction
 import zope.component
@@ -67,3 +69,31 @@ def add_column_to_account(context):
 
     datamanager.mark_changed(session)
     transaction.get().commit()
+
+def add_column_for_custom_risks(context):
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    columns = [c['name']
+               for c in inspector.get_columns(model.Risk.__table__.name)]
+    if 'is_custom_risk' not in columns:
+        log.info('Adding is_custom_risk column for risks')
+        session.execute(
+            "ALTER TABLE %s ADD is_custom_risk BOOL NOT NULL DEFAULT FALSE" %
+            model.Risk.__table__.name)
+        datamanager.mark_changed(session)
+
+
+def make_risk_id_column_nullable(context):
+    """ Make the risk_id column of the Risk table nullable.
+        This is so that the user can create custom risks. These risks don't
+        have dexterity counterparts in the survey, so we don't have a value for
+        risk_id.
+    """
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    log.info('Making the risk_id column of Risk table nullable')
+    session.execute(
+        "ALTER TABLE %s ALTER COLUMN risk_id DROP NOT NULL;" %
+        model.Risk.__table__.name,
+    )
+    datamanager.mark_changed(session)

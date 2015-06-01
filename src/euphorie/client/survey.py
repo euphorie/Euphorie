@@ -24,6 +24,7 @@ from ..ghost import PathGhost
 from euphorie.content.survey import ISurvey
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
@@ -392,6 +393,7 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
     adapts(ISurvey, IClientSkinLayer)
 
     phases = {'identification': IIdentificationPhaseSkinLayer,
+              'customization': ICustomizationPhaseSkinLayer,
               'evaluation': IEvaluationPhaseSkinLayer,
               'actionplan': IActionPlanPhaseSkinLayer,
               'report': IReportPhaseSkinLayer}

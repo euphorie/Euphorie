@@ -262,7 +262,6 @@ class AccountChangeRequest(BaseObject):
 class SurveySession(BaseObject):
     """Information about a users session.
     """
-
     __tablename__ = "session"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
@@ -468,7 +467,7 @@ class Risk(SurveyTreeItem):
             schema.ForeignKey(SurveyTreeItem.id,
                 onupdate="CASCADE", ondelete="CASCADE"),
             primary_key=True)
-    risk_id = schema.Column(types.String(16), nullable=False)
+    risk_id = schema.Column(types.String(16), nullable=True)
     risk_type = schema.Column(Enum([u"risk", u"policy", u"top5"]),
         default=u"risk", nullable=False, index=True)
     #: Skip-evaluation flag. This is only used to indicate if the sector
@@ -477,6 +476,7 @@ class Risk(SurveyTreeItem):
     #: handled via the question_filter on client views so it can be modified
     #: in custom deployments.
     skip_evaluation = schema.Column(types.Boolean(), default=False, nullable=False)
+    is_custom_risk = schema.Column(types.Boolean(), default=False, nullable=False)
     identification = schema.Column(Enum([None, u"yes", u"no", "n/a"]))
     frequency = schema.Column(types.Integer())
     effect = schema.Column(types.Integer())
@@ -539,6 +539,14 @@ del parent
 
 
 child_node = orm.aliased(SurveyTreeItem)
+
+NO_CUSTOM_RISKS_FILTER = \
+    sql.not_(sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(sql.select([Risk.sql_risk_id]).where(sql.and_(
+            Risk.sql_risk_id == SurveyTreeItem.id,
+            Risk.is_custom_risk == True))
+    )))
 
 RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = \
     sql.or_(SurveyTreeItem.type != "module",
