@@ -88,7 +88,7 @@ class View(grok.View):
         self.surveys.sort(key=lambda s: s["title"])
         self.obsolete_surveys.sort(key=lambda s: s["title"])
 
-    def _NewSurvey(self, info):
+    def _NewSurvey(self, info, account=None):
         """Utility method to start a new survey session."""
         context = aq_inner(self.context)
         survey = info.get("survey")
@@ -103,7 +103,7 @@ class View(grok.View):
         if not title:
             title = survey.Title()
 
-        SessionManager.start(title=title, survey=survey)
+        SessionManager.start(title=title, survey=survey, account=account)
         self.request.response.redirect("%s/start" % survey.absolute_url())
 
     def _ContinueSurvey(self, info):
