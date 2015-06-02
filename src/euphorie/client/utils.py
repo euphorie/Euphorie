@@ -99,6 +99,15 @@ class WebHelpers(grok.View):
         self.guest_session_id = self.is_guest_account and \
                 SessionManager.session and SessionManager.session.id or None
 
+        came_from = self.request.form.get("came_from")
+        if came_from:
+            if isinstance(came_from, list):
+                # If came_from is both in the querystring and the form data
+                self.came_from = came_from[0]
+            self.came_from = came_from
+        else:
+            self.came_from = aq_parent(context).absolute_url()
+
     @property
     def macros(self):
         return self.index.macros
