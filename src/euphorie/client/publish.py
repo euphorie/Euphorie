@@ -140,11 +140,12 @@ def EnableCustomRisks(survey):
             container=survey,
             type="euphorie.module",
             id="custom-risks",
-            title=_('My custom risks'),
+            title=_('Other risks'),
             safe_id=False,
             description=_(
-                u"You can now add risks in your organisation which were "\
-                u"not yet covered by this tool."
+                u"In case you didn't find a risk that you have identified in your " \
+                u"company, you are able to add it to your own risk assessment " \
+                u"now:" \
             ),
             optional=True,
             question=
