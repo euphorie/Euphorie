@@ -71,7 +71,7 @@ class SurveyTreeItem(BaseObject):
             nullable=False, index=True)
     path = schema.Column(types.String(40), nullable=False, index=True)
     has_description = schema.Column(types.Boolean(), default=False, index=True)
-    zodb_path = schema.Column(types.String(40), nullable=False)
+    zodb_path = schema.Column(types.String(512), nullable=False)
     profile_index = schema.Column(types.Integer(), default=0, nullable=False)
     depth = schema.Column(types.Integer(), default=0, nullable=False,
             index=True)
