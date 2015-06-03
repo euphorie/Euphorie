@@ -94,6 +94,16 @@ def make_risk_id_column_nullable(context):
     log.info('Making the risk_id column of Risk table nullable')
     session.execute(
         "ALTER TABLE %s ALTER COLUMN risk_id DROP NOT NULL;" %
-        model.Risk.__table__.name,
+        model.Risk.__table__.name
+    )
+    datamanager.mark_changed(session)
+
+
+def enable_longer_zodb_paths(context):
+    session = Session()
+    inspector = Inspector.from_engine(session.bind)
+    session.execute(
+        "ALTER TABLE %s ALTER COLUMN zodb_path TYPE varchar(512);" %
+        model.SurveyTreeItem.__table__.name
     )
     datamanager.mark_changed(session)

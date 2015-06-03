@@ -271,5 +271,10 @@
       description="Allow column risk_id of the Risk table to be nullable."
       handler=".v8.make_risk_id_column_nullable"/>
 
+    <genericsetup:upgradeStep
+      title="Allow longer tree item paths"
+      description="Make the column zodb_path of the SurveyTreeItems 512 chars (up from 40)."
+      handler=".v8.enable_longer_zodb_paths"/>
+
   </genericsetup:upgradeSteps>
 </configure>
