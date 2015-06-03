@@ -81,7 +81,7 @@ class AccountSettings(form.SchemaForm):
         self.widgets["old_password"].addClass("password")
         self.widgets["new_password"].addClass("password")
 
-    @button.buttonAndHandler(_(u"Save changes"))
+    @button.buttonAndHandler(_(u"Save changes"), name='save')
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
         (data, errors) = self.extractData()
@@ -121,7 +121,7 @@ class DeleteAccount(form.SchemaForm):
         pas.resetCredentials(self.request, self.request.response)
         SessionManager.stop()
 
-    @button.buttonAndHandler(_(u"Delete account"))
+    @button.buttonAndHandler(_(u"Delete account"), name='delete')
     def handleDelete(self, action):
         (data, errors) = self.extractData()
         if errors:
@@ -137,7 +137,7 @@ class DeleteAccount(form.SchemaForm):
         self.logout()
         self.request.response.redirect(self.request.client.absolute_url())
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name='cancel')
     def handleCancel(self, action):
         settings_url = "%s/account-settings" % \
                 aq_inner(self.context).absolute_url()
@@ -216,9 +216,10 @@ class NewEmail(form.SchemaForm):
 
         return True
 
-    @button.buttonAndHandler(_(u"Save changes"))
+    @button.buttonAndHandler(_(u"Save changes"), name='save')
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
+
         (data, errors) = self.extractData()
         if errors:
             return
@@ -252,7 +253,7 @@ class NewEmail(form.SchemaForm):
             mapping={"email": data["loginname"]}), "warning")
         self.request.response.redirect(settings_url)
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name='cancel')
     def handleCancel(self, action):
         settings_url = "%s/account-settings" % \
                 aq_inner(self.context).absolute_url()
