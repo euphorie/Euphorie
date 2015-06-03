@@ -1,8 +1,10 @@
+from Acquisition import aq_parent
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from euphorie.client.session import SessionManager
 from euphorie.client import model
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.interfaces import ICustomRisksModule
 
 
 def QuestionURL(survey, question, phase):
@@ -156,7 +158,7 @@ def getTreeData(request, context, phase="identification", filter=None):
                 info = morph(obj)
                 if obj.depth == 2:
                     module = request.survey.restrictedTraverse(obj.zodb_path.split('/'))
-                    if IProfileQuestion.providedBy(module):
+                    if IProfileQuestion.providedBy(module) and not ICustomRisksModule.providedBy(aq_parent(module)):
                         info['type'] = u'location'
                         info['children'] = [
                             morph(sub) for sub in obj.children(filter=filter)]
@@ -181,7 +183,7 @@ def getTreeData(request, context, phase="identification", filter=None):
             new = morph(parent)
             if isinstance(parent, model.Module) and parent.depth == 2:
                 module = request.survey.restrictedTraverse(parent.zodb_path.split('/'))
-                if IProfileQuestion.providedBy(module):
+                if IProfileQuestion.providedBy(module) and not ICustomRisksModule.providedBy(aq_parent(module)):
                     new['type'] = u'location'
             new["children"] = result["children"]
             result["children"] = [new]
