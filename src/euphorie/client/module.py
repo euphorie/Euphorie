@@ -13,10 +13,7 @@ from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
 from euphorie.content import MessageFactory as _
-from euphorie.content.interfaces import ICustomRisksModule
 from five import grok
-from sqlalchemy import sql
-from z3c.saconfig import Session
 
 grok.templatedir("templates")
 
@@ -60,13 +57,6 @@ class IdentificationView(grok.View):
                     self.request.response.redirect(url)
                     return
             else:
-                if ICustomRisksModule.providedBy(module):
-                    # The user will now be allowed to create custom
-                    # (user-defined) risks.
-                    url = "%s/customization/%d" % (
-                            self.request.survey.absolute_url(),
-                            int(self.context.path))
-                    return self.request.response.redirect(url)
                 next = FindNextQuestion(context, filter=self.question_filter)
                 if next is None:
                     # We ran out of questions, proceed to the evaluation
@@ -149,17 +139,6 @@ class CustomizationView(grok.View):
                     _(u"Your custom risk has been succesfully created."),
                     type="success")
         return super(CustomizationView, self).update()
-
-    def get_custom_risks(self):
-        session = SessionManager.session
-        query = Session.query(model.Risk).filter(
-            sql.and_(
-                model.Risk.is_custom_risk == True,
-                model.Risk.path.startswith(model.Module.path),
-                model.Risk.session_id == session.id
-            )
-        )
-        return query.all()
 
 
 class EvaluationView(grok.View):

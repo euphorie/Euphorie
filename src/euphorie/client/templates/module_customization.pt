@@ -42,18 +42,6 @@
     </p>
     </form>
 
-    <tal:if_has_risks define="risks view/get_custom_risks" condition="risks">
-    <h2 i18n:translate="list_custom_risks">My existing custom risks:</h2>
-    <table>
-        <tr><th>Risk Title</th> <th>Risk Priority</th> <th>Comments</th></tr>
-        <tr tal:repeat="item risks">
-            <td tal:content="item/title"></td>
-            <td tal:content="item/priority"></td>
-            <td tal:content="item/comment"></td>
-        </tr>
-    </table>
-    </tal:if_has_risks>
-
     <ol id="steps" tal:define="survey_url webhelpers/survey_url">
       <li class="complete" id="step-1">
         <a href="${survey_url}/start">
