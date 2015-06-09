@@ -1,9 +1,9 @@
 # coding=utf-8
+from z3c.saconfig import Session
+from euphorie.client import model
 
 
 def addAccount(login="jane@example.com", password=u"Øle"):
-    from z3c.saconfig import Session
-    from euphorie.client import model
     from euphorie.client import CONDITIONS_VERSION
     account = model.Account(loginname=login, password=password,
             tc_approved=CONDITIONS_VERSION)
@@ -11,6 +11,16 @@ def addAccount(login="jane@example.com", password=u"Øle"):
     session.add(account)
     session.flush()
     return account
+
+
+def createSurvey():
+    session = Session()
+    account = model.Account(loginname=u"jane", password=u"secret")
+    session.add(account)
+    survey = model.SurveySession(title=u"Session", zodb_path="survey",
+            account=account)
+    session.add(survey)
+    return (session, survey)
 
 
 def addSurvey(portal, xml_survey):
