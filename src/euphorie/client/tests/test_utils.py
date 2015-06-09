@@ -10,6 +10,8 @@ from euphorie.client import utils
 
 
 class MockRequest:
+    form = {}
+
     def __init__(self, agent=None):
         self.__headers = {}
         if agent is not None:
@@ -64,10 +66,11 @@ class TestURLs(EuphorieTestCase):
         self.assertTrue(view._base_url().startswith(country.absolute_url()))
 
 
-class WebhelperTests(unittest.TestCase):
+class WebhelperTests(EuphorieTestCase):
+
     def _createView(self, agent=None):
         from euphorie.client.utils import WebHelpers
-        return WebHelpers(None, MockRequest(agent))
+        return WebHelpers(self.client, MockRequest(agent))
 
     def testIsIphone_NoUserAgent(self):
         self.assertEqual(self._createView().is_iphone, False)
