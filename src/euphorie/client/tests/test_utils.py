@@ -70,7 +70,7 @@ class WebhelperTests(EuphorieTestCase):
 
     def _createView(self, agent=None):
         from euphorie.client.utils import WebHelpers
-        return WebHelpers(self.client, MockRequest(agent))
+        return WebHelpers(self.portal.client, MockRequest(agent))
 
     def testIsIphone_NoUserAgent(self):
         self.assertEqual(self._createView().is_iphone, False)
