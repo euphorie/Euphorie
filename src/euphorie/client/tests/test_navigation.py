@@ -1,18 +1,8 @@
 from euphorie.client.tests.database import DatabaseTests
+from euphorie.client.tests.utils import createSurvey
 from euphorie.client import model
 from euphorie.client import navigation
-from z3c.saconfig import Session
 import unittest
-
-
-def createSurvey():
-    session = Session()
-    account = model.Account(loginname=u"jane", password=u"secret")
-    session.add(account)
-    survey = model.SurveySession(title=u"Session", zodb_path="survey",
-            account=account)
-    session.add(survey)
-    return (session, survey)
 
 
 class MockRequest:
