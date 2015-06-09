@@ -3,6 +3,7 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 from euphorie.client.session import SessionManager
 from euphorie.client import model
+from euphorie.client.model import SurveySession
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.interfaces import ICustomRisksModule
 
@@ -156,9 +157,13 @@ def getTreeData(request, context, phase="identification", filter=None):
             children = []
             for obj in context.children(filter=filter):
                 info = morph(obj)
-                if obj.depth == 2:
+                # XXX: The check for SurveySession is due to Euphorie tests which don't
+                # have a proper canonical ZODB survey object and don't test the
+                # following OiRA-specific code.
+                if obj.depth == 2 and not isinstance(request.survey, SurveySession):
                     module = request.survey.restrictedTraverse(obj.zodb_path.split('/'))
-                    if IProfileQuestion.providedBy(module) and not ICustomRisksModule.providedBy(aq_parent(module)):
+                    if IProfileQuestion.providedBy(module) and \
+                            not ICustomRisksModule.providedBy(aq_parent(module)):
                         info['type'] = u'location'
                         info['children'] = [
                             morph(sub) for sub in obj.children(filter=filter)]
@@ -183,7 +188,8 @@ def getTreeData(request, context, phase="identification", filter=None):
             new = morph(parent)
             if isinstance(parent, model.Module) and parent.depth == 2:
                 module = request.survey.restrictedTraverse(parent.zodb_path.split('/'))
-                if IProfileQuestion.providedBy(module) and not ICustomRisksModule.providedBy(aq_parent(module)):
+                if IProfileQuestion.providedBy(module) and \
+                        not ICustomRisksModule.providedBy(aq_parent(module)):
                     new['type'] = u'location'
             new["children"] = result["children"]
             result["children"] = [new]
