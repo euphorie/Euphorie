@@ -136,6 +136,9 @@ def EnableCustomRisks(survey):
     appconfig = component.getUtility(IAppConfig)
     if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
         return
+    if "custom-risks" in survey.keys():
+        # We don't want to create the custom risks module twice.
+        return
     args = dict(
             container=survey,
             type="euphorie.module",
