@@ -160,7 +160,9 @@ def getTreeData(request, context, phase="identification", filter=None):
                 # XXX: The check for SurveySession is due to Euphorie tests which don't
                 # have a proper canonical ZODB survey object and don't test the
                 # following OiRA-specific code.
-                if obj.depth == 2 and not isinstance(request.survey, SurveySession):
+                if obj.depth == 2 \
+                        and not getattr(obj, 'is_custom_risk', False) \
+                        and not isinstance(request.survey, SurveySession):
                     module = request.survey.restrictedTraverse(obj.zodb_path.split('/'))
                     if IProfileQuestion.providedBy(module) and \
                             not ICustomRisksModule.providedBy(aq_parent(module)):
