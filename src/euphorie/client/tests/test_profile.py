@@ -325,7 +325,6 @@ class Profile_setupSession_Tests(TreeTests):
 
     def setupSession(self, view):
         from euphorie.client.utils import setRequest
-        from euphorie.client.model import Account
         from euphorie.client.model import SurveySession
         from AccessControl.SecurityManagement import getSecurityManager
         from AccessControl.SecurityManagement import setSecurityManager
