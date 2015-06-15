@@ -2,7 +2,6 @@ from euphorie.client.tests.database import DatabaseTests
 from euphorie.client import model
 from euphorie.client import config
 from z3c.saconfig import Session
-from sqlalchemy.exc import StatementError
 
 
 def createSurvey():
@@ -224,6 +223,7 @@ class AccountTests(DatabaseTests):
         self.assertEqual(user.allowed(None, "Manager"), False)
 
     def testAccountType(self):
+        from sqlalchemy.exc import StatementError
         (self.session, self.survey) = createSurvey()
         account = self.survey.account
         self.assertEqual(account.account_type, None)
