@@ -152,18 +152,26 @@ class SurveyTreeItem(BaseObject):
         self.session.touch()
         return item
 
-    def removeChildren(self):
+    def removeChildren(self, excluded=[]):
+        if self.id not in excluded:
+            excluded.append(self.id)
         session = Session()
         if self.path:
-            filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
-                              SurveyTreeItem.path.like(self.path + "%"),
-                              SurveyTreeItem.id != self.id)
+            filter = sql.and_(
+                        SurveyTreeItem.session_id == self.session_id,
+                        SurveyTreeItem.path.like(self.path + "%"),
+                        sql.not_(SurveyTreeItem.id.in_(excluded))
+                    )
         else:
-            filter = sql.and_(SurveyTreeItem.session_id == self.session_id,
-                              SurveyTreeItem.id != self.id)
+            filter = sql.and_(
+                        SurveyTreeItem.session_id == self.session_id,
+                        sql.not_(SurveyTreeItem.id.in_(excluded))
+                    )
+        removed = session.query(SurveyTreeItem).filter(filter).all()
         session.execute(SurveyTreeItem.__table__.delete().where(filter))
         self.session.touch()
         datamanager.mark_changed(session)
+        return removed
 
 
 class Account(BaseObject):
