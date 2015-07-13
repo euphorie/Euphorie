@@ -21,9 +21,8 @@ $(document).ready(function() {
     });
 });
 
-$(".navigationTree-folderish .toggle").live("click", function() {
+$(".navigationTree-folderish .toggle").on("click", function() {
     var $toggle = $(this);
-
     $toggle.toggleClass("open");
     if ($toggle.hasClass("open")) {
       $toggle.parent().find(">ul").slideDown();

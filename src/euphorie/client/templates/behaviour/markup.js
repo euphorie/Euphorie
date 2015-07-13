@@ -60,7 +60,7 @@
 
             // Work around broken button behaviour for IE 6 and 7
             if (browser_version<8) {
-                $("form button[type=submit]").live("click", function() {
+                $("form button[type=submit]").on("click", function() {
                     var name = $(this).attr("name"),
                         value = $(this).attr("class").split(" ")[0];
 
