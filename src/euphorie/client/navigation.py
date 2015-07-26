@@ -6,6 +6,8 @@ from euphorie.client import model
 from euphorie.client.model import SurveySession
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.interfaces import ICustomRisksModule
+from .. import MessageFactory as _
+from zope.i18n import translate
 
 
 def QuestionURL(survey, question, phase):
@@ -96,6 +98,7 @@ def getTreeData(request, context, phase="identification", filter=None):
     - url: URL for this item
     """
     query = Session.query(model.SurveyTreeItem)
+    lang = getattr(request, 'LANGUAGE', 'en')
 
     root = context
     parents = []
@@ -146,8 +149,13 @@ def getTreeData(request, context, phase="identification", filter=None):
               'id': None,
               'title': None}
     result["class"] = None
-    result["children"] = [morph(obj)
-                          for obj in context.siblings(filter=filter)]
+    children = []
+    for obj in context.siblings(filter=filter):
+        info = morph(obj)
+        if obj.zodb_path.find('custom-risks') > -1:
+            info['title'] = translate(_(info['title']), target_language=lang)
+        children.append(info)
+    result["children"] = children
 
     if isinstance(context, model.Module):
         if not context.skip_children:
@@ -173,6 +181,7 @@ def getTreeData(request, context, phase="identification", filter=None):
             me["children"] = children
             types = set([c["type"] for c in me["children"]])
             me["leaf_module"] = "risk" in types
+
     elif isinstance(context, model.Risk):
         # For a risk we also want to include all siblings of its module parent
         parent = parents.pop()
@@ -198,8 +207,13 @@ def getTreeData(request, context, phase="identification", filter=None):
 
         # Finally list all modules at the root level
         parent = parents.pop()
-        roots = [morph(obj)
-                 for obj in parent.siblings(model.Module, filter=filter)]
+        roots = []
+        for obj in parent.siblings(model.Module, filter=filter):
+            info = morph(obj)
+            if obj.zodb_path.find('custom-risks') > -1:
+                info['title'] = translate(_(info['title']), target_language=lang)
+            roots.append(info)
+
         myroot = first(lambda x: x["active"], roots)
         myroot["children"] = result["children"]
         result["children"] = roots
