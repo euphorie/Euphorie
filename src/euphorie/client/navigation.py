@@ -99,6 +99,8 @@ def getTreeData(request, context, phase="identification", filter=None):
     """
     query = Session.query(model.SurveyTreeItem)
     lang = getattr(request, 'LANGUAGE', 'en')
+    title_custom_risks = translate(_(
+        'title_other_risks', default=u'Added risks (by you)'), target_language=lang)
 
     root = context
     parents = []
@@ -153,7 +155,7 @@ def getTreeData(request, context, phase="identification", filter=None):
     for obj in context.siblings(filter=filter):
         info = morph(obj)
         if obj.zodb_path.find('custom-risks') > -1:
-            info['title'] = translate(_(info['title']), target_language=lang)
+            info['title'] = title_custom_risks
         children.append(info)
     result["children"] = children
 
@@ -185,8 +187,12 @@ def getTreeData(request, context, phase="identification", filter=None):
     elif isinstance(context, model.Risk):
         # For a risk we also want to include all siblings of its module parent
         parent = parents.pop()
-        siblings = [morph(obj)
-                    for obj in parent.siblings(model.Module, filter=filter)]
+        siblings = []
+        for obj in parent.siblings(model.Module, filter=filter):
+            info = morph(obj)
+            if obj.zodb_path.find('custom-risks') > -1:
+                info['title'] = title_custom_risks
+            siblings.append(info)
         myparent = first(lambda x: x["active"], siblings)
         myparent["children"] = result["children"]
         myparent["leaf_module"] = True
@@ -211,7 +217,7 @@ def getTreeData(request, context, phase="identification", filter=None):
         for obj in parent.siblings(model.Module, filter=filter):
             info = morph(obj)
             if obj.zodb_path.find('custom-risks') > -1:
-                info['title'] = translate(_(info['title']), target_language=lang)
+                info['title'] = title_custom_risks
             roots.append(info)
 
         myroot = first(lambda x: x["active"], roots)
