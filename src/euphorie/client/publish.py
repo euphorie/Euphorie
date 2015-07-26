@@ -135,32 +135,27 @@ def EnableCustomRisks(survey):
     """
     appconfig = component.getUtility(IAppConfig)
     if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
-        return
+        return 0
     if "custom-risks" in survey.keys():
         # We don't want to create the custom risks module twice.
-        return
+        return 0
     args = dict(
-            container=survey,
-            type="euphorie.module",
-            id="custom-risks",
-            title=_('title_other_risks'),
-            safe_id=False,
-            description=_(
-                u"In case you didn't find a risk that you have identified in your " \
-                u"company, you are able to add it to your own risk assessment " \
-                u"now:" \
-            ),
-            optional=True,
-            question=
-                u"Would you now like to add your own defined risks to this "\
-                u"tool?"
-        )
+        container=survey,
+        type="euphorie.module",
+        id="custom-risks",
+        title=_("title_other_risks"),
+        safe_id=False,
+        description=_(u"description_other_risks"),
+        optional=True,
+        question=_(u"question_other_risks"),
+    )
     try:
         module = api.content.create(**args)
     except api.exc.InvalidParameterError:
         args['id'] = "custom-risks-"+str(random.randint(0, 99999999))
         module = api.content.create(**args)
     alsoProvides(module, ICustomRisksModule)
+    return args['id']
 
 
 def PublishToClient(survey, preview=False):
