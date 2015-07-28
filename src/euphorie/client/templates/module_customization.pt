@@ -14,7 +14,7 @@
     <metal:css use-macro="webhelpers/macros/css"/>
 </head>
 <body tal:define="module nocall:view/module" class="identification ${webhelpers/extra_css}">
-    <h1 i18n:translate="title_add_custom_risks">Add custom risks</h1>
+    <h1 i18n:translate="title_other_risks">Added risks (by you)</h1>
     <tal:block replace="tile:statusmessages"/>
 
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
@@ -36,9 +36,8 @@
     </fieldset>
 
     <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
-        <button type="submit" name="create" value="create" i18n:translate="label_add_risk" class="next floatAfter">Add this risk</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_skip_to_evaluation" class="next floatAfter">Skip to evaluation phase</button>
+        <button type="submit" name="create" value="create" i18n:translate="label_add_risk" class="next floatAfter">Add risk</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
     </p>
     </form>
 
