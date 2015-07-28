@@ -34,13 +34,13 @@
         </tal:if_no_tryouts>
         <tal:if_tryouts_allowed condition="allow_guest_accounts">
             <tal:guest_account condition="is_guest_account">
-                <tal:span i18n:translate="guest_register_teaser">Don't have an account? Please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a>.</tal:span>
+                <tal:span i18n:translate="register_teaser">Don't have an account? Then please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a> first.</tal:span>
                 <input type="hidden" name="guest_session_id" tal:attributes="value webhelpers/guest_session_id"/>
             </tal:guest_account>
             <tal:anonymous condition="not:is_guest_account">
                 <tal:span i18n:translate="guest_register_teaser">
                     Don't have an account? Please <a i18n:name="register_link" i18n:translate="label_register" href="${view/register_url}">register</a>
-                    or first <a i18n:name="tryout_link" i18n:translate="label_guest_tryout" href="${view/tryout_url}">try it out without registering</a>.
+                    or <a i18n:name="tryout_link" i18n:translate="label_guest_tryout" href="${view/tryout_url}">try it out without registering</a>.
                 </tal:span>
             </tal:anonymous>
         </tal:if_tryouts_allowed>
