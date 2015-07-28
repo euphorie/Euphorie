@@ -29,7 +29,7 @@
         explicabo.</p>
 
       <fieldset class="comprehensive radioList" tal:condition="module/optional">
-        <legend>${module/question}</legend>
+        <legend tal:content="structure module/question">question</legend>
         <label><input type="radio" name="skip_children:boolean" value="False"
           checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"
           /><tal:span i18n:translate="label_yes">Yes</tal:span></label>
@@ -37,7 +37,7 @@
           checked="${python:'checked' if (context.postponed is False and context.skip_children) else None}"
           /><tal:span i18n:translate="label_no">No</tal:span></label>
       </fieldset>
-      
+
       <p class="buttonBar">
         <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
         <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
