@@ -76,7 +76,7 @@ class ISurvey(form.Schema, IBasic):
             title=_("label_evaluation_optional",
                 default=u"Evaluation may be skipped"),
             description=_("help_evaluation_optional",
-                default=u"This option allows uses to skip the evaluation "
+                default=u"This option allows users to skip the evaluation "
                         u"phase."),
             default=False,
             required=False)
