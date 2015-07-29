@@ -24,7 +24,7 @@
       <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
       <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
       <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
-      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@convert-guest" i18n:translate="navigation_convert_guest">Sign In</a></li>
+      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@convert-guest" i18n:translate="Sign in">Sign in</a></li>
     </ul>
   </metal:topnav>
 
@@ -98,7 +98,7 @@
         </ul>
     </aside>
   </metal:survey>
-  
+
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
     <p id="appendix">
       <tal:block repeat="page webhelpers/appendix"
@@ -150,7 +150,7 @@
       <p tal:content="structure risk/legal_reference">
         The requirements for fridges are defined in section 13.1 section a
         of the health code.
-      </p> 
+      </p>
     </tal:block>
   </metal:riskinfo>
 </html>
