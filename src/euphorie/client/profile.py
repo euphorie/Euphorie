@@ -1,7 +1,9 @@
 from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
+from sqlalchemy import sql
 from sqlalchemy.orm import object_session
+from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
@@ -86,7 +88,18 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_childr
     return child
 
 
-def BuildSurveyTree(survey, profile={}, dbsession=None):
+def get_custom_risks(session):
+    query = Session.query(model.Risk).filter(
+        sql.and_(
+            model.Risk.is_custom_risk == True,
+            model.Risk.path.startswith(model.Module.path),
+            model.Risk.session_id == session.id
+        )
+    ).order_by(model.Risk.id)
+    return query.all()
+
+
+def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
     """(Re)build the survey SQL tree. The existing tree for the
     session is deleted before a new tree is created.
 
@@ -103,7 +116,20 @@ def BuildSurveyTree(survey, profile={}, dbsession=None):
     dbsession.reset()
 
     for child in survey.values():
-        if IProfileQuestion.providedBy(child):
+        if ICustomRisksModule.providedBy(child):
+            AddToTree(dbsession, child)
+            # Now copy over the custom risks
+            risks = get_custom_risks(old_session)
+            if risks:
+                # find the module that holds the custom risks
+                modules = Session.query(model.Module).filter(sql.and_(
+                    model.Module.session_id==dbsession.id,
+                    model.Module.module_id==child.id)).all()
+                # there should only ever be 1 result
+                if modules:
+                    for risk in risks:
+                        modules[0].addChild(risk)
+        elif IProfileQuestion.providedBy(child):
             p = profile.get(child.id)
             if not p:
                 continue
@@ -181,7 +207,7 @@ def set_session_profile(survey, survey_session, profile):
 
     new_session = create_survey_session(
             survey_session.title, survey, survey_session.account)
-    BuildSurveyTree(survey, profile, new_session)
+    BuildSurveyTree(survey, profile, new_session, survey_session)
     new_session.copySessionData(survey_session)
     object_session(survey_session).delete(survey_session)
     return new_session
