@@ -89,6 +89,8 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_childr
 
 
 def get_custom_risks(session):
+    if session is None:
+        return []
     query = Session.query(model.Risk).filter(
         sql.and_(
             model.Risk.is_custom_risk == True,
