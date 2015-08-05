@@ -3174,13 +3174,14 @@ msgstr ""
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 msgid "label_survey_obsolete"
-msgstr ""
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 msgid "help_survey_obsolete"
 msgstr ""
+"This survey is obsolete; it has been retired or replaced with another survey"
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
