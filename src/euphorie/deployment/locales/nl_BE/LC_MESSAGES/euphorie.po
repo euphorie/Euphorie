@@ -3390,14 +3390,12 @@ msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
-#, fuzzy
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
-#, fuzzy
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another survey."
