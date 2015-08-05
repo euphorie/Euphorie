@@ -19,8 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Generated-By: Babel 0.9.5\n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -2797,7 +2797,7 @@ msgstr ""
 #: src/euphorie/client/templates/sessions.pt:56
 #, fuzzy
 msgid "label_obsolete_survey_group"
-msgstr "Choisir une enquête "
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3678,7 +3678,7 @@ msgstr ""
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Choisir une base de révision"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
@@ -3686,8 +3686,7 @@ msgstr "Choisir une base de révision"
 #, fuzzy
 msgid "help_survey_obsolete"
 msgstr ""
-"Titre de cette version de l’enquête. Ce nom n’est jamais montré aux\n"
-"utilisateurs."
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.

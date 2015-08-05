@@ -2637,7 +2637,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #: src/euphorie/client/templates/sessions.pt:56
 #, fuzzy
 msgid "label_obsolete_survey_group"
-msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3392,14 +3392,15 @@ msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Kies een basisrevisie"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 #, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Versienaam"
+msgstr ""
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.

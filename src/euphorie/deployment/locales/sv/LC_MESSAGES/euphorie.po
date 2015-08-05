@@ -2601,7 +2601,7 @@ msgstr "Starta en ny session genom att välja en av följande branschverktyg"
 #: src/euphorie/client/templates/sessions.pt:56
 #, fuzzy
 msgid "label_obsolete_survey_group"
-msgstr "Välj en undersökning"
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3434,7 +3434,7 @@ msgstr ""
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Välj en undersökning översyn"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
@@ -3442,8 +3442,7 @@ msgstr "Välj en undersökning översyn"
 #, fuzzy
 msgid "help_survey_obsolete"
 msgstr ""
-"Detta är titeln på denna version av undersökningen. Detta namn visas aldrig "
-"för användarna."
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
@@ -4464,34 +4463,28 @@ msgstr ""
 #~ "Din registrering är en privat angelägenhet. All din lagrade information "
 #~ "har endast du tillgång till."
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Denna risk måste fortfarande kartläggas"
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Denna risk måste fortfarande kartläggas"
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr ""
 #~ "Dokumentera de första stegen i en undersökning, inklusive hur man "
 #~ "konfigurerar en profil (om det behövs). Denna sida är länkad från "
 #~ "undersökningens startsida"
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr ""
 #~ "Dokumentera identifieringsfas. Denna information är länkad från alla "
 #~ "relaterade sidor för identifiering"
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
 #~ "Dokumentera värderingsfas. Denna information är länkad från alla "
 #~ "relaterade sidor för värdering"
 
-#, fuzzy
 #~ msgid "Action Plan"
 #~ msgstr ""
 #~ "Dokumentera handlingsplanens fas.Denna information är länkad från alla "
