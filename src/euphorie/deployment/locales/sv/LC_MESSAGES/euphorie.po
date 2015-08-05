@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-06-27 22:15+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -553,7 +553,8 @@ msgid "report_timeline_risk_title"
 msgstr "${responsible} är ansvarig för denna uppgift."
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Detta är en ${priority} ."
 
@@ -2599,7 +2600,6 @@ msgstr "Starta en ny session genom att välja en av följande branschverktyg"
 
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
-#, fuzzy
 msgid "label_obsolete_survey_group"
 msgstr "Obsolete surveys"
 
@@ -3182,12 +3182,6 @@ msgstr "Calculated"
 #, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Uppskattad"
-
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-#, fuzzy
-msgid "label_fixed_priority"
-msgstr "Standard prioritet"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -4457,6 +4451,10 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Denna version har förändringar som för närvarande inte är "
 "publicerade. Klicka på ikonen Uppdatera för att aktivera ändringarna"
+
+#, fuzzy
+#~ msgid "label_fixed_priority"
+#~ msgstr "Standard prioritet"
 
 #~ msgid "login_tooltip"
 #~ msgstr ""

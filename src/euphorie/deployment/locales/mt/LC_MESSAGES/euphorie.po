@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -538,7 +538,8 @@ msgid "report_timeline_risk_title"
 msgstr "Riskju"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Prijorità"
 
@@ -3268,11 +3269,6 @@ msgstr "Ikkalkolat"
 msgid "evalmethod_fixed"
 msgstr "Aqbeż il-valutazzjoni"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-msgid "label_fixed_priority"
-msgstr "prijorità"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4560,6 +4556,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Din il-verżjoni fiha bidliet li attwalment mhumiex ippubblikati. "
 "Ikklikkja l-ikona tal-aġġornament biex tagħmel il-bidliet kollha"
+
+#~ msgid "label_fixed_priority"
+#~ msgstr "prijorità"
 
 #~ msgid "Password"
 #~ msgstr "Password"

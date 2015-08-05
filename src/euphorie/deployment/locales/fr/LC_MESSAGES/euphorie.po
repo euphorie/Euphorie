@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -562,7 +562,8 @@ msgid "report_timeline_risk_title"
 msgstr "Risques"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Priorité"
 
@@ -2795,7 +2796,6 @@ msgstr ""
 
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
-#, fuzzy
 msgid "label_obsolete_survey_group"
 msgstr "Obsolete surveys"
 
@@ -3410,12 +3410,6 @@ msgstr "Cotation calculé"
 #, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Estimation qualitative"
-
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-#, fuzzy
-msgid "label_fixed_priority"
-msgstr "Priorité par défaut"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -4722,6 +4716,10 @@ msgstr ""
 "éditées.\n"
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
+
+#, fuzzy
+#~ msgid "label_fixed_priority"
+#~ msgstr "Priorité par défaut"
 
 #~ msgid "Password"
 #~ msgstr "Mot de passe"

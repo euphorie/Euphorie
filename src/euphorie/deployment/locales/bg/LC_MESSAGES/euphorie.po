@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -525,7 +525,8 @@ msgid "report_timeline_risk_title"
 msgstr "Риск"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Приоритет"
 
@@ -3163,12 +3164,6 @@ msgstr "Изчислен"
 msgid "evalmethod_fixed"
 msgstr "Преценен"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-#, fuzzy
-msgid "label_fixed_priority"
-msgstr "Приоритет по подразбиране"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4416,6 +4411,10 @@ msgstr ""
 "${label} = Тази версия има съдържа промени, които в момента не са "
 "публикувани. Кликнете върху иконата за актуализация, за да публикувате "
 "всички промени"
+
+#, fuzzy
+#~ msgid "label_fixed_priority"
+#~ msgstr "Приоритет по подразбиране"
 
 #~ msgid "Password"
 #~ msgstr "Парола"

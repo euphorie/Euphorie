@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -526,7 +526,8 @@ msgid "report_timeline_risk_title"
 msgstr "Tveganje"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Prioriteta tveganja"
 
@@ -3105,11 +3106,6 @@ msgstr "Izračunano"
 msgid "evalmethod_fixed"
 msgstr "Preskočite ocenjevanje"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-msgid "label_fixed_priority"
-msgstr "prednost"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4353,6 +4349,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Ta različlica ima spremembe, ki trenutno niso objavljene. "
 "Kliknite ikono za posodobitev, da posodobite vse spremembe"
+
+#~ msgid "label_fixed_priority"
+#~ msgstr "prednost"
 
 #~ msgid "Password"
 #~ msgstr "Geslo"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -542,7 +542,8 @@ msgid "report_timeline_risk_title"
 msgstr "Risico"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Categorie"
 
@@ -3221,11 +3222,6 @@ msgstr "Berekend"
 msgid "evalmethod_fixed"
 msgstr "Sla evaluatie over"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-msgid "label_fixed_priority"
-msgstr "Prioriteit"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4496,6 +4492,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Deze versie bevat wijzigingen die nog niet gepubliceerd zijn. "
 "Klik op Publiceer om deze zichtbaar te maken voor de invuller (client)."
+
+#~ msgid "label_fixed_priority"
+#~ msgstr "Prioriteit"
 
 #~ msgid "Password"
 #~ msgstr "Wachtwoord"
