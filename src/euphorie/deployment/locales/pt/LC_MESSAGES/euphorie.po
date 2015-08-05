@@ -2726,7 +2726,7 @@ msgstr "Inicar uma nova sessão para este inquérito."
 #: src/euphorie/client/templates/sessions.pt:56
 #, fuzzy
 msgid "label_obsolete_survey_group"
-msgstr "Se não especificar um título, o mesmo será retirado da entrada."
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3534,14 +3534,15 @@ msgstr "Se não especificar um título, o mesmo será retirado da entrada."
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Selecionar uma revisão base"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 #, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Nome da versão"
+msgstr ""
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.

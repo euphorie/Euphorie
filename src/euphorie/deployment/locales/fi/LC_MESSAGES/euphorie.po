@@ -2597,7 +2597,7 @@ msgstr ""
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
 msgid "label_obsolete_survey_group"
-msgstr ""
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3345,14 +3345,15 @@ msgstr ""
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Valitse kantaversio"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 #, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Valitse kantaversio"
+msgstr ""
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.

@@ -2607,7 +2607,7 @@ msgstr ""
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
 msgid "label_obsolete_survey_group"
-msgstr ""
+msgstr "Obsolete surveys"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -3364,14 +3364,15 @@ msgstr ""
 #: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
 #, fuzzy
 msgid "label_survey_obsolete"
-msgstr "Basisrevision auswählen"
+msgstr "Obsolete survey"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
 #: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
 #, fuzzy
 msgid "help_survey_obsolete"
-msgstr "Basisrevision auswählen"
+msgstr ""
+"This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
@@ -4396,7 +4397,6 @@ msgstr ""
 #~ "Ihre Registrierung ist eine vertrauliche Angelegenheit. All Ihre Daten "
 #~ "werden gespeichert – und nur Sie allein haben Zugriff darauf."
 
-#, fuzzy
 #~ msgid ""
 #~ "The basic architecture of an Online interactive Risk Assessment consists "
 #~ "of: profile questions (questions defining the company profile), modules "
@@ -4422,23 +4422,18 @@ msgstr ""
 #~ "wiederholbaren Profilfrage auswählt, wird das betreffende Modul so oft "
 #~ "wie angegeben wiederholt."
 
-#, fuzzy
 #~ msgid "Unanswered"
 #~ msgstr "Diese Gefährdung wurde noch nicht inventarisiert."
 
-#, fuzzy
 #~ msgid "Answered"
 #~ msgstr "Diese Gefährdung wurde noch nicht inventarisiert."
 
-#, fuzzy
 #~ msgid "Preparation"
 #~ msgstr "Einführung"
 
-#, fuzzy
 #~ msgid "Identification"
 #~ msgstr "Sie können die ${list-of-risks} ausdrucken."
 
-#, fuzzy
 #~ msgid "Evaluation"
 #~ msgstr ""
 #~ "Sie können angeben, wie die Priorität der Gefährdungen bewertet wird. "
