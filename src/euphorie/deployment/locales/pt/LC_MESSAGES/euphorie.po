@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -543,7 +543,8 @@ msgid "report_timeline_risk_title"
 msgstr "Risco"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Prioridade"
 
@@ -3280,12 +3281,6 @@ msgstr "Calculado"
 msgid "evalmethod_fixed"
 msgstr "Estimado"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-#, fuzzy
-msgid "label_fixed_priority"
-msgstr "Prioridade padrão"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4595,6 +4590,10 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Esta versão contém alterações que não estão publicadas "
 "atualmente. Clique no ícone de atualização para ativar todas as alterações"
+
+#, fuzzy
+#~ msgid "label_fixed_priority"
+#~ msgstr "Prioridade padrão"
 
 #~ msgid "Password"
 #~ msgstr "Palavra-passe"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,7 +520,8 @@ msgid "report_timeline_risk_title"
 msgstr "Riziko"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Toto je"
 
@@ -3061,11 +3062,6 @@ msgstr "Vypočítané"
 msgid "evalmethod_fixed"
 msgstr "Preskočiť hodnotenie"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-msgid "label_fixed_priority"
-msgstr "priorita"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4310,6 +4306,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Táto verzia má zmeny, ktoré momentálne nie sú zverejnené. "
 "Kliknutím na ikonu aktualizácie vyvolajte všetky aktívne zmeny"
+
+#~ msgid "label_fixed_priority"
+#~ msgstr "priorita"
 
 #~ msgid "Password"
 #~ msgstr "Heslo"

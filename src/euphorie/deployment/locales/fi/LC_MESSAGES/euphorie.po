@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -524,7 +524,8 @@ msgid "report_timeline_risk_title"
 msgstr "Riski"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr "Prioriteetti"
 
@@ -3097,12 +3098,6 @@ msgstr "Laskettu"
 msgid "evalmethod_fixed"
 msgstr "Arvioitu"
 
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-#, fuzzy
-msgid "label_fixed_priority"
-msgstr "Oletusprioriteetti"
-
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
 #: src/euphorie/content/templates/risk_view.pt:47
@@ -4347,6 +4342,10 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Tässä versiossa on muutoksia, joita ei ole vielä julkaistu. "
 "Julkaise muutokset painamalla päivityskuvaketta"
+
+#, fuzzy
+#~ msgid "label_fixed_priority"
+#~ msgstr "Oletusprioriteetti"
 
 #~ msgid "Password"
 #~ msgstr "Salasana"

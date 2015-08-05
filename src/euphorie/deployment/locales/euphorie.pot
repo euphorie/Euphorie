@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 15:06+0200\n"
+"POT-Creation-Date: 2015-08-05 18:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -517,7 +517,8 @@ msgid "report_timeline_risk_title"
 msgstr ""
 
 #. Default: Priority
-#: src/euphorie/client/report.py:980
+#. Default: priority
+#: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
 msgstr ""
 
@@ -2944,11 +2945,6 @@ msgstr ""
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
 msgid "evalmethod_fixed"
-msgstr ""
-
-#. Default: priority
-#: src/euphorie/content/risk.py:134
-msgid "label_fixed_priority"
 msgstr ""
 
 #. Default: Default priority
