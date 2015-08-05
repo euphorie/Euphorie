@@ -131,7 +131,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     depends("fixed_priority", "type", "==", "risk")
     depends("fixed_priority", "evaluation_method", "==", "fixed")
     fixed_priority = schema.Choice(
-            title=_("label_fixed_priority", default=u"priority"),
+            title=_("report_timeline_priority", default=u"priority"),
             vocabulary=SimpleVocabulary([
                 SimpleTerm("low", title=_("priority_low", default=u"Low")),
                 SimpleTerm("medium",
@@ -393,7 +393,7 @@ class Risk(dexterity.Container):
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
         return evaluation_algorithm(self)
-    
+
     @property
     def fixed_priority(self):
         priority = self.default_priority
@@ -402,7 +402,7 @@ class Risk(dexterity.Container):
         if priority == 'none':
             return 'low'
         return priority
-    
+
     @fixed_priority.setter
     def fixed_priority(self, value):
         self.default_priority = value
