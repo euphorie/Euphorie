@@ -4521,7 +4521,6 @@ msgstr ""
 "Noklikšķiniet uz atjaunināšanas ikonas, lai visas izmaiņas publicētu "
 "tiešsaistē."
 
-#, fuzzy
 #~ msgid "label_fixed_priority"
 #~ msgstr "Prioritāte pēc noklusējuma"
 

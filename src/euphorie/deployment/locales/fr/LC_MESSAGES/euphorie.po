@@ -4717,7 +4717,6 @@ msgstr ""
 "Cliquez sur l’icône de mise à jour pour prendre en compte toutes les "
 "modifications"
 
-#, fuzzy
 #~ msgid "label_fixed_priority"
 #~ msgstr "Priorité par défaut"
 

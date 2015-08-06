@@ -90,28 +90,28 @@ msgstr "Registo"
 #: src/euphorie/client/templates/report_actionplan.pt:54
 #: src/euphorie/client/templates/report_company.pt:36
 msgid "referer_employers_organisation"
-msgstr ""
+msgstr "uma organização do empregador"
 
 #. Default: a trade union organisation
 #: src/euphorie/client/company.py:61
 #: src/euphorie/client/templates/report_actionplan.pt:55
 #: src/euphorie/client/templates/report_company.pt:37
 msgid "referer_trade_union"
-msgstr ""
+msgstr "uma organização sindical"
 
 #. Default: a national public institution/administration
 #: src/euphorie/client/company.py:64
 #: src/euphorie/client/templates/report_actionplan.pt:56
 #: src/euphorie/client/templates/report_company.pt:38
 msgid "referer_national_public_institution"
-msgstr ""
+msgstr "uma instituição/administração pública nacional"
 
 #. Default: an European institution/administration
 #: src/euphorie/client/company.py:68
 #: src/euphorie/client/templates/report_actionplan.pt:57
 #: src/euphorie/client/templates/report_company.pt:40
 msgid "referer_eu_institution"
-msgstr ""
+msgstr "uma instituição/administração europeia"
 
 #. Default: health and safety experts
 #: src/euphorie/client/company.py:71
@@ -125,7 +125,7 @@ msgstr "profissionais de saúde e segurança"
 #: src/euphorie/client/templates/report_actionplan.pt:59
 #: src/euphorie/client/templates/report_company.pt:43
 msgid "referer_other"
-msgstr ""
+msgstr "outro meio"
 
 #. Default: Workers were invited to participate in the risk assessment
 #: src/euphorie/client/company.py:80
@@ -419,13 +419,13 @@ msgstr "Risco"
 #: src/euphorie/client/report.py:822
 #: src/euphorie/client/templates/report_actionplan.pt:133
 msgid "report_measure_responsible_and_start"
-msgstr ""
+msgstr "${responsible} é responsável por esta tarefa que começa a ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
 #: src/euphorie/client/report.py:832
 #: src/euphorie/client/templates/report_actionplan.pt:136
 msgid "report_measure_responsible_and_end"
-msgstr ""
+msgstr "${responsible} é responsável por esta tarefa que termina a ${end}."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
@@ -446,19 +446,19 @@ msgstr "Calendário"
 #: src/euphorie/client/report.py:863
 #: src/euphorie/client/templates/report_actionplan.pt:142
 msgid "report_measure_end_only"
-msgstr ""
+msgstr "Esta tarefa termina a ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
 #: src/euphorie/client/report.py:871
 #: src/euphorie/client/templates/report_actionplan.pt:145
 msgid "report_measure_start_and_stop"
-msgstr ""
+msgstr "Esta tarefa começa a ${start} e termina a ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
 #: src/euphorie/client/report.py:881
 #: src/euphorie/client/templates/report_actionplan.pt:153
 msgid "report_measure_budget"
-msgstr ""
+msgstr "Existe um orçamento de ${amount} para esta medida."
 
 #. Default: Action plan ${title}
 #: src/euphorie/client/report.py:896
@@ -485,13 +485,13 @@ msgstr "Elevada"
 #: src/euphorie/client/report.py:955
 #: src/euphorie/client/templates/risk_actionplan.pt:94
 msgid "label_action_plan_start"
-msgstr ""
+msgstr "A planear o início"
 
 #. Default: Planning end
 #: src/euphorie/client/report.py:957
 #: src/euphorie/client/templates/risk_actionplan.pt:121
 msgid "label_action_plan_end"
-msgstr ""
+msgstr "A planear o fim"
 
 #. Default: General approach (to eliminate or reduce the risk)
 #: src/euphorie/client/report.py:959
@@ -499,7 +499,7 @@ msgstr ""
 #: src/euphorie/content/solution.py:30
 #: src/euphorie/content/templates/solution_view.pt:21
 msgid "label_measure_action_plan"
-msgstr ""
+msgstr "Abordagem geral (para eliminar ou reduzir o risco)"
 
 #. Default: Specific action(s) required to implement this approach
 #: src/euphorie/client/report.py:963
@@ -507,7 +507,7 @@ msgstr ""
 #: src/euphorie/content/solution.py:39
 #: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
-msgstr ""
+msgstr "Ação(ões) específica(s) necessária(s) para implementar esta abordagem"
 
 #. Default: Requirements
 #: src/euphorie/client/report.py:967 src/euphorie/content/solution.py:49
@@ -519,7 +519,7 @@ msgstr ""
 #: src/euphorie/client/report.py:969
 #: src/euphorie/client/templates/risk_actionplan.pt:78
 msgid "label_action_plan_responsible"
-msgstr ""
+msgstr "Quem é o responsável?"
 
 #. Default: Budget (in Euro)
 #: src/euphorie/client/report.py:972
@@ -593,7 +593,7 @@ msgstr "Palavra-passe atual"
 #: src/euphorie/client/settings.py:46
 #: src/euphorie/client/templates/register.pt:32
 msgid "label_new_password"
-msgstr ""
+msgstr "Palavra-passe pretendida"
 
 #: src/euphorie/client/settings.py:51 src/euphorie/client/settings.py:62
 msgid "Your password for confirmation"
@@ -986,7 +986,7 @@ msgstr "Gestores de países"
 
 #: src/euphorie/client/templates/account-settings.pt:21
 msgid "Email address/account name"
-msgstr ""
+msgstr "Endereço de e-mail/nome da conta"
 
 #: src/euphorie/client/templates/account-settings.pt:23
 #, fuzzy
@@ -998,6 +998,8 @@ msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
 msgstr ""
+"Tenha em atenção que ao alterar o endereço de e-mail, o nome de login será "
+"também alterado."
 
 #. Default: Password
 #: src/euphorie/client/templates/account-settings.pt:27
@@ -1339,7 +1341,7 @@ msgstr "Relatório"
 #: src/euphorie/client/templates/module_customization.pt:82
 #: src/euphorie/client/templates/webhelpers.pt:22
 msgid "navigation_logout"
-msgstr ""
+msgstr "Sair da sessão"
 
 #. Default: Terms and conditions
 #: src/euphorie/client/templates/conditions.pt:18
@@ -2251,7 +2253,7 @@ msgstr "Relatórios"
 #: src/euphorie/client/templates/report_actionplan.pt:16
 #: src/euphorie/client/templates/report_identification.pt:16
 msgid "toc_header"
-msgstr ""
+msgstr "Conteúdos"
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:25
@@ -2335,7 +2337,7 @@ msgstr ""
 #. Default: Please fix the indicated errors.
 #: src/euphorie/client/templates/report_company.pt:18
 msgid "warn_fix_errors"
-msgstr ""
+msgstr "Elimine os erros indicados."
 
 #. Default: Please fill out your company details on this form. The data on this
 #. form will also appear in the report.
@@ -2353,12 +2355,16 @@ msgstr ""
 #: src/euphorie/client/templates/report_company.pt:39
 msgid "info_referer_national_public_institution"
 msgstr ""
+"ACT- Autoridade para as Condições do Trabalho, DGS – Direção Geral da Saúde, "
+"DPRP – Departamento de Proteção contra os Riscos Profissionais, etc"
 
 #. Default: The European Agency for Safety and Health at Work, European social
 #. partners, etc.
 #: src/euphorie/client/templates/report_company.pt:41
 msgid "info_referer_eu_institution"
 msgstr ""
+"A Agência Europeia para Segurança e Saúde no Trabalho, Parceiros sociais "
+"europeus, etc."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:17
@@ -2420,6 +2426,9 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:79
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
+"Designe alguém na sua empresa como responsável pela implementação desta "
+"medida. Esta pessoa terá autoridade para tomar os passos descritos no Plano "
+"e/ou responsabilidade para assegurar que os mesmos são executados."
 
 #. Default: Although some measures do not cost any money, most do. The measures
 #. should therefore be budgeted for; include them in the annual budget round if
@@ -2427,6 +2436,9 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:84
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
+"Apesar de algumas medidas serem gratuitas, a maioria não. As medidas devem "
+"então ter um orçamento; se necessário, inclua as mesmas no exercício "
+"orçamental anual."
 
 #. Default: Please enter the budget in whole Euros.
 #: src/euphorie/client/templates/risk_actionplan.pt:86
@@ -2488,6 +2500,8 @@ msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
+"Tem a certeza de que pretende apagar esta medida? Esta ação não pode ser "
+"invertida."
 
 #: src/euphorie/client/templates/risk_actionplan.pt:200
 msgid ""
@@ -2495,6 +2509,9 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
+"O texto inscrito nos campos 'abordagem geral', 'ações específicas' e "
+"'requisitos/competência' desta medida, será substituído. O texto não poderá "
+"ser recuperado. Tem a certeza que deseja continuar?"
 
 #. Default: What is the chance of this risk occurring?
 #: src/euphorie/client/templates/risk_evaluation.pt:28
@@ -2506,7 +2523,7 @@ msgstr "Indica a probabilidade de ocorrência deste risco numa siutação normal
 #: src/euphorie/client/templates/risk_evaluation.pt:30
 #: src/euphorie/content/risk.py:280
 msgid "probability_small"
-msgstr ""
+msgstr "Pequena"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:32
@@ -2519,7 +2536,7 @@ msgstr "Risco de prioridade média"
 #: src/euphorie/client/templates/risk_evaluation.pt:34
 #: src/euphorie/content/risk.py:284
 msgid "probability_large"
-msgstr ""
+msgstr "Elevada"
 
 #. Default: How often are people exposed to this risk?
 #: src/euphorie/client/templates/risk_evaluation.pt:38
@@ -2557,17 +2574,17 @@ msgstr "Setores"
 #. Default: Weak severity
 #: src/euphorie/client/templates/risk_evaluation.pt:50
 msgid "effect_injury_no_absence"
-msgstr ""
+msgstr "Gravidade fraca"
 
 #. Default: Significant severity
 #: src/euphorie/client/templates/risk_evaluation.pt:52
 msgid "effect_injury_with_absence"
-msgstr ""
+msgstr "Gravidade significativa"
 
 #. Default: High (very high) severity
 #: src/euphorie/client/templates/risk_evaluation.pt:54
 msgid "effect_permanent_damage"
-msgstr ""
+msgstr "Gravidade elevada (muito elevada)"
 
 #. Default: What is the severity of the damage ?
 #: src/euphorie/client/templates/risk_evaluation.pt:59
@@ -2585,62 +2602,62 @@ msgstr "Gravidade fraca"
 #. Default: No need to stop working
 #: src/euphorie/client/templates/risk_evaluation.pt:63
 msgid "severity_weak_help"
-msgstr ""
+msgstr "Sem necessidade de interrupção do trabalho"
 
 #. Default: Not very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:66
 #: src/euphorie/content/risk.py:232
 msgid "severity_not_severe"
-msgstr ""
+msgstr "Não muito grave"
 
 #. Default: Need to stop working for less than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:67
 msgid "severity_not_severe_help"
-msgstr ""
+msgstr "Necessidade de interromper o trabalho até 3 dias"
 
 #. Default: Severe
 #: src/euphorie/client/templates/risk_evaluation.pt:70
 #: src/euphorie/content/risk.py:235
 msgid "severity_severe"
-msgstr ""
+msgstr "Grave"
 
 #. Default: Need to stop working for more than 3 days
 #: src/euphorie/client/templates/risk_evaluation.pt:71
 msgid "severity_severe_help"
-msgstr ""
+msgstr "Necessidade de interromper o trabalho mais de 3 dias"
 
 #. Default: Very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:75
 #: src/euphorie/content/risk.py:237
 msgid "severity_very_severe"
-msgstr ""
+msgstr "Muito grave"
 
 #. Default: Irreversible injury, incurable illness, death
 #: src/euphorie/client/templates/risk_evaluation.pt:76
 msgid "severity_very_severe_help"
-msgstr ""
+msgstr "Lesões irreversíveis, doença incurável, morte"
 
 #. Default: Rare
 #: src/euphorie/client/templates/risk_evaluation.pt:84
 #: src/euphorie/content/risk.py:253
 msgid "frequency_french_rare"
-msgstr ""
+msgstr "Rara"
 
 #. Default: Once per year
 #: src/euphorie/client/templates/risk_evaluation.pt:85
 msgid "frequency_french_rare_help"
-msgstr ""
+msgstr "Uma vez por ano"
 
 #. Default: Not very often
 #: src/euphorie/client/templates/risk_evaluation.pt:89
 #: src/euphorie/content/risk.py:255
 msgid "frequency_french_not_often"
-msgstr ""
+msgstr "Não muito frequentemente"
 
 #. Default: Once per month
 #: src/euphorie/client/templates/risk_evaluation.pt:90
 msgid "frequency_french_not_often_help"
-msgstr ""
+msgstr "Uma vez por mês"
 
 #. Default: Often
 #: src/euphorie/client/templates/risk_evaluation.pt:94
@@ -2652,18 +2669,18 @@ msgstr "Quase nunca"
 #. Default: Once per week
 #: src/euphorie/client/templates/risk_evaluation.pt:95
 msgid "frequency_french_often_help"
-msgstr ""
+msgstr "Uma vez por semana"
 
 #. Default: Very often or regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:99
 #: src/euphorie/content/risk.py:260
 msgid "frequency_french_regularly"
-msgstr ""
+msgstr "Muito frequentemente ou regularmente"
 
 #. Default: Minimum once per day
 #: src/euphorie/client/templates/risk_evaluation.pt:100
 msgid "frequency_french_regularly_help"
-msgstr ""
+msgstr "No mínimo uma vez por dia"
 
 #. Default: Not applicable
 #: src/euphorie/client/templates/risk_identification.pt:25
@@ -2694,7 +2711,7 @@ msgstr "Setores"
 #: src/euphorie/client/templates/sessions.pt:31
 #: src/euphorie/client/templates/survey_sessions.pt:28
 msgid "lable_session_modified"
-msgstr ""
+msgstr "guardada a ${date}"
 
 #. Default: Rename
 #: src/euphorie/client/templates/sessions.pt:36
@@ -2754,6 +2771,8 @@ msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
 msgstr ""
+"Tem a certeza de que pretende apagar esta sessão? Não é possível inverter "
+"esta ação."
 
 #. Default: Are you aware of all the risks?
 #: src/euphorie/client/templates/start.pt:20
@@ -2856,12 +2875,12 @@ msgstr ""
 #. Default: Online interactive
 #: src/euphorie/client/templates/webhelpers.pt:36
 msgid "oira_name_line_1"
-msgstr ""
+msgstr "Avaliação de Riscos"
 
 #. Default: Risk Assessment
 #: src/euphorie/client/templates/webhelpers.pt:37
 msgid "oira_name_line_2"
-msgstr ""
+msgstr "interativa Online"
 
 #: src/euphorie/client/templates/webhelpers.pt:94
 msgid "Unvisited"
@@ -2883,13 +2902,13 @@ msgstr "Risco presente"
 #: src/euphorie/client/templates/webhelpers.pt:106
 #: src/euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
-msgstr ""
+msgstr "Elaborada por ${EU-OSHA}."
 
 #. Default: About
 #: src/euphorie/client/templates/webhelpers.pt:107
 #: src/euphorie/content/templates/colour-preview.pt:63
 msgid "appendix_about"
-msgstr ""
+msgstr "Sobre"
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:148
@@ -3558,7 +3577,7 @@ msgstr "Algoritmo de avaliação"
 #: src/euphorie/content/surveygroup.py:64
 #: src/euphorie/content/templates/surveygroup_add.pt:83
 msgid "algorithm_kinney"
-msgstr ""
+msgstr "Três critérios padrão"
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/surveygroup.py:67
@@ -3923,7 +3942,7 @@ msgstr "Documentação"
 #. Default: appendix
 #: src/euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix_appendix"
-msgstr ""
+msgstr "apêndice"
 
 #. Default: Pages created in the ${appendix} folder are available via links in
 #. the footer of the online client.
@@ -3935,7 +3954,7 @@ msgstr "Documentação"
 #. Default: online help
 #: src/euphorie/content/templates/documentation_view.pt:22
 msgid "documentation_online_help_online_help"
-msgstr ""
+msgstr "ajuda online"
 
 #. Default: The ${online_help} text can also be modified.
 #: src/euphorie/content/templates/documentation_view.pt:22
@@ -4091,7 +4110,7 @@ msgstr "Restaurar as cores originais"
 #: src/euphorie/content/templates/settings.pt:92
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
-msgstr ""
+msgstr "Informação"
 
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
@@ -4226,7 +4245,7 @@ msgstr ""
 #: src/euphorie/content/templates/survey_view.pt:23
 #: src/euphorie/content/templates/survey_view.pt:26
 msgid "not_set"
-msgstr ""
+msgstr "Não definido"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
@@ -4291,15 +4310,18 @@ msgstr "Alterar país/idioma"
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
+"Este é o algoritmos de avaliação recomendado, com base no método Kinney "
 
 #. Default: Simplified two criteria
 #: src/euphorie/content/templates/surveygroup_add.pt:87
 msgid "algorithm_french"
-msgstr ""
+msgstr "Dois critérios simplificados"
 
 #: src/euphorie/content/templates/surveygroup_add.pt:89
 msgid "This is a simpler evaluation algorithm using only two criteria."
 msgstr ""
+"Este é um algortimo de avaliação mais simples que apenas utiliza dois "
+"critérios."
 
 #. Default: Unpublish "${title}"
 #: src/euphorie/content/templates/unpublish.pt:12
@@ -4591,7 +4613,6 @@ msgstr ""
 "${label} = Esta versão contém alterações que não estão publicadas "
 "atualmente. Clique no ícone de atualização para ativar todas as alterações"
 
-#, fuzzy
 #~ msgid "label_fixed_priority"
 #~ msgstr "Prioridade padrão"
 
