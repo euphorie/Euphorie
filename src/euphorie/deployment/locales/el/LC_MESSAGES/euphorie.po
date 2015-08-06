@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Generated-By: Babel 0.9.5\n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -4636,7 +4636,6 @@ msgstr ""
 "συγκεκριμένη στιγμή. Κάντε κλικ στο εικονίδιο ενημέρωσης για να εμφανιστούν "
 "όλες οι αλλαγές"
 
-#, fuzzy
 #~ msgid "label_fixed_priority"
 #~ msgstr "Προεπιλεγμένη προτεραιότητα"
 
