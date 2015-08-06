@@ -154,7 +154,7 @@ def getTreeData(request, context, phase="identification", filter=None):
     children = []
     for obj in context.siblings(filter=filter):
         info = morph(obj)
-        if obj.zodb_path.find('custom-risks') > -1:
+        if obj.type != 'risk' and obj.zodb_path.find('custom-risks') > -1:
             info['title'] = title_custom_risks
         children.append(info)
     result["children"] = children
