@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-03 11:07+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "Generated-By: Babel 0.9.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #. Default: Your country
 #: src/euphorie/client/company.py:21
@@ -213,31 +213,14 @@ msgstr "Il existe déjà un compte associé à cette adresse e-mail."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "contenu de l'outil"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
 #: src/euphorie/client/publish.py:148
-#, fuzzy
 msgid "description_other_risks"
 msgstr ""
-"La structure de base de l'outil d'évaluation interactif en ligne comprend "
-"des: \"\n"
-"\"- questions profil (des questions permettant de définir le profil de "
-"l'entreprise) \"\n"
-"\"- modules (et éventuellement des sous-modules) \"\n"
-"\"- risques (propositions positives) dans les modules. \"\n"
-"\"Les questions profil sont utilisées pour déterminer si des modules "
-"spécifiques sont pertinents pour l'utilisateur final (optionnel), ou si ces "
-"modules doivent apparaître un certain nombre de fois (répétable). Ces "
-"questions sont posées AVANT de commencer l'identification et l'évaluation "
-"des risques. Si l'utilisateur final ne confirme pas (en cliquant dans la "
-"case) qu'une question profil est pertinente, le module correspondant sera "
-"évité. Si l'utilisateur final spécifie plus d'une option en réponse à une "
-"question profil répétable, le module correspondant apparaîtra répété le même "
-"nombre de fois."
 
 #. Default: <p>Would you now like to add your own defined risks to this
 #. tool?</p><p><strong>Important:</strong> In order to avoid duplicating risks,
@@ -245,9 +228,8 @@ msgstr ""
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "contenu de l'outil"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -307,7 +289,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Page ${number} sur ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1861,15 +1843,14 @@ msgstr "Pas encore de compte ? Veuillez tout d'abord ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nom"
+msgstr "essayer sans inscription"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Pas encore de compte ? Veuillez tout d'abord ${register_link}."
+msgstr ""
+"Vous n'avez pas de compte?» Veuillez ${register_link} ou ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2152,9 +2133,8 @@ msgstr "Élevée"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Ajouter une autre mesure"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2457,7 +2437,6 @@ msgid "label_add_measure"
 msgstr "Ajouter une autre mesure"
 
 #: src/euphorie/client/templates/risk_actionplan.pt:66
-#, fuzzy
 msgid "Description"
 msgstr "Description"
 
@@ -2971,18 +2950,12 @@ msgid "Postponed"
 msgstr "Reporté"
 
 #: src/euphorie/client/templates/webhelpers.pt:96
-#, fuzzy
 msgid "Risk not present"
 msgstr ""
-"Ce risque n'est pas présent dans votre organisation, mais étant donné que\n"
-"l'organisation du secteur le considère comme l'un des 5 risques principaux, "
-"il doit\n"
-"figurer dans ce rapport."
 
 #: src/euphorie/client/templates/webhelpers.pt:97
-#, fuzzy
 msgid "Risk present"
-msgstr "Vous avez répondu négativement à la déclaration ci-dessus."
+msgstr ""
 
 #. Default: Produced by ${EU-OSHA}.
 #: src/euphorie/client/templates/webhelpers.pt:106
@@ -3046,7 +3019,6 @@ msgstr ""
 #. Default: Authentication
 #: src/euphorie/content/help.py:23
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
 msgstr "Connexion"
 
@@ -3062,7 +3034,6 @@ msgstr ""
 #. Default: Sessions
 #: src/euphorie/content/help.py:32
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
 msgstr "Sessions"
 
@@ -3078,7 +3049,6 @@ msgstr ""
 #. Default: Preparation
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
 msgstr "Préparation"
 
@@ -3095,7 +3065,6 @@ msgstr ""
 #. Default: Identification
 #: src/euphorie/content/help.py:49
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
 msgstr "Identification"
 
@@ -3111,7 +3080,6 @@ msgstr ""
 #. Default: Evaluation
 #: src/euphorie/content/help.py:57
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
 msgstr "Estimation"
 
@@ -3127,7 +3095,6 @@ msgstr ""
 #. Default: Action Plan
 #: src/euphorie/content/help.py:65
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
 msgstr "Plan d'action"
 
@@ -3143,7 +3110,6 @@ msgstr ""
 #. Default: Reports
 #: src/euphorie/content/help.py:73
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
 msgstr "Rapport"
 
@@ -3158,7 +3124,6 @@ msgstr ""
 #. Default: Final words
 #: src/euphorie/content/help.py:81
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
 msgstr "Derniers mots"
 
@@ -3265,9 +3230,8 @@ msgstr "Contenu de la page "
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Votre mot de passe à confirmer "
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3407,9 +3371,8 @@ msgstr "Cotation calculé"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:126
-#, fuzzy
 msgid "evalmethod_fixed"
-msgstr "Estimation qualitative"
+msgstr ""
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
@@ -3836,9 +3799,8 @@ msgstr "Le compte \"${title}\" a été verrouillé."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Le compte \"${title}\" a été verrouillé."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3863,7 +3825,7 @@ msgstr "République de Serbie"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "A.R.Y de Macédoine"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -4262,7 +4224,7 @@ msgstr "Quel logo souhaitez-vous afficher en haut à gauche ? "
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Logo officiel de l'OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4357,7 +4319,6 @@ msgstr "Non déterminé "
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Questions de profil"
 
