@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,9 +209,8 @@ msgstr "Un account con questo indirizzo e-mail è già esistente."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Contenuti dello strumento"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -225,9 +224,8 @@ msgstr ""
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "Contenuti dello strumento"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -1791,15 +1789,13 @@ msgstr "Non avete un account? Innanzitutto ${register_link} ."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nome"
+msgstr "prova senza registrazione"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Non avete un account? Innanzitutto ${register_link} ."
+msgstr "Non disponi di un account? ${register_link} oppure ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2081,9 +2077,8 @@ msgstr "Alto"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Aggiungere un'altra misura"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -3134,9 +3129,8 @@ msgstr "Contenuto della pagina"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Inserire la password per la conferma"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3701,9 +3695,8 @@ msgstr "L'account \"${title}\" è stato bloccato."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "L'account \"${title}\" è stato bloccato."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3728,7 +3721,7 @@ msgstr "Republica Serba"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Ex Rep. jugoslava di Macedonia"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -4122,7 +4115,7 @@ msgstr "Quale logo le piacerebbe avere all'angolo sinistro in alto?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Logo ufficiale OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4450,9 +4443,8 @@ msgstr "Aggiungere misura"
 
 #. Default: Add ${typename}
 #: src/euphorie/deployment/tiles/templates/addbar.pt:22
-#, fuzzy
 msgid "button_add_factory"
-msgstr "Aggiungere nuovo settore"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,9 +205,8 @@ msgstr "Račun s tem e-poštnim naslovom že obstaja."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Napaka"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -1734,15 +1733,13 @@ msgstr "Nimate računa? Potem se najprej ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Ime"
+msgstr "preskusite ga brez registracije"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Nimate računa? Potem se najprej ${register_link}."
+msgstr "Nimate računa? Prosimo, ${register_link} ali ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2021,9 +2018,8 @@ msgstr "Visoka"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Dodaj nov ukrep"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2058,7 +2054,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/updated.pt:48
 msgid "label_add_profile_module"
-msgstr ""
+msgstr "Dodaj"
 
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
@@ -2353,9 +2349,8 @@ msgstr "Datum začetka ni pred datumom zaključka"
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Vsebina strani"
+msgstr "Dan"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
@@ -2372,15 +2367,14 @@ msgstr "Mesec"
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Vsebina strani"
+msgstr ""
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
 #: src/euphorie/client/templates/risk_actionplan.pt:139
 msgid "error_invalid_year"
-msgstr ""
+msgstr "Vnesite leto med 2000 in 2100."
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
@@ -2582,7 +2576,7 @@ msgstr "Prijava"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr ""
+msgstr "Seja"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
@@ -3009,9 +3003,8 @@ msgstr "Vsebina strani"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Vaše geslo za potrditev"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3524,9 +3517,8 @@ msgstr "Račun \"${title}\" je zaklenjen."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Račun \"${title}\" je zaklenjen."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3551,7 +3543,7 @@ msgstr "Republika Srbija"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Nekdanja jugoslovanska republika Makedonija"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3938,7 +3930,7 @@ msgstr "Kater logotip želite, da je prikazan v zgornjem levem kotu?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Uradni logotip orodja OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4011,12 +4003,12 @@ msgstr ""
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
 msgid "optional"
-msgstr ""
+msgstr "Neobvezno"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Obvezno"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23
@@ -4296,9 +4288,8 @@ msgstr "Različice"
 
 #. Default: Create a duplicate of the selected survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
-msgstr "Podvoji"
+msgstr ""
 
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
@@ -4307,15 +4298,13 @@ msgstr "Podvoji"
 
 #. Default: Publish the selected survey live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
-msgstr "Objavljena"
+msgstr ""
 
 #. Default: Remove this survey from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
-msgstr "Prekliči objavo \"${title}"
+msgstr ""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
@@ -4342,9 +4331,8 @@ msgstr "Posodobljeno"
 #. Default: Start to write a new survey. You will be asked whether you want to
 #. start off with a copy of an existing survey.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
-msgstr "Ocenjevanje"
+msgstr ""
 
 #. Default: Create new survey
 #: src/euphorie/deployment/tiles/templates/versions.pt:71

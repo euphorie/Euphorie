@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,9 +205,8 @@ msgstr "Er bestaat al een account met dit e-mailadres."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Risico"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -221,9 +220,8 @@ msgstr ""
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "Risico"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -280,7 +278,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Pagina ${number} van ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1759,15 +1757,13 @@ msgstr "Hebt u nog geen account? ${register_link} u dan eerst."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Naam"
+msgstr "uitproberen zonder registreren"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Hebt u nog geen account? ${register_link} u dan eerst."
+msgstr "Hebt u geen account? U kunt ${register_link} of ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2044,9 +2040,8 @@ msgstr "risico met hoge prioriteit"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Afbeelding"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2384,9 +2379,8 @@ msgstr "Startdatum ligt na einddatum"
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Pagina-inhoud"
+msgstr "Dag"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
@@ -2403,9 +2397,8 @@ msgstr "Land"
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Pagina-inhoud"
+msgstr ""
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
@@ -3042,9 +3035,8 @@ msgstr "Pagina-inhoud"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Uw wachtwoord ter bevestiging"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3566,9 +3558,8 @@ msgstr "De account \"${title}\" is vergrendeld."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "De account \"${title}\" is vergrendeld."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3593,7 +3584,7 @@ msgstr "Republiek Servië"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "voormalige Joegoslavische Republiek Macedonië"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3982,7 +3973,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Officieel OiRA-logo"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4063,7 +4054,7 @@ msgstr "Optioneel"
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Verplicht"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23
@@ -4355,15 +4346,13 @@ msgstr "Dupliceren"
 
 #. Default: Publish the selected survey live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
-msgstr "Het voorbeeld zal beschikbaar zijn op ${url}."
+msgstr ""
 
 #. Default: Remove this survey from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
-msgstr "Publicatie \"${title}\" ongedaan maken"
+msgstr ""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47

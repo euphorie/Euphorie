@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,9 +206,8 @@ msgstr "Tämän sähköpostiosoitteen sisältävä tili on jo olemassa."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Virhe"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -280,7 +279,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Sivu ${number}/${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1741,15 +1740,13 @@ msgstr "Eikö sinulla ole tiliä? ${register_link} ensin."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nimi"
+msgstr "kokeile rekisteröitymättä"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Eikö sinulla ole tiliä? ${register_link} ensin."
+msgstr "Eikö sinulla ole tiliä? Valitse ${register_link} tai ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2015,9 +2012,8 @@ msgstr "Suuri"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Lisää toinen toimenpide"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2052,7 +2048,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/updated.pt:48
 msgid "label_add_profile_module"
-msgstr ""
+msgstr "Lisää"
 
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
@@ -2346,9 +2342,8 @@ msgstr "Alkamispäivämäärä ei ole ennen päättymispäivämäärää"
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Sivun sisältö"
+msgstr "Päivä"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
@@ -2573,7 +2568,7 @@ msgstr "Tällä hetkellä tuntematon"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr ""
+msgstr "Istunto"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
@@ -2998,9 +2993,8 @@ msgstr "Sivun sisältö"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Salasanasi vahvistusta varten"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3517,9 +3511,8 @@ msgstr "Tili \"${title}\" on lukittu."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Tili \"${title}\" on lukittu."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3544,7 +3537,7 @@ msgstr "Serbian tasavalta"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Entinen Jugoslavian tasavalta Makedonia"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3930,7 +3923,7 @@ msgstr "Minkä logon haluat näkyvän vasemmassa yläkulmassa?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Virallinen OiRA-logo"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4006,12 +3999,12 @@ msgstr ""
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
 msgid "optional"
-msgstr ""
+msgstr "Valinnainen"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Pakollinen"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23

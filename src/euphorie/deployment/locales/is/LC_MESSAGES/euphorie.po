@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,9 +206,8 @@ msgstr "Reikningur með þessu tölvupóstfangi er þegar til staðar."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "innihald verkfærisins"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -222,9 +221,8 @@ msgstr ""
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "innihald verkfærisins"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -711,7 +709,7 @@ msgstr ""
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr ""
+msgstr "Viðeigandi áhættumat er lykillinn að heilbrigðum vinnustöðum"
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
@@ -721,7 +719,7 @@ msgstr "sem er auðvelt í notkun og ókeypis."
 #. Default: step-by-step risk assessment process
 #: src/euphorie/client/templates/about.pt:31
 msgid "about_paragraph_1_step"
-msgstr ""
+msgstr "leiðbeiningar fyrir áhættumatsferli"
 
 #. Default: identification
 #: src/euphorie/client/templates/about.pt:34
@@ -741,7 +739,7 @@ msgstr "úrbætur"
 #. Default: reporting
 #: src/euphorie/client/templates/about.pt:41
 msgid "about_paragraph_1_reporting"
-msgstr ""
+msgstr "tilkynningar"
 
 #. Default: Experience shows that ${key}. This is why EU-OSHA developed an
 #. ${easy} (the “OiRA” - Online interactive Risk Assessment) that can help
@@ -1760,15 +1758,14 @@ msgstr "Ertu með aðgang? Skráðu þig ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nafn"
+msgstr "prófaðu án þess að skrá þig"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Ertu með aðgang? Skráðu þig ${register_link}."
+msgstr ""
+"Ertu ekki með reikning? Vinsamlegast ${register_link} eða ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2038,9 +2035,8 @@ msgstr "Há"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Bæta við annarri ráðstöfun"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -3074,9 +3070,8 @@ msgstr "Innihald síðu"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Staðfestu með lykilorði þínu"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3617,9 +3612,8 @@ msgstr "Reikningnum „${title}\" hefur verið læst."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Reikningnum „${title}\" hefur verið læst."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3644,7 +3638,7 @@ msgstr "Serbía"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Makedónía (Fyrrverandi lýðveldi Júgóslavíu)"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -4355,9 +4349,8 @@ msgstr "Bæta við lausn"
 
 #. Default: Add ${typename}
 #: src/euphorie/deployment/tiles/templates/addbar.pt:22
-#, fuzzy
 msgid "button_add_factory"
-msgstr "Bæta við nýju atvinnusviði"
+msgstr ""
 
 #. Default: Show older versions
 #: src/euphorie/deployment/tiles/templates/scripts.pt:14

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -210,9 +210,8 @@ msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύ
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "κατάλογο με το σύνολο των κινδύνων"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -226,9 +225,8 @@ msgstr ""
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "κατάλογο με το σύνολο των κινδύνων"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -289,7 +287,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Σελίδα ${number} από ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1815,15 +1813,13 @@ msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείτ�
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Όνομα"
+msgstr "εκτελέστε τη δοκιμαστική έκδοση χωρίς εγγραφή"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείται πρώτα ${register_link}."
+msgstr "Δεν έχετε λογαριασμό; Παρακαλούμε ${register_link} ή ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2134,9 +2130,8 @@ msgstr "Υψηλή"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Προσθήκη άλλου μέτρου"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -3212,9 +3207,8 @@ msgstr "Περιεχόμενο σελίδας"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Ο κωδικός πρόσβασής σας για επιβεβαίωση"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3768,9 +3762,8 @@ msgstr "Ο λογαριασμός \"${title}\" είναι κλειδωμένος
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Ο λογαριασμός \"${title}\" είναι κλειδωμένος."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -4189,7 +4182,7 @@ msgstr "Ποιο λογότυπο θέλετε να εμφανίζεται στ�
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Επίσημο λογότυπο του OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72

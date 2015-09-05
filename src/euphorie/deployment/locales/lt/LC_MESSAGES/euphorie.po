@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,9 +207,8 @@ msgstr "Paskyra su šiuo el. pašto adresu jau galioja"
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Klaida"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -281,7 +280,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "${number} puslapis iš ${total} puslapio (-ių)"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1738,15 +1737,15 @@ msgstr "Neturite paskyros? Tuomet pirmiausia ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Vardas"
+msgstr "išbandykite priemonę nesiregistruodami"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Neturite paskyros? Tuomet pirmiausia ${register_link}."
+msgstr ""
+"Dar neturite paskyros? Registruokitės ${register_link} arba išbandykite "
+"priemonę nesiregistruodami ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2018,9 +2017,8 @@ msgstr "Aukštas"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Įkelti naują priemonę"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2575,7 +2573,7 @@ msgstr "Šiuo metu nežinoma"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr ""
+msgstr "Seansas"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
@@ -2999,9 +2997,8 @@ msgstr "Puslapio turinys"
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Patvirtinimui reikalingas jūsų slaptažodis"
+msgstr ""
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3517,9 +3514,8 @@ msgstr "Paskyra \"${title}\" užblokuota."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Paskyra \"${title}\" užblokuota."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3544,7 +3540,7 @@ msgstr "Serbijos Respublika"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Buvusioji Jugoslavijos Respublika Makedonija"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3933,7 +3929,7 @@ msgstr "Kurį logotipą norėtumėte matyti viršutiniame kairiajame kampe?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Oficialus OiRA logotipas"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4008,12 +4004,12 @@ msgstr ""
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
 msgid "optional"
-msgstr ""
+msgstr "Neprivaloma"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Privaloma"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23
