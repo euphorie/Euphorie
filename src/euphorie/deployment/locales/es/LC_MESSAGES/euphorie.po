@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -209,9 +209,8 @@ msgstr "Ya existe una cuenta con esta dirección de correo electrónico."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Error"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -283,7 +282,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Página ${number} de ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -1758,15 +1757,13 @@ msgstr "¿No tiene una cuenta? ${register_link} primero."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nombre"
+msgstr "probar sin registrarse"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "¿No tiene una cuenta? ${register_link} primero."
+msgstr "¿No tiene cuenta? ${register_link} o ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2049,9 +2046,8 @@ msgstr "Alto"
 
 #. Default: Add risk
 #: src/euphorie/client/templates/module_customization.pt:39
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Añadirr otra medida"
+msgstr ""
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2086,7 +2082,7 @@ msgstr ""
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/updated.pt:48
 msgid "label_add_profile_module"
-msgstr ""
+msgstr "Añadir"
 
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
@@ -2385,9 +2381,8 @@ msgstr "La fecha de comienzo no debe ser anterior a la fecha de fin"
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Contenido de página"
+msgstr "Día"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
@@ -2404,24 +2399,22 @@ msgstr "Mes"
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Contenido de página"
+msgstr ""
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
 #: src/euphorie/client/templates/risk_actionplan.pt:139
 msgid "error_invalid_year"
-msgstr ""
+msgstr "Introduzca un año entre 2000 y 2100."
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
 #: src/euphorie/client/templates/risk_actionplan.pt:153
 #: src/euphorie/client/templates/risk_evaluation.pt:124
 #: src/euphorie/client/templates/risk_identification.pt:39
-#, fuzzy
 msgid "label_comment"
-msgstr "País"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:199
 msgid ""
@@ -2614,7 +2607,7 @@ msgstr "Login"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr ""
+msgstr "Sesión"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
@@ -3571,9 +3564,8 @@ msgstr "La cuenta \"${title}\" se ha bloqueado."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "La cuenta \"${title}\" se ha bloqueado."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3586,11 +3578,11 @@ msgstr "Unión Europea"
 
 #: src/euphorie/content/utils.py:20
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/euphorie/content/utils.py:21
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/euphorie/content/utils.py:22
 msgid "Republic of Serbia"
@@ -3598,7 +3590,7 @@ msgstr "República de Serbia"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Antigua República Yugoslava de Macedonia"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -3987,7 +3979,7 @@ msgstr "¿Qué logotipo desea mostrar en la esquina superior izquierda?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Logotipo oficial OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4065,12 +4057,12 @@ msgstr ""
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
 msgid "optional"
-msgstr ""
+msgstr "Opcional"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Obligatorio"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23

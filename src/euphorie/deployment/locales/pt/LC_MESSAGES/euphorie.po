@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2015-08-05 18:08+0200\n"
+"POT-Creation-Date: 2015-09-05 18:55+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,9 +21,8 @@ msgstr ""
 #. Default: Your country
 #: src/euphorie/client/company.py:21
 #: src/euphorie/client/templates/report_company.pt:25
-#, fuzzy
 msgid "label_company_country"
-msgstr "Alterar país/idioma"
+msgstr ""
 
 #. Default: Number of employees
 #: src/euphorie/client/company.py:25
@@ -81,9 +80,8 @@ msgstr ""
 #: src/euphorie/client/company.py:53
 #: src/euphorie/client/templates/report_actionplan.pt:52
 #: src/euphorie/client/templates/report_company.pt:35
-#, fuzzy
 msgid "label_referer"
-msgstr "Registo"
+msgstr ""
 
 #. Default: an employers' organisation
 #: src/euphorie/client/company.py:58
@@ -138,18 +136,16 @@ msgstr "Os trabalhadores foram convidados a participar na avaliação de riscos"
 #: src/euphorie/client/company.py:106
 #: src/euphorie/client/templates/module_identification.pt:35
 #: src/euphorie/client/templates/risk_identification.pt:22
-#, fuzzy
 msgid "label_yes"
-msgstr "Conteúdo da página"
+msgstr ""
 
 #. Default: No
 #: src/euphorie/client/company.py:85 src/euphorie/client/company.py:95
 #: src/euphorie/client/company.py:107
 #: src/euphorie/client/templates/module_identification.pt:38
 #: src/euphorie/client/templates/risk_identification.pt:23
-#, fuzzy
 msgid "label_no"
-msgstr "Conteúdo da página"
+msgstr ""
 
 #. Default: Did this OiRA tool meet your needs?
 #: src/euphorie/client/company.py:90
@@ -214,16 +210,14 @@ msgstr "Já existe uma conta com este endereço de e-mail."
 #. Default: Added risks (by you)
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Risco"
+msgstr ""
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
 #: src/euphorie/client/publish.py:148
-#, fuzzy
 msgid "description_other_risks"
-msgstr "Descrição da medida"
+msgstr ""
 
 #. Default: <p>Would you now like to add your own defined risks to this
 #. tool?</p><p><strong>Important:</strong> In order to avoid duplicating risks,
@@ -231,9 +225,8 @@ msgstr "Descrição da medida"
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
-#, fuzzy
 msgid "question_other_risks"
-msgstr "Risco"
+msgstr ""
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -291,7 +284,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr ""
+msgstr "Página ${number} de ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
@@ -376,21 +369,18 @@ msgstr "Esta é uma"
 
 #. Default: Measure
 #: src/euphorie/client/report.py:774
-#, fuzzy
 msgid "header_measure_single"
-msgstr "Imagem principal"
+msgstr ""
 
 #. Default: Measure ${index}
 #: src/euphorie/client/report.py:778
 #: src/euphorie/client/templates/report_actionplan.pt:114
-#, fuzzy
 msgid "header_measure"
-msgstr "Pesquisar"
+msgstr ""
 
 #. Default: Action plan:
 #: src/euphorie/client/report.py:792
 #: src/euphorie/client/templates/report_actionplan.pt:117
-#, fuzzy
 msgid "report_measure_actionplan"
 msgstr "Plano de Ação"
 
@@ -410,9 +400,8 @@ msgstr "Comentários"
 #. Default: ${responsible} is responsible for this task.
 #: src/euphorie/client/report.py:815
 #: src/euphorie/client/templates/report_actionplan.pt:131
-#, fuzzy
 msgid "report_measure_responsible"
-msgstr "Risco"
+msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
@@ -431,16 +420,14 @@ msgstr "${responsible} é responsável por esta tarefa que termina a ${end}."
 #. ${start} and ends on ${end}.
 #: src/euphorie/client/report.py:842
 #: src/euphorie/client/templates/report_actionplan.pt:149
-#, fuzzy
 msgid "report_measure_full"
-msgstr "Calendário"
+msgstr ""
 
 #. Default: This task starts on ${start}.
 #: src/euphorie/client/report.py:854
 #: src/euphorie/client/templates/report_actionplan.pt:139
-#, fuzzy
 msgid "report_measure_start_only"
-msgstr "Calendário"
+msgstr ""
 
 #. Default: This task ends on ${end}.
 #: src/euphorie/client/report.py:863
@@ -691,7 +678,6 @@ msgstr "O endereço de e-mail foi atualizado."
 #: src/euphorie/client/templates/updated.pt:12
 #: src/euphorie/client/templates/webhelpers.pt:35
 #: src/euphorie/content/sector.py:278
-#, fuzzy
 msgid "title_tool"
 msgstr "OiRA"
 
@@ -956,7 +942,6 @@ msgstr ""
 #: src/euphorie/client/templates/reminder.pt:41
 #: src/euphorie/client/templates/webhelpers.pt:24
 #: src/euphorie/content/templates/colour-preview.pt:55
-#, fuzzy
 msgid "navigation_help"
 msgstr "Ajuda"
 
@@ -1804,15 +1789,13 @@ msgstr "Não tem uma conta? Então ${register_link}, em primeiro lugar."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
-#, fuzzy
 msgid "label_guest_tryout"
-msgstr "Nome"
+msgstr "experimente sem se registar"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
-#, fuzzy
 msgid "guest_register_teaser"
-msgstr "Não tem uma conta? Então ${register_link}, em primeiro lugar."
+msgstr "Não possui uma conta? Queira ${register_link} ou ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -2041,9 +2024,8 @@ msgstr ""
 #: src/euphorie/client/templates/sessions.pt:66
 #: src/euphorie/client/templates/start.pt:32
 #: src/euphorie/client/templates/survey_sessions.pt:55
-#, fuzzy
 msgid "label_previous"
-msgstr "Pré-visualização"
+msgstr ""
 
 #. Default: Next
 #: src/euphorie/client/templates/module_actionplan.pt:43
@@ -2059,9 +2041,8 @@ msgstr "Pré-visualização"
 #: src/euphorie/client/templates/risk_identification.pt:31
 #: src/euphorie/client/templates/sessions.pt:67
 #: src/euphorie/client/templates/survey_sessions.pt:56
-#, fuzzy
 msgid "label_next"
-msgstr "País"
+msgstr ""
 
 #. Default: Select the priority of this risk
 #: src/euphorie/client/templates/module_customization.pt:27
@@ -2138,7 +2119,7 @@ msgstr "Verifique se o perfil está atualizado."
 #: src/euphorie/client/templates/updated.pt:48
 #, fuzzy
 msgid "label_add_profile_module"
-msgstr "Tipo"
+msgstr "Acrescentar"
 
 #. Default: Continue
 #: src/euphorie/client/templates/profile.pt:51
@@ -2442,9 +2423,8 @@ msgstr ""
 
 #. Default: Please enter the budget in whole Euros.
 #: src/euphorie/client/templates/risk_actionplan.pt:86
-#, fuzzy
 msgid "error_invalid_budget"
-msgstr "Introduza um endereço de e-mail válido"
+msgstr ""
 
 #. Default: Start date is not before end date
 #: src/euphorie/client/templates/risk_actionplan.pt:95
@@ -2454,46 +2434,43 @@ msgstr "A data inicial não é anterior à data final"
 #. Default: Day
 #: src/euphorie/client/templates/risk_actionplan.pt:98
 #: src/euphorie/client/templates/risk_actionplan.pt:124
-#, fuzzy
 msgid "label_day"
-msgstr "Conteúdo da página"
+msgstr "Dia"
 
 #. Default: Invalid day
 #: src/euphorie/client/templates/risk_actionplan.pt:101
 #: src/euphorie/client/templates/risk_actionplan.pt:127
 #, fuzzy
 msgid "error_invalid_day"
-msgstr "Introduza um endereço de e-mail válido"
+msgstr "Dia inválido"
 
 #. Default: Month
 #: src/euphorie/client/templates/risk_actionplan.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:129
 #, fuzzy
 msgid "label_month"
-msgstr "País"
+msgstr "Mês"
 
 #. Default: Year
 #: src/euphorie/client/templates/risk_actionplan.pt:110
 #: src/euphorie/client/templates/risk_actionplan.pt:136
-#, fuzzy
 msgid "label_year"
-msgstr "Conteúdo da página"
+msgstr ""
 
 #. Default: Please enter a year between 2000 and 2100.
 #: src/euphorie/client/templates/risk_actionplan.pt:113
 #: src/euphorie/client/templates/risk_actionplan.pt:139
 #, fuzzy
 msgid "error_invalid_year"
-msgstr "Introduza um endereço de e-mail válido"
+msgstr "Insira um ano entre 2000 e 2100."
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
 #: src/euphorie/client/templates/risk_actionplan.pt:153
 #: src/euphorie/client/templates/risk_evaluation.pt:124
 #: src/euphorie/client/templates/risk_identification.pt:39
-#, fuzzy
 msgid "label_comment"
-msgstr "País"
+msgstr ""
 
 #: src/euphorie/client/templates/risk_actionplan.pt:199
 msgid ""
@@ -2698,14 +2675,14 @@ msgstr "Desconhecido atualmente"
 #: src/euphorie/client/templates/survey_sessions.pt:18
 #, fuzzy
 msgid "header_session"
-msgstr "Definições"
+msgstr "Sessão"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
 #: src/euphorie/client/templates/survey_sessions.pt:21
 #, fuzzy
 msgid "header_select_session"
-msgstr "Setores"
+msgstr "Selecione uma sessão anterior para completar ou rever"
 
 #. Default: saved on ${date}
 #: src/euphorie/client/templates/sessions.pt:31
@@ -2730,9 +2707,8 @@ msgstr "Atualizar"
 #. Default: or…
 #: src/euphorie/client/templates/sessions.pt:47
 #: src/euphorie/client/templates/survey_sessions.pt:43
-#, fuzzy
 msgid "header_or"
-msgstr "Setores"
+msgstr "ou..."
 
 #. Default: Start a new session choosing one of the following sectoral tools
 #: src/euphorie/client/templates/sessions.pt:53
@@ -2744,7 +2720,7 @@ msgstr "Inicar uma nova sessão para este inquérito."
 #: src/euphorie/client/templates/sessions.pt:56
 #, fuzzy
 msgid "label_obsolete_survey_group"
-msgstr "Obsolete surveys"
+msgstr "Pesquisas obsoletas"
 
 #. Default: Enter a title for your Risk Assessment
 #: src/euphorie/client/templates/sessions.pt:61
@@ -2797,9 +2773,8 @@ msgstr ""
 
 #. Default: The assessment is not complicated.
 #: src/euphorie/client/templates/start.pt:23
-#, fuzzy
 msgid "header_not_complicated"
-msgstr "Imagem principal"
+msgstr ""
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
 #. RA is important. So important that the government has made it compulsory for
@@ -2810,9 +2785,8 @@ msgstr ""
 
 #. Default: Start
 #: src/euphorie/client/templates/start.pt:33
-#, fuzzy
 msgid "label_start_survey"
-msgstr "Selecionar uma revisão base"
+msgstr ""
 
 #. Default: Status
 #: src/euphorie/client/templates/status.pt:17
@@ -2912,7 +2886,6 @@ msgstr "Sobre"
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:148
-#, fuzzy
 msgid "header_legal_references"
 msgstr "Referências legais e políticas"
 
@@ -3444,16 +3417,14 @@ msgstr "Não existem setores para este país."
 #. Default: Describe the action that can be taken to remove this risk. This
 #. information will be copied to the measure.
 #: src/euphorie/content/solution.py:32
-#, fuzzy
 msgid "help_measure_action_plan"
-msgstr "Plano de Ação"
+msgstr ""
 
 #. Default: Describe what can be done to prevent this risk from (re)occuring.
 #. This information will be copied to the measure.
 #: src/euphorie/content/solution.py:42
-#, fuzzy
 msgid "help_measure_prevention_plan"
-msgstr "Plano de Ação"
+msgstr ""
 
 #. Default: Describe the standard requirements for the action plan and
 #. prevention plan. This information will be copied to the measure.
@@ -3476,9 +3447,8 @@ msgstr "Nome da versão"
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
 #: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
-#, fuzzy
 msgid "help_survey_title"
-msgstr "Nome da versão"
+msgstr ""
 
 #. Default: Introduction text
 #: src/euphorie/content/survey.py:64
@@ -3509,19 +3479,14 @@ msgstr "A avaliação pode ser ignorada"
 #. Default: Language
 #: src/euphorie/content/survey.py:85
 #: src/euphorie/content/templates/survey_view.pt:24
-#, fuzzy
 msgid "label_language"
-msgstr "Ficheiro de imagem"
+msgstr ""
 
 #. Default: Classification code
 #: src/euphorie/content/survey.py:91
 #: src/euphorie/content/templates/survey_view.pt:21
-#, fuzzy
 msgid "label_classification_code"
 msgstr ""
-"Um código identifica este setor. Os códigos de classificação são definidos "
-"por organismos nacionais de normalização e têm por base a revisão 2 da norma "
-"NACE."
 
 #. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
@@ -3717,9 +3682,8 @@ msgstr "A conta \"${title}\" foi bloqueada."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "A conta \"${title}\" foi bloqueada."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -3744,7 +3708,7 @@ msgstr "República da Sérvia"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "A.R.J. Macedónia"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -4039,9 +4003,8 @@ msgstr "Avaliação"
 
 #. Default: Solution ${number}
 #: src/euphorie/content/templates/risk_view.pt:79
-#, fuzzy
 msgid "risk_solution_header"
-msgstr "Conservação e processamento de informação"
+msgstr ""
 
 #. Default: Surveys
 #: src/euphorie/content/templates/sector_view.pt:14
@@ -4154,7 +4117,7 @@ msgstr "Qual é o logótipo que pretende mostrar no canto superior esquerdo?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Logótipo oficial da OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
@@ -4234,12 +4197,12 @@ msgstr "A avaliação pode ser ignorada"
 #: src/euphorie/content/templates/survey_view.pt:19
 #, fuzzy
 msgid "optional"
-msgstr "Opcional"
+msgstr "Opcionais"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "Obrigatório"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23
@@ -4289,22 +4252,19 @@ msgstr "Também pode ${add_link}."
 #. Default: Choose a survey
 #: src/euphorie/content/templates/surveygroup_add.pt:28
 #: src/euphorie/content/templates/surveygroup_add.pt:54
-#, fuzzy
 msgid "label_choose_surveygroup"
-msgstr "Se não especificar um título, o mesmo será retirado da entrada."
+msgstr ""
 
 #. Default: Choose a revision of the selected survey
 #: src/euphorie/content/templates/surveygroup_add.pt:37
 #: src/euphorie/content/templates/surveygroup_add.pt:73
-#, fuzzy
 msgid "label_choose_survey"
-msgstr "País"
+msgstr ""
 
 #. Default: Choose a country
 #: src/euphorie/content/templates/surveygroup_add.pt:47
-#, fuzzy
 msgid "label_choose_country"
-msgstr "Alterar país/idioma"
+msgstr ""
 
 #: src/euphorie/content/templates/surveygroup_add.pt:85
 msgid ""
@@ -4445,15 +4405,13 @@ msgid "search_result_relevance"
 msgstr "Relevância: ${percentage}"
 
 #: src/euphorie/deployment/tiles/addbar.py:18
-#, fuzzy
 msgid "Submodule"
-msgstr "Editar Submódulo"
+msgstr ""
 
 #. Default: Surveys
 #: src/euphorie/deployment/tiles/tabs.py:43
-#, fuzzy
 msgid "nav_surveys"
-msgstr "Selecionar uma revisão base"
+msgstr ""
 
 #. Default: User management
 #: src/euphorie/deployment/tiles/tabs.py:57
@@ -4546,9 +4504,8 @@ msgstr "Publicado"
 
 #. Default: Remove this survey from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
-msgstr "Não publicar \"${title}"
+msgstr ""
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
