@@ -69,7 +69,7 @@ pot: bin/pybabel
 	$(MAKE) $(MFLAGS) $(EUPHORIE_PO_FILES)
 
 $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
-	msgmerge --update $@ $<
+	msgmerge --update -N $@ $<
 
 $(PLONE_PO_FILES): src/euphorie/deployment/locales/plone.pot
 	msgmerge --update $@ $<
