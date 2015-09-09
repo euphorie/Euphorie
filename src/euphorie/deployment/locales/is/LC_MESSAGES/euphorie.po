@@ -1828,8 +1828,8 @@ msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og til að uppfylla "
-"lagaskyldur sínar."
+"Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og fylgja lögum og ""
+"reglum."
 
 #: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/login.pt:82
@@ -1843,7 +1843,7 @@ msgstr "Sýndu mér meira…"
 #: src/euphorie/client/templates/login.pt:96
 #: src/euphorie/client/templates/login.pt:105
 msgid "Show less…"
-msgstr "Sýndu mér minna…"
+msgstr "Sýna minna…"
 
 #: src/euphorie/client/templates/login.pt:74
 msgid "However, OiRA is designed to be of most value to smaller businesses."
@@ -1856,7 +1856,7 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
-"OiRA verkfærið hjálpar fyrirtækjum að finna og meta áhættur í "
+"OiRA verkfærið hjálpar fyrirtækjum að finna hættur og meta áhættu í "
 "starfsumhverfinu. Verkfærið býr til aðgerðaráætlun um úrbætur sem fyrirtækið "
 "þarf að framkvæma."
 
@@ -1866,7 +1866,7 @@ msgstr "Hvað þarf ég að gera?"
 
 #: src/euphorie/client/templates/login.pt:79
 msgid "There are four main stages to complete in the assessment process:"
-msgstr "Það þarf að fara í gegnum fjögur þrep í verkfærinu:"
+msgstr "Það þarf að fara í gegnum fjögur þrep:"
 
 #: src/euphorie/client/templates/login.pt:85
 msgid ""
@@ -1906,10 +1906,9 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} Í aðgerðaáætluninni er valið til hvaða úrbóta skuli gripið "
-"til að takast á við þá  áhættuþætti sem hafa verið greindir. Verkfærið býður "
-"upp á lausnir sem hægt er að velja. Einnig er hægt að setja fram eigin "
-"lausnir. Verkfærið býr að lokum til skýrslu með þeim lausnum sem valdar voru."
+"${action-plan} Verkfærið býður upp á lausnir sem hægt er að velja úr. Einnig "
+"er hægt að setja fram eigin lausnir. Verkfærið býr að lokum til skýrslu með "
+"þeim lausnum sem valdar voru."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid "How long will it take?"
@@ -1929,9 +1928,8 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
-"Þó getur þú notað þann tíma sem þú hefur tiltækan við að framkvæma mat og "
-"síðan snúa aftur til þess þegar þér hentar og halda áfram frá þeim stað sem "
-"þú hættir."
+"Þú getur byrjað og hætt hvenær sem er. Hægt að halda áfram með fyrra mat og "
+"breyta að vild."
 
 #: src/euphorie/client/templates/login.pt:101
 msgid "Why do I have to register?"
@@ -1943,7 +1941,7 @@ msgid ""
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 "Það fyrsta sem þú ert beðinn um að gera þegar þú byrjar á OiRA áhættumati er "
-"að stofna aðgang. - það er einfalt og fljótlegt."
+"að stofna aðgang. Það er einfalt og fljótlegt."
 
 #: src/euphorie/client/templates/login.pt:107
 msgid ""
@@ -1958,8 +1956,7 @@ msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
-"Þú þarft að ganga úr skugga um að þú hafir undir höndum útprentað, nákvæmt "
-"og uppfært áhættumat (hvenær sem er)."
+"&nbsp;"
 
 #: src/euphorie/client/templates/login.pt:111
 msgid "Do I need to prepare?"
