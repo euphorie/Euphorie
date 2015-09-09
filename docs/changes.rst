@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Translation updates for IS
 
 
 7.0.4 - April 1, 2015
