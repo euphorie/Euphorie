@@ -1860,7 +1860,7 @@ msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og fylgja lögum og ""
+"Alla vinnustaði sem vilja bæta hjá sér starfsumhverfið og fylgja lögum og "
 "reglum."
 
 #: src/euphorie/client/templates/login.pt:57
