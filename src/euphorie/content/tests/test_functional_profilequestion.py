@@ -46,6 +46,7 @@ class ProfileQuestionTests(EuphorieTestCase):
         target = self.createProfileQuestion()
         survey = aq_parent(target)
         source = self._create(survey, 'euphorie.module', 'other')
-        self._create(source, 'euphorie.module', 'other')
+        other = self._create(source, 'euphorie.module', 'other')
+        self._create(other, 'euphorie.module', 'other')
         self.assertRaises(ValueError,
-                target._verifyObjectPaste(source))
+                target._verifyObjectPaste, source)
