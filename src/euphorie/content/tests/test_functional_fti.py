@@ -79,7 +79,8 @@ class check_fti_paste_allowed_tests(unittest.TestCase):
 
     def test_refuse_non_portal_content(self):
         import mock
-        self.assertRaises(self.check_fti_paste_allowed, None, mock.Mock())
+        self.assertRaises(ValueError,
+                self.check_fti_paste_allowed, None, mock.Mock())
 
     def test_do_not_use_acquisition_to_get_portal_type(self):
         from ...ghost import PathGhost
