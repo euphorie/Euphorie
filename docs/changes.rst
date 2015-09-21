@@ -1,7 +1,7 @@
 Changelog
 =========
 
-7.0.4 (unreleased)
+7.0.6 - unreleased
 ------------------
 
 Feature changes
@@ -14,14 +14,36 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
+- ...
+
+7.0.5 - September 15, 2015
+--------------------------
+
+Bugfixes
+~~~~~~~~
+
+- Translation updates for IS
+
+
+7.0.4 - April 1, 2015
+---------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- More IS translation changes #11552
+
+Bugfixes
+~~~~~~~~
+
 - When a survey gets imported from XML, make sure that the 'introduction' text
   gets imported too. Fixes #105
 - XML export: the node for classification_code of a Survey had a typo that
   prevented correct import of that value
 
 
-7.0.3 (2015-03-19)
-------------------
+7.0.3 - March 19, 2015
+----------------------
 
 Bugfixes
 ~~~~~~~~
