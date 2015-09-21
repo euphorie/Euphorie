@@ -104,7 +104,7 @@ def treeChanges(session, survey):
             results.add((entry["zodb_path"], entry["type"], "add"))
 
     for node in sestree:
-        if node.zodb_path.find('custom-risks'):
+        if node.zodb_path.find('custom-risks') != -1:
             continue
         results.add((node.zodb_path, node.type, "remove"))
 
