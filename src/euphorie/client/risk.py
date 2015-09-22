@@ -18,7 +18,6 @@ from euphorie.client.navigation import getTreeData
 from euphorie.client.utils import HasText
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.session import SessionManager
-from sqlalchemy import sql
 from repoze import formapi
 
 grok.templatedir("templates")
