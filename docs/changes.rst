@@ -12,7 +12,8 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Fix a Dutch language error.
+
 
 7.0.5 - September 15, 2015
 --------------------------
