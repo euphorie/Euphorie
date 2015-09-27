@@ -1,7 +1,7 @@
 Changelog
 =========
 
-7.0.6 - unreleased
+7.0.7 (unreleased)
 ------------------
 
 Feature changes
@@ -15,6 +15,17 @@ Bugfixes
 ~~~~~~~~
 
 - ...
+
+
+7.0.6 - September 25, 2015
+--------------------------
+
+Bugfixes
+~~~~~~~~
+
+- Fix a Dutch language error.
+- Fix an error in SQL migration utility logic.
+
 
 7.0.5 - September 15, 2015
 --------------------------

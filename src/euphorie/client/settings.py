@@ -55,7 +55,7 @@ class AccountDeleteSchema(form.Schema):
 
 class EmailChangeSchema(form.Schema):
     loginname = RFC822MailAddress(
-            title=(u"Email address/account name"),
+            title=_(u"Email address/account name"),
             required=True)
 
     password = schema.Password(
