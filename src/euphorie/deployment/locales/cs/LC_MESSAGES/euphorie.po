@@ -2379,7 +2379,7 @@ msgstr "Obsah stránky"
 #: src/euphorie/client/templates/risk_actionplan.pt:113
 #: src/euphorie/client/templates/risk_actionplan.pt:139
 msgid "error_invalid_year"
-msgstr "Zadejte rok od 2000 do 2100."
+msgstr "Zadejte rok počìnaje 2000 do 2100."
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
@@ -2581,7 +2581,7 @@ msgstr "Přihlašovací jméno"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr "Relace"
+msgstr "Modul"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
