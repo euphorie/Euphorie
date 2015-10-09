@@ -1,4 +1,4 @@
-# Swedish translations for Euphorie.
+# Spanish translations for Euphorie.
 # Copyright (C) 2011 EU-OSHA, Syslab.com
 # This file is distributed under the same license as the Euphorie project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.

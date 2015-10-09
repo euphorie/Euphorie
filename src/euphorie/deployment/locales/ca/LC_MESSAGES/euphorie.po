@@ -1751,7 +1751,7 @@ msgstr "Inici de sessió"
 #: src/euphorie/client/templates/login.pt:37
 #: src/euphorie/client/templates/login.pt:42
 msgid "label_register"
-msgstr "es registri"
+msgstr "registrar-se"
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: src/euphorie/client/templates/login.pt:33
@@ -1953,7 +1953,7 @@ msgid ""
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
 "El primer que haureu de fer per poder accedir a l’eina i realitzar la "
-"primera avaluació de riscos és crear un compte OiRA: un pas senzill i ràpid"
+"primera avaluació de riscos és crear un compte OiRA: un pas senzill i ràpid."
 
 #: src/euphorie/client/templates/login.pt:107
 msgid ""
