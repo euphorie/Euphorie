@@ -2038,8 +2038,7 @@ msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"La première chose qui vous sera demandée lorsque vous commencerez votre "
-"première évaluation des risques sera de créer un compte OiRA. "
+"Lorsque vous commencerez votre première évaluation des risques, il vous sera demandé de créer un compte OiRA."
 
 #: src/euphorie/client/templates/login.pt:107
 msgid ""
@@ -2052,8 +2051,7 @@ msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr ""
-"L’enregistrement vous permettra de vous connecter à tout moment pour "
-"continuer une évaluation en cours ou en débuter une nouvelle. "
+"<p>L’enregistrement vous permettra de vous connecter à tout moment pour continuer une évaluation en cours ou en débuter une nouvelle.</p><p>Vous pouvez passer cette étape, commencer votre évaluation par une session de test et vous enregistrer plus tard.</p><p>Attention ! Si vous quittez votre session de test sans vous enregistrer, votre travail sera perdu.</p>"
 
 #: src/euphorie/client/templates/login.pt:111
 msgid "Do I need to prepare?"
@@ -4224,7 +4222,7 @@ msgstr "Quel logo souhaitez-vous afficher en haut à gauche ? "
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:68
 msgid "Official OiRA Logo"
-msgstr "Logo officiel de l'OiRA"
+msgstr "Logo officiel d'OiRA"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:72
