@@ -2745,7 +2745,7 @@ msgstr "Staða"
 #. Default: Questions answered per module
 #: src/euphorie/client/templates/status.pt:18
 msgid "header_questions_answered"
-msgstr "Hve mörgum spurningum var svarað í hverri einingu"
+msgstr "Hve mörgum spurningum var svarað í hverjum flokki"
 
 #. Default: ${count} questions were answersed
 #: src/euphorie/client/templates/status.pt:23
@@ -2807,11 +2807,11 @@ msgstr "Áhættumat"
 
 #: src/euphorie/client/templates/webhelpers.pt:94
 msgid "Unvisited"
-msgstr "Ekki heimsótt"
+msgstr "Ekki opnað"
 
 #: src/euphorie/client/templates/webhelpers.pt:95
 msgid "Postponed"
-msgstr "Frestað"
+msgstr "Skoðað en ekki svarað"
 
 #: src/euphorie/client/templates/webhelpers.pt:96
 msgid "Risk not present"
