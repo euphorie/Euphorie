@@ -1828,8 +1828,7 @@ msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
 msgstr ""
-"OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied "
-"van gezondheid en veiligheid op de werkplek wil beoordelen."
+"OiRA kan gebruikt worden door iedereen die potentiële risico’s op het gebied van gezondheid en veiligheid op de werkplek wil analyseren."
 
 #: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/login.pt:82
@@ -1848,10 +1847,7 @@ msgstr "Toon minder"
 #: src/euphorie/client/templates/login.pt:74
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om "
-"deze te ondersteunen bij het beoordelen van risico’s op de werkplek en te "
-"helpen om risicoanalyse te documenteren en een op de vereisten van de "
-"ondernemingen toegesneden actieplan op te stellen."
+"De tool is echter in eerste instantie opgezet voor kleinere ondernemingen om deze te ondersteunen bij het analyseren van risico’s op de werkplek en te helpen om de risicoanalyse te documenteren en een op de vereisten van de ondernemingen toegesneden actieplan op te stellen."
 
 #: src/euphorie/client/templates/login.pt:75
 msgid ""
@@ -1874,9 +1870,7 @@ msgid ""
 "are about to begin and can allow you to further customise the assessment to "
 "the specific nature of your business."
 msgstr ""
-"${preparation} De voorbereiding geeft u een overzicht van de beoordeling die "
-"u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw "
-"onderneming aan te passen. "
+"${preparation} De voorbereiding geeft u een overzicht van de analyse die u gaat uitvoeren, en maakt het mogelijk deze aan de specifieke aard van uw onderneming aan te passen."
 
 #: src/euphorie/client/templates/login.pt:86
 msgid ""
@@ -1908,10 +1902,7 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} In de vierde fase van de beoordeling kunt u besluiten welke "
-"maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en "
-"welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens "
-"automatisch een verslag opgesteld. "
+"${action-plan} In de vierde fase van de analyse kunt u besluiten welke maatregelen u wilt nemen om de eerder vastgestelde risico's aan te pakken en welke middelen daarvoor nodig zijn. Op basis hiervan wordt vervolgens automatisch een verslag opgesteld."
 
 #: src/euphorie/client/templates/login.pt:92
 msgid "How long will it take?"
@@ -1931,9 +1922,7 @@ msgid ""
 "then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
-"Het is echter mogelijk om een risicobeoordeling aan te vangen en op een "
-"later tijdstip, wanneer het beter uitkomt, vanaf dat punt weer verder te "
-"gaan."
+"Het is echter mogelijk om een risicoanalyse aan te vangen en op een later tijdstip, wanneer het beter uitkomt, vanaf dat punt weer verder te gaan."
 
 #: src/euphorie/client/templates/login.pt:101
 msgid "Why do I have to register?"
@@ -1952,8 +1941,7 @@ msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Na deze eerste aanmelding kunt u zich op elk moment opnieuw aanmelden om "
-"verder te gaan met eerdere beoordelingen of een nieuwe aan te vangen."
+"Na deze eerste aanmelding kunt u zich op elk moment opnieuw aanmelden om verder te gaan met eerdere analyses of een nieuwe aan te vangen."
 
 #: src/euphorie/client/templates/login.pt:108
 msgid ""
@@ -3584,7 +3572,7 @@ msgstr "Republiek Servië"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr "voormalige Joegoslavische Republiek Macedonië"
+msgstr "Voormalige Joegoslavische Republiek Macedonië"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
