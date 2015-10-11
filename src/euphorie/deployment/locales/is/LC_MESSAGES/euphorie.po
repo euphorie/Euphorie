@@ -709,7 +709,7 @@ msgstr ""
 #. Default: proper risk assessment is the key to healthy workplaces
 #: src/euphorie/client/templates/about.pt:25
 msgid "about_paragraph_1_key"
-msgstr "Viðeigandi áhættumat er lykillinn að heilbrigðum vinnustöðum"
+msgstr "Áhættumat er grundvöllur að góðu vinnuverndarstarfi"
 
 #. Default: easy-to-use and cost-free web application
 #: src/euphorie/client/templates/about.pt:28
