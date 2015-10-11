@@ -368,9 +368,6 @@ def setLanguage(request, context, lang=None):
     # In addition to setting the cookie also update the PTS language.
     # This effectively switches Plone over to the new language without
     # requiring a new HTTP request.
-    if "-" in lang:
-        elems = lang.split("-")
-        lang = "{0}_{1}".format(elems[0], elems[1].upper())
     request['LANGUAGE'] = lang
     binding = request.get('LANGUAGE_TOOL', None)
     if binding is not None:
