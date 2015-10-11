@@ -2568,7 +2568,7 @@ msgstr "Tällä hetkellä tuntematon"
 #: src/euphorie/client/templates/sessions.pt:18
 #: src/euphorie/client/templates/survey_sessions.pt:18
 msgid "header_session"
-msgstr "Istunto"
+msgstr "Riskinarviointi"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/sessions.pt:23
