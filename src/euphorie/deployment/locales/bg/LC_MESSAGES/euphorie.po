@@ -280,7 +280,7 @@ msgstr ""
 
 #: src/euphorie/client/report.py:202
 msgid "Page ${number} of ${total}"
-msgstr "Страница ${number} от ${total}"
+msgstr "Номер на страница ${number} от общо ${total}"
 
 #. Default: Risks marked with [*] are present.
 #: src/euphorie/client/report.py:222
