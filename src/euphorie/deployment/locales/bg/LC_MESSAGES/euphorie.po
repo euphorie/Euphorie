@@ -148,7 +148,7 @@ msgstr "Не"
 #: src/euphorie/client/company.py:90
 #: src/euphorie/client/templates/report_actionplan.pt:66
 msgid "label_needs_met"
-msgstr "Този ОйРА инструмент отговори ли на нуждите ви?"
+msgstr "Този OiRA инструмент отговори ли на нуждите ви?"
 
 #. Default: Would you recommend this OiRA tool to an enterprise similar to
 #. yours?
@@ -156,7 +156,7 @@ msgstr "Този ОйРА инструмент отговори ли на нуж
 #: src/euphorie/client/templates/report_actionplan.pt:70
 msgid "label_recommend_tool"
 msgstr ""
-"Бихте ли препоръчали този ОйРА инструмент на предприятие подобно на вашето?"
+"Бихте ли препоръчали този OiRA инструмент на предприятие подобно на вашето?"
 
 #: src/euphorie/client/login.py:167
 msgid "Please enter your email address"
@@ -1752,13 +1752,13 @@ msgstr "Вход"
 #: src/euphorie/client/templates/login.pt:37
 #: src/euphorie/client/templates/login.pt:42
 msgid "label_register"
-msgstr "регистрация"
+msgstr "регистрирайте се"
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: src/euphorie/client/templates/login.pt:33
 #: src/euphorie/client/templates/login.pt:37
 msgid "register_teaser"
-msgstr "Нямате акаунт? Тогава, моля, първо направете ${register_link}."
+msgstr "Нямате регистрация? Тогава, моля, ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
@@ -1935,9 +1935,7 @@ msgid ""
 msgstr ""
 "Не е възможно като цяло да се определи времето за изготвяне на оценка, тъй "
 "като инструментите се различават при отделните икономически дейности и "
-"държави.От друга страна, можете да отделите на оценката толкова време, с "
-"колкото разполагате, а по-късно, при възможност,  да продължите от мястото, "
-"където сте прекъснали."
+"държави."
 
 #: src/euphorie/client/templates/login.pt:98
 msgid ""
@@ -1958,15 +1956,14 @@ msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"При започване на първата си оценка за риска ще бъдете помолени да си "
-"създадете OiRA акаунт – лесно и бързо действие."
+"При започване на първата си оценка за риска ще бъдете помолени да се регистрирате като потребител на OiRA – лесно и бързо действие."
 
 #: src/euphorie/client/templates/login.pt:107
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Регистрацията Ви предоставя достъп до собствения Ви акаунт по всяко време, "
+"Регистрацията Ви предоставя достъп до Вашия профил по всяко време, "
 "за да можете да продължите предишни оценки или да започнете нови."
 
 #: src/euphorie/client/templates/login.pt:108
