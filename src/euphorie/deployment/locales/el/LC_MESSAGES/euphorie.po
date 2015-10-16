@@ -528,7 +528,7 @@ msgstr "Προϋπολογισμός (σε Ευρώ)"
 #. Default: Section
 #: src/euphorie/client/report.py:974
 msgid "label_section"
-msgstr "Τμήμα"
+msgstr "Ενότητα Κινδύνων"
 
 #. Default: Risk number
 #: src/euphorie/client/report.py:976
@@ -544,7 +544,7 @@ msgstr "Κίνδυνος"
 #. Default: priority
 #: src/euphorie/client/report.py:980 src/euphorie/content/risk.py:134
 msgid "report_timeline_priority"
-msgstr "Προτεραιότητα"
+msgstr "Εκτίμηση Επικινδυνότητας"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:982
