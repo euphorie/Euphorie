@@ -1,20 +1,40 @@
 Changelog
 =========
 
-7.0.7 (unreleased)
-------------------
+8.0.0rc1 (unreleased)
+---------------------
+
+**This is a release candidate with incomplete translations**
 
 Feature changes
 ~~~~~~~~~~~~~~~
 
 - Allow anonymous accounts for visitors who want to try out surveys without
-  logging in. The feature needs to be enabled with the "allow_guest_accounts" option
-  under the [Euphorie] section in the euphorie.ini file (OSHA #10972)
+  logging in. The feature needs to be enabled with the "allow_guest_accounts=True"
+  option under the [Euphorie] section in the euphorie.ini file (OSHA #10972)
+  Necessary upgrade step (16->17):
+
+  * Indicate whether an account is a guest account, converted from one, or neither.
+
+- Allow the users of the client to add their own risks to a survey session. This
+  feature needs to be enabled with the "allow_user_defined_risks=True" option
+  under the [Euphorie] section in the euphorie.ini file (OSHA #10971)
+  Necessary upgrade steps (16-17):
+
+  * Allow custom risks
+  * Add new column to identify custom risks
+
+- Use of new Patternslib version, e.g. to enable pat-clone
+
 
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Don't choke in case of very long paths, resulting from very long survey- or
+  module titles.
+  Necessary upgrade step (16->17):
+
+  * Allow longer tree item paths
 
 
 7.0.6 - September 25, 2015
