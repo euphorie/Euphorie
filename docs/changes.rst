@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.0rc1 (unreleased)
+8.0.0rc1 (2015-10-16)
 ---------------------
 
 **This is a release candidate with incomplete translations**
