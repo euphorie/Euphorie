@@ -211,7 +211,7 @@ msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύ
 #: src/euphorie/client/navigation.py:102 src/euphorie/client/publish.py:146
 #: src/euphorie/client/templates/module_customization.pt:17
 msgid "title_other_risks"
-msgstr ""
+msgstr "Πρόσθετοι κίνδυνοι (από το χρήστη)"
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -312,7 +312,7 @@ msgstr "Πρέπει να γίνει απογραφή αυτού του κινδ
 #. Default: Identification report ${title}
 #: src/euphorie/client/report.py:444
 msgid "filename_report_identification"
-msgstr "Έκθεση ταυτοποίησης ${title} "
+msgstr "Έκθεση της Εκτίμησης Κινδύνου ${title} "
 
 #. Default: Not provided
 #: src/euphorie/client/report.py:500 src/euphorie/client/report.py:510
@@ -965,8 +965,8 @@ msgstr "Βοήθεια"
 #: src/euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_irreversible"
 msgstr ""
-"Κάνοντας κλικ στην επιλογή 'Διαγραφή λογαριασμού', ο λογαριασμός σας θα "
-"διαγραφεί μόνιμα. Αυτή η ενέργεια είναι μη αναστρέψιμη."
+"Κάνοντας κλικ στην επιλογή 'Διαγραφή λογαριασμού', ο λογαριασμός πρόσβασής "
+"σας θα διαγραφεί μόνιμα. Αυτή η ενέργεια είναι μη αναστρέψιμη."
 
 #. Default: Please note that by deleting your account, also all your filled out
 #. surveys will be deleted. Please make sure to download your surveys from the
@@ -1809,7 +1809,7 @@ msgstr "εγγραφή"
 #: src/euphorie/client/templates/login.pt:33
 #: src/euphorie/client/templates/login.pt:37
 msgid "register_teaser"
-msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείται πρώτα ${register_link}."
+msgstr "Δεν έχετε λογαριασμό πρόσβασης; Εάν όχι, απαιτείται πρώτα ${register_link}."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
@@ -1871,10 +1871,10 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"Το OiRA (Online Interactive Risk Assessment) είναι ένα διαδικτυακό, "
+"Tο OiRA (Online Interactive Risk Assessment Tool) είναι ένα διαδικτυακό, "
 "διαδραστικό εργαλείο που σας επιτρέπει να εκπονήσετε την μελέτη Εκτίμησης "
-"Κινδύνου, δηλαδή πώς να αναγνωρίζετε και να αξιολογείτε τους κινδύνους για "
-"την υγεία και την ασφάλεια στον χώρο εργασίας σας. "
+"Κινδύνου, δηλαδή πώς να αναγνωρίζετε και να αξιολογείτε τους κινδύνους "
+"για την υγεία και την ασφάλεια στον χώρο εργασίας σας."
 
 #: src/euphorie/client/templates/login.pt:68
 msgid "Who is the OiRA tool for?"
@@ -2756,7 +2756,7 @@ msgstr "ή…"
 #: src/euphorie/client/templates/sessions.pt:53
 msgid "label_select_new_session"
 msgstr ""
-"Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω κλαδικά εργαλεία"
+"Αρχίστε μια νέα μελέτη Εκτίμησης ΚΙνδύνου, επιλέγοντας ένα από τα παρακάτω κλαδικά εργαλεία"
 
 #. Default: Obsolete surveys
 #: src/euphorie/client/templates/sessions.pt:56
@@ -2767,7 +2767,7 @@ msgstr "Επιλέξτε μια έρευνα"
 #: src/euphorie/client/templates/sessions.pt:61
 #: src/euphorie/client/templates/survey_sessions.pt:50
 msgid "label_session_title"
-msgstr "Εισάγετε έναν τίτλο για την Εκτίμηση Κινδύνου σας"
+msgstr "Εισάγετε έναν τίτλο για τη μελέτη σας"
 
 #. Default: Once you have started an RA, you will be able to stop before the
 #. end. Log out: the data will be stored. If you forgot to log out and just
@@ -2876,7 +2876,8 @@ msgstr "${count} ερωτήσεις αναβλήθηκαν"
 #: src/euphorie/client/templates/survey_sessions.pt:48
 msgid "label_select_new_session_in_survey"
 msgstr ""
-"Αρχίστε μια νέα ενότητα, επιλέγοντας ένα από τα παρακάτω τομεακά εργαλεία"
+"Αρχίστε μια νέα μελέτη Εκτίμησης Κινδύνου, επιλέγοντας ένα από τα παρακάτω "
+"κλαδικά εργαλεία"
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
@@ -3391,7 +3392,8 @@ msgstr "Προεπιλεγμένη σφοδρότητα"
 #. Default: Indicate the severity if this risk occurs.
 #: src/euphorie/content/risk.py:224 src/euphorie/content/risk.py:313
 msgid "help_default_severity"
-msgstr "Επισημάνετε τη σφοδρότητα του κινδύνου εάν ο κίνδυνος προκληθεί."
+msgstr "Δηλώστε την εκτίμησή σας για το πόσο σοβαρές μπορεί να είναι οι "
+"επιπτώσεις λόγω της εκδήλωσης αυτού του κινδύνου."
 
 #. Default: No default
 #: src/euphorie/content/risk.py:228 src/euphorie/content/risk.py:251
@@ -3411,7 +3413,8 @@ msgstr "Προεπιλεγμένη συχνότητα"
 #: src/euphorie/content/risk.py:246 src/euphorie/content/risk.py:293
 msgid "help_default_frequency"
 msgstr ""
-"Επισημάνετε πόσο συχνά ο κίνδυνος παρατηρείται σε μια φυσιολογική κατάσταση."
+"Δηλώστε την εκτίμησή σας για το  πόσο συχνά εκτίθενται οι εργαζόμενοι "
+"στον κίνδυνο αυτό σε φυσιολογικές συνθήκες."
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:271
@@ -3424,8 +3427,8 @@ msgstr "Προεπιγμένη πιθανότητα"
 #: src/euphorie/content/risk.py:273
 msgid "help_default_probability"
 msgstr ""
-"Επισημάνετε πόσο πιθανό είναι να σημειωθεί αυτός ο κίνδυνος σε μια "
-"φυσιολογική κατάσταση."
+"Δηλώστε την εκτίμησή σας για το πόσο πιθανό είναι να εκδηλωθεί ο "
+"κίνδυνος αυτός σε φυσιολογικές συνθήκες."
 
 #. Default: Almost never
 #: src/euphorie/content/risk.py:300
