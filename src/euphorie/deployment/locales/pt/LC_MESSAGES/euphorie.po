@@ -1362,8 +1362,8 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:34
 msgid "conditions_intro2"
 msgstr ""
-"Os dados pessoais são processados em conformidade com o Regulamento (EC) n.º "
-"45/2001 do Parlamento Europeu e do Conselho de 18 de Dezembro de 2000 sobre "
+"Os dados pessoais são processados em conformidade com o Regulamento (CE) n.º "
+"45/2001 do Parlamento Europeu e do Conselho de 18 de dezembro de 2000 sobre "
 "a proteção dos indivíduos no âmbito do processamento dos dados pessoais "
 "pelas instituições e organismos da Comunidade, e sobre o movimento livre de "
 "tais dados. Podem ser obtidos mais detalhes sobre a política de privacidade "
@@ -1468,7 +1468,7 @@ msgstr "Controlador de dados"
 msgid "condtions_datacontroller"
 msgstr ""
 "O controlador de dados é a Agência Europeia para Segurança e Saúde no "
-"Trabalho, Bilbao."
+"Trabalho, Bilbau."
 
 #. Default: Conservation and processing of information
 #: src/euphorie/client/templates/conditions.pt:75
@@ -1486,7 +1486,7 @@ msgstr ""
 #. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr "EU-OSHA guarda os dados nos nossos servidores em Zamudio, Espanha."
+msgstr "A EU-OSHA guarda os dados nos nossos servidores em Zamudio, Espanha."
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
@@ -1538,7 +1538,7 @@ msgstr "Informação de contato"
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
 msgstr ""
-"EU-OSHA verifica regularmente a sua conformidade com esta Politícia de "
+"A EU-OSHA verifica regularmente a sua conformidade com esta Politíca de "
 "Privacidade. Quaisquer perguntas e queixas relativas à nossa política de "
 "privacidade podem ser enviadas para o RPD de EU-OSHA por ${dpo-email} ou "
 "para a AEPD por ${edps-email}."
@@ -1756,7 +1756,7 @@ msgstr "Bem-vindo"
 #. Default: request an email reminder
 #: src/euphorie/client/templates/login.pt:22
 msgid "request_an_email_reminder"
-msgstr "pedir um lembrete de e-mail"
+msgstr "peça um lembrete de e-mail"
 
 #. Default: Your login name and/or password were entered incorrectly. Please
 #. check and try again or ${request_an_email_reminder} of your login
@@ -1779,13 +1779,13 @@ msgstr "Legenda"
 #: src/euphorie/client/templates/login.pt:37
 #: src/euphorie/client/templates/login.pt:42
 msgid "label_register"
-msgstr "Registo"
+msgstr "Registe-se"
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: src/euphorie/client/templates/login.pt:33
 #: src/euphorie/client/templates/login.pt:37
 msgid "register_teaser"
-msgstr "Não tem uma conta? Então ${register_link}, em primeiro lugar."
+msgstr "Não tem uma conta? Então ${register_link}, primeiro."
 
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
@@ -1795,7 +1795,7 @@ msgstr "experimente sem se registar"
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
 msgid "guest_register_teaser"
-msgstr "Não possui uma conta? Queira ${register_link} ou ${tryout_link}."
+msgstr "Não possui uma conta? Por favor ${register_link} ou ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
@@ -1882,8 +1882,8 @@ msgstr "Mostrar menos"
 #: src/euphorie/client/templates/login.pt:74
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"No entanto, a ferramenta foi concebida para ser principalmente utilizada por "
-"pequenas empresas: para as apoiar na avaliação de riscos nos seus locais de "
+"No entanto, a ferramenta foi concebida para ser utilizada principalmente por "
+"micro e pequenas empresas: para as apoiar na avaliação de riscos nos seus locais de "
 "trabalho e para documentar a avaliação."
 
 #: src/euphorie/client/templates/login.pt:75
@@ -4197,7 +4197,7 @@ msgstr "A avaliação pode ser ignorada"
 #: src/euphorie/content/templates/survey_view.pt:19
 #, fuzzy
 msgid "optional"
-msgstr "Opcionais"
+msgstr "Opcional"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
