@@ -1,10 +1,6 @@
 from setuptools import setup, find_packages
 
-<<<<<<< cdba90088b6f8c821bc0a9d355377c9f4f720a38
 version = '7.0.10.dev0'
-=======
-version = '8.0.0rc1'
->>>>>>> Preparing release 8.0.0rc1
 
 setup(name="Euphorie",
       version=version,

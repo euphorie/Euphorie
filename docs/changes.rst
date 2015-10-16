@@ -1,12 +1,14 @@
 Changelog
 =========
 
-<<<<<<< cdba90088b6f8c821bc0a9d355377c9f4f720a38
 
-8.0.0rc1 (unreleased)
-=======
+8.0.0rc2 (unreleased)
+---------------------
+
+- Nothing changed yet.
+
+
 8.0.0rc1 (2015-10-16)
->>>>>>> Preparing release 8.0.0rc1
 ---------------------
 
 **This is a release candidate with incomplete translations**
