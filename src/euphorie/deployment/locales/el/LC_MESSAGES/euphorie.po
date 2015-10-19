@@ -1814,12 +1814,12 @@ msgstr "Δεν έχετε λογαριασμό πρόσβασης; Εάν όχι
 #. Default: try it out without registering
 #: src/euphorie/client/templates/login.pt:43
 msgid "label_guest_tryout"
-msgstr "εκτελέστε τη δοκιμαστική έκδοση χωρίς εγγραφή"
+msgstr "εκτελέστε τη δοκιμαστική έκδοση του εργαλείου χωρίς εγγραφή"
 
 #. Default: Don't have an account? Please ${register_link} or ${tryout_link}.
 #: src/euphorie/client/templates/login.pt:41
 msgid "guest_register_teaser"
-msgstr "Δεν έχετε λογαριασμό; Παρακαλούμε ${register_link} ή ${tryout_link}."
+msgstr "Δεν έχετε λογαριασμό πρόσβασης; Παρακαλούμε ${register_link} ή ${tryout_link}."
 
 #: src/euphorie/client/templates/login.pt:47
 msgid ""
