@@ -3713,7 +3713,7 @@ msgstr "Ir-Repubblika tas-Serbja"
 
 #: src/euphorie/content/utils.py:24
 msgid "F.Y.R. Macedonia"
-msgstr "dik li kienet ir-Repubblika Jugoslava tal-Maċedonja"
+msgstr "L-eks Repubblika Jugoslava tal-Maċedonja"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
