@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.0rc2 (unreleased)
+8.0.0rc2 (2015-10-21)
 ---------------------
 
 - Translation fixes
