@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.0rc3 (unreleased)
+8.0.0rc3 (2015-11-05)
 ---------------------
 
 - Translation fixes
