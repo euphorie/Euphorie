@@ -4,8 +4,7 @@ Changelog
 8.0.0rc3 (unreleased)
 ---------------------
 
-- Nothing changed yet.
-
+- Translation fixes
 
 8.0.0rc2 (2015-10-21)
 ---------------------
