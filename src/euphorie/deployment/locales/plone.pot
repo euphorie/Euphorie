@@ -155,3 +155,6 @@ msgstr ""
 msgid "The One And Only state "
 msgstr ""
 
+msgid "Your password must contain at least 5 characters."
+msgstr ""
+
