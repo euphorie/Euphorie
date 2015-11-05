@@ -12,7 +12,7 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- ...
+- Translation updates
 
 
 7.0.6 - September 25, 2015
