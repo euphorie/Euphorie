@@ -1,11 +1,10 @@
 Changelog
 =========
 
-8.0.0rc4 (unreleased)
----------------------
+8.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
-
+- Final release of new major version 8
 
 8.0.0rc3 (2015-11-05)
 ---------------------
