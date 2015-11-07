@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.0 (unreleased)
+8.0.0 (2015-11-07)
 ------------------
 
 - Final release of new major version 8
