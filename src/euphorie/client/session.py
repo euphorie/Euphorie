@@ -102,6 +102,7 @@ class SessionManagerFactory(object):
         if "euphorie.session" in request.other:
             del request.other["euphorie.session"]
         deleteCookie(request.response, SESSION_COOKIE)
+        setCookie(request.response, getSecret(), SESSION_COOKIE, '')
 
     @property
     def id(self):

@@ -13,6 +13,7 @@ Bugfixes
 ~~~~~~~~
 
 - Translation updates
+- On logging out, make sure session cookie is really gone
 
 
 7.0.6 - September 25, 2015
