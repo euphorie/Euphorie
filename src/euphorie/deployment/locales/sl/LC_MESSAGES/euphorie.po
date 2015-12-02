@@ -547,7 +547,7 @@ msgstr "Časovnica"
 #. Default: Timeline for ${title}
 #: src/euphorie/client/report.py:1030
 msgid "filename_report_timeline"
-msgstr "Identifikacijsko poročilo ${title}"
+msgstr "Prenos načrta ukrepov ${title}"
 
 #: src/euphorie/client/risk.py:194 src/euphorie/client/risk.py:226
 msgid "Please provide the day of the month"
