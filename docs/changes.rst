@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - When logging out, make sure the session cookie is really removed
+- Translation correction in SL
 
 8.0.0 (2015-11-07)
 ------------------
