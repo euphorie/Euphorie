@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.1 (unreleased)
+8.0.1 (2015-12-08)
 ------------------
 
 - When logging out, make sure the session cookie is really removed
