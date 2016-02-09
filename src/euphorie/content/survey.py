@@ -96,6 +96,16 @@ class ISurvey(form.Schema, IBasic):
                         u"and based on revision 2 of the NACE standard."),
             required=False)
 
+    obsolete = schema.Bool(
+            title=_("label_survey_obsolete",
+                default=u"Obsolete survey"),
+            description=_("help_survey_obsolete",
+                default=u"This survey is obsolete; it has been retired or "
+                        u"replaced with another survey."),
+            default=False,
+            required=False)
+    form.order_after(obsolete="*")
+
 
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {

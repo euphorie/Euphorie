@@ -7,7 +7,7 @@ Changelog
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- ...
+- Expose "obsolete" flag in survey edit form. #106
 
 Bugfixes
 ~~~~~~~~
