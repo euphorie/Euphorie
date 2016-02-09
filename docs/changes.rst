@@ -56,6 +56,7 @@ Changelog
 
 - Use of new Patternslib version, e.g. to enable pat-clone
 
+
 7.0.10 (unreleased)
 -------------------
 
@@ -83,7 +84,6 @@ Feature changes
 - Expose "obsolete" flag in survey edit form. #106
 - Better visibility for password policy and errors on sector settings
   form (Syslab #13310)
-
 
 Bugfixes
 ~~~~~~~~
