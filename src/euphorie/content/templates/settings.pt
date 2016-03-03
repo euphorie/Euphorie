@@ -11,8 +11,18 @@
   <body>
     <metal:title fill-slot="title" i18n:translate="header_settings">Settings</metal:title>
     <metal:content fill-slot="content">
+      <div class="message error" tal:condition="view/status|nothing">
+        <p tal:content="view/status">status</p>
+        <ul tal:repeat="error view/widgets/errors">
+          <li>
+            <tal:field content="error/field/title" i18n:translate="">field</tal:field>:
+            <span tal:replace="error/message">message</span>
+          </li>
+        </ul>
+      </div>
       <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
         <fieldset class="condensed" tal:define="widget nocall:view/widgets/description">
+
           <label>
               <tal:span i18n:translate="label_sector_description">Please provide a description of your sector</tal:span>
               <textarea class="span-13" rows="5" name="${widget/name}">${widget/value}</textarea><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>

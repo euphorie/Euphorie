@@ -287,6 +287,7 @@ class Settings(form.SchemaEditForm):
 
     schema = ISector
     default_fieldset_label = None
+    formErrorsMessage = u"Please correct the indicated errors."
 
     def update(self):
         super(Settings, self).update()
