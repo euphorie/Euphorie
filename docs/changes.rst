@@ -4,8 +4,8 @@ Changelog
 8.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Replaced browser logos for the "outdated IE version" warning with
+  their current equivalents
 
 8.0.1 (2015-12-08)
 ------------------
