@@ -1,10 +1,10 @@
 Changelog
 =========
 
-7.0.8 (unreleased)
-------------------
+7.0.8 - March 4, 2016
+---------------------
 
-- Nothing changed yet.
+- Revert Javascript changes for newer jquery version
 
 
 7.0.7 - March 4, 2016
