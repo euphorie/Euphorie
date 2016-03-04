@@ -97,6 +97,29 @@ Bugfixes
 
   * Allow longer tree item paths
 
+7.0.8 - March 4, 2016
+---------------------
+
+- Revert Javascript changes for newer jquery version
+
+
+7.0.7 - March 4, 2016
+---------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Expose "obsolete" flag in survey edit form. #106
+- Better visibility for password policy and errors on sector settings
+  form (Syslab #13310)
+
+
+Bugfixes
+~~~~~~~~
+
+- Translation updates
+- On logging out, make sure session cookie is really gone
+
 
 
 7.0.6 - September 25, 2015
