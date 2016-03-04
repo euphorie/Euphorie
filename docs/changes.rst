@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0.2 (unreleased)
+8.0.2 (2016-03-04)
 ------------------
 
 - Replaced browser logos for the "outdated IE version" warning with
