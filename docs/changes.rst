@@ -85,6 +85,7 @@ Feature changes
 - Better visibility for password policy and errors on sector settings
   form (Syslab #13310)
 
+
 Bugfixes
 ~~~~~~~~
 
