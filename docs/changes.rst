@@ -1,6 +1,12 @@
 Changelog
 =========
 
+7.0.8 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 7.0.7 - March 4, 2016
 ---------------------
 
