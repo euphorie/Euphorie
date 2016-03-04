@@ -95,6 +95,9 @@
             <fieldset class="concise">
               <tal:widget replace="structure view/widgets/password/render" />
             </fieldset>
+            <p class="message notice" i18n:translate="password_policy_conditions">
+              Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @).
+            </p>
           </dd>
 
           <dt i18n:translate="label_contact_person">Contact person</dt>
