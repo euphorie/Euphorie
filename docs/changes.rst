@@ -6,7 +6,6 @@ Changelog
 
 - Nothing changed yet.
 
-
 8.0.2 (2016-03-04)
 ------------------
 
@@ -58,6 +57,21 @@ Feature changes
   * Add new column to identify custom risks
 
 - Use of new Patternslib version, e.g. to enable pat-clone
+
+7.0.8 - March 4, 2016
+---------------------
+
+- Revert Javascript changes for newer jquery version
+
+
+7.0.7 - March 4, 2016
+---------------------
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Better visibility for password policy and errors on sector settings
+  form (Syslab #13310)
 
 
 Bugfixes
