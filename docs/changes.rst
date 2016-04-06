@@ -1,10 +1,12 @@
 Changelog
 =========
 
-8.0.3 (unreleased)
+8.0.3 (2016-04-06)
 ------------------
 
-- Nothing changed yet.
+- Merge in recent change from master:
+  Better visibility for password policy and errors on sector settings
+  form (Syslab #13310)
 
 
 8.0.2 (2016-03-04)
