@@ -80,7 +80,7 @@ class SurveyGroup(dexterity.Container):
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
-        return False
+        return op
 
 
 class View(grok.View):
