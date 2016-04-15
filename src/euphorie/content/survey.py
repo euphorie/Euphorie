@@ -118,7 +118,7 @@ class Survey(dexterity.Container):
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
-        return False
+        return op
 
     def _get_id(self, orig_id):
         """Pick an id for pasted content."""
