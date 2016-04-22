@@ -4,7 +4,7 @@ Changelog
 7.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not escape characters of the password in the reminder email (Syslab #13579)
 
 
 7.0.8 - March 4, 2016

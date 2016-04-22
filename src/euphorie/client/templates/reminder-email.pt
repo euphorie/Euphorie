@@ -10,8 +10,8 @@
 information is:</tal:span>
 
   <tal:span i18n:translate="reminder_email_login">Email</tal:span>:    <tal:span replace="options/loginname">john@example.com</tal:span>
-  <tal:span i18n:translate="reminder_email_password">Password</tal:span>: <tal:span replace="options/password">jane</tal:span>
+  <tal:span i18n:translate="reminder_email_password">Password</tal:span>: <tal:span replace="structure options/password">jane</tal:span>
 
--- 
+--
 <tal:span i18n:translate="reminder_email_footer" ></tal:span>
 </tal:root>
