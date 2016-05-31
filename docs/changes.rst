@@ -5,6 +5,8 @@ Changelog
 ------------------
 
 - Do not escape characters of the password in the reminder email (Syslab #13579)
+- Don't choke in case an image scale can't be fetched. (Syslab #13623)
+- Allow Sectors, Surveys and Surveygroups to be renamed
 
 
 7.0.8 - March 4, 2016
