@@ -15,14 +15,18 @@
     <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
       <div class="introduction" tal:define="images context/@@images">
         <img tal:define="scale python:images.scale('image', width=190, direction='down');"
+          tal:on-error="nothing"
           tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" title="${context/caption}" class="span-4 floatAfter"/>
         <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
         <ul class="additionalImages" tal:condition="python:context.image2 or context.image3 or context.image4">
           <li tal:define="scale python:images.scale('image2', width=190, direction='down');"
+            tal:on-error="nothing"
             tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption2}" class="span-4"/></li>
           <li tal:define="scale python:images.scale('image3', width=190, direction='down');"
+            tal:on-error="nothing"
             tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption3}" class="span-4"/></li>
           <li tal:define="scale python:images.scale('image4', width=190, direction='down');"
+            tal:on-error="nothing"
             tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption4}" class="span-4"/></li>
         </ul>
       </div>
