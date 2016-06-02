@@ -1,34 +1,36 @@
 YUICOMPRESS	?= yui-compressor
 PYTHON		?= python2.7
 
-CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
-CSS_DIR		= src/euphorie/client/templates/style
-CSS_TARGETS	= $(CSS_DIR)/main/screen.min.css \
-		  $(CSS_DIR)/main/screen-ie7.min.css \
-		  $(CSS_DIR)/main/screen-ie8.min.css \
-		  $(CSS_DIR)/osha/screen.min.css
+# CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
+# CSS_DIR		= src/euphorie/client/templates/style
+# CSS_TARGETS	= $(CSS_DIR)/main/screen.min.css \
+# 		  $(CSS_DIR)/main/screen-ie7.min.css \
+# 		  $(CSS_DIR)/main/screen-ie8.min.css \
+# 		  $(CSS_DIR)/osha/screen.min.css
 
-JS_PACK		= $(YUICOMPRESS) --charset utf-8
-JS_DIR		= src/euphorie/client/templates
-JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
+# JS_PACK		= $(YUICOMPRESS) --charset utf-8
+# JS_DIR		= src/euphorie/client/templates
+# JS_TARGETS	= $(JS_DIR)/behaviour/common.min.js
 
-EXTRAS		= $(JS_DIR)/libraries/patterns.js \
-		  $(JS_DIR)/libraries/jquery-ui-1.9.1.js \
-		  $(JS_DIR)/libraries/jquery-ui-i18n.js \
-		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
-		  $(JS_DIR)/libraries/css_browser_selector.js \
-		  $(JS_DIR)/libraries/jquery.numeric.js \
-		  $(JS_DIR)/libraries/jquery.scrollTo.js \
-		  $(JS_DIR)/libraries/jquery.localscroll.js \
-		  $(JS_DIR)/libraries/fancybox/jquery.fancybox-1.3.1.pack.js \
-		  $(JS_DIR)/libraries/fancybox/jquery.mousewheel-3.0.2.pack.js 
+# EXTRAS		= $(JS_DIR)/libraries/patterns.js \
+# 		  $(JS_DIR)/libraries/jquery-ui-1.9.1.js \
+# 		  $(JS_DIR)/libraries/jquery-ui-i18n.js \
+# 		  $(JS_DIR)/libraries/jcarousellite_1.0.1.js \
+# 		  $(JS_DIR)/libraries/css_browser_selector.js \
+# 		  $(JS_DIR)/libraries/jquery.numeric.js \
+# 		  $(JS_DIR)/libraries/jquery.scrollTo.js \
+# 		  $(JS_DIR)/libraries/jquery.localscroll.js \
+# 		  $(JS_DIR)/libraries/fancybox/jquery.fancybox-1.3.1.pack.js \
+# 		  $(JS_DIR)/libraries/fancybox/jquery.mousewheel-3.0.2.pack.js
 
 EUPHORIE_POT	= src/euphorie/deployment/locales/euphorie.pot
 EUPHORIE_PO_FILES	= $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/euphorie.po)
 PLONE_PO_FILES	= $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/plone.po)
 MO_FILES	= $(EUPHORIE_PO_FILES:.po=.mo) $(PLONE_PO_FILES:.po=.mo)
 
-TARGETS		= $(CSS_TARGETS) $(JS_TARGETS) $(MO_FILES)
+# TARGETS		= $(CSS_TARGETS) $(JS_TARGETS) $(MO_FILES)
+
+TARGETS        = $(MO_FILES)
 
 all: ${TARGETS}
 
@@ -50,8 +52,8 @@ check:: bin/test ${MO_FILES}
 jenkins: bin/test bin/sphinx-build $(MO_FILES)
 	bin/test --xml -s euphorie
 
-$(JS_DIR)/behaviour/common.min.js: $(EXTRAS) $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
-	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
+# $(JS_DIR)/behaviour/common.min.js: $(EXTRAS) $(JS_DIR)/behaviour/markup.js $(JS_DIR)/behaviour/plan.js
+# 	set -e ; (for i in $^ ; do $(JS_PACK) $$i ; done ) > $@~ ; mv $@~ $@
 
 docs:: bin/sphinx-build
 	make -C docs html
@@ -65,7 +67,7 @@ pot: bin/pybabel
 		--msgid-bugs-address='euphorie@lists.wiggy.net' \
 		--charset=utf-8 \
 		src/euphorie > $(EUPHORIE_POT)~
-	mv $(EUPHORIE_POT)~ $(EUPHORIE_POT)	
+	mv $(EUPHORIE_POT)~ $(EUPHORIE_POT)
 	$(MAKE) $(MFLAGS) $(EUPHORIE_PO_FILES)
 
 $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
@@ -74,8 +76,33 @@ $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
 $(PLONE_PO_FILES): src/euphorie/deployment/locales/plone.pot
 	msgmerge --update $@ $<
 
-%.min.css: %.css
-	set -e ; $(CSS_PACK) $< > $@~ ; mv $@~ $@
+########################################################################
+## Setup
+## You don't run these rules unless you're a prototype dev
+
+clean-proto:
+	cd prototype && make clean
+
+prototype:: ## Get the latest version of the prototype
+	@if [ ! -d "prototype" ]; then \
+		git clone git@github.com:euphorie/oira.prototype.git prototype; \
+	else \
+		cd prototype && git pull; \
+	fi;
+
+bundle: prototype
+	cd prototype && make bundle
+
+jekyll: prototype
+	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
+	@cd prototype && make jekyll
+
+resources-install: bundle jekyll
+	cp prototype/_site/bundles/oira.js src/euphorie/client/resources
+	cp -R prototype/_site/style/* src/euphorie/client/resources
+
+# %.min.css: %.css
+# 	set -e ; $(CSS_PACK) $< > $@~ ; mv $@~ $@
 
 .po.mo:
 	msgfmt -c --statistics -o $@~ $< && mv $@~ $@
