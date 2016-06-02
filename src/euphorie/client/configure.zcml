@@ -116,4 +116,10 @@
         directory="templates/behaviour"
        />
 
+    <browser:resourceDirectory
+        name="euphorie.resources"
+        directory="resources"
+        />
+
+
 </configure>
