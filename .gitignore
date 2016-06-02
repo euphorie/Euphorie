@@ -26,5 +26,4 @@ src/htmllaundry/
 src/osha.oira/
 src/plone.recipe.zope2instance/
 *.espressostorage
-Prototype/Euphorie client.esproj/user.cornelis.espressostorage
-Prototype/Prototype.esproj/user.cornelis.espressostorage
+/prototype
