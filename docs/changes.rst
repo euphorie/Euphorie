@@ -4,8 +4,7 @@ Changelog
 8.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Enhance survey export so that unwanted characters can be stripped
 
 8.0.3 (2016-04-06)
 ------------------

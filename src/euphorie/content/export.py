@@ -10,6 +10,7 @@ from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.upload import NSMAP
 from euphorie.content.utils import StripMarkup
+from euphorie.content.utils import StripUnwanted
 from euphorie.client.utils import HasText
 
 
@@ -47,7 +48,8 @@ class ExportSurvey(grok.View):
             node.attrib["external-id"] = survey.external_id
         etree.SubElement(node, "title").text = aq_parent(survey).title
         if StripMarkup(survey.introduction):
-            etree.SubElement(node, "introduction").text = survey.introduction
+            etree.SubElement(node, "introduction").text = StripUnwanted(
+                survey.introduction)
         if survey.classification_code:
             etree.SubElement(node, "classification-code").text = \
                     survey.classification_code
@@ -73,7 +75,8 @@ class ExportSurvey(grok.View):
         etree.SubElement(node, "question").text = \
                 profile.question or profile.title
         if HasText(profile.description):
-            etree.SubElement(node, "description").text = profile.description
+            etree.SubElement(node, "description").text = StripUnwanted(
+                profile.description)
 
         for child in profile.values():
             if IModule.providedBy(child):
@@ -89,12 +92,13 @@ class ExportSurvey(grok.View):
             node.attrib["external-id"] = module.external_id
         etree.SubElement(node, "title").text = module.title
         if HasText(module.description):
-            etree.SubElement(node, "description").text = module.description
+            etree.SubElement(node, "description").text = StripUnwanted(
+                module.description)
         if module.optional:
             etree.SubElement(node, "question").text = module.question
         if StripMarkup(module.solution_direction):
-            etree.SubElement(node, "solution-direction").text = \
-                    module.solution_direction
+            etree.SubElement(node, "solution-direction").text = StripUnwanted(
+                module.solution_direction)
         if module.image is not None:
             self.exportImage(node, module.image, module.caption)
 
@@ -110,12 +114,13 @@ class ExportSurvey(grok.View):
         if getattr(risk, "external_id", None):
             node.attrib["external-id"] = risk.external_id
         etree.SubElement(node, "title").text = risk.title
-        etree.SubElement(node, "problem-description").text = \
-                risk.problem_description
-        etree.SubElement(node, "description").text = risk.description
+        etree.SubElement(node, "problem-description").text = StripUnwanted(
+            risk.problem_description)
+        etree.SubElement(node, "description").text = StripUnwanted(
+            risk.description)
         if StripMarkup(risk.legal_reference):
-            etree.SubElement(node, "legal-reference").text = \
-                    risk.legal_reference
+            etree.SubElement(node, "legal-reference").text = StripUnwanted(
+                risk.legal_reference)
         etree.SubElement(node, "show-not-applicable").text = \
                 "true" if risk.show_notapplicable else "false"
         if risk.type == "risk":
@@ -159,13 +164,16 @@ class ExportSurvey(grok.View):
         node = etree.SubElement(parent, "solution")
         if getattr(solution, "external_id", None):
             node.attrib["external-id"] = solution.external_id
-        etree.SubElement(node, "description").text = solution.description
-        etree.SubElement(node, "action-plan").text = solution.action_plan
+        etree.SubElement(node, "description").text = StripUnwanted(
+            solution.description)
+        etree.SubElement(node, "action-plan").text = StripUnwanted(
+            solution.action_plan)
         if solution.prevention_plan:
-            etree.SubElement(node, "prevention-plan").text = \
-                    solution.prevention_plan
+            etree.SubElement(node, "prevention-plan").text = StripUnwanted(
+                solution.prevention_plan)
         if solution.requirements:
-            etree.SubElement(node, "requirements").text = solution.requirements
+            etree.SubElement(node, "requirements").text = StripUnwanted(
+                solution.requirements)
         return node
 
     def render(self):
