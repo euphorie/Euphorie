@@ -8,15 +8,16 @@
       i18n:domain="euphorie"
       id="login"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body class="login ${webhelpers/extra_css}">
-    <h1 i18n:translate="header_welcome">Welcome</h1>
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account; is_outside_of_survey webhelpers/is_outside_of_survey; came_from_param webhelpers/came_from_param">
     <tal:block replace="tile:statusmessages"/>
+  <article class="rich">
+    <h1 i18n:translate="header_welcome">Welcome</h1>
     <p class="message warning" tal:condition="exists:view/error" i18n:translate="incorrect_login">
     Your login name and/or password were entered incorrectly. Please check and try again or
     <a class="reminder" i18n:name="request_an_email_reminder" href="${view/reminder_url}"><tal:span i18n:translate="request_an_email_reminder">request an email reminder</tal:span></a>
@@ -115,8 +116,11 @@
       <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
     </ul>
+
     <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
+
     <tal:block replace="tile:client-analytics"/>
+  </article>
+  </metal:slot>
   </body>
 </html>
