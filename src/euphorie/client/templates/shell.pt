@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      meta:interpolation="true"
+      metal:define-macro="shell"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  splash_message webhelpers/splash_message;
+                  client nocall:request/client;
+                  base_url client/++resource++euphorie.resources;
+                  page_section webhelpers/get_phase;
+                  sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
+                  came_from_param webhelpers/came_from_param;
+                  tools context/@@tools">
+
+<head>
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+
+    <tal:block condition="webhelpers/debug_mode">
+        <script type="text/javascript" src="${base_url}/oira.js"></script>
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: this must be minified -->
+        <script type="text/javascript" src="${base_url}/oira.js"></script>
+    </tal:block>
+
+    <tal:block condition="webhelpers/debug_mode">
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: needs to be minified -->
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+    <metal:styleslot define-slot="style_slot" />
+<!--[if lte IE 8]>
+<style type="text/css">
+    body {
+        background: #404449 url("/++resource++osha.style/Browser-warning.png") no-repeat fixed center center !important;
+    }
+    body * {
+        display: none;
+    }
+</style>
+<![endif]-->
+</head>
+
+<body class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not webhelpers.is_guest_account and splash_message and not page_section else ''} osh-on test-session osc-on osc-s-off focus-sidebar ${sidebar_default}" i18n:domain="euphorie" tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
+    <div id="main">
+        <header id="toolbar">
+            <a href="#osc" class="icon-menu pat-toggle"
+               data-pat-toggle="selector: body; value: osc-on osc-off; store: local &amp;&amp; selector: body; value: osc-s-on osc-s-off; store: local"
+               id="burger"
+               title="Show/hide menu">
+                Menu
+            </a>
+            <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
+
+            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar" tal:content="webhelpers/get_survey_title">Private Security EU</button>
+            <button id="osh-toggle" class="osh-toggle pat-toggle" data-pat-toggle="selector: body; value: osh-on osh-off; store: local">?</button>
+
+            <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
+                <a href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
+                <a href="${base_url}/register" class="registration" i18n:translate="header_register">Register</a>
+            </tal:if_anon>
+            <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
+                <a href="${webhelpers/session_overview_url}/user-menu.html#content"
+                   class="user-status pat-tooltip icon-user dropdown"
+                   data-pat-tooltip="source: ajax; class: medium; position-list: tr">${webhelpers/get_username}</a>
+            </tal:if_not_anon>
+        </header>
+        <div id="content">
+            <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
+                <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${base_url}/login_form?${came_from_param}#document-content" class="registration" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
+            </p>
+            <tal:statusmsg tal:repeat="message webhelpers/messages">
+                <p class="pat-notification" data-pat-notification="type: banner; class: ${message/type}; close-text: ${webhelpers/closetext}" id="${message/id}-body" tal:content="message/message | nothing">Status message</p>
+                </tal:statusmsg>
+
+            <metal:block define-slot="content"/>
+        </div>
+    </div>
+
+    <aside id="osc">
+        <header id="osc-header">
+            <tal:if condition="is_anonymous">
+
+                <a tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" id="button-new-session"
+                    data-pat-modal="class: large" class="pat-modal icon-plus-circle" i18n:attributes="title" title="Start test session" i18n:translate="">Start test session</a>
+                <a tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session" id="button-new-session" class="icon-plus-circle" i18n:translate="">Start test session</a>
+            </tal:if>
+
+            <tal:if condition="not:is_anonymous">
+                <tal:if condition="not:is_outside_of_survey">
+                    <a href="${webhelpers/country_url}/view#content" class="dropdown pat-tooltip" id="button-sessions"
+                        data-pat-tooltip="source: ajax; class: large; position-list: tl" title="Select an earlier session to complete or review" i18n:attributes="title header_select_session" tal:content="webhelpers/get_survey_title">Private Security EU</a>
+                </tal:if>
+                <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
+                    data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus-circle" title="Start a new session" i18n:attributes="title" i18n:translate="New">New</a>
+            </tal:if>
+            <metal:include tal:define="id string:session-menu" use-macro="context/@@includes/macros/osh"/>
+        </header>
+
+        <metal:include tal:define="id string:menu" use-macro="context/@@includes/macros/osh"/>
+
+        <ol id="steps" class="pat-switch" data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local">
+            <tal:if_not_anon condition="not:is_anonymous" define="tree view/tree|nothing">
+                <li id="step-1" tal:define="active python:page_section == 'preparation' and 'active' or '';  disabled python:page_section == ''" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <a href="${survey_url}/start#content" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                        class="preparation pat-switch pat-inject" i18n:translate="label_preparation"
+                        data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Preparation</a>
+                </li>
+                <li id="step-2" tal:define="active python:page_section == 'identification'; disabled python:page_section in ('', 'preparation')" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <a tal:condition="not:disabled" href="${survey_url}/identification" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                        class="identification pat-switch pat-inject"
+                        data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-off; add: sidebar-on"><tal:identification i18n:translate="label_identification">Identification</tal:identification> + <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+                    <a tal:condition="disabled" class="identification"><tal:identification i18n:translate="label_identification">Identification</tal:identification> + <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+
+                    <tal:block condition="python: active and tree">
+                      <metal:call use-macro="webhelpers/macros/survey_tree" />
+                    </tal:block>
+
+                </li>
+                <li id="step-4" tal:define="active python:page_section == 'actionplan'; disabled python:page_section in ('', 'preparation')" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
+                    <a tal:condition="not:disabled" href="${survey_url}/actionplan" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="label_action_plan"
+                       class="action-plan pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; add: sidebar-on; remove: sidebar-off">Action Plan</a>
+                    <a tal:condition="disabled" i18n:translate="label_action_plan"
+                       class="action-plan">Action Plan</a>
+
+                    <tal:block condition="python: active and tree">
+                      <metal:call use-macro="webhelpers/macros/survey_tree" />
+                    </tal:block>
+                </li>
+
+                <li id="step-5" tal:define="active python:page_section == 'report'; disabled python:page_section in ('', 'preparation')" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <!-- TODO: check if guest -->
+                    <a tal:condition="not:disabled" href="${survey_url}/report" class="report pat-switch pat-inject"
+                       data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="label_report"
+                       data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Report</a>
+                    <a tal:condition="disabled" class="report" i18n:translate="label_report">Report</a>
+                </li>
+
+
+                <li id="status" tal:define="active python: page_section == 'status' and 'active' or ''; disabled python:page_section in ('', 'preparation')" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <a href="${survey_url}/status#content" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="navigation_status"
+                        class="status pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Check your progress</a>
+                </li>
+            </tal:if_not_anon>
+            <li id="help" tal:attributes="class python:page_section == 'help'  and 'active' or ''">
+                <a href="${base_url}/help#content" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="navigation_help"
+                    class="help pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Help</a>
+            </li>
+        </ol>
+
+        <a href="${webhelpers/client_url}" id="organisation-logo" tal:define="sector_logo webhelpers/get_sector_logo" tal:attributes="class python:sector_logo and 'alien' or 'native'">
+            <tal:native condition="not:nocall:sector_logo">
+                <!-- In case the organisation has not changed the logo, the link tag gets a class 'native' instead of 'alien' and the following markup applies: -->
+                <figure>
+                    <img src="${base_url}/++resource++oira.media/oira-logo.svg" alt="" />
+                    <figcaption>
+                        <tal:oi i18n:translate="oira_name_line_1">Online interactive</tal:oi><br/>
+                        <tal:ra i18n:translate="oira_name_line_2">Risk Assessment</tal:ra>
+                    </figcaption>
+                </figure>
+            </tal:native>
+            <tal:alien condition="nocall:sector_logo">
+                <!-- In case of on organisation that uploaded a logo, no figure tag needs to be there: -->
+                <img src="${sector_logo/url}" alt="" />
+            </tal:alien>
+        </a>
+    </aside>
+
+
+<!--[if gte IE 9]>
+
+<div class="pat-browser-warning custom">
+            <style type="text/css">
+                .pat-browser-warning.custom {
+                    font-size: 1em;
+                    height: 99%;
+                    overflow: scroll;
+                    top: 0;
+                    margin-top: 0;
+                }
+                .pat-browser-warning.custom b {
+                    font-size: 125%;
+                }
+                .pat-browser-warning.custom p {
+                    margin-bottom: 0.5em;
+                }
+                ul.browser {
+                    list-style: none;
+                    padding: 0px;
+                    margin-left: 0px;
+                    margin-bottom: 0.5em;
+                }
+                ul.browser li {
+                    background: url("/++resource++euphorie.behaviour/ie6/background_browser.gif") no-repeat left top;
+                    margin: 0px 10px 10px 0px;
+                    width: 122px;
+                    height: 122px;
+                    float: left;
+                    display: inline-block;
+                    cursor: pointer;
+                }
+                ul.browser li .image {
+                     margin: 1px auto;
+                     width: 100px;
+                     height: 100px;
+                     cursor: pointer;
+                }
+                ul.browser li.ie .image {
+                    background: url("/++resource++euphorie.behaviour/ie6/browser_ie.gif") no-repeat left top;
+                }
+                ul.browser li.firefox .image {
+                    background: url("/++resource++euphorie.behaviour/ie6/browser_firefox.gif") no-repeat left top;
+                }
+                ul.browser li.safari .image {
+                    background: url("/++resource++euphorie.behaviour/ie6/browser_safari.gif") no-repeat left top;
+                }
+                ul.browser li.opera .image {
+                    background: url("/++resource++euphorie.behaviour/ie6/browser_opera.gif") no-repeat left top;
+                }
+                ul.browser li.chrome .image {
+                    background: url("/++resource++euphorie.behaviour/ie6/browser_chrome.gif") no-repeat left top;
+                }
+                ul.browser li .text {
+                    margin: 1px auto;
+                    width: 120px;
+                    height: 18px;
+                    text-align: center;
+                    color: rgb(128, 128, 128);
+                    line-height: 17px;
+                    font-size: 0.8em;
+                    cursor: pointer;
+                }
+            </style>
+<ul class="browser">
+    <li class="ie" onclick="window.location='http://www.microsoft.com/windows/Internet-explorer/default.aspx'">
+        <div class="image"></div>
+        <div class="text">Internet Explorer 10+</div>
+    </li>
+    <li class="firefox" onclick="window.location='http://www.mozilla.com/firefox/'">
+        <div class="image"></div>
+        <div class="text">Firefox</div>
+    </li>
+    <li class="safari" onclick="window.location='http://www.apple.com/safari/download/'">
+        <div class="image"></div>
+        <div class="text">Safari</div>
+    </li>
+    <li class="opera" onclick="window.location='http://www.opera.com/download/'">
+        <div class="image"></div>
+        <div class="text">Opera</div>
+    </li>
+    <li class="chrome" onclick="window.location='http://www.google.com/chrome'">
+        <div class="image"></div>
+        <div class="text">Chrome</div>
+    </li>
+</ul>
+<span style="clear: both"></span>
+<p><b>English</b>: This web application is not compatible with the version of the webbrowser you are using. Some features may not work as designed. To improve your experience please upgrade to a newer version or use an alternative browser, such as Crome, Firefox or Safari.</p>
+<p><b>Български</b>: Уеб приложението не е съвместимо с версията на уеб браузъра, която използвате. Възможно е някои функции да не работят, както се очаква. За да подобрите изпълнението, обновете версията на браузъра или използвайте друг браузър, например Google Chrome, Mozilla Firefox или Safari.</p>
+<p><b>Català</b>: Aquesta aplicació web no és compatible amb la versió del navegador web que s'està utilitzant. Algunes característiques poden no funcionar segons el previst. Si us plau, actualitzeu el navegador amb una nova versió o utilitzi un navegador alternatiu, com Crome, Firefox o Safari.</p>
+<p><b>Čeština</b>: Tato webová aplikace není kompatibilní s verzí prohlížeče, kterou používáte. Některé prvky nemusí fungovat tak, jak byly navrženy. Za účelem zajištění optimální funkčnosti prosím upgradujte na novější verzi nebo použijte jiný prohlížeč, například Chrome, Firefox nebo Safari.</p>
+<p><b>Dansk</b>: Denne webapplikation er ikke kompatibel med den webbrowserversion, du anvender. Visse elementer funger måske ikke efter hensigten. For bedre at kunne udnytte anvendelsesmulighederne bør du opgradere til en nyere version eller anvende en anden browser, for eksempel Crome, Firefox eller Safari.</p>
+<p><b>Deutsch</b>: Diese Web-Anwendung ist mit der von Ihnen verwendeten Webbrowser-Version nicht kompatibel. Manche Funktionen funktionieren möglicherweise nicht wie vorgesehen. Um Ihre Nutzungsmöglichkeiten zu verbessern, empfehlen wir, zu einer neueren Version zu wechseln oder einen anderen Browser (z. B. Chrome, Firefox oder Safari) zu verwenden.</p>
+<p><b>Ελληνικά</b>: Αυτή η διαδικτυακή εφαρμογή δεν είναι συμβατή με την έκδοση του περιηγητή που χρησιμοποιείτε. Ορισμένες εφαρμογές ενδέχεται να μην λειτουργούν όπως είχαν σχεδιαστεί. Για καλύτερη απόδοση, αναβαθμίστε τον περιηγητή σας στην πιο πρόσφατη έκδοση ή χρησιμοποιήστε κάποιον εναλλακτικό περιηγητή όπως Crome, Firefox ή Safari.</p>
+<p><b>Español</b>: Esta aplicación para la Web no es compatible con la versión del navegador que está utilizando. Algunas características pueden no funcionar según lo previsto. Para mejorar su uso de la aplicación, le aconsejamos instalar una nueva versión o utilizar un navegador alternativo, como Crome, Firefox o Safari.</p>
+<p><b>Eesti</b>: See veebirakendus ei ühildu veebibrauseriga. Mõned funktsioonid ei pruugi täielikult toimida. Paremaks kasutamiseks uuenda versiooni või vali alternatiivne brauser, nt Chrome, Firefox või Safari.</p>
+<p><b>Suomi</b>: Tämä verkkosovellus ei ole yhteensopiva käyttämäsi verkkoselaimen version kanssa. Jotkin ominaisuudet eivät ehkä toimi kuten on suunniteltu. Parantaaksesi toimintaa päivitä selain uudempaan versioon tai käytä jotakin muuta selainta, esimerkiksi Cromea, Firefoxia tai Safaria.</p>
+<p><b>Français</b>: Cette application web n’est pas compatible avec la version actuelle de votre navigateur web. Il se peut que certaines fonctionnalités ne fonctionnent pas comme prévu. Pour votre confort, veuillez télécharger une version plus récente ou utiliser un autre navigateur, comme Chrome, Firefox ou Safari.</p>
+<p><b>Magyar</b>: Ez a webes alkalmazás nem kompatibilis az Ön által használt webböngésző verziójával. Előfordulhat, hogy egyes funkciók nem a tervezettnek megfelelően működnek. Annak érdekében, hogy az eszközt a legoptimálisabb módon tudja használni, váltson az újabb verzióra vagy másik böngészőre, mint például a Chrome, a Firefox vagy a Safari.</p>
+<p><b>Íslenska</b>: Þessi vefhugbúnaður er ekki samhæfður við vafraútgáfuna sem þú notar. Ekki er víst að allir eiginleikar virki eins og ætlast er til. Til þess að upplifun þín verði betri skaltu uppfæra í nýrri útgáfu eða nota annan vafra, svo sem Crome, Firefox eða Safari.</p>
+<p><b>Italiano</b>: Quest’applicazione web non è compatibile con la versione del browser che si sta usando. Alcune funzionalità potrebbero non funzionare come dovrebbero. Per migliorare la propria esperienza, si prega di aggiornare a una versione più recente o di usare un browser alternativo come Crome, Firefox o Safari.</p>
+<p><b>Lietuviskai</b>: Ši interneto programa neveikia naudojant jūsų interneto naršyklės versiją. Kai kurios funkcijos gali neveikti. Kad programa veiktų geriau, atnaujinkite savo naršyklės versiją arba naudokitės kita naršykle, pvz., Chrome, Firefox arba Safari.</p>
+<p><b>Latviešu</b>: Šī tīmekļa lietojumprogramma nav saderīga ar tīmekļa pārlūkprogrammas versiju, kuru Jūs izmantojat. Dažas funkcijas var nedarboties, kā paredzēts. Lai uzlabotu iespējas, lūdzam veikt jauninājumu uz jaunāku versiju vai izmantot citu pārlūkprogrammu, piemēram, Crome, Firefox vai Safari.</p>
+<p><b>Malti</b>: Din l-applikazzjoni web mhix kumpatibbli mal-verżjoni tal-brawżer li qed tuża.. Xi funzjonijiet jistgħu ma jaħdmux kif suppost. Biex ittejjeb l-esperjenza tiegħek, jekk jogħġbok aġġorna għal verżjoni iżjed riċenti jew uża brawżer differenti bħal Crome, Firefox jew Safari.</p>
+<p><b>Nederlands</b>: Deze webtoepassing is niet verenigbaar met de versie van de webbrowser die u gebruikt. Enkele functies werken wellicht niet als werd voorzien. Voer een upgrade uit naar een nieuwere versie of gebruik een andere browser, zoals Chrome, Firefox of Safari, om de mogelijkheden beter te kunnen benutten.</p>
+<p><b>Norsk</b>: Denne nettapplikasjonen er ikke kompatibel med den nettleserversjonen du bruker. Det kan hende at enkelte funksjoner ikke virker som de skal. For å forbedre opplevelsen bør du oppgradere til en nyere versjon eller bruke en annen nettleser, for eksempel Chrome, Firefox eller Safari.</p>
+<p><b>Polski</b>: Niniejsza aplikacja internetowa nie jest kompatybilna z wersją stosowanej przeglądarki internetowej. Niektóre elementy mogą nie funkcjonować w zaplanowany sposób. Aby móc w pełni korzystać z dostępnych funkcji, należy zainstalować nowszą wersję programu lub inną przeglądarkę, tj. Chrome, Firefox czy Safari.</p>
+<p><b>Português</b>: Esta aplicação Web não é compatível com a versão do seu navegador de Internet. Algumas funções poderão não funcionar corretamente. Para melhorar a sua experiência, atualize o seu navegador para uma versão mais recente ou utilize outro navegador, como o Chrome, o Firefox ou o Safari.</p>
+<p><b>Română</b>: Această aplicaţie web nu este compatibilă cu versiunea browserului web pe care-l folosiţi. Unele caracteristici s-ar putea să nu funcţioneze la parametrii prevăzuţi. Pentru o mai bună utilizare a aplicaţiei, vă rugăm să actualizaţi versiunea sau să folosiţi alt browser, de exemplu Chrome, Firefox sau Safari.</p>
+<p><b>Slovenčina</b>: Táto webová aplikácia nie je kompatibilná s verziou prehliadača, ktorú používate. Môže sa stať, že niektoré funkcie nebudú fungovať tak, ako majú. Za účelom zaistenia optimálnej funkčnosti, inštalujte si najnovšiu verziu alebo použite iný prehliadač, ako napr. Chrome, Firefox alebo Safari.</p>
+<p><b>Slovenščina</b>: Ta spletna aplikacija ni združljiva z različico spletnega brskalnika, ki jo uporabljate. Nekatere njene funkcije zato morda ne bodo delovale, kot so bile zasnovane. Za boljši ogled si naložite novejšo različico brskalnika ali pa uporabite drug brskalnik, kot je denimo Chrome, Firefox ali Safari.</p>
+<p><b>Svenska</b>: Denna webbapplikation är inte kompatibel med den webbläsare du använder. Vissa funktioner fungerar kanske inte som tänkt. Uppgradera till en nyare version eller använd en annan webbläsare, t.ex. Crome, Firefox eller Safari, för att förbättra upplevelsen.</p>
+<ul class="browser">
+    <li class="ie" onclick="window.location='http://www.microsoft.com/windows/Internet-explorer/default.aspx'">
+        <div class="image"></div>
+        <div class="text">Internet Explorer 10+</div>
+    </li>
+    <li class="firefox" onclick="window.location='http://www.mozilla.com/firefox/'">
+        <div class="image"></div>
+        <div class="text">Firefox</div>
+    </li>
+    <li class="safari" onclick="window.location='http://www.apple.com/safari/download/'">
+        <div class="image"></div>
+        <div class="text">Safari</div>
+    </li>
+    <li class="opera" onclick="window.location='http://www.opera.com/download/'">
+        <div class="image"></div>
+        <div class="text">Opera</div>
+    </li>
+    <li class="chrome" onclick="window.location='http://www.google.com/chrome'">
+        <div class="image"></div>
+        <div class="text">Chrome</div>
+    </li>
+</ul>
+</div>
+<![endif]-->
+
+    <tal:block replace="tile:client-analytics"/>
+
+    <metal:splashmessageslot define-slot="splash_message_slot" />
+    <metal:call use-macro="webhelpers/macros/webstats_js" />
+
+</body>
+</html>

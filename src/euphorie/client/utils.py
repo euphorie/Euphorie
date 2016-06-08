@@ -1,6 +1,7 @@
 import colorsys
 import random
 from PIL.ImageColor import getrgb
+from datetime import datetime
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from email.Header import Header
@@ -9,30 +10,60 @@ import logging
 import threading
 import simplejson
 from decorator import decorator
+from os import path
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 import Globals
 from five import grok
+from json import dumps
 from AccessControl import getSecurityManager
 from zope.component import getUtility
 from zope.interface import Interface
+from plone.app.controlpanel.site import ISiteSchema
 from plone.memoize.instance import memoize
+from plone.i18n.normalizer import idnormalizer
 from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.decorators import reify
 from euphorie.content.utils import StripMarkup
+from euphorie.content.survey import ISurvey
 from .. import MessageFactory as _
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import IClientSector
 from euphorie.client import config
+from zope.i18nmessageid import MessageFactory
+from zope.i18n import translate
+from zope.component import getMultiAdapter
+from zope.component.hooks import getSite
+
 
 locals = threading.local()
 log = logging.getLogger(__name__)
 
 grok.templatedir('templates')
+pl_message = MessageFactory('plonelocales')
+
+
+NAME_TO_PHASE = {
+    'start': 'preparation',
+    'profile': 'preparation',
+    'identification': 'identification',
+    'customization': 'identification',
+    'actionplan': 'actionplan',
+    'report': 'report',
+    'status': 'status',
+    'help': 'help',
+    'new-email': 'useraction',
+    'account-settings': 'useraction',
+    'account-delete': 'useraction',
+    'update': 'preparation',
+    'disclaimer': 'help',
+    'terms-and-conditions': 'help',
+}
 
 
 def setRequest(request):
@@ -107,6 +138,21 @@ class WebHelpers(grok.View):
             self.came_from = came_from
         else:
             self.came_from = aq_parent(context).absolute_url()
+
+        if self.anonymous:
+            for obj in aq_chain(aq_inner(self.context)):
+                if ISurvey.providedBy(obj):
+                    setattr(self.request, 'survey', obj)
+                    break
+
+    def get_webstats_js(self):
+        site = getSite()
+        return ISiteSchema(site).webstats_js
+
+    def language_dict(self):
+        site = getSite()
+        ltool = getToolByName(site, 'portal_languages')
+        return ltool.getAvailableLanguages()
 
     @property
     def macros(self):
@@ -187,6 +233,54 @@ class WebHelpers(grok.View):
         if base_url is not None:
             return base_url
         return self.client_url
+
+        if self.anonymous:
+            base_url = self.country_url
+            if base_url is not None:
+                return base_url
+            return self.client_url
+        return self._base_url()
+
+    @reify
+    def base_url(self):
+        if self.anonymous:
+            base_url = self.country_url
+            if base_url is not None:
+                return base_url
+            return self.client_url
+        return self._base_url()
+
+    @reify
+    def is_outside_of_survey(self):
+        return self._base_url() != self.survey_url()
+
+    @reify
+    def get_survey_title(self):
+        survey = self._survey
+        if not survey:
+            return None
+        return survey.title
+
+    def get_phase(self):
+        head, tail = path.split(self.request.PATH_INFO)
+        while tail:
+            tail = tail.replace('@', '')
+            if tail in NAME_TO_PHASE:
+                return NAME_TO_PHASE[tail]
+            head, tail = path.split(head)
+        return ""
+
+    @property
+    def came_from_param(self):
+        if self.came_from:
+            survey_url = self.survey_url()
+            if survey_url:
+                param = 'came_from={0}'.format(survey_url)
+            else:
+                param = 'came_from={0}'.format(self.came_from)
+        else:
+            param = ''
+        return param
 
     @reify
     def help_url(self):
@@ -316,6 +410,55 @@ class WebHelpers(grok.View):
         months = calendar.monthContexts['format'].months[length]
         return sorted(months.items())
 
+    @reify
+    def get_sector_logo(self):
+        sector = self.sector
+        if sector is None:
+            return None
+        images = getMultiAdapter((sector, self.request), name="images")
+        return images.scale("logo", height=100, direction="up") or None
+
+    def messages(self):
+        status = IStatusMessage(self.request)
+        messages = status.show()
+        for m in messages:
+            m.id = idnormalizer.normalize(m.message)
+        return messages
+
+    def _getLanguages(self):
+        lt = getToolByName(self.context, "portal_languages")
+        lang = lt.getPreferredLanguage()
+        if "-" in lang:
+            return [lang, lang.split("-")[0], "en"]
+        else:
+            return [lang, "en"]
+
+    def _findMOTD(self):
+        documents = getUtility(ISiteRoot).documents
+
+        motd = None
+        for lang in self._getLanguages():
+            docs = documents.get(lang, None)
+            if docs is None:
+                continue
+            motd = docs.get("motd", None)
+            if motd is not None:
+                return motd
+
+    def splash_message(self):
+        motd = self._findMOTD()
+        if motd:
+            now = datetime.now()
+            message = dict(
+                title=StripMarkup(motd.description), text=motd.body,
+                id='{0}{1}'.format(
+                    motd.modification_date.strftime('%Y%m%d%H%M%S'),
+                    now.strftime('%Y%m%d'))
+            )
+        else:
+            message = None
+        return message
+
 
 def HasText(html):
     """Determine if a HTML fragment contains text.
@@ -418,3 +561,64 @@ def IsBright(colour):
     (r, g, b) = getrgb(colour)
     (h, l, s) = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
     return l > 0.50
+
+
+class I18nJSONView(grok.View):
+    """ Provide the translated month and weekday names for pat-datepicker
+    """
+    grok.context(Interface)
+    grok.layer(IClientSkinLayer)
+    grok.name('date-picker-i18n.json')
+
+    def render(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            lang = lang.split("-")[0]
+        json = dumps({
+            "months": [
+                translate(
+                    pl_message(month),
+                    target_language=lang) for month in [
+                        "month_jan",
+                        "month_feb",
+                        "month_mar",
+                        "month_apr",
+                        "month_may",
+                        "month_jun",
+                        "month_jul",
+                        "month_aug",
+                        "month_sep",
+                        "month_oct",
+                        "month_nov",
+                        "month_dec",
+                ]
+            ],
+            "weekdays": [
+                translate(
+                    pl_message(weekday),
+                    target_language=lang) for weekday in [
+                        "weekday_sun",
+                        "weekday_mon",
+                        "weekday_tue",
+                        "weekday_wed",
+                        "weekday_thu",
+                        "weekday_fri",
+                        "weekday_sat",
+                ]
+            ],
+            "weekdaysShort": [
+                translate(
+                    pl_message(weekday_abbr),
+                    target_language=lang) for weekday_abbr in [
+                        "weekday_sun_abbr",
+                        "weekday_mon_abbr",
+                        "weekday_tue_abbr",
+                        "weekday_wed_abbr",
+                        "weekday_thu_abbr",
+                        "weekday_fri_abbr",
+                        "weekday_sat_abbr",
+                ]
+            ],
+        })
+
+        return json

@@ -9,24 +9,11 @@
       i18n:domain="euphorie">
 
   <metal:headers define-macro="headers">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width = device-width" />
-    <meta name="viewport" content="user-scalable=no" />
-    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
   </metal:headers>
-
-  <metal:topnav define-macro="toplevel-navigation">
-    <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
-      <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
-      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
-      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@convert-guest" i18n:translate="Sign in">Sign in</a></li>
-    </ul>
-  </metal:topnav>
 
   <metal:home define-macro="homelink" meta:interpolation="true" tal:define="logo_mode webhelpers/logoMode">
     <li id="home">
@@ -38,48 +25,52 @@
     </li>
   </metal:home>
 
-  <metal:css define-macro="css" meta:interpolation="true" tal:define="base_url client/++resource++euphorie.style">
+  <metal:topnav define-macro="toplevel-navigation">
+    <ul id="navigation">
+      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">My Assessments</a></li>
+      <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
+      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Check your progress</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
+      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@login?came_from=${context/absolute_url}" i18n:translate="Sign in">Sign in</a></li>
+    </ul>
+  </metal:topnav>
+
+  <metal:css define-macro="css" meta:interpolation="true"
+         tal:define="base_url client/++resource++euphorie.resources">
+
     <tal:block condition="webhelpers/debug_mode">
-      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.css" />
-      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.css"/> <![endif]-->
-      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie8.css" /> <![endif]-->
+		<link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-      <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen.min.css" />
-      <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie7.min.css"/> <![endif]-->
-      <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${base_url}/screen-ie8.min.css" /> <![endif]-->
+        <!-- TODO: needs to be minified -->
+		<link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
-    <link tal:define="sector_url webhelpers/sector_url" tal:condition="sector_url" rel="stylesheet" type="text/css" media="all" href="${sector_url}/@@sector.css" />
-    <script type="text/javascript" src="${client/++resource++euphorie.libraries}/modernizr-2.6.1.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width = 320" />
-    <meta name="viewport" content="user-scalable=no" />
   </metal:css>
 
-  <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.libraries">
+  <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.resources">
     <tal:block condition="webhelpers/debug_mode">
-      <script type="text/javascript" src="${lib_url}/patterns.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery-ui-1.9.1.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery-ui-i18n.js"></script>
-      <script type="text/javascript" src="${lib_url}/css_browser_selector.js"></script>
-      <script type="text/javascript" src="${lib_url}/jcarousellite_1.0.1.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery.numeric.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery.scrollTo.js"></script>
-      <script type="text/javascript" src="${lib_url}/jquery.localscroll.js"></script>
-      <script type="text/javascript" src="${lib_url}/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-      <script type="text/javascript" src="${lib_url}/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
-      <script type="text/javascript" src="${client/++resource++euphorie.behaviour}/markup.js"></script>
-      <script type="text/javascript" src="${client/++resource++euphorie.behaviour}/plan.js"></script>
+        <script type="text/javascript" src="${lib_url}/oira.js"></script>
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-      <script type="text/javascript" src="${client/++resource++euphorie.behaviour}/common.min.js"></script>
+        <!-- TODO: this must be minified -->
+        <script type="text/javascript" src="${lib_url}/oira.js"></script>
     </tal:block>
   </metal:javascript>
 
-  <metal:survey define-macro="survey_tree_inner" meta:interpolation="true">
+  <metal:survey define-macro="survey_tree_inner_old" meta:interpolation="true">
     <ol tal:condition="exists:tree" class="${python:'microns' if tree['leaf_module'] else None}">
-      <li tal:repeat="item tree/children" class="${item/class}">
-        <a href="${item/url}" title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"><strong class="counter">${item/number}</strong> ${item/title}</a>
+      <li tal:repeat="item tree/children"
+          title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
+          class="${item/class}">
+        <a  tal:define="item_class item/class"
+            href="${item/url}">
+            <tal:if condition="python:not tree['leaf_module']">
+                <strong class="counter">${item/number}</strong> ${item/title}
+            </tal:if>
+        </a>
         <tal:subtree condition="python:item['children']" define="tree python:item">
           <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
         </tal:subtree>
@@ -87,10 +78,54 @@
     </ol>
   </metal:survey>
 
+  <metal:survey define-macro="survey_tree_inner" meta:interpolation="true" tal:define="target_inject python:page_section=='identification' and 'step-2' or 'step-4'">
+    <ol tal:condition="exists:tree" tal:attributes="class python:tree['leaf_module'] and 'navigation questions' or ''">
+      <tal:items repeat="item tree/children">
+      <li tal:condition="python: item['type']!='location'"
+          title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
+          class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']>1 else '')}">
+        <a tal:define="item_class item/class" class="pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document" data-pat-inject="history: record; source: #${target_inject}; target: #${target_inject} &amp;&amp; source: #content; target: #content"
+            href="${item/url}">
+                <strong class="${python:'counter' if item['type']=='module' else 'number'}">${item/number}</strong> ${item/title}
+        </a>
+
+        <tal:subtree condition="python:item['children']" define="tree python:item">
+          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+        </tal:subtree>
+      </li>
+      <tal:location condition="python: item['type']=='location'">
+        <h4 class="location-tag">${item/title}</h4>
+        <tal:subtree condition="python:item['children']" define="tree python:item">
+          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+        </tal:subtree>
+      </tal:location>
+
+    </tal:items>
+    </ol>
+  </metal:survey>
+
   <metal:survey define-macro="survey_tree" meta:interpolation="true">
-    <aside tal:condition="exists:tree" class="questions">
+    <div tal:condition="exists:tree" class="topics">
+      <h2 class="module-title">
+        <tal:phase_identification condition="python:page_section=='identification'">
+          <tal:identification i18n:translate="label_identification">Identification</tal:identification> + <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation>
+        </tal:phase_identification>
+        <tal:phase_actionplan condition="python:page_section=='actionplan'" i18n:translate="label_action_plan">Action Plan</tal:phase_actionplan>
+      </h2>
       <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
         <ul class="legend">
+          <li class="unvisited" i18n:translate="">Unvisited</li>
+          <li class="postponed" i18n:translate="">Postponed</li>
+          <li class="answered" i18n:translate="">Risk not present</li>
+          <li class="answered risk" i18n:translate="">Risk present</li>
+        </ul>
+    </div>
+  </metal:survey>
+
+  <metal:survey define-macro="survey_tree_old" meta:interpolation="true">
+    <aside tal:condition="exists:tree" class="questions">
+      <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+      <ul class="legend">
           <li class="unvisited" i18n:translate="">Unvisited</li>
           <li class="postponed" i18n:translate="">Postponed</li>
           <li class="answered" i18n:translate="">Risk not present</li>
@@ -100,57 +135,247 @@
   </metal:survey>
 
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
-    <p id="appendix">
-      <tal:block repeat="page webhelpers/appendix"
-      ><a href="${page/url}">${page/title}</a> |</tal:block>
-      <tal:span i18n:translate="appendix_produced_by">Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_new">EU-OSHA</a>.</tal:span> |
-      <a href="${webhelpers/about_url}" i18n:translate="appendix_about">About</a>
+    <p id="appendix" tal:define="media_url client/++resource++euphorie.media">
+        <a href="${webhelpers/client_url}">
+          <img class="appendix_oira_logo" src="${media_url}/osha/footer_logo.png"/>
+        </a>
+
+        <tal:block repeat="page webhelpers/appendix">
+            <a href="${page/url}">${page/title}</a> |
+        </tal:block>
+        <tal:span i18n:translate="appendix_produced_by">
+        Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_blank">EU-OSHA</a>.</tal:span>
+        |
+        <a href="http://www.oiraproject.eu/" target="_blank" i18n:translate="appendix_about">About</a>
+        |
+        <a href="${webhelpers/client_url}/terms-and-conditions" target="_blank"  i18n:translate="appendix_privacy">Privacy</a>
+        |
+        <a href="${webhelpers/client_url}/disclaimer" target="_blank" i18n:translate="appendix_disclaimer">Disclaimer</a>
+        |
+        <a href="http://www.gnu.org/licenses/gpl.html" target="_blank" i18n:translate="appendix_gpl_license">GPL License</a>
+        |
+        <a href="http://creativecommons.org/licenses/by-sa/2.5/"
+            target="_blank"
+            i18n:attributes="alt" alt="CC License">
+            <img class="creative_commons_logo" src="${media_url}/osha/creative_commons.png"/>
+        </a>
     </p>
+    <div id="browser-warning" style="display:none">This will contain the warning translated</div>
   </metal:appendix>
 
-  <metal:riskinfo define-macro="risk_info" meta:interpolation="true" i18n:domain="euphorie">
-    <p class="gallery" tal:define="images risk/@@images" tal:condition="python:risk.image is not None">
-      <a rel="fancybox" title="${risk/caption|nothing}" href="${risk/absolute_url}/@@download/image/${risk/image/filename}"
-        tal:define="scale python:images.scale('image', width=150, height=500, direction='thumbnail')"
-        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
-      <a rel="fancybox" title="${risk/caption2|nothing}" href="${risk/absolute_url}/@@download/image2/${risk/image2/filename}"
-        tal:define="scale python:images.scale('image2', width=120, height=172, direction='thumbnail')"
-        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
-      <a rel="fancybox" title="${risk/caption3|nothing}" href="${risk/absolute_url}/@@download/image3/${risk/image3/filename}"
-        tal:define="scale python:images.scale('image3', width=120, height=172, direction='thumbnail')"
-        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
-      <a rel="fancybox" title="${risk/caption4|nothing}" href="${risk/absolute_url}/@@download/image4/${risk/image4/filename}"
-        tal:define="scale python:images.scale('image4', width=120, height=172, direction='thumbnail')"
-        tal:condition="scale"><img alt="" with="${scale/width}" height="${scale/height}" src="${scale/url}"/></a>
-    </p>
+  <metal:riskinfo define-macro="risk_info_actionplan" meta:interpolation="true" i18n:domain="euphorie" >
+  <div tal:condition="python:view.number_images > 1" class="image-collage pat-gallery pat-equaliser">
+    <tal:get define="images risk/@@images">
+    <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+
+    <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+
+    <!-- Notice that each image has an image caption in the title tag. -->
+        <a title="${risk/caption|nothing}" tal:on-error="nothing"
+              class="${view/image_class} columns"
+              style="background-image: url(${large/url|nothing})"
+              tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                          large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+              href="${large/url|nothing}"
+              tal:condition="thumb"><img  alt="" src="${thumb/url}" />
+        </a>
+        <a title="${risk/caption2|nothing}" tal:on-error="nothing"
+              class="${view/image_class} columns"
+              style="background-image: url(${large/url|nothing})"
+              tal:define="thumb python:images.scale('image2', width=400, height=600, direction='thumbnail');
+                          large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
+              href="${large/url|nothing}"
+              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        </a>
+        <a title="${risk/caption3|nothing}" tal:on-error="nothing"
+              class="${view/image_class} columns"
+              style="background-image: url(${large/url|nothing})"
+              tal:define="thumb python:images.scale('image3', width=400, height=600, direction='thumbnail');
+                          large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
+              href="${large/url|nothing}"
+              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        </a>
+        <a title="${risk/caption4|nothing}" tal:on-error="nothing"
+              class="${view/image_class} columns"
+              style="background-image: url(${large/url|nothing})"
+              tal:define="thumb python:images.scale('image4', width=400, height=600, direction='thumbnail');
+                          large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
+              href="${large/url|nothing}"
+              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        </a>
+      </tal:get>
+    </div>
+    <nav class="pat-gallery" tal:condition="python:view.number_images == 1" tal:on-error="nothing">
+      <a href="${large/url|nothing}"
+         tal:define="images risk/@@images;
+                     thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                     large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+          style="background-image: url(${large/url|nothing})">
+        <img class="medium float-before" src="${thumb/url}" alt="" />
+      </a>
+    </nav>
+
     <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description">
       <tal:block condition="not:view/risk_present">
-        <h2 tal:content="risk/title"></h2>
         <p tal:condition="python:risk.type=='top5'" i18n:translate="top5_risk_not_present">
-        This risk is not present in your organisation, but since the sector organisation considers this one of the top 5 most
-        critical risks it must be included in this report.</p>
+            This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
+            included in this report.
+        </p>
       </tal:block>
       <tal:block condition="view/risk_present">
-        <h2 tal:condition="use_problem_description"
-            tal:content="risk/problem_description">The fridges are checked daily.</h2>
         <tal:block condition="not:use_problem_description">
-          <h2 tal:content="risk/title">The fridges are checked daily.</h2>
-          <p class="negation"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negatively to the above statement.</tal:span></em></p>
+          <p class="negation">
+            <em><strong class="icon warning">⚠</strong>
+                <tal:span i18n:translate="warn_risk_present"> You responded negative to the above statement.</tal:span>
+            </em>
+        </p>
         </tal:block>
       </tal:block>
     </tal:block>
-    <p class="description" tal:replace="structure risk/description">
-      The temperature in a fridge is critical to storing food. If the
-      temperature is too high or fluctuates too much food can start
-      rotting quickly.
-    </p>
-    <tal:block condition="risk/legal_reference">
-      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
 
-      <p tal:content="structure risk/legal_reference">
-        The requirements for fridges are defined in section 13.1 section a
-        of the health code.
-      </p>
-    </tal:block>
+    <div class="pat-collapsible closed">
+      <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more" i18n:translate="Read more">Read more</tal:more> about this risk.</h4>
+      <tal:description tal:replace="structure risk/description" />
+    </div>
+
   </metal:riskinfo>
+
+
+  <metal:riskinfo define-macro="risk_info_identification" meta:interpolation="true" i18n:domain="euphorie" >
+    <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
+      <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+
+      <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+
+      <!-- Notice that each image has an image caption in the title tag. -->
+      <tal:many condition="python:view.number_images > 1">
+        <div class="${view/image_class} columns" tal:on-error="nothing"
+          tal:define="thumb python:images.scale('image', width=590, height=800, direction='thumbnail');
+                      large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+          tal:condition="large">
+          <a title="${risk/caption|nothing}"
+                style="background-image: url(${large/url|nothing})"
+                href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+          </a>
+        </div>
+        <div class="${view/image_class} columns" tal:on-error="nothing"
+          tal:define="thumb python:images.scale('image2', width=590, height=800, direction='thumbnail');
+                      large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
+          tal:condition="large">
+          <a title="${risk/caption2|nothing}"
+                style="background-image: url(${large/url|nothing})"
+                href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+          </a>
+        </div>
+        <div class="${view/image_class} columns" tal:on-error="nothing"
+          tal:define="thumb python:images.scale('image3', width=590, height=800, direction='thumbnail');
+                      large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
+          tal:condition="large">
+          <a title="${risk/caption3|nothing}"
+                style="background-image: url(${large/url|nothing})"
+                href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+          </a>
+        </div>
+        <div class="${view/image_class} columns" tal:on-error="nothing"
+          tal:define="thumb python:images.scale('image4', width=590, height=800, direction='thumbnail');
+                      large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
+          tal:condition="large">
+          <a title="${risk/caption4|nothing}"
+                style="background-image: url(${large/url|nothing})"
+                href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+          </a>
+        </div>
+    </tal:many>
+    <tal:single condition="python:view.number_images == 1" tal:on-error="nothing">
+          <figure>
+            <a title="${risk/caption|nothing}"
+                  tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                              large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+                  href="${large/url|nothing}"
+                  tal:condition="large"><img  alt="" src="${thumb/url}" />
+            </a>
+
+            </figure>
+    </tal:single>
+    </div>
+
+    <section id="concise-content">
+      <tal:description_intro condition="view/description_intro">
+        <p class="introduction">
+          <tal:text replace="structure view/description_intro">short description</tal:text> <a class="show-more pat-inject" href="${request/ACTUAL_URL}" data-pat-inject="source: #full-content; target: #concise-content;" i18n:translate="Read more">Read more</a>
+        </p>
+      </tal:description_intro>
+      <tal:no_description_intro condition="not:view/description_intro">
+        <p class="introduction">
+          <tal:text replace="structure risk/description">description</tal:text>
+        </p>
+      </tal:no_description_intro>
+    </section>
+
+    <article id="full-content" hidden="hidden">
+      <tal:text replace="structure risk/description">description</tal:text>
+      <p class="show-more-or-less">
+        <a href="${request/ACTUAL_URL}" class="pat-inject" data-pat-inject="source: #short_description; target: #concise-content"><strong i18n:translate="Show less…" class="show-less">Show less…</strong></a>
+      </p>
+    </article>
+
+    <article id="short_description" hidden="hidden">
+      <p class="introduction">
+          <tal:text replace="structure view/description_intro">short description</tal:text> <a class="show-more pat-inject" href="${request/ACTUAL_URL}" data-pat-inject="source: #full-content; target: #concise-content;" i18n:translate="Read more">Read more</a>
+        </p>
+    </article>
+
+  </metal:riskinfo>
+
+
+  <metal:risklegal define-macro="risk_legal" meta:interpolation="true" i18n:domain="euphorie">
+    <tal:block condition="python:risk.legal_reference or view.has_files">
+      <section class="caption pat-well">
+        <section class="pat-collapsible legal-references closed" tal:condition="risk/legal_reference">
+          <h3 i18n:translate="header_legal_references">Legal and policy references</h3>
+          <tal:legal replace="structure risk/legal_reference">
+            The requirements for fridges are defined in section 13.1 section a
+            of the health code.
+          </tal:legal>
+        </section>
+        <metal:additional_files define-macro="additional_files">
+        <section class="pat-collapsible more-information closed" tal:condition="view/has_files">
+          <h3 tal:condition="python:risk.Type()=='Risk'" i18n:translate="header_additional_resources">Additional resources to assess the risk</h3>
+          <h3 tal:condition="python:risk.Type()=='Module'" i18n:translate="header_additional_resources_module">Additional resources for this module</h3>
+          <ul>
+            <li class="icon-download" tal:condition="nocall:risk/file1|nothing">
+              <a href="${risk/absolute_url}/download/file1"><tal:caption condition="risk/file1_caption|nothing">${risk/file1_caption} (${risk/file1/filename})</tal:caption><tal:nocaption condition="not:risk/file1_caption|nothing">${risk/file1/filename}</tal:nocaption></a>
+            </li>
+            <li class="icon-download" tal:condition="nocall:risk/file2|nothing">
+              <a href="${risk/absolute_url}/download/file2"><tal:caption condition="risk/file2_caption|nothing">${risk/file2_caption} (${risk/file2/filename})</tal:caption><tal:nocaption condition="not:risk/file2_caption|nothing">${risk/file2/filename}</tal:nocaption></a>
+            </li>
+            <li class="icon-download" tal:condition="nocall:risk/file3|nothing">
+              <a href="${risk/absolute_url}/download/file3"><tal:caption condition="risk/file3_caption|nothing">${risk/file3_caption} (${risk/file3/filename})</tal:caption><tal:nocaption condition="not:risk/file3_caption|nothing">${risk/file3/filename}</tal:nocaption></a>
+            </li>
+            <li class="icon-download" tal:condition="nocall:risk/file4|nothing">
+              <a href="${risk/absolute_url}/download/file4"><tal:caption condition="risk/file4_caption|nothing">${risk/file4_caption} (${risk/file4/filename})</tal:caption><tal:nocaption condition="not:risk/file4_caption|nothing">${risk/file4/filename}</tal:nocaption></a>
+            </li>
+          </ul>
+        </section>
+      </metal:additional_files>
+      </section>
+    </tal:block>
+  </metal:risklegal>
+
+  <metal:risklegal define-macro="risk_legal_collapsible" meta:interpolation="true" i18n:domain="euphorie">
+    <div class="pat-collapsible closed" condition="risk/legal_reference">
+      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+      <div class="panel-content">
+          <tal:desc tal:replace="structure risk/legal_reference">
+                  The requirements for fridges are defined in section 13.1 section a
+                  of the health code.
+          </tal:desc>
+      </div>
+    </div>
+  </metal:risklegal>
+
+  <metal:webstats_js define-macro="webstats_js" meta:interpolation="true" i18n:domain="euphorie">
+    <span tal:replace="structure webhelpers/get_webstats_js" />
+  </metal:webstats_js>
+
 </html>
