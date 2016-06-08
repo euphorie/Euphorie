@@ -166,7 +166,7 @@
             <tal:native condition="not:nocall:sector_logo">
                 <!-- In case the organisation has not changed the logo, the link tag gets a class 'native' instead of 'alien' and the following markup applies: -->
                 <figure>
-                    <img src="${base_url}/++resource++oira.media/oira-logo.svg" alt="" />
+                    <img src="${base_url}/++resource++euphorie.media/oira-logo.svg" alt="" />
                     <figcaption>
                         <tal:oi i18n:translate="oira_name_line_1">Online interactive</tal:oi><br/>
                         <tal:ra i18n:translate="oira_name_line_2">Risk Assessment</tal:ra>
