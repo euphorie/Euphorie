@@ -34,6 +34,7 @@ from .country import IClientCountry
 from .conditions import checkTermsAndConditions
 from .conditions import approvedTermsAndConditions
 from .. import MessageFactory as _
+import os
 
 log = logging.getLogger(__name__)
 
@@ -129,6 +130,12 @@ class Login(grok.View):
                 urllib.urlencode({'came_from': came_from}))
 
 
+class LoginForm(Login):
+    grok.layer(IClientSkinLayer)
+    grok.name("login_form")
+    grok.template("login_form")
+
+
 class Tryout(Login):
     grok.context(Interface)
     grok.require("zope2.Public")
@@ -214,6 +221,8 @@ class Reminder(grok.View):
             self.back_url = context.absolute_url()
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
+            if self.request.form.get('cancel', ''):
+                self.request.response.redirect(self.back_url)
             if self._sendReminder():
                 flash = IStatusMessage(self.request).addStatusMessage
                 flash(_(u"An email with a password reminder has been "
@@ -278,6 +287,14 @@ class Register(grok.View):
         return account
 
     def update(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        self.email_message = translate(_(
+            u"invalid_email",
+            default=u"Please enter a valid email address."),
+            target_language=lang)
         self.errors = {}
         if self.request.environ["REQUEST_METHOD"] == "POST":
             account = self._tryRegistration()
@@ -298,6 +315,16 @@ class Register(grok.View):
                                 urllib.urlencode({"came_from": came_from})))
                 else:
                     self.request.response.redirect(came_from)
+
+    def get_image_version(self, name):
+        """" Needed on the reports overview show to the guest user """
+        fdir = os.path.join(
+            os.path.dirname(__file__), os.path.join('templates', 'media'))
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        fname = "{0}_{1}".format(name, lang)
+        if os.path.isfile(os.path.join(fdir, fname + '.png')):
+            return fname
+        return name
 
 
 class Logout(grok.View):
