@@ -21,6 +21,7 @@ from json import dumps
 from AccessControl import getSecurityManager
 from zope.component import getUtility
 from zope.interface import Interface
+from plone import api
 from plone.app.controlpanel.site import ISiteSchema
 from plone.memoize.instance import memoize
 from plone.i18n.normalizer import idnormalizer
@@ -144,6 +145,10 @@ class WebHelpers(grok.View):
                 if ISurvey.providedBy(obj):
                     setattr(self.request, 'survey', obj)
                     break
+
+    def get_username(self):
+        member = api.user.get_current()
+        return member.getProperty('fullname') or member.getUserName()
 
     def get_webstats_js(self):
         site = getSite()
@@ -458,6 +463,14 @@ class WebHelpers(grok.View):
         else:
             message = None
         return message
+
+    def closetext(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return translate(
+            _(u"button_close", default=u"Close"), target_language=lang)
 
 
 def HasText(html):
