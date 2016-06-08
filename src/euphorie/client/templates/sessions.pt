@@ -8,169 +8,58 @@
       i18n:domain="euphorie"
       id="sessions"
       meta:interpolation="true"
-      tal:define="webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools; client nocall:request/client">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body tal:define="sessions view/sessions">
-    <h1 i18n:translate="header_session">Session</h1>
-    
-    <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
-    
-    <tal:block condition="python:sessions">
-      <h2 i18n:translate="header_select_session">Select an earlier session to complete or review</h2>
-      <table id="sessionList">
-        <tbody>
-          <tr tal:repeat="session sessions">
-            <td><form method="post" action="${request/URL}" class="startSessionForm">
-                <input type="hidden" name="action" value="continue"/>
-                <input type="hidden" name="session" value="${session/id}"/>
-                <button class="link" type="submit">${session/title}</button>,
-                <tal:span i18n:translate="lable_session_modified">saved on
-                <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
-            <td class="actions span-5">
-              <form method="post" action="${context/absolute_url}/@@json-rename-session" class="renameSessionForm jsOnly">
-                <input type="hidden" name="id" value="${session/id}" />
-                <button type="button" class="small rename floatAfter" i18n:translate="label_rename">Rename</button>
-              </form>
-              <form method="post" action="delete-session" class="removeSessionForm">
-                <input type="hidden" name="json_url" value="${context/absolute_url}/@@json-delete-session"/>
-                <input type="hidden" name="id" value="${session/id}" />
-                <button type="button" class="small delete floatAfter" i18n:translate="label_delete">Delete</button>
-              </form>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 i18n:translate="header_or">or…</h2>
-    </tal:block>
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
 
-    <form method="post" action="${request/URL}">
-      <input type="hidden" name="action" value="new"/>
-      <fieldset class="concise">
-        <label><tal:span i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</tal:span> 
-          <select name="survey">
-            <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
-            <optgroup tal:condition="view/obsolete_surveys" label="Obsolete surveys" i18n:attributes="label label_obsolete_survey_group">
-              <option tal:repeat="survey view/obsolete_surveys" value="${survey/id}">${survey/title}</option>
-            </optgroup>
-          </select>
-        </label>
-        <label><tal:span i18n:translate="label_session_title">Enter a title for your Risk Assessment</tal:span>
-          <a class="icon info pat-tooltip" data-pat-tooltip="source: content;" href="${webhelpers/help_url}#sessions" i18n:translate="session_title_tooltip">Once you have started an RA, you will be able to stop before the end.  Log out: the data will be stored. If you forgot to log out and just ended the RA, the data will be stored too. For security reasons it is better to officially log out. Of course your must remember your e-mail address, password and the title that you have given the RA. You can start the stored RA again at a later date: select the title of the RA. You can save more than one RA, provided you have given them different titles names.</a>
-          <input type="text" name="title:utf8:ustring"/></label>
-      </fieldset>
-      <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
-      </p>
-    </form>
+<body>
+<metal:slot fill-slot="content" tal:define="sessions view/sessions">
+    <tal:block replace="tile:statusmessages"/>
+    <article>
+        <p i18n:translate="info_select_session">
+            Select an earlier session to complete or review or
+            <tal:name i18n:name="start_session"><a href="new-session.html#document-content" id="button-new-session"
+               data-pat-modal="class: large" class="pat-modal icon-plus-circle" title="Start a new session" i18n:attributes="title" i18n:translate="link_start_session">start a new session</a></tal:name>.
+        </p>
 
-    <ol id="steps">
-      <li id="step-1" class="disabled">
-        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-      </li>
-      <li id="step-2" class="disabled">
-        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-      </li>
-      <li id="step-3" class="disabled">
-        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-      </li>
-      <li id="step-4" class="disabled">
-        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-      </li>
-      <li id="step-5" class="disabled">
-        <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-        <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-      </li>
-    </ol>
+        <table tal:condition="sessions" id="sessionList">
+            <tbody>
+            <tr tal:repeat="session sessions">
+                <td><form method="post" action="${request/URL}" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue"/>
+                    <input type="hidden" name="session" value="${session/id}"/>
+                    <button class="link" type="submit">${session/title}</button>,
+                    <tal:span i18n:translate="lable_session_modified">saved on
+                    <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
+                <td class="actions span-5">
+                    <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>
+                    <a class="iconified icon-trash pat-modal" title="Delete this session" href="${context/absolute_url}/@@confirmation-delete-session.html?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_delete">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
 
-    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:sessions"/>
-    <metal:appendix use-macro="webhelpers/macros/appendix"/>
-    <metal:javascript use-macro="webhelpers/macros/javascript"/>
-    <script type="text/javascript" meta:interpolation="false">
-var confirm_text = "<tal:span i18n:translate=''>Are you sure you want to delete this session? This action can not be reverted.</tal:span>";
-// <![CDATA[
-$(document).ready(function() {
-    $("form.renameSessionForm button").click(function() {
-        var renamebutton = this,
-            action = $(renamebutton.form).attr("action"),
-            $row = $(renamebutton).closest("tr"),
-            $startform = $row.find("form.startSessionForm"),
-            $startbutton = $startform.find("button"),
-            $input;
+</metal:slot>
 
-        renamebutton.disabled="disabled";
-        $startform
-            .bind("submit.rename", function() {
-                $.ajax({url: action,
-                        cache: false,
-                        data: { "title:utf8:ustring": $input.val(),
-                                id: renamebutton.form.id.value },
-                        dataType: "json",
-                        success: function(data, status) {
-                            $input.remove();
-                            $startbutton.text($input.val()).show();
-                            $startform.unbind("submit.rename");
-                            renamebutton.disabled=null;
-                        }
-                        });
-                return false;
-            });
+<metal:slot fill-slot="splash_message_slot">
+    <div tal:condition="python:splash_message is not None" class="splash-message">
+        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-*; add: splash-off-${splash_message/id}; store: local" />
+        <article class="pat-rich content">
+            <p>
+                <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg" width="20%" />
+            </p>
+            <h1 tal:content="structure splash_message/title">Message of the day!</h1>
+            <tal:content content="structure splash_message/text">
+                <p>Sit amet consectetuer.</p>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                <p>OiRA Team</p>
+            </tal:content>
+       </article>
+    </div>
+</metal:slot>
 
-        $startbutton.hide();
-        $input=$("<input/>")
-            .attr("type", "text")
-            .attr("name", "title")
-            .addClass("span-5")
-            .val($startbutton.text())
-            .insertAfter($startbutton)
-            .keyup(function(event) {
-                if (event.which==27) {
-                    $input.remove();
-                    $startbutton.show();
-                    $startform.unbind("submit.rename");
-                    renamebutton.disabled=null;
-                }
-             })
-            .focus();
-    });
-
-    $("form.removeSessionForm button").click(function() {
-        var button = this;
-
-        if (!confirm(confirm_text)) {
-            return false;
-        }
-
-        $.ajax({type: "POST",
-                url: this.form.json_url.value,
-                cache: false,
-                dataType: "json",
-                data: { id: this.form.id.value },
-                success: function(data, status) {
-                    if (data.result==="ok") {
-                        $(button).parents("tr").remove();
-                        if ($("#sessionList tr").length===0) {
-                            $("h2").remove();
-                            $("#sessionList").remove();
-                        }
-                    }
-                }
-                });
-
-        return false;
-    });
-});
-// ]]>
-    </script>
-    <tal:block replace="tile:client-analytics"/>
-  </body>
+</body>
 </html>
 

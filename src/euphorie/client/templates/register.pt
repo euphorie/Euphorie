@@ -6,46 +6,102 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
+      id="register"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body class="${webhelpers/extra_css}">
-    <h1 i18n:translate="header_register">Register</h1>
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
 
-    <p tal:define="country webhelpers/country" class="country ${country}" id="country">${country}</p>
-    
+<body>
+<metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account; base_url webhelpers/base_url">
+    <tal:block replace="tile:statusmessages"/>
+    <article tal:condition="python:is_guest_account and request.get('report_blurb')">
+      <h1 i18n:translate="header_reporting">Reporting</h1>
+      <p i18n:translate="report_guest_register_intro">We are sorry, this is a trial version and the download feature cannot be used. Register in just one step and gain access to the following benefits:</p>
+      <ul>
+          <li i18n:translate="label_register_benefit_1">It's free.</li>
+          <li i18n:translate="label_register_benefit_2">You can save your work online.</li>
+          <li i18n:translate="label_register_benefit_3">You can download a full report and an action plan.</li>
+      </ul>
+      <hr class="pat-separator blank" />
+      <div class="pat-gallery">
+      <div class="row" tal:define="rtfname string:example-rtf-ribbon; xlsname string:example-xlsx-ribbon;
+        rtf_img_full python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(rtfname));
+        rtf_img_thumb python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(rtfname + '-thumb'));
+        xls_img_full python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(xlsname));
+        xls_img_thumb python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(xlsname + '-thumb'));
+        ">
+          <a href="${rtf_img_full}" class="four columns push-two">
+              <figure>
+                  <img src="${rtf_img_thumb}" alt="Example of a full report in rich text format (.rtf)" title="Example of a full report in rich text format (.rtf)" i18n:attributes="title header_example_report_rft; alt header_example_report_rft" />
+                  <figcaption i18n:translate="header_example_report_rft">
+                      Example of a full report in rich text format (.rtf)
+                  </figcaption>
+              </figure>
+          </a>
+          <a href="${xls_img_full}" class="four columns pull-two">
+              <figure>
+                  <img src="${xls_img_thumb}" alt="Example of an action plan in Office Open XML Workbook format  (.xlsx)" title="Example of an action plan in Office Open XML Workbook format  (.xlsx)" i18n:attributes="alt header_example_report_xlsx; title header_example_report_xlsx;" />
+                  <figcaption i18n:translate="header_example_report_xlsx">
+                      Example of an action plan in Office Open XML Workbook format  (.xlsx)
+                  </figcaption>
+              </figure>
+          </a>
+      </div>
+      <div class="row" tal:define="risksname string:example-risks-report; measuresname string:example-measures-report;
+        risks_img_full python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(risksname));
+        risks_img_thumb python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(risksname + '-thumb'));
+        measures_img_full python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(measuresname));
+        measures_img_thumb python:'%s/++resource++oira.media/%s.png' %(base_url, view.get_image_version(measuresname + '-thumb'));
+        ">
+          <a href="${risks_img_full}" class="four columns push-two">
+              <figure>
+                  <img src="${risks_img_thumb}" alt="Example of a the risk overview report in PDF format" title="Example of a the risk overview report in PDF format" i18n:attributes="alt header_example_report_risks; title header_example_report_risks" />
+                  <figcaption i18n:translate="header_example_report_risks">
+                      Example of a risk overview report in PDF format
+                  </figcaption>
+              </figure>
+          </a>
+          <a href="${measures_img_full}" class="four columns pull-two">
+              <figure>
+                  <img src="${measures_img_thumb}" alt="Example of a the measures overview report in PDF format" title="Example of a the measures overview report in PDF format" i18n:attributes="alt header_example_report_measures; title header_example_report_measures" />
+                  <figcaption i18n:translate="header_example_report_measures">
+                      Example of a measures overview report in PDF format
+                  </figcaption>
+              </figure>
+          </a>
+      </div>
+    </div>
+      <h2 i18n:translate="header_register">Register</h2>
+    </article>
+
+    <article tal:condition="python: not request.get('report_blurb')">
+      <h1 i18n:translate="header_register">Register</h1>
+    </article>
+
     <p class="message error" tal:condition="view/error|nothing">${view/error}</p>
 
-    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" tal:define="errors view/errors" action="${request/URL}">
+    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" tal:define="errors view/errors" action="${request/URL}" class="pat-validation" data-pat-validation="message-email: ${view/email_message}">
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
-      <h2 i18n:translate="header_register">Register</h2>
-      <fieldset class="concise">
-        <tal:guest_account condition="webhelpers/is_guest_account|nothing">
+      <fieldset class="vertical">
+        <tal:guest_account condition="is_guest_account|nothing">
             <input type="hidden" name="guest_session_id" tal:attributes="value webhelpers/guest_session_id"/>
         </tal:guest_account>
-        <label class="${python:'error' if 'email' in errors else None}"><tal:span i18n:translate="label_email">Email address</tal:span> <input class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
-          <em class="message warning" tal:condition="errors/email|nothing">${errors/email}</em></label>
+        <label class="${python:'error' if 'email' in errors else None}"><tal:span i18n:translate="label_email">Email address</tal:span>
+            <input tal:condition="python: not request.get('report_blurb')" class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
+            <input tal:condition="python: is_guest_account and request.get('report_blurb')" class="email" type="email" name="email" value="${request/email|nothing}"/>
+          <em class="message warning" tal:condition="exists:errors/email" tal:content="errors/email">Invalid login name</em></label>
         <label class="${python:'error' if 'password' in errors else None}"><tal:span i18n:translate="label_new_password">Desired password</tal:span> <input class="password" type="password" name="password1:utf8:ustring" />
-          <em class="message warning" tal:condition="errors/password|nothing">${errors/password}</em></label>
+          <em class="message warning" tal:condition="exists:errors/password" tal:content="errors/password">Invalid password</em></label>
         <label><tal:span i18n:translate="label_password_confirm">Again password</tal:span> <input class="password" type="password"  name="password2:utf8:ustring"/> </label>
       </fieldset>
-      <p class="discrete"><a href="${webhelpers/country_url}/appendix/privacy-statement" i18n:translate="label_privacy_statement">Privacy statement</a></p>
       <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
+        <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button">Next</button>
       </p>
     </form>
 
-    <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
-    </ul>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
+  </metal:slot>
   </body>
 </html>
