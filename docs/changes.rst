@@ -4,8 +4,7 @@ Changelog
 7.0.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Enhance survey export so that unwanted characters can be stripped
 
 7.0.9 (2016-05-31)
 ------------------
