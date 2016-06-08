@@ -1,19 +1,31 @@
+# coding=utf-8
 import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from AccessControl import getSecurityManager
-from zope.interface import implements
-from five import grok
-from z3c.saconfig import Session
-from plone.directives import form
-from plone.directives import dexterity
-from plone.app.dexterity.behaviors.metadata import IBasic
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from euphorie.client.session import SessionManager
+from five import grok
+from plone.directives import form
+from plone.directives import dexterity
+from plone.app.dexterity.behaviors.metadata import IBasic
+from Products.statusmessages.interfaces import IStatusMessage
+from sqlalchemy.orm import object_session
+from z3c.form import button
+from z3c.saconfig import Session
+from zope import schema
+from zope.interface import directlyProvides
+from zope.interface import implements
+from zope.interface import Interface
+
+
+from .. import MessageFactory as _
+
 
 grok.templatedir("templates")
 
@@ -124,6 +136,33 @@ class View(grok.View):
         self._updateSurveys()
 
 
+class CreateSession(View):
+    grok.context(Interface)
+    grok.name("new-session.html")
+    grok.template("new-session")
+
+
+class ConfirmationDeleteSession(grok.View):
+    grok.context(IClientCountry)
+    grok.name("confirmation-delete-session.html")
+    grok.layer(IClientSkinLayer)
+    grok.template("confirmation-delete-session")
+
+    def __call__(self, *args, **kwargs):
+        try:
+            self.session_id = int(self.request.get("id"))
+        except (ValueError, TypeError):
+            raise KeyError("Invalid session id")
+        user = getSecurityManager().getUser()
+        session = object_session(user).query(SurveySession)\
+                .filter(SurveySession.account == user)\
+                .filter(SurveySession.id == self.session_id).first()
+        if session is None:
+            raise KeyError("Unknown session id")
+        self.session_title = session.title
+        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
+
+
 class DeleteSession(grok.View):
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
@@ -132,38 +171,56 @@ class DeleteSession(grok.View):
 
     def render(self):
         session = Session()
-        ss = session.query(model.SurveySession).get(self.request.form["id"])
+        ss = session.query(SurveySession).get(self.request.form["id"])
         if ss is not None:
+            flash = IStatusMessage(self.request).addStatusMessage
+            flash(_(u"Session `${name}` has been deleted.",
+                    mapping={"name": getattr(ss, 'title')}), "success")
             session.delete(ss)
         self.request.response.redirect(self.context.absolute_url())
 
 
-class JsonRenameSession(grok.View):
+class RenameSessionSchema(form.Schema):
+    title = schema.TextLine(required=False)
+
+
+class RenameSession(form.SchemaForm):
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
-    grok.name("json-rename-session")
+    grok.name("rename-session")
+    grok.template("rename-session")
+    form.wrap(False)
 
-    @utils.jsonify
-    def render(self):
-        session = Session()
-        ss = session.query(model.SurveySession).get(self.request.form["id"])
-        if ss is not None:
-            ss.title = self.request.form["title"]
-        return dict(result="ok")
+    schema = RenameSessionSchema
 
+    def getContent(self):
+        try:
+            session_id = int(self.request.get("id"))
+        except (ValueError, TypeError):
+            raise KeyError("Invalid session id")
+        user = getSecurityManager().getUser()
+        session = object_session(user).query(SurveySession)\
+                .filter(SurveySession.account == user)\
+                .filter(SurveySession.id == session_id).first()
+        if session is None:
+            raise KeyError("Unknown session id")
+        self.original_title = session.title
+        directlyProvides(session, RenameSessionSchema)
+        return session
 
-class JsonDeleteSession(grok.View):
-    grok.context(IClientCountry)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("json-delete-session")
+    @button.buttonAndHandler(_(u"Save"))
+    def handleSave(self, action):
+        (data, errors) = self.extractData()
+        if errors:
+            return
+        if data["title"]:
+            flash = IStatusMessage(self.request).addStatusMessage
+            self.getContent().title = data['title']
+            flash(_(u"Session title has been changed to ${name}",
+                mapping={"name": data["title"]}), "success")
+        self.response.redirect(self.context.absolute_url())
 
-    @utils.jsonify
-    def render(self):
-        """JSON entry point for session deletion."""
-        session = Session()
-        ss = session.query(model.SurveySession).get(self.request.form["id"])
-        if ss is not None:
-            session.delete(ss)
-        return dict(result="ok")
+    @button.buttonAndHandler(_(u"Cancel"))
+    def handleCancel(self, action):
+        self.response.redirect(self.context.absolute_url())

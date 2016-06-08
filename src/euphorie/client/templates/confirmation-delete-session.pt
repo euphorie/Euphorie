@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content">
+    <div id="document-content" class="pat-modal">
+        <h1><tal:delete i18n:translate="label_delete">Delete</tal:delete> `${view/session_title}`</h1>
+        <form method="post" action="${context/absolute_url}/@@delete-session" class="wizard-box">
+            <input type="hidden" name="id" value="${view/session_id}" />
+            <div class="panel-body">
+                <p i18n:translate="">Are you sure you want to delete this session? This action can not be reverted.</p>
+            </div>
+            <div class="buttons panel-footer">
+                <button type="submit" class="pat-button"> <tal:label i18n:translate="button_delete_session">Yes, delete session</tal:label> </button>
+                <button type="button" class="pat-button close-panel"> <tal:label i18n:translate="button_cancel">Cancel</tal:label> </button>
+            </div>
+        </form>
+    </div>
+</metal:slot>
+</body>
+</html>

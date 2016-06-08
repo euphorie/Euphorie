@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content">
+  <div id="document-content" class="pat-modal">
+    <h1 i18n:translate="">Change name of session</h1>
+
+    <form method="post" action="${request/URL}?id=${request/form/id}" class="wizard-box">
+      <div class="panel-body">
+        <p class="pat-rich" i18n:translate="">Please enter a new name for this OiRA Tool</p>
+
+        <fieldset tal:define="widget nocall:view/widgets/title" class="${python:'error' if widget.error else None}">
+          <input autofocus="autofocus" type="text" name="${widget/name}" class="huge${python: ' error' if widget.error else ''}" size="40" value="${view/original_title}" />
+          <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+        </fieldset>
+      </div>
+
+        <div class="buttons panel-footer">
+          <button type="submit" name="form.buttons.save" value="Save" class="pat-button" i18n:translate="">Save changes</button>
+          <button id="btnCancel" type="button" name="form.buttons.cancel" value="Cancel" class="pat-button close-panel" i18n:translate="">Cancel</button>
+        </div>
+
+    </form>
+  </div>
+</metal:slot>
+  </body>
+</html>
