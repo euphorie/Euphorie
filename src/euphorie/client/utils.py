@@ -635,3 +635,14 @@ class I18nJSONView(grok.View):
         })
 
         return json
+
+
+class DefaultIntroduction(grok.View):
+    """
+        Browser view that displays the default introduction text for a Suvey.
+        It is used when the Survey does not define its own introduction
+    """
+    grok.context(Interface)
+    grok.layer(IClientSkinLayer)
+    grok.name('default_introduction')
+    grok.template('default_introduction')
