@@ -15,6 +15,18 @@
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
   </metal:headers>
 
+  <metal:topnav define-macro="toplevel-navigation">
+    <ul id="navigation">
+      <metal:home use-macro="webhelpers/macros/homelink"/>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
+      <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
+      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
+      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@convert-guest" i18n:translate="Sign in">Sign in</a></li>
+    </ul>
+  </metal:topnav>
+
   <metal:home define-macro="homelink" meta:interpolation="true" tal:define="logo_mode webhelpers/logoMode">
     <li id="home">
       <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='alien'">${webhelpers/sector/title}</a>
@@ -325,6 +337,10 @@
         </p>
     </article>
 
+      <p tal:content="structure risk/legal_reference">
+        The requirements for fridges are defined in section 13.1 section a
+        of the health code.
+      </p>
   </metal:riskinfo>
 
 

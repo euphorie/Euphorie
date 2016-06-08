@@ -109,8 +109,66 @@ Bugfixes
 7.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Enhance survey export so that unwanted characters can be stripped
 
+8.0.3 (2016-04-06)
+------------------
+
+- Merge in recent change from master:
+  Better visibility for password policy and errors on sector settings
+  form (Syslab #13310)
+
+8.0.2 (2016-03-04)
+------------------
+
+- Replaced browser logos for the "outdated IE version" warning with
+  their current equivalents
+
+8.0.1 (2015-12-08)
+------------------
+
+- When logging out, make sure the session cookie is really removed
+- Translation correction in SL
+
+8.0.0 (2015-11-07)
+------------------
+
+- Final release of new major version 8
+
+8.0.0rc3 (2015-11-05)
+---------------------
+
+- Translation fixes
+
+8.0.0rc2 (2015-10-21)
+---------------------
+
+- Translation fixes
+
+8.0.0rc1 (2015-10-16)
+---------------------
+
+**This is a release candidate with incomplete translations**
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- Allow anonymous accounts for visitors who want to try out surveys without
+  logging in. The feature needs to be enabled with the "allow_guest_accounts=True"
+  option under the [Euphorie] section in the euphorie.ini file (OSHA #10972)
+  Necessary upgrade step (16->17):
+
+  * Indicate whether an account is a guest account, converted from one, or neither.
+
+- Allow the users of the client to add their own risks to a survey session. This
+  feature needs to be enabled with the "allow_user_defined_risks=True" option
+  under the [Euphorie] section in the euphorie.ini file (OSHA #10971)
+  Necessary upgrade steps (16-17):
+
+  * Allow custom risks
+  * Add new column to identify custom risks
+
+- Use of new Patternslib version, e.g. to enable pat-clone
 
 7.0.8 - March 4, 2016
 ---------------------
@@ -124,7 +182,6 @@ Bugfixes
 Feature changes
 ~~~~~~~~~~~~~~~
 
-- Expose "obsolete" flag in survey edit form. #106
 - Better visibility for password policy and errors on sector settings
   form (Syslab #13310)
 
@@ -132,8 +189,11 @@ Feature changes
 Bugfixes
 ~~~~~~~~
 
-- Translation updates
-- On logging out, make sure session cookie is really gone
+- Don't choke in case of very long paths, resulting from very long survey- or
+  module titles.
+  Necessary upgrade step (16->17):
+
+  * Allow longer tree item paths
 
 
 

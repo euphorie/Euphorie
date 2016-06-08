@@ -218,7 +218,7 @@ function SupportColourChanged(colour) {
     UpdatePreview(this);
 }
 
-$("#resetColours").live("click", function() {
+$("#resetColours").on("click", function() {
     var frame=$("#client-preview").get(0),
         style=$("head style:last", frame.contentDocument),
         body=$("body", frame.contentDocument);

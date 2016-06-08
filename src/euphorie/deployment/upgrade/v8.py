@@ -1,15 +1,15 @@
 # -*- coding: UTF-8 -*-
+from euphorie.client import model
 from euphorie.content.user import IUser
 from euphorie.deployment import setuphandlers
 from euphorie.deployment.upgrade.utils import ColumnExists
-from euphorie.client import model
 from plone import api
 from plone.dexterity import utils
 from sqlalchemy.engine.reflection import Inspector
+from sqlalchemy.exc import InternalError
 from z3c.form.interfaces import IDataManager
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
-from sqlalchemy.exc import InternalError
 import logging
 import transaction
 import zope.component
