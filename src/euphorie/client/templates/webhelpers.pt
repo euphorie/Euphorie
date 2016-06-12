@@ -72,24 +72,6 @@
     </tal:block>
   </metal:javascript>
 
-  <metal:survey define-macro="survey_tree_inner_old" meta:interpolation="true">
-    <ol tal:condition="exists:tree" class="${python:'microns' if tree['leaf_module'] else None}">
-      <li tal:repeat="item tree/children"
-          title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
-          class="${item/class}">
-        <a  tal:define="item_class item/class"
-            href="${item/url}">
-            <tal:if condition="python:not tree['leaf_module']">
-                <strong class="counter">${item/number}</strong> ${item/title}
-            </tal:if>
-        </a>
-        <tal:subtree condition="python:item['children']" define="tree python:item">
-          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
-        </tal:subtree>
-      </li>
-    </ol>
-  </metal:survey>
-
   <metal:survey define-macro="survey_tree_inner" meta:interpolation="true" tal:define="target_inject python:page_section=='identification' and 'step-2' or 'step-4'">
     <ol tal:condition="exists:tree" tal:attributes="class python:tree['leaf_module'] and 'navigation questions' or ''">
       <tal:items repeat="item tree/children">
@@ -134,17 +116,6 @@
     </div>
   </metal:survey>
 
-  <metal:survey define-macro="survey_tree_old" meta:interpolation="true">
-    <aside tal:condition="exists:tree" class="questions">
-      <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
-      <ul class="legend">
-          <li class="unvisited" i18n:translate="">Unvisited</li>
-          <li class="postponed" i18n:translate="">Postponed</li>
-          <li class="answered" i18n:translate="">Risk not present</li>
-          <li class="answered risk" i18n:translate="">Risk present</li>
-        </ul>
-    </aside>
-  </metal:survey>
 
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
     <p id="appendix" tal:define="media_url client/++resource++euphorie.media">
@@ -253,7 +224,7 @@
   </metal:riskinfo>
 
 
-  <metal:riskinfo define-macro="risk_info_identification" meta:interpolation="true" i18n:domain="euphorie" >
+ <metal:riskinfo define-macro="risk_info_identification" meta:interpolation="true" i18n:domain="euphorie" >
     <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
       <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
 
@@ -337,12 +308,7 @@
         </p>
     </article>
 
-      <p tal:content="structure risk/legal_reference">
-        The requirements for fridges are defined in section 13.1 section a
-        of the health code.
-      </p>
   </metal:riskinfo>
-
 
   <metal:risklegal define-macro="risk_legal" meta:interpolation="true" i18n:domain="euphorie">
     <tal:block condition="python:risk.legal_reference or view.has_files">

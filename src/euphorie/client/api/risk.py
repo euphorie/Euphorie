@@ -15,9 +15,9 @@ from ..utils import HasText
 from ..model import Risk
 from ..navigation import FindPreviousQuestion
 from ..navigation import FindNextQuestion
-from ..risk import EvaluationView as BaseEvaluation
+# from ..risk import EvaluationView as BaseEvaluation
 from ..risk import ActionPlanView as BaseActionPlan
-from ..risk import calculate_priority
+# from ..risk import calculate_priority
 from . import JsonView
 from . import context_menu
 from .actionplans import RiskActionPlans
@@ -136,54 +136,54 @@ class Identification(JsonView):
         return self.do_GET()
 
 
-class Evaluation(Identification):
-    grok.context(Risk)
-    grok.require('zope2.View')
-    grok.name('evaluation')
+# class Evaluation(Identification):
+#     grok.context(Risk)
+#     grok.require('zope2.View')
+#     grok.name('evaluation')
 
-    phase = 'evaluation'
-    next_phase = 'actionplan'
-    question_filter = BaseEvaluation.question_filter
+#     phase = 'evaluation'
+#     next_phase = 'actionplan'
+#     question_filter = BaseEvaluation.question_filter
 
-    def do_PUT(self):
-        self.risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split('/'))
-        if self.risk.type in ['top5', 'policy']:
-                return {'type': 'error',
-                        'message': 'Can not evaluate a %s risk'
-                            % self.risk.type}
-        try:
-            if self.risk.evaluation_method == 'direct':
-                self.context.priority = get_json_token(self.input, 'priority',
-                        IRisk['default_priority'],
-                        default=self.context.priority)
-            else:
-                algorithm = evaluation_algorithm(self.risk)
-                if algorithm == 'french':
-                    self.context.severity = get_json_token(self.input,
-                            'severity', IFrenchEvaluation['default_severity'],
-                            self.context.severity)
-                    self.context.frequency = get_json_token(self.input,
-                            'frequency',
-                            IFrenchEvaluation['default_frequency'],
-                            self.context.frequency)
-                else:  # Kinney
-                    self.context.probability = get_json_token(self.input,
-                            'probability',
-                            IKinneyEvaluation['default_probability'],
-                            self.context.probability)
-                    self.context.frequency = get_json_token(self.input,
-                            'frequency',
-                            IKinneyEvaluation['default_frequency'],
-                            self.context.frequency)
-                    self.context.effect = get_json_token(self.input, 'effect',
-                            IKinneyEvaluation['default_effect'],
-                            self.context.effect)
-                calculate_priority(self.context, self.risk)
-        except (KeyError, ValueError) as e:
-            return {'type': 'error',
-                    'message': str(e)}
-        return self.do_GET()
+#     def do_PUT(self):
+#         self.risk = self.request.survey.restrictedTraverse(
+#                 self.context.zodb_path.split('/'))
+#         if self.risk.type in ['top5', 'policy']:
+#                 return {'type': 'error',
+#                         'message': 'Can not evaluate a %s risk'
+#                             % self.risk.type}
+#         try:
+#             if self.risk.evaluation_method == 'direct':
+#                 self.context.priority = get_json_token(self.input, 'priority',
+#                         IRisk['default_priority'],
+#                         default=self.context.priority)
+#             else:
+#                 algorithm = evaluation_algorithm(self.risk)
+#                 if algorithm == 'french':
+#                     self.context.severity = get_json_token(self.input,
+#                             'severity', IFrenchEvaluation['default_severity'],
+#                             self.context.severity)
+#                     self.context.frequency = get_json_token(self.input,
+#                             'frequency',
+#                             IFrenchEvaluation['default_frequency'],
+#                             self.context.frequency)
+#                 else:  # Kinney
+#                     self.context.probability = get_json_token(self.input,
+#                             'probability',
+#                             IKinneyEvaluation['default_probability'],
+#                             self.context.probability)
+#                     self.context.frequency = get_json_token(self.input,
+#                             'frequency',
+#                             IKinneyEvaluation['default_frequency'],
+#                             self.context.frequency)
+#                     self.context.effect = get_json_token(self.input, 'effect',
+#                             IKinneyEvaluation['default_effect'],
+#                             self.context.effect)
+#                 calculate_priority(self.context, self.risk)
+#         except (KeyError, ValueError) as e:
+#             return {'type': 'error',
+#                     'message': str(e)}
+#         return self.do_GET()
 
 
 class ActionPlan(Identification):

@@ -16,11 +16,23 @@ from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import QuestionURL
 from euphorie.client.navigation import getTreeData
 from euphorie.client.utils import HasText
+from euphorie.content.utils import StripMarkup
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.session import SessionManager
 from repoze import formapi
+from zope.component import getMultiAdapter
 
 grok.templatedir("templates")
+
+IMAGE_CLASS = {
+    0: '',
+    1: 'twelve',
+    2: 'six',
+    3: 'four',
+    4: 'three',
+}
+
+DESCRIPTION_CROP_LENGTH = 200
 
 
 class IdentificationView(grok.View):
@@ -30,24 +42,31 @@ class IdentificationView(grok.View):
     grok.template("risk_identification")
     grok.name("index_html")
 
-    phase = "identification"
-    risk_present = False
-    use_problem_description = False
     question_filter = None
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
+        self.risk = self.request.survey.restrictedTraverse(
+            self.context.zodb_path.split("/"))
+
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             answer = reply.get("answer")
+            self.context.comment = reply.get("comment")
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
             else:
                 self.context.identification = answer
-            self.context.comment = reply.get("comment")
+                if self.risk.type in ('top5', 'policy'):
+                    self.context.priority = 'high'
+                elif self.risk.evaluation_method == 'calculated':
+                    self.calculatePriority(self.risk, reply)
+                elif self.risk.evaluation_method == "direct":
+                    self.context.priority = reply.get("priority")
+
             SessionManager.session.touch()
 
             if reply["next"] == "previous":
@@ -65,37 +84,63 @@ class IdentificationView(grok.View):
                     self.context,
                     filter=self.question_filter)
                 if next is None:
-                    # We ran out of questions, proceed to the evaluation
-                    url = "%s/evaluation" % self.request.survey.absolute_url()
+                    # We ran out of questions, proceed to the action plan
+                    url = "%s/actionplan" % self.request.survey.absolute_url()
                     self.request.response.redirect(url)
                     return
 
-            url = QuestionURL(
-                self.request.survey, next,
-                phase="identification")
+            url = QuestionURL(self.request.survey, next, phase="identification")
             self.request.response.redirect(url)
+
         else:
-            self.risk = risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
             self.tree = getTreeData(self.request, self.context)
             self.title = self.context.parent.title
-            self.show_info = risk.image or \
-                HasText(risk.description) or \
-                HasText(risk.legal_reference)
+            self.show_info = self.risk.image or \
+                HasText(self.risk.description) or \
+                HasText(self.risk.legal_reference)
+            number_images = getattr(self.risk, 'image', None) and 1 or 0
+            if number_images:
+                for i in range(2, 5):
+                    number_images += getattr(
+                        self.risk, 'image{0}'.format(i), None) and 1 or 0
+            self.has_images = number_images > 0
+            self.number_images = number_images
+            self.image_class = IMAGE_CLASS[number_images]
+            number_files = 0
+            for i in range(1, 5):
+                number_files += getattr(
+                    self.risk, 'file{0}'.format(i), None) and 1 or 0
+            self.has_files = number_files > 0
+            self.risk_number = self.context.number
+
+            ploneview = getMultiAdapter(
+                (self.context, self.request), name="plone")
+            stripped_description = StripMarkup(self.risk.description)
+            if len(stripped_description) > DESCRIPTION_CROP_LENGTH:
+                self.description_intro = ploneview.cropText(
+                    stripped_description, DESCRIPTION_CROP_LENGTH)
+            else:
+                self.description_intro = ""
+            self.description_probability = _(
+                u"help_default_probability", default=u"Indicate how "
+                "likely occurence of this risk is in a normal situation.")
+            self.description_frequency = _(
+                u"help_default_frequency", default=u"Indicate how often this "
+                u"risk occurs in a normal situation.")
+            self.description_severity = _(
+                u"help_default_severity", default=u"Indicate the "
+                "severity if this risk occurs.")
+            if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
+                if self.request.survey.evaluation_algorithm != 'french':
+                    custom_dp = getattr(
+                        self.request.survey, 'description_probability', '') or ''
+                    self.description_probability = custom_dp.strip() or self.description_probability
+                custom_df = getattr(self.request.survey, 'description_frequency', '') or ''
+                self.description_frequency = custom_df.strip() or self.description_frequency
+                custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
+                self.description_severity = custom_ds.strip() or self.description_severity
 
             super(IdentificationView, self).update()
-
-
-class EvaluationView(grok.View):
-    grok.context(model.Risk)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IEvaluationPhaseSkinLayer)
-    grok.template("risk_evaluation")
-    grok.name("index_html")
-
-    phase = "evaluation"
-    risk_present = True
-    question_filter = model.EVALUATION_FILTER
 
     @property
     def use_problem_description(self):
@@ -119,53 +164,6 @@ class EvaluationView(grok.View):
         except TypeError:
             pass
         return self.context.priority
-
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
-        risk = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
-
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            self.context.comment = reply.get("comment")
-            if risk.evaluation_method == "direct":
-                self.context.priority = reply.get("priority")
-            elif risk.evaluation_method == 'calculated':
-                self.calculatePriority(risk, reply)
-
-            SessionManager.session.touch()
-
-            if reply["next"] == "previous":
-                next = FindPreviousQuestion(
-                    self.context,
-                    filter=self.question_filter)
-
-                if next is None:
-                    # We ran out of questions, step back to intro page
-                    url = "%s/evaluation" % self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
-            else:
-                next = FindNextQuestion(
-                    self.context,
-                    filter=self.question_filter)
-                if next is None:
-                    # We ran out of questions, proceed to the action plan
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
-
-            url = QuestionURL(self.request.survey, next, phase="evaluation")
-            self.request.response.redirect(url)
-        else:
-            self.risk = risk
-            self.title = self.context.parent.title
-            self.tree = getTreeData(
-                self.request, self.context,
-                filter=self.question_filter, phase="evaluation")
-            super(EvaluationView, self).update()
 
 
 class ActionPlanItemForm(formapi.Form):

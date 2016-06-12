@@ -7,81 +7,164 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body tal:define="risk nocall:view/risk" class="identification ${webhelpers/extra_css}">
-    <h1 tal:content="view/title">The temperature of all fridges is checked daily</h1>
-    <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}">
-      <fieldset class="comprehensive radioList">
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content" tal:define="risk nocall:view/risk">
+<tal:block replace="tile:statusmessages"/>
+<form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}" class="pat-inject pat-scroll"
+      data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content"
+      data-pat-scroll="selector: #content; trigger: auto; offset: 0">
+
+    <!-- Identification -->
+    <fieldset class="vertical" id="${view/risk_number}">
+    <fieldset class="pat-checklist radio">
         <legend tal:content="risk/title">The temperature of all fridges is checked daily</legend>
         <input type="hidden" name="answer:default" value="postponed"/>
-        <label><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
-        <label><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
-        <label tal:condition="risk/show_notapplicable"><input type="radio" name="answer" value="n/a"
-          checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
-        <label><input type="radio" name="answer" value="postponed" checked="${python:'checked' if context.identification is None and context.postponed else None}"/><tal:span i18n:translate="label_unknown">Currently unknown</tal:span></label>
-      </fieldset>
-      
-      <p class="buttonBar">
-        <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="previous floatBefore back">Previous</button>
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
-      </p>
-      
-      <div class="message emphasis" tal:condition="view/show_info">
-        <metal:call use-macro="webhelpers/macros/risk_info" />
-       </div>
+        <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
+        <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
+        <label tal:condition="risk/show_notapplicable" class="not-applicable"><input type="radio" name="answer" value="n/a" checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
+    </fieldset>
+    </fieldset>
 
-      <fieldset class="concise" id="comments">
-        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5" 
-          placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-          i18n:attributes="placeholder label_comment">${context/comment}</textarea>
-      </fieldset>
-    </form>
+    <!-- Evaluation -->
+  <fieldset class="pat-well notice pat-depends vertical evaluation" id="evaluation" tal:define="evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method"
+              data-pat-depends="condition: answer=no; transition: slide">
+    <tal:block condition="python:evaluation_method=='calculated'">
+    <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
+  <p class="instruction" i18n:translate="help_calculated_evaluation">Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>
+    <tal:get define="algorithm python:view.evaluation_algorithm(risk)">
+    <tal:kinney condition="python:algorithm!='french'">
+        <fieldset class="pat-checklist radio" tal:define="value context/probability">
+        <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt" i18n:translate="help_default_probability">${view/description_probability}</dfn>
+        </legend>
+        <label><input type="radio" name="probability:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+            <tal:span i18n:translate="probability_small">Small</tal:span></label>
+        <label><input type="radio" name="probability:int" value="3" checked="${python:'checked' if value==3 else None}"/>
+            <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
+        <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+            <tal:span i18n:translate="probability_large">Large</tal:span></label>
+        </fieldset>
 
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li class="active current" id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-        <tal:block define="tree view/tree">
-          <metal:call use-macro="webhelpers/macros/survey_tree" />
-        </tal:block>
-      </li>
-      <li id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-      </li>
-      <li id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
+        <fieldset class="pat-checklist radio" tal:define="value context/frequency">
+        <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_frequency}</dfn>
+        </legend>
+        <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+            <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
+        <label><input type="radio" name="frequency:int" value="4" checked="${python:'checked' if value==4 else None}"/>
+            <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
+        <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+            <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
+        </fieldset>
 
-    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
-  </body>
+        <fieldset class="pat-checklist radio" tal:define="value context/effect">
+        <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_severity}</dfn>
+        </legend>
+        <label><input type="radio" name="effect:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+            <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
+        <label><input type="radio" name="effect:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+            <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
+        <label><input type="radio" name="effect:int" value="10" checked="${python:'checked' if value==10 else None}"/>
+            <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
+        </fieldset>
+    </tal:kinney>
+    <tal:french condition="python:algorithm=='french'">
+        <fieldset class="pat-checklist radio" tal:define="value context/effect">
+        <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_severity}</dfn>
+        </legend>
+        <label>
+            <input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+            <tal:span i18n:translate="severity_weak">Weak</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_weak_help;" title="No need to stop working"></dfn>
+        </label>
+        <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
+            <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_not_severe_help" title="Need to stop working for less than 3 days"></dfn>
+        </label>
+        <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+            <tal:span i18n:translate="severity_severe">Severe</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_severe_help;" title="Need to stop working for more than 3 days"></dfn>
+        </label>
+        <label>
+            <input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
+            <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_very_severe_help;" title="Irreversible injury, incurable illness, death"></dfn>
+        </label>
+        </fieldset>
+
+        <fieldset class="pat-checklist radio" tal:define="value context/frequency">
+        <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_frequency}</dfn>
+        </legend>
+        <label>
+            <input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
+            <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_rare_help;" title="Once per year"></dfn>
+        </label>
+        <label>
+            <input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
+            <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_not_often_help;" title="Once per month"></dfn>
+        </label>
+        <label>
+            <input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
+            <tal:span i18n:translate="frequency_french_often">Often</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_often_help;" title="Once per week"></dfn>
+        </label>
+        <label>
+            <input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
+            <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br/>
+            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_regularly_help;" title="Minimum once per day"></dfn>
+        </label>
+        </fieldset>
+    </tal:french>
+    </tal:get>
+    </tal:block>
+
+    <tal:block condition="python:evaluation_method=='direct'">
+    <fieldset class="pat-checklist radio" tal:define="value context/priority">
+        <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
+        <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
+        <label><input type="radio" name="priority" value="low" checked="${python:'checked' if value=='low' else None}"/>
+        <tal:span i18n:translate="priority_low">Low</tal:span></label>
+        <label><input type="radio" name="priority" value="medium" checked="${python:'checked' if value=='medium' else None}"/>
+        <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+        <label><input type="radio" name="priority" value="high" checked="${python:'checked' if value=='high' else None}"/>
+        <tal:span i18n:translate="priority_high">High</tal:span></label>
+    </fieldset>
+    </tal:block>
+
+    <tal:block condition="python:evaluation_method in ('top5', 'policy', 'fixed')">
+        <p i18n:translate="description_automatic_evaluation">The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk – if you consider it necessary – in the action plan.</p>
+    </tal:block>
+
+
+    </fieldset>
+
+    <!-- Copy and legal -->
+    <article class="rich" tal:condition="view/show_info">
+        <metal:call use-macro="webhelpers/macros/risk_info_identification" />
+        <metal:call use-macro="webhelpers/macros/risk_legal" />
+    </article>
+
+    <!-- Comments -->
+    <fieldset class="vertical" id="comments">
+        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"
+            placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+            i18n:attributes="placeholder label_comment">
+        </textarea>
+    </fieldset>
+
+    <p class="buttonBar">
+        <button class="pat-button" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
+        <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
+    </p>
+</form>
+</metal:slot>
+</body>
 </html>
-
