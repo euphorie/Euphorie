@@ -216,10 +216,14 @@ class PublishSurvey(form.Form):
     @button.buttonAndHandler(_(u"button_publish", default=u"Publish"))
     def handlePublish(self, action):
         self.publish()
-        IStatusMessage(self.request).addStatusMessage(
-                _(u"Succesfully published the survey"), type="success")
-        state = getMultiAdapter((aq_inner(self.context), self.request),
-                name="plone_context_state")
+        url = make_tag('a', href=self.client_url(), c=self.client_url())
+        IStatusMessage(self.request).addHTMLStatusMessage(
+            _(u"message_publish_success",
+                default="Succesfully published the survey. It can be "
+                "accessed at ${url}.", mapping={'url': url}),
+            type="success")
+        state = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())
 
 
