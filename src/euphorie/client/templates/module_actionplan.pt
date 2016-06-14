@@ -7,18 +7,23 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body tal:define="module nocall:view/module" class="actionplan ${webhelpers/extra_css}">
-    <h1>${view/title}</h1>
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
 
-    <a tal:define="images module/@@images; scale python:images.scale('image', width=200, height=500, direction='thumbnail')"
-      tal:condition="scale" title="${module/caption|nothing}" rel="fancybox" class="floatAfter" href="${module/absolute_url}/@@download/image/${module/image/filename}">
-      <img alt="" src="${scale/url}" width="${scale/width}" height="${scale/height}"/></a>
+<body>
+<metal:slot fill-slot="content" tal:define="module nocall:view/module">
+<article class="rich">
+    <h1>${module/title}</h1>
+    <tal:block replace="tile:statusmessages"/>
+
+        <figure tal:define="images module/@@images; large python:images.scale('image', width=590, height=1900, direction='thumbnail')" tal:on-error="nothing"
+            tal:condition="large" title="${module/caption|nothing}">
+            <img src="${large/url}" alt="" title="${module/caption|nothing}" />
+              <figcaption tal:condition="module/caption|nothing">
+                ${module/caption|nothing}
+              </figcaption>
+        </figure>
+
 
     <p tal:replace="structure module/description">
       This is a description of the module.
@@ -38,53 +43,12 @@
     <p tal:condition="view/use_solution_direction" tal:replace="structure module/solution_direction">
       This module has a solution direction. This is it.
     </p>
-    <p class="buttonBar">
-      <a class="button-medium floatBefore back" href="${view/previous_url}" i18n:translate="label_previous">Previous</a>
-      <a class="button-medium floatAfter" href="${view/next_url}" i18n:translate="label_next">Next</a>
-    </p>
-    <!--[if lte IE 7]> <br/> <![endif]-->
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li class="active current" id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-        <tal:block define="tree view/tree">
-          <metal:call use-macro="webhelpers/macros/survey_tree" />
-        </tal:block>
-      </li>
-      <li id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
 
-    <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:actionplan"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
-  </body>
+</article>
+
+<p class="buttonBar">
+    <a class="pat-button pat-inject pat-scroll" data-pat-inject="history: record; source: #step-4; target: #step-4 &amp;&amp; source: #content; target: #content" data-pat-scroll="selector: #content; trigger: auto; offset: 0" href="${view/next_url}" i18n:translate="label_next">Next</a>
+</p>
+</metal:slot>
+</body>
 </html>
-      
-
-

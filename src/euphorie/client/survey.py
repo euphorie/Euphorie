@@ -392,11 +392,16 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
     """
     adapts(ISurvey, IClientSkinLayer)
 
-    phases = {'identification': IIdentificationPhaseSkinLayer,
-              'customization': ICustomizationPhaseSkinLayer,
-              'evaluation': IEvaluationPhaseSkinLayer,
-              'actionplan': IActionPlanPhaseSkinLayer,
-              'report': IReportPhaseSkinLayer}
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+        self.phases = {
+            'identification': IIdentificationPhaseSkinLayer,
+            'customization': ICustomizationPhaseSkinLayer,
+            'evaluation': IEvaluationPhaseSkinLayer,
+            'actionplan': IActionPlanPhaseSkinLayer,
+            'report': IReportPhaseSkinLayer}
 
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.

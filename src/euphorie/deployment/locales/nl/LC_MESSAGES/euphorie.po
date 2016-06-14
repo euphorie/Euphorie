@@ -2240,11 +2240,11 @@ msgstr "gemiddeld"
 msgid "risk_priority_high"
 msgstr "hoog"
 
-#. Default: This is a ${priority}.
+#. Default: This is a ${priority_value}.
 #: src/euphorie/client/templates/report_actionplan.pt:101
 #: src/euphorie/client/templates/risk_actionplan.pt:30
 msgid "risk_priority"
-msgstr "Dit is een risico in de categorie ${priority}."
+msgstr "Dit is een risico in de categorie ${priority_value}."
 
 #. Default: Company details
 #: src/euphorie/client/templates/report_company.pt:17

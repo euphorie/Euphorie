@@ -2,7 +2,7 @@ from five import grok
 from euphorie.json import export_image
 from ..navigation import FindPreviousQuestion
 from ..navigation import FindNextQuestion
-from ..module import EvaluationView as BaseEvaluation
+# from ..module import EvaluationView as BaseEvaluation
 from ..module import ActionPlanView as BaseActionPlan
 from ..utils import HasText
 from ..model import Module
@@ -73,14 +73,14 @@ class Identification(JsonView):
         return self.do_GET()
 
 
-class Evaluation(Identification):
-    grok.context(Module)
-    grok.require('zope2.View')
-    grok.name('evaluation')
+# class Evaluation(Identification):
+#     grok.context(Module)
+#     grok.require('zope2.View')
+#     grok.name('evaluation')
 
-    phase = 'evaluation'
-    next_phase = 'actionplan'
-    question_filter = BaseEvaluation.question_filter
+#     phase = 'evaluation'
+#     next_phase = 'actionplan'
+#     question_filter = BaseEvaluation.question_filter
 
 
 class ActionPlan(Identification):
