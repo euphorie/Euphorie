@@ -276,5 +276,10 @@
       description="Make the column zodb_path of the SurveyTreeItems 512 chars (up from 40)."
       handler=".v8.enable_longer_zodb_paths"/>
 
+    <genericsetup:upgradeStep
+        title="Allow custom risks on modules"
+        description="All published tools are updated to allow users to add custom risks in them. This step requires allow_user_defined_risks=True in euphorie.ini."
+        handler=".v8.enable_custom_risks_on_all_modules"/>
+
   </genericsetup:upgradeSteps>
 </configure>

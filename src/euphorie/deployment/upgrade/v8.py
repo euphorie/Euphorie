@@ -1,18 +1,26 @@
 # -*- coding: UTF-8 -*-
+from euphorie.client import MessageFactory as _
 from euphorie.client import model
+from euphorie.client.country import IClientCountry
+from euphorie.client.publish import EnableCustomRisks
+from euphorie.client.sector import IClientSector
 from euphorie.content.user import IUser
 from euphorie.deployment import setuphandlers
 from euphorie.deployment.upgrade.utils import ColumnExists
+from euphorie.deployment.upgrade.utils import TableExists
 from plone import api
 from plone.dexterity import utils
 from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy.exc import InternalError
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
 from z3c.form.interfaces import IDataManager
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
 import logging
 import transaction
 import zope.component
+import datetime
 
 log = logging.getLogger(__name__)
 
@@ -102,9 +110,57 @@ def make_risk_id_column_nullable(context):
 
 def enable_longer_zodb_paths(context):
     session = Session()
-    inspector = Inspector.from_engine(session.bind)
     session.execute(
         "ALTER TABLE %s ALTER COLUMN zodb_path TYPE varchar(512);" %
         model.SurveyTreeItem.__table__.name
     )
     datamanager.mark_changed(session)
+
+
+def enable_custom_risks_on_all_modules(context):
+    """ """
+    appconfig = zope.component.getUtility(IAppConfig)
+    if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
+        log.warning(
+            "Custom risks are not enabled. Set 'allow_user_defined_risks' to "
+            "true in euphorie.ini for enabling them.")
+        return
+    portal = api.portal.get()
+    client = portal.client
+    count = 0
+    for country in client.objectValues():
+        if IClientCountry.providedBy(country):
+            for sector in country.objectValues():
+                if IClientSector.providedBy(sector):
+                    for survey in sector.objectValues():
+                        try:
+                            is_new = EnableCustomRisks(survey)
+                            count += 1
+                            custom = getattr(survey, 'custom-risks', None)
+                            if custom:
+                                custom.title = _(u'title_other_risks', default=u"Added risks (by you)")
+                                custom.description = _(
+                                    u"description_other_risks",
+                                    default=u"In case you have identified risks not included in "
+                                    u"the tool, you are able to add them now:")
+                                custom.question = _(
+                                    u"question_other_risks",
+                                    default=u"<p>Would you now like to add your own defined risks "
+                                    u"to this tool?</p><p><strong>Important:</strong> In "
+                                    u"order to avoid duplicating risks, we strongly recommend you "
+                                    u"to go first through all the previous modules, if you have not "
+                                    u"done it yet.</p><p>If you don't need to add risks, please select 'No.'</p>")
+                            if is_new:
+                                survey.published = (
+                                    survey.id, survey.title, datetime.datetime.now())
+                        except Exception, e:
+                            log.error("Could not enable custom risks for module. %s" % e)
+    log.info('All %d published surveys can now have custom risks.' % count)
+    session = Session()
+    if TableExists(session, "tree"):
+        session.execute(
+            "UPDATE tree SET title = 'title_other_risks' WHERE zodb_path ='custom-risks'")
+        model.metadata.create_all(session.bind, checkfirst=True)
+        datamanager.mark_changed(session)
+        transaction.get().commit()
+        log.info('Set correct title on all exisiting sessions for custom risks module.')
