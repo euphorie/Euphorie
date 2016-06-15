@@ -5,72 +5,47 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body class="report ${webhelpers/extra_css}">
-    <h1 i18n:translate="header_reporting">Reporting</h1>
+      id="sessions"
+      meta:interpolation="true"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
 
-    <p i18n:translate="report_intro">
-    Now that you have finished identifying all the risks in your organisation
-    and created an action plan you can create a report which lists all your
-    results. You can, if desired, add some extra comments that should be
-    included in this report in the field below.
+<body>
+<metal:slot fill-slot="content">
+    <tal:block replace="tile:statusmessages"/>
+
+    <form id="report_comment_form" accept-charset="UTF-8" method="post" action="${request/URL}">
+      <article class="rich">
+        <h1 i18n:translate="header_reporting">Reporting</h1>
+        <p i18n:translate="report_intro">
+            Now that you have finished identifying all the risks in your organisation
+            and created an action plan you can create a report which lists all your
+            results. You can, if desired, add some extra comments that should be
+            included in this report in the field below.
+        </p>
+      </article>
+
+    <fieldset class="vertical" id="comments">
+        <textarea id="commentsField"
+            name="comment:utf8:ustring"
+            cols="70" rows="5"
+            placeholder="Please leave any extra comments that should be included in the report in this field."
+            i18n:attributes="placeholder label_report_comment"
+            tal:content="view/session/report_comment">
+        </textarea>
+    </fieldset>
+    <p class="buttonBar">
+        <button type="submit"
+                name="next"
+                value="next"
+                id="report_comment_submit"
+                i18n:translate="label_save_and_continue"
+                class="pat-button">Save and continue</button>
     </p>
-
-    <form accept-charset="UTF-8" method="post" action="${request/URL}">
-      <fieldset class="concise" id="comments">
-        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="5"
-          placeholder="Please leave any extra comments that should be included in the report in this field."
-          i18n:attributes="placeholder label_report_comment;">${view/session/report_comment}</textarea>
-      </fieldset>
-
-      <p class="buttonBar">
-        <button type="submit" name="next" value="next" i18n:translate="label_next" class="next floatAfter">Next</button>
-      </p>
     </form>
-
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-      </li>
-      <li class="current active" id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
-
-    <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
+  </metal:slot>
   </body>
 </html>

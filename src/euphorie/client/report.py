@@ -1,3 +1,5 @@
+# coding=utf-8
+from AccessControl import getSecurityManager
 import logging
 import random
 from cStringIO import StringIO
@@ -25,12 +27,14 @@ from zExceptions import NotFound
 from plonetheme.nuplone.utils import formatDate
 from ..ghost import PathGhost
 from .. import MessageFactory as _
+from euphorie.client import config
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.client import model
 from euphorie.client.company import CompanySchema
 from euphorie.client.update import redirectOnSurveyUpdate
+import urllib
 
 log = logging.getLogger(__name__)
 
@@ -45,8 +49,9 @@ PRIORITY_NAMES = {
 
 
 # These are coded incorrectly in pyrtf-ng: the field name must be all caps
-PAGE_NUMBER   = RawCode(r'{\field{\fldinst PAGE}}')
-TOTAL_PAGES   = RawCode(r'{\field{\fldinst NUMPAGES}}')
+PAGE_NUMBER = RawCode(r'{\field{\fldinst PAGE}}')
+TOTAL_PAGES = RawCode(r'{\field{\fldinst NUMPAGES}}')
+
 
 def createDocument(survey_session):
     from rtfng.Styles import TextStyle
@@ -243,9 +248,19 @@ class ReportView(grok.View):
         self.session = SessionManager.session
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            self.session.report_comment = reply.get("comment")
+            self.session.report_comment = self.request.form.get("comment")
+
             url = "%s/report/company" % self.request.survey.absolute_url()
+            if getattr(self.session, 'company', None) is not None and \
+                    getattr(self.session.company, 'country') is not None:
+                url = "%s/report/view" % self.request.survey.absolute_url()
+
+            user = getSecurityManager().getUser()
+            if getattr(user, 'account_type', None) == config.GUEST_ACCOUNT:
+                url = "%s/@@register?report_blurb=1&came_from=%s" % (
+                    self.request.survey.absolute_url(),
+                    urllib.quote(url, '')
+                )
             self.request.response.redirect(url)
             return
 
@@ -478,7 +493,7 @@ class ActionPlanReportView(grok.View):
     def title(self, node, zodbnode):
         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return node.title
-        if zodbnode.problem_description and \
+        if getattr(zodbnode, "problem_description", None) and \
                 zodbnode.problem_description.strip():
             return zodbnode.problem_description
         else:
@@ -525,7 +540,7 @@ class ActionPlanReportView(grok.View):
     def show_negate_warning(self, node, zodbnode):
         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
             return False
-        if zodbnode.problem_description and \
+        if getattr(zodbnode, "problem_description", None) and \
                 zodbnode.problem_description.strip():
             return False
         return True

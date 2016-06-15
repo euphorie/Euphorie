@@ -5,20 +5,19 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools nocall:context/@@tools">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-    <style>
-      ol.toc:before { content: "<tal:span i18n:translate='toc_header'>Contents</tal:span>"; }
-    </style>
-  </head>
-  <body class="report ${webhelpers/extra_css}"
-        tal:define="survey_url python:webhelpers.survey_url(phase='actionplan');
-                    company view/session/company;">
+      id="report_landing"
+      meta:interpolation="true"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content"
+  tal:define="survey_url python:webhelpers.survey_url(phase='actionplan');
+              company view/session/company;">
+    <article class="pat-rich">
     <h1>${view/report_title}</h1>
 
     <div class="buttonBar super">
@@ -99,7 +98,7 @@
           <p class="message emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered">This risk still needs to be inventorised.</p>
 
             <p tal:condition="node/priority" class="priority-${node/priority}" i18n:translate="risk_priority"
-            >This is a <strong i18n:name="priority"
+            >This is a <strong i18n:name="priority_value"
               ><tal:span tal:condition="python:node.priority=='low'" i18n:translate="risk_priority_low">low priority risk</tal:span
               ><tal:span tal:condition="python:node.priority=='medium'" i18n:translate="risk_priority_medium">medium priority risk</tal:span
               ><tal:span tal:condition="python:node.priority=='high'" i18n:translate="risk_priority_high">high priority risk</tal:span
@@ -204,16 +203,8 @@
         </a>
       </li>
     </ol>
-
-    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:actionplan"/>
-    <metal:appendix use-macro="webhelpers/macros/appendix"/>
-    <metal:javascript use-macro="webhelpers/macros/javascript"/>
-    <tal:analytics replace="tile:client-analytics"/>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $.localScroll();
-      });
-    </script>
+  </article>
+  </metal:slot>
   </body>
 </html>
 
