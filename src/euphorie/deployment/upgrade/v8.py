@@ -164,3 +164,14 @@ def enable_custom_risks_on_all_modules(context):
         datamanager.mark_changed(session)
         transaction.get().commit()
         log.info('Set correct title on all exisiting sessions for custom risks module.')
+
+
+def drop_constraint_no_duplicates_in_tree(context):
+    session = Session()
+    if TableExists(session, "tree"):
+        session.execute(
+            "ALTER TABLE tree DROP CONSTRAINT no_duplicates")
+        model.metadata.create_all(session.bind, checkfirst=True)
+        datamanager.mark_changed(session)
+        transaction.get().commit()
+    log.info("Removed the constraint `no_duplicates` from table tree.")

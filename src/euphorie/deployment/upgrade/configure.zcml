@@ -281,5 +281,10 @@
         description="All published tools are updated to allow users to add custom risks in them. This step requires allow_user_defined_risks=True in euphorie.ini."
         handler=".v8.enable_custom_risks_on_all_modules"/>
 
+    <genericsetup:upgradeStep
+        title="Drop constraint `no_duplicates` from table `tree`"
+        description="Required for supporting custom risks"
+        handler=".v8.drop_constraint_no_duplicates_in_tree"/>
   </genericsetup:upgradeSteps>
+
 </configure>

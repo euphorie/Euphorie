@@ -29,7 +29,7 @@ class Mixin(object):
         session = SessionManager.session
         query = Session.query(model.Risk).filter(
             sql.and_(
-                model.Risk.is_custom_risk is True,
+                model.Risk.is_custom_risk == 't',
                 model.Risk.path.startswith(model.Module.path),
                 model.Risk.session_id == session.id
             )
