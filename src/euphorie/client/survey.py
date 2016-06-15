@@ -28,9 +28,10 @@ from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
+from euphorie.client.navigation import getTreeData
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import QuestionURL
+from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client import model
 from euphorie.client import utils
@@ -187,12 +188,12 @@ class Identification(grok.View):
     def update(self):
         if redirectOnSurveyUpdate(self.request):
             return
-
         self.survey = survey = aq_parent(aq_inner(self.context))
         question = FindFirstQuestion(filter=self.question_filter)
         if question is not None:
-            self.next_url = QuestionURL(survey, question,
-                    phase="identification")
+            self.next_url = QuestionURL(
+                survey, question, phase="identification")
+            self.tree = getTreeData(self.request, question)
         else:
             self.next_url = None
 
@@ -248,15 +249,16 @@ class ActionPlan(grok.View):
     question_filter = model.ACTION_PLAN_FILTER
 
     def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
         self.survey = survey = aq_parent(aq_inner(self.context))
         question = FindFirstQuestion(filter=self.question_filter)
         if question is not None:
             self.next_url = QuestionURL(survey, question, phase="actionplan")
+            self.tree = getTreeData(
+                self.request, question,
+                filter=self.question_filter, phase="actionplan")
         else:
             self.next_url = None
+
 
 
 class Status(grok.View):

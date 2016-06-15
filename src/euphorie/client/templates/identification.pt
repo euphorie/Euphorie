@@ -7,65 +7,23 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body class="identification ${webhelpers/extra_css}">
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content">
+<article class="rich">
     <h1>${context/title}</h1>
-
-    <p i18n:translate="intro_print_identification_1">
-      You may want to print out the list of risks you cannot immediately answer and look for the information at the relevant workplace (by walking around the workplace and looking at what could cause harm, or by consulting the workers about problems they have encountered). Then you can introduce the information into the tool.
-    </p>
-    <p i18n:translate="intro_print_identification_2">
-      You can also distribute the list among the workers and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action. Their feedback can be taken into account when filling in this tool.
-    </p>
+    <tal:block replace="tile:statusmessages"/>
+    <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
+    <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
     <p i18n:translate="intro_identification">
-    You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${python:webhelpers.survey_url(phase='identification')}/report">list of all risks</a></tal:span>.
+    You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${python:view.url(name='report')}/download">contents of the tool</a></tal:span>.
     </p>
-
-    <p>
-      <a i18n:translate="label_start_identification" class="button-medium" href="${view/next_url}">Start Risk Identification</a>
-    </p>
-
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li class="active current" id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-      </li>
-      <li id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-      </li>
-      <li id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
-
-    <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
-  </body>
+</article>
+<p class="button-bar">
+    <a class="pat-button pat-inject" data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
+</p>
+</metal:slot>
+</body>
 </html>

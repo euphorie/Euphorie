@@ -15,18 +15,6 @@
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
   </metal:headers>
 
-  <metal:topnav define-macro="toplevel-navigation">
-    <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">Surveys</a></li>
-      <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
-      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Status</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
-      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@convert-guest" i18n:translate="Sign in">Sign in</a></li>
-    </ul>
-  </metal:topnav>
-
   <metal:home define-macro="homelink" meta:interpolation="true" tal:define="logo_mode webhelpers/logoMode">
     <li id="home">
       <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='alien'">${webhelpers/sector/title}</a>
@@ -53,11 +41,11 @@
          tal:define="base_url client/++resource++euphorie.resources">
 
     <tal:block condition="webhelpers/debug_mode">
-		<link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
         <!-- TODO: needs to be minified -->
-		<link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   </metal:css>
@@ -99,6 +87,7 @@
   </metal:survey>
 
   <metal:survey define-macro="survey_tree" meta:interpolation="true">
+
     <div tal:condition="exists:tree" class="topics">
       <h2 class="module-title">
         <tal:phase_identification condition="python:page_section=='identification'">
@@ -115,7 +104,6 @@
         </ul>
     </div>
   </metal:survey>
-
 
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
     <p id="appendix" tal:define="media_url client/++resource++euphorie.media">
@@ -224,7 +212,7 @@
   </metal:riskinfo>
 
 
- <metal:riskinfo define-macro="risk_info_identification" meta:interpolation="true" i18n:domain="euphorie" >
+  <metal:riskinfo define-macro="risk_info_identification" meta:interpolation="true" i18n:domain="euphorie" >
     <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
       <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
 
@@ -309,6 +297,7 @@
     </article>
 
   </metal:riskinfo>
+
 
   <metal:risklegal define-macro="risk_legal" meta:interpolation="true" i18n:domain="euphorie">
     <tal:block condition="python:risk.legal_reference or view.has_files">
