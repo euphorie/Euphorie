@@ -260,7 +260,6 @@ class ActionPlan(grok.View):
             self.next_url = None
 
 
-
 class Status(grok.View):
     """Show survey status information.
     """
@@ -394,16 +393,12 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
     """
     adapts(ISurvey, IClientSkinLayer)
 
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-        self.phases = {
-            'identification': IIdentificationPhaseSkinLayer,
-            'customization': ICustomizationPhaseSkinLayer,
-            'evaluation': IEvaluationPhaseSkinLayer,
-            'actionplan': IActionPlanPhaseSkinLayer,
-            'report': IReportPhaseSkinLayer}
+    phases = {
+        'identification': IIdentificationPhaseSkinLayer,
+        'customization': ICustomizationPhaseSkinLayer,
+        'evaluation': IEvaluationPhaseSkinLayer,
+        'actionplan': IActionPlanPhaseSkinLayer,
+        'report': IReportPhaseSkinLayer}
 
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.
