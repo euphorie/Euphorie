@@ -74,7 +74,7 @@ class AccountSettings(form.SchemaForm):
     schema = PasswordChangeSchema
     ignoreContext = True
 
-    label = _(u"title_account_settings", default=u"Account settings")
+    label = _(u"title_change_password", default=u"Change password")
 
     def updateWidgets(self):
         super(AccountSettings, self).updateWidgets()
@@ -150,10 +150,11 @@ class NewEmail(form.SchemaForm):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.name("new-email")
-    # grok.template("new-email")
+    grok.template("new-email")
 
     schema = EmailChangeSchema
     email_template = ViewPageTemplateFile("templates/confirm-email.pt")
+    ignoreContext = True
 
     label = _(u"title_account_settings", default=u"Account settings")
 
