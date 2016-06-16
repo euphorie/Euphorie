@@ -13,7 +13,7 @@ Preparation
 -----------
 
 The preparation phase starts with an introduction screen explaining how the
-survey tool works. If a sector provided extra introductionary text that will
+survey tool works. If a sector provided extra introductory text that will
 also be included. On this screen the user can also give a title to this
 survey.
 
@@ -27,7 +27,7 @@ identification
 
 During the identification phase all possible risks are shown, along with
 any extra information such as legal references, images or explanatory text.
-The user can indicate of a risk is present, or not applicable. 
+The user can indicate whether a risk is present, or not applicable. 
 
 The identification phase starts with an introduction page with a brief
 explanation and an option to print a list of all questions.
@@ -50,7 +50,7 @@ to determine the priority:
   factors, as determined by the :obj:`euphorie.content.question.IQuestion`
   interface, are multiplied. If the resulting value is below or equal to 15
   the priority is low, if the value is between 15 and 50 (included) the
-  priority is high, and values above 50 indicate a high priority.
+  priority is medium, and values above 50 indicate a high priority.
 
 .. note::
    Changing the effect/frequency/probability factors here will reset the
@@ -69,7 +69,7 @@ risk from (re)occurring. This can be done by selecting pre-defined solutions
 A priority also has to be assigned. The default priority is determined by
 the evaluation.
 
-If a module has a *solution direction* text this will be shown during when
-the user enters a module. This makes the action plan phase the only phase
-during which a module will present information to the user.
+If a module has a *solution direction* text this will be shown when the user
+enters a module. This makes the action plan phase the only phase during which a
+module will present information to the user.
 

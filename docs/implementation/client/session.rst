@@ -90,7 +90,7 @@ The *path* column holds the path as explained in :ref:`survey_tree` while
 *zodb_path* is a reference to the corresponding Plone object (see
 :ref:`content_types`).
 
-Modules and risk each have additional attributes which are stored
+Modules and risks each have additional attributes which are stored
 in the *module* and *risk* tables respectively.
 
 The *action_plan* table stores information entered in the action plan phase.

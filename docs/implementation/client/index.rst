@@ -1,7 +1,7 @@
 Online client
 =============
 
-:mod:`euphorie.client` contains *client* for the Euphorie surveys. The
+:mod:`euphorie.client` contains the *client* for the Euphorie surveys. The
 client is the web interface normal users interact with. It uses the content
 types from the :mod:`euphorie.content` package, combined with a SQL database
 to store session data.
