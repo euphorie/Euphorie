@@ -32,6 +32,7 @@ from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.client import model
+from euphorie.client import utils
 from euphorie.client.company import CompanySchema
 from euphorie.client.update import redirectOnSurveyUpdate
 import urllib
@@ -414,12 +415,15 @@ class IdentificationReportDownload(grok.View):
             has_risk = node.type == 'risk' and node.identification == 'no'
             zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
             show_problem_description = has_risk and \
-                zodb_node.problem_description and \
+                getattr(zodb_node, 'problem_description', None) and \
                 zodb_node.problem_description.strip()
-            if show_problem_description:
-                title = zodb_node.problem_description.strip()
+            if node.zodb_path == 'custom-risks':
+                title = utils.get_translated_custom_risks_title(self.request)
             else:
-                title = node.title
+                if show_problem_description:
+                    title = zodb_node.problem_description.strip()
+                else:
+                    title = node.title
             if has_risk:
                 title += u' [*]'
             section.append(
@@ -553,6 +557,12 @@ class ActionPlanReportView(grok.View):
     def getZodbNode(self, treenode):
         return self.request.survey.restrictedTraverse(
             treenode.zodb_path.split("/"))
+
+    def get_node_title(self, node):
+        if node.zodb_path == 'custom-risks':
+            return utils.get_translated_custom_risks_title(self.request)
+        else:
+            return node.title
 
     def getNodes(self):
         """Return an orderer list of all tree items for the current survey."""
@@ -725,13 +735,16 @@ class ActionPlanReportDownload(grok.View):
             has_risk = node.type == 'risk' and node.identification == 'no'
             zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
             show_problem_description = has_risk and \
-                zodb_node.problem_description and \
+                getattr(zodb_node, 'problem_description', None) and \
                 zodb_node.problem_description.strip()
 
-            if show_problem_description:
-                title = zodb_node.problem_description.strip()
+            if node.zodb_path == 'custom-risks':
+                title = utils.get_translated_custom_risks_title(self.request)
             else:
-                title = node.title
+                if show_problem_description:
+                    title = zodb_node.problem_description.strip()
+                else:
+                    title = node.title
             if has_risk:
                 title += u' [*]'
 
@@ -1012,7 +1025,7 @@ class ActionPlanTimeline(grok.View):
         sheet.title = t(_('report_timeline_title', default=u'Timeline'))
         survey = self.request.survey
 
-        for (column, (type, key, title)) in enumerate(self.columns):
+        for (column, (ntype, key, title)) in enumerate(self.columns):
             sheet.cell(row=0, column=column).value = t(title)
 
         for (row, (module, risk, measure)) in \
@@ -1020,21 +1033,23 @@ class ActionPlanTimeline(grok.View):
 
             column = 0
             zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
-            for (type, key, title) in self.columns:
+            for (ntype, key, title) in self.columns:
                 value = None
-                if type == 'measure':
+                if ntype == 'measure':
                     value = getattr(measure, key, None)
-                elif type == 'risk':
+                elif ntype == 'risk':
                     value = getattr(risk, key, None)
                     if key == 'priority':
                         value = self.priority_name(value)
                     elif key == 'title':
-                        if zodb_node.problem_description and \
+                        if getattr(zodb_node, 'problem_description', None) and \
                                 zodb_node.problem_description.strip():
                             value = zodb_node.problem_description
-                elif type == 'module':
-                    value = getattr(module, key, None)
-
+                elif ntype == 'module':
+                    if key == 'title' and module.zodb_path == 'custom-risks':
+                        value = utils.get_translated_custom_risks_title(self.request)
+                    else:
+                        value = getattr(module, key, None)
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1

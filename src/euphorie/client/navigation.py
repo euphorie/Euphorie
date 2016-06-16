@@ -3,11 +3,10 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 from euphorie.client.session import SessionManager
 from euphorie.client import model
+from euphorie.client import utils
 from euphorie.client.model import SurveySession
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.interfaces import ICustomRisksModule
-from .. import MessageFactory as _
-from zope.i18n import translate
 
 
 def QuestionURL(survey, question, phase):
@@ -98,13 +97,7 @@ def getTreeData(request, context, phase="identification", filter=None):
     - url: URL for this item
     """
     query = Session.query(model.SurveyTreeItem)
-    lang = getattr(request, 'LANGUAGE', 'en')
-    if "-" in lang:
-        elems = lang.split("-")
-        lang = "{0}_{1}".format(elems[0], elems[1].upper())
-    title_custom_risks = translate(_(
-        'title_other_risks', default=u'Added risks (by you)'), target_language=lang)
-
+    title_custom_risks = utils.get_translated_custom_risks_title(request)
     root = context
     parents = []
     while root.parent_id is not None:

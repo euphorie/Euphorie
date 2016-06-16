@@ -73,13 +73,13 @@
 
     <ol class="toc">
       <tal:node repeat="node view/nodes">
-        <li tal:condition="python:node.depth==1 and node.type!='risk'"><a href="#node-${node/id}">${node/title}</a></li>
+        <li tal:condition="python:node.depth==1 and node.type!='risk'"><a href="#node-${node/id}">${python:view.get_node_title(node)}</a></li>
       </tal:node>
     </ol>
 
     <tal:block repeat="node view/nodes">
       <tal:module condition="python:node.type!='risk'">
-        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${python:view.get_node_title(node)}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
       </tal:module>
 
       <tal:risk condition="python:node.type=='risk'">
@@ -171,38 +171,6 @@
       <li tal:condition="python:isinstance(getattr(context, 'published', None), tuple)" i18n:translate="report_survey_revision">This report was based on the survey '<tal:span i18n:name="title">${python:context.published[1]}</tal:span>' of revision date <tal:span i18n:name="date">${python:tools.formatDate(context.published[2])}</tal:span>.</li>
     </ul>
 
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li class="complete" id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-      </li>
-      <li class="active current" id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
   </article>
   </metal:slot>
   </body>

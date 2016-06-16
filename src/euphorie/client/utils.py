@@ -102,6 +102,17 @@ def jsonify(func, *args, **kwargs):
     return simplejson.dumps(data)
 
 
+def get_translated_custom_risks_title(request):
+    lang = getattr(request, 'LANGUAGE', 'en')
+    if "-" in lang:
+        elems = lang.split("-")
+        lang = "{0}_{1}".format(elems[0], elems[1].upper())
+    title = translate(_(
+        'title_other_risks', default=u'Added risks (by you)'),
+        target_language=lang)
+    return title
+
+
 class WebHelpers(grok.View):
     """Browser view with utility methods that can be used in templates.
 
