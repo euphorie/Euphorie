@@ -1,3 +1,5 @@
+.. _content_types:
+
 Content types
 =============
 
