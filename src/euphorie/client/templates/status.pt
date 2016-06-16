@@ -1,71 +1,133 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body class="status ${webhelpers/extra_css}">
-    <h1 i18n:translate="title_status">Status</h1>
-    <h2 i18n:translate="header_questions_answered">Questions answered per module</h2>
-    <dl class="status" tal:define="status python:view.status">
-      <tal:repeat repeat="module status">
-        <dt><a href="${module/url}">${module/title}</a></dt>
-        <dd>
-          <p tal:condition="python: 'ok' in module" style="width: ${module/ok/width}px"
-             class="range answered" i18n:translate="status_answered"><span i18n:name="count" tal:replace="module/ok/count">3</span> questions were answersed</p>
-          <p tal:condition="python: 'risk' in module" style="width: ${module/risk/width}px"
-             class="range risk" i18n:translate="status_risk"><span i18n:name="count" tal:replace="module/risk/count">3</span> answers indicated a risk</p>
-          <p tal:condition="python: 'postponed' in module" style="width: ${module/postponed/width}px"
-             class="range postponed" i18n:translate="status_postponed"><span i18n:name="count" tal:replace="module/postponed/count">3</span> questions were postponed</p>
-        </dd>
-      </tal:repeat>
-    </dl>
+      id="account-settings"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
 
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li id="step-1">
-        <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
-        </a>
-      </li>
-      <li id="step-2">
-        <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
-        </a>
-      </li>
-      <li id="step-3">
-        <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
-        </a>
-      </li>
-      <li id="step-4">
-        <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
-        </a>
-      </li>
-      <li id="step-5">
-        <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
-        </a>
-      </li>
-    </ol>
+<body>
+<metal:content fill-slot="content" tal:define="language context/portal_languages/getPreferredLanguage">
+    <div class="statuses language-${language}" tal:define="status python:view.status">
 
-    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
-  </body>
+        <article class="rich" tal:define="title here/Title|string: ">
+            <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_status_of">Status of <tal:name i18n:name="survey_title">${title}</tal:name></tal:title>
+            </h1>
+            <h1 tal:condition="python:title.lower()[0] in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of <tal:name i18n:name="survey_title">${title}</tal:name></tal:title>
+            </h1>
+            <p class="byline">
+                <tal:translate i18n:translate="header_questions_answered">Questions answered per module</tal:translate>
+            </p>
+        </article>
+
+        <ul class="page-toc">
+            <li tal:repeat="module view/toc">
+                <tal:no_locations condition="not:module/locations">
+                    <a href="${here/absolute_url}/status#${module/path}">${module/title}</a>
+                </tal:no_locations>
+                <tal:locations condition="module/locations">
+                    ${python:module['title']}
+                    <ul>
+                        <li tal:repeat="location module/locations">
+                            <a href="${here/absolute_url}/status#${location/path}">${location/title}</a>
+                        </li>
+                    </ul>
+                </tal:locations>
+            </li>
+        </ul>
+
+        <?python import decimal ?>
+        <dl class="status">
+            <tal:loop repeat="module status">
+            <tal:defs define="
+                num_ok python:module.get('ok', 0);
+                num_risks_without_measures python:module.get('risk_without_measures', 0);
+                num_risks_with_measures python:module.get('risk_with_measures', 0);
+                num_postponed python:module.get('postponed', 0);
+                num_todo python:module.get('todo', 0);
+                num_total python:num_ok + num_risks_with_measures + num_risks_without_measures + num_postponed + num_todo;
+                perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/decimal.Decimal(num_total)*100;
+                perc_ok python:not num_total and 100 or num_ok/decimal.Decimal(num_total)*100;
+                perc_risks_without_measures python:num_total and num_risks_without_measures/decimal.Decimal(num_total)*100 or 0;
+                perc_risks_with_measures python:num_total and num_risks_with_measures/decimal.Decimal(num_total)*100 or 0;
+                perc_postponed python:num_total and num_postponed/decimal.Decimal(num_total)*100 or 0;
+                perc_todo python:num_total and num_todo/decimal.Decimal(num_total)*100 or 0; ">
+            <dt><a name="${module/path}"> </a>
+                <a href="${module/url}">${module/title}</a>
+            </dt>
+            <dd>
+                <section class="graph">
+                    <p class="range answered" style="width: ${perc_ok}%">
+                        <strong class="number">${num_ok}</strong>
+                        <em class="label">questions answered without a risk</em>
+                    </p>
+                    <p class="range risk-measure" style="width: ${perc_risks_with_measures}%">
+                        <strong class="number">${num_risks_with_measures}</strong>
+                        <em class="label">answers indicated a risk and have at least one measure defined in the action plan</em>
+                    </p>
+                    <p class="range risk" style="width: ${perc_risks_without_measures}%">
+                        <strong class="number">${num_risks_without_measures}</strong>
+                        <em class="label">answers indicated a risk without any measure defined in the action plan</em>
+                    </p>
+                    <p class="range postponed" style="width: ${perc_postponed}%">
+                        <strong class="number">${num_postponed}</strong>
+                        <em class="label">questions were postponed</em>
+                    </p>
+                    <p class="range unanswered" style="width: ${perc_todo}%">
+                        <strong class="number">${num_todo}</strong>
+                        <em class="label">questions aren't answered yet</em>
+                    </p>
+                </section>
+                <section class="row">
+                    <ul class="six columns legend">
+                        <li class="answered" tal:condition="num_ok">
+                            <strong class="number">${num_ok}</strong>
+                            <em tal:condition="python:num_ok==1" class="label" i18n:translate="label_no_risk">No risk</em>
+                            <em tal:condition="python:num_ok==2" class="label" i18n:translate="label_no_risks_2">No risks</em>
+                            <em tal:condition="python:num_ok in (3, 4)" class="label" i18n:translate="label_no_risks_3_4">No risks</em>
+                            <em tal:condition="python:num_ok>4" class="label" i18n:translate="label_no_risks_5_or_more">No risks</em>
+                        </li>
+                        <li class="risk-measure" tal:condition="num_risks_with_measures">
+                            <strong class="number">${num_risks_with_measures}</strong>
+                            <em tal:condition="python:num_risks_with_measures==1" class="label" i18n:translate="label_risk_with_measure">Risk with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures==2" class="label" i18n:translate="label_risks_with_measure_2">Risks with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures in (3, 4)" class="label" i18n:translate="label_risks_with_measure_3_4">Risks with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures>4" class="label" i18n:translate="label_risks_with_measure_5_or_more">Risks with measure(s)</em>
+                        </li>
+                        <li class="risk" tal:condition="num_risks_without_measures">
+                            <strong class="number">${num_risks_without_measures}</strong>
+                            <em tal:condition="python:num_risks_without_measures==1" class="label" i18n:translate="label_risk_without_measure">Risk without measure</em>
+                            <em tal:condition="python:num_risks_without_measures==2" class="label" i18n:translate="label_risks_without_measure_2">Risks without measure</em>
+                            <em tal:condition="python:num_risks_without_measures in (3, 4)" class="label" i18n:translate="label_risks_without_measure_3_4">Risks without measure</em>
+                            <em tal:condition="python:num_risks_without_measures>4" class="label" i18n:translate="label_risks_without_measure_5_or_more">Risks without measure</em>
+                        </li>
+                        <li class="postponed" tal:condition="num_postponed">
+                            <strong class="number">${num_postponed}</strong> <em class="label" i18n:translate="Postponed">Postponed</em>
+                        </li>
+                        <li class="unanswered" tal:condition="num_todo">
+                            <strong class="number">${num_todo}</strong> <em class="label" i18n:translate="Unvisited">Unanswered</em>
+                        </li>
+                    </ul>
+                    <div class="six columns high-prio-risks" tal:define="high_risks python:view.risks_by_status[module.get('path')]['present']['high']" tal:condition="high_risks">
+                        <h4 i18n:translate="heading_high_prio_risks">High priority risks</h4>
+                        <ul>
+                            <li tal:repeat="risk high_risks">
+                                <a href="${risk/path}">${risk/title}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </dd>
+            </tal:defs>
+            </tal:loop>
+        </dl>
+    </div>
+<tal:block replace="tile:client-analytics"/>
+</metal:content>
+</body>
 </html>
