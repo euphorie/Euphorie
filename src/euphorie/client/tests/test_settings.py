@@ -22,7 +22,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.new_password").value = "secret"
         browser.getControl(
                 name="form.widgets.new_password.confirm").value = "secret"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/account-settings")
@@ -32,7 +32,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "guest"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/account-settings")
@@ -46,7 +46,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.new_password").value = "secret"
         browser.getControl(
                 name="form.widgets.new_password.confirm").value = "secret2"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/account-settings")
@@ -64,7 +64,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.getControl(
                 name="form.widgets.new_password.confirm").value = "secret"
         browser.handleErrors = False
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/account-settings")
@@ -97,7 +97,7 @@ class AccountDeleteTests(EuphorieFunctionalTestCase):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/account-delete")
         browser.getControl(name="form.widgets.password").value = "secret"
-        browser.getControl("Delete account").click()
+        browser.getControl(name="form.buttons.delete").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/account-delete")
@@ -109,7 +109,7 @@ class AccountDeleteTests(EuphorieFunctionalTestCase):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/account-delete")
         browser.getControl(name="form.widgets.password").value = "guest"
-        browser.getControl("Delete account").click()
+        browser.getControl(name="form.buttons.delete").click()
         self.assertEqual(browser.url, "http://nohost/plone/client")
         self.assertEqual(Session.query(Account).count(), 0)
 
@@ -146,18 +146,20 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "guest"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
-                "http://nohost/plone/client/nl/account-settings")
+                "http://nohost/plone/client/nl/new-email")
         self.assertTrue(
-                "There were no changes to be saved." in browser.contents)
+                "Required input is missing." in browser.contents)
 
     def testInvalidPassword(self):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/new-email")
+        browser.getControl(
+            name="form.widgets.loginname").value = "jane@example.com"
         browser.getControl(name="form.widgets.password").value = "secret"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
                 browser.url,
                 "http://nohost/plone/client/nl/new-email")
@@ -168,7 +170,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(name="form.widgets.loginname").value = "one two"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
             browser.url,
             "http://nohost/plone/client/nl/new-email")
@@ -183,7 +185,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(
             name="form.widgets.loginname").value = "jane@example.com"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
             browser.url,
             "http://nohost/plone/client/nl/new-email")
@@ -200,7 +202,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(
             name="form.widgets.loginname").value = "discard@simplon.biz"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
             browser.url,
             "http://nohost/plone/client/nl/account-settings")
@@ -227,13 +229,13 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(
                 name="form.widgets.loginname").value = "discard@simplon.biz"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         first_key = Session.query(AccountChangeRequest.id).first()[0]
         browser.open("http://nohost/plone/client/nl/new-email")
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(
                 name="form.widgets.loginname").value = "discard@simplon.biz"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         second_key = Session.query(AccountChangeRequest.id).first()[0]
         self.assertNotEqual(first_key, second_key)
 
@@ -246,7 +248,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(
                 name="form.widgets.loginname").value = "DISCARD@sImplOn.biz"
-        browser.getControl("Save changes").click()
+        browser.getControl(name="form.buttons.save").click()
         request = Session.query(AccountChangeRequest).first()
         self.assertEqual(request.value, 'discard@simplon.biz')
 
