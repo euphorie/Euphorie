@@ -3,9 +3,15 @@ import unittest
 
 class EvaluationViewTests(unittest.TestCase):
     def EvaluationView(self, **kw):
+        """
+        Note: the EvaluationView does not exist as a separate view any more.
+        Its functionality was merged to the identification view.
+        For these tests, we just keep the name EvaluationView but return
+        IdentificationView, since it contains all the relevant code
+        """
         from euphorie.client.model import Risk
-        from euphorie.client.risk import EvaluationView
-        return EvaluationView(Risk(**kw), None)
+        from euphorie.client.risk import IdentificationView
+        return IdentificationView(Risk(**kw), None)
 
     def Risk(self, **kw):
         from euphorie.content.risk import Risk
