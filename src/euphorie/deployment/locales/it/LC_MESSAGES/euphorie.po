@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-11-13 18:18+0100\n"
+"POT-Creation-Date: 2016-06-21 16:47+0200\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgstr "I lavoratori sono invitati a partecipare alla valutazione dei rischi"
 #. Default: Yes
 #: src/euphorie/client/company.py:84 src/euphorie/client/company.py:94
 #: src/euphorie/client/company.py:106
-#: src/euphorie/client/templates/module_identification.pt:34
+#: src/euphorie/client/templates/module_identification.pt:35
 #: src/euphorie/client/templates/risk_identification.pt:22
 msgid "label_yes"
 msgstr "Sì"
@@ -140,7 +140,7 @@ msgstr "Sì"
 #. Default: No
 #: src/euphorie/client/company.py:85 src/euphorie/client/company.py:95
 #: src/euphorie/client/company.py:107
-#: src/euphorie/client/templates/module_identification.pt:37
+#: src/euphorie/client/templates/module_identification.pt:38
 #: src/euphorie/client/templates/risk_identification.pt:23
 msgid "label_no"
 msgstr "No"
@@ -207,9 +207,9 @@ msgid "error_email_in_use"
 msgstr "Un account con questo indirizzo e-mail è già esistente."
 
 #. Default: Cancel
-#: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:257
+#: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:261
 #: src/euphorie/client/settings.py:140 src/euphorie/client/settings.py:255
-#: src/euphorie/content/templates/settings.pt:102
+#: src/euphorie/content/templates/settings.pt:115
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
@@ -222,18 +222,19 @@ msgstr "Eliminare"
 msgid "button_publish"
 msgstr "Pubblicare"
 
-#: src/euphorie/client/publish.py:220
-msgid "Succesfully published the survey"
-msgstr "Tool OiRA pubblicato con successo"
+#. Default: Succesfully published the survey. It can be accessed at ${url}.
+#: src/euphorie/client/publish.py:221
+msgid "message_publish_success"
+msgstr "Questo strumento OiRA non è più disponibile nel client. È possibile accedere a ${url}."
 
 #. Default: Create preview
-#: src/euphorie/client/publish.py:263
+#: src/euphorie/client/publish.py:267
 msgid "button_preview"
 msgstr "Creare l'anteprima"
 
 #. Default: Succesfully created a preview for the survey. It can be accessed at
 #. ${url} .
-#: src/euphorie/client/publish.py:268
+#: src/euphorie/client/publish.py:272
 msgid "message_preview_success"
 msgstr ""
 "Anteprima creata con successo per lo strumento OiRA. È possibile accedere a "
@@ -571,6 +572,11 @@ msgstr "Password desiderata"
 #: src/euphorie/client/settings.py:51 src/euphorie/client/settings.py:62
 msgid "Your password for confirmation"
 msgstr "Inserire la password per la conferma"
+
+#: src/euphorie/client/settings.py:58
+#: src/euphorie/client/templates/account-settings.pt:21
+msgid "Email address/account name"
+msgstr "Indirizzo e-mail/nome dell'account"
 
 #. Default: Account settings
 #: src/euphorie/client/settings.py:77 src/euphorie/client/settings.py:158
@@ -929,7 +935,7 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:101
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
-#: src/euphorie/client/templates/module_identification.pt:86
+#: src/euphorie/client/templates/module_identification.pt:87
 #: src/euphorie/client/templates/profile.pt:84
 #: src/euphorie/client/templates/register.pt:42
 #: src/euphorie/client/templates/reminder.pt:41
@@ -972,10 +978,6 @@ msgstr ""
 #: src/euphorie/client/templates/account-settings.pt:19
 msgid "header_account_data"
 msgstr "Dati dell'account"
-
-#: src/euphorie/client/templates/account-settings.pt:21
-msgid "Email address/account name"
-msgstr "Indirizzo e-mail/nome dell'account"
 
 #: src/euphorie/client/templates/account-settings.pt:23
 msgid "Change email address"
@@ -1043,7 +1045,7 @@ msgstr "Andare al rapporto"
 #: src/euphorie/client/templates/login.pt:70
 #: src/euphorie/client/templates/module_actionplan.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:37
-#: src/euphorie/client/templates/module_identification.pt:49
+#: src/euphorie/client/templates/module_identification.pt:50
 #: src/euphorie/client/templates/profile.pt:58
 #: src/euphorie/client/templates/report.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:178
@@ -1069,7 +1071,7 @@ msgstr "Preparazione"
 #: src/euphorie/client/templates/layout.pt:26
 #: src/euphorie/client/templates/module_actionplan.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:38
-#: src/euphorie/client/templates/module_identification.pt:50
+#: src/euphorie/client/templates/module_identification.pt:51
 #: src/euphorie/client/templates/profile.pt:59
 #: src/euphorie/client/templates/report.pt:42
 #: src/euphorie/client/templates/report_actionplan.pt:179
@@ -1096,7 +1098,7 @@ msgstr "Preparazione"
 #: src/euphorie/client/templates/login.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:55
 #: src/euphorie/client/templates/module_evaluation.pt:43
-#: src/euphorie/client/templates/module_identification.pt:55
+#: src/euphorie/client/templates/module_identification.pt:56
 #: src/euphorie/client/templates/profile.pt:63
 #: src/euphorie/client/templates/report.pt:47
 #: src/euphorie/client/templates/report_actionplan.pt:184
@@ -1123,7 +1125,7 @@ msgstr "Identificazione"
 #: src/euphorie/client/templates/layout.pt:32
 #: src/euphorie/client/templates/module_actionplan.pt:56
 #: src/euphorie/client/templates/module_evaluation.pt:44
-#: src/euphorie/client/templates/module_identification.pt:56
+#: src/euphorie/client/templates/module_identification.pt:57
 #: src/euphorie/client/templates/profile.pt:64
 #: src/euphorie/client/templates/report.pt:48
 #: src/euphorie/client/templates/report_actionplan.pt:185
@@ -1150,7 +1152,7 @@ msgstr "Identificazione"
 #: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/module_actionplan.pt:61
 #: src/euphorie/client/templates/module_evaluation.pt:49
-#: src/euphorie/client/templates/module_identification.pt:64
+#: src/euphorie/client/templates/module_identification.pt:65
 #: src/euphorie/client/templates/profile.pt:67
 #: src/euphorie/client/templates/report.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:190
@@ -1177,7 +1179,7 @@ msgstr "Valutazione"
 #: src/euphorie/client/templates/layout.pt:38
 #: src/euphorie/client/templates/module_actionplan.pt:62
 #: src/euphorie/client/templates/module_evaluation.pt:50
-#: src/euphorie/client/templates/module_identification.pt:65
+#: src/euphorie/client/templates/module_identification.pt:66
 #: src/euphorie/client/templates/profile.pt:68
 #: src/euphorie/client/templates/report.pt:54
 #: src/euphorie/client/templates/report_actionplan.pt:191
@@ -1204,7 +1206,7 @@ msgstr "Valutazione"
 #: src/euphorie/client/templates/login.pt:73
 #: src/euphorie/client/templates/module_actionplan.pt:67
 #: src/euphorie/client/templates/module_evaluation.pt:58
-#: src/euphorie/client/templates/module_identification.pt:70
+#: src/euphorie/client/templates/module_identification.pt:71
 #: src/euphorie/client/templates/profile.pt:71
 #: src/euphorie/client/templates/report.pt:59
 #: src/euphorie/client/templates/report_actionplan.pt:196
@@ -1231,7 +1233,7 @@ msgstr "Piano d'azione"
 #: src/euphorie/client/templates/layout.pt:44
 #: src/euphorie/client/templates/module_actionplan.pt:68
 #: src/euphorie/client/templates/module_evaluation.pt:59
-#: src/euphorie/client/templates/module_identification.pt:71
+#: src/euphorie/client/templates/module_identification.pt:72
 #: src/euphorie/client/templates/profile.pt:72
 #: src/euphorie/client/templates/report.pt:60
 #: src/euphorie/client/templates/report_actionplan.pt:197
@@ -1257,7 +1259,7 @@ msgstr "Piano d'azione"
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_actionplan.pt:76
 #: src/euphorie/client/templates/module_evaluation.pt:64
-#: src/euphorie/client/templates/module_identification.pt:76
+#: src/euphorie/client/templates/module_identification.pt:77
 #: src/euphorie/client/templates/profile.pt:75
 #: src/euphorie/client/templates/report.pt:65
 #: src/euphorie/client/templates/report_actionplan.pt:202
@@ -1283,7 +1285,7 @@ msgstr "Rapporto"
 #: src/euphorie/client/templates/layout.pt:50
 #: src/euphorie/client/templates/module_actionplan.pt:77
 #: src/euphorie/client/templates/module_evaluation.pt:65
-#: src/euphorie/client/templates/module_identification.pt:77
+#: src/euphorie/client/templates/module_identification.pt:78
 #: src/euphorie/client/templates/profile.pt:76
 #: src/euphorie/client/templates/report.pt:66
 #: src/euphorie/client/templates/report_actionplan.pt:203
@@ -1309,7 +1311,7 @@ msgstr "Rapporto"
 #: src/euphorie/client/templates/layout.pt:58
 #: src/euphorie/client/templates/module_actionplan.pt:84
 #: src/euphorie/client/templates/module_evaluation.pt:72
-#: src/euphorie/client/templates/module_identification.pt:84
+#: src/euphorie/client/templates/module_identification.pt:85
 #: src/euphorie/client/templates/profile.pt:82
 #: src/euphorie/client/templates/report.pt:73
 #: src/euphorie/client/templates/report_actionplan.pt:210
@@ -1334,7 +1336,7 @@ msgstr "Disconnettere"
 #: src/euphorie/client/templates/layout.pt:59
 #: src/euphorie/client/templates/module_actionplan.pt:85
 #: src/euphorie/client/templates/module_evaluation.pt:73
-#: src/euphorie/client/templates/module_identification.pt:85
+#: src/euphorie/client/templates/module_identification.pt:86
 #: src/euphorie/client/templates/profile.pt:83
 #: src/euphorie/client/templates/report.pt:74
 #: src/euphorie/client/templates/report_actionplan.pt:211
@@ -1356,7 +1358,7 @@ msgstr "Le mie valutazioni"
 #: src/euphorie/client/templates/identification.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:87
 #: src/euphorie/client/templates/module_evaluation.pt:75
-#: src/euphorie/client/templates/module_identification.pt:87
+#: src/euphorie/client/templates/module_identification.pt:88
 #: src/euphorie/client/templates/report.pt:76
 #: src/euphorie/client/templates/report_actionplan.pt:213
 #: src/euphorie/client/templates/report_company.pt:97
@@ -1376,7 +1378,7 @@ msgstr "Stato"
 #: src/euphorie/client/templates/layout.pt:62
 #: src/euphorie/client/templates/module_actionplan.pt:88
 #: src/euphorie/client/templates/module_evaluation.pt:76
-#: src/euphorie/client/templates/module_identification.pt:88
+#: src/euphorie/client/templates/module_identification.pt:89
 #: src/euphorie/client/templates/profile.pt:85
 #: src/euphorie/client/templates/report.pt:77
 #: src/euphorie/client/templates/report_actionplan.pt:214
@@ -2049,7 +2051,7 @@ msgstr ""
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
 #: src/euphorie/client/templates/module_evaluation.pt:30
-#: src/euphorie/client/templates/module_identification.pt:41
+#: src/euphorie/client/templates/module_identification.pt:42
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:54
@@ -2065,7 +2067,7 @@ msgstr "Precedente"
 #. Default: Next
 #: src/euphorie/client/templates/module_actionplan.pt:43
 #: src/euphorie/client/templates/module_evaluation.pt:31
-#: src/euphorie/client/templates/module_identification.pt:42
+#: src/euphorie/client/templates/module_identification.pt:43
 #: src/euphorie/client/templates/register.pt:36
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
@@ -3144,6 +3146,7 @@ msgstr "Contenuto della pagina"
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
 #, fuzzy
 msgid "password_policy_conditions"
@@ -3178,7 +3181,7 @@ msgstr ""
 
 #. Default: Inversed statement
 #: src/euphorie/content/risk.py:58
-#: src/euphorie/content/templates/risk_view.pt:37
+#: src/euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr "Dichiarazione negativa"
 
@@ -3205,7 +3208,7 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/content/risk.py:77
-#: src/euphorie/content/templates/risk_view.pt:72
+#: src/euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Riferimenti giuridici e politici"
 
@@ -3228,7 +3231,7 @@ msgstr ""
 
 #. Default: Risk type
 #: src/euphorie/content/risk.py:96
-#: src/euphorie/content/templates/risk_view.pt:35
+#: src/euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Tipo di rischio"
 
@@ -3260,7 +3263,7 @@ msgstr "Linea di condotta"
 
 #. Default: Evaluation method
 #: src/euphorie/content/risk.py:116
-#: src/euphorie/content/templates/risk_view.pt:43
+#: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_evaluation_method"
 msgstr "Metodo di valutazione"
 
@@ -3291,7 +3294,7 @@ msgstr "Priorità"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
-#: src/euphorie/content/templates/risk_view.pt:47
+#: src/euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
 msgstr "Priorità default"
 
@@ -3328,7 +3331,7 @@ msgstr "Immagine secondaria"
 
 #. Default: Default severity
 #: src/euphorie/content/risk.py:223 src/euphorie/content/risk.py:312
-#: src/euphorie/content/templates/risk_view.pt:53
+#: src/euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
 msgstr "Gravità di default"
 
@@ -3346,8 +3349,8 @@ msgstr "Nessun default"
 
 #. Default: Default frequency
 #: src/euphorie/content/risk.py:245 src/euphorie/content/risk.py:292
-#: src/euphorie/content/templates/risk_view.pt:55
-#: src/euphorie/content/templates/risk_view.pt:62
+#: src/euphorie/content/templates/risk_view.pt:59
+#: src/euphorie/content/templates/risk_view.pt:66
 msgid "label_default_frequency"
 msgstr "Frequenza default"
 
@@ -3360,7 +3363,7 @@ msgstr ""
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:271
-#: src/euphorie/content/templates/risk_view.pt:60
+#: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_probability"
 msgstr "Probabilità default"
 
@@ -3412,19 +3415,19 @@ msgstr "Nome del contatto"
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
-#: src/euphorie/content/templates/settings.pt:61
+#: src/euphorie/content/templates/settings.pt:71
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
-#: src/euphorie/content/templates/settings.pt:44
+#: src/euphorie/content/templates/settings.pt:54
 msgid "label_main_colour"
 msgstr "Colore principale"
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
-#: src/euphorie/content/templates/settings.pt:53
+#: src/euphorie/content/templates/settings.pt:63
 msgid "label_support_colour"
 msgstr "Colori del supporto"
 
@@ -3471,13 +3474,13 @@ msgid "title_common_solution"
 msgstr "Misura"
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:188
+#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:198
 msgid "label_survey_title"
 msgstr "Nome della versione"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
+#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:199
 msgid "help_survey_title"
 msgstr ""
 "Questo è il titolo della versione OiRA. Questo nome non verrà mai indicato "
@@ -3533,42 +3536,44 @@ msgstr ""
 "definiti dagli organi normativi nazionali e basati sulla revisione 2 della "
 "norma NACE."
 
-#. Default: Title
-#: src/euphorie/content/survey.py:197 src/euphorie/content/surveygroup.py:40
-msgid "label_title"
-msgstr "Titolo"
-
-#. Default: The title of this survey. This title is used in the survey overview
-#. in the clients.
-#: src/euphorie/content/survey.py:198 src/euphorie/content/surveygroup.py:41
-msgid "help_surveygroup_title"
-msgstr ""
-"Il titolo di questo strumento OiRA. Questo titolo è utilizzato nella "
-"panoramica OiRA dei client."
-
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
+#: src/euphorie/content/survey.py:100 src/euphorie/content/survey.py:215
+#: src/euphorie/content/surveygroup.py:50
 msgid "label_survey_obsolete"
 msgstr "Indagine obsoleta"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
-#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
+#: src/euphorie/content/survey.py:102 src/euphorie/content/survey.py:217
+#: src/euphorie/content/surveygroup.py:52
 msgid "help_survey_obsolete"
 msgstr ""
 "Questo sondaggio è obsoleto, ma è stato ritirato o sostituito con un altro "
 "sondaggio."
 
+#. Default: Title
+#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:40
+msgid "label_title"
+msgstr "Titolo"
+
+#. Default: The title of this survey. This title is used in the survey overview
+#. in the clients.
+#: src/euphorie/content/survey.py:208 src/euphorie/content/surveygroup.py:41
+msgid "help_surveygroup_title"
+msgstr ""
+"Il titolo di questo strumento OiRA. Questo titolo è utilizzato nella "
+"panoramica OiRA dei client."
+
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
-#: src/euphorie/content/survey.py:291
+#: src/euphorie/content/survey.py:301
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Non è possibile eliminare una versione di tool OiRA che è stata pubblicata. "
 "È necessario dover prima immetterla non pubblica."
 
 #. Default: You can not delete the only survey version.
-#: src/euphorie/content/survey.py:306
+#: src/euphorie/content/survey.py:316
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Questa è l'unica versione dello strumento OiRA e non è possibile "
@@ -3648,31 +3653,31 @@ msgstr "File XML"
 msgid "Survey import"
 msgstr "Importazione dello strumento OiRA"
 
-#: src/euphorie/content/upload.py:334
+#: src/euphorie/content/upload.py:335
 msgid "Import survey version"
 msgstr "Importare versione dello strumento OiRA"
 
-#: src/euphorie/content/upload.py:338
+#: src/euphorie/content/upload.py:339
 msgid "Upload"
 msgstr "Caricare"
 
 #. Default: Please upload a valid XML file
-#: src/euphorie/content/upload.py:349 src/euphorie/content/upload.py:387
+#: src/euphorie/content/upload.py:350 src/euphorie/content/upload.py:388
 msgid "error_invalid_xml"
 msgstr "Caricare un file XML valido"
 
 #. Default: Succesfully imported the survey
-#: src/euphorie/content/upload.py:353 src/euphorie/content/upload.py:391
+#: src/euphorie/content/upload.py:354 src/euphorie/content/upload.py:392
 msgid "upload_success"
 msgstr "Tool OiRA importato con successo"
 
 #. Default: Import sector and survey
-#: src/euphorie/content/upload.py:368
+#: src/euphorie/content/upload.py:369
 msgid "title_import_sector_survey"
 msgstr "Importare settore e strumento OiRA"
 
 #. Default: Upload
-#: src/euphorie/content/upload.py:373
+#: src/euphorie/content/upload.py:374
 msgid "button_upload"
 msgstr "Caricare"
 
@@ -3699,7 +3704,7 @@ msgstr "Indirizzo e-mail del contatto"
 
 #. Default: Password
 #: src/euphorie/content/user.py:86
-#: src/euphorie/content/templates/settings.pt:82
+#: src/euphorie/content/templates/settings.pt:92
 msgid "label_password"
 msgstr "Password"
 
@@ -3726,23 +3731,23 @@ msgstr "L'account \"${title}\" è stato bloccato."
 msgid "message_user_unlocked"
 msgstr "L'account \"${title}\" è stato sbloccato."
 
-#: src/euphorie/content/utils.py:13
+#: src/euphorie/content/utils.py:14
 msgid "European Union"
 msgstr "Unione europea"
 
-#: src/euphorie/content/utils.py:20
+#: src/euphorie/content/utils.py:21
 msgid "Kosovo"
 msgstr "Cossovo"
 
-#: src/euphorie/content/utils.py:21
+#: src/euphorie/content/utils.py:22
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:23
 msgid "Republic of Serbia"
 msgstr "Republica Serba"
 
-#: src/euphorie/content/utils.py:24
+#: src/euphorie/content/utils.py:25
 msgid "F.Y.R. Macedonia"
 msgstr ""
 
@@ -3994,37 +3999,37 @@ msgid "header_risks"
 msgstr "Rischi"
 
 #. Default: not applicable
-#: src/euphorie/content/templates/risk_view.pt:39
+#: src/euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na_na"
 msgstr "non applicabile"
 
 #. Default: Show '${na}'
-#: src/euphorie/content/templates/risk_view.pt:39
+#: src/euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na"
 msgstr "Mostrare '${na}"
 
 #. Default: Yes
-#: src/euphorie/content/templates/risk_view.pt:40
+#: src/euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Sì"
 
 #. Default: No
-#: src/euphorie/content/templates/risk_view.pt:41
+#: src/euphorie/content/templates/risk_view.pt:45
 msgid "no"
 msgstr "No"
 
 #. Default: Default effect
-#: src/euphorie/content/templates/risk_view.pt:64
+#: src/euphorie/content/templates/risk_view.pt:68
 msgid "label_default_effect"
 msgstr "Gravità di default"
 
 #. Default: Standard solutions
-#: src/euphorie/content/templates/risk_view.pt:76
+#: src/euphorie/content/templates/risk_view.pt:80
 msgid "header_solutions"
 msgstr "Misure standard"
 
 #. Default: Solution ${number}
-#: src/euphorie/content/templates/risk_view.pt:79
+#: src/euphorie/content/templates/risk_view.pt:83
 msgid "risk_solution_header"
 msgstr "Misura ${number}"
 
@@ -4067,31 +4072,35 @@ msgstr ""
 msgid "header_settings"
 msgstr "Impostazioni"
 
+#: src/euphorie/content/templates/settings.pt:18
+msgid "field"
+msgstr ""
+
 #. Default: Please provide a description of your sector
-#: src/euphorie/content/templates/settings.pt:17
+#: src/euphorie/content/templates/settings.pt:27
 msgid "label_sector_description"
 msgstr "Indicare una descrizione per il proprio settore"
 
 #. Default: Preview
-#: src/euphorie/content/templates/settings.pt:23
+#: src/euphorie/content/templates/settings.pt:33
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
 msgstr "Anteprima"
 
 #. Default: Colour scheme
-#: src/euphorie/content/templates/settings.pt:30
+#: src/euphorie/content/templates/settings.pt:40
 msgid "header_colour_scheme"
 msgstr "Schema colori"
 
 #. Default: Restore to original colours
-#: src/euphorie/content/templates/settings.pt:33
+#: src/euphorie/content/templates/settings.pt:43
 msgid "button_reset_colours"
 msgstr "Ripristinare i colori originali"
 
-#: src/euphorie/content/templates/settings.pt:36
-#: src/euphorie/content/templates/settings.pt:63
-#: src/euphorie/content/templates/settings.pt:84
-#: src/euphorie/content/templates/settings.pt:92
+#: src/euphorie/content/templates/settings.pt:46
+#: src/euphorie/content/templates/settings.pt:73
+#: src/euphorie/content/templates/settings.pt:94
+#: src/euphorie/content/templates/settings.pt:105
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Informazione"
@@ -4099,7 +4108,7 @@ msgstr "Informazione"
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text on each button legible.
-#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:46
 msgid "help_sector_colours"
 msgstr ""
 "I colori qui selezionati valgono solo per il cliente dell'applicazione. "
@@ -4109,7 +4118,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: src/euphorie/content/templates/settings.pt:39
+#: src/euphorie/content/templates/settings.pt:49
 msgid "help_colour_picker"
 msgstr ""
 "Si prega di utilizzare la funzione dei colori qui in basso per selezionare i "
@@ -4121,7 +4130,7 @@ msgstr ""
 #. Make sure your image is of format png, jpg or gif and does not contain any
 #. special characters. The new logo will only become visible after you've saved
 #. your changes.
-#: src/euphorie/content/templates/settings.pt:63
+#: src/euphorie/content/templates/settings.pt:73
 msgid "help_sector_logo"
 msgstr ""
 "Il logo apparirà sia dal lato dell'applicazione del cliente, che il vostro "
@@ -4131,22 +4140,22 @@ msgstr ""
 "che le modifiche saranno memorizzate."
 
 #. Default: Which logo you would like to display in the top left corner?
-#: src/euphorie/content/templates/settings.pt:65
+#: src/euphorie/content/templates/settings.pt:75
 msgid "label_logo_selection"
 msgstr "Quale logo le piacerebbe avere all'angolo sinistro in alto?"
 
 #. Default: Official OiRA Logo
-#: src/euphorie/content/templates/settings.pt:68
+#: src/euphorie/content/templates/settings.pt:78
 msgid "Official OiRA Logo"
 msgstr ""
 
 #. Default: My own
-#: src/euphorie/content/templates/settings.pt:72
+#: src/euphorie/content/templates/settings.pt:82
 msgid "logo_my_own"
 msgstr "Proprio"
 
 #. Default: transparent
-#: src/euphorie/content/templates/settings.pt:78
+#: src/euphorie/content/templates/settings.pt:88
 msgid "logo_instructions_transparent"
 msgstr "trasparente"
 
@@ -4154,7 +4163,7 @@ msgstr "trasparente"
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
 #. images is fine, the logo will be scaled down to the right size
 #. automatically.
-#: src/euphorie/content/templates/settings.pt:77
+#: src/euphorie/content/templates/settings.pt:87
 msgid "logo_instructions"
 msgstr ""
 "Potete ottenere migliori risultati caricando un logo come file PNG "
@@ -4164,24 +4173,24 @@ msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: src/euphorie/content/templates/settings.pt:84
+#: src/euphorie/content/templates/settings.pt:94
 msgid "help_sector_password"
 msgstr "Questa è la password che necessitate per accedere a questo editor."
 
 #. Default: Contact person
-#: src/euphorie/content/templates/settings.pt:90
+#: src/euphorie/content/templates/settings.pt:103
 msgid "label_contact_person"
 msgstr "Contatto"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: src/euphorie/content/templates/settings.pt:92
+#: src/euphorie/content/templates/settings.pt:105
 msgid "help_sector_contactperson"
 msgstr ""
 "Indicare il nome della persona responsabile del tool OiRA di questo settore."
 
 #. Default: Save changes
-#: src/euphorie/content/templates/settings.pt:101
+#: src/euphorie/content/templates/settings.pt:114
 msgid "button_save_changes"
 msgstr "Salvare le modifiche"
 
@@ -4585,6 +4594,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = La versione contiene modifiche che non sono state finora "
 "pubblicate. Cliccare sull'icona di aggiormento per pubblicare le modifiche"
+
+#~ msgid "Succesfully published the survey"
+#~ msgstr "Tool OiRA pubblicato con successo"
 
 #~ msgid "Password"
 #~ msgstr "Password"

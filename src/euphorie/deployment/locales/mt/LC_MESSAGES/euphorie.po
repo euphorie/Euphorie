@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2014-11-13 18:18+0100\n"
+"POT-Creation-Date: 2016-06-21 16:47+0200\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgstr "Il-ħaddiema ġew mistiedna jieħdu sehem fil-valutazzjoni tar-riskji"
 #. Default: Yes
 #: src/euphorie/client/company.py:84 src/euphorie/client/company.py:94
 #: src/euphorie/client/company.py:106
-#: src/euphorie/client/templates/module_identification.pt:34
+#: src/euphorie/client/templates/module_identification.pt:35
 #: src/euphorie/client/templates/risk_identification.pt:22
 msgid "label_yes"
 msgstr "Iva"
@@ -140,7 +140,7 @@ msgstr "Iva"
 #. Default: No
 #: src/euphorie/client/company.py:85 src/euphorie/client/company.py:95
 #: src/euphorie/client/company.py:107
-#: src/euphorie/client/templates/module_identification.pt:37
+#: src/euphorie/client/templates/module_identification.pt:38
 #: src/euphorie/client/templates/risk_identification.pt:23
 msgid "label_no"
 msgstr "Le"
@@ -206,9 +206,9 @@ msgid "error_email_in_use"
 msgstr "Diġà jeżisti kont b'dan l-indirizz elettroniku."
 
 #. Default: Cancel
-#: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:257
+#: src/euphorie/client/publish.py:210 src/euphorie/client/publish.py:261
 #: src/euphorie/client/settings.py:140 src/euphorie/client/settings.py:255
-#: src/euphorie/content/templates/settings.pt:102
+#: src/euphorie/content/templates/settings.pt:115
 #: src/euphorie/content/templates/survey_add.pt:26
 #: src/euphorie/content/templates/surveygroup_add.pt:97
 #: src/euphorie/content/templates/unpublish.pt:22
@@ -221,18 +221,19 @@ msgstr "Ikkanċella"
 msgid "button_publish"
 msgstr "Ippubblika"
 
-#: src/euphorie/client/publish.py:220
-msgid "Succesfully published the survey"
-msgstr "L-Għodda tal-OiRA ppubblikata"
+#. Default: Succesfully published the survey. It can be accessed at ${url}.
+#: src/euphorie/client/publish.py:221
+msgid "message_publish_success"
+msgstr "Din l-Għodda tal-OiRA issa m'għadhiex disponibbli fil-klijent. Tista' tarah fi ${url} ."
 
 #. Default: Create preview
-#: src/euphorie/client/publish.py:263
+#: src/euphorie/client/publish.py:267
 msgid "button_preview"
 msgstr "Oħloq preview"
 
 #. Default: Succesfully created a preview for the survey. It can be accessed at
 #. ${url} .
-#: src/euphorie/client/publish.py:268
+#: src/euphorie/client/publish.py:272
 msgid "message_preview_success"
 msgstr "Inħoloq preview tal-Għodda tal-OiRA. Tista' tarah fi ${url} ."
 
@@ -569,6 +570,11 @@ msgstr "Password li tixtieq"
 #: src/euphorie/client/settings.py:51 src/euphorie/client/settings.py:62
 msgid "Your password for confirmation"
 msgstr "Il-password tiegħek għall-konferma"
+
+#: src/euphorie/client/settings.py:58
+#: src/euphorie/client/templates/account-settings.pt:21
+msgid "Email address/account name"
+msgstr "Indirizz elettroniku/isem il-kont"
 
 #. Default: Account settings
 #: src/euphorie/client/settings.py:77 src/euphorie/client/settings.py:158
@@ -933,7 +939,7 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:101
 #: src/euphorie/client/templates/module_actionplan.pt:86
 #: src/euphorie/client/templates/module_evaluation.pt:74
-#: src/euphorie/client/templates/module_identification.pt:86
+#: src/euphorie/client/templates/module_identification.pt:87
 #: src/euphorie/client/templates/profile.pt:84
 #: src/euphorie/client/templates/register.pt:42
 #: src/euphorie/client/templates/reminder.pt:41
@@ -975,10 +981,6 @@ msgstr ""
 #: src/euphorie/client/templates/account-settings.pt:19
 msgid "header_account_data"
 msgstr "Dejta tal-kont"
-
-#: src/euphorie/client/templates/account-settings.pt:21
-msgid "Email address/account name"
-msgstr "Indirizz elettroniku/isem il-kont"
 
 #: src/euphorie/client/templates/account-settings.pt:23
 msgid "Change email address"
@@ -1046,7 +1048,7 @@ msgstr "Mur għar-rapport"
 #: src/euphorie/client/templates/login.pt:70
 #: src/euphorie/client/templates/module_actionplan.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:37
-#: src/euphorie/client/templates/module_identification.pt:49
+#: src/euphorie/client/templates/module_identification.pt:50
 #: src/euphorie/client/templates/profile.pt:58
 #: src/euphorie/client/templates/report.pt:41
 #: src/euphorie/client/templates/report_actionplan.pt:178
@@ -1072,7 +1074,7 @@ msgstr "It-Tħejjija"
 #: src/euphorie/client/templates/layout.pt:26
 #: src/euphorie/client/templates/module_actionplan.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:38
-#: src/euphorie/client/templates/module_identification.pt:50
+#: src/euphorie/client/templates/module_identification.pt:51
 #: src/euphorie/client/templates/profile.pt:59
 #: src/euphorie/client/templates/report.pt:42
 #: src/euphorie/client/templates/report_actionplan.pt:179
@@ -1099,7 +1101,7 @@ msgstr "It-Tħejjija"
 #: src/euphorie/client/templates/login.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:55
 #: src/euphorie/client/templates/module_evaluation.pt:43
-#: src/euphorie/client/templates/module_identification.pt:55
+#: src/euphorie/client/templates/module_identification.pt:56
 #: src/euphorie/client/templates/profile.pt:63
 #: src/euphorie/client/templates/report.pt:47
 #: src/euphorie/client/templates/report_actionplan.pt:184
@@ -1126,7 +1128,7 @@ msgstr "L-Identifikazzjoni"
 #: src/euphorie/client/templates/layout.pt:32
 #: src/euphorie/client/templates/module_actionplan.pt:56
 #: src/euphorie/client/templates/module_evaluation.pt:44
-#: src/euphorie/client/templates/module_identification.pt:56
+#: src/euphorie/client/templates/module_identification.pt:57
 #: src/euphorie/client/templates/profile.pt:64
 #: src/euphorie/client/templates/report.pt:48
 #: src/euphorie/client/templates/report_actionplan.pt:185
@@ -1153,7 +1155,7 @@ msgstr "L-Identifikazzjoni"
 #: src/euphorie/client/templates/login.pt:72
 #: src/euphorie/client/templates/module_actionplan.pt:61
 #: src/euphorie/client/templates/module_evaluation.pt:49
-#: src/euphorie/client/templates/module_identification.pt:64
+#: src/euphorie/client/templates/module_identification.pt:65
 #: src/euphorie/client/templates/profile.pt:67
 #: src/euphorie/client/templates/report.pt:53
 #: src/euphorie/client/templates/report_actionplan.pt:190
@@ -1180,7 +1182,7 @@ msgstr "Il-Valutazzjoni"
 #: src/euphorie/client/templates/layout.pt:38
 #: src/euphorie/client/templates/module_actionplan.pt:62
 #: src/euphorie/client/templates/module_evaluation.pt:50
-#: src/euphorie/client/templates/module_identification.pt:65
+#: src/euphorie/client/templates/module_identification.pt:66
 #: src/euphorie/client/templates/profile.pt:68
 #: src/euphorie/client/templates/report.pt:54
 #: src/euphorie/client/templates/report_actionplan.pt:191
@@ -1207,7 +1209,7 @@ msgstr "Il-Valutazzjoni"
 #: src/euphorie/client/templates/login.pt:73
 #: src/euphorie/client/templates/module_actionplan.pt:67
 #: src/euphorie/client/templates/module_evaluation.pt:58
-#: src/euphorie/client/templates/module_identification.pt:70
+#: src/euphorie/client/templates/module_identification.pt:71
 #: src/euphorie/client/templates/profile.pt:71
 #: src/euphorie/client/templates/report.pt:59
 #: src/euphorie/client/templates/report_actionplan.pt:196
@@ -1234,7 +1236,7 @@ msgstr "Il-Pjan ta' Azzjoni"
 #: src/euphorie/client/templates/layout.pt:44
 #: src/euphorie/client/templates/module_actionplan.pt:68
 #: src/euphorie/client/templates/module_evaluation.pt:59
-#: src/euphorie/client/templates/module_identification.pt:71
+#: src/euphorie/client/templates/module_identification.pt:72
 #: src/euphorie/client/templates/profile.pt:72
 #: src/euphorie/client/templates/report.pt:60
 #: src/euphorie/client/templates/report_actionplan.pt:197
@@ -1260,7 +1262,7 @@ msgstr "Il-Pjan ta' Azzjoni"
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_actionplan.pt:76
 #: src/euphorie/client/templates/module_evaluation.pt:64
-#: src/euphorie/client/templates/module_identification.pt:76
+#: src/euphorie/client/templates/module_identification.pt:77
 #: src/euphorie/client/templates/profile.pt:75
 #: src/euphorie/client/templates/report.pt:65
 #: src/euphorie/client/templates/report_actionplan.pt:202
@@ -1286,7 +1288,7 @@ msgstr "Ir-Rapport"
 #: src/euphorie/client/templates/layout.pt:50
 #: src/euphorie/client/templates/module_actionplan.pt:77
 #: src/euphorie/client/templates/module_evaluation.pt:65
-#: src/euphorie/client/templates/module_identification.pt:77
+#: src/euphorie/client/templates/module_identification.pt:78
 #: src/euphorie/client/templates/profile.pt:76
 #: src/euphorie/client/templates/report.pt:66
 #: src/euphorie/client/templates/report_actionplan.pt:203
@@ -1312,7 +1314,7 @@ msgstr "Ir-Rapport"
 #: src/euphorie/client/templates/layout.pt:58
 #: src/euphorie/client/templates/module_actionplan.pt:84
 #: src/euphorie/client/templates/module_evaluation.pt:72
-#: src/euphorie/client/templates/module_identification.pt:84
+#: src/euphorie/client/templates/module_identification.pt:85
 #: src/euphorie/client/templates/profile.pt:82
 #: src/euphorie/client/templates/report.pt:73
 #: src/euphorie/client/templates/report_actionplan.pt:210
@@ -1337,7 +1339,7 @@ msgstr "Illoggja 'l barra"
 #: src/euphorie/client/templates/layout.pt:59
 #: src/euphorie/client/templates/module_actionplan.pt:85
 #: src/euphorie/client/templates/module_evaluation.pt:73
-#: src/euphorie/client/templates/module_identification.pt:85
+#: src/euphorie/client/templates/module_identification.pt:86
 #: src/euphorie/client/templates/profile.pt:83
 #: src/euphorie/client/templates/report.pt:74
 #: src/euphorie/client/templates/report_actionplan.pt:211
@@ -1359,7 +1361,7 @@ msgstr "Il-Valutazzjonijiet Tiegħi"
 #: src/euphorie/client/templates/identification.pt:71
 #: src/euphorie/client/templates/module_actionplan.pt:87
 #: src/euphorie/client/templates/module_evaluation.pt:75
-#: src/euphorie/client/templates/module_identification.pt:87
+#: src/euphorie/client/templates/module_identification.pt:88
 #: src/euphorie/client/templates/report.pt:76
 #: src/euphorie/client/templates/report_actionplan.pt:213
 #: src/euphorie/client/templates/report_company.pt:97
@@ -1379,7 +1381,7 @@ msgstr "Stat"
 #: src/euphorie/client/templates/layout.pt:62
 #: src/euphorie/client/templates/module_actionplan.pt:88
 #: src/euphorie/client/templates/module_evaluation.pt:76
-#: src/euphorie/client/templates/module_identification.pt:88
+#: src/euphorie/client/templates/module_identification.pt:89
 #: src/euphorie/client/templates/profile.pt:85
 #: src/euphorie/client/templates/report.pt:77
 #: src/euphorie/client/templates/report_actionplan.pt:214
@@ -2051,7 +2053,7 @@ msgstr ""
 #. Default: Previous
 #: src/euphorie/client/templates/module_actionplan.pt:42
 #: src/euphorie/client/templates/module_evaluation.pt:30
-#: src/euphorie/client/templates/module_identification.pt:41
+#: src/euphorie/client/templates/module_identification.pt:42
 #: src/euphorie/client/templates/register.pt:35
 #: src/euphorie/client/templates/reminder.pt:34
 #: src/euphorie/client/templates/report_company.pt:54
@@ -2067,7 +2069,7 @@ msgstr "Preċedenti"
 #. Default: Next
 #: src/euphorie/client/templates/module_actionplan.pt:43
 #: src/euphorie/client/templates/module_evaluation.pt:31
-#: src/euphorie/client/templates/module_identification.pt:42
+#: src/euphorie/client/templates/module_identification.pt:43
 #: src/euphorie/client/templates/register.pt:36
 #: src/euphorie/client/templates/reminder.pt:35
 #: src/euphorie/client/templates/report.pt:34
@@ -3140,6 +3142,7 @@ msgstr "Kontenut tal-paġna"
 #. least one capital letter, one number and one special character (e.g. $, # or
 #. @).
 #: src/euphorie/content/passwordpolicy.py:49
+#: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
 #, fuzzy
 msgid "password_policy_conditions"
@@ -3174,7 +3177,7 @@ msgstr ""
 
 #. Default: Inversed statement
 #: src/euphorie/content/risk.py:58
-#: src/euphorie/content/templates/risk_view.pt:37
+#: src/euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr "Dikjarazzjoni negattiva"
 
@@ -3201,7 +3204,7 @@ msgstr ""
 
 #. Default: Legal and policy references
 #: src/euphorie/content/risk.py:77
-#: src/euphorie/content/templates/risk_view.pt:72
+#: src/euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Referenzi legali u tal-politika"
 
@@ -3223,7 +3226,7 @@ msgstr "Offri għażla 'mhux applikabbli' minbarra l-għażliet standard iva/le.
 
 #. Default: Risk type
 #: src/euphorie/content/risk.py:96
-#: src/euphorie/content/templates/risk_view.pt:35
+#: src/euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Tip ta' riskju"
 
@@ -3255,7 +3258,7 @@ msgstr "Politika"
 
 #. Default: Evaluation method
 #: src/euphorie/content/risk.py:116
-#: src/euphorie/content/templates/risk_view.pt:43
+#: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_evaluation_method"
 msgstr "Metodu ta' valutazzjoni"
 
@@ -3287,7 +3290,7 @@ msgstr "prijorità"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:147
-#: src/euphorie/content/templates/risk_view.pt:47
+#: src/euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
 msgstr "Prijorità default"
 
@@ -3324,7 +3327,7 @@ msgstr "Stampi sekondarji"
 
 #. Default: Default severity
 #: src/euphorie/content/risk.py:223 src/euphorie/content/risk.py:312
-#: src/euphorie/content/templates/risk_view.pt:53
+#: src/euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
 msgstr "Severità default"
 
@@ -3342,8 +3345,8 @@ msgstr "Ebda default"
 
 #. Default: Default frequency
 #: src/euphorie/content/risk.py:245 src/euphorie/content/risk.py:292
-#: src/euphorie/content/templates/risk_view.pt:55
-#: src/euphorie/content/templates/risk_view.pt:62
+#: src/euphorie/content/templates/risk_view.pt:59
+#: src/euphorie/content/templates/risk_view.pt:66
 msgid "label_default_frequency"
 msgstr "Frekwenza default"
 
@@ -3356,7 +3359,7 @@ msgstr ""
 
 #. Default: Default probability
 #: src/euphorie/content/risk.py:271
-#: src/euphorie/content/templates/risk_view.pt:60
+#: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_probability"
 msgstr "Probabbiltà default"
 
@@ -3406,19 +3409,19 @@ msgstr "Isem il-kuntatt"
 
 #. Default: Logo
 #: src/euphorie/content/sector.py:78
-#: src/euphorie/content/templates/settings.pt:61
+#: src/euphorie/content/templates/settings.pt:71
 msgid "label_logo"
 msgstr "Logo"
 
 #. Default: Main colour
 #: src/euphorie/content/sector.py:86
-#: src/euphorie/content/templates/settings.pt:44
+#: src/euphorie/content/templates/settings.pt:54
 msgid "label_main_colour"
 msgstr "Kulur prinċipali"
 
 #. Default: Support colour
 #: src/euphorie/content/sector.py:90
-#: src/euphorie/content/templates/settings.pt:53
+#: src/euphorie/content/templates/settings.pt:63
 msgid "label_support_colour"
 msgstr "Kulur ta' akkompanjament"
 
@@ -3465,13 +3468,13 @@ msgid "title_common_solution"
 msgstr "Miżura"
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:188
+#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:198
 msgid "label_survey_title"
 msgstr "Isem il-verżjoni"
 
 #. Default: This is the title of this survey version. This name is never shown
 #. to users.
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
+#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:199
 msgid "help_survey_title"
 msgstr ""
 "Dan huwa t-titlu ta' din il-verżjoni tal-Għodda tal-OiRA. Dan l-isem qatt ma "
@@ -3526,41 +3529,43 @@ msgstr ""
 "definiti minn korpi nazzjonali tal-istandards u huma bbażati fuq il-verżjoni "
 "2 tal-istandard NACE."
 
-#. Default: Title
-#: src/euphorie/content/survey.py:197 src/euphorie/content/surveygroup.py:40
-msgid "label_title"
-msgstr "Titlu"
-
-#. Default: The title of this survey. This title is used in the survey overview
-#. in the clients.
-#: src/euphorie/content/survey.py:198 src/euphorie/content/surveygroup.py:41
-msgid "help_surveygroup_title"
-msgstr ""
-"It-titlu ta' din l-Għodda tal-OiRA. Dan it-titlu jintuża fis-sommarju tal-"
-"Għodda tal-OiRA fil-klijenti."
-
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:50
+#: src/euphorie/content/survey.py:100 src/euphorie/content/survey.py:215
+#: src/euphorie/content/surveygroup.py:50
 msgid "label_survey_obsolete"
 msgstr "Stħarriġ antik"
 
 #. Default: This survey is obsolete; it has been retired or replaced with
 #. another survey.
-#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:52
+#: src/euphorie/content/survey.py:102 src/euphorie/content/survey.py:217
+#: src/euphorie/content/surveygroup.py:52
 msgid "help_survey_obsolete"
 msgstr ""
 "Dan l-istħarriġ huwa antik; tneħħa jew ġie sostitwit bi stħarriġ ieħor."
 
+#. Default: Title
+#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:40
+msgid "label_title"
+msgstr "Titlu"
+
+#. Default: The title of this survey. This title is used in the survey overview
+#. in the clients.
+#: src/euphorie/content/survey.py:208 src/euphorie/content/surveygroup.py:41
+msgid "help_surveygroup_title"
+msgstr ""
+"It-titlu ta' din l-Għodda tal-OiRA. Dan it-titlu jintuża fis-sommarju tal-"
+"Għodda tal-OiRA fil-klijenti."
+
 #. Default: You cannot delete a survey that is published. Please unpublish it
 #. first.
-#: src/euphorie/content/survey.py:291
+#: src/euphorie/content/survey.py:301
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Ma tistax tħassar verżjoni tal-Għodda tal-OiRA li hija ppubblikata. L-ewwel "
 "trid tneħħiha mill-pubblikazjoni."
 
 #. Default: You can not delete the only survey version.
-#: src/euphorie/content/survey.py:306
+#: src/euphorie/content/survey.py:316
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Din hija l-unika verżjoni tal-Għodda tal-OiRA u għalhekk ma tistax "
@@ -3640,31 +3645,31 @@ msgstr "Fajl XML"
 msgid "Survey import"
 msgstr "Importazzjoni tal-Għodda tal-OiRA"
 
-#: src/euphorie/content/upload.py:334
+#: src/euphorie/content/upload.py:335
 msgid "Import survey version"
 msgstr "Importazzjoni tal-verżjoni tal-għodda tal-OiRA"
 
-#: src/euphorie/content/upload.py:338
+#: src/euphorie/content/upload.py:339
 msgid "Upload"
 msgstr "Tella'"
 
 #. Default: Please upload a valid XML file
-#: src/euphorie/content/upload.py:349 src/euphorie/content/upload.py:387
+#: src/euphorie/content/upload.py:350 src/euphorie/content/upload.py:388
 msgid "error_invalid_xml"
 msgstr "Tella' fajl XML validu"
 
 #. Default: Succesfully imported the survey
-#: src/euphorie/content/upload.py:353 src/euphorie/content/upload.py:391
+#: src/euphorie/content/upload.py:354 src/euphorie/content/upload.py:392
 msgid "upload_success"
 msgstr "L-Għodda tal-OiRA ġiet importata"
 
 #. Default: Import sector and survey
-#: src/euphorie/content/upload.py:368
+#: src/euphorie/content/upload.py:369
 msgid "title_import_sector_survey"
 msgstr "Settur tal-Importazzjoni u l-Għodda tal-OiRA"
 
 #. Default: Upload
-#: src/euphorie/content/upload.py:373
+#: src/euphorie/content/upload.py:374
 msgid "button_upload"
 msgstr "Tella'"
 
@@ -3691,7 +3696,7 @@ msgstr "Indirizz elettroniku ta' kuntatt"
 
 #. Default: Password
 #: src/euphorie/content/user.py:86
-#: src/euphorie/content/templates/settings.pt:82
+#: src/euphorie/content/templates/settings.pt:92
 msgid "label_password"
 msgstr "Password"
 
@@ -3718,23 +3723,23 @@ msgstr "Il-kont \"${title}\" ġie llokkjat."
 msgid "message_user_unlocked"
 msgstr "Il-kont \"${title}\" m'għadux illokkjat."
 
-#: src/euphorie/content/utils.py:13
+#: src/euphorie/content/utils.py:14
 msgid "European Union"
 msgstr "L-Unjoni Ewropea"
 
-#: src/euphorie/content/utils.py:20
+#: src/euphorie/content/utils.py:21
 msgid "Kosovo"
 msgstr "Il-Kosovo"
 
-#: src/euphorie/content/utils.py:21
+#: src/euphorie/content/utils.py:22
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:23
 msgid "Republic of Serbia"
 msgstr "Ir-Repubblika tas-Serbja"
 
-#: src/euphorie/content/utils.py:24
+#: src/euphorie/content/utils.py:25
 msgid "F.Y.R. Macedonia"
 msgstr ""
 
@@ -3984,37 +3989,37 @@ msgid "header_risks"
 msgstr "Riskji"
 
 #. Default: not applicable
-#: src/euphorie/content/templates/risk_view.pt:39
+#: src/euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na_na"
 msgstr "mhux applikabbli"
 
 #. Default: Show '${na}'
-#: src/euphorie/content/templates/risk_view.pt:39
+#: src/euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na"
 msgstr "Uri '${na}"
 
 #. Default: Yes
-#: src/euphorie/content/templates/risk_view.pt:40
+#: src/euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Iva"
 
 #. Default: No
-#: src/euphorie/content/templates/risk_view.pt:41
+#: src/euphorie/content/templates/risk_view.pt:45
 msgid "no"
 msgstr "Le"
 
 #. Default: Default effect
-#: src/euphorie/content/templates/risk_view.pt:64
+#: src/euphorie/content/templates/risk_view.pt:68
 msgid "label_default_effect"
 msgstr "Severità default"
 
 #. Default: Standard solutions
-#: src/euphorie/content/templates/risk_view.pt:76
+#: src/euphorie/content/templates/risk_view.pt:80
 msgid "header_solutions"
 msgstr "Miżuri standard"
 
 #. Default: Solution ${number}
-#: src/euphorie/content/templates/risk_view.pt:79
+#: src/euphorie/content/templates/risk_view.pt:83
 msgid "risk_solution_header"
 msgstr "Miżura ${number}"
 
@@ -4055,31 +4060,35 @@ msgstr "Agħżel pajjiż li għalih tixtieq tara jew tikkopja Għodda tal-OiRA."
 msgid "header_settings"
 msgstr "Settings"
 
+#: src/euphorie/content/templates/settings.pt:18
+msgid "field"
+msgstr ""
+
 #. Default: Please provide a description of your sector
-#: src/euphorie/content/templates/settings.pt:17
+#: src/euphorie/content/templates/settings.pt:27
 msgid "label_sector_description"
 msgstr "Ipprovdi deskrizzjoni tas-settur tiegħek"
 
 #. Default: Preview
-#: src/euphorie/content/templates/settings.pt:23
+#: src/euphorie/content/templates/settings.pt:33
 #: src/euphorie/deployment/tiles/templates/versions.pt:57
 msgid "label_preview"
 msgstr "Preview"
 
 #. Default: Colour scheme
-#: src/euphorie/content/templates/settings.pt:30
+#: src/euphorie/content/templates/settings.pt:40
 msgid "header_colour_scheme"
 msgstr "Skemi tal-kuluri"
 
 #. Default: Restore to original colours
-#: src/euphorie/content/templates/settings.pt:33
+#: src/euphorie/content/templates/settings.pt:43
 msgid "button_reset_colours"
 msgstr "Erġa' lura għall-kuluri oriġinali"
 
-#: src/euphorie/content/templates/settings.pt:36
-#: src/euphorie/content/templates/settings.pt:63
-#: src/euphorie/content/templates/settings.pt:84
-#: src/euphorie/content/templates/settings.pt:92
+#: src/euphorie/content/templates/settings.pt:46
+#: src/euphorie/content/templates/settings.pt:73
+#: src/euphorie/content/templates/settings.pt:94
+#: src/euphorie/content/templates/settings.pt:105
 #: src/euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Informazzjoni"
@@ -4087,7 +4096,7 @@ msgstr "Informazzjoni"
 #. Default: The colours you select here apply only for the client side of the
 #. application. Try to pick colours that have high enough contrast to keep the
 #. text on each button legible.
-#: src/euphorie/content/templates/settings.pt:36
+#: src/euphorie/content/templates/settings.pt:46
 msgid "help_sector_colours"
 msgstr ""
 "The colours you select here apply only for the client side of the "
@@ -4097,7 +4106,7 @@ msgstr ""
 #. Default: Please use the colour pickers below to select your organisation's
 #. colours. It's best to use a darker colour for the main colour and a lighter
 #. colour for the support colour.
-#: src/euphorie/content/templates/settings.pt:39
+#: src/euphorie/content/templates/settings.pt:49
 msgid "help_colour_picker"
 msgstr ""
 "Uża l-varjetà ta' kuluri hawn taħt biex tagħżel il-kuluri tal-"
@@ -4109,7 +4118,7 @@ msgstr ""
 #. Make sure your image is of format png, jpg or gif and does not contain any
 #. special characters. The new logo will only become visible after you've saved
 #. your changes.
-#: src/euphorie/content/templates/settings.pt:63
+#: src/euphorie/content/templates/settings.pt:73
 msgid "help_sector_logo"
 msgstr ""
 "Il-logo se jidher kemm fuq l-applikazzjoni fuq in-naħa tal-klijent u li jara "
@@ -4119,22 +4128,22 @@ msgstr ""
 "li tkun issejvjajt il-bidliet."
 
 #. Default: Which logo you would like to display in the top left corner?
-#: src/euphorie/content/templates/settings.pt:65
+#: src/euphorie/content/templates/settings.pt:75
 msgid "label_logo_selection"
 msgstr "Liema logo tixtieq turi fir-rokna ta' fuq, fuq ix-xellug?"
 
 #. Default: Official OiRA Logo
-#: src/euphorie/content/templates/settings.pt:68
+#: src/euphorie/content/templates/settings.pt:78
 msgid "Official OiRA Logo"
 msgstr ""
 
 #. Default: My own
-#: src/euphorie/content/templates/settings.pt:72
+#: src/euphorie/content/templates/settings.pt:82
 msgid "logo_my_own"
 msgstr "Tiegħi stess"
 
 #. Default: transparent
-#: src/euphorie/content/templates/settings.pt:78
+#: src/euphorie/content/templates/settings.pt:88
 msgid "logo_instructions_transparent"
 msgstr "trasparenti"
 
@@ -4142,7 +4151,7 @@ msgstr "trasparenti"
 #. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
 #. images is fine, the logo will be scaled down to the right size
 #. automatically.
-#: src/euphorie/content/templates/settings.pt:77
+#: src/euphorie/content/templates/settings.pt:87
 msgid "logo_instructions"
 msgstr ""
 "Tista' tikseb l-aħjar riżultati jekk ittella' logo bħala fajl PNG "
@@ -4151,25 +4160,25 @@ msgstr ""
 
 #. Default: This is the password that you need to log on to this editor
 #. environment.
-#: src/euphorie/content/templates/settings.pt:84
+#: src/euphorie/content/templates/settings.pt:94
 msgid "help_sector_password"
 msgstr ""
 "Din hija l-password li għandek bżonn biex tilloggja f'din iż-żona tal-editur."
 
 #. Default: Contact person
-#: src/euphorie/content/templates/settings.pt:90
+#: src/euphorie/content/templates/settings.pt:103
 msgid "label_contact_person"
 msgstr "Persuna tal-kuntatt"
 
 #. Default: Give the name of the person responsible for the OiRA tools of this
 #. sector.
-#: src/euphorie/content/templates/settings.pt:92
+#: src/euphorie/content/templates/settings.pt:105
 msgid "help_sector_contactperson"
 msgstr ""
 "Agħti l-isem tal-persuna responsabbli mill-għodda tal-OiRA ta' dan is-settur."
 
 #. Default: Save changes
-#: src/euphorie/content/templates/settings.pt:101
+#: src/euphorie/content/templates/settings.pt:114
 msgid "button_save_changes"
 msgstr "Issejvja l-bidliet"
 
@@ -4572,6 +4581,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Din il-verżjoni fiha bidliet li attwalment mhumiex ippubblikati. "
 "Ikklikkja l-ikona tal-aġġornament biex tagħmel il-bidliet kollha"
+
+#~ msgid "Succesfully published the survey"
+#~ msgstr "L-Għodda tal-OiRA ppubblikata"
 
 #~ msgid "Password"
 #~ msgstr "Password"
