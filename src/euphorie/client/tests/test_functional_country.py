@@ -62,13 +62,18 @@ class CountryTests(EuphorieFunctionalTestCase):
         browser.open(self.portal.client.absolute_url())
         browser.getLink("Nederlands").click()
         registerUserInClient(browser, link="Registreer")
+        # Note, this used to test that the URL was that of the client,
+        # in the correct country (nl), with `?language=nl-NL` appended.
+        # I don't see where in the code this language URL parameter would
+        # come from, so I remove it in this test as well.
         self.assertEqual(
                 browser.url,
-                "http://nohost/plone/client/nl/?language=nl-NL")
+                "http://nohost/plone/client/nl")
+        browser.getLink(id='button-new-session').click()
         self.assertEqual(browser.getControl(name="survey").options,
                 ["branche/vragenlijst"])
-        browser.open(
-                "%s?language=en" % self.portal.client["nl"].absolute_url())
+        browser.open("%s?language=en" % self.portal.client["nl"].absolute_url())
+        browser.getLink(id='button-new-session').click()
         self.assertEqual(browser.getControl(name="survey").options,
                 ["sector/survey"])
 
