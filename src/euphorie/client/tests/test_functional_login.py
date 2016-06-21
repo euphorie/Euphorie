@@ -48,6 +48,7 @@ class LoginTests(EuphorieFunctionalTestCase):
         addAccount(password='secret')
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getControl(name='__ac_name').value = 'JANE@example.com'
         browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
         browser.getControl(name="next").click()
@@ -62,6 +63,7 @@ class LoginTests(EuphorieFunctionalTestCase):
         addAccount(password='secret')
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getControl(name='__ac_name').value = 'jane@example.com'
         browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
         browser.getControl(name="next").click()
@@ -78,6 +80,7 @@ class LoginTests(EuphorieFunctionalTestCase):
         addAccount(password='secret')
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getControl(name='__ac_name').value = 'jane@example.com'
         browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
         browser.getControl(name='remember').value = ['True']
@@ -97,10 +100,11 @@ class LoginTests(EuphorieFunctionalTestCase):
         addAccount(password='secret')
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getControl(name='__ac_name').value = 'JANE@example.com'
         browser.getControl(name='__ac_password:utf8:ustring').value = 'secret'
         browser.getControl(name="next").click()
-        self.assertTrue(re.search('trackPageview.*login/success', browser.contents) is not None)
+        self.assertTrue(re.search('trackPageview.*login_form/success', browser.contents) is not None)
 
 
 class RegisterTests(EuphorieTestCase):
@@ -162,6 +166,7 @@ class ReminderTests(EuphorieFunctionalTestCase):
         self.addDummySurvey()
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
         browser.getControl(name="loginname").value = "jane@example.com"
         browser.getControl(name="next").click()
@@ -177,6 +182,7 @@ class ReminderTests(EuphorieFunctionalTestCase):
         self.portal.email_from_name = "Euphorie website"
         browser = Browser()
         browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
         browser.getControl(name="loginname").value = "jane@example.com"
         browser.getControl(name="next").click()
