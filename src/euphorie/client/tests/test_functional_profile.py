@@ -43,7 +43,7 @@ class ProfileTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next", index=1).click()
+        browser.getControl(name="next").click()
         # Start the survey
         browser.getForm().submit()
         # Enter the profile information
