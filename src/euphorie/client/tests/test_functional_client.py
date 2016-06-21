@@ -34,7 +34,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next", index=1).click()
+        browser.getControl(name="next").click()
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -75,7 +75,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next", index=1).click()
+        browser.getControl(name="next").click()
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -116,7 +116,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next", index=1).click()
+        browser.getControl(name="next").click()
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -124,12 +124,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/sector-title/"
                         "survey-title/identification/1/1")
         browser.getControl(name="answer").value = ["no"]
-        browser.getControl(name="next", index=1).click()
-        # Check what the evaluation found
-        self.assertEqual(
-                browser.url,
-                "http://nohost/plone/client/nl/sector-title/"
-                "survey-title/evaluation")
+        # No evaluation is necessary
         self.assertTrue(
-                "There are no risks that need to be evaluated"
+                "The risk evaluation has been automatically done by the tool"
                 in browser.contents)
