@@ -22,17 +22,17 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         appconfig = component.getUtility(IAppConfig)
         allow_guest_accounts = appconfig['euphorie'].get('allow_guest_accounts', False)
         appconfig['euphorie']['allow_guest_accounts'] = True
-        browser.open("%s/@@login" % self.portal.client.nl.absolute_url())
+        browser.open(self.portal.client.nl.absolute_url())
         self.assertTrue(
-            re.search('try it out without registering', browser.contents)
+            re.search('run a test session', browser.contents)
             is not None)
         browser.open("%s/@@tryout?came_from=%s" % (
             self.portal.client.nl.absolute_url(),
             self.portal.client.nl.absolute_url()
         ))
-        browser.open("%s/@@login" % self.portal.client.nl.absolute_url())
+        browser.open(self.portal.client.nl.absolute_url())
         self.assertTrue(
-            re.search('try it out without registering', browser.contents)
+            re.search('run a test session', browser.contents)
             is None)
         appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
