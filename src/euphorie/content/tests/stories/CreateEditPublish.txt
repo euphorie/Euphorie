@@ -35,6 +35,9 @@ Lets add a profile question:
 >>> browser.getControl(name="form.widgets.title").value="Profile title"
 >>> browser.getControl(name="form.widgets.question").value="Profile question"
 >>> browser.getControl(name="form.widgets.description").value="Description of the profile question"
+>>> browser.getControl(name="form.widgets.label_multiple_present").value="Question about multiple occurance"
+>>> browser.getControl(name="form.widgets.label_single_occurance").value="Single occurance label"
+>>> browser.getControl(name="form.widgets.label_multiple_occurances").value="Mutliple occurances label"
 >>> browser.getControl(name="form.buttons.save").click()
 
 Add a module and risk:
