@@ -106,32 +106,12 @@
   </metal:survey>
 
   <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
-    <p id="appendix" tal:define="media_url client/++resource++euphorie.media">
-        <a href="${webhelpers/client_url}">
-          <img class="appendix_oira_logo" src="${media_url}/osha/footer_logo.png"/>
-        </a>
-
-        <tal:block repeat="page webhelpers/appendix">
-            <a href="${page/url}">${page/title}</a> |
-        </tal:block>
-        <tal:span i18n:translate="appendix_produced_by">
-        Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_blank">EU-OSHA</a>.</tal:span>
-        |
-        <a href="http://www.oiraproject.eu/" target="_blank" i18n:translate="appendix_about">About</a>
-        |
-        <a href="${webhelpers/client_url}/terms-and-conditions" target="_blank"  i18n:translate="appendix_privacy">Privacy</a>
-        |
-        <a href="${webhelpers/client_url}/disclaimer" target="_blank" i18n:translate="appendix_disclaimer">Disclaimer</a>
-        |
-        <a href="http://www.gnu.org/licenses/gpl.html" target="_blank" i18n:translate="appendix_gpl_license">GPL License</a>
-        |
-        <a href="http://creativecommons.org/licenses/by-sa/2.5/"
-            target="_blank"
-            i18n:attributes="alt" alt="CC License">
-            <img class="creative_commons_logo" src="${media_url}/osha/creative_commons.png"/>
-        </a>
+    <p id="appendix">
+      <tal:block repeat="page webhelpers/appendix"
+      ><a href="${page/url}">${page/title}</a> |</tal:block>
+      <tal:span i18n:translate="appendix_produced_by">Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_new">EU-OSHA</a>.</tal:span> |
+      <a href="${webhelpers/about_url}" i18n:translate="appendix_about">About</a>
     </p>
-    <div id="browser-warning" style="display:none">This will contain the warning translated</div>
   </metal:appendix>
 
   <metal:riskinfo define-macro="risk_info_actionplan" meta:interpolation="true" i18n:domain="euphorie" >
