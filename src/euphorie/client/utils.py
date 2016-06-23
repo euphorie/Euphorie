@@ -36,6 +36,7 @@ from .. import MessageFactory as _
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import IClientSector
 from euphorie.client import config
+from ZODB.POSException import POSKeyError
 from zope.i18nmessageid import MessageFactory
 from zope.i18n import translate
 from zope.component import getMultiAdapter
@@ -432,7 +433,10 @@ class WebHelpers(grok.View):
         if sector is None:
             return None
         images = getMultiAdapter((sector, self.request), name="images")
-        return images.scale("logo", height=100, direction="up") or None
+        try:
+            return images.scale("logo", height=100, direction="up") or None
+        except POSKeyError:
+            return None
 
     def messages(self):
         status = IStatusMessage(self.request)
