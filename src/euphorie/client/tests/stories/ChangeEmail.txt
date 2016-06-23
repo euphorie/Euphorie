@@ -28,17 +28,17 @@ Login and request change
 We start our story by logging in and going to the account settings page.
 
 >>> browser.open(portal.client.nl.absolute_url())
+>>> browser.getLink("Login").click()
 >>> browser.getControl(name="__ac_name").value="jane@example.com"
 >>> browser.getControl(name="__ac_password:utf8:ustring").value=u"Øle".encode("utf-8")
 >>> browser.getControl(name="next", index=0).click()
->>> browser.getLink("Settings").click()
 
 Lets request an email address change:
 
 >>> browser.open("http://nohost/plone/client/nl/new-email")
 >>> browser.getControl(name="form.widgets.loginname").value="jane@doe.name"
 >>> browser.getControl(name="form.widgets.password").value=u"Øle".encode("utf-8")
->>> browser.getControl("Save changes").click()
+>>> browser.getControl(name="form.buttons.save").click()
 >>> browser.contents
 '...Please confirm your new email...jane@doe.name...'
 
@@ -74,6 +74,7 @@ We can now login with our new address:
 
 >>> browser.open('http://nohost/plone/client/nl/logout')
 >>> browser.open('http://nohost/plone/client/nl')
+>>> browser.getLink("Login").click()
 >>> browser.getControl(name="__ac_name").value="jane@doe.name"
 >>> browser.getControl(name="__ac_password:utf8:ustring").value=u"Øle".encode("utf-8")
 >>> browser.getControl(name="next", index=0).click()
