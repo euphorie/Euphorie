@@ -15,7 +15,7 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account; is_outside_of_survey webhelpers/is_outside_of_survey; came_from_param webhelpers/came_from_param">
-    <tal:block replace="tile:statusmessages"/>
+  <tal:block replace="tile:statusmessages"/>
   <article class="rich">
     <h1 i18n:translate="header_welcome">Welcome</h1>
 
@@ -34,36 +34,37 @@
         </p>
         <div class="panel-content">
 
-      <h4 i18n:translate="">Who is the OiRA tool for?</h4>
-      <p i18n:translate="">OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace.</p>
+          <h4 i18n:translate="">Who is the OiRA tool for?</h4>
+          <p i18n:translate="">OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace.</p>
 
-      <p i18n:translate="">However, OiRA is designed to be of most value to smaller businesses.</p>
-      <p i18n:translate="">OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements.</p>
-
-
-      <h4 i18n:translate="">What do I have to do?</h4>
-      <p i18n:translate="">There are four main stages to complete in the assessment process:</p>
-      <ul>
-        <li i18n:translate=""><strong i18n:name="preparation"><tal:span i18n:translate="label_preparation">Preparation</tal:span>:</strong> This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business.</li>
-        <li i18n:translate=""><strong i18n:name="identification"><tal:span i18n:translate="label_identification">Identification</tal:span>:</strong> OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage.</li>
-        <li i18n:translate=""><strong i18n:name="evaluation"><tal:span i18n:translate="label_evaluation">Evaluation</tal:span>:</strong> Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage.</li>
-        <li i18n:translate=""><strong i18n:name="action-plan"><tal:span i18n:translate="label_action_plan">Action Plan</tal:span>:</strong> In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically  produced in the next step.</li>
-      </ul>
+          <p i18n:translate="">However, OiRA is designed to be of most value to smaller businesses.</p>
+          <p i18n:translate="">OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements.</p>
 
 
-      <h4 i18n:translate="">How long will it take?</h4>
-      <p i18n:translate="">It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries.</p>
-      <p i18n:translate="">However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off.</p>
+          <h4 i18n:translate="">What do I have to do?</h4>
+          <p i18n:translate="">There are four main stages to complete in the assessment process:</p>
+          <ul>
+            <li i18n:translate=""><strong i18n:name="preparation"><tal:span i18n:translate="label_preparation">Preparation</tal:span>:</strong> This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business.</li>
+            <li i18n:translate=""><strong i18n:name="identification"><tal:span i18n:translate="label_identification">Identification</tal:span>:</strong> OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage.</li>
+            <li i18n:translate=""><strong i18n:name="evaluation"><tal:span i18n:translate="label_evaluation">Evaluation</tal:span>:</strong> Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage.</li>
+            <li i18n:translate=""><strong i18n:name="action-plan"><tal:span i18n:translate="label_action_plan">Action Plan</tal:span>:</strong> In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically  produced in the next step.</li>
+          </ul>
 
 
-      <h4 i18n:translate="">Why do I have to register?</h4>
-      <p i18n:translate="">The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
-      <p i18n:translate="">Registering allows you to simply log in at any time to continue previous assessments or to start new ones.</p>
-      <p i18n:translate="">You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time).</p>
+          <h4 i18n:translate="">How long will it take?</h4>
+          <p i18n:translate="">It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries.</p>
+          <p i18n:translate="">However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off.</p>
 
-      <h4 i18n:translate="">Do I need to prepare?</h4>
-      <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
 
+          <h4 i18n:translate="">Why do I have to register?</h4>
+          <p i18n:translate="">The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
+          <p i18n:translate="">Registering allows you to simply log in at any time to continue previous assessments or to start new ones.</p>
+          <p i18n:translate="">You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time).</p>
+
+          <h4 i18n:translate="">Do I need to prepare?</h4>
+          <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
+        </div>
+      </div>
 
     <metal:css use-macro="webhelpers/macros/appendix"/>
 
