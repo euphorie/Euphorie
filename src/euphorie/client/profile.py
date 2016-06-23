@@ -266,11 +266,11 @@ class Profile(grok.View):
             question = self.context.get(id)
             if not IProfileQuestion.providedBy(question):
                 continue
-            if not self.request.get("pq{0}.present".format(id), '') == 'yes':
+            if not self.request.form.get("pq{0}.present".format(id), '') == 'yes':
                 continue
             if isinstance(answer, list):
                 profile[id] = filter(None, (a.strip() for a in answer))
-                if not self.request.get("pq{0}.multiple".format(id), '') == 'yes':
+                if not self.request.form.get("pq{0}.multiple".format(id), '') == 'yes':
                     profile[id] = profile[id][:1]
             else:
                 profile[id] = answer

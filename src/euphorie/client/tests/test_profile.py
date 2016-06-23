@@ -296,21 +296,30 @@ class Profile_getDesiredProfile_Tests(TreeTests):
     def test_profile_whitespace_answer(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        self.assertEqual(self.getDesiredProfile(survey, {"1": [u"   "]}),
+        self.assertEqual(self.getDesiredProfile(survey, {"1": [u"   "], "pq1.present": "yes"}),
                 {"1": []})
 
-    def test_profile_with_two_answers(self):
+    def test_profile_with_two_answers_not_multiple_active(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         self.assertEqual(
-                self.getDesiredProfile(survey, {"1": [u"one", u"two"]}),
+                self.getDesiredProfile(survey,
+                    {"1": [u"one", u"two"], "pq1.present": "yes"}),
+                {"1": [u"one"]})
+
+    def test_profile_with_two_answers_multiple_active(self):
+        survey = self.createClientSurvey()
+        survey.invokeFactory("euphorie.profilequestion", "1")
+        self.assertEqual(
+                self.getDesiredProfile(survey,
+                    {"1": [u"one", u"two"], "pq1.present": "yes", "pq1.multiple": "yes"}),
                 {"1": [u"one", "two"]})
 
     def test_profile_strip_whitespace(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         self.assertEqual(
-                self.getDesiredProfile(survey, {"1": [u" *** "]}),
+                self.getDesiredProfile(survey, {"1": [u" *** "], "pq1.present": "yes"}),
                 {"1": [u"***"]})
 
 
@@ -360,6 +369,7 @@ class Profile_setupSession_Tests(TreeTests):
         view = self.makeView(survey)
         session = view.session
         view.request.form["1"] = [u"one"]
+        view.request.form["pq1.present"] = "yes"
         self.setupSession(view)
         self.failUnless(view.session is session)
         self.assertEqual(session.hasTree(), True)
@@ -396,6 +406,7 @@ class Profile_setupSession_Tests(TreeTests):
         session = view.session
         BuildSurveyTree(survey, {"1": [u'London']}, session)
         view.request.form["1"] = [u'London']
+        view.request.form["pq1.present"] = "yes"
         self.setupSession(view)
         self.failUnless(view.session is session)
         self.assertEqual(view.session.hasTree(), True)
