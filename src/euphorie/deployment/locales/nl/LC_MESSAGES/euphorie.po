@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-06-23 14:19+0200\n"
+"POT-Creation-Date: 2016-06-23 14:55+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -177,15 +177,15 @@ msgstr "Zou u deze tool aanbevelen aan een onderneming gelijkend op de uwe?"
 
 #: src/euphorie/client/country.py:177
 msgid "Session `${name}` has been deleted."
-msgstr ""
+msgstr "Sessie `${name}` is verwijderd."
 
 #: src/euphorie/client/country.py:212
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: src/euphorie/client/country.py:220
 msgid "Session title has been changed to ${name}"
-msgstr ""
+msgstr "De titel van de sessie is veranderd in ${name}"
 
 #. Default: Cancel
 #: src/euphorie/client/country.py:224
@@ -193,7 +193,7 @@ msgstr ""
 #: src/euphorie/client/templates/new-email.pt:27
 #: src/euphorie/client/templates/rename-session.pt:30
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: src/euphorie/client/login.py:202
 msgid "Please enter your email address"
@@ -245,48 +245,47 @@ msgstr "Er bestaat al een account met dit e-mail adres"
 #. Default: Please enter a valid email address.
 #: src/euphorie/client/login.py:322
 msgid "invalid_email"
-msgstr ""
+msgstr "Gelieve een geldig e-mail adres in te geven."
 
 #. Default: Please fill out this field.
 #: src/euphorie/client/module.py:66
 msgid "message_field_required"
-msgstr ""
+msgstr "Gelieve dit veld in te vullen."
 
 #: src/euphorie/client/module.py:82
 msgid "No changes were made to your added risks."
-msgstr ""
+msgstr "Er zijn geen wijzigingen doorgevoerd in uw bijkomende risico's."
 
 #: src/euphorie/client/module.py:89
 msgid "Your new added risks have been created."
-msgstr ""
+msgstr "Uw nieuwe bijkomende risico's zijn aangemaakt."
 
 #: src/euphorie/client/module.py:94
 msgid "A new added risk has been created."
-msgstr ""
+msgstr "Er is een nieuw bijkomend risico aangemaakt."
 
 #: src/euphorie/client/module.py:99
 msgid "Existing added risks have been updated."
-msgstr ""
+msgstr "De bestaande bijkomende risico's zijn bijgewerkt."
 
 #: src/euphorie/client/module.py:104
 msgid "An existing added risk has been updated."
-msgstr ""
+msgstr "Er is een bestaand bijkomend risico bijgewerkt."
 
 #: src/euphorie/client/module.py:109
 msgid "An added risk has been removed."
-msgstr ""
+msgstr "Er is een bijkomend risico verwijderd."
 
 #: src/euphorie/client/module.py:112
 msgid "Added risks have been removed."
-msgstr ""
+msgstr "Er zijn bijkomende risico's verwijderd."
 
 #. Default: Added risks (by you)
 #: src/euphorie/client/publish.py:146 src/euphorie/client/utils.py:110
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
-#, fuzzy
 msgid "title_other_risks"
-msgstr "Lijst met alle risico's"
+msgstr "Bijkomende risico’s (door u toegevoegd)"
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
@@ -294,6 +293,8 @@ msgstr "Lijst met alle risico's"
 #: src/euphorie/deployment/upgrade/v8.py:142
 msgid "description_other_risks"
 msgstr ""
+"Indien u risico's hebt vastgesteld die niet in de tool zijn opgenomen, kunt "
+"u deze nu toevoegen:"
 
 #. Default: <p>Would you now like to add your own defined risks to this
 #. tool?</p><p><strong>Important:</strong> In order to avoid duplicating risks,
@@ -302,9 +303,13 @@ msgstr ""
 #. select 'No.'</p>
 #: src/euphorie/client/publish.py:152
 #: src/euphorie/deployment/upgrade/v8.py:146
-#, fuzzy
 msgid "question_other_risks"
-msgstr "Lijst met alle risico's"
+msgstr ""
+"<p>Wenst u nu uw eigen gedefinieerde risico’s toe te voegen aan deze tool?</"
+"p><p><strong>Belangrijk:</strong> Om te vermijden dat risico’s gedupliceerd "
+"worden, raden we u ten sterkste aan om eerst alle voorgaande modules te "
+"doorlopen, als u dit nog niet gedaan hebt.</p><p>Indien u geen risico’s moet "
+"toevoegen, gelieve ‘Nee’ te selecteren.</p>"
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:254 src/euphorie/client/publish.py:301
@@ -699,81 +704,81 @@ msgstr ""
 #. Default: This date must be on or before the end date.
 #: src/euphorie/client/risk.py:295
 msgid "error_validation_before_end_date"
-msgstr ""
+msgstr "Deze datum moet op of vóór de einddatum zijn."
 
 #. Default: This date must be on or after the start date.
 #: src/euphorie/client/risk.py:299
 msgid "error_validation_after_start_date"
-msgstr ""
+msgstr "Deze datum moet op of na de startdatum zijn."
 
 #. Default: This value must be a positive whole number.
 #: src/euphorie/client/risk.py:303
 msgid "error_validation_positive_whole_number"
-msgstr ""
+msgstr "Deze waarde moet een positief geheel getal zijn."
 
 #: src/euphorie/client/risk.py:364
 msgid "No changes were made to measures in your action plan."
-msgstr ""
+msgstr "Er werden geen wijzigingen gedaan in de maatregelen van uw actieplan."
 
 #. Default: A measure has been added to your action plan.
 #: src/euphorie/client/risk.py:369
 msgid "message_measure_saved"
-msgstr ""
+msgstr "Een maatregel werd toegevoegd aan uw actieplan."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:374
 msgid "message_measures_saved_2"
-msgstr ""
+msgstr "${no_of_measures} maatregelen zijn toegevoegd aan uw actieplan."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:382
 msgid "message_measures_saved_3_4"
-msgstr ""
+msgstr "${no_of_measures} maatregelen zijn toegevoegd aan uw actieplan."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:390
 msgid "message_measures_saved"
-msgstr ""
+msgstr "${no_of_measures} maatregelen zijn toegevoegd aan uw actieplan."
 
 #. Default: A measure has been updated in your action plan.
 #: src/euphorie/client/risk.py:399
 msgid "message_measure_updated"
-msgstr ""
+msgstr "Een maatregel werd geüpdatet in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:404
 msgid "message_measures_updated_2"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:412
 msgid "message_measures_updated_3_4"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:420
 msgid "message_measures_updated"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
 
 #. Default: A measure has been removed from your action plan.
 #: src/euphorie/client/risk.py:429
 msgid "message_measure_removed"
-msgstr ""
+msgstr "Een maatregel werd verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:434
 msgid "message_measures_removed_3"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:442
 msgid "message_measures_removed_3_4"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:450
 msgid "message_measures_removed"
-msgstr ""
+msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -798,7 +803,7 @@ msgstr "E-mail adres/login naam"
 #: src/euphorie/client/settings.py:77
 #: src/euphorie/client/templates/user-menu.pt:16
 msgid "title_change_password"
-msgstr ""
+msgstr "Wachtwoord veranderen"
 
 #. Default: Save changes
 #: src/euphorie/client/settings.py:84 src/euphorie/client/settings.py:220
@@ -868,12 +873,12 @@ msgstr "Uw e-mailadres is gewijzigd."
 #. Default: Page
 #: src/euphorie/client/survey.py:282
 msgid "label_page"
-msgstr ""
+msgstr "Pagina"
 
 #. Default: of
 #: src/euphorie/client/survey.py:283
 msgid "label_page_of"
-msgstr ""
+msgstr "van"
 
 #. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:232
@@ -897,7 +902,7 @@ msgstr "OiRA"
 #. Default: Close
 #: src/euphorie/client/utils.py:484
 msgid "button_close"
-msgstr ""
+msgstr "Sluit"
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -1074,6 +1079,13 @@ msgstr "ontwikkelingspartners"
 #: src/euphorie/client/templates/about.pt:72
 msgid "about_partners_1"
 msgstr ""
+"Het OiRA-project en de verwante webapplicatie werden ontwikkeld door de ${eu-"
+"osha} die gebaseerd werd op het Nederlandse beoordelinginstrument (${RIE} "
+"genoemd), dat gefinancierd werd door de Nederlandse overheid en initieel "
+"werd ontwikkeld door TNO in samenwerking met de werknemersorganisatie voor "
+"kleine en middelgrote ondernemingen MKB-Nederland en het Nederlandse "
+"Ministerie voor Werkgelegenheid. De applicatie werd verder ontwikkeld met de "
+"inbreng en deelname van de vakbonden FNV, CNV en MHP."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
@@ -1100,6 +1112,10 @@ msgstr "Duitsland"
 #: src/euphorie/client/templates/about.pt:91
 msgid "about_partners_3"
 msgstr ""
+"Het Agentschap kreeg strategisch en expertadvies van een stuurgroep voor de "
+"ontwikkeling en implementatie van het OiRA-project. Leden en "
+"plaatsvervangende leden van de stuurgroep werden aangesteld door de "
+"belangengroepen bij de Raad, de Commissie en door EU-OSHA."
 
 #. Default: Licenses
 #: src/euphorie/client/templates/about.pt:95
@@ -1374,6 +1390,11 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:30
 msgid "conditions_intro1"
 msgstr ""
+"De OiRA-applicatie (Online interactive Risk Assesment) is een instrument dat "
+"u ter beschikking wordt gesteld door het Europees Agentschap voor de "
+"veiligheid en gezondheid op het werk (EU-OSHA). Dit privacybeleid is van "
+"toepassing voor alle producten, diensten en websites die worden aangeboden "
+"door EU-OSHA in het kader van de OiRA-applicatie."
 
 #. Default: Your personal data is processed in line with Regulation (EC) N°
 #. 45/2001 of the European Parliament and of the Council of 18 December 2000 on
@@ -1384,11 +1405,18 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:34
 msgid "conditions_intro2"
 msgstr ""
+"Uw persoonlijke gegevens worden verwerkt conform de Verordening (EG) nr. "
+"45/2001 van het Europese Parlement en de Raad van 18 december 2000 "
+"betreffende de bescherming van natuurlijke personen in verband met de "
+"verwerking van persoonsgegevens door de communautaire instellingen en "
+"organen en betreffende het vrije verkeer van die gegevens. Meer informatie "
+"over het privacybeleid van EU-OSHA en de volledige tekst van de  Verordening "
+"vindt u op: ${url}."
 
 #. Default: The Information we collect and for what purposes
 #: src/euphorie/client/templates/conditions.pt:38
 msgid "conditions_info_header"
-msgstr ""
+msgstr "De informatie die we verzamelen en voor welke doeleinden"
 
 #. Default: The kind of information we collect: when you sign up for an OiRA
 #. account and you enter data into the OiRA application we are asking you for
@@ -1396,6 +1424,9 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:40
 msgid "conditions_info_entry"
 msgstr ""
+"Het soort informatie dat we verzamelen: wanneer u zich registreert voor een "
+"OiRA-account en u voert gegevens in de Online interactive Risk Assessment "
+"applicatie in, vragen we u naar de volgende informatie:"
 
 #. Default: Email account: this is necessary to access the online application,
 #. edit the input data, and delete the OiRA account. You can enter any valid
@@ -1403,6 +1434,10 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:44
 msgid "conditions_info_email"
 msgstr ""
+"E-mailaccount: dit is nodig voor de toegang tot de online applicatie, het "
+"bewerken van de ingevoerde gegevens en het verwijderen van de OiRA-account. "
+"U kunt eender welk geldig e-mailadres invoeren. E-mailadressen zullen niet "
+"worden gebruikt voor commerciële doeleinden."
 
 #. Default: Any information you provide in the free text fields of the
 #. application (e.g. when you input a measure to tackle a risk, the person
@@ -1411,6 +1446,10 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:48
 msgid "conditions_info_text"
 msgstr ""
+"Alle informatie die u in vrije tekstvelden van de applicatie en in het "
+"actieplan invoert - (bijv. wanneer u een maatregel invoert om een risico te "
+"behandelen, de persoon die verantwoordelijk is voor deze maatregel, enz.). "
+"Het invoeren van informatie in vrije tekstvelden is niet verplicht."
 
 #. Default: Cookies – When you visit the site and select a language, we send a
 #. cookie to your computer or other device to store your language selection.
@@ -1424,6 +1463,16 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:52
 msgid "conditions_info_cookies"
 msgstr ""
+"Cookies â€“ Wanneer u de site bezoekt en een taal selecteert, sturen we een "
+"cookie naar uw computer of ander apparaat om uw taalkeuze op te slaan. Deze "
+"cookie blijft in uw browser tot u deze sluit. Wanneer u de site bezoekt en "
+"zich aanmeldt, sturen we een cookie met uw logininformatie om u aangemeld te "
+"houden tijdens uw bezoek. Deze cookie blijft op uw computer tot u uw browser "
+"sluit. De meeste browsers zijn initieel ingesteld om cookies te aanvaarden, "
+"maar u kunt uw browser opnieuw instellen om alle cookies te weigeren of om "
+"aan te geven wanneer er een cookie wordt verstuurd. Sommige functies en "
+"diensten kunnen mogelijk niet correct functioneren als uw cookies zijn "
+"uitgeschakeld."
 
 #. Default: Log information – When you access the service, our servers
 #. automatically record information that your browser sends whenever you visit
@@ -1434,6 +1483,12 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:56
 msgid "conditions_info_logs"
 msgstr ""
+"Logboekinformatie â€“ Wanneer u de dienst gebruikt, registreren onze servers "
+"automatisch informatie die uw browser verstuurt wanneer u een website "
+"bezoekt. De logboeken van deze server kunnen informatie bevatten zoals uw "
+"webverzoek, uw interactie met een dienst, browsertype, browsertaal, de datum "
+"en het tijdstip van uw verzoek. IP-adressen worden niet bewaard in het "
+"systeem."
 
 #. Default: In addition to the above mentioned purposes, we may use the
 #. information we collect to provide, maintain, protect, and improve our
@@ -1442,38 +1497,46 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:61
 msgid "conditions_info_use_intro"
 msgstr ""
+"Naast de hierboven vermelde doeleinden, kunnen we de informatie die we "
+"verzamelen, gebruiken om onze diensten te voorzien, onderhouden, beschermen "
+"en verbeteren, en om nieuwe diensten te ontwikkelen. Er zal in geen geval "
+"persoonlijke informatie worden gebruikt voor het verwerken van gegevens."
 
 #. Default: Data controller
 #: src/euphorie/client/templates/conditions.pt:69
 msgid "conditions_datacontroller_header"
-msgstr ""
+msgstr "Houder van persoonsgegevens"
 
 #. Default: The data controller is the European Agency for Safety and Health at
 #. Work, Bilbao.
 #: src/euphorie/client/templates/conditions.pt:71
 msgid "condtions_datacontroller"
 msgstr ""
+"De houder van persoonsgegevens is Andrew Smith, Europees Agentschap voor de "
+"veiligheid en de gezondheid op het werk, Bilbao."
 
 #. Default: Conservation and processing of information
 #: src/euphorie/client/templates/conditions.pt:75
 msgid "conditions_conservation_header"
-msgstr ""
+msgstr "Bewaren en verwerken van informatie"
 
 #. Default: We keep your data, which is inaccessible for external users, until
 #. you delete your account and your session(s).
 #: src/euphorie/client/templates/conditions.pt:77
 msgid "conditions_conservation_keep_data"
 msgstr ""
+"We bewaren uw gegevens die niet toegankelijk zijn voor externe gebruikers "
+"tot u uw account en uw sessie(s) verwijdert."
 
 #. Default: EU-OSHA stores data on our servers in Zamudio, Spain.
 #: src/euphorie/client/templates/conditions.pt:81
 msgid "conditions_conservation_storage"
-msgstr ""
+msgstr "EU-OSHA bewaart gegevens op onze servers in Zamudio, Spanje."
 
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
 msgid "conditions_datareview_header"
-msgstr ""
+msgstr "Uw informatie controleren en verwijderen"
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
 #. review, control and delete the information stored in your Account and in
@@ -1481,11 +1544,13 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:87
 msgid "conditions_datareview"
 msgstr ""
+"U kunt de accountinstellingen en uw bewaarde OiRA-sessie(s) gebruiken om de "
+"informatie in uw account en in uw sessie(s) te controleren en te verwijderen."
 
 #. Default: Information security
 #: src/euphorie/client/templates/conditions.pt:91
 msgid "conditions_security_header"
-msgstr ""
+msgstr "Informatieveiligheid"
 
 #. Default: We take appropriate security measures to protect against
 #. unauthorized access to or unauthorized alteration, disclosure or destruction
@@ -1497,11 +1562,21 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:93
 msgid "conditions_security"
 msgstr ""
+"We nemen toepasselijke maatregelen voor de bescherming tegen onbevoegde "
+"toegang tot of onbevoegde aanpassing, bekendmaking of vernietiging van "
+"gegevens. Deze bestaan onder meer uit interne beoordelingen van onze "
+"gegevensverzameling, praktijken met betrekking tot opslag en verwerking en "
+"veiligheidsmaatregelen, waaronder toepasselijke encryptie van communicatie "
+"en fysieke veiligheidsmaatregelen ter bescherming tegen onbevoegde toegang "
+"tot systemen waar we persoonlijke gegevens bewaren. Gegevens zijn voor "
+"niemand en op geen enkele manier toegankelijk. IP-adressen worden niet "
+"bewaard, zodat eindgebruikers niet kunnen geïdentificeerd worden op basis "
+"van hun toegang."
 
 #. Default: Contact information
 #: src/euphorie/client/templates/conditions.pt:97
 msgid "conditions_contact_header"
-msgstr ""
+msgstr "Contactinformatie"
 
 #. Default: EU-OSHA regularly reviews its compliance with this Privacy Policy.
 #. Any enquiries and complaints regarding our privacy policy can be sent to the
@@ -1509,6 +1584,10 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:99
 msgid "conditions_contact"
 msgstr ""
+"EU-OSHA beoordeelt vaak zijn naleving van dit privacybeleid. Alle "
+"informatieaanvragen en klachten met betrekking tot ons privacybeleid kunnen "
+"worden verstuurd naar de DPO van EU-OSHA op ${dpo-email} of de EDPS op "
+"${edps-email}."
 
 #. Default: Agree and continue
 #: src/euphorie/client/templates/conditions.pt:104
@@ -1551,7 +1630,7 @@ msgstr ""
 #. Default: Yes, delete session
 #: src/euphorie/client/templates/confirmation-delete-session.pt:23
 msgid "button_delete_session"
-msgstr ""
+msgstr "Ja, verwijder de sessie"
 
 #. Default: Are you aware of all the risks?
 #: src/euphorie/client/templates/default_introduction.pt:6
@@ -1739,7 +1818,7 @@ msgstr "Welkom"
 #. Default: run a test session
 #: src/euphorie/client/templates/login.pt:23
 msgid "label_tryout"
-msgstr ""
+msgstr "start een proefsessie"
 
 #. Default: register
 #: src/euphorie/client/templates/login.pt:23
@@ -1752,16 +1831,18 @@ msgstr "Registreer"
 #: src/euphorie/client/templates/login.pt:22
 msgid "teaser_try_oira"
 msgstr ""
+"Wilt u OiRA uitproberen? U mag ${tryout_link} of ${register_link} om echt te "
+"beginnen."
 
 #. Default: log in
 #: src/euphorie/client/templates/login.pt:25
 msgid "log in"
-msgstr ""
+msgstr "inloggen"
 
 #. Default: If you are a registered user, you can ${log_in} here.
 #: src/euphorie/client/templates/login.pt:25
 msgid "label_login_here"
-msgstr ""
+msgstr "Als u een geregistreerd gebruiker bent, kunt u hier ${log_in}."
 
 #: src/euphorie/client/templates/login.pt:28
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
@@ -1983,7 +2064,7 @@ msgstr "Aangemeld blijven."
 #. Default: register
 #: src/euphorie/client/templates/login_form.pt:49
 msgid "label_register_first"
-msgstr ""
+msgstr "registreer"
 
 #. Default: Don't have an account? Then please ${register_link} first.
 #: src/euphorie/client/templates/login_form.pt:49
@@ -2016,7 +2097,7 @@ msgstr "Risico"
 #: src/euphorie/client/templates/module_customization.pt:44
 #: src/euphorie/client/templates/module_customization.pt:69
 msgid "Description of the risk"
-msgstr ""
+msgstr "Beschrijving van het risico"
 
 #. Default: Please leave any comments you may have on the question above in
 #. this field. These comments will be used in the action plan.
@@ -2072,13 +2153,12 @@ msgstr "Dit is een risico in de categorie ${priority_value}."
 #: src/euphorie/client/templates/module_customization.pt:56
 #: src/euphorie/client/templates/module_customization.pt:83
 msgid "button_remove_risk"
-msgstr ""
+msgstr "Risico verwijderen"
 
 #. Default: Add another risk
 #: src/euphorie/client/templates/module_customization.pt:61
-#, fuzzy
 msgid "label_add_risk"
-msgstr "Nieuwe maatregel toevoegen"
+msgstr "Voeg nog een risico toe"
 
 #. Default: Save and continue
 #: src/euphorie/client/templates/module_customization.pt:62
@@ -2088,7 +2168,7 @@ msgstr "Nieuwe maatregel toevoegen"
 #: src/euphorie/client/templates/risk_evaluation.pt:121
 #: src/euphorie/client/templates/risk_identification.pt:165
 msgid "label_save_and_continue"
-msgstr ""
+msgstr "Opslaan en verdergaan"
 
 #. Default: Previous
 #: src/euphorie/client/templates/module_evaluation.pt:30
@@ -2112,7 +2192,7 @@ msgstr ""
 #: src/euphorie/client/templates/new-session-test.pt:14
 #: src/euphorie/client/templates/survey_sessions.pt:47
 msgid "label_new_session_test"
-msgstr ""
+msgstr "Nieuwe proefsessie"
 
 #. Default: Start a new session choosing one of the following sectoral tools
 #: src/euphorie/client/templates/new-session-test.pt:20
@@ -2155,40 +2235,44 @@ msgstr ""
 #: src/euphorie/client/templates/new-session-test.pt:30
 #: src/euphorie/client/templates/new-session.pt:33
 msgid "Session name"
-msgstr ""
+msgstr "Sessie naam"
 
 #. Default: benefits
 #: src/euphorie/client/templates/new-session-test.pt:34
 msgid "benefits"
-msgstr ""
+msgstr "voordelen"
 
 #. Default: limitations
 #: src/euphorie/client/templates/new-session-test.pt:34
 msgid "limitations"
-msgstr ""
+msgstr "beperkingen"
 
 #. Default: Read here about the ${benefits}${tooltip_benefits} and
 #. ${limitations}${tooltip_limitations} of a test session.
 #: src/euphorie/client/templates/new-session-test.pt:34
 msgid "testsession_benefits_limitations"
 msgstr ""
+"Lees hier meer over de ${benefits}${tooltip_benefits} en "
+"${limitations}${tooltip_limitations} van een proefsessie."
 
 #. Default: Or ${register_link} instead. Find out why you should
 #. register${tooltip_register}.
 #: src/euphorie/client/templates/new-session-test.pt:37
 msgid "testsession_register"
 msgstr ""
+"Of kies in plaats daarvan voor ${register_link}. Ontdek waarom het goed is "
+"om u te registreren${tooltip_register}."
 
 #. Default: Start session
 #: src/euphorie/client/templates/new-session-test.pt:41
 #: src/euphorie/client/templates/new-session.pt:38
 msgid "button_start_session"
-msgstr ""
+msgstr "Sessie starten"
 
 #. Default: New session
 #: src/euphorie/client/templates/new-session.pt:14
 msgid "header_new_session"
-msgstr ""
+msgstr "Nieuwe sessie"
 
 #. Default: Preview survey
 #: src/euphorie/client/templates/preview.pt:15
@@ -2280,30 +2364,33 @@ msgstr "Rapportage"
 #: src/euphorie/client/templates/register.pt:21
 msgid "report_guest_register_intro"
 msgstr ""
+"Het spijt ons. Dit is een proefversie. De downloadfunctie kan niet gebruikt "
+"worden. Registreer u in slechts één stap om toegang te krijgen tot de "
+"volgende voordelen:"
 
 #. Default: It's free.
 #: src/euphorie/client/templates/register.pt:23
 #: src/euphorie/client/templates/tooltips.pt:26
 msgid "label_register_benefit_1"
-msgstr ""
+msgstr "Het is gratis."
 
 #. Default: You can save your work online.
 #: src/euphorie/client/templates/register.pt:24
 #: src/euphorie/client/templates/tooltips.pt:27
 msgid "label_register_benefit_2"
-msgstr ""
+msgstr "U kunt uw werk online opslaan."
 
 #. Default: You can download a full report and an action plan.
 #: src/euphorie/client/templates/register.pt:25
 #: src/euphorie/client/templates/tooltips.pt:28
 msgid "label_register_benefit_3"
-msgstr ""
+msgstr "U kunt een volledig verslag en een actieplan downloaden."
 
 #. Default: Example of a full report in rich text format (.rtf)
 #: src/euphorie/client/templates/register.pt:37
 #: src/euphorie/client/templates/register.pt:38
 msgid "header_example_report_rft"
-msgstr ""
+msgstr "Voorbeeld van een volledig verslag in rich text format (.rtf)."
 
 #. Default: Example of an action plan in Office Open XML Workbook format
 #. (.xlsx)
@@ -2311,18 +2398,19 @@ msgstr ""
 #: src/euphorie/client/templates/register.pt:46
 msgid "header_example_report_xlsx"
 msgstr ""
+"Voorbeeld van een actieplan in Office Open XML Workbook format (.xlsx)."
 
 #. Default: Example of a risk overview report in PDF format
 #: src/euphorie/client/templates/register.pt:60
 #: src/euphorie/client/templates/register.pt:61
 msgid "header_example_report_risks"
-msgstr ""
+msgstr "Voorbeeld van een risico overzichtsrapport in PDF formaat"
 
 #. Default: Example of a measures overview report in PDF format
 #: src/euphorie/client/templates/register.pt:68
 #: src/euphorie/client/templates/register.pt:69
 msgid "header_example_report_measures"
-msgstr ""
+msgstr "Voorbeeld van een maatregelen overzichtsrapport in PDF formaat"
 
 #. Default: Register
 #: src/euphorie/client/templates/register.pt:76
@@ -2366,11 +2454,11 @@ msgstr "Wachtwoord herinnering"
 
 #: src/euphorie/client/templates/rename-session.pt:16
 msgid "Change name of session"
-msgstr ""
+msgstr "Verander de naam van de sessie"
 
 #: src/euphorie/client/templates/rename-session.pt:20
 msgid "Please enter a new name for this OiRA Tool"
-msgstr ""
+msgstr "Vul een nieuwe naam in voor dit OiRA-tool"
 
 #. Default: Now that you have finished identifying all the risks in your
 #. organisation and created an action plan you can create a report which lists
@@ -2454,17 +2542,21 @@ msgstr ""
 #: src/euphorie/client/templates/report_company.pt:58
 msgid "info_referer_national_public_institution"
 msgstr ""
+"Ministerie, Arbeidsinspectie, Nationaal Instituut voor de veiligheid en "
+"gezondheid op het werk, enz."
 
 #. Default: The European Agency for Safety and Health at Work, European social
 #. partners, etc.
 #: src/euphorie/client/templates/report_company.pt:60
 msgid "info_referer_eu_institution"
 msgstr ""
+"Het Europees Agentschap voor de veiligheid en gezondheid op het werk, "
+"Europese sociale partners, enz."
 
 #. Default: Skip this step
 #: src/euphorie/client/templates/report_company.pt:92
 msgid "label_skip"
-msgstr ""
+msgstr "Sla deze stap over"
 
 #. Default: Contents
 #: src/euphorie/client/templates/report_identification.pt:16
@@ -2480,25 +2572,25 @@ msgstr "Print"
 #: src/euphorie/client/templates/risk_actionplan.pt:62
 #: src/euphorie/client/templates/risk_actionplan.pt:148
 msgid "Measure"
-msgstr ""
+msgstr "Maatregel"
 
 #. Default: Pre-fill
 #: src/euphorie/client/templates/risk_actionplan.pt:64
 #: src/euphorie/client/templates/risk_actionplan.pt:150
 msgid "label_prefill"
-msgstr ""
+msgstr "Voorinvullen"
 
 #. Default: Delete this measure
 #: src/euphorie/client/templates/risk_actionplan.pt:65
 #: src/euphorie/client/templates/risk_actionplan.pt:151
 msgid "label_remove_measure"
-msgstr ""
+msgstr "Verwijder deze maatregel"
 
 #. Default: Select one or more of the known common measures provided.
 #: src/euphorie/client/templates/risk_actionplan.pt:69
 #: src/euphorie/client/templates/risk_actionplan.pt:156
 msgid "label_select_measure"
-msgstr ""
+msgstr "Selecteer één of meer van de bekende vaak voorkomende maatregelen."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
@@ -2569,7 +2661,7 @@ msgstr ""
 #. Default: Add another measure
 #: src/euphorie/client/templates/risk_actionplan.pt:143
 msgid "label_add"
-msgstr ""
+msgstr "Voeg een andere maatregel toe"
 
 #. Default: What is the chance of this risk occurring?
 #: src/euphorie/client/templates/risk_evaluation.pt:29
@@ -2798,6 +2890,9 @@ msgstr "Niet van toepassing"
 #: src/euphorie/client/templates/risk_identification.pt:36
 msgid "help_calculated_evaluation"
 msgstr ""
+"Beantwoord de volgende vragen. Het systeem zal op grond van uw antwoorden de "
+"prioriteit van het risico berekenen. U kunt de prioriteit later nog "
+"aanpassen."
 
 #. Default: The risk evaluation has been automatically done by the tool. You
 #. will be able to change the priority for this risk – if you consider it
@@ -2805,23 +2900,28 @@ msgstr ""
 #: src/euphorie/client/templates/risk_identification.pt:143
 msgid "description_automatic_evaluation"
 msgstr ""
+"De tool heeft automatisch een risico-evaluatie uitgevoerd. U kunt de "
+"prioriteit van dit risico – als u dit nodig acht– nog aanpassen in het "
+"actieplan."
 
 #: src/euphorie/client/templates/sessions.pt:22
 #: src/euphorie/client/templates/shell.pt:107
 msgid "Start a new session"
-msgstr ""
+msgstr "Start een nieuwe sessie"
 
 #. Default: start a new session
 #: src/euphorie/client/templates/sessions.pt:22
 #: src/euphorie/client/templates/survey_sessions.pt:46
 msgid "link_start_session"
-msgstr ""
+msgstr "start een nieuwe sessie"
 
 #. Default: Select an earlier session to complete or review or
 #. ${start_session}.
 #: src/euphorie/client/templates/sessions.pt:20
 msgid "info_select_session"
 msgstr ""
+"Selecteer een eerdere sessie om deze te voltooien of te herzien of "
+"${start_session}."
 
 #. Default: saved on ${date}
 #: src/euphorie/client/templates/sessions.pt:33
@@ -2832,7 +2932,7 @@ msgstr "opgeslagen op ${date}"
 #: src/euphorie/client/templates/sessions.pt:36
 #: src/euphorie/client/templates/survey_sessions.pt:33
 msgid "Rename this session"
-msgstr ""
+msgstr "Herbenoem deze sessie"
 
 #. Default: Rename
 #: src/euphorie/client/templates/sessions.pt:36
@@ -2843,27 +2943,27 @@ msgstr "Hernoem"
 #: src/euphorie/client/templates/sessions.pt:37
 #: src/euphorie/client/templates/survey_sessions.pt:34
 msgid "Delete this session"
-msgstr ""
+msgstr "Verwijder deze sessie"
 
 #. Default: Sign in
 #: src/euphorie/client/templates/shell.pt:83
 msgid "link_sign_in"
-msgstr ""
+msgstr "Meld u aan"
 
 #. Default: This is a test session. ${link_sign_in} to save your data.
 #: src/euphorie/client/templates/shell.pt:83
 msgid "info_testsession"
-msgstr ""
+msgstr "Dit is een proefsessie. ${link_sign_in} om uw gegevens op te slaan."
 
 #. Default: Info
 #: src/euphorie/client/templates/shell.pt:83
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: src/euphorie/client/templates/shell.pt:97
 #: src/euphorie/client/templates/shell.pt:99
 msgid "Start test session"
-msgstr ""
+msgstr "Start proefsessie"
 
 #. Default: Select an earlier session to complete or review
 #: src/euphorie/client/templates/shell.pt:104
@@ -2874,7 +2974,7 @@ msgstr "Kies een eerdere RI&E om af te maken of te wijzigen"
 #. Default: New
 #: src/euphorie/client/templates/shell.pt:107
 msgid "New"
-msgstr ""
+msgstr "Nieuw"
 
 #. Default: Check your progress
 #: src/euphorie/client/templates/shell.pt:155
@@ -2887,17 +2987,17 @@ msgstr "Status"
 #: src/euphorie/client/templates/shell.pt:171
 #: src/euphorie/client/templates/webhelpers.pt:23
 msgid "oira_name_line_1"
-msgstr ""
+msgstr "Online interactive"
 
 #. Default: Risk Assessment
 #: src/euphorie/client/templates/shell.pt:172
 #: src/euphorie/client/templates/webhelpers.pt:24
 msgid "oira_name_line_2"
-msgstr ""
+msgstr "Risicobeoordeling"
 
 #: src/euphorie/client/templates/start.pt:29
 msgid "This OiRA tool was offered to you by ${external_site}"
-msgstr ""
+msgstr "Dit OiRA-tool werd u aangeboden door ${external_site}"
 
 #. Default: Start
 #: src/euphorie/client/templates/start.pt:46
@@ -2907,12 +3007,12 @@ msgstr "Start"
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:19
 msgid "title_status_of"
-msgstr ""
+msgstr "Status van ${survey_title}"
 
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:21
 msgid "title_with_vowel_status_of"
-msgstr ""
+msgstr "Status van ${survey_title}"
 
 #. Default: Questions answered per module
 #: src/euphorie/client/templates/status.pt:24
@@ -2922,62 +3022,62 @@ msgstr "Beantwoorde vragen per module"
 #. Default: No risk
 #: src/euphorie/client/templates/status.pt:90
 msgid "label_no_risk"
-msgstr ""
+msgstr "Geen risico"
 
 #. Default: No risks
 #: src/euphorie/client/templates/status.pt:91
 msgid "label_no_risks_2"
-msgstr ""
+msgstr "Geen risico"
 
 #. Default: No risks
 #: src/euphorie/client/templates/status.pt:92
 msgid "label_no_risks_3_4"
-msgstr ""
+msgstr "Geen risico"
 
 #. Default: No risks
 #: src/euphorie/client/templates/status.pt:93
 msgid "label_no_risks_5_or_more"
-msgstr ""
+msgstr "Geen risico"
 
 #. Default: Risk with measure(s)
 #: src/euphorie/client/templates/status.pt:97
 msgid "label_risk_with_measure"
-msgstr ""
+msgstr "Risico met maatregel(en)"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/status.pt:98
 msgid "label_risks_with_measure_2"
-msgstr ""
+msgstr "Risico‘s met maatregel(en)"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/status.pt:99
 msgid "label_risks_with_measure_3_4"
-msgstr ""
+msgstr "Risico‘s met maatregel(en)"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/status.pt:100
 msgid "label_risks_with_measure_5_or_more"
-msgstr ""
+msgstr "Risico‘s met maatregel(en)"
 
 #. Default: Risk without measure
 #: src/euphorie/client/templates/status.pt:104
 msgid "label_risk_without_measure"
-msgstr ""
+msgstr "Risico zonder maatregel"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/status.pt:105
 msgid "label_risks_without_measure_2"
-msgstr ""
+msgstr "Risico‘s zonder maatregel"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/status.pt:106
 msgid "label_risks_without_measure_3_4"
-msgstr ""
+msgstr "Risico‘s zonder maatregel"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/status.pt:107
 msgid "label_risks_without_measure_5_or_more"
-msgstr ""
+msgstr "Risico‘s zonder maatregel"
 
 #. Default: Postponed
 #: src/euphorie/client/templates/status.pt:110
@@ -2994,7 +3094,7 @@ msgstr "Niet bekekeken"
 #. Default: High priority risks
 #: src/euphorie/client/templates/status.pt:117
 msgid "heading_high_prio_risks"
-msgstr ""
+msgstr "Risico's met een hoge prioriteit"
 
 #. Default: or…
 #: src/euphorie/client/templates/survey_sessions.pt:40
@@ -3008,60 +3108,74 @@ msgstr "of …"
 #: src/euphorie/client/templates/tooltips.pt:3
 msgid "guest_login_warning"
 msgstr ""
+"U evalueert OiRA momenteel als gastgebruiker. U kunt reeds ingevoerde "
+"gegevens niet opslaan en geen verslagen downloaden. Om op te opslaan wat u "
+"al hebt ingevoerd, moet u zich aanmelden of registreren door te klikken op "
+"de link \"Aanmelden\" rechts bovenaan op de pagina."
 
 #. Default: Important
 #: src/euphorie/client/templates/tooltips.pt:8
 msgid "Important"
-msgstr ""
+msgstr "Belangrijk:"
 
 #. Default: ${important} In a test session you cannot save your work. All
 #. progess will be lost unless you register.
 #: src/euphorie/client/templates/tooltips.pt:8
 msgid "list_test_session_limitations1"
 msgstr ""
+"${important} Tijdens een proefsessie kunt u niet opslaan wat u al hebt "
+"ingevoerd. Alle ingevoerde gegevens zullen verloren gaan als u zich niet "
+"registreert."
 
 #. Default: You will not be able to print or download reports.
 #: src/euphorie/client/templates/tooltips.pt:9
 msgid "list_test_session_limitations2"
-msgstr ""
+msgstr "U kunt geen verslagen afdrukken of downloaden."
 
 #. Default: During a test session you will have the possibility at any time to
 #. register by clicking on the "Register" link at the top.
 #: src/euphorie/client/templates/tooltips.pt:10
 msgid "list_test_session_limitations3"
 msgstr ""
+"Tijdens een proefsessie kunt u zich op elk moment registeren door te klikken "
+"op de link \"Registeren\" bovenaan."
 
 #. Default: Discover how easy it is to create a risk assessment with OiRA.
 #: src/euphorie/client/templates/tooltips.pt:16
 msgid "list_test_session_benefits1"
 msgstr ""
+"Ontdek hoe gemakkelijk het is om een risicoanalyse aan te maken met OiRA."
 
 #. Default: Identify potential risks in your business and the measures to
 #. reduce them.
 #: src/euphorie/client/templates/tooltips.pt:17
 msgid "list_test_session_benefits2"
 msgstr ""
+"Identificeer mogelijke risico's binnen uw bedrijf en stel maatregelen vast "
+"om deze te beperken."
 
 #. Default: Use it for vocational training.
 #: src/euphorie/client/templates/tooltips.pt:18
 msgid "list_test_session_benefits3"
-msgstr ""
+msgstr "Gebruik de tool voor beroepsopleidingsdoeleinden."
 
 #. Default: You can register in one single step just by entering a valid email
 #. address.
 #: src/euphorie/client/templates/tooltips.pt:23
 msgid "info_register1"
 msgstr ""
+"U kunt zich in slechts één stap registreren door een geldig e-mailadres in "
+"te voeren."
 
 #. Default: Main benefits of having an account:
 #: src/euphorie/client/templates/tooltips.pt:24
 msgid "info_register2"
-msgstr ""
+msgstr "Voornaamste voordelen van een account:"
 
 #. Default: Menu toggle
 #: src/euphorie/client/templates/tooltips.pt:34
 msgid "header_osh_hamburger"
-msgstr ""
+msgstr "Schakelmenu"
 
 #. Default: The menu toggle lets you hide and show the ‘off canvas’ menu so
 #. it’s only there when you need it. Hide the menu when you’re concentrating on
@@ -3070,13 +3184,17 @@ msgstr ""
 #: src/euphorie/client/templates/tooltips.pt:37
 msgid "info_osh_hamburger"
 msgstr ""
+"Met het schakelmenu kunt u het menu buiten beeld ('off canvas') plaatsen of "
+"weer in beeld brengen, zodat het alleen zichtbaar is wanneer u het nodig "
+"hebt. Verberg het menu bij het invullen van een tool of roep het op om te "
+"kunnen schakelen tussen verschillende onderdelen van de applicatie."
 
 #. Default: Tip
 #: src/euphorie/client/templates/tooltips.pt:40
 #: src/euphorie/client/templates/tooltips.pt:52
 #: src/euphorie/client/templates/tooltips.pt:64
 msgid "Tip"
-msgstr ""
+msgstr "Tip"
 
 #. Default: You may switch this on screen help feature on or off at any time by
 #. clicking on the ${questionmark} at the top right on the toolbar.
@@ -3085,22 +3203,26 @@ msgstr ""
 #: src/euphorie/client/templates/tooltips.pt:65
 msgid "info_screen_help"
 msgstr ""
+"U kunt deze helpfunctie op het scherm op elk moment aan- of uitschakelen "
+"door te klikken op ${questionmark} rechts bovenaan in de taakbalk."
 
 #. Default: Off canvas menu
 #: src/euphorie/client/templates/tooltips.pt:46
 msgid "header_osh_menu"
-msgstr ""
+msgstr "Off-canvas menu"
 
 #. Default: The new off canvas menu provides access to the core functions of
 #. the applications. Also on mobile!
 #: src/euphorie/client/templates/tooltips.pt:49
 msgid "info_osh_menu"
 msgstr ""
+"Het nieuwe off-canvas menu biedt toegang tot de kernfuncties van de "
+"applicaties. Ook op mobiel!"
 
 #. Default: Session menu
 #: src/euphorie/client/templates/tooltips.pt:58
 msgid "header_osh_session_menu"
-msgstr ""
+msgstr "Sessiemenu"
 
 #. Default: From this menu you can start a new session of an OiRA tool, or pick
 #. up a previous session to continue working on it. If you do not have an
@@ -3109,6 +3231,10 @@ msgstr ""
 #: src/euphorie/client/templates/tooltips.pt:61
 msgid "info_osh_session_menu"
 msgstr ""
+"Vanuit dit menu kunt u een nieuwe sessie van een OiRA-tool starten of verder "
+"werken aan een eerdere sessie. Als u nog geen account hebt voor de OiRA-"
+"applicatie, kunt u een proefsessie starten om de applicatie onmiddellijk uit "
+"te proberen."
 
 #. Default: Survey was updated
 #: src/euphorie/client/templates/updated.pt:17
@@ -3140,7 +3266,7 @@ msgstr "Wijzig e-mail adres"
 #. Default: Sign in
 #: src/euphorie/client/templates/webhelpers.pt:36
 msgid "Sign in"
-msgstr ""
+msgstr "Meld u aan"
 
 #: src/euphorie/client/templates/webhelpers.pt:102
 msgid "Risk not present"
@@ -3167,12 +3293,12 @@ msgstr "Over"
 #: src/euphorie/client/templates/webhelpers.pt:256
 #: src/euphorie/client/templates/webhelpers.pt:275
 msgid "Read more"
-msgstr ""
+msgstr "Meer informatie"
 
 #. Default: ${read_more} about this risk.
 #: src/euphorie/client/templates/webhelpers.pt:188
 msgid "label_show_more"
-msgstr ""
+msgstr "${read_more} over dit risico."
 
 #. Default: Legal and policy references
 #: src/euphorie/client/templates/webhelpers.pt:286
@@ -3183,12 +3309,12 @@ msgstr "Wet- en regelgeving"
 #. Default: Additional resources to assess the risk
 #: src/euphorie/client/templates/webhelpers.pt:294
 msgid "header_additional_resources"
-msgstr ""
+msgstr "Aanvullende bronnen om het risico te beoordelen"
 
 #. Default: Additional resources for this module
 #: src/euphorie/client/templates/webhelpers.pt:295
 msgid "header_additional_resources_module"
-msgstr ""
+msgstr "Aanvullende bronnen voor deze module"
 
 #: src/euphorie/content/colour.py:12
 msgid "The specified colour is not valid."
@@ -3445,9 +3571,10 @@ msgstr "Pagina inhoud"
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
-msgstr "Uw wachtwoord ter bevestiging"
+msgstr ""
+"Your password must contain at least 5 characters, including at least one "
+"capital letter, one number and one special character (e.g. $, # or @)."
 
 #. Default: Question
 #: src/euphorie/content/profilequestion.py:43
@@ -3974,9 +4101,8 @@ msgstr "Het account \"${title}\" is geblokkeerd."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:206
-#, fuzzy
 msgid "message_lock_warn"
-msgstr "Het account \"${title}\" is geblokkeerd."
+msgstr ""
 
 #. Default: Account "${title}" has been unlocked.
 #: src/euphorie/content/user.py:322
@@ -4001,7 +4127,7 @@ msgstr "Servische Republiek"
 
 #: src/euphorie/content/utils.py:25
 msgid "F.Y.R. Macedonia"
-msgstr ""
+msgstr "Voormalige Joegoslavische Republiek Macedonië"
 
 #: src/euphorie/content/behaviour/richdescription.py:28
 msgid "Summary"
@@ -4130,6 +4256,8 @@ msgid ""
 "One-state workflow for sector objects, giving edit access to its contents to "
 "the sector user."
 msgstr ""
+"De workflow van één staat voor sectorobjecten, geeft toegang voor het "
+"bewerken van de inhoud aan de sectorgebruiker."
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:17
 msgid "Active"
@@ -4137,7 +4265,7 @@ msgstr "Actief"
 
 #: src/euphorie/content/profiles/default/workflows/sector/definition.xml:18
 msgid "The One And Only state"
-msgstr ""
+msgstr "De enige echte staat"
 
 #. Default: OiRA
 #: src/euphorie/content/templates/colour-preview.pt:51
@@ -4386,7 +4514,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #. Default: Official OiRA Logo
 #: src/euphorie/content/templates/settings.pt:78
 msgid "Official OiRA Logo"
-msgstr ""
+msgstr "Officieel OiRA-logo"
 
 #. Default: My own
 #: src/euphorie/content/templates/settings.pt:82
@@ -4874,11 +5002,9 @@ msgstr ""
 #~ msgid "label_jump_to_actionplan"
 #~ msgstr "Ga naar het plan van aanpak"
 
-#, fuzzy
 #~ msgid "label_guest_tryout"
 #~ msgstr "Naam"
 
-#, fuzzy
 #~ msgid "guest_register_teaser"
 #~ msgstr "Nog geen account? ${register_link} u dan eerst."
 
