@@ -1,0 +1,69 @@
+<html i18n:domain="euphorie">
+    <div id="test-session-active">
+        <p i18n:translate="guest_login_warning">You are currently evaluating OiRA as a guest user. You will not be able to save your progress or download any reports. To save your work, please sign in or register by clicking the "Sign in" link at the top right of the page.</p>
+    </div>
+
+    <div id="test-session-limitations">
+        <ul>
+            <li i18n:translate="list_test_session_limitations1"><strong i18n:name="important"><tal:name i18n:translate="Important">Important</tal:name>: </strong> In a test session you cannot save your work. All progess will be lost unless you register.</li>
+            <li i18n:translate="list_test_session_limitations2">You will not be able to print or download reports.</li>
+            <li i18n:translate="list_test_session_limitations3">During a test session you will have the possibility at any time to register by clicking on the "Register" link at the top.</li>
+        </ul>
+    </div>
+
+    <div id="test-session-benefits">
+        <ul>
+            <li i18n:translate="list_test_session_benefits1">Discover how easy it is to create a risk assessment with OiRA.</li>
+            <li i18n:translate="list_test_session_benefits2">Identify potential risks in your business and the measures to reduce them.</li>
+            <li i18n:translate="list_test_session_benefits3">Use it for vocational training.</li>
+        </ul>
+    </div>
+
+    <div id="why-register">
+        <p i18n:translate="info_register1">You can register in one single step just by entering a valid email address.</p>
+        <p i18n:translate="info_register2">Main benefits of having an account:</p>
+        <ul>
+            <li i18n:translate="label_register_benefit_1">It's free.</li>
+            <li i18n:translate="label_register_benefit_2">You can save your work online.</li>
+            <li i18n:translate="label_register_benefit_3">You can download a full report and an action plan.</li>
+        </ul>
+    </div>
+
+
+    <article id="osh-hamburger">
+        <h3 i18n:translate="header_osh_hamburger">
+            Menu toggle
+        </h3>
+        <p i18n:translate="info_osh_hamburger">The menu toggle lets you hide and show the ‘off canvas’ menu so it’s only there when you need it. Hide the menu when you’re concentrating on filling out a tool or show it when you’re clicking between various parts of the application.</p>
+
+        <p class="footer">
+            <strong class="icon-lightbulb" i18n:translate="Tip">Tip</strong>:
+            <tal:help i18n:translate="info_screen_help">You may switch this on screen help feature on or off at any time by clicking on the <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name> at the top right on the toolbar.</tal:help>
+        </p>
+    </article>
+
+    <article id="osh-menu">
+        <h3 i18n:translate="header_osh_menu">
+            Off canvas menu
+        </h3>
+        <p i18n:translate="info_osh_menu">The new off canvas menu provides access to the core functions of the applications. Also on mobile!</p>
+
+        <p class="footer">
+            <strong class="icon-lightbulb" i18n:translate="Tip">Tip</strong>:
+            <tal:help i18n:translate="info_screen_help">You may switch this on screen help feature on or off at any time by clicking on the <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name> at the top right on the toolbar.</tal:help>
+        </p>
+    </article>
+
+    <article id="osh-session-menu">
+        <h3 i18n:translate="header_osh_session_menu">
+            Session menu
+        </h3>
+        <p i18n:translate="info_osh_session_menu">From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately.</p>
+
+        <p class="footer">
+            <strong class="icon-lightbulb" i18n:translate="Tip">Tip</strong>:
+            <tal:help i18n:translate="info_screen_help">You may switch this on screen help feature on or off at any time by clicking on the <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name> at the top right on the toolbar.</tal:help>
+        </p>
+    </article>
+
+</html>
