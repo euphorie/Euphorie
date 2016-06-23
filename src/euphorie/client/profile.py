@@ -1,3 +1,4 @@
+from .. import MessageFactory as _
 from Acquisition import aq_inner
 from five import grok
 from z3c.saconfig import Session
@@ -16,6 +17,7 @@ from euphorie.client.session import create_survey_session
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.client.utils import RelativePath
+from zope.i18n import translate
 
 
 grok.templatedir("templates")
@@ -215,6 +217,23 @@ def set_session_profile(survey, survey_session, profile):
     return new_session
 
 
+def _questions(context):
+    return [{'id': child.id,
+             'title': child.title,
+             'question': child.question or child.title,
+             'label_multiple_present': getattr(child,
+                 'label_multiple_present',
+                 _(u'Does this happen in multiple places?')),
+             'label_single_occurance': getattr(child,
+                 'label_single_occurance',
+                 _(u'Enter the name of the location')),
+             'label_multiple_occurances': getattr(child,
+                 'label_multiple_occurances',
+                 _(u'Enter the names of each location')),
+             }
+            for child in context.ProfileQuestions()]
+
+
 class Profile(grok.View):
     """Determine the profile for the current survey and build the session tree.
 
@@ -247,9 +266,12 @@ class Profile(grok.View):
             question = self.context.get(id)
             if not IProfileQuestion.providedBy(question):
                 continue
-
+            if not self.request.get("pq{0}.present".format(id), '') == 'yes':
+                continue
             if isinstance(answer, list):
                 profile[id] = filter(None, (a.strip() for a in answer))
+                if not self.request.get("pq{0}.multiple".format(id), '') == 'yes':
+                    profile[id] = profile[id][:1]
             else:
                 profile[id] = answer
         return profile
@@ -271,12 +293,21 @@ class Profile(grok.View):
 
         - ``id``: object id of the question
         - ``title``: title of the question
+        - ``question``: question about the general occurance
+        - ``label_multiple_present``: question about single or multiple occurance
+        - ``label_single_occurance``: label for single occurance
+        - ``label_multiple_occurances``: label for multiple occurance
         """
-        return [{'id': child.id,
-                 'question': child.question or child.title}
-                for child in self.context.ProfileQuestions()]
+        return _questions(self.context)
 
     def update(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        self.message_required = translate(_(
+            u"message_field_required", default=u"Please fill out this field."),
+            target_language=lang)
         survey = aq_inner(self.context)
         self.profile_questions = self.ProfileQuestions()
         self.session = SessionManager.session

@@ -1,28 +1,27 @@
-import sys
-from five import grok
-from zope.interface import implements
-from zope import schema
-from zope.component import getMultiAdapter
-from plone.directives import form
-from plone.directives import dexterity
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
-from plone.indexer import indexer
 from .. import MessageFactory as _
-from htmllaundry.z3cform import HtmlText
-from .behaviour.uniqueid import INameFromUniqueId
-from .behaviour.uniqueid import get_next_id
 from .behaviour.richdescription import IRichDescription
+from .behaviour.uniqueid import get_next_id
+from .behaviour.uniqueid import INameFromUniqueId
 from .fti import check_fti_paste_allowed
 from .interfaces import IQuestionContainer
-from .risk import IRisk
-from .utils import StripMarkup
+from .module import ConstructionFilter
 from .module import IModule
 from .module import item_depth
 from .module import tree_depth
-from .module import ConstructionFilter
+from .risk import IRisk
+from .utils import StripMarkup
+from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import dexterity
+from plone.directives import form
+from plone.indexer import indexer
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.interface import implements
+import sys
 
 
 grok.templatedir("templates")
@@ -37,24 +36,36 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     A profile question is used to determine if parts of a survey should
     be skipped, or repeated multiple times.
     """
-    form.widget(title="euphorie.content.profilequestion.TextSpan7")
-
     question = schema.TextLine(
-            title=_("label_profilequestion_question", default=u"Question"),
-            description=_("help_profilequestion_question",
-                default=u"This is must be formulated as a prompt to fill in "
-                        u"multiple values."),
-            required=True)
-    form.widget(question="euphorie.content.profilequestion.TextSpan7")
-    form.order_after(question="title")
+        title=_('label_profilequestion_question', default=u'Question'),
+        description=_(u'This question must ask the user if this profile '
+                      u'applies to them.'),
+        required=True)
 
-    description = HtmlText(
-            title=_("label_module_description", u"Description"),
-            description=_("help_module_description",
-                default=u"Include any relevant information that may be "
-                        u"helpful for users."))
-    form.widget(description=WysiwygFieldWidget)
-    form.order_after(description="question")
+    label_multiple_present = schema.TextLine(
+        title=_(u'Multiple item question'),
+        required=True,
+        description=_(u'This question must ask the user if the service is '
+                      u'offered in more than one location.'),
+    )
+    form.widget(
+        label_multiple_present='euphorie.content.profilequestion.TextSpan7')
+
+    label_single_occurance = schema.TextLine(
+        title=_(u'Single occurance prompt'),
+        description=_(u'This must ask the user for the name of the '
+                      u'relevant location.'),
+        required=True)
+    form.widget(
+        label_single_occurance='euphorie.content.profilequestion.TextSpan7')
+
+    label_multiple_occurances = schema.TextLine(
+        title=_(u'Multiple occurance prompt'),
+        description=_(u'This must ask the user for the names of all '
+                      u'relevant locations.'),
+        required=True)
+    form.widget(
+        label_multiple_occurances='euphorie.content.profilequestion.TextSpan7')
 
 
 class ProfileQuestion(dexterity.Container):
@@ -109,3 +120,18 @@ class View(grok.View):
                         if IModule.providedBy(child)]
         self.risks = [self._morph(child) for child in self.context.values()
                       if IRisk.providedBy(child)]
+
+
+class AddForm(dexterity.AddForm):
+    grok.context(IProfileQuestion)
+    grok.name('euphorie.profilequestion')
+    grok.require('euphorie.content.AddNewRIEContent')
+    grok.layer(NuPloneSkin)
+    form.wrap(True)
+
+    schema = IProfileQuestion
+    template = ViewPageTemplateFile('templates/profilequestion_add.pt')
+
+    @property
+    def label(self):
+        return _(u"Add Profile question")

@@ -17,8 +17,27 @@
         <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
       </div>
 
+      <h2 i18n:translate="header_information">Information</h2>
+
+      <dl class="grid span-13">
+        <dt i18n:translate="label_profilequestion_question">Question</dt>
+        <dd>${context/question}</dd>
+
+        <dt i18n:translate="">Multiple Item Question</dt>
+        <dd tal:condition="python:not getattr(context, 'label_multiple_present', None)"><em i18n:translate="">Not provided</em></dd>
+        <dd tal:condition="python:getattr(context, 'label_multiple_present', None)">${context/label_multiple_present}</dd>
+
+        <dt i18n:translate="">Single occurance prompt</dt>
+        <dd tal:condition="python:not getattr(context, 'label_single_occurance', None)"><em i18n:translate="">Not provided</em></dd>
+        <dd tal:condition="python:getattr(context, 'label_single_occurance', None)">${context/label_single_occurance}</dd>
+
+        <dt i18n:translate="">Multiple occurance prompt</dt>
+        <dd tal:condition="python:not getattr(context, 'label_multiple_occurances', None)"><em i18n:translate="">Not provided</em></dd>
+        <dd tal:condition="python:getattr(context, 'label_multiple_occurances', None)">${context/label_multiple_occurances}</dd>
+      </dl>
+
       <tal:block condition="python:view.modules">
-        <h2 i18n:translate="header_submodules">Submodules</h2>
+        <h2 i18n:translate="header_modules">Modules</h2>
         <ol class="${python:'sortable' if can_edit and len(view.modules)&gt;1 else None}" tal:condition="python:view.modules">
           <li tal:repeat="module view/modules" id="child-${module/id}"><a tal:attributes="href module/url" tal:content="module/title">Module title</a></li>
         </ol>

@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      tal:omit-tag="">
+
+  <style type="text/css">
+    .example {
+      background-color: #ebebeb;
+      border: 1px solid black;
+      padding: 10px;
+    }
+    .example fieldset.comprehensive p.legend {
+      width: 70% !important;
+    }
+    .example fieldset.concise label {
+      width: 45%;
+    }
+    .example .focus {
+      background: #fef5ba;
+    }
+    .pq-discrete {
+        margin-bottom: 10px;
+    }
+  </style>
+
+  <p tal:define="status view/status"
+     tal:condition="status"
+     class="message ${python:'error' if view.widgets.errors else 'notice'}"
+     tal:content="status" i18n:domain="plone">Form-global message</p>
+
+    <p class="discrete pq-discrete" i18n:translate="">The basic architecture of an Online interactive Risk Assessment consists of:</p>
+    <ul class="discrete pq-discrete">
+        <li i18n:translate="bullet_profile_questions"> <strong i18n:name="Profile-Questions" i18n:translate="header_profile_questions">Profile questions</strong>: questions defining the company profile</li>
+        <li i18n:translate="bullet_modules"> <strong i18n:name="Modules" i18n:translate="header_modules">Modules</strong> (and potentially sub-modules): containers providing a logical structure </li>
+        <li i18n:translate="bullet_risks"> <strong i18n:name="Risks" i18n:translate="header_risks">Risks</strong>: positive statements, which are contained in modules. </li>
+    </ul>
+    <p class="discrete pq-discrete" i18n:translate="">Profile questions are used to determine whether particular modules apply to the end user at all (i.e. the modules inside the profile question are OPTIONAL), and if they apply, whether they should be repeated a number of times (i.e. the modules are REPEATABLE).</p>
+    <p class="discrete pq-discrete" i18n:translate="">Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times.</p>
+    <p class="discrete" i18n:translate="">Please refer to the examples below the form.</p>
+
+  <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
+    <fieldset>
+      <tal:widget replace="structure view/widgets/title/render" />
+      <tal:widget replace="structure view/widgets/question/render" />
+      <tal:widget replace="structure view/widgets/label_multiple_present/render" />
+      <tal:widget replace="structure view/widgets/label_single_occurance/render" />
+      <tal:widget replace="structure view/widgets/label_multiple_occurances/render" />
+    </fieldset>
+    <fieldset>
+      <tal:widget replace="structure view/widgets/description/render" />
+    </fieldset>
+
+    <div class="buttonBar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
+      <tal:action repeat="action actions" replace="structure action/render" />
+    </div>
+  </form>
+
+  <h2 i18n:translate="">Client example for a single occurance.</h2>
+
+  <div class="example">
+    <h3 class="example-title" i18n:translate="">Commercial manned guarding</h3>
+
+    <fieldset class="concise">
+      <fieldset class="comprehensive">
+        <legend class="example-question" i18n:translate="">Does your organisation provide mobile patrolling?</legend>
+        <label><input type="radio" checked="checked" disabled="disabled"/> <tal:span i18n:translate="">Yes</tal:span></label>
+        <label><input type="radio" disabled="disabled"/> <tal:span i18n:translate="">No</tal:span></label>
+      </fieldset>
+      <fieldset class="comprehensive">
+        <legend class="example-label_multiple_present" i18n:translate="">Do you offer this service in multiple locations?</legend>
+        <label><input type="radio" disabled="disabled"/> <tal:span i18n:translate="">Yes</tal:span></label>
+        <label><input type="radio" checked="checked" disabled="disabled"/> <tal:span i18n:translate="">No</tal:span></label>
+      </fieldset>
+      <label class="example-label_single_occurance"><tal:span i18n:translate="">Please enter a name for the location you would like to assess</tal:span>
+        <input type="text" disabled="disabled" class="span-5" value="Standard Life Insurance"/></label>
+    </fieldset>
+  </div>
+
+  <h2 i18n:translate="">Client example for multiple occurances.</h2>
+
+  <div class="example">
+    <h3 class="example-title" i18n:translate="">Commercial manned guarding</h3>
+
+    <fieldset class="concise">
+      <fieldset class="comprehensive">
+        <legend class="example-question" i18n:translate="">Does your organisation provide mobile patrolling?</legend>
+        <label><input type="radio" checked="checked" disabled="disabled"/> <tal:span i18n:translate="">Yes</tal:span></label>
+        <label><input type="radio" disabled="disabled"/> <tal:span i18n:translate="">No</tal:span></label>
+      </fieldset>
+      <fieldset class="comprehensive">
+        <legend class="example-label_multiple_present" i18n:translate="">Do you offer this service in multiple locations?</legend>
+        <label><input type="radio" checked="checked" disabled="disabled"/> <tal:span i18n:translate="">Yes</tal:span></label>
+        <label><input type="radio" disabled="disabled"/> <tal:span i18n:translate="">No</tal:span></label>
+      </fieldset>
+      <fieldset class="comprehensive">
+        <legend class="example-label_multiple_occurances" i18n:translate="">Please enter the name for each location you would like to assess</legend>
+        <ul>
+          <li><input type="text" disabled="disabled" class="span-5" value="Tesco, Morningside"/><button class="micro" i18n:translate="">Remove</button></li>
+          <li><input type="text" disabled="disabled" class="span-5" value="Castle Terrace car park"/><button class="micro" i18n:translate="">Remove</button></li>
+          <li><button class="small" i18n:translate="">Add another item</button></li>
+        </ul>
+      </fieldset>
+    </fieldset>
+  </div>
+</html>
