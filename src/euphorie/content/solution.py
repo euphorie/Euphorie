@@ -46,7 +46,8 @@ class ISolution(form.Schema):
             required=False)
 
     requirements = schema.Text(
-            title=_("label_measure_requirements", default=u"Requirements"),
+            title=_("label_measure_requirements",
+                default=u"Level of expertise and/or requirements needed"),
             description=_("help_measure_requirements",
                 default=u"Describe the standard requirements for the "
                         u"action plan and prevention plan. This "

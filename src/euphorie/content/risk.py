@@ -131,7 +131,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     depends("fixed_priority", "type", "==", "risk")
     depends("fixed_priority", "evaluation_method", "==", "fixed")
     fixed_priority = schema.Choice(
-            title=_("report_timeline_priority", default=u"priority"),
+            title=_("report_timeline_priority", default=u"Priority"),
             vocabulary=SimpleVocabulary([
                 SimpleTerm("low", title=_("priority_low", default=u"Low")),
                 SimpleTerm("medium",

@@ -437,7 +437,7 @@ class IdentificationReportDownload(grok.View):
                 section.append(Paragraph(
                     warning_style,
                     t(_("warn_risk_present",
-                        default=u"You responded negatively to the above "
+                        default=u"You responded negative to the above "
                                 u"statement."))))
             elif node.postponed or not node.identification:
                 section.append(Paragraph(
@@ -760,7 +760,7 @@ class ActionPlanReportDownload(grok.View):
                 section.append(Paragraph(
                     warning_style,
                     t(_("warn_risk_present",
-                        default=u"You responded negatively to the above "
+                        default=u"You responded negative to the above "
                                 u"statement."))))
             elif node.postponed or not node.identification:
                 section.append(Paragraph(
@@ -776,7 +776,7 @@ class ActionPlanReportDownload(grok.View):
                         default=u"This risk is not present in your "
                                 u"organisation, but since the sector "
                                 u"organisation considers this one of "
-                                u"the top 5 most critical risks it "
+                                u"the priority risks it "
                                 u"must be included in this report."))))
 
             if node.priority:
@@ -992,12 +992,13 @@ class ActionPlanTimeline(grok.View):
                 default=u'Specific action(s) required to implement '
                         u'this approach')),
         ('measure', 'requirements',
-            _('label_measure_requirements', default=u'Requirements')),
+            _('label_measure_requirements',
+                default=u'Level of expertise and/or requirements needed')),
         ('measure', 'responsible',
             _('label_action_plan_responsible',
                 default=u'Who is responsible?')),
         ('measure', 'budget',
-            _('label_action_plan_budget', default=u'Budget (in Euro)')),
+            _('label_action_plan_budget', default=u'Budget')),
         ('module', 'title',
             _('label_section', default=u'Section')),
         ('risk', 'number',

@@ -42,9 +42,9 @@
           </a>
           <a href="${xls_img_full}" class="four columns pull-two">
               <figure>
-                  <img src="${xls_img_thumb}" alt="Example of an action plan in Office Open XML Workbook format  (.xlsx)" title="Example of an action plan in Office Open XML Workbook format  (.xlsx)" i18n:attributes="alt header_example_report_xlsx; title header_example_report_xlsx;" />
+                  <img src="${xls_img_thumb}" alt="Example of an action plan in Office Open XML Workbook format (.xlsx)" title="Example of an action plan in Office Open XML Workbook format (.xlsx)" i18n:attributes="alt header_example_report_xlsx; title header_example_report_xlsx;" />
                   <figcaption i18n:translate="header_example_report_xlsx">
-                      Example of an action plan in Office Open XML Workbook format  (.xlsx)
+                      Example of an action plan in Office Open XML Workbook format (.xlsx)
                   </figcaption>
               </figure>
           </a>
@@ -57,7 +57,7 @@
         ">
           <a href="${risks_img_full}" class="four columns push-two">
               <figure>
-                  <img src="${risks_img_thumb}" alt="Example of a the risk overview report in PDF format" title="Example of a the risk overview report in PDF format" i18n:attributes="alt header_example_report_risks; title header_example_report_risks" />
+                  <img src="${risks_img_thumb}" alt="Example of a risk overview report in PDF format" title="Example of a risk overview report in PDF format" i18n:attributes="alt header_example_report_risks; title header_example_report_risks" />
                   <figcaption i18n:translate="header_example_report_risks">
                       Example of a risk overview report in PDF format
                   </figcaption>
@@ -65,7 +65,7 @@
           </a>
           <a href="${measures_img_full}" class="four columns pull-two">
               <figure>
-                  <img src="${measures_img_thumb}" alt="Example of a the measures overview report in PDF format" title="Example of a the measures overview report in PDF format" i18n:attributes="alt header_example_report_measures; title header_example_report_measures" />
+                  <img src="${measures_img_thumb}" alt="Example of a measures overview report in PDF format" title="Example of a measures overview report in PDF format" i18n:attributes="alt header_example_report_measures; title header_example_report_measures" />
                   <figcaption i18n:translate="header_example_report_measures">
                       Example of a measures overview report in PDF format
                   </figcaption>

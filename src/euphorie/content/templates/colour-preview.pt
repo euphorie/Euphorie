@@ -24,7 +24,7 @@
           background: url(${logo_scale/url}) no-repeat;
       }
     </style>
-    <style type="text/css"> 
+    <style type="text/css">
     </style>
 
   </head>
@@ -55,7 +55,7 @@
         <a i18n:translate="navigation_help" href="#">Help</a>
       </li>
       <li>
-        <a i18n:translate="navigation_status" href="#">Status</a>
+        <a i18n:translate="navigation_status" href="#">Check your progress</a>
       </li>
     </ul>
     <p id="appendix">

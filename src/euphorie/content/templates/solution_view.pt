@@ -8,7 +8,7 @@
       i18n:domain="euphorie"
       meta:interpolation="true"
       metal:use-macro="context/@@layout/macros/layout">
-  <body> 
+  <body>
     <metal:title fill-slot="title" i18n:translate="">Standard solution</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
 
@@ -25,7 +25,7 @@
           <dd>${context/prevention_plan}</dd>
         </tal:block>
         <tal:block condition="context/requirements">
-          <dt i18n:translate="label_measure_requirements">Requirements</dt>
+          <dt i18n:translate="label_measure_requirements">Level of expertise and/or requirements needed</dt>
           <dd>${context/requirements}</dd>
         </tal:block>
       </dl>
