@@ -1,26 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
-      id="about"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
-  </head>
-  <body tal:define="media_url client/++resource++euphorie.media">
+      i18n:domain="euphorie"
+      id="account-delete"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+  <body>
+    <metal:content fill-slot="content" tal:define="media_url client/++resource++euphorie.media">
     <h1 i18n:translate="title_about">About</h1>
 
     <h3 i18n:translate="header_what_is_oira">
       What is the OiRA (Online Interactive Risk Assessment) project
     </h3>
 
+    <article class="pat-rich">
     <p><img alt="" class="floatAfter" src="${media_url}/info.png" />
     <tal:span i18n:translate="about_paragraph_1">Experience shows that <strong
       i18n:name="key" i18n:translate="about_paragraph_1_key">proper risk
@@ -105,13 +103,8 @@
     <p i18n:translate="about_licenses_3">
       The OiRA sectoral tools can be used for free by all users.
     </p>
-
-    <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li><a href="${webhelpers/help_url}" i18n:translate="navigation_help">Help</a></li>
-    </ul>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
-    <metal:js use-macro="webhelpers/macros/javascript"/>
+    </article>
     <tal:block replace="tile:client-analytics"/>
+  </metal:content>
   </body>
 </html>
