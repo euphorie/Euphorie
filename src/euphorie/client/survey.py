@@ -208,38 +208,6 @@ class Identification(grok.View):
             self.next_url = None
 
 
-class Evaluation(grok.View):
-    """Survey evaluation start page.
-
-    This view shows the introduction text for the evaluation phase. If the
-    survey allows it an optionn is given to skip the evaluation phase and
-    proceed directly to the action plan phase.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
-    for the *evaluation* component of the URL.
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IEvaluationPhaseSkinLayer)
-    grok.template("evaluation")
-    grok.name("index_html")
-
-    question_filter = model.EVALUATION_FILTER
-
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
-        self.survey = survey = aq_parent(aq_inner(self.context))
-        question = FindFirstQuestion(filter=self.question_filter)
-        if question is not None:
-            self.next_url = QuestionURL(survey, question, phase="evaluation")
-        else:
-            self.next_url = None
-
-
 class ActionPlan(grok.View):
     """Survey action plan start page.
 

@@ -12,7 +12,6 @@ from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.utils import HasText
 from euphorie.client.navigation import FindFirstQuestion
-from euphorie.client.survey import Evaluation as BaseEvaluation
 from euphorie.client.survey import ActionPlan as BaseActionPlan
 from euphorie.client.survey import find_sql_context
 from euphorie.client.survey import build_tree_aq_chain
@@ -63,7 +62,7 @@ class Identification(JsonView):
     grok.name('identification')
 
     phase = 'identification'
-    next_phase = 'evaluation'
+    next_phase = 'actionplan'
     question_filter = None
     check_update = True
 
@@ -79,17 +78,6 @@ class Identification(JsonView):
             info['next-step'] = '%s/%s' % \
                     (self.context.absolute_url(), self.next_phase)
         return info
-
-
-class Evaluation(Identification):
-    grok.context(SurveySession)
-    grok.require('zope2.View')
-    grok.name('evaluation')
-
-    phase = 'evaluation'
-    next_phase = 'actionplan'
-    question_filter = BaseEvaluation.question_filter
-    check_update = True
 
 
 class ActionPlan(Identification):
