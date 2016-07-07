@@ -215,6 +215,65 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             title=_("label_caption", default=u"Image caption"),
             required=False)
 
+    form.fieldset(
+        "additional_content",
+        label=_("header_additional_content", default=u"Additional content"),
+        description=_(
+            "intro_additional_content",
+            default=u"Attach any additional content you consider helpful "
+            "for the user"),
+        fields=[
+            "file1", "file1_caption", "file2", "file2_caption",
+            "file3", "file3_caption", "file4", "file4_caption"])
+
+    file1 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file1_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file2 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file2_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file3 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file3_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file4 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file4_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
 
 class IFrenchEvaluation(form.Schema):
     depends("default_severity", "type", "==", "risk")
@@ -373,6 +432,14 @@ class Risk(dexterity.Container):
     caption3 = None
     image4 = None
     caption4 = None
+    file1 = None
+    file1_caption = None
+    file2 = None
+    file2_caption = None
+    file3 = None
+    file3_caption = None
+    file4 = None
+    file4_caption = None
 
     def _get_id(self, orig_id):
         """Pick an id for pasted content."""
@@ -500,7 +567,8 @@ class Add(dexterity.AddForm):
         self.order = ['header_identification',
                  'header_evaluation',
                  'header_main_image',
-                 'header_secondary_images']
+                 'header_secondary_images',
+                 'header_additional_content']
 
     @property
     def schema(self):
@@ -547,7 +615,8 @@ class Edit(form.SchemaEditForm):
         self.order = ['header_identification',
                       'header_evaluation',
                       'header_main_image',
-                      'header_secondary_images']
+                      'header_secondary_images',
+                      'header_additional_content']
         self.evaluation_algorithm = context.evaluation_algorithm()
         if self.evaluation_algorithm == u"french":
             self.schema = IFrenchRisk
@@ -568,6 +637,7 @@ class Edit(form.SchemaEditForm):
         if data[0]['evaluation_method'] == 'fixed':
             del data[0]['default_priority']
         return data
+
 
 class ConstructionFilter(grok.MultiAdapter):
     """FTI construction filter for :py:class:`Risk` objects. This filter

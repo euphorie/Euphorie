@@ -82,12 +82,79 @@ class IModule(form.Schema, IRichDescription, IBasic):
             required=False)
     form.widget(solution_direction=WysiwygFieldWidget)
 
+    form.fieldset(
+        "additional_content",
+        label=_("header_additional_content", default=u"Additional content"),
+        description=_(
+            "intro_additional_content",
+            default=u"Attach any additional content you consider helpful "
+            "for the user"),
+        fields=[
+            "file1", "file1_caption", "file2", "file2_caption",
+            "file3", "file3_caption", "file4", "file4_caption"])
+
+    file1 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file1_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file2 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file2_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file3 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file3_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
+    file4 = filefield.NamedBlobFile(
+        title=_("label_file", default=u"Content file"),
+        description=_(
+            "help_content_upload",
+            default=u"Upload a file that contains additional information, "
+            u"like a PDF, Word document or spreadsheet. Optionally provide "
+            u"a descriptive caption for your file."),
+        required=False)
+    file4_caption = schema.TextLine(
+        title=_("label_file_caption", default=u"Content caption"),
+        required=False)
+
 
 class Module(dexterity.Container):
     implements(IModule, IQuestionContainer)
 
     image = None
     caption = None
+    file1 = None
+    file1_caption = None
+    file2 = None
+    file2_caption = None
+    file3 = None
+    file3_caption = None
+    file4 = None
+    file4_caption = None
 
     def _get_id(self, orig_id):
         """Pick an id for pasted content."""
