@@ -6,7 +6,7 @@ from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.utils import summarizeCountries
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 
 grok.templatedir("templates")
 
@@ -26,7 +26,7 @@ class SectorContainer(dexterity.Container):
 class View(grok.View):
     grok.context(ISectorContainer)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("sectorcontainer_view")
     grok.name("nuplone-view")
 

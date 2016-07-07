@@ -24,7 +24,7 @@ from plone.directives import form
 from plone.directives import dexterity
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plonetheme.nuplone.skin import actions
 from plone.indexer import indexer
 from htmllaundry.z3cform import HtmlText
@@ -163,7 +163,7 @@ def SearchableTextIndexer(obj):
 class View(grok.View):
     grok.context(ISurvey)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("survey_view")
     grok.name("nuplone-view")
 
@@ -263,7 +263,7 @@ class AddForm(dexterity.AddForm):
 class Edit(form.SchemaEditForm):
     grok.context(ISurvey)
     grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("edit")
 
     schema = ISurveyEditSchema

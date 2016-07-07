@@ -20,7 +20,7 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.namedfile import field as filefield
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from plone.indexer import indexer
@@ -515,7 +515,7 @@ def SearchableTextIndexer(obj):
 class View(grok.View):
     grok.context(IRisk)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("risk_view")
     grok.name("nuplone-view")
 
@@ -606,7 +606,7 @@ class Add(dexterity.AddForm):
 class Edit(form.SchemaEditForm):
     grok.context(IRisk)
     grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("edit")
 
     default_fieldset_label = None

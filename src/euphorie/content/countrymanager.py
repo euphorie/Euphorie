@@ -5,7 +5,7 @@ from plone.directives import dexterity
 from plone.directives import form
 from borg.localrole.interfaces import ILocalRoleProvider
 from Products.CMFCore.utils import getToolByName
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from euphorie.content.country import ICountry
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
@@ -76,6 +76,6 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
 class View(grok.View):
     grok.context(ICountryManager)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("countrymanager_view")
     grok.name("nuplone-view")

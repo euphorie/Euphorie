@@ -24,7 +24,7 @@ from .. import MessageFactory as _
 from .risk import IRisk
 from .utils import StripMarkup
 from plone.namedfile import field as filefield
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plone.indexer import indexer
 
 grok.templatedir("templates")
@@ -186,7 +186,7 @@ def SearchableTextIndexer(obj):
 class View(grok.View):
     grok.context(IModule)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("module_view")
     grok.name("nuplone-view")
 
@@ -210,7 +210,7 @@ class Edit(form.SchemaEditForm):
     """
     grok.context(IModule)
     grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("edit")
 
     @property

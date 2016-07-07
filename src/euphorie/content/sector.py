@@ -41,7 +41,7 @@ from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from plone.app.layout.navigation.interfaces import INavigationRoot
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plonetheme.nuplone.utils import checkPermission
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import getPortal
@@ -220,7 +220,7 @@ def getSurveys(context):
 class View(grok.View):
     grok.context(ISector)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("sector_view")
     grok.name("nuplone-view")
 
@@ -269,7 +269,7 @@ class Delete(actions.Delete):
 class ColourPreview(grok.View):
     grok.context(ISector)
     grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("colour-preview")
     grok.template("colour-preview")
 
@@ -281,7 +281,7 @@ class ColourPreview(grok.View):
 class Settings(form.SchemaEditForm):
     grok.context(ISector)
     grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("edit")
     grok.template("settings")
 
@@ -309,7 +309,7 @@ class Settings(form.SchemaEditForm):
 class VersionCommand(grok.View):
     grok.context(ISector)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("version-command")
 
     def render(self):

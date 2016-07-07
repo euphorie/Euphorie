@@ -2,7 +2,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from zope.interface import Interface
 from five import grok
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plonetheme.nuplone.tiles.navigation import INavtreeFactory
 from plonetheme.nuplone.tiles.navigation import CatalogNavTree
 from plone.tiles import Tile
@@ -22,7 +22,7 @@ class EuphorieNavtreeFactory(grok.MultiAdapter):
     the navtree and making the survey contents appear directly underneath
     the surveygroup. This hides versioning implementation from the user.
     """
-    grok.adapts(Interface, NuPloneSkin)
+    grok.adapts(Interface, IEuphorieContentSkinLayer)
     grok.implements(INavtreeFactory)
 
     def __init__(self, context, request):

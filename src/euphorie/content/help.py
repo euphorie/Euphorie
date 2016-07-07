@@ -2,7 +2,7 @@ from five import grok
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from htmllaundry.z3cform import HtmlText
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
 from plone.indexer import indexer
@@ -90,7 +90,7 @@ class IOnlineHelp(form.Schema):
 class View(grok.View):
     grok.context(IOnlineHelp)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("nuplone-view")
     grok.template("help_view")
 

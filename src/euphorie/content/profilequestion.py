@@ -15,7 +15,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
@@ -103,7 +103,7 @@ def SearchableTextIndexer(obj):
 class View(grok.View):
     grok.context(IProfileQuestion)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("profilequestion_view")
     grok.name("nuplone-view")
 
@@ -126,7 +126,7 @@ class AddForm(dexterity.AddForm):
     grok.context(IProfileQuestion)
     grok.name('euphorie.profilequestion')
     grok.require('euphorie.content.AddNewRIEContent')
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     form.wrap(True)
 
     schema = IProfileQuestion

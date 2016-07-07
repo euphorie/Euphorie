@@ -27,7 +27,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.utils import createContentInContainer
 from plone.directives import dexterity
 from plone.directives import form
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 
 
 grok.templatedir("templates")
@@ -86,7 +86,7 @@ class SurveyGroup(dexterity.Container):
 class View(grok.View):
     grok.context(ISurveyGroup)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("nuplone-view")
 
     def render(self):
@@ -288,7 +288,7 @@ class Unpublish(grok.View):
 class VersionCommand(grok.View):
     grok.context(ISurveyGroup)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("version-command")
 
     def render(self):

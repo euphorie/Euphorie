@@ -3,7 +3,7 @@ from htmllaundry.z3cform import HtmlText
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from euphorie.content.behaviour.richdescription import IRichDescription
 from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
@@ -40,6 +40,6 @@ def SearchableTextIndexer(obj):
 class View(grok.View):
     grok.context(IPage)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("page_view")
     grok.name("nuplone-view")

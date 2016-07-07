@@ -7,7 +7,7 @@ from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from .. import MessageFactory as _
@@ -44,7 +44,7 @@ class Country(dexterity.Container):
 class View(grok.View):
     grok.context(ICountry)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("country_view")
     grok.name("nuplone-view")
 
@@ -68,7 +68,7 @@ class View(grok.View):
 class ManageUsers(grok.View):
     grok.context(ICountry)
     grok.require("euphorie.content.ManageCountry")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.template("user_mgmt")
     grok.name("manage-users")
 

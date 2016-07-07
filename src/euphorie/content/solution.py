@@ -4,7 +4,7 @@ from zope.i18n import translate
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 from .. import MessageFactory as _
 from euphorie.content import utils
 
@@ -72,6 +72,6 @@ class Solution(dexterity.Item):
 class View(grok.View):
     grok.context(ISolution)
     grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
+    grok.layer(IEuphorieContentSkinLayer)
     grok.name("nuplone-view")
     grok.template("solution_view")
