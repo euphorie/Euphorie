@@ -2,6 +2,7 @@ from plone.tiles import Tile
 from plonetheme.nuplone.utils import getFactoriesInContext
 from plonetheme.nuplone.utils import checkPermission
 from plonetheme.nuplone.utils import FactoryInfo
+from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content import MessageFactory as _
 
@@ -19,6 +20,7 @@ class AddBarTile(Tile):
                     break
         self.actions = sorted(actions, key=lambda x: x.title)
         self.can_edit = checkPermission(self.context, "Modify portal content")
+        self.library_available = IQuestionContainer.providedBy(self.context)
 
     def __call__(self):
         self.update()

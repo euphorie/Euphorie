@@ -7,6 +7,7 @@
      tal:omit-tag=""
 ><div class="buttonBar">
   <a class="button floatBefore" tal:condition="view/can_edit" href="${context/absolute_url}/@@edit" i18n:translate="button_edit">Edit</a>
+  <a class="button floatAfter" tal:condition="view/library_available" href="${context/absolute_url}/@@library" i18n:translate="button_library">Library</a>
   <tal:factory omit-tag="" repeat="factory view/actions">
     <tal:button switch="python:factory.id">
       <a class="button floatAfter" tal:case="string:euphorie.module"
