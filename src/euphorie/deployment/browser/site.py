@@ -5,16 +5,16 @@ from Acquisition import aq_parent
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.membrane.interfaces.user import IMembraneUser
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.api.entry import access_api
 from five import grok
-from euphorie.content.interfaces import IEuphorieContentSkinLayer
 
 
 class Frontpage(grok.View):
     grok.context(IPloneSiteRoot)
-    grok.layer(IEuphorieContentSkinLayer)
+    grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
     grok.require("zope2.View")
 
@@ -36,10 +36,10 @@ class Frontpage(grok.View):
 class SitePublishTraverser(DefaultPublishTraverse):
     """Publish traverser to manage access to the CMS API.
 
-    This traverser marks the request with IEuphorieContentSkinLayer. We cannot
-    use BeforeTraverseEvent since in Zope2 that is only fired for site objects.
+    This traverser marks the request with IClientSkinLayer. We can not use
+    BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
     """
-    adapts(IPloneSiteRoot, IEuphorieContentSkinLayer)
+    adapts(IPloneSiteRoot, NuPloneSkin)
 
     def publishTraverse(self, request, name):
         if name == 'api':

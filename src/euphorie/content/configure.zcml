@@ -43,17 +43,12 @@
         global="False"
         />
 
-    <interface
-        interface="euphorie.content.interfaces.IEuphorieContentSkinLayer"
-        type="zope.publisher.interfaces.browser.IBrowserSkinType"
-        name="Euphorie"
-        />
-
     <subscriber handler=".login.SectorLoginHandler" />
 
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
       factory=".survey.SurveyAttributeField"
+      
       />
 
     <adapter

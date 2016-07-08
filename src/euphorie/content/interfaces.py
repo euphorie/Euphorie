@@ -1,19 +1,9 @@
-from OFS.event import ObjectClonedEvent
-from OFS.interfaces import IObjectClonedEvent
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.z3cform.interfaces import INuPloneFormLayer
+from zope.interface import Interface
 from zope.component.interfaces import IObjectEvent
 from zope.component.interfaces import ObjectEvent
+from OFS.interfaces import IObjectClonedEvent
+from OFS.event import ObjectClonedEvent
 from zope.interface import implements
-from zope.interface import Interface
-
-
-class IEuphorieFormLayer(INuPloneFormLayer):
-    """ Browser layer to indicate we want Euphorie form components."""
-
-
-class IEuphorieContentSkinLayer(IEuphorieFormLayer, NuPloneSkin):
-    """Marker interface for the CMS/Content editing skin."""
 
 
 class IObjectPublishedEvent(IObjectClonedEvent):
@@ -38,7 +28,6 @@ class IQuestionContainer(Interface):
     """Marker interface for objects that are used for grouping, but
     not for risks.
     """
-
 
 class ICustomRisksModule(Interface):
     """Marker interface to mark a module specifically designated for adding

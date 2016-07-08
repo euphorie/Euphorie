@@ -15,7 +15,7 @@ from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
-from euphorie.content.interfaces import IEuphorieContentSkinLayer
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plone import api
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.datamanager import AttributeField
@@ -300,7 +300,7 @@ class UserProperties(grok.Adapter, UserProvider):
 class Lock(grok.View):
     grok.context(IUser)
     grok.require("euphorie.content.ManageCountry")
-    grok.layer(IEuphorieContentSkinLayer)
+    grok.layer(NuPloneSkin)
     grok.name("lock")
 
     def render(self):

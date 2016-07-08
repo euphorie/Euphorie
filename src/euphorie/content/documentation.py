@@ -1,7 +1,7 @@
 from five import grok
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
-from euphorie.content.interfaces import IEuphorieContentSkinLayer
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 
 grok.templatedir("templates")
 
@@ -14,6 +14,6 @@ class IDocumentationFolder(form.Schema, IBasic):
 class View(grok.View):
     grok.context(IDocumentationFolder)
     grok.require("zope2.View")
-    grok.layer(IEuphorieContentSkinLayer)
+    grok.layer(NuPloneSkin)
     grok.template("documentation_view")
     grok.name("nuplone-view")
