@@ -1,19 +1,15 @@
+from zope.component import adapts
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from euphorie.content.api.entry import access_api
-from euphorie.content.countrymanager import ICountryManager
-from euphorie.content.interfaces import IEuphorieContentSkinLayer
-from five import grok
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.membrane.interfaces.user import IMembraneUser
-from zope.component import adapts
-from zope.interface import directlyProvidedBy
-from zope.interface import directlyProvides
-from zope.publisher.interfaces.browser import IBrowserSkinType
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from euphorie.content.countrymanager import ICountryManager
+from euphorie.content.api.entry import access_api
+from five import grok
+from euphorie.content.interfaces import IEuphorieContentSkinLayer
 
 
 class Frontpage(grok.View):
@@ -43,13 +39,10 @@ class SitePublishTraverser(DefaultPublishTraverse):
     This traverser marks the request with IEuphorieContentSkinLayer. We cannot
     use BeforeTraverseEvent since in Zope2 that is only fired for site objects.
     """
-    adapts(IPloneSiteRoot, NuPloneSkin)
+    adapts(IPloneSiteRoot, IEuphorieContentSkinLayer)
 
     def publishTraverse(self, request, name):
         if name == 'api':
             return access_api(request).__of__(self.context)
-        ifaces = [iface for iface in directlyProvidedBy(request)
-                  if not IBrowserSkinType.providedBy(iface)]
-        directlyProvides(request, IEuphorieContentSkinLayer, ifaces)
         return super(SitePublishTraverser, self)\
                 .publishTraverse(request, name)
