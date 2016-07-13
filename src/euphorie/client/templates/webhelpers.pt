@@ -166,7 +166,7 @@
       </a>
     </nav>
 
-    <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description">
+    <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description; is_custom_risk view/is_custom_risk">
       <tal:block condition="not:view/risk_present">
         <p tal:condition="python:risk.type=='top5'" i18n:translate="top5_risk_not_present">
             This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
@@ -175,7 +175,7 @@
       </tal:block>
       <tal:block condition="view/risk_present">
         <tal:block condition="not:use_problem_description">
-          <p class="negation">
+          <p class="negation" tal:condition="not:is_custom_risk">
             <em><strong class="icon warning">⚠</strong>
                 <tal:span i18n:translate="warn_risk_present"> You responded negative to the above statement.</tal:span>
             </em>

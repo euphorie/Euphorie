@@ -181,8 +181,12 @@ class ActionPlanView(grok.View):
         return self.context.identification == "no"
 
     @property
+    def is_custom_risk(self):
+        return getattr(self.context, 'is_custom_risk', False)
+
+    @property
     def use_problem_description(self):
-        if getattr(self.context, 'is_custom_risk', None):
+        if self.is_custom_risk:
             return False
         risk = self.request.survey.restrictedTraverse(
             self.context.zodb_path.split("/"))
