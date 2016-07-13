@@ -184,7 +184,7 @@
       </tal:block>
     </tal:block>
 
-    <div class="pat-collapsible closed">
+    <div class="pat-collapsible closed" tal:condition="risk/description">
       <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more" i18n:translate="Read more">Read more</tal:more> about this risk.</h4>
       <tal:description tal:replace="structure risk/description" />
     </div>
