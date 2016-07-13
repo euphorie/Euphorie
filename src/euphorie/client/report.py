@@ -315,6 +315,8 @@ class IdentificationReport(grok.View):
         if node.type != "risk" or \
                 node.identification in [u"n/a", u"yes", None]:
             return False
+        if getattr(node, 'is_custom_risk', None):
+            return False
         if zodbnode.problem_description and \
                 zodbnode.problem_description.strip():
             return False
@@ -543,6 +545,8 @@ class ActionPlanReportView(grok.View):
 
     def show_negate_warning(self, node, zodbnode):
         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
+            return False
+        if getattr(node, 'is_custom_risk', None):
             return False
         if getattr(zodbnode, "problem_description", None) and \
                 zodbnode.problem_description.strip():
