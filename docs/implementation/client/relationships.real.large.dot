@@ -1,0 +1,158 @@
+// dot 2.38.0 on Linux 4.4.10
+// SchemaSpy rev 590
+digraph "largeRelationshipsDiagram" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    labeljust="l"
+    nodesep="0.25"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "account" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">account</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="loginname" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">loginname</TD></TR>
+      <TR><TD PORT="password" COLSPAN="3" ALIGN="LEFT">password</TD></TR>
+      <TR><TD PORT="tc_approved" COLSPAN="3" ALIGN="LEFT">tc_approved</TD></TR>
+      <TR><TD PORT="account_type" COLSPAN="3" ALIGN="LEFT">account_type</TD></TR>
+    </TABLE>>
+    tooltip="account"
+  ];
+  "account_change" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">account_change</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="account_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">account_id</TD></TR>
+      <TR><TD PORT="value" COLSPAN="3" ALIGN="LEFT">value</TD></TR>
+      <TR><TD PORT="expires" COLSPAN="3" ALIGN="LEFT">expires</TD></TR>
+    </TABLE>>
+    tooltip="account_change"
+  ];
+  "action_plan" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">action_plan</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="risk_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">risk_id</TD></TR>
+      <TR><TD PORT="action_plan" COLSPAN="3" ALIGN="LEFT">action_plan</TD></TR>
+      <TR><TD PORT="prevention_plan" COLSPAN="3" ALIGN="LEFT">prevention_plan</TD></TR>
+      <TR><TD PORT="requirements" COLSPAN="3" ALIGN="LEFT">requirements</TD></TR>
+      <TR><TD PORT="responsible" COLSPAN="3" ALIGN="LEFT">responsible</TD></TR>
+      <TR><TD PORT="budget" COLSPAN="3" ALIGN="LEFT">budget</TD></TR>
+      <TR><TD PORT="planning_start" COLSPAN="3" ALIGN="LEFT">planning_start</TD></TR>
+      <TR><TD PORT="planning_end" COLSPAN="3" ALIGN="LEFT">planning_end</TD></TR>
+      <TR><TD PORT="reference" COLSPAN="3" ALIGN="LEFT">reference</TD></TR>
+    </TABLE>>
+    tooltip="action_plan"
+  ];
+  "company" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">company</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="session_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">session_id</TD></TR>
+      <TR><TD PORT="country" COLSPAN="3" ALIGN="LEFT">country</TD></TR>
+      <TR><TD PORT="employees" COLSPAN="3" ALIGN="LEFT">employees</TD></TR>
+      <TR><TD PORT="conductor" COLSPAN="3" ALIGN="LEFT">conductor</TD></TR>
+      <TR><TD PORT="referer" COLSPAN="3" ALIGN="LEFT">referer</TD></TR>
+      <TR><TD PORT="workers_participated" COLSPAN="3" ALIGN="LEFT">workers_participated</TD></TR>
+      <TR><TD PORT="needs_met" COLSPAN="3" ALIGN="LEFT">needs_met</TD></TR>
+      <TR><TD PORT="recommend_tool" COLSPAN="3" ALIGN="LEFT">recommend_tool</TD></TR>
+    </TABLE>>
+    tooltip="company"
+  ];
+  "dutch_company" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">dutch_company</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="session_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">session_id</TD></TR>
+      <TR><TD PORT="title" COLSPAN="3" ALIGN="LEFT">title</TD></TR>
+      <TR><TD COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+    </TABLE>>
+    tooltip="dutch_company"
+  ];
+  "module" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">module</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="module_id" COLSPAN="3" ALIGN="LEFT">module_id</TD></TR>
+      <TR><TD PORT="solution_direction" COLSPAN="3" ALIGN="LEFT">solution_direction</TD></TR>
+    </TABLE>>
+    tooltip="module"
+  ];
+  "risk" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">risk</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="risk_id" COLSPAN="3" ALIGN="LEFT">risk_id</TD></TR>
+      <TR><TD PORT="risk_type" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">risk_type</TD></TR>
+      <TR><TD PORT="identification" COLSPAN="3" ALIGN="LEFT">identification</TD></TR>
+      <TR><TD PORT="frequency" COLSPAN="3" ALIGN="LEFT">frequency</TD></TR>
+      <TR><TD PORT="effect" COLSPAN="3" ALIGN="LEFT">effect</TD></TR>
+      <TR><TD PORT="probability" COLSPAN="3" ALIGN="LEFT">probability</TD></TR>
+      <TR><TD PORT="priority" COLSPAN="3" ALIGN="LEFT">priority</TD></TR>
+      <TR><TD PORT="comment" COLSPAN="3" ALIGN="LEFT">comment</TD></TR>
+      <TR><TD PORT="skip_evaluation" COLSPAN="3" ALIGN="LEFT">skip_evaluation</TD></TR>
+      <TR><TD PORT="is_custom_risk" COLSPAN="3" ALIGN="LEFT">is_custom_risk</TD></TR>
+    </TABLE>>
+    tooltip="risk"
+  ];
+  "session" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">session</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="account_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">account_id</TD></TR>
+      <TR><TD PORT="title" COLSPAN="3" ALIGN="LEFT">title</TD></TR>
+      <TR><TD PORT="created" COLSPAN="3" ALIGN="LEFT">created</TD></TR>
+      <TR><TD PORT="modified" COLSPAN="3" ALIGN="LEFT">modified</TD></TR>
+      <TR><TD PORT="zodb_path" COLSPAN="3" ALIGN="LEFT">zodb_path</TD></TR>
+      <TR><TD PORT="report_comment" COLSPAN="3" ALIGN="LEFT">report_comment</TD></TR>
+    </TABLE>>
+    tooltip="session"
+  ];
+  "tree" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">tree</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="session_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">session_id</TD></TR>
+      <TR><TD PORT="parent_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">parent_id</TD></TR>
+      <TR><TD PORT="type" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">type</TD></TR>
+      <TR><TD PORT="path" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">path</TD></TR>
+      <TR><TD PORT="zodb_path" COLSPAN="3" ALIGN="LEFT">zodb_path</TD></TR>
+      <TR><TD PORT="profile_index" COLSPAN="3" ALIGN="LEFT">profile_index</TD></TR>
+      <TR><TD PORT="depth" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">depth</TD></TR>
+      <TR><TD PORT="title" COLSPAN="3" ALIGN="LEFT">title</TD></TR>
+      <TR><TD PORT="postponed" COLSPAN="3" ALIGN="LEFT">postponed</TD></TR>
+      <TR><TD PORT="skip_children" COLSPAN="3" ALIGN="LEFT">skip_children</TD></TR>
+      <TR><TD PORT="has_description" COLSPAN="3" ALIGN="LEFT">has_description</TD></TR>
+    </TABLE>>
+    tooltip="tree"
+  ];
+  "account_change":"account_id":w -> "account":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "action_plan":"risk_id":w -> "tree":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "company":"session_id":w -> "session":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "dutch_company":"session_id":w -> "session":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "module":"id":w -> "tree":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "risk":"id":w -> "tree":"id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "session":"account_id":w -> "account":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "tree":"parent_id":w -> "tree":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "tree":"session_id":w -> "session":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+}

@@ -1,3 +1,5 @@
+.. _content_types:
+
 Content types
 =============
 
@@ -6,7 +8,7 @@ Sector
 
 A sector is a sector of industry in a specific country. Sector objects act
 both as a container for all content for a sector organisation and as a
-Plone account object. 
+Plone user account object. 
 
 
 Survey group
@@ -19,8 +21,8 @@ of a survey.
 The title of a survey group is shown to users in the client. The title
 of surveys themselves are only used internally as a version name.
 
-Each survey group is associate with a country specificy classification code,
-which uniquely identifes the type of industry the survey is targeted to. This
+Each survey group is associated with a country specific classification code,
+which uniquely identifies the type of industry the survey is targeted to. This
 code is based on the revision 2 of the `NACE code`_, possibly extended with
 extra digits.
 
@@ -60,7 +62,7 @@ Module
 ------
 
 Questions in a survey can be grouped in *modules*. A module is normally used
-for grouping. An module can be marked as being optional.
+for grouping. A module can be marked as being optional.
 
 .. attention:: Optional modules are a new feature in Euphorie. In the RIE
    system this was implemented by a special question type.
@@ -69,20 +71,20 @@ for grouping. An module can be marked as being optional.
 Fields
 ~~~~~~
 
-+----------------------+-------------------------------------------------+
-| Field name           | Description                                     |
-+======================+=================================================+
-| title                | Module title, shown in the navigation tree.     |
-+----------------------+-------------------------------------------------+
-| description          | Description, shown in identication and          |
-|                      | evaluation phases.                              |
-+----------------------+-------------------------------------------------+
-| solution_direction   | Description text for solution directions for    |
-|                      | risks in this module. Shown during the action   |
-|                      | plan phase.                                     |
-+----------------------+-------------------------------------------------+
-| optional             | Indicates of this module is optional.           |
-+----------------------+-------------------------------------------------+
++--------------------+-----------------------------------------------+
+| Field name         | Description                                   |
++====================+===============================================+
+| title              | Module title, shown in the navigation tree.   |
++--------------------+-----------------------------------------------+
+| description        | Description, shown in identication and        |
+|                    | evaluation phases.                            |
++--------------------+-----------------------------------------------+
+| solution_direction | Description text for solution directions for  |
+|                    | risks in this module. Shown during the action |
+|                    | plan phase.                                   |
++--------------------+-----------------------------------------------+
+| optional           | Indicates whether this module is optional.    |
++--------------------+-----------------------------------------------+
 
 Risk
 --------
@@ -157,7 +159,7 @@ policy
   A question related to health & safety policies.
 
 .. attention:: The RIE system has a fourth type: *filter*. This has been
-   replaces by the *optional* flag in a module.
+   replaced by the *optional* flag in a module.
 
 
 Evaluation methods
