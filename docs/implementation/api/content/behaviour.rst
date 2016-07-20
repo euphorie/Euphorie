@@ -11,22 +11,6 @@ patterns.
 .. _plone.behavior: http://pypi.python.org/pypi/plone.behavior
 
 
-.. automodule:: euphorie.content.behaviour.publish
-
-  .. autointerface:: IPublishRemovalProtection
-
-  .. autoclass:: CheckObjectRemoval
-     :members:
-
-  .. autointerface:: IObjectPublishedEvent
-
-  .. autoclass:: ObjectPublishedEvent
-     :members:
-
-  .. autoclass:: ObjectPublished
-     :members:
-
-
 .. automodule:: euphorie.content.behaviour.richdescription
 
   .. autointerface: IRichDescription
