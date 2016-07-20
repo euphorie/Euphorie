@@ -1,3 +1,10 @@
+"""
+Module
+------
+
+A module is a grouping for risks. It can be set to optional, in which case all
+risks in it can be skipped. A module can contain other modules.
+"""
 import sys
 from Acquisition import aq_chain
 from Acquisition import aq_inner

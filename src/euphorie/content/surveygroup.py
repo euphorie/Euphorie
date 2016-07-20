@@ -1,3 +1,12 @@
+"""
+Survey Group
+------------
+
+A Survey Group is a container for several Survey versions.
+
+https://admin.oiraproject.eu/sectors/eu/eu-private-security/private-security-eu
+"""
+
 import datetime
 import logging
 import urllib

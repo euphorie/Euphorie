@@ -1,3 +1,11 @@
+"""
+Profile Question
+----------------
+
+A Profile Question is a container for Modules. A question is used to determine
+whether or not a Module should be enabled, or whether it should be repeated.
+"""
+
 from .. import MessageFactory as _
 from .behaviour.richdescription import IRichDescription
 from .behaviour.uniqueid import get_next_id

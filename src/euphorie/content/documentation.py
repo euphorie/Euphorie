@@ -1,3 +1,14 @@
+"""
+Documentation
+-------------
+
+A folder that contains documentation for a language.
+
+https://admin.oiraproject.eu/documents/en
+
+portal_type: euphorie.documentation
+"""
+
 from five import grok
 from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic

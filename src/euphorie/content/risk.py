@@ -1,3 +1,10 @@
+"""
+Risk
+----
+
+An individual "question" about a risk that the user needs to answer.
+"""
+
 import sys
 from Acquisition import aq_base
 from Acquisition import aq_chain

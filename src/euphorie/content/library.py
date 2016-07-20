@@ -1,3 +1,13 @@
+"""
+Library
+-------
+
+One or more sectors can be defined (via euporie.ini) to act as
+"Library". Contents from this library can be inserted in all surveys, modules
+and risks via the "Library" button.
+
+https://admin.oiraproject.eu/sectors/eu/library
+"""
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_inner
@@ -177,7 +187,7 @@ class LibraryInsert(grok.View):
         notify(ObjectClonedEvent(copy))
 
         IStatusMessage(self.request).addStatusMessage(
-                _(u'Addded a copy of "${title}" to your OiRA tool.',
+                _(u'Added a copy of "${title}" to your OiRA tool.',
                     mapping={'title': copy.title}),
                 type='success')
         self.response.redirect(copy.absolute_url())

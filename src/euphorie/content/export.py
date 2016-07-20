@@ -1,3 +1,12 @@
+"""
+Export Survey
+-------------
+
+Browser view for exporting a complete survey as XML.
+
+view: @@export
+"""
+
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from five import grok

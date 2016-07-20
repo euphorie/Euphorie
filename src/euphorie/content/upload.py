@@ -1,3 +1,12 @@
+"""
+Upload
+------
+
+Form and browser view for uploading a previously exported survey in XML format.
+
+view: @@upload
+"""
+
 import mimetypes
 import random
 from Acquisition import aq_inner

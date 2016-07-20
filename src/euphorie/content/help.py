@@ -1,3 +1,14 @@
+"""
+Help
+----
+
+A Help document with multiple rich text fields.
+
+https://admin.oiraproject.eu/documents/en/help
+
+portal_type: euphorie.help
+"""
+
 from five import grok
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget

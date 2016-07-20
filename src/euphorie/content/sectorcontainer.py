@@ -1,3 +1,11 @@
+"""
+Sector Container
+----------------
+
+A Sector Container provides the overview of all countries.
+
+https://admin.oiraproject.eu/sectors
+"""
 from Acquisition import aq_inner
 from zope.interface import implements
 from five import grok

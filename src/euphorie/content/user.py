@@ -1,3 +1,12 @@
+"""
+User
+----
+
+This provides the basic functionality for user-, login- and authentication
+handling. It is used by :obj:`euphorie.content.sector` and
+:obj:`euphorie.content.countrymanager`
+"""
+
 import re
 import bcrypt
 import logging

@@ -1,3 +1,12 @@
+"""
+Country
+-------
+
+Is the container for sectors of that country, plus the country manager user
+accounts.
+
+https://admin.oiraproject.eu/sectors/eu
+"""
 from Acquisition import aq_inner
 from zope.interface import implements
 from zope import schema

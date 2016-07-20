@@ -1,3 +1,10 @@
+"""
+Solution
+--------
+
+A standard Solution that a user can select for a particular risk.
+"""
+
 from zope.interface import implements
 from zope import schema
 from zope.i18n import translate

@@ -1,3 +1,13 @@
+"""
+Country Manager
+---------------
+
+A `membrane` user account inside a country that has the permission to add
+sectors (which are also membrane users) to that country.
+
+.. _membrane: http://pypi.python.org/pypi/Products.membrane
+"""
+
 from zope.interface import implements
 from Acquisition import aq_inner
 from five import grok
