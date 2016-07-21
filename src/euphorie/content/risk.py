@@ -3,6 +3,8 @@ Risk
 ----
 
 An individual "question" about a risk that the user needs to answer.
+
+portal_type: euphorie.risk
 """
 
 import sys

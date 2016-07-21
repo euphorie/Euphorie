@@ -2,7 +2,7 @@
 Upload
 ------
 
-Form and browser view for uploading a previously exported survey in XML format.
+Form and browser view for importing a previously exported survey in XML format.
 
 view: @@upload
 """
@@ -78,6 +78,8 @@ def el_bool(node, tag, default=False):
 
 
 class IImportSector(Interface):
+    """ The fields used for importing a :obj:`euphorie.content.sector`.
+    """
     sector_title = schema.TextLine(
             title=_("label_sector_title", default=u"Title of sector."),
             description=_("help_sector_title",
@@ -110,6 +112,8 @@ class IImportSector(Interface):
 
 
 class IImportSurvey(Interface):
+    """ The fields used for importing a :obj:`euphorie.content.survey`.
+    """
     surveygroup_title = schema.TextLine(
             title=_("label_surveygroup_title",
                 default=u"Title of imported survey."),
@@ -130,7 +134,7 @@ class IImportSurvey(Interface):
 
 
 class SurveyImporter(object):
-    """Import a survey version from a XML file and creates a new survey group
+    """Import a survey version from an XML file and create a new survey group
     and survey. This assumes the current context is a sector.
     """
 
@@ -139,7 +143,7 @@ class SurveyImporter(object):
 
     def ImportImage(self, node):
         """
-        Import an image from an XML node.
+        Import a base64 encoded image from an XML node.
 
         :param node: lxml.objectified XML node of image element
         :rtype: (:py:class:`NamedImage`, unicode) tuple
@@ -159,6 +163,13 @@ class SurveyImporter(object):
         return (image, attr_unicode(node, "caption"))
 
     def ImportSolution(self, node, risk):
+        """
+        Create a new :obj:`euphorie.content.solution` object for a
+        :obj:`euphorie.content.risk` given the details for a Solution as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.solution`.
+        """
         solution = createContentInContainer(risk, "euphorie.solution")
         solution.description = unicode(node.description)
         solution.action_plan = unicode(getattr(node, "action-plan"))
@@ -168,6 +179,13 @@ class SurveyImporter(object):
         return solution
 
     def ImportRisk(self, node, module):
+        """
+        Create a new :obj:`euphorie.content.risk` object for a
+        :obj:`euphorie.content.module` given the details for a Risk as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.risk`.
+        """
         risk = createContentInContainer(module, "euphorie.risk",
                                       title=unicode(node.title))
         EnsureInterface(risk)
@@ -218,6 +236,13 @@ class SurveyImporter(object):
         return risk
 
     def ImportModule(self, node, survey):
+        """
+        Create a new :obj:`euphorie.content.module` object for a
+        :obj:`euphorie.content.survey` given the details for a Module as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.module`.
+        """
         module = createContentInContainer(survey, "euphorie.module",
                                         title=unicode(node.title))
         module.optional = node.get("optional") == "true"
@@ -241,6 +266,13 @@ class SurveyImporter(object):
         return module
 
     def ImportProfileQuestion(self, node, survey):
+        """
+        Create a new :obj:`euphorie.content.profilequestion` object for a
+        :obj:`euphorie.content.survey` given the details for a Profile Question
+        as an XML node.
+
+        :returns: :obj:`euphorie.content.profilequestion`.
+        """
         type = node.get("type")
         if type == 'optional':
             profile = createContentInContainer(survey, "euphorie.module",
@@ -261,6 +293,13 @@ class SurveyImporter(object):
         return profile
 
     def ImportSurvey(self, node, group, version_title):
+        """
+        Create a new :obj:`euphorie.content.survey` object for a
+        :obj:`euphorie.content.surveygroup` given the details for a Survey as an
+        XML node.
+
+        :returns: :obj:`euphorie.content.survey`.
+        """
         survey = createContentInContainer(group, "euphorie.survey",
                                         title=version_title)
         survey.introduction = el_unicode(node, 'introduction')
@@ -295,6 +334,9 @@ class SurveyImporter(object):
 
 
 class SectorImporter(SurveyImporter):
+    """ :returns: :obj:`euphorie.content.survey` root
+    """
+
     def __call__(self, input, sector_title, sector_login, surveygroup_title,
             survey_title):
         if isinstance(input, basestring):
@@ -334,6 +376,10 @@ class SectorImporter(SurveyImporter):
 
 
 class ImportSurvey(form.SchemaForm):
+    """ The upload view for a :obj:`euphorie.content.sector`
+
+    View name: @@upload
+    """
     grok.context(ISector)
     grok.require("euphorie.content.AddNewRIEContent")
     grok.name("upload")
@@ -368,6 +414,10 @@ class ImportSurvey(form.SchemaForm):
 
 
 class ImportSector(form.SchemaForm):
+    """ The upload view for a :obj:`euphorie.content.country`
+
+    View name: @@upload
+    """
     grok.context(ICountry)
     grok.require("euphorie.content.ManageCountry")
     grok.name("upload")

@@ -23,6 +23,8 @@ class IDocumentationFolder(form.Schema, IBasic):
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(IDocumentationFolder)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

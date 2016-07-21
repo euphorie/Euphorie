@@ -1,3 +1,11 @@
+"""
+Factory Type Information
+------------------------
+
+An extension point for configuring the conditions under which certain portal
+types can be created e.g. :obj:`euphorie.content.risk`.
+"""
+
 from Acquisition import aq_base
 from zope.interface import Interface
 from zope.component import queryMultiAdapter
@@ -46,6 +54,13 @@ class ConditionalDexterityFTI(DexterityFTI):
 
 
 def check_fti_paste_allowed(container, obj):
+    """ Pasting is only allowed for Dexterity content types which satisty the
+    isConstructionAllowed method.
+
+    :param container: [required] container object
+    :param obj: [required] the object to be pasted
+    :raises: ValueError
+    """
     portal_type = getattr(aq_base(obj), 'portal_type', None)
     if not portal_type:
         raise ValueError('Can only paste portal content.')

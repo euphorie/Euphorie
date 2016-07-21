@@ -1,13 +1,29 @@
 :mod:`euphorie.content.risk`
 ============================
 
-.. module:: euphorie.content.risk
+Classes
+-------
+
+.. automodule:: euphorie.content.risk
+   :members: Risk, SearchableTextIndexer, ConstructionFilter
+
+
+Interfaces
+----------
 
 .. autointerface:: IRisk
+   :members:
 
-.. autoclass:: Risk
+.. autointerface:: IFrenchEvaluation
+   :members:
 
-.. autoclass:: ConstructionFilter
+.. autointerface:: IKinneyEvaluation
+   :members:
+
+.. autointerface:: IKinneyRisk
+   :members:
+
+.. autointerface:: IFrenchRisk
    :members:
 
 
@@ -15,6 +31,13 @@ Views
 -----
 
 .. autoclass:: View
+   :members:
+
+.. autoclass:: Add
+   :members:
+
+.. autoclass:: Edit
+   :members:
 
 
 

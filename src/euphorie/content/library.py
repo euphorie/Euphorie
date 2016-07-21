@@ -8,6 +8,7 @@ and risks via the "Library" button.
 
 https://admin.oiraproject.eu/sectors/eu/library
 """
+
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_inner
@@ -42,6 +43,9 @@ grok.templatedir('templates')
 
 
 def is_allowed(context, item):
+    """ :returns: True if the item can be pasted into the context
+    :rtype: bool
+    """
     try:
         context._verifyObjectPaste(item)
     except ValueError:
@@ -52,6 +56,11 @@ def is_allowed(context, item):
 
 
 def get_library(context):
+    """ Get a list of sectors, based on the configuration in euphorie.ini
+
+    :returns: A list of dicts with details for sectors
+    :rtype: list
+    """
     config = getUtility(IAppConfig).get('euphorie', {})
     paths = [path.lstrip('/') for path in config.get('library', '').split()]
     if not paths:
@@ -96,6 +105,8 @@ def build_survey_tree(context, root):
     to also do this based on a catalog query, but since we use light-weight
     content items this should be simpler and removes the need to turn a
     catalog result back into a tree.
+
+    :rtype: dict
     """
     normalize = getUtility(IIDNormalizer).normalize
     tree = {'title': root.title,
@@ -131,6 +142,9 @@ class Library(grok.View):
     grok.template('library')
 
     def update(self):
+        """ Set view attributes to define the current library, depth and
+        at_root, which is True when the context is the root of the library.
+        """
         self.library = get_library(self.context)
         if not self.library:
             raise NotFound(self, 'library', self.request)
@@ -162,6 +176,10 @@ def assign_ids(context, tree):
 
 
 class LibraryInsert(grok.View):
+    """ Copy an item from the Library to the current context
+
+    View name: @@library-insert
+    """
     grok.name('library-insert')
     grok.context(IQuestionContainer)
     grok.layer(NuPloneSkin)

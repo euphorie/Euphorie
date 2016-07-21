@@ -4,7 +4,7 @@ Export Survey
 
 Browser view for exporting a complete survey as XML.
 
-view: @@export
+View name: @@export
 """
 
 from Acquisition import aq_inner
@@ -24,6 +24,12 @@ from euphorie.client.utils import HasText
 
 
 def getToken(field, value, default=None):
+    """ Looks up a term in the vocabulary associated with a field and returns
+    its token, or raises a LookupError.
+
+    :rtype: str
+    :raises: LookupError
+    """
     try:
         return field.vocabulary.getTerm(value).token
     except LookupError:
@@ -31,6 +37,8 @@ def getToken(field, value, default=None):
 
 
 class ExportSurvey(grok.View):
+    """ View name: @@export
+    """
     grok.context(ISurvey)
     grok.require("zope2.View")
     grok.name("export")
@@ -41,6 +49,8 @@ class ExportSurvey(grok.View):
         del nsmap[None]
 
     def exportImage(self, parent, image, caption=None):
+        """ :returns: base64 encoded image.
+        """
         node = etree.SubElement(parent, "image")
         if image.contentType:
             node.attrib["content-type"] = image.contentType
@@ -52,6 +62,8 @@ class ExportSurvey(grok.View):
         return node
 
     def exportSurvey(self, parent, survey):
+        """ :returns: An XML node with the details of an :obj:`euphorie.content.survey`.
+        """
         node = etree.SubElement(parent, "survey")
         if getattr(survey, "external_id", None):
             node.attrib["external-id"] = survey.external_id
@@ -76,6 +88,8 @@ class ExportSurvey(grok.View):
         return node
 
     def exportProfileQuestion(self, parent, profile):
+        """ :returns: An XML node with the details of an :obj:`euphorie.content.profilequestion`.
+        """
         node = etree.SubElement(parent, "profile-question")
         if getattr(profile, "external_id", None):
             node.attrib["external-id"] = profile.external_id
@@ -95,6 +109,8 @@ class ExportSurvey(grok.View):
         return node
 
     def exportModule(self, parent, module):
+        """ :returns: An XML node with the details of an :obj:`euphorie.content.module`.
+        """
         node = etree.SubElement(parent, "module",
                 optional="true" if module.optional else "false")
         if getattr(module, "external_id", None):
@@ -119,6 +135,8 @@ class ExportSurvey(grok.View):
         return node
 
     def exportRisk(self, parent, risk):
+        """ :returns: An XML node with the details of an :obj:`euphorie.content.risk`.
+        """
         node = etree.SubElement(parent, "risk", type=risk.type)
         if getattr(risk, "external_id", None):
             node.attrib["external-id"] = risk.external_id
@@ -170,6 +188,8 @@ class ExportSurvey(grok.View):
         return node
 
     def exportSolution(self, parent, solution):
+        """ :returns: An XML node with the details of an :obj:`euphorie.content.solution`.
+        """
         node = etree.SubElement(parent, "solution")
         if getattr(solution, "external_id", None):
             node.attrib["external-id"] = solution.external_id
@@ -186,6 +206,9 @@ class ExportSurvey(grok.View):
         return node
 
     def render(self):
+        """ :returns: an XML export of a Survey.
+        :rtype: str
+        """
         output = etree.Element("sector", nsmap=NSMAP)
         self.exportSurvey(output, self.context)
         response = self.request.response

@@ -99,6 +99,8 @@ class IOnlineHelp(form.Schema):
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(IOnlineHelp)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
@@ -108,6 +110,9 @@ class View(grok.View):
 
 @indexer(IOnlineHelp)
 def SearchableTextIndexer(obj):
+    """ Index the introduction, authentication, sessions, identification,
+    evaluation, actionplan, report and finalwords.
+    """
     return " ".join([StripMarkup(obj.introduction),
                      StripMarkup(obj.authentication),
                      StripMarkup(obj.sessions),

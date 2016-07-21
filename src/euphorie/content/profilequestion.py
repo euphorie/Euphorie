@@ -4,6 +4,8 @@ Profile Question
 
 A Profile Question is a container for Modules. A question is used to determine
 whether or not a Module should be enabled, or whether it should be repeated.
+
+portal_type: euphorie.profilequestion
 """
 
 from .. import MessageFactory as _
@@ -104,11 +106,15 @@ class ProfileQuestion(dexterity.Container):
 
 @indexer(IProfileQuestion)
 def SearchableTextIndexer(obj):
+    """ Index the title and description
+    """
     return " ".join([obj.title,
                      StripMarkup(obj.description)])
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(IProfileQuestion)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
@@ -123,6 +129,9 @@ class View(grok.View):
                 'url': state.view_url()}
 
     def update(self):
+        """ Provide view attributes which list modules and risks in the current
+        context.
+        """
         self.modules = [self._morph(child)
                         for child in self.context.values()
                         if IModule.providedBy(child)]
@@ -131,6 +140,8 @@ class View(grok.View):
 
 
 class AddForm(dexterity.AddForm):
+    """ View name: euphorie.profilequestion
+    """
     grok.context(IProfileQuestion)
     grok.name('euphorie.profilequestion')
     grok.require('euphorie.content.AddNewRIEContent')

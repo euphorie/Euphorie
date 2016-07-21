@@ -2,9 +2,12 @@
 Module
 ------
 
-A module is a grouping for risks. It can be set to optional, in which case all
-risks in it can be skipped. A module can contain other modules.
+A module is a grouping for risks in a survey. It can be set to optional, in
+which case all risks in it can be skipped. A module can contain other modules.
+
+portal_type: euphorie.module
 """
+
 import sys
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -184,6 +187,8 @@ class Module(dexterity.Container):
 
 @indexer(IModule)
 def SearchableTextIndexer(obj):
+    """ Index the problem_description, question and solution_direction
+    """
     return " ".join([obj.title,
                      StripMarkup(obj.problem_description),
                      StripMarkup(obj.question),
@@ -191,6 +196,8 @@ def SearchableTextIndexer(obj):
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(IModule)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
@@ -205,6 +212,9 @@ class View(grok.View):
                 'url': state.view_url()}
 
     def update(self):
+        """ Set view attributes which list modules and risks in the current
+        context.
+        """
         self.modules = [self._morph(child) for child in self.context.values()
                         if IModule.providedBy(child)]
         self.risks = [self._morph(child) for child in self.context.values()
@@ -214,6 +224,8 @@ class View(grok.View):
 class Edit(form.SchemaEditForm):
     """Override for the standard edit form so we can change the form title
     for submodules.
+
+    View name: @@edit
     """
     grok.context(IModule)
     grok.require("cmf.ModifyPortalContent")
@@ -282,6 +294,8 @@ class ConstructionFilter(grok.MultiAdapter):
     def checkDepth(self):
         """Check if creating a new module would create a too deeply nested
         structure.
+
+        :rtype: bool
         """
         depth = item_depth(self.container)
         if depth is None:
@@ -291,6 +305,8 @@ class ConstructionFilter(grok.MultiAdapter):
     def checkForRisks(self):
         """Check if the container already contains a risk. If so refuse to
         allow creation of a module.
+
+        :rtype: bool
         """
         for key in self.container:
             pt = self.container[key].portal_type
@@ -300,4 +316,9 @@ class ConstructionFilter(grok.MultiAdapter):
             return True
 
     def allowed(self):
+        """ A module is allowed to be created providing :obj:`checkDepth` and
+        :obj:`checkForRisks` are True
+
+        :rtype: bool
+        """
         return self.checkDepth() and self.checkForRisks()

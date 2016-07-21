@@ -43,6 +43,8 @@ class CountryManager(dexterity.Item):
 
 @indexer(ICountryManager)
 def SearchableTextIndexer(obj):
+    """ Index the title, contact_name and contact_email
+    """
     return " ".join([obj.title,
                      obj.contact_name,
                      obj.contact_email])
@@ -84,6 +86,8 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(ICountryManager)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

@@ -1,3 +1,10 @@
+"""
+Colour
+------
+
+Defines a colour field, with a validator.
+"""
+
 import re
 from zope.interface import implements
 from zope import schema

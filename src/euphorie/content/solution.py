@@ -77,6 +77,8 @@ class Solution(dexterity.Item):
 
 
 class View(grok.View):
+    """ View name: @@nuplone-view
+    """
     grok.context(ISolution)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

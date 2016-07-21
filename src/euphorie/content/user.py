@@ -55,7 +55,6 @@ class DuplicateLoginError(ValidationError):
 
 
 class InvalidPasswordError(ValidationError):
-
     def __init__(self, value, doc):
         self.value = value
         self._doc = doc
@@ -116,6 +115,10 @@ class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
     grok.adapts(Interface, Interface, IAddForm, LoginField, Interface)
 
     def validate(self, value):
+        """ Ensure that there isn't already a user id isn't already in use.
+
+        :raises: DuplicateLoginError
+        """
         super(UniqueLoginValidator, self).validate(value)
         site = getUtility(ISiteRoot)
         for parent in aq_chain(site):
@@ -129,6 +132,11 @@ class PasswordValidator(grok.MultiAdapter, PasswordConfirmationValidator):
     grok.adapts(Interface, Interface, IForm, schema.Password, IPasswordConfirmationWidget)
 
     def validate(self, value):
+        """ Ensure that the password complies with the policy configured in
+        portal_registration.
+
+        :raises: InvalidPasswordError
+        """
         super(PasswordValidator, self).validate(value)
         regtool = api.portal.get_tool('portal_registration')
         err = regtool.pasValidation('password', value)
@@ -307,6 +315,10 @@ class UserProperties(grok.Adapter, UserProvider):
 
 
 class Lock(grok.View):
+    """ Lock or unlock a User account.
+
+    View name: @@lock
+    """
     grok.context(IUser)
     grok.require("euphorie.content.ManageCountry")
     grok.layer(NuPloneSkin)
