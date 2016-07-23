@@ -250,7 +250,7 @@ msgstr "Gelieve een geldig e-mail adres in te geven."
 #. Default: Please fill out this field.
 #: src/euphorie/client/module.py:66
 msgid "message_field_required"
-msgstr "Gelieve dit veld in te vullen."
+msgstr "Graag dit veld invullen."
 
 #: src/euphorie/client/module.py:82
 msgid "No changes were made to your added risks."
@@ -718,12 +718,12 @@ msgstr "Deze waarde moet een positief geheel getal zijn."
 
 #: src/euphorie/client/risk.py:364
 msgid "No changes were made to measures in your action plan."
-msgstr "Er werden geen wijzigingen gedaan in de maatregelen van uw actieplan."
+msgstr "Er zijn geen wijzigingen gedaan in de maatregelen van uw actieplan."
 
 #. Default: A measure has been added to your action plan.
 #: src/euphorie/client/risk.py:369
 msgid "message_measure_saved"
-msgstr "Een maatregel werd toegevoegd aan uw actieplan."
+msgstr "Een maatregel is toegevoegd aan uw actieplan."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:374
@@ -743,42 +743,42 @@ msgstr "${no_of_measures} maatregelen zijn toegevoegd aan uw actieplan."
 #. Default: A measure has been updated in your action plan.
 #: src/euphorie/client/risk.py:399
 msgid "message_measure_updated"
-msgstr "Een maatregel werd geüpdatet in uw actieplan."
+msgstr "Een maatregel is bijgewerkt in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:404
 msgid "message_measures_updated_2"
-msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen bijgewerkt in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:412
 msgid "message_measures_updated_3_4"
-msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen bijgewerkt in uw actieplan."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:420
 msgid "message_measures_updated"
-msgstr "${no_of_measures} maatregelen werden geüpdatet in uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen bijgewerkt in uw actieplan."
 
 #. Default: A measure has been removed from your action plan.
 #: src/euphorie/client/risk.py:429
 msgid "message_measure_removed"
-msgstr "Een maatregel werd verwijderd uit uw actieplan."
+msgstr "Een maatregel is verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:434
 msgid "message_measures_removed_3"
-msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:442
 msgid "message_measures_removed_3_4"
-msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen verwijderd uit uw actieplan."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:450
 msgid "message_measures_removed"
-msgstr "${no_of_measures} maatregelen werden verwijderd uit uw actieplan."
+msgstr "${no_of_measures} er zijn maatregelen verwijderd uit uw actieplan."
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:41
@@ -1084,8 +1084,8 @@ msgstr ""
 "genoemd), dat gefinancierd werd door de Nederlandse overheid en initieel "
 "werd ontwikkeld door TNO in samenwerking met de werknemersorganisatie voor "
 "kleine en middelgrote ondernemingen MKB-Nederland en het Nederlandse "
-"Ministerie voor Werkgelegenheid. De applicatie werd verder ontwikkeld met de "
-"inbreng en deelname van de vakbonden FNV, CNV en MHP."
+"Ministerie voor Sociale Zaken en Werkgelegenheid. De applicatie werd verder "
+"ontwikkeld met de inbreng en deelname van de vakbonden FNV, CNV en VCP."
 
 #. Default: The following technical partners contributed to the development of
 #. the OiRA project:
@@ -1435,8 +1435,8 @@ msgstr ""
 msgid "conditions_info_email"
 msgstr ""
 "E-mailaccount: dit is nodig voor de toegang tot de online applicatie, het "
-"bewerken van de ingevoerde gegevens en het verwijderen van de OiRA-account. "
-"U kunt eender welk geldig e-mailadres invoeren. E-mailadressen zullen niet "
+"bewerken van de ingevoerde gegevens en het verwijderen van het OiRA-account. "
+"U kunt elk welk geldig e-mailadres invoeren. E-mailadressen zullen niet "
 "worden gebruikt voor commerciële doeleinden."
 
 #. Default: Any information you provide in the free text fields of the
@@ -1483,7 +1483,7 @@ msgstr ""
 #: src/euphorie/client/templates/conditions.pt:56
 msgid "conditions_info_logs"
 msgstr ""
-"Logboekinformatie â€“ Wanneer u de dienst gebruikt, registreren onze servers "
+"Logboekinformatie - Wanneer u de dienst gebruikt, registreren onze servers "
 "automatisch informatie die uw browser verstuurt wanneer u een website "
 "bezoekt. De logboeken van deze server kunnen informatie bevatten zoals uw "
 "webverzoek, uw interactie met een dienst, browsertype, browsertaal, de datum "
@@ -1536,7 +1536,7 @@ msgstr "EU-OSHA bewaart gegevens op onze servers in Zamudio, Spanje."
 #. Default: Reviewing and removing your information
 #: src/euphorie/client/templates/conditions.pt:85
 msgid "conditions_datareview_header"
-msgstr "Uw informatie controleren en verwijderen"
+msgstr "Het controleren en verwijderen van uw informatie"
 
 #. Default: You can use the Account settings and your saved OiRA Session(s) to
 #. review, control and delete the information stored in your Account and in
@@ -1562,7 +1562,7 @@ msgstr "Informatieveiligheid"
 #: src/euphorie/client/templates/conditions.pt:93
 msgid "conditions_security"
 msgstr ""
-"We nemen toepasselijke maatregelen voor de bescherming tegen onbevoegde "
+"We nemen geschikte maatregelen voor de bescherming tegen onbevoegde "
 "toegang tot of onbevoegde aanpassing, bekendmaking of vernietiging van "
 "gegevens. Deze bestaan onder meer uit interne beoordelingen van onze "
 "gegevensverzameling, praktijken met betrekking tot opslag en verwerking en "
@@ -1818,7 +1818,7 @@ msgstr "Welkom"
 #. Default: run a test session
 #: src/euphorie/client/templates/login.pt:23
 msgid "label_tryout"
-msgstr "start een proefsessie"
+msgstr "Start een proefsessie"
 
 #. Default: register
 #: src/euphorie/client/templates/login.pt:23
@@ -1831,7 +1831,7 @@ msgstr "Registreer"
 #: src/euphorie/client/templates/login.pt:22
 msgid "teaser_try_oira"
 msgstr ""
-"Wilt u OiRA uitproberen? U mag ${tryout_link} of ${register_link} om echt te "
+"Wilt u OiRA uitproberen? ${tryout_link} of ${register_link} om echt te "
 "beginnen."
 
 #. Default: log in
@@ -3111,7 +3111,7 @@ msgstr ""
 "U evalueert OiRA momenteel als gastgebruiker. U kunt reeds ingevoerde "
 "gegevens niet opslaan en geen verslagen downloaden. Om op te opslaan wat u "
 "al hebt ingevoerd, moet u zich aanmelden of registreren door te klikken op "
-"de link \"Aanmelden\" rechts bovenaan op de pagina."
+"de link \"Login\" rechts bovenaan op de pagina."
 
 #. Default: Important
 #: src/euphorie/client/templates/tooltips.pt:8
