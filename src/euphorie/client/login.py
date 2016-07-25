@@ -255,7 +255,10 @@ class Reminder(grok.View):
                 flash = IStatusMessage(self.request).addStatusMessage
                 flash(_(u"An email with a password reminder has been "
                         u"sent to your address."), "notice")
-                self.request.response.redirect(self.back_url)
+                redir_url = self.back_url
+                if not redir_url.endswith("/login"):
+                    redir_url = "{0}/login".format(redir_url)
+                self.request.response.redirect(redir_url)
 
 
 class Register(grok.View):
