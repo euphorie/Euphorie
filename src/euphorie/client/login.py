@@ -277,7 +277,8 @@ class Reminder(grok.View):
                         u"sent to your address."), "notice")
                 redir_url = self.back_url
                 if not redir_url.endswith("login"):
-                    redir_url = "{0}/@@login".format(redir_url)
+                    redir_url = "{0}/@@login?{1}".format(
+                        redir_url, urllib.urlencode({"came_from": redir_url}))
                 self.request.response.redirect(redir_url)
 
 
