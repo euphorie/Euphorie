@@ -272,7 +272,7 @@ class PublishSurvey(form.Form):
         url = make_tag('a', href=self.client_url(), c=self.client_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
             _(u"message_publish_success",
-                default="Succesfully published the survey. It can be "
+                default="Succesfully published the OiRA Tool. It can be "
                 "accessed at ${url}.", mapping={'url': url}),
             type="success")
         state = getMultiAdapter(
