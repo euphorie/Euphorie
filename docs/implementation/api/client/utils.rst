@@ -1,10 +1,7 @@
 :mod:`euphorie.client.utils`
 ============================
 
-.. module:: euphorie.client.utils
-
-.. autoclass:: WebHelpers
-   :members:
+.. automodule:: euphorie.client.utils
 
 .. autofunction:: HasText
 
@@ -16,3 +13,15 @@
 
 .. autofunction:: IsBright
 
+
+Views
+-----
+
+.. autoclass:: WebHelpers
+   :members:
+
+.. autoclass:: I18nJSONView
+   :members:
+
+.. autoclass:: DefaultIntroduction
+   :members:

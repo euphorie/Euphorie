@@ -1,3 +1,12 @@
+"""
+Model
+-----
+
+Mainly: the connection between the ZODB-based content of the backend and the
+SQL-based individual session content of the client users.
+Also: PAS-based user account for users of the client
+"""
+
 import datetime
 import logging
 import random
@@ -48,9 +57,9 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
 class SurveyTreeItem(BaseObject):
     """A tree of questions.
 
-    The data is stored in the form of a materialized tree. The path is
-    build using list of item numbers. Each item number has three digits and
-    uses 0-prefixing to make sure we can use simple string sorting to produce a
+    The data is stored in the form of a materialized tree. The path is built
+    using a list of item numbers. Each item number has three digits and uses
+    0-prefixing to make sure we can use simple string sorting to produce a
     sorted tree.
     """
     __tablename__ = "tree"
@@ -196,15 +205,17 @@ class Account(BaseObject):
 
     @property
     def email(self):
+        """Email addresses are used for login, return the login.
+        """
         return self.loginname
 
-    # This synchs naming with euphorie.content.user.IUser and is needed by the
-    # authentication tools.
     @property
     def login(self):
+        """This synchs naming with :obj:`euphorie.content.user.IUser` and is
+        needed by the authentication tools.
+        """
         return self.loginname
 
-    # PAS BasicUser implementation
     def getUserName(self):
         """Return the login name."""
         return self.loginname
@@ -215,7 +226,9 @@ class Account(BaseObject):
         return ("EuphorieUser",)
 
     def getRolesInContext(self, object):
-        """Return the roles of the user in the current context."""
+        """Return the roles of the user in the current context (same as
+        :obj:`getRoles`).
+        """
         return self.getRoles()
 
     def getDomains(self):
@@ -268,7 +281,7 @@ class AccountChangeRequest(BaseObject):
 
 
 class SurveySession(BaseObject):
-    """Information about a users session.
+    """Information about a user's session.
     """
     __tablename__ = "session"
 

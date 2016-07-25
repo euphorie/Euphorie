@@ -1,3 +1,10 @@
+"""
+Company
+-------
+
+View and update the company survey.
+"""
+
 from five import grok
 from zope import schema
 from zope.interface import directlyProvides
@@ -117,6 +124,8 @@ class Company(form.SchemaForm):
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
     the *inventory* component of the URL.
+
+    View name: @@company
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")

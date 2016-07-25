@@ -1,3 +1,10 @@
+"""
+Module
+------
+
+Module views for the client.
+"""
+
 from Acquisition import aq_inner
 from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.client import model
@@ -38,6 +45,11 @@ class Mixin(object):
 
 
 class CustomizationView(grok.View, Mixin):
+    """Module without a connection to a real module in the backend, container
+    for custom risks.
+
+    View name: @@index_html
+    """
     grok.context(model.Module)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(ICustomizationPhaseSkinLayer)
@@ -161,6 +173,10 @@ class CustomizationView(grok.View, Mixin):
 
 
 class IdentificationView(grok.View, Mixin):
+    """The introduction page for a module.
+
+    View name: @@index_html
+    """
     grok.context(model.Module)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
@@ -290,6 +306,11 @@ class IdentificationView(grok.View, Mixin):
 
 
 class ActionPlanView(grok.View):
+    """The introduction page for an :obj:`euphorie.content.module` in an action
+    plan.
+
+    View name: @@index_html
+    """
     grok.context(model.Module)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IActionPlanPhaseSkinLayer)

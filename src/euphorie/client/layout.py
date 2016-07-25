@@ -1,3 +1,11 @@
+"""
+Layout
+------
+
+Serves several helper templates, and the basic shell.pt that glues everything
+together.
+"""
+
 from zope.interface import Interface
 from five import grok
 from euphorie.client.interfaces import IClientSkinLayer

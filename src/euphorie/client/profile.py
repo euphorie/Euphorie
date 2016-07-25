@@ -1,3 +1,11 @@
+"""
+Profile
+-------
+
+Various classes and methods to enable the selection screen for profile
+questions.
+"""
+
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from five import grok
@@ -188,7 +196,7 @@ def extractProfile(survey, survey_session):
 
 
 def set_session_profile(survey, survey_session, profile):
-    """Setup the survey session using a given profile.
+    """Set up the survey session using a given profile.
 
     :param survey: the survey to use
     :type survey: :py:class:`euphorie.content.survey.Survey`

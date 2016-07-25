@@ -1,3 +1,10 @@
+"""
+Utils
+-----
+
+Helper functions.
+"""
+
 import colorsys
 import random
 from PIL.ImageColor import getrgb
@@ -120,6 +127,8 @@ class WebHelpers(grok.View):
     Several methods in this view assume that the current survey can be
     found as an attribute on the request. This is normally setup by the
     :py:class:`euphorie.client.survey.SurveyPublishTraverser` traverser.
+
+    View name: @@webhelpers
     """
     grok.context(Interface)
     grok.layer(IClientSkinLayer)

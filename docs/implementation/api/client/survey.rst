@@ -1,7 +1,7 @@
 :mod:`euphorie.client.survey`
 =============================
 
-.. module:: euphorie.client.survey
+.. automodule:: euphorie.client.survey
 
 .. autoclass:: PathGhost
 
@@ -17,6 +17,7 @@ Views
 -----
 
 .. autoclass:: View
+   :members:
 
 .. autoclass:: Start
 
@@ -28,17 +29,9 @@ Views
 
 .. autoclass:: ActionPlan
 
-.. autoclass:: IdentificationReport
-
-.. autoclass:: ReportView
-
-.. autoclass:: CompanyForm
-
-.. autoclass:: ReportCompanyDetails
-
-.. autoclass:: ActionPlanReportView
-
-.. autoclass:: ActionPlanReportDownload
-
 .. autoclass:: Status
+   :members:
 
+.. autofunction:: find_sql_context
+
+.. autofunction:: build_tree_aq_chain

@@ -1,4 +1,11 @@
 # coding=utf-8
+"""
+Report
+------
+
+The screens and logic to create the different reports.
+"""
+
 from AccessControl import getSecurityManager
 import logging
 import random
@@ -238,6 +245,8 @@ class ReportView(grok.View):
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
     for the *identifcation* component of the URL.
+
+    View name: @@index_html
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -277,6 +286,8 @@ class IdentificationReport(grok.View):
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
     for the *identifcation* component of the URL.
+
+    View name: @@report
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -285,6 +296,7 @@ class IdentificationReport(grok.View):
     grok.name("report")
 
     def random(self):
+        """:rtype: bool """
         return random.choice([True, False])
 
     def report_title(self):
@@ -311,6 +323,8 @@ class IdentificationReport(grok.View):
         """Check if the risk is present but does not have a problem
         description.  In that case the user interface must show a special
         warning.
+
+        :rtype: bool
         """
         if node.type != "risk" or \
                 node.identification in [u"n/a", u"yes", None]:
@@ -483,6 +497,8 @@ class ActionPlanReportView(grok.View):
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
     since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
     for the *inventory* component of the URL.
+
+    View name: @@view
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -597,6 +613,8 @@ class ActionPlanReportDownload(grok.View):
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
     since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
     for the *inventory* component of the URL.
+
+    View name: @@download
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")
@@ -942,6 +960,8 @@ class ActionPlanTimeline(grok.View):
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
     since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
     for the *inventory* component of the URL.
+
+    View name: @@timeline
     """
     grok.context(PathGhost)
     grok.require('euphorie.client.ViewSurvey')

@@ -1,11 +1,18 @@
 :mod:`euphorie.client.client`
 =============================
 
-.. module:: euphorie.client.client
+.. automodule:: euphorie.client.client
 
 .. autointerface:: IClient
 
 .. autoclass:: Client
+
+
+Views
+-----
+
+.. autoclass:: View
+
 
 Account support
 ---------------

@@ -1,4 +1,14 @@
 # coding=utf-8
+"""
+Country
+-------
+
+The main view after login, to list existing sessions, start new sessions,
+delete & rename sessions
+
+URL: https://client-oiranew.syslab.com/eu
+"""
+
 import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -137,12 +147,16 @@ class View(grok.View):
 
 
 class CreateSession(View):
+    """View name: @@new-session.html
+    """
     grok.context(Interface)
     grok.name("new-session.html")
     grok.template("new-session")
 
 
 class ConfirmationDeleteSession(grok.View):
+    """View name: @@confirmation-delete-session.html
+    """
     grok.context(IClientCountry)
     grok.name("confirmation-delete-session.html")
     grok.layer(IClientSkinLayer)
@@ -164,6 +178,8 @@ class ConfirmationDeleteSession(grok.View):
 
 
 class DeleteSession(grok.View):
+    """View name: @@delete-session
+    """
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -185,6 +201,8 @@ class RenameSessionSchema(form.Schema):
 
 
 class RenameSession(form.SchemaForm):
+    """View name: @@rename-session
+    """
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)

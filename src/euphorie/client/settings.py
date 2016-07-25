@@ -1,3 +1,9 @@
+"""
+Settings
+--------
+
+Change a user's password/email or delete an account.
+"""
 import datetime
 import logging
 import smtplib
@@ -65,6 +71,7 @@ class EmailChangeSchema(form.Schema):
 
 
 class AccountSettings(form.SchemaForm):
+    """View name: @@account-settings"""
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -100,6 +107,7 @@ class AccountSettings(form.SchemaForm):
 
 
 class DeleteAccount(form.SchemaForm):
+    """"View name: @@account-delete"""
     grok.context(IClientCountry)
 
     grok.require("euphorie.client.ViewSurvey")

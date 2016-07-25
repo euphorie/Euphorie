@@ -1,6 +1,6 @@
 """
 Survey views
-============
+------------
 """
 
 import logging
@@ -54,7 +54,10 @@ grok.templatedir("templates")
 
 
 class View(grok.View):
-    """
+    """The default view which shows an overview of a user's sessions for the
+    current survey.
+
+    View name: @@index_html
     """
     grok.context(ISurvey)
     grok.require("euphorie.client.ViewSurvey")
@@ -131,6 +134,8 @@ class Start(grok.View):
     This view shows basic introduction text and any extra information provided
     the sector if present. After viewing this page the user is forwarded to the
     profile page.
+
+    View name: @@start
     """
     grok.context(ISurvey)
     grok.require("euphorie.client.ViewSurvey")
@@ -155,6 +160,8 @@ class Resume(grok.View):
     """Survey resume screen.
 
     This view is used when a user resumes an existing session.
+
+    View name: @@resume
     """
     grok.context(ISurvey)
     grok.require("euphorie.client.ViewSurvey")
@@ -186,6 +193,8 @@ class Identification(grok.View):
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
     for the *identification* component of the URL.
+
+    View name: @@index_html
     """
     grok.context(PathGhost)
     grok.require("euphorie.client.ViewSurvey")

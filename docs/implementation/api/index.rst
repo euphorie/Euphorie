@@ -13,7 +13,6 @@ Code reference
    content/sector
    content/surveygroup
    content/survey
-   content/module
    content/risk
    content/solution
    content/profilequestion
@@ -26,12 +25,20 @@ Code reference
    content/user
    content/colour
    client/client
+   client/country
    client/cookie
    client/model
+   client/module
+   client/risk
+   client/report
+   client/company
    client/navigation
    client/profile
    client/publish
    client/session
+   client/authentication
+   client/login
+   client/layout
    client/survey
    client/update
    client/utils

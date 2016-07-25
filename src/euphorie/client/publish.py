@@ -1,3 +1,10 @@
+"""
+Publish
+-------
+
+Copy and publish Surveys from the admin to the client database.
+"""
+
 import datetime
 import random
 import logging
@@ -208,6 +215,8 @@ class PublishSurvey(form.Form):
     public client environment and makes several changes to prepare it for use
     by the client. The client environment is assumed to be located in a
     container with id ''client'' at the root of the site.
+
+    View name: @@publish
     """
     grok.context(ISurvey)
     grok.require("euphorie.client.PublishSurvey")
@@ -272,6 +281,8 @@ class PreviewSurvey(form.Form):
     published survey, except for two differences: there can only be one preview
     for a sector, which has the id `preview`, and after previewing the user is
     redirected to the preview instead of the original context.
+
+    View name: @@preview
     """
     grok.context(ISurvey)
     grok.require("euphorie.client.PublishSurvey")

@@ -1,3 +1,10 @@
+"""
+Navigation
+----------
+
+Assemble data for a navigation tree.
+"""
+
 from Acquisition import aq_parent
 from sqlalchemy import sql
 from z3c.saconfig import Session

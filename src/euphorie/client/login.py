@@ -1,3 +1,11 @@
+"""
+Login
+-----
+
+Register new users, login/logout, create a "Guest user" account and convert
+existing guest accounts to normal accounts.
+"""
+
 import cgi
 import datetime
 import logging
@@ -48,6 +56,7 @@ grok.templatedir("templates")
 
 
 class Login(grok.View):
+    """View name: @@login"""
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name("login")
@@ -132,12 +141,17 @@ class Login(grok.View):
 
 
 class LoginForm(Login):
+    """View name: @@login_form"""
     grok.layer(IClientSkinLayer)
     grok.name("login_form")
     grok.template("login_form")
 
 
 class Tryout(Login):
+    """Create a guest account
+
+    View name: @@tryout
+    """
     grok.context(Interface)
     grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
@@ -161,6 +175,10 @@ class Tryout(Login):
 
 
 class CreateTestSession(CountryView, Tryout):
+    """Create a guest session
+
+    View name: @@new-session-test.html
+    """
     grok.context(Interface)
     grok.require("zope2.View")
     grok.name("new-session-test.html")
@@ -188,6 +206,8 @@ class CreateTestSession(CountryView, Tryout):
 
 
 class Reminder(grok.View):
+    """Send a password reminder by email
+    """
     grok.context(Interface)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)
@@ -262,6 +282,8 @@ class Reminder(grok.View):
 
 
 class Register(grok.View):
+    """Register a new account or convert an existing guest account
+    """
     grok.context(Interface)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)

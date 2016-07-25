@@ -1,3 +1,11 @@
+"""
+Client
+------
+
+The view for the frontpage of the client site and some adapters to provide a
+client user.
+"""
+
 from zope.component import adapts
 from zope.interface import implements
 from zope.interface import Interface
@@ -35,12 +43,16 @@ grok.templatedir("templates")
 
 
 class View(grok.View):
+    """View name: @@frontpage
+    """
     grok.context(IClient)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)
     grok.template("frontpage")
 
     def update(self):
+        """Set a view attribute with the set of enabled countries.
+        """
         self.enabled_countries = frozenset(self.context.keys())
 
 

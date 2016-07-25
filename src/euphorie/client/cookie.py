@@ -1,3 +1,8 @@
+"""
+Cookie
+------
+"""
+
 import binascii
 import hmac
 import logging

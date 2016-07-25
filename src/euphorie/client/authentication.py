@@ -1,3 +1,10 @@
+"""
+Authentication
+--------------
+
+User account plugins and authentication.
+"""
+
 import logging
 import traceback
 import urllib
@@ -96,21 +103,17 @@ class EuphorieAccountPlugin(BasePlugin):
         self._setId(id)
         self.title = title
 
-    #
-    # IExtractionPlugin implementation
-    #
     def extractCredentials(self, request):
+        """IExtractionPlugin implementation"""
         token = request.getHeader('X-Euphorie-Token')
         if token:
             return {'api-token': token}
         else:
             return {}
 
-    #
-    # IAuthenticationPlugin implementation
-    #
     @security.private
     def _authenticate_token(self, credentials):
+        """IAuthenticationPlugin implementation"""
         token = credentials.get('api-token')
         if not token:
             return None
@@ -154,22 +157,19 @@ class EuphorieAccountPlugin(BasePlugin):
         else:
             return None
 
-    #
-    # IUserFactoryPlugin implementation
     @graceful_recovery()
     def createUser(self, user_id, name):
+        """IUserFactoryPlugin implementation"""
         try:
             user_id = int(user_id)
         except (TypeError, ValueError):
             return None
         return Session().query(model.Account).get(user_id)
 
-    #
-    # IUserEnumerationPlugin implementation
-    #
     @graceful_recovery()
     def enumerateUsers(self, id=None, login=None, exact_match=False,
                        sort_by=None, max_results=None, **kw):
+        """IUserEnumerationPlugin implementation"""
         if not exact_match:
             return []
 
@@ -189,6 +189,8 @@ class EuphorieAccountPlugin(BasePlugin):
     def updateUser(self, user_id, login_name ):
         """ Changes the user's username. New method available since Plone 4.3.
             Euphorie doesn't support this.
+
+        :returns: False
         """
         return False
 
@@ -201,14 +203,14 @@ class EuphorieAccountPlugin(BasePlugin):
         You can set quit_on_first_error to False to report all errors
         before quitting with an error.  This can be useful if you want
         to know how many problems there are, if any.
+
+        :raises: NotImplementedError
         """
         raise NotImplementedError(
                 "updateEveryLoginName method is not implemented by Euphorie")
 
-    #
-    # IChallengePlugin implementation
-    #
     def challenge(self, request, response):
+        """IChallengePlugin implementation"""
         if not IClientSkinLayer.providedBy(request):
             return False
 

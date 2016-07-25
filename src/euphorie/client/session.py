@@ -1,3 +1,10 @@
+"""
+Session
+-------
+
+Create and update sessions.
+"""
+
 import logging
 from z3c.saconfig import Session
 from Acquisition import aq_base

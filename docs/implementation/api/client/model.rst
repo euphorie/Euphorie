@@ -1,15 +1,17 @@
 :mod:`euphorie.client.model`
 ============================
 
-.. module:: euphorie.client.model
+.. automodule:: euphorie.client.model
 
 .. autoclass:: BaseObject
-   :members:
 
 .. autoclass:: SurveyTreeItem
    :members:
 
 .. autoclass:: Account
+   :members:
+
+.. autoclass:: AccountChangeRequest
    :members:
 
 .. autoclass:: SurveySession

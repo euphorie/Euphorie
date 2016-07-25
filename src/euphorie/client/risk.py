@@ -1,4 +1,11 @@
 # coding=utf-8
+"""
+Risk
+----
+
+Views for the identification and action plan phases.
+"""
+
 import datetime
 from Acquisition import aq_chain
 from Acquisition import aq_inner
@@ -36,6 +43,10 @@ DESCRIPTION_CROP_LENGTH = 200
 
 
 class IdentificationView(grok.View):
+    """A view for displaying a question in the idenfication phase
+
+    View name: @@index_html
+    """
     grok.context(model.Risk)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
@@ -167,6 +178,10 @@ class IdentificationView(grok.View):
 
 
 class ActionPlanView(grok.View):
+    """Logic for creating new action plans.
+
+    View name: @@index_html
+    """
     grok.context(model.Risk)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IActionPlanPhaseSkinLayer)

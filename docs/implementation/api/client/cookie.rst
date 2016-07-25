@@ -1,7 +1,7 @@
 :mod:`euphorie.client.cookie`
 =============================
 
-.. module:: euphorie.client.cookie
+.. automodule:: euphorie.client.cookie
 
 .. autofunction:: setCookie
 

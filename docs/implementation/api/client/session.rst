@@ -1,7 +1,7 @@
 :mod:`euphorie.client.session`
 ==============================
 
-.. module:: euphorie.client.session
+.. automodule:: euphorie.client.session
 
 .. autoclass:: SessionManagerFactory
    :members:
