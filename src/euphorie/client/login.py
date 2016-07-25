@@ -276,8 +276,8 @@ class Reminder(grok.View):
                 flash(_(u"An email with a password reminder has been "
                         u"sent to your address."), "notice")
                 redir_url = self.back_url
-                if not redir_url.endswith("/login"):
-                    redir_url = "{0}/login".format(redir_url)
+                if not redir_url.endswith("login"):
+                    redir_url = "{0}/@@login".format(redir_url)
                 self.request.response.redirect(redir_url)
 
 
