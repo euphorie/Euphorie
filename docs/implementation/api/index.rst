@@ -26,6 +26,7 @@ Code reference
    content/colour
    client/client
    client/country
+   client/sector
    client/cookie
    client/model
    client/module

@@ -1,3 +1,10 @@
+"""
+Sector
+------
+
+The client proxy for displaying sector information.
+"""
+
 from Acquisition import aq_base
 from Acquisition import aq_parent
 from Acquisition import aq_inner
@@ -54,6 +61,8 @@ class View(grok.View):
 
 
 class Style(grok.View):
+    """View name: @@sector.css
+    """
     grok.context(IClientSector)
     grok.require("zope2.View")
     grok.layer(IClientSkinLayer)
