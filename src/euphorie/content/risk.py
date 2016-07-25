@@ -49,7 +49,7 @@ grok.templatedir("templates")
 
 
 TextLines4Rows = FieldWidgetFactory(
-        "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
+    "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
 
 
 class IRisk(form.Schema, IRichDescription, IBasic):
@@ -61,6 +61,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_statement",
                 default=u"This is a short statement about a possible risk."),
             required=True)
+    form.widget(title="euphorie.content.risk.TextLines4Rows")
     form.order_before(title="*")
 
     problem_description = schema.TextLine(

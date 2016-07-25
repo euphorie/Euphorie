@@ -19,6 +19,7 @@ from .module import IModule
 from .module import item_depth
 from .module import tree_depth
 from .risk import IRisk
+from .risk import TextLines4Rows
 from .utils import StripMarkup
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -26,7 +27,6 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
@@ -35,10 +35,6 @@ import sys
 
 
 grok.templatedir("templates")
-
-TextSpan7 = FieldWidgetFactory("z3c.form.browser.text.TextFieldWidget",
-        klass="span-7")
-
 
 class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     """Survey Profile question.
@@ -51,6 +47,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         description=_(u'This question must ask the user if this profile '
                       u'applies to them.'),
         required=True)
+    form.widget(question="euphorie.content.risk.TextLines4Rows")
 
     label_multiple_present = schema.TextLine(
         title=_(u'Multiple item question'),
@@ -58,24 +55,21 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         description=_(u'This question must ask the user if the service is '
                       u'offered in more than one location.'),
     )
-    form.widget(
-        label_multiple_present='euphorie.content.profilequestion.TextSpan7')
+    form.widget(label_multiple_present="euphorie.content.risk.TextLines4Rows")
 
     label_single_occurance = schema.TextLine(
         title=_(u'Single occurance prompt'),
         description=_(u'This must ask the user for the name of the '
                       u'relevant location.'),
         required=True)
-    form.widget(
-        label_single_occurance='euphorie.content.profilequestion.TextSpan7')
+    form.widget(label_single_occurance="euphorie.content.risk.TextLines4Rows")
 
     label_multiple_occurances = schema.TextLine(
         title=_(u'Multiple occurance prompt'),
         description=_(u'This must ask the user for the names of all '
                       u'relevant locations.'),
         required=True)
-    form.widget(
-        label_multiple_occurances='euphorie.content.profilequestion.TextSpan7')
+    form.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
 
 
 class ProfileQuestion(dexterity.Container):
