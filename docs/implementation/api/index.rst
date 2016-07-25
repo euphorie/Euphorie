@@ -34,6 +34,8 @@ Code reference
    client/company
    client/navigation
    client/profile
+   client/appendix
+   client/help
    client/publish
    client/session
    client/authentication
@@ -42,4 +44,5 @@ Code reference
    client/survey
    client/update
    client/utils
+   client/settings
 

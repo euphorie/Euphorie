@@ -1,3 +1,10 @@
+"""
+Appendix
+--------
+
+The @@appendix and @@about views.
+"""
+
 import logging
 from zExceptions import NotFound
 from zope.interface import Interface
@@ -13,6 +20,8 @@ grok.templatedir("templates")
 
 
 class About(grok.View):
+    """View name: @@about
+    """
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name("about")
@@ -20,6 +29,8 @@ class About(grok.View):
 
 
 class AppendixView(grok.View):
+    """View name: @@appendix
+    """
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name("appendix")

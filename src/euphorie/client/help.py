@@ -1,3 +1,10 @@
+"""
+Help
+----
+
+The @@help view.
+"""
+
 import logging
 from zope.interface import Interface
 from zope.component import getUtility
@@ -12,6 +19,8 @@ grok.templatedir("templates")
 
 
 class HelpView(grok.View):
+    """View name: @@help
+    """
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
     grok.name("help")
