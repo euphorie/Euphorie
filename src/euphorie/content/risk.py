@@ -57,19 +57,20 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     """
 
     title = schema.TextLine(
-            title=_("label_statement", default=u"Statement"),
+            title=_("label_statement", default=u"Affirmative statement"),
             description=_("help_statement",
-                default=u"This is a short statement about a possible risk."),
+                default=u"This is a short affirmative statement about a "
+                    u"possible risk (e.g. The building is well maintained.)"),
             required=True)
     form.widget(title="euphorie.content.risk.TextLines4Rows")
     form.order_before(title="*")
 
     problem_description = schema.TextLine(
             title=_("label_problem_description",
-                    default=u"Inversed statement"),
+                    default=u"Negative statement"),
             description=_("help_problem_description",
-                    default=u"This is the inverse of the statement: a "
-                            u"short description of current (bad) situation."),
+                    default=u"This is the inverse of the affirmative "
+                        u"statement (e.g. The building is not well maintained.)"),
             required=True)
     form.widget(problem_description="euphorie.content.risk.TextLines4Rows")
     form.order_after(problem_description="title")
@@ -77,8 +78,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     description = HtmlText(
             title=_("label_description", default=u"Description"),
             description=_("help_risk_description",
-                default=u"Describe the risk. Include any relevant "
-                        u"information that may be helpful for users."),
+                default=u"Describe the risk. Include any relevant information "
+                    u"that may be helpful for the end-user."),
             required=True)
     form.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(description="problem_description")
@@ -105,14 +106,13 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     type = schema.Choice(
             title=_("label_risk_type", default=u"Risk type"),
             description=_("help_risk_type",
-                default=u"'Risk' is related to the workplace. 'Policy' is "
-                        u"related to agreements, procedures and management "
-                        u"decisions. It can be answered from behind a desk "
-                        u"(no need to examine the workplace). 'Top 5' is one "
-                        "of the top five risks of the sector."),
+                default=u'"Priority risk" is one of the high risks in the '
+                    u'sector. "Risk" is related to the workplace or to the work '
+                    u'carried out. "Policy" refers to agreements, procedures, '
+                    u'and management decisions.'),
             vocabulary=SimpleVocabulary([
                             SimpleTerm(u"top5",
-                                title=_("risktype_top5", default=u"Top 5")),
+                                title=_("risktype_top5", default=u"Priority risk")),
                             SimpleTerm(u"risk",
                                 title=_("risktype_risk", default="Risk")),
                             SimpleTerm(u"policy",
@@ -156,8 +156,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     default_priority = schema.Choice(
             title=_("label_default_priority", default=u"Default priority"),
             description=_("help_default_priority",
-                default=u"You can help the user by selecting a default "
-                        u"priority. The user can still change the priority."),
+                default=u"You can help the end-user by selecting a default "
+                    u"priority. He/she can still change the priority."),
             vocabulary=SimpleVocabulary([
                 SimpleTerm("none",
                     title=_("no_default", default=u"No default")),

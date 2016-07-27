@@ -211,7 +211,7 @@ def createSection(document, survey, survey_session, request):
     t = lambda txt: translate(txt, context=request)
     footer = t(_(
         "report_survey_revision",
-        default=u"This report was based on the survey '${title}' of revision "
+        default=u"This report was based on the OiRA Tool '${title}' of revision "
                 u"date ${date}.",
         mapping={"title": survey.published[1],
                  "date": formatDate(request, survey.published[2])}))
@@ -863,20 +863,20 @@ class ActionPlanReportDownload(grok.View):
                 Cell(Paragraph(
                     normal_style,
                     t(_("report_measure_actionplan",
-                        default=u"Action plan:")))),
+                        default=u"General approach (to eliminate or reduce the risk):")))),
                 Cell(Paragraph(normal_style, measure.action_plan)))
         if measure.prevention_plan:
             table.append(
                 Cell(Paragraph(normal_style,
                      t(_("report_measure_preventionplan",
-                         default=u"Prevention plan:")))),
+                         default=u"Specific action(s) required to implement this approach:")))),
                 Cell(Paragraph(normal_style, measure.prevention_plan)))
         if measure.requirements:
             table.append(
                 Cell(Paragraph(
                     normal_style,
                     t(_("report_measure_requirements",
-                        default=u"Requirements:")))),
+                        default=u"Level of expertise and/or requirements needed:")))),
                 Cell(Paragraph(normal_style, measure.requirements)))
         if table.Rows:
             section.append(table)

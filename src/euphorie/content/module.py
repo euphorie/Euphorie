@@ -49,7 +49,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
             title=_("label_module_description", u"Description"),
             description=_("help_module_description",
                 default=u"Include any relevant information that may be "
-                        u"helpful for users."),
+                    u"helpful for the end-user."),
             required=False)
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
@@ -58,8 +58,8 @@ class IModule(form.Schema, IRichDescription, IBasic):
             title=_("label_module_optional",
                 default=u"This module is optional"),
             description=_("help_module_optional",
-                default=u"Allow users to skip this module and "
-                        u"everything inside it."),
+                default=u"Allows the end-user to skip this module and "
+                    u"everything inside it."),
             required=False,
             default=False)
 
@@ -67,8 +67,9 @@ class IModule(form.Schema, IRichDescription, IBasic):
     question = schema.TextLine(
             title=_("label_module_question", default=u"Question"),
             description=_("help_module_question",
-                default=u"The question to ask users if this module is "
-                        u"optional. This has to be a yes/no question."),
+                default=u"The question to ask the end-user if this module is "
+                    u"optional. It must be formulated so that it is answerable "
+                    u"with YES (the end-user will have to tick a box) or NO"),
             required=False)
 
     image = filefield.NamedBlobImage(
@@ -84,11 +85,11 @@ class IModule(form.Schema, IRichDescription, IBasic):
 
     solution_direction = HtmlText(
             title=_("label_solution_direction",
-                default=u"Introduction action plan"),
+                default=u"Solution"),
             description=_("help_solution_direction",
-                default=u"This information will be shown to users when "
-                        u"they enter this module while working on the "
-                        u"action plan."),
+                default=u"This information will appear in the Action plan step "
+                    u"and should include an overview of general solution(s) "
+                    u"related to this module."),
             required=False)
     form.widget(solution_direction=WysiwygFieldWidget)
 

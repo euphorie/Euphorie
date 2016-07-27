@@ -12,22 +12,22 @@
     <metal:meta use-macro="webhelpers/macros/headers"/>
   </head>
   <body>
-    <metal:title fill-slot="title" i18n:translate="header_publish">Publish survey</metal:title>
+    <metal:title fill-slot="title" i18n:translate="header_publish">Publish OiRA Tool</metal:title>
     <metal:content fill-slot="content">
       <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
         <p i18n:translate="intro_publish_first_time"
-        tal:condition="not:view/is_surveygroup_published">Are you sure you want to publish this survey? After
-        publication the survey will appear in the online client and be accessible by all users.</p>
+        tal:condition="not:view/is_surveygroup_published">Are you sure you want to publish this OiRA Tool? After publication
+          the OiRA Tool will appear in the online client and be accessible by all users.</p>
         <tal:block condition="view/is_surveygroup_published">
           <p i18n:translate="intro_publish_survey_published"
-          tal:condition="view/is_this_survey_published">Are you sure you want to republish this survey? This will
-          make all changes made public.</p>
+          tal:condition="view/is_this_survey_published">Are you sure you want to republish this OiRA Tool? This will make
+          all changes made public.</p>
           <p i18n:translate="intro_publish_other_survey_published"
-          tal:condition="not:view/is_this_survey_published">Are you sure you want to publish this survey version? This will
+          tal:condition="not:view/is_this_survey_published">Are you sure you want to publish this OiRA Tool version? This will
           replace the current version.</p>
         </tal:block>
 
-        <p i18n:translate="help_publish_url">After publication the survey will be available at
+        <p i18n:translate="help_publish_url">After publication the OiRA Tool will be available at
         <strong i18n:name="url">${view/client_url}</strong>.</p>
 
         <div class="buttonBar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
@@ -37,6 +37,6 @@
     </metal:content>
   </body>
 </html>
-      
+
 
 

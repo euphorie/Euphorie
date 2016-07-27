@@ -15,28 +15,28 @@
       <h2 i18n:translate="label_help_introduction" id="introduction">Introduction</h2>
       <p tal:replace="structure context/introduction"/>
 
-      <h2 id="authentication" i18n:translate="label_help_authentication">Authentication</h2>
+      <h2 id="authentication" i18n:translate="label_help_authentication">Registration</h2>
       <p tal:replace="structure context/authentication"/>
 
-      <h2 id="sessions" i18n:translate="label_help_sessions">Sessions</h2>
+      <h2 id="sessions" i18n:translate="label_help_sessions">Carrying out your risk assessment</h2>
       <p tal:replace="structure context/sessions"/>
 
-      <h2 id="start" i18n:translate="label_help_preparation">Preparation</h2>
+      <h2 id="start" i18n:translate="label_help_preparation">1. Preparation</h2>
       <p tal:replace="structure context/preparation"/>
 
-      <h2 id="identification" i18n:translate="label_help_identification">Identification</h2>
+      <h2 id="identification" i18n:translate="label_help_identification">2. Identification</h2>
       <p tal:replace="structure context/identification"/>
 
-      <h2 id="evaluation" i18n:translate="label_help_evaluation">Evaluation</h2>
+      <h2 id="evaluation" i18n:translate="label_help_evaluation">3. Evaluation</h2>
       <p tal:replace="structure context/evaluation"/>
 
-      <h2 id="actionplan" i18n:translate="label_help_actionplan">Action Plan</h2>
+      <h2 id="actionplan" i18n:translate="label_help_actionplan">4. Action Plan</h2>
       <p tal:replace="structure context/actionplan"/>
 
-      <h2 id="report" i18n:translate="label_help_reports">Reports</h2>
+      <h2 id="report" i18n:translate="label_help_reports">5. Report</h2>
       <p tal:replace="structure context/report"/>
 
-      <h2 id="finalwords" i18n:translate="label_help_finalwords">Final words</h2>
+      <h2 id="finalwords" i18n:translate="label_help_finalwords">What happens next?</h2>
       <p tal:replace="structure context/finalwords"/>
     </metal:content>
   </body>

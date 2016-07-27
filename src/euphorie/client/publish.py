@@ -325,8 +325,8 @@ class PreviewSurvey(form.Form):
         url = make_tag('a', href=self.preview_url(), c=self.preview_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
                 _("message_preview_success",
-                    default=u"Succesfully created a preview for the survey. "
-                            u"It can be accessed at ${url} .",
+                    default=u"Succesfully created a preview for the OiRA Tool. "
+                            u"It can be accessed at ${url}.",
                     mapping={'url': url}), type="success")
         state = getMultiAdapter(
                         (aq_inner(self.context), self.request),

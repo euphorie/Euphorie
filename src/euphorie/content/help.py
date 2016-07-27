@@ -25,75 +25,63 @@ class IOnlineHelp(form.Schema):
     introduction = HtmlText(
             title=_("label_help_introduction", default=u"Introduction"),
             description=_("help_help_introduction",
-                default=u"Generic introduction for the client. This text "
-                        u"is not associated with specific pages."),
+                default=u"General information on risk assessment"),
             required=True)
     form.widget(introduction=WysiwygFieldWidget)
 
     authentication = HtmlText(
-            title=_("label_help_authentication", default=u"Authentication"),
+            title=_("label_help_authentication", default=u"Registration"),
             description=_("help_authentication",
-                default=u"Describe the user handling. This text is "
-                        u"linked from the login, password reminder and "
-                        u"registration pages."),
+                default=u"This text should explain how to register and login."),
             required=True)
     form.widget(authentication=WysiwygFieldWidget)
 
     sessions = HtmlText(
-            title=_("label_help_sessions", default=u"Sessions"),
+            title=_("label_help_sessions", default=u"Carrying out your risk assessment"),
             description=_("help_sessions",
-                default=u"Describe the session handling. This text is "
-                        u"linked from the session overview page."),
+                default=u"This text should describe the main functions of the OiRA Tool."),
             required=True)
     form.widget(sessions=WysiwygFieldWidget)
 
     preparation = HtmlText(
-            title=_("label_help_preparation", default=u"Preparation"),
+            title=_("label_help_preparation", default=u"1. Preparation"),
             description=_("help_preparation",
-                default=u"Document the first steps in a survey, including "
-                        u"how to configure a profile (if needed). This "
-                        u"page is linked from the survey start page."),
+                default=u"This text should explain the 2 types of profile questions."),
             required=True)
     form.widget(preparation=WysiwygFieldWidget)
 
     identification = HtmlText(
-            title=_("label_help_identification", default=u"Identification"),
+            title=_("label_help_identification", default=u"2. Identification"),
             description=_("help_identification",
-                default=u"Document the identification phase. This information "
-                        u"is linked from all identification related pages"),
+                default=u"This text should explain how the risk identification works."),
             required=True)
     form.widget(identification=WysiwygFieldWidget)
 
     evaluation = HtmlText(
-            title=_("label_help_evaluation", default=u"Evaluation"),
+            title=_("label_help_evaluation", default=u"3. Evaluation"),
             description=_("help_evaluation",
-                default=u"Document the evaluation phase. This information "
-                        u"is linked from all evaluation related pages"),
+                default=u"This text should explain how to evaluate the identified risks."),
             required=True)
     form.widget(evaluation=WysiwygFieldWidget)
 
     actionplan = HtmlText(
-            title=_("label_help_actionplan", default=u"Action Plan"),
+            title=_("label_help_actionplan", default=u"4. Action Plan"),
             description=_("help_actionplan",
-                default=u"Document the action plan phase. This information "
-                        u"is linked from all action plan related pages"),
+                default=u"This text should explain how to fill in the Action plan."),
             required=True)
     form.widget(actionplan=WysiwygFieldWidget)
 
     report = HtmlText(
-            title=_("label_help_reports", default=u"Reports"),
+            title=_("label_help_reports", default=u"5. Report"),
             description=_("help_reports",
-                default=u"Describe the reporting options. This page is "
-                        u"linked from report page."),
+                default=u"This text should describe how the report can either be saved or printed."),
             required=True)
     form.widget(report=WysiwygFieldWidget)
 
     finalwords = HtmlText(
-            title=_("label_help_finalwords", default=u"Final words"),
+            title=_("label_help_finalwords", default=u"What happens next?"),
             description=_("help_finalwords",
-                default=u"Any final words that should be shown at the end "
-                        u"of the help. This information is not linked "
-                        u"directly."),
+                default=u"General final recommendations."),
             required=True)
     form.widget(finalwords=WysiwygFieldWidget)
 

@@ -112,15 +112,15 @@
           <h5 i18n:translate="header_measure">Measure <tal:span i18n:name="index" content="repeat/actionplan/number">1</tal:span></h5>
           <dl tal:condition="python:actionplan.action_plan or actionplan.prevention_plan or actionplan.requirements">
             <tal:block condition="actionplan/action_plan">
-              <dt i18n:translate="report_measure_actionplan">Action plan:</dt>
+              <dt i18n:translate="report_measure_actionplan">General approach (to eliminate or reduce the risk):</dt>
               <dd tal:content="actionplan/action_plan">Plan tetx here.</dd>
             </tal:block>
             <tal:block condition="actionplan/prevention_plan">
-              <dt i18n:translate="report_measure_preventionplan">Prevention plan:</dt>
+              <dt i18n:translate="report_measure_preventionplan">Specific action(s) required to implement this approach:</dt>
               <dd tal:content="actionplan/prevention_plan">Plan text here.</dd>
             </tal:block>
             <tal:block condition="actionplan/requirements">
-              <dt i18n:translate="report_measure_requirements">Requirements:</dt>
+              <dt i18n:translate="report_measure_requirements">Level of expertise and/or requirements needed:</dt>
               <dd tal:content="actionplan/requirements">Plan text here.</dd>
             </tal:block>
           </dl>
@@ -166,7 +166,7 @@
     This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report.</tal:span></p>
 
     <ul class="discrete">
-      <li tal:condition="python:isinstance(getattr(context, 'published', None), tuple)" i18n:translate="report_survey_revision">This report was based on the survey '<tal:span i18n:name="title">${python:context.published[1]}</tal:span>' of revision date <tal:span i18n:name="date">${python:tools.formatDate(context.published[2])}</tal:span>.</li>
+      <li tal:condition="python:isinstance(getattr(context, 'published', None), tuple)" i18n:translate="report_survey_revision">This report was based on the OiRA Tool '<tal:span i18n:name="title">${python:context.published[1]}</tal:span>' of revision date <tal:span i18n:name="date">${python:tools.formatDate(context.published[2])}</tal:span>.</li>
     </ul>
 
   </article>

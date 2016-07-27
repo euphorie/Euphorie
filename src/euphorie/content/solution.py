@@ -29,7 +29,7 @@ class ISolution(form.Schema):
             title=_("label_module_description", u"Description"),
             description=_("help_module_description",
                 default=u"Include any relevant information that may be "
-                        u"helpful for users."),
+                    u"helpful for the end-user."),
             required=True)
     form.order_after(description="title")
 
@@ -37,9 +37,8 @@ class ISolution(form.Schema):
             title=_("label_measure_action_plan",
                 default=u"General approach (to eliminate or reduce the risk)"),
             description=_("help_measure_action_plan",
-                default=u"Describe the action that can be taken to "
-                        u"remove this risk. This information will be "
-                        u"copied to the measure."),
+                default=u"Describe your general approach to eliminate or (if "
+                    u"the risk is not avoidable) reduce the risk."),
             required=True)
 
     prevention_plan = schema.Text(
@@ -47,18 +46,20 @@ class ISolution(form.Schema):
                 default=u"Specific action(s) required to implement this "
                         u"approach"),
             description=_("help_measure_prevention_plan",
-                default=u"Describe what can be done to prevent this risk "
-                        u"from (re)occuring. This information will be "
-                        u"copied to the measure."),
+                default=u"Describe the specific action(s) required to "
+                    u"implement this approach (to eliminate or to reduce the risk)."),
             required=False)
 
     requirements = schema.Text(
             title=_("label_measure_requirements",
                 default=u"Level of expertise and/or requirements needed"),
             description=_("help_measure_requirements",
-                default=u"Describe the standard requirements for the "
-                        u"action plan and prevention plan. This "
-                        u"information will be copied to the measure."),
+                default=u'Describe the level of expertise needed to implement '
+                    u'the measure, for instance "common sense (no OSH knowledge '
+                    u'required)", "no specific OSH expertise, but minimum OSH '
+                    u'knowledge or training and/or consultation of OSH guidance '
+                    u'required", or "OSH expert". You can also describe here '
+                    u'any other additional requirement (if any).'),
             required=False)
 
 

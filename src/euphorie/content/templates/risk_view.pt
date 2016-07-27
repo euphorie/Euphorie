@@ -38,7 +38,7 @@
       <dl class="grid span-13">
       <dt i18n:translate="label_risk_type">Risk type</dt>
         <dd tal:content="view/type">Risk</dd>
-        <dt i18n:translate="label_problem_description">Inversed statement</dt>
+        <dt i18n:translate="label_problem_description">Negative statement</dt>
         <dd tal:content="context/problem_description">Er bestaat geen mogelijkheid om gebruik te maken van rechte spuitlansen van verschillende lengte.</dd>
         <dt i18n:translate="risk_show_na">Show '<em i18n:name="na" i18n:translate="risk_show_na_na">not applicable</em>'</dt>
         <dd tal:condition="context/show_notapplicable" i18n:translate="yes">Yes</dd>
