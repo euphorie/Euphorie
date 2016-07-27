@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      id="account-settings"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@plain/macros/shell">
+
+
+<metal:js fill-slot="javascript_head_slot">
+    <style type="text/css">
+
+.statuses .page-toc {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 3em;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: rgba(0,0,0,0.1);
+}
+dl.status {
+    padding-top: 1em;
+    margin-bottom: 2em;
+    margin-top: 0;
+}
+dl.status dt {
+    height: 2em;
+    color: white;
+    position: relative;
+    clear: left;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 0;
+}
+dl.status dt a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 150%;
+}
+dl.status dd {
+    margin-left: 0;
+    position: relative;
+}
+dl.status dd .graph {
+    background: rgba(0,0,0,0.1);
+    clear: left;
+    display: block;
+    height: 2em;
+    margin: 0 0 2.5em 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    line-height: 2.1em;
+    border-radius: 1em;
+    overflow: hidden;
+}
+dl.status dd .graph .range {
+    height: 2em;
+    overflow: display;
+    display: inline-block;
+    text-align: center;
+    float: left;
+}
+dl.status dd .graph .range.answered {
+    background-color: green;
+}
+dl.status dd .graph .range.risk-measure {
+    background-color: DarkRed;
+}
+dl.status dd .graph .range.risk {
+    background-color: red;
+}
+dl.status dd .graph .range.postponed {
+    background-color: orange;
+    color: rgba(0,0,0,0.6);
+}
+dl.status dd .graph .range.unanswered {
+    color: rgba(0,0,0,0.6);
+}
+dl.status dd .graph .range .number {
+    font-weight: normal;
+    font-size: 0.8em;
+}
+dl.status dd .legend {
+    margin-bottom: 3.5em;
+    color: rgba(0,0,0,0.6);
+}
+dl.status dd .legend li {
+    padding-left: 1.8em;
+    font-style: normal;
+}
+dl.status dd .legend li .number {
+    float: left;
+    margin-left: -1.8em;
+    margin-top: 0.1em;
+    width: 1.3em;
+    height: 1.3em;
+    line-height: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    background-color: gray;
+    color: white;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+dl.status dd .legend li.answered .number {
+    background-color: green;
+}
+dl.status dd .legend li.risk-measure .number {
+        background-color: DarkRed;
+}
+dl.status dd .legend li.risk .number {
+    background-color: red;
+}
+dl.status dd .legend li.postponed .number {
+    background-color: orange;
+    color: rgba(0,0,0,0.6);
+}
+dl.status dd .legend li.unanswered .number {
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.6);
+}
+p.byline {float:right;}
+h1 {line-height:130%;}
+h2.title {line-height:100%;font-weight:400;margin-bottom:1.2em;}
+h3.title {margin-bottom:0.7em;}
+ul.title {margin-bottom:3em;}
+.six, .row .six {width: 49%;}
+    </style>
+</metal:js>
+
+<body>
+  <metal:content fill-slot="content">
+    <article class="rich">
+        <p class="byline">
+            ${view/date}
+        </p>
+        <h1>${here/Title}</h1>
+        <h2 class="title"><em i18n:translate="">Overview of risks</em></h2>
+        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <ul class="title">
+          <li i18n:translate="">Pass information to the people concerned.</li>
+          <li i18n:translate="">Monitor whether risks / measures are properly dealt with.</li>
+        </ul>
+    </article>
+
+    <div class="statuses" tal:define="status python:view.status; status_view nocall:context/aq_parent/@@status">
+        <a name="page-toc"> </a>
+        <h2 class="title" i18n:translate="toc_header">Contents</h2>
+        <ul class="page-toc">
+            <li tal:repeat="module view/toc">
+                <tal:no_locations condition="not:module/locations">
+                    <a href="#${module/path}">${module/title}</a>
+                </tal:no_locations>
+                <tal:locations condition="module/locations">
+                    ${python:module['title']}
+                    <ul>
+                        <li tal:repeat="location module/locations">
+                            <a href="#${location/path}">${location/title}</a>
+                        </li>
+                    </ul>
+                </tal:locations>
+            </li>
+        </ul>
+
+        <?python import decimal ?>
+        <dl class="status">
+            <tal:loop repeat="module status">
+            <tal:defs define="
+                num_ok python:module.get('ok', 0);
+                num_risks_without_measures python:module.get('risk_without_measures', 0);
+                num_risks_with_measures python:module.get('risk_with_measures', 0);
+                num_postponed python:module.get('postponed', 0);
+                num_todo python:module.get('todo', 0);
+                num_total python:num_ok + num_risks_with_measures + num_risks_without_measures + num_postponed + num_todo;
+                perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/decimal.Decimal(num_total)*100;
+                perc_ok python:not num_total and 100 or num_ok/decimal.Decimal(num_total)*100;
+                perc_risks_without_measures python:num_total and num_risks_without_measures/decimal.Decimal(num_total)*100 or 0;
+                perc_risks_with_measures python:num_total and num_risks_with_measures/decimal.Decimal(num_total)*100 or 0;
+                perc_postponed python:num_total and num_postponed/decimal.Decimal(num_total)*100 or 0;
+                perc_todo python:num_total and num_todo/decimal.Decimal(num_total)*100 or 0;
+                epsilon python:decimal.Decimal(1/10.0);
+                ">
+            <dt><a name="${module/path}"> </a>
+                <a href="#page-toc">${module/title} </a>
+            </dt>
+            <dd>
+                <section class="graph">
+                    <span class="range answered" tal:condition="perc_ok"
+                        tal:attributes="style python:'width: %.2f%%' % float(decimal.Decimal(perc_ok)-epsilon)">
+                        <strong class="number">${num_ok}</strong>
+                    </span>
+                    <span class="range  risk-measure" tal:condition="perc_risks_with_measures"
+                        tal:attributes="style python:'width: %.2f%%' % (decimal.Decimal(perc_risks_with_measures)-epsilon)">
+                        <strong class="number">${num_risks_with_measures}</strong>
+                    </span>
+                    <span class="range risk" tal:condition="perc_risks_without_measures"
+                        tal:attributes="style python:'width: %.2f%%' % (decimal.Decimal(perc_risks_without_measures)-epsilon)">
+                        <strong class="number">${num_risks_without_measures}</strong>
+                    </span>
+                    <span class="range postponed" tal:condition="perc_postponed"
+                        tal:attributes="style python:'width: %.2f%%' % (decimal.Decimal(perc_postponed)-epsilon)">
+                        <strong class="number">${num_postponed}</strong>
+                    </span>
+                    <span class="range unanswered" tal:condition="perc_todo"
+                        tal:attributes="style python:'width: %.2f%%' % (decimal.Decimal(perc_todo)-epsilon)">
+                        <strong class="number">${num_todo}</strong>
+                    </span>
+                </section>
+                <section class="row">
+                    <ul class="twelve columns legend">
+                        <li class="answered" tal:condition="num_ok">
+                            <strong class="number">${num_ok}</strong>
+                            <em tal:condition="python:num_ok==1" class="label" i18n:translate="label_no_risk">No risk</em>
+                            <em tal:condition="python:num_ok==2" class="label" i18n:translate="label_no_risks_2">No risks</em>
+                            <em tal:condition="python:num_ok in (3, 4)" class="label" i18n:translate="label_no_risks_3_4">No risks</em>
+                            <em tal:condition="python:num_ok>4" class="label" i18n:translate="label_no_risks_5_or_more">No risks</em>
+                        </li>
+                        <li class="risk-measure" tal:condition="num_risks_with_measures">
+                            <strong class="number">${num_risks_with_measures}</strong>
+                           <em tal:condition="python:num_risks_with_measures==1" class="label" i18n:translate="label_risk_with_measure">Risk with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures==2" class="label" i18n:translate="label_risks_with_measure_2">Risks with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures in (3, 4)" class="label" i18n:translate="label_risks_with_measure_3_4">Risks with measure(s)</em>
+                            <em tal:condition="python:num_risks_with_measures>4" class="label" i18n:translate="label_risks_with_measure_5_or_more">Risks with measure(s)</em>
+                        </li>
+                        <li class="risk" tal:condition="num_risks_without_measures">
+                            <strong class="number">${num_risks_without_measures}</strong>
+                            <em tal:condition="python:num_risks_without_measures==1" class="label" i18n:translate="label_risk_without_measure">Risk without measure</em>
+                            <em tal:condition="python:num_risks_without_measures==2" class="label" i18n:translate="label_risks_without_measure_2">Risks without measure</em>
+                            <em tal:condition="python:num_risks_without_measures in (3, 4)" class="label" i18n:translate="label_risks_without_measure_3_4">Risks without measure</em>
+                            <em tal:condition="python:num_risks_without_measures>4" class="label" i18n:translate="label_risks_without_measure_5_or_more">Risks without measure</em>
+                        </li>
+                        <li class="postponed" tal:condition="num_postponed">
+                            <strong class="number">${num_postponed}</strong> <em class="label" i18n:translate="Postponed">Postponed</em>
+                        </li>
+                        <li class="unanswered" tal:condition="num_todo">
+                            <strong class="number">${num_todo}</strong> <em class="label" i18n:translate="Unvisited">Unanswered</em>
+                        </li>
+                    </ul>
+                    <tal:risk_lists
+                            tal:define="risks_by_status python:view.risks_by_status[module.get('path')];
+                                        num_high python:len(risks_by_status['present']['high']);
+                                        num_medium python:len(risks_by_status['present']['medium']);
+                                        num_low python:len(risks_by_status['present']['low']);
+                                        num_present python:num_high + num_medium + num_low;
+                                        num_possible python:num_postponed + num_todo;">
+                    <div class="six columns">
+                        <h3 tal:condition="python: num_present==1" i18n:translate="heading_present_risks"><span i18n:name="num_present_risks">${num_present}</span> Present Risk</h3>
+                        <h3 tal:condition="python: num_present==2" i18n:translate="heading_present_risks_2"><span i18n:name="num_present_risks">${num_present}</span> Present Risks</h3>
+                        <h3 tal:condition="python: num_present in (3, 4)" i18n:translate="heading_present_risks_3_4"><span i18n:name="num_present_risks">${num_present}</span> Present Risks</h3>
+                        <h3 tal:condition="python: num_present>4" i18n:translate="heading_present_risks_5_or_more"><span i18n:name="num_present_risks">${num_present}</span> Present Risks</h3>
+                        <tal:prio tal:repeat="priority python:['high', 'medium', 'low']">
+                        <div class="high-prio-risks" tal:define="risks python:risks_by_status['present'][priority]" tal:condition="risks">
+                            <h4 i18n:translate="heading_num_high_prio_risks" tal:condition="python:priority == 'high' and num_high==1"><span i18n:name="num_high_risks">${num_high}</span> High priority risk</h4>
+                            <h4 i18n:translate="heading_num_high_prio_risks_2" tal:condition="python:priority == 'high' and num_high==2"><span i18n:name="num_high_risks">${num_high}</span> High priority risks</h4>
+                            <h4 i18n:translate="heading_num_high_prio_risks_3_4" tal:condition="python:priority == 'high' and num_high in (3, 4)"><span i18n:name="num_high_risks">${num_high}</span> High priority risks</h4>
+                            <h4 i18n:translate="heading_num_high_prio_risks_5_or_more" tal:condition="python:priority == 'high' and num_high>4"><span i18n:name="num_high_risks">${num_high}</span> High priority risks</h4>
+
+                            <h4 i18n:translate="heading_num_medium_prio_risks" tal:condition="python:priority == 'medium' and num_medium==1"><span i18n:name="num_medium_risks">${num_medium}</span> Medium priority risk</h4>
+                            <h4 i18n:translate="heading_num_medium_prio_risks_2" tal:condition="python:priority == 'medium' and num_medium==2"><span i18n:name="num_medium_risks">${num_medium}</span> Medium priority risks</h4>
+                            <h4 i18n:translate="heading_num_medium_prio_risks_3_4" tal:condition="python:priority == 'medium' and num_medium in (3, 4)"><span i18n:name="num_medium_risks">${num_medium}</span> Medium priority risks</h4>
+                            <h4 i18n:translate="heading_num_medium_prio_risks_5_or_more" tal:condition="python:priority == 'medium' and num_medium>4"><span i18n:name="num_medium_risks">${num_medium}</span> Medium priority risks</h4>
+
+                            <h4 i18n:translate="heading_num_low_prio_risks" tal:condition="python:priority == 'low' and num_low==1"><span i18n:name="num_low_risks">${num_low}</span> Low priority risk</h4>
+                            <h4 i18n:translate="heading_num_low_prio_risks_2" tal:condition="python:priority == 'low' and num_low==2"><span i18n:name="num_low_risks">${num_low}</span> Low priority risks</h4>
+                            <h4 i18n:translate="heading_num_low_prio_risks_3_4" tal:condition="python:priority == 'low' and num_low in (3, 4)"><span i18n:name="num_low_risks">${num_low}</span> Low priority risks</h4>
+                            <h4 i18n:translate="heading_num_low_prio_risks_5_or_more" tal:condition="python:priority == 'low' and num_low>4"><span i18n:name="num_low_risks">${num_low}</span> Low priority risks</h4>
+
+                            <ul>
+                                <li tal:repeat="risk risks">
+                                    ${risk/title} <span tal:condition="risk/has_measures" i18n:translate="label_with_measures">(≥1 measures)</span><span tal:condition="not:risk/has_measures" i18n:translate="label_without_measures">(without measures)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </tal:prio>
+                    </div>
+
+                    <div class="six columns">
+                        <h3 tal:condition="python: num_possible==1" i18n:translate="heading_possible_risks"><span i18n:name="num_possible_risks">${num_possible}</span> Possible Risk</h3>
+                        <h3 tal:condition="python: num_possible==2" i18n:translate="heading_possible_risks_2"><span i18n:name="num_possible_risks">${num_possible}</span> Possible Risks</h3>
+                        <h3 tal:condition="python: num_possible in (3, 4)" i18n:translate="heading_possible_risks_3_4"><span i18n:name="num_possible_risks">${num_possible}</span> Possible Risks</h3>
+                        <h3 tal:condition="python: num_possible>4" i18n:translate="heading_possible_risks_5_or_more"><span i18n:name="num_possible_risks">${num_possible}</span> Possible Risks</h3>
+
+                        <tal:prio tal:repeat="status python:['postponed', 'todo']">
+                        <div class="high-prio-risks" tal:define="risks python:risks_by_status['possible'][status]" tal:condition="risks">
+                            <h4 i18n:translate="heading_num_postponed_prio_risks" tal:condition="python:status == 'postponed' and num_postponed==1"><span i18n:name="num_postponed_risks">${num_postponed}</span> Risk postponed</h4>
+                            <h4 i18n:translate="heading_num_postponed_prio_risks_2" tal:condition="python:status == 'postponed' and num_postponed==2"><span i18n:name="num_postponed_risks">${num_postponed}</span> Risks postponed</h4>
+                            <h4 i18n:translate="heading_num_postponed_prio_risks_3_4" tal:condition="python:status == 'postponed' and num_postponed in (3, 4)"><span i18n:name="num_postponed_risks">${num_postponed}</span> Risks postponed</h4>
+                            <h4 i18n:translate="heading_num_postponed_prio_risks_5_or_more" tal:condition="python:status == 'postponed' and num_postponed>4"><span i18n:name="num_postponed_risks">${num_postponed}</span> Risks postponed</h4>
+
+                            <h4 i18n:translate="heading_num_todo_prio_risks" tal:condition="python:status == 'todo' and num_todo==1"><span i18n:name="num_todo_risks">${num_todo}</span> Risk not answered</h4>
+                            <h4 i18n:translate="heading_num_todo_prio_risks_2" tal:condition="python:status == 'todo' and num_todo==2"><span i18n:name="num_todo_risks">${num_todo}</span> Risks not answered</h4>
+                            <h4 i18n:translate="heading_num_todo_prio_risks_3_4" tal:condition="python:status == 'todo' and num_todo in (3, 4)"><span i18n:name="num_todo_risks">${num_todo}</span> Risks not answered</h4>
+                            <h4 i18n:translate="heading_num_todo_prio_risks_5_or_more" tal:condition="python:status == 'todo' and num_todo>4"><span i18n:name="num_todo_risks">${num_todo}</span> Risks not answered</h4>
+
+                            <ul>
+                                <li tal:repeat="risk risks">
+                                    ${risk/title}
+                                </li>
+                            </ul>
+                        </div>
+                        </tal:prio>
+                    </div>
+                    </tal:risk_lists>
+                </section>
+            </dd>
+            </tal:defs>
+            </tal:loop>
+        </dl>
+    </div>
+<tal:block replace="tile:client-analytics"/>
+</metal:content>
+</body>
+</html>

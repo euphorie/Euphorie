@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      id="account-settings"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@plain/macros/shell">
+
+
+<metal:js fill-slot="javascript_head_slot">
+   <style type="text/css">
+.prio-high .risk-title, .prio-high td.month {
+      color: red;
+}
+.prio-medium .risk-title,
+.prio-medium td {
+    color:orange
+}
+.prio-low .risk-title,
+.prio-low td {
+    color:green
+}
+table{border-collapse:collapse}
+table th,table td{border-bottom:1px solid silver;padding:0.5em 0}
+table td{padding-left:0.5em;padding-right:0.5em}
+table thead th{text-align:center}
+table thead th.legend{text-align:right; padding-right:0.5em}
+table tbody th{width:70%; padding: 0.5em}
+table tbody td{vertical-align:middle;text-align:center;font-weight:bold;width:9%;}
+table tbody td.month{font-size:3em;}
+table tbody td:nth-child(even){background-color:#ececec}
+table tbody td.legend{font-size:100%; color: black; background-color:#FFFFFF;}
+.risk-title{margin-bottom:0;font-weight:bold}
+.description{font-weight:normal;margin-bottom:0}
+
+.module h2{font-size:1.5em;line-height:130%;font-weight:400;margin-bottom:0.2em}
+h2.title {line-height:100%;font-weight:400;margin-bottom:0.3em}
+section.module {
+      margin-bottom: 5em;
+}
+p.byline {float:right;}
+h1 {line-height:130%;}
+h3.title {margin-bottom:1.2em; font-weight:300}
+ul.title {margin-bottom:3em;}
+    </style>
+</metal:js>
+
+<body>
+    <metal:content fill-slot="content">
+        <article class="pat-rich report">
+            <p class="byline">
+                ${view/date}
+            </p>
+            <h1>${here/Title}</h1>
+            <h2 class="title"><em i18n:translate="">Overview of measures</em></h2>
+            <h3 class="title" i18n:translate="">(measures to be implemented in the coming months)</h3>
+            <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+            <ul class="title">
+              <li i18n:translate="">Pass information to the people concerned.</li>
+              <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>
+            </ul>
+
+
+            <section class="module" tal:repeat="module view/modules">
+                <h2 class="module-name">
+                    ${module/number} ${module/name}
+                </h2>
+                <table class="risk-measures-plan" border="1">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="legend" i18n:translate="">
+                                Measure to be implemented by
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="prio-high" tal:condition="module/risks/high">
+                        <tr class="title-line">
+                            <th >
+                                <h3 i18n:translate="heading_high_prio_risks">
+                                    High priority risks
+                                </h3>
+                            </th>
+                            <td tal:repeat="month view/months" class="legend" i18n:domain="plone" i18n:translate="">
+                                ${month}
+                            </td>
+                        </tr>
+                        <tr tal:repeat="risk module/risks/high">
+                            <metal:macro define-macro="risk-row">
+                            <th>
+                                <h4 class="risk-title">
+                                    ${risk/title}
+                                </h4>
+                                <p class="description">
+                                    ${risk/description}
+                                </p>
+                            </th>
+                            <tal:block tal:repeat="month risk/months">
+                            <td tal:condition="month" class="month">
+                                •
+                            </td>
+                            <td tal:condition="not:month" class="month">
+
+                            </td>
+                            </tal:block>
+                            </metal:macro>
+                        </tr>
+                    </tbody>
+                    <tbody class="prio-medium" tal:condition="module/risks/medium">
+                        <tr class="title-line">
+                            <th>
+                                <h3 i18n:translate="heading_medium_prio_risks">
+                                    Medium priority risks
+                                </h3>
+                            </th>
+                            <td tal:repeat="month view/months" class="legend">
+                                ${month}
+                            </td>
+                        </tr>
+                        <tr tal:repeat="risk module/risks/medium">
+                            <metal:macro use-macro="view/risk-row" />
+                        </tr>
+                    </tbody>
+                    <tbody class="prio-low" tal:condition="module/risks/low">
+                        <tr class="title-line">
+                            <th>
+                                <h3 i18n:translate="heading_low_prio_risks">
+                                    Low priority risks
+                                </h3>
+                            </th>
+                            <td tal:repeat="month view/months" class="legend">
+                                ${month}
+                            </td>
+                        </tr>
+                        <tr tal:repeat="risk module/risks/low">
+                            <metal:macro use-macro="view/risk-row" />
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    </metal:content>
+</body>
+</html>

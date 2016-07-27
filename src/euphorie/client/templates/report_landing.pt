@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      id="report_landing"
+      meta:interpolation="true"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  tools nocall:context/@@tools;
+                  client nocall:request/client"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content">
+    <tal:block replace="tile:statusmessages"/>
+    <article class="pat-rich">
+      <h1>${context/title}</h1>
+
+        <h2 i18n:translate="">Download and print your report</h2>
+
+        <p i18n:translate="">Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA tool</p>
+        <p i18n:translate="">Use the report to:</p>
+
+        <ul>
+          <li i18n:translate="">Provide evidence for supervisory authorities.</li>
+          <li i18n:translate="">Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)</li>
+          <li i18n:translate="">Monitor and assess whether necessary measures have been introduced.</li>
+          <li i18n:translate="">Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)</li>
+        </ul>
+
+
+        <p i18n:translate="">We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!</p>
+
+    </article>
+
+  <div class="row pat-equaliser download-blocks count-4">
+    <!-- The class 'count-x' indicates the amount of download blocks that are present. The classes 'count-1', 'count-2', 'count-3' and 'count-4' are supported. -->
+    <div class="download-block column">
+      <article class="pat-well pat-rich">
+        <p>
+          <a class="pat-button bar download rtf icon-download piwik_download" href="${python:view.url(name='download')}" i18n:translate="">Download the full report</a>
+        </p>
+        <ul>
+          <li i18n:translate="">Format: Rich Text Format (.rtf)</li>
+          <li i18n:translate="">Contains: all the information and input provided by you throughout the risk assessment process.</li>
+        </ul>
+
+        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <ul>
+          <li i18n:translate=""><strong i18n:name="provide-evidence" i18n:translate="">Provide evidence</strong> for supervisory authorities (labour inspectorate).</li>
+        </ul>
+
+      </article>
+    </div>
+
+    <div class="download-block column">
+      <article class="pat-well pat-rich">
+        <p>
+          <a class="pat-button bar download xlsx icon-download piwik_download" href="${python:view.url(name='timeline')}" i18n:translate="">Download the action plan</a>
+        </p>
+        <ul>
+          <li i18n:translate="">Format: Office Open XML Workbook (.xlsx)</li>
+          <li i18n:translate="">Contains: main elements to effectively manage the risks at your workplace.</li>
+        </ul>
+
+        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <ul>
+          <li i18n:translate=""><strong i18n:name="manage" i18n:translate="">Manage</strong> the problems/risks in your workplace (specific tasks, expertise, responsibilities,
+          deadlines).</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="download-block column">
+      <article class="pat-well pat-rich">
+        <p>
+          <a href="${python:view.url(name='pdf', obj=context, data={'view': 'risks_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
+          Download the risks overview
+        </a>
+        </p>
+
+        <ul>
+          <li i18n:translate="">Format: Portable Document Format (.pdf)</li>
+          <li i18n:translate="">Contains: an overview of the risks identified</li>
+        </ul>
+
+          <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <ul>
+          <li i18n:translate="">Pass information to the people concerned.</li>
+          <li i18n:translate="">Monitor whether risks / measures are properly dealt with.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="download-block column">
+      <article class="pat-well pat-rich">
+        <p>
+          <a href="${python:view.url(name='pdf', obj=context, data={'view': 'measures_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
+          Download the measures overview
+        </a>
+        </p>
+
+        <ul>
+          <li i18n:translate="">Format: Portable Document Format (.pdf)</li>
+          <li i18n:translate="">Contains: an overview of the measures to be implemented.</li>
+        </ul>
+
+          <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <ul>
+          <li i18n:translate="">Pass information to the people concerned.</li>
+          <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>
+        </ul>
+      </article>
+    </div>
+
+  </div>
+
+    <tal:block replace="tile:client-analytics"/>
+  </metal:slot>
+  </body>
+</html>
+

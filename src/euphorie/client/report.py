@@ -6,43 +6,53 @@ Report
 The screens and logic to create the different reports.
 """
 
-from AccessControl import getSecurityManager
-import logging
-import random
-from cStringIO import StringIO
-from lxml import etree
-import lxml.html
-import htmllaundry
-from rtfng.Elements import Document
-from rtfng.Elements import StyleSheet
-from rtfng.document.base import RawCode
-from rtfng.document.character import TEXT
-from rtfng.document.paragraph import Paragraph
-from rtfng.document.paragraph import Cell
-from rtfng.document.paragraph import Table
-from rtfng.document.section import Section
-from rtfng.PropertySets import TabPropertySet
-from rtfng.Renderer import Renderer
-from openpyxl.workbook import Workbook
-from openpyxl.writer.excel import save_virtual_workbook
-from sqlalchemy import sql
-from Acquisition import aq_inner
-from five import grok
-from zope.i18n import translate
-from z3c.saconfig import Session
-from zExceptions import NotFound
-from plonetheme.nuplone.utils import formatDate
-from ..ghost import PathGhost
 from .. import MessageFactory as _
+from ..ghost import PathGhost
+from AccessControl import getSecurityManager
+from Acquisition import aq_inner
+from collections import defaultdict
+from cStringIO import StringIO
+from datetime import datetime
 from euphorie.client import config
+from euphorie.client import model
+from euphorie.client import survey
+from euphorie.client import utils
+from euphorie.client.company import CompanySchema
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
-from euphorie.client import model
-from euphorie.client import utils
-from euphorie.client.company import CompanySchema
 from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.content.interfaces import ICustomRisksModule
+from euphorie.content.profilequestion import IProfileQuestion
+from five import grok
+from lxml import etree
+from openpyxl.workbook import Workbook
+from openpyxl.writer.excel import save_virtual_workbook
+from plonetheme.nuplone.utils import formatDate
+from rtfng.document.base import RawCode
+from rtfng.document.character import TEXT
+from rtfng.document.paragraph import Cell
+from rtfng.document.paragraph import Paragraph
+from rtfng.document.paragraph import Table
+from rtfng.document.section import Section
+from rtfng.Elements import Document
+from rtfng.Elements import StyleSheet
+from rtfng.PropertySets import TabPropertySet
+from rtfng.Renderer import Renderer
+from sqlalchemy import sql
+from z3c.saconfig import Session
+from zExceptions import NotFound
+from zope.i18n import translate
+from zope.i18nmessageid import MessageFactory
+import htmllaundry
+import logging
+import lxml.html
+import random
 import urllib
+
+
+PloneLocalesFactory = MessageFactory("plonelocales")
+
 
 log = logging.getLogger(__name__)
 
@@ -275,6 +285,19 @@ class ReportView(grok.View):
             return
 
 
+class ReportLanding(grok.View):
+    """Custom report landing page.
+
+    This replaces the standard online view of the report with a page
+    offering the RTF and XLSX download options.
+    """
+    grok.context(PathGhost)
+    grok.require("euphorie.client.ViewSurvey")
+    grok.layer(IReportPhaseSkinLayer)
+    grok.template("report_landing")
+    grok.name("view")
+
+
 class IdentificationReport(grok.View):
     """Generate identification report.
 
@@ -488,120 +511,120 @@ class IdentificationReportDownload(grok.View):
         return output.getvalue()
 
 
-class ActionPlanReportView(grok.View):
-    """Generate action report.
+# class ActionPlanReportView(grok.View):
+#     """Generate action report.
 
-    The action plan report lists all present risks, including their action plan
-    information.
+#     The action plan report lists all present risks, including their action plan
+#     information.
 
-    This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
-    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
-    for the *inventory* component of the URL.
+#     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
+#     since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
+#     for the *inventory* component of the URL.
 
-    View name: @@view
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("report_actionplan")
-    grok.name("view")
+#     View name: @@view
+#     """
+#     grok.context(PathGhost)
+#     grok.require("euphorie.client.ViewSurvey")
+#     grok.layer(IReportPhaseSkinLayer)
+#     grok.template("report_actionplan")
+#     grok.name("view")
 
-    def random(self):
-        return random.choice([True, False])
+#     def random(self):
+#         return random.choice([True, False])
 
-    def report_title(self):
-        return SessionManager.session.title
+#     def report_title(self):
+#         return SessionManager.session.title
 
-    def title(self, node, zodbnode):
-        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
-            return node.title
-        if getattr(zodbnode, "problem_description", None) and \
-                zodbnode.problem_description.strip():
-            return zodbnode.problem_description
-        else:
-            return node.title
+#     def title(self, node, zodbnode):
+#         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
+#             return node.title
+#         if getattr(zodbnode, "problem_description", None) and \
+#                 zodbnode.problem_description.strip():
+#             return zodbnode.problem_description
+#         else:
+#             return node.title
 
-    def risk_status(self, node, zodbnode):
-        if node.postponed or not node.identification:
-            return "unanswered"
-        elif node.identification in [u"n/a", u"yes"]:
-            return "not-present"
-        elif node.identification == "no":
-            return "present"
+#     def risk_status(self, node, zodbnode):
+#         if node.postponed or not node.identification:
+#             return "unanswered"
+#         elif node.identification in [u"n/a", u"yes"]:
+#             return "not-present"
+#         elif node.identification == "no":
+#             return "present"
 
-    def workers_participated(self):
-        company = self.session.company
-        field = CompanySchema["workers_participated"]
-        t = lambda txt: translate(txt, context=self.request)
-        if company.workers_participated is None:
-            return t(_("missing_data", "Not provided"))
-        else:
-            term = field.vocabulary.getTerm(company.workers_participated)
-            return t(term.title)
+#     def workers_participated(self):
+#         company = self.session.company
+#         field = CompanySchema["workers_participated"]
+#         t = lambda txt: translate(txt, context=self.request)
+#         if company.workers_participated is None:
+#             return t(_("missing_data", "Not provided"))
+#         else:
+#             term = field.vocabulary.getTerm(company.workers_participated)
+#             return t(term.title)
 
-    def needs_met(self):
-        company = self.session.company
-        field = CompanySchema["needs_met"]
-        t = lambda txt: translate(txt, context=self.request)
-        if company.needs_met is None:
-            return t(_("missing_data", "Not provided"))
-        else:
-            term = field.vocabulary.getTerm(company.needs_met)
-            return t(term.title)
+#     def needs_met(self):
+#         company = self.session.company
+#         field = CompanySchema["needs_met"]
+#         t = lambda txt: translate(txt, context=self.request)
+#         if company.needs_met is None:
+#             return t(_("missing_data", "Not provided"))
+#         else:
+#             term = field.vocabulary.getTerm(company.needs_met)
+#             return t(term.title)
 
-    def recommend_tool(self):
-        company = self.session.company
-        field = CompanySchema["recommend_tool"]
-        t = lambda txt: translate(txt, context=self.request)
-        if company.recommend_tool is None:
-            return t(_("missing_data", "Not provided"))
-        else:
-            term = field.vocabulary.getTerm(company.recommend_tool)
-            return t(term.title)
+#     def recommend_tool(self):
+#         company = self.session.company
+#         field = CompanySchema["recommend_tool"]
+#         t = lambda txt: translate(txt, context=self.request)
+#         if company.recommend_tool is None:
+#             return t(_("missing_data", "Not provided"))
+#         else:
+#             term = field.vocabulary.getTerm(company.recommend_tool)
+#             return t(term.title)
 
-    def show_negate_warning(self, node, zodbnode):
-        if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
-            return False
-        if getattr(node, 'is_custom_risk', None):
-            return False
-        if getattr(zodbnode, "problem_description", None) and \
-                zodbnode.problem_description.strip():
-            return False
-        return True
+#     def show_negate_warning(self, node, zodbnode):
+#         if node.type != "risk" or node.identification in [u"n/a", u"yes"]:
+#             return False
+#         if getattr(node, 'is_custom_risk', None):
+#             return False
+#         if getattr(zodbnode, "problem_description", None) and \
+#                 zodbnode.problem_description.strip():
+#             return False
+#         return True
 
-    def imageUrl(self, node):
-        if getattr(node, "image", None):
-            return "%s/@@download/image/%s" % \
-                (node.absolute_url(), node.image.filename)
+#     def imageUrl(self, node):
+#         if getattr(node, "image", None):
+#             return "%s/@@download/image/%s" % \
+#                 (node.absolute_url(), node.image.filename)
 
-    def getZodbNode(self, treenode):
-        return self.request.survey.restrictedTraverse(
-            treenode.zodb_path.split("/"))
+#     def getZodbNode(self, treenode):
+#         return self.request.survey.restrictedTraverse(
+#             treenode.zodb_path.split("/"))
 
-    def get_node_title(self, node):
-        if node.zodb_path == 'custom-risks':
-            return utils.get_translated_custom_risks_title(self.request)
-        else:
-            return node.title
+#     def get_node_title(self, node):
+#         if node.zodb_path == 'custom-risks':
+#             return utils.get_translated_custom_risks_title(self.request)
+#         else:
+#             return node.title
 
-    def getNodes(self):
-        """Return an orderer list of all tree items for the current survey."""
-        query = Session.query(model.SurveyTreeItem)\
-            .filter(model.SurveyTreeItem.session == self.session)\
-            .filter(sql.not_(model.SKIPPED_PARENTS))\
-            .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                            model.RISK_PRESENT_OR_TOP5_FILTER))\
-            .order_by(model.SurveyTreeItem.path)
-        return query.all()
+#     def getNodes(self):
+#         """Return an orderer list of all tree items for the current survey."""
+#         query = Session.query(model.SurveyTreeItem)\
+#             .filter(model.SurveyTreeItem.session == self.session)\
+#             .filter(sql.not_(model.SKIPPED_PARENTS))\
+#             .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
+#                             model.RISK_PRESENT_OR_TOP5_FILTER))\
+#             .order_by(model.SurveyTreeItem.path)
+#         return query.all()
 
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
+#     def update(self):
+#         if redirectOnSurveyUpdate(self.request):
+#             return
 
-        self.session = SessionManager.session
-        if self.session.company is None:
-            self.session.company = model.Company()
-        self.nodes = self.getNodes()
+#         self.session = SessionManager.session
+#         if self.session.company is None:
+#             self.session.company = model.Company()
+#         self.nodes = self.getNodes()
 
 
 class ActionPlanReportDownload(grok.View):
@@ -1093,3 +1116,123 @@ class ActionPlanTimeline(grok.View):
             'Content-Type', 'application/vnd.openxmlformats-'
             'officedocument.spreadsheetml.sheet')
         return save_virtual_workbook(book)
+
+
+class RisksOverview(survey.Status):
+    """ Implements the "Overview of Risks" report, see #10967
+    """
+    grok.context(PathGhost)
+    grok.layer(IReportPhaseSkinLayer)
+    grok.template("risks_overview")
+    grok.name("risks_overview")
+
+    def is_skipped_from_risk_list(self, r):
+        if r['identification'] == 'yes':
+            return True
+
+
+class MeasuresOverview(survey.Status):
+    """ Implements the "Overview of Measures" report, see #10967
+    """
+    grok.context(PathGhost)
+    grok.layer(IReportPhaseSkinLayer)
+    grok.template("measures_overview")
+    grok.require('euphorie.client.ViewSurvey')
+    grok.name("measures_overview")
+
+    def update(self):
+        self.session = SessionManager.session
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            lang = lang.split("-")[0]
+        now = datetime.now()
+        next_month = datetime(now.year, (now.month + 1) % 12 or 12, 1)
+        month_after_next = datetime(now.year, (now.month + 2) % 12 or 12, 1)
+        self.months = []
+        self.months.append(now.strftime('%b'))
+        self.months.append(next_month.strftime('%b'))
+        self.months.append(month_after_next.strftime('%b'))
+        self.monthstrings = [
+            translate(
+                PloneLocalesFactory(
+                    "month_{0}_abbr".format(month.lower()),
+                    default=month,
+                ),
+                target_language=lang,
+            )
+            for month in self.months
+        ]
+
+        query = Session.query(model.Module, model.Risk, model.ActionPlan)\
+            .filter(sql.and_(model.Module.session == self.session,
+                             model.Module.profile_index > -1))\
+            .filter(sql.not_(model.SKIPPED_PARENTS))\
+            .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
+                            model.RISK_PRESENT_OR_TOP5_FILTER))\
+            .join((model.Risk,
+                   sql.and_(model.Risk.path.startswith(model.Module.path),
+                            model.Risk.depth == model.Module.depth+1,
+                            model.Risk.session == self.session)))\
+            .join((model.ActionPlan,
+                   model.ActionPlan.risk_id == model.Risk.id))\
+            .order_by(
+                sql.case(
+                    value=model.Risk.priority,
+                    whens={'high': 0, 'medium': 1},
+                    else_=2),
+                model.Risk.path)
+        measures = [t for t in query.all() if (
+            (t[-1].planning_start is not None
+                and t[-1].planning_start.strftime('%b') in self.months) and
+            (
+                t[-1].planning_end is not None or
+                t[-1].responsible is not None or
+                t[-1].prevention_plan is not None or
+                t[-1].requirements is not None or
+                t[-1].budget is not None or
+                t[-1].action_plan is not None
+            )
+        )]
+
+        modulesdict = defaultdict(lambda: defaultdict(list))
+        for module, risk, action in measures:
+            if 'custom-risks' not in risk.zodb_path:
+                risk_obj = self.request.survey.restrictedTraverse(risk.zodb_path.split('/'))
+                title = risk_obj and risk_obj.problem_description or risk.title
+            else:
+                title = risk.title
+            modulesdict[module][risk.priority].append(
+                {'title': title,
+                 'description': action.action_plan,
+                 'months': [action.planning_start and
+                            action.planning_start.month == m.month
+                            for m in [now, next_month, month_after_next]],
+                 })
+
+        # re-use top-level module computation from the Status overview
+        modules = self.getModules()
+        main_modules = {}
+        for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
+            module_obj = self.request.survey.restrictedTraverse(module.zodb_path.split('/'))
+            if (
+                IProfileQuestion.providedBy(module_obj) or
+                ICustomRisksModule.providedBy(module_obj) or
+                module.depth >= 3
+            ):
+                path = module.path[:6]
+            else:
+                path = module.path[:3]
+            if path in main_modules:
+                for prio in risks.keys():
+                    if prio in main_modules[path]['risks']:
+                        main_modules[path]['risks'][prio].extend(risks[prio])
+                    else:
+                        main_modules[path]['risks'][prio] = risks[prio]
+            else:
+                title = modules[path]['title']
+                number = modules[path]['number']
+                main_modules[path] = {'name': title, 'number': number, 'risks': risks}
+
+        self.modules = []
+        for key in sorted(main_modules.keys()):
+            self.modules.append(main_modules[key])
