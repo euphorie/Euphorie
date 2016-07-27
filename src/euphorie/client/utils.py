@@ -5,49 +5,50 @@ Utils
 Helper functions.
 """
 
-import colorsys
-import random
-from PIL.ImageColor import getrgb
-from datetime import datetime
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
-from email.Header import Header
-import email.Utils as emailutils
-import logging
-import threading
-import simplejson
-from decorator import decorator
-from os import path
+from .. import MessageFactory as _
+from AccessControl import getSecurityManager
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-import Globals
+from datetime import datetime
+from decorator import decorator
+from email.Header import Header
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from euphorie.client import config
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.sector import IClientSector
+from euphorie.content.survey import ISurvey
+from euphorie.content.utils import StripMarkup
+from euphorie.decorators import reify
 from five import grok
 from json import dumps
-from AccessControl import getSecurityManager
-from zope.component import getUtility
-from zope.interface import Interface
+from os import path
+from PIL.ImageColor import getrgb
 from plone import api
 from plone.app.controlpanel.site import ISiteSchema
-from plone.memoize.instance import memoize
 from plone.i18n.normalizer import idnormalizer
+from plone.memoize.instance import memoize
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
-from euphorie.decorators import reify
-from euphorie.content.utils import StripMarkup
-from euphorie.content.survey import ISurvey
-from .. import MessageFactory as _
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.sector import IClientSector
-from euphorie.client import config
 from ZODB.POSException import POSKeyError
-from zope.i18nmessageid import MessageFactory
-from zope.i18n import translate
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.component.hooks import getSite
+from zope.i18n import translate
+from zope.i18nmessageid import MessageFactory
+from zope.interface import Interface
+import colorsys
+import email.Utils as emailutils
+import Globals
+import logging
+import random
+import simplejson
+import threading
 
 
 locals = threading.local()
@@ -668,5 +669,16 @@ class DefaultIntroduction(grok.View):
     """
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
+    grok.name('default_introduction')
+    grok.template('default_introduction')
+
+
+class ContentDefaultIntroduction(grok.View):
+    """
+        Browser view that displays the default introduction text for a Suvey.
+        It is used when the Survey does not define its own introduction
+    """
+    grok.context(Interface)
+    grok.layer(NuPloneSkin)
     grok.name('default_introduction')
     grok.template('default_introduction')
