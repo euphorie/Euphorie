@@ -36,6 +36,7 @@ import sys
 
 grok.templatedir("templates")
 
+
 class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     """Survey Profile question.
 
@@ -148,3 +149,18 @@ class AddForm(dexterity.AddForm):
     @property
     def label(self):
         return _(u"Add Profile question")
+
+
+class EditForm(dexterity.EditForm):
+    grok.context(IProfileQuestion)
+    grok.require('cmf.ModifyPortalContent')
+    grok.layer(NuPloneSkin)
+    form.wrap(True)
+
+    schema = IProfileQuestion
+    template = ViewPageTemplateFile('templates/profilequestion_add.pt')
+
+    @property
+    def label(self):
+
+        return _(u"Edit Profile question")
