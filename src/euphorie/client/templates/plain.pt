@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      meta:interpolation="true"
+      metal:define-macro="shell"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  client nocall:request/client;
+                  base_url client/++resource++euphorie.resources;
+                  page_section webhelpers/get_phase;
+                  came_from webhelpers/came_from;
+                  came_from_param python:came_from and 'came_from=%s' % came_from or '';
+                  tools context/@@tools">
+
+<head>
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+
+    <tal:block condition="webhelpers/debug_mode">
+        <script type="text/javascript" src="${base_url}/oira.js"></script>
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: this must be minified -->
+        <script type="text/javascript" src="${base_url}/oira.js"></script>
+    </tal:block>
+
+    <tal:block condition="webhelpers/debug_mode">
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: needs to be minified -->
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+
+    <style type="text/css">
+@page {
+    size: A4 portrait;
+    margin:0.5cm 0.5cm 2cm 0.5cm;
+
+    @bottom-right {
+        content: "${view/label_page} " counter(page) " ${view/label_page_of} " counter(pages);
+        font-size: 8pt;
+        font-family: sans-serif;
+    }
+    @bottom-left {
+        font-size: 8pt;
+        content: flow(footer);
+        text-align:left;
+        font-family: sans-serif;
+    }
+}
+
+html {
+    height: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li, table, tr, th, td, form, fieldset, legend, button, div, object, figure, img {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+body {
+    color: #222;
+    font-family: "Roboto Condensed",sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 150%;
+    font-size: 60%;
+    background: #fff;
+    letter-spacing: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    orphans:3;
+    widows:4;
+    border: 0;
+    list-style: none;
+    text-align: left;
+}
+div.print-footer {
+  flow: static(footer);
+}
+.osc-off #main,
+.sidebar-off #content,
+.osc-off.sidebar-off #content {
+    position: inherit;
+    height: inherit;
+}
+#main {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: left 0.5s, filter 2s;
+}
+#content {
+    left: 0;
+    padding: 10% 10% 10% 10%;
+    font-size: 120%;
+    line-height: 1.5em;
+    overflow: auto;
+    top: 3rem;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s;
+}
+article h1 {
+    font-weight: 600;
+    font-size: 2em;
+    line-height: 130%;
+    margin-bottom: 0.7em;
+}
+a {
+    text-decoration: none;
+    color: #0081be;
+}
+.page-toc ul {
+    padding-left: 1em;
+}
+article h2, .pat-rich h2 {
+    font-size: 1.5em;
+    line-height: 130%;
+    font-weight: 400;
+    margin-bottom: 0.7em;
+}
+h3 {
+    clear: both;
+}
+article h3, .pat-rich h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+article.report .title-line h3 {
+    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 1.5em;
+}
+.twelve, .row .twelve {
+    width: 100%;
+}
+[class*="column"]+[class*="column"]:last-child {
+    float: right;
+}
+.column, .columns {
+    float: left;
+    min-height: 1px;
+    padding: 0 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+dl.status dd .high-prio-risks {
+    margin-bottom: 3.5em;
+}
+dl.status dd .high-prio-risks h4 {
+    color: rgba(0,0,0,0.6);
+}
+dl.status dd .high-prio-risks li {
+    margin-left: 0;
+    padding-left: 1em;
+}
+dl.status dd .high-prio-risks li:before {
+    content: "•";
+    float: left;
+    margin-left: -1em;
+}
+dt {
+    page-break-after: avoid;
+}
+dd, .page-toc {
+    page-break-after: always;
+}
+.graph {
+    position: relative;
+}
+    </style>
+
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+    <metal:styleslot define-slot="style_slot" />
+</head>
+
+<body class="osh-off test-session osc-off osc-s-off sidebar-off" i18n:domain="euphorie" tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
+    <div id="main">
+        <div id="content">
+            <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
+                <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${base_url}/login_form?${came_from_param}#document-content" class="registration" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
+            </p>
+            <tal:statusmsg tal:repeat="message webhelpers/messages">
+                <p class="pat-notification" data-pat-notification="type: banner"
+                   tal:attributes="id string:${message/id}-body;
+                                   data-pat-notification string:${attrs/data-pat-notification};;
+                                   class: ${message/type}"
+                   tal:content="message/message | nothing">Status message</p>
+                </tal:statusmsg>
+
+            <metal:block define-slot="content"/>
+        </div>
+    </div>
+
+    <tal:block replace="tile:client-analytics"/>
+</body>
+</html>
