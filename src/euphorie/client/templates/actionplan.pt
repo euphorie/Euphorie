@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -18,19 +17,31 @@
     <tal:block replace="tile:statusmessages"/>
 
     <tal:block condition="view/next_url">
-      <p i18n:translate="expl_actionplan_1">
-        You have identified the magnitude of risk for each of the bottlenecks.
-        During the action plan phase you can determine the priority of each of
-        the bottlenecks and how you are going to tackle the bottleneck. The
-        programme may offer a suggestion you can use, or you can add your
-        own measures.</p>
-
-      <p i18n:translate="expl_actionplan_2">
-        Removing the causes (tackling the source) is the preferred
-        method: that way, the risk can no longer arise. You then write down what
-        tasks have to be carried out in order for the risk to be removed, as well
-        as the knowledge and experience that are needed for those tasks to be
-        carried out (prevention plan and requirements).</p>
+        <p i18n:translate="expl_actionplan_1">
+            After having identified the risks, you need to put an action plan in
+            place to manage the risks. To eliminate or reduce risks you need to
+            determine which preventive and protective measures are to be taken.
+        </p>
+        <p i18n:translate="expl_actionplan_2">
+            Among the things to be considered for this step are:
+        </p>
+        <p>
+            <ol>
+                <li i18n:translate="expl_actionplan_3">
+                    Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:
+                    <ul i18n:name="expl_actionplan_4_and_5">
+                        <li i18n:translate="expl_actionplan_4">considering whether the task or job is necessary</li>
+                        <li i18n:translate="expl_actionplan_5">removing the hazard</li>
+                    </ul>
+                </li>
+                <li i18n:translate="expl_actionplan_6">
+                If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?
+                </li>
+            </ol>
+        </p>
+        <p i18n:translate="expl_actionplan_7">
+            Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective.
+        </p>
     </tal:block>
     <tal:block condition="not:view/next_url">
         <p i18n:translate="expl_actionplan_empty">
