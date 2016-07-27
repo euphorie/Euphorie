@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-07-27 14:47+0200\n"
+"POT-Creation-Date: 2016-07-27 14:55+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -2068,11 +2068,11 @@ msgstr "Login"
 
 #: src/euphorie/client/templates/measures_overview.pt:60
 msgid "Overview of measures"
-msgstr ""
+msgstr "Overzicht van maatregelen"
 
 #: src/euphorie/client/templates/measures_overview.pt:61
 msgid "(measures to be implemented in the coming months)"
-msgstr ""
+msgstr "(maatregelen geïmplementeerd in de komende maanden)"
 
 #: src/euphorie/client/templates/measures_overview.pt:62
 #: src/euphorie/client/templates/report_landing.pt:51
@@ -2081,23 +2081,25 @@ msgstr ""
 #: src/euphorie/client/templates/report_landing.pt:111
 #: src/euphorie/client/templates/risks_overview.pt:147
 msgid "Use it to"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/measures_overview.pt:64
 #: src/euphorie/client/templates/report_landing.pt:92
 #: src/euphorie/client/templates/report_landing.pt:113
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Pass information to the people concerned."
-msgstr ""
+msgstr "Geef informatie door aan de betrokken personen."
 
 #: src/euphorie/client/templates/measures_overview.pt:65
 #: src/euphorie/client/templates/report_landing.pt:114
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
+"Controleer de maatregelen die geïmplementeerd moeten worden in de komende 3 "
+"maanden."
 
 #: src/euphorie/client/templates/measures_overview.pt:76
 msgid "Measure to be implemented by"
-msgstr ""
+msgstr "Maatregel te implementeren door"
 
 #. Default: High priority risks
 #: src/euphorie/client/templates/measures_overview.pt:84
@@ -2108,12 +2110,12 @@ msgstr "Risico's met een hoge prioriteit"
 #. Default: Medium priority risks
 #: src/euphorie/client/templates/measures_overview.pt:116
 msgid "heading_medium_prio_risks"
-msgstr ""
+msgstr "Gemiddelde prioriteit risico‘s"
 
 #. Default: Low priority risks
 #: src/euphorie/client/templates/measures_overview.pt:131
 msgid "heading_low_prio_risks"
-msgstr ""
+msgstr "Lage prioriteit risico‘s"
 
 #. Default: Next
 #: src/euphorie/client/templates/module_actionplan.pt:50
@@ -2553,6 +2555,7 @@ msgstr "Wachtwoord herinnering"
 #: src/euphorie/client/templates/reminder.pt:23
 msgid "description_password_reminder"
 msgstr ""
+"Voer uw e-mailadres in. Uw logingegevens zullen naar u worden toegezonden."
 
 #: src/euphorie/client/templates/rename-session.pt:16
 msgid "Change name of session"
@@ -2673,7 +2676,7 @@ msgstr "Print"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Download and print your report"
-msgstr ""
+msgstr "Uw rapport downloaden en printen"
 
 #: src/euphorie/client/templates/report_landing.pt:24
 msgid ""
@@ -2681,107 +2684,128 @@ msgid ""
 "more information. Please note that changes made on your pc will NOT be saved "
 "in the OiRA tool"
 msgstr ""
+"Bewaar het rapport op uw pc en print het. U kunt het vervolgens ook wijzigen "
+"of aanvullen. Wijzigingen die u aanbrengt in het bestand op uw pc worden "
+"echter NIET opgeslagen in de OiRA-tool."
 
 #: src/euphorie/client/templates/report_landing.pt:25
 msgid "Use the report to:"
-msgstr ""
+msgstr "Gebruik het rapport:"
 
 #: src/euphorie/client/templates/report_landing.pt:28
 msgid "Provide evidence for supervisory authorities."
-msgstr ""
+msgstr "als bewijs voor toezichthoudende instanties"
 
 #: src/euphorie/client/templates/report_landing.pt:29
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
 msgstr ""
+"om informatie te verstrekken aan de betrokken personen (werknemers, "
+"veiligheidsvertegenwoordigers, werkgever, deskundigen op gebied van welzijn "
+"op het werk, ...)"
 
 #: src/euphorie/client/templates/report_landing.pt:30
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr ""
+"om te controleren en beoordelen of de noodzakelijke maatregelen zijn "
+"getroffen "
 
 #: src/euphorie/client/templates/report_landing.pt:31
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
 msgstr ""
+"om wijzigingen vast te leggen bij een verandering van omstandigheden (bijv. "
+"nieuwe machines of nieuwe werknemers) of naar aanleiding van de uitkomsten "
+"van een onderzoek naar een ongeval"
 
 #: src/euphorie/client/templates/report_landing.pt:35
 msgid ""
 "We recommend that you always keep an updated printed version of your risk "
 "assessment (report) available in your company!"
 msgstr ""
+"Wij raden u aan ervoor te zorgen dat er altijd een actuele geprinte versie "
+"van uw risicoanalyse beschikbaar is in uw bedrijf!"
 
 #: src/euphorie/client/templates/report_landing.pt:44
 msgid "Download the full report"
-msgstr ""
+msgstr "Het volledige rapport downloaden"
 
 #: src/euphorie/client/templates/report_landing.pt:47
 msgid "Format: Rich Text Format (.rtf)"
-msgstr ""
+msgstr "Bestandsformaat: Word (.doc)"
 
 #: src/euphorie/client/templates/report_landing.pt:48
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
+"Bevat: alle informatie en input die u hebt verstrekt tijdens alle stappen "
+"van de risicoanalyse"
 
 #: src/euphorie/client/templates/report_landing.pt:53
 msgid "Provide evidence"
-msgstr ""
+msgstr "Bewijs te leveren"
 
 #: src/euphorie/client/templates/report_landing.pt:53
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
+"${provide-evidence} aan toezichthoudende instanties (Inspectie Toezicht van "
+"het welzijn op het werk)"
 
 #: src/euphorie/client/templates/report_landing.pt:62
 msgid "Download the action plan"
-msgstr ""
+msgstr "Het actieplan downloaden"
 
 #: src/euphorie/client/templates/report_landing.pt:65
 msgid "Format: Office Open XML Workbook (.xlsx)"
-msgstr ""
+msgstr "Bestandsformaat: Office Open XML Workbook (.xlsx)"
 
 #: src/euphorie/client/templates/report_landing.pt:66
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
+"Inhoud: voornaamste elementen om de risico's op uw werkplek op doeltreffende "
+"wijze te beheren."
 
 #: src/euphorie/client/templates/report_landing.pt:71
 msgid "Manage"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/report_landing.pt:71
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
 msgstr ""
+"de bestaande problemen/risico's op uw werkplek te beheren (specifieke taken, "
+"deskundigheid, verantwoordelijkheden, deadlines)"
 
 #: src/euphorie/client/templates/report_landing.pt:80
 msgid "Download the risks overview"
-msgstr ""
+msgstr "Download het overzicht van risico's"
 
 #: src/euphorie/client/templates/report_landing.pt:86
 #: src/euphorie/client/templates/report_landing.pt:107
 msgid "Format: Portable Document Format (.pdf)"
-msgstr ""
+msgstr "Format: Portable Document Format (.pdf)"
 
 #: src/euphorie/client/templates/report_landing.pt:87
 msgid "Contains: an overview of the risks identified"
-msgstr ""
+msgstr "Inhoud: een overzicht van de vastgestelde risico's"
 
 #: src/euphorie/client/templates/report_landing.pt:93
 #: src/euphorie/client/templates/risks_overview.pt:150
 msgid "Monitor whether risks / measures are properly dealt with."
-msgstr ""
+msgstr "Ga na of er naar behoren wordt omgegaan met risico's/maatregelen."
 
 #: src/euphorie/client/templates/report_landing.pt:101
 msgid "Download the measures overview"
-msgstr ""
+msgstr "Download het overzicht van maatregelen"
 
 #: src/euphorie/client/templates/report_landing.pt:108
 msgid "Contains: an overview of the measures to be implemented."
-msgstr ""
+msgstr "Inhoud: een overzicht van de toe te passen maatregelen."
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3121,7 +3145,7 @@ msgstr ""
 
 #: src/euphorie/client/templates/risks_overview.pt:146
 msgid "Overview of risks"
-msgstr ""
+msgstr "Overzicht van de risico‘s"
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:221
@@ -3212,152 +3236,152 @@ msgstr "Niet bekekeken"
 #. Default: ${num_present_risks} Present Risk
 #: src/euphorie/client/templates/risks_overview.pt:255
 msgid "heading_present_risks"
-msgstr ""
+msgstr "${num_present_risks} Aanwezige Risico"
 
 #. Default: ${num_present_risks} Present Risks
 #: src/euphorie/client/templates/risks_overview.pt:256
 msgid "heading_present_risks_2"
-msgstr ""
+msgstr "${num_present_risks} Aanwezige Risico‘s"
 
 #. Default: ${num_present_risks} Present Risks
 #: src/euphorie/client/templates/risks_overview.pt:257
 msgid "heading_present_risks_3_4"
-msgstr ""
+msgstr "${num_present_risks} Aanwezige Risico‘s"
 
 #. Default: ${num_present_risks} Present Risks
 #: src/euphorie/client/templates/risks_overview.pt:258
 msgid "heading_present_risks_5_or_more"
-msgstr ""
+msgstr "${num_present_risks} Aanwezige Risico‘s"
 
 #. Default: ${num_high_risks} High priority risk
 #: src/euphorie/client/templates/risks_overview.pt:261
 msgid "heading_num_high_prio_risks"
-msgstr ""
+msgstr "${num_high_risks} Hoge  prioriteit risico"
 
 #. Default: ${num_high_risks} High priority risks
 #: src/euphorie/client/templates/risks_overview.pt:262
 msgid "heading_num_high_prio_risks_2"
-msgstr ""
+msgstr "${num_high_risks} Hoge  prioriteit risico‘s"
 
 #. Default: ${num_high_risks} High priority risks
 #: src/euphorie/client/templates/risks_overview.pt:263
 msgid "heading_num_high_prio_risks_3_4"
-msgstr ""
+msgstr "${num_high_risks} Hoge  prioriteit risico‘s"
 
 #. Default: ${num_high_risks} High priority risks
 #: src/euphorie/client/templates/risks_overview.pt:264
 msgid "heading_num_high_prio_risks_5_or_more"
-msgstr ""
+msgstr "${num_high_risks} Hoge  prioriteit risico‘s"
 
 #. Default: ${num_medium_risks} Medium priority risk
 #: src/euphorie/client/templates/risks_overview.pt:266
 msgid "heading_num_medium_prio_risks"
-msgstr ""
+msgstr "${num_medium_risks} Gemiddelde prioriteit risico"
 
 #. Default: ${num_medium_risks} Medium priority risks
 #: src/euphorie/client/templates/risks_overview.pt:267
 msgid "heading_num_medium_prio_risks_2"
-msgstr ""
+msgstr "${num_medium_risks} Gemiddelde prioriteit risico‘s"
 
 #. Default: ${num_medium_risks} Medium priority risks
 #: src/euphorie/client/templates/risks_overview.pt:268
 msgid "heading_num_medium_prio_risks_3_4"
-msgstr ""
+msgstr "${num_medium_risks} Gemiddelde prioriteit risico‘s"
 
 #. Default: ${num_medium_risks} Medium priority risks
 #: src/euphorie/client/templates/risks_overview.pt:269
 msgid "heading_num_medium_prio_risks_5_or_more"
-msgstr ""
+msgstr "${num_medium_risks} Gemiddelde prioriteit risico‘s"
 
 #. Default: ${num_low_risks} Low priority risk
 #: src/euphorie/client/templates/risks_overview.pt:271
 msgid "heading_num_low_prio_risks"
-msgstr ""
+msgstr "${num_low_risks} Lage prioriteit risico"
 
 #. Default: ${num_low_risks} Low priority risks
 #: src/euphorie/client/templates/risks_overview.pt:272
 msgid "heading_num_low_prio_risks_2"
-msgstr ""
+msgstr "${num_low_risks} Lage prioriteit risico‘s"
 
 #. Default: ${num_low_risks} Low priority risks
 #: src/euphorie/client/templates/risks_overview.pt:273
 msgid "heading_num_low_prio_risks_3_4"
-msgstr ""
+msgstr "${num_low_risks} Lage prioriteit risico‘s"
 
 #. Default: ${num_low_risks} Low priority risks
 #: src/euphorie/client/templates/risks_overview.pt:274
 msgid "heading_num_low_prio_risks_5_or_more"
-msgstr ""
+msgstr "${num_low_risks} Lage prioriteit risico‘s"
 
 #. Default: (≥1 measures)
 #: src/euphorie/client/templates/risks_overview.pt:278
 msgid "label_with_measures"
-msgstr ""
+msgstr "(≥1 maatregelen)"
 
 #. Default: (without measures)
 #: src/euphorie/client/templates/risks_overview.pt:278
 msgid "label_without_measures"
-msgstr ""
+msgstr "(zonder maatregelen)"
 
 #. Default: ${num_possible_risks} Possible Risk
 #: src/euphorie/client/templates/risks_overview.pt:286
 msgid "heading_possible_risks"
-msgstr ""
+msgstr "${num_possible_risks} Mogelijke risico"
 
 #. Default: ${num_possible_risks} Possible Risks
 #: src/euphorie/client/templates/risks_overview.pt:287
 msgid "heading_possible_risks_2"
-msgstr ""
+msgstr "${num_possible_risks} Mogelijke risico‘s"
 
 #. Default: ${num_possible_risks} Possible Risks
 #: src/euphorie/client/templates/risks_overview.pt:288
 msgid "heading_possible_risks_3_4"
-msgstr ""
+msgstr "${num_possible_risks} Mogelijke risico‘s"
 
 #. Default: ${num_possible_risks} Possible Risks
 #: src/euphorie/client/templates/risks_overview.pt:289
 msgid "heading_possible_risks_5_or_more"
-msgstr ""
+msgstr "${num_possible_risks} Mogelijke risico‘s"
 
 #. Default: ${num_postponed_risks} Risk postponed
 #: src/euphorie/client/templates/risks_overview.pt:293
 msgid "heading_num_postponed_prio_risks"
-msgstr ""
+msgstr "${num_postponed_risks} Uitgestelde risico"
 
 #. Default: ${num_postponed_risks} Risks postponed
 #: src/euphorie/client/templates/risks_overview.pt:294
 msgid "heading_num_postponed_prio_risks_2"
-msgstr ""
+msgstr "${num_postponed_risks} Uitgestelde risico‘s"
 
 #. Default: ${num_postponed_risks} Risks postponed
 #: src/euphorie/client/templates/risks_overview.pt:295
 msgid "heading_num_postponed_prio_risks_3_4"
-msgstr ""
+msgstr "${num_postponed_risks} Uitgestelde risico‘s"
 
 #. Default: ${num_postponed_risks} Risks postponed
 #: src/euphorie/client/templates/risks_overview.pt:296
 msgid "heading_num_postponed_prio_risks_5_or_more"
-msgstr ""
+msgstr "${num_postponed_risks} Uitgestelde risico‘s"
 
 #. Default: ${num_todo_risks} Risk not answered
 #: src/euphorie/client/templates/risks_overview.pt:298
 msgid "heading_num_todo_prio_risks"
-msgstr ""
+msgstr "${num_todo_risks} Niet beantwoorde risico"
 
 #. Default: ${num_todo_risks} Risks not answered
 #: src/euphorie/client/templates/risks_overview.pt:299
 msgid "heading_num_todo_prio_risks_2"
-msgstr ""
+msgstr "${num_todo_risks} Niet beantwoorde risico‘s"
 
 #. Default: ${num_todo_risks} Risks not answered
 #: src/euphorie/client/templates/risks_overview.pt:300
 msgid "heading_num_todo_prio_risks_3_4"
-msgstr ""
+msgstr "${num_todo_risks} Niet beantwoorde risico‘s"
 
 #. Default: ${num_todo_risks} Risks not answered
 #: src/euphorie/client/templates/risks_overview.pt:301
 msgid "heading_num_todo_prio_risks_5_or_more"
-msgstr ""
+msgstr "${num_todo_risks} Niet beantwoorde risico‘s"
 
 #: src/euphorie/client/templates/sessions.pt:22
 #: src/euphorie/client/templates/shell.pt:107
