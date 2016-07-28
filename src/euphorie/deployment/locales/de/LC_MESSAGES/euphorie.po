@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-07-28 14:12+0200\n"
+"POT-Creation-Date: 2016-07-28 14:14+0200\n"
 "PO-Revision-Date: 2016-07-27 17:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1732,7 +1732,8 @@ msgstr "Fehler"
 #. Default: We're sorry, but an unforseen error has occured.
 #: src/euphorie/client/templates/error.pt:17
 msgid "expl_error"
-msgstr "Es ist etwas Unerfreuliches geschehen."
+msgstr ""
+"Es tut uns leid, ein unvorhergesehener Fehler ist aufgetreten."
 
 #. Default: Not found
 #: src/euphorie/client/templates/error_notfound.pt:15
@@ -1759,7 +1760,7 @@ msgstr "Einführung"
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:36
 msgid "help_header_authentication"
-msgstr "Authentifizierung"
+msgstr "Registrierung"
 
 #. Default: Carrying out your risk assessment
 #: src/euphorie/client/templates/help.pt:24
@@ -1771,37 +1772,37 @@ msgstr "Sitzungen"
 #: src/euphorie/client/templates/help.pt:25
 #: src/euphorie/client/templates/help.pt:42
 msgid "help_header_start"
-msgstr "Vorbereitung"
+msgstr "1. Vorbereitung"
 
 #. Default: 2. Identification
 #: src/euphorie/client/templates/help.pt:26
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_identification"
-msgstr "Ermittlung"
+msgstr "2. Ermittlung"
 
 #. Default: 3. Evaluation
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_evaluation"
-msgstr "Bewertung"
+msgstr "3. Bewertung"
 
 #. Default: 4. Action Plan
 #: src/euphorie/client/templates/help.pt:28
 #: src/euphorie/client/templates/help.pt:51
 msgid "help_header_actionplan"
-msgstr "Aktionsplan"
+msgstr "4. Aktionsplan"
 
 #. Default: 5. Report
 #: src/euphorie/client/templates/help.pt:29
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_report"
-msgstr "Bericht"
+msgstr "5. Berichterstellung"
 
 #. Default: What happens next?
 #: src/euphorie/client/templates/help.pt:30
 #: src/euphorie/client/templates/help.pt:57
 msgid "help_header_finalwords"
-msgstr "Eine Bemerkung zum Schluss"
+msgstr "Was geschieht als nächstes?"
 
 #. Default: It is possible for you to print out the contents of the tool to
 #. enable you to look for the information at the relevant workplace (by walking
@@ -2075,7 +2076,7 @@ msgstr ""
 #: src/euphorie/client/templates/login_form.pt:19
 #: src/euphorie/client/templates/shell.pt:72
 msgid "header_login"
-msgstr "Anmelden"
+msgstr "Login"
 
 #. Default: request an email reminder
 #: src/euphorie/client/templates/login_form.pt:27
@@ -2127,7 +2128,7 @@ msgstr "Sie haben kein Konto? Dann ${register_link} Sie sich bitte zunächst."
 #. Default: Login
 #: src/euphorie/client/templates/login_form.pt:55
 msgid "label_login"
-msgstr "Anmelden"
+msgstr "Login"
 
 #: src/euphorie/client/templates/measures_overview.pt:60
 msgid "Overview of measures"
@@ -2401,7 +2402,7 @@ msgstr "Info"
 #. Default: Preview OiRA Tool
 #: src/euphorie/client/templates/preview.pt:15
 msgid "header_preview"
-msgstr "Vorschau des Tools"
+msgstr "Vorschau für OiRA-Tool anzeigen"
 
 #. Default: Are you sure you want to create a preview of this OiRA Tool? You
 #. can give the URL for the preview to others so they can test the OiRA Tool.
@@ -2409,9 +2410,10 @@ msgstr "Vorschau des Tools"
 #: src/euphorie/client/templates/preview.pt:18
 msgid "intro_preview"
 msgstr ""
-"Sind Sie sicher, dass Sie eine Vorschau dieses Tools erstellen wollen? Sie "
-"können die URL der Vorschau weitergeben, damit andere sie testen können. "
-"Dazu ist ein reguläres Benutzerkonto für den OIRA Client notwendig."
+"Sind Sie sicher, dass Sie eine Vorschau dieses OiRA-Tools erstellen möchten? "
+"Sie können die Vorschau-URL anderen Personen zum Testen des OiRA-Tools zur "
+"Verfügung stellen. Für den Zugriff auf die Vorschau ist eine Standard-"
+"Clientanmeldung für OiRA erforderlich."
 
 #. Default: The preview will be available at ${url}.
 #: src/euphorie/client/templates/preview.pt:23
@@ -2491,7 +2493,7 @@ msgstr "Weiters Element hinzufügen"
 #. Default: Publish OiRA Tool
 #: src/euphorie/client/templates/publish.pt:15
 msgid "header_publish"
-msgstr "Tool veröffentlichen"
+msgstr "OiRA-Tool veröffentlichen"
 
 #. Default: Are you sure you want to publish this OiRA Tool? After publication
 #. the OiRA Tool will appear in the online client and be accessible by all
@@ -2499,30 +2501,31 @@ msgstr "Tool veröffentlichen"
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
 msgstr ""
-"Sind sie sicher, dass Sie das Tool veröffentlichen wollen? Nach der "
-"Veröffentlichung wird das Tool im online Client für alle Nutzer verfügbar "
-"sein."
+"Sind Sie sicher, dass Sie dieses OiRA-Tool veröffentlichen möchten? Nach der "
+"Veröffentlichung erscheint das OiRA-Tool im Online-Client und steht allen "
+"Benutzern zur Verfügung."
 
 #. Default: Are you sure you want to republish this OiRA Tool? This will make
 #. all changes made public.
 #: src/euphorie/client/templates/publish.pt:22
 msgid "intro_publish_survey_published"
 msgstr ""
-"Sind Sie sicher, dass Sie das Tool neu veröffentlichen wollen? Dies wird "
-"alle Änderungen sichtbar machen."
+"Sind Sie sicher, dass Sie dieses OiRA-Tool neu veröffentlichen möchten? "
+"Dadurch werden alle Änderungen veröffentlicht."
 
 #. Default: Are you sure you want to publish this OiRA Tool version? This will
 #. replace the current version.
 #: src/euphorie/client/templates/publish.pt:25
 msgid "intro_publish_other_survey_published"
 msgstr ""
-"Sind Sie sicher, dass Sie diese Version des Tools veröffentlichen wollen? "
-"Sie wird die bereits vorhandene Version im Client ersetzen."
+"Sind Sie sicher, dass Sie diese OiRA-Tool-Version veröffentlichen möchten? "
+"Dadurch wird die aktuelle Version ersetzt."
 
 #. Default: After publication the OiRA Tool will be available at ${url}.
 #: src/euphorie/client/templates/publish.pt:30
 msgid "help_publish_url"
-msgstr "Nach der Veröffentlichung wir das Tool unter ${url} zugänglich sein."
+msgstr ""
+"Nach der Veröffentlichung steht das OiRA-Tool unter ${url} zur Verfügung."
 
 #. Default: Reporting
 #: src/euphorie/client/templates/register.pt:20
@@ -2899,7 +2902,7 @@ msgstr "Übernehmen"
 #: src/euphorie/client/templates/risk_actionplan.pt:65
 #: src/euphorie/client/templates/risk_actionplan.pt:151
 msgid "label_remove_measure"
-msgstr "Maßnahme löschen"
+msgstr "Diese Maßnahme löschen"
 
 #. Default: Select one or more of the known common measures provided.
 #: src/euphorie/client/templates/risk_actionplan.pt:69
@@ -3829,9 +3832,8 @@ msgstr "Allgemeine Informationen zur Gefährdungsbeurteilung"
 #. Default: Registration
 #: src/euphorie/content/help.py:33
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
-msgstr "Authentifizierung"
+msgstr "Registrierung"
 
 #. Default: This text should explain how to register and login.
 #: src/euphorie/content/help.py:34
@@ -3866,7 +3868,7 @@ msgstr ""
 #: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
 msgid "label_help_identification"
-msgstr "Ermitteln"
+msgstr "Ermittlung"
 
 #. Default: This text should explain how the risk identification works.
 #: src/euphorie/content/help.py:55
@@ -3877,7 +3879,7 @@ msgstr "Dieser Text sollte die Gefährdungsermittlung beschreiben."
 #: src/euphorie/content/help.py:61
 #: src/euphorie/content/templates/help_view.pt:30
 msgid "label_help_evaluation"
-msgstr "Bewertung durchführen"
+msgstr "Bewertung"
 
 #. Default: This text should explain how to evaluate the identified risks.
 #: src/euphorie/content/help.py:62
@@ -3900,7 +3902,7 @@ msgstr "Dieser Text sollte das Ausfüllen des Aktionsplans beschreiben."
 #: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
 msgid "label_help_reports"
-msgstr "Berichte"
+msgstr "Bericht"
 
 #. Default: This text should describe how the report can either be saved or
 #. printed.
@@ -3913,7 +3915,7 @@ msgstr ""
 #: src/euphorie/content/help.py:82
 #: src/euphorie/content/templates/help_view.pt:39
 msgid "label_help_finalwords"
-msgstr "Eine Bemerkung zum Schluss"
+msgstr "Was geschieht als nächstes?"
 
 #. Default: General final recommendations.
 #: src/euphorie/content/help.py:83
@@ -3936,8 +3938,8 @@ msgstr "Beschreibung"
 #: src/euphorie/content/solution.py:30
 msgid "help_module_description"
 msgstr ""
-"Fügen Sie jegliche Information ein, die für den Endnutzer hilfreich sein "
-"könnte."
+"Stellen Sie alle Informationen zur Verfügung, die für den Endnutzer "
+"hilfreich sein könnten."
 
 #. Default: This module is optional
 #: src/euphorie/content/module.py:58
@@ -3948,8 +3950,7 @@ msgstr "Dies ist ein optionales Modul."
 #: src/euphorie/content/module.py:60
 msgid "help_module_optional"
 msgstr ""
-"Erlauben Sie es dem Endnutzer, dieses Modul und alle seine Inhalte zu "
-"überspringen."
+"Mithilfe dieser Option kann der Endnutzer dieses Modul komplett überspringen."
 
 #. Default: Question
 #: src/euphorie/content/module.py:68
@@ -3962,9 +3963,10 @@ msgstr "Frage"
 #: src/euphorie/content/module.py:69
 msgid "help_module_question"
 msgstr ""
-"Geben Sie die Frage für den Endnutzer ein, die bestimmt, ob das Modul für "
-"sie/ihn relevant ist, oder ob es übersprungen werden kann. Es muss eine Ja/"
-"Nein Frage sein."
+"Frage, die dem Endnutzer gestellt wird, wenn es sich um ein optionales Modul "
+"handelt. Sie muss als Entscheidungsfrage formuliert sein, sodass sie mit JA "
+"(Endnutzer muss ein Kontrollkästchen aktivieren) oder NEIN beantwortet "
+"werden kann."
 
 #. Default: Image file
 #: src/euphorie/content/module.py:76 src/euphorie/content/risk.py:180
@@ -3993,15 +3995,16 @@ msgstr "Bildtitel"
 #. Default: Solution
 #: src/euphorie/content/module.py:87
 msgid "label_solution_direction"
-msgstr "Einführung zum Aktionsplan"
+msgstr "Lösung"
 
 #. Default: This information will appear in the Action plan step and should
 #. include an overview of general solution(s) related to this module.
 #: src/euphorie/content/module.py:89
 msgid "help_solution_direction"
 msgstr ""
-"Diese Information werden die Endnutzer sehen, wenn sie dieses Modul im "
-"Aktionsplan bearbeiten."
+"Diese Informationen werden beim Schritt „Aktionsplan“ angezeigt und sollten "
+"eine Übersicht der häufig angewendeten Lösung(en) bezüglich des Moduls "
+"enthalten."
 
 #. Default: Additional content
 #: src/euphorie/content/module.py:98 src/euphorie/content/risk.py:230
@@ -4128,13 +4131,15 @@ msgstr ""
 #. Default: Affirmative statement
 #: src/euphorie/content/risk.py:60
 msgid "label_statement"
-msgstr "Gefährdungsaussage"
+msgstr "Positive Aussage"
 
 #. Default: This is a short affirmative statement about a possible risk (e.g.
 #. The building is well maintained.)
 #: src/euphorie/content/risk.py:61
 msgid "help_statement"
-msgstr "Dies ist eine kurze Aussage zu einer möglichen Gefährdung."
+msgstr ""
+"Dies ist eine kurze positive Aussage über eine mögliche Gefährdung (z. B. "
+"„Das Gebäude ist in gutem Zustand.“)."
 
 #. Default: Negative statement
 #: src/euphorie/content/risk.py:69
@@ -4360,7 +4365,9 @@ msgstr "Sekundärfarbe"
 #. Default: You can not delete a sector that contains published OiRA Tools.
 #: src/euphorie/content/sector.py:261
 msgid "message_not_delete_published_sector"
-msgstr "Es sind keine Branchen für dieses Land angelegt."
+msgstr ""
+"Eine Branche, die veröffentlichte OiRA-Tools enthält, kann nicht gelöscht "
+"werden."
 
 #. Default: Describe your general approach to eliminate or (if the risk is not
 #. avoidable) reduce the risk.
@@ -4496,7 +4503,9 @@ msgstr ""
 #. deleted. Did you perhaps want to remove the OiRA Tool itself?
 #: src/euphorie/content/survey.py:304
 msgid "message_delete_no_last_survey"
-msgstr "Sie können nicht die einzige Versions des Tools löschen."
+msgstr ""
+"Diese OiRA-Tool Version kann nicht gelöscht werden, da sie die einzige ist. "
+"Wenn Sie diese entfernen möchten, löschen Sie das OiRA-Tool."
 
 #. Default: Evaluation algorithm
 #: src/euphorie/content/surveygroup.py:69
@@ -4522,7 +4531,7 @@ msgstr "Standard"
 #. Default: This OiRA Tool is now no longer available in the client.
 #: src/euphorie/content/surveygroup.py:281
 msgid "message_unpublish_success"
-msgstr "Dieses Tool ist nicht mehr im Client verfügbar."
+msgstr "Dieses OiRA-Tool steht im Client nicht länger zur Verfügung."
 
 #. Default: Cancelled unpublish action.
 #: src/euphorie/content/surveygroup.py:285
@@ -4626,7 +4635,7 @@ msgstr "Kontakt-E-Mail-Adresse"
 #: src/euphorie/content/user.py:94
 #: src/euphorie/content/templates/settings.pt:92
 msgid "label_password"
-msgstr "Passwort"
+msgstr "Gewünschtes Passwort"
 
 #. Default: Account is locked
 #: src/euphorie/content/user.py:98
@@ -4919,12 +4928,12 @@ msgstr "Informationen"
 #. Default: This ${number} is mandatory.
 #: src/euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
-msgstr "Dieses Modul ist verpflichtend."
+msgstr "Dieses ${number} ist zwingend erforderlich."
 
 #. Default: This ${number} is optional.
 #: src/euphorie/content/templates/module_view.pt:27
 msgid "module_optional"
-msgstr "Dieses Modul ist optional."
+msgstr "Dieses ${number} ist optional."
 
 #. Default: Submodules
 #: src/euphorie/content/templates/module_view.pt:32
@@ -5057,7 +5066,7 @@ msgstr "Nein"
 #. Default: Default severity
 #: src/euphorie/content/templates/risk_view.pt:68
 msgid "label_default_effect"
-msgstr "Standardauswirkung"
+msgstr "Standardschweregrad"
 
 #. Default: Standard measures
 #: src/euphorie/content/templates/risk_view.pt:80
@@ -5356,7 +5365,9 @@ msgstr "Veröffentlichung „${title}“ aufheben"
 #. Default: Are you sure you want to unpublish this OiRA Tool?
 #: src/euphorie/content/templates/unpublish.pt:19
 msgid "unpublish_confirm"
-msgstr "Sind Sie sicher, dass Sie die Veröffentlichung zurückziehen wollen?"
+msgstr ""
+"Sind sie sicher, dass Sie die Veröffentlichung dieses OiRA-Tools aufheben "
+"möchten?"
 
 #. Default: Unpublish
 #: src/euphorie/content/templates/unpublish.pt:23
@@ -5559,12 +5570,12 @@ msgstr "Duplizieren"
 #. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
 msgid "help_publish"
-msgstr "Veröffentlichen Sie dieses Tool mit den aktuellen Änderungen."
+msgstr "Schalten Sie das OiRA-Tool inklusive der letzten Änderungen live."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
 msgid "title_help_unpublished"
-msgstr "Heben Sie die Veröffentlichung dieses Tools auf."
+msgstr "Dieses OiRA-Tool vom Online-Client entfernen"
 
 #. Default: Current
 #: src/euphorie/deployment/tiles/templates/versions.pt:47
