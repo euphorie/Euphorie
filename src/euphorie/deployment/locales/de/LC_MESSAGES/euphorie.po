@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
 "POT-Creation-Date: 2016-07-28 14:14+0200\n"
-"PO-Revision-Date: 2016-07-27 17:39+0200\n"
+"PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -303,8 +303,7 @@ msgstr "Weitere Gefährdungen (durch Sie hinzugefügt)"
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
-#: src/euphorie/client/publish.py:155
-#: src/euphorie/deployment/upgrade/v8.py:142
+#: src/euphorie/client/publish.py:155 src/euphorie/deployment/upgrade/v8.py:142
 msgid "description_other_risks"
 msgstr ""
 "Falls Sie weitere Gefährdungen identifiziert haben, die in diesem Tool nicht "
@@ -315,8 +314,7 @@ msgstr ""
 #. we strongly recommend you to go first through all the previous modules, if
 #. you have not done it yet.</p><p>If you don't need to add risks, please
 #. select 'No.'</p>
-#: src/euphorie/client/publish.py:159
-#: src/euphorie/deployment/upgrade/v8.py:146
+#: src/euphorie/client/publish.py:159 src/euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
 "<p>Möchten Sie zusätzliche Gefährdungen hinzufügen?</p><p><strong>Wichtig:</"
@@ -1716,7 +1714,7 @@ msgstr ""
 #. Default: The OiRA tool
 #: src/euphorie/client/templates/default_introduction.pt:15
 msgid "header_oira_tool"
-msgstr ""
+msgstr "Das OiRA-Tool"
 
 #. Default: This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations.
@@ -1732,8 +1730,7 @@ msgstr "Fehler"
 #. Default: We're sorry, but an unforseen error has occured.
 #: src/euphorie/client/templates/error.pt:17
 msgid "expl_error"
-msgstr ""
-"Es tut uns leid, ein unvorhergesehener Fehler ist aufgetreten."
+msgstr "Es tut uns leid, ein unvorhergesehener Fehler ist aufgetreten."
 
 #. Default: Not found
 #: src/euphorie/client/templates/error_notfound.pt:15
@@ -2145,7 +2142,7 @@ msgstr "(Maßnahmen, die in den folgenden Monaten umgesetzt werden sollen)"
 #: src/euphorie/client/templates/report_landing.pt:111
 #: src/euphorie/client/templates/risks_overview.pt:147
 msgid "Use it to"
-msgstr "Damit können Sie:"
+msgstr "Damit können Sie"
 
 #: src/euphorie/client/templates/measures_overview.pt:64
 #: src/euphorie/client/templates/report_landing.pt:92
@@ -4228,6 +4225,8 @@ msgstr "Bewertungsmethode"
 #: src/euphorie/content/risk.py:127
 msgid "help_evaluation_method"
 msgstr ""
+"Wählen Sie “Schätzung” falls eine Berechnung nicht notwendig oder möglich "
+"ist."
 
 #. Default: Estimated
 #: src/euphorie/content/risk.py:132
@@ -4433,6 +4432,10 @@ msgid ""
 "this text brief so it will easily fit on screens of small devices such as "
 "phones and PDAs."
 msgstr ""
+"Dieser Einführungstext wird dem Endnutzer beim Starten einer neuen OiRA-Tool "
+"Sitzung angezeigt. Falls Sie hier keinen Text eingeben, wird stattdessen ein "
+"Standardtext als Einführung gezeigt. Bitte halten Sie diese Einführung kurz, "
+"damit sie auch auf kleinen Bildschirmen wie Smartphones und PDAs Platz hat."
 
 #. Default: Evaluation may be skipped
 #: src/euphorie/content/survey.py:74
@@ -4581,11 +4584,11 @@ msgstr "XML-Datei"
 
 #: src/euphorie/content/upload.py:128
 msgid "OiRA Tool import"
-msgstr ""
+msgstr "OiRA-Tool Import"
 
 #: src/euphorie/content/upload.py:390
 msgid "Import OiRA Tool version"
-msgstr ""
+msgstr "OiRA-Tool importieren"
 
 #: src/euphorie/content/upload.py:394
 msgid "Upload"
@@ -4774,7 +4777,7 @@ msgstr "Ein Ordner, der Branchen enthalten kann."
 
 #: src/euphorie/content/profiles/default/types/euphorie.solution.xml:8
 msgid "A standard measure for a risk."
-msgstr ""
+msgstr "Eine Standardmaßnahme für eine Gefährdung."
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:7
 msgid "OiRA Tool version"
@@ -4786,7 +4789,7 @@ msgstr "Eine Umfrageversion."
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
 msgid "OiRA Tool"
-msgstr ""
+msgstr "OiRA-Tool"
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
 msgid "A survey."
@@ -4950,17 +4953,17 @@ msgstr "Gefährdungen"
 #: src/euphorie/content/templates/profilequestion_add.pt:35
 msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
-msgstr ""
+msgstr "Die generelle Struktur eines OiRA-Tools besteht aus:"
 
 #. Default: Profile questions
 #: src/euphorie/content/templates/profilequestion_add.pt:37
 msgid "header_profile_questions"
-msgstr ""
+msgstr "Profilfragen"
 
 #. Default: ${Profile-Questions}: questions defining the company profile
 #: src/euphorie/content/templates/profilequestion_add.pt:37
 msgid "bullet_profile_questions"
-msgstr ""
+msgstr "${Profile-Questions}: damit wird das Profil des Betriebs abgefragt"
 
 #. Default: Modules
 #: src/euphorie/content/templates/profilequestion_add.pt:38
@@ -4973,11 +4976,13 @@ msgstr "Module"
 #: src/euphorie/content/templates/profilequestion_add.pt:38
 msgid "bullet_modules"
 msgstr ""
+"${Modules} (und gegebenenfalls Untermodule): Behälter für Gefährdungen, die "
+"in einer logischen Struktur zusammengefasst sind"
 
 #. Default: ${Risks}: positive statements, which are contained in modules.
 #: src/euphorie/content/templates/profilequestion_add.pt:39
 msgid "bullet_risks"
-msgstr ""
+msgstr "${Risks}: Positive Aussagen, die in Modulen gruppiert sind."
 
 #: src/euphorie/content/templates/profilequestion_add.pt:41
 msgid ""
@@ -4986,6 +4991,10 @@ msgid ""
 "OPTIONAL), and if they apply, whether they should be repeated a number of "
 "times (i.e. the modules are REPEATABLE)."
 msgstr ""
+"Mithilfe von Profilfragen kann abgefragt werden, ob bestimmte Module den "
+"Endnutzer überhaupt betreffen (d.h. die Module darin sind OPTIONAL), und "
+"falls Ja, ob sie gegebenenfalls mehrfach anwendbar sind (d.h. die Module "
+"sind WIEDERHOLBAR)."
 
 #: src/euphorie/content/templates/profilequestion_add.pt:42
 msgid ""
@@ -4996,10 +5005,16 @@ msgid ""
 "repeatable profile question then the corresponding module will be repeated "
 "the specified number of times."
 msgstr ""
+"Diese Abfrage findet statt BEVOR der Endnutzer mit der Ermittlung und "
+"Bewertung der Gefährdungen beginnt. Falls der Endnutzer nicht bestätigt, "
+"dass eine Profilfrage für ihn anwendbar ist (durch Klick auf “Ja”), dann "
+"werden alle enthaltenen Module übersprungen. Falls der Endnutzer mehr als "
+"einen Standort in der Profilfrage einträgt, dann werden die enthaltenen "
+"Module für jeden Standort wiederholt."
 
 #: src/euphorie/content/templates/profilequestion_add.pt:43
 msgid "Please refer to the examples below the form."
-msgstr ""
+msgstr "Bitte werfen Sie einen Blick auf die Beispiele unter diesem Formular."
 
 #: src/euphorie/content/templates/profilequestion_add.pt:62
 msgid "Client example for a single occurance."
@@ -5035,7 +5050,7 @@ msgstr ""
 
 #: src/euphorie/content/templates/profilequestion_view.pt:26
 msgid "Multiple Item Question"
-msgstr ""
+msgstr "Frage zur mehrfachen Anwendbarkeit"
 
 #: src/euphorie/content/templates/profilequestion_view.pt:27
 #: src/euphorie/content/templates/profilequestion_view.pt:31
@@ -5270,12 +5285,12 @@ msgstr "Bewertungsphase"
 #. Default: Optional
 #: src/euphorie/content/templates/survey_view.pt:19
 msgid "optional"
-msgstr ""
+msgstr "optional"
 
 #. Default: Mandatory
 #: src/euphorie/content/templates/survey_view.pt:20
 msgid "mandatory"
-msgstr ""
+msgstr "zwingend erforderlich"
 
 #. Default: Not set
 #: src/euphorie/content/templates/survey_view.pt:23
@@ -5519,7 +5534,7 @@ msgstr "Gefährdung hinzufügen"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:21
 msgid "Add Measure"
-msgstr ""
+msgstr "Maßnahme hinzufügen"
 
 #. Default: Add ${typename}
 #: src/euphorie/deployment/tiles/templates/addbar.pt:23
