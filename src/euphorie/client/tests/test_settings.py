@@ -303,7 +303,7 @@ class ClientAvailabilityTests(EuphorieFunctionalTestCase):
     def testSectorsOnClient(self):
         browser = self.browser
         browser.open("http://nohost/plone")
-        browser.getLink("Surveys").click()
+        browser.getLink("OiRA Tools").click()
         self.assertTrue('Sectors' in browser.contents)
         url = "http://nohost/plone/client/%s" % browser.url.split('/')[-1]
         browser.raiseHttpErrors = False

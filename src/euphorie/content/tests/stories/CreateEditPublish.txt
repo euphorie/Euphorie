@@ -23,7 +23,7 @@ Create a new sector
 
 The sectors homepage has a link to create a new sector:
 
->>> browser.getLink("add a new survey").click()
+>>> browser.getLink("add a new OiRA Tool").click()
 >>> browser.getControl(name="form.widgets.title").value="Example survey"
 >>> browser.getControl(name="form.buttons.save").click()
 >>> "Item created" in browser.contents

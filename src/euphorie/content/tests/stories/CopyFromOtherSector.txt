@@ -36,7 +36,7 @@ Copy module from other sector
 
 Before we can copy content from another sector we first have to find it.
 
->>> browser.getLink("Surveys").click()
+>>> browser.getLink("OiRA Tools").click()
 >>> browser.getLink("Netherlands").click()
 >>> browser.getLink("Sector one").click()
 >>> browser.getLink("Standard version").click()
@@ -54,7 +54,7 @@ Paste module in own survey
 
 Lets go back to our own survey now:
 
->>> browser.getLink("OiRA").click()
+>>> browser.getLink("OiRA", index=2).click()
 >>> browser.getLink("Standard version").click()
 >>> browser.open("%s/@@paste" % browser.url)
 >>> browser.contents
