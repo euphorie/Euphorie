@@ -4,7 +4,7 @@
    i18n:domain="euphorie">
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Survey version</property>
+ <property name="title" i18n:translate="">OiRA Tool version</property>
  <property name="description" i18n:translate="">A version of a survey.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="global_allow">False</property>

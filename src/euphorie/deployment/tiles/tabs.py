@@ -40,7 +40,7 @@ class SiteRootTabsTile(TabsTile):
             current = None
 
         results = [{"id": "sectors",
-                    "title": _("nav_surveys", default=u"Surveys"),
+                    "title": _("nav_surveys", default=u"OiRA Tools"),
                     "url": portal.sectors.absolute_url(),
                     "class": "current" if current == "sectors" else None}]
 

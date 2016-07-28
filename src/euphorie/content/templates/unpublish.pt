@@ -16,7 +16,7 @@
           <span tal:replace="structure context/@@authenticator/authenticator"/>
         </fieldset>
 
-        <p i18n:translate="unpublish_confirm">Are you sure you want to unpublish this survey?</p>
+        <p i18n:translate="unpublish_confirm">Are you sure you want to unpublish this OiRA Tool?</p>
 
         <div class="buttonBar">
           <button type="submit" name="action" value="cancel" class="cancel" i18n:translate="button_cancel">Cancel</button>

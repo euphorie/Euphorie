@@ -11,12 +11,12 @@
   <body>
     <metal:title fill-slot="title">${context/title}</metal:title>
     <metal:content fill-slot="content">
-      <h2 i18n:translate="header_sector_survey_list">Surveys</h2>
+      <h2 i18n:translate="header_sector_survey_list">OiRA Tools</h2>
 
       <p tal:condition="python:not view.surveys" i18n:translate="no_surveys_present">
-      There are no surveys present. You can <a href="#" i18n:name="add_link"
+      There are no OiRA Tools present. You can <a href="#" i18n:name="add_link"
         tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
-        a new survey</tal:span></a>.
+        a new OiRA Tool</tal:span></a>.
       </p>
 
       <tal:group repeat="group view/surveys">
@@ -31,7 +31,7 @@
       <p tal:condition="python:view.surveys" i18n:translate="survey_list_footer">
       You can also <a href="#" i18n:name="add_link"
         tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
-        a new survey</tal:span></a>.
+        a new OiRA Tool</tal:span></a>.
       </p>
     </metal:content>
   </body>

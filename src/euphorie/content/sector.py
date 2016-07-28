@@ -260,7 +260,7 @@ class Delete(actions.Delete):
             flash(
                 _("message_not_delete_published_sector",
                 default=u"You can not delete a sector that contains published "
-                        u"surveys."), "error")
+                        u"OiRA Tools."), "error")
             self.request.response.redirect(context.absolute_url())
             return False
         return True

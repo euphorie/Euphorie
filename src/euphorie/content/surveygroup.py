@@ -48,8 +48,8 @@ class ISurveyGroup(form.Schema, IBasic):
     title = schema.TextLine(
             title=_("label_title", default=u"Title"),
             description=_("help_surveygroup_title",
-                default=u"The title of this survey. This title is used in "
-                        u"the survey overview in the clients."),
+                default=u"The title of this OiRA Tool. This title is used in "
+                        u"the OiRA Tool overview in the clients."),
             required=True)
     form.order_before(title="*")
 
@@ -59,8 +59,8 @@ class ISurveyGroup(form.Schema, IBasic):
             title=_("label_survey_obsolete",
                 default=u"Obsolete survey"),
             description=_("help_survey_obsolete",
-                default=u"This survey is obsolete; it has been retired or "
-                        u"replaced with another survey."),
+                default=u"This OiRA Tool is obsolete; it has been retired or "
+                        u"replaced with another OiRA Tool."),
             default=False,
             required=False)
 
@@ -279,7 +279,7 @@ class Unpublish(grok.View):
         if action == "unpublish":
             self.unpublish()
             flash(_("message_unpublish_success",
-                default=u"This survey is now no longer available in "
+                default=u"This OiRA Tool is now no longer available in "
                         u"the client."), "success")
         else:
             flash(_("message_unpublish_cancel",

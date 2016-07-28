@@ -16,29 +16,29 @@
         <legend>${group/title}</legend>
 
         <fieldset class="headerButtons">
-          <button class="micro dependsOn-survey dependsAction-enable" 
-                    title="Create a duplicate of the selected survey" 
-                    i18n:attributes="title help_add_version;" 
-                    type="submit" 
-                    name="action" 
-                    value="clone" 
+          <button class="micro dependsOn-survey dependsAction-enable"
+                    title="Create a duplicate of the selected OiRA Tool"
+                    i18n:attributes="title help_add_version;"
+                    type="submit"
+                    name="action"
+                    value="clone"
                     i18n:translate="button_add_version">Duplicate</button>
-          <button class="micro dependsOn-survey dependsAction-enable" 
-                    title="Publish the selected survey live with its latest changes." 
-                    i18n:attributes="title help_publish;" 
-                    disabled="disabled" 
-                    type="submit" 
-                    name="action" 
-                    value="publish" 
+          <button class="micro dependsOn-survey dependsAction-enable"
+                    title="Publish the selected OiRA Tool live with its latest changes."
+                    i18n:attributes="title help_publish;"
+                    disabled="disabled"
+                    type="submit"
+                    name="action"
+                    value="publish"
                     i18n:translate="button_publish">Publish</button>
-          <button class="micro" 
-                    title="Remove this survey from the online client." 
-                    i18n:attributes="title title_help_unpublished" 
-                    disabled="${python:'disabled' if not group['published'] else None}" 
+          <button class="micro"
+                    title="Remove this OiRA Tool from the online client."
+                    i18n:attributes="title title_help_unpublished"
+                    disabled="${python:'disabled' if not group['published'] else None}"
                     id="${group/id}"
-                    type="submit" 
-                    name="action" 
-                    value="unpublish" 
+                    type="submit"
+                    name="action"
+                    value="unpublish"
                     i18n:translate="button_unpublish">Unpublish</button>
         </fieldset>
 
@@ -47,9 +47,9 @@
             <em tal:condition="python:survey['current'] and not survey['published']" class="sample current" i18n:translate="label_current">Current</em>
             <em tal:condition="python:not survey['current'] and survey['published']" class="sample published" i18n:translate="label_published">Published</em>
             <em tal:condition="python:survey['current'] and survey['published']" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
-            <input type="radio" 
-                   name="survey" 
-                   value="${survey/id}" 
+            <input type="radio"
+                   name="survey"
+                   value="${survey/id}"
                    checked="${python:'checked' if survey['published'] else None}"
                    tal:attributes="onclick string:toggle_unpublish_button('${group/id}', '${not:survey/published}')"/>
 
@@ -68,7 +68,7 @@
 
     <form action="${view/action_url}">
       <p class="buttonBar top">
-        <button class="micro" title="Start to write a new survey. You will be asked whether you want to start off with a copy of an existing survey." i18n:attributes="title help_create_new_version;" type="submit" name="action" value="new" i18n:translate="button_create_new">Create new survey</button>
+        <button class="micro" title="Start to write a new OiRA Tool. You will be asked whether you want to start off with a copy of an existing OiRA Tool." i18n:attributes="title help_create_new_version;" type="submit" name="action" value="new" i18n:translate="button_create_new">Create new OiRA Tool</button>
       </p>
     </form>
 

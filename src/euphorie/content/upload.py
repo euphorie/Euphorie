@@ -94,7 +94,7 @@ class IImportSector(Interface):
 
     surveygroup_title = schema.TextLine(
             title=_("label_surveygroup_title",
-                default=u"Title of imported survey."),
+                default=u"Title of imported OiRA Tool"),
             description=_("help_upload_surveygroup_title",
                 default=u"If you do not specify a title it will be taken "
                         u"from the input."),
@@ -102,7 +102,7 @@ class IImportSector(Interface):
 
     survey_title = schema.TextLine(
             title=_("label_upload_survey_title",
-                default=u"Name for survey version"),
+                default=u"Name for OiRA Tool version"),
             default=_(u"Standard"),
             required=True)
 
@@ -116,7 +116,7 @@ class IImportSurvey(Interface):
     """
     surveygroup_title = schema.TextLine(
             title=_("label_surveygroup_title",
-                default=u"Title of imported survey."),
+                default=u"Title of imported OiRA Tool"),
             description=_("help_upload_surveygroup_title",
                 default=u"If you do not specify a title it will be taken "
                         u"from the input."),
@@ -124,8 +124,8 @@ class IImportSurvey(Interface):
 
     survey_title = schema.TextLine(
             title=_("label_upload_survey_title",
-                default=u"Name for survey version"),
-            default=_(u"Survey import"),
+                default=u"Name for OiRA Tool version"),
+            default=_(u"OiRA Tool import"),
             required=True)
 
     file = filefield.NamedFile(
@@ -387,7 +387,7 @@ class ImportSurvey(form.SchemaForm):
 
     schema = IImportSurvey
     ignoreContext = True
-    form_name = _(u"Import survey version")
+    form_name = _(u"Import OiRA Tool version")
 
     importer_factory = SurveyImporter
 
@@ -407,7 +407,7 @@ class ImportSurvey(form.SchemaForm):
 
         IStatusMessage(self.request).addStatusMessage(
             _("upload_success",
-                default=u"Succesfully imported the survey"), type="success")
+                default=u"Succesfully imported the OiRA Tool"), type="success")
         state = getMultiAdapter((survey, self.request),
                 name="plone_context_state")
         self.request.response.redirect(state.view_url())
@@ -426,7 +426,7 @@ class ImportSector(form.SchemaForm):
     schema = IImportSector
     ignoreContext = True
     label = _("title_import_sector_survey",
-            default=u"Import sector and survey")
+            default=u"Import sector and OiRA Tool")
 
     importer_factory = SectorImporter
 
@@ -449,7 +449,7 @@ class ImportSector(form.SchemaForm):
 
         IStatusMessage(self.request).addStatusMessage(
                 _("upload_success",
-                    default=u"Succesfully imported the survey"),
+                    default=u"Succesfully imported the OiRA Tool"),
                 type="success")
         state = getMultiAdapter((sector, self.request),
                 name="plone_context_state")

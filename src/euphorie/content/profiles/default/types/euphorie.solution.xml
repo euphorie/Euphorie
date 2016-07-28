@@ -4,8 +4,8 @@
    i18n:domain="euphorie">
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Solution</property>
- <property name="description" i18n:translate="">A solution.</property>
+ <property name="title" i18n:translate="">Measure</property>
+ <property name="description" i18n:translate="">A standard measure for a risk.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="global_allow">False</property>
  <property name="allow_discussion">False</property>

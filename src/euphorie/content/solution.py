@@ -65,7 +65,7 @@ class ISolution(form.Schema):
 
 class Solution(dexterity.Item):
     implements(ISolution)
-    title = _("title_common_solution", default=u"Common solution")
+    title = _("title_common_solution", default=u"Measure")
     prevention_plan = None
     requirements = None
 

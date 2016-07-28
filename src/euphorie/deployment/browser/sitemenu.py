@@ -39,7 +39,7 @@ class EuphorieSitemenu(Sitemenu):
         if ISector.providedBy(self.context) and \
                 checkPermission(self.context, "Euphorie: Add new RIE Content"):
             children.append(
-                    {"title": _("menu_import", default=u"Import survey"),
+                    {"title": _("menu_import", default=u"Import OiRA Tool"),
                      "url": "%s/@@upload" % context_url})
         if children:
             return menu

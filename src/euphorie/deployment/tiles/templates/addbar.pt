@@ -19,7 +19,7 @@
       <a class="button floatAfter" tal:case="string:euphorie.risk"
           href="${factory/url}" title="${factory/description}" i18n:translate="">Add Risk</a>
       <a class="button floatAfter" tal:case="string:euphorie.solution"
-          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Solution</a>
+          href="${factory/url}" title="${factory/description}" i18n:translate="">Add Measure</a>
       <a class="button floatAfter" tal:case="default"
          href="${factory/url}" title="${factory/description}" i18n:translate="button_add_factory">Add <tal:span i18n:name="typename">${factory/title}</tal:span></a>
     </tal:button>

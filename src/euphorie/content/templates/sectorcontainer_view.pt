@@ -12,17 +12,17 @@
     <metal:title fill-slot="title" i18n:translate="title_sectors">Sectors</metal:title>
     <metal:content fill-slot="content">
       <div class="introduction">
-        <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy a survey.</p>
+        <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy an OiRA Tool.</p>
       </div>
       <tal:block define='countries python:view.countries.get("region")' condition="python:countries">
         <ul class="countries">
           <li tal:repeat="region countries" class="${region/id}"><a href="${region/url}">${region/title}</a></li>
-        </ul>  
+        </ul>
       </tal:block>
       <tal:block define='countries python:view.countries.get("country")' condition="python:countries">
         <ul class="countries">
           <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
+        </ul>
       </tal:block>
     </metal:content>
   </body>

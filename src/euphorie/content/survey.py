@@ -53,7 +53,7 @@ class ISurvey(form.Schema, IBasic):
     title = schema.TextLine(
             title=_("label_survey_title", default=u"Version name"),
             description=_("help_survey_title",
-                default=u"This is the title of this survey version. This "
+                default=u"This is the title of this OiRA Tool version. This "
                         u"name is never shown to users."),
             required=True)
     form.order_before(title="*")
@@ -62,13 +62,11 @@ class ISurvey(form.Schema, IBasic):
 
     introduction = HtmlText(
             title=_("label_introduction", default=u"Introduction text"),
-            description=_("help_introduction",
-                default=u"The introduction text is shown when starting a "
-                        u"new survey session. If no introduction is "
-                        u"provided here a standard text will be shown."
-                        u"Please keep this text brief so it will easily "
-                        u"fit on screens of small devices such as "
-                        u"phones and PDAs"),
+            description=_(u"The introduction text is shown when starting a new "
+                    u"OiRA Tool session. If no introduction is provided here a "
+                    u"standard text will be shown. Please keep this text brief "
+                    u"so it will easily fit on screens of small devices such as "
+                    u"phones and PDAs."),
             required=False)
     form.widget(introduction=WysiwygFieldWidget)
 
@@ -187,7 +185,7 @@ class ISurveyAddSchema(form.Schema):
     title = schema.TextLine(
             title=_("label_survey_title", default=u"Version name"),
             description=_("help_survey_title",
-                default=u"This is the title of this survey version. This "
+                default=u"This is the title of this OiRA Tool version. This "
                         u"name is never shown to users."),
             required=True)
 
@@ -196,8 +194,8 @@ class ISurveyEditSchema(ISurvey):
     survey_title = schema.TextLine(
             title=_("label_title", default=u"Title"),
             description=_("help_surveygroup_title",
-                default=u"The title of this survey. This title is used in "
-                        u"the survey overview in the clients."),
+                default=u"The title of this OiRA Tool. This title is used in "
+                        u"the OiRA Tool overview in the clients."),
             required=True)
     form.order_before(survey_title="*")
 
@@ -205,8 +203,8 @@ class ISurveyEditSchema(ISurvey):
             title=_("label_survey_obsolete",
                 default=u"Obsolete survey"),
             description=_("help_survey_obsolete",
-                default=u"This survey is obsolete; it has been retired or "
-                        u"replaced with another survey."),
+                default=u"This OiRA Tool is obsolete; it has been retired or "
+                        u"replaced with another OiRA Tool."),
             default=False,
             required=False)
     form.order_before(obsolete="introduction")
@@ -289,7 +287,7 @@ class Delete(actions.Delete):
         if shasattr(container, 'published') and \
                 container.published == context.id:
             flash(_("message_no_delete_published_survey",
-                    default=u"You cannot delete a survey that is published. "
+                    default=u"You cannot delete an OiRA Tool version that is published. "
                             u"Please unpublish it first."),
                     "error")
             self.request.response.redirect(context.absolute_url())
@@ -304,7 +302,9 @@ class Delete(actions.Delete):
             return True
         else:
             flash(_("message_delete_no_last_survey",
-                    default=u"You can not delete the only survey version."),
+                    default=u"This is the only version of the OiRA Tool and can "
+                        u"therefore not be deleted. Did you perhaps want to "
+                        u"remove the OiRA Tool itself?"),
                     "error")
             self.request.response.redirect(context.absolute_url())
             return False

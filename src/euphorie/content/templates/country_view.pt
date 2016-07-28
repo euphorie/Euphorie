@@ -12,7 +12,7 @@
     <metal:title fill-slot="title">${view/title}</metal:title>
     <metal:content fill-slot="content">
       <div class="introduction">
-        <p i18n:translate="intro_select_sector">Select a sector for which you would like to view or copy a survey.</p>
+        <p i18n:translate="intro_select_sector">Select a sector for which you would like to view or copy an OiRA Tool.</p>
       </div>
 
       <p class="message notice" tal:condition="not:view/sectors" i18n:translate="message_no_sectors">
@@ -23,7 +23,7 @@
         <li tal:repeat="sector view/sectors">
           <a href="${sector/url}">${sector/title}</a>
         </li>
-      </ul>  
+      </ul>
     </metal:content>
   </body>
 </html>
