@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-07-28 13:58+0200\n"
+"POT-Creation-Date: 2016-07-28 14:12+0200\n"
 "PO-Revision-Date: 2016-07-27 17:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -385,6 +385,8 @@ msgstr "Gefährdung mit hoher Priorität"
 #: src/euphorie/client/templates/report_actionplan.pt:169
 msgid "report_survey_revision"
 msgstr ""
+"Dieser Bericht basiert auf dem OiRA-Tool '${title}' mit dem Revisionsdatum "
+"${date}."
 
 #: src/euphorie/client/report.py:225
 msgid "Page ${number} of ${total}"
@@ -490,18 +492,19 @@ msgstr "Maßnahme ${index}"
 #: src/euphorie/client/templates/report_actionplan.pt:115
 msgid "report_measure_actionplan"
 msgstr ""
+"Allgemeine Vorgehensweise (zur Vermeidung bzw. Reduzierung der Gefährdung):"
 
 #. Default: Specific action(s) required to implement this approach:
 #: src/euphorie/client/report.py:871
 #: src/euphorie/client/templates/report_actionplan.pt:119
 msgid "report_measure_preventionplan"
-msgstr ""
+msgstr "Einzelne zur Umsetzung dieser Vorgehensweise erforderliche Aktion(en):"
 
 #. Default: Level of expertise and/or requirements needed:
 #: src/euphorie/client/report.py:878
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_requirements"
-msgstr ""
+msgstr "Erforderliche Fachkenntisse und/oder Anforderungen:"
 
 #. Default: ${responsible} is responsible for this task.
 #: src/euphorie/client/report.py:888
@@ -3821,7 +3824,7 @@ msgstr "Einführung"
 #. Default: General information on risk assessment
 #: src/euphorie/content/help.py:27
 msgid "help_help_introduction"
-msgstr ""
+msgstr "Allgemeine Informationen zur Gefährdungsbeurteilung"
 
 #. Default: Registration
 #: src/euphorie/content/help.py:33
@@ -3833,7 +3836,7 @@ msgstr "Authentifizierung"
 #. Default: This text should explain how to register and login.
 #: src/euphorie/content/help.py:34
 msgid "help_authentication"
-msgstr ""
+msgstr "Dieser Text sollte den Registrierungs- und Anmeldevorgang beschreiben."
 
 #. Default: Carrying out your risk assessment
 #: src/euphorie/content/help.py:40
@@ -3844,7 +3847,7 @@ msgstr "Sitzungen"
 #. Default: This text should describe the main functions of the OiRA Tool.
 #: src/euphorie/content/help.py:41
 msgid "help_sessions"
-msgstr ""
+msgstr "Dieser Text sollte die Hauptfunktionen des OiRA-Tools beschreiben."
 
 #. Default: 1. Preparation
 #: src/euphorie/content/help.py:47
@@ -3856,6 +3859,8 @@ msgstr "Vorbereitung"
 #: src/euphorie/content/help.py:48
 msgid "help_preparation"
 msgstr ""
+"Dieser Text sollte die zwei unterschiedlichen Typen von Profilfragen "
+"beschreiben."
 
 #. Default: 2. Identification
 #: src/euphorie/content/help.py:54
@@ -3866,7 +3871,7 @@ msgstr "Ermitteln"
 #. Default: This text should explain how the risk identification works.
 #: src/euphorie/content/help.py:55
 msgid "help_identification"
-msgstr ""
+msgstr "Dieser Text sollte die Gefährdungsermittlung beschreiben."
 
 #. Default: 3. Evaluation
 #: src/euphorie/content/help.py:61
@@ -3878,6 +3883,7 @@ msgstr "Bewertung durchführen"
 #: src/euphorie/content/help.py:62
 msgid "help_evaluation"
 msgstr ""
+"Dieser Text sollte die Bewertung der ermittelten Gefährdungen beschreiben."
 
 #. Default: 4. Action Plan
 #: src/euphorie/content/help.py:68
@@ -3888,7 +3894,7 @@ msgstr "Aktionsplan"
 #. Default: This text should explain how to fill in the Action plan.
 #: src/euphorie/content/help.py:69
 msgid "help_actionplan"
-msgstr ""
+msgstr "Dieser Text sollte das Ausfüllen des Aktionsplans beschreiben."
 
 #. Default: 5. Report
 #: src/euphorie/content/help.py:75
@@ -3901,6 +3907,7 @@ msgstr "Berichte"
 #: src/euphorie/content/help.py:76
 msgid "help_reports"
 msgstr ""
+"Dieser Text sollte das Speichern bzw. Drucken des Berichts beschreiben."
 
 #. Default: What happens next?
 #: src/euphorie/content/help.py:82
@@ -3911,7 +3918,7 @@ msgstr "Eine Bemerkung zum Schluss"
 #. Default: General final recommendations.
 #: src/euphorie/content/help.py:83
 msgid "help_finalwords"
-msgstr ""
+msgstr "Abschließende allgemeine Empfehlungen."
 
 #: src/euphorie/content/library.py:208
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -4045,7 +4052,7 @@ msgstr "Untermodul"
 
 #: src/euphorie/content/module.py:253
 msgid "Edit ${name}"
-msgstr ""
+msgstr "${name} bearbeiten"
 
 #. Default: Page content
 #: src/euphorie/content/page.py:28
@@ -4133,19 +4140,23 @@ msgstr "Dies ist eine kurze Aussage zu einer möglichen Gefährdung."
 #: src/euphorie/content/risk.py:69
 #: src/euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
-msgstr ""
+msgstr "Negative Aussage"
 
 #. Default: This is the inverse of the affirmative statement (e.g. The building
 #. is not well maintained.)
 #: src/euphorie/content/risk.py:71
 msgid "help_problem_description"
 msgstr ""
+"Dies ist die Umkehrung einer positiven Aussage (z. B. „Das Gebäude ist in "
+"keinem guten Zustand.“)."
 
 #. Default: Describe the risk. Include any relevant information that may be
 #. helpful for the end-user.
 #: src/euphorie/content/risk.py:80
 msgid "help_risk_description"
 msgstr ""
+"Beschreiben Sie die Gefährdung. Stellen Sie alle Informationen zur "
+"Verfügung, die für den Endnutzer hilfreich sein können."
 
 #. Default: Legal and policy references
 #: src/euphorie/content/risk.py:88
@@ -4181,11 +4192,16 @@ msgstr "Gefährdungstyp"
 #: src/euphorie/content/risk.py:108
 msgid "help_risk_type"
 msgstr ""
+"Die „Prioritätsgefährdung“ ist eine der Gefährdungen mit hohem Risiko in der "
+"Branche. „Gefährdung“ bezieht sich auf Gefährdungen am Arbeitsplatz oder "
+"solche, die mit der auszuführenden Arbeit verbunden sind. „Firmenpolitik“ "
+"bezieht sich auf Vereinbarungen, Abläufe und Entscheidungen der "
+"Unternehmensleitung."
 
 #. Default: Priority risk
 #: src/euphorie/content/risk.py:115
 msgid "risktype_top5"
-msgstr ""
+msgstr "Prioritätsgefährdung"
 
 #. Default: Risk
 #: src/euphorie/content/risk.py:117
@@ -4234,6 +4250,8 @@ msgstr "Standardpriorität"
 #: src/euphorie/content/risk.py:158
 msgid "help_default_priority"
 msgstr ""
+"Sie können den Endnutzer durch die Wahl einer Standardpriorität "
+"unterstützen. Er/sie hat die Möglichkeit, die Priorität zu ändern."
 
 #. Default: No default
 #: src/euphorie/content/risk.py:163
@@ -4349,12 +4367,18 @@ msgstr "Es sind keine Branchen für dieses Land angelegt."
 #: src/euphorie/content/solution.py:39
 msgid "help_measure_action_plan"
 msgstr ""
+"Beschreiben Sie Ihre allgemeine Vorgehensweise zur Vermeidung bzw. "
+"Reduzierung (wenn sich die Gefährdung nicht vermeiden lässt) einer "
+"Gefährdung."
 
 #. Default: Describe the specific action(s) required to implement this approach
 #. (to eliminate or to reduce the risk).
 #: src/euphorie/content/solution.py:48
 msgid "help_measure_prevention_plan"
 msgstr ""
+"Beschreiben Sie die einzelne(n) Aktion(en), die zur Umsetzung dieser "
+"Vorgehensweise erforderlich ist/sind (zur Vermeidung bzw. Reduzierung der "
+"Gefährdung)."
 
 #. Default: Describe the level of expertise needed to implement the measure,
 #. for instance "common sense (no OSH knowledge required)", "no specific OSH
@@ -4364,6 +4388,12 @@ msgstr ""
 #: src/euphorie/content/solution.py:56
 msgid "help_measure_requirements"
 msgstr ""
+"Beschreiben Sie die erforderlichen Fachkenntnisse, um die Maßnahme "
+"umzusetzen, zum Beispiel „gesunder Menschenverstand (keine OSH-Kenntnisse "
+"erforderlich)“, „keine spezifischen OSH-Kenntnisse, jedoch ein Mindestmaß an "
+"OSH-Kenntnissen bzw. -Schulung und/oder Inanspruchnahme von OSH-Anleitung "
+"erforderlich“ oder „OSH-Fachkraft“. Wenn zutreffend, können Sie hier auch "
+"weitere zusätzliche Anforderungen beschreiben."
 
 #. Default: Measure
 #: src/euphorie/content/solution.py:68
@@ -4380,6 +4410,8 @@ msgstr "Versionsname"
 #: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:187
 msgid "help_survey_title"
 msgstr ""
+"Dies ist der Name dieser OiRA-Tool-Version. Er wird den Benutzern nicht "
+"angezeigt."
 
 #. Default: Introduction text
 #: src/euphorie/content/survey.py:64
@@ -4437,6 +4469,8 @@ msgstr "Titel"
 #: src/euphorie/content/survey.py:196 src/euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
+"Name dieses OiRA-Tools. Dieser Name wird in der Übersicht der OiRA-Tools in "
+"den Clients angezeigt."
 
 #. Default: Obsolete survey
 #: src/euphorie/content/survey.py:203 src/euphorie/content/surveygroup.py:59
@@ -4514,7 +4548,7 @@ msgstr "Anmeldename"
 #. Default: Title of imported OiRA Tool
 #: src/euphorie/content/upload.py:96 src/euphorie/content/upload.py:118
 msgid "label_surveygroup_title"
-msgstr ""
+msgstr "Name des importierten OiRA-Tools"
 
 #. Default: If you do not specify a title it will be taken from the input.
 #: src/euphorie/content/upload.py:98 src/euphorie/content/upload.py:120
@@ -4525,7 +4559,7 @@ msgstr ""
 #. Default: Name for OiRA Tool version
 #: src/euphorie/content/upload.py:104 src/euphorie/content/upload.py:126
 msgid "label_upload_survey_title"
-msgstr ""
+msgstr "Name der OiRA-Tool-Version"
 
 #: src/euphorie/content/upload.py:106
 msgid "Standard"
@@ -4556,12 +4590,12 @@ msgstr "Laden Sie eine gültige XML-Datei hoch."
 #. Default: Succesfully imported the OiRA Tool
 #: src/euphorie/content/upload.py:409 src/euphorie/content/upload.py:451
 msgid "upload_success"
-msgstr ""
+msgstr "OiRA-Tool erfolgreich importiert."
 
 #. Default: Import sector and OiRA Tool
 #: src/euphorie/content/upload.py:428
 msgid "title_import_sector_survey"
-msgstr ""
+msgstr "Branche und OiRA-Tool importieren"
 
 #. Default: Upload
 #: src/euphorie/content/upload.py:433
@@ -4735,7 +4769,7 @@ msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:7
 msgid "OiRA Tool version"
-msgstr ""
+msgstr "OiRA-Tool-Version"
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:8
 msgid "A version of a survey."
@@ -4779,6 +4813,8 @@ msgstr "OiRA"
 #: src/euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
 msgstr ""
+"Wählen Sie eine Branche, aus der Sie ein OiRA-Tool anzeigen oder kopieren "
+"möchten."
 
 #. Default: There are no sectors for this country.
 #: src/euphorie/content/templates/country_view.pt:18
@@ -5026,28 +5062,28 @@ msgstr "Standardauswirkung"
 #. Default: Standard measures
 #: src/euphorie/content/templates/risk_view.pt:80
 msgid "header_solutions"
-msgstr ""
+msgstr "Standardmaßnahmen"
 
 #. Default: Measure ${number}
 #: src/euphorie/content/templates/risk_view.pt:83
 msgid "risk_solution_header"
-msgstr ""
+msgstr "Maßnahme ${number}"
 
 #. Default: OiRA Tools
 #: src/euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
-msgstr ""
+msgstr "OiRA-Tools"
 
 #. Default: add a new OiRA Tool
 #: src/euphorie/content/templates/sector_view.pt:18
 #: src/euphorie/content/templates/sector_view.pt:33
 msgid "add_survey"
-msgstr ""
+msgstr "ein neues OiRA-Tool hinzufügen"
 
 #. Default: There are no OiRA Tools present. You can ${add_link}.
 #: src/euphorie/content/templates/sector_view.pt:16
 msgid "no_surveys_present"
-msgstr ""
+msgstr "Es sind keine OiRA-Tools vorhanden. Sie können ${add_link}."
 
 #. Default: You can also ${add_link}.
 #: src/euphorie/content/templates/sector_view.pt:31
@@ -5064,6 +5100,8 @@ msgstr "Branchen"
 #: src/euphorie/content/templates/sectorcontainer_view.pt:15
 msgid "message_choose_country"
 msgstr ""
+"Bitte wählen Sie ein Land, aus dem Sie ein OiRA-Tool anzeigen oder kopieren "
+"möchten."
 
 #. Default: Settings
 #: src/euphorie/content/templates/settings.pt:12
@@ -5202,6 +5240,7 @@ msgstr "Standardlösung"
 #: src/euphorie/content/templates/survey_add.pt:11
 msgid "intro_add_survey"
 msgstr ""
+"Mithilfe des Formulars können Sie eine neue OiRA-Tool-Revision erstellen."
 
 #. Default: Choose a base revision
 #: src/euphorie/content/templates/survey_add.pt:20
@@ -5248,7 +5287,7 @@ msgstr "Dieses Tool enthält keine Profilfragen oder Module"
 #. Default: This form will allow you to create a new OiRA Tool.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
 msgid "intro_add_surveygroup"
-msgstr ""
+msgstr "Mithilfe dieses Formulars können Sie ein neues OiRA-Tool erstellen."
 
 #. Default: How would you like to start
 #: src/euphorie/content/templates/surveygroup_add.pt:18
@@ -5258,30 +5297,34 @@ msgstr "Wie möchten Sie beginnen?"
 #. Default: Create a new OiRA Tool from scratch
 #: src/euphorie/content/templates/surveygroup_add.pt:19
 msgid "survey_source_scratch"
-msgstr ""
+msgstr "Vollständig neues OiRA-Tool erstellen"
 
 #. Default: Base my new OiRA Tool on an existing OiRA Tool of my organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr ""
+"Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools meiner "
+"Organisation erstellen"
 
 #. Default: Base my new OiRA Tool on an existing OiRA Tool of another
 #. organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr ""
+"Neues OiRA-Tool auf der Grundlage eines bestehenden OiRA-Tools einer anderen "
+"Organisation erstellen"
 
 #. Default: Choose an OiRA Tool
 #: src/euphorie/content/templates/surveygroup_add.pt:28
 #: src/euphorie/content/templates/surveygroup_add.pt:54
 msgid "label_choose_surveygroup"
-msgstr ""
+msgstr "OiRA-Tool wählen"
 
 #. Default: Choose a revision of the selected OiRA Tool
 #: src/euphorie/content/templates/surveygroup_add.pt:37
 #: src/euphorie/content/templates/surveygroup_add.pt:73
 msgid "label_choose_survey"
-msgstr ""
+msgstr "Revision des ausgewählten OiRA-Tools wählen"
 
 #. Default: Choose a country
 #: src/euphorie/content/templates/surveygroup_add.pt:47
@@ -5393,7 +5436,7 @@ msgstr "XML-Export"
 #. Default: Import OiRA Tool
 #: src/euphorie/deployment/browser/sitemenu.py:42
 msgid "menu_import"
-msgstr ""
+msgstr "OiRA-Tool importieren"
 
 #. Default: Search
 #: src/euphorie/deployment/browser/templates/search.pt:10
@@ -5428,7 +5471,7 @@ msgstr "Relevanz: ${percentage}"
 #. Default: OiRA Tools
 #: src/euphorie/deployment/tiles/tabs.py:43
 msgid "nav_surveys"
-msgstr ""
+msgstr "OiRA-Tools"
 
 #. Default: User management
 #: src/euphorie/deployment/tiles/tabs.py:57
@@ -5506,7 +5549,7 @@ msgstr "Versionen"
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "help_add_version"
-msgstr ""
+msgstr "Duplikat des ausgewählten OiRA-Tools erstellen"
 
 #. Default: Duplicate
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
@@ -5550,11 +5593,13 @@ msgstr "Aktualisiert"
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
 msgid "help_create_new_version"
 msgstr ""
+"Bevor Sie beginnen, ein neues OiRA-Tool zu schreiben, werden Sie gefragt, ob "
+"Sie dies basierend auf der Kopie eines bestehenden OiRA-Tools tun möchten ..."
 
 #. Default: Create new OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
 msgid "button_create_new"
-msgstr ""
+msgstr "Neues OiRA-Tool erstellen"
 
 #. Default: Legend
 #: src/euphorie/deployment/tiles/templates/versions.pt:76
