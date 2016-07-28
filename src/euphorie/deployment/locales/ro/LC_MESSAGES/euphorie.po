@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-07-27 14:47+0200\n"
+"POT-Creation-Date: 2016-07-28 13:58+0200\n"
 "PO-Revision-Date: 2013-06-27 22:08+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Romanian\n"
@@ -293,7 +293,7 @@ msgid "Enter the names of each location"
 msgstr ""
 
 #. Default: Added risks (by you)
-#: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:118
+#: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:119
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
 msgid "title_other_risks"
@@ -347,8 +347,8 @@ msgstr ""
 msgid "button_preview"
 msgstr ""
 
-#. Default: Succesfully created a preview for the survey. It can be accessed at
-#. ${url} .
+#. Default: Succesfully created a preview for the OiRA Tool. It can be accessed
+#. at ${url}.
 #: src/euphorie/client/publish.py:327
 msgid "message_preview_success"
 msgstr ""
@@ -368,7 +368,7 @@ msgstr ""
 msgid "report_priority_high"
 msgstr ""
 
-#. Default: This report was based on the survey '${title}' of revision date
+#. Default: This report was based on the OiRA Tool '${title}' of revision date
 #. ${date}.
 #: src/euphorie/client/report.py:212
 #: src/euphorie/client/templates/report_actionplan.pt:169
@@ -465,19 +465,19 @@ msgstr ""
 msgid "header_measure"
 msgstr ""
 
-#. Default: Action plan:
+#. Default: General approach (to eliminate or reduce the risk):
 #: src/euphorie/client/report.py:865
 #: src/euphorie/client/templates/report_actionplan.pt:115
 msgid "report_measure_actionplan"
 msgstr ""
 
-#. Default: Prevention plan:
+#. Default: Specific action(s) required to implement this approach:
 #: src/euphorie/client/report.py:871
 #: src/euphorie/client/templates/report_actionplan.pt:119
 msgid "report_measure_preventionplan"
 msgstr ""
 
-#. Default: Requirements:
+#. Default: Level of expertise and/or requirements needed:
 #: src/euphorie/client/report.py:878
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_requirements"
@@ -582,7 +582,7 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:90
 #: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_actionplan.pt:231
-#: src/euphorie/content/solution.py:46
+#: src/euphorie/content/solution.py:45
 #: src/euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
@@ -592,7 +592,7 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:176
 #: src/euphorie/client/templates/risk_actionplan.pt:233
-#: src/euphorie/content/solution.py:56
+#: src/euphorie/content/solution.py:54
 #: src/euphorie/content/templates/solution_view.pt:28
 msgid "label_measure_requirements"
 msgstr ""
@@ -854,11 +854,9 @@ msgid "label_page_of"
 msgstr ""
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:242
+#: src/euphorie/client/utils.py:243
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
-#: src/euphorie/client/templates/error.pt:12
-#: src/euphorie/client/templates/error_notfound.pt:12
 #: src/euphorie/client/templates/frontpage.pt:13
 #: src/euphorie/client/templates/layout.pt:13
 #: src/euphorie/client/templates/module_evaluation.pt:12
@@ -872,7 +870,7 @@ msgid "title_tool"
 msgstr ""
 
 #. Default: Close
-#: src/euphorie/client/utils.py:497
+#: src/euphorie/client/utils.py:498
 msgid "button_close"
 msgstr ""
 
@@ -1095,36 +1093,60 @@ msgstr ""
 msgid "warning_account_delete_surveys"
 msgstr ""
 
-#. Default: You have identified the magnitude of risk for each of the
-#. bottlenecks. During the action plan phase you can determine the priority of
-#. each of the bottlenecks and how you are going to tackle the bottleneck. The
-#. programme may offer a suggestion you can use, or you can add your own
-#. measures.
-#: src/euphorie/client/templates/actionplan.pt:21
+#. Default: After having identified the risks, you need to put an action plan
+#. in place to manage the risks. To eliminate or reduce risks you need to
+#. determine which preventive and protective measures are to be taken.
+#: src/euphorie/client/templates/actionplan.pt:20
 msgid "expl_actionplan_1"
 msgstr ""
 
-#. Default: Removing the causes (tackling the source) is the preferred method:
-#. that way, the risk can no longer arise. You then write down what tasks have
-#. to be carried out in order for the risk to be removed, as well as the
-#. knowledge and experience that are needed for those tasks to be carried out
-#. (prevention plan and requirements).
-#: src/euphorie/client/templates/actionplan.pt:28
+#. Default: Among the things to be considered for this step are:
+#: src/euphorie/client/templates/actionplan.pt:25
 msgid "expl_actionplan_2"
 msgstr ""
 
+#. Default: considering whether the task or job is necessary
+#: src/euphorie/client/templates/actionplan.pt:33
+msgid "expl_actionplan_4"
+msgstr ""
+
+#. Default: removing the hazard
+#: src/euphorie/client/templates/actionplan.pt:34
+msgid "expl_actionplan_5"
+msgstr ""
+
+#. Default: Is a risk avoidable? Can it be removed entirely? For example, this
+#. could be achieved by: ${expl_actionplan_4_and_5}
+#: src/euphorie/client/templates/actionplan.pt:30
+msgid "expl_actionplan_3"
+msgstr ""
+
+#. Default: If certain risks are not avoidable, how can they be reduced to a
+#. level at which the health and safety of those exposed is not compromised?
+#: src/euphorie/client/templates/actionplan.pt:37
+msgid "expl_actionplan_6"
+msgstr ""
+
+#. Default: Once you have decided how to eliminate or reduce a particular risk,
+#. then you describe the specific action(s) required to achieve this. You
+#. should also include details of the level of expertise and/or other
+#. requirements needed for those actions to be effective.
+#: src/euphorie/client/templates/actionplan.pt:42
+msgid "expl_actionplan_7"
+msgstr ""
+
 #. Default: No risks were identified. Please proceed directly to the report.
-#: src/euphorie/client/templates/actionplan.pt:36
+#: src/euphorie/client/templates/actionplan.pt:47
 msgid "expl_actionplan_empty"
 msgstr ""
 
 #. Default: Create action plan
-#: src/euphorie/client/templates/actionplan.pt:43
+#: src/euphorie/client/templates/actionplan.pt:54
 msgid "label_create_action_plan"
 msgstr ""
 
 #. Default: Go to report
-#: src/euphorie/client/templates/actionplan.pt:44
+#: src/euphorie/client/templates/actionplan.pt:55
 msgid "label_jump_to_report"
 msgstr ""
 
@@ -1457,44 +1479,70 @@ msgstr ""
 #. Default: Including the risks to your employees and your equipment? What if
 #. there is an accident with one of the machines? What if an employee is
 #. exposed to hazardous substances? A risk assessment helps you to define these
-#. risks and tackle them head on. A risk assessment consists of two parts: a
-#. <dynamic element> with all the risks to your company and an <dynamic
-#. element> to deal with them. These two components allow you to limit the
-#. risks to your employees and your company, and therefore also the financial
-#. risk.
+#. risks and tackle them head on. A risk assessment mainly consists of two
+#. parts: a <dynamic element> with all the risks in your company and an
+#. <dynamic element> with details of how to deal with these risks. These two
+#. components allow you to limit the risks to your employees and your company,
+#. and therefore the financial risk.
 #: src/euphorie/client/templates/default_introduction.pt:7
 msgid "intro_risk_aware"
 msgstr ""
 
-#. Default: The assessment is not complicated.
+#. Default: The assessment is not complicated
 #: src/euphorie/client/templates/default_introduction.pt:9
 msgid "header_not_complicated"
 msgstr ""
 
 #. Default: Complicated? Not really. It just takes a bit of time. However, the
-#. RA is important. So important that the government has made it compulsory for
-#. almost all entrepreneurs with employees.
+#. RA is important. So important that it is a legal requirement. This is for
+#. good reason. If risks are not assessed or properly dealt with, a suitable
+#. risk management process cannot be started and appropriate preventive
+#. measures are unlikely to be found or put in place.
 #: src/euphorie/client/templates/default_introduction.pt:10
 msgid "intro_not_complicated"
 msgstr ""
 
+#. Default: Consultation and participation of workers
+#: src/euphorie/client/templates/default_introduction.pt:12
+msgid "header_consultation_of_workers"
+msgstr ""
+
+#. Default: Workers or workers' representatives with specific responsibility
+#. for the safety and health of workers shall take part in a balanced way or
+#. shall be consulted in advance and in good time by the employer with regard
+#. to risk assessment
+#: src/euphorie/client/templates/default_introduction.pt:13
+msgid "intro_consultation_of_workers"
+msgstr ""
+
+#. Default: The OiRA tool
+#: src/euphorie/client/templates/default_introduction.pt:15
+msgid "header_oira_tool"
+msgstr ""
+
+#. Default: This risk assessment tool is mainly intended for micro (less than
+#. 10 workers) and small (less than 50 workers) enterprises/organisations.
+#: src/euphorie/client/templates/default_introduction.pt:16
+msgid "intro_oira_tool"
+msgstr ""
+
 #. Default: Error
-#: src/euphorie/client/templates/error.pt:17
+#: src/euphorie/client/templates/error.pt:15
 msgid "title_error"
 msgstr ""
 
-#. Default: Something bad happened.
-#: src/euphorie/client/templates/error.pt:19
+#. Default: We're sorry, but an unforseen error has occured.
+#: src/euphorie/client/templates/error.pt:17
 msgid "expl_error"
 msgstr ""
 
 #. Default: Not found
-#: src/euphorie/client/templates/error_notfound.pt:17
+#: src/euphorie/client/templates/error_notfound.pt:15
 msgid "title_error_notfound"
 msgstr ""
 
 #. Default: The page you requested could not be found.
-#: src/euphorie/client/templates/error_notfound.pt:19
+#: src/euphorie/client/templates/error_notfound.pt:17
 msgid "expl_error_notfound"
 msgstr ""
 
@@ -2068,14 +2116,14 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#. Default: Preview survey
+#. Default: Preview OiRA Tool
 #: src/euphorie/client/templates/preview.pt:15
 msgid "header_preview"
 msgstr ""
 
-#. Default: Are you sure you want to create a preview of this survey? You can
-#. give the URL for the preview to others so they can test the survey. To
-#. access the preview a standard OiRA client login is required.
+#. Default: Are you sure you want to create a preview of this OiRA Tool? You
+#. can give the URL for the preview to others so they can test the OiRA Tool.
+#. To access the preview a standard OiRA client login is required.
 #: src/euphorie/client/templates/preview.pt:18
 msgid "intro_preview"
 msgstr ""
@@ -2147,30 +2195,31 @@ msgstr ""
 msgid "Add another item"
 msgstr ""
 
-#. Default: Publish survey
+#. Default: Publish OiRA Tool
 #: src/euphorie/client/templates/publish.pt:15
 msgid "header_publish"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey? After publication the
-#. survey will appear in the online client and be accessible by all users.
+#. Default: Are you sure you want to publish this OiRA Tool? After publication
+#. the OiRA Tool will appear in the online client and be accessible by all
+#. users.
 #: src/euphorie/client/templates/publish.pt:18
 msgid "intro_publish_first_time"
 msgstr ""
 
-#. Default: Are you sure you want to republish this survey? This will make all
-#. changes made public.
+#. Default: Are you sure you want to republish this OiRA Tool? This will make
+#. all changes made public.
 #: src/euphorie/client/templates/publish.pt:22
 msgid "intro_publish_survey_published"
 msgstr ""
 
-#. Default: Are you sure you want to publish this survey version? This will
+#. Default: Are you sure you want to publish this OiRA Tool version? This will
 #. replace the current version.
 #: src/euphorie/client/templates/publish.pt:25
 msgid "intro_publish_other_survey_published"
 msgstr ""
 
-#. Default: After publication the survey will be available at ${url}.
+#. Default: After publication the OiRA Tool will be available at ${url}.
 #: src/euphorie/client/templates/publish.pt:30
 msgid "help_publish_url"
 msgstr ""
@@ -2493,6 +2542,7 @@ msgstr ""
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
 #: src/euphorie/client/templates/risk_actionplan.pt:148
+#: src/euphorie/content/profiles/default/types/euphorie.solution.xml:7
 msgid "Measure"
 msgstr ""
 
@@ -2523,7 +2573,7 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 #: src/euphorie/client/templates/risk_actionplan.pt:170
 #: src/euphorie/client/templates/risk_actionplan.pt:227
-#: src/euphorie/content/risk.py:78
+#: src/euphorie/content/risk.py:79
 msgid "label_description"
 msgstr ""
 
@@ -3367,105 +3417,97 @@ msgstr ""
 msgid "label_help_introduction"
 msgstr ""
 
-#. Default: Generic introduction for the client. This text is not associated
-#. with specific pages.
+#. Default: General information on risk assessment
 #: src/euphorie/content/help.py:27
 msgid "help_help_introduction"
 msgstr ""
 
-#. Default: Authentication
-#: src/euphorie/content/help.py:34
+#. Default: Registration
+#: src/euphorie/content/help.py:33
 #: src/euphorie/content/templates/help_view.pt:18
 msgid "label_help_authentication"
 msgstr ""
 
-#. Default: Describe the user handling. This text is linked from the login,
-#. password reminder and registration pages.
-#: src/euphorie/content/help.py:35
+#. Default: This text should explain how to register and login.
+#: src/euphorie/content/help.py:34
 msgid "help_authentication"
 msgstr ""
 
-#. Default: Sessions
-#: src/euphorie/content/help.py:43
+#. Default: Carrying out your risk assessment
+#: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:21
 msgid "label_help_sessions"
 msgstr ""
 
-#. Default: Describe the session handling. This text is linked from the session
-#. overview page.
-#: src/euphorie/content/help.py:44
+#. Default: This text should describe the main functions of the OiRA Tool.
+#: src/euphorie/content/help.py:41
 msgid "help_sessions"
 msgstr ""
 
-#. Default: Preparation
-#: src/euphorie/content/help.py:51
+#. Default: 1. Preparation
+#: src/euphorie/content/help.py:47
 #: src/euphorie/content/templates/help_view.pt:24
 msgid "label_help_preparation"
 msgstr ""
 
-#. Default: Document the first steps in a survey, including how to configure a
-#. profile (if needed). This page is linked from the survey start page.
-#: src/euphorie/content/help.py:52
+#. Default: This text should explain the 2 types of profile questions.
+#: src/euphorie/content/help.py:48
 msgid "help_preparation"
 msgstr ""
 
-#. Default: Identification
-#: src/euphorie/content/help.py:60
+#. Default: 2. Identification
+#: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
 msgid "label_help_identification"
 msgstr ""
 
-#. Default: Document the identification phase. This information is linked from
-#. all identification related pages
-#: src/euphorie/content/help.py:61
+#. Default: This text should explain how the risk identification works.
+#: src/euphorie/content/help.py:55
 msgid "help_identification"
 msgstr ""
 
-#. Default: Evaluation
-#: src/euphorie/content/help.py:68
+#. Default: 3. Evaluation
+#: src/euphorie/content/help.py:61
 #: src/euphorie/content/templates/help_view.pt:30
 msgid "label_help_evaluation"
 msgstr ""
 
-#. Default: Document the evaluation phase. This information is linked from all
-#. evaluation related pages
-#: src/euphorie/content/help.py:69
+#. Default: This text should explain how to evaluate the identified risks.
+#: src/euphorie/content/help.py:62
 msgid "help_evaluation"
 msgstr ""
 
-#. Default: Action Plan
-#: src/euphorie/content/help.py:76
+#. Default: 4. Action Plan
+#: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
 msgid "label_help_actionplan"
 msgstr ""
 
-#. Default: Document the action plan phase. This information is linked from all
-#. action plan related pages
-#: src/euphorie/content/help.py:77
+#. Default: This text should explain how to fill in the Action plan.
+#: src/euphorie/content/help.py:69
 msgid "help_actionplan"
 msgstr ""
 
-#. Default: Reports
-#: src/euphorie/content/help.py:84
+#. Default: 5. Report
+#: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
 msgid "label_help_reports"
 msgstr ""
 
-#. Default: Describe the reporting options. This page is linked from report
-#. page.
-#: src/euphorie/content/help.py:85
+#. Default: This text should describe how the report can either be saved or
+#. printed.
+#: src/euphorie/content/help.py:76
 msgid "help_reports"
 msgstr ""
 
-#. Default: Final words
-#: src/euphorie/content/help.py:92
+#. Default: What happens next?
+#: src/euphorie/content/help.py:82
 #: src/euphorie/content/templates/help_view.pt:39
 msgid "label_help_finalwords"
 msgstr ""
 
-#. Default: Any final words that should be shown at the end of the help. This
-#. information is not linked directly.
-#: src/euphorie/content/help.py:93
+#. Default: General final recommendations.
+#: src/euphorie/content/help.py:83
 msgid "help_finalwords"
 msgstr ""
 
@@ -3479,7 +3521,8 @@ msgstr ""
 msgid "label_module_description"
 msgstr ""
 
-#. Default: Include any relevant information that may be helpful for users.
+#. Default: Include any relevant information that may be helpful for the
+#. end-user.
 #: src/euphorie/content/module.py:50 src/euphorie/content/page.py:20
 #: src/euphorie/content/solution.py:30
 msgid "help_module_description"
@@ -3490,7 +3533,7 @@ msgstr ""
 msgid "label_module_optional"
 msgstr ""
 
-#. Default: Allow users to skip this module and everything inside it.
+#. Default: Allows the end-user to skip this module and everything inside it.
 #: src/euphorie/content/module.py:60
 msgid "help_module_optional"
 msgstr ""
@@ -3500,14 +3543,15 @@ msgstr ""
 msgid "label_module_question"
 msgstr ""
 
-#. Default: The question to ask users if this module is optional. This has to
-#. be a yes/no question.
+#. Default: The question to ask the end-user if this module is optional. It
+#. must be formulated so that it is answerable with YES (the end-user will have
+#. to tick a box) or NO
 #: src/euphorie/content/module.py:69
 msgid "help_module_question"
 msgstr ""
 
 #. Default: Image file
-#: src/euphorie/content/module.py:75 src/euphorie/content/risk.py:180
+#: src/euphorie/content/module.py:76 src/euphorie/content/risk.py:180
 #: src/euphorie/content/risk.py:196 src/euphorie/content/risk.py:207
 #: src/euphorie/content/risk.py:218
 msgid "label_image"
@@ -3515,43 +3559,43 @@ msgstr ""
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and does not contain any special characters.
-#: src/euphorie/content/module.py:76 src/euphorie/content/risk.py:181
+#: src/euphorie/content/module.py:77 src/euphorie/content/risk.py:181
 #: src/euphorie/content/risk.py:197 src/euphorie/content/risk.py:208
 #: src/euphorie/content/risk.py:219 src/euphorie/content/sector.py:79
 msgid "help_image_upload"
 msgstr ""
 
 #. Default: Image caption
-#: src/euphorie/content/module.py:82 src/euphorie/content/risk.py:187
+#: src/euphorie/content/module.py:83 src/euphorie/content/risk.py:187
 #: src/euphorie/content/risk.py:203 src/euphorie/content/risk.py:214
 #: src/euphorie/content/risk.py:225
 msgid "label_caption"
 msgstr ""
 
-#. Default: Introduction action plan
-#: src/euphorie/content/module.py:86
+#. Default: Solution
+#: src/euphorie/content/module.py:87
 msgid "label_solution_direction"
 msgstr ""
 
-#. Default: This information will be shown to users when they enter this module
-#. while working on the action plan.
-#: src/euphorie/content/module.py:88
+#. Default: This information will appear in the Action plan step and should
+#. include an overview of general solution(s) related to this module.
+#: src/euphorie/content/module.py:89
 msgid "help_solution_direction"
 msgstr ""
 
 #. Default: Additional content
-#: src/euphorie/content/module.py:97 src/euphorie/content/risk.py:230
+#: src/euphorie/content/module.py:98 src/euphorie/content/risk.py:230
 msgid "header_additional_content"
 msgstr ""
 
 #. Default: Attach any additional content you consider helpful for the user
-#: src/euphorie/content/module.py:98 src/euphorie/content/risk.py:231
+#: src/euphorie/content/module.py:99 src/euphorie/content/risk.py:231
 msgid "intro_additional_content"
 msgstr ""
 
 #. Default: Content file
-#: src/euphorie/content/module.py:107 src/euphorie/content/module.py:119
-#: src/euphorie/content/module.py:131 src/euphorie/content/module.py:143
+#: src/euphorie/content/module.py:108 src/euphorie/content/module.py:120
+#: src/euphorie/content/module.py:132 src/euphorie/content/module.py:144
 #: src/euphorie/content/risk.py:240 src/euphorie/content/risk.py:252
 #: src/euphorie/content/risk.py:264 src/euphorie/content/risk.py:276
 msgid "label_file"
@@ -3560,27 +3604,29 @@ msgstr ""
 #. Default: Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file.
-#: src/euphorie/content/module.py:108 src/euphorie/content/module.py:120
-#: src/euphorie/content/module.py:132 src/euphorie/content/module.py:144
+#: src/euphorie/content/module.py:109 src/euphorie/content/module.py:121
+#: src/euphorie/content/module.py:133 src/euphorie/content/module.py:145
 #: src/euphorie/content/risk.py:241 src/euphorie/content/risk.py:253
 #: src/euphorie/content/risk.py:265 src/euphorie/content/risk.py:277
 msgid "help_content_upload"
 msgstr ""
 
 #. Default: Content caption
-#: src/euphorie/content/module.py:115 src/euphorie/content/module.py:127
-#: src/euphorie/content/module.py:139 src/euphorie/content/module.py:151
+#: src/euphorie/content/module.py:116 src/euphorie/content/module.py:128
+#: src/euphorie/content/module.py:140 src/euphorie/content/module.py:152
 #: src/euphorie/content/risk.py:248 src/euphorie/content/risk.py:260
 #: src/euphorie/content/risk.py:272 src/euphorie/content/risk.py:284
 msgid "label_file_caption"
 msgstr ""
 
-#: src/euphorie/content/module.py:240
-msgid "Edit Module"
+#: src/euphorie/content/module.py:227 src/euphorie/content/module.py:248
+#: src/euphorie/content/module.py:267
+#: src/euphorie/deployment/tiles/addbar.py:19
+msgid "Submodule"
 msgstr ""
 
-#: src/euphorie/content/module.py:242
-msgid "Edit Submodule"
+#: src/euphorie/content/module.py:253
+msgid "Edit ${name}"
 msgstr ""
 
 #. Default: Page content
@@ -3598,113 +3644,117 @@ msgid "password_policy_conditions"
 msgstr ""
 
 #. Default: Question
-#: src/euphorie/content/profilequestion.py:46
+#: src/euphorie/content/profilequestion.py:47
 #: src/euphorie/content/templates/profilequestion_view.pt:23
 msgid "label_profilequestion_question"
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:47
+#: src/euphorie/content/profilequestion.py:48
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:53
+#: src/euphorie/content/profilequestion.py:54
 msgid "Multiple item question"
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:55
+#: src/euphorie/content/profilequestion.py:56
 msgid ""
 "This question must ask the user if the service is offered in more than one "
 "location."
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:61
+#: src/euphorie/content/profilequestion.py:62
 #: src/euphorie/content/templates/profilequestion_view.pt:30
 msgid "Single occurance prompt"
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:62
+#: src/euphorie/content/profilequestion.py:63
 msgid "This must ask the user for the name of the relevant location."
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:68
+#: src/euphorie/content/profilequestion.py:69
 #: src/euphorie/content/templates/profilequestion_view.pt:34
 msgid "Multiple occurance prompt"
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:69
+#: src/euphorie/content/profilequestion.py:70
 msgid "This must ask the user for the names of all relevant locations."
 msgstr ""
 
-#: src/euphorie/content/profilequestion.py:150
+#: src/euphorie/content/profilequestion.py:151
 #: src/euphorie/deployment/tiles/templates/addbar.pt:17
 msgid "Add Profile question"
 msgstr ""
 
-#. Default: Statement
+#: src/euphorie/content/profilequestion.py:166
+msgid "Edit Profile question"
+msgstr ""
+
+#. Default: Affirmative statement
 #: src/euphorie/content/risk.py:60
 msgid "label_statement"
 msgstr ""
 
-#. Default: This is a short statement about a possible risk.
+#. Default: This is a short affirmative statement about a possible risk (e.g.
+#. The building is well maintained.)
 #: src/euphorie/content/risk.py:61
 msgid "help_statement"
 msgstr ""
 
-#. Default: Inversed statement
-#: src/euphorie/content/risk.py:68
+#. Default: Negative statement
+#: src/euphorie/content/risk.py:69
 #: src/euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr ""
 
-#. Default: This is the inverse of the statement: a short description of
-#. current (bad) situation.
-#: src/euphorie/content/risk.py:70
+#. Default: This is the inverse of the affirmative statement (e.g. The building
+#. is not well maintained.)
+#: src/euphorie/content/risk.py:71
 msgid "help_problem_description"
 msgstr ""
 
 #. Default: Describe the risk. Include any relevant information that may be
-#. helpful for users.
-#: src/euphorie/content/risk.py:79
+#. helpful for the end-user.
+#: src/euphorie/content/risk.py:80
 msgid "help_risk_description"
 msgstr ""
 
 #. Default: Legal and policy references
-#: src/euphorie/content/risk.py:87
+#: src/euphorie/content/risk.py:88
 #: src/euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr ""
 
 #. Default: Identification
-#: src/euphorie/content/risk.py:94
+#: src/euphorie/content/risk.py:95
 msgid "header_identification"
 msgstr ""
 
 #. Default: Show `not applicable' option
-#: src/euphorie/content/risk.py:98
+#: src/euphorie/content/risk.py:99
 msgid "label_show_notapplicable"
 msgstr ""
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
-#: src/euphorie/content/risk.py:100
+#: src/euphorie/content/risk.py:101
 msgid "help_show_notapplicable"
 msgstr ""
 
 #. Default: Risk type
-#: src/euphorie/content/risk.py:106
+#: src/euphorie/content/risk.py:107
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr ""
 
-#. Default: 'Risk' is related to the workplace. 'Policy' is related to
-#. agreements, procedures and management decisions. It can be answered from
-#. behind a desk (no need to examine the workplace). 'Top 5' is one of the top
-#. five risks of the sector.
-#: src/euphorie/content/risk.py:107
+#. Default: "Priority risk" is one of the high risks in the sector. "Risk" is
+#. related to the workplace or to the work carried out. "Policy" refers to
+#. agreements, procedures, and management decisions.
+#: src/euphorie/content/risk.py:108
 msgid "help_risk_type"
 msgstr ""
 
-#. Default: Top 5
+#. Default: Priority risk
 #: src/euphorie/content/risk.py:115
 msgid "risktype_top5"
 msgstr ""
@@ -3751,8 +3801,8 @@ msgstr ""
 msgid "label_default_priority"
 msgstr ""
 
-#. Default: You can help the user by selecting a default priority. The user can
-#. still change the priority.
+#. Default: You can help the end-user by selecting a default priority. He/she
+#. can still change the priority.
 #: src/euphorie/content/risk.py:158
 msgid "help_default_priority"
 msgstr ""
@@ -3858,42 +3908,45 @@ msgstr ""
 msgid "label_support_colour"
 msgstr ""
 
-#. Default: You can not delete a sector that contains published surveys.
+#. Default: You can not delete a sector that contains published OiRA Tools.
 #: src/euphorie/content/sector.py:261
 msgid "message_not_delete_published_sector"
 msgstr ""
 
-#. Default: Describe the action that can be taken to remove this risk. This
-#. information will be copied to the measure.
+#. Default: Describe your general approach to eliminate or (if the risk is not
+#. avoidable) reduce the risk.
 #: src/euphorie/content/solution.py:39
 msgid "help_measure_action_plan"
 msgstr ""
 
-#. Default: Describe what can be done to prevent this risk from (re)occuring.
-#. This information will be copied to the measure.
-#: src/euphorie/content/solution.py:49
+#. Default: Describe the specific action(s) required to implement this approach
+#. (to eliminate or to reduce the risk).
+#: src/euphorie/content/solution.py:48
 msgid "help_measure_prevention_plan"
 msgstr ""
 
-#. Default: Describe the standard requirements for the action plan and
-#. prevention plan. This information will be copied to the measure.
-#: src/euphorie/content/solution.py:58
+#. Default: Describe the level of expertise needed to implement the measure,
+#. for instance "common sense (no OSH knowledge required)", "no specific OSH
+#. expertise, but minimum OSH knowledge or training and/or consultation of OSH
+#. guidance required", or "OSH expert". You can also describe here any other
+#. additional requirement (if any).
+#: src/euphorie/content/solution.py:56
 msgid "help_measure_requirements"
 msgstr ""
 
-#. Default: Common solution
-#: src/euphorie/content/solution.py:67
+#. Default: Measure
+#: src/euphorie/content/solution.py:68
 msgid "title_common_solution"
 msgstr ""
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:188
+#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:186
 msgid "label_survey_title"
 msgstr ""
 
-#. Default: This is the title of this survey version. This name is never shown
-#. to users.
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:189
+#. Default: This is the title of this OiRA Tool version. This name is never
+#. shown to users.
+#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:187
 msgid "help_survey_title"
 msgstr ""
 
@@ -3903,73 +3956,74 @@ msgstr ""
 msgid "label_introduction"
 msgstr ""
 
-#. Default: The introduction text is shown when starting a new survey session.
-#. If no introduction is provided here a standard text will be shown.Please
-#. keep this text brief so it will easily fit on screens of small devices such
-#. as phones and PDAs
 #: src/euphorie/content/survey.py:65
-msgid "help_introduction"
+msgid ""
+"The introduction text is shown when starting a new OiRA Tool session. If no "
+"introduction is provided here a standard text will be shown. Please keep "
+"this text brief so it will easily fit on screens of small devices such as "
+"phones and PDAs."
 msgstr ""
 
 #. Default: Evaluation may be skipped
-#: src/euphorie/content/survey.py:76
+#: src/euphorie/content/survey.py:74
 msgid "label_evaluation_optional"
 msgstr ""
 
 #. Default: This option allows users to skip the evaluation phase.
-#: src/euphorie/content/survey.py:78
+#: src/euphorie/content/survey.py:76
 msgid "help_evaluation_optional"
 msgstr ""
 
 #. Default: Language
-#: src/euphorie/content/survey.py:85
+#: src/euphorie/content/survey.py:83
 #: src/euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr ""
 
 #. Default: Classification code
-#: src/euphorie/content/survey.py:91
+#: src/euphorie/content/survey.py:89
 #: src/euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr ""
 
 #. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
-#: src/euphorie/content/survey.py:93
+#: src/euphorie/content/survey.py:91
 msgid "help_classification_code"
 msgstr ""
 
 #. Default: Title
-#: src/euphorie/content/survey.py:197 src/euphorie/content/surveygroup.py:49
+#: src/euphorie/content/survey.py:195 src/euphorie/content/surveygroup.py:49
 msgid "label_title"
 msgstr ""
 
-#. Default: The title of this survey. This title is used in the survey overview
-#. in the clients.
-#: src/euphorie/content/survey.py:198 src/euphorie/content/surveygroup.py:50
+#. Default: The title of this OiRA Tool. This title is used in the OiRA Tool
+#. overview in the clients.
+#: src/euphorie/content/survey.py:196 src/euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
 
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:59
+#: src/euphorie/content/survey.py:203 src/euphorie/content/surveygroup.py:59
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
-#. Default: This survey is obsolete; it has been retired or replaced with
-#. another survey.
-#: src/euphorie/content/survey.py:207 src/euphorie/content/surveygroup.py:61
+#. Default: This OiRA Tool is obsolete; it has been retired or replaced with
+#. another OiRA Tool.
+#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another survey."
 
-#. Default: You cannot delete a survey that is published. Please unpublish it
-#. first.
-#: src/euphorie/content/survey.py:291
+#. Default: You cannot delete an OiRA Tool version that is published. Please
+#. unpublish it first.
+#: src/euphorie/content/survey.py:289
 msgid "message_no_delete_published_survey"
 msgstr ""
 
-#. Default: You can not delete the only survey version.
-#: src/euphorie/content/survey.py:306
+#. Default: This is the only version of the OiRA Tool and can therefore not be
+#. deleted. Did you perhaps want to remove the OiRA Tool itself?
+#: src/euphorie/content/survey.py:304
 msgid "message_delete_no_last_survey"
 msgstr ""
 
@@ -3994,7 +4048,7 @@ msgstr ""
 msgid "survey_default_title"
 msgstr ""
 
-#. Default: This survey is now no longer available in the client.
+#. Default: This OiRA Tool is now no longer available in the client.
 #: src/euphorie/content/surveygroup.py:281
 msgid "message_unpublish_success"
 msgstr ""
@@ -4019,7 +4073,7 @@ msgstr ""
 msgid "label_login_name"
 msgstr ""
 
-#. Default: Title of imported survey.
+#. Default: Title of imported OiRA Tool
 #: src/euphorie/content/upload.py:96 src/euphorie/content/upload.py:118
 msgid "label_surveygroup_title"
 msgstr ""
@@ -4029,7 +4083,7 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr ""
 
-#. Default: Name for survey version
+#. Default: Name for OiRA Tool version
 #: src/euphorie/content/upload.py:104 src/euphorie/content/upload.py:126
 msgid "label_upload_survey_title"
 msgstr ""
@@ -4044,11 +4098,11 @@ msgid "label_upload_filename"
 msgstr ""
 
 #: src/euphorie/content/upload.py:128
-msgid "Survey import"
+msgid "OiRA Tool import"
 msgstr ""
 
 #: src/euphorie/content/upload.py:390
-msgid "Import survey version"
+msgid "Import OiRA Tool version"
 msgstr ""
 
 #: src/euphorie/content/upload.py:394
@@ -4060,12 +4114,12 @@ msgstr ""
 msgid "error_invalid_xml"
 msgstr ""
 
-#. Default: Succesfully imported the survey
+#. Default: Succesfully imported the OiRA Tool
 #: src/euphorie/content/upload.py:409 src/euphorie/content/upload.py:451
 msgid "upload_success"
 msgstr ""
 
-#. Default: Import sector and survey
+#. Default: Import sector and OiRA Tool
 #: src/euphorie/content/upload.py:428
 msgid "title_import_sector_survey"
 msgstr ""
@@ -4236,16 +4290,12 @@ msgstr ""
 msgid "A folder which can contain sectors."
 msgstr ""
 
-#: src/euphorie/content/profiles/default/types/euphorie.solution.xml:7
-msgid "Solution"
-msgstr ""
-
 #: src/euphorie/content/profiles/default/types/euphorie.solution.xml:8
-msgid "A solution."
+msgid "A standard measure for a risk."
 msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:7
-msgid "Survey version"
+msgid "OiRA Tool version"
 msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.survey.xml:8
@@ -4253,7 +4303,7 @@ msgid "A version of a survey."
 msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
-msgid "Survey"
+msgid "OiRA Tool"
 msgstr ""
 
 #: src/euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
@@ -4283,7 +4333,8 @@ msgstr ""
 msgid "titld_tool"
 msgstr ""
 
-#. Default: Select a sector for which you would like to view or copy a survey.
+#. Default: Select a sector for which you would like to view or copy an OiRA
+#. Tool.
 #: src/euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
 msgstr ""
@@ -4379,23 +4430,23 @@ msgstr ""
 msgid "header_information"
 msgstr ""
 
-#. Default: This module is mandatory.
+#. Default: This ${number} is mandatory.
 #: src/euphorie/content/templates/module_view.pt:23
 msgid "module_mandatory"
 msgstr ""
 
-#. Default: This module is optional.
-#: src/euphorie/content/templates/module_view.pt:24
+#. Default: This ${number} is optional.
+#: src/euphorie/content/templates/module_view.pt:27
 msgid "module_optional"
 msgstr ""
 
 #. Default: Submodules
-#: src/euphorie/content/templates/module_view.pt:27
+#: src/euphorie/content/templates/module_view.pt:32
 msgid "header_submodules"
 msgstr ""
 
 #. Default: Risks
-#: src/euphorie/content/templates/module_view.pt:34
+#: src/euphorie/content/templates/module_view.pt:39
 #: src/euphorie/content/templates/profilequestion_add.pt:39
 #: src/euphorie/content/templates/profilequestion_view.pt:47
 msgid "header_risks"
@@ -4516,33 +4567,33 @@ msgstr ""
 msgid "no"
 msgstr ""
 
-#. Default: Default effect
+#. Default: Default severity
 #: src/euphorie/content/templates/risk_view.pt:68
 msgid "label_default_effect"
 msgstr ""
 
-#. Default: Standard solutions
+#. Default: Standard measures
 #: src/euphorie/content/templates/risk_view.pt:80
 msgid "header_solutions"
 msgstr ""
 
-#. Default: Solution ${number}
+#. Default: Measure ${number}
 #: src/euphorie/content/templates/risk_view.pt:83
 msgid "risk_solution_header"
 msgstr ""
 
-#. Default: Surveys
+#. Default: OiRA Tools
 #: src/euphorie/content/templates/sector_view.pt:14
 msgid "header_sector_survey_list"
 msgstr ""
 
-#. Default: add a new survey
+#. Default: add a new OiRA Tool
 #: src/euphorie/content/templates/sector_view.pt:18
 #: src/euphorie/content/templates/sector_view.pt:33
 msgid "add_survey"
 msgstr ""
 
-#. Default: There are no surveys present. You can ${add_link}.
+#. Default: There are no OiRA Tools present. You can ${add_link}.
 #: src/euphorie/content/templates/sector_view.pt:16
 msgid "no_surveys_present"
 msgstr ""
@@ -4557,8 +4608,8 @@ msgstr ""
 msgid "title_sectors"
 msgstr ""
 
-#. Default: Please choose a country of which you would like to view or copy a
-#. survey.
+#. Default: Please choose a country of which you would like to view or copy an
+#. OiRA Tool.
 #: src/euphorie/content/templates/sectorcontainer_view.pt:15
 msgid "message_choose_country"
 msgstr ""
@@ -4678,7 +4729,7 @@ msgstr ""
 msgid "Standard solution"
 msgstr ""
 
-#. Default: The form will allow you to create a new survey revision.
+#. Default: The form will allow you to create a new OiRA Tool revision.
 #: src/euphorie/content/templates/survey_add.pt:11
 msgid "intro_add_survey"
 msgstr ""
@@ -4725,7 +4776,7 @@ msgstr ""
 msgid "no_profile_questions_or_modules"
 msgstr ""
 
-#. Default: The form will allow you to create a new survey.
+#. Default: This form will allow you to create a new OiRA Tool.
 #: src/euphorie/content/templates/surveygroup_add.pt:11
 msgid "intro_add_surveygroup"
 msgstr ""
@@ -4735,28 +4786,29 @@ msgstr ""
 msgid "label_survey_source"
 msgstr ""
 
-#. Default: Create a new survey from scratch
+#. Default: Create a new OiRA Tool from scratch
 #: src/euphorie/content/templates/surveygroup_add.pt:19
 msgid "survey_source_scratch"
 msgstr ""
 
-#. Default: Base my new survey on an existing survey of my organisation
+#. Default: Base my new OiRA Tool on an existing OiRA Tool of my organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr ""
 
-#. Default: Base my new survey on an existing survey of another organisation
+#. Default: Base my new OiRA Tool on an existing OiRA Tool of another
+#. organisation
 #: src/euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr ""
 
-#. Default: Choose a survey
+#. Default: Choose an OiRA Tool
 #: src/euphorie/content/templates/surveygroup_add.pt:28
 #: src/euphorie/content/templates/surveygroup_add.pt:54
 msgid "label_choose_surveygroup"
 msgstr ""
 
-#. Default: Choose a revision of the selected survey
+#. Default: Choose a revision of the selected OiRA Tool
 #: src/euphorie/content/templates/surveygroup_add.pt:37
 #: src/euphorie/content/templates/surveygroup_add.pt:73
 msgid "label_choose_survey"
@@ -4786,7 +4838,7 @@ msgstr ""
 msgid "title_unpublish"
 msgstr ""
 
-#. Default: Are you sure you want to unpublish this survey?
+#. Default: Are you sure you want to unpublish this OiRA Tool?
 #: src/euphorie/content/templates/unpublish.pt:19
 msgid "unpublish_confirm"
 msgstr ""
@@ -4866,7 +4918,7 @@ msgstr ""
 msgid "menu_export"
 msgstr ""
 
-#. Default: Import survey
+#. Default: Import OiRA Tool
 #: src/euphorie/deployment/browser/sitemenu.py:42
 msgid "menu_import"
 msgstr ""
@@ -4901,11 +4953,7 @@ msgstr ""
 msgid "search_result_relevance"
 msgstr ""
 
-#: src/euphorie/deployment/tiles/addbar.py:19
-msgid "Submodule"
-msgstr ""
-
-#. Default: Surveys
+#. Default: OiRA Tools
 #: src/euphorie/deployment/tiles/tabs.py:43
 msgid "nav_surveys"
 msgstr ""
@@ -4944,7 +4992,7 @@ msgid "Add Risk"
 msgstr ""
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:21
-msgid "Add Solution"
+msgid "Add Measure"
 msgstr ""
 
 #. Default: Add ${typename}
@@ -4983,7 +5031,7 @@ msgstr ""
 msgid "portlet_header_versions"
 msgstr ""
 
-#. Default: Create a duplicate of the selected survey
+#. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
 msgid "help_add_version"
 msgstr ""
@@ -4993,12 +5041,12 @@ msgstr ""
 msgid "button_add_version"
 msgstr ""
 
-#. Default: Publish the selected survey live with its latest changes.
+#. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
 msgid "help_publish"
 msgstr ""
 
-#. Default: Remove this survey from the online client.
+#. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
 msgid "title_help_unpublished"
 msgstr ""
@@ -5025,13 +5073,13 @@ msgstr ""
 msgid "button_updated"
 msgstr ""
 
-#. Default: Start to write a new survey. You will be asked whether you want to
-#. start off with a copy of an existing survey.
+#. Default: Start to write a new OiRA Tool. You will be asked whether you want
+#. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
 msgid "help_create_new_version"
 msgstr ""
 
-#. Default: Create new survey
+#. Default: Create new OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
 msgid "button_create_new"
 msgstr ""
