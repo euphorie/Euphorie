@@ -4102,7 +4102,7 @@ msgstr "Aufforderung bei einem Standort"
 #: src/euphorie/content/profilequestion.py:63
 msgid "This must ask the user for the name of the relevant location."
 msgstr ""
-"Hiermit muss der Nutzer aufgefordert werden, den Namen des betreffenden "
+"Hiermit muss der Endnutzer aufgefordert werden, den Namen des betreffenden "
 "Standorts einzugeben."
 
 #: src/euphorie/content/profilequestion.py:69
@@ -4113,7 +4113,7 @@ msgstr "Aufforderung bei mehreren Standorten"
 #: src/euphorie/content/profilequestion.py:70
 msgid "This must ask the user for the names of all relevant locations."
 msgstr ""
-"Hiermit muss der Nutzer aufgefordert werden, die Namen aller betreffenden "
+"Hiermit muss der Endnutzer aufgefordert werden, die Namen aller betreffenden "
 "Standorte einzugeben."
 
 #: src/euphorie/content/profilequestion.py:151
@@ -4123,7 +4123,7 @@ msgstr "Profilfrage hinzufügen"
 
 #: src/euphorie/content/profilequestion.py:166
 msgid "Edit Profile question"
-msgstr ""
+msgstr "Profilfrage bearbeiten"
 
 #. Default: Affirmative statement
 #: src/euphorie/content/risk.py:60
