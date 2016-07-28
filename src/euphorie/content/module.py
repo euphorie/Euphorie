@@ -8,34 +8,34 @@ which case all risks in it can be skipped. A module can contain other modules.
 portal_type: euphorie.module
 """
 
-import sys
-from Acquisition import aq_chain
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from zope.interface import implements
-from zope.interface import Interface
-from zope.component import getMultiAdapter
-from zope import schema
-from five import grok
-from plone.directives import form
-from plone.directives import dexterity
-from plonetheme.nuplone.z3cform.directives import depends
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from htmllaundry.z3cform import HtmlText
+from .. import MessageFactory as _
+from .behaviour.richdescription import IRichDescription
+from .behaviour.uniqueid import get_next_id
+from .behaviour.uniqueid import INameFromUniqueId
+from .fti import check_fti_paste_allowed
 from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
-from .fti import check_fti_paste_allowed
-from .behaviour.uniqueid import INameFromUniqueId
-from .behaviour.uniqueid import get_next_id
-from .behaviour.richdescription import IRichDescription
 from .interfaces import IQuestionContainer
-from .. import MessageFactory as _
 from .risk import IRisk
 from .utils import StripMarkup
+from Acquisition import aq_chain
+from five import grok
+from htmllaundry.z3cform import HtmlText
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.dexterity.interfaces import IDexterityFTI
+from plone.directives import dexterity
+from plone.directives import form
+from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plone.indexer import indexer
+from plonetheme.nuplone.z3cform.directives import depends
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.interface import implements
+from zope.interface import Interface
+import sys
 
 grok.templatedir("templates")
 
@@ -221,6 +221,15 @@ class View(grok.View):
         self.risks = [self._morph(child) for child in self.context.values()
                       if IRisk.providedBy(child)]
 
+    @property
+    def portal_type(self):
+        if self.context.aq_parent.portal_type == 'euphorie.module':
+            return _('Submodule')
+        else:
+            portal_type = self.context.portal_type
+            fti = getUtility(IDexterityFTI, name=portal_type)
+            return fti.Title()
+
 
 class Edit(form.SchemaEditForm):
     """Override for the standard edit form so we can change the form title
@@ -235,16 +244,32 @@ class Edit(form.SchemaEditForm):
 
     @property
     def label(self):
-        from euphorie.content.survey import ISurvey
-        container = aq_parent(aq_inner(self.context))
-        if ISurvey.providedBy(container):
-            return _(u"Edit Module")
+        if self.context.aq_parent.portal_type == 'euphorie.module':
+            type_name = _('Submodule')
         else:
-            return _(u"Edit Submodule")
+            portal_type = self.context.portal_type
+            fti = getUtility(IDexterityFTI, name=portal_type)
+            type_name = fti.Title()
+        return _(u"Edit ${name}", mapping={'name': type_name})
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+
+
+class Add(dexterity.AddForm):
+    grok.name('euphorie.module')
+    grok.context(IModule)
+
+    @property
+    def label(self):
+        if self.context.portal_type == 'euphorie.module':
+            type_name = _('Submodule')
+        else:
+            portal_type = self.portal_type
+            fti = getUtility(IDexterityFTI, name=portal_type)
+            type_name = fti.Title()
+        return _(u"Add %s" % type_name)
 
 
 def tree_depth(obj):

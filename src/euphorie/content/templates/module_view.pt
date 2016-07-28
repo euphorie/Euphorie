@@ -20,8 +20,13 @@
       </div>
 
       <h2 i18n:translate="header_information">Information</h2>
-      <p tal:condition="not:context/optional" i18n:translate="module_mandatory">This module is mandatory.</p>
-      <p tal:condition="context/optional" i18n:translate="module_optional">This module is optional.</p>
+      <p tal:condition="not:context/optional" i18n:translate="module_mandatory">
+      This <tal:span i18n:name="number">${view/portal_type}</tal:span> is mandatory.
+      </p>
+
+      <p tal:condition="context/optional" i18n:translate="module_optional">
+      This <tal:span i18n:name="number">${view/portal_type}</tal:span> is optional.
+      </p>
 
       <tal:block condition="python:view.modules">
         <h2 i18n:translate="header_submodules">Submodules</h2>
