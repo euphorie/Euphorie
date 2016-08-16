@@ -1,7 +1,7 @@
 Changelog
 =========
 
-7.0.10 (unreleased)
+7.0.10 (2016-08-16)
 -------------------
 
 This release also updates the used Plone version to 4.3.10. You are advised to
