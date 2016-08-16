@@ -4,7 +4,14 @@ Changelog
 7.0.10 (unreleased)
 -------------------
 
+This release also updates the used Plone version to 4.3.10. You are advised to
+perform the Plone migrations through the Zope Management Interface (ZMI).
+
 - Enhance survey export so that unwanted characters can be stripped
+- Not only when creating a preview, but also when publishing: provide URL of
+  tool in client as feedback
+
+
 
 7.0.9 (2016-05-31)
 ------------------
