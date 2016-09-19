@@ -35,7 +35,7 @@
               <tal:group repeat="group sector/groups">
                 <fieldset class="comprehensive radioList dependsOn-source-equals-local dependsOn-surveygroup.local-equals-${group/id}" tal:define="value python:request.form.get('survey.local', group['surveys'][0]['id'])">
                   <legend i18n:translate="label_choose_survey">Choose a revision of the selected OiRA Tool</legend>
-                  <label tal:repeat="survey group/surveys"><input type="radio" name="survey.local" value="${survey/id}" checked="${python:'checked' if survey['id']==value else None}"/>${survey/title} <a href="${survey/url}" class="floatAfter">View</a></label>
+                  <label tal:repeat="survey group/surveys"><input type="radio" name="survey.local.${group/id}" value="${survey/id}" checked="${python:'checked' if repeat.survey.start else None}"/>${survey/title} <a href="${survey/url}" class="floatAfter">View</a></label>
                 </fieldset>
               </tal:group>
             </tal:mysector>
@@ -71,7 +71,7 @@
             <fieldset class="comprehensive radioList dependsOn-source-equals-other dependsOn-country-equals-${country/id} dependsOn-sector.${country/id}-equals-${sector/id}.${group/id}"
               tal:define="name string:survey.${country/id}.${group/id}; value python:request.form.get(name, group['surveys'][0]['id'])">
               <legend i18n:translate="label_choose_survey">Choose a revision of the selected OiRA Tool</legend>
-              <label tal:repeat="survey group/surveys"><input type="radio" name="${name}" value="${survey/id}" checked="${python:'checked' if survey['id']==value else None}"/>${survey/title} <a href="${survey/url}" class="floatAfter">View</a></label>
+              <label tal:repeat="survey group/surveys"><input type="radio" name="${name}" value="${survey/id}" checked="${python:'checked' if repeat.survey.start else None}"/>${survey/title} <a href="${survey/url}" class="floatAfter">View</a></label>
             </fieldset>
           </tal:group>
         </tal:sector>

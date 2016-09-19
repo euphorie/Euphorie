@@ -236,8 +236,9 @@ class AddForm(dexterity.AddForm):
                 survey_id = form["survey.%s.%s" % (country_id, surveygroup.id)]
                 survey = surveygroup[survey_id]
             else:
-                surveygroup = sector[form["surveygroup.local"]]
-                survey = surveygroup[form["survey.local"]]
+                sg_local = form["surveygroup.local"]
+                surveygroup = sector[sg_local]
+                survey = surveygroup[form["survey.local.%s" % sg_local]]
 
             survey = self.copyTemplate(survey, obj)
             self.immediate_view = survey.absolute_url()
