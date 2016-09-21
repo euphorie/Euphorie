@@ -18,21 +18,24 @@
       data-pat-scroll="selector: #content; trigger: auto; offset: 0">
 
     <!-- Identification -->
-    <fieldset class="vertical" id="${view/risk_number}">
+    <fieldset class="vertical" id="${view/risk_number}" tal:define="always_present risk/risk_always_present">
     <fieldset class="pat-checklist radio">
         <legend tal:content="risk/title">The temperature of all fridges is checked daily</legend>
+        <tal:answers condition="not:always_present">
         <input type="hidden" name="answer:default" value="postponed"/>
         <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
         <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
         <label tal:condition="risk/show_notapplicable" class="not-applicable"><input type="radio" name="answer" value="n/a" checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
+        </tal:answers>
+        <tal:always_present condition="always_present"><input type="hidden" name="answer" value="no" /></tal:always_present>
     </fieldset>
     </fieldset>
 
     <!-- Evaluation -->
   <fieldset class="pat-well notice pat-depends vertical evaluation" id="evaluation" tal:define="evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method"
               data-pat-depends="condition: answer=no; transition: slide">
-    <tal:block condition="python:evaluation_method=='calculated'">
     <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
+    <tal:block condition="python:evaluation_method=='calculated'">
   <p class="instruction" i18n:translate="help_calculated_evaluation">Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>
     <tal:get define="algorithm python:view.evaluation_algorithm(risk)">
     <tal:kinney condition="python:algorithm!='french'">
@@ -128,7 +131,6 @@
 
     <tal:block condition="python:evaluation_method=='direct'">
     <fieldset class="pat-checklist radio" tal:define="value context/priority">
-        <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
         <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
         <label><input type="radio" name="priority" value="low" checked="${python:'checked' if value=='low' else None}"/>
         <tal:span i18n:translate="priority_low">Low</tal:span></label>
