@@ -84,6 +84,8 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_childr
         child.has_description = HasText(node.description)
         if node.type in ['top5', 'policy']:
             child.priority = 'high'
+        if node.risk_always_present:
+            child.identification = u"no"
     else:
         return None  # Should never happen
 
