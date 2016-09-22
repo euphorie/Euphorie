@@ -397,6 +397,11 @@ class SurveySession(BaseObject):
 #        new_risks.update({'identification': identification},
 #                synchronize_session=False)
 
+        skip_preset_to_no_clause = ""
+        if len(preset_to_no):
+            skip_preset_to_no_clause = "old_risk.risk_id not in %s AND" % (
+                str([str(x) for x in preset_to_no]).replace('[', '(').replace(']', ')')
+            )
         statement = """\
         UPDATE RISK
         SET identification = old_risk.identification,
@@ -407,14 +412,14 @@ class SurveySession(BaseObject):
             comment = old_risk.comment
         FROM risk AS old_risk JOIN tree AS old_tree ON old_tree.id=old_risk.id, tree
         WHERE tree.id=risk.id AND
-              old_risk.risk_id not in %(preset_to_no)s AND
+              %(skip_preset_to_no_clause)s
               tree.session_id=%(new_sessionid)s AND
               old_tree.session_id=%(old_sessionid)s AND
               old_tree.zodb_path=tree.zodb_path AND
               old_tree.profile_index=tree.profile_index;
         """ % dict(
             old_sessionid=other.id, new_sessionid=self.id,
-            preset_to_no=str([str(x) for x in preset_to_no]).replace('[', '(').replace(']', ')'))
+            skip_preset_to_no_clause=skip_preset_to_no_clause)
         session.execute(statement)
 
         statement = """\
