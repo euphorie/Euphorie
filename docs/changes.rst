@@ -4,7 +4,9 @@ Changelog
 8.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added new option for regular risks: "Always present". Those risks will appear
+  as already answered with "No" in the client. The user cannot change this.
+  Syslab #13692
 
 
 8.0.3 (2016-04-06)
