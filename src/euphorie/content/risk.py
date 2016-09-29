@@ -121,6 +121,20 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             default=u"risk",
             required=True)
 
+    depends("risk_always_present", "type", "==", "risk")
+    risk_always_present = schema.Bool(
+        title=_("label_risk_always_present", default=u"Risk is always present"),
+        description=_(
+            "description_risk_always_present",
+            default=u'If selected, the user will not be able to answer "Yes" or '
+            '"No", since the risk is considered to be always present. The '
+            'Evaluation and Action Plan will behave in the same way as for '
+            'regular risks.'
+        ),
+        required=False,
+        default=False,
+    )
+
     depends("evaluation_method", "type", "==", "risk")
     evaluation_method = schema.Choice(
             title=_("label_evaluation_method", default=u"Evaluation method"),
@@ -404,7 +418,7 @@ class IKinneyRisk(IRisk, IKinneyEvaluation):
                 default=u"You can specify how the risks priority is "
                         u"evaluated. For more details see the online "
                         u"manual."),
-            fields=["type", "evaluation_method",
+            fields=["type", "risk_always_present", "evaluation_method",
                     "fixed_priority",
                     "default_priority",
                     "default_probability", "default_frequency",
@@ -418,7 +432,7 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
                 default=u"You can specify how the risks priority is "
                         u"evaluated. For more details see the online "
                         u"manual."),
-            fields=["type", "evaluation_method",
+            fields=["type", "risk_always_present", "evaluation_method",
                     "fixed_priority",
                     "default_priority",
                     "default_severity", "default_frequency"])

@@ -367,14 +367,19 @@ class SurveySession(BaseObject):
         # Mandatory modules must have skip_children=False. It's possible that
         # the module was optional with skip_children=True and now after the
         # update it's mandatory. So we must check and correct.
+        # In case a risk was marked as "always present", be sure its
+        # identification gets set to 'no'
+        preset_to_no = []
         survey = getSite()['client'].restrictedTraverse(self.zodb_path)
         for item in new_items.all():
-            if item.type != 'module':
-                continue
+            if item.type == 'risk':
+                if item.identification == u'no':
+                    preset_to_no.append(item.risk_id)
 
-            module = survey.restrictedTraverse(item.zodb_path.split("/"))
-            if not module.optional:
-                item.skip_children = False
+            elif item.type == 'module':
+                module = survey.restrictedTraverse(item.zodb_path.split("/"))
+                if not module.optional:
+                    item.skip_children = False
 
 # Copy all risk data to the new session
 # This triggers a "Only update via a single table query is currently supported"
@@ -392,6 +397,11 @@ class SurveySession(BaseObject):
 #        new_risks.update({'identification': identification},
 #                synchronize_session=False)
 
+        skip_preset_to_no_clause = ""
+        if len(preset_to_no):
+            skip_preset_to_no_clause = "old_risk.risk_id not in %s AND" % (
+                str([str(x) for x in preset_to_no]).replace('[', '(').replace(']', ')')
+            )
         statement = """\
         UPDATE RISK
         SET identification = old_risk.identification,
@@ -402,11 +412,14 @@ class SurveySession(BaseObject):
             comment = old_risk.comment
         FROM risk AS old_risk JOIN tree AS old_tree ON old_tree.id=old_risk.id, tree
         WHERE tree.id=risk.id AND
+              %(skip_preset_to_no_clause)s
               tree.session_id=%(new_sessionid)s AND
               old_tree.session_id=%(old_sessionid)s AND
               old_tree.zodb_path=tree.zodb_path AND
               old_tree.profile_index=tree.profile_index;
-        """ % {'old_sessionid': other.id, 'new_sessionid': self.id}
+        """ % dict(
+            old_sessionid=other.id, new_sessionid=self.id,
+            skip_preset_to_no_clause=skip_preset_to_no_clause)
         session.execute(statement)
 
         statement = """\

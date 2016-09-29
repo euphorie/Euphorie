@@ -38,6 +38,7 @@ def createRisk(id):
         default_effect = 0
         description = None
         evaluation_method = 'calculated'
+        risk_always_present = None
 
         def __init__(self, id):
             self.id = id

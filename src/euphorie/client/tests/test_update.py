@@ -39,7 +39,7 @@ class GetSurveyTreeTests(TreeTests):
         survey.invokeFactory("euphorie.module", "1")
         self.assertEqual(update.getSurveyTree(survey),
                 [{'optional': False, 'zodb_path': '1', 'type': 'module',
-                  'has_description': False}])
+                  'has_description': False, 'always_present': False}])
 
     def testModuleAndRisk(self):
         survey = self.createClientSurvey()
@@ -47,9 +47,9 @@ class GetSurveyTreeTests(TreeTests):
         survey["1"].invokeFactory("euphorie.risk", "2")
         self.assertEqual(update.getSurveyTree(survey),
                 [{'optional': False, 'zodb_path': "1", 'type': "module",
-                  'has_description': False},
+                  'has_description': False, 'always_present': False},
                  {'optional': False, 'zodb_path': '1/2', 'type': 'risk',
-                  'has_description': False}])
+                  'has_description': False, 'always_present': False}])
 
 
 class GetSessionTreeTests(TreeTests):
