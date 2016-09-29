@@ -1,8 +1,8 @@
 Changelog
 =========
 
-9.0.0rc1 (unreleased)
-------------------
+9.0.0rc1 (2016-09-29)
+---------------------
 
 - Added new option for regular risks: "Always present". Those risks will appear
   as already answered with "No" in the client. The user cannot change this.
