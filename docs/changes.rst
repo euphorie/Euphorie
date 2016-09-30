@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.0rc3 (unreleased)
+9.0.0rc3 (2016-09-30)
 ---------------------
 
 - Nothing changed yet.
