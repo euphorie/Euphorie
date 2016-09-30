@@ -3985,7 +3985,7 @@ msgstr "Política"
 #. Default: Risk is always present
 #: src/euphorie/content/risk.py:126
 msgid "label_risk_always_present"
-msgstr ""
+msgstr "Risc present sempre"
 
 #. Default: If selected, the user will not be able to answer "Yes" or "No",
 #. since the risk is considered to be always present. The Evaluation and Action
