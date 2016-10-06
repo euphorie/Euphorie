@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.0 (unreleased)
+9.0.0 (2016-10-06)
 ------------------
 
 Major re-write of the client's UI
