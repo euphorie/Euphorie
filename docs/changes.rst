@@ -1,28 +1,10 @@
 Changelog
 =========
 
-9.0.0rc5 (unreleased)
----------------------
+9.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
-
-
-9.0.0rc4 (2016-09-30)
----------------------
-
-- Nothing changed yet.
-
-
-9.0.0rc3 (2016-09-30)
----------------------
-
-- Nothing changed yet.
-
-
-9.0.0rc2 (2016-09-29)
----------------------
-
-- Nothing changed yet.
+Major re-write of the client's UI
 
 
 9.0.0rc1 (2016-09-29)
