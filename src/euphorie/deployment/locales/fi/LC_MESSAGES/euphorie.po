@@ -2158,7 +2158,6 @@ msgstr "Riskin kuvaus"
 #: src/euphorie/client/templates/risk_actionplan.pt:211
 #: src/euphorie/client/templates/risk_evaluation.pt:125
 #: src/euphorie/client/templates/risk_identification.pt:160
-#, fuzzy
 msgid "label_comment"
 msgstr ""
 "Tähän voit lisätä tietoja tai kommentteja yllä olevaan liittyen. Ne näkyvät "
@@ -4162,7 +4161,6 @@ msgstr "Laskettu"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Arvioitu"
 
@@ -5478,7 +5476,6 @@ msgstr "Versiot"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Tee kopio valitusta OiRA-työkalusta"
 
@@ -5489,13 +5486,11 @@ msgstr "Kopioi"
 
 #. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
 msgstr "Julkaise valittu OiRA-työkalu yhdessä sen viimeisten muutosten kanssa."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
 msgstr "Poista tämä OiRA-työkalu online-asiakkaasta."
 
@@ -5524,7 +5519,6 @@ msgstr "Päivitetty"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Ala kirjoittaa uutta OiRA-työkalua. Sinulta kysytään, haluatko aloittaa "

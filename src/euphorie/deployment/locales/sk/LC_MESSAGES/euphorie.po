@@ -294,7 +294,6 @@ msgstr "Zadajte názov každého miesta"
 #: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:119
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
-#, fuzzy
 msgid "title_other_risks"
 msgstr "Chyba"
 
@@ -2081,7 +2080,6 @@ msgstr ""
 #: src/euphorie/client/templates/risk_actionplan.pt:211
 #: src/euphorie/client/templates/risk_evaluation.pt:125
 #: src/euphorie/client/templates/risk_identification.pt:160
-#, fuzzy
 msgid "label_comment"
 msgstr ""
 "Uveďte prosím prípadné komentáre k predchádzajúcej otázke v tomto poli. "
@@ -2750,7 +2748,6 @@ msgstr "Vyberte jedno alebo viac z uvedených známych spoločných opatrení."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Uploadovať"
 
@@ -3853,7 +3850,6 @@ msgstr "Obsah strany"
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
 msgstr "Vaše heslo na potvrdenie"
 
@@ -4421,7 +4417,6 @@ msgstr "Konto \"${title}\" bolo zablokované."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:223
-#, fuzzy
 msgid "message_lock_warn"
 msgstr "Konto \"${title}\" bolo zablokované."
 
@@ -5052,7 +5047,6 @@ msgstr "Nenastavené"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Moduly a profilové otázky"
 
@@ -5322,7 +5316,6 @@ msgstr "Verzie"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Vytvoriť duplikát zvoleného nástroja OiRA"
 
@@ -5333,13 +5326,11 @@ msgstr "Zdvojiť"
 
 #. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
 msgstr "Uverejnite zvolený nástroj OiRA naživo s najnovšími zmenami."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
 msgstr "Odstrániť tento nástroj OiRA z online klienta."
 
@@ -5368,7 +5359,6 @@ msgstr "Aktualizované"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Začnite písať nový nástroj OiRA. Dostanete otázku, či chcete začať s kópiou "

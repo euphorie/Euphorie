@@ -2155,7 +2155,6 @@ msgstr "Opis tveganja"
 #: src/euphorie/client/templates/risk_actionplan.pt:211
 #: src/euphorie/client/templates/risk_evaluation.pt:125
 #: src/euphorie/client/templates/risk_identification.pt:160
-#, fuzzy
 msgid "label_comment"
 msgstr ""
 "V to polje vnesite vse morebitne opombe glede zgoraj navedenega, "
@@ -2838,7 +2837,6 @@ msgstr "Izberite enega ali več znanih splošnih ukrepov."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Dodaj"
 
@@ -5183,7 +5181,6 @@ msgstr "Ni nastavljeno"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Moduli in profilna vprašanja"
 

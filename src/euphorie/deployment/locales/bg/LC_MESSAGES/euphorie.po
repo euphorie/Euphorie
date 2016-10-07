@@ -2897,7 +2897,6 @@ msgstr "Изберете една или повече от предлагани�
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Добави"
 
@@ -3873,7 +3872,6 @@ msgstr ""
 #. Default: 4. Action Plan
 #: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
 msgstr "4. План за действие"
 
@@ -4050,7 +4048,6 @@ msgstr "Съдържание на страница"
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
 msgstr "Вашата парола за потвърждение"
 
@@ -4226,7 +4223,6 @@ msgstr "Изчислен"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Преценен"
 
@@ -5277,7 +5273,6 @@ msgstr "Няма настройка"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Модули и профилиращи въпроси"
 

@@ -2886,7 +2886,6 @@ msgstr "Seleccioni una o més de les mesures comunes facilitades."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Afegir"
 
@@ -4212,7 +4211,6 @@ msgstr "Calculat"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Aproximat"
 
@@ -5261,7 +5259,6 @@ msgstr "No definit"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Mòduls i preguntes de perfil"
 
@@ -5531,7 +5528,6 @@ msgstr "Versions"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Crear un duplicat de l'eina OiRA seleccionada"
 
@@ -5547,7 +5543,6 @@ msgstr "Publiqui l'eina OiRA seleccionada amb els canvis més recents."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
 msgstr "Elimini aquesta eina OiRA del client en línia."
 
@@ -5576,7 +5571,6 @@ msgstr "Actualitzat"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Comenci a redactar una eina OiRA nova. Se li demanarà si vol començar amb "

@@ -2835,7 +2835,6 @@ msgstr "Zvolte jeden z uvedených známých a běžných kroků."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Přidat"
 
@@ -3744,7 +3743,6 @@ msgstr "Všeobecné informace o vyhodnocení rizik"
 #. Default: Registration
 #: src/euphorie/content/help.py:33
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
 msgstr "Registrace"
 
@@ -3756,7 +3754,6 @@ msgstr "Tento text by měl vysvětlit, jak se registrovat a přihlásit."
 #. Default: Carrying out your risk assessment
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
 msgstr "Provedení vlastního hodnocení rizik"
 
@@ -3768,7 +3765,6 @@ msgstr "Tento text by měl popisovat hlavní funkce nástroje OiRA."
 #. Default: 1. Preparation
 #: src/euphorie/content/help.py:47
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
 msgstr "1. Příprava"
 
@@ -3780,7 +3776,6 @@ msgstr "Tento text by měl vysvětlit 2 typy profilových otázek."
 #. Default: 2. Identification
 #: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
 msgstr "2. Identifikace"
 
@@ -3792,7 +3787,6 @@ msgstr "Tento text by měl vysvětlit, jak funguje identifikace rizik."
 #. Default: 3. Evaluation
 #: src/euphorie/content/help.py:61
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
 msgstr "3. Vyhodnocení"
 
@@ -3804,7 +3798,6 @@ msgstr "Tento text by měl vysvětlit, jak vyhodnotit identifikovaná rizika."
 #. Default: 4. Action Plan
 #: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
 msgstr "4. Akční plán"
 
@@ -3816,7 +3809,6 @@ msgstr "Tento text by měl vysvětlit, jak vyplnit Akční plán."
 #. Default: 5. Report
 #: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
 msgstr "5. Zpráva"
 
@@ -3829,7 +3821,6 @@ msgstr "Tento text by měl popsat, jak může být zpráva uložena nebo vytišt
 #. Default: What happens next?
 #: src/euphorie/content/help.py:82
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
 msgstr "Co bude následovat?"
 
@@ -4149,7 +4140,6 @@ msgstr "Kalkulováno"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Odhadováno"
 
@@ -5186,7 +5176,6 @@ msgstr "Nenastaven"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Moduly nebo profilové otázky"
 
@@ -5455,7 +5444,6 @@ msgstr "Verze"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Vytvořit duplikát zvoleného nástroje OiRA"
 
@@ -5466,13 +5454,11 @@ msgstr "Duplikát"
 
 #. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
 msgstr "Publikovat zvolený nástroj OiRA naživo s posledními změnami."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
 msgstr "Odstraňte tento nástroj OiRA z online klienta."
 
@@ -5501,7 +5487,6 @@ msgstr "Aktualizovaná"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Začněte psát nový nástroj OiRA. Budete dotázáni, zda si přejete začít s "

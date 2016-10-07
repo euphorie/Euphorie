@@ -2971,7 +2971,6 @@ msgstr ""
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "επιλογή"
 
@@ -3903,7 +3902,6 @@ msgstr "Γενικές πληροφορίες σχετικά με την αξι�
 #. Default: Registration
 #: src/euphorie/content/help.py:33
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
 msgstr "Εγγραφή"
 
@@ -3916,7 +3914,6 @@ msgstr ""
 #. Default: Carrying out your risk assessment
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
 msgstr "Εκπόνηση εκτίμησης κινδύνου"
 
@@ -3930,7 +3927,6 @@ msgstr ""
 #. Default: 1. Preparation
 #: src/euphorie/content/help.py:47
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
 msgstr "1. Προετοιμασία"
 
@@ -3942,7 +3938,6 @@ msgstr "Αυτό το κείμενο πρέπει να επεξηγεί τους
 #. Default: 2. Identification
 #: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
 msgstr "2. Αναγνώριση"
 
@@ -3955,7 +3950,6 @@ msgstr ""
 #. Default: 3. Evaluation
 #: src/euphorie/content/help.py:61
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
 msgstr "3. Αξιολόγηση"
 
@@ -3969,7 +3963,6 @@ msgstr ""
 #. Default: 4. Action Plan
 #: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
 msgstr "4. Σχέδιο Δράσης"
 
@@ -3982,7 +3975,6 @@ msgstr ""
 #. Default: 5. Report
 #: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
 msgstr "5. Έκθεση"
 
@@ -3997,7 +3989,6 @@ msgstr ""
 #. Default: What happens next?
 #: src/euphorie/content/help.py:82
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
 msgstr "Επόμενα Βήματα"
 
@@ -4329,7 +4320,6 @@ msgstr "Υπολογισμένος"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Κατ' εκτίμηση"
 
@@ -5390,7 +5380,6 @@ msgstr "Δεν έχει οριστεί"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Μονάδες και ερωτήσεις προφίλ"
 

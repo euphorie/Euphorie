@@ -2841,7 +2841,6 @@ msgstr "Izvēlieties vienu tipveida pasākumu"
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Pievienot"
 
@@ -3753,7 +3752,6 @@ msgstr "Vispārīga informācija par riska novērtēšanu"
 #. Default: Registration
 #: src/euphorie/content/help.py:33
 #: src/euphorie/content/templates/help_view.pt:18
-#, fuzzy
 msgid "label_help_authentication"
 msgstr "Reģistrācija"
 
@@ -3765,7 +3763,6 @@ msgstr "Šim tekstam jāizskaidro reģistrēšanās un pieteikšanās process."
 #. Default: Carrying out your risk assessment
 #: src/euphorie/content/help.py:40
 #: src/euphorie/content/templates/help_view.pt:21
-#, fuzzy
 msgid "label_help_sessions"
 msgstr "Riska novērtējums"
 
@@ -3777,7 +3774,6 @@ msgstr "Šim tekstam jāapraksta galvenās OiRA rīka funkcijas."
 #. Default: 1. Preparation
 #: src/euphorie/content/help.py:47
 #: src/euphorie/content/templates/help_view.pt:24
-#, fuzzy
 msgid "label_help_preparation"
 msgstr "1. Sagatavošanās"
 
@@ -3789,7 +3785,6 @@ msgstr "Šim tekstam jāizskaidro profila jautājumu 2 tipi."
 #. Default: 2. Identification
 #: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
-#, fuzzy
 msgid "label_help_identification"
 msgstr "2. Identifikācija"
 
@@ -3801,7 +3796,6 @@ msgstr "Šim tekstam jāizskaidro, kā notiek riska identificēšana."
 #. Default: 3. Evaluation
 #: src/euphorie/content/help.py:61
 #: src/euphorie/content/templates/help_view.pt:30
-#, fuzzy
 msgid "label_help_evaluation"
 msgstr "3. Novērtēšana"
 
@@ -3813,7 +3807,6 @@ msgstr "Šim tekstam jāizskaidro, kā novērtēt identificētos riskus."
 #. Default: 4. Action Plan
 #: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
-#, fuzzy
 msgid "label_help_actionplan"
 msgstr "4. Rīcības plāns"
 
@@ -3825,7 +3818,6 @@ msgstr "Šim tekstam jāizskaidro, kā aizpildīt rīcības plānu."
 #. Default: 5. Report
 #: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
-#, fuzzy
 msgid "label_help_reports"
 msgstr "5. Pārskats"
 
@@ -3838,7 +3830,6 @@ msgstr "Šim tekstam jāizskaidro, kā var saglabāt vai izdrukāt pārskatu."
 #. Default: What happens next?
 #: src/euphorie/content/help.py:82
 #: src/euphorie/content/templates/help_view.pt:39
-#, fuzzy
 msgid "label_help_finalwords"
 msgstr "Kas notiks tālāk?"
 
@@ -4164,7 +4155,6 @@ msgstr "Aprēķins"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Aptuvens novērtējums"
 
@@ -5200,7 +5190,6 @@ msgstr "Nav iestatīts"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Moduļi un profila jautājumi"
 
@@ -5474,7 +5463,6 @@ msgstr "Versijas"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Izveidot atlasītā OiRA rīka dublikātu."
 
@@ -5485,13 +5473,11 @@ msgstr "Dublikāts"
 
 #. Default: Publish the selected OiRA Tool live with its latest changes.
 #: src/euphorie/deployment/tiles/templates/versions.pt:26
-#, fuzzy
 msgid "help_publish"
 msgstr "Publicēt atlasīto OiRA rīku ar visām jaunākajām izmaiņām."
 
 #. Default: Remove this OiRA Tool from the online client.
 #: src/euphorie/deployment/tiles/templates/versions.pt:34
-#, fuzzy
 msgid "title_help_unpublished"
 msgstr "Šī OiRA rīka noņemšana no tiešsaistes klienta"
 
@@ -5520,7 +5506,6 @@ msgstr "Atjaunināta"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Sāciet rakstīt jaunu OiRA rīku. Jums tiks vaicāts, vai vēlaties sākt darbu "

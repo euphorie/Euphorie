@@ -4031,7 +4031,6 @@ msgstr "Contenido de página"
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
 msgstr "Contraseña de confirmación"
 
@@ -4210,7 +4209,6 @@ msgstr "Calculado"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Estimado"
 

@@ -4152,7 +4152,6 @@ msgstr "Apskaičiavimo"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Apytikris"
 

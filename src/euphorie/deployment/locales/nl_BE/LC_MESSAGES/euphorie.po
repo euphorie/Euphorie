@@ -2190,7 +2190,6 @@ msgstr "Beschrijving van het risico"
 #: src/euphorie/client/templates/risk_actionplan.pt:211
 #: src/euphorie/client/templates/risk_evaluation.pt:125
 #: src/euphorie/client/templates/risk_identification.pt:160
-#, fuzzy
 msgid "label_comment"
 msgstr ""
 "Gelieve hier al uw opmerkingen met betrekking tot de bovenstaande vraag te "
@@ -2886,7 +2885,6 @@ msgstr "Selecteer één of meer van de bekende vaak voorkomende maatregelen."
 
 #. Default: Add
 #: src/euphorie/client/templates/risk_actionplan.pt:75
-#, fuzzy
 msgid "button_add"
 msgstr "Toevoegen"
 
@@ -4215,7 +4213,6 @@ msgstr "Berekend"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Geschat"
 
@@ -5264,7 +5261,6 @@ msgstr "Niet ingesteld"
 
 #. Default: Modules and Profile Questions
 #: src/euphorie/content/templates/survey_view.pt:34
-#, fuzzy
 msgid "header_modules_and_profile_questions"
 msgstr "Modules en profielvragen"
 
@@ -5539,7 +5535,6 @@ msgstr "Versies"
 
 #. Default: Create a duplicate of the selected OiRA Tool
 #: src/euphorie/deployment/tiles/templates/versions.pt:19
-#, fuzzy
 msgid "help_add_version"
 msgstr "Maak een kopie van het geselecteerde OiRA-instrument"
 
@@ -5584,7 +5579,6 @@ msgstr "Bijgewerkt"
 #. Default: Start to write a new OiRA Tool. You will be asked whether you want
 #. to start off with a copy of an existing OiRA Tool.
 #: src/euphorie/deployment/tiles/templates/versions.pt:71
-#, fuzzy
 msgid "help_create_new_version"
 msgstr ""
 "Begin met het schrijven van een nieuw OiRA-instrument. Men zal u vragen of u "

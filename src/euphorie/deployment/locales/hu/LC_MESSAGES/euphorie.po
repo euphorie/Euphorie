@@ -295,7 +295,6 @@ msgstr ""
 #: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:119
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
-#, fuzzy
 msgid "title_other_risks"
 msgstr "Hiba"
 
@@ -2164,7 +2163,6 @@ msgstr ""
 
 #. Default: Add another risk
 #: src/euphorie/client/templates/module_customization.pt:61
-#, fuzzy
 msgid "label_add_risk"
 msgstr "Másik intézkedés hozzáadása"
 
@@ -3818,7 +3816,6 @@ msgstr "Oldal tartalma"
 #: src/euphorie/content/passwordpolicy.py:49
 #: src/euphorie/content/templates/settings.pt:98
 #: src/euphorie/content/tests/test_passwordpolicy.py:13
-#, fuzzy
 msgid "password_policy_conditions"
 msgstr "Jelszó megerősítése"
 
@@ -3987,7 +3984,6 @@ msgstr "Számított"
 
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
-#, fuzzy
 msgid "evalmethod_fixed"
 msgstr "Becsült"
 
@@ -4370,7 +4366,6 @@ msgstr "Felhasználói fiókot \"${title}\" zárolták."
 #. Default: Please be aware that you have %s more login attempts before your
 #. account will be locked.
 #: src/euphorie/content/user.py:223
-#, fuzzy
 msgid "message_lock_warn"
 msgstr "Felhasználói fiókot \"${title}\" zárolták."
 
@@ -5375,11 +5370,9 @@ msgstr ""
 #~ msgid "label_jump_to_actionplan"
 #~ msgstr "Továbblépés a cselekvési tervre"
 
-#, fuzzy
 #~ msgid "label_guest_tryout"
 #~ msgstr "Név"
 
-#, fuzzy
 #~ msgid "guest_register_teaser"
 #~ msgstr "Nincs felhasználói fiókja? Kérjük, előbb ${register_link}."
 
@@ -5441,7 +5434,6 @@ msgstr ""
 #~ msgid "label_select_new_session_in_survey"
 #~ msgstr "Új munkafolyamat indítása ehhez a felméréshez."
 
-#, fuzzy
 #~ msgid "label_fixed_priority"
 #~ msgstr "Alapértelmezett prioritás"
 
