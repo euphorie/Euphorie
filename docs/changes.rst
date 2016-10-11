@@ -4,13 +4,12 @@ Changelog
 9.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Shorten text on buttons for report download #14285
 
 9.0.0 (2016-10-06)
 ------------------
 
-Major re-write of the client's UI
+Major re-write of the client UI
 
 
 9.0.0rc1 (2016-09-29)

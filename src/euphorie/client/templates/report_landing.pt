@@ -40,8 +40,11 @@
     <!-- The class 'count-x' indicates the amount of download blocks that are present. The classes 'count-1', 'count-2', 'count-3' and 'count-4' are supported. -->
     <div class="download-block column">
       <article class="pat-well pat-rich">
-        <p>
-          <a class="pat-button bar download rtf icon-download piwik_download" href="${python:view.url(name='download')}" i18n:translate="">Download the full report</a>
+        <p class="button-bar">
+          <a class="pat-button bar download rtf icon-download piwik_download" href="${python:view.url(name='download')}" i18n:translate="label_report">Report</a>
+        </p>
+        <p class="explanation" i18n:translate="">
+          Download the full report
         </p>
         <ul>
           <li i18n:translate="">Format: Rich Text Format (.rtf)</li>
@@ -58,8 +61,11 @@
 
     <div class="download-block column">
       <article class="pat-well pat-rich">
-        <p>
-          <a class="pat-button bar download xlsx icon-download piwik_download" href="${python:view.url(name='timeline')}" i18n:translate="">Download the action plan</a>
+        <p class="button-bar">
+          <a class="pat-button bar download xlsx icon-download piwik_download" href="${python:view.url(name='timeline')}" i18n:translate="label_action_plan">Action plan</a>
+        </p>
+        <p class="explanation" i18n:translate="">
+          Download the action plan
         </p>
         <ul>
           <li i18n:translate="">Format: Office Open XML Workbook (.xlsx)</li>
@@ -78,10 +84,12 @@
       <article class="pat-well pat-rich">
         <p>
           <a href="${python:view.url(name='pdf', obj=context, data={'view': 'risks_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
-          Download the risks overview
-        </a>
+            Overview of risks
+          </a>
         </p>
-
+        <p class="explanation" i18n:translate="">
+          Download the risks overview
+        </p>
         <ul>
           <li i18n:translate="">Format: Portable Document Format (.pdf)</li>
           <li i18n:translate="">Contains: an overview of the risks identified</li>
@@ -99,10 +107,12 @@
       <article class="pat-well pat-rich">
         <p>
           <a href="${python:view.url(name='pdf', obj=context, data={'view': 'measures_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
-          Download the measures overview
-        </a>
+            Overview of measures
+          </a>
         </p>
-
+        <p class="explanation" i18n:translate="">
+          Download the measures overview
+        </p>
         <ul>
           <li i18n:translate="">Format: Portable Document Format (.pdf)</li>
           <li i18n:translate="">Contains: an overview of the measures to be implemented.</li>
