@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - Shorten text on buttons for report download #14285
+- store Sector, Country and Tool names in HTML, so that Piwik code can pick it up
 
 9.0.0 (2016-10-06)
 ------------------
