@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.1 (unreleased)
+9.0.1 (2016-10-31)
 ------------------
 
 - Shorten text on buttons for report download #14285
