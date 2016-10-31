@@ -140,6 +140,7 @@ class WebHelpers(grok.View):
 
     def __init__(self, context, request):
         from euphorie.client.session import SessionManager
+        from euphorie.client.country import IClientCountry
         super(WebHelpers, self).__init__(context, request)
         for obj in aq_chain(aq_inner(context)):
             if IClientSector.providedBy(obj):
@@ -162,11 +163,19 @@ class WebHelpers(grok.View):
         else:
             self.came_from = aq_parent(context).absolute_url()
 
-        if self.anonymous:
-            for obj in aq_chain(aq_inner(self.context)):
-                if ISurvey.providedBy(obj):
+        self.country_name = ''
+        self.sector_name = ''
+        self.tool_name = ''
+        for obj in aq_chain(aq_inner(self.context)):
+            if ISurvey.providedBy(obj):
+                self.tool_name = obj.Title()
+                if self.anonymous:
                     setattr(self.request, 'survey', obj)
-                    break
+            if IClientSector.providedBy(obj):
+                self.sector_name = obj.Title()
+            if IClientCountry.providedBy(obj):
+                self.country_name = obj.Title()
+                break
 
     def get_username(self):
         member = api.user.get_current()
@@ -190,8 +199,7 @@ class WebHelpers(grok.View):
         for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.id
-        else:
-            return None
+        return None
 
     def logoMode(self):
         return 'alien' if 'alien' in self.extra_css else 'native'
