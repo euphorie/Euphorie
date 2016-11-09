@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-09-30 13:55+0200\n"
+"POT-Creation-Date: 2016-11-09 14:48+0100\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -879,7 +879,7 @@ msgid "label_page_of"
 msgstr "/"
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:243
+#: src/euphorie/client/utils.py:251
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
 #: src/euphorie/client/templates/frontpage.pt:13
@@ -895,7 +895,7 @@ msgid "title_tool"
 msgstr "OiRA - Vuorovaikutteinen riskinarviointiprojekti verkossa"
 
 #. Default: Close
-#: src/euphorie/client/utils.py:498
+#: src/euphorie/client/utils.py:506
 msgid "button_close"
 msgstr "Sulje"
 
@@ -1238,7 +1238,7 @@ msgstr "Siirry raporttiin"
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_evaluation.pt:137
-#: src/euphorie/client/templates/shell.pt:118
+#: src/euphorie/client/templates/shell.pt:123
 msgid "label_preparation"
 msgstr "Suunnittelu"
 
@@ -1258,8 +1258,8 @@ msgstr "Suunnittelu"
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_evaluation.pt:143
-#: src/euphorie/client/templates/shell.pt:125
-#: src/euphorie/client/templates/shell.pt:126
+#: src/euphorie/client/templates/shell.pt:130
+#: src/euphorie/client/templates/shell.pt:131
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
@@ -1281,8 +1281,8 @@ msgstr "Tunnistaminen"
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_evaluation.pt:149
-#: src/euphorie/client/templates/shell.pt:125
-#: src/euphorie/client/templates/shell.pt:126
+#: src/euphorie/client/templates/shell.pt:130
+#: src/euphorie/client/templates/shell.pt:131
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
@@ -1303,9 +1303,10 @@ msgstr "Arviointi"
 #: src/euphorie/client/templates/login.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/report_identification.pt:88
+#: src/euphorie/client/templates/report_landing.pt:65
 #: src/euphorie/client/templates/risk_evaluation.pt:158
-#: src/euphorie/client/templates/shell.pt:135
-#: src/euphorie/client/templates/shell.pt:137
+#: src/euphorie/client/templates/shell.pt:140
+#: src/euphorie/client/templates/shell.pt:142
 #: src/euphorie/client/templates/webhelpers.pt:96
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
@@ -1325,9 +1326,10 @@ msgstr "Toimintasuunnitelma"
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:64
 #: src/euphorie/client/templates/report_identification.pt:94
+#: src/euphorie/client/templates/report_landing.pt:44
 #: src/euphorie/client/templates/risk_evaluation.pt:164
-#: src/euphorie/client/templates/shell.pt:147
-#: src/euphorie/client/templates/shell.pt:150
+#: src/euphorie/client/templates/shell.pt:152
+#: src/euphorie/client/templates/shell.pt:155
 msgid "label_report"
 msgstr "Raportti"
 
@@ -1353,7 +1355,7 @@ msgstr "Kirjaudu ulos"
 #: src/euphorie/client/templates/conditions.pt:111
 #: src/euphorie/client/templates/includes.pt:2
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/shell.pt:160
+#: src/euphorie/client/templates/shell.pt:165
 #: src/euphorie/client/templates/webhelpers.pt:33
 #: src/euphorie/content/templates/colour-preview.pt:55
 msgid "navigation_help"
@@ -2021,7 +2023,7 @@ msgstr ""
 
 #. Default: Login
 #: src/euphorie/client/templates/login_form.pt:19
-#: src/euphorie/client/templates/shell.pt:72
+#: src/euphorie/client/templates/shell.pt:77
 msgid "header_login"
 msgstr "Kirjaudu sisään"
 
@@ -2077,6 +2079,7 @@ msgid "label_login"
 msgstr "Sisäänkirjautuminen"
 
 #: src/euphorie/client/templates/measures_overview.pt:60
+#: src/euphorie/client/templates/report_landing.pt:109
 msgid "Overview of measures"
 msgstr "Yhteenveto toteutettavista toimenpiteistä"
 
@@ -2085,23 +2088,23 @@ msgid "(measures to be implemented in the coming months)"
 msgstr "Suunnitellut toimenpiteet seuraavien kuukausien aikana"
 
 #: src/euphorie/client/templates/measures_overview.pt:62
-#: src/euphorie/client/templates/report_landing.pt:51
-#: src/euphorie/client/templates/report_landing.pt:69
-#: src/euphorie/client/templates/report_landing.pt:90
-#: src/euphorie/client/templates/report_landing.pt:111
+#: src/euphorie/client/templates/report_landing.pt:54
+#: src/euphorie/client/templates/report_landing.pt:75
+#: src/euphorie/client/templates/report_landing.pt:98
+#: src/euphorie/client/templates/report_landing.pt:121
 #: src/euphorie/client/templates/risks_overview.pt:147
 msgid "Use it to"
 msgstr "Käytä sitä"
 
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:92
-#: src/euphorie/client/templates/report_landing.pt:113
+#: src/euphorie/client/templates/report_landing.pt:100
+#: src/euphorie/client/templates/report_landing.pt:123
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Pass information to the people concerned."
 msgstr "Välitä tiedot asianomaisille henkilöille."
 
 #: src/euphorie/client/templates/measures_overview.pt:65
-#: src/euphorie/client/templates/report_landing.pt:114
+#: src/euphorie/client/templates/report_landing.pt:124
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
 "Seuraa suunniteltujen toimenpiteiden toteutumista tulevan kolmen kuukauden "
@@ -2325,19 +2328,19 @@ msgstr "Uusi riskinarviointi"
 
 #. Default: Sign in
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:83
+#: src/euphorie/client/templates/shell.pt:88
 msgid "link_sign_in"
 msgstr "Kirjaudu sisään"
 
 #. Default: This is a test session. ${link_sign_in} to save your data.
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:83
+#: src/euphorie/client/templates/shell.pt:88
 msgid "info_testsession"
 msgstr "Tämä on kokeiluversio. ${link_sign_in} tallentaaksesi tiedot."
 
 #. Default: Info
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:83
+#: src/euphorie/client/templates/shell.pt:88
 msgid "Info"
 msgstr "Tiedot"
 
@@ -2527,7 +2530,7 @@ msgstr "Esimerkki toimenpiteiden yhteenvetoraportista PDF-muodossa"
 #. Default: Register
 #: src/euphorie/client/templates/register.pt:76
 #: src/euphorie/client/templates/register.pt:80
-#: src/euphorie/client/templates/shell.pt:73
+#: src/euphorie/client/templates/shell.pt:78
 msgid "header_register"
 msgstr "Rekisteröidy käyttäjäksi"
 
@@ -2749,47 +2752,47 @@ msgstr ""
 "Suosittelemme pitämään yrityksessäsi jatkuvasti esillä päivitettyä versiota "
 "riskinarviointiraportistasi !"
 
-#: src/euphorie/client/templates/report_landing.pt:44
+#: src/euphorie/client/templates/report_landing.pt:46
 msgid "Download the full report"
 msgstr "Lataa koko raportti"
 
-#: src/euphorie/client/templates/report_landing.pt:47
+#: src/euphorie/client/templates/report_landing.pt:50
 msgid "Format: Rich Text Format (.rtf)"
 msgstr "Formaatti: Rich Text Format (.rtf)"
 
-#: src/euphorie/client/templates/report_landing.pt:48
+#: src/euphorie/client/templates/report_landing.pt:51
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
 "Sisältää kaikki tiedot, jotka olet antanut riskinarviointiprosessin aikana."
 
-#: src/euphorie/client/templates/report_landing.pt:53
+#: src/euphorie/client/templates/report_landing.pt:56
 msgid "Provide evidence"
 msgstr "näyttönä"
 
-#: src/euphorie/client/templates/report_landing.pt:53
+#: src/euphorie/client/templates/report_landing.pt:56
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} työsuojeluviranomaisille (työsuojelutarkastus)."
 
-#: src/euphorie/client/templates/report_landing.pt:62
+#: src/euphorie/client/templates/report_landing.pt:67
 msgid "Download the action plan"
 msgstr "Lataa toimintasuunnitelma"
 
-#: src/euphorie/client/templates/report_landing.pt:65
+#: src/euphorie/client/templates/report_landing.pt:71
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Formaatti: Office Open XML Workbook (.xlsx)"
 
-#: src/euphorie/client/templates/report_landing.pt:66
+#: src/euphorie/client/templates/report_landing.pt:72
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Sisältö: keskeiset tekijät työpaikan riskien tehokkaaseen hallintaan."
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:77
 msgid "Manage"
 msgstr "Toteuttaessasi"
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:77
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -2798,29 +2801,34 @@ msgstr ""
 "toimenpiteitä työpaikalla (tehtävät, osaaminen, vastuunjako, määräajat, "
 "budjetti)."
 
-#: src/euphorie/client/templates/report_landing.pt:80
+#: src/euphorie/client/templates/report_landing.pt:86
+#: src/euphorie/client/templates/risks_overview.pt:146
+msgid "Overview of risks"
+msgstr "Yhteenveto tunnistetuista riskeistä"
+
+#: src/euphorie/client/templates/report_landing.pt:90
 msgid "Download the risks overview"
 msgstr "Lataa yhteenveto riskeistä"
 
-#: src/euphorie/client/templates/report_landing.pt:86
-#: src/euphorie/client/templates/report_landing.pt:107
+#: src/euphorie/client/templates/report_landing.pt:94
+#: src/euphorie/client/templates/report_landing.pt:117
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Muoto: Portable Document Format (.pdf)"
 
-#: src/euphorie/client/templates/report_landing.pt:87
+#: src/euphorie/client/templates/report_landing.pt:95
 msgid "Contains: an overview of the risks identified"
 msgstr "Sisältö: yhteenveto tunnistetuista riskeistä."
 
-#: src/euphorie/client/templates/report_landing.pt:93
+#: src/euphorie/client/templates/report_landing.pt:101
 #: src/euphorie/client/templates/risks_overview.pt:150
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr "Seuraa, huolehditaanko riskeistä/toimenpiteistä asianmukaisesti."
 
-#: src/euphorie/client/templates/report_landing.pt:101
+#: src/euphorie/client/templates/report_landing.pt:113
 msgid "Download the measures overview"
 msgstr "Lataa yhteenveto toimenpiteistä."
 
-#: src/euphorie/client/templates/report_landing.pt:108
+#: src/euphorie/client/templates/report_landing.pt:118
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Sisältö: yhteenveto toteutettavista toimenpiteistä."
 
@@ -3161,10 +3169,6 @@ msgstr ""
 "Työkalu tekee riskinarvioinnin automaattisesti. Voit tarvittaessa muuttaa "
 "tämän riskin prioriteettia toimintasuunnitelmassa."
 
-#: src/euphorie/client/templates/risks_overview.pt:146
-msgid "Overview of risks"
-msgstr "Yhteenveto tunnistetuista riskeistä"
-
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:221
 #: src/euphorie/client/templates/status.pt:90
@@ -3402,7 +3406,7 @@ msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} Riskiväittämään ei ole vastattu."
 
 #: src/euphorie/client/templates/sessions.pt:22
-#: src/euphorie/client/templates/shell.pt:107
+#: src/euphorie/client/templates/shell.pt:112
 msgid "Start a new session"
 msgstr "Aloita uusi riskinarviointi"
 
@@ -3442,37 +3446,37 @@ msgstr "Uusi nimi"
 msgid "Delete this session"
 msgstr "Poista tämä riskinarviointi"
 
-#: src/euphorie/client/templates/shell.pt:97
-#: src/euphorie/client/templates/shell.pt:99
+#: src/euphorie/client/templates/shell.pt:102
+#: src/euphorie/client/templates/shell.pt:104
 msgid "Start test session"
 msgstr "Testaa kokeiluversiota"
 
 #. Default: Select an earlier session to complete or review
-#: src/euphorie/client/templates/shell.pt:104
+#: src/euphorie/client/templates/shell.pt:109
 #: src/euphorie/client/templates/survey_sessions.pt:21
 msgid "header_select_session"
 msgstr "Valitse aikaisempi istunto täydennettäväksi tai tarkasteltavaksi"
 
 #. Default: New
-#: src/euphorie/client/templates/shell.pt:107
+#: src/euphorie/client/templates/shell.pt:112
 msgid "New"
 msgstr "Uusi"
 
 #. Default: Check your progress
-#: src/euphorie/client/templates/shell.pt:155
+#: src/euphorie/client/templates/shell.pt:160
 #: src/euphorie/client/templates/webhelpers.pt:34
 #: src/euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
 msgstr "Riskinarvioinnin tila"
 
 #. Default: Online interactive
-#: src/euphorie/client/templates/shell.pt:171
+#: src/euphorie/client/templates/shell.pt:176
 #: src/euphorie/client/templates/webhelpers.pt:23
 msgid "oira_name_line_1"
 msgstr "Vuorovaikutteisesti verkossa"
 
 #. Default: Risk Assessment
-#: src/euphorie/client/templates/shell.pt:172
+#: src/euphorie/client/templates/shell.pt:177
 #: src/euphorie/client/templates/webhelpers.pt:24
 msgid "oira_name_line_2"
 msgstr "Riskinarviointi"
