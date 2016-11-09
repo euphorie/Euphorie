@@ -62,7 +62,7 @@
     <div class="download-block column">
       <article class="pat-well pat-rich">
         <p class="button-bar">
-          <a class="pat-button bar download xlsx icon-download piwik_download" href="${python:view.url(name='timeline')}" i18n:translate="label_action_plan">Action plan</a>
+          <a class="pat-button bar download xlsx icon-download piwik_download" href="${python:view.url(name='timeline')}" i18n:translate="label_action_plan">Action Plan</a>
         </p>
         <p class="explanation" i18n:translate="">
           Download the action plan
