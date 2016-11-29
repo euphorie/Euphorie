@@ -82,7 +82,7 @@
 
     <div class="download-block column">
       <article class="pat-well pat-rich">
-        <p>
+        <p class="button-bar">
           <a href="${python:view.url(name='pdf', obj=context, data={'view': 'risks_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
             Overview of risks
           </a>
@@ -105,7 +105,7 @@
 
     <div class="download-block column">
       <article class="pat-well pat-rich">
-        <p>
+        <p class="button-bar">
           <a href="${python:view.url(name='pdf', obj=context, data={'view': 'measures_overview'})}" class="pat-button bar download xlsx icon-download piwik_download" i18n:translate="" target="_new">
             Overview of measures
           </a>
