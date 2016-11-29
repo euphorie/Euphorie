@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.2 (unreleased)
+9.0.2 (2016-11-29)
 ------------------
 
 - Add translation to HR (Croatian)
