@@ -4,8 +4,9 @@ Changelog
 9.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Safeguard against a bug that was spotted repeatedly in the wild, but I
+  was not yet able to reproduce: It can happen apparently that Profiles are
+  added more than once to a survey. This is an attempt to prevent this.
 
 9.0.2 (2016-11-29)
 ------------------

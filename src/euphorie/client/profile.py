@@ -144,6 +144,11 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
                     for risk in risks:
                         modules[0].addChild(risk)
         elif IProfileQuestion.providedBy(child):
+            # Safeguard against double adding of profile questions
+            existing = [
+                getattr(item, 'module_id') for item in dbsession.children()]
+            if child.id in existing:
+                continue
             p = profile.get(child.id)
             if not p:
                 continue
