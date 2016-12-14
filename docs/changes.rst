@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.3 (unreleased)
+9.0.3 (2016-12-14)
 ------------------
 
 - Safeguard against a bug that was spotted repeatedly in the wild, but I
