@@ -151,8 +151,11 @@ class WebHelpers(grok.View):
         self.anonymous = isAnonymous(user)
         account = getattr(user, 'account_type', None)
         self.is_guest_account = account == config.GUEST_ACCOUNT
-        self.guest_session_id = self.is_guest_account and \
-                SessionManager.session and SessionManager.session.id or None
+        self.guest_session_id = (
+            self.is_guest_account and
+            SessionManager.session and SessionManager.session.id or None)
+        self.session_id = (
+            SessionManager.session and SessionManager.session.id or '')
 
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -166,9 +169,13 @@ class WebHelpers(grok.View):
         self.country_name = ''
         self.sector_name = ''
         self.tool_name = ''
+        self.tool_description = ''
+        ploneview = getMultiAdapter((self.context, self.request), name="plone")
         for obj in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(obj):
                 self.tool_name = obj.Title()
+                self.tool_description = ploneview.cropText(
+                    StripMarkup(obj.introduction), 800)
                 if self.anonymous:
                     setattr(self.request, 'survey', obj)
             if IClientSector.providedBy(obj):
