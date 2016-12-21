@@ -46,7 +46,7 @@
         <meta property="og:title" content="${webhelpers/tool_name|string:OiRA - Online interactive Risk Assessment}" />
         <meta property="og:description" content="${webhelpers/tool_description}" />
         <meta property="og:url" content="${webhelpers/survey_url}" />
-        <meta property="og:image" content="${base_url}/++resource++euphorie.media/oira-tile.png" />
+        <meta property="og:image" content="${client/++resource++euphorie.media}/oira-tile.png" />
 
 
 
