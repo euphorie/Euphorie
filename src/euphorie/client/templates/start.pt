@@ -22,7 +22,7 @@
 
   <nav class="page-actions">
    <a href="${request/ACTUAL_URL}#sharing-menu" class="icon-share iconified pat-tooltip" data-pat-tooltip="source: ajax;">Share</a>
-      <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${webhelpers/country_url}/@@rename-session?id=${webhelpers/session_id}#document-content">Rename</a>
+      <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${webhelpers/country_url}/@@rename-session?id=${webhelpers/session_id}&amp;${webhelpers/came_from_param}#document-content">Rename</a>
       <a class="iconified icon-trash pat-modal" title="Delete this session" href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content">Delete</a>
   </nav>
 
