@@ -40,6 +40,16 @@
         <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
 
+
+        <meta name="description" content="${webhelpers/tool_description}">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="${webhelpers/tool_name|string:OiRA - Online interactive Risk Assessment}" />
+        <meta property="og:description" content="${webhelpers/tool_description}" />
+        <meta property="og:url" content="${webhelpers/survey_url}" />
+        <meta property="og:image" content="${base_url}/++resource++euphorie.media/oira-tile.png" />
+
+
+
     <metal:javascriptslot define-slot="javascript_head_slot" />
     <metal:styleslot define-slot="style_slot" />
 <!--[if lte IE 8]>
