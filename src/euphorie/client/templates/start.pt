@@ -20,6 +20,12 @@
 <metal:slot fill-slot="content">
     <tal:block replace="tile:statusmessages"/>
 
+  <nav class="page-actions">
+   <a href="${request/ACTUAL_URL}#sharing-menu" class="icon-share iconified pat-tooltip" data-pat-tooltip="source: ajax;">Share</a>
+      <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${webhelpers/country_url}/@@rename-session?id=${webhelpers/session_id}#document-content">Rename</a>
+      <a class="iconified icon-trash pat-modal" title="Delete this session" href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content">Delete</a>
+  </nav>
+
     <article class="rich">
 
       <figure class="postit external-reference" tal:condition="context/external_site_logo | nothing">
@@ -46,6 +52,26 @@
         <button type="submit" class="pat-button" i18n:translate="label_start_survey">Start</button>
       </div>
     </form>
+
+
+    <div id="sharing-menu" hidden>
+
+      <p class="pat-message notice">
+        This tool deserves to be known by the world! Share it via Twitter, Facebook or E-mail.
+      </p>
+
+      <ul class="menu">
+        <li>
+          <a target="sharing" href="http://twitter.com/share?url=${webhelpers/survey_url}" class="twitter icon-twitter">Twitter</a>
+        </li>
+        <li>
+          <a target="sharing" href="http://www.facebook.com/sharer.php?u=${webhelpers/survey_url}" class="facebook icon-facebook">Facebook</a>
+        </li>
+        <li>
+          <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=I wish to share the following with you: ${webhelpers/survey_url}" class="email icon-mail">E-mail</a>
+        </li>
+      </ul>
+    </div>
 
     <metal:css use-macro="webhelpers/macros/appendix"/>
 
