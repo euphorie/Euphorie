@@ -65,7 +65,7 @@
           <a target="sharing" href="http://twitter.com/share?url=${webhelpers/survey_url}" class="twitter icon-twitter">Twitter</a>
         </li>
         <li>
-          <a target="sharing" href="http://www.facebook.com/sharer.php?u=${webhelpers/survey_url}" class="facebook icon-facebook">Facebook</a>
+          <a target="sharing" href="http://www.facebook.com/sharer.php?u=${webhelpers/base_url}/@@tryout?${webhelpers/came_from_param}" class="facebook icon-facebook">Facebook</a>
         </li>
         <li>
           <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=I wish to share the following with you: ${webhelpers/survey_url}" class="email icon-mail">E-mail</a>
