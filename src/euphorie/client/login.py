@@ -171,7 +171,18 @@ class Tryout(Login):
             return self.request.response.redirect(api.portal.get().absolute_url())
         account = self.createGuestAccount()
         self.login(account, False)
-        return self.request.response.redirect(came_from)
+        client_url = self.request.client.absolute_url()
+        came_from = came_from.replace(client_url, '')
+        if came_from.startswith('/'):
+            came_from = came_from[1:]
+
+        survey = self.context.restrictedTraverse(came_from)
+        title = survey.Title()
+        SessionManager.start(title=title, survey=survey, account=account)
+        survey_url = survey.absolute_url()
+        v_url = urlparse.urlsplit(survey_url + '/resume').path
+        trigger_extra_pageview(self.request, v_url)
+        self.request.response.redirect("%s/start" % survey_url)
 
 
 class CreateTestSession(CountryView, Tryout):
