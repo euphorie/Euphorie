@@ -1205,24 +1205,28 @@ msgstr ""
 #. Default: considering whether the task or job is necessary
 #: src/euphorie/client/templates/actionplan.pt:33
 msgid "expl_actionplan_4"
-msgstr ""
+msgstr "Het afschaffen van de taak of het werk waar het risico speelt"
 
 #. Default: removing the hazard
 #: src/euphorie/client/templates/actionplan.pt:34
 msgid "expl_actionplan_5"
-msgstr ""
+msgstr "Het vermijden van het risico zelf"
 
 #. Default: Is a risk avoidable? Can it be removed entirely? For example, this
 #. could be achieved by: ${expl_actionplan_4_and_5}
 #: src/euphorie/client/templates/actionplan.pt:30
 msgid "expl_actionplan_3"
 msgstr ""
+"Kan het risico worden vermeden? Denk hierbij bijvoorbeeld aan: "
+"${expl_actionplan_4_and_5}"
 
 #. Default: If certain risks are not avoidable, how can they be reduced to a
 #. level at which the health and safety of those exposed is not compromised?
 #: src/euphorie/client/templates/actionplan.pt:37
 msgid "expl_actionplan_6"
 msgstr ""
+"Als het risico toch niet te vermijden is, bekijk dan of het risico niveau "
+"waaraan de werknemer wordt blootgesteld verlaagd kan worden."
 
 #. Default: Once you have decided how to eliminate or reduce a particular risk,
 #. then you describe the specific action(s) required to achieve this. You
@@ -1231,6 +1235,9 @@ msgstr ""
 #: src/euphorie/client/templates/actionplan.pt:42
 msgid "expl_actionplan_7"
 msgstr ""
+"Als u besloten heeft hoe het risico aan te pakken, beschrijft u wat u hier "
+"voor gaat doen. Daarbij beschrijft u ook wat er voor nodig is. Zowel ik "
+"kennis/expertise als in materialen en eventuele andere vereisten."
 
 #. Default: No risks were identified. Please proceed directly to the report.
 #: src/euphorie/client/templates/actionplan.pt:47
@@ -1694,7 +1701,7 @@ msgstr ""
 #. Default: Consultation and participation of workers
 #: src/euphorie/client/templates/default_introduction.pt:12
 msgid "header_consultation_of_workers"
-msgstr ""
+msgstr "Werknemers betrokkenheid"
 
 #. Default: Workers or workers' representatives with specific responsibility
 #. for the safety and health of workers shall take part in a balanced way or
@@ -1703,17 +1710,25 @@ msgstr ""
 #: src/euphorie/client/templates/default_introduction.pt:13
 msgid "intro_consultation_of_workers"
 msgstr ""
+"Bij het maken van de RI&E is het verstandig om ook de hulp In te schakelen van"
+" de werknemer of van de werknemers vertegenwoordigers in het bedrijf. Zij "
+"hebben tenslotte dagelijks met eventuele risico’s te maken en weten wat er op "
+"de werkvloer speelt. Door werknemers te betrekken, zullen zij waarschijnlijk "
+"ook eerder het belang zien van nieuwe maatregelen. "
 
 #. Default: The OiRA tool
 #: src/euphorie/client/templates/default_introduction.pt:15
 msgid "header_oira_tool"
-msgstr ""
+msgstr "De branche RI&E instrumenten"
 
 #. Default: This risk assessment tool is mainly intended for micro (less than
 #. 10 workers) and small (less than 50 workers) enterprises/organisations.
 #: src/euphorie/client/templates/default_introduction.pt:16
 msgid "intro_oira_tool"
 msgstr ""
+"De branche RI&E instrumenten zijn met name bedoeld voor MKB bedrijven. "
+"Bedrijven met maximaal 25 werknemers hoeven, indien het branche RI&E "
+"instrument erkend is, hun RI&E niet te laten toetsen."
 
 #. Default: Error
 #: src/euphorie/client/templates/error.pt:15
@@ -1750,13 +1765,13 @@ msgstr "Inleiding"
 #: src/euphorie/client/templates/help.pt:23
 #: src/euphorie/client/templates/help.pt:36
 msgid "help_header_authentication"
-msgstr "Authenticatie"
+msgstr "Inloggen en gebruik van het programma"
 
 #. Default: Carrying out your risk assessment
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_sessions"
-msgstr "RI&E's"
+msgstr "Een RI&E maken"
 
 #. Default: 1. Preparation
 #: src/euphorie/client/templates/help.pt:25
@@ -1768,13 +1783,13 @@ msgstr "Voorbereiding"
 #: src/euphorie/client/templates/help.pt:26
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_identification"
-msgstr "Inventarisatie"
+msgstr "Inventarisatie en Evaluatie"
 
 #. Default: 3. Evaluation
 #: src/euphorie/client/templates/help.pt:27
 #: src/euphorie/client/templates/help.pt:48
 msgid "help_header_evaluation"
-msgstr "Evaluatie"
+msgstr "&nbsp;"
 
 #. Default: 4. Action Plan
 #: src/euphorie/client/templates/help.pt:28
@@ -2873,7 +2888,7 @@ msgstr "Maatregel"
 #: src/euphorie/client/templates/risk_actionplan.pt:64
 #: src/euphorie/client/templates/risk_actionplan.pt:150
 msgid "label_prefill"
-msgstr "Voorinvullen"
+msgstr "standaard maatregelen"
 
 #. Default: Delete this measure
 #: src/euphorie/client/templates/risk_actionplan.pt:65
