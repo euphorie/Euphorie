@@ -19,14 +19,14 @@
 
     <div class="pat-well pat-message notice" tal:condition="webhelpers/allow_social_sharing">
             <article class="pat-rich">
-                    <p>
+                    <p i18n:translate="">
                             Did you like this tool? Let your colleagues and friends know about it! Share via:
                     </p>
             </article>
             <p class="sharing-icons">
                     <a target="sharing" href="http://twitter.com/share?url=${webhelpers/survey_url}" class="pat-button twitter icon-twitter">Twitter</a>
                     <a target="sharing" href="http://www.facebook.com/sharer.php?u=${webhelpers/base_url}/@@tryout?${webhelpers/came_from_param}" class="pat-button facebook icon-facebook">Facebook</a>
-                    <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=I wish to share the following with you: ${webhelpers/survey_url}" class="pat-button email icon-mail">E-mail</a>
+                    <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=I wish to share the following with you: ${webhelpers/survey_url}" class="pat-button email icon-mail" i18n:translate="">E-mail</a>
             </p>
     </div>
 
