@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-11-09 14:48+0100\n"
+"POT-Creation-Date: 2016-12-27 15:51+0100\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -188,67 +188,67 @@ msgid "Session title has been changed to ${name}"
 msgstr "De titel van de sessie is veranderd in ${name}"
 
 #. Default: Cancel
-#: src/euphorie/client/country.py:242
+#: src/euphorie/client/country.py:249
 #: src/euphorie/client/templates/account-delete.pt:30
 #: src/euphorie/client/templates/new-email.pt:27
-#: src/euphorie/client/templates/rename-session.pt:30
+#: src/euphorie/client/templates/rename-session.pt:31
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/euphorie/client/login.py:222
+#: src/euphorie/client/login.py:233
 msgid "Please enter your email address"
 msgstr "Vul uw e-mail adres in"
 
-#: src/euphorie/client/login.py:228
+#: src/euphorie/client/login.py:239
 msgid "Unknown email address"
 msgstr "Onbekend e-mail adres"
 
-#: src/euphorie/client/login.py:236
+#: src/euphorie/client/login.py:247
 msgid "OiRA registration reminder"
 msgstr "RI&E registratie herinnering"
 
-#: src/euphorie/client/login.py:248 src/euphorie/client/login.py:254
-#: src/euphorie/client/login.py:260
+#: src/euphorie/client/login.py:259 src/euphorie/client/login.py:265
+#: src/euphorie/client/login.py:271
 msgid "An error occured while sending the password reminder"
 msgstr ""
 "Er is een fout opgetreden bij het versturen van de wachtwoord herinnering."
 
-#: src/euphorie/client/login.py:276
+#: src/euphorie/client/login.py:287
 msgid "An email with a password reminder has been sent to your address."
 msgstr "Er is een e-mail met wachtwoord herinnering verstuurd."
 
 #. Default: Please enter your email address
-#: src/euphorie/client/login.py:297
+#: src/euphorie/client/login.py:308
 msgid "error_missing_email"
 msgstr "Vul hier uw e-mail adres in"
 
 #. Default: Please enter a valid email address
-#: src/euphorie/client/login.py:300
+#: src/euphorie/client/login.py:311
 msgid "error_invalid_email"
 msgstr "Vul een geldig e-mail adres in."
 
 #. Default: Please enter a password
-#: src/euphorie/client/login.py:303
+#: src/euphorie/client/login.py:314
 msgid "error_missing_password"
 msgstr "Vul uw wachtwoord in"
 
 #. Default: Passwords do not match
-#: src/euphorie/client/login.py:306
+#: src/euphorie/client/login.py:317
 msgid "error_password_mismatch"
 msgstr "Wachtwoorden komen niet overeen"
 
 #. Default: An account with this email address already exists.
-#: src/euphorie/client/login.py:316 src/euphorie/client/login.py:322
+#: src/euphorie/client/login.py:327 src/euphorie/client/login.py:333
 msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mail adres"
 
 #. Default: Please enter a valid email address.
-#: src/euphorie/client/login.py:348
+#: src/euphorie/client/login.py:359
 msgid "invalid_email"
 msgstr "Gelieve een geldig e-mail adres in te geven."
 
 #. Default: Please fill out this field.
-#: src/euphorie/client/module.py:78 src/euphorie/client/profile.py:318
+#: src/euphorie/client/module.py:78 src/euphorie/client/profile.py:323
 msgid "message_field_required"
 msgstr "Graag dit veld invullen."
 
@@ -280,20 +280,20 @@ msgstr "Er is een bijkomend risico verwijderd."
 msgid "Added risks have been removed."
 msgstr "Er zijn bijkomende risico's verwijderd."
 
-#: src/euphorie/client/profile.py:236
+#: src/euphorie/client/profile.py:241
 msgid "Does this happen in multiple places?"
 msgstr ""
 
-#: src/euphorie/client/profile.py:239
+#: src/euphorie/client/profile.py:244
 msgid "Enter the name of the location"
 msgstr ""
 
-#: src/euphorie/client/profile.py:242
+#: src/euphorie/client/profile.py:247
 msgid "Enter the names of each location"
 msgstr ""
 
 #. Default: Added risks (by you)
-#: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:119
+#: src/euphorie/client/publish.py:153 src/euphorie/client/utils.py:120
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
 msgid "title_other_risks"
@@ -820,7 +820,7 @@ msgstr "Wachtwoord veranderen"
 #: src/euphorie/client/settings.py:91 src/euphorie/client/settings.py:228
 #: src/euphorie/client/templates/account-settings.pt:25
 #: src/euphorie/client/templates/new-email.pt:26
-#: src/euphorie/client/templates/rename-session.pt:29
+#: src/euphorie/client/templates/rename-session.pt:30
 msgid "Save changes"
 msgstr "Bewaar wijzigingen"
 
@@ -892,7 +892,7 @@ msgid "label_page_of"
 msgstr "van"
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:251
+#: src/euphorie/client/utils.py:262
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
 #: src/euphorie/client/templates/frontpage.pt:13
@@ -908,7 +908,7 @@ msgid "title_tool"
 msgstr "OiRA"
 
 #. Default: Close
-#: src/euphorie/client/utils.py:506
+#: src/euphorie/client/utils.py:517
 msgid "button_close"
 msgstr "Sluit"
 
@@ -1267,7 +1267,7 @@ msgstr "Rapport"
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_evaluation.pt:137
-#: src/euphorie/client/templates/shell.pt:123
+#: src/euphorie/client/templates/shell.pt:133
 msgid "label_preparation"
 msgstr "Voorbereiding"
 
@@ -1287,8 +1287,8 @@ msgstr "Voorbereiding"
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_evaluation.pt:143
-#: src/euphorie/client/templates/shell.pt:130
-#: src/euphorie/client/templates/shell.pt:131
+#: src/euphorie/client/templates/shell.pt:140
+#: src/euphorie/client/templates/shell.pt:141
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
@@ -1310,8 +1310,8 @@ msgstr "Inventarisatie"
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_evaluation.pt:149
-#: src/euphorie/client/templates/shell.pt:130
-#: src/euphorie/client/templates/shell.pt:131
+#: src/euphorie/client/templates/shell.pt:140
+#: src/euphorie/client/templates/shell.pt:141
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
@@ -1332,10 +1332,10 @@ msgstr "Evaluatie"
 #: src/euphorie/client/templates/login.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/report_landing.pt:65
+#: src/euphorie/client/templates/report_landing.pt:80
 #: src/euphorie/client/templates/risk_evaluation.pt:158
-#: src/euphorie/client/templates/shell.pt:140
-#: src/euphorie/client/templates/shell.pt:142
+#: src/euphorie/client/templates/shell.pt:150
+#: src/euphorie/client/templates/shell.pt:152
 #: src/euphorie/client/templates/webhelpers.pt:96
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
@@ -1355,10 +1355,10 @@ msgstr "Plan van aanpak"
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:64
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/report_landing.pt:44
+#: src/euphorie/client/templates/report_landing.pt:59
 #: src/euphorie/client/templates/risk_evaluation.pt:164
-#: src/euphorie/client/templates/shell.pt:152
-#: src/euphorie/client/templates/shell.pt:155
+#: src/euphorie/client/templates/shell.pt:162
+#: src/euphorie/client/templates/shell.pt:165
 msgid "label_report"
 msgstr "Rapport"
 
@@ -1384,7 +1384,7 @@ msgstr "Uitloggen"
 #: src/euphorie/client/templates/conditions.pt:111
 #: src/euphorie/client/templates/includes.pt:2
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/shell.pt:165
+#: src/euphorie/client/templates/shell.pt:175
 #: src/euphorie/client/templates/webhelpers.pt:33
 #: src/euphorie/content/templates/colour-preview.pt:55
 msgid "navigation_help"
@@ -2074,7 +2074,7 @@ msgstr ""
 
 #. Default: Login
 #: src/euphorie/client/templates/login_form.pt:19
-#: src/euphorie/client/templates/shell.pt:77
+#: src/euphorie/client/templates/shell.pt:87
 msgid "header_login"
 msgstr "Login"
 
@@ -2130,7 +2130,7 @@ msgid "label_login"
 msgstr "Login"
 
 #: src/euphorie/client/templates/measures_overview.pt:60
-#: src/euphorie/client/templates/report_landing.pt:109
+#: src/euphorie/client/templates/report_landing.pt:124
 msgid "Overview of measures"
 msgstr "Overzicht van maatregelen"
 
@@ -2139,23 +2139,23 @@ msgid "(measures to be implemented in the coming months)"
 msgstr "(maatregelen geïmplementeerd in de komende maanden)"
 
 #: src/euphorie/client/templates/measures_overview.pt:62
-#: src/euphorie/client/templates/report_landing.pt:54
-#: src/euphorie/client/templates/report_landing.pt:75
-#: src/euphorie/client/templates/report_landing.pt:98
-#: src/euphorie/client/templates/report_landing.pt:121
+#: src/euphorie/client/templates/report_landing.pt:69
+#: src/euphorie/client/templates/report_landing.pt:90
+#: src/euphorie/client/templates/report_landing.pt:113
+#: src/euphorie/client/templates/report_landing.pt:136
 #: src/euphorie/client/templates/risks_overview.pt:147
 msgid "Use it to"
 msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:100
-#: src/euphorie/client/templates/report_landing.pt:123
+#: src/euphorie/client/templates/report_landing.pt:115
+#: src/euphorie/client/templates/report_landing.pt:138
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Pass information to the people concerned."
 msgstr "Geef informatie door aan de betrokken personen."
 
 #: src/euphorie/client/templates/measures_overview.pt:65
-#: src/euphorie/client/templates/report_landing.pt:124
+#: src/euphorie/client/templates/report_landing.pt:139
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr "Controleer of de maatregelen geïmplementeerd worden."
 
@@ -2379,19 +2379,19 @@ msgstr "Nieuwe sessie"
 
 #. Default: Sign in
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:88
+#: src/euphorie/client/templates/shell.pt:98
 msgid "link_sign_in"
 msgstr "Meld u aan"
 
 #. Default: This is a test session. ${link_sign_in} to save your data.
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:88
+#: src/euphorie/client/templates/shell.pt:98
 msgid "info_testsession"
 msgstr "Dit is een proefsessie. ${link_sign_in} om uw gegevens op te slaan."
 
 #. Default: Info
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:88
+#: src/euphorie/client/templates/shell.pt:98
 msgid "Info"
 msgstr "Info"
 
@@ -2576,7 +2576,7 @@ msgstr "Voorbeeld van een maatregelen overzichtsrapport in PDF formaat"
 #. Default: Register
 #: src/euphorie/client/templates/register.pt:76
 #: src/euphorie/client/templates/register.pt:80
-#: src/euphorie/client/templates/shell.pt:78
+#: src/euphorie/client/templates/shell.pt:88
 msgid "header_register"
 msgstr "Registreer"
 
@@ -2738,10 +2738,21 @@ msgid "button_print"
 msgstr "Print"
 
 #: src/euphorie/client/templates/report_landing.pt:22
+msgid ""
+"Did you like this tool? Let your colleagues and friends know about it! Share "
+"via:"
+msgstr ""
+
+#: src/euphorie/client/templates/report_landing.pt:29
+#: src/euphorie/client/templates/start.pt:71
+msgid "E-mail"
+msgstr ""
+
+#: src/euphorie/client/templates/report_landing.pt:37
 msgid "Download and print your report"
 msgstr "Uw rapport downloaden en printen"
 
-#: src/euphorie/client/templates/report_landing.pt:24
+#: src/euphorie/client/templates/report_landing.pt:39
 msgid ""
 "Save the report on your computer and print it. You can also modify it or add "
 "more information. Please note that changes made on your pc will NOT be saved "
@@ -2751,15 +2762,15 @@ msgstr ""
 "of aanvullen. Wijzigingen die u aanbrengt in het bestand op uw pc worden "
 "echter NIET opgeslagen in de OiRA-tool."
 
-#: src/euphorie/client/templates/report_landing.pt:25
+#: src/euphorie/client/templates/report_landing.pt:40
 msgid "Use the report to:"
 msgstr "Gebruik het rapport:"
 
-#: src/euphorie/client/templates/report_landing.pt:28
+#: src/euphorie/client/templates/report_landing.pt:43
 msgid "Provide evidence for supervisory authorities."
 msgstr "als bewijs voor toezichthoudende instanties"
 
-#: src/euphorie/client/templates/report_landing.pt:29
+#: src/euphorie/client/templates/report_landing.pt:44
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
@@ -2768,13 +2779,13 @@ msgstr ""
 "veiligheidsvertegenwoordigers, werkgever, deskundigen op gebied van welzijn "
 "op het werk, ...)"
 
-#: src/euphorie/client/templates/report_landing.pt:30
+#: src/euphorie/client/templates/report_landing.pt:45
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr ""
 "om te controleren en beoordelen of de noodzakelijke maatregelen zijn "
 "getroffen "
 
-#: src/euphorie/client/templates/report_landing.pt:31
+#: src/euphorie/client/templates/report_landing.pt:46
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
@@ -2783,7 +2794,7 @@ msgstr ""
 "nieuwe machines of nieuwe werknemers) of naar aanleiding van de uitkomsten "
 "van een onderzoek naar een ongeval"
 
-#: src/euphorie/client/templates/report_landing.pt:35
+#: src/euphorie/client/templates/report_landing.pt:50
 msgid ""
 "We recommend that you always keep an updated printed version of your risk "
 "assessment (report) available in your company!"
@@ -2791,15 +2802,15 @@ msgstr ""
 "Wij raden u aan ervoor te zorgen dat er altijd een actuele geprinte versie "
 "van uw risicoanalyse beschikbaar is in uw bedrijf!"
 
-#: src/euphorie/client/templates/report_landing.pt:46
+#: src/euphorie/client/templates/report_landing.pt:61
 msgid "Download the full report"
 msgstr "Het volledige rapport downloaden"
 
-#: src/euphorie/client/templates/report_landing.pt:50
+#: src/euphorie/client/templates/report_landing.pt:65
 msgid "Format: Rich Text Format (.rtf)"
 msgstr "Bestandsformaat: Word (.doc)"
 
-#: src/euphorie/client/templates/report_landing.pt:51
+#: src/euphorie/client/templates/report_landing.pt:66
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
@@ -2807,34 +2818,34 @@ msgstr ""
 "Bevat: alle informatie en input die u hebt verstrekt tijdens alle stappen "
 "van de risicoanalyse"
 
-#: src/euphorie/client/templates/report_landing.pt:56
+#: src/euphorie/client/templates/report_landing.pt:71
 msgid "Provide evidence"
 msgstr "Bewijs te leveren"
 
-#: src/euphorie/client/templates/report_landing.pt:56
+#: src/euphorie/client/templates/report_landing.pt:71
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
 "${provide-evidence} aan toezichthoudende instanties (Inspectie SZW)"
 
-#: src/euphorie/client/templates/report_landing.pt:67
+#: src/euphorie/client/templates/report_landing.pt:82
 msgid "Download the action plan"
 msgstr "Het actieplan downloaden"
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:86
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Bestandsformaat: Office Open XML Workbook (.xlsx)"
 
-#: src/euphorie/client/templates/report_landing.pt:72
+#: src/euphorie/client/templates/report_landing.pt:87
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
 "Inhoud: Uw plan van aanpak voor alle in de branche RI&E opgenomen risico’s."
 
-#: src/euphorie/client/templates/report_landing.pt:77
+#: src/euphorie/client/templates/report_landing.pt:92
 msgid "Manage"
 msgstr "Te gebruiken om"
 
-#: src/euphorie/client/templates/report_landing.pt:77
+#: src/euphorie/client/templates/report_landing.pt:92
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -2842,34 +2853,34 @@ msgstr ""
 "de bestaande problemen/risico's op uw werkplek te beheren (specifieke taken, "
 "deskundigheid, verantwoordelijkheden, deadlines)"
 
-#: src/euphorie/client/templates/report_landing.pt:86
+#: src/euphorie/client/templates/report_landing.pt:101
 #: src/euphorie/client/templates/risks_overview.pt:146
 msgid "Overview of risks"
 msgstr "Overzicht van de risico‘s"
 
-#: src/euphorie/client/templates/report_landing.pt:90
+#: src/euphorie/client/templates/report_landing.pt:105
 msgid "Download the risks overview"
 msgstr "Download het overzicht van risico's"
 
-#: src/euphorie/client/templates/report_landing.pt:94
-#: src/euphorie/client/templates/report_landing.pt:117
+#: src/euphorie/client/templates/report_landing.pt:109
+#: src/euphorie/client/templates/report_landing.pt:132
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Format: Portable Document Format (.pdf)"
 
-#: src/euphorie/client/templates/report_landing.pt:95
+#: src/euphorie/client/templates/report_landing.pt:110
 msgid "Contains: an overview of the risks identified"
 msgstr "Inhoud: een overzicht van de vastgestelde risico's"
 
-#: src/euphorie/client/templates/report_landing.pt:101
+#: src/euphorie/client/templates/report_landing.pt:116
 #: src/euphorie/client/templates/risks_overview.pt:150
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr "Ga na of er naar behoren wordt omgegaan met risico's/maatregelen."
 
-#: src/euphorie/client/templates/report_landing.pt:113
+#: src/euphorie/client/templates/report_landing.pt:128
 msgid "Download the measures overview"
 msgstr "Download het overzicht van maatregelen"
 
-#: src/euphorie/client/templates/report_landing.pt:118
+#: src/euphorie/client/templates/report_landing.pt:133
 msgid "Contains: an overview of the measures to be implemented."
 msgstr ""
 "Inhoud: een overzicht van de toe te passen maatregelen in de komende 3 maanden."
@@ -3454,7 +3465,7 @@ msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} Niet beantwoorde risico‘s"
 
 #: src/euphorie/client/templates/sessions.pt:22
-#: src/euphorie/client/templates/shell.pt:112
+#: src/euphorie/client/templates/shell.pt:122
 msgid "Start a new session"
 msgstr "Start een nieuwe sessie"
 
@@ -3479,6 +3490,7 @@ msgid "lable_session_modified"
 msgstr "opgeslagen op ${date}"
 
 #: src/euphorie/client/templates/sessions.pt:36
+#: src/euphorie/client/templates/start.pt:25
 #: src/euphorie/client/templates/survey_sessions.pt:33
 msgid "Rename this session"
 msgstr "Herbenoem deze sessie"
@@ -3490,53 +3502,64 @@ msgid "label_rename"
 msgstr "Hernoem"
 
 #: src/euphorie/client/templates/sessions.pt:37
+#: src/euphorie/client/templates/start.pt:26
 #: src/euphorie/client/templates/survey_sessions.pt:34
 msgid "Delete this session"
 msgstr "Verwijder deze sessie"
 
-#: src/euphorie/client/templates/shell.pt:102
-#: src/euphorie/client/templates/shell.pt:104
+#: src/euphorie/client/templates/shell.pt:112
+#: src/euphorie/client/templates/shell.pt:114
 msgid "Start test session"
 msgstr "Start proefsessie"
 
 #. Default: Select an earlier session to complete or review
-#: src/euphorie/client/templates/shell.pt:109
+#: src/euphorie/client/templates/shell.pt:119
 #: src/euphorie/client/templates/survey_sessions.pt:21
 msgid "header_select_session"
 msgstr "Kies een eerdere RI&E om af te maken of te wijzigen"
 
 #. Default: New
-#: src/euphorie/client/templates/shell.pt:112
+#: src/euphorie/client/templates/shell.pt:122
 msgid "New"
 msgstr "Nieuw"
 
 #. Default: Check your progress
-#: src/euphorie/client/templates/shell.pt:160
+#: src/euphorie/client/templates/shell.pt:170
 #: src/euphorie/client/templates/webhelpers.pt:34
 #: src/euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
 msgstr "Status"
 
 #. Default: Online interactive
-#: src/euphorie/client/templates/shell.pt:176
+#: src/euphorie/client/templates/shell.pt:186
 #: src/euphorie/client/templates/webhelpers.pt:23
 msgid "oira_name_line_1"
 msgstr "Online interactive"
 
 #. Default: Risk Assessment
-#: src/euphorie/client/templates/shell.pt:177
+#: src/euphorie/client/templates/shell.pt:187
 #: src/euphorie/client/templates/webhelpers.pt:24
 msgid "oira_name_line_2"
 msgstr "Risicobeoordeling"
 
-#: src/euphorie/client/templates/start.pt:29
+#: src/euphorie/client/templates/start.pt:24
+msgid "Share this OiRA-Tool"
+msgstr ""
+
+#: src/euphorie/client/templates/start.pt:35
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Dit OiRA-tool werd u aangeboden door ${external_site}"
 
 #. Default: Start
-#: src/euphorie/client/templates/start.pt:46
+#: src/euphorie/client/templates/start.pt:52
 msgid "label_start_survey"
 msgstr "Start"
+
+#: src/euphorie/client/templates/start.pt:59
+msgid ""
+"This tool deserves to be known by the world! Share it via Twitter, Facebook "
+"or E-mail."
+msgstr ""
 
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:19
@@ -4646,23 +4669,23 @@ msgstr ""
 msgid "message_user_unlocked"
 msgstr "Het account \"${title}\" is vrijgegeven."
 
-#: src/euphorie/content/utils.py:14
+#: src/euphorie/content/utils.py:15
 msgid "European Union"
 msgstr "Europese Unie"
 
-#: src/euphorie/content/utils.py:21
+#: src/euphorie/content/utils.py:22
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:23
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:23
+#: src/euphorie/content/utils.py:24
 msgid "Republic of Serbia"
 msgstr "Servische Republiek"
 
-#: src/euphorie/content/utils.py:25
+#: src/euphorie/content/utils.py:26
 msgid "F.Y.R. Macedonia"
 msgstr "Voormalige Joegoslavische Republiek Macedonië"
 
