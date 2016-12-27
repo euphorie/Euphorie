@@ -35,6 +35,7 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -147,6 +148,9 @@ class WebHelpers(grok.View):
                 self.sector = obj
                 break
         self.debug_mode = Globals.DevelopmentMode
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.allow_social_sharing = settings.get('allow_social_sharing', False)
         user = getSecurityManager().getUser()
         self.anonymous = isAnonymous(user)
         account = getattr(user, 'account_type', None)

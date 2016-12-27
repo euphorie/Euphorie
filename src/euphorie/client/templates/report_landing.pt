@@ -17,7 +17,7 @@
 <metal:slot fill-slot="content">
     <tal:block replace="tile:statusmessages"/>
 
-    <div class="pat-well pat-message notice">
+    <div class="pat-well pat-message notice" tal:condition="webhelpers/allow_social_sharing">
             <article class="pat-rich">
                     <p>
                             Did you like this tool? Let your colleagues and friends know about it! Share via:
