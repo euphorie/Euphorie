@@ -2157,9 +2157,7 @@ msgstr "Geef informatie door aan de betrokken personen."
 #: src/euphorie/client/templates/measures_overview.pt:65
 #: src/euphorie/client/templates/report_landing.pt:124
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
-msgstr ""
-"Controleer de maatregelen die geïmplementeerd moeten worden in de komende 3 "
-"maanden."
+msgstr "Controleer of de maatregelen geïmplementeerd worden."
 
 #: src/euphorie/client/templates/measures_overview.pt:76
 msgid "Measure to be implemented by"
@@ -2816,8 +2814,7 @@ msgstr "Bewijs te leveren"
 #: src/euphorie/client/templates/report_landing.pt:56
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
-"${provide-evidence} aan toezichthoudende instanties (Inspectie Toezicht van "
-"het welzijn op het werk)"
+"${provide-evidence} aan toezichthoudende instanties (Inspectie SZW)"
 
 #: src/euphorie/client/templates/report_landing.pt:67
 msgid "Download the action plan"
@@ -2831,8 +2828,7 @@ msgstr "Bestandsformaat: Office Open XML Workbook (.xlsx)"
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
-"Inhoud: voornaamste elementen om de risico's op uw werkplek op doeltreffende "
-"wijze te beheren."
+"Inhoud: Uw plan van aanpak voor alle in de branche RI&E opgenomen risico’s."
 
 #: src/euphorie/client/templates/report_landing.pt:77
 msgid "Manage"
@@ -2875,7 +2871,8 @@ msgstr "Download het overzicht van maatregelen"
 
 #: src/euphorie/client/templates/report_landing.pt:118
 msgid "Contains: an overview of the measures to be implemented."
-msgstr "Inhoud: een overzicht van de toe te passen maatregelen."
+msgstr ""
+"Inhoud: een overzicht van de toe te passen maatregelen in de komende 3 maanden."
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
