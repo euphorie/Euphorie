@@ -4,8 +4,8 @@ Changelog
 9.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Translation changes for NL
+- Release for "Oira 2.0" at TNO/RIE
 
 9.0.3 (2016-12-14)
 ------------------
