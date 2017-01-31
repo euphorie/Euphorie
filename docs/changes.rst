@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.4 (unreleased)
+9.0.4 (2017-01-31)
 ------------------
 
 - Translation changes for NL
