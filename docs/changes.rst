@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.5 (unreleased)
+9.0.5 (2017-02-01)
 ------------------
 
 - Add OiRA logo in colour
