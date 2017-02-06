@@ -4,8 +4,8 @@ Changelog
 9.0.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- When it comes to generating the reports for download, be more defensive about
+  fetching the custom risks.
 
 9.0.6 (2017-02-06)
 ------------------
