@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.8 (unreleased)
+9.0.8 (2017-02-06)
 ------------------
 
 - When it comes to generating the reports for download, be more defensive about
