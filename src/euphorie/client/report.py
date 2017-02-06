@@ -1080,7 +1080,10 @@ class ActionPlanTimeline(grok.View):
                 enumerate(self.get_measures(), 1):
 
             column = 0
-            zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+            if 'custom-risks' in risk.zodb_path:
+                zodb_node = None
+            else:
+                zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
             for (ntype, key, title) in self.columns:
                 value = None
                 if ntype == 'measure':
