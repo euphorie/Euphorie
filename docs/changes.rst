@@ -4,8 +4,7 @@ Changelog
 9.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Translation changes for NL 
 
 9.0.5 (2017-02-01)
 ------------------

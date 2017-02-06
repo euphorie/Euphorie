@@ -2152,12 +2152,12 @@ msgstr "Te gebruiken om"
 #: src/euphorie/client/templates/report_landing.pt:123
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Pass information to the people concerned."
-msgstr "Geef informatie door aan de betrokken personen."
+msgstr "informatie door te geven aan de betrokken personen."
 
 #: src/euphorie/client/templates/measures_overview.pt:65
 #: src/euphorie/client/templates/report_landing.pt:124
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
-msgstr "Controleer of de maatregelen geïmplementeerd worden."
+msgstr "te controleren of de maatregelen geïmplementeerd worden."
 
 #: src/euphorie/client/templates/measures_overview.pt:76
 msgid "Measure to be implemented by"
@@ -2863,7 +2863,7 @@ msgstr "Inhoud: een overzicht van de vastgestelde risico's"
 #: src/euphorie/client/templates/report_landing.pt:101
 #: src/euphorie/client/templates/risks_overview.pt:150
 msgid "Monitor whether risks / measures are properly dealt with."
-msgstr "Ga na of er naar behoren wordt omgegaan met risico's/maatregelen."
+msgstr "na te gaan of er naar behoren wordt omgegaan met risico's/maatregelen."
 
 #: src/euphorie/client/templates/report_landing.pt:113
 msgid "Download the measures overview"
@@ -2891,7 +2891,7 @@ msgstr "standaard maatregelen"
 #: src/euphorie/client/templates/risk_actionplan.pt:65
 #: src/euphorie/client/templates/risk_actionplan.pt:151
 msgid "label_remove_measure"
-msgstr "Verwijder deze maatregel"
+msgstr "Verwijder"
 
 #. Default: Select one or more of the known common measures provided.
 #: src/euphorie/client/templates/risk_actionplan.pt:69
