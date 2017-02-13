@@ -57,7 +57,7 @@
     <div id="sharing-menu" hidden="hidden" tal:condition="webhelpers/allow_social_sharing">
 
       <p class="pat-message notice" i18n:translate="">
-        This tool deserves to be known by the world! Share it via Twitter, Facebook or E-mail.
+        This tool deserves to be known by the world! Share it!
       </p>
 
       <ul class="menu">

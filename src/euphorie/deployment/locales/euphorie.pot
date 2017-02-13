@@ -1,14 +1,14 @@
 # Translations template for PROJECT.
-# Copyright (C) 2016 Simplon B.V., SYSLAB.COM GmbH
+# Copyright (C) 2017 Simplon B.V., SYSLAB.COM GmbH
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-12-27 15:51+0100\n"
+"POT-Creation-Date: 2017-02-13 16:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1218,7 +1218,7 @@ msgstr ""
 #: src/euphorie/client/templates/login.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/report_landing.pt:80
+#: src/euphorie/client/templates/report_landing.pt:83
 #: src/euphorie/client/templates/risk_evaluation.pt:158
 #: src/euphorie/client/templates/shell.pt:150
 #: src/euphorie/client/templates/shell.pt:152
@@ -1241,7 +1241,7 @@ msgstr ""
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:64
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/report_landing.pt:59
+#: src/euphorie/client/templates/report_landing.pt:62
 #: src/euphorie/client/templates/risk_evaluation.pt:164
 #: src/euphorie/client/templates/shell.pt:162
 #: src/euphorie/client/templates/shell.pt:165
@@ -1871,7 +1871,7 @@ msgid "label_login"
 msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:60
-#: src/euphorie/client/templates/report_landing.pt:124
+#: src/euphorie/client/templates/report_landing.pt:127
 msgid "Overview of measures"
 msgstr ""
 
@@ -1880,23 +1880,23 @@ msgid "(measures to be implemented in the coming months)"
 msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:62
-#: src/euphorie/client/templates/report_landing.pt:69
-#: src/euphorie/client/templates/report_landing.pt:90
-#: src/euphorie/client/templates/report_landing.pt:113
-#: src/euphorie/client/templates/report_landing.pt:136
+#: src/euphorie/client/templates/report_landing.pt:72
+#: src/euphorie/client/templates/report_landing.pt:93
+#: src/euphorie/client/templates/report_landing.pt:116
+#: src/euphorie/client/templates/report_landing.pt:139
 #: src/euphorie/client/templates/risks_overview.pt:147
 msgid "Use it to"
 msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:115
-#: src/euphorie/client/templates/report_landing.pt:138
+#: src/euphorie/client/templates/report_landing.pt:118
+#: src/euphorie/client/templates/report_landing.pt:141
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Pass information to the people concerned."
 msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:65
-#: src/euphorie/client/templates/report_landing.pt:139
+#: src/euphorie/client/templates/report_landing.pt:142
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
 
@@ -2429,130 +2429,128 @@ msgid "button_print"
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:22
-msgid ""
-"Did you like this tool? Let your colleagues and friends know about it! "
-"Share via:"
+msgid "Did you like this tool? Share it with your your colleagues and friends!"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:29
-#: src/euphorie/client/templates/start.pt:71
+#: src/euphorie/client/templates/report_landing.pt:31
+#: src/euphorie/client/templates/start.pt:73
 msgid "E-mail"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:37
+#: src/euphorie/client/templates/report_landing.pt:40
 msgid "Download and print your report"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:39
+#: src/euphorie/client/templates/report_landing.pt:42
 msgid ""
 "Save the report on your computer and print it. You can also modify it or "
 "add more information. Please note that changes made on your pc will NOT "
 "be saved in the OiRA tool"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:40
+#: src/euphorie/client/templates/report_landing.pt:43
 msgid "Use the report to:"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:43
+#: src/euphorie/client/templates/report_landing.pt:46
 msgid "Provide evidence for supervisory authorities."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:44
+#: src/euphorie/client/templates/report_landing.pt:47
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, "
 "etc.)"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:45
+#: src/euphorie/client/templates/report_landing.pt:48
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:46
+#: src/euphorie/client/templates/report_landing.pt:49
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, "
 "as a result of findings of any accident investigations, etc.)"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:50
+#: src/euphorie/client/templates/report_landing.pt:53
 msgid ""
 "We recommend that you always keep an updated printed version of your risk"
 " assessment (report) available in your company!"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:61
+#: src/euphorie/client/templates/report_landing.pt:64
 msgid "Download the full report"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:65
+#: src/euphorie/client/templates/report_landing.pt:68
 msgid "Format: Rich Text Format (.rtf)"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:66
+#: src/euphorie/client/templates/report_landing.pt:69
 msgid ""
 "Contains: all the information and input provided by you throughout the "
 "risk assessment process."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:74
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:82
+#: src/euphorie/client/templates/report_landing.pt:85
 msgid "Download the action plan"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:86
+#: src/euphorie/client/templates/report_landing.pt:89
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:87
+#: src/euphorie/client/templates/report_landing.pt:90
 msgid "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:92
+#: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:92
+#: src/euphorie/client/templates/report_landing.pt:95
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, "
 "expertise, responsibilities, deadlines)."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:101
+#: src/euphorie/client/templates/report_landing.pt:104
 #: src/euphorie/client/templates/risks_overview.pt:146
 msgid "Overview of risks"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:105
+#: src/euphorie/client/templates/report_landing.pt:108
 msgid "Download the risks overview"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:109
-#: src/euphorie/client/templates/report_landing.pt:132
+#: src/euphorie/client/templates/report_landing.pt:112
+#: src/euphorie/client/templates/report_landing.pt:135
 msgid "Format: Portable Document Format (.pdf)"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:110
+#: src/euphorie/client/templates/report_landing.pt:113
 msgid "Contains: an overview of the risks identified"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:116
+#: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:150
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:128
+#: src/euphorie/client/templates/report_landing.pt:131
 msgid "Download the measures overview"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:133
+#: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
 msgstr ""
 
@@ -3202,9 +3200,7 @@ msgid "label_start_survey"
 msgstr ""
 
 #: src/euphorie/client/templates/start.pt:59
-msgid ""
-"This tool deserves to be known by the world! Share it via Twitter, "
-"Facebook or E-mail."
+msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 
 #. Default: Status of ${survey_title}
