@@ -4,8 +4,8 @@ Changelog
 9.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Bugfix for report download (print list of all risks): don't choke on user-
+  defined custom risks
 
 9.0.8 (2017-02-06)
 ------------------

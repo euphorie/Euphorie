@@ -452,13 +452,20 @@ class IdentificationReportDownload(grok.View):
 
         for node in self.getNodes():
             has_risk = node.type == 'risk' and node.identification == 'no'
-            zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
-            show_problem_description = has_risk and \
-                getattr(zodb_node, 'problem_description', None) and \
-                zodb_node.problem_description.strip()
-            if node.zodb_path == 'custom-risks':
-                title = utils.get_translated_custom_risks_title(self.request)
+            if 'custom-risks' in node.zodb_path:
+                zodb_node = None
+                if has_risk:
+                    title = node.title
+                elif node.type == 'module':
+                    title = utils.get_translated_custom_risks_title(
+                        self.request)
             else:
+                zodb_node = survey.restrictedTraverse(
+                    node.zodb_path.split('/'))
+                show_problem_description = (
+                    has_risk and
+                    getattr(zodb_node, 'problem_description', None) and
+                    zodb_node.problem_description.strip())
                 if show_problem_description:
                     title = zodb_node.problem_description.strip()
                 else:
@@ -484,9 +491,9 @@ class IdentificationReportDownload(grok.View):
                     t(_("risk_unanswered",
                         default=u"This risk still needs to be inventorised."))
                 ))
-
-            for el in HtmlToRtf(zodb_node.description, normal_style):
-                section.append(el)
+            if getattr(zodb_node, 'description', None):
+                for el in HtmlToRtf(zodb_node.description, normal_style):
+                    section.append(el)
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
