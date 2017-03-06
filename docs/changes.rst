@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.9 (unreleased)
+9.0.9 (2017-03-06)
 ------------------
 
 - Bugfix for report download (print list of all risks): don't choke on user-
