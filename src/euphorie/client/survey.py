@@ -307,6 +307,11 @@ class Status(grok.View):
         )
         self.label_page = translate(_(u"label_page", default=u"Page"), target_language=lang)
         self.label_page_of = translate(_(u"label_page_of", default=u"of"), target_language=lang)
+        session = SessionManager.session
+        if session is not None and session.title != self.context.Title():
+            self.session_title = session.title
+        else:
+            self.session_title = None
 
     def module_query(self, sessionid, optional_modules):
         if optional_modules:

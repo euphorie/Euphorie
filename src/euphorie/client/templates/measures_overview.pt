@@ -46,6 +46,7 @@ section.module {
 p.byline {float:right;}
 h1 {line-height:130%;}
 h3.title {margin-bottom:1.2em; font-weight:300}
+h4.subtitle {margin-bottom:0.7em;}
 ul.title {margin-bottom:3em;}
     </style>
 </metal:js>
@@ -57,6 +58,7 @@ ul.title {margin-bottom:3em;}
                 ${view/date}
             </p>
             <h1>${here/Title}</h1>
+            <h4 class="subtitle">${view/session_title}</h4>
             <h2 class="title"><em i18n:translate="">Overview of measures</em></h2>
             <h3 class="title" i18n:translate="">(measures to be implemented in the coming months)</h3>
             <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
