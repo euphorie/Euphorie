@@ -216,6 +216,23 @@ class Identification(grok.View):
         else:
             self.next_url = None
 
+    @property
+    def extra_text(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        have_extra = settings.get('extra_text_idendification', False)
+        if not have_extra:
+            return None
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
+        # translating the date under plone locales, we reduce to generic "nl".
+        # For the specific oira translation, we rewrite to "nl_BE"
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return translate(_(
+            u"extra_text_identification", default=u""), target_language=lang)
+
 
 class ActionPlan(grok.View):
     """Survey action plan start page.
