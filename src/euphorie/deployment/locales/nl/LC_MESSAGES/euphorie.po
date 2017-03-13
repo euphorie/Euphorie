@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-11-09 14:48+0100\n"
+"POT-Creation-Date: 2017-03-13 16:34+0100\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -248,7 +248,7 @@ msgid "invalid_email"
 msgstr "Gelieve een geldig e-mail adres in te geven."
 
 #. Default: Please fill out this field.
-#: src/euphorie/client/module.py:78 src/euphorie/client/profile.py:318
+#: src/euphorie/client/module.py:78 src/euphorie/client/profile.py:323
 msgid "message_field_required"
 msgstr "Graag dit veld invullen."
 
@@ -280,15 +280,15 @@ msgstr "Er is een bijkomend risico verwijderd."
 msgid "Added risks have been removed."
 msgstr "Er zijn bijkomende risico's verwijderd."
 
-#: src/euphorie/client/profile.py:236
+#: src/euphorie/client/profile.py:241
 msgid "Does this happen in multiple places?"
 msgstr ""
 
-#: src/euphorie/client/profile.py:239
+#: src/euphorie/client/profile.py:244
 msgid "Enter the name of the location"
 msgstr ""
 
-#: src/euphorie/client/profile.py:242
+#: src/euphorie/client/profile.py:247
 msgid "Enter the names of each location"
 msgstr ""
 
@@ -392,7 +392,7 @@ msgid "report_survey_footer_risk_present"
 msgstr "Met [*] gemarkeerde risico's zijn aanwezig."
 
 #. Default: You responded negative to the above statement.
-#: src/euphorie/client/report.py:478 src/euphorie/client/report.py:807
+#: src/euphorie/client/report.py:485 src/euphorie/client/report.py:814
 #: src/euphorie/client/templates/report_actionplan.pt:96
 #: src/euphorie/client/templates/report_identification.pt:51
 #: src/euphorie/client/templates/webhelpers.pt:180
@@ -400,19 +400,19 @@ msgid "warn_risk_present"
 msgstr "U heeft 'nee' ingevuld bij bovenstaande risico."
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:484 src/euphorie/client/report.py:813
+#: src/euphorie/client/report.py:491 src/euphorie/client/report.py:820
 #: src/euphorie/client/templates/report_actionplan.pt:97
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
 msgstr "Dit risico is nog niet beoordeeld."
 
 #. Default: Identification report ${title}
-#: src/euphorie/client/report.py:502
+#: src/euphorie/client/report.py:509
 msgid "filename_report_identification"
 msgstr "Inventarisatie ${title}.doc"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:670
+#: src/euphorie/client/report.py:677
 msgid "plan_report_intro_header"
 msgstr "Inleiding"
 
@@ -421,7 +421,7 @@ msgstr "Inleiding"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:672
+#: src/euphorie/client/report.py:679
 #: src/euphorie/client/templates/report_actionplan.pt:29
 msgid "plan_report_intro_1"
 msgstr ""
@@ -439,7 +439,7 @@ msgstr ""
 "geld worden opgelost."
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:693
+#: src/euphorie/client/report.py:700
 #: src/euphorie/client/templates/report_actionplan.pt:39
 #: src/euphorie/client/templates/report_actionplan.pt:43
 #: src/euphorie/client/templates/report_actionplan.pt:51
@@ -450,19 +450,19 @@ msgid "missing_data"
 msgstr "Niet ingevuld"
 
 #. Default: Company details
-#: src/euphorie/client/report.py:697
+#: src/euphorie/client/report.py:704
 msgid "plan_report_company_header"
 msgstr "Bedrijfsgegevens"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:764
+#: src/euphorie/client/report.py:771
 msgid "plan_report_plan_header"
 msgstr "Plan van aanpak"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the priority risks it must be included in
 #. this report.
-#: src/euphorie/client/report.py:820
+#: src/euphorie/client/report.py:827
 #: src/euphorie/client/templates/report_actionplan.pt:165
 #: src/euphorie/client/templates/webhelpers.pt:171
 msgid "top5_risk_not_present"
@@ -471,48 +471,48 @@ msgstr ""
 "risico is het wel opgenomen in de rapportage."
 
 #. Default: This is a
-#: src/euphorie/client/report.py:835
+#: src/euphorie/client/report.py:842
 msgid "report_priority"
 msgstr "Dit is een risico in de categorie:"
 
 #. Default: Measure
-#: src/euphorie/client/report.py:847
+#: src/euphorie/client/report.py:854
 msgid "header_measure_single"
 msgstr "Maatregel"
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:851
+#: src/euphorie/client/report.py:858
 #: src/euphorie/client/templates/report_actionplan.pt:112
 msgid "header_measure"
 msgstr "Maatregel ${index}"
 
 #. Default: General approach (to eliminate or reduce the risk):
-#: src/euphorie/client/report.py:865
+#: src/euphorie/client/report.py:872
 #: src/euphorie/client/templates/report_actionplan.pt:115
 msgid "report_measure_actionplan"
 msgstr "Plan van aanpak"
 
 #. Default: Specific action(s) required to implement this approach:
-#: src/euphorie/client/report.py:871
+#: src/euphorie/client/report.py:878
 #: src/euphorie/client/templates/report_actionplan.pt:119
 msgid "report_measure_preventionplan"
 msgstr "Preventieplan"
 
 #. Default: Level of expertise and/or requirements needed:
-#: src/euphorie/client/report.py:878
+#: src/euphorie/client/report.py:885
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:888
+#: src/euphorie/client/report.py:895
 #: src/euphorie/client/templates/report_actionplan.pt:129
 msgid "report_measure_responsible"
 msgstr "${responsible} is verantwoordelijk voor deze maatregel."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:895
+#: src/euphorie/client/report.py:902
 #: src/euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_responsible_and_start"
 msgstr ""
@@ -520,7 +520,7 @@ msgstr ""
 "${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:905
+#: src/euphorie/client/report.py:912
 #: src/euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_responsible_and_end"
 msgstr ""
@@ -528,7 +528,7 @@ msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:915
+#: src/euphorie/client/report.py:922
 #: src/euphorie/client/templates/report_actionplan.pt:147
 msgid "report_measure_full"
 msgstr ""
@@ -536,65 +536,65 @@ msgstr ""
 "${start} en eindigend op ${end}."
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:927
+#: src/euphorie/client/report.py:934
 #: src/euphorie/client/templates/report_actionplan.pt:137
 msgid "report_measure_start_only"
 msgstr "Deze maatregel begint op ${start}."
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:936
+#: src/euphorie/client/report.py:943
 #: src/euphorie/client/templates/report_actionplan.pt:140
 msgid "report_measure_end_only"
 msgstr "Deze maatregel eindigt op ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:944
+#: src/euphorie/client/report.py:951
 #: src/euphorie/client/templates/report_actionplan.pt:143
 msgid "report_measure_start_and_stop"
 msgstr "Deze maatregel begint op ${start} en eindigt op ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:954
+#: src/euphorie/client/report.py:961
 #: src/euphorie/client/templates/report_actionplan.pt:151
 msgid "report_measure_budget"
 msgstr "Er is een budget van € ${amount} voor deze maatregel."
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:969
+#: src/euphorie/client/report.py:976
 msgid "filename_report_actionplan"
 msgstr "Plan van aanpak ${title}"
 
 #. Default: Low
-#: src/euphorie/client/report.py:1023
+#: src/euphorie/client/report.py:1030
 msgid "label_timeline_priority_low"
 msgstr "laag"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:1024
+#: src/euphorie/client/report.py:1031
 msgid "label_timeline_priority_medium"
 msgstr "gemiddeld"
 
 #. Default: High
-#: src/euphorie/client/report.py:1025
+#: src/euphorie/client/report.py:1032
 msgid "label_timeline_priority_high"
 msgstr "hoog"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:1030
+#: src/euphorie/client/report.py:1037
 #: src/euphorie/client/templates/risk_actionplan.pt:118
 #: src/euphorie/client/templates/risk_actionplan.pt:194
 msgid "label_action_plan_start"
 msgstr "Begindatum"
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:1032
+#: src/euphorie/client/report.py:1039
 #: src/euphorie/client/templates/risk_actionplan.pt:129
 #: src/euphorie/client/templates/risk_actionplan.pt:201
 msgid "label_action_plan_end"
 msgstr "Eind datum"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:1034
+#: src/euphorie/client/report.py:1041
 #: src/euphorie/client/templates/risk_actionplan.pt:85
 #: src/euphorie/client/templates/risk_actionplan.pt:172
 #: src/euphorie/client/templates/risk_actionplan.pt:229
@@ -604,7 +604,7 @@ msgid "label_measure_action_plan"
 msgstr "Plan van aanpak"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:1038
+#: src/euphorie/client/report.py:1045
 #: src/euphorie/client/templates/risk_actionplan.pt:90
 #: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_actionplan.pt:231
@@ -614,7 +614,7 @@ msgid "label_measure_prevention_plan"
 msgstr "Preventie plan"
 
 #. Default: Level of expertise and/or requirements needed
-#: src/euphorie/client/report.py:1042
+#: src/euphorie/client/report.py:1049
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:176
 #: src/euphorie/client/templates/risk_actionplan.pt:233
@@ -624,51 +624,51 @@ msgid "label_measure_requirements"
 msgstr "Vereisten"
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:1045
+#: src/euphorie/client/report.py:1052
 #: src/euphorie/client/templates/risk_actionplan.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:182
 msgid "label_action_plan_responsible"
 msgstr "Wie is er verantwoordelijk?"
 
 #. Default: Budget
-#: src/euphorie/client/report.py:1048
+#: src/euphorie/client/report.py:1055
 #: src/euphorie/client/templates/risk_actionplan.pt:109
 #: src/euphorie/client/templates/risk_actionplan.pt:187
 msgid "label_action_plan_budget"
 msgstr "Budget (in Euro)"
 
 #. Default: Section
-#: src/euphorie/client/report.py:1050
+#: src/euphorie/client/report.py:1057
 msgid "label_section"
 msgstr "Sectie"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:1052
+#: src/euphorie/client/report.py:1059
 msgid "label_risk_number"
 msgstr "Risiconummer"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:1054
+#: src/euphorie/client/report.py:1061
 msgid "report_timeline_risk_title"
 msgstr "Risico"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:1056 src/euphorie/content/risk.py:158
+#: src/euphorie/client/report.py:1063 src/euphorie/content/risk.py:158
 msgid "report_timeline_priority"
 msgstr "Categorie"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:1058
+#: src/euphorie/client/report.py:1065
 msgid "report_timeline_comment"
 msgstr "Opmerkingen"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:1073
+#: src/euphorie/client/report.py:1080
 msgid "report_timeline_title"
 msgstr "Plan van aanpak"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:1108
+#: src/euphorie/client/report.py:1118
 msgid "filename_report_timeline"
 msgstr "Actielijst ${title}"
 
@@ -881,13 +881,23 @@ msgstr ""
 msgid "Your email address has been updated."
 msgstr "Uw e-mailadres is gewijzigd."
 
+#. Default:
+#: src/euphorie/client/survey.py:233
+msgid "extra_text_identification"
+msgstr ""
+"In eerste instantie staat er bij elke vraag ‘dit risico is nog niet "
+"beoordeeld’, maar bij het vullen van de RI&E worden hier ook de antwoorden "
+"zichtbaar. Als alles is ingevuld kunt u dit bestand printen als volledige "
+"rapportage, die u samen met het plan aan aanpak eventueel ook kunt voorleggen "
+"aan degene die de RI&E gaat toetsen."
+
 #. Default: Page
-#: src/euphorie/client/survey.py:291
+#: src/euphorie/client/survey.py:308
 msgid "label_page"
 msgstr "Pagina"
 
 #. Default: of
-#: src/euphorie/client/survey.py:292
+#: src/euphorie/client/survey.py:309
 msgid "label_page_of"
 msgstr "van"
 
@@ -1710,11 +1720,11 @@ msgstr "Werknemers betrokkenheid"
 #: src/euphorie/client/templates/default_introduction.pt:13
 msgid "intro_consultation_of_workers"
 msgstr ""
-"Bij het maken van de RI&E is het verstandig om ook de hulp In te schakelen van"
-" de werknemer of van de werknemers vertegenwoordigers in het bedrijf. Zij "
-"hebben tenslotte dagelijks met eventuele risico’s te maken en weten wat er op "
-"de werkvloer speelt. Door werknemers te betrekken, zullen zij waarschijnlijk "
-"ook eerder het belang zien van nieuwe maatregelen. "
+"Bij het maken van de RI&E is het verstandig om ook de hulp In te schakelen "
+"van de werknemer of van de werknemers vertegenwoordigers in het bedrijf. Zij "
+"hebben tenslotte dagelijks met eventuele risico’s te maken en weten wat er "
+"op de werkvloer speelt. Door werknemers te betrekken, zullen zij "
+"waarschijnlijk ook eerder het belang zien van nieuwe maatregelen. "
 
 #. Default: The OiRA tool
 #: src/euphorie/client/templates/default_introduction.pt:15
@@ -1847,7 +1857,7 @@ msgid "intro_identification"
 msgstr "U kunt de ${list-of-risks} printen"
 
 #. Default: Start Risk Identification
-#: src/euphorie/client/templates/identification.pt:25
+#: src/euphorie/client/templates/identification.pt:26
 msgid "label_start_identification"
 msgstr "Start risico inventarisatie"
 
@@ -2813,8 +2823,7 @@ msgstr "Bewijs te leveren"
 
 #: src/euphorie/client/templates/report_landing.pt:56
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
-msgstr ""
-"${provide-evidence} aan toezichthoudende instanties (Inspectie SZW)"
+msgstr "${provide-evidence} aan toezichthoudende instanties (Inspectie SZW)"
 
 #: src/euphorie/client/templates/report_landing.pt:67
 msgid "Download the action plan"
@@ -2872,7 +2881,8 @@ msgstr "Download het overzicht van maatregelen"
 #: src/euphorie/client/templates/report_landing.pt:118
 msgid "Contains: an overview of the measures to be implemented."
 msgstr ""
-"Inhoud: een overzicht van de toe te passen maatregelen in de komende 3 maanden."
+"Inhoud: een overzicht van de toe te passen maatregelen in de komende 3 "
+"maanden."
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
