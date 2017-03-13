@@ -179,8 +179,14 @@ class Resume(grok.View):
             # No tree generated, so start over
             self.request.response.redirect("%s/start" % survey.absolute_url())
         else:
+            # Redirect to the start page of the Identification phase.
+            # We do this to ensure the screen with the tool name gets shown.
+            # If we jump directly to the first question, the user does not
+            # see the tool name.
+            # This is especially relevant since the osc-header now displays the
+            # user-given session name.
             self.request.response.redirect(
-                    QuestionURL(survey, question, phase="identification"))
+                "{0}/{1}".format(survey.absolute_url(), "identification"))
 
 
 class Identification(grok.View):
