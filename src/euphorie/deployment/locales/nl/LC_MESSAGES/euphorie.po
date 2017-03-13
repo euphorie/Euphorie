@@ -2646,9 +2646,9 @@ msgstr "Vul een nieuwe naam in voor dit OiRA-tool"
 msgid "report_intro"
 msgstr ""
 "U heeft alle risico's van de organisatie geïnventariseerd en een plan van "
-"aanpak gemaakt. Nu kunt u een rapport maken waarin alle resultaten worden "
+"aanpak gemaakt. Nu kunt u een plan van aanpak  maken waarin alle resultaten worden "
 "opgenomen. U kunt, als u dat wilt, extra tekst plaatsen in het vak dat "
-"hieronder staat. Die tekst wordt opgenomen aan het begin van het rapport."
+"hieronder staat. Die tekst wordt opgenomen aan het begin van het plan van aanpak."
 
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
