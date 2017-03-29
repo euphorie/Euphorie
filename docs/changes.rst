@@ -4,7 +4,8 @@ Changelog
 9.0.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- In the top-left menu inside a session (osc-header), display the user-
+  defined session name, instead of the generic survey name
 
 
 9.0.9 (2017-03-06)
