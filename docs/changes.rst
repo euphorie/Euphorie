@@ -6,7 +6,10 @@ Changelog
 
 - In the top-left menu inside a session (osc-header), display the user-
   defined session name, instead of the generic survey name
-
+- Introduced "Share via Twitter / Facebook / Email".
+  Must be activated via "allow_social_sharing=True" in euphorie.ini
+- When a user enters a guest session, actually open the survey session
+  and jump to the start of the survey
 
 9.0.9 (2017-03-06)
 ------------------
