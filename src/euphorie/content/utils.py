@@ -9,6 +9,7 @@ from .. import MessageFactory as _
 
 TAG = re.compile(u"<.*?>")
 UNWANTED = re.compile(u"(\r|&#13;)")
+WHITE = re.compile(' +')
 
 REGION_NAMES = {
     "eu": _(u"European Union"),
@@ -41,7 +42,8 @@ def StripMarkup(markup):
     if not markup:
         return u""
 
-    return TAG.sub(u"", markup)
+    txt = TAG.sub(u" ", markup)
+    return WHITE.sub(u" ", txt)
 
 
 def StripUnwanted(text):

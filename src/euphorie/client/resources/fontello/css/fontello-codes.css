@@ -34,3 +34,6 @@
 .icon-key:before { content: '\e820'; } /* '' */
 .icon-logout:before { content: '\e821'; } /* '' */
 .icon-spin6:before { content: '\e822'; } /* '' */
+.icon-share:before { content: '\e828'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f230'; } /* '' */

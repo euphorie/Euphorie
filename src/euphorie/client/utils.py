@@ -35,6 +35,7 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -147,12 +148,18 @@ class WebHelpers(grok.View):
                 self.sector = obj
                 break
         self.debug_mode = Globals.DevelopmentMode
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.allow_social_sharing = settings.get('allow_social_sharing', False)
         user = getSecurityManager().getUser()
         self.anonymous = isAnonymous(user)
         account = getattr(user, 'account_type', None)
         self.is_guest_account = account == config.GUEST_ACCOUNT
-        self.guest_session_id = self.is_guest_account and \
-                SessionManager.session and SessionManager.session.id or None
+        self.guest_session_id = (
+            self.is_guest_account and
+            SessionManager.session and SessionManager.session.id or None)
+        self.session_id = (
+            SessionManager.session and SessionManager.session.id or '')
 
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -166,9 +173,13 @@ class WebHelpers(grok.View):
         self.country_name = ''
         self.sector_name = ''
         self.tool_name = ''
+        self.tool_description = ''
+        ploneview = getMultiAdapter((self.context, self.request), name="plone")
         for obj in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(obj):
                 self.tool_name = obj.Title()
+                self.tool_description = ploneview.cropText(
+                    StripMarkup(obj.introduction), 800)
                 if self.anonymous:
                     setattr(self.request, 'survey', obj)
             if IClientSector.providedBy(obj):

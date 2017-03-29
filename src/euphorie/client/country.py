@@ -237,7 +237,14 @@ class RenameSession(form.SchemaForm):
             self.getContent().title = data['title']
             flash(_(u"Session title has been changed to ${name}",
                 mapping={"name": data["title"]}), "success")
-        self.response.redirect(self.context.absolute_url())
+        came_from = self.request.form.get("came_from")
+        if isinstance(came_from, list):
+            # If came_from is both in the querystring and the form data
+            came_from = came_from[0]
+        if came_from:
+            self.request.response.redirect(came_from)
+        else:
+            self.response.redirect(self.context.absolute_url())
 
     @button.buttonAndHandler(_(u"Cancel"))
     def handleCancel(self, action):
