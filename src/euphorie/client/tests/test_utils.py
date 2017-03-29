@@ -39,6 +39,7 @@ class TestURLs(EuphorieTestCase):
         sector = country["sector"]
         survey = Survey('survey')
         survey.title = u'Test Survey'
+        survey.introduction = u"This is a survey that is well suited for tests"
         survey.language = 'en'
         sector['survey'] = survey
 
