@@ -2701,12 +2701,12 @@ msgstr "Tulostus"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr ""
+msgstr "Piditkö tästä työkalusta? Jaa se työtovereillesi ja kavereillesi!"
 
 #: src/euphorie/client/templates/report_landing.pt:31
 #: src/euphorie/client/templates/start.pt:73
 msgid "E-mail"
-msgstr ""
+msgstr "Sähköposti"
 
 #: src/euphorie/client/templates/report_landing.pt:40
 msgid "Download and print your report"
@@ -3499,7 +3499,7 @@ msgstr "Riskinarviointi"
 
 #: src/euphorie/client/templates/start.pt:24
 msgid "Share this OiRA-Tool"
-msgstr ""
+msgstr "Jaa tämä OiRA-työkalu"
 
 #: src/euphorie/client/templates/start.pt:35
 msgid "This OiRA tool was offered to you by ${external_site}"
@@ -3512,7 +3512,7 @@ msgstr "Aloita"
 
 #: src/euphorie/client/templates/start.pt:59
 msgid "This tool deserves to be known by the world! Share it!"
-msgstr ""
+msgstr "Kaikkien kannattaa tutustua tähän työkaluun! Jaa se!"
 
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:19

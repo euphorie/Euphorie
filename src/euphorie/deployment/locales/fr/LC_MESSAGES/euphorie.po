@@ -2793,12 +2793,12 @@ msgstr "Imprimer"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr ""
+msgstr "Avez-vous aimé cet outil? Partagez-le avec vos collègues et vos amis!"
 
 #: src/euphorie/client/templates/report_landing.pt:31
 #: src/euphorie/client/templates/start.pt:73
 msgid "E-mail"
-msgstr ""
+msgstr "Adresse électronique"
 
 #: src/euphorie/client/templates/report_landing.pt:40
 msgid "Download and print your report"
@@ -3592,7 +3592,7 @@ msgstr "des risques en ligne"
 
 #: src/euphorie/client/templates/start.pt:24
 msgid "Share this OiRA-Tool"
-msgstr ""
+msgstr "Partager cet outil OiRA"
 
 #: src/euphorie/client/templates/start.pt:35
 msgid "This OiRA tool was offered to you by ${external_site}"
@@ -3605,7 +3605,7 @@ msgstr "Commencer"
 
 #: src/euphorie/client/templates/start.pt:59
 msgid "This tool deserves to be known by the world! Share it!"
-msgstr ""
+msgstr "Tout le monde doit connaître cet outil! Partagez-le!"
 
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:19

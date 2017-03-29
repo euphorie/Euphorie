@@ -2692,12 +2692,12 @@ msgstr "Tisk"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr ""
+msgstr "Líbil se vám tento nástroj? Řekněte o něm svým kolegům a známým!"
 
 #: src/euphorie/client/templates/report_landing.pt:31
 #: src/euphorie/client/templates/start.pt:73
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 #: src/euphorie/client/templates/report_landing.pt:40
 msgid "Download and print your report"
@@ -3484,7 +3484,7 @@ msgstr "Vyhodnocení rizik"
 
 #: src/euphorie/client/templates/start.pt:24
 msgid "Share this OiRA-Tool"
-msgstr ""
+msgstr "Sdílejte tento nástroj OiRA"
 
 #: src/euphorie/client/templates/start.pt:35
 msgid "This OiRA tool was offered to you by ${external_site}"
@@ -3497,7 +3497,7 @@ msgstr "Start"
 
 #: src/euphorie/client/templates/start.pt:59
 msgid "This tool deserves to be known by the world! Share it!"
-msgstr ""
+msgstr "Svět by se měl o tomto nástroji dozvědět! Sdílejte jej!"
 
 #. Default: Status of ${survey_title}
 #: src/euphorie/client/templates/status.pt:19
