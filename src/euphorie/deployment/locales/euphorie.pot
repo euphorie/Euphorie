@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-03-13 16:38+0100\n"
+"POT-Creation-Date: 2017-03-29 14:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -840,17 +840,17 @@ msgid "Your email address has been updated."
 msgstr ""
 
 #. Default:
-#: src/euphorie/client/survey.py:233
+#: src/euphorie/client/survey.py:239
 msgid "extra_text_identification"
 msgstr ""
 
 #. Default: Page
-#: src/euphorie/client/survey.py:308
+#: src/euphorie/client/survey.py:314
 msgid "label_page"
 msgstr ""
 
 #. Default: of
-#: src/euphorie/client/survey.py:309
+#: src/euphorie/client/survey.py:315
 msgid "label_page_of"
 msgstr ""
 
@@ -871,7 +871,7 @@ msgid "title_tool"
 msgstr ""
 
 #. Default: Close
-#: src/euphorie/client/utils.py:517
+#: src/euphorie/client/utils.py:519
 msgid "button_close"
 msgstr ""
 
@@ -1875,53 +1875,53 @@ msgstr ""
 msgid "label_login"
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:60
+#: src/euphorie/client/templates/measures_overview.pt:62
 #: src/euphorie/client/templates/report_landing.pt:127
 msgid "Overview of measures"
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:61
+#: src/euphorie/client/templates/measures_overview.pt:63
 msgid "(measures to be implemented in the coming months)"
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:62
+#: src/euphorie/client/templates/measures_overview.pt:64
 #: src/euphorie/client/templates/report_landing.pt:72
 #: src/euphorie/client/templates/report_landing.pt:93
 #: src/euphorie/client/templates/report_landing.pt:116
 #: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:147
+#: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Use it to"
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:64
+#: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
 #: src/euphorie/client/templates/report_landing.pt:141
-#: src/euphorie/client/templates/risks_overview.pt:149
+#: src/euphorie/client/templates/risks_overview.pt:151
 msgid "Pass information to the people concerned."
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:65
+#: src/euphorie/client/templates/measures_overview.pt:67
 #: src/euphorie/client/templates/report_landing.pt:142
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
 
-#: src/euphorie/client/templates/measures_overview.pt:76
+#: src/euphorie/client/templates/measures_overview.pt:78
 msgid "Measure to be implemented by"
 msgstr ""
 
 #. Default: High priority risks
-#: src/euphorie/client/templates/measures_overview.pt:84
+#: src/euphorie/client/templates/measures_overview.pt:86
 #: src/euphorie/client/templates/status.pt:117
 msgid "heading_high_prio_risks"
 msgstr ""
 
 #. Default: Medium priority risks
-#: src/euphorie/client/templates/measures_overview.pt:116
+#: src/euphorie/client/templates/measures_overview.pt:118
 msgid "heading_medium_prio_risks"
 msgstr ""
 
 #. Default: Low priority risks
-#: src/euphorie/client/templates/measures_overview.pt:131
+#: src/euphorie/client/templates/measures_overview.pt:133
 msgid "heading_low_prio_risks"
 msgstr ""
 
@@ -2424,7 +2424,7 @@ msgstr ""
 
 #. Default: Contents
 #: src/euphorie/client/templates/report_identification.pt:16
-#: src/euphorie/client/templates/risks_overview.pt:156
+#: src/euphorie/client/templates/risks_overview.pt:158
 msgid "toc_header"
 msgstr ""
 
@@ -2434,7 +2434,7 @@ msgid "button_print"
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:22
-msgid "Did you like this tool? Share it with your your colleagues and friends!"
+msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:31
@@ -2529,7 +2529,7 @@ msgid ""
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:104
-#: src/euphorie/client/templates/risks_overview.pt:146
+#: src/euphorie/client/templates/risks_overview.pt:148
 msgid "Overview of risks"
 msgstr ""
 
@@ -2547,7 +2547,7 @@ msgid "Contains: an overview of the risks identified"
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:119
-#: src/euphorie/client/templates/risks_overview.pt:150
+#: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr ""
 
@@ -2880,238 +2880,238 @@ msgid "description_automatic_evaluation"
 msgstr ""
 
 #. Default: No risk
-#: src/euphorie/client/templates/risks_overview.pt:221
+#: src/euphorie/client/templates/risks_overview.pt:223
 #: src/euphorie/client/templates/status.pt:90
 msgid "label_no_risk"
 msgstr ""
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:222
+#: src/euphorie/client/templates/risks_overview.pt:224
 #: src/euphorie/client/templates/status.pt:91
 msgid "label_no_risks_2"
 msgstr ""
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:223
+#: src/euphorie/client/templates/risks_overview.pt:225
 #: src/euphorie/client/templates/status.pt:92
 msgid "label_no_risks_3_4"
 msgstr ""
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:224
+#: src/euphorie/client/templates/risks_overview.pt:226
 #: src/euphorie/client/templates/status.pt:93
 msgid "label_no_risks_5_or_more"
 msgstr ""
 
 #. Default: Risk with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:228
+#: src/euphorie/client/templates/risks_overview.pt:230
 #: src/euphorie/client/templates/status.pt:97
 msgid "label_risk_with_measure"
 msgstr ""
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:229
+#: src/euphorie/client/templates/risks_overview.pt:231
 #: src/euphorie/client/templates/status.pt:98
 msgid "label_risks_with_measure_2"
 msgstr ""
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:230
+#: src/euphorie/client/templates/risks_overview.pt:232
 #: src/euphorie/client/templates/status.pt:99
 msgid "label_risks_with_measure_3_4"
 msgstr ""
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:231
+#: src/euphorie/client/templates/risks_overview.pt:233
 #: src/euphorie/client/templates/status.pt:100
 msgid "label_risks_with_measure_5_or_more"
 msgstr ""
 
 #. Default: Risk without measure
-#: src/euphorie/client/templates/risks_overview.pt:235
+#: src/euphorie/client/templates/risks_overview.pt:237
 #: src/euphorie/client/templates/status.pt:104
 msgid "label_risk_without_measure"
 msgstr ""
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:236
+#: src/euphorie/client/templates/risks_overview.pt:238
 #: src/euphorie/client/templates/status.pt:105
 msgid "label_risks_without_measure_2"
 msgstr ""
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:237
+#: src/euphorie/client/templates/risks_overview.pt:239
 #: src/euphorie/client/templates/status.pt:106
 msgid "label_risks_without_measure_3_4"
 msgstr ""
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:238
+#: src/euphorie/client/templates/risks_overview.pt:240
 #: src/euphorie/client/templates/status.pt:107
 msgid "label_risks_without_measure_5_or_more"
 msgstr ""
 
 #. Default: Postponed
-#: src/euphorie/client/templates/risks_overview.pt:241
+#: src/euphorie/client/templates/risks_overview.pt:243
 #: src/euphorie/client/templates/status.pt:110
 #: src/euphorie/client/templates/webhelpers.pt:101
 msgid "Postponed"
 msgstr ""
 
 #. Default: Unanswered
-#: src/euphorie/client/templates/risks_overview.pt:244
+#: src/euphorie/client/templates/risks_overview.pt:246
 #: src/euphorie/client/templates/status.pt:113
 #: src/euphorie/client/templates/webhelpers.pt:100
 msgid "Unvisited"
 msgstr ""
 
 #. Default: ${num_present_risks} Present Risk
-#: src/euphorie/client/templates/risks_overview.pt:255
+#: src/euphorie/client/templates/risks_overview.pt:257
 msgid "heading_present_risks"
 msgstr ""
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:256
+#: src/euphorie/client/templates/risks_overview.pt:258
 msgid "heading_present_risks_2"
 msgstr ""
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:257
+#: src/euphorie/client/templates/risks_overview.pt:259
 msgid "heading_present_risks_3_4"
 msgstr ""
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:258
+#: src/euphorie/client/templates/risks_overview.pt:260
 msgid "heading_present_risks_5_or_more"
 msgstr ""
 
 #. Default: ${num_high_risks} High priority risk
-#: src/euphorie/client/templates/risks_overview.pt:261
+#: src/euphorie/client/templates/risks_overview.pt:263
 msgid "heading_num_high_prio_risks"
 msgstr ""
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:262
+#: src/euphorie/client/templates/risks_overview.pt:264
 msgid "heading_num_high_prio_risks_2"
 msgstr ""
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:263
+#: src/euphorie/client/templates/risks_overview.pt:265
 msgid "heading_num_high_prio_risks_3_4"
 msgstr ""
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:264
+#: src/euphorie/client/templates/risks_overview.pt:266
 msgid "heading_num_high_prio_risks_5_or_more"
 msgstr ""
 
 #. Default: ${num_medium_risks} Medium priority risk
-#: src/euphorie/client/templates/risks_overview.pt:266
+#: src/euphorie/client/templates/risks_overview.pt:268
 msgid "heading_num_medium_prio_risks"
 msgstr ""
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:267
+#: src/euphorie/client/templates/risks_overview.pt:269
 msgid "heading_num_medium_prio_risks_2"
 msgstr ""
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:268
+#: src/euphorie/client/templates/risks_overview.pt:270
 msgid "heading_num_medium_prio_risks_3_4"
 msgstr ""
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:269
+#: src/euphorie/client/templates/risks_overview.pt:271
 msgid "heading_num_medium_prio_risks_5_or_more"
 msgstr ""
 
 #. Default: ${num_low_risks} Low priority risk
-#: src/euphorie/client/templates/risks_overview.pt:271
+#: src/euphorie/client/templates/risks_overview.pt:273
 msgid "heading_num_low_prio_risks"
 msgstr ""
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:272
+#: src/euphorie/client/templates/risks_overview.pt:274
 msgid "heading_num_low_prio_risks_2"
 msgstr ""
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:273
+#: src/euphorie/client/templates/risks_overview.pt:275
 msgid "heading_num_low_prio_risks_3_4"
 msgstr ""
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:274
+#: src/euphorie/client/templates/risks_overview.pt:276
 msgid "heading_num_low_prio_risks_5_or_more"
 msgstr ""
 
 #. Default: (≥1 measures)
-#: src/euphorie/client/templates/risks_overview.pt:278
+#: src/euphorie/client/templates/risks_overview.pt:280
 msgid "label_with_measures"
 msgstr ""
 
 #. Default: (without measures)
-#: src/euphorie/client/templates/risks_overview.pt:278
+#: src/euphorie/client/templates/risks_overview.pt:280
 msgid "label_without_measures"
 msgstr ""
 
 #. Default: ${num_possible_risks} Possible Risk
-#: src/euphorie/client/templates/risks_overview.pt:286
+#: src/euphorie/client/templates/risks_overview.pt:288
 msgid "heading_possible_risks"
 msgstr ""
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:287
+#: src/euphorie/client/templates/risks_overview.pt:289
 msgid "heading_possible_risks_2"
 msgstr ""
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:288
+#: src/euphorie/client/templates/risks_overview.pt:290
 msgid "heading_possible_risks_3_4"
 msgstr ""
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:289
+#: src/euphorie/client/templates/risks_overview.pt:291
 msgid "heading_possible_risks_5_or_more"
 msgstr ""
 
 #. Default: ${num_postponed_risks} Risk postponed
-#: src/euphorie/client/templates/risks_overview.pt:293
+#: src/euphorie/client/templates/risks_overview.pt:295
 msgid "heading_num_postponed_prio_risks"
 msgstr ""
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:294
+#: src/euphorie/client/templates/risks_overview.pt:296
 msgid "heading_num_postponed_prio_risks_2"
 msgstr ""
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:295
+#: src/euphorie/client/templates/risks_overview.pt:297
 msgid "heading_num_postponed_prio_risks_3_4"
 msgstr ""
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:296
+#: src/euphorie/client/templates/risks_overview.pt:298
 msgid "heading_num_postponed_prio_risks_5_or_more"
 msgstr ""
 
 #. Default: ${num_todo_risks} Risk not answered
-#: src/euphorie/client/templates/risks_overview.pt:298
+#: src/euphorie/client/templates/risks_overview.pt:300
 msgid "heading_num_todo_prio_risks"
 msgstr ""
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:299
+#: src/euphorie/client/templates/risks_overview.pt:301
 msgid "heading_num_todo_prio_risks_2"
 msgstr ""
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:300
+#: src/euphorie/client/templates/risks_overview.pt:302
 msgid "heading_num_todo_prio_risks_3_4"
 msgstr ""
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:301
+#: src/euphorie/client/templates/risks_overview.pt:303
 msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr ""
 

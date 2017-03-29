@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2016-12-27 15:51+0100\n"
+"POT-Creation-Date: 2017-03-29 14:57+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -393,7 +393,7 @@ msgid "report_survey_footer_risk_present"
 msgstr "Рисковете, отбелязани със [*], са налични."
 
 #. Default: You responded negative to the above statement.
-#: src/euphorie/client/report.py:478 src/euphorie/client/report.py:807
+#: src/euphorie/client/report.py:485 src/euphorie/client/report.py:814
 #: src/euphorie/client/templates/report_actionplan.pt:96
 #: src/euphorie/client/templates/report_identification.pt:51
 #: src/euphorie/client/templates/webhelpers.pt:180
@@ -401,19 +401,19 @@ msgid "warn_risk_present"
 msgstr "Отговорихте отрицателно на горното твърдение."
 
 #. Default: This risk still needs to be inventorised.
-#: src/euphorie/client/report.py:484 src/euphorie/client/report.py:813
+#: src/euphorie/client/report.py:491 src/euphorie/client/report.py:820
 #: src/euphorie/client/templates/report_actionplan.pt:97
 #: src/euphorie/client/templates/report_identification.pt:52
 msgid "risk_unanswered"
 msgstr "Този риск все още е необходимо да бъде инвентаризиран."
 
 #. Default: Identification report ${title}
-#: src/euphorie/client/report.py:502
+#: src/euphorie/client/report.py:509
 msgid "filename_report_identification"
 msgstr "Идентификационен доклад ${title}"
 
 #. Default: Introduction
-#: src/euphorie/client/report.py:670
+#: src/euphorie/client/report.py:677
 msgid "plan_report_intro_header"
 msgstr "Въведение"
 
@@ -422,7 +422,7 @@ msgstr "Въведение"
 #. of this action plan must be discussed annually and a small report must be
 #. written on the progress. Certain subjects might have been completed and
 #. perhaps new subjects need to be added.
-#: src/euphorie/client/report.py:672
+#: src/euphorie/client/report.py:679
 #: src/euphorie/client/templates/report_actionplan.pt:29
 msgid "plan_report_intro_1"
 msgstr ""
@@ -433,7 +433,7 @@ msgstr ""
 "необходимо да бъдат добавени нови теми."
 
 #. Default: Not provided
-#: src/euphorie/client/report.py:693
+#: src/euphorie/client/report.py:700
 #: src/euphorie/client/templates/report_actionplan.pt:39
 #: src/euphorie/client/templates/report_actionplan.pt:43
 #: src/euphorie/client/templates/report_actionplan.pt:51
@@ -444,19 +444,19 @@ msgid "missing_data"
 msgstr "Не е предоставен"
 
 #. Default: Company details
-#: src/euphorie/client/report.py:697
+#: src/euphorie/client/report.py:704
 msgid "plan_report_company_header"
 msgstr "Данни за фирмата"
 
 #. Default: Action plan
-#: src/euphorie/client/report.py:764
+#: src/euphorie/client/report.py:771
 msgid "plan_report_plan_header"
 msgstr "План за действие"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the priority risks it must be included in
 #. this report.
-#: src/euphorie/client/report.py:820
+#: src/euphorie/client/report.py:827
 #: src/euphorie/client/templates/report_actionplan.pt:165
 #: src/euphorie/client/templates/webhelpers.pt:171
 msgid "top5_risk_not_present"
@@ -466,55 +466,55 @@ msgstr ""
 "включен в доклада."
 
 #. Default: This is a
-#: src/euphorie/client/report.py:835
+#: src/euphorie/client/report.py:842
 msgid "report_priority"
 msgstr "Това е"
 
 #. Default: Measure
-#: src/euphorie/client/report.py:847
+#: src/euphorie/client/report.py:854
 msgid "header_measure_single"
 msgstr "Мярка"
 
 #. Default: Measure ${index}
-#: src/euphorie/client/report.py:851
+#: src/euphorie/client/report.py:858
 #: src/euphorie/client/templates/report_actionplan.pt:112
 msgid "header_measure"
 msgstr "Мярка ${index}"
 
 #. Default: General approach (to eliminate or reduce the risk):
-#: src/euphorie/client/report.py:865
+#: src/euphorie/client/report.py:872
 #: src/euphorie/client/templates/report_actionplan.pt:115
 msgid "report_measure_actionplan"
 msgstr "Общ подход (за елиминиране или намаляване на риска):"
 
 #. Default: Specific action(s) required to implement this approach:
-#: src/euphorie/client/report.py:871
+#: src/euphorie/client/report.py:878
 #: src/euphorie/client/templates/report_actionplan.pt:119
 msgid "report_measure_preventionplan"
 msgstr "Конкретни действия, които се изискват, за да се следва този подход:"
 
 #. Default: Level of expertise and/or requirements needed:
-#: src/euphorie/client/report.py:878
+#: src/euphorie/client/report.py:885
 #: src/euphorie/client/templates/report_actionplan.pt:123
 msgid "report_measure_requirements"
 msgstr "Експертно ниво и/или изисквания, които са необходими:"
 
 #. Default: ${responsible} is responsible for this task.
-#: src/euphorie/client/report.py:888
+#: src/euphorie/client/report.py:895
 #: src/euphorie/client/templates/report_actionplan.pt:129
 msgid "report_measure_responsible"
 msgstr "${responsible} носи отговорност за тази задача."
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start}.
-#: src/euphorie/client/report.py:895
+#: src/euphorie/client/report.py:902
 #: src/euphorie/client/templates/report_actionplan.pt:131
 msgid "report_measure_responsible_and_start"
 msgstr ""
 "${responsible} носи отговорност за тази задача, която започва на ${start}."
 
 #. Default: ${responsible} is responsible for this task which ends on ${end}.
-#: src/euphorie/client/report.py:905
+#: src/euphorie/client/report.py:912
 #: src/euphorie/client/templates/report_actionplan.pt:134
 msgid "report_measure_responsible_and_end"
 msgstr ""
@@ -522,7 +522,7 @@ msgstr ""
 
 #. Default: ${responsible} is responsible for this task which starts on
 #. ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:915
+#: src/euphorie/client/report.py:922
 #: src/euphorie/client/templates/report_actionplan.pt:147
 msgid "report_measure_full"
 msgstr ""
@@ -530,65 +530,65 @@ msgstr ""
 "свършва на ${end}."
 
 #. Default: This task starts on ${start}.
-#: src/euphorie/client/report.py:927
+#: src/euphorie/client/report.py:934
 #: src/euphorie/client/templates/report_actionplan.pt:137
 msgid "report_measure_start_only"
 msgstr "Тази задача започва на ${start}."
 
 #. Default: This task ends on ${end}.
-#: src/euphorie/client/report.py:936
+#: src/euphorie/client/report.py:943
 #: src/euphorie/client/templates/report_actionplan.pt:140
 msgid "report_measure_end_only"
 msgstr "Тази задача свършва на ${end}."
 
 #. Default: This task starts on ${start} and ends on ${end}.
-#: src/euphorie/client/report.py:944
+#: src/euphorie/client/report.py:951
 #: src/euphorie/client/templates/report_actionplan.pt:143
 msgid "report_measure_start_and_stop"
 msgstr "Тази задача започва на ${start} и свършва на ${end}."
 
 #. Default: There is a budget of ${amount} for this measure.
-#: src/euphorie/client/report.py:954
+#: src/euphorie/client/report.py:961
 #: src/euphorie/client/templates/report_actionplan.pt:151
 msgid "report_measure_budget"
 msgstr "Съществува бюджет от ${amount} за тази мярка."
 
 #. Default: Action plan ${title}
-#: src/euphorie/client/report.py:969
+#: src/euphorie/client/report.py:976
 msgid "filename_report_actionplan"
 msgstr "План за действие ${title}"
 
 #. Default: Low
-#: src/euphorie/client/report.py:1023
+#: src/euphorie/client/report.py:1030
 msgid "label_timeline_priority_low"
 msgstr "ниско"
 
 #. Default: Medium
-#: src/euphorie/client/report.py:1024
+#: src/euphorie/client/report.py:1031
 msgid "label_timeline_priority_medium"
 msgstr "средно"
 
 #. Default: High
-#: src/euphorie/client/report.py:1025
+#: src/euphorie/client/report.py:1032
 msgid "label_timeline_priority_high"
 msgstr "високо"
 
 #. Default: Planning start
-#: src/euphorie/client/report.py:1030
+#: src/euphorie/client/report.py:1037
 #: src/euphorie/client/templates/risk_actionplan.pt:118
 #: src/euphorie/client/templates/risk_actionplan.pt:194
 msgid "label_action_plan_start"
 msgstr "Планиране на началото"
 
 #. Default: Planning end
-#: src/euphorie/client/report.py:1032
+#: src/euphorie/client/report.py:1039
 #: src/euphorie/client/templates/risk_actionplan.pt:129
 #: src/euphorie/client/templates/risk_actionplan.pt:201
 msgid "label_action_plan_end"
 msgstr "Планиране на края"
 
 #. Default: General approach (to eliminate or reduce the risk)
-#: src/euphorie/client/report.py:1034
+#: src/euphorie/client/report.py:1041
 #: src/euphorie/client/templates/risk_actionplan.pt:85
 #: src/euphorie/client/templates/risk_actionplan.pt:172
 #: src/euphorie/client/templates/risk_actionplan.pt:229
@@ -598,7 +598,7 @@ msgid "label_measure_action_plan"
 msgstr "Общ подход (за елиминиране или намаляване на риска)"
 
 #. Default: Specific action(s) required to implement this approach
-#: src/euphorie/client/report.py:1038
+#: src/euphorie/client/report.py:1045
 #: src/euphorie/client/templates/risk_actionplan.pt:90
 #: src/euphorie/client/templates/risk_actionplan.pt:174
 #: src/euphorie/client/templates/risk_actionplan.pt:231
@@ -608,7 +608,7 @@ msgid "label_measure_prevention_plan"
 msgstr "Конкретни действия, които се изискват, за да бъде следван този подход"
 
 #. Default: Level of expertise and/or requirements needed
-#: src/euphorie/client/report.py:1042
+#: src/euphorie/client/report.py:1049
 #: src/euphorie/client/templates/risk_actionplan.pt:95
 #: src/euphorie/client/templates/risk_actionplan.pt:176
 #: src/euphorie/client/templates/risk_actionplan.pt:233
@@ -618,51 +618,51 @@ msgid "label_measure_requirements"
 msgstr "Експертно ниво и/или изисквания, които са необходими"
 
 #. Default: Who is responsible?
-#: src/euphorie/client/report.py:1045
+#: src/euphorie/client/report.py:1052
 #: src/euphorie/client/templates/risk_actionplan.pt:104
 #: src/euphorie/client/templates/risk_actionplan.pt:182
 msgid "label_action_plan_responsible"
 msgstr "Кой носи отговорност?"
 
 #. Default: Budget
-#: src/euphorie/client/report.py:1048
+#: src/euphorie/client/report.py:1055
 #: src/euphorie/client/templates/risk_actionplan.pt:109
 #: src/euphorie/client/templates/risk_actionplan.pt:187
 msgid "label_action_plan_budget"
 msgstr "Бюджет"
 
 #. Default: Section
-#: src/euphorie/client/report.py:1050
+#: src/euphorie/client/report.py:1057
 msgid "label_section"
 msgstr "Секция"
 
 #. Default: Risk number
-#: src/euphorie/client/report.py:1052
+#: src/euphorie/client/report.py:1059
 msgid "label_risk_number"
 msgstr "Номер на риска"
 
 #. Default: Risk
-#: src/euphorie/client/report.py:1054
+#: src/euphorie/client/report.py:1061
 msgid "report_timeline_risk_title"
 msgstr "Риск"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:1056 src/euphorie/content/risk.py:158
+#: src/euphorie/client/report.py:1063 src/euphorie/content/risk.py:158
 msgid "report_timeline_priority"
 msgstr "Приоритет"
 
 #. Default: Comments
-#: src/euphorie/client/report.py:1058
+#: src/euphorie/client/report.py:1065
 msgid "report_timeline_comment"
 msgstr "Коментари"
 
 #. Default: Timeline
-#: src/euphorie/client/report.py:1073
+#: src/euphorie/client/report.py:1080
 msgid "report_timeline_title"
 msgstr "Времева скала"
 
 #. Default: Timeline for ${title}
-#: src/euphorie/client/report.py:1108
+#: src/euphorie/client/report.py:1118
 msgid "filename_report_timeline"
 msgstr "Времева скала за ${title}"
 
@@ -872,13 +872,18 @@ msgstr ""
 msgid "Your email address has been updated."
 msgstr "Вашият имейл адрес беше актуализиран."
 
+#. Default:
+#: src/euphorie/client/survey.py:239
+msgid "extra_text_identification"
+msgstr ""
+
 #. Default: Page
-#: src/euphorie/client/survey.py:291
+#: src/euphorie/client/survey.py:314
 msgid "label_page"
 msgstr "Номер на страница"
 
 #. Default: of
-#: src/euphorie/client/survey.py:292
+#: src/euphorie/client/survey.py:315
 msgid "label_page_of"
 msgstr "от общо"
 
@@ -899,7 +904,7 @@ msgid "title_tool"
 msgstr "OiRA - Онлайн интерактивна оценка на риска"
 
 #. Default: Close
-#: src/euphorie/client/utils.py:517
+#: src/euphorie/client/utils.py:519
 msgid "button_close"
 msgstr "затвори"
 
@@ -1314,7 +1319,7 @@ msgstr "Оценяване"
 #: src/euphorie/client/templates/login.pt:50
 #: src/euphorie/client/templates/module_evaluation.pt:58
 #: src/euphorie/client/templates/report_identification.pt:88
-#: src/euphorie/client/templates/report_landing.pt:80
+#: src/euphorie/client/templates/report_landing.pt:83
 #: src/euphorie/client/templates/risk_evaluation.pt:158
 #: src/euphorie/client/templates/shell.pt:150
 #: src/euphorie/client/templates/shell.pt:152
@@ -1337,7 +1342,7 @@ msgstr "План за действие"
 #: src/euphorie/client/templates/layout.pt:49
 #: src/euphorie/client/templates/module_evaluation.pt:64
 #: src/euphorie/client/templates/report_identification.pt:94
-#: src/euphorie/client/templates/report_landing.pt:59
+#: src/euphorie/client/templates/report_landing.pt:62
 #: src/euphorie/client/templates/risk_evaluation.pt:164
 #: src/euphorie/client/templates/shell.pt:162
 #: src/euphorie/client/templates/shell.pt:165
@@ -1828,7 +1833,7 @@ msgid "intro_identification"
 msgstr "Можете да разпечатате ${list-of-risks}."
 
 #. Default: Start Risk Identification
-#: src/euphorie/client/templates/identification.pt:25
+#: src/euphorie/client/templates/identification.pt:26
 msgid "label_start_identification"
 msgstr "Стартиране на определянето на риска"
 
@@ -2121,55 +2126,55 @@ msgstr "Нямате регистрация? Тогава, моля, ${register_
 msgid "label_login"
 msgstr "Вход"
 
-#: src/euphorie/client/templates/measures_overview.pt:60
-#: src/euphorie/client/templates/report_landing.pt:124
+#: src/euphorie/client/templates/measures_overview.pt:62
+#: src/euphorie/client/templates/report_landing.pt:127
 msgid "Overview of measures"
 msgstr "Обзор на мерките"
 
-#: src/euphorie/client/templates/measures_overview.pt:61
+#: src/euphorie/client/templates/measures_overview.pt:63
 msgid "(measures to be implemented in the coming months)"
 msgstr "(мерки, които трябва да бъдат изпълнени през следващите месеци)"
 
-#: src/euphorie/client/templates/measures_overview.pt:62
-#: src/euphorie/client/templates/report_landing.pt:69
-#: src/euphorie/client/templates/report_landing.pt:90
-#: src/euphorie/client/templates/report_landing.pt:113
-#: src/euphorie/client/templates/report_landing.pt:136
-#: src/euphorie/client/templates/risks_overview.pt:147
+#: src/euphorie/client/templates/measures_overview.pt:64
+#: src/euphorie/client/templates/report_landing.pt:72
+#: src/euphorie/client/templates/report_landing.pt:93
+#: src/euphorie/client/templates/report_landing.pt:116
+#: src/euphorie/client/templates/report_landing.pt:139
+#: src/euphorie/client/templates/risks_overview.pt:149
 msgid "Use it to"
 msgstr "Използвайте го, за да"
 
-#: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:115
-#: src/euphorie/client/templates/report_landing.pt:138
-#: src/euphorie/client/templates/risks_overview.pt:149
+#: src/euphorie/client/templates/measures_overview.pt:66
+#: src/euphorie/client/templates/report_landing.pt:118
+#: src/euphorie/client/templates/report_landing.pt:141
+#: src/euphorie/client/templates/risks_overview.pt:151
 msgid "Pass information to the people concerned."
 msgstr "Информиране на заинтересованите лица."
 
-#: src/euphorie/client/templates/measures_overview.pt:65
-#: src/euphorie/client/templates/report_landing.pt:139
+#: src/euphorie/client/templates/measures_overview.pt:67
+#: src/euphorie/client/templates/report_landing.pt:142
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
 "Проследяване на мерките, които трябва да бъдат изпълнени през следващите три "
 "месеца."
 
-#: src/euphorie/client/templates/measures_overview.pt:76
+#: src/euphorie/client/templates/measures_overview.pt:78
 msgid "Measure to be implemented by"
 msgstr "Мярката трябва да бъде изпълнена от"
 
 #. Default: High priority risks
-#: src/euphorie/client/templates/measures_overview.pt:84
+#: src/euphorie/client/templates/measures_overview.pt:86
 #: src/euphorie/client/templates/status.pt:117
 msgid "heading_high_prio_risks"
 msgstr "Високо приоритетен риск"
 
 #. Default: Medium priority risks
-#: src/euphorie/client/templates/measures_overview.pt:116
+#: src/euphorie/client/templates/measures_overview.pt:118
 msgid "heading_medium_prio_risks"
 msgstr "Средно приоритетен риск"
 
 #. Default: Low priority risks
-#: src/euphorie/client/templates/measures_overview.pt:131
+#: src/euphorie/client/templates/measures_overview.pt:133
 msgid "heading_low_prio_risks"
 msgstr "Средно приоритетен риск"
 
@@ -2733,7 +2738,7 @@ msgstr "Пропусни"
 
 #. Default: Contents
 #: src/euphorie/client/templates/report_identification.pt:16
-#: src/euphorie/client/templates/risks_overview.pt:156
+#: src/euphorie/client/templates/risks_overview.pt:158
 msgid "toc_header"
 msgstr "Съдържание"
 
@@ -2743,21 +2748,19 @@ msgid "button_print"
 msgstr "Разпечатване"
 
 #: src/euphorie/client/templates/report_landing.pt:22
-msgid ""
-"Did you like this tool? Let your colleagues and friends know about it! Share "
-"via:"
+msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:29
-#: src/euphorie/client/templates/start.pt:71
+#: src/euphorie/client/templates/report_landing.pt:31
+#: src/euphorie/client/templates/start.pt:73
 msgid "E-mail"
 msgstr ""
 
-#: src/euphorie/client/templates/report_landing.pt:37
+#: src/euphorie/client/templates/report_landing.pt:40
 msgid "Download and print your report"
 msgstr "Изтегляне и разпечатване на вашия доклад"
 
-#: src/euphorie/client/templates/report_landing.pt:39
+#: src/euphorie/client/templates/report_landing.pt:42
 msgid ""
 "Save the report on your computer and print it. You can also modify it or add "
 "more information. Please note that changes made on your pc will NOT be saved "
@@ -2768,15 +2771,15 @@ msgstr ""
 "предвид, че промените по файла във вашия компютър НЕ се съхраняват в "
 "инструмента OiRA."
 
-#: src/euphorie/client/templates/report_landing.pt:40
+#: src/euphorie/client/templates/report_landing.pt:43
 msgid "Use the report to:"
 msgstr "Използвайте доклада, за да:"
 
-#: src/euphorie/client/templates/report_landing.pt:43
+#: src/euphorie/client/templates/report_landing.pt:46
 msgid "Provide evidence for supervisory authorities."
 msgstr "представите доказателства пред контролните органи"
 
-#: src/euphorie/client/templates/report_landing.pt:44
+#: src/euphorie/client/templates/report_landing.pt:47
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
@@ -2784,11 +2787,11 @@ msgstr ""
 "информирате засегнатите лица (работници, органи по безопасност и здраве при "
 "работа, работодатели, представители на Служби по трудова медицина и т.н.)"
 
-#: src/euphorie/client/templates/report_landing.pt:45
+#: src/euphorie/client/templates/report_landing.pt:48
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr "следите и оценявате дали са приложени необходимите мерки"
 
-#: src/euphorie/client/templates/report_landing.pt:46
+#: src/euphorie/client/templates/report_landing.pt:49
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
@@ -2797,7 +2800,7 @@ msgstr ""
 "да окажат влияние върху риска (нови машини, нови работници, в резултат на "
 "констатации от разследване на злополука и т.н.)"
 
-#: src/euphorie/client/templates/report_landing.pt:50
+#: src/euphorie/client/templates/report_landing.pt:53
 msgid ""
 "We recommend that you always keep an updated printed version of your risk "
 "assessment (report) available in your company!"
@@ -2805,15 +2808,15 @@ msgstr ""
 "Препоръчваме винаги да съхранявате актуализирана разпечатана версия на "
 "вашата оценка на риска (доклад) във вашето предприятие!"
 
-#: src/euphorie/client/templates/report_landing.pt:61
+#: src/euphorie/client/templates/report_landing.pt:64
 msgid "Download the full report"
 msgstr "Изтегляне на пълния доклад"
 
-#: src/euphorie/client/templates/report_landing.pt:65
+#: src/euphorie/client/templates/report_landing.pt:68
 msgid "Format: Rich Text Format (.rtf)"
 msgstr "Формат: Rich Text Format (.rtf)"
 
-#: src/euphorie/client/templates/report_landing.pt:66
+#: src/euphorie/client/templates/report_landing.pt:69
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
@@ -2821,34 +2824,34 @@ msgstr ""
 "Съдържа: цялата информация и данни, въведени от вас в рамките на процеса на "
 "оценяване на риска"
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr "представите доказателства"
 
-#: src/euphorie/client/templates/report_landing.pt:71
+#: src/euphorie/client/templates/report_landing.pt:74
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} пред контролните органи (Инспекцията по труда)"
 
-#: src/euphorie/client/templates/report_landing.pt:82
+#: src/euphorie/client/templates/report_landing.pt:85
 msgid "Download the action plan"
 msgstr "Изтегляне на плана за действие"
 
-#: src/euphorie/client/templates/report_landing.pt:86
+#: src/euphorie/client/templates/report_landing.pt:89
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Формат: Office Open XML Workbook (.xlsx)"
 
-#: src/euphorie/client/templates/report_landing.pt:87
+#: src/euphorie/client/templates/report_landing.pt:90
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
 "Съдържа: основните елементи за ефективно управление на рисковете на вашето "
 "работно място."
 
-#: src/euphorie/client/templates/report_landing.pt:92
+#: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
 msgstr "Управление"
 
-#: src/euphorie/client/templates/report_landing.pt:92
+#: src/euphorie/client/templates/report_landing.pt:95
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -2856,36 +2859,36 @@ msgstr ""
 "премахнете/минимизирате съществуващи проблеми/рискове на Вашето работно "
 "място (конкретни задачи, експертен опит, отговорности, крайни срокове)"
 
-#: src/euphorie/client/templates/report_landing.pt:101
-#: src/euphorie/client/templates/risks_overview.pt:146
+#: src/euphorie/client/templates/report_landing.pt:104
+#: src/euphorie/client/templates/risks_overview.pt:148
 msgid "Overview of risks"
 msgstr "Преглед на рисковете"
 
-#: src/euphorie/client/templates/report_landing.pt:105
+#: src/euphorie/client/templates/report_landing.pt:108
 msgid "Download the risks overview"
 msgstr "Изтегляне на преглед на рисковете"
 
-#: src/euphorie/client/templates/report_landing.pt:109
-#: src/euphorie/client/templates/report_landing.pt:132
+#: src/euphorie/client/templates/report_landing.pt:112
+#: src/euphorie/client/templates/report_landing.pt:135
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Формат: Portable Document Format (.pdf)"
 
-#: src/euphorie/client/templates/report_landing.pt:110
+#: src/euphorie/client/templates/report_landing.pt:113
 msgid "Contains: an overview of the risks identified"
 msgstr "Съдържа: преглед на идентифицираните рискове"
 
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/risks_overview.pt:150
+#: src/euphorie/client/templates/report_landing.pt:119
+#: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr ""
 "Проследяване дали са предприети съответни действия по отношение на "
 "рисковете / мерките."
 
-#: src/euphorie/client/templates/report_landing.pt:128
+#: src/euphorie/client/templates/report_landing.pt:131
 msgid "Download the measures overview"
 msgstr "Изтегляне на  обзор на мерките"
 
-#: src/euphorie/client/templates/report_landing.pt:133
+#: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Съдържа:  обзор на мерките, които трябва да бъдат изпълнени."
 
@@ -3232,238 +3235,238 @@ msgstr ""
 "необходимо) в плана за действие."
 
 #. Default: No risk
-#: src/euphorie/client/templates/risks_overview.pt:221
+#: src/euphorie/client/templates/risks_overview.pt:223
 #: src/euphorie/client/templates/status.pt:90
 msgid "label_no_risk"
 msgstr "Няма риск"
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:222
+#: src/euphorie/client/templates/risks_overview.pt:224
 #: src/euphorie/client/templates/status.pt:91
 msgid "label_no_risks_2"
 msgstr "Няма риск"
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:223
+#: src/euphorie/client/templates/risks_overview.pt:225
 #: src/euphorie/client/templates/status.pt:92
 msgid "label_no_risks_3_4"
 msgstr "Няма риск"
 
 #. Default: No risks
-#: src/euphorie/client/templates/risks_overview.pt:224
+#: src/euphorie/client/templates/risks_overview.pt:226
 #: src/euphorie/client/templates/status.pt:93
 msgid "label_no_risks_5_or_more"
 msgstr "Няма риск"
 
 #. Default: Risk with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:228
+#: src/euphorie/client/templates/risks_overview.pt:230
 #: src/euphorie/client/templates/status.pt:97
 msgid "label_risk_with_measure"
 msgstr "Риск с набелязани мерки"
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:229
+#: src/euphorie/client/templates/risks_overview.pt:231
 #: src/euphorie/client/templates/status.pt:98
 msgid "label_risks_with_measure_2"
 msgstr "Риск с набелязани мерки"
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:230
+#: src/euphorie/client/templates/risks_overview.pt:232
 #: src/euphorie/client/templates/status.pt:99
 msgid "label_risks_with_measure_3_4"
 msgstr "Риск с набелязани мерки"
 
 #. Default: Risks with measure(s)
-#: src/euphorie/client/templates/risks_overview.pt:231
+#: src/euphorie/client/templates/risks_overview.pt:233
 #: src/euphorie/client/templates/status.pt:100
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Риск с набелязани мерки"
 
 #. Default: Risk without measure
-#: src/euphorie/client/templates/risks_overview.pt:235
+#: src/euphorie/client/templates/risks_overview.pt:237
 #: src/euphorie/client/templates/status.pt:104
 msgid "label_risk_without_measure"
 msgstr "Риск без набелязани мерки"
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:236
+#: src/euphorie/client/templates/risks_overview.pt:238
 #: src/euphorie/client/templates/status.pt:105
 msgid "label_risks_without_measure_2"
 msgstr "Риск без набелязани мерки"
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:237
+#: src/euphorie/client/templates/risks_overview.pt:239
 #: src/euphorie/client/templates/status.pt:106
 msgid "label_risks_without_measure_3_4"
 msgstr "Риск без набелязани мерки"
 
 #. Default: Risks without measure
-#: src/euphorie/client/templates/risks_overview.pt:238
+#: src/euphorie/client/templates/risks_overview.pt:240
 #: src/euphorie/client/templates/status.pt:107
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Риск без набелязани мерки"
 
 #. Default: Postponed
-#: src/euphorie/client/templates/risks_overview.pt:241
+#: src/euphorie/client/templates/risks_overview.pt:243
 #: src/euphorie/client/templates/status.pt:110
 #: src/euphorie/client/templates/webhelpers.pt:101
 msgid "Postponed"
 msgstr "Отложено разглеждане"
 
 #. Default: Unanswered
-#: src/euphorie/client/templates/risks_overview.pt:244
+#: src/euphorie/client/templates/risks_overview.pt:246
 #: src/euphorie/client/templates/status.pt:113
 #: src/euphorie/client/templates/webhelpers.pt:100
 msgid "Unvisited"
 msgstr "Без отговор"
 
 #. Default: ${num_present_risks} Present Risk
-#: src/euphorie/client/templates/risks_overview.pt:255
+#: src/euphorie/client/templates/risks_overview.pt:257
 msgid "heading_present_risks"
 msgstr "${num_present_risks} Съществуващи рискове"
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:256
+#: src/euphorie/client/templates/risks_overview.pt:258
 msgid "heading_present_risks_2"
 msgstr "${num_present_risks} Съществуващи рискове"
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:257
+#: src/euphorie/client/templates/risks_overview.pt:259
 msgid "heading_present_risks_3_4"
 msgstr "${num_present_risks} Съществуващи рискове"
 
 #. Default: ${num_present_risks} Present Risks
-#: src/euphorie/client/templates/risks_overview.pt:258
+#: src/euphorie/client/templates/risks_overview.pt:260
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Съществуващи рискове"
 
 #. Default: ${num_high_risks} High priority risk
-#: src/euphorie/client/templates/risks_overview.pt:261
+#: src/euphorie/client/templates/risks_overview.pt:263
 msgid "heading_num_high_prio_risks"
 msgstr "${num_high_risks} Високо приоритетен риск"
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:262
+#: src/euphorie/client/templates/risks_overview.pt:264
 msgid "heading_num_high_prio_risks_2"
 msgstr "${num_high_risks} Високо приоритетен риск"
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:263
+#: src/euphorie/client/templates/risks_overview.pt:265
 msgid "heading_num_high_prio_risks_3_4"
 msgstr "${num_high_risks} Високо приоритетен риск"
 
 #. Default: ${num_high_risks} High priority risks
-#: src/euphorie/client/templates/risks_overview.pt:264
+#: src/euphorie/client/templates/risks_overview.pt:266
 msgid "heading_num_high_prio_risks_5_or_more"
 msgstr "${num_high_risks} Високо приоритетен риск"
 
 #. Default: ${num_medium_risks} Medium priority risk
-#: src/euphorie/client/templates/risks_overview.pt:266
+#: src/euphorie/client/templates/risks_overview.pt:268
 msgid "heading_num_medium_prio_risks"
 msgstr "${num_medium_risks} Средно приоритетен риск"
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:267
+#: src/euphorie/client/templates/risks_overview.pt:269
 msgid "heading_num_medium_prio_risks_2"
 msgstr "${num_medium_risks} Средно приоритетен риск"
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:268
+#: src/euphorie/client/templates/risks_overview.pt:270
 msgid "heading_num_medium_prio_risks_3_4"
 msgstr "${num_medium_risks} Средно приоритетен риск"
 
 #. Default: ${num_medium_risks} Medium priority risks
-#: src/euphorie/client/templates/risks_overview.pt:269
+#: src/euphorie/client/templates/risks_overview.pt:271
 msgid "heading_num_medium_prio_risks_5_or_more"
 msgstr "${num_medium_risks} Средно приоритетен риск"
 
 #. Default: ${num_low_risks} Low priority risk
-#: src/euphorie/client/templates/risks_overview.pt:271
+#: src/euphorie/client/templates/risks_overview.pt:273
 msgid "heading_num_low_prio_risks"
 msgstr "${num_low_risks} Ниско приоритетен риск"
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:272
+#: src/euphorie/client/templates/risks_overview.pt:274
 msgid "heading_num_low_prio_risks_2"
 msgstr "${num_low_risks} Ниско приоритетен риск"
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:273
+#: src/euphorie/client/templates/risks_overview.pt:275
 msgid "heading_num_low_prio_risks_3_4"
 msgstr "${num_low_risks} Ниско приоритетен риск"
 
 #. Default: ${num_low_risks} Low priority risks
-#: src/euphorie/client/templates/risks_overview.pt:274
+#: src/euphorie/client/templates/risks_overview.pt:276
 msgid "heading_num_low_prio_risks_5_or_more"
 msgstr "${num_low_risks} Ниско приоритетен риск"
 
 #. Default: (≥1 measures)
-#: src/euphorie/client/templates/risks_overview.pt:278
+#: src/euphorie/client/templates/risks_overview.pt:280
 msgid "label_with_measures"
 msgstr "(≥1 мерки)"
 
 #. Default: (without measures)
-#: src/euphorie/client/templates/risks_overview.pt:278
+#: src/euphorie/client/templates/risks_overview.pt:280
 msgid "label_without_measures"
 msgstr "(без мерки)"
 
 #. Default: ${num_possible_risks} Possible Risk
-#: src/euphorie/client/templates/risks_overview.pt:286
+#: src/euphorie/client/templates/risks_overview.pt:288
 msgid "heading_possible_risks"
 msgstr "${num_possible_risks} Вероятни рискове"
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:287
+#: src/euphorie/client/templates/risks_overview.pt:289
 msgid "heading_possible_risks_2"
 msgstr "${num_possible_risks} Вероятни рискове"
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:288
+#: src/euphorie/client/templates/risks_overview.pt:290
 msgid "heading_possible_risks_3_4"
 msgstr "${num_possible_risks} Вероятни рискове"
 
 #. Default: ${num_possible_risks} Possible Risks
-#: src/euphorie/client/templates/risks_overview.pt:289
+#: src/euphorie/client/templates/risks_overview.pt:291
 msgid "heading_possible_risks_5_or_more"
 msgstr "${num_possible_risks} Вероятни рискове"
 
 #. Default: ${num_postponed_risks} Risk postponed
-#: src/euphorie/client/templates/risks_overview.pt:293
+#: src/euphorie/client/templates/risks_overview.pt:295
 msgid "heading_num_postponed_prio_risks"
 msgstr "${num_postponed_risks} риска не са разгледани"
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:294
+#: src/euphorie/client/templates/risks_overview.pt:296
 msgid "heading_num_postponed_prio_risks_2"
 msgstr "${num_postponed_risks} риска не са разгледани"
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:295
+#: src/euphorie/client/templates/risks_overview.pt:297
 msgid "heading_num_postponed_prio_risks_3_4"
 msgstr "${num_postponed_risks} риска не са разгледани"
 
 #. Default: ${num_postponed_risks} Risks postponed
-#: src/euphorie/client/templates/risks_overview.pt:296
+#: src/euphorie/client/templates/risks_overview.pt:298
 msgid "heading_num_postponed_prio_risks_5_or_more"
 msgstr "${num_postponed_risks} риска не са разгледани"
 
 #. Default: ${num_todo_risks} Risk not answered
-#: src/euphorie/client/templates/risks_overview.pt:298
+#: src/euphorie/client/templates/risks_overview.pt:300
 msgid "heading_num_todo_prio_risks"
 msgstr "${num_todo_risks} риска са пропуснати"
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:299
+#: src/euphorie/client/templates/risks_overview.pt:301
 msgid "heading_num_todo_prio_risks_2"
 msgstr "${num_todo_risks} риска са пропуснати"
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:300
+#: src/euphorie/client/templates/risks_overview.pt:302
 msgid "heading_num_todo_prio_risks_3_4"
 msgstr "${num_todo_risks} риска са пропуснати"
 
 #. Default: ${num_todo_risks} Risks not answered
-#: src/euphorie/client/templates/risks_overview.pt:301
+#: src/euphorie/client/templates/risks_overview.pt:303
 msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} риска са пропуснати"
 
@@ -3559,9 +3562,7 @@ msgid "label_start_survey"
 msgstr "Стартиране"
 
 #: src/euphorie/client/templates/start.pt:59
-msgid ""
-"This tool deserves to be known by the world! Share it via Twitter, Facebook "
-"or E-mail."
+msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 
 #. Default: Status of ${survey_title}
