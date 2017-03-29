@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.11 (unreleased)
+9.0.11 (2017-03-29)
 -------------------
 
 - Missing translation in CA.
