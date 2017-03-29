@@ -43,7 +43,7 @@ def StripMarkup(markup):
         return u""
 
     txt = TAG.sub(u" ", markup)
-    return WHITE.sub(u" ", txt)
+    return WHITE.sub(u" ", txt).strip()
 
 
 def StripUnwanted(text):
