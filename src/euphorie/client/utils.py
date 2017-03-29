@@ -157,9 +157,11 @@ class WebHelpers(grok.View):
         self.is_guest_account = account == config.GUEST_ACCOUNT
         self.guest_session_id = (
             self.is_guest_account and
-            SessionManager.session and SessionManager.session.id or None)
+            getattr(SessionManager, 'session', None) and
+            SessionManager.session.id or None)
         self.session_id = (
-            SessionManager.session and SessionManager.session.id or '')
+            getattr(SessionManager, 'session', None) and
+            SessionManager.session.id or '')
 
         came_from = self.request.form.get("came_from")
         if came_from:
