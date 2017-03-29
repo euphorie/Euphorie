@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.10 (unreleased)
+9.0.10 (2017-03-29)
 -------------------
 
 - In the top-left menu inside a session (osc-header), display the user-
