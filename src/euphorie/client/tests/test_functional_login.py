@@ -11,7 +11,7 @@ import re
 
 class GuestAccountTests(EuphorieFunctionalTestCase):
 
-    def test_guest_login(self):
+    def test_guest_login_no_valid_survey(self):
         from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addSurvey
         self.loginAsPortalOwner()
@@ -26,14 +26,38 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         self.assertTrue(
             re.search('run a test session', browser.contents)
             is not None)
+        # No valid survey path is passed in came_from
         browser.open("%s/@@tryout?came_from=%s" % (
             self.portal.client.nl.absolute_url(),
             self.portal.client.nl.absolute_url()
         ))
+        # Therefore we land on the "start new session" page
+        self.assertTrue("This is a test session" in browser.contents)
+        self.assertTrue("start a new session" in browser.contents)
+        appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
+
+    def test_guest_login_with_valid_survey(self):
+        from euphorie.content.tests.utils import BASIC_SURVEY
+        from euphorie.client.tests.utils import addSurvey
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        self.logout()
+        alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)
+        browser = Browser()
+        appconfig = component.getUtility(IAppConfig)
+        allow_guest_accounts = appconfig['euphorie'].get('allow_guest_accounts', False)
+        appconfig['euphorie']['allow_guest_accounts'] = True
         browser.open(self.portal.client.nl.absolute_url())
         self.assertTrue(
             re.search('run a test session', browser.contents)
-            is None)
+            is not None)
+        url = "{}/ict/software-development".format(
+            self.portal.client.nl.absolute_url())
+        # We pass in a valid survey path in came_from
+        browser.open("{url}/@@tryout?came_from={url}".format(url=url))
+        # Therefore we land on the start page of the survey
+        self.assertTrue("This is a test session" in browser.contents)
+        self.assertTrue("<h1>Software development</h1>" in browser.contents)
         appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
 
