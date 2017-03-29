@@ -176,7 +176,7 @@ class WebHelpers(grok.View):
         self.sector_name = ''
         self.tool_name = ''
         self.tool_description = ''
-        ploneview = getMultiAdapter((self.context, self.request), name="plone")
+        ploneview = self.context.restrictedTraverse('@@plone')
         for obj in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(obj):
                 self.tool_name = obj.Title()
