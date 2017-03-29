@@ -131,6 +131,7 @@ p.byline {float:right;}
 h1 {line-height:130%;}
 h2.title {line-height:100%;font-weight:400;margin-bottom:1.2em;}
 h3.title {margin-bottom:0.7em;}
+h4.subtitle {margin-bottom:0.7em;}
 ul.title {margin-bottom:3em;}
 .six, .row .six {width: 49%;}
     </style>
@@ -143,6 +144,7 @@ ul.title {margin-bottom:3em;}
             ${view/date}
         </p>
         <h1>${here/Title}</h1>
+        <h4 class="subtitle">${view/session_title}</h4>
         <h2 class="title"><em i18n:translate="">Overview of risks</em></h2>
         <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
         <ul class="title">
