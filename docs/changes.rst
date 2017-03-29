@@ -4,8 +4,7 @@ Changelog
 9.0.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Missing translation in CA.
 
 9.0.10 (2017-03-29)
 -------------------
@@ -16,6 +15,7 @@ Changelog
   Must be activated via "allow_social_sharing=True" in euphorie.ini
 - When a user enters a guest session, actually open the survey session
   and jump to the start of the survey
+- Updated translations in NL
 
 9.0.9 (2017-03-06)
 ------------------
