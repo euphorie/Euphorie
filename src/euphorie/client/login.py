@@ -6,44 +6,45 @@ Register new users, login/logout, create a "Guest user" account and convert
 existing guest accounts to normal accounts.
 """
 
+from .. import MessageFactory as _
+from .conditions import approvedTermsAndConditions
+from .conditions import checkTermsAndConditions
+from .country import IClientCountry
+from .country import View as CountryView
+from .interfaces import IClientSkinLayer
+from .session import SessionManager
+from .utils import CreateEmailTo
+from .utils import setLanguage
+from AccessControl import getSecurityManager
+from Acquisition import aq_chain
+from Acquisition import aq_inner
+from Acquisition import aq_parent
+from euphorie.client import config
+from euphorie.client import model
+from euphorie.content.survey import ISurvey
+from five import grok
+from plone import api
+from plone.session.plugins.session import cookie_expiration_date
+from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
+from Products.CMFCore.interfaces import ISiteRoot
+from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.MailHost.MailHost import MailHostError
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.saconfig import Session
+from zope import component
+from zope.i18n import translate
+from zope.interface import Interface
 import cgi
 import datetime
 import logging
+import os
 import re
 import smtplib
 import socket
 import urllib
 import urlparse
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Acquisition import aq_chain
-from AccessControl import getSecurityManager
-from z3c.saconfig import Session
-from z3c.appconfig.interfaces import IAppConfig
-from five import grok
-from euphorie.client import config
-from zope.interface import Interface
-from zope.i18n import translate
-from zope import component
-from plone import api
-from plone.session.plugins.session import cookie_expiration_date
-from Products.CMFCore.interfaces import ISiteRoot
-from Products.CMFCore.utils import getToolByName
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.MailHost.MailHost import MailHostError
-from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
-from euphorie.client import model
-from .interfaces import IClientSkinLayer
-from .utils import CreateEmailTo
-from .utils import setLanguage
-from .session import SessionManager
-from .country import IClientCountry
-from .country import View as CountryView
-from .conditions import checkTermsAndConditions
-from .conditions import approvedTermsAndConditions
-from .. import MessageFactory as _
-import os
 
 log = logging.getLogger(__name__)
 
@@ -175,8 +176,12 @@ class Tryout(Login):
         came_from = came_from.replace(client_url, '')
         if came_from.startswith('/'):
             came_from = came_from[1:]
-
-        survey = self.context.restrictedTraverse(came_from)
+        try:
+            survey = self.context.restrictedTraverse(came_from)
+        except KeyError:
+            survey = None
+        if not ISurvey.providedBy(survey):
+            return self.request.response.redirect(came_from)
         title = survey.Title()
         SessionManager.start(title=title, survey=survey, account=account)
         survey_url = survey.absolute_url()
