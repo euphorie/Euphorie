@@ -452,13 +452,20 @@ class IdentificationReportDownload(grok.View):
 
         for node in self.getNodes():
             has_risk = node.type == 'risk' and node.identification == 'no'
-            zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
-            show_problem_description = has_risk and \
-                getattr(zodb_node, 'problem_description', None) and \
-                zodb_node.problem_description.strip()
-            if node.zodb_path == 'custom-risks':
-                title = utils.get_translated_custom_risks_title(self.request)
+            if 'custom-risks' in node.zodb_path:
+                zodb_node = None
+                if has_risk:
+                    title = node.title
+                elif node.type == 'module':
+                    title = utils.get_translated_custom_risks_title(
+                        self.request)
             else:
+                zodb_node = survey.restrictedTraverse(
+                    node.zodb_path.split('/'))
+                show_problem_description = (
+                    has_risk and
+                    getattr(zodb_node, 'problem_description', None) and
+                    zodb_node.problem_description.strip())
                 if show_problem_description:
                     title = zodb_node.problem_description.strip()
                 else:
@@ -484,9 +491,9 @@ class IdentificationReportDownload(grok.View):
                     t(_("risk_unanswered",
                         default=u"This risk still needs to be inventorised."))
                 ))
-
-            for el in HtmlToRtf(zodb_node.description, normal_style):
-                section.append(el)
+            if getattr(zodb_node, 'description', None):
+                for el in HtmlToRtf(zodb_node.description, normal_style):
+                    section.append(el)
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
@@ -778,18 +785,19 @@ class ActionPlanReportDownload(grok.View):
 
         for node in self.getNodes():
             has_risk = node.type == 'risk' and node.identification == 'no'
-            zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
-            show_problem_description = has_risk and \
-                getattr(zodb_node, 'problem_description', None) and \
-                zodb_node.problem_description.strip()
-
-            if node.zodb_path == 'custom-risks':
+            if 'custom-risks' in node.zodb_path:
                 title = utils.get_translated_custom_risks_title(self.request)
+                description = u""
             else:
+                zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
+                show_problem_description = has_risk and \
+                    getattr(zodb_node, 'problem_description', None) and \
+                    zodb_node.problem_description.strip()
                 if show_problem_description:
                     title = zodb_node.problem_description.strip()
                 else:
                     title = node.title
+                description = zodb_node.description
             if has_risk:
                 title += u' [*]'
 
@@ -800,7 +808,6 @@ class ActionPlanReportDownload(grok.View):
             if node.type != "risk":
                 continue
 
-            zodb_node = survey.restrictedTraverse(node.zodb_path.split("/"))
             if has_risk and not show_problem_description:
                 section.append(Paragraph(
                     warning_style,
@@ -835,7 +842,7 @@ class ActionPlanReportDownload(grok.View):
                     t(_("report_priority",
                         default=u"This is a ")), level, u'.'))
 
-            for el in HtmlToRtf(zodb_node.description, normal_style):
+            for el in HtmlToRtf(description, normal_style):
                 section.append(el)
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
@@ -1080,7 +1087,10 @@ class ActionPlanTimeline(grok.View):
                 enumerate(self.get_measures(), 1):
 
             column = 0
-            zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+            if 'custom-risks' in risk.zodb_path:
+                zodb_node = None
+            else:
+                zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
             for (ntype, key, title) in self.columns:
                 value = None
                 if ntype == 'measure':

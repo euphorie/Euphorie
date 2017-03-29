@@ -1,11 +1,35 @@
 Changelog
 =========
 
-9.0.6 (unreleased)
+9.0.10 (unreleased)
+-------------------
+
+- In the top-left menu inside a session (osc-header), display the user-
+  defined session name, instead of the generic survey name
+
+
+9.0.9 (2017-03-06)
 ------------------
 
-- Nothing changed yet.
+- Bugfix for report download (print list of all risks): don't choke on user-
+  defined custom risks
 
+9.0.8 (2017-02-06)
+------------------
+
+- When it comes to generating the reports for download, be more defensive about
+  fetching the custom risks (PART II)
+
+9.0.7 (2017-02-06)
+------------------
+
+- When it comes to generating the reports for download, be more defensive about
+  fetching the custom risks.
+
+9.0.6 (2017-02-06)
+------------------
+
+- Translation changes for NL 
 
 9.0.5 (2017-02-01)
 ------------------

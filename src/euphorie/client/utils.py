@@ -305,6 +305,8 @@ class WebHelpers(grok.View):
         survey = self._survey
         if not survey:
             return None
+        if getattr(self, 'session', None):
+            return self.session.title
         return survey.title
 
     def get_phase(self):
@@ -378,17 +380,17 @@ class WebHelpers(grok.View):
     @reify
     def _survey(self):
         from euphorie.client.session import SessionManager
+        self.session = SessionManager.session
         survey = getattr(self.request, 'survey', None)
         if survey is not None:
             return survey
 
-        session = SessionManager.session
-        if session is None:
+        if self.session is None:
             return None
 
         try:
             return self.request.client.restrictedTraverse(
-                    session.zodb_path.split('/'))
+                self.session.zodb_path.split('/'))
         except KeyError as e:
             # This can happen when a survey has been unpublished while the
             # current user still has it in his session.

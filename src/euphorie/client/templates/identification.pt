@@ -12,7 +12,7 @@
 
 <body>
 <metal:slot fill-slot="content">
-<article class="rich">
+<article class="rich" tal:define="extra_text view/extra_text">
     <h1>${context/title}</h1>
     <tal:block replace="tile:statusmessages"/>
     <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
@@ -20,6 +20,7 @@
     <p i18n:translate="intro_identification">
     You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${python:view.url(name='report')}/download">contents of the tool</a></tal:span>.
     </p>
+    <p tal:condition="extra_text">${extra_text}</p>
 </article>
 <p class="button-bar">
     <a class="pat-button pat-inject" data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
