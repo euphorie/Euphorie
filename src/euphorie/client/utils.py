@@ -513,16 +513,18 @@ class WebHelpers(grok.View):
 
     def tool_notification(self):
         message = None
-        if isinstance(self.context, PathGhost):
+        obj = self.context
+        if isinstance(obj, PathGhost):
             obj = self.context.aq_parent
-            if ISurvey.providedBy(obj) and obj.hasNotification():
-                now = datetime.now()
-                message = dict(
-                    title=u"This is your message...", text=obj.tool_notification,
-                    id='tool{}{}{}'.format(
-                        obj.modification_date.strftime('%Y%m%d%H%M%S'),
-                        now.strftime('%Y%m%d'),
-                        ''.join(obj.getPhysicalPath()[2:])))
+        if ISurvey.providedBy(obj) and obj.hasNotification():
+            now = datetime.now()
+            message = dict(
+                title=obj.tool_notification_title,
+                text=obj.tool_notification_message,
+                id='tool{}{}{}'.format(
+                    obj.modification_date.strftime('%Y%m%d%H%M%S'),
+                    now.strftime('%Y%m%d'),
+                    ''.join(obj.getPhysicalPath()[2:])))
         return message
 
     def closetext(self):

@@ -7,39 +7,40 @@ structure containing modules, profile questions and questions. Both modules and
 profile questions are used to create the hierarchy.
 """
 
-import sys
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from ZODB.POSException import ConflictError
-from OFS.event import ObjectClonedEvent
-from zope.interface import implements
-from zope.component import getMultiAdapter
-from zope.event import notify
-from zope import schema
-from five import grok
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
-from zope.container.interfaces import INameChooser
-from plone.directives import form
-from plone.directives import dexterity
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.skin import actions
-from plone.indexer import indexer
-from htmllaundry.z3cform import HtmlText
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.Archetypes.utils import shasattr
-from .behaviour.uniqueid import INameFromUniqueId
+from .. import MessageFactory as _
 from .behaviour.uniqueid import get_next_id
-from .profilequestion import IProfileQuestion
-from .module import IModule
+from .behaviour.uniqueid import INameFromUniqueId
+from .datamanager import ParentAttributeField
 from .fti import check_fti_paste_allowed
 from .interfaces import IQuestionContainer
 from .interfaces import ISurveyUnpublishEvent
+from .module import IModule
+from .profilequestion import IProfileQuestion
 from .utils import StripMarkup
-from .datamanager import ParentAttributeField
-from .. import MessageFactory as _
+from Acquisition import aq_inner
+from Acquisition import aq_parent
+from five import grok
+from htmllaundry.z3cform import HtmlText
+from OFS.event import ObjectClonedEvent
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.directives import dexterity
+from plone.directives import form
+from plone.indexer import indexer
+from plonetheme.nuplone.skin import actions
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.directives import depends
+from Products.Archetypes.utils import shasattr
+from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.statusmessages.interfaces import IStatusMessage
+from ZODB.POSException import ConflictError
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.container.interfaces import INameChooser
+from zope.event import notify
+from zope.interface import implements
+import sys
 
 
 grok.templatedir("templates")
@@ -94,16 +95,32 @@ class ISurvey(form.Schema, IBasic):
                         u"and based on revision 2 of the NACE standard."),
             required=False)
 
-    tool_notification = HtmlText(
-        title=_(
-            "label_tool_notification", default=u"Tool notification message"),
+    enable_tool_notification = schema.Bool(
+        title=_("label_enable_tool_notification",
+                default=u"Enable a custom notification message for this tool."),
         description=_(
             u'description_tool_notification',
             default=u'If you enter text here, it will be shown to users '
             u'in a pop-up when they open the tool. It can be used for '
             u'notifying users about changes.'),
+        required=False,
+        default=False)
+
+    depends("tool_notification_title",
+            "enable_tool_notification",
+            "on")
+    tool_notification_title = schema.TextLine(
+        title=_("label_tool_notification_title", default=u"Tool notification title"),
         required=False)
-    form.widget(tool_notification=WysiwygFieldWidget)
+
+    depends("tool_notification_message",
+            "enable_tool_notification",
+            "on")
+    tool_notification_message = HtmlText(
+        title=_(
+            "label_tool_notification", default=u"Tool notification message"),
+        required=False)
+    form.widget(tool_notification_message=WysiwygFieldWidget)
 
 
 class SurveyAttributeField(ParentAttributeField):
@@ -159,7 +176,7 @@ class Survey(dexterity.Container):
         """
             Checks if a notification message was set
         """
-        return True if self.tool_notification else False
+        return self.enable_tool_notification or False
 
     def ProfileQuestions(self):
         """Return a list of all profile questions."""
