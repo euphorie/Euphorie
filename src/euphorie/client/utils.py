@@ -22,6 +22,7 @@ from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
 from euphorie.decorators import reify
+from euphorie.ghost import PathGhost
 from five import grok
 from json import dumps
 from os import path
@@ -50,7 +51,6 @@ import logging
 import random
 import simplejson
 import threading
-
 
 locals = threading.local()
 log = logging.getLogger(__name__)
@@ -499,17 +499,30 @@ class WebHelpers(grok.View):
                 return motd
 
     def splash_message(self):
+        message = None
         motd = self._findMOTD()
         if motd:
             now = datetime.now()
             message = dict(
                 title=StripMarkup(motd.description), text=motd.body,
-                id='{0}{1}'.format(
+                id='motd{0}{1}'.format(
                     motd.modification_date.strftime('%Y%m%d%H%M%S'),
                     now.strftime('%Y%m%d'))
             )
-        else:
-            message = None
+        return message
+
+    def tool_notification(self):
+        message = None
+        if isinstance(self.context, PathGhost):
+            obj = self.context.aq_parent
+            if ISurvey.providedBy(obj) and obj.hasNotification():
+                now = datetime.now()
+                message = dict(
+                    title=u"This is your message...", text=obj.tool_notification,
+                    id='tool{}{}{}'.format(
+                        obj.modification_date.strftime('%Y%m%d%H%M%S'),
+                        now.strftime('%Y%m%d'),
+                        ''.join(obj.getPhysicalPath()[2:])))
         return message
 
     def closetext(self):

@@ -45,7 +45,7 @@
 
 <metal:slot fill-slot="splash_message_slot">
     <div tal:condition="python:splash_message is not None" class="splash-message">
-        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-*; add: splash-off-${splash_message/id}; store: local" />
+        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local" />
         <article class="pat-rich content">
             <p>
                 <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg" width="20%" />

@@ -94,6 +94,17 @@ class ISurvey(form.Schema, IBasic):
                         u"and based on revision 2 of the NACE standard."),
             required=False)
 
+    tool_notification = HtmlText(
+        title=_(
+            "label_tool_notification", default=u"Tool notification message"),
+        description=_(
+            u'description_tool_notification',
+            default=u'If you enter text here, it will be shown to users '
+            u'in a pop-up when they open the tool. It can be used for '
+            u'notifying users about changes.'),
+        required=False)
+    form.widget(tool_notification=WysiwygFieldWidget)
+
 
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {
@@ -143,6 +154,12 @@ class Survey(dexterity.Container):
                 return True
         else:
             return False
+
+    def hasNotification(self):
+        """
+            Checks if a notification message was set
+        """
+        return True if self.tool_notification else False
 
     def ProfileQuestions(self):
         """Return a list of all profile questions."""
