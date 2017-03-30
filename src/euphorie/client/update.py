@@ -155,5 +155,5 @@ def redirectOnSurveyUpdate(request):
     if not wasSurveyUpdated(dbsession, survey):
         return False
 
-    request.response.redirect("%s/update" % survey.absolute_url())
+    request.response.redirect("%s/update?initial_view=1" % survey.absolute_url())
     return True

@@ -93,7 +93,7 @@ class View(grok.View):
         SessionManager.start(title=title, survey=survey)
         v_url = urlparse.urlsplit(self.url()+'/resume').path
         trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect("%s/start" % survey.absolute_url())
+        self.request.response.redirect("%s/start?initial_view=1" % survey.absolute_url())
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
@@ -108,7 +108,7 @@ class View(grok.View):
         survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         v_url = urlparse.urlsplit(self.url()+'/resume').path
         trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect("%s/resume" % survey.absolute_url())
+        self.request.response.redirect("%s/resume?initial_view=1" % survey.absolute_url())
 
     def update(self):
         utils.setLanguage(self.request, self.context)
@@ -125,7 +125,7 @@ class View(grok.View):
                     dbsession.zodb_path == utils.RelativePath(
                                         self.request.client, survey):
                 self.request.response.redirect(
-                        "%s/resume" % survey.absolute_url())
+                        "%s/resume?initial_view=1" % survey.absolute_url())
 
 
 class Start(grok.View):
@@ -177,7 +177,7 @@ class Resume(grok.View):
         question = FindFirstQuestion(dbsession=dbsession)
         if question is None:
             # No tree generated, so start over
-            self.request.response.redirect("%s/start" % survey.absolute_url())
+            self.request.response.redirect("%s/start?initial_view=1" % survey.absolute_url())
         else:
             # Redirect to the start page of the Identification phase.
             # We do this to ensure the screen with the tool name gets shown.
@@ -186,7 +186,7 @@ class Resume(grok.View):
             # This is especially relevant since the osc-header now displays the
             # user-given session name.
             self.request.response.redirect(
-                "{0}/{1}".format(survey.absolute_url(), "identification"))
+                "{0}/{1}?initial_view=1".format(survey.absolute_url(), "identification"))
 
 
 class Identification(grok.View):
