@@ -67,7 +67,7 @@
         <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-*; add: splash-off-${splash_message/id}; store: local" />
         <article class="pat-rich content">
             <p>
-                <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg" width="20%" />
+                <img src="${base_url}/++resource++euphorie.media/oira-logo-colour.svg" width="20%" />
             </p>
             <h1 tal:content="structure splash_message/title">Message of the day!</h1>
             <tal:content content="structure splash_message/text">
