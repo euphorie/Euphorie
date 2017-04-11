@@ -4489,23 +4489,30 @@ msgstr ""
 #. Default: Enable a custom notification message for this tool.
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
-msgstr ""
+msgstr "Zet een melding over deze tool aan."
 
 #. Default: If you enter text here, it will be shown to users in a pop-up when
 #. they open the tool. It can be used for notifying users about changes.
 #: src/euphorie/content/survey.py:101
 msgid "description_tool_notification"
 msgstr ""
+"Deze tekst verschijnt als pop up bij het openen van deze tool. Wij adviseren "
+"om dit alleen te gebruiken om gebruikers te attenderen op het bestaan van een "
+"nieuwe versie van een branche RI&E. Daarmee bedoelen we een update van een "
+"instrument van een versie 1.0 naar een versie 2.0. In dat geval is er immers "
+"sprake van een nieuw instrument. De melding is niet nodig als een instrument "
+"alleen een kleine aanpassing heeft gehad (een 1.1 versie t.o.v. een 1.0 "
+"versie)."
 
 #. Default: Tool notification title
 #: src/euphorie/content/survey.py:113
 msgid "label_tool_notification_title"
-msgstr ""
+msgstr "Titel van de melding"
 
 #. Default: Tool notification message
 #: src/euphorie/content/survey.py:120
 msgid "label_tool_notification"
-msgstr ""
+msgstr "Tekst van de melding"
 
 #. Default: Title
 #: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49
