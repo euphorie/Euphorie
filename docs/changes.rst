@@ -4,7 +4,9 @@ Changelog
 9.0.12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- New feature: On a tool, an editor can add an optional message
+  that will be displayed to users in the client as a pop-up (re-using
+  the message-of-the-day feature)
 
 
 9.0.11 (2017-03-29)
