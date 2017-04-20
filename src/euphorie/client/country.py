@@ -126,14 +126,14 @@ class View(grok.View):
             title = survey.Title()
 
         SessionManager.start(title=title, survey=survey, account=account)
-        self.request.response.redirect("%s/start" % survey.absolute_url())
+        self.request.response.redirect("%s/start?initial_view=1" % survey.absolute_url())
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(model.SurveySession).get(info["session"])
         SessionManager.resume(session)
         survey = self.request.client.restrictedTraverse(str(session.zodb_path))
-        self.request.response.redirect("%s/resume" % survey.absolute_url())
+        self.request.response.redirect("%s/resume?initial_view=1" % survey.absolute_url())
 
     def update(self):
         utils.setLanguage(self.request, self.context)
