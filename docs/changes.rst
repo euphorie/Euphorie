@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.12 (unreleased)
+9.0.12 (2017-04-20)
 -------------------
 
 - New feature: On a tool, an editor can add an optional message
