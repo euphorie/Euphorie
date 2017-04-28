@@ -97,7 +97,7 @@ class ISurvey(form.Schema, IBasic):
 
     enable_tool_notification = schema.Bool(
         title=_("label_enable_tool_notification",
-                default=u"Enable a custom notification message for this tool."),
+                default=u"Show a custom notification for this OiRA tool?"),
         description=_(
             u'description_tool_notification',
             default=u'If you enter text here, it will be shown to users '
