@@ -4035,6 +4035,9 @@ msgstr "Archivo de contenido"
 #: src/euphorie/content/risk.py:279 src/euphorie/content/risk.py:291
 msgid "help_content_upload"
 msgstr ""
+"Subir un archivo que contenga información adicional, como un PDF, un documento"
+" de Word o una hoja de cálculo. Puede incluir de manera opcional un título "
+"descriptivo para el pie de foto."
 
 #. Default: Content caption
 #: src/euphorie/content/module.py:116 src/euphorie/content/module.py:128
@@ -4244,7 +4247,7 @@ msgstr "Calculado"
 #. Default: Skip evaluation
 #: src/euphorie/content/risk.py:150
 msgid "evalmethod_fixed"
-msgstr "Estimado"
+msgstr "Omitir evaluación"
 
 #. Default: Default priority
 #: src/euphorie/content/risk.py:171
@@ -5545,7 +5548,7 @@ msgstr "Agregar Riesgo"
 
 #: src/euphorie/deployment/tiles/templates/addbar.pt:21
 msgid "Add Measure"
-msgstr ""
+msgstr "Agregar Medida"
 
 #. Default: Add ${typename}
 #: src/euphorie/deployment/tiles/templates/addbar.pt:23

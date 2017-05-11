@@ -4,8 +4,7 @@ Changelog
 9.0.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fixes ES
 
 9.0.13 (2017-05-11)
 -------------------
