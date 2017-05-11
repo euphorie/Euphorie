@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.13 (unreleased)
+9.0.13 (2017-05-11)
 -------------------
 
 - Add missing translation setup for the "share via email" text.
