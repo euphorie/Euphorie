@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-03-29 14:57+0200\n"
+"POT-Creation-Date: 2017-05-11 15:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -194,54 +194,54 @@ msgstr "Naslov sesije je promijenjen u ${name}"
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/euphorie/client/login.py:233
+#: src/euphorie/client/login.py:238
 msgid "Please enter your email address"
 msgstr "Unesite adresu svoje e-pošte"
 
-#: src/euphorie/client/login.py:239
+#: src/euphorie/client/login.py:244
 msgid "Unknown email address"
 msgstr "Nepoznata adresa e-pošte"
 
-#: src/euphorie/client/login.py:247
+#: src/euphorie/client/login.py:252
 msgid "OiRA registration reminder"
 msgstr "Podsjetnik za OiRA registraciju"
 
-#: src/euphorie/client/login.py:259 src/euphorie/client/login.py:265
-#: src/euphorie/client/login.py:271
+#: src/euphorie/client/login.py:264 src/euphorie/client/login.py:270
+#: src/euphorie/client/login.py:276
 msgid "An error occured while sending the password reminder"
 msgstr "Došlo je do pogreške prilikom slanja podsjetnika za lozinku"
 
-#: src/euphorie/client/login.py:287
+#: src/euphorie/client/login.py:292
 msgid "An email with a password reminder has been sent to your address."
 msgstr "Na vašu je adresu poslana e-pošta s podsjetnikom za lozinku."
 
 #. Default: Please enter your email address
-#: src/euphorie/client/login.py:308
+#: src/euphorie/client/login.py:313
 msgid "error_missing_email"
 msgstr "Unesite adresu svoje e-pošte"
 
 #. Default: Please enter a valid email address
-#: src/euphorie/client/login.py:311
+#: src/euphorie/client/login.py:316
 msgid "error_invalid_email"
 msgstr "Unesite valjanu adresu e-pošte"
 
 #. Default: Please enter a password
-#: src/euphorie/client/login.py:314
+#: src/euphorie/client/login.py:319
 msgid "error_missing_password"
 msgstr "Unesite lozinku"
 
 #. Default: Passwords do not match
-#: src/euphorie/client/login.py:317
+#: src/euphorie/client/login.py:322
 msgid "error_password_mismatch"
 msgstr "Lozinke se ne podudaraju"
 
 #. Default: An account with this email address already exists.
-#: src/euphorie/client/login.py:327 src/euphorie/client/login.py:333
+#: src/euphorie/client/login.py:332 src/euphorie/client/login.py:338
 msgid "error_email_in_use"
 msgstr "Račun s ovom adresom e-pošte već postoji."
 
 #. Default: Please enter a valid email address.
-#: src/euphorie/client/login.py:359
+#: src/euphorie/client/login.py:364
 msgid "invalid_email"
 msgstr "Unesite valjanu adresu e-pošte."
 
@@ -887,7 +887,7 @@ msgid "label_page_of"
 msgstr "od"
 
 #. Default: OiRA - Online interactive Risk Assessment
-#: src/euphorie/client/utils.py:262
+#: src/euphorie/client/utils.py:264
 #: src/euphorie/client/templates/appendix.pt:12
 #: src/euphorie/client/templates/conditions.pt:13
 #: src/euphorie/client/templates/frontpage.pt:13
@@ -896,16 +896,20 @@ msgstr "od"
 #: src/euphorie/client/templates/plain.pt:20
 #: src/euphorie/client/templates/report_identification.pt:12
 #: src/euphorie/client/templates/risk_evaluation.pt:12
-#: src/euphorie/client/templates/shell.pt:21
+#: src/euphorie/client/templates/shell.pt:23
 #: src/euphorie/client/templates/webhelpers.pt:22
 #: src/euphorie/content/sector.py:278
 msgid "title_tool"
 msgstr "OiRA – internetska interaktivna procjena rizika"
 
 #. Default: Close
-#: src/euphorie/client/utils.py:519
+#: src/euphorie/client/utils.py:540
 msgid "button_close"
 msgstr "Zatvori"
+
+#: src/euphorie/client/utils.py:545
+msgid "I wish to share the following with you"
+msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -1239,7 +1243,7 @@ msgstr "Idi na izvješće"
 #: src/euphorie/client/templates/module_evaluation.pt:37
 #: src/euphorie/client/templates/report_identification.pt:70
 #: src/euphorie/client/templates/risk_evaluation.pt:137
-#: src/euphorie/client/templates/shell.pt:133
+#: src/euphorie/client/templates/shell.pt:135
 msgid "label_preparation"
 msgstr "Priprema"
 
@@ -1259,8 +1263,8 @@ msgstr "Priprema"
 #: src/euphorie/client/templates/module_evaluation.pt:43
 #: src/euphorie/client/templates/report_identification.pt:76
 #: src/euphorie/client/templates/risk_evaluation.pt:143
-#: src/euphorie/client/templates/shell.pt:140
-#: src/euphorie/client/templates/shell.pt:141
+#: src/euphorie/client/templates/shell.pt:142
+#: src/euphorie/client/templates/shell.pt:143
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
@@ -1282,8 +1286,8 @@ msgstr "Identifikacija"
 #: src/euphorie/client/templates/module_evaluation.pt:49
 #: src/euphorie/client/templates/report_identification.pt:82
 #: src/euphorie/client/templates/risk_evaluation.pt:149
-#: src/euphorie/client/templates/shell.pt:140
-#: src/euphorie/client/templates/shell.pt:141
+#: src/euphorie/client/templates/shell.pt:142
+#: src/euphorie/client/templates/shell.pt:143
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
@@ -1306,8 +1310,8 @@ msgstr "Procjena"
 #: src/euphorie/client/templates/report_identification.pt:88
 #: src/euphorie/client/templates/report_landing.pt:83
 #: src/euphorie/client/templates/risk_evaluation.pt:158
-#: src/euphorie/client/templates/shell.pt:150
 #: src/euphorie/client/templates/shell.pt:152
+#: src/euphorie/client/templates/shell.pt:154
 #: src/euphorie/client/templates/webhelpers.pt:96
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
@@ -1329,8 +1333,8 @@ msgstr "Akcijski plan"
 #: src/euphorie/client/templates/report_identification.pt:94
 #: src/euphorie/client/templates/report_landing.pt:62
 #: src/euphorie/client/templates/risk_evaluation.pt:164
-#: src/euphorie/client/templates/shell.pt:162
-#: src/euphorie/client/templates/shell.pt:165
+#: src/euphorie/client/templates/shell.pt:164
+#: src/euphorie/client/templates/shell.pt:167
 msgid "label_report"
 msgstr "Izvješće"
 
@@ -1356,7 +1360,7 @@ msgstr "Odjava"
 #: src/euphorie/client/templates/conditions.pt:111
 #: src/euphorie/client/templates/includes.pt:2
 #: src/euphorie/client/templates/layout.pt:61
-#: src/euphorie/client/templates/shell.pt:175
+#: src/euphorie/client/templates/shell.pt:177
 #: src/euphorie/client/templates/webhelpers.pt:33
 #: src/euphorie/content/templates/colour-preview.pt:55
 msgid "navigation_help"
@@ -2030,7 +2034,7 @@ msgstr ""
 
 #. Default: Login
 #: src/euphorie/client/templates/login_form.pt:19
-#: src/euphorie/client/templates/shell.pt:87
+#: src/euphorie/client/templates/shell.pt:89
 msgid "header_login"
 msgstr "Prijava"
 
@@ -2330,20 +2334,20 @@ msgstr "Nova sesija"
 
 #. Default: Sign in
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:98
+#: src/euphorie/client/templates/shell.pt:100
 msgid "link_sign_in"
 msgstr "Prijava"
 
 #. Default: This is a test session. ${link_sign_in} to save your data.
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:98
+#: src/euphorie/client/templates/shell.pt:100
 msgid "info_testsession"
 msgstr ""
 "Ovo je probna sesija. ${link_sign_in} kako biste spremili svoje podatke."
 
 #. Default: Info
 #: src/euphorie/client/templates/plain.pt:196
-#: src/euphorie/client/templates/shell.pt:98
+#: src/euphorie/client/templates/shell.pt:100
 msgid "Info"
 msgstr "Informacije"
 
@@ -2530,7 +2534,7 @@ msgstr "Primjer izvješća s pregledom mjera u PDF obliku"
 #. Default: Register
 #: src/euphorie/client/templates/register.pt:76
 #: src/euphorie/client/templates/register.pt:80
-#: src/euphorie/client/templates/shell.pt:88
+#: src/euphorie/client/templates/shell.pt:90
 msgid "header_register"
 msgstr "Registracija"
 
@@ -2692,7 +2696,8 @@ msgstr "Ispiši"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr "Je li vam se svidio ovaj alat? Podijelite ga s kolegama i prijateljima!"
+msgstr ""
+"Je li vam se svidio ovaj alat? Podijelite ga s kolegama i prijateljima!"
 
 #: src/euphorie/client/templates/report_landing.pt:31
 #: src/euphorie/client/templates/start.pt:73
@@ -3408,7 +3413,7 @@ msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} rizika nemaju odgovor"
 
 #: src/euphorie/client/templates/sessions.pt:22
-#: src/euphorie/client/templates/shell.pt:122
+#: src/euphorie/client/templates/shell.pt:124
 msgid "Start a new session"
 msgstr "Pokreni novu sesiju"
 
@@ -3450,37 +3455,37 @@ msgstr "Preimenuj"
 msgid "Delete this session"
 msgstr "Izbriši ovu sesiju"
 
-#: src/euphorie/client/templates/shell.pt:112
 #: src/euphorie/client/templates/shell.pt:114
+#: src/euphorie/client/templates/shell.pt:116
 msgid "Start test session"
 msgstr "Pokreni testnu sesiju"
 
 #. Default: Select an earlier session to complete or review
-#: src/euphorie/client/templates/shell.pt:119
+#: src/euphorie/client/templates/shell.pt:121
 #: src/euphorie/client/templates/survey_sessions.pt:21
 msgid "header_select_session"
 msgstr "Odaberite neku prethodnu sesiju kako biste je završili ili pregledali"
 
 #. Default: New
-#: src/euphorie/client/templates/shell.pt:122
+#: src/euphorie/client/templates/shell.pt:124
 msgid "New"
 msgstr "Nova"
 
 #. Default: Check your progress
-#: src/euphorie/client/templates/shell.pt:170
+#: src/euphorie/client/templates/shell.pt:172
 #: src/euphorie/client/templates/webhelpers.pt:34
 #: src/euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
 msgstr "Provjerite svoj napredak"
 
 #. Default: Online interactive
-#: src/euphorie/client/templates/shell.pt:186
+#: src/euphorie/client/templates/shell.pt:188
 #: src/euphorie/client/templates/webhelpers.pt:23
 msgid "oira_name_line_1"
 msgstr "Interaktivno na mreži"
 
 #. Default: Risk Assessment
-#: src/euphorie/client/templates/shell.pt:187
+#: src/euphorie/client/templates/shell.pt:189
 #: src/euphorie/client/templates/webhelpers.pt:24
 msgid "oira_name_line_2"
 msgstr "Procjena rizika"
@@ -4351,25 +4356,25 @@ msgid "title_common_solution"
 msgstr "Mjera"
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:54 src/euphorie/content/survey.py:186
+#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:220
 msgid "label_survey_title"
 msgstr "Naziv verzije"
 
 #. Default: This is the title of this OiRA Tool version. This name is never
 #. shown to users.
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:187
+#: src/euphorie/content/survey.py:56 src/euphorie/content/survey.py:221
 msgid "help_survey_title"
 msgstr ""
 "Ovo je naslov ove verzije OiRA alata. Ovaj se naziv nikada ne prikazuje "
 "korisnicima."
 
 #. Default: Introduction text
-#: src/euphorie/content/survey.py:64
+#: src/euphorie/content/survey.py:65
 #: src/euphorie/content/templates/survey_view.pt:30
 msgid "label_introduction"
 msgstr "Uvodni tekst"
 
-#: src/euphorie/content/survey.py:65
+#: src/euphorie/content/survey.py:66
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
 "introduction is provided here a standard text will be shown. Please keep "
@@ -4382,56 +4387,77 @@ msgstr ""
 "telefona i PDA uređaja."
 
 #. Default: Evaluation may be skipped
-#: src/euphorie/content/survey.py:74
+#: src/euphorie/content/survey.py:75
 msgid "label_evaluation_optional"
 msgstr "Procjena se može preskočiti"
 
 #. Default: This option allows users to skip the evaluation phase.
-#: src/euphorie/content/survey.py:76
+#: src/euphorie/content/survey.py:77
 msgid "help_evaluation_optional"
 msgstr "Ova opcija omogućuje korisniku da preskoči fazu procjene."
 
 #. Default: Language
-#: src/euphorie/content/survey.py:83
+#: src/euphorie/content/survey.py:84
 #: src/euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr "Jezik"
 
 #. Default: Classification code
-#: src/euphorie/content/survey.py:89
+#: src/euphorie/content/survey.py:90
 #: src/euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr "Šifra klasifikacije"
 
 #. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
-#: src/euphorie/content/survey.py:91
+#: src/euphorie/content/survey.py:92
 msgid "help_classification_code"
 msgstr ""
 "Šifra identificira ovaj sektor. Šifre klasifikacije određuju nacionalna "
 "tijela za standardizaciju i temelje se na reviziji 2 NACE standarda."
 
+#. Default: Show a custom notification for this OiRA tool?
+#: src/euphorie/content/survey.py:99
+msgid "label_enable_tool_notification"
+msgstr ""
+
+#. Default: If you enter text here, it will be shown to users in a pop-up when
+#. they open the tool. It can be used for notifying users about changes.
+#: src/euphorie/content/survey.py:101
+msgid "description_tool_notification"
+msgstr ""
+
+#. Default: Tool notification title
+#: src/euphorie/content/survey.py:113
+msgid "label_tool_notification_title"
+msgstr ""
+
+#. Default: Tool notification message
+#: src/euphorie/content/survey.py:120
+msgid "label_tool_notification"
+msgstr ""
+
 #. Default: Title
-#: src/euphorie/content/survey.py:195 src/euphorie/content/surveygroup.py:49
+#: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49
 msgid "label_title"
 msgstr "Naziv"
 
 #. Default: The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients.
-#: src/euphorie/content/survey.py:196 src/euphorie/content/surveygroup.py:50
+#: src/euphorie/content/survey.py:230 src/euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
 "Naziv ovog OiRA alata. Ovaj se naziv koristi u pregledu OiRA alata na razini "
 "klijenta."
 
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:203 src/euphorie/content/surveygroup.py:59
+#: src/euphorie/content/survey.py:237 src/euphorie/content/surveygroup.py:59
 msgid "label_survey_obsolete"
 msgstr "Zastarjeli upitnik"
 
 #. Default: This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool.
-#: src/euphorie/content/survey.py:205 src/euphorie/content/surveygroup.py:61
+#: src/euphorie/content/survey.py:239 src/euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
 "Ovaj je OiRA alat zastario; treba ga povući iz uporabe ili zamijeniti drugim "
@@ -4439,14 +4465,14 @@ msgstr ""
 
 #. Default: You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first.
-#: src/euphorie/content/survey.py:289
+#: src/euphorie/content/survey.py:323
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Ne možete izbrisati objavljenu verziju OiRA alata. Prvo poništite objavu."
 
 #. Default: This is the only version of the OiRA Tool and can therefore not be
 #. deleted. Did you perhaps want to remove the OiRA Tool itself?
-#: src/euphorie/content/survey.py:304
+#: src/euphorie/content/survey.py:338
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Ovo je jedina verzija OiRA alata i zato se ne može obrisati. Želite li možda "

@@ -527,13 +527,23 @@ class WebHelpers(grok.View):
                     ''.join(obj.getPhysicalPath()[2:])))
         return message
 
-    def closetext(self):
+    @memoize
+    def translang(self):
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return lang
+
+    def closetext(self):
         return translate(
-            _(u"button_close", default=u"Close"), target_language=lang)
+            _(u"button_close", default=u"Close"),
+            target_language=self.translang())
+
+    def email_sharing_text(self):
+        return translate(
+            _(u"I wish to share the following with you"),
+            target_language=self.translang())
 
 
 def HasText(html):

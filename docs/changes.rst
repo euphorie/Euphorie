@@ -4,8 +4,9 @@ Changelog
 9.0.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Add missing translation setup for the "share via email" text.
+  Add translations in FR, ES, CA, refs MPL-399
+- Slighly allow more width for the logo, fixes MOI-184
 
 9.0.12 (2017-04-20)
 -------------------

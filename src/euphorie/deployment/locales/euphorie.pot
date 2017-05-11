@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-04-11 17:46+0200\n"
+"POT-Creation-Date: 2017-05-11 15:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -871,8 +871,12 @@ msgid "title_tool"
 msgstr ""
 
 #. Default: Close
-#: src/euphorie/client/utils.py:536
+#: src/euphorie/client/utils.py:540
 msgid "button_close"
+msgstr ""
+
+#: src/euphorie/client/utils.py:545
+msgid "I wish to share the following with you"
 msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
@@ -4036,7 +4040,7 @@ msgstr ""
 msgid "help_classification_code"
 msgstr ""
 
-#. Default: Enable a custom notification message for this tool.
+#. Default: Show a custom notification for this OiRA tool?
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
 msgstr ""

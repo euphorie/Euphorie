@@ -70,7 +70,7 @@
             onClick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Facebook', 'Start']);">Facebook</a>
         </li>
         <li>
-          <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=I wish to share the following with you: ${webhelpers/survey_url}" class="email icon-mail" i18n:translate=""
+          <a href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}" class="email icon-mail" i18n:translate=""
             onClick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Email', 'Start']);">E-mail</a>
         </li>
       </ul>

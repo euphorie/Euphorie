@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-04-11 17:46+0200\n"
+"POT-Creation-Date: 2017-05-11 15:52+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -918,9 +918,13 @@ msgid "title_tool"
 msgstr "OiRA"
 
 #. Default: Close
-#: src/euphorie/client/utils.py:536
+#: src/euphorie/client/utils.py:540
 msgid "button_close"
 msgstr "Sluit"
+
+#: src/euphorie/client/utils.py:545
+msgid "I wish to share the following with you"
+msgstr ""
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -4486,7 +4490,7 @@ msgid "help_classification_code"
 msgstr ""
 "De branchecode zoals die gedefinieerd is in revisie 2 van de NACE-standaard."
 
-#. Default: Enable a custom notification message for this tool.
+#. Default: Show a custom notification for this OiRA tool?
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
 msgstr "Zet een melding over deze tool aan."
@@ -4497,12 +4501,12 @@ msgstr "Zet een melding over deze tool aan."
 msgid "description_tool_notification"
 msgstr ""
 "Deze tekst verschijnt als pop up bij het openen van deze tool. Wij adviseren "
-"om dit alleen te gebruiken om gebruikers te attenderen op het bestaan van een "
-"nieuwe versie van een branche RI&E. Daarmee bedoelen we een update van een "
-"instrument van een versie 1.0 naar een versie 2.0. In dat geval is er immers "
-"sprake van een nieuw instrument. De melding is niet nodig als een instrument "
-"alleen een kleine aanpassing heeft gehad (een 1.1 versie t.o.v. een 1.0 "
-"versie)."
+"om dit alleen te gebruiken om gebruikers te attenderen op het bestaan van "
+"een nieuwe versie van een branche RI&E. Daarmee bedoelen we een update van "
+"een instrument van een versie 1.0 naar een versie 2.0. In dat geval is er "
+"immers sprake van een nieuw instrument. De melding is niet nodig als een "
+"instrument alleen een kleine aanpassing heeft gehad (een 1.1 versie t.o.v. "
+"een 1.0 versie)."
 
 #. Default: Tool notification title
 #: src/euphorie/content/survey.py:113
