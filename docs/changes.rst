@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.14 (unreleased)
+9.0.14 (2017-05-11)
 -------------------
 
 - Translation fixes ES
