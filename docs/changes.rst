@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.15 (unreleased)
+9.0.15 (2017-06-06)
 -------------------
 
 - Translation updates for "social sharing" and tool notification
