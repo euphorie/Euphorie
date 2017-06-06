@@ -4,8 +4,7 @@ Changelog
 9.0.15 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation updates for "social sharing" and tool notification
 
 9.0.14 (2017-05-11)
 -------------------

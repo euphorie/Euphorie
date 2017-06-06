@@ -917,7 +917,7 @@ msgstr "Agħlaq"
 
 #: src/euphorie/client/utils.py:545
 msgid "I wish to share the following with you"
-msgstr ""
+msgstr "Nixtieq naqsam dan miegħek"
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -4467,23 +4467,25 @@ msgstr ""
 #. Default: Show a custom notification for this OiRA tool?
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
-msgstr ""
+msgstr "Trid turi notifika għal din l-għodda tal-OiRA?"
 
 #. Default: If you enter text here, it will be shown to users in a pop-up when
 #. they open the tool. It can be used for notifying users about changes.
 #: src/euphorie/content/survey.py:101
 msgid "description_tool_notification"
 msgstr ""
+"Jekk iddaħħal test hawnhekk, jintwera lill-utenti f᾽pop-up meta jiftħu "
+"l-għodda. Tista᾽ tintuża biex tinnotifika lill-utenti dwar xi bidliet."
 
 #. Default: Tool notification title
 #: src/euphorie/content/survey.py:113
 msgid "label_tool_notification_title"
-msgstr ""
+msgstr "Titolu ta᾽ għodda ta᾽ notifikazzjoni"
 
 #. Default: Tool notification message
 #: src/euphorie/content/survey.py:120
 msgid "label_tool_notification"
-msgstr ""
+msgstr "Messaġġ ta᾽ għodda ta᾽ notifikazzjoni"
 
 #. Default: Title
 #: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49

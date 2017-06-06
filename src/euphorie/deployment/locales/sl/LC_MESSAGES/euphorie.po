@@ -913,7 +913,7 @@ msgstr "Zapri"
 
 #: src/euphorie/client/utils.py:545
 msgid "I wish to share the following with you"
-msgstr ""
+msgstr "Z vami želim deliti naslednje"
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -4401,23 +4401,25 @@ msgstr ""
 #. Default: Show a custom notification for this OiRA tool?
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
-msgstr ""
+msgstr "Prikažem obvestilo po meri za to orodje OiRA?"
 
 #. Default: If you enter text here, it will be shown to users in a pop-up when
 #. they open the tool. It can be used for notifying users about changes.
 #: src/euphorie/content/survey.py:101
 msgid "description_tool_notification"
 msgstr ""
+"Če tu vstavite besedilo, bo uporabnikom vidno v pojavnem oknu, ko bodo odprli "
+"orodje. Uporabi se lahko za obveščanje uporabnikov o spremembah."
 
 #. Default: Tool notification title
 #: src/euphorie/content/survey.py:113
 msgid "label_tool_notification_title"
-msgstr ""
+msgstr "Naslov obvestila v orodju"
 
 #. Default: Tool notification message
 #: src/euphorie/content/survey.py:120
 msgid "label_tool_notification"
-msgstr ""
+msgstr "Sporočilo o obvestilu v orodju"
 
 #. Default: Title
 #: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49

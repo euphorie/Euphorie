@@ -4046,23 +4046,26 @@ msgstr ""
 #. Default: Show a custom notification for this OiRA tool?
 #: src/euphorie/content/survey.py:99
 msgid "label_enable_tool_notification"
-msgstr ""
+msgstr "Czy pokazać zindywidualizowane powiadomienie dla tego narzędzia OiRA?"
 
 #. Default: If you enter text here, it will be shown to users in a pop-up when
 #. they open the tool. It can be used for notifying users about changes.
 #: src/euphorie/content/survey.py:101
 msgid "description_tool_notification"
 msgstr ""
+"Jeżeli wprowadzisz tutaj tekst, zostanie on pokazany użytkownikom przy "
+"otwieraniu narzędzia jako wyskakujące okno. Może ono być stosowane do "
+"powiadamiania użytkowników o zmianach."
 
 #. Default: Tool notification title
 #: src/euphorie/content/survey.py:113
 msgid "label_tool_notification_title"
-msgstr ""
+msgstr "Nazwa powiadomienia w narzędziu"
 
 #. Default: Tool notification message
 #: src/euphorie/content/survey.py:120
 msgid "label_tool_notification"
-msgstr ""
+msgstr "Wiadomość o powiadomieniu w narzędziu"
 
 #. Default: Title
 #: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49
