@@ -4,8 +4,10 @@ Changelog
 9.0.16 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Get rid of ASCIILine, use TextLine for any field that might contain non-ASCII
+- Make it possible to translate the "drag&drop help text" for sortables in the
+  CMS properly, i.e. in code, not via some CSS hack (again, the problem is
+  to support non-ASCII)
 
 9.0.15 (2017-06-06)
 -------------------
