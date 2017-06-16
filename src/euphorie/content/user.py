@@ -80,7 +80,7 @@ class IUser(form.Schema):
             title=_("label_user_title", default=u"Name"),
             required=True)
 
-    contact_email = schema.ASCIILine(
+    contact_email = schema.TextLine(
             title=_("label_contact_email", default=u"Contact email address"),
             required=True)
 

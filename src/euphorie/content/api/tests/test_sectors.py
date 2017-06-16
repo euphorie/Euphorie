@@ -104,8 +104,8 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
                 json.dumps({'title': u'IT development',
                             'login': 'it',
                             'contact': {
-                                'name': 'Jony Smith',
-                                'email': 'jony@example.com',
+                                'name': u'Jony Smith',
+                                'email': u'jony@example.com',
                             },
                             'password': u'cobol-for-the-win'}))
         response = json.loads(browser.contents)

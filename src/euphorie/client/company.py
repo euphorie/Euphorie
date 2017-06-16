@@ -24,7 +24,7 @@ grok.templatedir("templates")
 
 class CompanySchema(form.Schema):
     # Note the ideal type, but there is no convenient country field
-    country = schema.ASCIILine(
+    country = schema.TextLine(
             title=_("label_company_country", default=u"Your country"),
             required=False)
 

@@ -3,7 +3,6 @@ from AccessControl.Permissions import delete_objects
 from zExceptions import Unauthorized
 from five import grok
 from euphorie.json import get_json_bool
-from euphorie.json import get_json_string
 from euphorie.json import get_json_unicode
 from ..sector import ISector
 from . import JsonView
@@ -16,7 +15,7 @@ class View(JsonView):
 
     attributes = [
             ('title', 'title', get_json_unicode),
-            ('contact.email', 'contact_email', get_json_string),
+            ('contact.email', 'contact_email', get_json_unicode),
             ('contact.name', 'contact_name', get_json_unicode),
             ('password', 'password', get_json_unicode),
             ('locked', 'locked', get_json_bool),

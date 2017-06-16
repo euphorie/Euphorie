@@ -86,7 +86,7 @@ class ISurvey(form.Schema, IBasic):
             default=u"en",
             required=True)
 
-    classification_code = schema.ASCIILine(
+    classification_code = schema.TextLine(
             title=_("label_classification_code",
                 default=u"Classification code"),
             description=_("help_classification_code",
