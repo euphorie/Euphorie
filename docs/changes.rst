@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.16 (unreleased)
+9.0.16 (2017-06-16)
 -------------------
 
 - Get rid of ASCIILine, use TextLine for any field that might contain non-ASCII
