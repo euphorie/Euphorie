@@ -31,6 +31,9 @@
       <tal:block condition="python:view.modules">
         <h2 i18n:translate="header_submodules">Submodules</h2>
         <ol class="${python:'sortable' if can_edit and len(view.modules)&gt;1 else None}" tal:condition="python:view.modules">
+          <div class="sortable-explanation">
+            ${view/sortable_explanation}
+          </div>
           <li tal:repeat="module view/modules" id="child-${module/id}"><a tal:attributes="href module/url" tal:content="module/title">Module title</a></li>
         </ol>
       </tal:block>
@@ -38,6 +41,9 @@
       <tal:block condition="python:view.risks">
         <h2 i18n:translate="header_risks">Risks</h2>
         <ol class="${python:'sortable' if can_edit and len(view.risks)&gt;1 else None}" tal:condition="python:view.risks">
+          <div class="sortable-explanation">
+            ${view/sortable_explanation}
+          </div>
           <li tal:repeat="risk view/risks" id="child-${risk/id}"><a tal:attributes="href risk/url" tal:content="risk/title">Risk title</a></li>
         </ol>
       </tal:block>

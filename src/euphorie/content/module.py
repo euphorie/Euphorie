@@ -17,6 +17,7 @@ from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
 from .interfaces import IQuestionContainer
 from .risk import IRisk
+from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
 from five import grok
@@ -196,7 +197,7 @@ def SearchableTextIndexer(obj):
                      StripMarkup(obj.solution_direction)])
 
 
-class View(grok.View):
+class View(grok.View, DragDropHelper):
     """ View name: @@nuplone-view
     """
     grok.context(IModule)

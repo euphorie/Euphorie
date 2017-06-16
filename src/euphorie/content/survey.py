@@ -16,6 +16,7 @@ from .interfaces import IQuestionContainer
 from .interfaces import ISurveyUnpublishEvent
 from .module import IModule
 from .profilequestion import IProfileQuestion
+from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -192,7 +193,7 @@ def SearchableTextIndexer(obj):
                      obj.classification_code or u""])
 
 
-class View(grok.View):
+class View(grok.View, DragDropHelper):
     grok.context(ISurvey)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

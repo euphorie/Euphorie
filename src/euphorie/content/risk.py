@@ -7,43 +7,44 @@ An individual "question" about a risk that the user needs to answer.
 portal_type: euphorie.risk
 """
 
-import sys
+from .. import MessageFactory as _
+from .behaviour.richdescription import IRichDescription
+from .behaviour.uniqueid import get_next_id
+from .behaviour.uniqueid import INameFromUniqueId
+from .fti import check_fti_paste_allowed
+from .fti import ConditionalDexterityFTI
+from .fti import IConstructionFilter
+from .solution import ISolution
+from .utils import DragDropHelper
+from .utils import getTermTitleByValue
+from .utils import StripMarkup
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
 from five import grok
-from zope.component import createObject
-from zope.component import getUtility
-from zope.interface import alsoProvides
-from zope.interface import noLongerProvides
-from zope.interface import implements
-from zope.interface import Interface
-from zope import schema
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.vocabulary import SimpleTerm
-from z3c.form.form import applyChanges
+from htmllaundry.z3cform import HtmlText
+from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
-from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
-from plone.indexer import indexer
-from htmllaundry.z3cform import HtmlText
-from .fti import ConditionalDexterityFTI
-from .fti import IConstructionFilter
-from .fti import check_fti_paste_allowed
-from .behaviour.richdescription import IRichDescription
-from .behaviour.uniqueid import INameFromUniqueId
-from .behaviour.uniqueid import get_next_id
-from .utils import getTermTitleByValue
-from .utils import StripMarkup
-from .solution import ISolution
-from .. import MessageFactory as _
+from z3c.form.form import applyChanges
+from zope import schema
+from zope.component import createObject
+from zope.component import getUtility
+from zope.interface import alsoProvides
+from zope.interface import implements
+from zope.interface import Interface
+from zope.interface import noLongerProvides
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+import sys
 
 grok.templatedir("templates")
 
@@ -536,7 +537,7 @@ def SearchableTextIndexer(obj):
                      StripMarkup(obj.legal_reference)])
 
 
-class View(grok.View):
+class View(grok.View, DragDropHelper):
     grok.context(IRisk)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

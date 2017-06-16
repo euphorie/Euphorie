@@ -8,7 +8,7 @@
       i18n:domain="euphorie"
       meta:interpolation="true"
       metal:use-macro="context/@@layout/macros/layout">
-  <body> 
+  <body>
     <metal:title fill-slot="title">${view/group/title}</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
     <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
@@ -35,6 +35,9 @@
       <p tal:condition="python:not view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
       <tal:children condition="python:view.children">
         <ol class="${python:'sortable' if can_edit and len(view.children)&gt;1 else None}">
+          <div class="sortable-explanation">
+            ${view/sortable_explanation}
+          </div>
           <li tal:repeat="child view/children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
         </ol>
       </tal:children>

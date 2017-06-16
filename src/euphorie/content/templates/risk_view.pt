@@ -80,6 +80,9 @@
         <h2 i18n:translate="header_solutions">Standard measures</h2>
 
         <ol class="${python:'sortable' if can_edit and len(view.solutions)&gt;1 else None}">
+          <div class="sortable-explanation">
+            ${view/sortable_explanation}
+          </div>
           <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}" i18n:translate="risk_solution_header">Measure <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
           <p>${solution/description}</p></li>
         </ol>
