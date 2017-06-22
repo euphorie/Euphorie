@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-22 18:33+0200\n"
+"POT-Creation-Date: 2017-06-22 18:36+0200\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgstr "Áhættumatið var framkvæmt af"
 #: src/euphorie/client/company.py:49
 #: src/euphorie/client/templates/report_company.pt:47
 msgid "conductor_staff"
-msgstr "eigin starfsmönnum"
+msgstr "starfsfólki vinnustaðarins"
 
 #. Default: an external consultant or service provider
 #: src/euphorie/client/company.py:51
@@ -80,8 +80,7 @@ msgstr "utanaðkomandi ráðgjafa eða þjónustuaðila"
 #: src/euphorie/client/company.py:53
 #: src/euphorie/client/templates/report_company.pt:49
 msgid "conductor_both"
-msgstr ""
-"bæði af eigin starfsmönnum og utanaðkomandi ráðgjafa eða þjónustuveitanda"
+msgstr "bæði af eigin starfsfólki og utanaðkomandi ráðgjafa eða þjónustuaðila"
 
 #. Default: Through which channel did you learn about this tool?
 #: src/euphorie/client/company.py:60
@@ -136,7 +135,7 @@ msgstr "eftir öðrum leiðum"
 #: src/euphorie/client/templates/report_actionplan.pt:60
 #: src/euphorie/client/templates/report_company.pt:67
 msgid "label_workers_participated"
-msgstr "Starfsmönnum var boðið að taka þátt í áhættumatinu"
+msgstr "Starfsfólki var boðið að taka þátt í áhættumatinu"
 
 #. Default: Yes
 #: src/euphorie/client/company.py:91 src/euphorie/client/company.py:101
@@ -642,7 +641,7 @@ msgstr "Áhætta"
 #. Default: Priority
 #: src/euphorie/client/report.py:1063 src/euphorie/content/risk.py:159
 msgid "report_timeline_priority"
-msgstr "Forgangur"
+msgstr "Áhættustig"
 
 #. Default: Comments
 #: src/euphorie/client/report.py:1065
@@ -1822,7 +1821,7 @@ msgstr "Velkomin/n"
 #. Default: run a test session
 #: src/euphorie/client/templates/login.pt:23
 msgid "label_tryout"
-msgstr "prófa"
+msgstr "prófað"
 
 #. Default: register
 #: src/euphorie/client/templates/login.pt:23
@@ -1865,7 +1864,7 @@ msgstr ""
 #. Default: Show more…
 #: src/euphorie/client/templates/login.pt:33
 msgid "Show more…"
-msgstr "Sýndu mér meira…"
+msgstr "Sýna meira…"
 
 #. Default: Show less…
 #: src/euphorie/client/templates/login.pt:33
@@ -2072,7 +2071,7 @@ msgstr "Notandanafn"
 #: src/euphorie/client/templates/measures_overview.pt:62
 #: src/euphorie/client/templates/report_landing.pt:127
 msgid "Overview of measures"
-msgstr "Yfirlit lausna"
+msgstr "Yfirlit lausna / úrbóta"
 
 #: src/euphorie/client/templates/measures_overview.pt:63
 msgid "(measures to be implemented in the coming months)"
@@ -2092,16 +2091,16 @@ msgstr "Notaðu hana til að"
 #: src/euphorie/client/templates/report_landing.pt:141
 #: src/euphorie/client/templates/risks_overview.pt:151
 msgid "Pass information to the people concerned."
-msgstr "Komdu upplýsingum til þeirra sem málið varðar."
+msgstr "Koma upplýsingum til þeirra sem málið varðar."
 
 #: src/euphorie/client/templates/measures_overview.pt:67
 #: src/euphorie/client/templates/report_landing.pt:142
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
-msgstr "Fylgstu með hvort úrbætur séu framkvæmdar innan þriggja mánaðar."
+msgstr "Fylgjast með hvort úrbætur/lausnir séu framkvæmdar."
 
 #: src/euphorie/client/templates/measures_overview.pt:78
 msgid "Measure to be implemented by"
-msgstr "Lausn er framkvæmd af"
+msgstr "Úrbætur eru framkvæmdar af"
 
 #. Default: High priority risks
 #: src/euphorie/client/templates/measures_overview.pt:86
@@ -2579,14 +2578,14 @@ msgstr "Færðu inn nýtt nafn fyrir þetta OiRA verkfæri"
 msgid "report_intro"
 msgstr ""
 "Nú er aðgerðaáætlun lokið og hægt er að vista skýrslu með öllum niðurstöðum. "
-"Hægt er að bæta við athugasemdum um skýrsluna. Setjið þær í reitin hér fyrir "
+"Hægt er að bæta við athugasemdum í skýrsluna. Setjið þær í reitinn hér fyrir "
 "neðan."
 
 #. Default: Please leave any extra comments that should be included in the
 #. report in this field.
 #: src/euphorie/client/templates/report.pt:32
 msgid "label_report_comment"
-msgstr "Settu inn athugasemdir til viðbótar í þennan reit."
+msgstr "Bætið við athugasemdum í skýrsluna hér."
 
 #. Default: Timeline
 #: src/euphorie/client/templates/report_actionplan.pt:24
@@ -2631,8 +2630,8 @@ msgstr "heilbrigðis- og öryggissérfræðingar"
 #: src/euphorie/client/templates/report_company.pt:19
 msgid "hader_company_details"
 msgstr ""
-"Viltu taka þátt í að bæta OiRA verkfærið? Vinsamlegast taktu þátt í "
-"könnuninni hér að neðan."
+"Viltu taka þátt í að bæta OiRA verkfærið? Taktu þátt í könnuninni hér að "
+"neðan."
 
 #. Default: Please fix the indicated errors.
 #: src/euphorie/client/templates/report_company.pt:21
@@ -2644,8 +2643,7 @@ msgstr "Það þarf að lagfæra villurnar sem bent er á."
 #: src/euphorie/client/templates/report_company.pt:22
 msgid "company_details_intro"
 msgstr ""
-"Þér er frjálst að veita upplýsingar hér að neðan. Þeim er ætlað að bæta "
-"verkfærið og þjónustuna. Þessi gögn munu ekki birtast í skýrslunni."
+"Þessar upplýsingar eiga að bæta verkfærið, þær birtast ekki í skýrslunni."
 
 #. Default: Ministry, Labour Inspectorate, National Institute for Safety and
 #. Health at Work, etc.
@@ -2678,7 +2676,8 @@ msgstr "Prenta"
 
 #: src/euphorie/client/templates/report_landing.pt:22
 msgid "Did you like this tool? Share it with your colleagues and friends!"
-msgstr "Ertu ánægð(ur) með þetta tól? Deildu því með samstarfsfólki og vinum!"
+msgstr ""
+"Ertu ánægð(ur) með þetta verkfæri? Deildu því með samstarfsfólki og vinum!"
 
 #: src/euphorie/client/templates/report_landing.pt:31
 #: src/euphorie/client/templates/start.pt:73
@@ -2731,7 +2730,7 @@ msgid ""
 "assessment (report) available in your company!"
 msgstr ""
 "Við mælum með því að ávallt sé varðveitt útprentuð útgáfa af áhættumatinu "
-"(skýrslunni) í fyrirtæki þínu!"
+"(skýrslunni) í fyrirtækinu!"
 
 #: src/euphorie/client/templates/report_landing.pt:64
 msgid "Download the full report"
@@ -2746,7 +2745,7 @@ msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"Innihald: allar upplýsingar og gögn sem þú hefur skráð inn meðan á "
+"Innihald: Allar upplýsingar og gögn sem þú hefur skráð inn meðan á "
 "áhættumatinu stóð."
 
 #: src/euphorie/client/templates/report_landing.pt:74
@@ -2801,7 +2800,7 @@ msgstr "Inniheldur: Yfirlit um áhættur"
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
-msgstr "Fylgstu með hvort aðgerðir / úrbætur séu framkvæmdar."
+msgstr "Fylgjast með hvort aðgerðir / úrbætur séu framkvæmdar."
 
 #: src/euphorie/client/templates/report_landing.pt:131
 msgid "Download the measures overview"
@@ -2822,13 +2821,13 @@ msgstr "Lausn"
 #: src/euphorie/client/templates/risk_actionplan.pt:64
 #: src/euphorie/client/templates/risk_actionplan.pt:150
 msgid "label_prefill"
-msgstr "Útfyllt fyrirfram"
+msgstr "Dæmi um lausn"
 
 #. Default: Delete this measure
 #: src/euphorie/client/templates/risk_actionplan.pt:65
 #: src/euphorie/client/templates/risk_actionplan.pt:151
 msgid "label_remove_measure"
-msgstr "Eyða þessari ráðstöfun"
+msgstr "Eyða lausn"
 
 #. Default: Select one or more of the known common measures provided.
 #: src/euphorie/client/templates/risk_actionplan.pt:69
@@ -3179,25 +3178,25 @@ msgstr "Áhættan er ekki til staðar"
 #: src/euphorie/client/templates/risks_overview.pt:230
 #: src/euphorie/client/templates/status.pt:97
 msgid "label_risk_with_measure"
-msgstr "Áhætta með aðgerð(um)"
+msgstr "Áhætta og áhættustig"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:231
 #: src/euphorie/client/templates/status.pt:98
 msgid "label_risks_with_measure_2"
-msgstr "Áhætta með aðgerð(um)"
+msgstr "Áhætta og áhættustig"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:232
 #: src/euphorie/client/templates/status.pt:99
 msgid "label_risks_with_measure_3_4"
-msgstr "Áhætta með aðgerð(um)"
+msgstr "Áhætta og áhættustig"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:233
 #: src/euphorie/client/templates/status.pt:100
 msgid "label_risks_with_measure_5_or_more"
-msgstr "Áhætta með aðgerð(um)"
+msgstr "Áhætta og áhættustig"
 
 #. Default: Risk without measure
 #: src/euphorie/client/templates/risks_overview.pt:237

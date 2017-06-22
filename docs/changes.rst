@@ -4,8 +4,7 @@ Changelog
 9.0.17 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation changes in IS
 
 9.0.16 (2017-06-16)
 -------------------
