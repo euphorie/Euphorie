@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title metal:fill-slot="title">Search results</metal:title>
+    <metal:content fill-slot="content">
+      <form method="GET" action="${context/absolute_url}/@@context-search">
+
+      <tal:block condition="python:view.did_search">
+        <h2><em i18n:translate="header_search_results">Search results for</em> <tal:q>${request/form/q}</tal:q></h2>
+
+
+        <p class="message notice" tal:condition="python:not view.results" i18n:translate="search_no_results">No items found.</p>
+        <tal:block condition="python:view.results">
+          <p i18n:translate="search_result_intro"><tal:span i18n:name="number">${python:len(view.results)}</tal:span> results found.</p>
+          <ul>
+            <li tal:repeat="result view/results">
+              <a href="${result/url}"><em class="discrete">[${result/typ}]</em> ${result/title}</a>
+
+            </li>
+          </ul>
+        </tal:block>
+      </tal:block>
+    </metal:content>
+  </body>
+</html>

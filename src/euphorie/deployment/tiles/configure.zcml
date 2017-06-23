@@ -47,6 +47,15 @@
     permission="euphorie.content.ManageCountry"
     />
 
+  <plone:tile
+    name="euphorie.search"
+    title="Search"
+    add_permission="cmf.ManagePortal"
+    class=".search.SearchTile"
+    template="templates/search.pt"
+    permission="zope.Public"
+    />
+
 
   <configure package="plonetheme.nuplone.tiles">
     <plone:tile
