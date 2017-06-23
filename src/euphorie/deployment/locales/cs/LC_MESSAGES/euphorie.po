@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-23 14:01+0200\n"
+"POT-Creation-Date: 2017-06-23 14:02+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2096,14 +2096,10 @@ msgstr "Přehled opatření"
 msgid "(measures to be implemented in the coming months)"
 msgstr "(opatření, která by měla být přijata v následujících měsících)"
 
+#. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:72
-#: src/euphorie/client/templates/report_landing.pt:93
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:149
-msgid "Use it to"
-msgstr "Zprávu použijte pro:"
+msgid "use_it_to_measures_report"
+msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2770,6 +2766,11 @@ msgstr ""
 "Obsahuje: všechny informace, vstupy a data, které jste do dokumentu "
 "zapracovali  během celého postupu hodnocení rizik"
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:72
+msgid "use_it_to_full_report"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr "předložení důkazů"
@@ -2790,6 +2791,11 @@ msgstr "Formát: Excel (.xlsx)"
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Obsahuje: hlavní zásady pro účinné řízení rizik na vašem pracovišti."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:93
+msgid "use_it_to_action_plan"
+msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2821,6 +2827,11 @@ msgstr "Formát: PDF (.pdf)"
 msgid "Contains: an overview of the risks identified"
 msgstr "Obsahuje: přehled zjištěných rizik"
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:116
+msgid "use_it_to_risks_overview"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
@@ -2833,6 +2844,11 @@ msgstr "Stáhnout přehled opatření"
 #: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Obsahuje: přehled opatření, která mají být provedena."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:139
+msgid "use_it_to_measures_overview"
+msgstr ""
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3171,6 +3187,11 @@ msgid "description_automatic_evaluation"
 msgstr ""
 "Nástroj provedl hodnocení rizika automaticky. Prioritu tohoto rizika budete "
 "moci změnit v akčním plánu, pokud to budete považovat za nutné."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/risks_overview.pt:149
+msgid "use_it_to_risks_report"
+msgstr ""
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
@@ -5580,6 +5601,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Tato verze obsahuje změny, které nejsou v současné době "
 "publikované. Pro aktivaci všech změn klikněte na ikonu aktualizace"
+
+#~ msgid "Use it to"
+#~ msgstr "Zprávu použijte pro:"
 
 #~ msgid "Edit Module"
 #~ msgstr "Editovat modul"

@@ -69,7 +69,7 @@
           <li i18n:translate="">Contains: all the information and input provided by you throughout the risk assessment process.</li>
         </ul>
 
-        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <h4><tal:span i18n:translate="use_it_to_full_report">Use it to</tal:span>:</h4>
         <ul>
           <li i18n:translate=""><strong i18n:name="provide-evidence" i18n:translate="">Provide evidence</strong> for supervisory authorities (labour inspectorate).</li>
         </ul>
@@ -90,7 +90,7 @@
           <li i18n:translate="">Contains: main elements to effectively manage the risks at your workplace.</li>
         </ul>
 
-        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <h4><tal:span i18n:translate="use_it_to_action_plan">Use it to</tal:span>:</h4>
         <ul>
           <li i18n:translate=""><strong i18n:name="manage" i18n:translate="">Manage</strong> the problems/risks in your workplace (specific tasks, expertise, responsibilities,
           deadlines).</li>
@@ -113,7 +113,7 @@
           <li i18n:translate="">Contains: an overview of the risks identified</li>
         </ul>
 
-          <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+          <h4><tal:span i18n:translate="use_it_to_risks_overview">Use it to</tal:span>:</h4>
         <ul>
           <li i18n:translate="">Pass information to the people concerned.</li>
           <li i18n:translate="">Monitor whether risks / measures are properly dealt with.</li>
@@ -136,7 +136,7 @@
           <li i18n:translate="">Contains: an overview of the measures to be implemented.</li>
         </ul>
 
-          <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+          <h4><tal:span i18n:translate="use_it_to_measures_overview">Use it to</tal:span>:</h4>
         <ul>
           <li i18n:translate="">Pass information to the people concerned.</li>
           <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>

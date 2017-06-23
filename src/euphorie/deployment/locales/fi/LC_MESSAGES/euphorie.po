@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-23 14:01+0200\n"
+"POT-Creation-Date: 2017-06-23 14:02+0200\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2096,14 +2096,10 @@ msgstr "Yhteenveto toteutettavista toimenpiteistä"
 msgid "(measures to be implemented in the coming months)"
 msgstr "Suunnitellut toimenpiteet seuraavien kuukausien aikana"
 
+#. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:72
-#: src/euphorie/client/templates/report_landing.pt:93
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:149
-msgid "Use it to"
-msgstr "Käytä sitä"
+msgid "use_it_to_measures_report"
+msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2785,6 +2781,11 @@ msgid ""
 msgstr ""
 "Sisältää kaikki tiedot, jotka olet antanut riskinarviointiprosessin aikana."
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:72
+msgid "use_it_to_full_report"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr "näyttönä"
@@ -2805,6 +2806,11 @@ msgstr "Formaatti: Office Open XML Workbook (.xlsx)"
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Sisältö: keskeiset tekijät työpaikan riskien tehokkaaseen hallintaan."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:93
+msgid "use_it_to_action_plan"
+msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2837,6 +2843,11 @@ msgstr "Muoto: Portable Document Format (.pdf)"
 msgid "Contains: an overview of the risks identified"
 msgstr "Sisältö: yhteenveto tunnistetuista riskeistä."
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:116
+msgid "use_it_to_risks_overview"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
@@ -2849,6 +2860,11 @@ msgstr "Lataa yhteenveto toimenpiteistä."
 #: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Sisältö: yhteenveto toteutettavista toimenpiteistä."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:139
+msgid "use_it_to_measures_overview"
+msgstr ""
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3186,6 +3202,11 @@ msgid "description_automatic_evaluation"
 msgstr ""
 "Työkalu tekee riskinarvioinnin automaattisesti. Voit tarvittaessa muuttaa "
 "tämän riskin prioriteettia toimintasuunnitelmassa."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/risks_overview.pt:149
+msgid "use_it_to_risks_report"
+msgstr ""
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
@@ -5611,6 +5632,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Tässä versiossa on muutoksia, joita ei ole vielä julkaistu. "
 "Julkaise muutokset painamalla päivityskuvaketta"
+
+#~ msgid "Use it to"
+#~ msgstr "Käytä sitä"
 
 #~ msgid "Edit Module"
 #~ msgstr "Muokkaa moduulia"

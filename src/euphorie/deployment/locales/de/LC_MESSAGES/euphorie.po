@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-23 14:01+0200\n"
+"POT-Creation-Date: 2017-06-23 14:02+0200\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2147,14 +2147,10 @@ msgstr "Übersicht der Maßnahmen"
 msgid "(measures to be implemented in the coming months)"
 msgstr "(Maßnahmen, die in den folgenden Monaten umgesetzt werden sollen)"
 
+#. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:72
-#: src/euphorie/client/templates/report_landing.pt:93
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:149
-msgid "Use it to"
-msgstr "Damit können Sie"
+msgid "use_it_to_measures_report"
+msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2841,6 +2837,11 @@ msgstr ""
 "Enthält: Alle Information, die Sie währen der gesamten "
 "Gefährdungsbeurteilung eigegeben haben."
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:72
+msgid "use_it_to_full_report"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr "Dokumentation bereitstellen"
@@ -2863,6 +2864,11 @@ msgid ""
 msgstr ""
 "Enthält: die wesentlichen Elemente, mit denen Sie die Gefährdungen an Ihrem "
 "Arbeitsplatz effizient bewältigen können"
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:93
+msgid "use_it_to_action_plan"
+msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2894,6 +2900,11 @@ msgstr "Format: Portable Document Format (.pdf)"
 msgid "Contains: an overview of the risks identified"
 msgstr "Enthält: eine übersichtliche Darstellung der ermittelten Gefährdungen."
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:116
+msgid "use_it_to_risks_overview"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
@@ -2909,6 +2920,11 @@ msgid "Contains: an overview of the measures to be implemented."
 msgstr ""
 "Enthält: eine übersichtliche Darstellung der Maßnahmen, die für die nächsten "
 "drei Monate geplant sind."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:139
+msgid "use_it_to_measures_overview"
+msgstr ""
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3255,6 +3271,11 @@ msgstr ""
 "Die Bewertung der Priorität wurde für diese Gefährdung automatisch "
 "durchgeführt. Sie können diese Priorität später im Aktionsplan anpassen, "
 "falls nötig."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/risks_overview.pt:149
+msgid "use_it_to_risks_report"
+msgstr ""
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
@@ -5732,6 +5753,9 @@ msgstr ""
 "${label} = In dieser Version gibt es aktuell nicht veröffentlichte "
 "Änderungen. Klicken Sie auf das Aktualisieren-Symbol, um alle Änderungen "
 "live zu schalten."
+
+#~ msgid "Use it to"
+#~ msgstr "Damit können Sie"
 
 #~ msgid "Edit Module"
 #~ msgstr "Modul bearbeiten"

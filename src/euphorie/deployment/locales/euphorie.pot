@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-23 14:01+0200\n"
+"POT-Creation-Date: 2017-06-23 14:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1888,13 +1888,9 @@ msgstr ""
 msgid "(measures to be implemented in the coming months)"
 msgstr ""
 
+#. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:72
-#: src/euphorie/client/templates/report_landing.pt:93
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:149
-msgid "Use it to"
+msgid "use_it_to_measures_report"
 msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:66
@@ -2502,6 +2498,11 @@ msgid ""
 "risk assessment process."
 msgstr ""
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:72
+msgid "use_it_to_full_report"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr ""
@@ -2520,6 +2521,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:90
 msgid "Contains: main elements to effectively manage the risks at your workplace."
+msgstr ""
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:93
+msgid "use_it_to_action_plan"
 msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:95
@@ -2550,6 +2556,11 @@ msgstr ""
 msgid "Contains: an overview of the risks identified"
 msgstr ""
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:116
+msgid "use_it_to_risks_overview"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
@@ -2561,6 +2572,11 @@ msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
+msgstr ""
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:139
+msgid "use_it_to_measures_overview"
 msgstr ""
 
 #. Default: Measure
@@ -2881,6 +2897,11 @@ msgstr ""
 #. necessary – in the action plan.
 #: src/euphorie/client/templates/risk_identification.pt:146
 msgid "description_automatic_evaluation"
+msgstr ""
+
+#. Default: Use it to
+#: src/euphorie/client/templates/risks_overview.pt:149
+msgid "use_it_to_risks_report"
 msgstr ""
 
 #. Default: No risk

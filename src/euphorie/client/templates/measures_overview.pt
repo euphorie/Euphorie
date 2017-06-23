@@ -61,7 +61,7 @@ ul.title {margin-bottom:3em;}
             <h4 class="subtitle">${view/session_title}</h4>
             <h2 class="title"><em i18n:translate="">Overview of measures</em></h2>
             <h3 class="title" i18n:translate="">(measures to be implemented in the coming months)</h3>
-            <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+            <h4><tal:span i18n:translate="use_it_to_measures_report">Use it to</tal:span>:</h4>
             <ul class="title">
               <li i18n:translate="">Pass information to the people concerned.</li>
               <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>

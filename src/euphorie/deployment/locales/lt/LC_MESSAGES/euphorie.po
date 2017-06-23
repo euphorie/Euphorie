@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-06-23 14:01+0200\n"
+"POT-Creation-Date: 2017-06-23 14:02+0200\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2088,14 +2088,10 @@ msgstr "Priemonių peržiūra"
 msgid "(measures to be implemented in the coming months)"
 msgstr "(priemonės, kurios turi būti įgyvendintos artimiausiais mėnesiais)"
 
+#. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
-#: src/euphorie/client/templates/report_landing.pt:72
-#: src/euphorie/client/templates/report_landing.pt:93
-#: src/euphorie/client/templates/report_landing.pt:116
-#: src/euphorie/client/templates/report_landing.pt:139
-#: src/euphorie/client/templates/risks_overview.pt:149
-msgid "Use it to"
-msgstr "Naudokite ją:"
+msgid "use_it_to_measures_report"
+msgstr ""
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2767,6 +2763,11 @@ msgstr ""
 "pateikiama: visa informacija ir duomenys, kuriuos nurodėte atlikdami rizikos "
 "vertinimą"
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:72
+msgid "use_it_to_full_report"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
 msgstr "įrodymams"
@@ -2791,6 +2792,11 @@ msgid ""
 msgstr ""
 "Turinys: pagrindiniai aspektai, padedantys veiksmingai valdyti riziką jūsų "
 "darbo vietoje."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:93
+msgid "use_it_to_action_plan"
+msgstr ""
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2822,6 +2828,11 @@ msgstr "Formatas: dokumento formatas (.pdf)"
 msgid "Contains: an overview of the risks identified"
 msgstr "Turinys: nustatytų rizikų apžvalga"
 
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:116
+msgid "use_it_to_risks_overview"
+msgstr ""
+
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
 msgid "Monitor whether risks / measures are properly dealt with."
@@ -2834,6 +2845,11 @@ msgstr "Atsisiųskite priemonių apžvalgą"
 #: src/euphorie/client/templates/report_landing.pt:136
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Turinys: įgyvendintinų priemonių apžvalga."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/report_landing.pt:139
+msgid "use_it_to_measures_overview"
+msgstr ""
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3171,6 +3187,11 @@ msgid "description_automatic_evaluation"
 msgstr ""
 "Priemonė automatiškai atliko rizikos vertinimą. Veiksmų plane, jeigu "
 "manysite, kad tai reikalinga, galėsite pakeisti šios rizikos dydį."
+
+#. Default: Use it to
+#: src/euphorie/client/templates/risks_overview.pt:149
+msgid "use_it_to_risks_report"
+msgstr ""
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
@@ -5602,6 +5623,9 @@ msgid "legend_updated"
 msgstr ""
 "${label} = Šioje versijoje yra pakeitimų, kurie nebuvo publikuoti. Norėdami "
 "pakeitimus patvirtinti, paspauskite naujinimo piktogramą"
+
+#~ msgid "Use it to"
+#~ msgstr "Naudokite ją:"
 
 #~ msgid "Edit Module"
 #~ msgstr "Redaguoti modulį"

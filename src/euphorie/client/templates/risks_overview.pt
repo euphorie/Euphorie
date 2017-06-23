@@ -146,7 +146,7 @@ ul.title {margin-bottom:3em;}
         <h1>${here/Title}</h1>
         <h4 class="subtitle">${view/session_title}</h4>
         <h2 class="title"><em i18n:translate="">Overview of risks</em></h2>
-        <h4><tal:span i18n:translate="">Use it to</tal:span>:</h4>
+        <h4><tal:span i18n:translate="use_it_to_risks_report">Use it to</tal:span>:</h4>
         <ul class="title">
           <li i18n:translate="">Pass information to the people concerned.</li>
           <li i18n:translate="">Monitor whether risks / measures are properly dealt with.</li>
