@@ -2155,7 +2155,7 @@ msgstr "(maatregelen geïmplementeerd in de komende maanden)"
 #. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
 msgid "use_it_to_measures_report"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2830,7 +2830,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:72
 msgid "use_it_to_full_report"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
@@ -2857,7 +2857,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:93
 msgid "use_it_to_action_plan"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2892,7 +2892,7 @@ msgstr "Inhoud: een overzicht van de vastgestelde risico's"
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:116
 msgid "use_it_to_risks_overview"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
@@ -2912,7 +2912,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:139
 msgid "use_it_to_measures_overview"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3260,7 +3260,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "use_it_to_risks_report"
-msgstr ""
+msgstr "Te gebruiken om"
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223

@@ -2139,7 +2139,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
 msgid "use_it_to_measures_report"
-msgstr ""
+msgstr "Uża dan biex"
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2824,7 +2824,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:72
 msgid "use_it_to_full_report"
-msgstr ""
+msgstr "Uża dan biex"
 
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
@@ -2854,7 +2854,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:93
 msgid "use_it_to_action_plan"
-msgstr ""
+msgstr "Uża dan biex"
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2889,7 +2889,7 @@ msgstr "Jinkludi: ħarsa ġenerali tar-riskji identifikati"
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:116
 msgid "use_it_to_risks_overview"
-msgstr ""
+msgstr "Uża dan biex"
 
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
@@ -2907,7 +2907,7 @@ msgstr "Tinkludi: ħarsa ġenerali tal-miżuri li għandhom jiġu implimentati."
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:139
 msgid "use_it_to_measures_overview"
-msgstr ""
+msgstr "Uża dan biex"
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3254,7 +3254,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "use_it_to_risks_report"
-msgstr ""
+msgstr "Uża dan biex"
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
