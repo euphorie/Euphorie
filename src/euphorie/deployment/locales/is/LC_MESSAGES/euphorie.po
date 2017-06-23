@@ -2080,7 +2080,7 @@ msgstr "(lausnir sem ráðast þarf í á næstu mánuðum)"
 #. Default: Use it to
 #: src/euphorie/client/templates/measures_overview.pt:64
 msgid "use_it_to_measures_report"
-msgstr ""
+msgstr "Notaðu yfirlitið til að"
 
 #: src/euphorie/client/templates/measures_overview.pt:66
 #: src/euphorie/client/templates/report_landing.pt:118
@@ -2747,7 +2747,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:72
 msgid "use_it_to_full_report"
-msgstr ""
+msgstr "Notaðu hana"
 
 #: src/euphorie/client/templates/report_landing.pt:74
 msgid "Provide evidence"
@@ -2773,7 +2773,7 @@ msgstr "Inniheldur: Lausnir til að draga úr áhættu."
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:93
 msgid "use_it_to_action_plan"
-msgstr ""
+msgstr "Notaðu hana til að"
 
 #: src/euphorie/client/templates/report_landing.pt:95
 msgid "Manage"
@@ -2806,7 +2806,7 @@ msgstr "Inniheldur: Yfirlit um áhættur"
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:116
 msgid "use_it_to_risks_overview"
-msgstr ""
+msgstr "Notaðu yfirlitið til að"
 
 #: src/euphorie/client/templates/report_landing.pt:119
 #: src/euphorie/client/templates/risks_overview.pt:152
@@ -2824,7 +2824,7 @@ msgstr "Inniheldur: Yfirlit yfir úrbætur sem þarf að framkvæma."
 #. Default: Use it to
 #: src/euphorie/client/templates/report_landing.pt:139
 msgid "use_it_to_measures_overview"
-msgstr ""
+msgstr "Notaðu yfirlitið til að"
 
 #. Default: Measure
 #: src/euphorie/client/templates/risk_actionplan.pt:62
@@ -3169,7 +3169,7 @@ msgstr ""
 #. Default: Use it to
 #: src/euphorie/client/templates/risks_overview.pt:149
 msgid "use_it_to_risks_report"
-msgstr ""
+msgstr "Notaður yfirlitið til að"
 
 #. Default: No risk
 #: src/euphorie/client/templates/risks_overview.pt:223
