@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-05-11 15:52+0200\n"
+"POT-Creation-Date: 2017-06-23 14:01+0200\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -646,7 +646,7 @@ msgid "report_timeline_risk_title"
 msgstr "Risc"
 
 #. Default: Priority
-#: src/euphorie/client/report.py:1063 src/euphorie/content/risk.py:158
+#: src/euphorie/client/report.py:1063 src/euphorie/content/risk.py:159
 msgid "report_timeline_priority"
 msgstr "Prioritat"
 
@@ -667,21 +667,21 @@ msgstr "Cronologia per a ${title}"
 
 #. Default: Indicate how likely occurence of this risk is in a normal
 #. situation.
-#: src/euphorie/client/risk.py:135 src/euphorie/content/risk.py:356
+#: src/euphorie/client/risk.py:135 src/euphorie/content/risk.py:357
 msgid "help_default_probability"
 msgstr ""
 "Indiqui la probabilitat que es produeixi aquest risc en una situació normal."
 
 #. Default: Indicate how often this risk occurs in a normal situation.
-#: src/euphorie/client/risk.py:138 src/euphorie/content/risk.py:329
-#: src/euphorie/content/risk.py:376
+#: src/euphorie/client/risk.py:138 src/euphorie/content/risk.py:330
+#: src/euphorie/content/risk.py:377
 msgid "help_default_frequency"
 msgstr ""
 "Indiqui amb quina freqüència es produeix aquest risc en una situació normal."
 
 #. Default: Indicate the severity if this risk occurs.
-#: src/euphorie/client/risk.py:141 src/euphorie/content/risk.py:307
-#: src/euphorie/content/risk.py:396
+#: src/euphorie/client/risk.py:141 src/euphorie/content/risk.py:308
+#: src/euphorie/content/risk.py:397
 msgid "help_default_severity"
 msgstr "Indiqui la gravetat en cas de produir-se aquest risc."
 
@@ -2919,7 +2919,7 @@ msgstr "Afegir"
 #: src/euphorie/client/templates/risk_actionplan.pt:83
 #: src/euphorie/client/templates/risk_actionplan.pt:170
 #: src/euphorie/client/templates/risk_actionplan.pt:227
-#: src/euphorie/content/risk.py:79
+#: src/euphorie/content/risk.py:80
 msgid "label_description"
 msgstr "Descripció"
 
@@ -2988,21 +2988,21 @@ msgstr "Quina probabilitat hi ha que es produeixi aquest risc?"
 #. Default: Small
 #: src/euphorie/client/templates/risk_evaluation.pt:31
 #: src/euphorie/client/templates/risk_identification.pt:48
-#: src/euphorie/content/risk.py:363
+#: src/euphorie/content/risk.py:364
 msgid "probability_small"
 msgstr "Baixa"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:33
 #: src/euphorie/client/templates/risk_identification.pt:50
-#: src/euphorie/content/risk.py:365
+#: src/euphorie/content/risk.py:366
 msgid "probability_medium"
 msgstr "Mitjana"
 
 #. Default: Large
 #: src/euphorie/client/templates/risk_evaluation.pt:35
 #: src/euphorie/client/templates/risk_identification.pt:52
-#: src/euphorie/content/risk.py:367
+#: src/euphorie/content/risk.py:368
 msgid "probability_large"
 msgstr "Elevada"
 
@@ -3023,14 +3023,14 @@ msgstr "Gairebé mai"
 #. Default: Regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:43
 #: src/euphorie/client/templates/risk_identification.pt:62
-#: src/euphorie/content/risk.py:385
+#: src/euphorie/content/risk.py:386
 msgid "frequency_regularly"
 msgstr "Freqüentment"
 
 #. Default: Constantly
 #: src/euphorie/client/templates/risk_evaluation.pt:45
 #: src/euphorie/client/templates/risk_identification.pt:64
-#: src/euphorie/content/risk.py:387
+#: src/euphorie/content/risk.py:388
 msgid "frequency_constantly"
 msgstr "Constantment"
 
@@ -3067,7 +3067,7 @@ msgstr "Quina gravetat comporta aquest dany?"
 #. Default: Weak
 #: src/euphorie/client/templates/risk_evaluation.pt:63
 #: src/euphorie/client/templates/risk_identification.pt:86
-#: src/euphorie/content/risk.py:313
+#: src/euphorie/content/risk.py:314
 msgid "severity_weak"
 msgstr "Baixa"
 
@@ -3080,7 +3080,7 @@ msgstr "No cal interrompre la feina"
 #. Default: Not very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:67
 #: src/euphorie/client/templates/risk_identification.pt:90
-#: src/euphorie/content/risk.py:315
+#: src/euphorie/content/risk.py:316
 msgid "severity_not_severe"
 msgstr "No gaire greu"
 
@@ -3093,7 +3093,7 @@ msgstr "Cal interrompre la feina menys de 3 dies"
 #. Default: Severe
 #: src/euphorie/client/templates/risk_evaluation.pt:71
 #: src/euphorie/client/templates/risk_identification.pt:94
-#: src/euphorie/content/risk.py:318
+#: src/euphorie/content/risk.py:319
 msgid "severity_severe"
 msgstr "Greu"
 
@@ -3106,7 +3106,7 @@ msgstr "Cal interrompre la feina més de 3 dies"
 #. Default: Very severe
 #: src/euphorie/client/templates/risk_evaluation.pt:76
 #: src/euphorie/client/templates/risk_identification.pt:99
-#: src/euphorie/content/risk.py:320
+#: src/euphorie/content/risk.py:321
 msgid "severity_very_severe"
 msgstr "Molt greu"
 
@@ -3119,7 +3119,7 @@ msgstr "Lesions irreversibles, malaltia incurable, mort"
 #. Default: Rare
 #: src/euphorie/client/templates/risk_evaluation.pt:85
 #: src/euphorie/client/templates/risk_identification.pt:110
-#: src/euphorie/content/risk.py:336
+#: src/euphorie/content/risk.py:337
 msgid "frequency_french_rare"
 msgstr "Poc freqüent"
 
@@ -3132,7 +3132,7 @@ msgstr "Un cop per any"
 #. Default: Not very often
 #: src/euphorie/client/templates/risk_evaluation.pt:90
 #: src/euphorie/client/templates/risk_identification.pt:115
-#: src/euphorie/content/risk.py:338
+#: src/euphorie/content/risk.py:339
 msgid "frequency_french_not_often"
 msgstr "No gaire sovint"
 
@@ -3145,7 +3145,7 @@ msgstr "Un cop per mes"
 #. Default: Often
 #: src/euphorie/client/templates/risk_evaluation.pt:95
 #: src/euphorie/client/templates/risk_identification.pt:120
-#: src/euphorie/content/risk.py:341
+#: src/euphorie/content/risk.py:342
 msgid "frequency_french_often"
 msgstr "Sovint"
 
@@ -3158,7 +3158,7 @@ msgstr "Un cop per setmana"
 #. Default: Very often or regularly
 #: src/euphorie/client/templates/risk_evaluation.pt:100
 #: src/euphorie/client/templates/risk_identification.pt:125
-#: src/euphorie/content/risk.py:343
+#: src/euphorie/content/risk.py:344
 msgid "frequency_french_regularly"
 msgstr "Amb molta freqüència o regularitat"
 
@@ -3177,21 +3177,21 @@ msgstr "Seleccioni la prioritat d'aquest risc"
 #. Default: Low
 #: src/euphorie/client/templates/risk_evaluation.pt:111
 #: src/euphorie/client/templates/risk_identification.pt:137
-#: src/euphorie/content/risk.py:160 src/euphorie/content/risk.py:178
+#: src/euphorie/content/risk.py:161 src/euphorie/content/risk.py:179
 msgid "priority_low"
 msgstr "Baixa"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:113
 #: src/euphorie/client/templates/risk_identification.pt:139
-#: src/euphorie/content/risk.py:162 src/euphorie/content/risk.py:180
+#: src/euphorie/content/risk.py:163 src/euphorie/content/risk.py:181
 msgid "priority_medium"
 msgstr "Mitjana"
 
 #. Default: High
 #: src/euphorie/client/templates/risk_evaluation.pt:115
 #: src/euphorie/client/templates/risk_identification.pt:141
-#: src/euphorie/content/risk.py:163 src/euphorie/content/risk.py:181
+#: src/euphorie/content/risk.py:164 src/euphorie/content/risk.py:182
 msgid "priority_high"
 msgstr "Elevada"
 
@@ -3929,14 +3929,14 @@ msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr ""
 
 #. Default: Description
-#: src/euphorie/content/module.py:49 src/euphorie/content/page.py:19
+#: src/euphorie/content/module.py:50 src/euphorie/content/page.py:19
 #: src/euphorie/content/solution.py:29
 msgid "label_module_description"
 msgstr "Codi font HTML"
 
 #. Default: Include any relevant information that may be helpful for the
 #. end-user.
-#: src/euphorie/content/module.py:50 src/euphorie/content/page.py:20
+#: src/euphorie/content/module.py:51 src/euphorie/content/page.py:20
 #: src/euphorie/content/solution.py:30
 msgid "help_module_description"
 msgstr ""
@@ -3944,25 +3944,25 @@ msgstr ""
 "final."
 
 #. Default: This module is optional
-#: src/euphorie/content/module.py:58
+#: src/euphorie/content/module.py:59
 msgid "label_module_optional"
 msgstr "Aquest mòdul és opcional"
 
 #. Default: Allows the end-user to skip this module and everything inside it.
-#: src/euphorie/content/module.py:60
+#: src/euphorie/content/module.py:61
 msgid "help_module_optional"
 msgstr ""
 "Permet que l'usuari final pugui ometre aquest mòdul i tot el que conté."
 
 #. Default: Question
-#: src/euphorie/content/module.py:68
+#: src/euphorie/content/module.py:69
 msgid "label_module_question"
 msgstr "Pregunta"
 
 #. Default: The question to ask the end-user if this module is optional. It
 #. must be formulated so that it is answerable with YES (the end-user will have
 #. to tick a box) or NO
-#: src/euphorie/content/module.py:69
+#: src/euphorie/content/module.py:70
 msgid "help_module_question"
 msgstr ""
 "Aquesta pregunta demana a l'usuari final si aquest mòdul és opcional. Cal "
@@ -3970,86 +3970,86 @@ msgstr ""
 "de marcar una casella) o NO"
 
 #. Default: Image file
-#: src/euphorie/content/module.py:76 src/euphorie/content/risk.py:194
-#: src/euphorie/content/risk.py:210 src/euphorie/content/risk.py:221
-#: src/euphorie/content/risk.py:232
+#: src/euphorie/content/module.py:77 src/euphorie/content/risk.py:195
+#: src/euphorie/content/risk.py:211 src/euphorie/content/risk.py:222
+#: src/euphorie/content/risk.py:233
 msgid "label_image"
 msgstr "Fitxer d'imatge"
 
 #. Default: Upload an image. Make sure your image is of format png, jpg or gif
 #. and does not contain any special characters.
-#: src/euphorie/content/module.py:77 src/euphorie/content/risk.py:195
-#: src/euphorie/content/risk.py:211 src/euphorie/content/risk.py:222
-#: src/euphorie/content/risk.py:233 src/euphorie/content/sector.py:79
+#: src/euphorie/content/module.py:78 src/euphorie/content/risk.py:196
+#: src/euphorie/content/risk.py:212 src/euphorie/content/risk.py:223
+#: src/euphorie/content/risk.py:234 src/euphorie/content/sector.py:79
 msgid "help_image_upload"
 msgstr ""
 "Pugi una imatge. Asseguri's que la imatge tingui format .png, .jpg o .gif i "
 "que no contingui cap caràcter especial."
 
 #. Default: Image caption
-#: src/euphorie/content/module.py:83 src/euphorie/content/risk.py:201
-#: src/euphorie/content/risk.py:217 src/euphorie/content/risk.py:228
-#: src/euphorie/content/risk.py:239
+#: src/euphorie/content/module.py:84 src/euphorie/content/risk.py:202
+#: src/euphorie/content/risk.py:218 src/euphorie/content/risk.py:229
+#: src/euphorie/content/risk.py:240
 msgid "label_caption"
 msgstr "Peu d'imatge"
 
 #. Default: Solution
-#: src/euphorie/content/module.py:87
+#: src/euphorie/content/module.py:88
 msgid "label_solution_direction"
 msgstr "Solució"
 
 #. Default: This information will appear in the Action plan step and should
 #. include an overview of general solution(s) related to this module.
-#: src/euphorie/content/module.py:89
+#: src/euphorie/content/module.py:90
 msgid "help_solution_direction"
 msgstr ""
 "Aquesta informació és mostrarà al pas del pla d'acció i ha d'incloure una "
 "visió de conjunt de les solucions generals relacionades amb aquest mòdul."
 
 #. Default: Additional content
-#: src/euphorie/content/module.py:98 src/euphorie/content/risk.py:244
+#: src/euphorie/content/module.py:99 src/euphorie/content/risk.py:245
 msgid "header_additional_content"
 msgstr "Contingut addicional"
 
 #. Default: Attach any additional content you consider helpful for the user
-#: src/euphorie/content/module.py:99 src/euphorie/content/risk.py:245
+#: src/euphorie/content/module.py:100 src/euphorie/content/risk.py:246
 msgid "intro_additional_content"
 msgstr ""
 "Adjunteu qualsevol contingut addicional que considereu útil per a l'usuari"
 
 #. Default: Content file
-#: src/euphorie/content/module.py:108 src/euphorie/content/module.py:120
-#: src/euphorie/content/module.py:132 src/euphorie/content/module.py:144
-#: src/euphorie/content/risk.py:254 src/euphorie/content/risk.py:266
-#: src/euphorie/content/risk.py:278 src/euphorie/content/risk.py:290
+#: src/euphorie/content/module.py:109 src/euphorie/content/module.py:121
+#: src/euphorie/content/module.py:133 src/euphorie/content/module.py:145
+#: src/euphorie/content/risk.py:255 src/euphorie/content/risk.py:267
+#: src/euphorie/content/risk.py:279 src/euphorie/content/risk.py:291
 msgid "label_file"
 msgstr "Arxiu de contingut"
 
 #. Default: Upload a file that contains additional information, like a PDF,
 #. Word document or spreadsheet. Optionally provide a descriptive caption for
 #. your file.
-#: src/euphorie/content/module.py:109 src/euphorie/content/module.py:121
-#: src/euphorie/content/module.py:133 src/euphorie/content/module.py:145
-#: src/euphorie/content/risk.py:255 src/euphorie/content/risk.py:267
-#: src/euphorie/content/risk.py:279 src/euphorie/content/risk.py:291
+#: src/euphorie/content/module.py:110 src/euphorie/content/module.py:122
+#: src/euphorie/content/module.py:134 src/euphorie/content/module.py:146
+#: src/euphorie/content/risk.py:256 src/euphorie/content/risk.py:268
+#: src/euphorie/content/risk.py:280 src/euphorie/content/risk.py:292
 msgid "help_content_upload"
 msgstr ""
 
 #. Default: Content caption
-#: src/euphorie/content/module.py:116 src/euphorie/content/module.py:128
-#: src/euphorie/content/module.py:140 src/euphorie/content/module.py:152
-#: src/euphorie/content/risk.py:262 src/euphorie/content/risk.py:274
-#: src/euphorie/content/risk.py:286 src/euphorie/content/risk.py:298
+#: src/euphorie/content/module.py:117 src/euphorie/content/module.py:129
+#: src/euphorie/content/module.py:141 src/euphorie/content/module.py:153
+#: src/euphorie/content/risk.py:263 src/euphorie/content/risk.py:275
+#: src/euphorie/content/risk.py:287 src/euphorie/content/risk.py:299
 msgid "label_file_caption"
 msgstr "Llegenda del contingut"
 
-#: src/euphorie/content/module.py:227 src/euphorie/content/module.py:248
-#: src/euphorie/content/module.py:267
+#: src/euphorie/content/module.py:228 src/euphorie/content/module.py:249
+#: src/euphorie/content/module.py:268
 #: src/euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Submòdul"
 
-#: src/euphorie/content/module.py:253
+#: src/euphorie/content/module.py:254
 msgid "Edit ${name}"
 msgstr "Editar ${name}"
 
@@ -4117,27 +4117,27 @@ msgid "Edit Profile question"
 msgstr "Editar Pregunta de perfil"
 
 #. Default: Affirmative statement
-#: src/euphorie/content/risk.py:60
+#: src/euphorie/content/risk.py:61
 msgid "label_statement"
 msgstr "Afirmació"
 
 #. Default: This is a short affirmative statement about a possible risk (e.g.
 #. The building is well maintained.)
-#: src/euphorie/content/risk.py:61
+#: src/euphorie/content/risk.py:62
 msgid "help_statement"
 msgstr ""
 "Es tracta d'una afirmació breu sobre un possible risc (per exemple: "
 "L'edifici es troba en bones condicions.)"
 
 #. Default: Negative statement
-#: src/euphorie/content/risk.py:69
+#: src/euphorie/content/risk.py:70
 #: src/euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr "Negació"
 
 #. Default: This is the inverse of the affirmative statement (e.g. The building
 #. is not well maintained.)
-#: src/euphorie/content/risk.py:71
+#: src/euphorie/content/risk.py:72
 msgid "help_problem_description"
 msgstr ""
 "Es tracta de l'opció inversa a l'afirmació (per exemple: L'edifici no es "
@@ -4145,38 +4145,38 @@ msgstr ""
 
 #. Default: Describe the risk. Include any relevant information that may be
 #. helpful for the end-user.
-#: src/euphorie/content/risk.py:80
+#: src/euphorie/content/risk.py:81
 msgid "help_risk_description"
 msgstr ""
 "Descrigui el risc. Inclogui tota la informació rellevant que pugui resultar "
 "útil per a l'usuari final. "
 
 #. Default: Legal and policy references
-#: src/euphorie/content/risk.py:88
+#: src/euphorie/content/risk.py:89
 #: src/euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Referències legals i sobre polítiques"
 
 #. Default: Identification
-#: src/euphorie/content/risk.py:95
+#: src/euphorie/content/risk.py:96
 msgid "header_identification"
 msgstr "Identificació"
 
 #. Default: Show `not applicable' option
-#: src/euphorie/content/risk.py:99
+#: src/euphorie/content/risk.py:100
 msgid "label_show_notapplicable"
 msgstr "Mostrar la opció \"no aplicable\""
 
 #. Default: Offer a `not applicable' option in addition to the standard yes/no
 #. options.
-#: src/euphorie/content/risk.py:101
+#: src/euphorie/content/risk.py:102
 msgid "help_show_notapplicable"
 msgstr ""
 "Incloure una opció \"no aplicable\" a més de les opcions estàndard de sí i "
 "no."
 
 #. Default: Risk type
-#: src/euphorie/content/risk.py:107
+#: src/euphorie/content/risk.py:108
 #: src/euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Tipus de risc"
@@ -4184,7 +4184,7 @@ msgstr "Tipus de risc"
 #. Default: "Priority risk" is one of the high risks in the sector. "Risk" is
 #. related to the workplace or to the work carried out. "Policy" refers to
 #. agreements, procedures, and management decisions.
-#: src/euphorie/content/risk.py:108
+#: src/euphorie/content/risk.py:109
 msgid "help_risk_type"
 msgstr ""
 "El risc prioritari\" és un dels riscos elevats del sector. \"Risc\" fa "
@@ -4192,151 +4192,151 @@ msgstr ""
 "referència als acords, als processos i a les decisions de gestió."
 
 #. Default: Priority risk
-#: src/euphorie/content/risk.py:115
+#: src/euphorie/content/risk.py:116
 msgid "risktype_top5"
 msgstr "Risc prioritari"
 
 #. Default: Risk
-#: src/euphorie/content/risk.py:117
+#: src/euphorie/content/risk.py:118
 msgid "risktype_risk"
 msgstr "Risc"
 
 #. Default: Policy
-#: src/euphorie/content/risk.py:119
+#: src/euphorie/content/risk.py:120
 msgid "risktype_policy"
 msgstr "Política"
 
 #. Default: Risk is always present
-#: src/euphorie/content/risk.py:126
+#: src/euphorie/content/risk.py:127
 msgid "label_risk_always_present"
 msgstr "Risc present sempre"
 
 #. Default: If selected, the user will not be able to answer "Yes" or "No",
 #. since the risk is considered to be always present. The Evaluation and Action
 #. Plan will behave in the same way as for regular risks.
-#: src/euphorie/content/risk.py:127
+#: src/euphorie/content/risk.py:128
 msgid "description_risk_always_present"
 msgstr ""
 "Si es marca aquesta opció, el risc apareixerà sempre i l’usuari no ho podrá "
 "canviar. A l’avaluació i a la planificació es comportarà com altres riscos"
 
 #. Default: Evaluation method
-#: src/euphorie/content/risk.py:140
+#: src/euphorie/content/risk.py:141
 #: src/euphorie/content/templates/risk_view.pt:47
 msgid "label_evaluation_method"
 msgstr "Mètode d'avaluació"
 
 #. Default: Select 'estimated' if calcuation is not necessary or not possible.
-#: src/euphorie/content/risk.py:141
+#: src/euphorie/content/risk.py:142
 msgid "help_evaluation_method"
 msgstr "Seleccioni \"aproximat\" si no cal fer un càlcul o no es pot fer."
 
 #. Default: Estimated
-#: src/euphorie/content/risk.py:146
+#: src/euphorie/content/risk.py:147
 msgid "evalmethod_direct"
 msgstr "Aproximat"
 
 #. Default: Calculated
-#: src/euphorie/content/risk.py:148
+#: src/euphorie/content/risk.py:149
 msgid "evalmethod_calculated"
 msgstr "Calculat"
 
 #. Default: Skip evaluation
-#: src/euphorie/content/risk.py:150
+#: src/euphorie/content/risk.py:151
 msgid "evalmethod_fixed"
 msgstr "Aproximat"
 
 #. Default: Default priority
-#: src/euphorie/content/risk.py:171
+#: src/euphorie/content/risk.py:172
 #: src/euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
 msgstr "Prioritat per defecte"
 
 #. Default: You can help the end-user by selecting a default priority. He/she
 #. can still change the priority.
-#: src/euphorie/content/risk.py:172
+#: src/euphorie/content/risk.py:173
 msgid "help_default_priority"
 msgstr ""
 "Pot ajudar l'usuari final seleccionant una prioritat per defecte. Tot i "
 "així, l'usuari final podrà modificar-la."
 
 #. Default: No default
-#: src/euphorie/content/risk.py:177
+#: src/euphorie/content/risk.py:178
 msgid "no_default"
 msgstr "Sense opció per defecte"
 
 #. Default: Main image
-#: src/euphorie/content/risk.py:187
+#: src/euphorie/content/risk.py:188
 msgid "header_main_image"
 msgstr "Imatge principal"
 
 #. Default: The main image will get a more prominent position in the client
 #. than the other images.
-#: src/euphorie/content/risk.py:188
+#: src/euphorie/content/risk.py:189
 msgid "intro_main_image"
 msgstr ""
 "La imatge principal obtindrà una posició més destacada al client que la "
 "resta d'imatges."
 
 #. Default: Secondary images
-#: src/euphorie/content/risk.py:205
+#: src/euphorie/content/risk.py:206
 msgid "header_secondary_images"
 msgstr "Imatges secundàries"
 
 #. Default: Default severity
-#: src/euphorie/content/risk.py:306 src/euphorie/content/risk.py:395
+#: src/euphorie/content/risk.py:307 src/euphorie/content/risk.py:396
 #: src/euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
 msgstr "Gravetat per defecte"
 
 #. Default: No default
-#: src/euphorie/content/risk.py:311 src/euphorie/content/risk.py:334
-#: src/euphorie/content/risk.py:361 src/euphorie/content/risk.py:381
-#: src/euphorie/content/risk.py:400
+#: src/euphorie/content/risk.py:312 src/euphorie/content/risk.py:335
+#: src/euphorie/content/risk.py:362 src/euphorie/content/risk.py:382
+#: src/euphorie/content/risk.py:401
 msgid "no default"
 msgstr "Sense opció per defecte"
 
 #. Default: Default frequency
-#: src/euphorie/content/risk.py:328 src/euphorie/content/risk.py:375
+#: src/euphorie/content/risk.py:329 src/euphorie/content/risk.py:376
 #: src/euphorie/content/templates/risk_view.pt:59
 #: src/euphorie/content/templates/risk_view.pt:66
 msgid "label_default_frequency"
 msgstr "Freqüència per defecte"
 
 #. Default: Default probability
-#: src/euphorie/content/risk.py:354
+#: src/euphorie/content/risk.py:355
 #: src/euphorie/content/templates/risk_view.pt:64
 msgid "label_default_probability"
 msgstr "Probabilitat per defecte"
 
 #. Default: Almost never
-#: src/euphorie/content/risk.py:383
+#: src/euphorie/content/risk.py:384
 msgid "frequency_almostnever"
 msgstr "Gairebé mai"
 
 #. Default: Weak severity
-#: src/euphorie/content/risk.py:402
+#: src/euphorie/content/risk.py:403
 msgid "effect_weak"
 msgstr "Gravetat baixa"
 
 #. Default: Significant severity
-#: src/euphorie/content/risk.py:404
+#: src/euphorie/content/risk.py:405
 msgid "effect_significant"
 msgstr "Gravetat significativa"
 
 #. Default: High (very high) severity
-#: src/euphorie/content/risk.py:407
+#: src/euphorie/content/risk.py:408
 msgid "effect_high"
 msgstr "Gravetat elevada (molt elevada)"
 
 #. Default: Evaluation
-#: src/euphorie/content/risk.py:416 src/euphorie/content/risk.py:430
+#: src/euphorie/content/risk.py:417 src/euphorie/content/risk.py:431
 msgid "header_evaluation"
 msgstr "Avaluació"
 
 #. Default: You can specify how the risks priority is evaluated. For more
 #. details see the online manual.
-#: src/euphorie/content/risk.py:417 src/euphorie/content/risk.py:431
+#: src/euphorie/content/risk.py:418 src/euphorie/content/risk.py:432
 msgid "intro_evaluation"
 msgstr ""
 "Pot especificar com s'avalua la prioritat dels riscos. Per obtenir més "
@@ -4407,25 +4407,25 @@ msgid "title_common_solution"
 msgstr "Mesura"
 
 #. Default: Version name
-#: src/euphorie/content/survey.py:55 src/euphorie/content/survey.py:220
+#: src/euphorie/content/survey.py:56 src/euphorie/content/survey.py:221
 msgid "label_survey_title"
 msgstr "Nom de versió "
 
 #. Default: This is the title of this OiRA Tool version. This name is never
 #. shown to users.
-#: src/euphorie/content/survey.py:56 src/euphorie/content/survey.py:221
+#: src/euphorie/content/survey.py:57 src/euphorie/content/survey.py:222
 msgid "help_survey_title"
 msgstr ""
 "Aquest és el títol de la versió d'aquesta eina OiRA. Aquest nom no es mostra "
 "mai als usuaris."
 
 #. Default: Introduction text
-#: src/euphorie/content/survey.py:65
+#: src/euphorie/content/survey.py:66
 #: src/euphorie/content/templates/survey_view.pt:30
 msgid "label_introduction"
 msgstr "Text d'introducció"
 
-#: src/euphorie/content/survey.py:66
+#: src/euphorie/content/survey.py:67
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
 "introduction is provided here a standard text will be shown. Please keep "
@@ -4434,31 +4434,31 @@ msgid ""
 msgstr ""
 
 #. Default: Evaluation may be skipped
-#: src/euphorie/content/survey.py:75
+#: src/euphorie/content/survey.py:76
 msgid "label_evaluation_optional"
 msgstr "Es pot ometre l'avaluació"
 
 #. Default: This option allows users to skip the evaluation phase.
-#: src/euphorie/content/survey.py:77
+#: src/euphorie/content/survey.py:78
 msgid "help_evaluation_optional"
 msgstr ""
 "Aquesta opció permet que l'usuari final pugui ometre el pas d'avaluació."
 
 #. Default: Language
-#: src/euphorie/content/survey.py:84
+#: src/euphorie/content/survey.py:85
 #: src/euphorie/content/templates/survey_view.pt:24
 msgid "label_language"
 msgstr "Idioma"
 
 #. Default: Classification code
-#: src/euphorie/content/survey.py:90
+#: src/euphorie/content/survey.py:91
 #: src/euphorie/content/templates/survey_view.pt:21
 msgid "label_classification_code"
 msgstr "Codi de classificació"
 
 #. Default: A code identifying this sector. Classification codes are defined by
 #. national standards bodies and based on revision 2 of the NACE standard.
-#: src/euphorie/content/survey.py:92
+#: src/euphorie/content/survey.py:93
 msgid "help_classification_code"
 msgstr ""
 "Un codi que identifica aquest sector. Els organismes nacionals de "
@@ -4466,54 +4466,54 @@ msgstr ""
 "revisió 2 de la norma NACE."
 
 #. Default: Show a custom notification for this OiRA tool?
-#: src/euphorie/content/survey.py:99
+#: src/euphorie/content/survey.py:100
 msgid "label_enable_tool_notification"
 msgstr ""
 
 #. Default: If you enter text here, it will be shown to users in a pop-up when
 #. they open the tool. It can be used for notifying users about changes.
-#: src/euphorie/content/survey.py:101
+#: src/euphorie/content/survey.py:102
 msgid "description_tool_notification"
 msgstr ""
 
 #. Default: Tool notification title
-#: src/euphorie/content/survey.py:113
+#: src/euphorie/content/survey.py:114
 msgid "label_tool_notification_title"
 msgstr ""
 
 #. Default: Tool notification message
-#: src/euphorie/content/survey.py:120
+#: src/euphorie/content/survey.py:121
 msgid "label_tool_notification"
 msgstr ""
 
 #. Default: Title
-#: src/euphorie/content/survey.py:229 src/euphorie/content/surveygroup.py:49
+#: src/euphorie/content/survey.py:230 src/euphorie/content/surveygroup.py:49
 msgid "label_title"
 msgstr "Títol"
 
 #. Default: The title of this OiRA Tool. This title is used in the OiRA Tool
 #. overview in the clients.
-#: src/euphorie/content/survey.py:230 src/euphorie/content/surveygroup.py:50
+#: src/euphorie/content/survey.py:231 src/euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
 "El títol d'aquesta eina OiRA. Aquest títol s'utilitza a la visió general de "
 "l'eina OiRA dels clients."
 
 #. Default: Obsolete survey
-#: src/euphorie/content/survey.py:237 src/euphorie/content/surveygroup.py:59
+#: src/euphorie/content/survey.py:238 src/euphorie/content/surveygroup.py:59
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
 #. Default: This OiRA Tool is obsolete; it has been retired or replaced with
 #. another OiRA Tool.
-#: src/euphorie/content/survey.py:239 src/euphorie/content/surveygroup.py:61
+#: src/euphorie/content/survey.py:240 src/euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: You cannot delete an OiRA Tool version that is published. Please
 #. unpublish it first.
-#: src/euphorie/content/survey.py:323
+#: src/euphorie/content/survey.py:324
 msgid "message_no_delete_published_survey"
 msgstr ""
 "No es pot suprimir una versió de l'eina OiRA que estigui publicada. Abans "
@@ -4521,7 +4521,7 @@ msgstr ""
 
 #. Default: This is the only version of the OiRA Tool and can therefore not be
 #. deleted. Did you perhaps want to remove the OiRA Tool itself?
-#: src/euphorie/content/survey.py:338
+#: src/euphorie/content/survey.py:339
 msgid "message_delete_no_last_survey"
 msgstr "No es pot suprimir la versió única de l'eina OiRA."
 
@@ -4677,23 +4677,23 @@ msgstr ""
 msgid "message_user_unlocked"
 msgstr "El compte \"${title}\" s'ha desbloquejat."
 
-#: src/euphorie/content/utils.py:15
+#: src/euphorie/content/utils.py:17
 msgid "European Union"
 msgstr "Unió Europea"
 
-#: src/euphorie/content/utils.py:22
+#: src/euphorie/content/utils.py:24
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: src/euphorie/content/utils.py:23
+#: src/euphorie/content/utils.py:25
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: src/euphorie/content/utils.py:24
+#: src/euphorie/content/utils.py:26
 msgid "Republic of Serbia"
 msgstr "República de Sèrbia"
 
-#: src/euphorie/content/utils.py:26
+#: src/euphorie/content/utils.py:28
 msgid "F.Y.R. Macedonia"
 msgstr "A.R.I. de Macedònia"
 
@@ -4958,7 +4958,7 @@ msgid "header_submodules"
 msgstr "Submòduls"
 
 #. Default: Risks
-#: src/euphorie/content/templates/module_view.pt:39
+#: src/euphorie/content/templates/module_view.pt:42
 #: src/euphorie/content/templates/profilequestion_add.pt:39
 #: src/euphorie/content/templates/profilequestion_view.pt:47
 msgid "header_risks"
@@ -5104,7 +5104,7 @@ msgid "header_solutions"
 msgstr "Mesures estàndard"
 
 #. Default: Measure ${number}
-#: src/euphorie/content/templates/risk_view.pt:83
+#: src/euphorie/content/templates/risk_view.pt:86
 msgid "risk_solution_header"
 msgstr "Mesura ${number}"
 
