@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.17 (unreleased)
+9.0.17 (2017-07-03)
 -------------------
 
 - Translation changes in IS and PT
