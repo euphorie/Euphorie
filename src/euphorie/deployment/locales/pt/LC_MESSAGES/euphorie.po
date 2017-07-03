@@ -910,7 +910,7 @@ msgstr "Fechar"
 
 #: src/euphorie/client/utils.py:545
 msgid "I wish to share the following with you"
-msgstr "Quero compartilhar o seguinte com você"
+msgstr "Clique para seguir ligação"
 
 #: src/euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
