@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.18 (unreleased)
+9.0.18 (2017-07-04)
 -------------------
 
 - Make it possible to start browsing the client on a country in a different
