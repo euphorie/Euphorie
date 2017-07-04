@@ -56,7 +56,7 @@ class ContextSearch(grok.View):
             self.results = None
             return
 
-        qs = u'"{}"'.format(safe_unicode(qs))
+        qs = u'"{}*"'.format(safe_unicode(qs))
         path = '/'.join(self.context.getPhysicalPath())
         query = dict(
             SearchableText=qs, portal_type=SEARCHED_TYPES, path=path)
