@@ -192,8 +192,6 @@ def SearchableTextIndexer(obj):
     """ Index the problem_description, question and solution_direction
     """
     return " ".join([obj.title,
-                     StripMarkup(obj.problem_description),
-                     StripMarkup(obj.question),
                      StripMarkup(obj.solution_direction)])
 
 
