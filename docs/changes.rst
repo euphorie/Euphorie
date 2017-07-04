@@ -4,8 +4,9 @@ Changelog
 9.0.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Make it possible to start browsing the client on a country in a different
+  language than EN.
+  Set French as language for France.
 
 9.0.17 (2017-07-03)
 -------------------

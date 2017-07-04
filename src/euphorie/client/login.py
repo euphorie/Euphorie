@@ -65,10 +65,13 @@ class Login(grok.View):
 
     def setLanguage(self, came_from):
         qs = urlparse.urlparse(came_from)[4]
-        if not qs:
-            return
         params = cgi.parse_qs(qs)
         lang = params.get("language")
+        if not lang:
+            if IClientCountry.providedBy(self.context):
+                lang = getattr(self.context, 'language', None)
+                if lang and isinstance(lang, basestring):
+                    lang = [lang]
         if not lang:
             return
         setLanguage(self.request, self.context, lang=lang[0])

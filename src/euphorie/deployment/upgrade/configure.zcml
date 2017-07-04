@@ -287,4 +287,11 @@
         handler=".v8.drop_constraint_no_duplicates_in_tree"/>
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeStep
+    source="17"
+    destination="18"
+    profile="euphorie.deployment:default"
+    title="Force French as language for country France"
+    handler=".v9.setCountryLanguageFR"/>
+
 </configure>
