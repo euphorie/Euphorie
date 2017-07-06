@@ -53,6 +53,15 @@ TextLines4Rows = FieldWidgetFactory(
     "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4)
 
 
+class TextLinesWithBreaks(schema.TextLine):
+
+    def constraint(self, value):
+        return True
+
+TextLines8Rows = FieldWidgetFactory(
+    "z3c.form.browser.textlines.TextLinesFieldWidget", rows=8)
+
+
 class IRisk(form.Schema, IRichDescription, IBasic):
     """A possible risk that can be present in an organisation.
     """
@@ -84,6 +93,16 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             required=True)
     form.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(description="problem_description")
+
+    comments_prefill = TextLinesWithBreaks(
+        title=_("label_comments_prefill", default=u"Comments"),
+        description=_(
+            "help_comments_prefill",
+            default=u"Use this field to pre-fill the 'Comments' box with text."
+            u" This text will be editable by the user."),
+        required=False)
+    form.widget(comments_prefill="euphorie.content.risk.TextLines8Rows")
+    form.order_after(comments_prefill="description")
 
     legal_reference = HtmlText(
             title=_("label_legal_reference",
