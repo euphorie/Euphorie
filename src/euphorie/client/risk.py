@@ -141,6 +141,8 @@ class IdentificationView(grok.View):
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
+            if not getattr(self.context, 'comment', ''):
+                self.context.comment = self.risk.comments_prefill
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
                     custom_dp = getattr(
