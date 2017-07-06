@@ -95,7 +95,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.order_after(description="problem_description")
 
     comments_prefill = TextLinesWithBreaks(
-        title=_("label_comments_prefill", default=u"Comments"),
+        title=_("label_comments_prefill", default=u"Comments pre-fill"),
         description=_(
             "help_comments_prefill",
             default=u"Use this field to pre-fill the 'Comments' box with text."
