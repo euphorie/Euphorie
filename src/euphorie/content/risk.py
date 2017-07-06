@@ -628,6 +628,7 @@ class Add(dexterity.AddForm):
     def updateWidgets(self):
         super(Add, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+        self.widgets["comments_prefill"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -675,6 +676,7 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+        self.widgets["comments_prefill"].mode = "hidden"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)
