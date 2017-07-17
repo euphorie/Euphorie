@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.19 (unreleased)
+9.0.19 (2017-07-17)
 -------------------
 
 - Added missing default (EN) translation for drag&drop in the CMS
