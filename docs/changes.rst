@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.19 (unreleased)
+9.0.20 (unreleased)
 -------------------
 
 - CMS: Added a tile that provides "search in context"
@@ -10,6 +10,12 @@ Changelog
 - Added a new field to the Risk type: comments_prefill. Text entered here
   will be used to pre-fill the comment field in the client. The field is
   currently hidden in the Add and Edit form, i.e. not yet active.
+- Added missing default translation for drag-n-drop in the CMS
+
+9.0.19 (2017-07-17)
+-------------------
+
+BROWN-BAG RELEASE
 
 9.0.18 (2017-07-04)
 -------------------
