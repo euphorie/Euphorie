@@ -130,5 +130,6 @@ class DragDropHelper(object):
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         return translate(NuPloneMessageFactory(
-            u"Change order of items by dragging the handle", default=u""),
+            u"Change order of items by dragging the handle",
+            default=u"Change order of items by dragging the handle"),
             target_language=lang)

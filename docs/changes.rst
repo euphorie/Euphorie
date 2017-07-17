@@ -4,8 +4,7 @@ Changelog
 9.0.19 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added missing default (EN) translation for drag&drop in the CMS
 
 9.0.18 (2017-07-04)
 -------------------
