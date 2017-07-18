@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.20 (unreleased)
+9.0.20 (2017-07-18)
 -------------------
 
 - CMS: Added a tile that provides "search in context"
