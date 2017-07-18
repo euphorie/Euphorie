@@ -76,6 +76,23 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.widget(title="euphorie.content.risk.TextLines4Rows")
     form.order_before(title="*")
 
+    title_extra = schema.Choice(
+        title=_("label_title_extra", default=u"Extra statement"),
+        description=_("help_title_extra",
+            default=u'Select an additional sentence that will be displayed '
+                u'next to the statement in the client. Leave blank if no '
+                u'such sentence is needed'),
+        vocabulary=SimpleVocabulary([
+                        SimpleTerm(u"", title="-- no selection --"),
+                        SimpleTerm(u"sufficient",
+                            title=_("title_extra_sufficient",
+                            default=u"Existing measures are sufficient.")),
+                        ]),
+        default="",
+        required=False,
+    )
+    form.order_after(title_extra="title")
+
     problem_description = schema.TextLine(
             title=_("label_problem_description",
                     default=u"Negative statement"),
@@ -84,7 +101,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                         u"statement (e.g. The building is not well maintained.)"),
             required=True)
     form.widget(problem_description="euphorie.content.risk.TextLines4Rows")
-    form.order_after(problem_description="title")
+    form.order_after(problem_description="title_extra")
 
     description = HtmlText(
             title=_("label_description", default=u"Description"),
