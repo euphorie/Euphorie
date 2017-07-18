@@ -294,4 +294,16 @@
     title="Force French as language for country France"
     handler=".v9.setCountryLanguageFR"/>
 
+  <genericsetup:upgradeSteps
+    source="18"
+    destination="19"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add new column to Risk for existing measures"
+      handler=".v10.add_column_for_existing_measures"/>
+
+  </genericsetup:upgradeSteps>
+
 </configure>

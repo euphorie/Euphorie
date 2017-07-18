@@ -6,28 +6,30 @@ Risk
 Views for the identification and action plan phases.
 """
 
-import datetime
+from .. import MessageFactory as _
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from Products.statusmessages.interfaces import IStatusMessage
-from five import grok
-from z3c.saconfig import Session
+from euphorie.client import model
+from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
+from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.navigation import FindNextQuestion
+from euphorie.client.navigation import FindPreviousQuestion
+from euphorie.client.navigation import getTreeData
+from euphorie.client.navigation import QuestionURL
+from euphorie.client.session import SessionManager
+from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
-from euphorie.client import model
-from .. import MessageFactory as _
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-from euphorie.client.navigation import FindPreviousQuestion
-from euphorie.client.navigation import FindNextQuestion
-from euphorie.client.navigation import QuestionURL
-from euphorie.client.navigation import getTreeData
-from euphorie.client.utils import HasText
 from euphorie.content.utils import StripMarkup
-from euphorie.client.update import redirectOnSurveyUpdate
-from euphorie.client.session import SessionManager
+from five import grok
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.saconfig import Session
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.i18n import translate
+import datetime
 
 grok.templatedir("templates")
 
@@ -62,10 +64,16 @@ class IdentificationView(grok.View):
         self.risk = self.request.survey.restrictedTraverse(
             self.context.zodb_path.split("/"))
 
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
+
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             answer = reply.get("answer")
             self.context.comment = reply.get("comment")
+            if self.use_existing_measures:
+                self.context.existing_measures = reply.get("existing_measures")
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
@@ -141,8 +149,8 @@ class IdentificationView(grok.View):
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
-            if not getattr(self.context, 'comment', ''):
-                self.context.comment = self.risk.comments_prefill
+            if self.use_existing_measures and not self.risk.existing_measures:
+                self.context.existing_measures = self.risk.existing_measures
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
                     custom_dp = getattr(
@@ -225,6 +233,10 @@ class ActionPlanView(grok.View):
             return
         context = aq_inner(self.context)
 
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
+
         self.next_is_report = False
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
@@ -244,6 +256,8 @@ class ActionPlanView(grok.View):
             session = Session()
             context.comment = reply.get("comment")
             context.priority = reply.get("priority")
+            if self.use_existing_measures:
+                context.existing_measures = reply.get("existing_measures")
 
             new_plans = self.extract_plans_from_request()
             for plan in context.action_plans:

@@ -155,6 +155,16 @@
         <metal:call use-macro="webhelpers/macros/risk_legal" />
     </article>
 
+
+    <!-- Existing Measures -->
+    <fieldset class="vertical" id="existing_measures" tal:condition="view/use_existing_measures">
+        <legend i18n:translate="label_existing_measures">Existing measures</legend>
+        <textarea id="existing_measures" name="existing_measures:utf8:ustring" class="span-15" rows="8" tal:content="context/existing_measures"
+            placeholder="Enter any existing measures."
+            i18n:attributes="placeholder placeholder_existing_measures">
+        </textarea>
+    </fieldset>
+
     <!-- Comments -->
     <fieldset class="vertical" id="comments">
         <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"

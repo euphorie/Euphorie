@@ -7,9 +7,10 @@ Changelog
 - CMS: Added a tile that provides "search in context"
   It is only shown if euphorie.search is added to the "actions" tiles
   section in euphorie.ini
-- Added a new field to the Risk type: comments_prefill. Text entered here
-  will be used to pre-fill the comment field in the client. The field is
-  currently hidden in the Add and Edit form, i.e. not yet active.
+- Added a new field to the Risk type: existing_measures. Text entered here
+  will be used to pre-fill the new field of the same name in the client. It
+  currently hidden in the Add and Edit form and needs to be activated with
+  use_existing_measures in the app-config
 - Added missing default translation for drag-n-drop in the CMS
 
 9.0.19 (2017-07-17)

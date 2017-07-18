@@ -207,6 +207,15 @@
     </fieldset>
   </div>
 
+    <!-- Existing Measures -->
+    <fieldset class="vertical" id="existing_measures" tal:condition="view/use_existing_measures">
+        <legend i18n:translate="label_existing_measures">Existing measures</legend>
+        <textarea id="existing_measures" name="existing_measures:utf8:ustring" class="span-15" rows="8" tal:content="data/existing_measures"
+            placeholder="Enter any existing measures."
+            i18n:attributes="placeholder placeholder_existing_measures">
+        </textarea>
+    </fieldset>
+
     <fieldset id="comments">
         <textarea id="commentsField" name="comment:utf8:ustring" cols="70" rows="3"
             placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."

@@ -34,6 +34,7 @@ from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
+from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import applyChanges
 from zope import schema
 from zope.component import createObject
@@ -94,15 +95,15 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     form.order_after(description="problem_description")
 
-    comments_prefill = TextLinesWithBreaks(
-        title=_("label_comments_prefill", default=u"Comments pre-fill"),
+    existing_measures = TextLinesWithBreaks(
+        title=_("label_existing_measures", default=u"Existing measures"),
         description=_(
-            "help_comments_prefill",
-            default=u"Use this field to pre-fill the 'Comments' box with text."
+            "help_existing_measures",
+            default=u"Use this field to define (common) existing measures."
             u" This text will be editable by the user."),
         required=False)
-    form.widget(comments_prefill="euphorie.content.risk.TextLines8Rows")
-    form.order_after(comments_prefill="description")
+    form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
+    form.order_after(existing_measures="description")
 
     legal_reference = HtmlText(
             title=_("label_legal_reference",
@@ -613,6 +614,9 @@ class Add(dexterity.AddForm):
                  'header_main_image',
                  'header_secondary_images',
                  'header_additional_content']
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
 
     @property
     def schema(self):
@@ -628,7 +632,8 @@ class Add(dexterity.AddForm):
     def updateWidgets(self):
         super(Add, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        self.widgets["comments_prefill"].mode = "hidden"
+        if not self.use_existing_measures:
+            self.widgets["existing_measures"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -667,6 +672,9 @@ class Edit(form.SchemaEditForm):
             self.schema = IFrenchRisk
         else:
             self.schema = IKinneyRisk
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
@@ -676,7 +684,8 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        self.widgets["comments_prefill"].mode = "hidden"
+        if not self.use_existing_measures:
+            self.widgets["existing_measures"].mode = "hidden"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)
