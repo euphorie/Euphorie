@@ -38,6 +38,7 @@ clean::
 	-rm ${TARGETS}
 
 bin/buildout: bootstrap.py
+	virtualenv --clear --no-site-packages .
 	$(PYTHON) bootstrap.py
 
 bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
