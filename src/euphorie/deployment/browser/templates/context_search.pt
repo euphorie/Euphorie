@@ -11,21 +11,20 @@
     <metal:content fill-slot="content">
       <form method="GET" action="${context/absolute_url}/@@context-search">
 
-      <tal:block condition="python:view.did_search">
-        <h2><em i18n:translate="header_search_results">Search results for</em> <tal:q>${request/form/q}</tal:q></h2>
+        <tal:block condition="python:view.did_search">
+          <h2><em i18n:translate="header_search_results">Search results for</em> <tal:q>${request/form/q}</tal:q></h2>
 
-
-        <p class="message notice" tal:condition="python:not view.results" i18n:translate="search_no_results">No items found.</p>
-        <tal:block condition="python:view.results">
-          <p i18n:translate="search_result_intro"><tal:span i18n:name="number">${python:len(view.results)}</tal:span> results found.</p>
-          <ul>
-            <li tal:repeat="result view/results">
-              <a href="${result/url}"><em class="discrete">[${result/typ}]</em> ${result/title}</a>
-
-            </li>
-          </ul>
+          <p class="message notice" tal:condition="python:not view.results" i18n:translate="search_no_results">No items found.</p>
+          <tal:block condition="python:view.results">
+            <p i18n:translate="search_result_intro"><tal:span i18n:name="number">${python:len(view.results)}</tal:span> results found.</p>
+            <ul>
+              <li tal:repeat="result view/results">
+                <a href="${result/url}"><em class="discrete">[${result/typ}]</em> ${result/title}</a>
+              </li>
+            </ul>
+          </tal:block>
         </tal:block>
-      </tal:block>
+      </form>
     </metal:content>
   </body>
 </html>
