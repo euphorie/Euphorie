@@ -189,9 +189,10 @@ class Module(dexterity.Container):
 
 @indexer(IModule)
 def SearchableTextIndexer(obj):
-    """ Index the problem_description, question and solution_direction
+    """ Index title, description and solution_direction
     """
     return " ".join([obj.title,
+                     StripMarkup(obj.description),
                      StripMarkup(obj.solution_direction)])
 
 
