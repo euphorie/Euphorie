@@ -83,7 +83,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 u'next to the statement in the client. Leave blank if no '
                 u'such sentence is needed'),
         vocabulary=SimpleVocabulary([
-                        SimpleTerm(u"", title="-- no selection --"),
+                        SimpleTerm(u"",
+                            title=_("-- no selection --")),
                         SimpleTerm(u"sufficient",
                             title=_("title_extra_sufficient",
                             default=u"Existing measures are sufficient.")),
