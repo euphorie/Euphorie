@@ -48,7 +48,7 @@
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
       factory=".survey.SurveyAttributeField"
-      
+
       />
 
     <adapter
@@ -92,6 +92,10 @@
 
     <adapter
       factory=".survey.SearchableTextIndexer"
+      name="SearchableText" />
+
+    <adapter
+      factory=".solution.SearchableTextIndexer"
       name="SearchableText" />
 
     <include package=".behaviour" />

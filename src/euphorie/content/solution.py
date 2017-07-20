@@ -5,15 +5,16 @@ Solution
 A standard Solution that a user can select for a particular risk.
 """
 
-from zope.interface import implements
-from zope import schema
-from zope.i18n import translate
+from .. import MessageFactory as _
+from euphorie.content import utils
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
+from plone.indexer import indexer
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from .. import MessageFactory as _
-from euphorie.content import utils
+from zope import schema
+from zope.i18n import translate
+from zope.interface import implements
 
 grok.templatedir("templates")
 
@@ -75,6 +76,16 @@ class Solution(dexterity.Item):
                     Solution.title,
                     context=self.REQUEST,
                     target_language=survey.language).encode('utf-8')
+
+
+@indexer(ISolution)
+def SearchableTextIndexer(obj):
+    """ Index the problem_description, question and solution_direction
+    """
+    return " ".join([obj.description,
+                     obj.action_plan,
+                     obj.prevention_plan,
+                     obj.requirements])
 
 
 class View(grok.View):
