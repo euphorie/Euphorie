@@ -635,6 +635,7 @@ class Add(dexterity.AddForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_title_extra = settings.get('use_title_extra', False)
 
     @property
     def schema(self):
@@ -652,6 +653,8 @@ class Add(dexterity.AddForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
+        if not self.use_title_extra:
+            self.widgets["title_extra"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -693,6 +696,7 @@ class Edit(form.SchemaEditForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_title_extra = settings.get('use_title_extra', False)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
@@ -704,6 +708,8 @@ class Edit(form.SchemaEditForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
+        if not self.use_title_extra:
+            self.widgets["title_extra"].mode = "hidden"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)
