@@ -22,6 +22,7 @@ from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
+from euphorie.content.vocabularies import title_extra_vocab
 from five import grok
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
@@ -67,6 +68,7 @@ class IdentificationView(grok.View):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_title_extra = settings.get('use_title_extra', False)
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -149,8 +151,15 @@ class IdentificationView(grok.View):
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
-            if self.use_existing_measures and not self.risk.existing_measures:
+            if self.use_existing_measures and not self.context.existing_measures:
                 self.context.existing_measures = self.risk.existing_measures
+            self.title_extra = None
+            if self.use_title_extra and self.risk.title_extra:
+                vocab = title_extra_vocab(self)
+                term = self.risk.title_extra
+                if term in vocab:
+                    self.title_extra = _(vocab.getTerm(term).title)
+
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
                     custom_dp = getattr(
@@ -236,6 +245,7 @@ class ActionPlanView(grok.View):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_title_extra = settings.get('use_title_extra', False)
 
         self.next_is_report = False
         # already compute "next" here, so that we can know in the template
@@ -314,6 +324,12 @@ class ActionPlanView(grok.View):
         self.has_images = number_images > 0
         self.image_class = IMAGE_CLASS[number_images]
         self.risk_number = self.context.number
+        self.title_extra = None
+        if self.use_title_extra and self.risk.title_extra:
+            vocab = title_extra_vocab(self)
+            term = self.risk.title_extra
+            if term in vocab:
+                self.title_extra = _(vocab.getTerm(term).title)
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")
