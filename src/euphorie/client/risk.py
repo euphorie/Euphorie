@@ -42,8 +42,6 @@ IMAGE_CLASS = {
     4: 'three',
 }
 
-DESCRIPTION_CROP_LENGTH = 200
-
 
 class IdentificationView(grok.View):
     """A view for displaying a question in the idenfication phase
@@ -57,6 +55,7 @@ class IdentificationView(grok.View):
     grok.name("index_html")
 
     question_filter = None
+    DESCRIPTION_CROP_LENGTH = 200
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -137,9 +136,9 @@ class IdentificationView(grok.View):
             ploneview = getMultiAdapter(
                 (self.context, self.request), name="plone")
             stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > DESCRIPTION_CROP_LENGTH:
+            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
                 self.description_intro = ploneview.cropText(
-                    stripped_description, DESCRIPTION_CROP_LENGTH)
+                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
             else:
                 self.description_intro = ""
             self.description_probability = _(
@@ -209,6 +208,7 @@ class ActionPlanView(grok.View):
 
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
+    DESCRIPTION_CROP_LENGTH = 200
 
     @property
     def risk_present(self):
@@ -311,9 +311,9 @@ class ActionPlanView(grok.View):
             ploneview = getMultiAdapter(
                 (self.context, self.request), name="plone")
             stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > DESCRIPTION_CROP_LENGTH:
+            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
                 self.description_intro = ploneview.cropText(
-                    stripped_description, DESCRIPTION_CROP_LENGTH)
+                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
             else:
                 self.description_intro = ""
             self.solutions = [
