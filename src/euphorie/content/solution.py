@@ -83,9 +83,9 @@ def SearchableTextIndexer(obj):
     """ Index the problem_description, question and solution_direction
     """
     return " ".join([obj.description,
-                     obj.action_plan,
-                     obj.prevention_plan,
-                     obj.requirements])
+                     obj.action_plan or '',
+                     obj.prevention_plan or '',
+                     obj.requirements or ''])
 
 
 class View(grok.View):
