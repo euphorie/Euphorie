@@ -153,7 +153,7 @@ class IdentificationView(grok.View):
             if self.use_existing_measures and not self.context.existing_measures:
                 self.context.existing_measures = self.risk.existing_measures
             self.title_extra = None
-            if self.use_title_extra and self.risk.title_extra:
+            if self.use_title_extra and getattr(self.risk, 'title_extra', None):
                 vocab = title_extra_vocab(self)
                 term = self.risk.title_extra
                 if term in vocab:
@@ -325,7 +325,7 @@ class ActionPlanView(grok.View):
         self.image_class = IMAGE_CLASS[number_images]
         self.risk_number = self.context.number
         self.title_extra = None
-        if self.use_title_extra and self.risk.title_extra:
+        if self.use_title_extra and getattr(self.risk, 'title_extra', None):
             vocab = title_extra_vocab(self)
             term = self.risk.title_extra
             if term in vocab:
