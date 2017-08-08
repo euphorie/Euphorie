@@ -24,6 +24,8 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
 from euphorie.content.vocabularies import title_extra_vocab
 from five import grok
+from json import dumps
+from json import loads
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
@@ -74,7 +76,12 @@ class IdentificationView(grok.View):
             answer = reply.get("answer")
             self.context.comment = reply.get("comment")
             if self.use_existing_measures:
-                self.context.existing_measures = reply.get("existing_measures")
+                measures = self.get_existing_measures()
+                for i, entry in enumerate(measures):
+                    on = int(bool(reply.get('measure-{}'.format(i))))
+                    entry[0] = on
+                    measures[i] = entry
+                self.context.existing_measures = dumps(measures)
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
@@ -150,8 +157,11 @@ class IdentificationView(grok.View):
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
+
             if self.use_existing_measures and not self.context.existing_measures:
-                self.context.existing_measures = self.risk.existing_measures
+                measures = self.risk.existing_measures or ""
+                self.context.existing_measures = dumps(
+                    [(1, text) for text in measures.splitlines()])
             self.title_extra = None
             if self.use_title_extra and getattr(self.risk, 'title_extra', None):
                 vocab = title_extra_vocab(self)
@@ -170,6 +180,15 @@ class IdentificationView(grok.View):
                 self.description_severity = custom_ds.strip() or self.description_severity
 
             super(IdentificationView, self).update()
+
+    def get_existing_measures(self):
+        try:
+            existing_measures = loads(self.context.existing_measures)
+        except ValueError:
+            measures = self.risk.existing_measures or ""
+            existing_measures = [(1, text) for text in measures.splitlines()]
+            self.context.existing_measures = dumps(existing_measures)
+        return existing_measures
 
     @property
     def use_problem_description(self):
@@ -209,6 +228,15 @@ class ActionPlanView(grok.View):
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
     DESCRIPTION_CROP_LENGTH = 200
+
+    def get_existing_measures(self):
+        try:
+            existing_measures = loads(self.context.existing_measures)
+        except ValueError:
+            measures = self.risk.existing_measures or ""
+            existing_measures = [(1, text) for text in measures.splitlines()]
+            self.context.existing_measures = dumps(existing_measures)
+        return existing_measures
 
     @property
     def risk_present(self):
@@ -266,8 +294,6 @@ class ActionPlanView(grok.View):
             session = Session()
             context.comment = reply.get("comment")
             context.priority = reply.get("priority")
-            if self.use_existing_measures:
-                context.existing_measures = reply.get("existing_measures")
 
             new_plans = self.extract_plans_from_request()
             for plan in context.action_plans:
