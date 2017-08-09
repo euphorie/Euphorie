@@ -162,7 +162,7 @@
       <div class="measures" id="existing-measures" tal:repeat="measure view/get_existing_measures">
         <fieldset class="measure pat-checklist functions">
          <label>
-           <input type="checkbox" checked="${python:measure[0] and 'checked' or None}" name="measure-${repeat/measure/index}"><tal:i18n i18n:translate="">Existing Measure</tal:i18n> ${repeat/measure/number} <span class="untick" i18n:translate="">(Untick if not applicable)</span>
+           <input type="checkbox" checked="${python:measure[0] and 'checked' or None}" name="measure-${repeat/measure/index}" /><tal:i18n i18n:translate="">Existing Measure</tal:i18n> ${repeat/measure/number} <span class="untick" i18n:translate="">(Untick if not applicable)</span>
          </label>
          <dl class="fields pat-grid-list">
           <dt i18n:translate="label_description">Description</dt>
