@@ -4,8 +4,8 @@ Changelog
 9.0.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- In the "Excel" report: don't consider risks that were answered as
+  not applicable
 
 9.0.21 (2017-07-18)
 -------------------

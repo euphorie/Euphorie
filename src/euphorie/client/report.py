@@ -1086,6 +1086,9 @@ class ActionPlanTimeline(grok.View):
         for (row, (module, risk, measure)) in \
                 enumerate(self.get_measures(), 1):
 
+            if risk.identification == "n/a":
+                continue
+
             column = 0
             if 'custom-risks' in risk.zodb_path:
                 zodb_node = None
