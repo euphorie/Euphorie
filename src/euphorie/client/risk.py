@@ -77,11 +77,17 @@ class IdentificationView(grok.View):
             self.context.comment = reply.get("comment")
             if self.use_existing_measures:
                 measures = self.get_existing_measures()
+                new_measures = []
                 for i, entry in enumerate(measures):
                     on = int(bool(reply.get('measure-{}'.format(i))))
                     entry[0] = on
                     measures[i] = entry
-                self.context.existing_measures = dumps(measures)
+                    if on:
+                        new_measures.append([1, entry[1]])
+                for k, val in reply.items():
+                    if k.startswith('new-measure') and val.strip() != '':
+                        new_measures.append([1, val])
+                self.context.existing_measures = dumps(new_measures)
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
