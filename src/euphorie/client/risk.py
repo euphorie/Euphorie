@@ -69,7 +69,6 @@ class IdentificationView(grok.View):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.use_title_extra = settings.get('use_title_extra', False)
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -164,14 +163,13 @@ class IdentificationView(grok.View):
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
 
-            if self.use_existing_measures and not self.context.existing_measures:
-                measures = self.risk.existing_measures or ""
-                self.context.existing_measures = dumps(
-                    [(1, text) for text in measures.splitlines()])
-            self.title_extra = None
-            if self.use_title_extra and getattr(self.risk, 'title_extra', None):
+            if self.use_existing_measures:
+                if not self.context.existing_measures:
+                    measures = self.risk.existing_measures or ""
+                    self.context.existing_measures = dumps(
+                        [(1, text) for text in measures.splitlines()])
                 vocab = title_extra_vocab(self)
-                term = self.risk.title_extra
+                term = self.risk.get('title_extra', '')
                 if term in vocab:
                     self.title_extra = _(vocab.getTerm(term).title)
 
@@ -279,7 +277,6 @@ class ActionPlanView(grok.View):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.use_title_extra = settings.get('use_title_extra', False)
 
         self.next_is_report = False
         # already compute "next" here, so that we can know in the template
@@ -356,12 +353,6 @@ class ActionPlanView(grok.View):
         self.has_images = number_images > 0
         self.image_class = IMAGE_CLASS[number_images]
         self.risk_number = self.context.number
-        self.title_extra = None
-        if self.use_title_extra and getattr(self.risk, 'title_extra', None):
-            vocab = title_extra_vocab(self)
-            term = self.risk.title_extra
-            if term in vocab:
-                self.title_extra = _(vocab.getTerm(term).title)
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")

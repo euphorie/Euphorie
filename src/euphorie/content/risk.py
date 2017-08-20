@@ -76,18 +76,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.widget(title="euphorie.content.risk.TextLines4Rows")
     form.order_before(title="*")
 
-    title_extra = schema.Choice(
-        title=_("label_title_extra", default=u"Extra statement"),
-        description=_("help_title_extra",
-            default=u'Select an additional sentence that will be displayed '
-                u'next to the statement in the client. Leave blank if no '
-                u'such sentence is needed'),
-        source="euphorie.title_extra",
-        default="",
-        required=False,
-    )
-    form.order_after(title_extra="title")
-
     problem_description = schema.TextLine(
             title=_("label_problem_description",
                     default=u"Negative statement"),
@@ -96,7 +84,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                         u"statement (e.g. The building is not well maintained.)"),
             required=True)
     form.widget(problem_description="euphorie.content.risk.TextLines4Rows")
-    form.order_after(problem_description="title_extra")
+    form.order_after(problem_description="title")
 
     description = HtmlText(
             title=_("label_description", default=u"Description"),
@@ -112,10 +100,25 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         description=_(
             "help_existing_measures",
             default=u"Use this field to define (common) existing measures."
-            u" This text will be editable by the user."),
+            u" Separate measures with a line break (Enter). The user will be "
+            u"able to deselect those measures that are not applicable to their"
+            u" situation."),
         required=False)
     form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
     form.order_after(existing_measures="description")
+
+    title_extra = schema.Choice(
+        title=_("label_title_extra", default=u"Extra statement"),
+        description=_("help_title_extra",
+            default=u'Select an additional sentence that will be displayed '
+                u'next to the statement in the client. Leave blank if no '
+                u'such sentence is needed'),
+        source="euphorie.title_extra",
+        default="",
+        required=False,
+    )
+    form.order_after(title_extra="existing_measures")
+
 
     legal_reference = HtmlText(
             title=_("label_legal_reference",
@@ -629,7 +632,6 @@ class Add(dexterity.AddForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.use_title_extra = settings.get('use_title_extra', False)
 
     @property
     def schema(self):
@@ -647,7 +649,6 @@ class Add(dexterity.AddForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
-        if not self.use_title_extra:
             self.widgets["title_extra"].mode = "hidden"
 
     def create(self, data):
@@ -690,7 +691,6 @@ class Edit(form.SchemaEditForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.use_title_extra = settings.get('use_title_extra', False)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
@@ -702,7 +702,6 @@ class Edit(form.SchemaEditForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
-        if not self.use_title_extra:
             self.widgets["title_extra"].mode = "hidden"
 
     def extractData(self, setErrors=True):
