@@ -169,9 +169,11 @@ class IdentificationView(grok.View):
                     self.context.existing_measures = dumps(
                         [(1, text) for text in measures.splitlines()])
                 vocab = title_extra_vocab(self)
-                term = self.risk.get('title_extra', '')
-                if term in vocab:
+                term = getattr(self.risk, 'title_extra', '')
+                if term != '' and term in vocab:
                     self.title_extra = _(vocab.getTerm(term).title)
+                else:
+                    self.title_extra = ''
 
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
