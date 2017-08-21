@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.22 (unreleased)
+9.0.22 (2017-08-21)
 -------------------
 
 - CMS: Index more fields of Modules and Measures
