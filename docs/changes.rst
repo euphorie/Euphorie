@@ -4,6 +4,7 @@ Changelog
 9.0.22 (unreleased)
 -------------------
 
+- CMS: Index more fields of Modules and Measures
 - In the "Excel" report: don't consider risks that were answered as
   not applicable
 
