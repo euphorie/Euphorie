@@ -163,17 +163,21 @@ class IdentificationView(grok.View):
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
 
+            self.title_extra = ''
+            self.show_existing_measures = False
             if self.use_existing_measures:
+                measures = self.risk.existing_measures or ""
+                # Only show the form to select and add existing measures if
+                # at least one measure was defined in the CMS
+                if len(measures):
+                    self.show_existing_measures = True
                 if not self.context.existing_measures:
-                    measures = self.risk.existing_measures or ""
                     self.context.existing_measures = dumps(
                         [(1, text) for text in measures.splitlines()])
                 vocab = title_extra_vocab(self)
                 term = getattr(self.risk, 'title_extra', '')
                 if term != '' and term in vocab:
                     self.title_extra = _(vocab.getTerm(term).title)
-                else:
-                    self.title_extra = ''
 
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
