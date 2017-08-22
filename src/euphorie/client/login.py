@@ -204,6 +204,9 @@ class CreateTestSession(CountryView, Tryout):
     grok.template("new-session-test")
 
     def update(self):
+        appconfig = component.getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -216,11 +219,17 @@ class CreateTestSession(CountryView, Tryout):
             context.absolute_url(), urllib.urlencode({'came_from': came_from}))
         setLanguage(self.request, self.context)
         if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            if reply["action"] == "new":
-                account = self.createGuestAccount()
-                self.login(account, False)
-                self._NewSurvey(reply, account)
+            if not self.allow_guest_accounts:
+                flash = IStatusMessage(self.request).addStatusMessage
+                flash(_(u"Starting a test session is not available in this OiRA "
+                      u"application."), "error")
+                self.request.response.redirect(came_from)
+            else:
+                reply = self.request.form
+                if reply["action"] == "new":
+                    account = self.createGuestAccount()
+                    self.login(account, False)
+                    self._NewSurvey(reply, account)
         self._updateSurveys()
 
 

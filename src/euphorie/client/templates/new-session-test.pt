@@ -12,7 +12,7 @@
     <metal:slot fill-slot="content">
         <div id="document-content" class="pat-modal" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
             <h1 i18n:translate="label_new_session_test">New test session</h1>
-            <form method="post" action="${request/URL}" class="wizard-box">
+            <form method="post" action="${request/URL}" class="wizard-box" tal:condition="view/allow_guest_accounts">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body">
             <fieldset class="vertical">
@@ -42,6 +42,16 @@
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
             </div>
             </form>
+            <tal:not_allowed condition="not:view/allow_guest_accounts">
+                <div class="panel-body">
+                    <article class="rich">
+                        <p i18n:translate="">Starting a test session is not available in this OiRA application.</p>
+                    </article>
+                </div>
+                <div class="buttons panel-footer">
+                    <button type="button" class="pat-button close-panel" i18n:translate="button_close">Close</button>
+                </div>
+            </tal:not_allowed>
         </div>
     </metal:slot>
 </body>

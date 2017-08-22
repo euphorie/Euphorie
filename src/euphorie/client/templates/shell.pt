@@ -109,7 +109,7 @@
 
     <aside id="osc">
         <header id="osc-header">
-            <tal:if condition="is_anonymous">
+            <tal:if condition="python:is_anonymous and webhelpers.allow_guest_accounts">
 
                 <a tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" id="button-new-session"
                     data-pat-modal="class: large" class="pat-modal icon-plus-circle" i18n:attributes="title" title="Start test session" i18n:translate="">Start test session</a>

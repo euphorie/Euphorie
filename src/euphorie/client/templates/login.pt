@@ -19,11 +19,15 @@
   <article class="rich">
     <h1 i18n:translate="header_welcome">Welcome</h1>
 
-    <p i18n:translate="teaser_try_oira">
+    <p i18n:translate="teaser_try_oira" tal:condition="view/allow_guest_accounts">
         Want to try OiRA? You may <strong i18n:name="tryout_link"><a i18n:translate="label_tryout" tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" data-pat-modal="class: large" class="pat-modal" title="Start a new test session">run a test session</a><a i18n:translate="label_tryout" tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session">run a test session</a></strong> or <strong i18n:name="register_link"><a i18n:translate="label_register" href="${view/register_url}">register</a></strong> to start for real.
     </p>
     <p i18n:translate="label_login_here">If you are a registered user, you can <strong i18n:name="log_in"><a i18n:translate="log in" href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large">log in</a></strong> here.</p>
-
+    <p i18n:translate="label_create_account" tal:condition="not:view/allow_guest_accounts">
+      If you do not have an account for the OiRA application yet, please
+      <strong i18n:name="register_link"><a i18n:translate="label_register" href="${view/register_url}">register</a></strong>
+      to start for real<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.
+    </p>
 
     <h2 i18n:translate="">What is OiRA (Online Interactive Risk Assessment)?</h2>
     <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>

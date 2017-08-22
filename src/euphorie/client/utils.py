@@ -151,6 +151,7 @@ class WebHelpers(grok.View):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.allow_social_sharing = settings.get('allow_social_sharing', False)
+        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
         user = getSecurityManager().getUser()
         self.anonymous = isAnonymous(user)
         account = getattr(user, 'account_type', None)
