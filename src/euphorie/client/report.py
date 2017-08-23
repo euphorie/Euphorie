@@ -1083,8 +1083,8 @@ class ActionPlanTimeline(grok.View):
         for (column, (ntype, key, title)) in enumerate(self.columns):
             sheet.cell(row=0, column=column).value = t(title)
 
-        for (row, (module, risk, measure)) in \
-                enumerate(self.get_measures(), 1):
+        row = 1
+        for (module, risk, measure) in self.get_measures():
 
             if risk.identification == "n/a":
                 continue
@@ -1114,6 +1114,7 @@ class ActionPlanTimeline(grok.View):
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1
+            row += 1
         return book
 
     def render(self):

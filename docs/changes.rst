@@ -4,7 +4,8 @@ Changelog
 9.0.23 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Improve Excel report fix from 9.0.22: Don't write empty line when an
+  entry is skipped
 
 
 9.0.22 (2017-08-21)
