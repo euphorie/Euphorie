@@ -8,6 +8,7 @@ Changelog
   entry is skipped
 - Actually consider the allow_guest_accounts setting from the app-
   config. Don't allow guest login if it is not enabled.
+- Translation fixes in Croatian
 
 
 9.0.22 (2017-08-21)

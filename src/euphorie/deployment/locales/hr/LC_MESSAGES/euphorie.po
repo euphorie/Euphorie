@@ -2391,23 +2391,23 @@ msgstr "Procjenu rizika prilagodite vašoj organizaciji"
 #: src/euphorie/client/templates/profile.pt:18
 msgid "expl_profile"
 msgstr ""
-"Radi prilagodbe procjene rizika vašoj organizaciji, može se od vas zatražiti:"
+"Radi prilagodbe procjene rizika vašoj tvrtki može se od vas zatražiti da:"
 
 #. Default: select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate
 #: src/euphorie/client/templates/profile.pt:23
 msgid "expl_profile_bullet1"
 msgstr ""
-"da odaberete ili preskočite situaciju(e) koja je ili nije značajna za vaše "
-"poslovne aktivnosti i prema potrebi označite okvir(e)"
+"odaberete situaciju koja je ili nije značajna za vaše aktivnosti ili "
+"preskočite onu koja to nije"
 
 #. Default: list multiple business units, or branches, or stores, etc. These
 #. related risks will be repeated for each name you have entered.
 #: src/euphorie/client/templates/profile.pt:26
 msgid "expl_profile_bullet2"
 msgstr ""
-"navedete više poslovnih jedinica, ogranaka ili trgovina itd. Ovi povezani "
-"rizici ponavljat će se za svaki naziv koji ste unijeli."
+"ako postoje, navedete više poslovnih jedinica jer u tom slučaju procjenu "
+"rizika morate izraditi za svaku jedinicu ili lokaciju posebno"
 
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/profile.pt:49
@@ -3172,7 +3172,7 @@ msgstr "Odaberite prioritet za ovaj rizik"
 #: src/euphorie/client/templates/risk_identification.pt:137
 #: src/euphorie/content/risk.py:181 src/euphorie/content/risk.py:199
 msgid "priority_low"
-msgstr "Nizak"
+msgstr "Mali"
 
 #. Default: Medium
 #: src/euphorie/client/templates/risk_evaluation.pt:113
@@ -3186,7 +3186,7 @@ msgstr "Srednji"
 #: src/euphorie/client/templates/risk_identification.pt:141
 #: src/euphorie/content/risk.py:184 src/euphorie/content/risk.py:202
 msgid "priority_high"
-msgstr "Visok"
+msgstr "Veliki"
 
 #. Default: This risk was automatically set as being present. You cannot change
 #. this.
@@ -3216,8 +3216,8 @@ msgstr ""
 #: src/euphorie/client/templates/risk_identification.pt:146
 msgid "description_automatic_evaluation"
 msgstr ""
-"Alat je automatski procijenio rizik. Za ovaj ćete rizik moći promijeniti "
-"prioritet – ako to smatrate potrebnim – u akcijskom planu."
+"Alat je automatski procijenio rizik. Ako smatrate potrebnim možete u Planu "
+"mjera promijeniti veličinu rizika."
 
 #. Default: Use it to
 #: src/euphorie/client/templates/risks_overview.pt:149
@@ -3549,7 +3549,7 @@ msgstr "Ponuda ovog OiRA alata stigla vam je s ${external_site}"
 #. Default: Start
 #: src/euphorie/client/templates/start.pt:52
 msgid "label_start_survey"
-msgstr "Pokreni"
+msgstr "Pokrenite"
 
 #: src/euphorie/client/templates/start.pt:59
 msgid "This tool deserves to be known by the world! Share it!"
