@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.23 (unreleased)
+9.0.23 (2017-09-04)
 -------------------
 
 - Improve Excel report fix from 9.0.22: Don't write empty line when an
