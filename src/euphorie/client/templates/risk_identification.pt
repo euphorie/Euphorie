@@ -187,8 +187,8 @@
     </fieldset>
 
     <p class="buttonBar">
-        <button class="pat-button" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
-        <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
+        <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
+        <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
     </p>
 </form>
 </metal:slot>

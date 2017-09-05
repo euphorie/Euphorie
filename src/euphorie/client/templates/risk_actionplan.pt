@@ -230,9 +230,9 @@
 
     <div class="button-bar">
         <button type="submit" name="next" value="previous"
-                i18n:translate="label_previous" class="pat-button">Previous</button>
+                i18n:translate="label_previous" class="pat-button back">Previous</button>
         <button type="submit" name="next" value="next" data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
-                i18n:translate="label_save_and_continue" class="pat-button ${python: view.next_is_report and 'pat-switch' or ''}">Save and continue</button>
+                i18n:translate="label_save_and_continue" class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}">Save and continue</button>
     </div>
     </form>
 
