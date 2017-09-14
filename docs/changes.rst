@@ -4,7 +4,8 @@ Changelog
 9.0.24 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Excel Report: Also ignore measures of risks that have been answered
+  with "yes" (requested by TNO)
 
 
 9.0.23 (2017-09-04)

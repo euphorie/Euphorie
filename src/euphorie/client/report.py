@@ -1086,7 +1086,7 @@ class ActionPlanTimeline(grok.View):
         row = 1
         for (module, risk, measure) in self.get_measures():
 
-            if risk.identification == "n/a":
+            if risk.identification in ["n/a", "yes"]:
                 continue
 
             column = 0
