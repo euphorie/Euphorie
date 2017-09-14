@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.24 (unreleased)
+9.0.24 (2017-09-14)
 -------------------
 
 - Excel Report: Also ignore measures of risks that have been answered
