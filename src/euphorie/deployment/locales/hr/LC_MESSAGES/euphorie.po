@@ -1788,10 +1788,11 @@ msgstr "Što se događa nakon toga?"
 #: src/euphorie/client/templates/identification.pt:18
 msgid "intro_print_identification_1"
 msgstr ""
-"Imate mogućnost ispisati sadržaj alata kako biste potražili informacije na "
-"odgovarajućem radnom mjestu (dok se šetate uokolo i tražite moguće izvore "
-"ozljeda, ili dok se savjetujete s radnicima ili predstavnicima o problemima "
-"s kojima se susreću). Tada u alat možete unijeti informacije."
+"Ovaj program vam daje mogućnost ispisa sadržaja alata kako biste potražili i "
+"provjerili neki podatak ili informaciju na odgovarajućem radnom mjestu (dok "
+"obilazite salon i tražite moguće izvore ozljeda ili bolesti, ili dok se "
+"savjetujete s radnicima ili njihovim predstavnicima o problemima s kojima se "
+"susreću). Nakon toga možete unijeti informacije u alat."
 
 #. Default: You may also wish to distribute the contents among the workers
 #. and/or their representatives and invite them to participate in identifying
@@ -1801,11 +1802,10 @@ msgstr ""
 #: src/euphorie/client/templates/identification.pt:19
 msgid "intro_print_identification_2"
 msgstr ""
-"U slučaju da sadržaj želite razdijeliti radnicima i/ili njihovim "
-"predstavnicima i pozvati ih na sudjelovanje u identifikaciji opasnosti/"
-"problema, procjeni rizika i odlučivanju o preventivnim mjerama. Povratne "
-"informacije koje budete dobili, treba uzeti u obzir pri unosu podataka u "
-"ovaj alat."
+"Ako želite, ispisani sadržaj alata možete podijeliti radnicima i/ili njihovim "
+"predstavnicima i pozvati ih da sudjeluju u identifikaciji opasnosti i "
+"problema, procjeni rizika i odlučivanju o preventivnim mjerama. Dobivene "
+"povratne informacije trebate uzeti u obzir pri unosu podataka u ovaj alat."
 
 #. Default: contents of the tool
 #: src/euphorie/client/templates/identification.pt:21
@@ -1820,7 +1820,8 @@ msgstr "Možete ispisati ${list-of-risks}."
 #. Default: Start Risk Identification
 #: src/euphorie/client/templates/identification.pt:26
 msgid "label_start_identification"
-msgstr "Pokretanje identifikacije rizika"
+msgstr "Započnite procjenu rizika"
+
 
 #. Default: My Assessments
 #: src/euphorie/client/templates/layout.pt:59
