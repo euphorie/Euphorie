@@ -4,8 +4,11 @@ Changelog
 9.0.25 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Fixed:
 
+- When a tool with a profile question was updated, and that tool has a
+  custom splash message, that message now gets shown correctly instead
+  of a blurred overlay.
 
 9.0.24 (2017-09-14)
 -------------------
