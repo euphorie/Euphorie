@@ -456,7 +456,7 @@ msgstr "Detalji o poduzeću"
 #. Default: Action plan
 #: src/euphorie/client/report.py:771
 msgid "plan_report_plan_header"
-msgstr "Akcijski plan"
+msgstr "Plan mjera"
 
 #. Default: This risk is not present in your organisation, but since the sector
 #. organisation considers this one of the priority risks it must be included in
@@ -559,7 +559,7 @@ msgstr "Za ovu mjeru postoji proračun od ${amount}."
 #. Default: Action plan ${title}
 #: src/euphorie/client/report.py:976
 msgid "filename_report_actionplan"
-msgstr "Akcijski plan ${title}"
+msgstr "Plan mjera ${title}"
 
 #. Default: Low
 #: src/euphorie/client/report.py:1030
@@ -728,7 +728,7 @@ msgstr "U mjerama vašeg akcijskog plana nisu unesene promjene."
 #. Default: A measure has been added to your action plan.
 #: src/euphorie/client/risk.py:404
 msgid "message_measure_saved"
-msgstr "Mjera je dodana vašem akcijskom planu."
+msgstr "Mjera je dodana vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:409
@@ -758,7 +758,7 @@ msgstr "${no_of_measures} mjere ažurirane su u vašem akcijskom planu."
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:447
 msgid "message_measures_updated_3_4"
-msgstr "${no_of_measures}  mjere ažurirane su u vašem akcijskom planu."
+msgstr "${no_of_measures} mjere ažurirane su u vašem akcijskom planu."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:455
@@ -768,7 +768,7 @@ msgstr "${no_of_measures}  mjera ažurirano je u vašem akcijskom planu."
 #. Default: A measure has been removed from your action plan.
 #: src/euphorie/client/risk.py:464
 msgid "message_measure_removed"
-msgstr " Mjera je uklonjena iz vašeg akcijskog plana."
+msgstr "Mjera je uklonjena iz vašeg akcijskog plana."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:469
@@ -1180,7 +1180,7 @@ msgstr ""
 #: src/euphorie/client/templates/actionplan.pt:20
 msgid "expl_actionplan_1"
 msgstr ""
-"Nakon što ste identificirali rizike, trebate izraditi akcijski plan za "
+"Nakon što ste identificirali rizike, trebate izraditi plan mjera za "
 "upravljanje rizicima. Kako biste eliminirali i smanjili rizike, potrebno je "
 "da odredite preventivne i zaštitne mjere koje treba poduzeti."
 
@@ -1235,7 +1235,7 @@ msgstr "Nema identificiranih rizika. Nastavite izravno na izvješće."
 #. Default: Create action plan
 #: src/euphorie/client/templates/actionplan.pt:54
 msgid "label_create_action_plan"
-msgstr "Kreiraj akcijski plan"
+msgstr "Kreiraj plan mjera"
 
 #. Default: Go to report
 #: src/euphorie/client/templates/actionplan.pt:55
@@ -1321,7 +1321,7 @@ msgstr "Procjena"
 #: src/euphorie/client/templates/webhelpers.pt:96
 #: src/euphorie/content/templates/colour-preview.pt:46
 msgid "label_action_plan"
-msgstr "Akcijski plan"
+msgstr "Plan mjera"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/appendix.pt:43
@@ -1330,7 +1330,7 @@ msgstr "Akcijski plan"
 #: src/euphorie/client/templates/report_identification.pt:89
 #: src/euphorie/client/templates/risk_evaluation.pt:159
 msgid "iphone_label_action_plan"
-msgstr "Akcijski plan"
+msgstr "Plan mjera"
 
 #. Default: Report
 #: src/euphorie/client/templates/appendix.pt:48
@@ -1766,7 +1766,7 @@ msgstr "3. Procjena"
 #: src/euphorie/client/templates/help.pt:28
 #: src/euphorie/client/templates/help.pt:51
 msgid "help_header_actionplan"
-msgstr "4. Akcijski plan"
+msgstr "4. Plan mjera"
 
 #. Default: 5. Report
 #: src/euphorie/client/templates/help.pt:29
@@ -2605,7 +2605,7 @@ msgstr "Unesite novi naziv za ovaj OiRA alat"
 msgid "report_intro"
 msgstr ""
 "Sada, kada ste dovršili identifikaciju svih rizika u vašoj organizaciji i "
-"oblikovali akcijski plan, možete stvoriti izvješće s popisom svih rezultata. "
+"oblikovali plan mjera, možete stvoriti izvješće s popisom svih rezultata. "
 "Ako želite, u polje ispod možete unijeti dodatne komentare koje bi trebalo "
 "uključiti u to izvješće."
 
@@ -3887,7 +3887,7 @@ msgstr "Ovaj tekst pojašnjava način procjene identificiranih rizika."
 #: src/euphorie/content/help.py:68
 #: src/euphorie/content/templates/help_view.pt:33
 msgid "label_help_actionplan"
-msgstr "4. Akcijski plan"
+msgstr "4. Plan mjera"
 
 #. Default: This text should explain how to fill in the Action plan.
 #: src/euphorie/content/help.py:69

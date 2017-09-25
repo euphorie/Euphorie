@@ -10,6 +10,11 @@ Fixed:
   custom splash message, that message now gets shown correctly instead
   of a blurred overlay.
 
+Changed:
+
+- Translation for Croatian (HR)
+
+
 9.0.24 (2017-09-14)
 -------------------
 
