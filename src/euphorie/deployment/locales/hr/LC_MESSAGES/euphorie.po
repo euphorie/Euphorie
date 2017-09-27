@@ -723,7 +723,7 @@ msgstr "Ova vrijednost mora biti pozitivan cijeli broj."
 
 #: src/euphorie/client/risk.py:399
 msgid "No changes were made to measures in your action plan."
-msgstr "U mjerama vašeg akcijskog plana nisu unesene promjene."
+msgstr "U mjerama vašeg plana mjera nisu unesene promjene."
 
 #. Default: A measure has been added to your action plan.
 #: src/euphorie/client/risk.py:404
@@ -733,57 +733,57 @@ msgstr "Mjera je dodana vašem planu mjera."
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:409
 msgid "message_measures_saved_2"
-msgstr "${no_of_measures} mjere dodane su vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su dodane vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:417
 msgid "message_measures_saved_3_4"
-msgstr "${no_of_measures} mjere dodane su vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su dodane vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been added to your action plan.
 #: src/euphorie/client/risk.py:425
 msgid "message_measures_saved"
-msgstr "${no_of_measures} mjera dodano je vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su dodane vašem planu mjera."
 
 #. Default: A measure has been updated in your action plan.
 #: src/euphorie/client/risk.py:434
 msgid "message_measure_updated"
-msgstr "Mjera je ažurirana u vašem akcijskom planu."
+msgstr "Mjera je ažurirana u vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:439
 msgid "message_measures_updated_2"
-msgstr "${no_of_measures} mjere ažurirane su u vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su ažurirane u vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:447
 msgid "message_measures_updated_3_4"
-msgstr "${no_of_measures} mjere ažurirane su u vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su ažurirane u vašem planu mjera."
 
 #. Default: ${no_of_measures} measures have been updated in your action plan.
 #: src/euphorie/client/risk.py:455
 msgid "message_measures_updated"
-msgstr "${no_of_measures}  mjera ažurirano je u vašem akcijskom planu."
+msgstr "${no_of_measures} mjere su ažurirane u vašem planu mjera."
 
 #. Default: A measure has been removed from your action plan.
 #: src/euphorie/client/risk.py:464
 msgid "message_measure_removed"
-msgstr "Mjera je uklonjena iz vašeg akcijskog plana."
+msgstr "Mjera je uklonjena iz vašeg plana mjera."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:469
 msgid "message_measures_removed_3"
-msgstr "${no_of_measures} mjere uklonjene su iz vašeg akcijskog plana."
+msgstr "${no_of_measures} mjere su uklonjene iz vašeg plana mjera."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:477
 msgid "message_measures_removed_3_4"
-msgstr "${no_of_measures} mjere uklonjene su iz vašeg akcijskog plana."
+msgstr "${no_of_measures} mjere su uklonjene iz vašeg plana mjera."
 
 #. Default: ${no_of_measures} measures have been removed from your action plan.
 #: src/euphorie/client/risk.py:485
 msgid "message_measures_removed"
-msgstr "${no_of_measures} mjera uklonjeno je iz vašeg akcijskog plana."
+msgstr "${no_of_measures} mjere su uklonjene iz vašeg plana mjera."
 
 #. Default: Current Password
 #: src/euphorie/client/settings.py:47
@@ -3676,7 +3676,7 @@ msgstr "Savjet"
 #: src/euphorie/client/templates/tooltips.pt:65
 msgid "info_screen_help"
 msgstr ""
-"Ovu funkciju pomoći na zaslonu možete uključiti ili isključitiu svako doba "
+"Ovu funkciju pomoći na zaslonu možete uključiti ili isključiti u svako doba "
 "tako da kliknete na ${questionmark} na gornjoj desnoj strani alatne trake."
 
 #. Default: Off canvas menu
