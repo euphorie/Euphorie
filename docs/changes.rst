@@ -4,8 +4,9 @@ Changelog
 9.0.26 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
 
+- Updated styles, added latest Patterns
 
 9.0.25 (2017-09-27)
 -------------------
