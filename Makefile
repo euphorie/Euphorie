@@ -99,7 +99,7 @@ jekyll: prototype
 	@cd prototype && make jekyll
 
 resources-install: bundle jekyll
-	cp prototype/_site/bundles/oira.js src/euphorie/client/resources
+	cp prototype/_site/bundles/oira* src/euphorie/client/resources
 	cp -R prototype/_site/style/* src/euphorie/client/resources
 
 # %.min.css: %.css
