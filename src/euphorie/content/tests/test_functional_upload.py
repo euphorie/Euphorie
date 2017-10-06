@@ -438,7 +438,7 @@ class SurveyImporterTests(EuphorieTestCase):
         self.assertEqual(survey.classification_code, u"A.1.2.3")
         self.failUnless(isinstance(survey.language, str))
         self.assertEqual(survey.language, "nl")
-        self.failUnless(isinstance(survey.classification_code, str))
+        self.failUnless(isinstance(survey.classification_code, unicode))
         self.assertEqual(survey.evaluation_optional, True)
 
     def testImportSurvey_WithModule(self):
