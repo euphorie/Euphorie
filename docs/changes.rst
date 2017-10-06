@@ -8,6 +8,13 @@ Changed:
 
 - Updated styles, added latest Patterns
 
+Fixed:
+
+- The Status / Overview of Risks report had a bug that caused risks of
+  disabled optional modules to be falsely shown in certain cases. The
+  logic for computing the risks to consider has been improved to fix
+  this bug.
+
 9.0.25 (2017-09-27)
 -------------------
 

@@ -456,30 +456,53 @@ class Status(grok.View):
         # This means top-level module paths like 001 or 001002 can be replaced
         # by several sub-modules paths like 001002, 001003 and 001002001
         module_query = """
-        SELECT path
+        SELECT path, skip_children
         FROM tree
         WHERE
             session_id={0}
             AND type='module'
-            AND skip_children='f'
             and tree.path similar to '({1}%)'
             ORDER BY path
         """.format(session_id, "%|".join(module_paths))
+
         module_res = session.execute(module_query).fetchall()
 
         def nodes(paths):
-            paths = sorted(paths, reverse=True)
+            top_nodes = sorted(
+                [elem for elem in paths if len(elem[0]) == 3 and not elem[1]],
+                key=lambda x: x[0])
+            global use_nodes, s_paths
+            use_nodes = []
+            s_paths = sorted(paths, key=lambda x: x[0])
+
+            def use_node(elem):
+                # Recursively find the nodes that are not disabled
+                global use_nodes
+                # Skip this elem?
+                if elem[1]:
+                    return
+                children = [
+                    x for x in s_paths if x[0].startswith(elem[0]) and
+                    len(x[0]) == len(elem[0]) + 3]
+                if children:
+                    for child in children:
+                        use_node(child)
+                else:
+                    use_nodes.append(elem[0])
+
+            for elem in top_nodes:
+                use_node(elem)
             ret = []
-            for elem in paths:
+            # Here we make sure that only the longest paths of sub-modules
+            # are used, but not the parents. Example
+            # (001, 002, 001001, 001003) will be turned into
+            # (001001, 001003, 002), since the parent 001 contains sub-modules,
+            # and some of those might have been de-selected, like 001002
+            for elem in sorted(use_nodes, reverse=True):
                 if not [x for x in ret if x.startswith(elem)]:
                     ret.append(elem)
             return ret
-        # Here we make sure that only the longest paths of sub-modules
-        # are used, but not the parents. Example
-        # (001, 002, 001001, 001003) will be turned into
-        # (001001, 001003, 002), since the parent 001 contains sub-modules,
-        # and some of those might have been de-selected, like 001002
-        filtered_module_paths = nodes([x[0] for x in module_res])
+        filtered_module_paths = nodes(tuple(module_res))
 
         child_node = orm.aliased(model.Risk)
         risks = session.query(
