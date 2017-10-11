@@ -2193,7 +2193,7 @@ msgstr ""
 #: src/euphorie/client/templates/report_actionplan.pt:101
 #: src/euphorie/client/templates/risk_actionplan.pt:46
 msgid "risk_priority_low"
-msgstr "niskog"
+msgstr "mali"
 
 #. Default: medium
 #: src/euphorie/client/templates/module_customization.pt:35
@@ -2202,7 +2202,7 @@ msgstr "niskog"
 #: src/euphorie/client/templates/report_actionplan.pt:102
 #: src/euphorie/client/templates/risk_actionplan.pt:47
 msgid "risk_priority_medium"
-msgstr "srednjeg"
+msgstr "srednji"
 
 #. Default: high
 #: src/euphorie/client/templates/module_customization.pt:36
@@ -2211,7 +2211,7 @@ msgstr "srednjeg"
 #: src/euphorie/client/templates/report_actionplan.pt:103
 #: src/euphorie/client/templates/risk_actionplan.pt:48
 msgid "risk_priority_high"
-msgstr "visokog"
+msgstr "veliki"
 
 #. Default: This is a ${priority_value} priority risk.
 #: src/euphorie/client/templates/module_customization.pt:32
@@ -2220,7 +2220,7 @@ msgstr "visokog"
 #: src/euphorie/client/templates/report_actionplan.pt:99
 #: src/euphorie/client/templates/risk_actionplan.pt:45
 msgid "risk_priority"
-msgstr "Ovo je rizik ${priority_value} prioriteta."
+msgstr "Ovo je ${priority_value} rizik"
 
 #. Default: Remove risk
 #: src/euphorie/client/templates/module_customization.pt:39
