@@ -26,7 +26,7 @@
         <tal:answers condition="not:always_present">
         <input type="hidden" name="answer:default" value="postponed"/>
         <tal:existing condition="view/show_existing_measures">
-          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes_sufficien">Yes, the remaining risk is acceptable</tal:span></label>
+          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes_sufficient">Yes, the remaining risk is acceptable</tal:span></label>
           <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_not_sufficient">No, more measures are required</tal:span></label>
         </tal:existing>
         <tal:default condition="not:view/show_existing_measures">
