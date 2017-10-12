@@ -241,7 +241,9 @@ class ActionPlanView(grok.View):
 
     def get_existing_measures(self):
         try:
-            existing_measures = loads(self.context.existing_measures)
+            existing_measures = (
+                self.context.existing_measures and
+                loads(self.context.existing_measures) or [])
         except ValueError:
             measures = self.risk.existing_measures or ""
             existing_measures = [(1, text) for text in measures.splitlines()]
