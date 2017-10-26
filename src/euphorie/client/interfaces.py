@@ -30,17 +30,20 @@ class IReportPhaseSkinLayer(Interface):
 
 # Special case for individual countries...
 
-class IItalyIdentificationPhaseSkinLayer(IIdentificationPhaseSkinLayer):
+class IItaly(Interface):
     """Skin layer to mark the country Italy"""
 
-class IItalyCustomizationPhaseSkinLayer(ICustomizationPhaseSkinLayer):
+class IItalyIdentificationPhaseSkinLayer(IItaly, IIdentificationPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
 
-class IItalyEvaluationPhaseSkinLayer(IEvaluationPhaseSkinLayer):
+class IItalyCustomizationPhaseSkinLayer(IItaly, ICustomizationPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
 
-class IItalyActionPlanPhaseSkinLayer(IActionPlanPhaseSkinLayer):
+class IItalyEvaluationPhaseSkinLayer(IItaly, IEvaluationPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
 
-class IItalyReportPhaseSkinLayer(IReportPhaseSkinLayer):
+class IItalyActionPlanPhaseSkinLayer(IItaly, IActionPlanPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyReportPhaseSkinLayer(IItaly, IReportPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
