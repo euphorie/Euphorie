@@ -18,6 +18,7 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from euphorie.client import config
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.interfaces import IItaly
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
@@ -217,6 +218,20 @@ class WebHelpers(grok.View):
 
     def logoMode(self):
         return 'alien' if 'alien' in self.extra_css else 'native'
+
+    @reify
+    def styles_override(self):
+        css = ""
+        if IItaly.providedBy(self.request):
+            css = """
+#steps .topics .legend li.answered.risk::before {
+    background: purple;
+}
+#steps .topics .questions li.answered.risk a::before {
+    background: purple;
+}
+"""
+        return css
 
     @reify
     def extra_css(self):
