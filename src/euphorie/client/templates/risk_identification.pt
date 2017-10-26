@@ -33,8 +33,12 @@
     </fieldset>
 
     <!-- Evaluation -->
-  <fieldset class="pat-well notice pat-depends vertical evaluation" id="evaluation" tal:define="evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method"
-              data-pat-depends="condition: answer=no; transition: slide">
+  <fieldset
+    class="pat-well notice pat-depends vertical evaluation"
+    id="evaluation"
+    tal:define="evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method"
+    tal:condition="not:view/skip_evaluation"
+    data-pat-depends="condition: answer=no; transition: slide">
     <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
     <tal:block condition="python:evaluation_method=='calculated'">
   <p class="instruction" i18n:translate="help_calculated_evaluation">Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>

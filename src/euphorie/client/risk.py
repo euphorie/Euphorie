@@ -12,6 +12,7 @@ from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -161,6 +162,11 @@ class IdentificationView(grok.View):
                 custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
                 self.description_severity = custom_ds.strip() or self.description_severity
 
+            # Italian special
+            if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
+                self.skip_evaluation = True
+            else:
+                self.skip_evaluation = False
             super(IdentificationView, self).update()
 
     @property
