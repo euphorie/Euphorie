@@ -4,8 +4,7 @@ Changelog
 9.0.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translations for Croatian (HR)
 
 9.0.27 (2017-10-12)
 -------------------

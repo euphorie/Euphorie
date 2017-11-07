@@ -1924,9 +1924,9 @@ msgid ""
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
 msgstr ""
-"OiRA je posebno projektiran kako bi ih podržao u procjeni rizika na radu i "
-"pomogao im u stvaranju dokumentirane procjene rizika, uključujući i akcijski "
-"plan prilagođen upravo njihovim poslovnim potrebama."
+"OiRA alat je posebno projektiran kako bi pomogao u izradi procjene rizika i u "
+"stvaranju dokumentirane procjene rizika, uključujući i plan mjera prilagođen "
+"upravo njihovim poslovnim potrebama."
 
 #: src/euphorie/client/templates/login.pt:48
 msgid "What do I have to do?"
