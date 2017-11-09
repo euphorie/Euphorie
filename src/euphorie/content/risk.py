@@ -100,10 +100,25 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         description=_(
             "help_existing_measures",
             default=u"Use this field to define (common) existing measures."
-            u" This text will be editable by the user."),
+            u" Separate measures with a line break (Enter). The user will be "
+            u"able to deselect those measures that are not applicable to their"
+            u" situation."),
         required=False)
     form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
     form.order_after(existing_measures="description")
+
+    title_extra = schema.Choice(
+        title=_("label_title_extra", default=u"Extra statement"),
+        description=_("help_title_extra",
+            default=u'Select an additional sentence that will be displayed '
+                u'next to the statement in the client. Leave blank if no '
+                u'such sentence is needed'),
+        source="euphorie.title_extra",
+        default="",
+        required=False,
+    )
+    form.order_after(title_extra="existing_measures")
+
 
     legal_reference = HtmlText(
             title=_("label_legal_reference",
@@ -634,6 +649,7 @@ class Add(dexterity.AddForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
+            self.widgets["title_extra"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -686,6 +702,7 @@ class Edit(form.SchemaEditForm):
         self.widgets["title"].addClass("span-7")
         if not self.use_existing_measures:
             self.widgets["existing_measures"].mode = "hidden"
+            self.widgets["title_extra"].mode = "hidden"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)

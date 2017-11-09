@@ -26,7 +26,7 @@
                 <td><form method="post" action="${request/URL}" class="startSessionForm">
                     <input type="hidden" name="action" value="continue"/>
                     <input type="hidden" name="session" value="${session/id}"/>
-                    <button class="link" type="submit">${session/title}</button>,
+                    <button class="link pat-button" type="submit">${session/title}</button>,
                     <tal:span i18n:translate="lable_session_modified">saved on
                     <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
                 <td class="actions span-5">

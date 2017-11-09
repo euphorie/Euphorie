@@ -3276,6 +3276,16 @@ msgstr "Hoch"
 msgid "explanation_risk_always_present"
 msgstr ""
 
+#. Default: Yes, the remaining risk is acceptable
+#: src/euphorie/client/templates/risk_identification.pt:29
+msgid "label_yes_sufficient"
+msgstr "Ja, das Restrisiko ist vertretbar"
+
+#. Default: No, more measures are required
+#: src/euphorie/client/templates/risk_identification.pt:30
+msgid "label_not_sufficient"
+msgstr "Nein, weitere Maßnahmen sind notwendig"
+
 #. Default: Not applicable
 #: src/euphorie/client/templates/risk_identification.pt:29
 msgid "label_not_applicable"

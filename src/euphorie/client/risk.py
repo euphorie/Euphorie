@@ -22,7 +22,10 @@ from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
+from euphorie.content.vocabularies import title_extra_vocab
 from five import grok
+from json import dumps
+from json import loads
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
@@ -41,8 +44,6 @@ IMAGE_CLASS = {
     4: 'three',
 }
 
-DESCRIPTION_CROP_LENGTH = 200
-
 
 class IdentificationView(grok.View):
     """A view for displaying a question in the idenfication phase
@@ -56,6 +57,7 @@ class IdentificationView(grok.View):
     grok.name("index_html")
 
     question_filter = None
+    DESCRIPTION_CROP_LENGTH = 200
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -73,7 +75,18 @@ class IdentificationView(grok.View):
             answer = reply.get("answer")
             self.context.comment = reply.get("comment")
             if self.use_existing_measures:
-                self.context.existing_measures = reply.get("existing_measures")
+                measures = self.get_existing_measures()
+                new_measures = []
+                for i, entry in enumerate(measures):
+                    on = int(bool(reply.get('measure-{}'.format(i))))
+                    entry[0] = on
+                    measures[i] = entry
+                    if on:
+                        new_measures.append([1, entry[1]])
+                for k, val in reply.items():
+                    if k.startswith('new-measure') and val.strip() != '':
+                        new_measures.append([1, val])
+                self.context.existing_measures = dumps(new_measures)
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
@@ -135,9 +148,9 @@ class IdentificationView(grok.View):
             ploneview = getMultiAdapter(
                 (self.context, self.request), name="plone")
             stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > DESCRIPTION_CROP_LENGTH:
+            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
                 self.description_intro = ploneview.cropText(
-                    stripped_description, DESCRIPTION_CROP_LENGTH)
+                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
             else:
                 self.description_intro = ""
             self.description_probability = _(
@@ -149,8 +162,23 @@ class IdentificationView(grok.View):
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
                 "severity if this risk occurs.")
-            if self.use_existing_measures and not self.risk.existing_measures:
-                self.context.existing_measures = self.risk.existing_measures
+
+            self.title_extra = ''
+            self.show_existing_measures = False
+            if self.use_existing_measures:
+                measures = self.risk.existing_measures or ""
+                # Only show the form to select and add existing measures if
+                # at least one measure was defined in the CMS
+                if len(measures):
+                    self.show_existing_measures = True
+                if not self.context.existing_measures:
+                    self.context.existing_measures = dumps(
+                        [(1, text) for text in measures.splitlines()])
+                vocab = title_extra_vocab(self)
+                term = getattr(self.risk, 'title_extra', '')
+                if term != '' and term in vocab:
+                    self.title_extra = _(vocab.getTerm(term).title)
+
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
                     custom_dp = getattr(
@@ -162,6 +190,15 @@ class IdentificationView(grok.View):
                 self.description_severity = custom_ds.strip() or self.description_severity
 
             super(IdentificationView, self).update()
+
+    def get_existing_measures(self):
+        try:
+            existing_measures = loads(self.context.existing_measures)
+        except ValueError:
+            measures = self.risk.existing_measures or ""
+            existing_measures = [(1, text) for text in measures.splitlines()]
+            self.context.existing_measures = dumps(existing_measures)
+        return existing_measures
 
     @property
     def use_problem_description(self):
@@ -200,6 +237,18 @@ class ActionPlanView(grok.View):
 
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
+    DESCRIPTION_CROP_LENGTH = 200
+
+    def get_existing_measures(self):
+        try:
+            existing_measures = (
+                self.context.existing_measures and
+                loads(self.context.existing_measures) or [])
+        except ValueError:
+            measures = self.risk.existing_measures or ""
+            existing_measures = [(1, text) for text in measures.splitlines()]
+            self.context.existing_measures = dumps(existing_measures)
+        return existing_measures
 
     @property
     def risk_present(self):
@@ -256,8 +305,6 @@ class ActionPlanView(grok.View):
             session = Session()
             context.comment = reply.get("comment")
             context.priority = reply.get("priority")
-            if self.use_existing_measures:
-                context.existing_measures = reply.get("existing_measures")
 
             new_plans = self.extract_plans_from_request()
             for plan in context.action_plans:
@@ -301,9 +348,9 @@ class ActionPlanView(grok.View):
             ploneview = getMultiAdapter(
                 (self.context, self.request), name="plone")
             stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > DESCRIPTION_CROP_LENGTH:
+            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
                 self.description_intro = ploneview.cropText(
-                    stripped_description, DESCRIPTION_CROP_LENGTH)
+                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
             else:
                 self.description_intro = ""
             self.solutions = [

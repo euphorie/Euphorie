@@ -226,7 +226,7 @@ class Identification(grok.View):
     def extra_text(self):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        have_extra = settings.get('extra_text_idendification', False)
+        have_extra = settings.get('extra_text_identification', False)
         if not have_extra:
             return None
         lang = getattr(self.request, 'LANGUAGE', 'en')

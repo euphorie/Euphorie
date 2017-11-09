@@ -209,11 +209,16 @@
 
     <!-- Existing Measures -->
     <fieldset class="vertical" id="existing_measures" tal:condition="view/use_existing_measures">
+      <article class="rich">
         <legend i18n:translate="label_existing_measures">Existing measures</legend>
-        <textarea id="existing_measures" name="existing_measures:utf8:ustring" class="span-15" rows="8" tal:content="data/existing_measures"
-            placeholder="Enter any existing measures."
-            i18n:attributes="placeholder placeholder_existing_measures">
-        </textarea>
+        <ul tal:define="measures view/get_existing_measures" tal:condition="measures">
+          <tal:measure repeat="measure measures">
+            <li tal:condition="python:measure[0]">
+                ${python:measure[1]}
+            </li>
+          </tal:measure>
+        </ul>
+      </article>
     </fieldset>
 
     <fieldset id="comments">
@@ -225,9 +230,9 @@
 
     <div class="button-bar">
         <button type="submit" name="next" value="previous"
-                i18n:translate="label_previous" class="pat-button">Previous</button>
+                i18n:translate="label_previous" class="pat-button back">Previous</button>
         <button type="submit" name="next" value="next" data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
-                i18n:translate="label_save_and_continue" class="pat-button ${python: view.next_is_report and 'pat-switch' or ''}">Save and continue</button>
+                i18n:translate="label_save_and_continue" class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}">Save and continue</button>
     </div>
     </form>
 

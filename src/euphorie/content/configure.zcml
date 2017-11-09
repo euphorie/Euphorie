@@ -116,4 +116,10 @@
         class=".upgrade.CleanupContent"
         />
 
+    <utility
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component=".vocabularies.title_extra_vocab"
+      name="euphorie.title_extra"
+      />
+
 </configure>

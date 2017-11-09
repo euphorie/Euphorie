@@ -21,11 +21,18 @@
     <fieldset class="vertical" id="${view/risk_number}" tal:define="always_present risk/risk_always_present">
     <fieldset class="pat-checklist radio">
         <legend tal:content="risk/title">The temperature of all fridges is checked daily</legend>
-        <p tal:condition="always_present" i18n:translate="explanation_risk_always_present">This risk was automatically set as being present. You cannot change this.</p>
+        <p class="byline" tal:condition="always_present" i18n:translate="explanation_risk_always_present">This risk was automatically set as being present. You cannot change this.</p>
+        <p class="byline" tal:condition="view/title_extra"><em>${view/title_extra}</em></p>
         <tal:answers condition="not:always_present">
         <input type="hidden" name="answer:default" value="postponed"/>
-        <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
-        <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
+        <tal:existing condition="view/show_existing_measures">
+          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes_sufficient">Yes, the remaining risk is acceptable</tal:span></label>
+          <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_not_sufficient">No, more measures are required</tal:span></label>
+        </tal:existing>
+        <tal:default condition="not:view/show_existing_measures">
+          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
+          <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
+        </tal:default>
         <label tal:condition="risk/show_notapplicable" class="not-applicable"><input type="radio" name="answer" value="n/a" checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
         </tal:answers>
         <tal:always_present condition="always_present"><input type="hidden" name="answer" value="no" /></tal:always_present>
@@ -157,13 +164,19 @@
 
 
     <!-- Existing Measures -->
-    <fieldset class="vertical" id="existing_measures" tal:condition="view/use_existing_measures">
-        <legend i18n:translate="label_existing_measures">Existing measures</legend>
-        <textarea id="existing_measures" name="existing_measures:utf8:ustring" class="span-15" rows="8" tal:content="context/existing_measures"
-            placeholder="Enter any existing measures."
-            i18n:attributes="placeholder placeholder_existing_measures">
-        </textarea>
-    </fieldset>
+    <tal:existing_measures condition="view/use_existing_measures">
+      <div class="measures" id="existing-measures" tal:repeat="measure view/get_existing_measures">
+        <fieldset class="measure pat-checklist functions">
+         <label>
+           <input type="checkbox" checked="${python:measure[0] and 'checked' or None}" name="measure-${repeat/measure/index}" /><tal:i18n i18n:translate="">Existing Measure</tal:i18n> ${repeat/measure/number} <span class="untick" i18n:translate="">(Untick if not applicable)</span>
+         </label>
+         <dl class="fields pat-grid-list">
+          <dt i18n:translate="label_description">Description</dt>
+          <dd>${python:measure[1]}</dd>
+         </dl>
+        </fieldset>
+      </div>
+    </tal:existing_measures>
 
     <!-- Comments -->
     <fieldset class="vertical" id="comments">
@@ -174,8 +187,8 @@
     </fieldset>
 
     <p class="buttonBar">
-        <button class="pat-button" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
-        <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
+        <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
+        <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
     </p>
 </form>
 </metal:slot>
