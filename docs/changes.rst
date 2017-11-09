@@ -4,7 +4,10 @@ Changelog
 9.0.28 (unreleased)
 -------------------
 
+Changed:
+
 - Translations for Croatian (HR)
+- Use HTML5 doctype in all client templates
 
 9.0.27 (2017-10-12)
 -------------------
