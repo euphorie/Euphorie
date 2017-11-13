@@ -8,6 +8,14 @@ Changed:
 
 - Translations for Croatian (HR)
 - Use HTML5 doctype in all client templates
+- Special customisations per country now possible. Only used for Italy:
+  - Generally skip evaluation
+  - Colour adjustment in the answer-type legend
+
+Added:
+
+- Optional new field per risk: Existing measures; activated in euphorie.ini
+  (Currently only used in an add-on)
 
 9.0.27 (2017-10-12)
 -------------------
