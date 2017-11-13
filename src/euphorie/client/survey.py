@@ -3,47 +3,54 @@ Survey views
 ------------
 """
 
-import logging
-import urlparse
+from .. import MessageFactory as _
+from ..ghost import PathGhost
+from AccessControl import getSecurityManager
+from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from Acquisition import aq_base
-from AccessControl import getSecurityManager
-from zExceptions import Unauthorized
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
-from five import grok
-from zope.interface import directlyProvides
-from zope.interface import directlyProvidedBy
-from zope.component import adapts
-from zope.component import getUtility
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.saconfig import Session
-from sqlalchemy import orm
-from sqlalchemy import sql
-from plone.memoize.instance import memoize
-from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
-from ..ghost import PathGhost
-from .. import MessageFactory as _
-from euphorie.content.survey import ISurvey
+from euphorie.client import model
+from euphorie.client import utils
+from euphorie.client.country import IClientCountry
+from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
+from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
+from euphorie.client.interfaces import IItalyCustomizationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyEvaluationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client.navigation import getTreeData
 from euphorie.client.navigation import FindFirstQuestion
+from euphorie.client.navigation import getTreeData
 from euphorie.client.navigation import QuestionURL
 from euphorie.client.profile import extractProfile
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
-from euphorie.client import model
-from euphorie.client import utils
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from euphorie.content.survey import ISurvey
+from five import grok
+from plone.memoize.instance import memoize
+from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
+from sqlalchemy import orm
+from sqlalchemy import sql
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.saconfig import Session
+from zExceptions import Unauthorized
+from zope.component import adapts
+from zope.component import getUtility
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
+from ZPublisher.BaseRequest import DefaultPublishTraverse
+import logging
+import urlparse
 
 PloneLocalesFactory = MessageFactory("plonelocales")
 
@@ -697,6 +704,15 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         'actionplan': IActionPlanPhaseSkinLayer,
         'report': IReportPhaseSkinLayer}
 
+    countries = {
+        'it': {
+            'identification': IItalyIdentificationPhaseSkinLayer,
+            'customization': IItalyCustomizationPhaseSkinLayer,
+            'evaluation': IItalyEvaluationPhaseSkinLayer,
+            'actionplan': IItalyActionPlanPhaseSkinLayer,
+            'report': IItalyReportPhaseSkinLayer}
+    }
+
     def hasValidSession(self, request):
         """Check if the user has an active session for the survey.
         """
@@ -736,8 +752,21 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
                     .publishTraverse(request, name)
 
         # Decorate the request with the right skin layer and add to the aq path
-        directlyProvides(request, self.phases[name],
-                         *directlyProvidedBy(request))
+
+        # Some countries need to be marked specially. Check if this needs to be
+        # done, and decorate the reques accordingly if yes.
+        special = False
+        for obj in aq_chain(aq_inner(self.context)):
+            if IClientCountry.providedBy(obj):
+                if obj.id in self.countries:
+                    special = True
+                    directlyProvides(
+                        request, self.countries[obj.id][name],
+                        *directlyProvidedBy(request))
+                    break
+        if not special:
+            directlyProvides(request, self.phases[name],
+                             *directlyProvidedBy(request))
         self.context = PathGhost(name).__of__(self.context)
 
         session = SessionManager.session

@@ -26,3 +26,24 @@ class IActionPlanPhaseSkinLayer(Interface):
 
 class IReportPhaseSkinLayer(Interface):
     """Skin layer used during the action plan phase."""
+
+
+# Special case for individual countries...
+
+class IItaly(Interface):
+    """Skin layer to mark the country Italy"""
+
+class IItalyIdentificationPhaseSkinLayer(IItaly, IIdentificationPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyCustomizationPhaseSkinLayer(IItaly, ICustomizationPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyEvaluationPhaseSkinLayer(IItaly, IEvaluationPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyActionPlanPhaseSkinLayer(IItaly, IActionPlanPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyReportPhaseSkinLayer(IItaly, IReportPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""

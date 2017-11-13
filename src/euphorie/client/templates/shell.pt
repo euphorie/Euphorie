@@ -16,6 +16,7 @@
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
+                  styles_override webhelpers/styles_override;
                   tools context/@@tools">
 
 <head>
@@ -40,6 +41,10 @@
         <!-- TODO: needs to be minified -->
         <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
     </tal:block>
+
+    <style type="text/css" tal:condition="styles_override">
+        ${styles_override}
+    </style>
 
 
         <meta name="description" content="${webhelpers/tool_description}" />
