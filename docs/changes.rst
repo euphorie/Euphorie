@@ -4,8 +4,9 @@ Changelog
 9.0.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
 
+- Translations for German (DE)
 
 9.0.28 (2017-11-13)
 -------------------
