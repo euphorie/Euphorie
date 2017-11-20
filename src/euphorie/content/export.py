@@ -9,18 +9,20 @@ View name: @@export
 
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
-from lxml import etree
-from euphorie.content.survey import ISurvey
-from euphorie.content.solution import ISolution
-from euphorie.content.risk import IRisk
-from euphorie.content.risk import IKinneyEvaluation
+from euphorie.client.utils import HasText
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.risk import IKinneyEvaluation
+from euphorie.content.risk import IRisk
+from euphorie.content.solution import ISolution
+from euphorie.content.survey import ISurvey
 from euphorie.content.upload import NSMAP
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
-from euphorie.client.utils import HasText
+from five import grok
+from lxml import etree
+from z3c.appconfig.interfaces import IAppConfig
+from zope.component import getUtility
 
 
 def getToken(field, value, default=None):
@@ -46,6 +48,10 @@ class ExportSurvey(grok.View):
     def __init__(self, context, request):
         super(ExportSurvey, self).__init__(context, request)
         nsmap = NSMAP.copy()
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
+
         del nsmap[None]
 
     def exportImage(self, parent, image, caption=None):
@@ -150,6 +156,9 @@ class ExportSurvey(grok.View):
                 risk.legal_reference)
         etree.SubElement(node, "show-not-applicable").text = \
                 "true" if risk.show_notapplicable else "false"
+        if self.use_existing_measures:
+            etree.SubElement(node, "existing_measures").text = \
+                risk.existing_measures
         if risk.type == "risk":
             method = etree.SubElement(node, "evaluation-method")
             method.text = risk.evaluation_method

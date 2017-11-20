@@ -7,32 +7,35 @@ Form and browser view for importing a previously exported survey in XML format.
 view: @@upload
 """
 
-import mimetypes
-import random
-from Acquisition import aq_inner
-import lxml.etree
-import lxml.objectify
-from five import grok
-from zope import schema
-from zope.interface import Interface
-from zope.interface import Invalid
-from plone.namedfile.file import NamedBlobImage
-from plone.directives import form
 from .. import MessageFactory as _
-from plone.namedfile import field as filefield
-from z3c.form.interfaces import WidgetActionExecutionError
-from z3c.form import button
-from plone.dexterity.utils import createContentInContainer
-from zope.component import getMultiAdapter
-from Products.statusmessages.interfaces import IStatusMessage
 from .country import ICountry
-from .risk import IRisk
+from .risk import EnsureInterface
 from .risk import IFrenchEvaluation
 from .risk import IKinneyEvaluation
-from .risk import EnsureInterface
+from .risk import IRisk
+from .sector import ISector
 from .user import LoginField
 from .user import validLoginValue
-from .sector import ISector
+from Acquisition import aq_inner
+from five import grok
+from plone.dexterity.utils import createContentInContainer
+from plone.directives import form
+from plone.namedfile import field as filefield
+from plone.namedfile.file import NamedBlobImage
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.form import button
+from z3c.form.interfaces import WidgetActionExecutionError
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.interface import Interface
+from zope.interface import Invalid
+import lxml.etree
+import lxml.objectify
+import mimetypes
+import random
+
 
 
 NSMAP = {None: "http://xml.simplon.biz/euphorie/survey/1.0"}
@@ -140,6 +143,9 @@ class SurveyImporter(object):
 
     def __init__(self, context):
         self.context = context
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
 
     def ImportImage(self, node):
         """
@@ -195,6 +201,10 @@ class SurveyImporter(object):
         risk.legal_reference = el_unicode(node, "legal-reference")
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
         risk.external_id = attr_unicode(node, "external-id")
+        if self.use_existing_measures:
+            risk.existing_measures = \
+                el_unicode(node, "existing_measures")
+
         if risk.type == "risk":
             em = getattr(node, "evaluation-method")
             risk.evaluation_method = em.text
