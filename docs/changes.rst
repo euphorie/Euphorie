@@ -4,9 +4,19 @@ Changelog
 9.0.29 (unreleased)
 -------------------
 
+Fixed:
+
+- Workaraound for #114
+  (by reverting the doctype on risk_actionplan to its old state)
+  Needs to be fixed upstream in Patternslib/pat-clone
+
 Changed:
 
 - Translations for German (DE)
+- It is no longer possible to pick an additional sentence to be displayed
+  under the risk title via the CMS. If existing measures are present, the
+  pre-defined sentence is simply shown in the client
+
 
 9.0.28 (2017-11-13)
 -------------------
