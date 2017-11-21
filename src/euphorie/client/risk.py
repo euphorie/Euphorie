@@ -23,7 +23,6 @@ from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
-from euphorie.content.vocabularies import title_extra_vocab
 from five import grok
 from json import dumps
 from json import loads
@@ -172,13 +171,11 @@ class IdentificationView(grok.View):
                 # at least one measure was defined in the CMS
                 if len(measures):
                     self.show_existing_measures = True
+                    self.title_extra = _(
+                        "Are the measures that are selected above sufficient?")
                 if not self.context.existing_measures:
                     self.context.existing_measures = dumps(
                         [(1, text) for text in measures.splitlines()])
-                vocab = title_extra_vocab(self)
-                term = getattr(self.risk, 'title_extra', '')
-                if term != '' and term in vocab:
-                    self.title_extra = _(vocab.getTerm(term).title)
 
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
