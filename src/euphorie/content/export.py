@@ -48,9 +48,12 @@ class ExportSurvey(grok.View):
     def __init__(self, context, request):
         super(ExportSurvey, self).__init__(context, request)
         nsmap = NSMAP.copy()
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
+        try:
+            appconfig = getUtility(IAppConfig)
+            settings = appconfig.get('euphorie')
+            self.use_existing_measures = settings.get('use_existing_measures', False)
+        except:
+            self.use_existing_measures = False
 
         del nsmap[None]
 
