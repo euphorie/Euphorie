@@ -4,14 +4,16 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
-      i18n:domain="Euphorie"
+      i18n:domain="euphorie"
       class="portlet" id="portletSearch">
   <h3 i18n:translate="context_search">Search in context</h3>
   <div class="portletContent" tal:define="context_url context/absolute_url">
       <form method="POST" action="${context_url}/@@context-search">
         <fieldset>
           <input type="text" name="q" id="searchField" value="${request/form/q|nothing}" />
-          <button type="submit" i18n:translate="button_submit">Submit</button>
+          <tal:i18n i18n:domain="nuplone">
+            <button type="submit" i18n:translate="button_submit">Submit</button>
+          </tal:i18n>
         </fieldset>
       </form>
       <a tal:condition="view/did_search" href="${context_url}">BACK</a>
