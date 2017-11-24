@@ -1,0 +1,31 @@
+# Translation of plone.pot to Croatian
+# Damir Roso <damir.roso@webteh.hr>, 2004
+# Danilo Kondic <danilo.kondic@moj-posao.net>, 2009
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2013-11-18 09:29+0000\n"
+"PO-Revision-Date: 2004-10-18 17:52+0100\n"
+"Last-Translator: Damir Roso <damir.roso@webteh.hr>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: hr\n"
+"Language-Name: Croatian\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: hr-ba hr-hr bs sh\n"
+
+#. Default: "Used in item listings and search results."
+#: Archetypes/ExtensibleMetadata.py:97
+msgid "help_description"
+msgstr "Upotrebljava se u popisu stavki i rezultatima pretraživanja."
+
+
+#: CMFPlone/profiles/default/controlpanel.xml
+#: CMFPlone/profiles/default/portlets.xml
+#: plone.app.portlets/plone/app/portlets/portlets/search.py:34
+msgid "Search"
+msgstr "Pretraživanje"

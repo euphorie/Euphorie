@@ -1181,8 +1181,8 @@ msgstr ""
 msgid "expl_actionplan_1"
 msgstr ""
 "Nakon što ste identificirali rizike, trebate izraditi plan mjera za "
-"upravljanje rizicima. Kako biste eliminirali i smanjili rizike, potrebno je "
-"da odredite preventivne i zaštitne mjere koje treba poduzeti."
+"upravljanje rizicima. Kako biste eliminirali i smanjili rizike, potrebno je da "
+"odredite preventivne i zaštitne mjere koje treba poduzeti."
 
 #. Default: Among the things to be considered for this step are:
 #: src/euphorie/client/templates/actionplan.pt:25
@@ -1204,7 +1204,7 @@ msgstr "uklanjanje opasnosti"
 #: src/euphorie/client/templates/actionplan.pt:30
 msgid "expl_actionplan_3"
 msgstr ""
-"Može li se rizik izbjeći? Može li se u cjelosti ukloniti? To se primjerice "
+"Može li se rizik izbjeći? Može li se u cijelosti ukloniti? To se primjerice "
 "može postići s pomoću: ${expl_actionplan_4_and_5}"
 
 #. Default: If certain risks are not avoidable, how can they be reduced to a
@@ -1214,6 +1214,7 @@ msgid "expl_actionplan_6"
 msgstr ""
 "Ako neke rizike nije moguće izbjeći, kako se mogu smanjiti na razinu koja ne "
 "ugrožava zdravlje i sigurnost izloženih osoba?"
+
 
 #. Default: Once you have decided how to eliminate or reduce a particular risk,
 #. then you describe the specific action(s) required to achieve this. You
@@ -1742,7 +1743,7 @@ msgstr "Registracija"
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_sessions"
-msgstr "Izvođenje vaše procjene rizika"
+msgstr "Izrada vaše procjene rizika"
 
 #. Default: 1. Preparation
 #: src/euphorie/client/templates/help.pt:25
@@ -1788,7 +1789,7 @@ msgstr "Što se događa nakon toga?"
 #: src/euphorie/client/templates/identification.pt:18
 msgid "intro_print_identification_1"
 msgstr ""
-"Ovaj program vam daje mogućnost ispisa sadržaja alata kako biste potražili i "
+"Ovaj program nudi Vam mogućnost ispisa sadržaja alata kako biste potražili i "
 "provjerili neki podatak ili informaciju na odgovarajućem radnom mjestu (dok "
 "obilazite salon i tražite moguće izvore ozljeda ili bolesti, ili dok se "
 "savjetujete s radnicima ili njihovim predstavnicima o problemima s kojima se "
@@ -1802,10 +1803,10 @@ msgstr ""
 #: src/euphorie/client/templates/identification.pt:19
 msgid "intro_print_identification_2"
 msgstr ""
-"Ako želite, ispisani sadržaj alata možete podijeliti radnicima i/ili njihovim "
-"predstavnicima i pozvati ih da sudjeluju u identifikaciji opasnosti i "
-"problema, procjeni rizika i odlučivanju o preventivnim mjerama. Dobivene "
-"povratne informacije trebate uzeti u obzir pri unosu podataka u ovaj alat."
+"Ispisani sadržaj alata možete podijeliti radnicima i/ili njihovim "
+"predstavnicima i pozvati ih da sudjeluju u identifikaciji opasnosti i problema, "
+"procjeni rizika i odlučivanju o preventivnim mjerama. Dobivene povratne "
+"informacije trebate uzeti u obzir pri unosu podataka u ovaj alat."
 
 #. Default: contents of the tool
 #: src/euphorie/client/templates/identification.pt:21
@@ -2121,7 +2122,7 @@ msgstr "Koristiti za"
 #: src/euphorie/client/templates/report_landing.pt:141
 #: src/euphorie/client/templates/risks_overview.pt:151
 msgid "Pass information to the people concerned."
-msgstr "Proslijeđivanje informacija osobama kojih se to tiče."
+msgstr "Prosljeđivanje informacija osobama kojih se to tiče."
 
 #: src/euphorie/client/templates/measures_overview.pt:67
 #: src/euphorie/client/templates/report_landing.pt:142
@@ -2182,8 +2183,8 @@ msgstr "Opis rizika"
 #: src/euphorie/client/templates/risk_identification.pt:170
 msgid "label_comment"
 msgstr ""
-"U ovom polju ostavite komentar o gornjem pitanju. Ovi će se komentari "
-"koristiti u akcijskom planu."
+"Ovdje možete ostaviti komentar na postavljeno pitanje. Komentar će se "
+"koristiti u planu mjera."
 
 #. Default: low
 #: src/euphorie/client/templates/module_customization.pt:34
@@ -2726,7 +2727,7 @@ msgid ""
 msgstr ""
 "Spremite izvješće na svoje računalo i ispišite ga. Možete ga također "
 "preurediti ili mu dodati više informacija. Imajte na umu da izmjene koje ste "
-"načinili na svojem osobnom računalu  NEĆE biti spremljene u OiRA alatu"
+"načinili na svojem osobnom računalu NEĆE biti spremljene u OiRA alatu."
 
 #: src/euphorie/client/templates/report_landing.pt:43
 msgid "Use the report to:"
@@ -2741,9 +2742,8 @@ msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
 msgstr ""
-"Pružanje informacija osobama kojih se ovo tiče (djelatnicima, predstavnicima "
-"sigurnosti , zaposlenicima, stručnjacima iz područja sigurnosti i zdravlja "
-"itd.)"
+"Pružanje informacija osobama kojih se ovo tiče (radnicima, ovlaštenicima, "
+"povjerenicima, stručnjacima zaštite na radu itd.)"
 
 #: src/euphorie/client/templates/report_landing.pt:48
 msgid "Monitor and assess whether necessary measures have been introduced."
@@ -2796,7 +2796,7 @@ msgstr "${provide-evidence} za nadzorna tijela (Inspekciju rada)."
 
 #: src/euphorie/client/templates/report_landing.pt:85
 msgid "Download the action plan"
-msgstr "Preuzimanje akcijskog plana"
+msgstr "Preuzimanje plana mjera"
 
 #: src/euphorie/client/templates/report_landing.pt:89
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -3216,8 +3216,8 @@ msgstr ""
 #: src/euphorie/client/templates/risk_identification.pt:146
 msgid "description_automatic_evaluation"
 msgstr ""
-"Alat je automatski procijenio rizik. Ako smatrate potrebnim možete u Planu "
-"mjera promijeniti veličinu rizika."
+"Alat je automatski procijenio rizik. U Planu mjera razina rizika može se "
+"promijeniti."
 
 #. Default: Use it to
 #: src/euphorie/client/templates/risks_overview.pt:149
@@ -3995,7 +3995,7 @@ msgstr "Rješenje"
 #: src/euphorie/content/module.py:90
 msgid "help_solution_direction"
 msgstr ""
-"Ova se informacija prikazuje u koraku Akcijski plan i treba sadržavati "
+"Ova se informacija prikazuje u Planu mjera i treba sadržavati "
 "pregled općenitog(ih) rješenja koje(a) se odnosi(e) na ovaj modul. "
 
 #. Default: Additional content
@@ -4007,8 +4007,8 @@ msgstr "Dodatni sadržaj"
 #: src/euphorie/content/module.py:100 src/euphorie/content/risk.py:266
 msgid "intro_additional_content"
 msgstr ""
-"Pridružite bilo koji dodatni sadržaj za koji smatrate da će koristiti "
-"krajnjem korisniku"
+"Dodajte bilo koji dodatni sadržaj za koji smatrate da će koristiti krajnjem "
+"korisniku."
 
 #. Default: Content file
 #: src/euphorie/content/module.py:109 src/euphorie/content/module.py:121
@@ -4280,7 +4280,7 @@ msgstr "Glavna slika"
 #. than the other images.
 #: src/euphorie/content/risk.py:209
 msgid "intro_main_image"
-msgstr "Glavna će slika dobiti istaknutije mjesto u klijentu od ostalih slika."
+msgstr "Glavna slika će imati istaknutije mjesto na ekranu od ostalih slika."
 
 #. Default: Secondary images
 #: src/euphorie/content/risk.py:226
@@ -5570,7 +5570,7 @@ msgstr "Prebaci"
 #. Default: Search in context
 #: src/euphorie/deployment/tiles/templates/search.pt:9
 msgid "context_search"
-msgstr ""
+msgstr "Pretraži u sadržaju"
 
 #. Default: Submit
 #: src/euphorie/deployment/tiles/templates/search.pt:14
