@@ -17,6 +17,7 @@ from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.content.upload import NSMAP
+from euphorie.content.upload import ProfileQuestionLocationFields
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from five import grok
@@ -109,6 +110,14 @@ class ExportSurvey(grok.View):
         if HasText(profile.description):
             etree.SubElement(node, "description").text = StripUnwanted(
                 profile.description)
+
+        for fname in ProfileQuestionLocationFields:
+            value = getattr(profile, fname, None)
+            if value:
+                etree.SubElement(node, fname.replace('_', '-')).text = value
+
+        etree.SubElement(node, "use-location-question").text = \
+                "true" if getattr(profile, "use_location_question", True) else "false"
 
         for child in profile.values():
             if IModule.providedBy(child):

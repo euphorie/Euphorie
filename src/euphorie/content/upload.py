@@ -36,7 +36,10 @@ import lxml.objectify
 import mimetypes
 import random
 
-
+ProfileQuestionLocationFields = [
+    'label_multiple_present',
+    'label_single_occurance',
+    'label_multiple_occurances']
 
 NSMAP = {None: "http://xml.simplon.biz/euphorie/survey/1.0"}
 XMLNS = "{%s}" % NSMAP[None]
@@ -294,6 +297,11 @@ class SurveyImporter(object):
         profile.description = el_unicode(node, 'description')
         profile.question = unicode(node.question)
         profile.external_id = attr_unicode(node, "external-id")
+        for fname in ProfileQuestionLocationFields:
+            setattr(
+                profile, fname, el_unicode(node, fname.replace('_', '-')))
+        profile.use_location_question = el_bool(
+            node, "use-location-question", True)
 
         for child in node.iterchildren(tag=XMLNS + "risk"):
             self.ImportRisk(child, profile)
