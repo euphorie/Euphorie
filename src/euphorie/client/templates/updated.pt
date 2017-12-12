@@ -31,6 +31,7 @@
           <label><input type="radio" class="presence" required="required" name="pq${question/id}.present" value="no" checked="${python:'checked' if not current else None}"/> <tal:span i18n:translate="">No</tal:span></label>
         </fieldset>
 
+        <tal:use_location_question condition="question/use_location_question">
         <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq${question/id}.present=yes">
           <legend>${question/label_multiple_present}</legend>
           <label><input type="radio" class="multiple" name="pq${question/id}.multiple" value="yes" checked="${python:'checked' if current and len(current)&gt;1 else None}"/> <tal:span i18n:translate="">Yes</tal:span></label>
@@ -80,6 +81,7 @@
             <button id="clone-set-${repeat/question/number}" class="pat-button icon-plus-circle add-clone" type="button" i18n:translate="Add another item">Add another item</button>
           </p>
         </fieldset>
+        </tal:use_location_question>
     </section>
   </fieldset>
 

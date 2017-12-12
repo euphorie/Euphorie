@@ -46,6 +46,7 @@
     <fieldset>
       <tal:widget replace="structure view/widgets/title/render" />
       <tal:widget replace="structure view/widgets/question/render" />
+      <tal:widget replace="structure view/widgets/use_location_question/render" />
       <tal:widget replace="structure view/widgets/label_multiple_present/render" />
       <tal:widget replace="structure view/widgets/label_single_occurance/render" />
       <tal:widget replace="structure view/widgets/label_multiple_occurances/render" />

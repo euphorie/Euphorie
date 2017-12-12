@@ -8,24 +8,25 @@ questions.
 
 from .. import MessageFactory as _
 from Acquisition import aq_inner
-from five import grok
-from z3c.saconfig import Session
-from sqlalchemy import sql
-from sqlalchemy.orm import object_session
+from euphorie.client import model
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.session import create_survey_session
+from euphorie.client.session import SessionManager
+from euphorie.client.update import treeChanges
+from euphorie.client.utils import HasText
+from euphorie.client.utils import RelativePath
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IRisk, IFrenchRisk
 from euphorie.content.survey import ISurvey
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client import model
-from euphorie.client.update import treeChanges
-from euphorie.client.session import create_survey_session
-from euphorie.client.session import SessionManager
-from euphorie.client.utils import HasText
-from euphorie.client.utils import RelativePath
+from five import grok
+from sqlalchemy import sql
+from sqlalchemy.orm import object_session
+from z3c.saconfig import Session
 from zope.i18n import translate
+import re
 
 
 grok.templatedir("templates")
@@ -153,11 +154,19 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
             if not p:
                 continue
 
-            assert isinstance(p, list)
-            profile_question = AddToTree(dbsession, child, title=child.title,
+            if isinstance(p, list):
+                profile_question = AddToTree(
+                    dbsession, child, title=child.title,
                     profile_index=-1, skip_children=True)
-            for (index, title) in enumerate(p):
-                AddToTree(profile_question, child, title=title, profile_index=index)
+                for (index, title) in enumerate(p):
+                    AddToTree(
+                        profile_question, child, title=title,
+                        profile_index=index)
+            # If we get a bool, it will be True, because of `if not p` above
+            # Simply add the profile to the tree, don't care about locations
+            elif isinstance(p, bool):
+                AddToTree(
+                    dbsession, child, title=child.title)
         else:
             AddToTree(dbsession, child)
 
@@ -178,17 +187,20 @@ def extractProfile(survey, survey_session):
     :py:meth:`Profile.getDesiredProfile`.
 
     """
-    questions = [child.id for child in survey.ProfileQuestions()]
+    questions = [{
+        'id': child.id, 'use_location_question': child.use_location_question}
+        for child in survey.ProfileQuestions()]
     if not questions:
         return {}
 
+    q_ids = [q['id'] for q in questions]
     session_modules = {}
     query = Session.query(model.SurveyTreeItem.zodb_path,
                             model.SurveyTreeItem.title)\
             .filter(model.SurveyTreeItem.type == 'module')\
             .filter(model.SurveyTreeItem.session == survey_session)\
             .filter(model.SurveyTreeItem.profile_index >= 0)\
-            .filter(model.SurveyTreeItem.zodb_path.in_(questions))\
+            .filter(model.SurveyTreeItem.zodb_path.in_(q_ids))\
             .order_by(model.SurveyTreeItem.profile_index)\
             .all()
     for row in query:
@@ -196,8 +208,11 @@ def extractProfile(survey, survey_session):
 
     profile = {}
     for question in questions:
-        nodes = session_modules.get(question, [])
-        profile[question] = [node.title for node in nodes]
+        nodes = session_modules.get(question['id'], [])
+        if not question['use_location_question']:
+            profile[question['id']] = bool(nodes)
+        else:
+            profile[question['id']] = [node.title for node in nodes]
 
     return profile
 
@@ -236,6 +251,8 @@ def _questions(context):
     return [{'id': child.id,
              'title': child.title,
              'question': child.question or child.title,
+             'use_location_question': getattr(
+                 child, 'use_location_question', True),
              'label_multiple_present': getattr(child,
                  'label_multiple_present',
                  _(u'Does this happen in multiple places?')),
@@ -265,6 +282,8 @@ class Profile(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("profile")
 
+    id_patt = re.compile("pq([0-9]*)\.present")
+
     def getDesiredProfile(self):
         """Get the requested profile from the request.
 
@@ -278,17 +297,28 @@ class Profile(grok.View):
         """
         profile = {}
         for (id, answer) in self.request.form.items():
+            match = self.id_patt.match(id)
+            if match:
+                id = match.group(1)
             question = self.context.get(id)
             if not IProfileQuestion.providedBy(question):
                 continue
-            if not self.request.form.get("pq{0}.present".format(id), '') == 'yes':
-                continue
-            if isinstance(answer, list):
-                profile[id] = filter(None, (a.strip() for a in answer))
-                if not self.request.form.get("pq{0}.multiple".format(id), '') == 'yes':
-                    profile[id] = profile[id][:1]
+            if getattr(question, 'use_location_question', True):
+                # Ignore questions found via the id pattern if they profile
+                # is repeatable
+                if match:
+                    continue
+                if not self.request.form.get(
+                        "pq{0}.present".format(id), '') == 'yes':
+                    continue
+                if isinstance(answer, list):
+                    profile[id] = filter(None, (a.strip() for a in answer))
+                    if not self.request.form.get("pq{0}.multiple".format(id), '') == 'yes':
+                        profile[id] = profile[id][:1]
+                else:
+                    profile[id] = answer
             else:
-                profile[id] = answer
+                profile[id] = answer in (True, 'yes')
         return profile
 
     def setupSession(self):
