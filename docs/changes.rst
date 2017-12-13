@@ -4,6 +4,13 @@ Changelog
 9.0.31 (unreleased)
 -------------------
 
+Fixed:
+
+- When the logic to correctly skip disabled modules in the status report was
+  introduced in 9.0.26, it caused a new bug for tools that contain repeatable
+  profile questions. Profile questions are now handled correctly again.
+
+
 Changed:
 
 - In the CMS, conditional fields (that only appear when a checkbox is ticked)

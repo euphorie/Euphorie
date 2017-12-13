@@ -475,12 +475,16 @@ class Status(grok.View):
         module_res = session.execute(module_query).fetchall()
 
         def nodes(paths):
-            top_nodes = sorted(
-                [elem for elem in paths if len(elem[0]) == 3 and not elem[1]],
-                key=lambda x: x[0])
             global use_nodes, s_paths
             use_nodes = []
             s_paths = sorted(paths, key=lambda x: x[0])
+            # In case of repeatable profile questions, the top-level module
+            # path will be 6 digits long.
+            top_nodes = [
+                elem for elem in s_paths if (
+                    len(elem[0]) == 3 or
+                    (len(elem[0]) == 6 and elem[0][:3] not in s_paths)) and
+                not elem[1]]
 
             def use_node(elem):
                 # Recursively find the nodes that are not disabled
