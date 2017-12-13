@@ -20,6 +20,7 @@ from .risk import IRisk
 from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
+from euphorie.content.dependency import ConditionalTextLine
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -65,13 +66,13 @@ class IModule(form.Schema, IRichDescription, IBasic):
             default=False)
 
     depends("question", "optional", "on")
-    question = schema.TextLine(
+    question = ConditionalTextLine(
             title=_("label_module_question", default=u"Question"),
             description=_("help_module_question",
                 default=u"The question to ask the end-user if this module is "
                     u"optional. It must be formulated so that it is answerable "
                     u"with YES (the end-user will have to tick a box) or NO"),
-            required=False)
+            required=True)
 
     image = filefield.NamedBlobImage(
             title=_("label_image", default=u"Image file"),

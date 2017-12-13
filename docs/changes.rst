@@ -4,7 +4,12 @@ Changelog
 9.0.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
+
+- In the CMS, conditional fields (that only appear when a checkbox is ticked)
+  can now be set to "required" and properly validated. Therefore the "question"
+  field for optional modules and the "tool notification" title and text fields
+  are now required.
 
 
 9.0.30 (2017-11-27)
@@ -211,7 +216,7 @@ BROWN-BAG RELEASE
 9.0.6 (2017-02-06)
 ------------------
 
-- Translation changes for NL 
+- Translation changes for NL
 
 9.0.5 (2017-02-01)
 ------------------

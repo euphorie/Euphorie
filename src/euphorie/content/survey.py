@@ -20,6 +20,8 @@ from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from euphorie.content.dependency import ConditionalHtmlText
+from euphorie.content.dependency import ConditionalTextLine
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from OFS.event import ObjectClonedEvent
@@ -110,17 +112,17 @@ class ISurvey(form.Schema, IBasic):
     depends("tool_notification_title",
             "enable_tool_notification",
             "on")
-    tool_notification_title = schema.TextLine(
+    tool_notification_title = ConditionalTextLine(
         title=_("label_tool_notification_title", default=u"Tool notification title"),
-        required=False)
+        required=True)
 
     depends("tool_notification_message",
             "enable_tool_notification",
             "on")
-    tool_notification_message = HtmlText(
+    tool_notification_message = ConditionalHtmlText(
         title=_(
             "label_tool_notification", default=u"Tool notification message"),
-        required=False)
+        required=True)
     form.widget(tool_notification_message=WysiwygFieldWidget)
 
 
