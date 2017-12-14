@@ -17,6 +17,7 @@ Changed:
   can now be set to "required" and properly validated. Therefore the "question"
   field for optional modules and the "tool notification" title and text fields
   are now required.
+- Translations for Croatian (HR)
 
 
 9.0.30 (2017-11-27)

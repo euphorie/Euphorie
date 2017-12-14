@@ -1275,7 +1275,7 @@ msgstr "Priprema"
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:40
 msgid "label_identification"
-msgstr "Identifikacija"
+msgstr "Prepoznavanje"
 
 #. Default: Identification
 #: src/euphorie/client/templates/appendix.pt:31
@@ -1284,7 +1284,7 @@ msgstr "Identifikacija"
 #: src/euphorie/client/templates/report_identification.pt:77
 #: src/euphorie/client/templates/risk_evaluation.pt:144
 msgid "iphone_label_identification"
-msgstr "Identifikacija"
+msgstr "Prepoznavanje"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/appendix.pt:36
@@ -1298,7 +1298,7 @@ msgstr "Identifikacija"
 #: src/euphorie/client/templates/webhelpers.pt:94
 #: src/euphorie/content/templates/colour-preview.pt:43
 msgid "label_evaluation"
-msgstr "Procjena"
+msgstr "procjena"
 
 #. Default: Evaluation
 #: src/euphorie/client/templates/appendix.pt:37
@@ -1307,7 +1307,7 @@ msgstr "Procjena"
 #: src/euphorie/client/templates/report_identification.pt:83
 #: src/euphorie/client/templates/risk_evaluation.pt:150
 msgid "iphone_label_evaluation"
-msgstr "Procjena"
+msgstr "procjena"
 
 #. Default: Action Plan
 #: src/euphorie/client/templates/appendix.pt:42
@@ -1343,7 +1343,7 @@ msgstr "Plan mjera"
 #: src/euphorie/client/templates/shell.pt:164
 #: src/euphorie/client/templates/shell.pt:167
 msgid "label_report"
-msgstr "Izvješće"
+msgstr "Završni dokumenti"
 
 #. Default: Report
 #: src/euphorie/client/templates/appendix.pt:49
@@ -1352,7 +1352,7 @@ msgstr "Izvješće"
 #: src/euphorie/client/templates/report_identification.pt:95
 #: src/euphorie/client/templates/risk_evaluation.pt:165
 msgid "iphone_report"
-msgstr "Izvješće"
+msgstr "Završni dokumenti"
 
 #. Default: Logout
 #: src/euphorie/client/templates/appendix.pt:56
@@ -1743,7 +1743,7 @@ msgstr "Registracija"
 #: src/euphorie/client/templates/help.pt:24
 #: src/euphorie/client/templates/help.pt:39
 msgid "help_header_sessions"
-msgstr "Izrada vaše procjene rizika"
+msgstr "Izrada procjene rizika"
 
 #. Default: 1. Preparation
 #: src/euphorie/client/templates/help.pt:25
@@ -1755,7 +1755,7 @@ msgstr "1. Priprema"
 #: src/euphorie/client/templates/help.pt:26
 #: src/euphorie/client/templates/help.pt:45
 msgid "help_header_identification"
-msgstr "2. Identifikacija"
+msgstr "2. Prepoznavanje"
 
 #. Default: 3. Evaluation
 #: src/euphorie/client/templates/help.pt:27
@@ -1773,13 +1773,13 @@ msgstr "4. Plan mjera"
 #: src/euphorie/client/templates/help.pt:29
 #: src/euphorie/client/templates/help.pt:54
 msgid "help_header_report"
-msgstr "5. Izvješće"
+msgstr "5. Završni dokumenti"
 
 #. Default: What happens next?
 #: src/euphorie/client/templates/help.pt:30
 #: src/euphorie/client/templates/help.pt:57
 msgid "help_header_finalwords"
-msgstr "Što se događa nakon toga?"
+msgstr "Sljedeći koraci"
 
 #. Default: It is possible for you to print out the contents of the tool to
 #. enable you to look for the information at the relevant workplace (by walking
@@ -3776,7 +3776,7 @@ msgstr "${read_more} o ovom riziku."
 #: src/euphorie/client/templates/webhelpers.pt:286
 #: src/euphorie/client/templates/webhelpers.pt:318
 msgid "header_legal_references"
-msgstr "Pravila i pravne reference"
+msgstr "Propisi i dodatne informacije"
 
 #. Default: Additional resources to assess the risk
 #: src/euphorie/client/templates/webhelpers.pt:294
@@ -3864,7 +3864,7 @@ msgstr "Ovaj tekst pojašnjava 2 vrste pitanja o profilu."
 #: src/euphorie/content/help.py:54
 #: src/euphorie/content/templates/help_view.pt:27
 msgid "label_help_identification"
-msgstr "2. Identifikacija"
+msgstr "2. Prepoznavanje"
 
 #. Default: This text should explain how the risk identification works.
 #: src/euphorie/content/help.py:55
@@ -3897,7 +3897,7 @@ msgstr "Ovaj tekst pojašnjava način ispunjavanja Akcijskog plana."
 #: src/euphorie/content/help.py:75
 #: src/euphorie/content/templates/help_view.pt:36
 msgid "label_help_reports"
-msgstr "5. Izvješće"
+msgstr "5. Završni dokumenti"
 
 #. Default: This text should describe how the report can either be saved or
 #. printed.
@@ -4165,7 +4165,7 @@ msgstr "Pravila i pravne reference"
 #. Default: Identification
 #: src/euphorie/content/risk.py:116
 msgid "header_identification"
-msgstr "Identifikacija"
+msgstr "Prepoznavanje"
 
 #. Default: Show `not applicable' option
 #: src/euphorie/content/risk.py:120
