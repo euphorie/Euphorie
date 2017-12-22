@@ -137,6 +137,11 @@ def createDocument(survey_session):
         "Measure Heading",
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
 
+    style.textProps.size = 22
+    stylesheet.ParagraphStyles.append(ParagraphStyle(
+        "Legal Heading",
+        style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
+
     document = Document(stylesheet)
     document.SetTitle(survey_session.title)
     return document
