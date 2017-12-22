@@ -17,6 +17,11 @@
     <include package="htmllaundry" />
     <include package=".api" />
 
+    <browser:resourceDirectory
+        name="euphorie.static"
+        directory="static"
+        />
+
     <permission
         id="euphorie.content.ManageCountry"
         title="Euphorie: Manage country"
