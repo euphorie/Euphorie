@@ -49,8 +49,13 @@
           </div>
 
           <div style="margin: 20px 20px">
-            <img tal:define="images context/@@images; scale python:images.scale('logo', height=300, width=300, direction='thumbnail');"
-            tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" />
+            <img
+              tal:define="images context/@@images; scale python:images.scale('logo', height=300, width=300, direction='thumbnail');"
+              tal:condition="scale"
+              tal:on-error="nothing"
+              src="${scale/url}"
+              width="${scale/width}"
+              alt="" />
           </div>
           <p class="message notice" style="width:100%" i18n:translate="logo_instructions">
                 You may get the best results if you upload a logo as a <strong i18n:name="transparent" i18n:translate="logo_instructions_transparent">transparent</strong> PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
