@@ -29,86 +29,57 @@
           </label>
         </fieldset>
 
-        <fieldset class="client-preview">
-          <legend i18n:translate="label_preview">Preview</legend>
-          <iframe src="${tools/context_url}/@@colour-preview"
-            width="510" height="300" class="client-preview" id="client-preview" style="overflow:hidden">
-          </iframe>
-        </fieldset>
-        <dl class="accordion settings">
-        <dt>
-            <tal:span i18n:translate="header_colour_scheme">
-                Colour scheme
-            </tal:span>
-            <button id="resetColours" class="micro" i18n:translate="button_reset_colours">Restore to original colours</button>
-        </dt>
-          <dd class="section colourPicker">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_colours">
-                The colours you select here apply only for the client side of the application. Try to pick colours that have high enough contrast to keep the text on each button legible.
-            </dfn>
-            <p i18n:translate="help_colour_picker">
-                Please use the colour pickers below to select your organisation's colours. It's best to use a darker colour for the main colour and a lighter colour for the support colour.
-            </p>
-            <div id="mainColour" class="picker">
-                <label for="colour-1" tal:define="widget nocall:view/widgets/main_colour">
-                    <tal:span i18n:translate="label_main_colour">Main colour</tal:span>:
-                    <input type="text" id="colour-1" name="${widget/name}" value="${widget/value}"/>
-                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
-                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
-                </label>
-                <div id="picker-main"></div>
-            </div>
-            <div id="supportColour" class="picker">
-                <label for="colour-2" tal:define="widget nocall:view/widgets/support_colour">
-                    <tal:span i18n:translate="label_support_colour">Support colour</tal:span>:
-                    <input type="text" id="colour-2" name="${widget/name}" value="${widget/value}"/>
-                    <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
-                </label>
-                <div id="picker-support"></div>
-            </div>
-          </dd>
+        <fieldset class="concise">
+          <p class="legend" i18n:translate="label_logo">Logo</p>
+          <div class="z3cFieldContainer" tal:define="widget nocall:view/widgets/logo">
+            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool.</dfn>
 
-          <dt i18n:translate="label_logo">Logo</dt>
-          <dd class="section" tal:define="widget nocall:view/widgets/logo">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on both the client side app that your user group will see as well as on this editor environment in the top left corner. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes.</dfn>
-            <fieldset class="comprehensive">
-              <legend i18n:translate="label_logo_selection">Which logo you would like to display in the top left corner?</legend>
-              <ul class="radioList">
-                <li>
-                  <label><input type="radio" checked="${python:'checked' if not widget.allow_nochange else None}" name="${widget/name}.action" value="remove" /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
-                  </label>
-                </li>
-                <li>
-                  <label for="logoUpload"><input type="radio" id="logoUpload" name="${widget/name}.action" value="update" checked="${python:'checked' if widget.allow_nochange else None}"/><tal:span i18n:translate="logo_my_own">My own</tal:span>:
-                    <input type="file" name="${widget/name}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/></label>
-                </li>
-              </ul>
+          <fieldset class="comprehensive radioList ">
+              <p i18n:translate="label_logo_selection" class="legend">Which logo you would like to display in the lower left corner?</p>
+
+              <label>
+                <input name="${widget/name}.action" checked="${python:'checked' if not widget.allow_nochange else None}" value="remove" type="radio"><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
+              </label>
+              <label>
+                <input  name="${widget/name}.action" value="update" checked="${python:'checked' if widget.allow_nochange else None}" type="radio"><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
+                 <input type="file" name="${widget/name}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+              </label>
+              <input value="1" name="${widget/name}.action-empty-marker" type="hidden">
             </fieldset>
-            <p class="message notice" i18n:translate="logo_instructions">
-              You may get the best results if you upload a logo as a <strong i18n:name="transparent" i18n:translate="logo_instructions_transparent">transparent</strong> PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
-            </p>
-          </dd>
+          </div>
 
-          <dt i18n:translate="label_password">Password</dt>
-          <dd class="section">
+          <div style="margin: 20px 20px">
+            <img tal:define="images context/@@images; scale python:images.scale('logo', height=300, width=300, direction='thumbnail');"
+            tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" />
+          </div>
+          <p class="message notice" style="width:100%" i18n:translate="logo_instructions">
+                You may get the best results if you upload a logo as a <strong i18n:name="transparent" i18n:translate="logo_instructions_transparent">transparent</strong> PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
+          </p>
+        </fieldset>
+
+        <fieldset class="concise">
+          <p class="legend" i18n:translate="label_password">Password</p>
+          <div class="z3cFieldContainer">
             <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_password">This is the password that you need to log on to this editor environment.</dfn>
             <fieldset class="concise">
               <tal:widget replace="structure view/widgets/password/render" />
             </fieldset>
-            <p class="message notice" i18n:translate="password_policy_conditions">
-              Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @).
-            </p>
-          </dd>
+          </div>
+       <p class="message notice" style="width:100%" i18n:translate="password_policy_conditions">
+          Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @).
+        </p>
+        </fieldset>
 
-          <dt i18n:translate="label_contact_person">Contact person</dt>
-          <dd class="section">
+        <fieldset class="concise">
+          <p class="legend" i18n:translate="label_contact_person">Contact person</p>
+          <div class="z3cFieldContainer">
             <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_contactperson">Give the name of the person responsible for the OiRA tools of this sector.</dfn>
             <fieldset class="concise">
               <tal:widget replace="structure view/widgets/contact_name/render" />
               <tal:widget replace="structure view/widgets/contact_email/render" />
             </fieldset>
-          </dd>
-        </dl>
+          </div>
+        </fieldset>
 
         <div class="buttonBar">
           <button name="form.buttons.save" type="submit" i18n:translate="button_save_changes">Save changes</button>
@@ -116,137 +87,5 @@
         </div>
       </form>
     </metal:content>
-    <metal:scripts fill-slot="scripts">
-    <script type="text/javascript" src="${tools/portal/++resource++NuPlone.libraries}/farbtastic.js"></script>
-    <tal:container define="
-                        main_colour         view/main_colour;
-                        support_colour      view/support_colour;
-                        main_bg_colour      view/main_bg_colour;
-                        support_bg_colour   view/support_bg_colour;">
-    <script type="text/javascript">
-// <![CDATA[
-function IsBright(hsl) {
-    return hsl[2]>0.50;
-}
-
-function MatchColour(hsl, l1, l2, s1) {
-    var h=hsl[0], s=hsl[1], l=hsl[2];
-
-    if (s1!==undefined) {
-      s=s*s1;
-    }
-
-    if ((0.16<h && h<0.33) || (l>0.49)) {
-        l=l1;
-    } else {
-         l=l2;
-    }
-
-    return [h,s,l];
-}
-
-function UpdatePreview(fb) {
-    var frame=$("#client-preview").get(0),
-        style=$("head style:last", frame.contentDocument),
-        body=$("body", frame.contentDocument),
-        buffer,
-
-        colour_1 = $("#colour-1").val(),
-        colour_2 = $("#colour-2").val(),
-
-        main_background = colour_1 ? colour_1 : "${main_bg_colour}",
-        main_background_hsl = fb.RGBToHSL(fb.unpack(main_background)),
-        main_foreground = fb.pack(fb.HSLToRGB(MatchColour(main_background_hsl, 0.0, 0.60, 0.3))),
-
-        support_background = colour_2 ? colour_2 : "${support_bg_colour}",
-        support_background_hsl = fb.RGBToHSL(fb.unpack(support_background)),
-        support_foreground = fb.pack(fb.HSLToRGB(MatchColour(support_background_hsl, 0.2, 0.65)));
-
-    buffer ="#navigation li a { color: " + main_foreground + "; background-color: " + main_background + "; }\n";
-    buffer+="h1 {background-color: " + main_background + "; }\n";
-    buffer+="#steps li.complete, #steps li.current { color: " + support_foreground + "; background-color: " + support_background + "; }\n";
-    buffer+="#steps li.complete a, #steps li.current a { color: " + support_foreground + "; }\n";
-    buffer+="#steps li a, #steps li a:hover { color: " + main_foreground + "; }\n";
-
-    // .text (or similar) doesn't work with <style> tags in IE
-    if ($.browser.msie && $.browser.version < 9) {
-        var doc = window.frames[0].document,
-            iestyle = doc.createElement('style');
-            head = doc.getElementsByTagName('head')[0],
-            styles = doc.getElementsByTagName('style'),
-            laststyle = styles[styles.length-1];
-            rules = doc.createTextNode(buffer);
-
-        iestyle.type = 'text/css';
-        iestyle.styleSheet.cssText = rules.nodeValue;
-
-        head.removeChild(laststyle);
-        head.appendChild(iestyle);
-    }
-    else style.text(buffer); // Works in all other browsers
-
-    if (colour_1 || colour_2) {
-        body.addClass("deCornae");
-    } else {
-        body.removeClass("deCornae");
-    }
-
-    if (IsBright(main_background_hsl)) {
-        body.addClass("brightMainColour")
-            .removeClass("darkMainColour");
-    } else {
-        body.removeClass("brightMainColour")
-            .addClass("darkMainColour");
-    }
-
-    if (IsBright(support_background_hsl)) {
-        body.addClass("brightSupportColour")
-            .removeClass("darkSupportColour");
-    } else {
-        body.removeClass("brightSupportColour")
-            .addClass("darkSupportColour");
-    }
-}
-
-function MainColourChanged(colour) {
-    $("#colour-1").val(colour);
-    UpdatePreview(this);
-}
-
-function SupportColourChanged(colour) {
-    $("#colour-2").val(colour).data("hsl", this.hsl);
-    UpdatePreview(this);
-}
-
-$("#resetColours").on("click", function() {
-    var frame=$("#client-preview").get(0),
-        style=$("head style:last", frame.contentDocument),
-        body=$("body", frame.contentDocument);
-
-    $.farbtastic("#picker-main").setColor("${main_colour}");
-    $.farbtastic("#picker-support").setColor("${support_colour}");
-
-    body.removeClass("brightMainColour")
-      .removeClass("darkMainColour")
-      .removeClass("brightSupportColour")
-      .removeClass("brightMainColour");
-
-    $("#colour-1").val("${main_colour}");
-    $("#colour-2").val("${support_colour}");
-});
-
-$(document).ready(function() {
-    var fb = $.farbtastic("#picker-main", MainColourChanged).setColor($("#colour-1").val());
-    $.farbtastic("#picker-support", SupportColourChanged).setColor($("#colour-2").val());
-    $(".accordion").accordion({autoHeight: false});
-
-    $("#client-preview").load(function() {
-        UpdatePreview(fb);
-    });
-});
-// ]]>
-    </script>
-    </tal:container>
-    </metal:scripts>
   </body>
 </html>

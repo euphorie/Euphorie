@@ -4,7 +4,13 @@ Changelog
 9.0.32 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
+
+- In the CMS, the sector edit form has gotten simpler. Since tool creators
+  cannot influence the colour scheme any more, the colour picker and the
+  preview have been removed. This allows us to get rid of the accordion
+  and should help to fix recurring problems from TNO in resetting the
+  password.
 
 
 9.0.31 (2017-12-14)
