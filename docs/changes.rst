@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.33 (unreleased)
+9.0.33 (2018-01-17)
 -------------------
 
 - In the Identification Report (list of all risks), show the Legal References,
