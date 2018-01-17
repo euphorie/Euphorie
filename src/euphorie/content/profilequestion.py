@@ -19,7 +19,6 @@ from .module import IModule
 from .module import item_depth
 from .module import tree_depth
 from .risk import IRisk
-from .risk import TextLines4Rows
 from .utils import StripMarkup
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -32,6 +31,8 @@ from zope import schema
 from zope.component import getMultiAdapter
 from zope.interface import implements
 import sys
+from plonetheme.nuplone.z3cform.directives import depends
+from euphorie.content.dependency import ConditionalTextLine
 
 
 grok.templatedir("templates")
@@ -50,7 +51,24 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         required=True)
     form.widget(question="euphorie.content.risk.TextLines4Rows")
 
-    label_multiple_present = schema.TextLine(
+    use_location_question = schema.Bool(
+        title=_("label_use_location_question",
+                default=u"Ask the user about (multiple) locations?"),
+        description=_(
+            u'description_use_location_question',
+            default=u'If this part is active, the user will be asked to '
+            u'enter the name of all locations for which this module applies. '
+            u'This means, the module will be repeated as many times as there '
+            u'are locations. If you do not need this repeatable behaviour, '
+            u'untick the checkbox to turn it off.'
+        ),
+        required=False,
+        default=True)
+
+    depends("label_multiple_present",
+            "use_location_question",
+            "on")
+    label_multiple_present = ConditionalTextLine(
         title=_(u'Multiple item question'),
         required=True,
         description=_(u'This question must ask the user if the service is '
@@ -58,14 +76,20 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     )
     form.widget(label_multiple_present="euphorie.content.risk.TextLines4Rows")
 
-    label_single_occurance = schema.TextLine(
+    depends("label_single_occurance",
+            "use_location_question",
+            "on")
+    label_single_occurance = ConditionalTextLine(
         title=_(u'Single occurance prompt'),
         description=_(u'This must ask the user for the name of the '
                       u'relevant location.'),
         required=True)
     form.widget(label_single_occurance="euphorie.content.risk.TextLines4Rows")
 
-    label_multiple_occurances = schema.TextLine(
+    depends("label_multiple_occurances",
+            "use_location_question",
+            "on")
+    label_multiple_occurances = ConditionalTextLine(
         title=_(u'Multiple occurance prompt'),
         description=_(u'This must ask the user for the names of all '
                       u'relevant locations.'),

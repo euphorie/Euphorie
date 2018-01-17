@@ -11,6 +11,12 @@ Changed:
   preview have been removed. This allows us to get rid of the accordion
   and should help to fix recurring problems from TNO in resetting the
   password.
+- Profile Questions: in 2012, optional profile questions were removed, and
+  merged with the concept of repeatable profile questions. As user and tool
+  creator feedback has shown, there are valid use-cases where a profile should
+  be optional, but asking about one or more locations does not make sense.
+  Therefore, the "location" aka repeatable part of a profile question can now
+  be switched off in the CMS.
 
 
 9.0.31 (2017-12-14)

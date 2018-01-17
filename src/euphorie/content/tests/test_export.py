@@ -426,7 +426,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile = ProfileQuestion()
         profile.title = u"Office buildings"
         profile.question = u"Do you have an office building?"
-        profile.type = "optional"
+        profile.use_location_question = False
         root = self.root()
         view = ExportSurvey(None, None)
         node = view.exportProfileQuestion(root, profile)
@@ -436,6 +436,34 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '  <profile-question>\n'
                 '    <title>Office buildings</title>\n'
                 '    <question>Do you have an office building?</question>\n'
+                '    <use-location-question>false</use-location-question>\n'
+                '  </profile-question>\n'
+                '</root>\n')
+
+    def testProfileQuestion_LocationQuestions(self):
+        from euphorie.content.profilequestion import ProfileQuestion
+        profile = ProfileQuestion()
+        profile.title = u"Office buildings"
+        profile.question = u"Do you have an office building?"
+        profile.label_multiple_present = u"Do you have more than one building?"
+        profile.label_single_occurance = u"Enter the name of your building."
+        profile.label_multiple_occurances = u"Enter the names of each of your buildings."
+        root = self.root()
+        view = ExportSurvey(None, None)
+        node = view.exportProfileQuestion(root, profile)
+        self.assertTrue(node in root)
+        self.assertEqual(etree.tostring(root, pretty_print=True),
+                '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+                '  <profile-question>\n'
+                '    <title>Office buildings</title>\n'
+                '    <question>Do you have an office building?</question>\n'
+                '    <label-multiple-present>Do you have more than one building'
+                '?</label-multiple-present>\n'
+                '    <label-single-occurance>Enter the name of your building.'
+                '</label-single-occurance>\n'
+                '    <label-multiple-occurances>Enter the names of each of your'
+                ' buildings.</label-multiple-occurances>\n'
+                '    <use-location-question>true</use-location-question>\n'
                 '  </profile-question>\n'
                 '</root>\n')
 
@@ -444,7 +472,6 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile = ProfileQuestion()
         profile.title = u"Office buildings"
         profile.description = u"<p>Owning property brings risks.</p>"
-        profile.type = 'optional'
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
@@ -458,7 +485,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile = ProfileQuestion()
         profile.title = u"Office buildings"
         profile.description = u"<p>Owning property brings risks.</p>"
-        profile.type = "optional"
+        profile.use_location_question = False
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
@@ -469,6 +496,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '    <question>Office buildings</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.'
                 '&lt;/p&gt;</description>\n'
+                '    <use-location-question>false</use-location-question>\n'
                 '  </profile-question>\n'
                 '</root>\n')
 
@@ -479,7 +507,6 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile.title = u"Office buildings"
         profile.question = u"Do you have an office buildings?"
         profile.description = u"<p>Owning property brings risks.</p>"
-        profile.type = "optional"
         risk = Risk()
         risk.type = "top5"
         risk.title = u"Can your windows be locked?"
@@ -498,6 +525,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings risks.'
                 '&lt;/p&gt;</description>\n'
+                '    <use-location-question>true</use-location-question>\n'
                 '    <risk type="top5">\n'
                 '      <title>Can your windows be locked?</title>\n'
                 '      <problem-description>Not all your windows can be '
@@ -516,7 +544,6 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
         profile.title = u"Office buildings"
         profile.question = u"Do you have an office buildings?"
         profile.description = u"<p>Owning property brings risks.</p>"
-        profile.type = "optional"
         module = Module()
         module.title = u"Office buildings"
         module.description = u"<p>Owning property brings risks.</p>"
@@ -533,6 +560,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '    <question>Do you have an office buildings?</question>\n'
                 '    <description>&lt;p&gt;Owning property brings '
                 'risks.&lt;/p&gt;</description>\n'
+                '    <use-location-question>true</use-location-question>\n'
                 '    <module optional="false">\n'
                 '      <title>Office buildings</title>\n'
                 '      <description>&lt;p&gt;Owning property brings '
@@ -627,6 +655,7 @@ class ExportSurveyTests(PlacelessSetup, unittest.TestCase):
                 '      <question>Do you have an office buildings?</question>\n'
                 '      <description>&lt;p&gt;Owning property brings '
                 'risks.&lt;/p&gt;</description>\n'
+                '      <use-location-question>true</use-location-question>\n'
                 '    </profile-question>\n'
                 '  </survey>\n'
                 '</root>\n')

@@ -23,6 +23,7 @@
         <dt i18n:translate="label_profilequestion_question">Question</dt>
         <dd>${context/question}</dd>
 
+        <tal:use_location_question condition="context/use_location_question">
         <dt i18n:translate="">Multiple Item Question</dt>
         <dd tal:condition="python:not getattr(context, 'label_multiple_present', None)"><em i18n:translate="">Not provided</em></dd>
         <dd tal:condition="python:getattr(context, 'label_multiple_present', None)">${context/label_multiple_present}</dd>
@@ -34,6 +35,7 @@
         <dt i18n:translate="">Multiple occurance prompt</dt>
         <dd tal:condition="python:not getattr(context, 'label_multiple_occurances', None)"><em i18n:translate="">Not provided</em></dd>
         <dd tal:condition="python:getattr(context, 'label_multiple_occurances', None)">${context/label_multiple_occurances}</dd>
+        </tal:use_location_question>
       </dl>
 
       <tal:block condition="python:view.modules">
