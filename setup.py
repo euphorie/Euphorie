@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '9.0.32'
+version = '9.0.33.dev0'
 
 setup(name="Euphorie",
       version=version,
