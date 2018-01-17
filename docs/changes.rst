@@ -4,7 +4,8 @@ Changelog
 9.0.33 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- In the Identification Report (list of all risks), show the Legal References,
+  if present. (TNO only, since this report is customised for EU-OSHA)
 
 
 9.0.32 (2018-01-17)

@@ -466,7 +466,7 @@ class IdentificationReportDownload(grok.View):
                         self.request)
             else:
                 zodb_node = survey.restrictedTraverse(
-                    node.zodb_path.split('/'))
+                    node.zodb_path.split('/'), None)
                 show_problem_description = (
                     has_risk and
                     getattr(zodb_node, 'problem_description', None) and
@@ -502,6 +502,19 @@ class IdentificationReportDownload(grok.View):
 
             if node.comment and node.comment.strip():
                 section.append(Paragraph(comment_style, node.comment))
+
+            if getattr(zodb_node, 'legal_reference', None):
+                section.append(
+                    Paragraph(
+                        document.StyleSheet.ParagraphStyles.LegalHeading,
+                        t(_(
+                            "label_legal_reference",
+                            default="Legal and policy references"
+                        ))
+                    )
+                )
+                for el in HtmlToRtf(zodb_node.legal_reference, normal_style):
+                    section.append(el)
 
     def render(self):
         document = createDocument(self.session)
