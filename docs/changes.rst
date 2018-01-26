@@ -4,11 +4,16 @@ Changelog
 9.0.34 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
+
+- In the Identification Report, handle links that are present in the markup
+  in a better way.
 
 
 9.0.33 (2018-01-17)
 -------------------
+
+Changed:
 
 - In the Identification Report (list of all risks), show the Legal References,
   if present. (TNO only, since this report is customised for EU-OSHA)

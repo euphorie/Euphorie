@@ -149,6 +149,8 @@ def createDocument(survey_session):
 
 class _HtmlToRtf(object):
     def encode(self, text):
+        # Get rid of any manual tabs
+        text = text.replace('\t', '')
         if not isinstance(text, unicode):
             return text
 
@@ -172,6 +174,17 @@ class _HtmlToRtf(object):
 
         if node.text and node.text.strip():
             output.append(TEXT(self.encode(node.text), **new_style))
+            if node.tag == 'a':
+                href = node.get('href')
+                href = href and href.strip()
+                if href and href != node.text.strip():
+                    # Add link target in brackets
+                    tag_style = style.copy()
+                    tag_style["italic"] = True
+                    output.append(TEXT(
+                        self.encode(u" (%s)" % node.get('href')),
+                        **tag_style)
+                    )
         for sub in node:
             self.handleInlineText(sub, output, new_style)
         if node.tail and node.tail.strip():
@@ -180,21 +193,24 @@ class _HtmlToRtf(object):
 
     def handleElement(self, node, style):
         output = []
-        if node.tag in ["p", "li", 'strong', 'b', 'em', 'i', 'u']:
+        if node.tag in ["p", "li", 'strong', 'b', 'em', 'i', 'u', 'a']:
             txt = self.handleInlineText(node, [])
             if txt:
                 output.append(Paragraph(style, *txt))
         elif node.tag in ["ul", "ol"]:  # Lame handling of lists
             for sub in node:
                 output.extend(self.handleElement(sub, style))
-        if node.tail:
-            output.append(Paragraph(style, node.tail))
+        tail = node.tail
+        if tail:
+            # Prevent unwanted empty lines caused by listings
+            if node.tag == 'li':
+                tail = tail.strip()
+            output.append(Paragraph(style, tail))
         return output
 
     def __call__(self, markup, default_style):
         if not markup or not markup.strip():
             return []
-
         try:
             doc = lxml.html.document_fromstring(markup)
         except etree.XMLSyntaxError:
