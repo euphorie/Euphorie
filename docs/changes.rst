@@ -8,6 +8,9 @@ Changed:
 
 - In the Identification Report, handle links that are present in the markup
   in a better way.
+- In the Status page / Overview of Risks report: Risks answered with "Does not
+  apply" are no longer counted as "no risk" or "not answered", but are not shown
+  in the report at all.
 
 
 9.0.33 (2018-01-17)

@@ -547,18 +547,22 @@ class Status(grok.View):
             for mp in module_paths:
                 if path.startswith(mp):
                     return mp
-        return [{
-                'module_path': _module_path(risk[0]),
-                'id': risk[1],
-                'path': risk[2],
-                'title': risk[3],
-                'identification': risk[4],
-                'priority': risk[5],
-                'risk_type': risk[6],
-                'zodb_path': risk[7],
-                'is_custom_risk': risk[8],
-                'postponed': risk[9],
-            } for risk in risks]
+        filtered_risks = []
+        for risk in risks:
+            if risk[4] != 'n/a':
+                filtered_risks.append({
+                    'module_path': _module_path(risk[0]),
+                    'id': risk[1],
+                    'path': risk[2],
+                    'title': risk[3],
+                    'identification': risk[4],
+                    'priority': risk[5],
+                    'risk_type': risk[6],
+                    'zodb_path': risk[7],
+                    'is_custom_risk': risk[8],
+                    'postponed': risk[9],
+                })
+        return filtered_risks
 
     def getStatus(self):
         """ Gather a list of the modules and locations in this survey as well
