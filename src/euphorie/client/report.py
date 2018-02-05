@@ -36,6 +36,7 @@ from rtfng.document.paragraph import Paragraph
 from rtfng.document.paragraph import Table
 from rtfng.document.section import Section
 from rtfng.Elements import Document
+from rtfng.Elements import MakeDefaultStyleSheet
 from rtfng.Elements import StyleSheet
 from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
@@ -173,7 +174,15 @@ class _HtmlToRtf(object):
             new_style["underline"] = True
 
         if node.text and node.text.strip():
-            output.append(TEXT(self.encode(node.text), **new_style))
+            if node.tag == 'li':
+                # import pdb; pdb.set_trace( )
+                new_style["italic"] = True
+                output.append(TEXT(
+                    self.encode(u"* %s" % node.text),
+                    **new_style)
+                )
+            else:
+                output.append(TEXT(self.encode(node.text), **new_style))
             if node.tag == 'a':
                 href = node.get('href')
                 href = href and href.strip()
@@ -199,12 +208,13 @@ class _HtmlToRtf(object):
                 output.append(Paragraph(style, *txt))
         elif node.tag in ["ul", "ol"]:  # Lame handling of lists
             for sub in node:
-                output.extend(self.handleElement(sub, style))
+                output.extend(self.handleElement(sub, self.li_style))
+            output.append(Paragraph(style, ''))  # finish with empty paragraph
         tail = node.tail
+        # Prevent unwanted empty lines inside listings
+        if node.tag == 'li':
+            tail = tail.strip()
         if tail:
-            # Prevent unwanted empty lines caused by listings
-            if node.tag == 'li':
-                tail = tail.strip()
             output.append(Paragraph(style, tail))
         return output
 
@@ -218,6 +228,10 @@ class _HtmlToRtf(object):
             text = text.replace("&#13", "\n")
             return [Paragraph(default_style, self.escape(text))]
 
+        default_stylesheet = MakeDefaultStyleSheet()
+        li_style = default_stylesheet.ParagraphStyles.Normal.Copy()
+        self.li_style = li_style.ParagraphPropertySet.SetLeftIndent(
+            TabPropertySet.DEFAULT_WIDTH)
         output = []
         for node in doc.find('body'):
             output.extend(self.handleElement(node, default_style))
