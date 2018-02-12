@@ -51,11 +51,11 @@
 
   <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.resources">
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${lib_url}/oira.js"></script>
+        <script type="text/javascript" src="${lib_url}/bundle.js"></script>
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
         <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${lib_url}/oira.js"></script>
+        <script type="text/javascript" src="${lib_url}/bundle.min.js"></script>
     </tal:block>
   </metal:javascript>
 

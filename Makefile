@@ -99,8 +99,9 @@ jekyll: prototype
 	@cd prototype && make jekyll
 
 resources-install: bundle jekyll
-	cp prototype/_site/bundles/oira* src/euphorie/client/resources
+	cp prototype/_site/bundles/bundle* src/euphorie/client/resources
 	cp -R prototype/_site/style/* src/euphorie/client/resources
+	@echo "Make sure to go to ../NuPlone, make bundle there, and copy oira.cms* to src/euphorie/client/resources"
 
 # %.min.css: %.css
 # 	set -e ; $(CSS_PACK) $< > $@~ ; mv $@~ $@

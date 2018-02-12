@@ -169,7 +169,6 @@
     <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:evaluation"/>
     <metal:css use-macro="webhelpers/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
-    <script type="text/javascript" src="client/++resource++euphorie.behaviour/oira.js"></script>
     <tal:block replace="tile:client-analytics"/>
   </body>
 </html>
