@@ -175,10 +175,9 @@ class _HtmlToRtf(object):
 
         if node.text and node.text.strip():
             if node.tag == 'li':
-                # import pdb; pdb.set_trace( )
                 new_style["italic"] = True
                 output.append(TEXT(
-                    self.encode(u"* %s" % node.text),
+                    self.encode(node.text),
                     **new_style)
                 )
             else:
@@ -190,6 +189,7 @@ class _HtmlToRtf(object):
                     # Add link target in brackets
                     tag_style = style.copy()
                     tag_style["italic"] = True
+                    tag_style['colour'] = self.base_style_sheet.Colours.Blue
                     output.append(TEXT(
                         self.encode(u" (%s)" % node.get('href')),
                         **tag_style)
@@ -229,6 +229,7 @@ class _HtmlToRtf(object):
             return [Paragraph(default_style, self.escape(text))]
 
         default_stylesheet = MakeDefaultStyleSheet()
+        self.base_style_sheet = StyleSheet()
         li_style = default_stylesheet.ParagraphStyles.Normal.Copy()
         self.li_style = li_style.ParagraphPropertySet.SetLeftIndent(
             TabPropertySet.DEFAULT_WIDTH)
