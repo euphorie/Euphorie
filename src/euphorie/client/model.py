@@ -7,24 +7,28 @@ SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
 
+from AccessControl.PermissionRole import _what_not_even_god_should_do
+from euphorie.client.enum import Enum
+from Products.PluggableAuthService.interfaces.authservice import IBasicUser
+from sqlalchemy import ForeignKey
+from sqlalchemy import orm
+from sqlalchemy import schema
+from sqlalchemy import sql
+from sqlalchemy import types
+from sqlalchemy.ext import declarative
+from sqlalchemy.orm import backref
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql import functions
+from z3c.saconfig import Session
+from zope.component.hooks import getSite
+from zope.interface import implements
+from zope.sqlalchemy import datamanager
+
+import Acquisition
 import datetime
 import logging
-import random
-from sqlalchemy import schema
-from sqlalchemy import types
-from sqlalchemy import orm
-from sqlalchemy import sql
-from sqlalchemy.sql import functions
-from sqlalchemy.ext import declarative
-from z3c.saconfig import Session
-from zope.sqlalchemy import datamanager
-from zope.interface import implements
-import Acquisition
 import OFS.Traversable
-from AccessControl.PermissionRole import _what_not_even_god_should_do
-from zope.component.hooks import getSite
-from Products.PluggableAuthService.interfaces.authservice import IBasicUser
-from euphorie.client.enum import Enum
+import random
 
 
 metadata = schema.MetaData()
@@ -183,6 +187,34 @@ class SurveyTreeItem(BaseObject):
         return removed
 
 
+class Group(BaseObject):
+    __tablename__ = "group"
+
+    group_id = schema.Column(
+        types.Integer(),
+        primary_key=True,
+        autoincrement=True,
+    )
+    parent_id = schema.Column(types.Integer, ForeignKey('group.group_id'))
+    children = relationship(
+        'Group',
+        backref=backref('parent', remote_side=[group_id]),
+    )
+    accounts = relationship(
+        'Account',
+        backref=backref('group', remote_side=[group_id]),
+    )
+
+    def descendants(self):
+        ''' Return all the groups in the hierarchy flattened
+        '''
+        descendants = []
+        for child in self.children:
+            descendants.append(child)
+            descendants.extend(child.descendants())
+        return descendants
+
+
 class Account(BaseObject):
     """A user account. Users have to register with euphorie before they can
     start a survey session. A single account can have multiple survey sessions.
@@ -202,6 +234,15 @@ class Account(BaseObject):
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
             Enum([u"guest", u"converted", None]), default=None, nullable=True)
+    group_id = schema.Column(types.Integer, ForeignKey('group.group_id'))
+
+    def groups(self):
+        group = self.group
+        if not group:
+            return []
+        groups = [group]
+        groups.extend(group.descendants())
+        return groups
 
     @property
     def email(self):
@@ -290,6 +331,15 @@ class SurveySession(BaseObject):
             schema.ForeignKey(Account.id,
                 onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, index=True)
+    group_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(
+            Group.group_id,
+            onupdate="CASCADE",
+            ondelete="CASCADE",
+        ),
+        index=True,
+    )
     title = schema.Column(types.Unicode(512))
     created = schema.Column(types.DateTime, nullable=False,
             default=functions.now())
@@ -302,6 +352,17 @@ class SurveySession(BaseObject):
     account = orm.relation(Account,
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
+    group = orm.relation(Group,
+            backref=orm.backref("sessions", order_by=modified,
+                                cascade="all, delete, delete-orphan"))
+
+    def __init__(self, *args, **kwargs):
+        ''' If the account has a group and no group was specified,
+        use that group.
+        '''
+        if 'group' not in kwargs:
+            kwargs['group'] = kwargs['account'].group
+        return super(SurveySession, self).__init__(*args, **kwargs)
 
     def hasTree(self):
         return bool(Session.query(SurveyTreeItem)
@@ -549,7 +610,7 @@ _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
     for cls in [SurveyTreeItem, SurveySession, Module, Risk,
-                ActionPlan, Account, AccountChangeRequest, Company]:
+                ActionPlan, Group, Account, AccountChangeRequest, Company]:
         declarative.instrument_declarative(cls,
                 metadata._decl_registry, metadata)
     _instrumented = True
