@@ -6,8 +6,8 @@ Changelog
 
 Changed:
 
-- In the Identification Report, handle links that are present in the markup
-  in a better way.
+- In the Identification Report, handle links and lists that are present in the
+  markup in a better way.
 - In the Status page / Overview of Risks report: Risks answered with "Does not
   apply" are no longer counted as "no risk" or "not answered", but are not shown
   in the report at all.
