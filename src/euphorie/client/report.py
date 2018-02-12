@@ -139,10 +139,12 @@ def createDocument(survey_session):
         style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
 
     style.textProps.size = 22
-    stylesheet.ParagraphStyles.append(ParagraphStyle(
-        "Legal Heading",
-        style.Copy(), ParagraphPropertySet(space_before=60, space_after=20)))
 
+    legal_heading = ParagraphStyle(
+        "Legal Heading",
+        style.Copy(), ParagraphPropertySet(space_before=60, space_after=20))
+    # legal_heading = legal_heading.SetNext(stylesheet.ParagraphStyles.Normal)
+    stylesheet.ParagraphStyles.append(legal_heading)
     document = Document(stylesheet)
     document.SetTitle(survey_session.title)
     return document
@@ -175,7 +177,6 @@ class _HtmlToRtf(object):
 
         if node.text and node.text.strip():
             if node.tag == 'li':
-                new_style["italic"] = True
                 output.append(TEXT(
                     self.encode(node.text),
                     **new_style)
@@ -207,13 +208,18 @@ class _HtmlToRtf(object):
             if txt:
                 output.append(Paragraph(style, *txt))
         elif node.tag in ["ul", "ol"]:  # Lame handling of lists
+            cnt = 0
+            li_style = self.li_style
             for sub in node:
-                output.extend(self.handleElement(sub, self.li_style))
-            output.append(Paragraph(style, ''))  # finish with empty paragraph
+                cnt += 1
+                if cnt == len(node):
+                    li_style = self.li_style_last
+                output.extend(self.handleElement(sub, li_style))
         tail = node.tail
-        # Prevent unwanted empty lines inside listings
-        if node.tag == 'li':
-            tail = tail.strip()
+        # Prevent unwanted empty lines inside listings and paragraphs that come
+        # from newlines in the markup
+        if node.tag in ['li', 'p']:
+            tail = tail and tail.strip()
         if tail:
             output.append(Paragraph(style, tail))
         return output
@@ -231,8 +237,14 @@ class _HtmlToRtf(object):
         default_stylesheet = MakeDefaultStyleSheet()
         self.base_style_sheet = StyleSheet()
         li_style = default_stylesheet.ParagraphStyles.Normal.Copy()
-        self.li_style = li_style.ParagraphPropertySet.SetLeftIndent(
+        li_style = li_style.ParagraphPropertySet.SetLeftIndent(
             TabPropertySet.DEFAULT_WIDTH)
+        self.li_style = li_style.SetSpaceAfter(20)
+        # Last element in a list has more space after
+        li_style_last = default_stylesheet.ParagraphStyles.Normal.Copy()
+        li_style_last = li_style_last.ParagraphPropertySet.SetLeftIndent(
+            TabPropertySet.DEFAULT_WIDTH)
+        self.li_style_last = li_style_last.SetSpaceAfter(200)
         output = []
         for node in doc.find('body'):
             output.extend(self.handleElement(node, default_style))
