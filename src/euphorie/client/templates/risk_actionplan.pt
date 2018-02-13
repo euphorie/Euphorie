@@ -60,6 +60,7 @@
         tal:repeat="actionplan action_plans">
 
         <h2><tal:span i18n:translate="Measure">Measure</tal:span> ${repeat/actionplan/number}</h2>
+        <input type="hidden" name="measure.id:records" value="${actionplan/id}" />
         <p class="functions">
             <a class="icon-pencil pat-tooltip" tal:condition="measures" data-pat-tooltip="source:ajax" href="#standard-solutions-${repeat/actionplan/number}" i18n:translate="label_prefill">Pre-fill</a>
             <a class="icon-trash remove-clone" i18n:translate="label_remove_measure">Delete this measure</a>
@@ -71,15 +72,14 @@
                     <li tal:repeat="measure measures">
                         <a class="pat-inject close-panel title"
                         href="#standard-solution-${repeat/measure/number}"
-                        data-pat-inject="target: #fields-0; confirm: never; confirm-message: ${view/override_confirmation}">
+                        data-pat-inject="target: #fields-${repeat/actionplan/number}; confirm: never; confirm-message: ${view/override_confirmation}">
                         <em class="iconified icon-plus-circle" i18n:translate="button_add">Add</em>${measure/description}</a>
                     </li>
                 </ol>
             </div>
         </tal:if_has_measures>
 
-        <fieldset class="vertical" id="fields-0">
-            <input type="hidden" name="measure.id:records" value="${actionplan/id}" />
+        <fieldset class="vertical" id="fields-${repeat/actionplan/number}">
             <label><tal:label i18n:translate="label_description">Description</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt" i18n:translate="actionplan_measure_tooltip">Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance “common sense (no OSH knowledge required)”, “no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required”, or “OSH expert”. You can also describe here any other additional requirement (if any).</dfn>
                 <textarea class="actionPlan" type="text" name="measure.action_plan:utf8:ustring:records" rows="3"
