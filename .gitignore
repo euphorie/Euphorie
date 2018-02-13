@@ -9,6 +9,7 @@
 /.mr.developer.cfg
 /bin
 /develop-eggs
+/local/
 /parts
 /src/NuPlone
 /src/lingua
