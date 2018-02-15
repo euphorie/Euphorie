@@ -36,6 +36,7 @@ from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from sqlalchemy import orm
 from sqlalchemy import sql
@@ -49,8 +50,10 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+
 import logging
 import urlparse
+
 
 PloneLocalesFactory = MessageFactory("plonelocales")
 
@@ -72,6 +75,13 @@ class View(grok.View):
     grok.template("survey_sessions")
     grok.name("index_html")
 
+    @property
+    @memoize_contextless
+    def account(self):
+        ''' The currenttly authenticated account
+        '''
+        return model.get_current_account()
+
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -82,11 +92,11 @@ class View(grok.View):
         """
         survey = aq_inner(self.context)
         my_path = utils.RelativePath(self.request.client, survey)
-        account = getSecurityManager().getUser()
+        import ipdb; ipdb.set_trace()
         result = [{'id': session.id,
                  'title': session.title,
                  'modified': session.modified}
-                 for session in account.sessions
+                 for session in self.account.sessions
                  if session.zodb_path == my_path]
         result.sort(key=lambda s: s['modified'], reverse=True)
         return result

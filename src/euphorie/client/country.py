@@ -9,21 +9,23 @@ delete & rename sessions
 URL: https://client-oiranew.syslab.com/eu
 """
 
-import logging
+from .. import MessageFactory as _
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from AccessControl import getSecurityManager
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
-from euphorie.content.survey import ISurvey
 from euphorie.client.session import SessionManager
+from euphorie.content.survey import ISurvey
 from five import grok
-from plone.directives import form
-from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import dexterity
+from plone.directives import form
+from plone.memoize.view import memoize
+from plone.memoize.view import memoize_contextless
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
@@ -33,8 +35,7 @@ from zope.interface import directlyProvides
 from zope.interface import implements
 from zope.interface import Interface
 
-
-from .. import MessageFactory as _
+import logging
 
 
 grok.templatedir("templates")
@@ -59,6 +60,42 @@ class View(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("sessions")
 
+    @property
+    @memoize_contextless
+    def account(self):
+        ''' The currenttly authenticated account
+        '''
+        return model.get_current_account()
+
+    def sessions2dicts(self, sessions):
+        ''' A list of sessions is transformed in a list of sorted dicts
+        with the following keys:
+
+        * `id`: unique identifier for the session
+        * `title`: session title
+        * `modified`: timestamp of last session modification
+
+        The dicts are sorted by most recently modified
+        '''
+        client = aq_parent(aq_inner(self.context))
+        results = (
+            {
+                'id': session.id,
+                'title': session.title,
+                'modified': session.modified,
+                'group_id': session.group_id,
+            } for session in sessions
+            if client.restrictedTraverse(session.zodb_path.split("/"), None)
+        )
+        return sorted(results, key=lambda s: s['modified'], reverse=True)
+
+    @memoize
+    def acquired_sessions(self):
+        ''' Return a list of all the acquired sessions for the current user.
+        '''
+        return self.sessions2dicts(self.account.acquired_sessions)
+
+    @memoize
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -67,20 +104,7 @@ class View(grok.View):
         * `title`: session title
         * `modified`: timestamp of last session modification
         """
-        account = getSecurityManager().getUser()
-        result = []
-        client = aq_parent(aq_inner(self.context))
-        for session in account.sessions:
-            try:
-                client.restrictedTraverse(session.zodb_path.split("/"))
-                result.append({"id": session.id,
-                               "title": session.title,
-                               "modified": session.modified,
-                               })
-            except KeyError:
-                pass
-        result.sort(key=lambda s: s['modified'], reverse=True)
-        return result
+        return self.sessions2dicts(self.account.sessions)
 
     def _updateSurveys(self):
         self.surveys = []

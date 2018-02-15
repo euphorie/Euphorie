@@ -45,6 +45,7 @@ from zope.component.hooks import getSite
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
+
 import colorsys
 import email.Utils as emailutils
 import Globals
@@ -52,6 +53,7 @@ import logging
 import random
 import simplejson
 import threading
+
 
 locals = threading.local()
 log = logging.getLogger(__name__)

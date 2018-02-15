@@ -5,18 +5,18 @@ Session
 Create and update sessions.
 """
 
-import logging
-from z3c.saconfig import Session
-from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from AccessControl import getSecurityManager
 from euphorie.client import model
+from euphorie.client.cookie import deleteCookie
 from euphorie.client.cookie import getCookie
 from euphorie.client.cookie import setCookie
-from euphorie.client.cookie import deleteCookie
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import getSecret
+from z3c.saconfig import Session
+
+import logging
+
 
 log = logging.getLogger(__name__)
 SESSION_COOKIE = "_eu_session"
@@ -32,17 +32,20 @@ def create_survey_session(title, survey, account=None):
     :rtype: :py:class:`euphorie.client.model.SurveySession` instance
     """
     if account is None:
-        account = getSecurityManager().getUser()
+        account = model.get_current_account()
 
+    session = Session()
     sector = aq_parent(aq_inner(survey))
     country = aq_parent(sector)
     zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
     survey_session = model.SurveySession(
             title=title,
             zodb_path=zodb_path,
-            account=account)
-    Session.add(survey_session)
-    Session.flush()  # flush so we get a session id
+            account_id=account.id,
+            group_id=account.group_id,
+    )
+    session.add(survey_session)
+    session.flush()  # flush so we get a session id
     return survey_session
 
 
@@ -94,8 +97,8 @@ class SessionManagerFactory(object):
         :param session: session to activate
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
-        account = aq_base(getSecurityManager().getUser())
-        if session.account is not account:
+        account = model.get_current_account()
+        if session not in account.acquired_sessions:
             raise ValueError('Can only resume session for current user.')
 
         request = getRequest()

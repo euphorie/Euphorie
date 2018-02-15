@@ -13,7 +13,11 @@
       metal:use-macro="context/@@shell/macros/shell">
 
 <body>
-<metal:slot fill-slot="content" tal:define="sessions view/sessions">
+<metal:slot fill-slot="content"
+            tal:define="
+              sessions view/sessions;
+              acquired_sessions view/acquired_sessions;
+            ">
     <tal:block replace="tile:statusmessages"/>
     <article>
         <p i18n:translate="info_select_session">
@@ -38,6 +42,24 @@
             </tr>
             </tbody>
         </table>
+        <table tal:condition="acquired_sessions" id="acquiredSessionList">
+          <tbody>
+            <tr tal:repeat="session acquired_sessions">
+                <td><form method="post" action="${request/URL}" class="startSessionForm">
+                    <input type="hidden" name="action" value="continue"/>
+                    <input type="hidden" name="session" value="${session/id}"/>
+                    <button class="link pat-button" type="submit">${session/title}</button>,
+                    <tal:span i18n:translate="lable_session_modified">saved on
+                    <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span>
+                    Acquired from group: ${session/group_id}
+                  </form></td>
+                <td class="actions span-5">
+                    <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>
+                    <a class="iconified icon-trash pat-modal" title="Delete this session" href="${context/absolute_url}/@@confirmation-delete-session.html?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_delete">Delete</a>
+                </td>
+            </tr>
+          </tbody>
+        </table>
     </article>
 
 </metal:slot>
@@ -61,4 +83,3 @@
 
 </body>
 </html>
-

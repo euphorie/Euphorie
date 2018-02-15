@@ -296,13 +296,13 @@ class AccountTests(DatabaseTests):
         account4 = model.Account(loginname='account4')
         session.add(account4)
         session.flush()
-        self.assertEqual(group1.descendants(), [group2, group4, group3])
-        self.assertEqual(group2.descendants(), [group4])
-        self.assertEqual(group3.descendants(), [])
-        self.assertEqual(account1.groups(), [group1, group2, group4, group3])
-        self.assertEqual(account2.groups(), [group2, group4])
-        self.assertEqual(account3.groups(), [group3])
-        self.assertEqual(account4.groups(), [])
+        self.assertEqual(group1.descendants, [group2, group4, group3])
+        self.assertEqual(group2.descendants, [group4])
+        self.assertEqual(group3.descendants, [])
+        self.assertEqual(account1.groups, [group1, group2, group4, group3])
+        self.assertEqual(account2.groups, [group2, group4])
+        self.assertEqual(account3.groups, [group3])
+        self.assertEqual(account4.groups, [])
 
     def testSessions(self):
         session = Session()
@@ -324,5 +324,39 @@ class AccountTests(DatabaseTests):
         session.add(survey3)
         session.flush()
         self.assertListEqual(account1.sessions, [survey1, survey2, survey3])
-        self.assertListEqual(group1.sessions, [survey1, survey2])
+        self.assertListEqual(group1.sessions, [survey2])
         self.assertListEqual(group2.sessions, [survey3])
+
+    def testSessionAcquisition(self):
+        ''' Users belonging to a group should be able to see all the sessions
+        belonging to the group and the group children
+        '''
+        session = Session()
+        group1 = model.Group()
+        session.add(group1)
+        group2 = model.Group()
+        session.add(group2)
+        account1 = model.Account(loginname='account1')
+        session.add(account1)
+        account1.group = group1
+        group2.parent = group1
+        account2 = model.Account(loginname='account2')
+        session.add(account2)
+        account2.group = group2
+        survey1 = model.SurveySession(
+            account=account1,
+            group=group1,
+            zodb_path='1',
+        )
+        session.add(survey1)
+        survey2 = model.SurveySession(
+            account=account2,
+            group=group2,
+            zodb_path='2',
+        )
+        session.add(survey2)
+        session.flush()
+        self.assertListEqual(account1.sessions, [survey1])
+        self.assertListEqual(account2.sessions, [survey2])
+        self.assertListEqual(account1.acquired_sessions, [survey1, survey2])
+        self.assertListEqual(account2.acquired_sessions, [survey2])

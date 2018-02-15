@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Model
 -----
@@ -9,6 +10,7 @@ Also: PAS-based user account for users of the client
 
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from euphorie.client.enum import Enum
+from plone import api
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import ForeignKey
 from sqlalchemy import orm
@@ -205,14 +207,24 @@ class Group(BaseObject):
         backref=backref('group', remote_side=[group_id]),
     )
 
+    @property
     def descendants(self):
         ''' Return all the groups in the hierarchy flattened
         '''
         descendants = []
         for child in self.children:
             descendants.append(child)
-            descendants.extend(child.descendants())
+            descendants.extend(child.descendants)
         return descendants
+
+    @property
+    def acquired_sessions(self):
+        ''' All the session relative to this group and its children
+        '''
+        sessions = list(self.sessions)
+        for group in self.descendants:
+            sessions.extend(group.sessions)
+        return sessions
 
 
 class Account(BaseObject):
@@ -236,13 +248,23 @@ class Account(BaseObject):
             Enum([u"guest", u"converted", None]), default=None, nullable=True)
     group_id = schema.Column(types.Integer, ForeignKey('group.group_id'))
 
+    @property
     def groups(self):
         group = self.group
         if not group:
             return []
         groups = [group]
-        groups.extend(group.descendants())
+        groups.extend(group.descendants)
         return groups
+
+    @property
+    def acquired_sessions(self):
+        ''' The session the account acquires because he belongs to a group.
+        '''
+        group = self.group
+        if not group:
+            return []
+        return list(group.acquired_sessions)
 
     @property
     def email(self):
@@ -355,14 +377,6 @@ class SurveySession(BaseObject):
     group = orm.relation(Group,
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
-
-    def __init__(self, *args, **kwargs):
-        ''' If the account has a group and no group was specified,
-        use that group.
-        '''
-        if 'group' not in kwargs:
-            kwargs['group'] = kwargs['account'].group
-        return super(SurveySession, self).__init__(*args, **kwargs)
 
     def hasTree(self):
         return bool(Session.query(SurveyTreeItem)
@@ -718,6 +732,20 @@ ACTION_PLAN_FILTER = \
 
 del child_node
 
+
+def get_current_account():
+    ''' XXX this would be better placed in an api module,
+    but we need to avoid circular dependencies
+
+    :return: The current Account instance if a user can be found,
+             otherwise None
+    '''
+    username = api.user.get_current().getUserName()
+    return Session.query(Account).filter(Account.loginname == username).first()
+
+
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
            "SKIPPED_PARENTS", "MODULE_WITH_RISK_FILTER",
-           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER"]
+           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER",
+    'get_current_account',
+]
