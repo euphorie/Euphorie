@@ -98,7 +98,10 @@ class SessionManagerFactory(object):
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
         account = model.get_current_account()
-        if session not in account.acquired_sessions:
+        if (
+            session not in account.sessions
+            and session not in account.acquired_sessions
+        ):
             raise ValueError('Can only resume session for current user.')
 
         request = getRequest()
