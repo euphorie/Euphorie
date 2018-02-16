@@ -92,7 +92,6 @@ class View(grok.View):
         """
         survey = aq_inner(self.context)
         my_path = utils.RelativePath(self.request.client, survey)
-        import ipdb; ipdb.set_trace()
         result = [{'id': session.id,
                  'title': session.title,
                  'modified': session.modified}
