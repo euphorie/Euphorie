@@ -5,30 +5,28 @@ Authentication
 User account plugins and authentication.
 """
 
+from . import model
+from ..content.api.authentication import authenticate_token as authenticate_cms_token
+from .api.authentication import authenticate_token as authenticate_client_token
+from .interfaces import IClientSkinLayer
+from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent
+from App.class_init import InitializeClass
+from Products.PageTemplates.PageTemplateFile import PageTemplateFile
+from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
+from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
+from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
+from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlugin
+from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
+from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
+from Products.PluggableAuthService.utils import classImplements
+from z3c.saconfig import Session
+from zope.publisher.interfaces.browser import IBrowserView
+
 import logging
+import sqlalchemy.exc
 import traceback
 import urllib
-import sqlalchemy.exc
-from z3c.saconfig import Session
-from Acquisition import aq_parent
-from AccessControl import ClassSecurityInfo
-from App.class_init import InitializeClass
-from zope.publisher.interfaces.browser import IBrowserView
-from Products.PluggableAuthService.utils import classImplements
-from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
-from Products.PluggableAuthService.interfaces.plugins \
-        import IAuthenticationPlugin
-from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
-from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
-from Products.PluggableAuthService.interfaces.plugins \
-        import IUserEnumerationPlugin
-from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
-from Products.PageTemplates.PageTemplateFile import PageTemplateFile
-from .interfaces import IClientSkinLayer
-from . import model
-from .api.authentication import authenticate_token as authenticate_client_token
-from ..content.api.authentication \
-        import authenticate_token as authenticate_cms_token
 
 
 log = logging.getLogger(__name__)
@@ -245,9 +243,12 @@ def authenticate(login, password):
         return None
 
     login = login.lower()
-    account = Session().query(model.Account)\
-            .filter(model.Account.loginname == login)\
-            .filter(model.Account.password == password).first()
+    account = (
+        Session()
+        .query(model.Account.id, model.Account.loginname)
+        .filter(model.Account.loginname == login)
+        .filter(model.Account.password == password).first()
+    )
     return account
 
 
