@@ -193,11 +193,20 @@ class Group(BaseObject):
     __tablename__ = "group"
 
     group_id = schema.Column(
-        types.Integer(),
+        types.Unicode(32),
         primary_key=True,
-        autoincrement=True,
     )
-    parent_id = schema.Column(types.Integer, ForeignKey('group.group_id'))
+    parent_id = schema.Column(
+        types.Unicode(32),
+        ForeignKey('group.group_id'),
+    )
+    short_name = schema.Column(
+        types.Unicode(32),
+    )
+    long_name = schema.Column(
+        types.Unicode(256),
+    )
+
     children = relationship(
         'Group',
         backref=backref('parent', remote_side=[group_id]),
@@ -246,7 +255,7 @@ class Account(BaseObject):
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
             Enum([u"guest", u"converted", None]), default=None, nullable=True)
-    group_id = schema.Column(types.Integer, ForeignKey('group.group_id'))
+    group_id = schema.Column(types.Unicode(32), ForeignKey('group.group_id'))
 
     @property
     def groups(self):
@@ -354,7 +363,7 @@ class SurveySession(BaseObject):
                 onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, index=True)
     group_id = schema.Column(
-        types.Integer(),
+        types.Unicode(32),
         schema.ForeignKey(
             Group.group_id,
             onupdate="CASCADE",

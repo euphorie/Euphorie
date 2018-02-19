@@ -238,18 +238,18 @@ class AccountTests(DatabaseTests):
 
     def testGroups(self):
         session = Session()
-        group1 = model.Group()
+        group1 = model.Group(group_id='1')
         session.add(group1)
         session.flush()
-        self.assertEqual(group1.group_id, 1)
+        self.assertEqual(group1.group_id, '1')
         # Verify that a group might have one parent but many children
-        group2 = model.Group()
+        group2 = model.Group(group_id='2')
         session.add(group2)
-        group3 = model.Group()
+        group3 = model.Group(group_id='3')
         session.add(group3)
         group3.parent = group2.parent = group1
         session.flush()
-        self.assertEqual(group2.group_id, 2)
+        self.assertEqual(group2.group_id, '2')
         self.assertEqual(group2.parent, group1)
         self.assertEqual(group1.parent, None)
         self.assertListEqual(group1.children, [group2, group3])
@@ -257,7 +257,7 @@ class AccountTests(DatabaseTests):
 
     def testAccountGroupsRelationship(self):
         session = Session()
-        group1 = model.Group()
+        group1 = model.Group(group_id='1')
         session.add(group1)
         session.flush()
         account1 = model.Account(loginname='account1')
@@ -272,15 +272,15 @@ class AccountTests(DatabaseTests):
 
     def testAccountGroupsHierarchy(self):
         session = Session()
-        group1 = model.Group()
+        group1 = model.Group(group_id='1')
         session.add(group1)
-        group2 = model.Group()
+        group2 = model.Group(group_id='2')
         group2.parent = group1
         session.add(group2)
-        group3 = model.Group()
+        group3 = model.Group(group_id='3')
         session.add(group3)
         group3.parent = group1
-        group4 = model.Group()
+        group4 = model.Group(group_id='4')
         session.add(group3)
         group4.parent = group2
         session.flush()
@@ -306,9 +306,9 @@ class AccountTests(DatabaseTests):
 
     def testSessions(self):
         session = Session()
-        group1 = model.Group()
+        group1 = model.Group(group_id='1')
         session.add(group1)
-        group2 = model.Group()
+        group2 = model.Group(group_id='2')
         session.add(group2)
         account1 = model.Account(loginname='account1')
         session.add(account1)
@@ -332,9 +332,9 @@ class AccountTests(DatabaseTests):
         belonging to the group and the group children
         '''
         session = Session()
-        group1 = model.Group()
+        group1 = model.Group(group_id='1')
         session.add(group1)
-        group2 = model.Group()
+        group2 = model.Group(group_id='2')
         session.add(group2)
         account1 = model.Account(loginname='account1')
         session.add(account1)
