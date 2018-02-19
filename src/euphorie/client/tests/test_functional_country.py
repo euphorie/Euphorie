@@ -1,8 +1,8 @@
 # coding=utf-8
 
+from euphorie.client.tests.utils import addSurvey
 from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
 from Products.Five.testbrowser import Browser
-from euphorie.client.tests.utils import addSurvey
 
 
 class CountryTests(EuphorieFunctionalTestCase):
@@ -35,7 +35,7 @@ class CountryTests(EuphorieFunctionalTestCase):
         newSecurityManager(None, account)
         view = self.View(self.portal.client['nl'], None)
         self.assertEqual(
-                [s['title'] for s in view.sessions()],
+                [s.title for s in view.sessions()],
                 [u'Three', u'Two', 'One'])
 
     def test_surveys_filtered_by_language(self):

@@ -19,13 +19,15 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
-from euphorie.content.risk import IRisk, IFrenchRisk
+from euphorie.content.risk import IFrenchRisk
+from euphorie.content.risk import IRisk
 from euphorie.content.survey import ISurvey
 from five import grok
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
 from zope.i18n import translate
+
 import re
 
 

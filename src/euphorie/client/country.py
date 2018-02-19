@@ -24,8 +24,6 @@ from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
-from plone.memoize.view import memoize
-from plone.memoize.view import memoize_contextless
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
@@ -36,6 +34,12 @@ from zope.interface import implements
 from zope.interface import Interface
 
 import logging
+
+
+# Memoize currently is not usable because lot's of test instantiate the view
+# with this kind of code: `self.View(context, None)``
+# from plone.memoize.view import memoize
+# from plone.memoize.view import memoize_contextless
 
 
 grok.templatedir("templates")
@@ -61,7 +65,7 @@ class View(grok.View):
     grok.template("sessions")
 
     @property
-    @memoize_contextless
+    # @memoize_contextless
     def account(self):
         ''' The currenttly authenticated account
         '''
@@ -84,7 +88,7 @@ class View(grok.View):
         )
         return sorted(results, key=lambda s: s.modified, reverse=True)
 
-    @memoize
+    # @memoize
     def acquired_sessions(self):
         ''' Return a list of all the acquired sessions for the current user.
         '''
@@ -95,7 +99,7 @@ class View(grok.View):
         )
         return self.sessions2dicts(good_sessions)
 
-    @memoize
+    # @memoize
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:

@@ -1,10 +1,12 @@
-import collections
-from five import grok
-from z3c.saconfig import Session
 from euphorie.client import model
-from euphorie.content.interfaces import IQuestionContainer
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
+from euphorie.content.interfaces import IQuestionContainer
+from five import grok
+from z3c.saconfig import Session
+
+import collections
+
 
 grok.templatedir("templates")
 
@@ -97,7 +99,6 @@ def treeChanges(session, survey):
                             (entry["zodb_path"], nodes[0].type, "modified"))
             if node.type == entry['type'] == 'risk':
                 if entry['always_present'] and node.identification != u'no':
-                    # import pdb; pdb.set_trace( )
                     results.add(
                         (entry["zodb_path"], node.type, "modified"))
             if nodes[0].type == entry["type"] or \

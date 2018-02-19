@@ -1,7 +1,7 @@
-import unittest
+# coding=utf-8
+from euphorie.client import model
 from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
-from euphorie.client import model
 from euphorie.client.tests.database import DatabaseTests
 from euphorie.client.tests.test_update import TreeTests
 
@@ -68,7 +68,7 @@ class AddToTreeTests(DatabaseTests):
         from z3c.saconfig import Session
         super(AddToTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname=u"jane", password=u"secret")
         self.session.add(account)
         self.survey = model.SurveySession(title=u"Survey", zodb_path="survey",
                 account=account)
@@ -181,7 +181,7 @@ class BuildSurveyTreeTests(DatabaseTests):
         from z3c.saconfig import Session
         super(BuildSurveyTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname=u"jane", password=u"secret")
         self.session.add(account)
         self.survey = model.SurveySession(title=u"Survey", zodb_path="survey",
                 account=account)

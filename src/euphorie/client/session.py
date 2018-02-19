@@ -45,6 +45,7 @@ def create_survey_session(title, survey, account=None):
             group_id=account.group_id,
     )
     session.add(survey_session)
+    session.refresh(account)
     session.flush()  # flush so we get a session id
     return survey_session
 
@@ -99,11 +100,13 @@ class SessionManagerFactory(object):
         """
         account = model.get_current_account()
         if (
-            session not in account.sessions
-            and session not in account.acquired_sessions
+            not account
+            or (
+                session not in account.sessions
+                and session not in account.acquired_sessions
+            )
         ):
             raise ValueError('Can only resume session for current user.')
-
         request = getRequest()
         request.other["euphorie.session"] = session
         setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)

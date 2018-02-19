@@ -1,9 +1,9 @@
-from zope.component.hooks import getSite
 from euphorie.client import model
 from euphorie.client import session
 from euphorie.client import utils
 from euphorie.client.tests.utils import testRequest
 from euphorie.deployment.tests.functional import EuphorieTestCase
+from zope.component.hooks import getSite
 
 
 class handleSurveyUnpublishTests(EuphorieTestCase):
@@ -56,7 +56,9 @@ class handleSurveyUnpublishTests(EuphorieTestCase):
         request = testRequest()
         request.client = client_survey
         utils.setRequest(request)
-        account = model.Account(loginname="jane", password=u"john")
+        account = model.Account(id=1, loginname="jane", password=u"john")
+        model.Session.add(account)
+        model.Session.flush()
         mgr = session.SessionManagerFactory()
         mgr.start(u"Test session", client_survey, account)
         mgr.session.zodb_path = '/'.join(client_survey.getPhysicalPath())
