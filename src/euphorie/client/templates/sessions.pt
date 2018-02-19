@@ -34,7 +34,7 @@
                     <input type="hidden" name="session" value="${session/id}"/>
                     <button class="link pat-button" type="submit">${session/title}</button>,
                     <tal:span i18n:translate="lable_session_modified">saved on
-                    <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span></form></td>
+                    <tal:block i18n:name="date">${python:tools.formatDate(session.modified)}</tal:block></tal:span></form></td>
                 <td class="actions span-5">
                     <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>
                     <a class="iconified icon-trash pat-modal" title="Delete this session" href="${context/absolute_url}/@@confirmation-delete-session.html?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_delete">Delete</a>
@@ -50,8 +50,10 @@
                     <input type="hidden" name="session" value="${session/id}"/>
                     <button class="link pat-button" type="submit">${session/title}</button>,
                     <tal:span i18n:translate="lable_session_modified">saved on
-                    <tal:block i18n:name="date">${python:tools.formatDate(session['modified'])}</tal:block></tal:span>
-                    Acquired from group: ${session/group_id}
+                    <tal:block i18n:name="date">${python:tools.formatDate(session.modified)}</tal:block></tal:span>
+                    <tal:groupinfo define="group session/group|nothing" condition="group">
+                      Acquired from group: ${group/group_id} - ${group/short_name} - ${group/long_name}
+                    </tal:groupinfo>
                   </form></td>
                 <td class="actions span-5">
                     <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>

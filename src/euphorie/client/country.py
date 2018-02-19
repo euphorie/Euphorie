@@ -79,21 +79,21 @@ class View(grok.View):
         '''
         client = aq_parent(aq_inner(self.context))
         results = (
-            {
-                'id': session.id,
-                'title': session.title,
-                'modified': session.modified,
-                'group_id': session.group_id,
-            } for session in sessions
+            session for session in sessions
             if client.restrictedTraverse(session.zodb_path.split("/"), None)
         )
-        return sorted(results, key=lambda s: s['modified'], reverse=True)
+        return sorted(results, key=lambda s: s.modified, reverse=True)
 
     @memoize
     def acquired_sessions(self):
         ''' Return a list of all the acquired sessions for the current user.
         '''
-        return self.sessions2dicts(self.account.acquired_sessions)
+        own_sessions = self.sessions()
+        good_sessions = (
+            session for session in self.account.acquired_sessions
+            if session not in own_sessions
+        )
+        return self.sessions2dicts(good_sessions)
 
     @memoize
     def sessions(self):
