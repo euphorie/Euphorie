@@ -12,7 +12,6 @@ from AccessControl.PermissionRole import _what_not_even_god_should_do
 from euphorie.client.enum import Enum
 from plone import api
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
-from sqlalchemy import ForeignKey
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
@@ -198,7 +197,7 @@ class Group(BaseObject):
     )
     parent_id = schema.Column(
         types.Unicode(32),
-        ForeignKey('group.group_id'),
+        schema.ForeignKey('group.group_id'),
     )
     short_name = schema.Column(
         types.Unicode(32),
@@ -255,7 +254,10 @@ class Account(BaseObject):
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
             Enum([u"guest", u"converted", None]), default=None, nullable=True)
-    group_id = schema.Column(types.Unicode(32), ForeignKey('group.group_id'))
+    group_id = schema.Column(
+        types.Unicode(32),
+        schema.ForeignKey('group.group_id'),
+    )
 
     @property
     def groups(self):
@@ -364,12 +366,7 @@ class SurveySession(BaseObject):
             nullable=False, index=True)
     group_id = schema.Column(
         types.Unicode(32),
-        schema.ForeignKey(
-            Group.group_id,
-            onupdate="CASCADE",
-            ondelete="CASCADE",
-        ),
-        index=True,
+        schema.ForeignKey('group.group_id'),
     )
     title = schema.Column(types.Unicode(512))
     created = schema.Column(types.DateTime, nullable=False,
