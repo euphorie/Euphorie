@@ -93,5 +93,8 @@ setup(name="Euphorie",
       [zopectl.command]
       initdb = euphorie.deployment.commands.initdb:main
       xmlimport = euphorie.deployment.commands.xmlimport:main
+
+      [console_scripts]
+      upgradedb = euphorie.deployment.commands.upgradedb:main
       """,
       )
