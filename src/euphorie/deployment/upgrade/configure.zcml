@@ -306,27 +306,4 @@
 
   </genericsetup:upgradeSteps>
 
-  <genericsetup:upgradeSteps
-      destination="20"
-      profile="euphorie.deployment:default"
-      source="*"
-      >
-
-    <genericsetup:upgradeStep
-        title="Add new group table"
-        handler=".v20.add_group_table"
-        />
-
-    <genericsetup:upgradeStep
-        title="Add new group_id column in account table"
-        handler=".v20.add_group_id_to_account"
-        />
-
-    <genericsetup:upgradeStep
-        title="Add new group_id column in session table"
-        handler=".v20.add_group_id_to_session"
-        />
-
-  </genericsetup:upgradeSteps>
-
 </configure>
