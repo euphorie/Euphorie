@@ -300,15 +300,15 @@ msgstr "Unesite naziv svake lokacije"
 #: src/euphorie/client/templates/module_customization.pt:15
 #: src/euphorie/deployment/upgrade/v8.py:141
 msgid "title_other_risks"
-msgstr "Dodani rizici (vaši)"
+msgstr "Ostali izvori opasnosti, štetnosti i napora"
 
 #. Default: In case you have identified risks not included in the tool, you are
 #. able to add them now:
 #: src/euphorie/client/publish.py:155 src/euphorie/deployment/upgrade/v8.py:142
 msgid "description_other_risks"
 msgstr ""
-"U slučaju da identificirane rizike niste uključili u alat, možete ih sada "
-"dodati:"
+"U slučaju da na vašim mjestima rada identificirate opasnost, štetnost ili "
+"napor koji ovim alatom već nisu obuhvaćeni, možete ih proanalizirati ovdje."
 
 #. Default: <p>Would you now like to add your own defined risks to this
 #. tool?</p><p><strong>Important:</strong> In order to avoid duplicating risks,
@@ -318,11 +318,13 @@ msgstr ""
 #: src/euphorie/client/publish.py:159 src/euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Želite li sada ovom alatu dodati rizike koje ste sami definirali?</"
-"p><p><strong>Važno:</strong> Kako biste spriječili udvostručenje rizika, "
-"preporučujemo vam da najprije prođete kroz sve prethodne module, ako to do "
-"sada niste već učinili.</p><p>Ako dodavanje rizika nije potrebno, odaberite "
-"opciju 'Ne.'</p>"
+"<p><strong>Važno:</strong> Preporučamo vam da najprije prođete kroz sve "
+"prethodne točke ovog alata kojima su obuhvaćene opasnosti, štetnosti ili"
+" napori na vašim poslovima.</p>"
+"<p>Nakon toga pristupite dodavanju eventualnih ostalih izvora opasnosti,"
+"štetnosti ili napora koristeći se pri tome Prilogom III Pravilnika o "
+"izradi procjene rizika kao referentnom listom u smislu završne kontrole.</p>"
+"<p>Ako dodavanje rizika nije potrebno, odaberite opciju 'Ne.'</p>"
 
 #. Default: Cancel
 #: src/euphorie/client/publish.py:263 src/euphorie/client/publish.py:316
