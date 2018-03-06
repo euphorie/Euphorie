@@ -7,6 +7,11 @@ Changelog
 - Nothing changed yet.
 
 
+9.0.32.1 (2018-03-06)
+---------------------
+
+- Urgent changes to the HR Translations
+
 9.0.32 (2018-01-17)
 -------------------
 
