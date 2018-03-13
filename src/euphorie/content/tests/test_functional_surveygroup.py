@@ -1,10 +1,17 @@
-from zope.event import notify
-from zope import component
+# coding=utf-8
+from Acquisition import aq_parent
+from euphorie.content.surveygroup import AddForm
+from euphorie.testing import EuphorieFunctionalTestCase
+from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
+from plone.folder.interfaces import IExplicitOrdering
 from Products.CMFCore.WorkflowCore import ActionSucceededEvent
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from zope import component
+from zope.event import notify
 
 
-class SurveyGroupTests(EuphorieTestCase):
+class SurveyGroupTests(EuphorieIntegrationTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -16,29 +23,27 @@ class SurveyGroupTests(EuphorieTestCase):
         return surveygroup
 
     def testNoWorkflow(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
-        chain = self.folder.portal_workflow.getChainFor(surveygroup)
+        pw = api.portal.get_tool('portal_workflow')
+        chain = pw.getChainFor(surveygroup)
         self.assertEqual(chain, ())
 
     def testNotGloballyAllowed(self):
-        self.loginAsPortalOwner()
         types = [fti.id for fti in self.portal.allowedContentTypes()]
         self.failUnless("euphorie.survey" not in types)
 
     def testAllowedContentTypes(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         types = [fti.id for fti in surveygroup.allowedContentTypes()]
         self.assertEqual(set(types), set(["euphorie.survey"]))
 
     def testCanNotBeCopied(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         self.assertFalse(surveygroup.cb_isCopyable())
 
 
-class HandleSurveyPublishTests(EuphorieTestCase):
+class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -50,45 +55,41 @@ class HandleSurveyPublishTests(EuphorieTestCase):
         return surveygroup
 
     def testNothingPublished(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         self.assertEqual(surveygroup.published, None)
 
     def testUnknownWorkflowAction(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "bogus", None))
         self.assertEqual(surveygroup.published, None)
 
     def testPublishAction(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "publish", None))
         self.assertEqual(surveygroup.published, "survey")
 
     def testUpdateAction(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
 
     def testUnpublishAction(self):
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "publish", None))
         self.assertEqual(surveygroup.published, "survey")
         request = survey.REQUEST
-        unpublishview = component.getMultiAdapter(
-                (surveygroup, request), name='unpublish')
+        unpublishview = component.getMultiAdapter((surveygroup, request),
+                                                  name='unpublish')
         unpublishview.unpublish()
         self.assertEqual(surveygroup.published, None)
 
 
-class HandleSurveyDeleteVerificationTests(EuphorieTestCase):
+class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -103,66 +104,57 @@ class HandleSurveyDeleteVerificationTests(EuphorieTestCase):
         """ It should be possible to delete one of many surveys, when it's not
             published.
         """
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         self.assertEqual(surveygroup.published, None)
-        deleteaction = component.getMultiAdapter(
-                                        (survey, survey.REQUEST),
-                                        name='delete')
+        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
+                                                 name='delete')
         self.assertEqual(deleteaction.verify(surveygroup, survey), True)
 
     def testDeleteOnlySurvey(self):
         """ Validation should fail when trying to delete the only survey in a
             surveygroup
         """
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
-        deleteaction = component.getMultiAdapter(
-                                        (survey, survey.REQUEST),
-                                        name='delete')
+        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
+                                                 name='delete')
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeletePublishedSurvey(self):
         """ Validation should fail when trying to delete a published survey
         """
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
-        deleteaction = component.getMultiAdapter(
-                                        (survey, survey.REQUEST),
-                                        name='delete')
+        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
+                                                 name='delete')
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeleteUnPublishedSurvey(self):
         """ It should be possible to delete unpublished surveys
         """
-        self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
-        deleteaction = component.getMultiAdapter(
-                                        (survey, survey.REQUEST),
-                                        name='delete'
-                                        )
+        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
+                                                 name='delete')
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
         unpublishview = component.getMultiAdapter(
-                                        (surveygroup, survey.REQUEST),
-                                        name='unpublish'
-                                        )
+            (surveygroup, survey.REQUEST), name='unpublish'
+        )
         unpublishview.unpublish()
 
         self.assertEqual(surveygroup.published, None)
         self.assertEqual(deleteaction.verify(surveygroup, survey), True)
 
 
-class AddFormTests(EuphorieTestCase):
+class AddFormTests(EuphorieFunctionalTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -176,11 +168,10 @@ class AddFormTests(EuphorieTestCase):
         return module
 
     def testCopyPreservesOrder(self):
-        from Acquisition import aq_parent
-        from euphorie.content.surveygroup import AddForm
-        original_order = [u"one", u"two", u"three", u"four", u"five", u"six",
-                          u"seven", u"eight", u"nine", u"ten"]
-        self.loginAsPortalOwner()
+        original_order = [
+            u"one", u"two", u"three", u"four", u"five", u"six", u"seven",
+            u"eight", u"nine", u"ten"
+        ]
         module = self.createModule()
         for title in original_order:
             self._create(module, "euphorie.risk", title, title=title)
@@ -190,17 +181,15 @@ class AddFormTests(EuphorieTestCase):
         container = self.portal.sectors.nl.sector
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual(
-                [r.title for r in copy["module"].values()], original_order)
+        self.assertEqual([r.title for r in copy["module"].values()],
+                         original_order)
 
     def testReorderThenCopyTemplateKeepsOrder(self):
-        from Acquisition import aq_parent
-        from plone.folder.interfaces import IExplicitOrdering
-        from euphorie.content.surveygroup import AddForm
-        original_order = [u"one", u"two", u"three", u"four", u"five", u"six",
-                          u"seven", u"eight", u"nine", u"ten"]
+        original_order = [
+            u"one", u"two", u"three", u"four", u"five", u"six", u"seven",
+            u"eight", u"nine", u"ten"
+        ]
         sorted_order = list(sorted(original_order))
-        self.loginAsPortalOwner()
         module = self.createModule()
         for title in original_order:
             self._create(module, "euphorie.risk", title, title=title)
@@ -213,13 +202,10 @@ class AddFormTests(EuphorieTestCase):
         container = self.portal.sectors.nl.sector
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual(
-                [r.title for r in copy["module"].values()], sorted_order)
+        self.assertEqual([r.title for r in copy["module"].values()],
+                         sorted_order)
 
     def testCopyClearsPublishFlag(self):
-        from Acquisition import aq_parent
-        from euphorie.content.surveygroup import AddForm
-        self.loginAsPortalOwner()
         survey = aq_parent(self.createModule())
         survey.published = True
         request = survey.REQUEST
@@ -229,9 +215,6 @@ class AddFormTests(EuphorieTestCase):
         self.assertFalse(getattr(copy, "published", False))
 
     def testCopyResetsWorkflow(self):
-        from Acquisition import aq_parent
-        from euphorie.content.surveygroup import AddForm
-        self.loginAsPortalOwner()
         survey = aq_parent(self.createModule())
         survey.published = True
         request = survey.REQUEST
@@ -239,18 +222,20 @@ class AddFormTests(EuphorieTestCase):
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
         self.assertEqual(
-                self.portal.portal_workflow.getInfoFor(copy, "review_state"),
-                "draft")
+            self.portal.portal_workflow.getInfoFor(copy, "review_state"),
+            "draft"
+        )
 
     def testCopyEvaluationAlgorithmFromGroup(self):
-        from Acquisition import aq_parent
-        from euphorie.content.surveygroup import AddForm
-        self.loginAsPortalOwner()
         survey = aq_parent(self.createModule())
         survey.aq_parent.evaluation_algorithm = u"french"
         request = survey.REQUEST
         container = self.portal.sectors.nl.sector
-        target = self._create(container, "euphorie.surveygroup", "target",
-                evaluation_algorithm=u"kinney")
+        target = self._create(
+            container,
+            "euphorie.surveygroup",
+            "target",
+            evaluation_algorithm=u"kinney"
+        )
         AddForm(container, request).copyTemplate(survey, target)
         self.assertEqual(target.evaluation_algorithm, u"french")

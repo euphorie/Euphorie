@@ -1,28 +1,23 @@
-import logging
-from Products.CMFPlone.utils import _createObjectByType
-from Products.PlonePAS.plugins.passwordpolicy import PasswordPolicyPlugin
-from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
+# coding=utf-8
 from euphorie.client.api.entry import API
 from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.dexterity.utils import createContentInContainer
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import _createObjectByType
+from Products.PlonePAS.plugins.passwordpolicy import PasswordPolicyPlugin
+from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
 from zope.interface import alsoProvides
+
+import logging
+
 
 log = logging.getLogger(__name__)
 
-
 def setupVarious(context):
-    # Ordinarily, GenericSetup handlers check for the existence of XML files.
-    # Here, we are not parsing an XML file, but we use this text file as a
-    # flag to check that we actually meant for this import step to be run.
-    # The file is found in profiles/default.
-
-    if context.readDataFile('euphorie.deployment.txt') is None:
-        return
-
-    site = context.getSite()
+    site = api.portal.get()
     disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
@@ -80,11 +75,7 @@ for i in REGION_NAMES.items():
 
 
 def setupInitialContent(site):
-    from Products.CMFCore.utils import getToolByName
-
     present = site.objectIds()
-    wt = site.portal_workflow
-
     for obj in ["Members", "events", "news"]:
         if obj in present:
             site.manage_delObjects([obj])
@@ -118,7 +109,7 @@ def setupInitialContent(site):
 
     if "client" not in present:
         site.invokeFactory("euphorie.client", "client", title="Client")
-        wt.doActionFor(site.client, "publish")
+        # wt.doActionFor(site.client, "publish")
         log.info("Added Euphorie client instance")
 
     client = site.client
@@ -189,7 +180,8 @@ def registerPasswordPolicy(site):
         pas._setObject(plugin.getId(), plugin)
         plugin = getattr(pas, plugin.getId())
 
-        infos = [info for info in pas.plugins.listPluginTypeInfo()
+        infos = [
+            info for info in pas.plugins.listPluginTypeInfo()
             if plugin.testImplements(info["interface"])
         ]
         plugin.manage_activateInterfaces([info["id"] for info in infos])

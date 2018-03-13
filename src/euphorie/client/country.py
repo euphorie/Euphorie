@@ -9,21 +9,21 @@ delete & rename sessions
 URL: https://client-oiranew.syslab.com/eu
 """
 
-import logging
+from .. import MessageFactory as _
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from AccessControl import getSecurityManager
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
-from euphorie.content.survey import ISurvey
 from euphorie.client.session import SessionManager
+from euphorie.content.survey import ISurvey
 from five import grok
-from plone.directives import form
-from plone.directives import dexterity
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import dexterity
+from plone.directives import form
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
@@ -33,8 +33,7 @@ from zope.interface import directlyProvides
 from zope.interface import implements
 from zope.interface import Interface
 
-
-from .. import MessageFactory as _
+import logging
 
 
 grok.templatedir("templates")
@@ -86,7 +85,7 @@ class View(grok.View):
         self.surveys = []
         self.obsolete_surveys = []
 
-        language = self.request.locale.id.language
+        language = self.request.locale.id.language or ''
         for sector in aq_inner(self.context).values():
             if not IClientSector.providedBy(sector):
                 continue

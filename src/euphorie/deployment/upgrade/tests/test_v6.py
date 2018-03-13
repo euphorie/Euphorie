@@ -1,8 +1,8 @@
 from euphorie.client.tests.database import DatabaseTests
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.testing import EuphorieFunctionalTestCase
 
 
-class convert_to_module_tests(EuphorieTestCase):
+class convert_to_module_tests(EuphorieFunctionalTestCase):
     def _convert_to_module(self, *a, **kw):
         from ..v6 import _convert_to_module
         return _convert_to_module(*a, **kw)
@@ -54,7 +54,7 @@ class convert_to_module_tests(EuphorieTestCase):
         self.assertEqual(module.keys(), ['3', '2', '4'])
 
 
-class convert_optional_profiles_tests(EuphorieTestCase):
+class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
     def _convert_optional_profiles(self, *a, **kw):
         from ..v6 import _convert_optional_profiles
         return _convert_optional_profiles(*a, **kw)

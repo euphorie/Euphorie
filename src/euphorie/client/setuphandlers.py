@@ -1,6 +1,10 @@
-from euphorie.client.authentication import EuphorieAccountPlugin
+# coding=utf-8
 from euphorie.client.authentication import addEuphorieAccountPlugin
+from euphorie.client.authentication import EuphorieAccountPlugin
+from plone import api
+
 import logging
+
 
 log = logging.getLogger(__name__)
 
@@ -20,10 +24,7 @@ def add_account_plugin(pas):
 
 
 def setupVarious(context):
-    if context.readDataFile('euphorie.client.txt') is None:
-        return
-
-    site = context.getSite()
+    site = api.portal.get()
     pas = site.acl_users
     if not pas.objectIds([EuphorieAccountPlugin.meta_type]):
         add_account_plugin(pas)

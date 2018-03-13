@@ -9,8 +9,8 @@ existing guest accounts to normal accounts.
 from .. import MessageFactory as _
 from .conditions import approvedTermsAndConditions
 from .conditions import checkTermsAndConditions
-from .country import IClientCountry
 from .country import View as CountryView
+from .country import IClientCountry
 from .interfaces import IClientSkinLayer
 from .session import SessionManager
 from .utils import CreateEmailTo
@@ -24,9 +24,9 @@ from euphorie.client import model
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api
+from plone.memoize.view import memoize
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
-from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
@@ -36,6 +36,7 @@ from z3c.saconfig import Session
 from zope import component
 from zope.i18n import translate
 from zope.interface import Interface
+
 import cgi
 import datetime
 import logging
@@ -45,6 +46,7 @@ import smtplib
 import socket
 import urllib
 import urlparse
+
 
 log = logging.getLogger(__name__)
 
@@ -60,6 +62,7 @@ class Login(grok.View):
     """View name: @@login"""
     grok.context(Interface)
     grok.layer(IClientSkinLayer)
+    grok.require("zope2.Public")
     grok.name("login")
     grok.template("login")
 
@@ -237,11 +240,23 @@ class Reminder(grok.View):
     """Send a password reminder by email
     """
     grok.context(Interface)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.template("reminder")
 
     email_template = ViewPageTemplateFile("templates/reminder-email.pt")
+
+    @property
+    def email_from_name(self):
+        return api.portal.get_registry_record(
+            'plone.email_from_name',
+        )
+
+    @property
+    def email_from_address(self):
+        return api.portal.get_registry_record(
+            'plone.email_from_address',
+        )
 
     def _sendReminder(self):
         reply = self.request.form
@@ -250,24 +265,27 @@ class Reminder(grok.View):
             self.error = _(u"Please enter your email address")
             return False
 
-        account = Session.query(model.Account)\
-                .filter(model.Account.loginname == loginname).first()
+        account = (
+            Session
+            .query(model.Account)
+            .filter(model.Account.loginname == loginname)
+            .first()
+        )
         if not account:
             self.error = _(u"Unknown email address")
             return False
 
-        site = component.getUtility(ISiteRoot)
         mailhost = getToolByName(self.context, "MailHost")
         body = self.email_template(
                 loginname=account.loginname,
                 password=account.password)
         subject = translate(_(u"OiRA registration reminder"),
                 context=self.request)
-        mail = CreateEmailTo(site.email_from_name, site.email_from_address,
+        mail = CreateEmailTo(self.email_from_name, self.email_from_address,
                 account.email, subject, body)
 
         try:
-            mailhost.send(mail, account.email, site.email_from_address,
+            mailhost.send(mail, account.email, self.email_from_address,
                     immediate=True)
             log.info("Sent password reminder to %s", account.email)
         except MailHostError as e:
@@ -296,25 +314,26 @@ class Reminder(grok.View):
         if not self.back_url:
             self.back_url = context.absolute_url()
 
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            if self.request.form.get('cancel', ''):
-                self.request.response.redirect(self.back_url)
-            if self._sendReminder():
-                flash = IStatusMessage(self.request).addStatusMessage
-                flash(_(u"An email with a password reminder has been "
-                        u"sent to your address."), "notice")
-                redir_url = self.back_url
-                if not redir_url.endswith("login"):
-                    redir_url = "{0}/@@login?{1}".format(
-                        redir_url, urllib.urlencode({"came_from": redir_url}))
-                self.request.response.redirect(redir_url)
+        if self.request.method != "POST":
+            return
+        if self.request.form.get('cancel', ''):
+            self.request.response.redirect(self.back_url)
+        if self._sendReminder():
+            flash = IStatusMessage(self.request).addStatusMessage
+            flash(_(u"An email with a password reminder has been "
+                    u"sent to your address."), "notice")
+            redir_url = self.back_url
+            if not redir_url.endswith("login"):
+                redir_url = "{0}/@@login?{1}".format(
+                    redir_url, urllib.urlencode({"came_from": redir_url}))
+            self.request.response.redirect(redir_url)
 
 
 class Register(grok.View):
     """Register a new account or convert an existing guest account
     """
     grok.context(Interface)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.template("register")
 
@@ -368,35 +387,46 @@ class Register(grok.View):
         trigger_extra_pageview(self.request, v_url)
         return account
 
-    def update(self):
+    @property
+    @memoize
+    def email_message(self):
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.email_message = translate(_(
+        return translate(_(
             u"invalid_email",
             default=u"Please enter a valid email address."),
-            target_language=lang)
+            target_language=lang,
+        )
+
+    def update(self):
         self.errors = {}
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            account = self._tryRegistration()
-            if account:
-                pas = getToolByName(self.context, "acl_users")
-                pas.updateCredentials(self.request, self.request.response,
-                        account.getUserName(), account.password)
+        if self.request.method != "POST":
+            return
+        account = self._tryRegistration()
+        if not account:
+            return
+        pas = getToolByName(self.context, "acl_users")
+        pas.updateCredentials(
+            self.request,
+            self.request.response,
+            account.getUserName(),
+            account.password,
+        )
 
-                country_url = aq_inner(self.context).absolute_url()
-                came_from = self.request.form.get("came_from")
-                if not came_from:
-                    came_from = country_url
+        country_url = aq_inner(self.context).absolute_url()
+        came_from = self.request.form.get("came_from")
+        if not came_from:
+            came_from = country_url
 
-                if checkTermsAndConditions():
-                    self.request.response.redirect(
-                            "%s/terms-and-conditions?%s" % (
-                                self.request.client.absolute_url(),
-                                urllib.urlencode({"came_from": came_from})))
-                else:
-                    self.request.response.redirect(came_from)
+        if checkTermsAndConditions():
+            self.request.response.redirect(
+                    "%s/terms-and-conditions?%s" % (
+                        self.request.client.absolute_url(),
+                        urllib.urlencode({"came_from": came_from})))
+        else:
+            self.request.response.redirect(came_from)
 
     def get_image_version(self, name):
         """" Needed on the reports overview show to the guest user """

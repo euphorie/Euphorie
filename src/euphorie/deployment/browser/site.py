@@ -1,22 +1,22 @@
-from zope.component import adapts
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from euphorie.content.api.entry import access_api
+from euphorie.content.countrymanager import ICountryManager
+from five import grok
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.membrane.interfaces.user import IMembraneUser
-from euphorie.content.countrymanager import ICountryManager
-from euphorie.content.api.entry import access_api
-from five import grok
+from zope.component import adapts
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 class Frontpage(grok.View):
     grok.context(IPloneSiteRoot)
     grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
 
     def render(self):
         user = getSecurityManager().getUser()

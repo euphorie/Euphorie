@@ -1,7 +1,7 @@
-from Acquisition import aq_parent
-from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.SecurityManagement import setSecurityManager
-from AccessControl.SecurityManagement import newSecurityManager
+# coding=utf-8
+from plone import api
+from plone.app.testing.interfaces import SITE_OWNER_NAME
+
 
 EMPTY_SURVEY = \
         """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
@@ -27,7 +27,7 @@ BASIC_SURVEY = \
                  </risk>
               </module>
             </survey>
-          </sector>"""
+          </sector>"""  # noqa: E501
 
 
 PROFILE_SURVEY = \
@@ -46,40 +46,56 @@ PROFILE_SURVEY = \
                 </risk>
               </profile-question>
             </survey>
-          </sector>"""
+          </sector>"""  # noqa: E501
 
 
 def _create(container, *args, **kwargs):
     newid = container.invokeFactory(*args, **kwargs)
     obj = getattr(container, newid)
-    obj.indexObject()
     return obj
 
 
-def createSector(portal, id="sector", title=u"Test Sector",
-        login=None, password=None, country="nl", **kw):
-    sm = getSecurityManager()
-    try:
-        admin = aq_parent(portal).acl_users.getUserById("portal_owner")
-        newSecurityManager(None, admin)
+def createSector(
+    portal,
+    id="sector",
+    title=u"Test Sector",
+    login=None,
+    password=None,
+    country="nl",
+    **kw
+):
+    with api.env.adopt_user(SITE_OWNER_NAME):
         if hasattr(portal, "sectors"):
             container = portal.sectors
         else:
-            container = _create(portal, "euphorie.sectorcontainer", "sectors")
+            with api.env.adopt_user(SITE_OWNER_NAME):
+                container = _create(
+                    portal,
+                    "euphorie.sectorcontainer",
+                    "sectors",
+                )
         if "nl" in container:
             country = container["nl"]
         else:
-            country = _create(container, "euphorie.country", "nl")
+            with api.env.adopt_user(SITE_OWNER_NAME):
+                country = _create(
+                    container,
+                    "euphorie.country",
+                    "nl"
+                )
+
         sector = _create(country, "euphorie.sector", id, title=title, **kw)
         sector.login = login or title.lower()
         sector.password = password if password is not None else sector.login
         return sector
-    finally:
-        setSecurityManager(sm)
 
 
-def addSurvey(sector, snippet=BASIC_SURVEY, surveygroup_title=u"Test survey",
-        survey_title=u"Standard version"):
+def addSurvey(
+    sector,
+    snippet=BASIC_SURVEY,
+    surveygroup_title=u"Test survey",
+    survey_title=u"Standard version",
+):
     from euphorie.content import upload
     importer = upload.SurveyImporter(sector)
     return importer(snippet, surveygroup_title, survey_title)

@@ -1,7 +1,7 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.testing import EuphorieFunctionalTestCase
 
 
-class addCountryGroupingTests(EuphorieTestCase):
+class addCountryGroupingTests(EuphorieFunctionalTestCase):
     def addCountryGrouping(self):
         from euphorie.deployment.upgrade.v2 import addCountryGrouping
         addCountryGrouping(self.portal.portal_setup)

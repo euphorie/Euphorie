@@ -1,15 +1,18 @@
-import hashlib
-import hmac
+from . import JsonView
+from ..countrymanager import ICountryManager
+from ..user import IUser
+from .entry import API
 from Acquisition import aq_parent
-from zope.component import getUtility
-from plone.keyring.interfaces import IKeyManager
 from five import grok
+from plone.keyring.interfaces import IKeyManager
+from plone.protect.interfaces import IDisableCSRFProtection
 from Products.CMFCore.utils import getToolByName
 from Products.membrane.interfaces import IMembraneUserAuth
-from . import JsonView
-from .entry import API
-from ..user import IUser
-from ..countrymanager import ICountryManager
+from zope.component import getUtility
+from zope.interface import alsoProvides
+
+import hashlib
+import hmac
 
 
 def _get_user(context, login):
@@ -94,7 +97,7 @@ class Authenticate(JsonView):
             self.request.response.setStatus(403)
             return {'type': 'error',
                     'message': 'Invalid credentials'}
-
+        alsoProvides(self.request, IDisableCSRFProtection)
         return {'token': generate_token(user),
                 'title': user.title,
                 'login': user.login,

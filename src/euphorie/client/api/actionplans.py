@@ -1,10 +1,12 @@
-from five import grok
-from sqlalchemy.orm import object_session
-from euphorie.ghost import PathGhost
-from ..model import ActionPlan
 from . import JsonView
-from .actionplan import plan_info
+from ..model import ActionPlan
 from .actionplan import View as ActionPlanView
+from .actionplan import plan_info
+from euphorie.ghost import PathGhost
+from five import grok
+from plone.protect.interfaces import IDisableCSRFProtection
+from sqlalchemy.orm import object_session
+from zope.interface import alsoProvides
 
 
 class RiskActionPlans(PathGhost):
@@ -48,4 +50,6 @@ class View(JsonView):
         response = view.do_PUT()
         if response['type'] != 'error':
             self.context.risk.action_plans.append(action_plan)
+
+        alsoProvides(self.request, IDisableCSRFProtection)
         return response

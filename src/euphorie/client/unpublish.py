@@ -1,13 +1,15 @@
-import logging
-from Acquisition import aq_parent
-from five import grok
-from Products.CMFCore.utils import getToolByName
 from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
-from plonetheme.nuplone.utils import getPortal
+from AccessControl.SecurityManagement import setSecurityManager
+from Acquisition import aq_parent
 from euphorie.content.interfaces import ISurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
+from five import grok
+from plonetheme.nuplone.utils import getPortal
+from Products.CMFCore.utils import getToolByName
+
+import logging
+
 
 log = logging.getLogger(__name__)
 

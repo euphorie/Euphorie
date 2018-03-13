@@ -1,25 +1,35 @@
-import unittest
+# coding=utf-8
+from euphorie.testing import EUPHORIE_FUNCTIONAL_TESTING
+from plone.testing import layered
+
+import doctest
 import glob
 import os.path
-from Testing.ZopeTestCase import FunctionalDocFileSuite
-import doctest
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
+import unittest
 
 
 def test_suite():
     location = os.path.dirname(__file__) or "."
-    doctests = ["stories/" + os.path.basename(test) for test in
-                glob.glob(os.path.join(location, "stories", "*.txt"))]
+    doctests = [
+        "stories/" + os.path.basename(test)
+        for test in glob.glob(os.path.join(location, "stories", "*.txt"))
+    ]
 
-    options = doctest.REPORT_ONLY_FIRST_FAILURE | \
-              doctest.ELLIPSIS | \
-              doctest.NORMALIZE_WHITESPACE
+    options = (
+        doctest.REPORT_ONLY_FIRST_FAILURE | doctest.ELLIPSIS
+        | doctest.NORMALIZE_WHITESPACE
+    )
 
-    suites = [FunctionalDocFileSuite(test,
-                                   optionflags=options,
-                                   test_class=EuphorieFunctionalTestCase,
-                                   module_relative=True,
-                                   package="euphorie.client.tests",
-                                   encoding="utf-8")
-            for test in doctests]
+    suites = [
+        layered(
+            doctest.DocFileSuite(
+                test,
+                optionflags=options,
+                module_relative=True,
+                package='euphorie.client.tests',
+                encoding='utf-8',
+            ),
+            layer=EUPHORIE_FUNCTIONAL_TESTING,
+        ) for test in doctests
+    ]
     return unittest.TestSuite(suites)

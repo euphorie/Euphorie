@@ -1,28 +1,36 @@
+# coding=utf-8
+
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_parent
 from euphorie.client import model
+from euphorie.client.survey import build_tree_aq_chain
+from euphorie.client.survey import find_sql_context
 from euphorie.client.tests.database import DatabaseTests
+from euphorie.ghost import PathGhost
+from z3c.saconfig import Session
 
 
 class find_sql_context_tests(DatabaseTests):
+
     def find_sql_context(self, *a, **kw):
-        from euphorie.client.survey import find_sql_context
         return find_sql_context(*a, **kw)
 
     def createSqlData(self):
-        from z3c.saconfig import Session
         self.session = Session()
         account = model.Account(loginname=u'jane', password=u'secret')
         self.session.add(account)
-        self.survey = model.SurveySession(title=u'Survey', zodb_path='survey',
-                account=account)
+        self.survey = model.SurveySession(
+            title=u'Survey', zodb_path='survey', account=account
+        )
         self.session.add(self.survey)
         self.session.flush()
-        self.mod1 = self.survey.addChild(model.Module(
-            title=u'module 1', module_id='1', zodb_path='a'))
-        self.q1 = self.mod1.addChild(model.Risk(
-            title=u'question 1', risk_id='1', zodb_path='a/b'))
+        self.mod1 = self.survey.addChild(
+            model.Module(title=u'module 1', module_id='1', zodb_path='a')
+        )
+        self.q1 = self.mod1.addChild(
+            model.Risk(title=u'question 1', risk_id='1', zodb_path='a/b')
+        )
         self.session.flush()
 
     def test_unknown_path(self):
@@ -57,8 +65,9 @@ class find_sql_context_tests(DatabaseTests):
         self.createSqlData()
         account = model.Account(loginname=u'john', password=u'jane')
         self.session.add(account)
-        survey2 = model.SurveySession(title=u'Survey', zodb_path='survey',
-                account=account)
+        survey2 = model.SurveySession(
+            title=u'Survey', zodb_path='survey', account=account
+        )
         self.session.add(survey2)
         self.session.flush()
         zodb_path = ['1']
@@ -67,23 +76,25 @@ class find_sql_context_tests(DatabaseTests):
 
 
 class build_tree_aq_chain_tests(DatabaseTests):
+
     def build_tree_aq_chain(self, *a, **kw):
-        from euphorie.client.survey import build_tree_aq_chain
         return build_tree_aq_chain(*a, **kw)
 
     def createSqlData(self):
-        from z3c.saconfig import Session
         self.session = Session()
         account = model.Account(loginname=u'jane', password=u'secret')
         self.session.add(account)
-        self.survey = model.SurveySession(title=u'Survey', zodb_path='survey',
-                account=account)
+        self.survey = model.SurveySession(
+            title=u'Survey', zodb_path='survey', account=account
+        )
         self.session.add(self.survey)
         self.session.flush()
-        self.mod1 = self.survey.addChild(model.Module(
-            title=u'module 1', module_id='1', zodb_path='a'))
-        self.q1 = self.mod1.addChild(model.Risk(
-            title=u'question 1', risk_id='1', zodb_path='a/b'))
+        self.mod1 = self.survey.addChild(
+            model.Module(title=u'module 1', module_id='1', zodb_path='a')
+        )
+        self.q1 = self.mod1.addChild(
+            model.Risk(title=u'question 1', risk_id='1', zodb_path='a/b')
+        )
         self.session.flush()
 
     def testSetupContext_OneStep(self):
@@ -95,7 +106,6 @@ class build_tree_aq_chain_tests(DatabaseTests):
         self.failUnless(aq_base(aq_parent(context)) is root)
 
     def testSetupContext_TwoSteps(self):
-        from euphorie.ghost import PathGhost
         self.createSqlData()
         root = model.BaseObject()
         context = self.build_tree_aq_chain(root, self.q1.id)

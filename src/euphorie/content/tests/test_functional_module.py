@@ -1,8 +1,11 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
+# coding=utf-8
+from euphorie.testing import EuphorieFunctionalTestCase
+from euphorie.testing import EuphorieIntegrationTestCase
+from transaction import commit
 
 
-class ModuleTests(EuphorieTestCase):
+class ModuleTests(EuphorieIntegrationTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -24,8 +27,7 @@ class ModuleTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         types = [fti.id for fti in module.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.module",
-                                          "euphorie.risk"]))
+        self.assertEqual(set(types), set(["euphorie.module", "euphorie.risk"]))
 
     def testConditionalFtiUsed(self):
         from euphorie.content.fti import ConditionalDexterityFTI
@@ -53,11 +55,11 @@ class ModuleTests(EuphorieTestCase):
         source = self._create(survey, 'euphorie.module', 'other')
         other = self._create(source, 'euphorie.module', 'other')
         self._create(other, 'euphorie.module', 'other')
-        self.assertRaises(ValueError,
-                target._verifyObjectPaste, source)
+        self.assertRaises(ValueError, target._verifyObjectPaste, source)
 
 
-class ConstructionFilterTests(EuphorieTestCase):
+class ConstructionFilterTests(EuphorieIntegrationTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -65,20 +67,22 @@ class ConstructionFilterTests(EuphorieTestCase):
     def createStructure(self):
         self.country = self.portal.sectors.nl
         self.sector = self._create(self.country, "euphorie.sector", "sector")
-        self.surveygroup = self._create(self.sector,
-                "euphorie.surveygroup", "group")
-        self.survey = self._create(self.surveygroup,
-                "euphorie.survey", "survey")
+        self.surveygroup = self._create(
+            self.sector, "euphorie.surveygroup", "group"
+        )
+        self.survey = self._create(
+            self.surveygroup, "euphorie.survey", "survey"
+        )
         self.module = self._create(self.survey, "euphorie.module", "module")
 
     def testValidDepthInModule(self):
-        self.setRoles(["Manager"])
+        self.loginAsPortalOwner()
         self.createStructure()
         types = [fti.id for fti in self.module.allowedContentTypes()]
         self.failUnless("euphorie.module" in types)
 
     def testMaxDepthInModule(self):
-        self.setRoles(["Manager"])
+        self.loginAsPortalOwner()
         self.createStructure()
         submodule = self._create(self.module, "euphorie.module", "module")
         subsubmodule = self._create(submodule, "euphorie.module", "module")
@@ -86,7 +90,7 @@ class ConstructionFilterTests(EuphorieTestCase):
         self.failUnless("euphorie.module" not in types)
 
     def testPreventModuleIfRiskExists(self):
-        self.setRoles(["Manager"])
+        self.loginAsPortalOwner()
         self.createStructure()
         types = [fti.id for fti in self.module.allowedContentTypes()]
         self.failUnless("euphorie.module" in types)
@@ -96,6 +100,7 @@ class ConstructionFilterTests(EuphorieTestCase):
 
 
 class FunctionalTests(EuphorieFunctionalTestCase):
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -103,24 +108,25 @@ class FunctionalTests(EuphorieFunctionalTestCase):
     def createStructure(self):
         self.country = self.portal.sectors.nl
         self.sector = self._create(self.country, "euphorie.sector", "sector")
-        self.surveygroup = self._create(self.sector,
-                "euphorie.surveygroup", "group")
-        self.survey = self._create(self.surveygroup,
-                "euphorie.survey", "survey")
+        self.surveygroup = self._create(
+            self.sector, "euphorie.surveygroup", "group"
+        )
+        self.survey = self._create(
+            self.surveygroup, "euphorie.survey", "survey"
+        )
         self.module = self._create(self.survey, "euphorie.module", "module")
+        commit()
 
     def testEditTitleForModule(self):
-        self.setRoles(["Manager"])
         self.createStructure()
-        browser = self.adminBrowser()
+        browser = self.get_browser(logged_in=True)
         browser.open("%s/@@edit" % self.module.absolute_url())
         self.assertTrue("Edit Module" in browser.contents)
 
     def testEditTitleForSubModule(self):
-        self.setRoles(["Manager"])
         self.createStructure()
         submodule = self._create(self.module, "euphorie.module", "module")
-        browser = self.adminBrowser()
+        browser = self.get_browser(logged_in=True)
         browser.open("%s/@@edit" % submodule.absolute_url())
         self.assertTrue("Edit Module" not in browser.contents)
         self.assertTrue("Edit Submodule" in browser.contents)

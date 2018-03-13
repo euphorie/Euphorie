@@ -29,7 +29,6 @@ from json import dumps
 from os import path
 from PIL.ImageColor import getrgb
 from plone import api
-from plone.app.controlpanel.site import ISiteSchema
 from plone.i18n.normalizer import idnormalizer
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
@@ -45,6 +44,7 @@ from zope.component.hooks import getSite
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
+
 import colorsys
 import email.Utils as emailutils
 import Globals
@@ -52,6 +52,7 @@ import logging
 import random
 import simplejson
 import threading
+
 
 locals = threading.local()
 log = logging.getLogger(__name__)
@@ -141,67 +142,135 @@ class WebHelpers(grok.View):
     sector = None
 
     def __init__(self, context, request):
-        from euphorie.client.session import SessionManager
-        from euphorie.client.country import IClientCountry
         super(WebHelpers, self).__init__(context, request)
-        for obj in aq_chain(aq_inner(context)):
+        if self.anonymous:
+            setattr(self.request, 'survey', self._tool)
+
+    @property
+    @memoize
+    def sector(self):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
-                self.sector = obj
-                break
-        self.debug_mode = Globals.DevelopmentMode
+                return obj
+
+    @property
+    @memoize
+    def debug_mode(self):
+        return Globals.DevelopmentMode
+
+    @property
+    @memoize
+    def _settings(self):
         appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.allow_social_sharing = settings.get('allow_social_sharing', False)
-        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
-        user = getSecurityManager().getUser()
-        self.anonymous = isAnonymous(user)
-        account = getattr(user, 'account_type', None)
-        self.is_guest_account = account == config.GUEST_ACCOUNT
-        self.guest_session_id = (
+        return appconfig.get('euphorie')
+
+    @property
+    @memoize
+    def allow_social_sharing(self):
+        return self._settings.get('allow_social_sharing', False)
+
+    @property
+    @memoize
+    def allow_guest_accounts(self):
+        return self._settings.get('allow_guest_accounts', False)
+
+    @property
+    @memoize
+    def _user(self):
+        return getSecurityManager().getUser()
+
+    @property
+    @memoize
+    def anonymous(self):
+        return isAnonymous(self._user)
+
+    @property
+    @memoize
+    def is_guest_account(self):
+        account = getattr(self._user, 'account_type', None)
+        return account == config.GUEST_ACCOUNT
+
+    @property
+    @memoize
+    def guest_session_id(self):
+        from euphorie.client.session import SessionManager
+        return (
             self.is_guest_account and
             getattr(SessionManager, 'session', None) and
-            SessionManager.session.id or None)
-        self.session_id = (
+            SessionManager.session.id or None
+        )
+
+    @property
+    @memoize
+    def session_id(self):
+        from euphorie.client.session import SessionManager
+        return (
             getattr(SessionManager, 'session', None) and
             SessionManager.session.id or '')
 
+    @property
+    @memoize
+    def came_from(self):
         came_from = self.request.form.get("came_from")
-        if came_from:
-            if isinstance(came_from, list):
-                # If came_from is both in the querystring and the form data
-                self.came_from = came_from[0]
-            self.came_from = came_from
-        else:
-            self.came_from = aq_parent(context).absolute_url()
+        if not came_from:
+            return aq_parent(self.context).absolute_url()
+        if not isinstance(came_from, list):
+            return came_from
+        # If came_from is both in the querystring and the form data
+        return came_from[0]
 
-        self.country_name = ''
-        self.sector_name = ''
-        self.tool_name = ''
-        self.tool_description = ''
-        lt = getToolByName(self.context, 'portal_languages')
-        lang = lt.getPreferredLanguage()
-        self.language_code = lang
-        ploneview = self.context.restrictedTraverse('@@plone')
+    @property
+    @memoize
+    def country_name(self):
+        from euphorie.client.country import IClientCountry
+        for obj in aq_chain(aq_inner(self.context)):
+            if IClientCountry.providedBy(obj):
+                return obj.Title()
+
+    @property
+    @memoize
+    def sector_name(self):
+        for obj in aq_chain(aq_inner(self.context)):
+            if IClientSector.providedBy(obj):
+                return obj.Title()
+
+    @property
+    @memoize
+    def _tool(self):
         for obj in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(obj):
-                self.tool_name = obj.Title()
-                self.tool_description = ploneview.cropText(
-                    StripMarkup(obj.introduction), 800)
-                if self.anonymous:
-                    setattr(self.request, 'survey', obj)
-            if IClientSector.providedBy(obj):
-                self.sector_name = obj.Title()
-            if IClientCountry.providedBy(obj):
-                self.country_name = obj.Title()
-                break
+                return obj
+
+    @property
+    @memoize
+    def tool_name(self):
+        obj = self._tool
+        if not obj:
+            return ''
+        return obj.Title()
+
+    @property
+    @memoize
+    def tool_description(self):
+        obj = self._tool
+        if not obj:
+            return ''
+        ploneview = self.context.restrictedTraverse('@@plone')
+        return ploneview.cropText(StripMarkup(obj.introduction), 800)
+
+    @property
+    @memoize
+    def language_code(self):
+        lt = getToolByName(self.context, 'portal_languages')
+        lang = lt.getPreferredLanguage()
+        return lang
 
     def get_username(self):
         member = api.user.get_current()
         return member.getProperty('fullname') or member.getUserName()
 
     def get_webstats_js(self):
-        site = getSite()
-        return ISiteSchema(site).webstats_js
+        return api.portal.get_registry_record('plone.webstats_js')
 
     def language_dict(self):
         site = getSite()

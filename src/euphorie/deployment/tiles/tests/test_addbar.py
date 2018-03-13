@@ -1,7 +1,7 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.testing import EuphorieFunctionalTestCase
 
 
-class AddBarTileTests(EuphorieTestCase):
+class AddBarTileTests(EuphorieFunctionalTestCase):
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)

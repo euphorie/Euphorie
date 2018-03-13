@@ -1,15 +1,18 @@
-from zope.component.hooks import getSite
+# coding=utf-8
 from euphorie.client import model
 from euphorie.client import session
 from euphorie.client import utils
 from euphorie.client.tests.utils import testRequest
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.client.unpublish import handleSurveyUnpublish
+from euphorie.content.tests.utils import BASIC_SURVEY
+from euphorie.content.tests.utils import createSector
+from euphorie.content.tests.utils import EMPTY_SURVEY
+from euphorie.testing import EuphorieIntegrationTestCase
+from OFS.SimpleItem import SimpleItem
+from zope.component.hooks import getSite
 
 
-class handleSurveyUnpublishTests(EuphorieTestCase):
-    def handleSurveyUnpublish(self, *a, **kw):
-        from euphorie.client.unpublish import handleSurveyUnpublish
-        return handleSurveyUnpublish(*a, **kw)
+class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
 
     def afterSetUp(self):
         super(handleSurveyUnpublishTests, self).afterSetUp()
@@ -17,34 +20,31 @@ class handleSurveyUnpublishTests(EuphorieTestCase):
         self.client = self.portal.client
 
     def createSurvey(self):
-        from euphorie.content.tests.utils import BASIC_SURVEY
         from euphorie.client.tests.utils import addSurvey
         addSurvey(self.portal, BASIC_SURVEY)
-        return (self.portal.sectors["nl"]["ict"]
-                ["software-development"]["test-import"])
+        return (
+            self.portal.sectors["nl"]["ict"]["software-development"]
+            ["test-import"]
+        )
 
     def testUnpublishedSurvey(self):
-        from euphorie.content.tests.utils import EMPTY_SURVEY
-        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import addSurvey
         sector = createSector(self.portal)
         survey = addSurvey(sector, EMPTY_SURVEY)
-        self.handleSurveyUnpublish(survey, None)
+        handleSurveyUnpublish(survey, None)
 
     def testPublishedSurvey(self):
-        from OFS.SimpleItem import SimpleItem
         survey = self.createSurvey()
         clientsector = self.portal.client["nl"]["ict"]
         clientsector["other"] = SimpleItem("other")
-        self.handleSurveyUnpublish(survey, None)
+        handleSurveyUnpublish(survey, None)
         self.assertEqual(self.portal.client["nl"]["ict"].keys(), ["other"])
 
     def testRemoveEmptySector(self):
-        from OFS.SimpleItem import SimpleItem
         survey = self.createSurvey()
         clientcountry = self.portal.client["nl"]
         clientcountry["other"] = SimpleItem("other")
-        self.handleSurveyUnpublish(survey, None)
+        handleSurveyUnpublish(survey, None)
         self.assertEqual(self.portal.client["nl"].keys(), ["other"])
 
     def testUnpublishWithActiveSession(self):
@@ -62,13 +62,9 @@ class handleSurveyUnpublishTests(EuphorieTestCase):
         mgr.session.zodb_path = '/'.join(client_survey.getPhysicalPath())
 
         helpers = utils.WebHelpers(survey, request)
-        self.assertEqual(
-                helpers.survey_url(),
-                client_survey.absolute_url())
+        self.assertEqual(helpers.survey_url(), client_survey.absolute_url())
 
-        self.handleSurveyUnpublish(survey, None)
+        handleSurveyUnpublish(survey, None)
 
         helpers = utils.WebHelpers(survey, request)
-        self.assertEqual(
-                helpers.survey_url(),
-                None)
+        self.assertEqual(helpers.survey_url(), None)

@@ -1,9 +1,11 @@
+# coding=utf-8
+from euphorie.decorators import reify
+
 import unittest
 
 
 class TestReify(unittest.TestCase):
     def reify(self, wrapped):
-        from euphorie.decorators import reify
         return reify(wrapped)
 
     def test___get__withinst(self):

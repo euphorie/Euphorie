@@ -7,24 +7,25 @@ SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
 
+from AccessControl.PermissionRole import _what_not_even_god_should_do
+from euphorie.client.enum import Enum
+from Products.PluggableAuthService.interfaces.authservice import IBasicUser
+from sqlalchemy import orm
+from sqlalchemy import schema
+from sqlalchemy import sql
+from sqlalchemy import types
+from sqlalchemy.ext import declarative
+from sqlalchemy.sql import functions
+from z3c.saconfig import Session
+from zope.component.hooks import getSite
+from zope.interface import implements
+from zope.sqlalchemy import datamanager
+
+import Acquisition
 import datetime
 import logging
-import random
-from sqlalchemy import schema
-from sqlalchemy import types
-from sqlalchemy import orm
-from sqlalchemy import sql
-from sqlalchemy.sql import functions
-from sqlalchemy.ext import declarative
-from z3c.saconfig import Session
-from zope.sqlalchemy import datamanager
-from zope.interface import implements
-import Acquisition
 import OFS.Traversable
-from AccessControl.PermissionRole import _what_not_even_god_should_do
-from zope.component.hooks import getSite
-from Products.PluggableAuthService.interfaces.authservice import IBasicUser
-from euphorie.client.enum import Enum
+import random
 
 
 metadata = schema.MetaData()
@@ -47,7 +48,7 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     In particular it allows acquisition to find skin objects and keeps
     absolute_url() and getPhysicalPath() working.
     """
-    __init__ = declarative._declarative_constructor
+    __init__ = declarative.api._declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
 
     def getId(self):
@@ -550,7 +551,7 @@ if not _instrumented:
     metadata._decl_registry = {}
     for cls in [SurveyTreeItem, SurveySession, Module, Risk,
                 ActionPlan, Account, AccountChangeRequest, Company]:
-        declarative.instrument_declarative(cls,
+        declarative.api.instrument_declarative(cls,
                 metadata._decl_registry, metadata)
     _instrumented = True
 

@@ -1,15 +1,19 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+# coding=utf-8
+from euphorie.content.tests.utils import _create
+from euphorie.testing import EuphorieIntegrationTestCase
 from plone.dexterity.interfaces import IDexterityFTI
 from z3c.form.interfaces import IDataManager
 from zope import component
+
 import bcrypt
 
 
-class CountryManagerTests(EuphorieTestCase):
+class CountryManagerTests(EuphorieIntegrationTestCase):
+
     def createCountryManager(self):
-        from euphorie.content.tests.utils import _create
-        manager = _create(self.portal.sectors["nl"],
-                "euphorie.countrymanager", "mgr")
+        manager = _create(
+            self.portal.sectors["nl"], "euphorie.countrymanager", "mgr"
+        )
         return manager
 
     def testCanNotBeCopied(self):
@@ -22,10 +26,10 @@ class CountryManagerTests(EuphorieTestCase):
         manager = self.createCountryManager()
 
         fti = component.queryUtility(IDexterityFTI, name=manager.portal_type)
-        field =  fti.lookupSchema().get('password')
-        dm = component.getMultiAdapter(
-            (manager, field), IDataManager).set('secret')
+        field = fti.lookupSchema().get('password')
+        component.getMultiAdapter((manager, field), IDataManager).set('secret')
 
         self.assertFalse(manager.password == 'secret')
         self.assertTrue(
-                bcrypt.hashpw('secret', manager.password) == manager.password)
+            bcrypt.hashpw('secret', manager.password) == manager.password
+        )

@@ -8,7 +8,6 @@
       id="login"
       meta:interpolation="true"
       tal:define="webhelpers nocall:context/@@webhelpers;
-                  tools nocall:context/@@tools;
                   client nocall:request/client"
       metal:use-macro="context/@@shell/macros/shell">
 

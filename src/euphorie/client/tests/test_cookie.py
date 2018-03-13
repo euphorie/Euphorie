@@ -1,11 +1,17 @@
-import unittest
-from ZPublisher.HTTPResponse import HTTPResponse
+# coding=utf-8
+from euphorie.client.cookie import _sign
+from euphorie.client.cookie import getCookie
+from euphorie.client.cookie import setCookie
 from euphorie.client.tests.utils import testRequest
+from ZPublisher.HTTPResponse import HTTPResponse
+
+import binascii
+import unittest
 
 
 class SetCookieTests(unittest.TestCase):
+
     def setCookie(self, response, secret, name, value, timeout=0):
-        from euphorie.client.cookie import setCookie
         return setCookie(response, secret, name, value, timeout)
 
     def test_basic(self):
@@ -26,8 +32,8 @@ class SetCookieTests(unittest.TestCase):
 
 
 class GetCookieTests(unittest.TestCase):
+
     def getCookie(self, request, secret, name):
-        from euphorie.client.cookie import getCookie
         return getCookie(request, secret, name)
 
     def test_no_cookie(self):
@@ -40,27 +46,23 @@ class GetCookieTests(unittest.TestCase):
         self.assertEqual(self.getCookie(request, "secret", "euphorie"), None)
 
     def test_invalid_format(self):
-        import binascii
         request = testRequest()
         request.cookies["euphorie"] = binascii.b2a_base64("invalid").rstrip()
         self.assertEqual(self.getCookie(request, "secret", "euphorie"), None)
 
     def test_short_cookie(self):
-        import binascii
         request = testRequest()
         request.cookies["euphorie"] = binascii.b2a_base64("short").rstrip()
         self.assertEqual(self.getCookie(request, "secret", "euphorie"), None)
 
     def test_invalid_signature(self):
-        import binascii
         request = testRequest()
         request.cookies["euphorie"] = binascii.b2a_base64(
-                "12345678901234567890").rstrip()
+            "12345678901234567890"
+        ).rstrip()
         self.assertEqual(self.getCookie(request, "secret", "euphorie"), None)
 
     def test_valid_signature(self):
-        import binascii
-        from euphorie.client.cookie import _sign
         request = testRequest()
         value = "%s1" % _sign("secret", "1")
         request.cookies["euphorie"] = binascii.b2a_base64(value).rstrip()

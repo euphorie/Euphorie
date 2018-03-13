@@ -1,14 +1,16 @@
-from z3c.saconfig import Session
-from five import grok
-from AccessControl.SecurityManagement import newSecurityManager
-from euphorie.ghost import PathGhost
+from . import JsonView
 from ..authentication import authenticate
 from ..model import Account
+from .account import View as AccountView
+from .account import login_available
 from .authentication import authenticate_token
 from .authentication import generate_token
-from .account import login_available
-from .account import View as AccountView
-from . import JsonView
+from AccessControl.SecurityManagement import newSecurityManager
+from euphorie.ghost import PathGhost
+from five import grok
+from plone.protect.interfaces import IDisableCSRFProtection
+from z3c.saconfig import Session
+from zope.interface import alsoProvides
 
 
 def user_info(account, request):
@@ -53,6 +55,7 @@ class View(JsonView):
 
         info = user_info(account, self.request)
         info['token'] = generate_token(account)
+        alsoProvides(self.request, IDisableCSRFProtection)
         return info
 
 
@@ -80,4 +83,5 @@ class Authenticate(JsonView):
 
         info = user_info(account, self.request)
         info['token'] = generate_token(account)
+        alsoProvides(self.request, IDisableCSRFProtection)
         return info

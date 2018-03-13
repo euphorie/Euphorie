@@ -1,30 +1,45 @@
+# coding=utf-8
+from ...countrymanager import CountryManager
+from ...sector import Sector
+from ...tests.utils import createSector
+from ..authentication import generate_token
+from ..managers import list_managers
+from ..managers import Managers
+from ..managers import View
+from Acquisition import aq_base
+from Acquisition import aq_parent
+from euphorie.testing import EuphorieFunctionalTestCase
+
+import json
+import mock
 import unittest
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.Five.testbrowser import Browser
 
 
 class list_managers_tests(unittest.TestCase):
+
     def list_managers(self, *a, **kw):
-        from ..managers import list_managers
         return list_managers(*a, **kw)
 
     def test_ignore_other_children(self):
-        from ...sector import Sector
         country = {'sector': Sector()}
         self.assertEqual(self.list_managers(country), [])
 
     def test_info(self):
-        from ...countrymanager import CountryManager
-        country = {'manager': CountryManager(id='manager', title=u'Jane Doe',
-                                             login='manager',
-                                             contact_email='jane@example.com',
-                                             locked=True)}
+        country = {
+            'manager': CountryManager(
+                id='manager',
+                title=u'Jane Doe',
+                login='manager',
+                contact_email='jane@example.com',
+                locked=True
+            )
+        }
         managers = self.list_managers(country)
         self.assertEqual(len(managers), 1)
         info = managers[0]
         self.assertEqual(
-                set(info),
-                set(['id', 'title', 'login', 'email', 'locked']))
+            set(info), set(['id', 'title', 'login', 'email', 'locked'])
+        )
         self.assertEqual(info['id'], 'manager')
         self.assertEqual(info['title'], u'Jane Doe')
         self.assertEqual(info['login'], 'manager')
@@ -33,22 +48,23 @@ class list_managers_tests(unittest.TestCase):
 
 
 class ViewTests(unittest.TestCase):
+
     def View(self, *a, **kw):
-        from ..managers import View
         return View(*a, **kw)
 
     def test_return(self):
-        import mock
         view = self.View('context', 'request')
-        with mock.patch('euphorie.content.api.managers.list_managers',
-                return_value='mgr-list') as mock_list_managers:
+        with mock.patch(
+            'euphorie.content.api.managers.list_managers',
+            return_value='mgr-list'
+        ) as mock_list_managers:
             self.assertEqual(view.do_GET(), {'managers': 'mgr-list'})
             mock_list_managers.assert_called_once_with('context')
 
 
 class ManagersTests(unittest.TestCase):
+
     def Managers(self, *a, **kw):
-        from ..managers import Managers
         return Managers(*a, **kw)
 
     def test_getitem_unknown_key(self):
@@ -62,9 +78,6 @@ class ManagersTests(unittest.TestCase):
         self.assertRaises(KeyError, managers.__getitem__, 'key')
 
     def test_getitem__country_manager(self):
-        from Acquisition import aq_base
-        from Acquisition import aq_parent
-        from ...countrymanager import CountryManager
         country = {'key': CountryManager()}
         managers = self.Managers('id', None, country)
         mgr = managers['key']
@@ -73,18 +86,16 @@ class ManagersTests(unittest.TestCase):
 
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):
+
     def test_require_authentication(self):
-        browser = Browser()
+        browser = self.get_browser()
         browser.raiseHttpErrors = False
         browser.open('http://nohost/plone/api/countries/nl/managers')
         self.assertTrue(browser.headers['Status'].startswith('401'))
 
     def test_authenticated_user(self):
-        import json
-        from ...tests.utils import createSector
-        from ..authentication import generate_token
         sector = createSector(self.portal, login='sector', password=u'sector')
-        browser = Browser()
+        browser = self.get_browser()
         browser.handleErrors = False
         browser.addHeader('X-Euphorie-Token', generate_token(sector))
         browser.open('http://nohost/plone/api/countries/nl/managers')
@@ -93,20 +104,27 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['managers'], [])
 
     def test_add_new_manager(self):
-        import json
-        from ..authentication import generate_token
-        self.loginAsPortalOwner()
         country = self.portal.sectors['nl']
-        country.invokeFactory('euphorie.countrymanager', 'manager',
-                login='manager', password=u'manager')
-        browser = Browser()
+        country.invokeFactory(
+            'euphorie.countrymanager',
+            'manager',
+            login='manager',
+            password=u'manager'
+        )
+        browser = self.get_browser()
         browser.handleErrors = False
         browser.raiseHttpErrors = False
-        browser.addHeader('X-Euphorie-Token', generate_token(country['manager']))
-        browser.post('http://nohost/plone/api/countries/nl/managers',
-                json.dumps({'title': u'Jane Doe',
-                            'login': 'jane',
-                            'password': u'johny'}))
+        browser.addHeader(
+            'X-Euphorie-Token', generate_token(country['manager'])
+        )
+        browser.post(
+            'http://nohost/plone/api/countries/nl/managers',
+            json.dumps({
+                'title': u'Jane Doe',
+                'login': 'jane',
+                'password': u'johny'
+            })
+        )
         response = json.loads(browser.contents)
         self.assertEqual(response['type'], 'countrymanager')
         self.assertEqual(response['id'], 'jane-doe')

@@ -1,5 +1,5 @@
-from five import grok
 from euphorie.content.survey import ISurvey
+from five import grok
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import getToolByName
 

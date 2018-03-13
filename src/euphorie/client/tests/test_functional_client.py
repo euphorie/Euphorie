@@ -1,12 +1,12 @@
 # coding=utf-8
-
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.Five.testbrowser import Browser
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
+from euphorie.testing import EuphorieFunctionalTestCase
+from transaction import commit
 
 
 class SurveyTests(EuphorieFunctionalTestCase):
+
     def test_policy_gets_high_priority(self):
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/93
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
@@ -25,12 +25,16 @@ class SurveyTests(EuphorieFunctionalTestCase):
                           </risk>
                         </module>
                       </survey>
-                    </sector>"""
+                    </sector>"""  # noqa: E501
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
-        browser.open(self.portal.client.nl["sector-title"]["survey-title"]
-                        .absolute_url())
+        commit()
+        self.request.response.setHeader('X-Theme-Disabled', '1')
+        browser = self.get_browser()
+        url = self.portal.client.nl["sector-title"][
+            "survey-title"
+        ].absolute_url()  # noqa: E501
+        browser.open(url)
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
@@ -39,13 +43,17 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
-        browser.open("http://nohost/plone/client/nl/sector-title/"
-                     "survey-title/identification/1/1")
+        browser.open(
+            "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/identification/1/1"
+        )
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
-        browser.open("http://nohost/plone/client/nl/sector-title/"
-                     "survey-title/actionplan/1/1")
+        browser.open(
+            "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/actionplan/1/1"
+        )
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
     def test_top5_gets_high_priority(self):
@@ -66,12 +74,14 @@ class SurveyTests(EuphorieFunctionalTestCase):
                           </risk>
                         </module>
                       </survey>
-                    </sector>"""
+                    </sector>"""  # noqa: E501
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
-        browser.open(self.portal.client.nl["sector-title"]["survey-title"]
-                                .absolute_url())
+        browser = self.get_browser()
+        browser.open(
+            self.portal.client.nl["sector-title"]["survey-title"]
+            .absolute_url()
+        )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
@@ -80,13 +90,17 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk
-        browser.open("http://nohost/plone/client/nl/sector-title/"
-                     "survey-title/identification/1/1")
+        browser.open(
+            "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/identification/1/1"
+        )
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
-        browser.open("http://nohost/plone/client/nl/sector-title/"
-                     "survey-title/actionplan/1/1")
+        browser.open(
+            "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/actionplan/1/1"
+        )
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
     def test_top5_skipped_in_evaluation(self):
@@ -107,12 +121,14 @@ class SurveyTests(EuphorieFunctionalTestCase):
                           </risk>
                         </module>
                       </survey>
-                    </sector>"""
+                    </sector>"""  # noqa: E501
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
-        browser.open(self.portal.client.nl["sector-title"]["survey-title"]
-                .absolute_url())
+        browser = self.get_browser()
+        browser.open(
+            self.portal.client.nl["sector-title"]["survey-title"]
+            .absolute_url()
+        )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
@@ -121,10 +137,13 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk
-        browser.open("http://nohost/plone/client/nl/sector-title/"
-                        "survey-title/identification/1/1")
+        browser.open(
+            "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/identification/1/1"
+        )
         browser.getControl(name="answer").value = ["no"]
         # No evaluation is necessary
         self.assertTrue(
-                "The risk evaluation has been automatically done by the tool"
-                in browser.contents)
+            "The risk evaluation has been automatically done by the tool" in
+            browser.contents
+        )

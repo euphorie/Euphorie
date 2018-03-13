@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Solution
 --------
@@ -16,6 +17,7 @@ from zope import schema
 from zope.i18n import translate
 from zope.interface import implements
 
+
 grok.templatedir("templates")
 
 
@@ -27,41 +29,59 @@ class ISolution(form.Schema):
     """
 
     description = schema.Text(
-            title=_("label_module_description", u"Description"),
-            description=_("help_module_description",
-                default=u"Include any relevant information that may be "
-                    u"helpful for the end-user."),
-            required=True)
+        title=_("label_module_description", u"Description"),
+        description=_(
+            "help_module_description",
+            default=u"Include any relevant information that may be "
+            u"helpful for the end-user."
+        ),
+        required=True
+    )
     form.order_after(description="title")
 
     action_plan = schema.Text(
-            title=_("label_measure_action_plan",
-                default=u"General approach (to eliminate or reduce the risk)"),
-            description=_("help_measure_action_plan",
-                default=u"Describe your general approach to eliminate or (if "
-                    u"the risk is not avoidable) reduce the risk."),
-            required=True)
+        title=_(
+            "label_measure_action_plan",
+            default=u"General approach (to eliminate or reduce the risk)"
+        ),
+        description=_(
+            "help_measure_action_plan",
+            default=u"Describe your general approach to eliminate or (if "
+            u"the risk is not avoidable) reduce the risk."
+        ),
+        required=True
+    )
 
     prevention_plan = schema.Text(
-            title=_("label_measure_prevention_plan",
-                default=u"Specific action(s) required to implement this "
-                        u"approach"),
-            description=_("help_measure_prevention_plan",
-                default=u"Describe the specific action(s) required to "
-                    u"implement this approach (to eliminate or to reduce the risk)."),
-            required=False)
+        title=_(
+            "label_measure_prevention_plan",
+            default=u"Specific action(s) required to implement this "
+            u"approach"
+        ),
+        description=_(
+            "help_measure_prevention_plan",
+            default=u"Describe the specific action(s) required to "
+            u"implement this approach (to eliminate or to reduce the risk)."
+        ),
+        required=False
+    )
 
     requirements = schema.Text(
-            title=_("label_measure_requirements",
-                default=u"Level of expertise and/or requirements needed"),
-            description=_("help_measure_requirements",
-                default=u'Describe the level of expertise needed to implement '
-                    u'the measure, for instance "common sense (no OSH knowledge '
-                    u'required)", "no specific OSH expertise, but minimum OSH '
-                    u'knowledge or training and/or consultation of OSH guidance '
-                    u'required", or "OSH expert". You can also describe here '
-                    u'any other additional requirement (if any).'),
-            required=False)
+        title=_(
+            "label_measure_requirements",
+            default=u"Level of expertise and/or requirements needed"
+        ),
+        description=_(
+            "help_measure_requirements",
+            default=u'Describe the level of expertise needed to implement '
+            u'the measure, for instance "common sense (no OSH knowledge '
+            u'required)", "no specific OSH expertise, but minimum OSH '
+            u'knowledge or training and/or consultation of OSH guidance '
+            u'required", or "OSH expert". You can also describe here '
+            u'any other additional requirement (if any).'
+        ),
+        required=False
+    )
 
 
 class Solution(dexterity.Item):
@@ -69,23 +89,25 @@ class Solution(dexterity.Item):
     title = _("title_common_solution", default=u"Measure")
     prevention_plan = None
     requirements = None
+    portal_type = 'euphorie.solution'
 
     def Title(self):
         survey = utils.getSurvey(self)
         return translate(
-                    Solution.title,
-                    context=self.REQUEST,
-                    target_language=survey.language).encode('utf-8')
+            Solution.title,
+            context=self.REQUEST,
+            target_language=survey.language
+        ).encode('utf-8')
 
 
 @indexer(ISolution)
 def SearchableTextIndexer(obj):
     """ Index the problem_description, question and solution_direction
     """
-    return " ".join([obj.description,
-                     obj.action_plan or '',
-                     obj.prevention_plan or '',
-                     obj.requirements or ''])
+    return " ".join([
+        obj.description, obj.action_plan or '', obj.prevention_plan or '',
+        obj.requirements or ''
+    ])
 
 
 class View(grok.View):

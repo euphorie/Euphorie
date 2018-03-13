@@ -1,13 +1,14 @@
-from Products.membrane.config import TOOLNAME
-from Products.membrane.interfaces import user as user_ifaces
+# coding=utf-8
 from euphorie.content import MessageFactory as _
 from euphorie.content.tests.utils import createSector
-from Products.statusmessages.interfaces import IStatusMessage
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from Products.membrane.config import TOOLNAME
+from Products.membrane.interfaces import user as user_ifaces
+from Products.statusmessages.interfaces import IStatusMessage
 
 
-class PasswordPolicyTests(EuphorieTestCase):
+class PasswordPolicyTests(EuphorieIntegrationTestCase):
 
     def testPasswordPolicy(self):
         err_msg = _(u"password_policy_conditions")

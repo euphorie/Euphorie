@@ -6,17 +6,17 @@ The client proxy for displaying sector information.
 """
 
 from Acquisition import aq_base
-from Acquisition import aq_parent
 from Acquisition import aq_inner
-from zope.component import getUtility
-from zope.component import getMultiAdapter
-from zope.interface import implements
-from five import grok
-from plone.directives import form
-from plone.directives import dexterity
-from plone.app.dexterity.behaviors.metadata import IBasic
-from Products.CMFCore.interfaces import ISiteRoot
+from Acquisition import aq_parent
 from euphorie.client.interfaces import IClientSkinLayer
+from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import dexterity
+from plone.directives import form
+from Products.CMFCore.interfaces import ISiteRoot
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.interface import implements
 
 
 class IClientSector(form.Schema, IBasic):

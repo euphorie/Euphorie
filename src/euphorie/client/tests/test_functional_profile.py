@@ -1,12 +1,11 @@
 # coding=utf-8
-
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.Five.testbrowser import Browser
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
+from euphorie.testing import EuphorieFunctionalTestCase
 
 
 class ProfileTests(EuphorieFunctionalTestCase):
+
     def testMultiProfiles(self):
         # Tests http://code.simplon.biz/tracker/euphorie/ticket/96
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
@@ -37,9 +36,11 @@ class ProfileTests(EuphorieFunctionalTestCase):
 
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
-        browser.open(self.portal.client.nl["sector-title"]["survey-title"]
-                .absolute_url())
+        browser = self.get_browser()
+        browser.open(
+            self.portal.client.nl["sector-title"]["survey-title"]
+            .absolute_url()
+        )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
@@ -47,8 +48,12 @@ class ProfileTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getForm().submit()
         # Enter the profile information
-        browser.getControl(name="1:utf8:utext:list", index=0).value = "Profile 1"
-        browser.getControl(name="1:utf8:utext:list", index=1).value = "Profile 2"
+        browser.getControl(
+            name="1:utf8:utext:list", index=0
+        ).value = "Profile 1"
+        browser.getControl(
+            name="1:utf8:utext:list", index=1
+        ).value = "Profile 2"
         browser.getForm().submit()
 
 
@@ -75,9 +80,11 @@ class UpdateTests(EuphorieFunctionalTestCase):
                     </sector>"""
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
-        browser.open(self.portal.client.nl["sector-title"]["survey-title"]
-                        .absolute_url())
+        browser = self.get_browser()
+        browser.open(
+            self.portal.client.nl["sector-title"]["survey-title"]
+            .absolute_url()
+        )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="title:utf8:ustring").value = "Test session"
@@ -90,29 +97,32 @@ class UpdateTests(EuphorieFunctionalTestCase):
         browser.getForm().submit()
         # Change the survey and publish again
         from euphorie.client import publish
-        survey = (self.portal.sectors["nl"]["sector-title"]
-                        ["survey-title"]["test-import"])
+        survey = (
+            self.portal.sectors["nl"]["sector-title"]["survey-title"]
+            ["test-import"]
+        )
         survey.invokeFactory("euphorie.module", "test module")
         publisher = publish.PublishSurvey(survey, self.portal.REQUEST)
         publisher.publish()
         # We should get an update notification now
         browser.getLink("Start Risk Identification").click()
         self.assertEqual(
-                browser.url,
-                "http://nohost/plone/client/nl/sector-title/survey-title/update")
+            browser.url,
+            "http://nohost/plone/client/nl/sector-title/survey-title/update"
+        )
         # And our current profile should be listed
         self.assertEqual(
-                browser.getControl(name="1:utext:list", index=0).value,
-                "Profile 1")
+            browser.getControl(name="1:utext:list", index=0).value, "Profile 1"
+        )
         self.assertEqual(
-                browser.getControl(name="1:utext:list", index=1).value,
-                "Profile 2")
+            browser.getControl(name="1:utext:list", index=1).value, "Profile 2"
+        )
         # Confirm the profile
         browser.getForm().submit()
         self.assertEqual(
-                browser.url,
-                "http://nohost/plone/client/nl/sector-title/"
-                "survey-title/identification")
+            browser.url, "http://nohost/plone/client/nl/sector-title/"
+            "survey-title/identification"
+        )
         # Make sure the profile is correct
         browser.getLink("Start Risk Identification").click()
         self.assertTrue("Profile 1" in browser.contents)
@@ -146,7 +156,7 @@ class UpdateTests(EuphorieFunctionalTestCase):
 
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
-        browser = Browser()
+        browser = self.get_browser()
         client_survey = self.portal.client.nl["sector-title"]["survey-title"]
         browser.open(client_survey.absolute_url())
         registerUserInClient(browser)
@@ -166,7 +176,8 @@ class UpdateTests(EuphorieFunctionalTestCase):
         browser.getControl(name="next", index=1).click()
         # Change the survey to make the module required and publish again
         from euphorie.client import publish
-        survey = self.portal.sectors["nl"]["sector-title"]["survey-title"]["test-import"]
+        survey = self.portal.sectors["nl"]["sector-title"]["survey-title"
+                                                           ]["test-import"]
         module = survey['1']
         module.optional = False
         publisher = publish.PublishSurvey(survey, self.portal.REQUEST)
@@ -179,14 +190,17 @@ class UpdateTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.url, module_identification_url)
         # But this time, the module's "optional" question (i.e to skip the
         # children) should not be there
-        self.assertRaises(LookupError,
-                browser.getControl, name='skip_children:boolean')
+        self.assertRaises(
+            LookupError, browser.getControl, name='skip_children:boolean'
+        )
         browser.getControl(name="next", index=1).click()
         # Now we must see the risk, i.e skip_children=False so we *must* answer
         # the risk
         self.assertEqual(
-                "<legend>This risk exists</legend>" in browser.contents, True)
+            "<legend>This risk exists</legend>" in browser.contents, True
+        )
         # There are 2 inputs (2 radio, 1 hidden), for yes, no and postponed.
         self.assertEqual(len(browser.getControl(name="answer").controls), 3)
         self.assertEqual(
-                browser.getControl(name="answer:default").value, 'postponed')
+            browser.getControl(name="answer:default").value, 'postponed'
+        )

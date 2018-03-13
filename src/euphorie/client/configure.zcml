@@ -7,7 +7,7 @@
            i18n_domain="euphorie">
 
     <five:registerPackage package="." initialize=".initialize" />
-     
+
     <include package="euphorie.content" />
     <include package=".api" />
 
@@ -66,7 +66,7 @@
         layer=".interfaces.IClientSkinLayer"
         name="index_html"
         />
-      
+
     <browser:page
         for="*"
         layer=".client.IClientSkinLayer"
@@ -82,13 +82,7 @@
         description="The online risk assessment client interface for an Euphorie website"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        />
-
-    <genericsetup:importStep
-        name="euphorie.client"
-        title="Euphorie client configuration"
-        description="Install and enable the PAS plugin" 
-        handler=".setuphandlers.setupVarious"
+        post_handler=".setuphandlers.setupVarious"
         />
 
     <browser:resourceDirectory

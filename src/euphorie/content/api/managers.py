@@ -1,13 +1,15 @@
-from zExceptions import Unauthorized
-from Acquisition import aq_base
-from five import grok
-from euphorie.ghost import PathGhost
-from plone.dexterity.utils import createContent
-from plone.dexterity.utils import addContentToContainer
-from euphorie.json import get_json_unicode
+from . import JsonView
 from ..countrymanager import ICountryManager
 from .countrymanager import View as CountryManagerView
-from . import JsonView
+from Acquisition import aq_base
+from euphorie.ghost import PathGhost
+from euphorie.json import get_json_unicode
+from five import grok
+from plone.dexterity.utils import addContentToContainer
+from plone.dexterity.utils import createContent
+from plone.protect.interfaces import IDisableCSRFProtection
+from zExceptions import Unauthorized
+from zope.interface import alsoProvides
 
 
 def list_managers(country):
@@ -47,7 +49,6 @@ class View(JsonView):
     def do_POST(self):
         if not self.has_permission('Euphorie: Manage country'):
             raise Unauthorized()
-
         manager = createContent('euphorie.countrymanager')
         # Assign a temporary id. Without this security caching logic breaks due to use of
         # getPhysicalPath() as cache id. This calls getId() to get the id,
@@ -63,4 +64,5 @@ class View(JsonView):
         del manager.id
         manager = addContentToContainer(self.context.country, manager, False)
         view = CountryManagerView(manager, self.request)
+        alsoProvides(self.request, IDisableCSRFProtection)
         return view.do_GET()

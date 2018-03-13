@@ -9,7 +9,6 @@
  <permission>Euphorie: Add new RIE Content</permission>
  <permission>Access contents information</permission>
  <permission>Add portal content</permission>
- <permission>Change portal events</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
  <permission>Euphorie: Publish a survey</permission>
@@ -43,12 +42,6 @@
     <permission-role>Manager</permission-role>
     <permission-role>CountryManager</permission-role>
   </permission-map>
-  <permission-map name="Change portal events"
-                  acquired="False">
-    <permission-role>Sector</permission-role>
-    <permission-role>Manager</permission-role>
-    <permission-role>CountryManager</permission-role>
-  </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
     <permission-role>Sector</permission-role>
@@ -69,7 +62,7 @@
   <description>Previous transition
 </description>
   <default>
-   
+
    <expression>transition/getId|nothing</expression>
   </default>
   <guard>
@@ -80,7 +73,7 @@
   <description>The ID of the user who performed the last transition
 </description>
   <default>
-   
+
    <expression>user/getId</expression>
   </default>
   <guard>
@@ -91,7 +84,7 @@
   <description>Comment about the last transition
 </description>
   <default>
-   
+
    <expression>python:state_change.kwargs.get('comment', '')</expression>
   </default>
   <guard>
@@ -102,7 +95,7 @@
   <description>Provides access to workflow history
 </description>
   <default>
-   
+
    <expression>state_change/getHistory</expression>
   </default>
   <guard>
@@ -115,7 +108,7 @@
   <description>When the previous transition was performed
 </description>
   <default>
-   
+
    <expression>state_change/getDateTime</expression>
   </default>
   <guard>

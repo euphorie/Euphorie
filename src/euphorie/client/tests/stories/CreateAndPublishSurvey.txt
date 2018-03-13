@@ -3,13 +3,16 @@ Creating and publishing a survey
 
 Before we can start we must set up our test environment:
 
+>>> app = layer['portal']
+>>> portal = layer['portal']
+>>> from plone.testing.z2 import Browser
+>>> browser = Browser(layer['app'])
+>>> browser.handleErrors=False
+>>> portal.error_log._ignored_exceptions=()
 >>> from euphorie.content.tests import utils
 >>> sector=utils.createSector(portal, "hiswa", title=u"HISWA",
 ...       login="hiswa", password="hiswa")
->>> from Products.Five.testbrowser import Browser
->>> browser=Browser()
->>> browser.handleErrors=False
->>> portal.error_log._ignored_exceptions=()
+>>> from transaction import commit; commit()
 
 Before we can do anything we must login with the sector account:
 
@@ -70,4 +73,3 @@ Lets publish our updates now:
 >>> browser.getControl(name="form.buttons.button_publish").click()
 >>> browser.contents
 '...Succesfully published the OiRA Tool. It can be accessed at...'
-

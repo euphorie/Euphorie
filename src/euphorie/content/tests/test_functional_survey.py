@@ -1,10 +1,15 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+# coding=utf-8
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from euphorie.content.tests.utils import addSurvey
+from euphorie.content.tests.utils import createSector
+from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
 
 
-class SurveyTests(EuphorieTestCase):
+class SurveyTests(EuphorieIntegrationTestCase):
+
     def createSurvey(self):
-        from euphorie.content.tests.utils import createSector
-        from euphorie.content.tests.utils import addSurvey
         sector = createSector(self.portal, login='sector')
         survey = addSurvey(sector)
         return survey
@@ -12,8 +17,9 @@ class SurveyTests(EuphorieTestCase):
     def testSurveyWorkflow(self):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
-        chain = self.folder.portal_workflow.getChainFor(survey)
-        self.assertEqual(chain, ('survey',))
+        pw = api.portal.get_tool('portal_workflow')
+        chain = pw.getChainFor(survey)
+        self.assertEqual(chain, ('survey', ))
 
     def testNotGloballyAllowed(self):
         self.loginAsPortalOwner()
@@ -24,12 +30,11 @@ class SurveyTests(EuphorieTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         types = [fti.id for fti in survey.allowedContentTypes()]
-        self.assertEqual(set(types), set(['euphorie.module',
-                                          'euphorie.profilequestion']))
+        self.assertEqual(
+            set(types), set(['euphorie.module', 'euphorie.profilequestion'])
+        )
 
     def testCanDeleteItemsWhenNotPublished(self):
-        from AccessControl.SecurityManagement import getSecurityManager
-        from AccessControl.SecurityManagement import newSecurityManager
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         sector = self.portal.acl_users.getUser('sector')

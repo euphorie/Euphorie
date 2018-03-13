@@ -5,18 +5,20 @@ Session
 Create and update sessions.
 """
 
-import logging
-from z3c.saconfig import Session
+from AccessControl import getSecurityManager
 from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from AccessControl import getSecurityManager
 from euphorie.client import model
+from euphorie.client.cookie import deleteCookie
 from euphorie.client.cookie import getCookie
 from euphorie.client.cookie import setCookie
-from euphorie.client.cookie import deleteCookie
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import getSecret
+from z3c.saconfig import Session
+
+import logging
+
 
 log = logging.getLogger(__name__)
 SESSION_COOKIE = "_eu_session"

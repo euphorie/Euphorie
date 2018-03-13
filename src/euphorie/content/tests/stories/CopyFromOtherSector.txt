@@ -3,9 +3,10 @@ Copying content from another survey
 
 Before we can start we must set up our test environment:
 
->>> from zExceptions import Unauthorized
->>> from Products.Five.testbrowser import Browser
->>> browser=Browser()
+>>> app = layer['portal']
+>>> portal = layer['portal']
+>>> from plone.testing.z2 import Browser
+>>> browser = Browser(layer['app'])
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=("Unauthorized")
 
@@ -13,15 +14,16 @@ Lets create a sector with a minimal survey:
 
 >>> from euphorie.content.tests.utils import createSector
 >>> from euphorie.content.tests.utils import addSurvey
->>> from euphorie.content.tests.utils import EMPTY_SURVEY
->>> self.loginAsPortalOwner()
 >>> sector1=createSector(portal, "one", title=u"Sector one")
 >>> _=addSurvey(sector1)
 
 And a second sector with an empty survey:
 
 >>> sector2=createSector(portal, "two", title=u"Sector two", login="two", password="two")
+>>> from euphorie.content.tests.utils import EMPTY_SURVEY
 >>> _=addSurvey(sector2, EMPTY_SURVEY)
+>>> from transaction import commit
+>>> commit()
 
 We can now login using the second survey:
 
@@ -29,6 +31,8 @@ We can now login using the second survey:
 >>> browser.getControl(name="__ac_name").value="two"
 >>> browser.getControl(name="__ac_password").value="two"
 >>> browser.getForm(id="loginForm").submit()
+>>> browser.contents
+'...You have been logged in...'
 
 
 Copy module from other sector
@@ -54,10 +58,10 @@ Paste module in own survey
 
 Lets go back to our own survey now:
 
->>> browser.getLink("OiRA", index=2).click()
+>>> browser.getLink("OiRA", index=1).click()
 >>> browser.getLink("Standard version").click()
->>> browser.open("%s/@@paste" % browser.url)
+>>> authenticator = browser.getControl(name='_authenticator', index=0).value
+>>> browser.open("%s/@@paste?_authenticator=%s" % (browser.url, authenticator))
 >>> browser.contents
 '...Pasted...
 ...Module one...'
-

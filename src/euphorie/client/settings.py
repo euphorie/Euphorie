@@ -4,25 +4,9 @@ Settings
 
 Change a user's password/email or delete an account.
 """
-import datetime
-import logging
-import smtplib
-import socket
-import urllib
-from Acquisition import aq_inner
-from AccessControl import getSecurityManager
-from five import grok
-from zope import schema
-from zope.interface import directlyProvides
-from zope.interface import Invalid
-from zope.component import getUtility
-from zope.i18n import translate
-from z3c.form import button
-from z3c.form.interfaces import WidgetActionExecutionError
-from z3c.schema.email import RFC822MailAddress
-from z3c.saconfig import Session
-from plone.directives import form
 from .. import MessageFactory as _
+from AccessControl import getSecurityManager
+from Acquisition import aq_inner
 from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
@@ -31,11 +15,28 @@ from euphorie.client.model import AccountChangeRequest
 from euphorie.client.session import SessionManager
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
-from Products.CMFCore.interfaces import ISiteRoot
+from five import grok
+from plone import api
+from plone.directives import form
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
 from Products.MailHost.MailHost import MailHostError
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.form import button
+from z3c.form.interfaces import WidgetActionExecutionError
+from z3c.saconfig import Session
+from z3c.schema.email import RFC822MailAddress
+from zope import schema
+from zope.i18n import translate
+from zope.interface import directlyProvides
+from zope.interface import Invalid
+
+import datetime
+import logging
+import smtplib
+import socket
+import urllib
+
 
 log = logging.getLogger(__name__)
 
@@ -44,29 +45,31 @@ grok.templatedir("templates")
 
 class PasswordChangeSchema(form.Schema):
     old_password = schema.Password(
-            title=_(u"label_old_password", default=u"Current Password"),
-            required=True)
+        title=_(u"label_old_password", default=u"Current Password"),
+        required=True
+    )
     form.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
     new_password = schema.Password(
-            title=_(u"label_new_password", default=u"Desired password"))
+        title=_(u"label_new_password", default=u"Desired password")
+    )
 
 
 class AccountDeleteSchema(form.Schema):
     password = schema.Password(
-            title=_(u"Your password for confirmation"),
-            required=True)
+        title=_(u"Your password for confirmation"), required=True
+    )
     form.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
 class EmailChangeSchema(form.Schema):
     loginname = RFC822MailAddress(
-            title=_(u"Email address/account name"),
-            required=True)
+        title=_(u"Email address/account name"), required=True
+    )
 
     password = schema.Password(
-            title=_(u"Your password for confirmation"),
-            required=True)
+        title=_(u"Your password for confirmation"), required=True
+    )
     form.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
@@ -100,8 +103,9 @@ class AccountSettings(form.SchemaForm):
             flash(_(u"There were no changes to be saved."), "notice")
             return
         if data["old_password"] != user.password:
-            raise WidgetActionExecutionError("old_password",
-                    Invalid(_(u"Invalid password")))
+            raise WidgetActionExecutionError(
+                "old_password", Invalid(_(u"Invalid password"))
+            )
         user.password = data["new_password"]
         flash(_(u"Your password was successfully changed."), "success")
 
@@ -137,15 +141,18 @@ class DeleteAccount(form.SchemaForm):
 
         user = getSecurityManager().getUser()
         if user.password != data["password"]:
-            raise WidgetActionExecutionError("password",
-                    Invalid(_(u"Invalid password")))
+            raise WidgetActionExecutionError(
+                "password", Invalid(_(u"Invalid password"))
+            )
 
         user = getSecurityManager().getUser()
         Session.delete(user)
         self.logout()
         self.request.response.redirect(self.request.client.absolute_url())
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name='cancel')
+    @button.buttonAndHandler(
+        _("button_cancel", default=u"Cancel"), name='cancel'
+    )
     def handleCancel(self, action):
         settings_url = "%s/account-settings" % \
                 aq_inner(self.context).absolute_url()
@@ -165,6 +172,14 @@ class NewEmail(form.SchemaForm):
     ignoreContext = True
 
     label = _(u"title_account_settings", default=u"Account settings")
+
+    @property
+    def email_from_name(self):
+        return api.portal.get_registry_record('plone.email_from_name')
+
+    @property
+    def email_from_address(self):
+        return api.portal.get_registry_record('plone.email_from_address')
 
     def updateFields(self):
         super(NewEmail, self).updateFields()
@@ -188,39 +203,59 @@ class NewEmail(form.SchemaForm):
         account.change_request.value = login
 
         client_url = self.request.client.absolute_url()
-        confirm_url = "%s/confirm-change?%s" % (client_url,
-                urllib.urlencode({"key": account.change_request.id}))
+        confirm_url = "%s/confirm-change?%s" % (
+            client_url, urllib.urlencode({
+                "key": account.change_request.id
+            })
+        )
 
-        site = getUtility(ISiteRoot)
         mailhost = getToolByName(self.context, "MailHost")
-        body = self.email_template(account=account, new_login=login,
-                client_url=client_url, confirm_url=confirm_url)
-        subject = translate(_(u"Confirm OiRA email address change"),
-                context=self.request)
-        mail = CreateEmailTo(site.email_from_name, site.email_from_address,
-                login, subject, body)
+        body = self.email_template(
+            account=account,
+            new_login=login,
+            client_url=client_url,
+            confirm_url=confirm_url
+        )
+        subject = translate(
+            _(u"Confirm OiRA email address change"), context=self.request
+        )
+        mail = CreateEmailTo(
+            self.email_from_name, self.email_from_address, login, subject, body
+        )
 
         flash = IStatusMessage(self.request).addStatusMessage
         try:
-            mailhost.send(mail, login, site.email_from_address, immediate=True)
+            mailhost.send(mail, login, self.email_from_address, immediate=True)
             log.info("Sent email confirmation to %s", account.email)
         except MailHostError as e:
-            log.error("MailHost error sending email confirmation to %s: %s",
-                    account.email, e)
-            flash(_(u"An error occured while sending the confirmation email."),
-                    "error")
+            log.error(
+                "MailHost error sending email confirmation to %s: %s",
+                account.email, e
+            )
+            flash(
+                _(u"An error occured while sending the confirmation email."),
+                "error"
+            )
             return False
         except smtplib.SMTPException as e:
-            log.error("smtplib error sending password reminder to %s: %s",
-                    account.email, e)
-            flash(_(u"An error occured while sending the confirmation email."),
-                    "error")
+            log.error(
+                "smtplib error sending password reminder to %s: %s",
+                account.email, e
+            )
+            flash(
+                _(u"An error occured while sending the confirmation email."),
+                "error"
+            )
             return False
         except socket.error as e:
-            log.error("Socket error sending password reminder to %s: %s",
-                    account.email, e[1])
-            flash(_(u"An error occured while sending the confirmation email."),
-                    "error")
+            log.error(
+                "Socket error sending password reminder to %s: %s",
+                account.email, e[1]
+            )
+            flash(
+                _(u"An error occured while sending the confirmation email."),
+                "error"
+            )
             return False
 
         return True
@@ -235,8 +270,9 @@ class NewEmail(form.SchemaForm):
 
         user = getSecurityManager().getUser()
         if user.password != data["password"]:
-            raise WidgetActionExecutionError("password",
-                    Invalid(_(u"Invalid password")))
+            raise WidgetActionExecutionError(
+                "password", Invalid(_(u"Invalid password"))
+            )
 
         settings_url = "%s/account-settings" % \
                 aq_inner(self.context).absolute_url()
@@ -249,20 +285,30 @@ class NewEmail(form.SchemaForm):
         login = data["loginname"].strip().lower()
         existing = Session.query(Account.id).filter(Account.loginname == login)
         if existing.count():
-            raise WidgetActionExecutionError("loginname",
-                    Invalid(_(u"This email address is not available.")))
+            raise WidgetActionExecutionError(
+                "loginname",
+                Invalid(_(u"This email address is not available."))
+            )
 
         self.initiateRequest(user, login)
 
-        flash(_("email_change_pending",
-            default=u"Please confirm your new email address by clicking on "
-                    u"the link in the email that will be sent in a few "
-                    u"minutes to \"${email}\". Please note that the new "
-                    u"email address is also your new login name.",
-            mapping={"email": data["loginname"]}), "warning")
+        flash(
+            _(
+                "email_change_pending",
+                default=u"Please confirm your new email address by clicking on "
+                u"the link in the email that will be sent in a few "
+                u"minutes to \"${email}\". Please note that the new "
+                u"email address is also your new login name.",
+                mapping={
+                    "email": data["loginname"]
+                }
+            ), "warning"
+        )
         self.request.response.redirect(settings_url)
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name='cancel')
+    @button.buttonAndHandler(
+        _("button_cancel", default=u"Cancel"), name='cancel'
+    )
     def handleCancel(self, action):
         settings_url = "%s/account-settings" % \
                 aq_inner(self.context).absolute_url()
@@ -271,7 +317,7 @@ class NewEmail(form.SchemaForm):
 
 class ChangeEmail(grok.View):
     grok.context(IClient)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.name("confirm-change")
     grok.template("error")

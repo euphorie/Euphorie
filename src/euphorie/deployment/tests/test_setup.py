@@ -1,7 +1,8 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+# coding=utf-8
+from euphorie.testing import EuphorieIntegrationTestCase
 
 
-class SetupTests(EuphorieTestCase):
+class SetupTests(EuphorieIntegrationTestCase):
     def testDefaultContenetRemoved(self):
         self.failUnless("Members" not in self.portal.objectIds())
         self.failUnless("news" not in self.portal.objectIds())

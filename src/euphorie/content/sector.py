@@ -12,39 +12,41 @@ framework.
 .. _membrane: http://pypi.python.org/pypi/Products.membrane
 """
 
-import datetime
-import logging
-import zExceptions
+from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from zope.interface import implements
-from zope import schema
-from five import grok
-from zope.component import getUtility
-from z3c.appconfig.interfaces import IAppConfig
-from plone.directives import dexterity
-from plone.directives import form
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.namedfile import field as filefield
-from plone.indexer import indexer
-from plone.uuid.interfaces import IAttributeUUID
-from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions.Permissions import AccessPreviousVersions
-from Products.statusmessages.interfaces import IStatusMessage
 from borg.localrole.interfaces import ILocalRoleProvider
-from .. import MessageFactory as _
 from euphorie.content import colour
 from euphorie.content.behaviour.dirtytree import isDirty
 from euphorie.content.survey import ISurvey
 from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
+from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.directives import dexterity
+from plone.directives import form
+from plone.indexer import indexer
+from plone.namedfile import field as filefield
+from plone.uuid.interfaces import IAttributeUUID
+from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.utils import checkPermission
-from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import getPortal
+from Products.CMFCore.utils import getToolByName
+from Products.CMFEditions.Permissions import AccessPreviousVersions
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
+from zope import schema
+from zope.component import getUtility
+from zope.interface import implements
+
+import datetime
+import logging
+import zExceptions
+
 
 log = logging.getLogger(__name__)
 grok.templatedir("templates")
@@ -97,6 +99,7 @@ class Sector(dexterity.Container):
     A sector also acts as a user account in the system, using the membrane
     framework.
     """
+    portal_type = "euphorie.clientsector"
     implements(ISector, INavigationRoot, IAttributeUUID)
 
     locked = False

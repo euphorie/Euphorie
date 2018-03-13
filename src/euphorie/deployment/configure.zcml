@@ -30,15 +30,7 @@
        description="Setup a standard Euphorie website"
        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
        provides="Products.GenericSetup.interfaces.EXTENSION"
+       post_handler=".setuphandlers.setupVarious"
        />
-
-  <genericsetup:importStep
-       name="euphorie.deployment"
-       title="Euphorie Deployment configuration"
-       description="Configure various aspects of Plone and setup initial content"
-       handler=".setuphandlers.setupVarious"
-       >
-       <depends name="languagetool" />
-  </genericsetup:importStep>
 
 </configure>

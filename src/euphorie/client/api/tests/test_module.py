@@ -1,5 +1,14 @@
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.Five.testbrowser import Browser
+# coding=utf-8
+from euphorie.client.api.authentication import generate_token
+from euphorie.client.api.module import Identification
+from euphorie.client.api.tests.utils import _setup_session
+from euphorie.client.model import Module
+from euphorie.testing import EuphorieFunctionalTestCase
+from euphorie.testing import EuphorieIntegrationTestCase
+from sqlalchemy.orm import object_session
+from zope.publisher.browser import TestRequest
+
+import json
 
 
 DUMMY_GIF = 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff' \
@@ -7,22 +16,8 @@ DUMMY_GIF = 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\xff' \
             '\x00\x01\x00\x01\x00\x00\x02\x01L\x00;'
 
 
-def _setup_session(portal):
-    from euphorie.content.tests.utils import BASIC_SURVEY
-    from euphorie.client.tests.utils import addAccount
-    from euphorie.client.tests.utils import addSurvey
-    from euphorie.client.session import create_survey_session
-    from euphorie.client.profile import set_session_profile
-    addSurvey(portal, BASIC_SURVEY)
-    survey = portal.client['nl']['ict']['software-development']
-    account = addAccount(password='secret')
-    survey_session = create_survey_session(u'Dummy session',
-            survey, account)
-    survey_session = set_session_profile(survey, survey_session, {})
-    return (account, survey, survey_session)
+class ViewTests(EuphorieIntegrationTestCase):
 
-
-class ViewTests(EuphorieFunctionalTestCase):
     def View(self, *a, **kw):
         from euphorie.client.api.module import View
         return View(*a, **kw)
@@ -39,8 +34,9 @@ class ViewTests(EuphorieFunctionalTestCase):
         view = self.View(module, request)
         response = view.do_GET()
         self.assertEqual(
-                set(response),
-                set(['id', 'type', 'title', 'description', 'optional']))
+            set(response),
+            set(['id', 'type', 'title', 'description', 'optional'])
+        )
         self.assertEqual(response['id'], 1)
         self.assertEqual(response['type'], 'module')
         self.assertEqual(response['title'], u'Module one')
@@ -59,8 +55,9 @@ class ViewTests(EuphorieFunctionalTestCase):
         module.solution_direction = u'<p>Fix It Fast</p>'
         module.optional = True
         module.question = u'Is this needed?'
-        module.image = NamedBlobImage(data=DUMMY_GIF, contentType='image/gif',
-                filename=u'dummy.gif')
+        module.image = NamedBlobImage(
+            data=DUMMY_GIF, contentType='image/gif', filename=u'dummy.gif'
+        )
         module.caption = u'Key Image'
         request = TestRequest()
         request.survey = survey
@@ -69,37 +66,39 @@ class ViewTests(EuphorieFunctionalTestCase):
         view = self.View(module, request)
         response = view.do_GET()
         self.assertEqual(
-                set(response),
-                set(['id', 'type', 'title', 'optional', 'image',
-                     'description', 'solution-direction',
-                     'question', 'skip-children']))
+            set(response),
+            set([
+                'id', 'type', 'title', 'optional', 'image', 'description',
+                'solution-direction', 'question', 'skip-children'
+            ])
+        )
         self.assertEqual(response['description'], u'<p>Simple description</p>')
         self.assertEqual(response['solution-direction'], u'<p>Fix It Fast</p>')
         self.assertEqual(response['question'], u'Is this needed?')
         self.assertEqual(response['skip-children'], True)
         self.assertEqual(
-                set(response['image']),
-                set(['thumbnail', 'original', 'caption']))
+            set(response['image']), set(['thumbnail', 'original', 'caption'])
+        )
         self.assertEqual(response['image']['caption'], u'Key Image')
         self.assertEqual(
-                response['image']['original'],
-                u'http://nohost/plone/client/nl/ict/software-development/1/'
-                '@@download/image/dummy.gif')
+            response['image']['original'],
+            u'http://nohost/plone/client/nl/ict/software-development/1/'
+            '@@download/image/dummy.gif'
+        )
         self.assertTrue(
-                response['image']['thumbnail'].startswith(
+            response['image']['thumbnail'].startswith(
                 u'http://nohost/plone/client/nl/ict/software-development'
-                '/1/@@images/'))
+                '/1/@@images/'
+            )
+        )
 
 
-class IdentificationTests(EuphorieFunctionalTestCase):
+class IdentificationTests(EuphorieIntegrationTestCase):
+
     def Identification(self, *a, **kw):
-        from euphorie.client.api.module import Identification
         return Identification(*a, **kw)
 
     def test_do_PUT_missing_value(self):
-        from sqlalchemy.orm import object_session
-        from zope.publisher.browser import TestRequest
-        from euphorie.client.model import Module
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
@@ -114,9 +113,6 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['type'], 'error')
 
     def test_do_PUT_invalid_value(self):
-        from sqlalchemy.orm import object_session
-        from zope.publisher.browser import TestRequest
-        from euphorie.client.model import Module
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
@@ -131,9 +127,6 @@ class IdentificationTests(EuphorieFunctionalTestCase):
         self.assertEqual(response['type'], 'error')
 
     def test_do_PUT_update_value(self):
-        from sqlalchemy.orm import object_session
-        from zope.publisher.browser import TestRequest
-        from euphorie.client.model import Module
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
         module = survey['1']
@@ -150,12 +143,11 @@ class IdentificationTests(EuphorieFunctionalTestCase):
 
 
 class BrowserTests(EuphorieFunctionalTestCase):
+
     def test_get(self):
-        import json
-        from euphorie.client.api.authentication import generate_token
         self.loginAsPortalOwner()
         (account, survey, survey_session) = _setup_session(self.portal)
-        browser = Browser()
+        browser = self.get_browser()
         browser.addHeader('X-Euphorie-Token', generate_token(account))
         browser.open('http://nohost/plone/client/api/users/1/sessions/1/1')
         self.assertEqual(browser.headers['Content-Type'], 'application/json')

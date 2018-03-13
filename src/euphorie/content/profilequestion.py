@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Profile Question
 ----------------
@@ -7,7 +8,6 @@ whether or not a Module should be enabled, or whether it should be repeated.
 
 portal_type: euphorie.profilequestion
 """
-
 from .. import MessageFactory as _
 from .behaviour.richdescription import IRichDescription
 from .behaviour.uniqueid import get_next_id
@@ -20,19 +20,20 @@ from .module import item_depth
 from .module import tree_depth
 from .risk import IRisk
 from .utils import StripMarkup
+from euphorie.content.dependency import ConditionalTextLine
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.z3cform.directives import depends
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.interface import implements
+
 import sys
-from plonetheme.nuplone.z3cform.directives import depends
-from euphorie.content.dependency import ConditionalTextLine
 
 
 grok.templatedir("templates")
@@ -99,6 +100,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
 
 class ProfileQuestion(dexterity.Container):
     implements(IProfileQuestion, IQuestionContainer)
+    portal_type = 'euphorie.profilequestion'
 
     question = None
     image = None
@@ -186,5 +188,4 @@ class EditForm(dexterity.EditForm):
 
     @property
     def label(self):
-
         return _(u"Edit Profile question")

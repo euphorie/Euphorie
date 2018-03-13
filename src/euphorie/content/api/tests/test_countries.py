@@ -1,20 +1,20 @@
-from euphorie.deployment.tests.functional import EuphorieFunctionalTestCase
-from Products.Five.testbrowser import Browser
+from ...tests.utils import createSector
+from ..authentication import generate_token
+from euphorie.testing import EuphorieFunctionalTestCase
+
+import json
 
 
 class ViewBrowserTests(EuphorieFunctionalTestCase):
     def test_require_authentication(self):
-        browser = Browser()
+        browser = self.get_browser()
         browser.raiseHttpErrors = False
         browser.open('http://nohost/plone/api/countries')
         self.assertTrue(browser.headers['Status'].startswith('401'))
 
     def test_authenticated_user(self):
-        import json
-        from ...tests.utils import createSector
-        from ..authentication import generate_token
         sector = createSector(self.portal, login='sector', password=u'sector')
-        browser = Browser()
+        browser = self.get_browser()
         browser.handleErrors = False
         browser.addHeader('X-Euphorie-Token', generate_token(sector))
         browser.open('http://nohost/plone/api/countries')

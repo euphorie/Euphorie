@@ -1,13 +1,15 @@
-import logging
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
-from zope.component import getUtility
-from zope.interface import Interface
+from euphorie.client import CONDITIONS_VERSION
+from euphorie.client.interfaces import IClientSkinLayer
+from five import grok
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
-from five import grok
-from AccessControl import getSecurityManager
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client import CONDITIONS_VERSION
+from zope.component import getUtility
+from zope.interface import Interface
+
+import logging
+
 
 log = logging.getLogger(__name__)
 
@@ -36,12 +38,12 @@ def approvedTermsAndConditions(account=None):
 class TermsAndConditions(grok.View):
     grok.name("terms-and-conditions")
     grok.context(Interface)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.template("conditions")
 
     def terms_changed(self):
-        return self.account.tc_approved is not None
+        return getattr(self.account, 'tc_approved', None) is not None
 
     def update(self):
         self.came_from = self.request.form.get("came_from")

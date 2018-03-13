@@ -1,14 +1,16 @@
-from Acquisition import aq_inner
-from five import grok
-from z3c.saconfig import Session
-from euphorie.content.survey import ISurvey
-from euphorie.ghost import PathGhost
-from ..model import SurveySession
 from . import JsonView
+from ..model import SurveySession
 from ..profile import set_session_profile
 from ..session import create_survey_session
 from .session import View as SessionView
 from .session import get_survey
+from Acquisition import aq_inner
+from euphorie.content.survey import ISurvey
+from euphorie.ghost import PathGhost
+from five import grok
+from plone.protect.interfaces import IDisableCSRFProtection
+from z3c.saconfig import Session
+from zope.interface import alsoProvides
 
 
 class Sessions(PathGhost):
@@ -76,4 +78,6 @@ class View(JsonView):
         else:
             survey_session = set_session_profile(survey, survey_session, {})
             response['next-step'] = '%s/identification' % survey_session_url
+
+        alsoProvides(self.request, IDisableCSRFProtection)
         return response

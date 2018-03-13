@@ -7,19 +7,20 @@ accounts.
 
 https://admin.oiraproject.eu/sectors/eu
 """
+from .. import MessageFactory as _
 from Acquisition import aq_inner
-from zope.interface import implements
-from zope import schema
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.vocabulary import SimpleTerm
-from five import grok
-from plone.directives import dexterity
-from plone.directives import form
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
-from .. import MessageFactory as _
+from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import dexterity
+from plone.directives import form
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from zope import schema
+from zope.interface import implements
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+
 
 grok.templatedir("templates")
 

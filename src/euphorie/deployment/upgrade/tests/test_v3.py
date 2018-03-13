@@ -1,7 +1,7 @@
-from euphorie.deployment.tests.functional import EuphorieTestCase
+from euphorie.testing import EuphorieFunctionalTestCase
 
 
-class set_evaluation_method_interfaces_tests(EuphorieTestCase):
+class set_evaluation_method_interfaces_tests(EuphorieFunctionalTestCase):
     def set_evaluation_method_interfaces(self, *a, **kw):
         from euphorie.deployment.upgrade.v3 \
                 import set_evaluation_method_interfaces
@@ -59,7 +59,7 @@ class set_evaluation_method_interfaces_tests(EuphorieTestCase):
         self.assertTrue(IFrenchEvaluation.providedBy(risk))
 
 
-class convert_solution_description_to_text_tests(EuphorieTestCase):
+class convert_solution_description_to_text_tests(EuphorieFunctionalTestCase):
     def convert_solution_description_to_text(self, *a, **kw):
         from euphorie.deployment.upgrade.v3 \
                 import convert_solution_description_to_text
@@ -97,7 +97,7 @@ class convert_solution_description_to_text_tests(EuphorieTestCase):
                 u'This is my description.')
 
 
-class lowercase_login_tests(EuphorieTestCase):
+class lowercase_login_tests(EuphorieFunctionalTestCase):
     def lowercase_login(self, *a, **kw):
         from euphorie.deployment.upgrade.v3 import lowercase_login
         return lowercase_login(*a, **kw)

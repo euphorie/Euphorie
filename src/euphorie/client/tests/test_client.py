@@ -1,29 +1,23 @@
-import unittest
+# coding=utf-8
 from euphorie.client.country import ClientCountry
+from euphorie.testing import EuphorieIntegrationTestCase
 
 
-class ViewTests(unittest.TestCase):
-    def setUp(self):
-        from plone.folder.tests.layer import PloneFolderLayer
-        PloneFolderLayer.setUp()
-
-    def tearDown(Self):
-        from zope.testing.cleanup import cleanUp
-        cleanUp()
+class ViewTests(EuphorieIntegrationTestCase):
 
     def addSurvey(self, country, language, title):
         from euphorie.content.survey import Survey
         from euphorie.client.sector import ClientSector
         if "sector" not in country:
-            country["sector"] = ClientSector()
-            country["sector"].title = u"Test sector"
-            country["sector"].id = "sector"
-        sector = country["sector"]
+            sector = ClientSector(id='sector', title=u"Test sector")
+            country._setOb("sector", sector)
+        else:
+            sector = country["sector"]
         survey = Survey()
         survey.title = title
         survey.id = language
         survey.language = language
-        sector[language] = survey
+        sector._setOb('language', survey)
         return survey
 
     def surveys(self, country, language):
@@ -57,14 +51,22 @@ class ViewTests(unittest.TestCase):
     def test_surveys_SameLanguage(self):
         country = ClientCountry()
         self.addSurvey(country, "en", u"Test survey")
-        self.assertEqual(self.surveys(country, "en"),
-                [{"id": "sector/en", "title": u"Test survey"}])
+        self.assertEqual(
+            self.surveys(country, "en"), [{
+                "id": "sector/en",
+                "title": u"Test survey"
+            }]
+        )
 
     def test_surveys_SurveyHasDialect(self):
         country = ClientCountry()
         self.addSurvey(country, "en-GB", u"Test survey")
-        self.assertEqual(self.surveys(country, "en"),
-                [{"id": "sector/en-GB", "title": u"Test survey"}])
+        self.assertEqual(
+            self.surveys(country, "en"), [{
+                "id": "sector/en-GB",
+                "title": u"Test survey"
+            }]
+        )
 
     def test_surveys_SkipPreview(self):
         country = ClientCountry()

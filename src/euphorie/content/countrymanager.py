@@ -8,19 +8,20 @@ sectors (which are also membrane users) to that country.
 .. _membrane: http://pypi.python.org/pypi/Products.membrane
 """
 
-from zope.interface import implements
 from Acquisition import aq_inner
-from five import grok
-from plone.directives import dexterity
-from plone.directives import form
 from borg.localrole.interfaces import ILocalRoleProvider
-from Products.CMFCore.utils import getToolByName
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from euphorie.content.country import ICountry
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
+from five import grok
+from plone.directives import dexterity
+from plone.directives import form
 from plone.indexer import indexer
 from plone.uuid.interfaces import IAttributeUUID
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from Products.CMFCore.utils import getToolByName
+from zope.interface import implements
+
 
 grok.templatedir("templates")
 
@@ -32,6 +33,7 @@ class ICountryManager(form.Schema, IUser):
 
 class CountryManager(dexterity.Item):
     """A country manager."""
+    portal_type = 'euphorie.countrymanager'
     implements(ICountryManager, IAttributeUUID)
 
     locked = False

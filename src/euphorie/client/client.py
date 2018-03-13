@@ -6,21 +6,21 @@ The view for the frontpage of the client site and some adapters to provide a
 client user.
 """
 
-from zope.component import adapts
-from zope.interface import implements
-from zope.interface import Interface
-from zope.interface import directlyProvidedBy
-from zope.interface import directlyProvides
-from zope.publisher.interfaces.browser import IBrowserSkinType
-from ZPublisher.BaseRequest import DefaultPublishTraverse
+from borg.localrole.interfaces import ILocalRoleProvider
+from euphorie.client.api.entry import access_api
+from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
-from plone.app.dexterity.behaviors.metadata import IBasic
-from borg.localrole.interfaces import ILocalRoleProvider
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.api.entry import access_api
 from Products.membrane.interfaces.user import IMembraneUserObject
+from zope.component import adapts
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
+from zope.interface import implements
+from zope.interface import Interface
+from zope.publisher.interfaces.browser import IBrowserSkinType
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 class IClient(form.Schema, IBasic):
@@ -46,7 +46,7 @@ class View(grok.View):
     """View name: @@frontpage
     """
     grok.context(IClient)
-    grok.require("zope2.View")
+    grok.require("zope2.Public")
     grok.layer(IClientSkinLayer)
     grok.template("frontpage")
 

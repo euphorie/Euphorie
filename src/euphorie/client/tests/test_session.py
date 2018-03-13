@@ -1,18 +1,30 @@
-import unittest
+from .. import model
+from ..session import SessionManagerFactory
+from ..utils import setRequest
 from .database import DatabaseTests
 from .test_update import TreeTests
+from .utils import testRequest
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
+from euphorie.client import session
+from Products.CMFCore.interfaces import ISiteRoot
+from zope.testing.cleanup import cleanUp
+
+import mock
+import unittest
+import zope.component
 
 
 class Mock(object):
+
     def __init__(self, **kw):
         self.__dict__.update(kw)
 
 
 class CachingTests(unittest.TestCase):
+
     def testCachedSession(self):
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client.utils import setRequest
-        from euphorie.client import session
         request = testRequest()
         marker = []
         request.other["euphorie.session"] = marker
@@ -25,9 +37,6 @@ class CachingTests(unittest.TestCase):
             setRequest(None)
 
     def testCachedSessionId(self):
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client.utils import setRequest
-        from euphorie.client import session
         request = testRequest()
         marker = []
         ses = Mock(id=marker)
@@ -41,23 +50,16 @@ class CachingTests(unittest.TestCase):
 
 
 class SessionCreationTests(DatabaseTests):
+
     def setUp(self):
         super(SessionCreationTests, self).setUp()
-        import zope.component
-        from Products.CMFCore.interfaces import ISiteRoot
         zope.component.provideUtility(self, ISiteRoot)
 
     def tearDown(self):
-        from zope.testing.cleanup import cleanUp
         super(SessionCreationTests, self).tearDown()
         cleanUp()
 
     def testNewSession(self):
-        import mock
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client.utils import setRequest
-        from euphorie.client import model
-        from euphorie.client import session
 
         request = testRequest()
         mgr = session.SessionManagerFactory()
@@ -78,38 +80,34 @@ class SessionCreationTests(DatabaseTests):
 
 
 class SessionManagerFactoryTests(TreeTests):
+
     def setUp(self):
-        from ..utils import setRequest
-        from .utils import testRequest
         setRequest(testRequest())
         super(SessionManagerFactoryTests, self).setUp()
 
     def tearDown(self):
-        from ..utils import setRequest
         setRequest(None)
         super(SessionManagerFactoryTests, self).tearDown()
 
     def SessionManagerFactory(self, *a):
-        from ..session import SessionManagerFactory
         return SessionManagerFactory(*a)
 
     def test_session_no_session_open(self):
-        import mock
-        from .. import model
         session = self.createSurveySession()
-        with mock.patch('euphorie.client.session.SessionManagerFactory.id', new_callable=mock.PropertyMock) as mock_id:
+        with mock.patch(
+            'euphorie.client.session.SessionManagerFactory.id',
+            new_callable=mock.PropertyMock
+        ) as mock_id:
             mock_id.return_value = None
             mgr = self.SessionManagerFactory()
             self.assertEqual(mgr.session, None)
 
     def test_session_valid_session_open(self):
-        import mock
-        from .. import model
-        from AccessControl.SecurityManagement import getSecurityManager
-        from AccessControl.SecurityManagement import setSecurityManager
-        from AccessControl.SecurityManagement import newSecurityManager
         session = self.createSurveySession()
-        with mock.patch('euphorie.client.session.SessionManagerFactory.id', new_callable=mock.PropertyMock) as mock_id:
+        with mock.patch(
+            'euphorie.client.session.SessionManagerFactory.id',
+            new_callable=mock.PropertyMock
+        ) as mock_id:
             mock_id.return_value = session.id
             mgr = self.SessionManagerFactory()
             sm = getSecurityManager()
@@ -120,10 +118,6 @@ class SessionManagerFactoryTests(TreeTests):
                 setSecurityManager(sm)
 
     def test_resume_enforce_same_account(self):
-        from AccessControl.SecurityManagement import getSecurityManager
-        from AccessControl.SecurityManagement import setSecurityManager
-        from AccessControl.SecurityManagement import newSecurityManager
-        from euphorie.client import model
         sm = getSecurityManager()
         mgr = self.SessionManagerFactory()
         victim = model.Account(loginname="test", password=u"test")

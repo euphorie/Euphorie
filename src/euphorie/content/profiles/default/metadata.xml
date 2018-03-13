@@ -2,7 +2,6 @@
 <metadata>
   <version>2</version>
   <dependencies>
-    <dependency>profile-plone.app.folder:default</dependency>
     <dependency>profile-Products.membrane:default</dependency>
   </dependencies>
 </metadata>

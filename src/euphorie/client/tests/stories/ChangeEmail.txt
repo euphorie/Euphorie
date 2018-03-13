@@ -4,10 +4,13 @@ Changing email address and deleting account
 Before we can start we must set up our test environment by
 creating an dummy survey.
 
+>>> app = layer['portal']
+>>> portal = layer['portal']
+>>> from plone.testing.z2 import Browser
+>>> browser = Browser(layer['app'])
 >>> from euphorie.client.tests.utils import addSurvey
 >>> from euphorie.client.tests.utils import addAccount
 >>> from euphorie.client.tests.utils import MockMailFixture
->>> from Products.Five.testbrowser import Browser
 >>> xml_survey="""\
 ... <sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
 ...    <title>Sector title</title>
@@ -15,13 +18,11 @@ creating an dummy survey.
 ...      <title>Survey title</title>
 ...    </survey>
 ...  </sector>"""
->>> self.loginAsPortalOwner()
 >>> addSurvey(portal, xml_survey)
->>> self.logout()
 >>> account = addAccount()
->>> browser = Browser()
 >>> mail_fixture = MockMailFixture()
-
+>>> from transaction import commit
+>>> commit()
 
 Login and request change
 ------------------------
@@ -80,4 +81,3 @@ We can now login with our new address:
 >>> browser.getControl(name="next", index=0).click()
 >>> '@@login' in browser.url
 False
-
