@@ -178,6 +178,9 @@ class WebHelpers(grok.View):
         self.sector_name = ''
         self.tool_name = ''
         self.tool_description = ''
+        lt = getToolByName(self.context, 'portal_languages')
+        lang = lt.getPreferredLanguage()
+        self.language_code = lang
         ploneview = self.context.restrictedTraverse('@@plone')
         for obj in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(obj):

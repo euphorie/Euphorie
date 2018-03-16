@@ -4,7 +4,11 @@ Changelog
 9.0.35 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Changed:
+
+- Provide the current languahe code in a hidden metadata section of the body, so
+  that Piwik code can pick it up easily (in addition to the already present
+  country, sector and tool name.
 
 
 9.0.34 (2018-02-14)

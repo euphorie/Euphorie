@@ -76,6 +76,7 @@
             <span id="country_name">${webhelpers/country_name}</span>
             <span id="sector_name">${webhelpers/sector_name}</span>
             <span id="tool_name">${webhelpers/tool_name}</span>
+            <span id="language_code">${webhelpers/language_code}</span>
         </span>
         <header id="toolbar">
             <a href="#osc" class="icon-menu pat-toggle"
