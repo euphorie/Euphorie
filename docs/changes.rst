@@ -9,6 +9,7 @@ Changed:
 - Provide the current languahe code in a hidden metadata section of the body, so
   that Piwik code can pick it up easily (in addition to the already present
   country, sector and tool name.
+- Identification report (RTF): formatting changes
 
 
 9.0.34 (2018-02-14)

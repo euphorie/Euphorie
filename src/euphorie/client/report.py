@@ -39,6 +39,7 @@ from rtfng.Elements import Document
 from rtfng.Elements import MakeDefaultStyleSheet
 from rtfng.Elements import StyleSheet
 from rtfng.PropertySets import TabPropertySet
+from rtfng.PropertySets import MarginsPropertySet
 from rtfng.Renderer import Renderer
 from sqlalchemy import sql
 from z3c.saconfig import Session
@@ -212,8 +213,8 @@ class _HtmlToRtf(object):
             li_style = self.li_style
             for sub in node:
                 cnt += 1
-                if cnt == len(node):
-                    li_style = self.li_style_last
+                # if cnt == len(node):
+                #     li_style = self.li_style_last
                 output.extend(self.handleElement(sub, li_style))
         tail = node.tail
         # Prevent unwanted empty lines inside listings and paragraphs that come
@@ -240,11 +241,11 @@ class _HtmlToRtf(object):
         li_style = li_style.ParagraphPropertySet.SetLeftIndent(
             TabPropertySet.DEFAULT_WIDTH)
         self.li_style = li_style.SetSpaceAfter(20)
-        # Last element in a list has more space after
-        li_style_last = default_stylesheet.ParagraphStyles.Normal.Copy()
-        li_style_last = li_style_last.ParagraphPropertySet.SetLeftIndent(
-            TabPropertySet.DEFAULT_WIDTH)
-        self.li_style_last = li_style_last.SetSpaceAfter(200)
+        # # Last element in a list has more space after
+        # li_style_last = default_stylesheet.ParagraphStyles.Normal.Copy()
+        # li_style_last = li_style_last.ParagraphPropertySet.SetLeftIndent(
+        #     TabPropertySet.DEFAULT_WIDTH)
+        # self.li_style_last = li_style_last.SetSpaceAfter(200)
         output = []
         for node in doc.find('body'):
             output.extend(self.handleElement(node, default_style))
@@ -268,7 +269,9 @@ def createSection(document, survey, survey_session, request):
         document.StyleSheet.ParagraphStyles.Footer,
         "".join(["\\u%s?" % str(ord(e)) for e in footer]))
 
-    section = Section()
+    margins = MarginsPropertySet(
+        top=1500, left=1200, bottom=1500, right=1200)
+    section = Section(margins=margins)
     page_header = []
     for part in t(_(u'Page ${number} of ${total}')).split():
         if part == '${number}':
