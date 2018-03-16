@@ -38,8 +38,9 @@ from rtfng.document.section import Section
 from rtfng.Elements import Document
 from rtfng.Elements import MakeDefaultStyleSheet
 from rtfng.Elements import StyleSheet
-from rtfng.PropertySets import TabPropertySet
 from rtfng.PropertySets import MarginsPropertySet
+from rtfng.PropertySets import ParagraphPropertySet
+from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
 from sqlalchemy import sql
 from z3c.saconfig import Session
@@ -281,10 +282,20 @@ def createSection(document, survey, survey_session, request):
         else:
             page_header.append(part)
         page_header.append(' ')
-    section.Header.append(Paragraph(
-        document.StyleSheet.ParagraphStyles.Footer, survey_session.title))
-    section.Header.append(Paragraph(
-        document.StyleSheet.ParagraphStyles.PageNumber, *page_header))
+
+    header = Table(4750, 4750)
+    c1 = Cell(Paragraph(
+        document.StyleSheet.ParagraphStyles.Footer,
+        survey_session.title))
+    pp = ParagraphPropertySet
+    header_props = pp(alignment=pp.RIGHT)
+    c2 = Cell(Paragraph(
+        document.StyleSheet.ParagraphStyles.Footer,
+        header_props,
+        *page_header))
+    header.AddRow(c1, c2)
+
+    section.Header.append(header)
     section.Footer.append(footer)
     section.SetBreakType(section.PAGE)
     document.Sections.append(section)
