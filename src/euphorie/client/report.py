@@ -190,7 +190,7 @@ class _HtmlToRtf(object):
                     # Add link target in brackets
                     tag_style = style.copy()
                     tag_style["italic"] = True
-                    tag_style['colour'] = self.base_style_sheet.Colours.Blue
+                    # tag_style['colour'] = self.base_style_sheet.Colours.Blue
                     output.append(TEXT(
                         self.encode(u" (%s)" % node.get('href')),
                         **tag_style)
@@ -218,7 +218,7 @@ class _HtmlToRtf(object):
         tail = node.tail
         # Prevent unwanted empty lines inside listings and paragraphs that come
         # from newlines in the markup
-        if node.tag in ['li', 'p']:
+        if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
             tail = tail and tail.strip()
         if tail:
             output.append(Paragraph(style, tail))
