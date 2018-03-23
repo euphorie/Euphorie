@@ -2926,7 +2926,7 @@ msgstr "Mesura"
 #: src/euphorie/client/templates/risk_actionplan.pt:64
 #: src/euphorie/client/templates/risk_actionplan.pt:150
 msgid "label_prefill"
-msgstr "Emplenar prèviament"
+msgstr "Mesures predeterminades"
 
 #. Default: Delete this measure
 #: src/euphorie/client/templates/risk_actionplan.pt:65

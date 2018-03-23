@@ -4,15 +4,14 @@ Changelog
 9.0.36 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation updates in Castillian (es) and Catalan (ca)
 
 9.0.35 (2018-03-16)
 -------------------
 
 Changed:
 
-- Provide the current languahe code in a hidden metadata section of the body, so
+- Provide the current language code in a hidden metadata section of the body, so
   that Piwik code can pick it up easily (in addition to the already present
   country, sector and tool name.
 - Identification report (RTF): formatting changes

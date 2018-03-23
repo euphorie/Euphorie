@@ -2928,7 +2928,7 @@ msgstr "Medida"
 #: src/euphorie/client/templates/risk_actionplan.pt:64
 #: src/euphorie/client/templates/risk_actionplan.pt:150
 msgid "label_prefill"
-msgstr "Cumplimentación automática"
+msgstr "Medidas predeterminadas"
 
 #. Default: Delete this measure
 #: src/euphorie/client/templates/risk_actionplan.pt:65
