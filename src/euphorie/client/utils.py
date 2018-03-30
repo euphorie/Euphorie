@@ -33,7 +33,6 @@ from plone.i18n.normalizer import idnormalizer
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.utils import isAnonymous
-from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
@@ -88,7 +87,7 @@ def getRequest():
 
 
 def getSecret():
-    site = getUtility(ISiteRoot)
+    site = api.portal.get()
     return getattr(site, 'euphorie_secret', 'secret')
 
 
@@ -511,7 +510,7 @@ class WebHelpers(grok.View):
     @reify
     def appendix(self):
         """Return a list of items to be shown in the appendix."""
-        documents = getUtility(ISiteRoot).documents
+        documents = api.portal.get().documents
 
         lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
@@ -575,7 +574,7 @@ class WebHelpers(grok.View):
             return [lang, "en"]
 
     def _findMOTD(self):
-        documents = getUtility(ISiteRoot).documents
+        documents = api.portal.get().documents
 
         motd = None
         for lang in self._getLanguages():
@@ -673,13 +672,13 @@ def setLanguage(request, context, lang=None):
 
     lang = lang.lower()
     lt = getToolByName(context, 'portal_languages')
-    res = lt.setLanguageCookie(lang=lang)
+    res = lt.setLanguageCookie(lang=lang, request=request)
     if res is None and '-' in lang:
         lang = lang.split('-')[0]
-        res = lt.setLanguageCookie(lang=lang)
+        res = lt.setLanguageCookie(lang=lang, request=request)
         if res is None:
             log.warn('Failed to switch language to %s', lang)
-            lt.setLanguageCookie(lang='en')
+            lt.setLanguageCookie(lang='en', request=request)
             lang = 'en'
 
     # In addition to setting the cookie also update the PTS language.
