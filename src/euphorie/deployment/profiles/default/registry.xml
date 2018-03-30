@@ -1,0 +1,96 @@
+<registry>
+  <record field="default_language"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.default_language"
+  >
+    <value>en-us</value>
+  </record>
+  <record field="use_path_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_path_negotiation"
+  >
+    <value>False</value>
+  </record>
+  <record field="use_cookie_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_cookie_negotiation"
+  >
+    <value>True</value>
+  </record>
+  <record field="authenticated_users_only"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.authenticated_users_only"
+  >
+    <value>False</value>
+  </record>
+  <record field="use_combined_language_codes"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_combined_language_codes"
+  >
+    <value>True</value>
+  </record>
+  <record field="use_request_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_request_negotiation"
+  >
+    <value>False</value>
+  </record>
+  <record field="use_cctld_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_cctld_negotiation"
+  >
+    <value>False</value>
+  </record>
+  <record field="use_subdomain_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_subdomain_negotiation"
+  >
+    <value>False</value>
+  </record>
+  <record field="use_content_negotiation"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.use_content_negotiation"
+  >
+    <value>False</value>
+  </record>
+  <record field="display_flags"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.display_flags"
+  >
+    <value>False</value>
+  </record>
+  <record field="available_languages"
+          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          name="plone.available_languages"
+  >
+    <value>
+      <element>bg</element>
+      <element>ca</element>
+      <element>cs</element>
+      <element>da</element>
+      <element>de</element>
+      <element>el</element>
+      <element>en</element>
+      <element>es</element>
+      <element>et</element>
+      <element>eu</element>
+      <element>fi</element>
+      <element>fr</element>
+      <element>hu</element>
+      <element>is</element>
+      <element>it</element>
+      <element>lt</element>
+      <element>lv</element>
+      <element>mt</element>
+      <element>nl-be</element>
+      <element>nl</element>
+      <element>no</element>
+      <element>pl</element>
+      <element>pt</element>
+      <element>ro</element>
+      <element>sk</element>
+      <element>sl</element>
+      <element>sv</element>
+    </value>
+  </record>
+</registry>
