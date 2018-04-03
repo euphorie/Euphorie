@@ -87,7 +87,10 @@ def getRequest():
 
 
 def getSecret():
-    site = api.portal.get()
+    try:
+        site = api.portal.get()
+    except api.exc.CannotGetPortalError:
+        site = None
     return getattr(site, 'euphorie_secret', 'secret')
 
 

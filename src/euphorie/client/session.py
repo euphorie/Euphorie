@@ -85,8 +85,12 @@ class SessionManagerFactory(object):
         """
         survey_session = create_survey_session(title, survey, account)
         request = getRequest()
-        setCookie(request.response, getSecret(), SESSION_COOKIE,
-                survey_session.id)
+        setCookie(
+            request.response,
+            getSecret(),
+            SESSION_COOKIE,
+            survey_session.id,
+        )
         request.other['euphorie.session'] = survey_session
         return survey_session
 
