@@ -11,7 +11,6 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from z3c.saconfig import Session
 
 import datetime
-import unittest
 import urllib
 
 
@@ -49,7 +48,6 @@ class CountryTests(EuphorieIntegrationTestCase):
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):
 
-    @unittest.skip('XXX Plone5.1')
     def test_surveys_filtered_by_language(self):
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector</title>

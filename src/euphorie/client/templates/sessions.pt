@@ -18,7 +18,7 @@
     <article>
         <p i18n:translate="info_select_session">
             Select an earlier session to complete or review or
-            <tal:name i18n:name="start_session"><a href="new-session.html#document-content" id="button-new-session"
+            <tal:name i18n:name="start_session"><a href="${here/absolute_url}/new-session.html#document-content" id="button-new-session"
                data-pat-modal="class: large" class="pat-modal icon-plus-circle" title="Start a new session" i18n:attributes="title" i18n:translate="link_start_session">start a new session</a></tal:name>.
         </p>
 
@@ -61,4 +61,3 @@
 
 </body>
 </html>
-
