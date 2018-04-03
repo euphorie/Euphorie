@@ -1087,6 +1087,9 @@ class ActionPlanTimeline(grok.View):
         :py:class:`ActionPlan <euphorie.client.model.ActionPlan>`. Each
         entry in the list will correspond to a row in the generated Excel
         file.
+
+        XXX: This appears to be broken in sqlalchemy >= 1.2
+        (at least on 1.2.5 and 1.2.6)
         """
         query = Session.query(model.Module, model.Risk, model.ActionPlan)\
             .filter(sql.and_(model.Module.depth == 1,

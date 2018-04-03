@@ -253,7 +253,6 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][2], None)
 
-    @unittest.skip('XXX Plone 5.1')
     def test_get_measures_filter_on_session(self):
         dbsession = Session()
         sessions = []
