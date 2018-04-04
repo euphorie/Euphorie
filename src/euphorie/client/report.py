@@ -47,6 +47,7 @@ from z3c.saconfig import Session
 from zExceptions import NotFound
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
+
 import htmllaundry
 import logging
 import lxml.html
@@ -514,6 +515,7 @@ class IdentificationReportDownload(grok.View):
 
         for node in self.getNodes():
             has_risk = node.type == 'risk' and node.identification == 'no'
+            show_problem_description = False
             if 'custom-risks' in node.zodb_path:
                 zodb_node = None
                 if has_risk:
