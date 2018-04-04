@@ -1,5 +1,4 @@
 YUICOMPRESS	?= yui-compressor
-PYTHON		?= python2.7
 
 # CSS_PACK	= $(YUICOMPRESS) --charset utf-8 --nomunge
 # CSS_DIR		= src/euphorie/client/templates/style
@@ -38,8 +37,8 @@ clean::
 	-rm ${TARGETS}
 
 bin/buildout: bootstrap.py
-	virtualenv --clear --no-site-packages .
-	$(PYTHON) bootstrap.py
+	virtualenv -p python2.7 --clear --no-site-packages .
+	./bin/python2.7 bootstrap.py
 
 bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
 	bin/buildout -c devel.cfg -t 10
