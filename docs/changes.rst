@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Translation updates in Castillian (es) and Catalan (ca)
+- Fix undefined variable (#120)
+
 
 9.0.35 (2018-03-16)
 -------------------
