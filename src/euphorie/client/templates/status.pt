@@ -11,7 +11,7 @@
       metal:use-macro="context/@@shell/macros/shell">
 
 <body>
-<metal:content fill-slot="content" tal:define="language context/portal_languages/getPreferredLanguage">
+<metal:content fill-slot="content" tal:define="language view/preferred_language">
     <div class="statuses language-${language}" tal:define="status python:view.status">
 
         <article class="rich" tal:define="title here/Title|string: ">

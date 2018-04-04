@@ -35,6 +35,7 @@ from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.content.survey import ISurvey
 from five import grok
+from plone import api
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from sqlalchemy import orm
@@ -330,6 +331,11 @@ class Status(grok.View):
             self.session_title = session.title
         else:
             self.session_title = None
+
+    @property
+    @memoize_contextless
+    def preferred_language(self):
+        return api.portal.get_tool('portal_languages').getPreferredLanguage()
 
     def module_query(self, sessionid, optional_modules):
         if optional_modules:
