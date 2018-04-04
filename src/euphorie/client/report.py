@@ -1061,7 +1061,7 @@ class ActionPlanReportDownload(grok.View):
         return output.getvalue()
 
 
-class ActionPlanTimeline(grok.View):
+class ActionPlanTimeline(grok.View, survey._StatusHelper):
     """Generate an excel file listing all measures.
 
     This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
@@ -1080,6 +1080,8 @@ class ActionPlanTimeline(grok.View):
 
     def get_measures(self):
         """Find all data that should be included in the report.
+           Re-use the helper methods from Status to compute the
+           filtered module paths and the relevant risks.
 
         The data is returned as a list of tuples containing a
         :py:class:`Module <euphorie.client.model.Module>`,
@@ -1088,20 +1090,42 @@ class ActionPlanTimeline(grok.View):
         entry in the list will correspond to a row in the generated Excel
         file.
         """
-        query = Session.query(model.Module, model.Risk, model.ActionPlan)\
-            .filter(sql.and_(model.Module.depth == 1,
-                             model.Module.session == self.session))\
-            .filter(sql.not_(model.SKIPPED_PARENTS))\
-            .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                            model.RISK_PRESENT_OR_TOP5_FILTER))\
-            .join((model.Risk,
-                   sql.and_(model.Risk.path.startswith(model.Module.path),
-                            model.Risk.session == self.session)))\
-            .outerjoin((model.ActionPlan,
-                   model.ActionPlan.risk_id == model.Risk.id))\
-            .order_by(model.ActionPlan.planning_start,
-                      model.SurveyTreeItem.path)
-        return query.all()
+        module_paths = self.getModulePaths()
+        risk_data = self.getRisks(module_paths)
+        measure_data = []
+        for (module, risk) in risk_data:
+            action_plan_q = self.sql_session.query(
+                model.ActionPlan
+            ).filter(
+                model.ActionPlan.risk_id == risk.id
+            )
+            # If the risk contains no action plan, add it as a single line
+            # to the results
+            action_plans = action_plan_q.all() or [None]
+            for action_plan in action_plans:
+                measure_data.append((module, risk, action_plan))
+
+        # sort by 1. planning start, 2. path
+        # Since we want to sort by date, and we can have None values (that
+        # should be sorted to the end), we need our own compare function
+        def cmp_dates(x, y):
+            a = getattr(x[2], 'planning_start', None)
+            b = getattr(y[2], 'planning_start', None)
+            if a is None:
+                if b is None:
+                    return 0
+                return 1
+            elif b is None:
+                return -1
+            else:
+                if a > b:
+                    return 1
+                elif a < b:
+                    return -1
+                return 0
+
+        by_path_measure_data = sorted(measure_data, key=lambda x: x[1].path)
+        return sorted(by_path_measure_data, cmp=cmp_dates)
 
     priority_names = {
         'low': _(u'label_timeline_priority_low', default=u'Low'),
@@ -1162,12 +1186,11 @@ class ActionPlanTimeline(grok.View):
 
         row = 1
         for (module, risk, measure) in self.get_measures():
-
             if risk.identification in ["n/a", "yes"]:
                 continue
 
             column = 0
-            if 'custom-risks' in risk.zodb_path:
+            if risk.is_custom_risk:
                 zodb_node = None
             else:
                 zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
@@ -1184,10 +1207,11 @@ class ActionPlanTimeline(grok.View):
                                 zodb_node.problem_description.strip():
                             value = zodb_node.problem_description
                 elif ntype == 'module':
-                    if key == 'title' and module.zodb_path == 'custom-risks':
-                        value = utils.get_translated_custom_risks_title(self.request)
-                    else:
-                        value = getattr(module, key, None)
+                    if key == 'title':
+                        if risk.is_custom_risk:
+                            value = utils.get_translated_custom_risks_title(self.request)
+                        else:
+                            value = module.title
                 if value is not None:
                     sheet.cell(row=row, column=column).value = value
                 column += 1
