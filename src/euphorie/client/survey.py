@@ -37,6 +37,7 @@ from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from sqlalchemy import orm
 from sqlalchemy import sql
@@ -50,8 +51,10 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+
 import logging
 import urlparse
+
 
 PloneLocalesFactory = MessageFactory("plonelocales")
 
