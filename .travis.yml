@@ -1,8 +1,29 @@
 language: python
+sudo: true
+cache:
+  pip: true
+  directories:
+  - eggs
+  - downloads
 python:
- - 2.7
-env:
- - PYTHON=python
+  - "2.7"
+matrix:
+  fast_finish: true
+install:
+  - sudo locale-gen en_US.UTF-8 nl_NL@euro
+  - export zope_i18n_compile_mo_files=1
+  - virtualenv -p `which python2.7` .
+  - bin/pip install -r requirements.txt
+  - bin/buildout -N -c devel.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True annotate
+  - bin/buildout -N -c devel.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True
 before_script:
- - sudo apt-get install -qq python-dev libtiff-dev libpng-dev libjpeg8-dev zlib1g-dev libpq-dev libxslt-dev gettext yui-compressor
-script: make check
+  - sudo apt-get install -qq python-dev libtiff-dev libpng-dev libjpeg8-dev zlib1g-dev libpq-dev libxslt-dev gettext yui-compressor
+script:
+  - bin/code-analysis || true
+  - make check
+after_success:
+  - bin/createcoverage
+  - bin/pip install coverage
+  - bin/python -m coverage.pickle2json
+  - pip install coveralls
+  - coveralls
