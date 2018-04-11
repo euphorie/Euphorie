@@ -1,0 +1,6 @@
+[run]
+source = src/euphorie
+omit =
+    */tests/*
+    */upgrades/*
+
