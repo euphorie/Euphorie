@@ -21,9 +21,3 @@ before_script:
 script:
   - bin/code-analysis || true
   - make check
-after_success:
-  - bin/createcoverage -v --test-args='-s euphorie'
-  - bin/pip install coverage
-  - bin/python -m coverage.pickle2json
-  - pip install coveralls
-  - coveralls
