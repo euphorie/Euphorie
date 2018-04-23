@@ -28,3 +28,7 @@ src/osha.oira/
 src/plone.recipe.zope2instance/
 *.espressostorage
 /prototype
+include/
+lib/
+.Python
+pip-selfcheck.json
