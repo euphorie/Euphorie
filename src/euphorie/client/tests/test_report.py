@@ -1,16 +1,28 @@
-import unittest
-from euphorie.deployment.tests.functional import EuphorieTestCase
-from euphorie.content.risk import Risk
+from cStringIO import StringIO
 from euphorie.client import model
+from euphorie.client.model import Account
+from euphorie.client.model import SurveySession
+from euphorie.client.report import ActionPlanTimeline
+from euphorie.client.report import HtmlToRtf
+from euphorie.client.report import IdentificationReport
+from euphorie.client.tests.utils import testRequest
+from euphorie.client.utils import setRequest
+from euphorie.content.risk import Risk
+from euphorie.deployment.tests.functional import EuphorieTestCase
+from rtfng.document.section import Section
+from rtfng.Elements import Document
+from rtfng.Renderer import Renderer
+from z3c.saconfig import Session
+import datetime
+import mock
+import unittest
 
 
 class IdentificationReportTests(unittest.TestCase):
     def IdentificationReport(self, *a, **kw):
-        from euphorie.client.report import IdentificationReport
         return IdentificationReport(*a, **kw)
 
     def test_title_not_a_risk(self):
-        import mock
         node = mock.Mock()
         node.type = 'module'
         node.title = u'My title'
@@ -18,7 +30,6 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, None), u'My title')
 
     def test_title_unanswered_risk(self):
-        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = None
@@ -27,7 +38,6 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, None), u'My title')
 
     def test_title_empty_problem_description(self):
-        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = u'no'
@@ -38,7 +48,6 @@ class IdentificationReportTests(unittest.TestCase):
         self.assertEqual(view.title(node, zodb_node), u'My title')
 
     def test_title_risk_present_and_with_problem_description(self):
-        import mock
         node = mock.Mock()
         node.type = 'risk'
         node.identification = u'no'
@@ -51,7 +60,6 @@ class IdentificationReportTests(unittest.TestCase):
 
 class ShowNegateWarningTests(unittest.TestCase):
     def _call(self, node, zodbnode):
-        from euphorie.client.report import IdentificationReport
         report = IdentificationReport(None, None)
         return report.show_negate_warning(node, zodbnode)
 
@@ -95,14 +103,9 @@ class ShowNegateWarningTests(unittest.TestCase):
 
 class HtmlToRtfTests(unittest.TestCase):
     def HtmlToRtf(self, *a, **kw):
-        from euphorie.client.report import HtmlToRtf
         return HtmlToRtf(*a, **kw)
 
     def render(self, output):
-        from cStringIO import StringIO
-        from rtfng.Elements import Document
-        from rtfng.document.section import Section
-        from rtfng.Renderer import Renderer
         document = Document()
         section = Section()
         for o in output:
@@ -172,12 +175,9 @@ class HtmlToRtfTests(unittest.TestCase):
 
 class ActionPlanTimelineTests(EuphorieTestCase):
     def ActionPlanTimeline(self, *a, **kw):
-        from euphorie.client.report import ActionPlanTimeline
         return ActionPlanTimeline(*a, **kw)
 
     def _create_session(self, dbsession, loginname='jane'):
-        from euphorie.client.model import Account
-        from euphorie.client.model import SurveySession
         session = SurveySession(
             account=Account(loginname=loginname, password=u'john'),
             zodb_path='survey')
@@ -185,7 +185,6 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         return session
 
     def test_get_measures_with_correct_module(self):
-        from z3c.saconfig import Session
         dbsession = Session()
         session = self._create_session(dbsession)
         # This first module should be ignored, it doesn't contain any risks
@@ -208,14 +207,16 @@ class ActionPlanTimelineTests(EuphorieTestCase):
             risk_id='1',
             identification='no'
         ))
-        view = self.ActionPlanTimeline(None, None)
+        request = testRequest()
+        request.survey = mock.Mock()
+        request.survey.ProfileQuestions = lambda: []
+        view = self.ActionPlanTimeline(None, request)
         view.session = session
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][0].module_id, u'2')
 
     def test_get_measures_return_risks_without_measures(self):
-        from z3c.saconfig import Session
         dbsession = Session()
         session = self._create_session(dbsession)
         module = session.addChild(model.Module(
@@ -229,14 +230,17 @@ class ActionPlanTimelineTests(EuphorieTestCase):
             risk_id='1',
             identification='no'
         ))
-        view = self.ActionPlanTimeline(None, None)
+        request = testRequest()
+        request.survey = mock.Mock()
+        request.survey.ProfileQuestions = lambda: []
+        setRequest(request)
+        view = self.ActionPlanTimeline(None, request)
         view.session = session
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][2], None)
 
     def test_get_measures_filter_on_session(self):
-        from z3c.saconfig import Session
         dbsession = Session()
         sessions = []
         for login in ['jane', 'john']:
@@ -254,18 +258,21 @@ class ActionPlanTimelineTests(EuphorieTestCase):
                     identification='no',
                     action_plans=[
                         model.ActionPlan(
-                            action_plan=u'Measure 1')
+                            action_plan=u'Measure 1 for %s' % login)
                     ]))
             sessions.append(session)
 
-        view = self.ActionPlanTimeline(None, None)
+        request = testRequest()
+        request.survey = mock.Mock()
+        request.survey.ProfileQuestions = lambda: []
+        setRequest(request)
+        view = self.ActionPlanTimeline(None, request)
         view.session = sessions[0]
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
+        self.assertEqual(measures[0][2].action_plan, 'Measure 1 for jane')
 
     def test_get_measures_order_by_start_date(self):
-        import datetime
-        from z3c.saconfig import Session
         dbsession = Session()
         session = self._create_session(dbsession)
         module = session.addChild(model.Module(
@@ -283,7 +290,12 @@ class ActionPlanTimelineTests(EuphorieTestCase):
                            planning_start=datetime.date(2011, 12, 15)),
                 model.ActionPlan(action_plan=u'Plan 1',
                            planning_start=datetime.date(2011, 11, 15))]))
-        view = self.ActionPlanTimeline(None, None)
+
+        request = testRequest()
+        request.survey = mock.Mock()
+        request.survey.ProfileQuestions = lambda: []
+        setRequest(request)
+        view = self.ActionPlanTimeline(None, request)
         view.session = session
         measures = view.get_measures()
         self.assertEqual(len(measures), 2)
@@ -301,21 +313,19 @@ class ActionPlanTimelineTests(EuphorieTestCase):
 
     def test_create_workbook_empty_session(self):
         # If there are no risks only the header row should be generated.
-        from euphorie.client.tests.utils import testRequest
         request = testRequest()
         request.survey = None
+        setRequest(request)
         view = self.ActionPlanTimeline(None, request)
-        view.get_measures = lambda: []
+        view.getModulePaths = lambda: []
         book = view.create_workbook()
         self.assertEqual(len(book.worksheets), 1)
         sheet = book.worksheets[0]
         self.assertEqual(len(sheet.rows), 1)
 
     def test_create_workbook_plan_information(self):
-        import datetime
-        import mock
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client import model
+        dbsession = Session()
+        session = self._create_session(dbsession)
         module = model.Module(
             zodb_path='1',
             title=u'Top-level Module title',
@@ -337,6 +347,7 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         zodb_node.problem_description = u'This is wrong.'
         request.survey.restrictedTraverse.return_value = zodb_node
         view = self.ActionPlanTimeline(None, request)
+        view.session = session
         view.get_measures = lambda: [(module, risk, plan)]
         sheet = view.create_workbook().worksheets[0]
         # planning start
@@ -367,12 +378,11 @@ class ActionPlanTimelineTests(EuphorieTestCase):
         self.assertEqual(sheet.cell('L2').value, u'Risk comment')
 
     def test_create_workbook_no_problem_description(self):
-        import datetime
-        import mock
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client import model
+        dbsession = Session()
+        session = self._create_session(dbsession)
         module = model.Module(
             zodb_path='1',
+            path='001',
             title=u'Top-level Module title',
         )
         risk = model.Risk(
@@ -382,29 +392,25 @@ class ActionPlanTimelineTests(EuphorieTestCase):
             identification='no',
             path='001002003',
             comment=u'Risk comment')
-        plan = model.ActionPlan(
-            action_plan=u'Plan 2',
-            planning_start=datetime.date(2011, 12, 15),
-            budget=500)
         request = testRequest()
         request.survey = mock.Mock()
+        request.survey.ProfileQuestions = lambda: []
         zodb_node = mock.Mock()
         zodb_node.title = u'Risk title.'
         zodb_node.problem_description = u'  '
         request.survey.restrictedTraverse.return_value = zodb_node
+        setRequest(request)
         view = self.ActionPlanTimeline(None, request)
-        view.get_measures = lambda: [(module, risk, plan)]
+        view.session = session
+        view.getRisks = lambda x: [(module, risk)]
         sheet = view.create_workbook().worksheets[0]
         self.assertEqual(sheet.cell('J2').value, u'Risk title')
 
     def test_render_value(self):
-        from euphorie.client.tests.utils import testRequest
-        from euphorie.client.model import SurveySession
         request = testRequest()
         request.survey = None
         view = self.ActionPlanTimeline(None, request)
         view.session = SurveySession(title=u'Acme')
-        view.get_measures = lambda: []
         view.render()
         response = request.response
         self.assertEqual(
