@@ -4,8 +4,13 @@ Changelog
 9.0.36 (unreleased)
 -------------------
 
-- Translation updates in Castillian (es) and Catalan (ca)
+- Translation updates in Castillian (es), Catalan (ca) and Dutch (nl)
 - Fix undefined variable (#120)
+- Major rework of how the lines for the Action Plan XLS are
+  computed. We are re-using the logic from Status, so that risks in
+  optional modules that are deactivated can be filtered out.
+  Also, some "hand-written" SQL queries are replaced by
+  sqlalchemy ones.
 
 
 9.0.35 (2018-03-16)
