@@ -453,6 +453,8 @@ class _StatusHelper(object):
         """ Return a list of risk dicts for risks that belong to the modules
             with paths as specified in module_paths.
         """
+        global request
+        request = self.request
         if not len(module_paths):
             return []
         sql_session = self.sql_session
@@ -495,8 +497,16 @@ class _StatusHelper(object):
                 # Recursively find the nodes that are not disabled
                 global use_nodes
                 # Skip this elem?
-                if elem.skip_children:
-                    return
+                # If this is an optional module, check the "postponed" flag.
+                # As long as the optional question has not been answered, skip
+                # showing its children.
+                # Only a "Yes" answer on the module will be considered as "do
+                # not skip children"
+                zodb_elem = request.survey.restrictedTraverse(
+                    elem.zodb_path.split('/'))
+                if getattr(zodb_elem, 'optional', False):
+                    if elem.postponed in (True, None) or elem.skip_children:
+                        return
                 children = [
                     x for x in s_paths if x.path.startswith(elem.path) and
                     len(x.path) == len(elem.path) + 3]
