@@ -230,6 +230,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         )
         request = testRequest()
         request.survey = mock.Mock()
+        request.survey.restrictedTraverse = lambda x: object
         request.survey.ProfileQuestions = lambda: []
         view = self.ActionPlanTimeline(None, request)
         view.session = session
@@ -257,6 +258,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         )
         request = testRequest()
         request.survey = mock.Mock()
+        request.survey.restrictedTraverse = lambda x: object
         request.survey.ProfileQuestions = lambda: []
         setRequest(request)
         view = self.ActionPlanTimeline(None, request)
@@ -291,6 +293,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         request = testRequest()
         request.survey = mock.Mock()
+        request.survey.restrictedTraverse = lambda x: object
         request.survey.ProfileQuestions = lambda: []
         setRequest(request)
         view = self.ActionPlanTimeline(None, request)
@@ -330,6 +333,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         request = testRequest()
         request.survey = mock.Mock()
+        request.survey.restrictedTraverse = lambda x: object
         request.survey.ProfileQuestions = lambda: []
         setRequest(request)
         view = self.ActionPlanTimeline(None, request)

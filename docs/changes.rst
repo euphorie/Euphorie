@@ -11,6 +11,8 @@ Changelog
   optional modules that are deactivated can be filtered out.
   Also, some "hand-written" SQL queries are replaced by
   sqlalchemy ones.
+- Optional modules: until the user has explicitely answered the module
+  question as "Yes", consider this module skipped.
 
 
 9.0.35 (2018-03-16)
