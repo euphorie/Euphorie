@@ -61,8 +61,8 @@ docs:: bin/sphinx-build
 clean::
 	rm -rf docs/.build
 
-pot:
-	pybabel extract -F babel.cfg \
+pot: bin/pybabel
+	bin/pybabel extract -F babel.cfg \
 		--copyright-holder='Simplon B.V., SYSLAB.COM GmbH' \
 		--msgid-bugs-address='euphorie@lists.wiggy.net' \
 		--charset=utf-8 \
