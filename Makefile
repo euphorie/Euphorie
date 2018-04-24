@@ -38,7 +38,7 @@ clean::
 
 bin/buildout: bootstrap.py
 	virtualenv -p python2.7 --clear --no-site-packages .
-	./bin/python2.7 bootstrap.py
+	bin/pip install -r requirements.txt
 
 bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
 	bin/buildout -c devel.cfg -t 10
@@ -61,8 +61,8 @@ docs:: bin/sphinx-build
 clean::
 	rm -rf docs/.build
 
-pot:
-	pybabel extract -F babel.cfg \
+pot: bin/pybabel
+	bin/pybabel extract -F babel.cfg \
 		--copyright-holder='Simplon B.V., SYSLAB.COM GmbH' \
 		--msgid-bugs-address='euphorie@lists.wiggy.net' \
 		--charset=utf-8 \
