@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: euphorie@lists.wiggy.net\n"
-"POT-Creation-Date: 2017-08-23 17:46+0200\n"
+"POT-Creation-Date: 2018-04-24 12:02+0200\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -2450,20 +2450,26 @@ msgstr "Maak de RI&E op maat voor uw organisatie"
 msgid "expl_profile"
 msgstr ""
 "Lees de onderstaande vragen en zet een vinkje als deze van toepassing is "
-"voor uw organisatie. Indien het niet van toepassing is, laat u het vakje "
-"open en krijgt u geen vragen in de RI&E over dit onderwerp."
+"voor uw organisatie.<br/>Om de risico inventarisatie af te stemmen op uw "
+"organisatie, wordt u hieronder gevraagd om:"
 
 #. Default: select or skip situation(s) relevant or not to your business
 #. activity and tick the box(es) if appropriate
 #: src/euphorie/client/templates/profile.pt:23
 msgid "expl_profile_bullet1"
 msgstr ""
+"aan te vinken of de situatie op u van toepassing is. Indien het niet van "
+"toepassing is, laat u het vakje open en krijgt u geen vragen in de RI&E over "
+"dit onderwerp."
 
 #. Default: list multiple business units, or branches, or stores, etc. These
 #. related risks will be repeated for each name you have entered.
 #: src/euphorie/client/templates/profile.pt:26
 msgid "expl_profile_bullet2"
 msgstr ""
+"meerdere bedrijfseenheden, filialen, winkels in te vullen als u die wilt "
+"meenemen in deze inventarisatie. De gerelateerde risico's zullen worden "
+"herhaald voor elke naam die u hebt ingevoerd."
 
 #: src/euphorie/client/templates/profile.pt:43
 #: src/euphorie/client/templates/profile.pt:49
