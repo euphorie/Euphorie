@@ -1,7 +1,7 @@
-from euphorie.client.tests.database import DatabaseTests
-from euphorie.client.tests.utils import createSurvey
 from euphorie.client import model
 from euphorie.client import navigation
+from euphorie.client.tests.database import DatabaseTests
+from euphorie.client.tests.utils import createSurvey
 import unittest
 
 
@@ -195,6 +195,7 @@ class GetTreeDataTests(DatabaseTests):
     def createSqlData(self):
         self.request = MockRequest()
         (self.session, self.survey) = createSurvey()
+        self.survey.restrictedTraverse = lambda x: None
         self.request.survey = self.survey
         self.survey.absolute_url = lambda self=None: "http://nohost"
         self.session.flush()
