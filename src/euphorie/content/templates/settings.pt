@@ -38,13 +38,13 @@
               <p i18n:translate="label_logo_selection" class="legend">Which logo you would like to display in the lower left corner?</p>
 
               <label>
-                <input name="${widget/name}.action" checked="${python:'checked' if not widget.allow_nochange else None}" value="remove" type="radio"><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
+                <input name="${widget/name}.action" checked="${python:'checked' if not widget.allow_nochange else None}" value="remove" type="radio" /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
               </label>
               <label>
-                <input  name="${widget/name}.action" value="update" checked="${python:'checked' if widget.allow_nochange else None}" type="radio"><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
+                <input name="${widget/name}.action" value="update" checked="${python:'checked' if widget.allow_nochange else None}" type="radio" /><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
                  <input type="file" name="${widget/name}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
               </label>
-              <input value="1" name="${widget/name}.action-empty-marker" type="hidden">
+              <input value="1" name="${widget/name}.action-empty-marker" type="hidden" />
             </fieldset>
           </div>
 

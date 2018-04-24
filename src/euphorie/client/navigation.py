@@ -163,6 +163,17 @@ def getTreeData(request, context, phase="identification", filter=None):
     result["children"] = children
 
     if isinstance(context, model.Module):
+        # If this is an optional module, check the "postponed" flag.
+        # As long as the optional question has not been answered, skip
+        # showing its children.
+        # Only a "Yes" answer will set skip_children to False
+        module = request.survey.restrictedTraverse(
+            context.zodb_path.split("/"))
+        if (
+            getattr(module, 'optional', False) and
+            context.postponed in (True, None)
+        ):
+            context.skip_children = True
         if not context.skip_children:
             # For modules which do not skip children, include the list of
             # children.

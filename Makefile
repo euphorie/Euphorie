@@ -38,7 +38,7 @@ clean::
 
 bin/buildout: bootstrap.py
 	virtualenv -p python2.7 --clear --no-site-packages .
-	./bin/python2.7 bootstrap.py
+	bin/pip install -r requirements.txt
 
 bin/pybabel bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
 	bin/buildout -c devel.cfg -t 10
