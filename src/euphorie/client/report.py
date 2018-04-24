@@ -1241,8 +1241,8 @@ class RisksOverview(survey.Status):
     grok.template("risks_overview")
     grok.name("risks_overview")
 
-    def is_skipped_from_risk_list(self, r):
-        if r['identification'] == 'yes':
+    def is_skipped_from_risk_list(self, risk):
+        if risk.identification == 'yes':
             return True
 
 
