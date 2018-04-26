@@ -36,7 +36,7 @@ all: ${TARGETS}
 clean::
 	-rm ${TARGETS}
 
-bin/buildout: bootstrap.py
+bin/buildout:
 	virtualenv -p python2.7 --clear --no-site-packages .
 	bin/pip install -r requirements.txt
 
