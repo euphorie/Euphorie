@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.36 (unreleased)
+9.0.36 (2018-04-26)
 -------------------
 
 - Translation updates in Castillian (es), Catalan (ca) and Dutch (nl)
