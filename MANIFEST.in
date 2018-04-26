@@ -16,6 +16,8 @@ recursive-include src/euphorie *.ttf
 recursive-include src/euphorie *.txt
 recursive-include src/euphorie *.woff
 recursive-include src/euphorie *.zpt
+recursive-include src *.map
+recursive-include src *.woff2
 prune Prototype_1.0
 prune data
 graft docs
