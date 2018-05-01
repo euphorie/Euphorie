@@ -78,6 +78,13 @@ class View(grok.View):
     grok.template("survey_sessions")
     grok.name("index_html")
 
+    @property
+    @memoize_contextless
+    def account(self):
+        ''' The currenttly authenticated account
+        '''
+        return model.get_current_account()
+
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -88,11 +95,10 @@ class View(grok.View):
         """
         survey = aq_inner(self.context)
         my_path = utils.RelativePath(self.request.client, survey)
-        account = getSecurityManager().getUser()
         result = [{'id': session.id,
                  'title': session.title,
                  'modified': session.modified}
-                 for session in account.sessions
+                 for session in self.account.sessions
                  if session.zodb_path == my_path]
         result.sort(key=lambda s: s['modified'], reverse=True)
         return result

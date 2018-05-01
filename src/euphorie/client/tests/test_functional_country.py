@@ -14,6 +14,7 @@ import datetime
 import urllib
 
 
+
 class CountryTests(EuphorieIntegrationTestCase):
 
     def test_sessions_ordering(self):
@@ -42,8 +43,9 @@ class CountryTests(EuphorieIntegrationTestCase):
         session.add(account)
         newSecurityManager(None, account)
         view = View(self.portal.client['nl'], None)
-        self.assertEqual([s['title'] for s in view.sessions()],
-                         [u'Three', u'Two', 'One'])
+        self.assertEqual(
+            [s.title for s in view.sessions()],
+            [u'Three', u'Two', 'One'])
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):

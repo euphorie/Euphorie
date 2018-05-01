@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Model
 -----
@@ -9,12 +10,15 @@ Also: PAS-based user account for users of the client
 
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from euphorie.client.enum import Enum
+from plone import api
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
 from sqlalchemy import types
 from sqlalchemy.ext import declarative
+from sqlalchemy.orm import backref
+from sqlalchemy.orm import relationship
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
@@ -184,6 +188,53 @@ class SurveyTreeItem(BaseObject):
         return removed
 
 
+class Group(BaseObject):
+    __tablename__ = "group"
+
+    group_id = schema.Column(
+        types.Unicode(32),
+        primary_key=True,
+    )
+    parent_id = schema.Column(
+        types.Unicode(32),
+        schema.ForeignKey('group.group_id'),
+    )
+    short_name = schema.Column(
+        types.Unicode(32),
+    )
+    long_name = schema.Column(
+        types.Unicode(256),
+    )
+
+    children = relationship(
+        'Group',
+        backref=backref('parent', remote_side=[group_id]),
+    )
+    accounts = relationship(
+        'Account',
+        backref=backref('group', remote_side=[group_id]),
+    )
+
+    @property
+    def descendants(self):
+        ''' Return all the groups in the hierarchy flattened
+        '''
+        descendants = []
+        for child in self.children:
+            descendants.append(child)
+            descendants.extend(child.descendants)
+        return descendants
+
+    @property
+    def acquired_sessions(self):
+        ''' All the session relative to this group and its children
+        '''
+        sessions = list(self.sessions)
+        for group in self.descendants:
+            sessions.extend(group.sessions)
+        return sessions
+
+
 class Account(BaseObject):
     """A user account. Users have to register with euphorie before they can
     start a survey session. A single account can have multiple survey sessions.
@@ -203,6 +254,28 @@ class Account(BaseObject):
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
             Enum([u"guest", u"converted", None]), default=None, nullable=True)
+    group_id = schema.Column(
+        types.Unicode(32),
+        schema.ForeignKey('group.group_id'),
+    )
+
+    @property
+    def groups(self):
+        group = self.group
+        if not group:
+            return []
+        groups = [group]
+        groups.extend(group.descendants)
+        return groups
+
+    @property
+    def acquired_sessions(self):
+        ''' The session the account acquires because he belongs to a group.
+        '''
+        group = self.group
+        if not group:
+            return []
+        return list(group.acquired_sessions)
 
     @property
     def email(self):
@@ -291,6 +364,10 @@ class SurveySession(BaseObject):
             schema.ForeignKey(Account.id,
                 onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, index=True)
+    group_id = schema.Column(
+        types.Unicode(32),
+        schema.ForeignKey('group.group_id'),
+    )
     title = schema.Column(types.Unicode(512))
     created = schema.Column(types.DateTime, nullable=False,
             default=functions.now())
@@ -301,6 +378,9 @@ class SurveySession(BaseObject):
     report_comment = schema.Column(types.UnicodeText())
 
     account = orm.relation(Account,
+            backref=orm.backref("sessions", order_by=modified,
+                                cascade="all, delete, delete-orphan"))
+    group = orm.relation(Group,
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
 
@@ -550,7 +630,7 @@ _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
     for cls in [SurveyTreeItem, SurveySession, Module, Risk,
-                ActionPlan, Account, AccountChangeRequest, Company]:
+                ActionPlan, Group, Account, AccountChangeRequest, Company]:
         declarative.api.instrument_declarative(cls,
                 metadata._decl_registry, metadata)
     _instrumented = True
@@ -658,6 +738,20 @@ ACTION_PLAN_FILTER = \
 
 del child_node
 
+
+def get_current_account():
+    ''' XXX this would be better placed in an api module,
+    but we need to avoid circular dependencies
+
+    :return: The current Account instance if a user can be found,
+             otherwise None
+    '''
+    username = api.user.get_current().getUserName()
+    return Session.query(Account).filter(Account.loginname == username).first()
+
+
 __all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
            "SKIPPED_PARENTS", "MODULE_WITH_RISK_FILTER",
-           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER"]
+           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER",
+    'get_current_account',
+]

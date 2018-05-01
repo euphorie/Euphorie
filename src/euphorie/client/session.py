@@ -5,8 +5,6 @@ Session
 Create and update sessions.
 """
 
-from AccessControl import getSecurityManager
-from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import model
@@ -34,17 +32,21 @@ def create_survey_session(title, survey, account=None):
     :rtype: :py:class:`euphorie.client.model.SurveySession` instance
     """
     if account is None:
-        account = getSecurityManager().getUser()
+        account = model.get_current_account()
 
+    session = Session()
     sector = aq_parent(aq_inner(survey))
     country = aq_parent(sector)
     zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
     survey_session = model.SurveySession(
             title=title,
             zodb_path=zodb_path,
-            account=account)
-    Session.add(survey_session)
-    Session.flush()  # flush so we get a session id
+            account_id=account.id,
+            group_id=account.group_id,
+    )
+    session.add(survey_session)
+    session.refresh(account)
+    session.flush()  # flush so we get a session id
     return survey_session
 
 
@@ -100,10 +102,15 @@ class SessionManagerFactory(object):
         :param session: session to activate
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
-        account = aq_base(getSecurityManager().getUser())
-        if session.account is not account:
+        account = model.get_current_account()
+        if (
+            not account
+            or (
+                session not in account.sessions
+                and session not in account.acquired_sessions
+            )
+        ):
             raise ValueError('Can only resume session for current user.')
-
         request = getRequest()
         request.other["euphorie.session"] = session
         setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)

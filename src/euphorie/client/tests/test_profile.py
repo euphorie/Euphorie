@@ -79,7 +79,7 @@ class AddToTreeTests(DatabaseTests):
     def setUp(self):
         super(AddToTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname=u"jane", password=u"secret")
         self.session.add(account)
         self.survey = model.SurveySession(
             title=u"Survey", zodb_path="survey", account=account
@@ -198,7 +198,7 @@ class BuildSurveyTreeTests(DatabaseTests):
     def setUp(self):
         super(BuildSurveyTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname=u"jane", password=u"secret")
         self.session.add(account)
         self.survey = model.SurveySession(
             title=u"Survey", zodb_path="survey", account=account

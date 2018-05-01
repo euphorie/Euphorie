@@ -1,11 +1,12 @@
-from zope.component import adapts
-from five import grok
-from z3c.saconfig import Session
-from euphorie.client.model import Account
+# coding=utf-8
 from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.api.session import get_survey
 from euphorie.client.api.sessions import Sessions
+from euphorie.client.model import Account
+from five import grok
+from z3c.saconfig import Session
+from zope.component import adapts
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
@@ -18,7 +19,6 @@ def login_available(login):
             .filter(Account.loginname == login)\
             .count()
     return others == 0
-
 
 class View(JsonView):
     grok.context(Account)
