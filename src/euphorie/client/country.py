@@ -35,6 +35,11 @@ from zope.interface import Interface
 
 import logging
 
+# Memoize currently is not usable because lot's of test instantiate the view
+# with this kind of code: `self.View(context, None)``
+# from plone.memoize.view import memoize
+# from plone.memoize.view import memoize_contextless
+
 
 grok.templatedir("templates")
 
@@ -58,6 +63,42 @@ class View(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("sessions")
 
+    @property
+    # @memoize_contextless
+    def account(self):
+        ''' The currenttly authenticated account
+        '''
+        return model.get_current_account()
+
+    def sessions2dicts(self, sessions):
+        ''' A list of sessions is transformed in a list of sorted dicts
+        with the following keys:
+
+        * `id`: unique identifier for the session
+        * `title`: session title
+        * `modified`: timestamp of last session modification
+
+        The dicts are sorted by most recently modified
+        '''
+        client = aq_parent(aq_inner(self.context))
+        results = (
+            session for session in sessions
+            if client.restrictedTraverse(session.zodb_path.split("/"), None)
+        )
+        return sorted(results, key=lambda s: s.modified, reverse=True)
+
+    # @memoize
+    def acquired_sessions(self):
+        ''' Return a list of all the acquired sessions for the current user.
+        '''
+        own_sessions = self.sessions()
+        good_sessions = (
+            session for session in self.account.acquired_sessions
+            if session not in own_sessions
+        )
+        return self.sessions2dicts(good_sessions)
+
+    # @memoize
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -66,20 +107,7 @@ class View(grok.View):
         * `title`: session title
         * `modified`: timestamp of last session modification
         """
-        account = getSecurityManager().getUser()
-        result = []
-        client = aq_parent(aq_inner(self.context))
-        for session in account.sessions:
-            try:
-                client.restrictedTraverse(session.zodb_path.split("/"))
-                result.append({"id": session.id,
-                               "title": session.title,
-                               "modified": session.modified,
-                               })
-            except KeyError:
-                pass
-        result.sort(key=lambda s: s['modified'], reverse=True)
-        return result
+        return self.sessions2dicts(self.account.sessions)
 
     def _updateSurveys(self):
         self.surveys = []

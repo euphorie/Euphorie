@@ -21,7 +21,8 @@
        name="euphorie.deployment"
        />
 
-  <grok:grok package="." />
+  <grok:grok package=".browser" />
+  <grok:grok package=".tiles" />
 
   <genericsetup:registerProfile
        name="default"
