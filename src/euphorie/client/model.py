@@ -205,6 +205,12 @@ class Group(BaseObject):
     long_name = schema.Column(
         types.Unicode(256),
     )
+    responsible_id = schema.Column(
+        types.Unicode(32),
+    )
+    responsible_fullname = schema.Column(
+        types.Unicode(32),
+    )
 
     children = relationship(
         'Group',
