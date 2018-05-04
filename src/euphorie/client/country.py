@@ -145,45 +145,6 @@ class View(grok.View):
             six.binary_type(zodb_path), None
         )
 
-    def sessions2dicts(self, sessions):
-        ''' A list of sessions is transformed in a list of sorted dicts
-        with the following keys:
-
-        * `id`: unique identifier for the session
-        * `title`: session title
-        * `modified`: timestamp of last session modification
-
-        The dicts are sorted by most recently modified
-        '''
-        client = aq_parent(aq_inner(self.context))
-        results = (
-            session for session in sessions
-            if client.restrictedTraverse(session.zodb_path.split("/"), None)
-        )
-        return sorted(results, key=lambda s: s.modified, reverse=True)
-
-    @memoize
-    def acquired_sessions(self):
-        ''' Return a list of all the acquired sessions for the current user.
-        '''
-        own_sessions = self.sessions()
-        good_sessions = (
-            session for session in self.account.acquired_sessions
-            if session not in own_sessions
-        )
-        return self.sessions2dicts(good_sessions)
-
-    @memoize
-    def sessions(self):
-        """Return a list of all sessions for the current user. For each
-        session a dictionary is returned with the following keys:
-
-        * `id`: unique identifier for the session
-        * `title`: session title
-        * `modified`: timestamp of last session modification
-        """
-        return self.sessions2dicts(self.account.sessions)
-
     @property
     @memoize
     def sessions_root(self):

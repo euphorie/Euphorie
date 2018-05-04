@@ -15,8 +15,6 @@
   <body>
     <metal:slot fill-slot="content"
                 tal:define="
-                  sessions view/sessions;
-                  acquired_sessions view/acquired_sessions;
                   language view/portal/plone_portal_state/language;
                   root view/get_sessions_tree_root;
                 "

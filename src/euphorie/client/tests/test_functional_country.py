@@ -49,10 +49,6 @@ class CountryTests(EuphorieIntegrationTestCase):
             self.portal.client['nl'],
             self.request.clone(),
         )
-        self.assertListEqual(
-            [s.title for s in view.sessions()],
-            [u'Three', u'Two', 'One'],
-        )
 
         root = view.get_sessions_tree_root()
         self.assertListEqual(
