@@ -1,8 +1,10 @@
 # coding=utf-8
 from ..country import View
 from ..model import Account
+from ..model import Group
 from ..model import SurveySession
 from AccessControl.SecurityManagement import newSecurityManager
+from anytree import RenderTree
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.content.tests.utils import BASIC_SURVEY
@@ -14,8 +16,9 @@ import datetime
 import urllib
 
 
-
 class CountryTests(EuphorieIntegrationTestCase):
+
+    maxDiff = None
 
     def test_sessions_ordering(self):
         addSurvey(self.portal, BASIC_SURVEY)
@@ -42,10 +45,197 @@ class CountryTests(EuphorieIntegrationTestCase):
         )
         session.add(account)
         newSecurityManager(None, account)
-        view = View(self.portal.client['nl'], None)
-        self.assertEqual(
+        view = View(
+            self.portal.client['nl'],
+            self.request.clone(),
+        )
+        self.assertListEqual(
             [s.title for s in view.sessions()],
-            [u'Three', u'Two', 'One'])
+            [u'Three', u'Two', 'One'],
+        )
+
+        root = view.get_sessions_tree_root()
+        self.assertListEqual(
+            [x.title for x in root.descendants],
+            [u'Software development', u'One', u'Three', u'Two'],
+        )
+
+        survey = root.children[0]
+        # Ensure that the nodes are sorted by title when getting the groups...
+        self.assertListEqual(
+            [x.title for x in survey.groups],
+            [u'One', u'Three', u'Two'],
+        )
+        # ... or by reversed modification date when getting the sessions
+        self.assertListEqual(
+            [x.title for x in survey.sessions],
+            [u'Three', u'Two', 'One'],
+        )
+
+    def test_complex_tree(self):
+        # First we create a couple of surveys
+        ANOTHER_BASIC_SURVEY = BASIC_SURVEY.replace(
+            'Software development', 'Hardware development'
+        )
+        addSurvey(self.portal, BASIC_SURVEY)
+        addSurvey(self.portal, ANOTHER_BASIC_SURVEY)
+
+        # Then we create our group hierarchy
+        session = Session()
+        group1 = Group(group_id='1', short_name=u'Group 1')
+        session.add(group1)
+        group2 = Group(group_id='2', short_name=u'Group 2')
+        session.add(group2)
+        group2.parent = group1
+
+        john = Account(
+            loginname='john',
+            sessions=[
+                SurveySession(
+                    zodb_path='nl/ict/software-development',
+                    title=u'John SW Group 1',
+                    modified=datetime.datetime(2012, 12, 10),
+                    group_id=group1.group_id,
+                ),
+                SurveySession(
+                    zodb_path='nl/ict/software-development',
+                    title=u'John SW Group 2',
+                    modified=datetime.datetime(2012, 12, 12),
+                    group_id=group2.group_id,
+                ),
+                SurveySession(
+                    zodb_path='nl/ict/software-development',
+                    title=u'John SW No group',
+                    modified=datetime.datetime(2012, 12, 11),
+                ),
+            ]
+        )
+        john.group = group1
+        jane = Account(
+            loginname='jane',
+            sessions=[
+                SurveySession(
+                    zodb_path='nl/ict-1/hardware-development',
+                    title=u'Jane HW No group',
+                    modified=datetime.datetime(2011, 12, 10)
+                ),
+                SurveySession(
+                    zodb_path='nl/ict-1/hardware-development',
+                    title=u'Jane HW Group 2',
+                    modified=datetime.datetime(2011, 12, 12),
+                    group_id=group2.group_id,
+                ),
+                SurveySession(
+                    zodb_path='nl/ict/software-development',
+                    title=u'Jane SW Group 2',
+                    modified=datetime.datetime(2011, 12, 11),
+                    group_id=group2.group_id,
+                ),
+                SurveySession(
+                    zodb_path='nl/ict/software-development',
+                    title=u'Jane SW Group 2 (another one)',
+                    modified=datetime.datetime(2011, 12, 12),
+                    group_id=group2.group_id,
+                ),
+            ]
+        )
+        jane.group = group2
+        session.add(john)
+        session.add(jane)
+
+        # By default John can see his sessions
+        newSecurityManager(None, john)
+        view = View(
+            self.portal.client['nl'],
+            self.request.clone(),
+        )
+        root = view.get_sessions_tree_root()
+        self.assertListEqual(
+            RenderTree(root).by_attr("title").splitlines(),
+            [
+                u'',
+                u'├── Group 1',
+                u'│   ├── Software development',
+                u'│   │   └── John SW Group 1',
+                u'│   └── Group 2',
+                u'│       └── Software development',
+                u'│           └── John SW Group 2',
+                u'└── Software development',
+                u'    └── John SW No group',
+            ],
+        )
+
+        # but he can also see Jane's ones that have been filed its groups
+        view = View(
+            self.portal.client['nl'],
+            self.request.clone(),
+        )
+        view.request.set('scope', 'all')
+        root = view.get_sessions_tree_root()
+        self.assertListEqual(
+            RenderTree(root).by_attr("title").splitlines(),
+            [
+                u'',
+                u'├── Group 1',
+                u'│   ├── Software development',
+                u'│   │   └── John SW Group 1',
+                u'│   └── Group 2',
+                u'│       ├── Software development',
+                u'│       │   ├── John SW Group 2',
+                u'│       │   ├── Jane SW Group 2',
+                u'│       │   └── Jane SW Group 2 (another one)',
+                u'│       └── Hardware development',
+                u'│           └── Jane HW Group 2',
+                u'└── Software development',
+                u'    └── John SW No group',
+            ],
+        )
+        # Jane can see her Sessions by default
+        newSecurityManager(None, jane)
+        view = View(
+            self.portal.client['nl'],
+            self.request.clone(),
+        )
+        root = view.get_sessions_tree_root()
+        self.assertListEqual(
+            RenderTree(root).by_attr("title").splitlines(),
+            [
+                u'',
+                u'├── Hardware development',
+                u'│   └── Jane HW No group',
+                u'└── Group 1',
+                u'    └── Group 2',
+                u'        ├── Hardware development',
+                u'        │   └── Jane HW Group 2',
+                u'        └── Software development',
+                u'            ├── Jane SW Group 2',
+                u'            └── Jane SW Group 2 (another one)',
+            ],
+        )
+        # but cannot acquire John's sessions in group1
+        # (although she can if the session is in group2)
+        view = View(
+            self.portal.client['nl'],
+            self.request.clone(),
+        )
+        view.request.set('scope', 'all')
+        root = view.get_sessions_tree_root()
+        self.assertListEqual(
+            RenderTree(root).by_attr("title").splitlines(),
+            [
+                u'',
+                u'├── Hardware development',
+                u'│   └── Jane HW No group',
+                u'└── Group 1',
+                u'    └── Group 2',
+                u'        ├── Hardware development',
+                u'        │   └── Jane HW Group 2',
+                u'        └── Software development',
+                u'            ├── Jane SW Group 2',
+                u'            ├── Jane SW Group 2 (another one)',
+                u'            └── John SW Group 2',
+            ],
+        )
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):

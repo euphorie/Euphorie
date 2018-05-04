@@ -13,6 +13,8 @@ from .. import MessageFactory as _
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from anytree import NodeMixin
+from anytree.node.util import _repr
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.interfaces import IClientSkinLayer
@@ -21,9 +23,12 @@ from euphorie.client.sector import IClientSector
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
 from five import grok
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
+from plone.memoize.view import memoize
+from plone.memoize.view import memoize_contextless
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
@@ -34,16 +39,48 @@ from zope.interface import implements
 from zope.interface import Interface
 
 import logging
-
-# Memoize currently is not usable because lot's of test instantiate the view
-# with this kind of code: `self.View(context, None)``
-# from plone.memoize.view import memoize
-# from plone.memoize.view import memoize_contextless
+import six
 
 
 grok.templatedir("templates")
 
 log = logging.getLogger(__name__)
+
+
+class Node(NodeMixin):
+
+    def __init__(self, context, parent=None, **kwargs):
+        self.__dict__.update(kwargs)
+        self.context = context
+        self.parent = parent
+
+    @property
+    def groups(self):
+        ''' Assume childrens are groups and return them sorted by title
+        '''
+        return sorted(
+            self.children,
+            key=lambda x: x.title,
+        )
+
+    @property
+    def sessions(self):
+        ''' Assume childrens are sessions and return them sorted by
+        reversed modification date
+        '''
+        return sorted(
+            self.children,
+            key=lambda x: x.context.modified,
+            reverse=True,
+        )
+
+    def __repr__(self):
+        args = [
+            "%r" % self.separator.join(
+                [""] + [repr(node.context) for node in self.path]
+            )
+        ]
+        return _repr(self, args=args, nameblacklist=["context"])
 
 
 class IClientCountry(form.Schema, IBasic):
@@ -64,11 +101,49 @@ class View(grok.View):
     grok.template("sessions")
 
     @property
-    # @memoize_contextless
+    @memoize_contextless
+    def portal(self):
+        ''' The currenttly authenticated account
+        '''
+        return api.portal.get()
+
+    @property
+    @memoize_contextless
     def account(self):
         ''' The currenttly authenticated account
         '''
         return model.get_current_account()
+
+    @property
+    @memoize_contextless
+    def scope_options(self):
+        ''' We have the possibility to display only the sessions
+        that were made by this user or all the accessible sessions through
+        the group ownership
+        '''
+        if not self.account.group:
+            return []
+        options = [
+            {
+                'value': 'mine',
+                'label': _('Show my risk assessments only'),
+            },
+            {
+                'value': 'all',
+                'label': _('Show all risk assessments'),
+            },
+        ]
+        selected = self.request.get('scope')
+        for option in options:
+            if option['value'] == selected:
+                option['selected'] = 'selected'
+        return options
+
+    @memoize
+    def get_survey_by_path(self, zodb_path):
+        return self.context.restrictedTraverse(
+            six.binary_type(zodb_path), None
+        )
 
     def sessions2dicts(self, sessions):
         ''' A list of sessions is transformed in a list of sorted dicts
@@ -87,7 +162,7 @@ class View(grok.View):
         )
         return sorted(results, key=lambda s: s.modified, reverse=True)
 
-    # @memoize
+    @memoize
     def acquired_sessions(self):
         ''' Return a list of all the acquired sessions for the current user.
         '''
@@ -98,7 +173,7 @@ class View(grok.View):
         )
         return self.sessions2dicts(good_sessions)
 
-    # @memoize
+    @memoize
     def sessions(self):
         """Return a list of all sessions for the current user. For each
         session a dictionary is returned with the following keys:
@@ -108,6 +183,61 @@ class View(grok.View):
         * `modified`: timestamp of last session modification
         """
         return self.sessions2dicts(self.account.sessions)
+
+    @property
+    @memoize
+    def sessions_root(self):
+        return Node(None, title='', type='root')
+
+    @memoize
+    def get_group_node(self, group):
+        ''' Get the Node for this group.
+        '''
+        if group is None:
+            # Everything is grouped under the sessions_root node
+            return self.sessions_root
+        return Node(
+            group,
+            parent=self.get_group_node(group.parent),
+            title=group.short_name or group.group_id,
+            type='department',
+        )
+
+    @memoize
+    def get_survey_node(self, survey, group):
+        ''' Get a node for this survey, it might be in a group
+        '''
+        return Node(
+            survey,
+            parent=self.get_group_node(group),
+            title=survey.title,
+            type='tool',
+        )
+
+    @memoize
+    def get_session_node(self, session):
+        ''' Get a node for this session
+        '''
+        group = session.group
+        survey = self.get_survey_by_path(session.zodb_path)
+        return Node(
+            session,
+            parent=self.get_survey_node(survey, group),
+            title=session.title,
+            type='session',
+        )
+
+    @memoize
+    def get_sessions_tree_root(self):
+        ''' Given some sessions create a tree
+        '''
+        scope = self.request.get('scope')
+        if scope == 'all':
+            sessions = self.account.sessions + self.account.acquired_sessions
+        else:
+            sessions = self.account.sessions
+        map(self.get_session_node, sessions)
+        return self.sessions_root
 
     def _updateSurveys(self):
         self.surveys = []
@@ -126,8 +256,10 @@ class View(grok.View):
                 if survey.language and survey.language != language and not \
                         survey.language.strip().startswith(language):
                     continue
-                info = {"id": "%s/%s" % (sector.id, survey.id),
-                        "title": survey.title}
+                info = {
+                    "id": "%s/%s" % (sector.id, survey.id),
+                    "title": survey.title
+                }
                 if getattr(survey, 'obsolete', False):
                     # getattr needed for surveys which were published before
                     # the obsolete flag added.
@@ -153,23 +285,29 @@ class View(grok.View):
             title = survey.Title()
 
         SessionManager.start(title=title, survey=survey, account=account)
-        self.request.response.redirect("%s/start?initial_view=1" % survey.absolute_url())
+        self.request.response.redirect(
+            "%s/start?initial_view=1" % survey.absolute_url()
+        )
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(model.SurveySession).get(info["session"])
         SessionManager.resume(session)
-        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
-        self.request.response.redirect("%s/resume?initial_view=1" % survey.absolute_url())
+        survey = self.request.client.restrictedTraverse(
+            six.binary_type(session.zodb_path)
+        )
+        self.request.response.redirect(
+            "%s/resume?initial_view=1" % survey.absolute_url()
+        )
 
     def update(self):
         utils.setLanguage(self.request, self.context)
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            if reply["action"] == "new":
-                self._NewSurvey(reply)
-            elif reply["action"] == "continue":
-                self._ContinueSurvey(reply)
+        reply = self.request.form
+        action = reply.get('action')
+        if action == "new":
+            self._NewSurvey(reply)
+        elif action == "continue":
+            self._ContinueSurvey(reply)
         self._updateSurveys()
 
 
@@ -217,8 +355,14 @@ class DeleteSession(grok.View):
         ss = session.query(SurveySession).get(self.request.form["id"])
         if ss is not None:
             flash = IStatusMessage(self.request).addStatusMessage
-            flash(_(u"Session `${name}` has been deleted.",
-                    mapping={"name": getattr(ss, 'title')}), "success")
+            flash(
+                _(
+                    u"Session `${name}` has been deleted.",
+                    mapping={
+                        "name": getattr(ss, 'title')
+                    }
+                ), "success"
+            )
             session.delete(ss)
         self.request.response.redirect(self.context.absolute_url())
 
@@ -245,9 +389,11 @@ class RenameSession(form.SchemaForm):
         except (ValueError, TypeError):
             raise KeyError("Invalid session id")
         user = getSecurityManager().getUser()
-        session = object_session(user).query(SurveySession)\
-                .filter(SurveySession.account == user)\
-                .filter(SurveySession.id == session_id).first()
+        session = (
+            object_session(user).query(SurveySession)
+            .filter(SurveySession.account == user)
+            .filter(SurveySession.id == session_id).first()
+        )
         if session is None:
             raise KeyError("Unknown session id")
         self.original_title = session.title
@@ -262,8 +408,14 @@ class RenameSession(form.SchemaForm):
         if data["title"]:
             flash = IStatusMessage(self.request).addStatusMessage
             self.getContent().title = data['title']
-            flash(_(u"Session title has been changed to ${name}",
-                mapping={"name": data["title"]}), "success")
+            flash(
+                _(
+                    u"Session title has been changed to ${name}",
+                    mapping={
+                        "name": data["title"]
+                    }
+                ), "success"
+            )
         came_from = self.request.form.get("came_from")
         if isinstance(came_from, list):
             # If came_from is both in the querystring and the form data
