@@ -1,87 +1,117 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       id="sessions"
       meta:interpolation="true"
-      tal:define="webhelpers nocall:context/@@webhelpers;
-                  tools nocall:context/@@tools;
-                  client nocall:request/client"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        tools nocall:context/@@tools;
+      "
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  sessions view/sessions;
+                  acquired_sessions view/acquired_sessions;
+                  language view/portal/plone_portal_state/language;
+                  root view/get_sessions_tree_root;
+                "
+    >
+      <tal:block replace="tile:statusmessages" />
+      <div id="content">
+        <form class="pat-inject pat-autosubmit"
+              id="canvas-toolbar"
+              action="${request/getURL}#sessions"
+              tal:define="
+                options view/scope_options;
+              "
+        >
+          <label class="pat-select"
+                 tal:condition="view/scope_options"
+          >
+            <select name="scope">
+              <option selected="${option/selected|nothing}"
+                      value="${option/value}"
+                      tal:repeat="option options"
+              >${option/label}</option>
+            </select>
+          </label>
+          <a class="pat-button float-after pat-modal icon-plus-circle"
+             id="button-new-session"
+             href="${here/absolute_url}/@@new-session.html#document-content"
+             title="Start a new session"
+             data-pat-modal="class: large"
+             i18n:attributes="title"
+             i18n:translate=""
+          >start a new session</a>
+        </form>
+        <fieldset class="session-list"
+                  id="sessions"
+        >
+          <tal:node repeat="child root/groups">
+            <metal:node define-macro="node">
+              <fieldset class="${child/type}"
+                        tal:condition="python:child.type == 'department'"
+              >
+                <legend class="${child/type}-name">${child/title}</legend>
+                <tal:nodes repeat="child child/groups">
+                  <metal:node use-macro="template/macros/node" />
+                </tal:nodes>
+              </fieldset>
+              <tal:survey tal:condition="python:child.type == 'tool'">
+                <h3 class="${child/type}-name">${child/title}</h3>
+                <ul class="sessions">
+                  <tal:session repeat="child child/sessions">
+                    <li class="session"
+                        tal:define="
+                          session child/context;
+                        "
+                    >
+                      <a class="name field"
+                         href="${request/getURL}?action=continue&amp;session=${session/id}"
+                      >${session/title}</a>
+                      <span class="date field">
+                        <tal:i18n i18n:translate="">Last published</tal:i18n>
+                        <time class="pat-display-time"
+                              datetime="${value}"
+                              data-pat-display-time="from-now: true; locale: ${language}"
+                              tal:define="
+                                value python:session.modified.strftime('%Y-%m-%d');
+                              "
+                        >${value}</time>
+                      </span>
+                    </li>
+                  </tal:session>
+                </ul>
+              </tal:survey>
+            </metal:node>
+          </tal:node>
+        </fieldset>
+      </div>
+    </metal:slot>
 
-<body>
-<metal:slot fill-slot="content"
-            tal:define="
-              sessions view/sessions;
-              acquired_sessions view/acquired_sessions;
-            ">
-    <tal:block replace="tile:statusmessages"/>
-    <article>
-        <p i18n:translate="info_select_session">
-            Select an earlier session to complete or review or
-            <tal:name i18n:name="start_session"><a href="${here/absolute_url}/new-session.html#document-content" id="button-new-session"
-               data-pat-modal="class: large" class="pat-modal icon-plus-circle" title="Start a new session" i18n:attributes="title" i18n:translate="link_start_session">start a new session</a></tal:name>.
-        </p>
-
-        <table tal:condition="sessions" id="sessionList">
-            <tbody>
-            <tr tal:repeat="session sessions">
-                <td><form method="post" action="${request/URL}" class="startSessionForm">
-                    <input type="hidden" name="action" value="continue"/>
-                    <input type="hidden" name="session" value="${session/id}"/>
-                    <button class="link pat-button" type="submit">${session/title}</button>,
-                    <tal:span i18n:translate="lable_session_modified">saved on
-                    <tal:block i18n:name="date">${python:tools.formatDate(session.modified)}</tal:block></tal:span></form></td>
-                <td class="actions span-5">
-                    <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>
-                    <a class="iconified icon-trash pat-modal" title="Delete this session" href="${context/absolute_url}/@@confirmation-delete-session.html?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_delete">Delete</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <table tal:condition="acquired_sessions" id="acquiredSessionList">
-          <tbody>
-            <tr tal:repeat="session acquired_sessions">
-                <td><form method="post" action="${request/URL}" class="startSessionForm">
-                    <input type="hidden" name="action" value="continue"/>
-                    <input type="hidden" name="session" value="${session/id}"/>
-                    <button class="link pat-button" type="submit">${session/title}</button>,
-                    <tal:span i18n:translate="lable_session_modified">saved on
-                    <tal:block i18n:name="date">${python:tools.formatDate(session.modified)}</tal:block></tal:span>
-                    <tal:groupinfo define="group session/group|nothing" condition="group">
-                      Acquired from group: ${group/group_id} - ${group/short_name} - ${group/long_name}
-                    </tal:groupinfo>
-                  </form></td>
-                <td class="actions span-5">
-                    <a class="iconified icon-pencil pat-modal" title="Rename this session" href="${context/absolute_url}/@@rename-session?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_rename">Rename</a>
-                    <a class="iconified icon-trash pat-modal" title="Delete this session" href="${context/absolute_url}/@@confirmation-delete-session.html?id=${session/id}#document-content" i18n:attributes="title" i18n:translate="label_delete">Delete</a>
-                </td>
-            </tr>
-          </tbody>
-        </table>
-    </article>
-
-</metal:slot>
-
-<metal:slot fill-slot="splash_message_slot">
-    <div tal:condition="python:splash_message is not None" class="splash-message">
-        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local" />
+    <metal:slot fill-slot="splash_message_slot">
+      <div class="splash-message"
+           tal:condition="python:splash_message is not None"
+      >
+        <hr class="trigger pat-switch"
+            data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
+        />
         <article class="pat-rich content">
-            <p>
-                <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg" width="20%" />
-            </p>
-            <h1 tal:content="structure splash_message/title">Message of the day!</h1>
-            <tal:content content="structure splash_message/text">
-                <p>Sit amet consectetuer.</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                <p>OiRA Team</p>
-            </tal:content>
-       </article>
-    </div>
-</metal:slot>
+          <p>
+            <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg"
+                 width="20%"
+            />
+          </p>
+          <h1 tal:content="structure splash_message/title">Message of the day!</h1>
+          <tal:content content="structure splash_message/text" />
+        </article>
+      </div>
+    </metal:slot>
 
-</body>
+  </body>
 </html>
