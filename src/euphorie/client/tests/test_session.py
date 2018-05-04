@@ -93,7 +93,6 @@ class SessionManagerFactoryTests(TreeTests):
         return SessionManagerFactory(*a)
 
     def test_session_no_session_open(self):
-        session = self.createSurveySession()
         with mock.patch(
             'euphorie.client.session.SessionManagerFactory.id',
             new_callable=mock.PropertyMock
