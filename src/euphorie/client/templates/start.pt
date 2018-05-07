@@ -19,86 +19,110 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
+      <form class="pat-form pat-inject"
+            action="${request/URL}"
+            method="POST"
+            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
+      >
+        <nav class="page-actions">
 
-      <nav class="page-actions">
-        <a class="icon-share iconified pat-tooltip"
-           href="${request/ACTUAL_URL}#sharing-menu"
-           title="Share this OiRA-Tool"
-           data-pat-tooltip="source: ajax;"
-           tal:condition="webhelpers/allow_social_sharing"
-           i18n:attributes="title"
-        >Share</a>
-        <a class="iconified icon-pencil pat-modal"
-           href="${webhelpers/country_url}/@@rename-session?id=${webhelpers/session_id}&amp;${webhelpers/came_from_param}#document-content"
-           title="Rename this session"
-           i18n:attributes="title"
-        >Rename</a>
-        <a class="iconified icon-trash pat-modal"
-           href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
-           title="Delete this session"
-           i18n:attributes="title"
-        >Delete</a>
-      </nav>
-
-      <article class="rich">
-
-        <figure class="postit external-reference"
-                tal:condition="context/external_site_logo | nothing"
+          <a class="icon-share iconified pat-tooltip"
+             href="${request/ACTUAL_URL}#sharing-menu"
+             title="Share this OiRA-Tool"
+             data-pat-tooltip="source: ajax; position-list: tr"
+             tal:condition="webhelpers/allow_social_sharing"
+             i18n:attributes="title"
+          >Share</a>
+          <a class="iconified icon-trash pat-modal"
+             href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
+             title="Delete this session"
+             i18n:attributes="title"
+          >Delete</a>
+        </nav>
+        <fieldset class="vertical pat-inject pat-subform pat-autosubmit focus"
+                  data-pat-inject="url: ; source: #osc-header; target: #osc-header"
+                  tal:define="
+                    session view/session;
+                  "
         >
-          <a href="#"
-             target="_blank"
-             tal:omit-tag="not:context/external_site_url | nothing"
-             tal:attributes="
-               href context/external_site_url | nothing;
-             "
+
+          <tal:for repeat="widgetid view/widgets">
+            <label tal:define="
+                     widget nocall:view/widgets/?widgetid;
+                     name widget/name;
+                   "
+            >
+              ${widget/label}
+              <input class="huge${python: ' error' if widget.error else None}"
+                     autofocus="autofocus"
+                     name="${name}"
+                     type="text"
+                     value="${request/?name|view/session/?widgetid|nothing}"
+              />
+              <tal:error condition="widget/error"
+                         replace="structure widget/error/render|nothing"
+              />
+            </label>
+          </tal:for>
+        </fieldset>
+
+        <article class="rich">
+          <figure class="postit external-reference"
+                  tal:condition="context/external_site_logo | nothing"
           >
-            <img alt=""
-                 src="http://client.oiraproject.eu/eu/leather-tanning/@@images/7870a759-8982-4217-858a-1348ef6edc14.jpeg"
-                 style="cursor: pointer"
-                 tal:attributes="
-                   src string:${context/absolute_url}/@@display-file/external_site_logo;
-                 "
-            />
-          </a>
-          <figcaption tal:condition="context/external_site_name"
-                      i18n:translate=""
-          >
-          This OiRA tool was offered to you by
             <a href="#"
                target="_blank"
-               tal:content="context/external_site_name"
                tal:omit-tag="not:context/external_site_url | nothing"
                tal:attributes="
                  href context/external_site_url | nothing;
                "
-               i18n:name="external_site"
-            >Leather Tanning</a>
-          </figcaption>
-        </figure>
+            >
+              <img alt=""
+                   src="http://client.oiraproject.eu/eu/leather-tanning/@@images/7870a759-8982-4217-858a-1348ef6edc14.jpeg"
+                   style="cursor: pointer"
+                   tal:attributes="
+                     src string:${context/absolute_url}/@@display-file/external_site_logo;
+                   "
+              />
+            </a>
+            <figcaption tal:condition="context/external_site_name"
+                        i18n:translate=""
+            >
+            This OiRA tool was offered to you by
+              <a href="#"
+                 target="_blank"
+                 tal:content="context/external_site_name"
+                 tal:omit-tag="not:context/external_site_url | nothing"
+                 tal:attributes="
+                   href context/external_site_url | nothing;
+                 "
+                 i18n:name="external_site"
+              >Leather Tanning</a>
+            </figcaption>
+          </figure>
 
-        <h1>${context/title}</h1>
-        <tal:block condition="not:view/has_introduction">
-          <metal:introduction use-macro="default_introduction/macros/default_introduction" />
-        </tal:block>
-        <p tal:condition="view/has_introduction"
-           tal:replace="structure context/introduction"
+          <h1>${context/title}</h1>
+          <tal:block condition="not:view/has_introduction">
+            <metal:introduction use-macro="default_introduction/macros/default_introduction" />
+          </tal:block>
+          <p tal:condition="view/has_introduction"
+             tal:replace="structure context/introduction"
+          >
+              Introduction text for this sector.
+          </p>
+
+        </article>
+
+        <div class="button-bar"
+             id="nav-bar"
         >
-            Introduction text for this sector.
-        </p>
-
-      </article>
-
-      <form action="${request/URL}"
-            method="post"
-      >
-        <div class="button-bar">
-          <button class="pat-button"
+          <button class="pat-button continue"
                   type="submit"
                   i18n:translate="label_start_survey"
           >Start</button>
         </div>
-      </form>
 
+      </form>
 
       <div id="sharing-menu"
            hidden="hidden"
