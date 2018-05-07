@@ -12,7 +12,6 @@ URL: https://client-oiranew.syslab.com/eu
 from .. import MessageFactory as _
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
-from Acquisition import aq_parent
 from anytree import NodeMixin
 from anytree.node.util import _repr
 from euphorie.client import model
