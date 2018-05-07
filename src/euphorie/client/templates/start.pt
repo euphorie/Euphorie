@@ -7,10 +7,10 @@
       i18n:domain="euphorie"
       id="preparation"
       meta:interpolation="true"
-      tal:define="webhelpers nocall:context/@@webhelpers;
-                  tools nocall:context/@@tools;
-                  client nocall:request/client;
-                  default_introduction nocall:context/@@default_introduction"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+        default_introduction nocall:context/@@default_introduction;
+      "
       metal:use-macro="context/@@shell/macros/shell">
 
 <!-- The equivalent template in the Jekyll prototype is preparation.html -->
