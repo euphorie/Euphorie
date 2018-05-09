@@ -35,7 +35,6 @@ from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api
-from plone.directives import form
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
@@ -43,11 +42,9 @@ from sqlalchemy import case
 from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import sql
-from time import time
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
-from zope import schema
 from zope.component import adapts
 from zope.component import getUtility
 from zope.i18n import translate
@@ -147,70 +144,6 @@ class View(grok.View):
                                         self.request.client, survey):
                 self.request.response.redirect(
                         "%s/resume?initial_view=1" % survey.absolute_url())
-
-
-class StartFormSchema(form.Schema):
-    title = schema.TextLine(
-        title=_("Enter a name for your Risk Assessment"),
-        required=True,
-    )
-
-
-class Start(form.SchemaForm):
-    """Survey start screen.
-
-    This view shows basic introduction text and any extra information provided
-    the sector if present. After viewing this page the user is forwarded to the
-    profile page.
-
-    View name: @@start
-    """
-    grok.context(ISurvey)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.template("start")
-    grok.name("start")
-    form.wrap(False)
-    ignoreContext = True
-    schema = StartFormSchema
-
-    @property
-    @memoize
-    def session(self):
-        return SessionManager.session
-
-    @memoize
-    def has_introduction(self):
-        survey = aq_inner(self.context)
-        return utils.HasText(getattr(survey, "introduction", None))
-
-    def update(self):
-        super(Start, self).update()
-        survey = aq_inner(self.context)
-        if self.request.environ["REQUEST_METHOD"] != "POST":
-            return
-        data, errors = self.extractData()
-        if errors:
-            return
-        session = self.session
-        changed = False
-        for key in data:
-            value = data[key]
-            if getattr(session, key, None) != value:
-                changed = True
-                setattr(session, key, value)
-        if changed:
-            api.portal.show_message(
-                _("Session data successfully updated"),
-                request=self.request,
-                type='success',
-            )
-        self.request.response.redirect(
-            "%s/@@profile?t=%s" % (
-                survey.absolute_url(),
-                time(),
-            )
-        )
 
 
 class Resume(grok.View):
