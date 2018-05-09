@@ -14,6 +14,7 @@ from plone.testing.z2 import Browser
 from Products.membrane.testing import MEMBRANE_PROFILES_FIXTURE
 from transaction import commit
 from unittest import TestCase
+from Zope2.Startup.datatypes import default_zpublisher_encoding
 from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
@@ -41,6 +42,8 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=euphorie.deployment)
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
+        default_zpublisher_encoding('utf-8')
+
 
     def setUpPloneSite(self, portal):
         quickInstallProduct(portal, 'plonetheme.nuplone')
