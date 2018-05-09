@@ -9,17 +9,7 @@
     <five:registerPackage package="." initialize=".initialize" />
 
     <include package="euphorie.content" />
-    <include package=".api" />
-
-    <permission
-        id="euphorie.client.PublishSurvey"
-        title="Euphorie: Publish a Survey"
-        />
-
-    <permission
-        id="euphorie.client.ViewSurvey"
-        title="Euphorie: View a Survey"
-        />
+    <include package="." file="permissions.zcml"/>
 
     <interface
         interface=".interfaces.IClientSkinLayer"
@@ -27,7 +17,32 @@
         name="Euphorie"
         />
 
-    <grok:grok package="." />
+    <include package=".api" />
+    <include package=".browser" />
+
+    <grok:grok package=".appendix" />
+    <grok:grok package=".client" />
+    <grok:grok package=".company" />
+    <grok:grok package=".conditions" />
+    <grok:grok package=".country" />
+    <grok:grok package=".error" />
+    <grok:grok package=".feedback" />
+    <grok:grok package=".help" />
+    <grok:grok package=".layout" />
+    <grok:grok package=".login" />
+    <grok:grok package=".module" />
+    <grok:grok package=".pdf" />
+    <grok:grok package=".profile" />
+    <grok:grok package=".publish" />
+    <grok:grok package=".report" />
+    <grok:grok package=".risk" />
+    <grok:grok package=".sector" />
+    <grok:grok package=".settings" />
+    <grok:grok package=".survey" />
+    <grok:grok package=".unpublish" />
+    <grok:grok package=".update" />
+    <grok:grok package=".utils" />
+
     <grok:grok package="euphorie.json" />
 
     <browser:defaultView

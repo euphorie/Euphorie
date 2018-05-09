@@ -7,6 +7,8 @@
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="euphorie">
 
+    <grok:grok package="." />
+
     <interface
         interface=".interfaces.IClientAPISkinLayer"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
