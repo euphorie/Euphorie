@@ -7,7 +7,7 @@ creating an dummy survey.
 >>> app = layer['portal']
 >>> portal = layer['portal']
 >>> from plone.testing.z2 import Browser
->>> browser = Browser(layer['app'])
+>>> browser = Browser(app)
 >>> from euphorie.client.tests.utils import addSurvey
 >>> from euphorie.client.tests.utils import addAccount
 >>> from euphorie.client.tests.utils import MockMailFixture
