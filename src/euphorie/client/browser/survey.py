@@ -5,9 +5,8 @@ from euphorie.client import utils
 from euphorie.client.session import SessionManager
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
-from plone.memoize.instance import memoize
+from plone.memoize.view import memoize
 from plone.supermodel import model
-from time import time
 from z3c.form.form import EditForm
 from zope import schema
 
@@ -60,6 +59,7 @@ class Start(AutoExtensibleForm, EditForm):
             if getattr(session, key, None) != value:
                 changed = True
                 setattr(session, key, value)
+
         if changed:
             api.portal.show_message(
                 _("Session data successfully updated"),

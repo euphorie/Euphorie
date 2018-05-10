@@ -56,13 +56,14 @@ class SessionManagerFactory(object):
     Never use this class directly: instead use the global
     :py:data:`SessionManager` instance.
     """
+    model = model.SurveySession
 
     @property
     def session(self):
         """The current active client session. If no session is active None
         is returned.
 
-        :rtype: :py:class:`euphorie.client.model.SurveySession` or None
+        :rtype: :py:class:`self.model` or None
         """
         request = getRequest()
         if "euphorie.session" in request.other:
@@ -72,7 +73,7 @@ class SessionManagerFactory(object):
         if id is None:
             return None
 
-        session = Session.query(model.SurveySession).get(id)
+        session = Session.query(self.model).get(id)
         request.other["euphorie.session"] = session
         return session
 
