@@ -6,7 +6,7 @@ Before we can start we must set up our test environment:
 >>> app = layer['portal']
 >>> portal = layer['portal']
 >>> from plone.testing.z2 import Browser
->>> browser = Browser(layer['app'])
+>>> browser = Browser(app)
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=()
 >>> from euphorie.content.tests import utils
