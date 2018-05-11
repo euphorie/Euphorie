@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:page
+      name="start"
+      for="euphorie.content.survey.ISurvey"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Start"
+      template="templates/start.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+</configure>

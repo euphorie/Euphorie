@@ -2,7 +2,6 @@
 Survey views
 ------------
 """
-
 from .. import MessageFactory as _
 from ..ghost import PathGhost
 from AccessControl import getSecurityManager
@@ -145,34 +144,6 @@ class View(grok.View):
                                         self.request.client, survey):
                 self.request.response.redirect(
                         "%s/resume?initial_view=1" % survey.absolute_url())
-
-
-class Start(grok.View):
-    """Survey start screen.
-
-    This view shows basic introduction text and any extra information provided
-    the sector if present. After viewing this page the user is forwarded to the
-    profile page.
-
-    View name: @@start
-    """
-    grok.context(ISurvey)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.template("start")
-    grok.name("start")
-
-    @memoize
-    def has_introduction(self):
-        survey = aq_inner(self.context)
-        return utils.HasText(getattr(survey, "introduction", None))
-
-    def update(self):
-        survey = aq_inner(self.context)
-        if self.request.environ["REQUEST_METHOD"] != "POST":
-            return
-
-        self.request.response.redirect("%s/@@profile" % survey.absolute_url())
 
 
 class Resume(grok.View):
