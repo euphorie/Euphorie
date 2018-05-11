@@ -141,9 +141,14 @@ class EuphorieIntegrationTestCase(TestCase):
         return logout()
 
     @contextmanager
-    def _get_view(self, name, obj):
+    def _get_view(self, name, obj, survey_session=None):
+        ''' Get's a view with a proper fresh request.
+        If survey_session is set the SessionManager will be configured
+        '''
         old_request = getRequest()
         request = self.request.clone()
+        if survey_session is not None:
+            request.other["euphorie.session"] = survey_session
         alsoProvides(request, IClientSkinLayer)
         try:
             setRequest(request)
