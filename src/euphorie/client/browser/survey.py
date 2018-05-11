@@ -4,9 +4,11 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.session import SessionManager
 from plone import api
+from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.supermodel import model
+from Products.Five import BrowserView
 from z3c.form.form import EditForm
 from zope import schema
 
@@ -67,3 +69,34 @@ class Start(AutoExtensibleForm, EditForm):
                 type='success',
             )
         self.request.response.redirect("%s/@@profile" % survey.absolute_url())
+
+
+class PubblicationMenu(BrowserView):
+
+    def redirect(self):
+        target = (
+            self.request.get('HTTP_REFERER') or self.context.absolute_url()
+        )
+        return self.request.response.redirect(target)
+
+    def reset_date(self):
+        ''' Reset the session date to now
+        '''
+        self.session.published = localized_now()
+        return self.redirect()
+
+    def set_date(self):
+        ''' Set the session date to now
+        '''
+        return self.reset_date()
+
+    def unset_date(self):
+        ''' Unset the session date to now
+        '''
+        self.session.published = None
+        return self.redirect()
+
+    @property
+    @memoize
+    def session(self):
+        return SessionManager.session

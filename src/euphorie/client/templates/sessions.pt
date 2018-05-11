@@ -72,13 +72,15 @@
                       <a class="name field"
                          href="${request/getURL}?action=continue&amp;session=${session/id}"
                       >${session/title}</a>
-                      <span class="date field">
+                      <span class="date field"
+                            tal:condition="session/published"
+                      >
                         <tal:i18n i18n:translate="">Last published</tal:i18n>
                         <time class="pat-display-time"
                               datetime="${value}"
                               data-pat-display-time="from-now: true; locale: ${language}"
                               tal:define="
-                                value python:session.modified.strftime('%Y-%m-%d');
+                                value session/published/isoformat|nothing;
                               "
                         >${value}</time>
                       </span>
