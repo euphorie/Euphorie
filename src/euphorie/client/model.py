@@ -379,6 +379,13 @@ class SurveySession(BaseObject):
             default=functions.now())
     modified = schema.Column(types.DateTime, nullable=False,
             default=functions.now())
+
+    published = schema.Column(
+        types.DateTime,
+        nullable=True,
+        default=None,
+    )
+
     zodb_path = schema.Column(types.String(128), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
@@ -389,6 +396,13 @@ class SurveySession(BaseObject):
     group = orm.relation(Group,
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
+
+    @property
+    def review_state(self):
+        ''' Check if it the published column.
+        If it has return 'published' otherwise return 'private'
+        '''
+        return 'published' if self.published else 'private'
 
     def hasTree(self):
         return bool(Session.query(SurveyTreeItem)
