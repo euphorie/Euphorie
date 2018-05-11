@@ -1,5 +1,8 @@
 # coding=utf-8
+from contextlib import contextmanager
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.utils import getRequest
+from euphorie.client.utils import setRequest
 from plone import api
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
@@ -121,6 +124,7 @@ EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
 
 class EuphorieIntegrationTestCase(TestCase):
     layer = EUPHORIE_INTEGRATION_TESTING
+    request_layer = IClientSkinLayer
 
     def setUp(self):
         self.app = self.layer['app']
@@ -135,6 +139,17 @@ class EuphorieIntegrationTestCase(TestCase):
 
     def logout(self):
         return logout()
+
+    @contextmanager
+    def _get_view(self, name, obj):
+        old_request = getRequest()
+        request = self.request.clone()
+        alsoProvides(request, IClientSkinLayer)
+        try:
+            setRequest(request)
+            yield api.content.get_view(name, obj, request)
+        finally:
+            setRequest(old_request)
 
     def get_client_request(self, client=None):
         request = self.request.clone()
