@@ -22,7 +22,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
-from zope.interface import implements
+from zope.interface import implementer
 from zope.sqlalchemy import datamanager
 
 import Acquisition
@@ -241,11 +241,11 @@ class Group(BaseObject):
         return sessions
 
 
+@implementer(IBasicUser)
 class Account(BaseObject):
     """A user account. Users have to register with euphorie before they can
     start a survey session. A single account can have multiple survey sessions.
     """
-    implements(IBasicUser)
 
     __tablename__ = "account"
 
