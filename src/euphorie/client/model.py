@@ -23,6 +23,7 @@ from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
 from zope.interface import implementer
+from zope.interface import Interface
 from zope.sqlalchemy import datamanager
 
 import Acquisition
@@ -360,6 +361,12 @@ class AccountChangeRequest(BaseObject):
             nullable=False)
 
 
+class ISurveySession(Interface):
+    ''' Marker interface for a SurveySession object
+    '''
+
+
+@implementer(ISurveySession)
 class SurveySession(BaseObject):
     """Information about a user's session.
     """

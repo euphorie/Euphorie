@@ -21,6 +21,12 @@ def createSurvey():
 
 class SurveySessionTests(DatabaseTests):
 
+    def test_iface(self):
+        ''' SurveySessions are marked by the ISurveySession interface
+        '''
+        survey = createSurvey()[-1]
+        self.assertTrue(model.ISurveySession.providedBy(survey))
+
     def testNoChildren(self):
         (ses, survey) = createSurvey()
         root = survey.addChild(
