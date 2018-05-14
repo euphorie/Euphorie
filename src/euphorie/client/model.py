@@ -770,8 +770,13 @@ def get_current_account():
     return Session.query(Account).filter(Account.loginname == username).first()
 
 
-__all__ = ["SurveySession", "Module", "Risk", "ActionPlan",
-           "SKIPPED_PARENTS", "MODULE_WITH_RISK_FILTER",
-           "RISK_PRESENT_FILTER", "RISK_PRESENT_NO_TOP5_NO_POLICY_FILTER",
+__all__ = [
+    "SurveySession",
+    "Module",
+    "Risk",
+    "ActionPlan",
+    "SKIPPED_PARENTS",
+    "MODULE_WITH_RISK_FILTER",
+    "RISK_PRESENT_FILTER",
     'get_current_account',
 ]
