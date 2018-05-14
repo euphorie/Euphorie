@@ -133,48 +133,41 @@ class LoginTests(EuphorieFunctionalTestCase):
 
 class RegisterTests(EuphorieIntegrationTestCase):
 
-    def get_register_view(self):
-        return api.content.get_view(
-            'register',
-            self.portal.client,
-            self.get_client_request()
-        )
-
     def test_lowercase_email(self):
-        view = self.get_register_view()
-        view.errors = {}
-        view.request.form['email'] = 'JANE@example.com'
-        view.request.form['password1'] = 'secret'
-        view.request.form['password2'] = 'secret'
-        account = view._tryRegistration()
-        self.assertEqual(account.loginname, 'jane@example.com')
+        with self._get_view('register', self.portal.client) as view:
+            view.errors = {}
+            view.request.form['email'] = 'JANE@example.com'
+            view.request.form['password1'] = 'secret'
+            view.request.form['password2'] = 'secret'
+            account = view._tryRegistration()
+            self.assertEqual(account.loginname, 'jane@example.com')
 
     def testConflictWithPloneAccount(self):
-        view = self.get_register_view()
-        view.errors = {}
-        view.request.form["email"] = self.portal._owner[1]
-        view.request.form["password1"] = "secret"
-        view.request.form["password2"] = "secret"
-        self.assertEqual(view._tryRegistration(), False)
-        self.failUnless("email" in view.errors)
+        with self._get_view('register', self.portal.client) as view:
+            view.errors = {}
+            view.request.form["email"] = self.portal._owner[1]
+            view.request.form["password1"] = "secret"
+            view.request.form["password2"] = "secret"
+            self.assertEqual(view._tryRegistration(), False)
+            self.failUnless("email" in view.errors)
 
     def testBasicEmailVerification(self):
-        view = self.get_register_view()
-        view.errors = {}
-        view.request.form["email"] = "wichert"
-        view.request.form["password1"] = "secret"
-        view.request.form["password2"] = "secret"
-        self.assertEqual(view._tryRegistration(), False)
-        self.failUnless("email" in view.errors)
+        with self._get_view('register', self.portal.client) as view:
+            view.errors = {}
+            view.request.form["email"] = "wichert"
+            view.request.form["password1"] = "secret"
+            view.request.form["password2"] = "secret"
+            self.assertEqual(view._tryRegistration(), False)
+            self.failUnless("email" in view.errors)
 
-        view.errors.clear()
-        view.request.form["email"] = "wichert@wiggy net"
-        self.assertEqual(view._tryRegistration(), False)
-        self.failUnless("email" in view.errors)
+            view.errors.clear()
+            view.request.form["email"] = "wichert@wiggy net"
+            self.assertEqual(view._tryRegistration(), False)
+            self.failUnless("email" in view.errors)
 
-        view.errors.clear()
-        view.request.form["email"] = "wichert@wiggy.net"
-        self.assertNotEqual(view._tryRegistration(), False)
+            view.errors.clear()
+            view.request.form["email"] = "wichert@wiggy.net"
+            self.assertNotEqual(view._tryRegistration(), False)
 
 
 class ReminderTests(EuphorieFunctionalTestCase):

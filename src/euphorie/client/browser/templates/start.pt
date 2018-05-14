@@ -10,6 +10,7 @@
       tal:define="
         webhelpers nocall:context/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
+        session view/session;
       "
       i18n:domain="euphorie"
 >
@@ -25,7 +26,7 @@
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
       >
         <nav class="page-actions">
-
+          <a tal:replace="structure here/@@publication_badge|nothing" />
           <a class="icon-share iconified pat-tooltip"
              href="${request/ACTUAL_URL}#sharing-menu"
              title="Share this OiRA-Tool"
@@ -41,9 +42,6 @@
         </nav>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit focus"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
-                  tal:define="
-                    session view/session;
-                  "
         >
 
           <tal:for repeat="widgetid view/widgets">
@@ -57,7 +55,7 @@
                      autofocus="autofocus"
                      name="${name}"
                      type="text"
-                     value="${request/?name|view/session/?widgetid|nothing}"
+                     value="${request/?name|session/?widgetid|nothing}"
               />
               <tal:error condition="widget/error"
                          replace="structure widget/error/render|nothing"
@@ -159,8 +157,6 @@
           </li>
         </ul>
       </div>
-
-
       <metal:css use-macro="webhelpers/macros/appendix" />
 
     </metal:slot>
