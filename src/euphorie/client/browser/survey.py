@@ -40,8 +40,12 @@ class Start(AutoExtensibleForm, EditForm):
 
     @property
     @memoize
-    def session(self):
-        return SessionManager.session
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
 
     @memoize
     def has_introduction(self):
