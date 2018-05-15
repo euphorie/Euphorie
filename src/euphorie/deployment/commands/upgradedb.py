@@ -81,6 +81,21 @@ def add_group_id_to_session():
     execute(statement)
 
 
+def add_publised_to_session():
+    ''' A new 'published' column has been added to the 'session' table
+    '''
+    for column in inspector.get_columns('session'):
+        if 'publisehd' == column['name']:
+            return
+        statement = (
+            '''
+            ALTER TABLE session
+                ADD COLUMN published timestamp with time zone;
+            '''
+        )
+        execute(statement)
+
+
 def add_last_modifier_id_to_session():
     ''' A new 'last_modifier_id' column has been added to the 'session' table
     '''
@@ -109,6 +124,7 @@ def main():
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_group_id_to_session()
+        add_publised_to_session()
         add_last_modifier_id_to_session()
 
 
