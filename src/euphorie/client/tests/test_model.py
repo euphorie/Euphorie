@@ -3,6 +3,7 @@ from AccessControl.PermissionRole import _what_not_even_god_should_do
 from euphorie.client import config
 from euphorie.client import model
 from euphorie.client.tests.database import DatabaseTests
+from euphorie.testing import EuphorieIntegrationTestCase
 from sqlalchemy.exc import StatementError
 from z3c.saconfig import Session
 
@@ -19,7 +20,7 @@ def createSurvey():
     return (session, survey)
 
 
-class SurveySessionTests(DatabaseTests):
+class SurveySessionTests(EuphorieIntegrationTestCase):
 
     def test_iface(self):
         ''' SurveySessions are marked by the ISurveySession interface
@@ -100,7 +101,7 @@ class SurveySessionTests(DatabaseTests):
         self.assertEqual(survey.hasTree(), True)
 
 
-class RiskPresentFilterTests(DatabaseTests):
+class RiskPresentFilterTests(EuphorieIntegrationTestCase):
 
     def createData(self):
         (self.session, self.survey) = createSurvey()
@@ -140,7 +141,7 @@ class RiskPresentFilterTests(DatabaseTests):
         self.assertEqual(self.query().count(), 0)
 
 
-class RiskPresentNoTop5FilterTests(DatabaseTests):
+class RiskPresentNoTop5FilterTests(EuphorieIntegrationTestCase):
 
     def createData(self):
         (self.session, self.survey) = createSurvey()
@@ -184,7 +185,7 @@ class RiskPresentNoTop5FilterTests(DatabaseTests):
         self.assertEqual(self.query().count(), 0)
 
 
-class ModuleWithRiskFilterTests(DatabaseTests):
+class ModuleWithRiskFilterTests(EuphorieIntegrationTestCase):
 
     def createData(self):
         (self.session, self.survey) = createSurvey()

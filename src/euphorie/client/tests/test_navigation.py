@@ -2,8 +2,8 @@
 from euphorie.client import model
 from euphorie.client import navigation
 from euphorie.client.risk import ActionPlanView
-from euphorie.client.tests.database import DatabaseTests
 from euphorie.client.tests.utils import createSurvey
+from euphorie.testing import EuphorieIntegrationTestCase
 
 import unittest
 
@@ -19,7 +19,7 @@ class MockRequest:
         return self.__headers.get(key, default)
 
 
-class FindNextQuestionTests(DatabaseTests):
+class FindNextQuestionTests(EuphorieIntegrationTestCase):
 
     def testSingleQuestion(self):
         (session, survey) = createSurvey()
@@ -99,7 +99,7 @@ class FindNextQuestionTests(DatabaseTests):
         self.failUnless(navigation.FindNextQuestion(q1, survey) is mod3)
 
 
-class FindPreviousQuestionTests(DatabaseTests):
+class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
 
     def testSingleQuestion(self):
         (session, survey) = createSurvey()
@@ -166,7 +166,7 @@ class FindPreviousQuestionTests(DatabaseTests):
         self.failUnless(navigation.FindPreviousQuestion(mod3, survey) is q1)
 
 
-class ActionPlanNavigationTests(DatabaseTests):
+class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
     """Test if the filter determining which modules and risks to show during
     the action plan phase are correct.
     """
@@ -292,7 +292,7 @@ class ActionPlanNavigationTests(DatabaseTests):
         )
 
 
-class GetTreeDataTests(DatabaseTests):
+class GetTreeDataTests(EuphorieIntegrationTestCase):
 
     def createSqlData(self):
         self.request = MockRequest()
