@@ -17,9 +17,11 @@ from email.Header import Header
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from euphorie.client import config
+from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import IItaly
 from euphorie.client.sector import IClientSector
+from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
 from euphorie.decorators import reify
@@ -195,7 +197,6 @@ class WebHelpers(grok.View):
     @property
     @memoize
     def guest_session_id(self):
-        from euphorie.client.session import SessionManager
         return (
             self.is_guest_account and
             getattr(SessionManager, 'session', None) and
@@ -205,7 +206,6 @@ class WebHelpers(grok.View):
     @property
     @memoize
     def session_id(self):
-        from euphorie.client.session import SessionManager
         return (
             getattr(SessionManager, 'session', None) and
             SessionManager.session.id or '')
@@ -224,7 +224,6 @@ class WebHelpers(grok.View):
     @property
     @memoize
     def country_name(self):
-        from euphorie.client.country import IClientCountry
         for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.Title()
@@ -284,7 +283,6 @@ class WebHelpers(grok.View):
         return self.index.macros
 
     def country(self):
-        from euphorie.client.country import IClientCountry
         for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.id
@@ -449,7 +447,6 @@ class WebHelpers(grok.View):
         if sector is not None:
             return aq_parent(sector).absolute_url()
 
-        from euphorie.client.country import IClientCountry
         for parent in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(parent):
                 return parent.absolute_url()
@@ -471,7 +468,6 @@ class WebHelpers(grok.View):
 
     @reify
     def _survey(self):
-        from euphorie.client.session import SessionManager
         self.session = SessionManager.session
         survey = getattr(self.request, 'survey', None)
         if survey is not None:
