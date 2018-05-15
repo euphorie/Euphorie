@@ -97,7 +97,7 @@ class PubblicationMenu(BrowserView):
         return self.reset_date()
 
     def unset_date(self):
-        ''' Unset the session date to now
+        ''' Unset the session date
         '''
         self.session.published = None
         self.notify_modified()
