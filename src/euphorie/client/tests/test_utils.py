@@ -1,10 +1,10 @@
 # coding=utf-8
 from euphorie.client import utils
+from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.country import ClientCountry
 from euphorie.client.sector import ClientSector
 from euphorie.client.tests.utils import testRequest
 from euphorie.client.utils import locals
-from euphorie.client.utils import WebHelpers
 from euphorie.content.survey import Survey
 from euphorie.testing import EuphorieIntegrationTestCase
 from OFS.SimpleItem import SimpleItem

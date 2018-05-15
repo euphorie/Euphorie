@@ -4,6 +4,15 @@
     >
 
   <browser:page
+      name="webhelpers"
+      for="*"
+      permission="zope.Public"
+      class="euphorie.client.browser.webhelpers.WebHelpers"
+      template="templates/webhelpers.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="start"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"

@@ -2,6 +2,7 @@
 from euphorie.client import model
 from euphorie.client import session
 from euphorie.client import utils
+from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.tests.utils import testRequest
 from euphorie.client.unpublish import handleSurveyUnpublish
 from euphorie.content.tests.utils import BASIC_SURVEY
@@ -63,10 +64,10 @@ class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
         mgr.start(u"Test session", client_survey, account)
         mgr.session.zodb_path = '/'.join(client_survey.getPhysicalPath())
 
-        helpers = utils.WebHelpers(survey, request)
+        helpers = WebHelpers(survey, request)
         self.assertEqual(helpers.survey_url(), client_survey.absolute_url())
 
         handleSurveyUnpublish(survey, None)
 
-        helpers = utils.WebHelpers(survey, request)
+        helpers = WebHelpers(survey, request)
         self.assertEqual(helpers.survey_url(), None)
