@@ -8,10 +8,10 @@ from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
 from euphorie.client.profile import Profile
-from euphorie.client.tests.database import DatabaseTests
 from euphorie.client.tests.test_update import TreeTests
 from euphorie.client.utils import setRequest
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.testing import EuphorieIntegrationTestCase
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
@@ -74,7 +74,7 @@ def createModule(id):
     return Module(id)
 
 
-class AddToTreeTests(DatabaseTests):
+class AddToTreeTests(EuphorieIntegrationTestCase):
 
     def setUp(self):
         super(AddToTreeTests, self).setUp()
@@ -193,7 +193,7 @@ class AddToTreeTests(DatabaseTests):
         self.assertEqual(child.has_description, True)
 
 
-class BuildSurveyTreeTests(DatabaseTests):
+class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
 
     def setUp(self):
         super(BuildSurveyTreeTests, self).setUp()

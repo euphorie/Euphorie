@@ -19,6 +19,7 @@
 
     <include package=".api" />
     <include package=".browser" />
+    <include package=".subscribers" />
 
     <grok:grok package=".appendix" />
     <grok:grok package=".client" />

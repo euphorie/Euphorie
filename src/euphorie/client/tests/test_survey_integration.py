@@ -6,7 +6,10 @@ from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import html
+from plone import api
 from time import sleep
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 
 class TestSurveyViews(EuphorieIntegrationTestCase):
@@ -30,56 +33,80 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
         model.Session.add(survey_session)
         survey = self.portal.client.nl.ict['software-development']
 
-        with self._get_view(
-            'publication_date', survey, survey_session
-        ) as view:  # noqa: E501
-            session = view.session
-            # The view is not callable but as traversable  allowed attributes
-            self.assertRaises(TypeError, view)
-            self.assertEqual(session.published, None)
-            self.assertEqual(session.review_state, 'private')
-            # Calling set_date will reult in having this session published
-            # and the publication time will be recorded
-            # If no referer is set the methods will redirect to the context url
-            self.assertEqual(view.set_date(), survey.absolute_url())
-            self.assertIsInstance(session.published, datetime)
-            self.assertEqual(session.review_state, 'published')
-            old_published = session.published
-            # Changing the HTTP_REFERER will redirect there
-            # and calling reset_date will update the published date
-            view.request.set('HTTP_REFERER', 'foo')
-            # We need to wait at least one second because the datetime
-            # is stored with that accuracy
-            sleep(1)
-            self.assertEqual(view.reset_date(), 'foo')
-            self.assertTrue(session.published > old_published)
-            # Calling unset_date will restore the publication date to None
-            self.assertEqual(view.unset_date(), 'foo')
-            self.assertEqual(session.published, None)
-            self.assertEqual(session.review_state, 'private')
+        with api.env.adopt_user(user=survey_session.account):
+            with self._get_view(
+                'publication_date', survey, survey_session
+            ) as view:
+                # The view is not callable but
+                # has traversable allowed attributes
+                self.assertRaises(TypeError, view)
+                # We have some default values that will be changed
+                # when publishing/unpublishing the session
+                self.assertEqual(survey_session.published, None)
+                self.assertEqual(survey_session.last_modifier, None)
+                self.assertEqual(survey_session.review_state, 'private')
+                # Calling set_date will reult in having this session published
+                # and the publication time will be recorded
+                # If no referer is set,
+                # the methods will redirect to the context url
+                self.assertEqual(view.set_date(), survey.absolute_url())
+                self.assertIsInstance(survey_session.published, datetime)
+                self.assertEqual(survey_session.review_state, 'published')
+                old_modified = survey_session.modified
+                old_published = survey_session.published
+                # Changing the HTTP_REFERER will redirect there
+                # and calling reset_date will update the published date
+                view.request.set('HTTP_REFERER', 'foo')
+                # We need to wait at least one second because the datetime
+                # is stored with that accuracy
+                sleep(1)
+                self.assertEqual(view.reset_date(), 'foo')
+                self.assertTrue(survey_session.modified > old_modified)
+                self.assertEqual(
+                    survey_session.last_modifier, survey_session.account
+                )
+                self.assertTrue(survey_session.published > old_published)
+                # Calling unset_date will restore the publication date to None
+                self.assertEqual(view.unset_date(), 'foo')
+                self.assertEqual(survey_session.published, None)
+                self.assertEqual(survey_session.review_state, 'private')
 
-        # We also have a menu view
-        with self._get_view(
-            'publication_menu', survey, survey_session
-        ) as view:  # noqa: E501
-            soup = html.fromstring(view())
-            self.assertListEqual(
-                ['publication_date/set_date#content'],
-                [
-                    el.attrib['action'].rpartition('@@')[-1]
-                    for el in soup.cssselect('form')
-                ],
-            )
-            # We trigger the session to be private
-            survey_session.published = 'foo'
-            soup = html.fromstring(view())
-            self.assertListEqual(
-                [
-                    'publication_date/unset_date#content',
-                    'publication_date/reset_date#content',
-                ],
-                [
-                    el.attrib['action'].rpartition('@@')[-1]
-                    for el in soup.cssselect('form')
-                ],
-            )
+            # We also have a menu view
+            with self._get_view(
+                'publication_menu', survey, survey_session
+            ) as view:
+                soup = html.fromstring(view())
+                self.assertListEqual(
+                    ['publication_date/set_date#content'],
+                    [
+                        el.attrib['action'].rpartition('@@')[-1]
+                        for el in soup.cssselect('form')
+                    ],
+                )
+                # We trigger the session to be private
+                survey_session.published = 'foo'
+                soup = html.fromstring(view())
+                self.assertListEqual(
+                    [
+                        'publication_date/unset_date#content',
+                        'publication_date/reset_date#content',
+                    ],
+                    [
+                        el.attrib['action'].rpartition('@@')[-1]
+                        for el in soup.cssselect('form')
+                    ],
+                )
+
+    def test_modify_updates_last_modifier(self):
+        account = addAccount(password='secret')
+        survey_session = model.SurveySession(
+            title=u'Dummy session',
+            account=account,
+            zodb_path='',
+        )
+        self.assertEqual(survey_session.modified, None)
+        self.assertEqual(survey_session.last_modifier, None)
+        with api.env.adopt_user(user=account):
+            notify(ObjectModifiedEvent(survey_session))
+        self.assertIsInstance(survey_session.modified, datetime)
+        self.assertEqual(survey_session.last_modifier, account)

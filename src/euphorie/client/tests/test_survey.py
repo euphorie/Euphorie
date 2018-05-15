@@ -6,12 +6,12 @@ from Acquisition import aq_parent
 from euphorie.client import model
 from euphorie.client.survey import build_tree_aq_chain
 from euphorie.client.survey import find_sql_context
-from euphorie.client.tests.database import DatabaseTests
 from euphorie.ghost import PathGhost
+from euphorie.testing import EuphorieIntegrationTestCase
 from z3c.saconfig import Session
 
 
-class find_sql_context_tests(DatabaseTests):
+class find_sql_context_tests(EuphorieIntegrationTestCase):
 
     def find_sql_context(self, *a, **kw):
         return find_sql_context(*a, **kw)
@@ -75,7 +75,7 @@ class find_sql_context_tests(DatabaseTests):
         self.failUnless(result is None)
 
 
-class build_tree_aq_chain_tests(DatabaseTests):
+class build_tree_aq_chain_tests(EuphorieIntegrationTestCase):
 
     def build_tree_aq_chain(self, *a, **kw):
         return build_tree_aq_chain(*a, **kw)
