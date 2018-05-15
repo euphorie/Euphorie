@@ -149,7 +149,7 @@ class EuphorieIntegrationTestCase(TestCase):
         request = self.request.clone()
         if survey_session is not None:
             request.other["euphorie.session"] = survey_session
-        alsoProvides(request, IClientSkinLayer)
+        alsoProvides(request, self.request_layer)
         try:
             setRequest(request)
             yield api.content.get_view(name, obj, request)
@@ -159,7 +159,7 @@ class EuphorieIntegrationTestCase(TestCase):
     def get_client_request(self, client=None):
         request = self.request.clone()
         request.client = client
-        alsoProvides(request, IClientSkinLayer)
+        alsoProvides(request, self.request_layer)
         return request
 
 
