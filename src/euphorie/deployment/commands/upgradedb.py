@@ -81,12 +81,35 @@ def add_group_id_to_session():
     execute(statement)
 
 
+def add_last_modifier_id_to_session():
+    ''' A new 'last_modifier_id' column has been added to the 'session' table
+    '''
+    for column in inspector.get_columns('session'):
+        if 'last_modifier_id' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE session
+            ADD COLUMN last_modifier_id integer;
+        ALTER TABLE session
+            ADD CONSTRAINT session_last_modifier_id_fkey
+            FOREIGN KEY (last_modifier_id)
+            REFERENCES public.account (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION;
+        '''
+    )
+    execute(statement)
+
+
 def main():
     # It is always a good idea to run this one
     create_missing_tables()
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_group_id_to_session()
+        add_last_modifier_id_to_session()
 
 
 if __name__ == "__main__":

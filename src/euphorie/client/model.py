@@ -377,6 +377,12 @@ class SurveySession(BaseObject):
             schema.ForeignKey(Account.id,
                 onupdate="CASCADE", ondelete="CASCADE"),
             nullable=False, index=True)
+    last_modifier_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=True,
+        index=False,
+    )
     group_id = schema.Column(
         types.Unicode(32),
         schema.ForeignKey('group.group_id'),
@@ -397,9 +403,20 @@ class SurveySession(BaseObject):
 
     report_comment = schema.Column(types.UnicodeText())
 
-    account = orm.relation(Account,
-            backref=orm.backref("sessions", order_by=modified,
-                                cascade="all, delete, delete-orphan"))
+    account = orm.relation(
+        Account,
+        backref=orm.backref(
+            "sessions",
+            order_by=modified,
+            cascade="all, delete, delete-orphan",
+        ),
+        foreign_keys=[account_id],
+    )
+    last_modifier = orm.relation(
+        Account,
+        foreign_keys=[last_modifier_id],
+    )
+
     group = orm.relation(Group,
             backref=orm.backref("sessions", order_by=modified,
                                 cascade="all, delete, delete-orphan"))
@@ -421,6 +438,7 @@ class SurveySession(BaseObject):
         self.created = self.modified = datetime.datetime.now()
 
     def touch(self):
+        self.last_modifier = get_current_account()
         self.modified = datetime.datetime.now()
 
     def addChild(self, item):

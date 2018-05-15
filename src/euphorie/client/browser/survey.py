@@ -11,6 +11,8 @@ from plone.supermodel import model
 from Products.Five import BrowserView
 from z3c.form.form import EditForm
 from zope import schema
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 
 class IStartFormSchema(model.Schema):
@@ -73,6 +75,9 @@ class Start(AutoExtensibleForm, EditForm):
 
 class PubblicationMenu(BrowserView):
 
+    def notify_modified(self):
+        notify(ObjectModifiedEvent(self.session))
+
     def redirect(self):
         target = (
             self.request.get('HTTP_REFERER') or self.context.absolute_url()
@@ -83,6 +88,7 @@ class PubblicationMenu(BrowserView):
         ''' Reset the session date to now
         '''
         self.session.published = localized_now()
+        self.notify_modified()
         return self.redirect()
 
     def set_date(self):
@@ -94,6 +100,7 @@ class PubblicationMenu(BrowserView):
         ''' Unset the session date to now
         '''
         self.session.published = None
+        self.notify_modified()
         return self.redirect()
 
     @property
