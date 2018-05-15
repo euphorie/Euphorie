@@ -553,6 +553,3 @@ class WebHelpers(BrowserView):
         return translate(
             _(u"I wish to share the following with you"),
             target_language=self.translang())
-
-    def __call__(self):
-        return self
