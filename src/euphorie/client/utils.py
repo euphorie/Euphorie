@@ -196,19 +196,18 @@ class WebHelpers(grok.View):
 
     @property
     @memoize
+    def session(self):
+        return getattr(SessionManager, 'session', None)
+
+    @property
+    @memoize
     def guest_session_id(self):
-        return (
-            self.is_guest_account and
-            getattr(SessionManager, 'session', None) and
-            SessionManager.session.id or None
-        )
+        return self.is_guest_account and self.session_id or None
 
     @property
     @memoize
     def session_id(self):
-        return (
-            getattr(SessionManager, 'session', None) and
-            SessionManager.session.id or '')
+        return getattr(self.session, 'id', '')
 
     @property
     @memoize
@@ -349,7 +348,10 @@ class WebHelpers(grok.View):
                 getattr(aq_base(sector), 'logo', None) is not None:
             return sector.Title()
         else:
-            return _('title_tool', default=u'OiRA - Online interactive Risk Assessment')
+            return _(
+                'title_tool',
+                default=u'OiRA - Online interactive Risk Assessment',
+            )
 
     @reify
     def client_url(self):
@@ -395,7 +397,7 @@ class WebHelpers(grok.View):
         survey = self._survey
         if not survey:
             return None
-        if getattr(self, 'session', None):
+        if self.session:
             return self.session.title
         return survey.title
 
@@ -468,7 +470,6 @@ class WebHelpers(grok.View):
 
     @reify
     def _survey(self):
-        self.session = SessionManager.session
         survey = getattr(self.request, 'survey', None)
         if survey is not None:
             return survey
