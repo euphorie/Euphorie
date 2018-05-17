@@ -23,6 +23,7 @@ from euphorie.content.risk import IFrenchRisk
 from euphorie.content.risk import IRisk
 from euphorie.content.survey import ISurvey
 from five import grok
+from plone import api
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
@@ -34,7 +35,14 @@ import re
 grok.templatedir("templates")
 
 
-def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_children=False):
+def AddToTree(
+    root,
+    node,
+    zodb_path=[],
+    title=None,
+    profile_index=0,
+    skip_children=False,
+):
     """Add a new node to the session tree.
 
     :param root: parent node of the new child
@@ -74,14 +82,16 @@ def AddToTree(root, node, zodb_path=[], title=None, profile_index=0, skip_childr
         else:
             effect = node.default_effect
 
-        child = model.Risk(title=title,
-                         risk_id=node.id,
-                         risk_type=node.type,
-                         skip_evaluation=(node.evaluation_method == 'fixed'),
-                         probability=node.default_probability,
-                         frequency=node.default_frequency,
-                         effect=effect,
-                         priority=priority)
+        child = model.Risk(
+            title=title,
+            risk_id=node.id,
+            risk_type=node.type,
+            skip_evaluation=(node.evaluation_method == 'fixed'),
+            probability=node.default_probability,
+            frequency=node.default_frequency,
+            effect=effect,
+            priority=priority,
+        )
         child.skip_children = False
         child.postponed = False
         child.has_description = HasText(node.description)
@@ -108,7 +118,7 @@ def get_custom_risks(session):
         return []
     query = Session.query(model.Risk).filter(
         sql.and_(
-            model.Risk.is_custom_risk == True,
+            model.Risk.is_custom_risk == True,  # noqa: E712
             model.Risk.path.startswith(model.Module.path),
             model.Risk.session_id == session.id
         )
@@ -139,9 +149,12 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
             risks = get_custom_risks(old_session)
             if risks:
                 # find the module that holds the custom risks
-                modules = Session.query(model.Module).filter(sql.and_(
-                    model.Module.session_id==dbsession.id,
-                    model.Module.module_id==child.id)).all()
+                modules = Session.query(model.Module).filter(
+                    sql.and_(
+                        model.Module.session_id == dbsession.id,
+                        model.Module.module_id == child.id
+                    )
+                ).all()
                 # there should only ever be 1 result
                 if modules:
                     for risk in risks:
@@ -149,7 +162,8 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
         elif IProfileQuestion.providedBy(child):
             # Safeguard against double adding of profile questions
             existing = [
-                getattr(item, 'module_id') for item in dbsession.children()]
+                getattr(item, 'module_id') for item in dbsession.children()
+            ]
             if child.id in existing:
                 continue
             p = profile.get(child.id)
@@ -158,17 +172,23 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
 
             if isinstance(p, list):
                 profile_question = AddToTree(
-                    dbsession, child, title=child.title,
-                    profile_index=-1, skip_children=True)
+                    dbsession,
+                    child,
+                    title=child.title,
+                    profile_index=-1,
+                    skip_children=True
+                )
                 for (index, title) in enumerate(p):
                     AddToTree(
-                        profile_question, child, title=title,
-                        profile_index=index)
+                        profile_question,
+                        child,
+                        title=title,
+                        profile_index=index
+                    )
             # If we get a bool, it will be True, because of `if not p` above
             # Simply add the profile to the tree, don't care about locations
             elif isinstance(p, bool):
-                AddToTree(
-                    dbsession, child, title=child.title)
+                AddToTree(dbsession, child, title=child.title)
         else:
             AddToTree(dbsession, child)
 
@@ -190,21 +210,24 @@ def extractProfile(survey, survey_session):
 
     """
     questions = [{
-        'id': child.id, 'use_location_question': child.use_location_question}
-        for child in survey.ProfileQuestions()]
+        'id': child.id,
+        'use_location_question': child.use_location_question
+    } for child in survey.ProfileQuestions()]
     if not questions:
         return {}
 
     q_ids = [q['id'] for q in questions]
     session_modules = {}
-    query = Session.query(model.SurveyTreeItem.zodb_path,
-                            model.SurveyTreeItem.title)\
-            .filter(model.SurveyTreeItem.type == 'module')\
-            .filter(model.SurveyTreeItem.session == survey_session)\
-            .filter(model.SurveyTreeItem.profile_index >= 0)\
-            .filter(model.SurveyTreeItem.zodb_path.in_(q_ids))\
-            .order_by(model.SurveyTreeItem.profile_index)\
-            .all()
+    query = (
+        Session.query(
+            model.SurveyTreeItem.zodb_path,
+            model.SurveyTreeItem.title
+        ).filter(model.SurveyTreeItem.type == 'module')
+        .filter(model.SurveyTreeItem.session == survey_session)
+        .filter(model.SurveyTreeItem.profile_index >= 0)
+        .filter(model.SurveyTreeItem.zodb_path.in_(q_ids))
+        .order_by(model.SurveyTreeItem.profile_index)
+    )
     for row in query:
         session_modules.setdefault(row.zodb_path, []).append(row)
 
@@ -242,7 +265,8 @@ def set_session_profile(survey, survey_session, profile):
         return survey_session
 
     new_session = create_survey_session(
-            survey_session.title, survey, survey_session.account)
+        survey_session.title, survey, survey_session.account
+    )
     BuildSurveyTree(survey, profile, new_session, survey_session)
     new_session.copySessionData(survey_session)
     object_session(survey_session).delete(survey_session)
@@ -250,22 +274,24 @@ def set_session_profile(survey, survey_session, profile):
 
 
 def _questions(context):
-    return [{'id': child.id,
-             'title': child.title,
-             'question': child.question or child.title,
-             'use_location_question': getattr(
-                 child, 'use_location_question', True),
-             'label_multiple_present': getattr(child,
-                 'label_multiple_present',
-                 _(u'Does this happen in multiple places?')),
-             'label_single_occurance': getattr(child,
-                 'label_single_occurance',
-                 _(u'Enter the name of the location')),
-             'label_multiple_occurances': getattr(child,
-                 'label_multiple_occurances',
-                 _(u'Enter the names of each location')),
-             }
-            for child in context.ProfileQuestions()]
+    return [{
+        'id': child.id,
+        'title': child.title,
+        'question': child.question or child.title,
+        'use_location_question': getattr(child, 'use_location_question', True),
+        'label_multiple_present': getattr(
+            child, 'label_multiple_present',
+            _(u'Does this happen in multiple places?')
+        ),
+        'label_single_occurance': getattr(
+            child, 'label_single_occurance',
+            _(u'Enter the name of the location')
+        ),
+        'label_multiple_occurances': getattr(
+            child, 'label_multiple_occurances',
+            _(u'Enter the names of each location')
+        ),
+    } for child in context.ProfileQuestions()]
 
 
 class Profile(grok.View):
@@ -310,12 +336,14 @@ class Profile(grok.View):
                 # is repeatable
                 if match:
                     continue
-                if not self.request.form.get(
-                        "pq{0}.present".format(id), '') == 'yes':
+                if not self.request.form.get("pq{0}.present".format(id), ''
+                                             ) == 'yes':
                     continue
                 if isinstance(answer, list):
                     profile[id] = filter(None, (a.strip() for a in answer))
-                    if not self.request.form.get("pq{0}.multiple".format(id), '') == 'yes':
+                    if not self.request.form.get(
+                        "pq{0}.multiple".format(id), ''
+                    ) == 'yes':
                         profile[id] = profile[id][:1]
                 else:
                     profile[id] = answer
@@ -329,7 +357,8 @@ class Profile(grok.View):
         """
         survey = aq_inner(self.context)
         new_profile = self.getDesiredProfile()
-        self.session = set_session_profile(survey, self.session, new_profile)
+        new_session = set_session_profile(survey, self.session, new_profile)
+        self.request.other["euphorie.session"] = new_session
         SessionManager.resume(self.session)
 
     def ProfileQuestions(self):
@@ -341,33 +370,50 @@ class Profile(grok.View):
         - ``id``: object id of the question
         - ``title``: title of the question
         - ``question``: question about the general occurance
-        - ``label_multiple_present``: question about single or multiple occurance
+        - ``label_multiple_present``: question about single or multiple
+          occurance
         - ``label_single_occurance``: label for single occurance
         - ``label_multiple_occurances``: label for multiple occurance
         """
         return _questions(self.context)
+
+    @property
+    def session(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        ).session
 
     def update(self):
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.message_required = translate(_(
-            u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang)
+        self.message_required = translate(
+            _(
+                u"message_field_required",
+                default=u"Please fill out this field."
+            ),
+            target_language=lang
+        )
         survey = aq_inner(self.context)
         self.profile_questions = self.ProfileQuestions()
-        self.session = SessionManager.session
         self.current_profile = extractProfile(survey, SessionManager.session)
         assert self.session is not None
-        assert self.session.zodb_path == \
-                RelativePath(self.request.client, aq_inner(self.context))
+        assert self.session.zodb_path == RelativePath(
+            self.request.client,
+            aq_inner(self.context),
+        )
 
-        if not self.profile_questions or \
-                self.request.environ["REQUEST_METHOD"] == "POST":
+        if (
+            not self.profile_questions
+            or self.request.environ["REQUEST_METHOD"] == "POST"
+        ):
             self.setupSession()
-            self.request.response.redirect(survey.absolute_url() +
-                    "/identification")
+            self.request.response.redirect(
+                survey.absolute_url() + "/identification"
+            )
 
 
 class Update(Profile):
