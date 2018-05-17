@@ -8,9 +8,9 @@
       meta:interpolation="true"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
-        webhelpers nocall:context/@@webhelpers;
+        webhelpers nocall:view/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
-        session view/session;
+        session webhelpers/session;
       "
       i18n:domain="euphorie"
 >
