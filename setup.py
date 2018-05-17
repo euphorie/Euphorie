@@ -1,4 +1,6 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
+
 
 version = '9.0.36.dev0'
 
@@ -61,7 +63,6 @@ setup(
         "z3c.form >= 2.1.0",
         "z3c.schema",
         "z3c.saconfig",
-        "zope.app.schema",
         "zope.configuration >= 3.6",
         "zope.i18nmessageid",
         "zope.interface",
