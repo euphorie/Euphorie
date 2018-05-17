@@ -40,8 +40,12 @@ class Start(AutoExtensibleForm, EditForm):
 
     @property
     @memoize
-    def session(self):
-        return SessionManager.session
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
 
     @memoize
     def has_introduction(self):
@@ -50,13 +54,12 @@ class Start(AutoExtensibleForm, EditForm):
 
     def update(self):
         super(Start, self).update()
-        survey = aq_inner(self.context)
         if self.request.environ["REQUEST_METHOD"] != "POST":
             return
         data, errors = self.extractData()
         if errors:
             return
-        session = self.session
+        session = self.webhelpers.session
         changed = False
         for key in data:
             value = data[key]
@@ -70,7 +73,9 @@ class Start(AutoExtensibleForm, EditForm):
                 request=self.request,
                 type='success',
             )
-        self.request.response.redirect("%s/@@profile" % survey.absolute_url())
+        self.request.response.redirect(
+            "%s/@@profile" % self.context.absolute_url()
+        )
 
 
 class PubblicationMenu(BrowserView):
