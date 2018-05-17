@@ -1,19 +1,17 @@
 # coding=utf-8
-from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManagement import setSecurityManager
 from euphorie.client import model
-from euphorie.client.model import SurveySession
 from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
 from euphorie.client.profile import Profile
 from euphorie.client.tests.test_update import TreeTests
-from euphorie.client.utils import setRequest
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
+
+import mock
 
 
 def createContainer(id, profile=False):
@@ -471,108 +469,111 @@ class Profile_getDesiredProfile_Tests(TreeTests):
 class Profile_setupSession_Tests(TreeTests):
 
     def makeView(self, survey):
-        view = Profile(survey, self.portal.REQUEST)
-        view.session = view.request.other["euphorie.session"
-                                          ] = self.createSurveySession()
-        view.request.client = self.portal.client
-        return view
-
-    def setupSession(self, view):
-        setRequest(self.portal.REQUEST)
-        sm = getSecurityManager()
-        # Add stub for copySessionData since it tries to run SQL code which
-        # SQLite does not handle (UPDATE FROM)
-        _copySessionData = SurveySession.copySessionData
-        SurveySession.copySessionData = lambda *a: None
-        try:
-            newSecurityManager(None, self.session.account)
-            return view.setupSession()
-        finally:
-            SurveySession.copySessionData = _copySessionData
-            setSecurityManager(sm)
-            setRequest(None)
+        return self._get_view(
+            'profile',
+            survey,
+            survey_session=self.createSurveySession(),
+            client=self.portal.client,
+        )
 
     def test_NewSession_NoProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         mod = survey["1"]
         mod.title = u"Module one"
-        view = self.makeView(survey)
-        session = view.session
-        self.setupSession(view)
-        self.failUnless(view.session is session)
-        self.assertEqual(session.hasTree(), True)
+        with self.makeView(survey) as view:
+            session = view.session
+            with api.env.adopt_user(user=session.account):
+                view.setupSession()
+                self.failUnless(view.session is session)
+                self.assertEqual(session.hasTree(), True)
 
     def test_NewSession_SimpleProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        view = self.makeView(survey)
-        session = view.session
-        view.request.form["1"] = [u"one"]
-        view.request.form["pq1.present"] = "yes"
-        self.setupSession(view)
-        self.failUnless(view.session is session)
-        self.assertEqual(session.hasTree(), True)
+        with self.makeView(survey) as view:
+            session = view.session
+            view.request.form["1"] = [u"one"]
+            view.request.form["pq1.present"] = "yes"
+            with api.env.adopt_user(user=session.account):
+                view.setupSession()
+                self.failUnless(view.session is session)
+                self.assertEqual(session.hasTree(), True)
 
     def test_NewSession_EmptyProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        view = self.makeView(survey)
-        session = view.session
-        self.setupSession(view)
-        self.failUnless(view.session is session)
-        self.assertEqual(session.hasTree(), False)
+        with self.makeView(survey) as view:
+            session = view.session
+            with api.env.adopt_user(user=session.account):
+                view.setupSession()
+                self.failUnless(view.session is session)
+                self.assertEqual(session.hasTree(), False)
 
     def test_ExistingSession_NoProfile(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         mod = survey["1"]
         mod.title = u"Module one"
-        view = self.makeView(survey)
-        view.current_profile = {}
-        session = view.session
-        BuildSurveyTree(survey, {}, session)
-        self.setupSession(view)
-        self.failUnless(view.session is session)
-        self.assertEqual(session.hasTree(), True)
+        with self.makeView(survey) as view:
+            view.current_profile = {}
+            session = view.session
+            BuildSurveyTree(survey, {}, session)
+            with api.env.adopt_user(user=session.account):
+                view.setupSession()
+                self.failUnless(view.session is session)
+                self.assertEqual(session.hasTree(), True)
 
     def test_ExistingSession_NoProfileChange(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         survey.invokeFactory("euphorie.profilequestion", "2")
         survey.get('2').use_location_question = False
-        view = self.makeView(survey)
-        view.current_profile = {"1": [u'London'], "2": True}
-        session = view.session
-        BuildSurveyTree(survey, {"1": [u'London'], "2": True}, session)
-        view.request.form["1"] = [u'London']
-        view.request.form["pq1.present"] = "yes"
-        view.request.form["pq2.present"] = "yes"
-        self.setupSession(view)
-        self.failUnless(view.session is session)
-        self.assertEqual(view.session.hasTree(), True)
+        with self.makeView(survey) as view:
+            view.current_profile = {"1": [u'London'], "2": True}
+            session = view.session
+            BuildSurveyTree(survey, {"1": [u'London'], "2": True}, session)
+            view.request.form["1"] = [u'London']
+            view.request.form["pq1.present"] = "yes"
+            view.request.form["pq2.present"] = "yes"
+            with api.env.adopt_user(user=session.account):
+                view.setupSession()
+                self.failUnless(view.session is session)
+                self.assertEqual(view.session.hasTree(), True)
 
     def test_ExistingSession_ProfileChanged(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
-        view = self.makeView(survey)
-        view.current_profile = {"1": ['London']}
-        session = view.session
-        BuildSurveyTree(survey, {"1": ['London']}, session)
-        view.request.form["1"] = ['London', 'Paris']
-        self.setupSession(view)
-        self.failUnless(view.session is not session)
-        self.assertEqual(view.session.hasTree(), False)
+        with self.makeView(survey) as view:
+            view.current_profile = {"1": ['London']}
+            session = view.session
+            with api.env.adopt_user(user=session.account):
+                BuildSurveyTree(survey, {"1": ['London']}, session)
+                view.request.form["1"] = ['London', 'Paris']
+                # this will run an SQL statement incompatible with sqlite
+                with mock.patch(
+                    'euphorie.client.model.SurveySession.copySessionData',
+                    return_value=None,
+                ):
+                    view.setupSession()
+                self.failUnless(view.session is not session)
+                self.assertEqual(view.session.hasTree(), False)
 
     def test_ExistingSession_ProfileChangedNoLocation(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         survey.get('1').use_location_question = False
-        view = self.makeView(survey)
-        view.current_profile = {"1": True}
-        session = view.session
-        BuildSurveyTree(survey, {"1": True}, session)
-        view.request.form["pq1.present"] = "no"
-        self.setupSession(view)
-        self.failUnless(view.session is not session)
-        self.assertEqual(view.session.hasTree(), False)
+        with self.makeView(survey) as view:
+            view.current_profile = {"1": True}
+            session = view.session
+            with api.env.adopt_user(user=session.account):
+                BuildSurveyTree(survey, {"1": True}, session)
+                view.request.form["pq1.present"] = "no"
+                # this will run an SQL statement incompatible with sqlite
+                with mock.patch(
+                    'euphorie.client.model.SurveySession.copySessionData',
+                    return_value=None,
+                ):
+                    view.setupSession()
+                self.failUnless(view.session is not session)
+                self.assertEqual(view.session.hasTree(), False)

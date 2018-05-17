@@ -13,10 +13,10 @@ from euphorie.client.cookie import getCookie
 from euphorie.client.cookie import setCookie
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import getSecret
+from plone import api
 from z3c.saconfig import Session
 
 import logging
-
 
 log = logging.getLogger(__name__)
 SESSION_COOKIE = "_eu_session"
@@ -39,10 +39,10 @@ def create_survey_session(title, survey, account=None):
     country = aq_parent(sector)
     zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
     survey_session = model.SurveySession(
-            title=title,
-            zodb_path=zodb_path,
-            account_id=account.id,
-            group_id=account.group_id,
+        title=title,
+        zodb_path=zodb_path,
+        account_id=account.id,
+        group_id=account.group_id,
     )
     session.add(survey_session)
     session.refresh(account)
@@ -97,24 +97,21 @@ class SessionManagerFactory(object):
         request.other['euphorie.session'] = survey_session
         return survey_session
 
+    @property
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            context=api.portal.get(),
+            request=getRequest(),
+        )
+
     def resume(self, session):
         """Activate the given session.
 
         :param session: session to activate
         :type session: :py:class:`euphorie.client.model.SurveySession`
         """
-        account = model.get_current_account()
-        if (
-            not account
-            or (
-                session not in account.sessions
-                and session not in account.acquired_sessions
-            )
-        ):
-            raise ValueError('Can only resume session for current user.')
-        request = getRequest()
-        request.other["euphorie.session"] = session
-        setCookie(request.response, getSecret(), SESSION_COOKIE, session.id)
+        return self.webhelpers.resume(session)
 
     def stop(self):
         """End the current active session.
@@ -149,6 +146,5 @@ class SessionManagerFactory(object):
 SessionManager = SessionManagerFactory()
 """Global instance of :py:class:`SessionManagerFactory`.
 """
-
 
 __all__ = ["SessionManager"]

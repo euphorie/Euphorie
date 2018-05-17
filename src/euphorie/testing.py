@@ -47,7 +47,6 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
         default_zpublisher_encoding('utf-8')
 
-
     def setUpPloneSite(self, portal):
         quickInstallProduct(portal, 'plonetheme.nuplone')
         quickInstallProduct(portal, 'euphorie.client')
@@ -141,7 +140,7 @@ class EuphorieIntegrationTestCase(TestCase):
         return logout()
 
     @contextmanager
-    def _get_view(self, name, obj, survey_session=None):
+    def _get_view(self, name, obj, survey_session=None, client=None):
         ''' Get's a view with a proper fresh request.
         If survey_session is set the SessionManager will be configured
         '''
@@ -149,6 +148,8 @@ class EuphorieIntegrationTestCase(TestCase):
         request = self.request.clone()
         if survey_session is not None:
             request.other["euphorie.session"] = survey_session
+        if client is not None:
+            request.client = client
         alsoProvides(request, self.request_layer)
         try:
             setRequest(request)

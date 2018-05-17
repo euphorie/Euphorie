@@ -8,6 +8,7 @@ from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from euphorie.client import session
+from plone import api
 from Products.CMFCore.interfaces import ISiteRoot
 from zope.testing.cleanup import cleanUp
 
@@ -117,13 +118,10 @@ class SessionManagerFactoryTests(TreeTests):
                 setSecurityManager(sm)
 
     def test_resume_enforce_same_account(self):
-        sm = getSecurityManager()
         mgr = self.SessionManagerFactory()
         victim = model.Account(loginname="test", password=u"test")
         attacker = model.Account(loginname="evil", password=u"layer")
         session = model.SurveySession(account=victim)
-        try:
-            newSecurityManager(None, attacker)
-            self.assertRaises(ValueError, mgr.resume, session)
-        finally:
-            setSecurityManager(sm)
+        with self._get_view('webhelpers', self.portal):
+            with api.env.adopt_user(user=attacker):
+                self.assertRaises(ValueError, mgr.resume, session)

@@ -7,10 +7,14 @@ from Acquisition import aq_parent
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import config
+from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IItaly
+from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
+from euphorie.client.session import SESSION_COOKIE
 from euphorie.client.session import SessionManager
+from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
 from euphorie.decorators import reify
@@ -20,6 +24,7 @@ from os import path
 from plone import api
 from plone.i18n.normalizer import idnormalizer
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -66,6 +71,7 @@ class WebHelpers(BrowserView):
     View name: @@webhelpers
     """
     sector = None
+    SESSION_COOKIE = SESSION_COOKIE
 
     def __init__(self, context, request):
         super(WebHelpers, self).__init__(context, request)
@@ -553,6 +559,39 @@ class WebHelpers(BrowserView):
         return translate(
             _(u"I wish to share the following with you"),
             target_language=self.translang())
+
+    def getSecret(self):
+        return getSecret()
+
+    @memoize_contextless
+    def get_current_account(self):
+        return get_current_account()
+
+    @memoize
+    def can_view_session(self, session=None):
+        account = self.get_current_account()
+        if not account:
+            return False
+        if session is None:
+            session = self.session
+        return (
+            session in account.sessions
+            or session in account.acquired_sessions
+        )
+
+    def resume(self, session):
+        ''' Resume a session for the current user if he is allowed to
+        '''
+        if not self.can_view_session(session):
+            raise ValueError('Can only resume session for current user.')
+
+        self.request.other["euphorie.session"] = session
+        setCookie(
+            self.request.response,
+            self.getSecret(),
+            SESSION_COOKIE,
+            session.id,
+        )
 
     def __call__(self):
         return self
