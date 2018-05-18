@@ -9,7 +9,6 @@ existing guest accounts to normal accounts.
 from .. import MessageFactory as _
 from .conditions import approvedTermsAndConditions
 from .conditions import checkTermsAndConditions
-from .country import View as CountryView
 from .country import IClientCountry
 from .interfaces import IClientSkinLayer
 from .session import SessionManager
@@ -21,6 +20,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import config
 from euphorie.client import model
+from euphorie.client.browser.country import SessionsView as CountryView
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api

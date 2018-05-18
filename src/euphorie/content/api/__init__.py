@@ -1,15 +1,17 @@
-import martian
+# coding=utf-8
+from .interfaces import ICMSAPISkinLayer
+from AccessControl import getSecurityManager
+from euphorie.json import JsonView as BaseJsonView
 from five import grok
+from plone.autoform.interfaces import WRITE_PERMISSIONS_KEY
+from Products.CMFCore.permissions import ModifyPortalContent
 from zExceptions import Unauthorized
 from zope.component import getUtility
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.security.interfaces import IPermission
-from plone.autoform.interfaces import WRITE_PERMISSIONS_KEY
-from Products.CMFCore.permissions import ModifyPortalContent
-from AccessControl import getSecurityManager
-from euphorie.json import JsonView as BaseJsonView
-from .interfaces import ICMSAPISkinLayer
+
+import martian
 
 
 def get_write_permissions(schema):
@@ -54,7 +56,9 @@ class JsonView(BaseJsonView):
                     continue
                 ztk_permission = permissions.get(attribute, None)
                 if ztk_permission is not None:
-                    permission = getUtility(IPermission, name=ztk_permission).title
+                    permission = getUtility(
+                        IPermission, name=ztk_permission
+                    ).title
                 else:
                     permission = ModifyPortalContent
                 if not self.has_permission(permission, context):

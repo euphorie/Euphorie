@@ -1,6 +1,8 @@
 # coding=utf-8
 from euphorie.client.country import ClientCountry
 from euphorie.testing import EuphorieIntegrationTestCase
+from zope.annotation import IAttributeAnnotatable
+from zope.interface import implementer
 
 
 class ViewTests(EuphorieIntegrationTestCase):
@@ -21,9 +23,9 @@ class ViewTests(EuphorieIntegrationTestCase):
         return survey
 
     def surveys(self, country, language):
-        from euphorie.client.country import View
 
-        class Request:
+        @implementer(IAttributeAnnotatable)
+        class Request(object):
             environ = {'REQUEST_METHOD': 'GET'}
             form = {}
 
@@ -35,9 +37,10 @@ class ViewTests(EuphorieIntegrationTestCase):
                     return self
                 raise AttributeError(key)
 
-        view = View(country, Request(language))
-        view.update()
-        return view.surveys
+        with self._get_view('view', country) as view:
+            view.request = Request(language)
+            view._updateSurveys()
+            return view.surveys
 
     def test_surveys_NoSurveys(self):
         country = ClientCountry()

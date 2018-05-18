@@ -1,5 +1,4 @@
 # coding=utf-8
-from ..country import View
 from ..model import Account
 from ..model import Group
 from ..model import SurveySession
@@ -45,28 +44,25 @@ class CountryTests(EuphorieIntegrationTestCase):
         )
         session.add(account)
         newSecurityManager(None, account)
-        view = View(
-            self.portal.client['nl'],
-            self.request.clone(),
-        )
+        with self._get_view('view', self.portal.client['nl']) as view:
+            root = view.get_sessions_tree_root()
+            self.assertListEqual(
+                [x.title for x in root.descendants],
+                [u'Software development', u'One', u'Three', u'Two'],
+            )
 
-        root = view.get_sessions_tree_root()
-        self.assertListEqual(
-            [x.title for x in root.descendants],
-            [u'Software development', u'One', u'Three', u'Two'],
-        )
-
-        survey = root.children[0]
-        # Ensure that the nodes are sorted by title when getting the groups...
-        self.assertListEqual(
-            [x.title for x in survey.groups],
-            [u'One', u'Three', u'Two'],
-        )
-        # ... or by reversed modification date when getting the sessions
-        self.assertListEqual(
-            [x.title for x in survey.sessions],
-            [u'Three', u'Two', 'One'],
-        )
+            survey = root.children[0]
+            # Ensure that the nodes are sorted by title
+            # when getting the groups...
+            self.assertListEqual(
+                [x.title for x in survey.groups],
+                [u'One', u'Three', u'Two'],
+            )
+            # ... or by reversed modification date when getting the sessions
+            self.assertListEqual(
+                [x.title for x in survey.sessions],
+                [u'Three', u'Two', 'One'],
+            )
 
     def test_complex_tree(self):
         # First we create a couple of surveys
@@ -141,97 +137,85 @@ class CountryTests(EuphorieIntegrationTestCase):
 
         # By default John can see his sessions
         newSecurityManager(None, john)
-        view = View(
-            self.portal.client['nl'],
-            self.request.clone(),
-        )
-        root = view.get_sessions_tree_root()
-        self.assertListEqual(
-            RenderTree(root).by_attr("title").splitlines(),
-            [
-                u'',
-                u'├── Group 1',
-                u'│   ├── Software development',
-                u'│   │   └── John SW Group 1',
-                u'│   └── Group 2',
-                u'│       └── Software development',
-                u'│           └── John SW Group 2',
-                u'└── Software development',
-                u'    └── John SW No group',
-            ],
-        )
+        with self._get_view('view', self.portal.client['nl']) as view:
+            root = view.get_sessions_tree_root()
+            self.assertListEqual(
+                RenderTree(root).by_attr("title").splitlines(),
+                [
+                    u'',
+                    u'├── Group 1',
+                    u'│   ├── Software development',
+                    u'│   │   └── John SW Group 1',
+                    u'│   └── Group 2',
+                    u'│       └── Software development',
+                    u'│           └── John SW Group 2',
+                    u'└── Software development',
+                    u'    └── John SW No group',
+                ],
+            )
 
         # but he can also see Jane's ones that have been filed its groups
-        view = View(
-            self.portal.client['nl'],
-            self.request.clone(),
-        )
-        view.request.set('scope', 'all')
-        root = view.get_sessions_tree_root()
-        self.assertListEqual(
-            RenderTree(root).by_attr("title").splitlines(),
-            [
-                u'',
-                u'├── Group 1',
-                u'│   ├── Software development',
-                u'│   │   └── John SW Group 1',
-                u'│   └── Group 2',
-                u'│       ├── Software development',
-                u'│       │   ├── John SW Group 2',
-                u'│       │   ├── Jane SW Group 2',
-                u'│       │   └── Jane SW Group 2 (another one)',
-                u'│       └── Hardware development',
-                u'│           └── Jane HW Group 2',
-                u'└── Software development',
-                u'    └── John SW No group',
-            ],
-        )
+        with self._get_view('view', self.portal.client['nl']) as view:
+            view.request.set('scope', 'all')
+            root = view.get_sessions_tree_root()
+            self.assertListEqual(
+                RenderTree(root).by_attr("title").splitlines(),
+                [
+                    u'',
+                    u'├── Group 1',
+                    u'│   ├── Software development',
+                    u'│   │   └── John SW Group 1',
+                    u'│   └── Group 2',
+                    u'│       ├── Software development',
+                    u'│       │   ├── John SW Group 2',
+                    u'│       │   ├── Jane SW Group 2',
+                    u'│       │   └── Jane SW Group 2 (another one)',
+                    u'│       └── Hardware development',
+                    u'│           └── Jane HW Group 2',
+                    u'└── Software development',
+                    u'    └── John SW No group',
+                ],
+            )
         # Jane can see her Sessions by default
         newSecurityManager(None, jane)
-        view = View(
-            self.portal.client['nl'],
-            self.request.clone(),
-        )
-        root = view.get_sessions_tree_root()
-        self.assertListEqual(
-            RenderTree(root).by_attr("title").splitlines(),
-            [
-                u'',
-                u'├── Hardware development',
-                u'│   └── Jane HW No group',
-                u'└── Group 1',
-                u'    └── Group 2',
-                u'        ├── Hardware development',
-                u'        │   └── Jane HW Group 2',
-                u'        └── Software development',
-                u'            ├── Jane SW Group 2',
-                u'            └── Jane SW Group 2 (another one)',
-            ],
-        )
+        with self._get_view('view', self.portal.client['nl']) as view:
+            root = view.get_sessions_tree_root()
+            self.assertListEqual(
+                RenderTree(root).by_attr("title").splitlines(),
+                [
+                    u'',
+                    u'├── Hardware development',
+                    u'│   └── Jane HW No group',
+                    u'└── Group 1',
+                    u'    └── Group 2',
+                    u'        ├── Hardware development',
+                    u'        │   └── Jane HW Group 2',
+                    u'        └── Software development',
+                    u'            ├── Jane SW Group 2',
+                    u'            └── Jane SW Group 2 (another one)',
+                ],
+            )
         # but cannot acquire John's sessions in group1
         # (although she can if the session is in group2)
-        view = View(
-            self.portal.client['nl'],
-            self.request.clone(),
-        )
-        view.request.set('scope', 'all')
-        root = view.get_sessions_tree_root()
-        self.assertListEqual(
-            RenderTree(root).by_attr("title").splitlines(),
-            [
-                u'',
-                u'├── Hardware development',
-                u'│   └── Jane HW No group',
-                u'└── Group 1',
-                u'    └── Group 2',
-                u'        ├── Hardware development',
-                u'        │   └── Jane HW Group 2',
-                u'        └── Software development',
-                u'            ├── Jane SW Group 2',
-                u'            ├── Jane SW Group 2 (another one)',
-                u'            └── John SW Group 2',
-            ],
-        )
+        with self._get_view('view', self.portal.client['nl']) as view:
+            view.request.set('scope', 'all')
+            root = view.get_sessions_tree_root()
+            self.assertListEqual(
+                RenderTree(root).by_attr("title").splitlines(),
+                [
+                    u'',
+                    u'├── Hardware development',
+                    u'│   └── Jane HW No group',
+                    u'└── Group 1',
+                    u'    └── Group 2',
+                    u'        ├── Hardware development',
+                    u'        │   └── Jane HW Group 2',
+                    u'        └── Software development',
+                    u'            ├── Jane SW Group 2',
+                    u'            ├── Jane SW Group 2 (another one)',
+                    u'            └── John SW Group 2',
+                ],
+            )
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):
