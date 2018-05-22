@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      id="preparation"
-      meta:interpolation="true"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
         webhelpers nocall:view/@@webhelpers;
@@ -26,8 +23,7 @@
             method="POST"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
       >
-        <nav class="page-actions">
-          <a tal:replace="structure here/@@publication_badge|nothing" />
+        <nav class="page-actions" metal:define-slot="page-actions">
           <a class="icon-share iconified pat-tooltip"
              href="${request/ACTUAL_URL}#sharing-menu"
              title="Share this OiRA-Tool"
