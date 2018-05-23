@@ -23,19 +23,21 @@
             method="POST"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
       >
-        <nav class="page-actions" metal:define-slot="page-actions">
-          <a class="icon-share iconified pat-tooltip"
-             href="${request/ACTUAL_URL}#sharing-menu"
-             title="Share this OiRA-Tool"
-             data-pat-tooltip="source: ajax; position-list: tr"
-             tal:condition="webhelpers/allow_social_sharing"
-             i18n:attributes="title"
-          >Share</a>
-          <a class="iconified icon-trash pat-modal"
-             href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
-             title="Delete this session"
-             i18n:attributes="title"
-          >Delete</a>
+        <nav class="page-actions">
+          <metal:actions define-slot="page-actions">
+            <a class="icon-share iconified pat-tooltip"
+               href="${request/ACTUAL_URL}#sharing-menu"
+               title="Share this OiRA-Tool"
+               data-pat-tooltip="source: ajax; position-list: tr"
+               tal:condition="webhelpers/allow_social_sharing"
+               i18n:attributes="title"
+            >Share</a>
+            <a class="iconified icon-trash pat-modal"
+               href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
+               title="Delete this session"
+               i18n:attributes="title"
+            >Delete</a>
+          </metal:actions>
         </nav>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit focus"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
