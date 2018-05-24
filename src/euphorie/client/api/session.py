@@ -1,23 +1,23 @@
 from Acquisition.interfaces import IAcquirer
-from zope.component import adapts
-from zope.component import queryMultiAdapter
-from zope.interface import Interface
-from five import grok
-from sqlalchemy.orm import object_session
-from ZPublisher.BaseRequest import DefaultPublishTraverse
-from euphorie.content.survey import ISurvey
-from euphorie.client.model import Company
-from euphorie.client.model import SurveySession
 from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
-from euphorie.client.utils import HasText
+from euphorie.client.model import Company
+from euphorie.client.model import SurveySession
 from euphorie.client.navigation import FindFirstQuestion
-from euphorie.client.survey import ActionPlan as BaseActionPlan
-from euphorie.client.survey import find_sql_context
-from euphorie.client.survey import build_tree_aq_chain
 from euphorie.client.report import ActionPlanReportDownload
 from euphorie.client.report import ActionPlanTimeline
 from euphorie.client.report import IdentificationReportDownload
+from euphorie.client.survey import ActionPlan as BaseActionPlan
+from euphorie.client.survey import build_tree_aq_chain
+from euphorie.client.survey import find_sql_context
+from euphorie.client.utils import HasText
+from euphorie.content.survey import ISurvey
+from five import grok
+from sqlalchemy.orm import object_session
+from zope.component import adapts
+from zope.component import queryMultiAdapter
+from zope.interface import Interface
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 def get_survey(request, path):
@@ -42,14 +42,15 @@ class View(JsonView):
         return {}
 
     def do_GET(self):
-        info = {'id': self.context.id,
-                'type': 'session',
-                'survey': self.context.zodb_path,
-                'created': self.context.created.isoformat(),
-                'modified': self.context.modified.isoformat(),
-                'title': self.context.title,
-                'next-step': '%s/identification' % self.context.absolute_url(),
-               }
+        info = {
+            'id': self.context.id,
+            'type': 'session',
+            'survey': self.context.zodb_path,
+            'created': self.context.created.isoformat(),
+            'modified': self.context.modified.isoformat(),
+            'title': self.context.title,
+            'next-step': '%s/identification' % self.context.absolute_url(),
+        }
         survey = get_survey(self.request, self.context.zodb_path)
         if HasText(survey.introduction):
             info['introduction'] = survey.introduction
@@ -71,9 +72,11 @@ class Identification(JsonView):
         info['phase'] = self.phase
         risk = FindFirstQuestion(self.context, self.question_filter)
         if risk is not None:
-            info['next-step'] = '%s/%s/%s' % \
-                    (self.context.absolute_url(),
-                            '/'.join(risk.short_path), self.phase)
+            info['next-step'] = '%s/%s/%s' % (
+                self.context.absolute_url(),
+                '/'.join(risk.short_path),
+                self.phase,
+            )
         elif self.next_phase is not None:
             info['next-step'] = '%s/%s' % \
                     (self.context.absolute_url(), self.next_phase)
@@ -143,14 +146,14 @@ class SurveySessionPublishTraverse(DefaultPublishTraverse):
         node_id = find_sql_context(self.context.id, stack)
         if node_id is not None:
             self.request.survey_session = self.context
-            if stack and stack[-1] != 'actionplans' and\
-                    not stack[-1].startswith('@@'):
+            if stack and stack[-1] != 'actionplans' and not stack[
+                -1
+            ].startswith('@@'):
                 stack.append('@@%s' % stack.pop())
 
             return build_tree_aq_chain(self.context, node_id)
         stack.pop()
-        view = queryMultiAdapter((self.context, request), Interface,
-                name)
+        view = queryMultiAdapter((self.context, request), Interface, name)
         if view is not None:
             if IAcquirer.providedBy(view):
                 view = view.__of__(self.context)
