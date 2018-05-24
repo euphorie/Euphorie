@@ -59,6 +59,22 @@ def add_group_id_to_account():
     execute(statement)
 
 
+def add_brand_to_session():
+    ''' A new 'brand' column has been added to the 'session' table
+    '''
+    for column in inspector.get_columns('session'):
+        if 'brand' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE session
+            ADD COLUMN brand character varying(64);
+        '''
+    )
+    execute(statement)
+
+
 def add_group_id_to_session():
     ''' A new 'group_id' column has been added to the 'session' table
     '''
@@ -124,6 +140,7 @@ def main():
     create_missing_tables()
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
+        add_brand_to_session()
         add_group_id_to_session()
         add_published_to_session()
         add_last_modifier_id_to_session()

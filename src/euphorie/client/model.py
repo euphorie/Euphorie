@@ -433,6 +433,9 @@ class SurveySession(BaseObject):
     __tablename__ = "session"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    brand = schema.Column(
+        types.String(64)
+    )
     account_id = schema.Column(
         types.Integer(),
         schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
@@ -493,6 +496,13 @@ class SurveySession(BaseObject):
             cascade="all, delete, delete-orphan"
         ),
     )
+
+    # Allow this class to be subclassed in other projects
+    __mapper_args__ = {
+        'polymorphic_identity': 'euphorie',
+        'polymorphic_on': brand,
+        'with_polymorphic': '*',
+    }
 
     @property
     def review_state(self):
