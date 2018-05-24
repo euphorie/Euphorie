@@ -18,36 +18,9 @@ from z3c.saconfig import Session
 
 import logging
 
+
 log = logging.getLogger(__name__)
 SESSION_COOKIE = "_eu_session"
-
-
-def create_survey_session(title, survey, account=None):
-    """Create a new survey session.
-
-    :param title: title for the new session.
-    :type title: unicode
-    :param survey: survey for which the session is being created
-    :type survey: :py:class:`euphorie.content.survey.Survey`
-    :rtype: :py:class:`euphorie.client.model.SurveySession` instance
-    """
-    if account is None:
-        account = model.get_current_account()
-
-    session = Session()
-    sector = aq_parent(aq_inner(survey))
-    country = aq_parent(sector)
-    zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
-    survey_session = model.SurveySession(
-        title=title,
-        zodb_path=zodb_path,
-        account_id=account.id,
-        group_id=account.group_id,
-    )
-    session.add(survey_session)
-    session.refresh(account)
-    session.flush()  # flush so we get a session id
-    return survey_session
 
 
 class SessionManagerFactory(object):
@@ -146,5 +119,34 @@ class SessionManagerFactory(object):
 SessionManager = SessionManagerFactory()
 """Global instance of :py:class:`SessionManagerFactory`.
 """
+
+
+def create_survey_session(title, survey, account=None):
+    """Create a new survey session.
+
+    :param title: title for the new session.
+    :type title: unicode
+    :param survey: survey for which the session is being created
+    :type survey: :py:class:`euphorie.content.survey.Survey`
+    :rtype: :py:class:`euphorie.client.model.SurveySession` instance
+    """
+    if account is None:
+        account = model.get_current_account()
+
+    session = Session()
+    sector = aq_parent(aq_inner(survey))
+    country = aq_parent(sector)
+    zodb_path = '%s/%s/%s' % (country.id, sector.id, survey.id)
+    survey_session = SessionManager.model(
+        title=title,
+        zodb_path=zodb_path,
+        account_id=account.id,
+        group_id=account.group_id,
+    )
+    session.add(survey_session)
+    session.refresh(account)
+    session.flush()  # flush so we get a session id
+    return survey_session
+
 
 __all__ = ["SessionManager"]

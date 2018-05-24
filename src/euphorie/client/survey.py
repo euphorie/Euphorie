@@ -116,7 +116,7 @@ class View(grok.View):
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session = Session.query(model.SurveySession).get(info["session"])
+        session = Session.query(SessionManager.model).get(info["session"])
         current_user = aq_base(getSecurityManager().getUser())
         if session.account is not current_user:
             log.warn(
@@ -821,7 +821,7 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             conf = getUtility(IAppConfig).get("euphorie", {})
             debug_ids = conf.get('debug_sessions', '').strip().splitlines()
             for sid in debug_ids:
-                session = Session.query(model.SurveySession).get(sid)
+                session = Session.query(SessionManager.model).get(sid)
                 if hasattr(session, 'zodb_path') and \
                         session.zodb_path == client_path:
                     SessionManager.resume(session)
