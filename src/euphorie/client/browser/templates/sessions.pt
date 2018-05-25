@@ -20,78 +20,76 @@
                 "
     >
       <tal:block replace="tile:statusmessages" />
-      <div id="content">
-        <form class="pat-inject pat-autosubmit"
-              id="canvas-toolbar"
-              action="${request/getURL}#sessions"
-              tal:define="
-                options view/scope_options;
-              "
+      <form class="pat-inject pat-autosubmit"
+            id="canvas-toolbar"
+            action="${request/getURL}#sessions"
+            tal:define="
+              options view/scope_options;
+            "
+      >
+        <label class="pat-select"
+               tal:condition="view/scope_options"
         >
-          <label class="pat-select"
-                 tal:condition="view/scope_options"
-          >
-            <select name="scope">
-              <option selected="${option/selected|nothing}"
-                      value="${option/value}"
-                      tal:repeat="option options"
-              >${option/label}</option>
-            </select>
-          </label>
-          <a class="pat-button float-after pat-modal icon-plus-circle"
-             id="button-new-session"
-             href="${here/absolute_url}/@@new-session.html#document-content"
-             title="Start a new session"
-             data-pat-modal="class: large"
-             i18n:attributes="title"
-             i18n:translate=""
-          >start a new session</a>
-        </form>
-        <fieldset class="session-list"
-                  id="sessions"
-        >
-          <tal:node repeat="child root/groups">
-            <metal:node define-macro="node">
-              <fieldset class="${child/type}"
-                        tal:condition="python:child.type == 'department'"
-              >
-                <legend class="${child/type}-name">${child/title}</legend>
-                <tal:nodes repeat="child child/groups">
-                  <metal:node use-macro="template/macros/node" />
-                </tal:nodes>
-              </fieldset>
-              <tal:survey tal:condition="python:child.type == 'tool'">
-                <h3 class="${child/type}-name">${child/title}</h3>
-                <ul class="sessions">
-                  <tal:session repeat="child child/sessions">
-                    <li class="session"
-                        tal:define="
-                          session child/context;
-                        "
+          <select name="scope">
+            <option selected="${option/selected|nothing}"
+                    value="${option/value}"
+                    tal:repeat="option options"
+            >${option/label}</option>
+          </select>
+        </label>
+        <a class="pat-button float-after pat-modal icon-plus-circle"
+           id="button-new-session"
+           href="${here/absolute_url}/@@new-session.html#document-content"
+           title="Start a new session"
+           data-pat-modal="class: large"
+           i18n:attributes="title"
+           i18n:translate=""
+        >start a new session</a>
+      </form>
+      <fieldset class="session-list"
+                id="sessions"
+      >
+        <tal:node repeat="child root/groups">
+          <metal:node define-macro="node">
+            <fieldset class="${child/type}"
+                      tal:condition="python:child.type == 'department'"
+            >
+              <legend class="${child/type}-name">${child/title}</legend>
+              <tal:nodes repeat="child child/groups">
+                <metal:node use-macro="template/macros/node" />
+              </tal:nodes>
+            </fieldset>
+            <tal:survey tal:condition="python:child.type == 'tool'">
+              <h3 class="${child/type}-name">${child/title}</h3>
+              <ul class="sessions">
+                <tal:session repeat="child child/sessions">
+                  <li class="session"
+                      tal:define="
+                        session child/context;
+                      "
+                  >
+                    <a class="name field"
+                       href="${request/getURL}?action=continue&amp;session=${session/id}"
+                    >${session/title}</a>
+                    <span class="date field"
+                          tal:condition="session/published"
                     >
-                      <a class="name field"
-                         href="${request/getURL}?action=continue&amp;session=${session/id}"
-                      >${session/title}</a>
-                      <span class="date field"
-                            tal:condition="session/published"
-                      >
-                        <tal:i18n i18n:translate="">Last published</tal:i18n>
-                        <time class="pat-display-time"
-                              datetime="${value}"
-                              data-pat-display-time="from-now: true; locale: ${language}"
-                              tal:define="
-                                value session/published/isoformat|nothing;
-                              "
-                        >${value}</time>
-                      </span>
-                    </li>
-                  </tal:session>
-                </ul>
-              </tal:survey>
-            </metal:node>
-          </tal:node>
-        </fieldset>
-      </div>
+                      <tal:i18n i18n:translate="">Last published</tal:i18n>
+                      <time class="pat-display-time"
+                            datetime="${value}"
+                            data-pat-display-time="from-now: true; locale: ${language}"
+                            tal:define="
+                              value session/published/isoformat|nothing;
+                            "
+                      >${value}</time>
+                    </span>
+                  </li>
+                </tal:session>
+              </ul>
+            </tal:survey>
+          </metal:node>
+        </tal:node>
+      </fieldset>
     </metal:slot>
 
     <metal:slot fill-slot="splash_message_slot">
