@@ -1,12 +1,24 @@
 # coding=utf-8
+from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
+from euphorie.client import publish
+from euphorie.client.session import SessionManager
+from euphorie.content import upload
+from Products.MailHost.mailer import SMTPMailer
+from Products.MailHost.MailHost import MailHost
 from z3c.saconfig import Session
+from ZPublisher.HTTPRequest import HTTPRequest
+from ZPublisher.HTTPResponse import HTTPResponse
+
+import sys
 
 
 def addAccount(login="jane@example.com", password=u"Øle"):
-    from euphorie.client import CONDITIONS_VERSION
-    account = model.Account(loginname=login, password=password,
-            tc_approved=CONDITIONS_VERSION)
+    account = model.Account(
+        loginname=login,
+        password=password,
+        tc_approved=CONDITIONS_VERSION,
+    )
     session = Session()
     session.add(account)
     session.flush()
@@ -17,8 +29,11 @@ def createSurvey():
     session = Session()
     account = model.Account(loginname=u"jane", password=u"secret")
     session.add(account)
-    survey = model.SurveySession(title=u"Session", zodb_path="survey",
-            account=account)
+    survey = SessionManager.model(
+        title=u"Session",
+        zodb_path="survey",
+        account=account,
+    )
     session.add(survey)
     return (session, survey)
 
@@ -26,8 +41,6 @@ def createSurvey():
 def addSurvey(portal, xml_survey):
     """Add a survey to the portal. This function requires that you are already
     loggin in as portal owner."""
-    from euphorie.content import upload
-    from euphorie.client import publish
     importer = upload.SectorImporter(portal.sectors.nl)
     sector = importer(xml_survey, None, None, None, u"test import")
     survey = sector.values()[0]["test-import"]
@@ -38,12 +51,11 @@ def addSurvey(portal, xml_survey):
 def testRequest():
     """Create a new request object. This is based on the code in
     :py:func`Testing.makerequest.makerequest`."""
-    import sys
-    from ZPublisher.HTTPRequest import HTTPRequest
-    from ZPublisher.HTTPResponse import HTTPResponse
-    environ = {"SERVER_NAME": "localhost",
-               "SERVER_PORT": "80",
-               "REQUEST_METHOD": "GET"}
+    environ = {
+        "SERVER_NAME": "localhost",
+        "SERVER_PORT": "80",
+        "REQUEST_METHOD": "GET"
+    }
     request = HTTPRequest(sys.stdin, environ, HTTPResponse())
     request._steps = ["Plone"]
     return request
@@ -61,16 +73,15 @@ def registerUserInClient(browser, link="register"):
 
 
 class MockMailFixture(object):
+
     def __init__(self):
         self.storage = storage = []
 
-        from Products.MailHost.MailHost import MailHost
-
         def send(self, *a, **kw):
             storage.append((a, kw))
+
         self._original_send = MailHost.send
         MailHost.send = send
 
     def __del__(self):
-        from Products.MailHost.mailer import SMTPMailer
         SMTPMailer.send = self._original_send
