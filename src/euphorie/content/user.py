@@ -20,7 +20,6 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
 from Products.statusmessages.interfaces import IStatusMessage
@@ -39,6 +38,7 @@ from zope.component import getUtility
 from zope.event import notify
 from zope.interface import Interface
 from zope.interface import Invalid
+from zope.lifecycleevent import ObjectModifiedEvent
 from zope.schema import ValidationError
 
 import bcrypt
@@ -312,7 +312,7 @@ class UserProperties(grok.Adapter, UserProvider):
 
         if changes:
             self.context.reindexObject(idxs=list(changes))
-            notify(ObjectEditedEvent(self.context))
+            notify(ObjectModifiedEvent(self.context))
 
 
 class Lock(grok.View):
