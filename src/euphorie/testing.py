@@ -28,6 +28,7 @@ from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
 import euphorie.deployment
+import mock
 import os.path
 
 
@@ -64,7 +65,15 @@ class EuphorieFixture(PloneSandboxLayer):
             for key in all_countries
             if key in ('de', 'nl', )
         }
-        quickInstallProduct(portal, 'euphorie.deployment')
+
+        with mock.patch(
+            'plone.i18n.utility.LanguageUtility.listSupportedLanguages',
+            return_value=[
+                (u'de', u'German'),
+                (u'nl', u'Dutch'),
+            ]
+        ):
+            quickInstallProduct(portal, 'euphorie.deployment')
 
         engine = Session.bind
 
