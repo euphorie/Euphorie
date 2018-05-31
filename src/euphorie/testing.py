@@ -27,6 +27,7 @@ from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
+import euphorie.deployment
 import os.path
 
 
@@ -46,7 +47,6 @@ class EuphorieFixture(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
-        import euphorie.deployment
         import euphorie.client.tests
         self.loadZCML("configure.zcml", package=euphorie.deployment)
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
@@ -57,6 +57,13 @@ class EuphorieFixture(PloneSandboxLayer):
         quickInstallProduct(portal, 'plonetheme.nuplone')
         quickInstallProduct(portal, 'euphorie.client')
         quickInstallProduct(portal, 'euphorie.content')
+
+        all_countries = euphorie.deployment.setuphandlers.COUNTRIES.copy()
+        euphorie.deployment.setuphandlers.COUNTRIES = {
+            key: all_countries[key]
+            for key in all_countries
+            if key in ('de', 'nl', )
+        }
         quickInstallProduct(portal, 'euphorie.deployment')
 
         engine = Session.bind
@@ -103,13 +110,13 @@ class EuphorieFixture(PloneSandboxLayer):
 
 EUPHORIE_FIXTURE = EuphorieFixture()
 EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(EUPHORIE_FIXTURE,),
-    name="EuphorieFixture:Integration"
+    bases=(EUPHORIE_FIXTURE, ),
+    name="EuphorieFixture:Integration",
 )
 
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(EUPHORIE_FIXTURE,),
-    name="EuphorieFixture:Functional"
+    bases=(EUPHORIE_FIXTURE, ),
+    name="EuphorieFixture:Functional",
 )
 
 

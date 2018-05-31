@@ -20,7 +20,7 @@ class ViewBrowserTests(EuphorieFunctionalTestCase):
         browser.open('http://nohost/plone/api/countries')
         response = json.loads(browser.contents)
         self.assertEqual(set(response), set(['countries']))
-        self.assertGreater(len(response['countries']), 30)
+        self.assertEqual(len(response['countries']), 2)
         nl = [c for c in response['countries'] if c['id'] == 'nl'][0]
         self.assertEqual(set(nl), set(['id', 'title', 'country-type']))
         self.assertEqual(nl['id'], u'nl')
