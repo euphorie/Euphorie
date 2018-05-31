@@ -63,7 +63,10 @@ class EuphorieFixture(PloneSandboxLayer):
         euphorie.deployment.setuphandlers.COUNTRIES = {
             key: all_countries[key]
             for key in all_countries
-            if key in ('de', 'nl', )
+            if key in (
+                'de',
+                'nl',
+            )
         }
 
         with mock.patch(
@@ -123,8 +126,32 @@ EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
     name="EuphorieFixture:Integration",
 )
 
+
+class EuphorieDBFixture(PloneSandboxLayer):
+
+    def beforeTearDown(self):
+        Session.remove()
+        model.metadata.drop_all(Session.bind)
+        utils.setRequest(None)
+
+    # XXX testSetUp and testTearDown should not be necessary, but it seems
+    # SQL data is not correctly cleared at the end of a test method run,
+    # even if testTearDown does an explicit transaction.abort()
+    def testSetUp(self):
+        model.metadata.create_all(Session.bind, checkfirst=True)
+
+    def testTearDown(self):
+        Session.remove()
+        model.metadata.drop_all(Session.bind)
+
+
+EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
+
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(EUPHORIE_FIXTURE, ),
+    bases=(
+        EUPHORIE_FIXTURE,
+        EUPHORIE_DB_FIXTURE,
+    ),
     name="EuphorieFixture:Functional",
 )
 
