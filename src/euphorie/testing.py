@@ -1,5 +1,7 @@
 # coding=utf-8
 from contextlib import contextmanager
+from euphorie.client import model
+from euphorie.client import utils
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import setRequest
@@ -15,9 +17,13 @@ from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from Products.membrane.testing import MEMBRANE_PROFILES_FIXTURE
+from sqlalchemy import event
 from transaction import commit
 from unittest import TestCase
+from z3c.appconfig.interfaces import IAppConfig
+from z3c.saconfig import Session
 from Zope2.Startup.datatypes import default_zpublisher_encoding
+from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
@@ -53,11 +59,7 @@ class EuphorieFixture(PloneSandboxLayer):
         quickInstallProduct(portal, 'euphorie.content')
         quickInstallProduct(portal, 'euphorie.deployment')
 
-        from euphorie.client import model
-        from z3c.saconfig import Session
-
         engine = Session.bind
-        from sqlalchemy import event
 
         @event.listens_for(engine, "connect")
         def do_connect(dbapi_connection, connection_record):
@@ -72,9 +74,6 @@ class EuphorieFixture(PloneSandboxLayer):
 
         model.metadata.create_all(Session.bind, checkfirst=True)
 
-        from zope.component import getUtility
-        from z3c.appconfig.interfaces import IAppConfig
-
         appconfig = getUtility(IAppConfig)
         appconfig.loadConfig(TEST_INI, clear=True)
         api.portal.set_registry_record(
@@ -87,9 +86,6 @@ class EuphorieFixture(PloneSandboxLayer):
         )
 
     def beforeTearDown(self):
-        from euphorie.client import model
-        from euphorie.client import utils
-        from z3c.saconfig import Session
         Session.remove()
         model.metadata.drop_all(Session.bind)
         utils.setRequest(None)
@@ -98,13 +94,9 @@ class EuphorieFixture(PloneSandboxLayer):
     # SQL data is not correctly cleared at the end of a test method run,
     # even if testTearDown does an explicit transaction.abort()
     def testSetUp(self):
-        from euphorie.client import model
-        from z3c.saconfig import Session
         model.metadata.create_all(Session.bind, checkfirst=True)
 
     def testTearDown(self):
-        from euphorie.client import model
-        from z3c.saconfig import Session
         Session.remove()
         model.metadata.drop_all(Session.bind)
 
