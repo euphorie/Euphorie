@@ -7,25 +7,23 @@ handling. It is used by :obj:`euphorie.content.sector` and
 :obj:`euphorie.content.countrymanager`
 """
 
-import re
-import bcrypt
-import logging
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from Products.Archetypes.BaseObject import shasattr
-from Products.Archetypes.event import ObjectEditedEvent
-from Products.CMFCore.interfaces import ISiteRoot
-from Products.membrane.interfaces import user as membrane
-from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
+from p01.widget.password.interfaces import IPasswordConfirmationWidget
+from p01.widget.password.widget import PasswordConfirmationValidator
+from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plone import api
+from Products.Archetypes.event import ObjectEditedEvent
+from Products.CMFCore.interfaces import ISiteRoot
+from Products.membrane.interfaces import user as membrane
+from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
@@ -42,8 +40,11 @@ from zope.event import notify
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.schema import ValidationError
-from p01.widget.password.interfaces import IPasswordConfirmationWidget
-from p01.widget.password.widget import PasswordConfirmationValidator
+
+import bcrypt
+import logging
+import re
+
 
 log = logging.getLogger(__name__)
 RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
@@ -214,7 +215,7 @@ class UserAuthentication(grok.Adapter, UserProvider):
     def applyLockoutPolicy(self, max_attempts):
         if not max_attempts:
             return
-        if not shasattr(self.context, '_v_login_attempts'):
+        if not hasattr(aq_base(self.context), '_v_login_attempts'):
             self.context._v_login_attempts = 0
         self.context._v_login_attempts += 1
 

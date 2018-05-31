@@ -18,6 +18,7 @@ from .module import IModule
 from .profilequestion import IProfileQuestion
 from .utils import DragDropHelper
 from .utils import StripMarkup
+from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content.dependency import ConditionalHtmlText
@@ -33,7 +34,6 @@ from plone.indexer import indexer
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
-from Products.Archetypes.utils import shasattr
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
@@ -322,7 +322,7 @@ class Delete(actions.Delete):
     def verify(self, container, context):
         flash = IStatusMessage(self.request).addStatusMessage
 
-        if shasattr(container, 'published') and \
+        if hasattr(aq_base(container), 'published') and \
                 container.published == context.id:
             flash(_("message_no_delete_published_survey",
                     default=u"You cannot delete an OiRA Tool version that is published. "
@@ -351,7 +351,7 @@ class Delete(actions.Delete):
 @grok.subscribe(ISurvey, ISurveyUnpublishEvent)
 def handleSurveyUnpublish(survey, event):
     """Event handler (subscriber) for unpublishing a survey."""
-    if shasattr(survey, "published"):
+    if hasattr(aq_base(survey), "published"):
         delattr(survey, "published")
 
     surveygroup = aq_parent(survey)
