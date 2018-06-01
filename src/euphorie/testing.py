@@ -1,7 +1,6 @@
 # coding=utf-8
 from contextlib import contextmanager
 from euphorie.client import model
-from euphorie.client import utils
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.utils import getRequest
 from euphorie.client.utils import setRequest
@@ -37,10 +36,45 @@ NO_SAVEPOINT_SUPPORT.remove('sqlite')
 TEST_INI = os.path.join(os.path.dirname(__file__), "deployment/tests/test.ini")
 
 
+class EuphorieDBFixture(PloneSandboxLayer):
+
+    def setUpZope(self, app, configurationContext):
+        import euphorie.client.tests
+        self.loadZCML("configure.zcml", package=euphorie.client.tests)
+        engine = Session.bind
+
+        @event.listens_for(engine, "connect")
+        def do_connect(dbapi_connection, connection_record):
+            # disable pysqlite's emitting of the BEGIN statement entirely.
+            # also stops it from emitting COMMIT before any DDL.
+            dbapi_connection.isolation_level = None
+
+        @event.listens_for(engine, "begin")
+        def do_begin(conn):
+            # emit our own BEGIN
+            conn.execute("BEGIN")
+
+        model.metadata.create_all(Session.bind, checkfirst=True)
+
+    # XXX testSetUp and testTearDown should not be necessary, but it seems
+    # SQL data is not correctly cleared at the end of a test method run,
+    # even if testTearDown does an explicit transaction.abort()
+    def testSetUp(self):
+        model.metadata.create_all(Session.bind, checkfirst=True)
+
+    def testTearDown(self):
+        Session.remove()
+        model.metadata.drop_all(Session.bind)
+
+
+EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
+
+
 class EuphorieFixture(PloneSandboxLayer):
 
     defaultBases = (
         MEMBRANE_PROFILES_FIXTURE,
+        EUPHORIE_DB_FIXTURE,
         PLONE_FIXTURE,
     )
 
@@ -78,21 +112,6 @@ class EuphorieFixture(PloneSandboxLayer):
         ):
             quickInstallProduct(portal, 'euphorie.deployment')
 
-        engine = Session.bind
-
-        @event.listens_for(engine, "connect")
-        def do_connect(dbapi_connection, connection_record):
-            # disable pysqlite's emitting of the BEGIN statement entirely.
-            # also stops it from emitting COMMIT before any DDL.
-            dbapi_connection.isolation_level = None
-
-        @event.listens_for(engine, "begin")
-        def do_begin(conn):
-            # emit our own BEGIN
-            conn.execute("BEGIN")
-
-        model.metadata.create_all(Session.bind, checkfirst=True)
-
         appconfig = getUtility(IAppConfig)
         appconfig.loadConfig(TEST_INI, clear=True)
         api.portal.set_registry_record(
@@ -104,44 +123,19 @@ class EuphorieFixture(PloneSandboxLayer):
             'discard@simplon.biz',
         )
 
-    def beforeTearDown(self):
-        Session.remove()
-        model.metadata.drop_all(Session.bind)
-        utils.setRequest(None)
-
-    # XXX testSetUp and testTearDown should not be necessary, but it seems
-    # SQL data is not correctly cleared at the end of a test method run,
-    # even if testTearDown does an explicit transaction.abort()
-    def testSetUp(self):
-        model.metadata.create_all(Session.bind, checkfirst=True)
-
-    def testTearDown(self):
-        Session.remove()
-        model.metadata.drop_all(Session.bind)
-
 
 EUPHORIE_FIXTURE = EuphorieFixture()
 EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(EUPHORIE_FIXTURE, ),
+    bases=(
+        EUPHORIE_FIXTURE,
+    ),
     name="EuphorieFixture:Integration",
 )
 
 
-class EuphorieDBFixture(PloneSandboxLayer):
-
-    def testSetUp(self):
-        self.transaction = Session.connection().begin()
-
-    def testTearDown(self):
-        self.transaction.rollback()
-
-
-EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
-
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(
         EUPHORIE_FIXTURE,
-        EUPHORIE_DB_FIXTURE,
     ),
     name="EuphorieFixture:Functional",
 )
