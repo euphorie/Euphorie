@@ -129,15 +129,11 @@ EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
 
 class EuphorieDBFixture(PloneSandboxLayer):
 
-    # XXX testSetUp and testTearDown should not be necessary, but it seems
-    # SQL data is not correctly cleared at the end of a test method run,
-    # even if testTearDown does an explicit transaction.abort()
     def testSetUp(self):
-        model.metadata.create_all(Session.bind, checkfirst=True)
+        self.transaction = Session.connection().begin()
 
     def testTearDown(self):
-        Session.remove()
-        model.metadata.drop_all(Session.bind)
+        self.transaction.rollback()
 
 
 EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
