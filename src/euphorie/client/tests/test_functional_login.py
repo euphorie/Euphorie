@@ -6,7 +6,6 @@ from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
-from plone import api
 from z3c.appconfig.interfaces import IAppConfig
 from zope import component
 from zope.interface import alsoProvides
