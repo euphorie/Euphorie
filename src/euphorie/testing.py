@@ -38,9 +38,11 @@ TEST_INI = os.path.join(os.path.dirname(__file__), "deployment/tests/test.ini")
 
 class EuphorieDBFixture(PloneSandboxLayer):
 
+    filename = 'configure.zcml'
+
     def setUpZope(self, app, configurationContext):
         import euphorie.client.tests
-        self.loadZCML("configure.zcml", package=euphorie.client.tests)
+        self.loadZCML(self.filename, package=euphorie.client.tests)
         engine = Session.bind
 
         @event.listens_for(engine, "connect")
@@ -54,7 +56,8 @@ class EuphorieDBFixture(PloneSandboxLayer):
             # emit our own BEGIN
             conn.execute("BEGIN")
 
-        model.metadata.create_all(Session.bind, checkfirst=True)
+        # Start fresh
+        self.testTearDown()
 
     # XXX testSetUp and testTearDown should not be necessary, but it seems
     # SQL data is not correctly cleared at the end of a test method run,
@@ -67,14 +70,21 @@ class EuphorieDBFixture(PloneSandboxLayer):
         model.metadata.drop_all(Session.bind)
 
 
+class EuphorieRobotDBFixture(EuphorieDBFixture):
+    # We cannot use a memory DB for the robot tests because the test runner
+    # is going to spawn another process and the memory DB
+    # will not be shared between the two processes
+    filename = 'robot.zcml'
+
+
 EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
+EUPHORIE_ROBOT_DB_FIXTURE = EuphorieRobotDBFixture()
 
 
 class EuphorieFixture(PloneSandboxLayer):
 
     defaultBases = (
         MEMBRANE_PROFILES_FIXTURE,
-        EUPHORIE_DB_FIXTURE,
         PLONE_FIXTURE,
     )
 
@@ -125,8 +135,10 @@ class EuphorieFixture(PloneSandboxLayer):
 
 
 EUPHORIE_FIXTURE = EuphorieFixture()
+
 EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(
+        EUPHORIE_DB_FIXTURE,
         EUPHORIE_FIXTURE,
     ),
     name="EuphorieFixture:Integration",
@@ -135,6 +147,7 @@ EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
 
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(
+        EUPHORIE_DB_FIXTURE,
         EUPHORIE_FIXTURE,
     ),
     name="EuphorieFixture:Functional",
