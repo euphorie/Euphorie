@@ -9,6 +9,7 @@ Views for the identification and action plan phases.
 from .. import MessageFactory as _
 from Acquisition import aq_chain
 from Acquisition import aq_inner
+from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
@@ -76,16 +77,14 @@ class IdentificationView(grok.View):
             self.context.comment = reply.get("comment")
             if self.use_existing_measures:
                 measures = self.get_existing_measures()
-                new_measures = []
-                for i, entry in enumerate(measures):
+                new_measures = OrderedDict()
+                for i, entry in enumerate(measures.keys()):
                     on = int(bool(reply.get('measure-{}'.format(i))))
-                    entry[0] = on
-                    measures[i] = entry
                     if on:
-                        new_measures.append([1, entry[1]])
+                        new_measures.update({entry: 1})
                 for k, val in reply.items():
                     if k.startswith('new-measure') and val.strip() != '':
-                        new_measures.append([1, val])
+                        new_measures.update({val: 1})
                 self.context.existing_measures = dumps(new_measures)
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
@@ -174,8 +173,10 @@ class IdentificationView(grok.View):
                     self.title_extra = _(
                         "Are the measures that are selected above sufficient?")
                 if not self.context.existing_measures:
-                    self.context.existing_measures = dumps(
-                        [(1, text) for text in measures.splitlines()])
+                    existing_measures = OrderedDict([
+                        (text, 1) for text in measures.splitlines()
+                    ])
+                    self.context.existing_measures = dumps(existing_measures)
 
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
@@ -195,11 +196,24 @@ class IdentificationView(grok.View):
             super(IdentificationView, self).update()
 
     def get_existing_measures(self):
+        defined_measures = self.risk.existing_measures or ""
         try:
-            existing_measures = loads(self.context.existing_measures)
+            saved_existing_measures = loads(self.context.existing_measures)
+            existing_measures = OrderedDict()
+            # All the pre-defined measures are always shown, either
+            # activated or deactivated
+            for text in defined_measures.splitlines():
+                if text in saved_existing_measures:
+                    existing_measures.update({text: 1})
+                    saved_existing_measures.pop(text)
+                else:
+                    existing_measures.update({text: 0})
+            # Finally, add the user-defined measures as well
+            existing_measures.update(saved_existing_measures)
         except ValueError:
-            measures = self.risk.existing_measures or ""
-            existing_measures = [(1, text) for text in measures.splitlines()]
+            existing_measures = OrderedDict([
+                (text, 1) for text in defined_measures.splitlines()
+            ])
             self.context.existing_measures = dumps(existing_measures)
         return existing_measures
 
@@ -243,13 +257,24 @@ class ActionPlanView(grok.View):
     DESCRIPTION_CROP_LENGTH = 200
 
     def get_existing_measures(self):
+        defined_measures = self.risk.existing_measures or ""
         try:
-            existing_measures = (
+            saved_existing_measures = (
                 self.context.existing_measures and
                 loads(self.context.existing_measures) or [])
+            existing_measures = OrderedDict()
+            # All the pre-defined measures are always shown, either
+            # activated or deactivated
+            for text in defined_measures.splitlines():
+                if text in saved_existing_measures:
+                    existing_measures.update({text: 1})
+                    saved_existing_measures.pop(text)
+            # Finally, add the user-defined measures as well
+            existing_measures.update(saved_existing_measures)
         except ValueError:
-            measures = self.risk.existing_measures or ""
-            existing_measures = [(1, text) for text in measures.splitlines()]
+            existing_measures = OrderedDict([
+                (text, 1) for text in defined_measures.splitlines()
+            ])
             self.context.existing_measures = dumps(existing_measures)
         return existing_measures
 

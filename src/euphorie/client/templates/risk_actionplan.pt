@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
@@ -55,6 +56,19 @@
 
 
 <div class="measures pat-clone" data-pat-clone="template: #measure-template; remove-behaviour: none; remove-confirmation: ${view/delete_confirmation}" id="ActionPlanItemForm">
+
+    <!-- Existing Measures -->
+    <tal:existing_measures condition="view/use_existing_measures" define="measures view/get_existing_measures">
+      <div class="measure pat-collapsible" tal:repeat="measure measures">
+        <h2><tal:translate i18n:translate="label_existing_measure">Existing measure</tal:translate> ${repeat/measure/number}</h2>
+        <h4 i18n:translate="label_description">Description</h4>
+        <p>
+          ${python:measure}
+        </p>
+      </div>
+    </tal:existing_measures>
+
+
     <div class="measure clone pat-collapsible"
          tal:define="measures view/solutions|python:[]"
         tal:repeat="actionplan action_plans">
@@ -206,20 +220,6 @@
       </label>
     </fieldset>
   </div>
-
-    <!-- Existing Measures -->
-    <fieldset class="vertical" id="existing_measures" tal:condition="view/use_existing_measures">
-      <article class="rich">
-        <legend i18n:translate="label_existing_measures">Existing measures</legend>
-        <ul tal:define="measures view/get_existing_measures" tal:condition="measures">
-          <tal:measure repeat="measure measures">
-            <li tal:condition="python:measure[0]">
-                ${python:measure[1]}
-            </li>
-          </tal:measure>
-        </ul>
-      </article>
-    </fieldset>
 
     <fieldset id="comments">
         <textarea id="commentsField" name="comment:utf8:ustring" cols="70" rows="3"

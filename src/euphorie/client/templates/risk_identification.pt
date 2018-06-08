@@ -25,10 +25,11 @@
           <p i18n:translate="select_add_existing_measure">
             Select or add any measures that are already in place.
           </p>
-          <tal:measures repeat="measure view/get_existing_measures">
+          <tal:measures define="measures view/get_existing_measures"
+                        repeat="measure measures">
             <label>
-                <input checked="${python:measure[0] and 'checked' or None}" type="checkbox" name="measure-${repeat/measure/index}" />
-                ${python:measure[1]}
+                <input checked="${python:measures[measure] and 'checked' or None}" type="checkbox" name="measure-${repeat/measure/index}" />
+                ${python:measure}
             </label>
           </tal:measures>
 
