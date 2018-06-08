@@ -16,12 +16,40 @@
       data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content"
       data-pat-scroll="selector: #content; trigger: auto; offset: 0">
 
+    <h2 class="risk-title">${here/title}</h2>
     <!-- Identification -->
-    <fieldset class="vertical" id="${view/risk_number}" tal:define="always_present risk/risk_always_present">
-    <fieldset class="pat-checklist radio">
-        <legend tal:content="risk/title">The temperature of all fridges is checked daily</legend>
+    <fieldset class="vertical" id="${view/risk_number}" tal:define="always_present risk/risk_always_present; existing_measures view/get_existing_measures">
+      <fieldset class="pat-checklist pat-clone" data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none" id="ActionPlanItemForm">
+        <!-- Existing Measures -->
+        <tal:existing_measures condition="view/show_existing_measures">
+          <p i18n:translate="select_add_existing_measure">
+            Select or add any measures that are already in place.
+          </p>
+          <tal:measures repeat="measure view/get_existing_measures">
+            <label>
+                <input checked="${python:measure[0] and 'checked' or None}" type="checkbox" name="measure-${repeat/measure/index}" />
+                ${python:measure[1]}
+            </label>
+          </tal:measures>
+
+          <label id="measure-template" class="clone" hidden="hidden">
+            <input type="checkbox" name="use-new-measure-#{1}" class="pat-autofocus" autofocus="autofocus" disabled="disabled" checked="checked" />
+            <textarea placeholder="Describe a measure that is already in place but not yet listed here." cols="50" rows="3" name="new-measure-#{1}" i18n:attributes="placeholder placeholder_new_existing"></textarea>
+            <button class="icon-trash iconified remove-clone" title="Remove this existing measure">Remove</button>
+          </label>
+        </tal:existing_measures>
+
+      </fieldset>
+
+      <div class="button-bar cloning" tal:condition="view/show_existing_measures">
+        <button class="add-clone small pat-button icon-plus-circle" id="addMeasureButton" title="Add another measure" type="button" i18n:translate="button_add_existing_measure">Add a missing measure</button>
+      </div>
+
+      <fieldset class="pat-checklist radio">
+        <tal:existing condition="view/show_existing_measures">
+          <p tal:condition="view/title_extra">${view/title_extra}</p>
+        </tal:existing>
         <p class="byline" tal:condition="always_present" i18n:translate="explanation_risk_always_present">This risk was automatically set as being present. You cannot change this.</p>
-        <p class="byline" tal:condition="view/title_extra"><em>${view/title_extra}</em></p>
         <tal:answers condition="not:always_present">
         <input type="hidden" name="answer:default" value="postponed"/>
         <tal:existing condition="view/show_existing_measures">
@@ -164,22 +192,6 @@
         <metal:call use-macro="webhelpers/macros/risk_info_identification" />
         <metal:call use-macro="webhelpers/macros/risk_legal" />
     </article>
-
-
-    <!-- Existing Measures -->
-    <tal:existing_measures condition="view/use_existing_measures">
-      <div class="measures" id="existing-measures" tal:repeat="measure view/get_existing_measures">
-        <fieldset class="measure pat-checklist functions">
-         <label>
-           <input type="checkbox" checked="${python:measure[0] and 'checked' or None}" name="measure-${repeat/measure/index}" /><tal:i18n i18n:translate="">Existing Measure</tal:i18n> ${repeat/measure/number} <span class="untick" i18n:translate="">(Untick if not applicable)</span>
-         </label>
-         <dl class="fields pat-grid-list">
-          <dt i18n:translate="label_description">Description</dt>
-          <dd>${python:measure[1]}</dd>
-         </dl>
-        </fieldset>
-      </div>
-    </tal:existing_measures>
 
     <!-- Comments -->
     <fieldset class="vertical" id="comments">
