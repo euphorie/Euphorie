@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.37 (unreleased)
+9.0.37 (2018-06-14)
 -------------------
 
 - Label change: "Obsolete OiRA tool" instead of "Survey"
