@@ -4,7 +4,8 @@ Changelog
 9.0.37 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Label change: "Obsolete OiRA tool" instead of "Survey"
+- Translation fix for IT
 
 
 9.0.36 (2018-04-26)
