@@ -97,7 +97,7 @@
     </ol>
 
     <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:analytics replace="tile:client-analytics"/>
     <script type="text/javascript">

@@ -68,7 +68,7 @@
         </div>
       </div>
 
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
 
     <tal:block replace="tile:client-analytics"/>
   </article>

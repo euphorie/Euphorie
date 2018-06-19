@@ -109,7 +109,7 @@
       <metal:home use-macro="webhelpers/macros/homelink"/>
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
     </ul>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
    <script type="text/javascript" meta:interpolation="false">
 // <![CDATA[

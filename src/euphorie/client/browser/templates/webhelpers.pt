@@ -104,15 +104,6 @@
     </div>
   </metal:survey>
 
-  <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
-    <p id="appendix">
-      <tal:block repeat="page webhelpers/appendix"
-      ><a href="${page/url}">${page/title}</a> |</tal:block>
-      <tal:span i18n:translate="appendix_produced_by">Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_new">EU-OSHA</a>.</tal:span> |
-      <a href="${webhelpers/about_url}" i18n:translate="appendix_about">About</a>
-    </p>
-  </metal:appendix>
-
   <metal:riskinfo define-macro="risk_info_actionplan" meta:interpolation="true" i18n:domain="euphorie" >
   <div tal:condition="python:view.number_images > 1" class="image-collage pat-gallery pat-equaliser">
     <tal:get define="images risk/@@images">

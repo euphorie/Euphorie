@@ -60,7 +60,7 @@
       <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
       <li tal:condition="webhelpers/authenticated"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
     </ul>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
     <metal:block define-slot="scripts"/>

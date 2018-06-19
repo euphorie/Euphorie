@@ -31,6 +31,7 @@ from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import POSKeyError
+from zope.browser.interfaces import IBrowserView
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
@@ -80,8 +81,16 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def _my_context(self):
+        context = self.context
+        if IBrowserView.providedBy(context):
+            context = context.context
+        return context
+
+    @property
+    @memoize
     def sector(self):
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(self._my_context)):
             if IClientSector.providedBy(obj):
                 return obj
 
@@ -142,7 +151,7 @@ class WebHelpers(BrowserView):
     def came_from(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            return aq_parent(self.context).absolute_url()
+            return aq_parent(self._my_context).absolute_url()
         if not isinstance(came_from, list):
             return came_from
         # If came_from is both in the querystring and the form data
@@ -151,21 +160,21 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country_name(self):
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(self._my_context)):
             if IClientCountry.providedBy(obj):
                 return obj.Title()
 
     @property
     @memoize
     def sector_name(self):
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(self._my_context)):
             if IClientSector.providedBy(obj):
                 return obj.Title()
 
     @property
     @memoize
     def _tool(self):
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(self._my_context)):
             if ISurvey.providedBy(obj):
                 return obj
 
@@ -183,13 +192,13 @@ class WebHelpers(BrowserView):
         obj = self._tool
         if not obj:
             return ''
-        ploneview = self.context.restrictedTraverse('@@plone')
+        ploneview = self._my_context.restrictedTraverse('@@plone')
         return ploneview.cropText(StripMarkup(obj.introduction), 800)
 
     @property
     @memoize
     def language_code(self):
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self._my_context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         return lang
 
@@ -210,7 +219,7 @@ class WebHelpers(BrowserView):
         return self.index.macros
 
     def country(self):
-        for obj in aq_chain(aq_inner(self.context)):
+        for obj in aq_chain(aq_inner(self._my_context)):
             if IClientCountry.providedBy(obj):
                 return obj.id
         return None
@@ -260,7 +269,7 @@ class WebHelpers(BrowserView):
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')
 
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self._my_context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         parts.append('language-%s' % lang)
 
@@ -293,7 +302,7 @@ class WebHelpers(BrowserView):
         """
         base_url = self.survey_url()
         if base_url is not None and \
-                aq_inner(self.context).absolute_url().startswith(base_url):
+                aq_inner(self._my_context).absolute_url().startswith(base_url):
             return base_url
         base_url = self.country_url
         if base_url is not None:
@@ -377,7 +386,7 @@ class WebHelpers(BrowserView):
         if sector is not None:
             return aq_parent(sector).absolute_url()
 
-        for parent in aq_chain(aq_inner(self.context)):
+        for parent in aq_chain(aq_inner(self._my_context)):
             if IClientCountry.providedBy(parent):
                 return parent.absolute_url()
 
@@ -436,11 +445,11 @@ class WebHelpers(BrowserView):
         return self._survey is not None
 
     @reify
-    def appendix(self):
+    def appendix_documents(self):
         """Return a list of items to be shown in the appendix."""
         documents = api.portal.get().documents
 
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self._my_context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         if '-' in lang:
             languages = [lang, lang.split('-')[0]]
@@ -494,7 +503,7 @@ class WebHelpers(BrowserView):
         return messages
 
     def _getLanguages(self):
-        lt = getToolByName(self.context, "portal_languages")
+        lt = getToolByName(self._my_context, "portal_languages")
         lang = lt.getPreferredLanguage()
         if "-" in lang:
             return [lang, lang.split("-")[0], "en"]
@@ -528,7 +537,7 @@ class WebHelpers(BrowserView):
 
     def tool_notification(self):
         message = None
-        obj = self.context
+        obj = self._my_context
         if isinstance(obj, PathGhost):
             obj = self.context.aq_parent
         if ISurvey.providedBy(obj) and obj.hasNotification():
@@ -575,8 +584,8 @@ class WebHelpers(BrowserView):
         if session is None:
             session = self.session
         return (
-            session in account.sessions
-            or session in account.acquired_sessions
+            session in account.sessions or
+            session in account.acquired_sessions
         )
 
     def resume(self, session):
@@ -592,6 +601,18 @@ class WebHelpers(BrowserView):
             SESSION_COOKIE,
             session.id,
         )
+
+    def __call__(self):
+        return self
+
+
+class Appendix(WebHelpers):
+    """ Browser View for showing the appendix with various links to
+    copyright, license, etc.
+    Since this is very client-specific, it gets its own template for easy
+    customisation.
+
+    """
 
     def __call__(self):
         return self

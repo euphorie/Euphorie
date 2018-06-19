@@ -57,7 +57,7 @@
     <p tal:replace="structure view/help/finalwords">Aliquam cursus tincidunt enim. Mauris sed diam felis. Curabitur bibendum tempor nibh eu blandit. Nam eu ante ac mi lobortis lobortis tincidunt a lectus. Cras non lorem est, eget sagittis dui. Aliquam erat volutpat. Nulla a tincidunt eros. Praesent fringilla sollicitudin lacus, dignissim tristique erat porttitor eu. Nulla vulputate bibendum diam, in sagittis neque pulvinar vel. Sed cursus vehicula dui eu consectetur. Nullam vel est purus, a placerat libero.</p>
 
   </article>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
     <tal:block replace="tile:client-analytics"/>
   </metal:slot>
   </body>

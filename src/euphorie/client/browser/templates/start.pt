@@ -5,7 +5,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
-        webhelpers nocall:view/@@webhelpers;
+        webhelpers nocall:context/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
         session webhelpers/session;
       "
@@ -157,7 +157,7 @@
           </li>
         </ul>
       </div>
-      <metal:css use-macro="webhelpers/macros/appendix" />
+      <metal:css use-macro="context/appendix/macros/appendix" />
 
     </metal:slot>
 

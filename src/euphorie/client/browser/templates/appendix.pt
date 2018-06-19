@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers"
+      >
+
+  <metal:appendix define-macro="appendix" meta:interpolation="true" i18n:domain="euphorie">
+    <p id="appendix">
+      <tal:block repeat="page webhelpers/appendix_documents"
+      ><a href="${page/url}">${page/title}</a> |</tal:block>
+      <tal:span i18n:translate="appendix_produced_by">Produced by <a i18n:name="EU-OSHA" href="http://osha.europa.eu" target="_new">EU-OSHA</a>.</tal:span> |
+      <a href="${webhelpers/about_url}" i18n:translate="appendix_about">About</a>
+    </p>
+  </metal:appendix>
+
+</html>

@@ -13,6 +13,15 @@
       />
 
   <browser:page
+      name="appendix"
+      for="*"
+      permission="zope.Public"
+      class="euphorie.client.browser.webhelpers.Appendix"
+      template="templates/appendix.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="start"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"

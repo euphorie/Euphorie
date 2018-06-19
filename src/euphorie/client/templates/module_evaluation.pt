@@ -67,7 +67,7 @@
     </ol>
 
     <metal:css use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:evaluation"/>
-    <metal:css use-macro="webhelpers/macros/appendix"/>
+    <metal:css use-macro="context/appendix/macros/appendix"/>
     <metal:css use-macro="webhelpers/macros/javascript"/>
     <tal:block replace="tile:client-analytics"/>
   </body>
