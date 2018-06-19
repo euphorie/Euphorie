@@ -88,7 +88,7 @@
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
             <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar" tal:content="webhelpers/get_survey_title">Private Security EU</button>
-            <button id="osh-toggle" class="osh-toggle pat-toggle" data-pat-toggle="selector: body; value: osh-on osh-off; store: local">?</button>
+            <a href="#help-menu" data-pat-tooltip="source: ajax; class: medium; position-list: tr" class="pat-tooltip help">?</a>
 
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
                 <a href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
@@ -177,10 +177,6 @@
                         class="status pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Check your progress</a>
                 </li>
             </tal:if_not_anon>
-            <li id="help" tal:attributes="class python:page_section == 'help'  and 'active' or ''">
-                <a href="${base_url}/help#content" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="navigation_help"
-                    class="help pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Help</a>
-            </li>
         </ol>
 
         <a href="${webhelpers/client_url}" id="organisation-logo" tal:define="sector_logo webhelpers/get_sector_logo" tal:attributes="class python:sector_logo and 'alien' or 'native'">
@@ -342,7 +338,26 @@
     <tal:block replace="tile:client-analytics"/>
 
     <metal:splashmessageslot define-slot="splash_message_slot" />
+
     <metal:call use-macro="webhelpers/macros/webstats_js" />
+
+    <div id="help-menu" hidden>
+        <ul class="menu">
+            <li>
+                <button id="osh-toggle"
+                    i18n:translate=""
+                    class="icon-circles osh-toggle pat-toggle"
+                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
+            </li>
+            <li>
+                <a href="${base_url}/help#content"
+                    i18n:translate="navigation_help"
+                    data-pat-inject="history: record;"
+                    class="icon-help-circle pat-switch pat-inject close-panel"
+                    data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off">Help</a>
+            </li>
+        </ul>
+    </div>
 
 </body>
 </html>
