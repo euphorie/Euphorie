@@ -259,19 +259,38 @@
     </article>
     <!-- END Information -->
 
-
-    <!-- Copy and legal -->
-    <article class="rich" tal:condition="view/show_info">
-        <metal:call use-macro="webhelpers/macros/risk_legal" />
+    <!-- Resources -->
+    <article class="pat-collapsible closed risk-module" tal:condition="view/show_resources">
+        <h3 i18n:translate="header_resources">
+            Resources
+        </h3>
+        <!-- Legal references -->
+        <section class=" legal-references" tal:condition="view/has_legal">
+          <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+          <tal:legal replace="structure risk/legal_reference">
+            The requirements for fridges are defined in section 13.1 section a
+            of the health code.
+          </tal:legal>
+        </section>
+        <!-- Additional files -->
+        <metal:call use-macro="webhelpers/macros/additional_files" />
     </article>
+    <!-- END Resources -->
 
     <!-- Comments -->
-    <fieldset class="vertical" id="comments">
-        <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"
-            placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-            i18n:attributes="placeholder label_comment">
-        </textarea>
+    <fieldset class="pat-collapsible closed risk-module">
+        <legend i18n:translate="heading_comments">
+            Comments
+        </legend>
+
+        <fieldset class="vertical" id="comments">
+            <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"
+                placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                i18n:attributes="placeholder label_comment">
+            </textarea>
+        </fieldset>
     </fieldset>
+    <!-- END Comments -->
 
     <p class="button-bar" id="nav-bar">
         <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
