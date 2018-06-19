@@ -178,8 +178,84 @@
       <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more" i18n:translate="Read more">Read more</tal:more> about this risk.</h4>
       <tal:description tal:replace="structure risk/description" />
     </div>
-
   </metal:riskinfo>
+
+  <metal:riskinfo define-macro="riskinfo">
+    <article class="rich pat-collapsible risk-module ${default_state|nothing}" tal:condition="view/show_info">
+        <h3 i18n:translate="header_information">
+            Information
+        </h3>
+        <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
+            <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+
+            <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+
+            <!-- Notice that each image has an image caption in the title tag. -->
+            <tal:many condition="python:view.number_images > 1">
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image2', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption2|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image3', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption3|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image4', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption4|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+            </tal:many>
+            <tal:single condition="python:view.number_images == 1" tal:on-error="nothing">
+                <figure>
+                    <a title="${risk/caption|nothing}"
+                          tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                                      large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+                          href="${large/url|nothing}"
+                          tal:condition="large"><img  alt="" src="${thumb/url}" />
+                    </a>
+
+                </figure>
+            </tal:single>
+        </div>
+
+        <tal:text replace="structure risk/description">description</tal:text>
+    </article>
+  </metal:riskinfo>
+
+
+  <metal:legal_references define-macro="legal_references">
+    <section class="legal-references" tal:condition="view/has_legal">
+      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+      <tal:legal replace="structure risk/legal_reference">
+        The requirements for fridges are defined in section 13.1 section a
+        of the health code.
+      </tal:legal>
+    </section>
+  </metal:legal_references>
 
   <metal:additional_files define-macro="additional_files">
   <section class="more-information" tal:condition="view/has_files">
@@ -201,6 +277,21 @@
     </ul>
   </section>
 </metal:additional_files>
+
+  <metal:risk_comments define-macro="risk_comments">
+    <fieldset class="pat-collapsible risk-module ${default_state|nothing}">
+        <legend i18n:translate="heading_comments">
+            Comments
+        </legend>
+
+        <fieldset class="vertical" id="comments">
+            <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"
+                placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                i18n:attributes="placeholder label_comment">
+            </textarea>
+        </fieldset>
+    </fieldset>
+  </metal:risk_comments>
 
   <metal:risklegal define-macro="risk_legal_collapsible" meta:interpolation="true" i18n:domain="euphorie">
     <div class="pat-collapsible closed" condition="risk/legal_reference">
