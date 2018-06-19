@@ -126,9 +126,10 @@ class IdentificationView(grok.View):
         else:
             self.tree = getTreeData(self.request, self.context)
             self.title = self.context.parent.title
-            self.show_info = self.risk.image or \
-                HasText(self.risk.description) or \
-                HasText(self.risk.legal_reference)
+            self.show_info = (
+                self.risk.image or HasText(self.risk.description)
+            )
+
             number_images = getattr(self.risk, 'image', None) and 1 or 0
             if number_images:
                 for i in range(2, 5):
@@ -142,6 +143,9 @@ class IdentificationView(grok.View):
                 number_files += getattr(
                     self.risk, 'file{0}'.format(i), None) and 1 or 0
             self.has_files = number_files > 0
+            self.has_legal = HasText(self.risk.legal_reference)
+            self.show_resources = self.has_legal or self.has_files
+
             self.risk_number = self.context.number
 
             ploneview = getMultiAdapter(

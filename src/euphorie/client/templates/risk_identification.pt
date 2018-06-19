@@ -192,9 +192,76 @@
     </fieldset>
     <!-- END Evaluation -->
 
+
+    <!-- Information -->
+    <article class="rich pat-collapsible risk-module" tal:condition="view/show_info">
+        <h3 i18n:translate="header_information">
+            Information
+        </h3>
+        <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
+            <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+
+            <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+
+            <!-- Notice that each image has an image caption in the title tag. -->
+            <tal:many condition="python:view.number_images > 1">
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image2', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption2|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image3', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption3|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+                <div class="${view/image_class} columns" tal:on-error="nothing"
+                  tal:define="thumb python:images.scale('image4', width=590, height=800, direction='thumbnail');
+                              large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
+                  tal:condition="large">
+                  <a title="${risk/caption4|nothing}"
+                        style="background-image: url(${large/url|nothing})"
+                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
+                  </a>
+                </div>
+            </tal:many>
+            <tal:single condition="python:view.number_images == 1" tal:on-error="nothing">
+                <figure>
+                    <a title="${risk/caption|nothing}"
+                          tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                                      large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+                          href="${large/url|nothing}"
+                          tal:condition="large"><img  alt="" src="${thumb/url}" />
+                    </a>
+
+                </figure>
+            </tal:single>
+        </div>
+
+        <tal:text replace="structure risk/description">description</tal:text>
+    </article>
+    <!-- END Information -->
+
+
     <!-- Copy and legal -->
     <article class="rich" tal:condition="view/show_info">
-        <metal:call use-macro="webhelpers/macros/risk_info_identification" />
         <metal:call use-macro="webhelpers/macros/risk_legal" />
     </article>
 
@@ -209,6 +276,7 @@
     <p class="button-bar" id="nav-bar">
         <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
         <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
+        <button type="submit" name="action" value="skip" class="pat-button skip" i18n:translate="label_button_skip">Skip</button>
     </p>
 </form>
 </metal:slot>
