@@ -246,7 +246,6 @@
     </article>
   </metal:riskinfo>
 
-
   <metal:legal_references define-macro="legal_references">
     <section class="legal-references" tal:condition="view/has_legal">
       <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
@@ -258,25 +257,25 @@
   </metal:legal_references>
 
   <metal:additional_files define-macro="additional_files">
-  <section class="more-information" tal:condition="view/has_files">
-    <h4 tal:condition="python:risk.Type()=='Risk'" i18n:translate="header_additional_resources">Additional resources to assess the risk</h4>
-    <h4 tal:condition="python:risk.Type()=='Module'" i18n:translate="header_additional_resources_module">Additional resources for this module</h4>
-    <ul>
-      <li class="icon-download" tal:condition="nocall:risk/file1|nothing">
-        <a href="${risk/absolute_url}/download/file1"><tal:caption condition="risk/file1_caption|nothing">${risk/file1_caption} (${risk/file1/filename})</tal:caption><tal:nocaption condition="not:risk/file1_caption|nothing">${risk/file1/filename}</tal:nocaption></a>
-      </li>
-      <li class="icon-download" tal:condition="nocall:risk/file2|nothing">
-        <a href="${risk/absolute_url}/download/file2"><tal:caption condition="risk/file2_caption|nothing">${risk/file2_caption} (${risk/file2/filename})</tal:caption><tal:nocaption condition="not:risk/file2_caption|nothing">${risk/file2/filename}</tal:nocaption></a>
-      </li>
-      <li class="icon-download" tal:condition="nocall:risk/file3|nothing">
-        <a href="${risk/absolute_url}/download/file3"><tal:caption condition="risk/file3_caption|nothing">${risk/file3_caption} (${risk/file3/filename})</tal:caption><tal:nocaption condition="not:risk/file3_caption|nothing">${risk/file3/filename}</tal:nocaption></a>
-      </li>
-      <li class="icon-download" tal:condition="nocall:risk/file4|nothing">
-        <a href="${risk/absolute_url}/download/file4"><tal:caption condition="risk/file4_caption|nothing">${risk/file4_caption} (${risk/file4/filename})</tal:caption><tal:nocaption condition="not:risk/file4_caption|nothing">${risk/file4/filename}</tal:nocaption></a>
-      </li>
-    </ul>
-  </section>
-</metal:additional_files>
+    <section class="more-information" tal:condition="view/has_files">
+      <h4 tal:condition="python:risk.Type()=='Risk'" i18n:translate="header_additional_resources">Additional resources to assess the risk</h4>
+      <h4 tal:condition="python:risk.Type()=='Module'" i18n:translate="header_additional_resources_module">Additional resources for this module</h4>
+      <ul>
+        <li class="icon-download" tal:condition="nocall:risk/file1|nothing">
+          <a href="${risk/absolute_url}/download/file1"><tal:caption condition="risk/file1_caption|nothing">${risk/file1_caption} (${risk/file1/filename})</tal:caption><tal:nocaption condition="not:risk/file1_caption|nothing">${risk/file1/filename}</tal:nocaption></a>
+        </li>
+        <li class="icon-download" tal:condition="nocall:risk/file2|nothing">
+          <a href="${risk/absolute_url}/download/file2"><tal:caption condition="risk/file2_caption|nothing">${risk/file2_caption} (${risk/file2/filename})</tal:caption><tal:nocaption condition="not:risk/file2_caption|nothing">${risk/file2/filename}</tal:nocaption></a>
+        </li>
+        <li class="icon-download" tal:condition="nocall:risk/file3|nothing">
+          <a href="${risk/absolute_url}/download/file3"><tal:caption condition="risk/file3_caption|nothing">${risk/file3_caption} (${risk/file3/filename})</tal:caption><tal:nocaption condition="not:risk/file3_caption|nothing">${risk/file3/filename}</tal:nocaption></a>
+        </li>
+        <li class="icon-download" tal:condition="nocall:risk/file4|nothing">
+          <a href="${risk/absolute_url}/download/file4"><tal:caption condition="risk/file4_caption|nothing">${risk/file4_caption} (${risk/file4/filename})</tal:caption><tal:nocaption condition="not:risk/file4_caption|nothing">${risk/file4/filename}</tal:nocaption></a>
+        </li>
+      </ul>
+    </section>
+  </metal:additional_files>
 
   <metal:risk_comments define-macro="risk_comments">
     <fieldset class="pat-collapsible risk-module ${default_state|nothing}">
@@ -293,17 +292,6 @@
     </fieldset>
   </metal:risk_comments>
 
-  <metal:risklegal define-macro="risk_legal_collapsible" meta:interpolation="true" i18n:domain="euphorie">
-    <div class="pat-collapsible closed" condition="risk/legal_reference">
-      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
-      <div class="panel-content">
-          <tal:desc tal:replace="structure risk/legal_reference">
-                  The requirements for fridges are defined in section 13.1 section a
-                  of the health code.
-          </tal:desc>
-      </div>
-    </div>
-  </metal:risklegal>
 
   <metal:webstats_js define-macro="webstats_js" meta:interpolation="true" i18n:domain="euphorie">
     <span tal:replace="structure webhelpers/get_webstats_js" />
