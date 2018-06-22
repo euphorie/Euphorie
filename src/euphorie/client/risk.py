@@ -58,7 +58,6 @@ class IdentificationView(grok.View):
     grok.name("index_html")
 
     question_filter = None
-    DESCRIPTION_CROP_LENGTH = 200
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -130,14 +129,6 @@ class IdentificationView(grok.View):
 
             self.risk_number = self.context.number
 
-            ploneview = getMultiAdapter(
-                (self.context, self.request), name="plone")
-            stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
-                self.description_intro = ploneview.cropText(
-                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
-            else:
-                self.description_intro = ""
             self.description_probability = _(
                 u"help_default_probability", default=u"Indicate how "
                 "likely occurence of this risk is in a normal situation.")
@@ -264,7 +255,6 @@ class ActionPlanView(grok.View):
 
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
-    DESCRIPTION_CROP_LENGTH = 200
 
     def get_existing_measures(self):
         defined_measures = self.risk.existing_measures or ""
@@ -372,7 +362,6 @@ class ActionPlanView(grok.View):
             filter=self.question_filter, phase="actionplan")
         if self.context.is_custom_risk:
             self.risk = self.context
-            self.description_intro = u""
             self.risk.description = u""
             number_images = 0
         else:
@@ -383,14 +372,6 @@ class ActionPlanView(grok.View):
                 for i in range(2, 5):
                     number_images += getattr(
                         self.risk, 'image{0}'.format(i), None) and 1 or 0
-            ploneview = getMultiAdapter(
-                (self.context, self.request), name="plone")
-            stripped_description = StripMarkup(self.risk.description)
-            if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
-                self.description_intro = ploneview.cropText(
-                    stripped_description, self.DESCRIPTION_CROP_LENGTH)
-            else:
-                self.description_intro = ""
             self.solutions = [
                 solution for solution in self.risk.values()
                 if ISolution.providedBy(solution)]
