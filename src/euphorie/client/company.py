@@ -184,3 +184,20 @@ class Company(form.SchemaForm):
         self.applyChanges(data)
         url = "%s/report/view" % self.request.survey.absolute_url()
         self.request.response.redirect(url)
+
+    @button.buttonAndHandler(u"Skip")
+    def handleSkip(self, action):
+        # XXX: This a hack. We need to know if a company report has been
+        # skipped but can't add new SQL columns. So we mark the country 'xx'.
+        data = {
+            'conductor': None,
+            'country': u'xx',
+            'employees': None,
+            'referer': None,
+            'workers_participated': None,
+            'needs_met': None,
+            'recommend_tool': None,
+        }
+        self.applyChanges(data)
+        url = "%s/report/view" % self.request.survey.absolute_url()
+        self.request.response.redirect(url)
