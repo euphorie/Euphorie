@@ -47,7 +47,7 @@ IMAGE_CLASS = {
 
 
 class IdentificationView(grok.View):
-    """A view for displaying a question in the idenfication phase
+    """A view for displaying a question in the identification phase
 
     View name: @@index_html
     """
@@ -73,6 +73,9 @@ class IdentificationView(grok.View):
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
+            # Don't persist anything if the user skipped the question
+            if reply["next"] == 'skip':
+                return self.proceed_to_next(reply)
             answer = reply.get("answer")
             self.context.comment = reply.get("comment")
             if self.use_existing_measures:
@@ -100,28 +103,7 @@ class IdentificationView(grok.View):
 
             SessionManager.session.touch()
 
-            if reply["next"] == "previous":
-                next = FindPreviousQuestion(
-                    self.context,
-                    filter=self.question_filter)
-                if next is None:
-                    # We ran out of questions, step back to intro page
-                    url = "%s/identification" % \
-                        self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
-            else:
-                next = FindNextQuestion(
-                    self.context,
-                    filter=self.question_filter)
-                if next is None:
-                    # We ran out of questions, proceed to the action plan
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
-                    self.request.response.redirect(url)
-                    return
-
-            url = QuestionURL(self.request.survey, next, phase="identification")
-            self.request.response.redirect(url)
+            return self.proceed_to_next(reply)
 
         else:
             self.tree = getTreeData(self.request, self.context)
@@ -198,6 +180,30 @@ class IdentificationView(grok.View):
             else:
                 self.skip_evaluation = False
             super(IdentificationView, self).update()
+
+    def proceed_to_next(self, reply):
+        if reply["next"] == "previous":
+            next = FindPreviousQuestion(
+                self.context,
+                filter=self.question_filter)
+            if next is None:
+                # We ran out of questions, step back to intro page
+                url = "%s/identification" % \
+                    self.request.survey.absolute_url()
+                self.request.response.redirect(url)
+                return
+        else:
+            next = FindNextQuestion(
+                self.context,
+                filter=self.question_filter)
+            if next is None:
+                # We ran out of questions, proceed to the action plan
+                url = "%s/actionplan" % self.request.survey.absolute_url()
+                self.request.response.redirect(url)
+                return
+
+        url = QuestionURL(self.request.survey, next, phase="identification")
+        self.request.response.redirect(url)
 
     def get_existing_measures(self):
         defined_measures = self.risk.existing_measures or ""
