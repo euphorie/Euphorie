@@ -75,6 +75,10 @@ class WebHelpers(BrowserView):
     sector = None
     SESSION_COOKIE = SESSION_COOKIE
 
+    resources_name = "++resource++euphorie.resources"
+    bundle_name = "bundle.js"
+    bundle_name_min = "bundle.min.js"
+
     def __init__(self, context, request):
         super(WebHelpers, self).__init__(context, request)
         if self.anonymous:
@@ -330,6 +334,11 @@ class WebHelpers(BrowserView):
                 return base_url
             return self.client_url
         return self._base_url()
+
+    @reify
+    def resources_url(self):
+        return "{}/{}".format(
+            self.client_url, self.resources_name)
 
     @reify
     def is_outside_of_survey(self):
@@ -615,6 +624,17 @@ class WebHelpers(BrowserView):
 class Appendix(WebHelpers):
     """ Browser View for showing the appendix with various links to
     copyright, license, etc.
+    Since this is very client-specific, it gets its own template for easy
+    customisation.
+
+    """
+
+    def __call__(self):
+        return self
+
+
+class Logo(WebHelpers):
+    """ Browser View for showing the markup for the logo
     Since this is very client-specific, it gets its own template for easy
     customisation.
 

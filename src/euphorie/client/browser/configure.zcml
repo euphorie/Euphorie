@@ -22,6 +22,15 @@
       />
 
   <browser:page
+      name="logo"
+      for="*"
+      permission="zope.Public"
+      class="euphorie.client.browser.webhelpers.Logo"
+      template="templates/logo.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="training_slide"
       for="*"
       permission="zope.Public"

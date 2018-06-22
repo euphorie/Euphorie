@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers"
+      >
+
+  <metal:logo define-macro="logo" meta:interpolation="true" i18n:domain="euphorie">
+    <a href="${webhelpers/client_url}" id="organisation-logo" tal:define="sector_logo webhelpers/get_sector_logo" tal:attributes="class python:sector_logo and 'alien' or 'native'">
+        <tal:native condition="not:nocall:sector_logo">
+            <!-- In case the organisation has not changed the logo, the link tag gets a class 'native' instead of 'alien' and the following markup applies: -->
+            <figure>
+                <img src="${base_url}/++resource++euphorie.media/oira-logo.svg" alt="" />
+                <figcaption>
+                    <tal:oi i18n:translate="oira_name_line_1">Online interactive</tal:oi><br/>
+                    <tal:ra i18n:translate="oira_name_line_2">Risk Assessment</tal:ra>
+                </figcaption>
+            </figure>
+        </tal:native>
+        <tal:alien condition="nocall:sector_logo">
+            <!-- In case of on organisation that uploaded a logo, no figure tag needs to be there: -->
+            <img src="${sector_logo/url}" alt="" />
+        </tal:alien>
+    </a>
+  </metal:logo>
+
+</html>
