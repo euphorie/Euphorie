@@ -32,6 +32,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope import component
 from zope.i18n import translate
@@ -111,7 +112,8 @@ class Login(grok.View):
         account = getSecurityManager().getUser()
         appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
+        self.allow_guest_accounts = asBool(
+            settings.get('allow_guest_accounts', False))
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -209,7 +211,8 @@ class CreateTestSession(CountryView, Tryout):
     def update(self):
         appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.allow_guest_accounts = settings.get('allow_guest_accounts', False)
+        self.allow_guest_accounts = asBool(
+            settings.get('allow_guest_accounts', False))
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
         if came_from:

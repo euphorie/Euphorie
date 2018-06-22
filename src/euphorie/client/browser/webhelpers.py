@@ -30,6 +30,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
 from zope.browser.interfaces import IBrowserView
 from zope.component import getMultiAdapter
@@ -108,12 +109,17 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def allow_social_sharing(self):
-        return self._settings.get('allow_social_sharing', False)
+        return asBool(self._settings.get('allow_social_sharing', False))
 
     @property
     @memoize
     def allow_guest_accounts(self):
-        return self._settings.get('allow_guest_accounts', False)
+        return asBool(self._settings.get('allow_guest_accounts', False))
+
+    @property
+    @memoize
+    def use_training_module(self):
+        return asBool(self._settings.get('use_training_module', False))
 
     @property
     @memoize

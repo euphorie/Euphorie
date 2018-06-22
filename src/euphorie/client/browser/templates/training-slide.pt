@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers"
+      >
+
+  <metal:slide define-macro="training_slide" meta:interpolation="true" i18n:domain="euphorie">
+    <fieldset class="pat-collapsible risk-module closed"
+              id="training_notes"
+              tal:condition="webhelpers/use_training_module"
+    >
+      <legend i18n:translate="header_training">
+          Training
+      </legend>
+
+      <div class="presentation-slide">
+        This is a placeholder!
+      </div>
+    </fieldset>
+  </metal:slide>
+</html>

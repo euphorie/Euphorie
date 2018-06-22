@@ -26,7 +26,6 @@
     <metal:call use-macro="webhelpers/macros/risk_evaluation" />
     <!-- END Evaluation -->
 
-
     <!-- Information -->
     <metal:call use-macro="webhelpers/macros/riskinfo" />
     <!-- END Information -->
@@ -42,6 +41,10 @@
         <metal:call use-macro="webhelpers/macros/additional_files" />
     </article>
     <!-- END Resources -->
+
+    <!-- Training -->
+    <metal:call use-macro="context/training_slide/macros/training_slide" />
+    <!-- END Training -->
 
     <!-- Comments -->
     <metal:call tal:define="default_state string:closed" use-macro="webhelpers/macros/risk_comments" />
