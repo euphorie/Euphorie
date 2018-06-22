@@ -772,6 +772,7 @@ class Risk(SurveyTreeItem):
     priority = schema.Column(Enum([None, u"low", u"medium", u"high"]))
     comment = schema.Column(types.UnicodeText())
     existing_measures = schema.Column(types.UnicodeText())
+    training_notes = schema.Column(types.UnicodeText())
 
 
 class ActionPlan(BaseObject):

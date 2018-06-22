@@ -23,14 +23,13 @@ from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
-from euphorie.content.utils import StripMarkup
 from five import grok
 from json import dumps
 from json import loads
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
@@ -68,7 +67,10 @@ class IdentificationView(grok.View):
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_existing_measures = asBool(
+            settings.get('use_existing_measures', False))
+        self.use_training_module = asBool(
+            settings.get('use_training_module', False))
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -88,6 +90,8 @@ class IdentificationView(grok.View):
                     if k.startswith('new-measure') and val.strip() != '':
                         new_measures.update({val: 1})
                 self.context.existing_measures = dumps(new_measures)
+            if self.use_training_module:
+                self.context.training_notes = reply.get("training_notes")
             self.context.postponed = (answer == "postponed")
             if self.context.postponed:
                 self.context.identification = None
@@ -312,7 +316,8 @@ class ActionPlanView(grok.View):
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.use_existing_measures = asBool(
+            settings.get('use_existing_measures', False))
 
         self.next_is_report = False
         # already compute "next" here, so that we can know in the template

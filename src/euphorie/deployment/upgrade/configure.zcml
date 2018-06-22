@@ -306,4 +306,16 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+    source="19"
+    destination="20"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Add new column to Risk for training_notes"
+      handler=".v20.add_column_for_training_notes"/>
+
+  </genericsetup:upgradeSteps>
+
 </configure>
