@@ -172,6 +172,21 @@
                     <a tal:condition="disabled" class="report" i18n:translate="label_report">Report</a>
                 </li>
 
+                <li id="step-6"
+                    tal:condition="webhelpers/use_training_module"
+                    tal:define="active python:page_section == 'training'; disabled python:page_section in ('', 'preparation')"
+                    tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
+                    <a tal:condition="not:disabled"
+                        href="${survey_url}/training"
+                        class="training pat-inject pat-switch"
+                        data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                        data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                        i18n:translate="menu_training">Training</a>
+                    <a tal:condition="disabled"
+                        class="training"
+                        i18n:translate="menu_training">Training</a>
+                </li>
+
 
                 <li id="status" tal:define="active python: page_section == 'status' and 'active' or ''; disabled python:page_section in ('', 'preparation')" tal:attributes="class python:(active and 'active') or (disabled and 'disabled') or ''">
                     <a href="${survey_url}/status#content" data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc" i18n:translate="navigation_status"
