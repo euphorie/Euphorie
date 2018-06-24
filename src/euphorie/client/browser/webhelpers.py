@@ -60,6 +60,7 @@ NAME_TO_PHASE = {
     'update': 'preparation',
     'disclaimer': 'help',
     'terms-and-conditions': 'help',
+    'training': 'training',
 }
 
 
@@ -616,6 +617,11 @@ class WebHelpers(BrowserView):
             SESSION_COOKIE,
             session.id,
         )
+
+    def as_md_list(self, text):
+        """ Return a text with Carriage Returns formatted as a Markdown list.
+        """
+        return u"\r".join([u"- %s" % x for x in text.split('\r')])
 
     def __call__(self):
         return self

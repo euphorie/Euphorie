@@ -30,11 +30,21 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+
+  <browser:page
+      name="training"
+      for="euphorie.content.survey.ISurvey"
+      permission="euphorie.client.ViewSurvey"
+      class="euphorie.client.browser.training.TrainingView"
+      template="templates/training.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <browser:page
       name="training_slide"
       for="*"
-      permission="zope.Public"
-      class="euphorie.client.browser.survey.TrainingSlide"
+      permission="euphorie.client.ViewSurvey"
+      class="euphorie.client.browser.training.TrainingSlide"
       template="templates/training-slide.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

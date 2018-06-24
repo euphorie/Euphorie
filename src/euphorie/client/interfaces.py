@@ -13,7 +13,7 @@ class IIdentificationPhaseSkinLayer(Interface):
 
 
 class ICustomizationPhaseSkinLayer(Interface):
-    """Skin layer used during the evaluation phase."""
+    """Skin layer used during the custom risk phase."""
 
 
 class IEvaluationPhaseSkinLayer(Interface):
@@ -25,7 +25,11 @@ class IActionPlanPhaseSkinLayer(Interface):
 
 
 class IReportPhaseSkinLayer(Interface):
-    """Skin layer used during the action plan phase."""
+    """Skin layer used during the report phase."""
+
+
+class ITrainingPhaseSkinLayer(Interface):
+    """Skin layer used during the training notes phase"""
 
 
 # Special case for individual countries...
@@ -46,4 +50,7 @@ class IItalyActionPlanPhaseSkinLayer(IItaly, IActionPlanPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
 
 class IItalyReportPhaseSkinLayer(IItaly, IReportPhaseSkinLayer):
+    """Skin layer to mark the country Italy"""
+
+class IItalyTrainingPhaseSkinLayer(IItaly, ITrainingPhaseSkinLayer):
     """Skin layer to mark the country Italy"""

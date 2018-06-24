@@ -112,12 +112,3 @@ class PubblicationMenu(BrowserView):
     @memoize
     def session(self):
         return SessionManager.session
-
-
-class TrainingSlide(BrowserView):
-    """ Template / macro to hold the training slide markup
-    Currently not active in default Euphorie
-    """
-
-    def __call__(self):
-        return self
