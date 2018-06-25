@@ -75,34 +75,39 @@ class IdentificationView(grok.View):
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             # Don't persist anything if the user skipped the question
-            if reply["next"] == 'skip':
+            if reply.get("next", None) == 'skip':
                 return self.proceed_to_next(reply)
-            answer = reply.get("answer")
-            self.context.comment = reply.get("comment")
-            if self.use_existing_measures:
-                measures = self.get_existing_measures()
-                new_measures = OrderedDict()
-                for i, entry in enumerate(measures.keys()):
-                    on = int(bool(reply.get('measure-{}'.format(i))))
-                    if on:
-                        new_measures.update({entry: 1})
-                for k, val in reply.items():
-                    if k.startswith('new-measure') and val.strip() != '':
-                        new_measures.update({val: 1})
-                self.context.existing_measures = dumps(new_measures)
+            answer = reply.get("answer", None)
+            # If answer is not present in the request, do not attempt to set
+            # any answer-related data, since the request might have come
+            # from a sub-form.
+            if answer:
+                self.context.comment = reply.get("comment")
+                if self.use_existing_measures:
+                    measures = self.get_existing_measures()
+                    new_measures = OrderedDict()
+                    for i, entry in enumerate(measures.keys()):
+                        on = int(bool(reply.get('measure-{}'.format(i))))
+                        if on:
+                            new_measures.update({entry: 1})
+                    for k, val in reply.items():
+                        if k.startswith('new-measure') and val.strip() != '':
+                            new_measures.update({val: 1})
+                    self.context.existing_measures = dumps(new_measures)
+                self.context.postponed = (answer == "postponed")
+                if self.context.postponed:
+                    self.context.identification = None
+                else:
+                    self.context.identification = answer
+                    if self.risk.type in ('top5', 'policy'):
+                        self.context.priority = 'high'
+                    elif self.risk.evaluation_method == 'calculated':
+                        self.calculatePriority(self.risk, reply)
+                    elif self.risk.evaluation_method == "direct":
+                        self.context.priority = reply.get("priority")
+
             if self.use_training_module:
                 self.context.training_notes = reply.get("training_notes")
-            self.context.postponed = (answer == "postponed")
-            if self.context.postponed:
-                self.context.identification = None
-            else:
-                self.context.identification = answer
-                if self.risk.type in ('top5', 'policy'):
-                    self.context.priority = 'high'
-                elif self.risk.evaluation_method == 'calculated':
-                    self.calculatePriority(self.risk, reply)
-                elif self.risk.evaluation_method == "direct":
-                    self.context.priority = reply.get("priority")
 
             SessionManager.session.touch()
 
@@ -177,7 +182,7 @@ class IdentificationView(grok.View):
             super(IdentificationView, self).update()
 
     def proceed_to_next(self, reply):
-        if reply["next"] == "previous":
+        if reply.get("next", None) == "previous":
             next = FindPreviousQuestion(
                 self.context,
                 filter=self.question_filter)
@@ -187,7 +192,7 @@ class IdentificationView(grok.View):
                     self.request.survey.absolute_url()
                 self.request.response.redirect(url)
                 return
-        else:
+        elif reply.get("next", None) == "next":
             next = FindNextQuestion(
                 self.context,
                 filter=self.question_filter)
@@ -196,6 +201,9 @@ class IdentificationView(grok.View):
                 url = "%s/actionplan" % self.request.survey.absolute_url()
                 self.request.response.redirect(url)
                 return
+        # stay on current risk
+        else:
+            next = self.context
 
         url = QuestionURL(self.request.survey, next, phase="identification")
         self.request.response.redirect(url)
