@@ -100,6 +100,7 @@ jekyll: prototype
 resources-install: bundle jekyll
 	cp prototype/_site/bundles/bundle* src/euphorie/client/resources
 	cp -R prototype/_site/style/* src/euphorie/client/resources
+	@./scripts/proto2diazo.py
 	@echo "Make sure to go to ../NuPlone, make bundle there, and copy oira.cms* to src/euphorie/client/resources"
 
 # %.min.css: %.css
