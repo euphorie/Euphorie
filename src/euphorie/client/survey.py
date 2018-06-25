@@ -794,7 +794,7 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         'customization': ICustomizationPhaseSkinLayer,
         'evaluation': IEvaluationPhaseSkinLayer,
         'actionplan': IActionPlanPhaseSkinLayer,
-        'report': IReportPhaseSkinLayer
+        'report': IReportPhaseSkinLayer,
     }
 
     countries = {
@@ -803,7 +803,7 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             'customization': IItalyCustomizationPhaseSkinLayer,
             'evaluation': IItalyEvaluationPhaseSkinLayer,
             'actionplan': IItalyActionPlanPhaseSkinLayer,
-            'report': IItalyReportPhaseSkinLayer
+            'report': IItalyReportPhaseSkinLayer,
         }
     }
 
