@@ -6,7 +6,7 @@
 >
   <body>
     <div id="publication-menu"
-         hidden
+         hidden="hidden"
     >
       <ul class="menu"
           tal:switch="view/session/review_state"

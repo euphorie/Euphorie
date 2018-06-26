@@ -344,7 +344,7 @@
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
-    <div id="help-menu" hidden>
+    <div id="help-menu" hidden="hidden">
         <ul class="menu">
             <li>
                 <button id="osh-toggle"

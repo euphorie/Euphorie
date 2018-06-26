@@ -20,7 +20,7 @@
 
     <!-- Identification -->
     <metal:call use-macro="webhelpers/macros/risk_identification" />
-    <!-- END Identificaton>
+    <!-- END Identificaton -->
 
     <!-- Evaluation -->
     <metal:call use-macro="webhelpers/macros/risk_evaluation" />
