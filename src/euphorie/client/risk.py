@@ -211,7 +211,8 @@ class IdentificationView(grok.View):
     def get_existing_measures(self):
         defined_measures = self.risk.existing_measures or ""
         try:
-            saved_existing_measures = loads(self.context.existing_measures)
+            saved_existing_measures = loads(
+                self.context.existing_measures or "")
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
