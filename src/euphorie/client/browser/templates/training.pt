@@ -18,7 +18,12 @@
 <metal:slot fill-slot="content">
   <tal:block replace="tile:statusmessages"/>
 
-  <h2>Training Slides</h2>
+  <h2>Placeholder</h2>
+
+  <div id="canvas-toolbar" hidden="hidden">
+    <a class="pat-button float-after" i18n:translate="">Download as PowerPoint file</a>
+    <button class="pat-button float-after" i18n:translate="">Run slideshow</button>
+  </div>
 
 
 </metal:slot>
