@@ -36,13 +36,26 @@ NO_SAVEPOINT_SUPPORT.remove('sqlite')
 TEST_INI = os.path.join(os.path.dirname(__file__), "deployment/tests/test.ini")
 
 
-class EuphorieDBFixture(PloneSandboxLayer):
+class EuphorieFixture(PloneSandboxLayer):
 
-    filename = 'configure.zcml'
+    saconfig_filename = 'configure.zcml'
+
+    defaultBases = (
+        MEMBRANE_PROFILES_FIXTURE,
+        PLONE_FIXTURE,
+    )
 
     def setUpZope(self, app, configurationContext):
+        # Load any other ZCML that is required for your tests.
+        # The z3c.autoinclude feature is disabled in the Plone fixture base
+        # layer.
         import euphorie.client.tests
-        self.loadZCML(self.filename, package=euphorie.client.tests)
+        self.loadZCML("configure.zcml", package=euphorie.deployment)
+        self.loadZCML("overrides.zcml", package=euphorie.deployment)
+        self.loadZCML("configure.zcml", package=euphorie.client.tests)
+
+        import euphorie.client.tests
+        self.loadZCML(self.saconfig_filename, package=euphorie.client.tests)
         engine = Session.bind
 
         @event.listens_for(engine, "connect")
@@ -59,43 +72,6 @@ class EuphorieDBFixture(PloneSandboxLayer):
         # Start fresh
         self.testTearDown()
 
-    # XXX testSetUp and testTearDown should not be necessary, but it seems
-    # SQL data is not correctly cleared at the end of a test method run,
-    # even if testTearDown does an explicit transaction.abort()
-    def testSetUp(self):
-        model.metadata.create_all(Session.bind, checkfirst=True)
-
-    def testTearDown(self):
-        Session.remove()
-        model.metadata.drop_all(Session.bind)
-
-
-class EuphorieRobotDBFixture(EuphorieDBFixture):
-    # We cannot use a memory DB for the robot tests because the test runner
-    # is going to spawn another process and the memory DB
-    # will not be shared between the two processes
-    filename = 'robot.zcml'
-
-
-EUPHORIE_DB_FIXTURE = EuphorieDBFixture()
-EUPHORIE_ROBOT_DB_FIXTURE = EuphorieRobotDBFixture()
-
-
-class EuphorieFixture(PloneSandboxLayer):
-
-    defaultBases = (
-        MEMBRANE_PROFILES_FIXTURE,
-        PLONE_FIXTURE,
-    )
-
-    def setUpZope(self, app, configurationContext):
-        # Load any other ZCML that is required for your tests.
-        # The z3c.autoinclude feature is disabled in the Plone fixture base
-        # layer.
-        import euphorie.client.tests
-        self.loadZCML("configure.zcml", package=euphorie.deployment)
-        self.loadZCML("overrides.zcml", package=euphorie.deployment)
-        self.loadZCML("configure.zcml", package=euphorie.client.tests)
         default_zpublisher_encoding('utf-8')
 
     def setUpPloneSite(self, portal):
@@ -133,12 +109,28 @@ class EuphorieFixture(PloneSandboxLayer):
             'discard@simplon.biz',
         )
 
+    def testSetUp(self):
+        ''' XXX testSetUp and testTearDown should not be necessary, but it seems
+        SQL data is not correctly cleared at the end of a test method run,
+        even if testTearDown does an explicit transaction.abort()
+        '''
+        model.metadata.create_all(Session.bind, checkfirst=True)
+
+    def testTearDown(self):
+        Session.remove()
+        model.metadata.drop_all(Session.bind)
+
+
+class EuphorieRobotFixture(EuphorieFixture):
+
+    saconfig_filename = 'robot.zcml'
+
 
 EUPHORIE_FIXTURE = EuphorieFixture()
+EUPHORIE_ROBOT_FIXTURE = EuphorieRobotFixture()
 
 EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(
-        EUPHORIE_DB_FIXTURE,
         EUPHORIE_FIXTURE,
     ),
     name="EuphorieFixture:Integration",
@@ -147,7 +139,6 @@ EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
 
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(
-        EUPHORIE_DB_FIXTURE,
         EUPHORIE_FIXTURE,
     ),
     name="EuphorieFixture:Functional",
