@@ -121,7 +121,7 @@ class SessionsView(BrowserView):
         return Node(
             group,
             parent=self.get_group_node(group.parent),
-            title=group.short_name or group.group_id,
+            title=group.fullname,
             type='department',
         )
 
