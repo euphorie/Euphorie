@@ -265,6 +265,17 @@ class Group(BaseObject):
     )
 
     @property
+    def fullname(self):
+        ''' This is the name that will be display in the selectors and
+        in the tree widget
+        '''
+        title = self.short_name or self.group_id
+        if self.responsible_fullname:
+            title += u' - {}'.format(self.responsible_fullname)
+        title += u' ({})'.format(self.group_id)
+        return title
+
+    @property
     def descendants(self):
         ''' Return all the groups in the hierarchy flattened
         '''
