@@ -7,9 +7,22 @@
   <body>
     <div id="publication-menu"
          hidden="hidden"
+         tal:define="
+           session view/session;
+           last_modifier session/last_modifier;
+           toLocalizedTime nocall: here/@@plone/toLocalizedTime;
+         "
     >
+      <p class="pat-message notice"
+         tal:condition="last_modifier"
+      >
+        Last edited by
+        <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+        on
+        ${python:toLocalizedTime(session.modified, long_format=1)}.
+      </p>
       <ul class="menu"
-          tal:switch="view/session/review_state"
+          tal:switch="session/review_state"
       >
         <tal:case case="string:private">
           <li>
