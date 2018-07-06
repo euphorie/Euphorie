@@ -3854,7 +3854,7 @@ msgstr "Risorse aggiuntive per la valutazione del rischio"
 #. Default: Additional resources for this module
 #: src/euphorie/client/templates/webhelpers.pt:294
 msgid "header_additional_resources_module"
-msgstr "Risorce aggiuntive per questo modulo"
+msgstr "Risorse aggiuntive per questo modulo"
 
 #: src/euphorie/content/colour.py:19
 msgid "The specified colour is not valid."

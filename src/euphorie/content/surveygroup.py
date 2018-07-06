@@ -57,7 +57,7 @@ class ISurveyGroup(form.Schema, IBasic):
 
     obsolete = schema.Bool(
             title=_("label_survey_obsolete",
-                default=u"Obsolete survey"),
+                default=u"Obsolete OiRA tool"),
             description=_("help_survey_obsolete",
                 default=u"This OiRA Tool is obsolete; it has been retired or "
                         u"replaced with another OiRA Tool."),

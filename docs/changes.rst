@@ -1,7 +1,14 @@
 Changelog
 =========
 
-9.0.36 (unreleased)
+9.0.37 (unreleased)
+-------------------
+
+- Label change: "Obsolete OiRA tool" instead of "Survey"
+- Translation fix for IT
+
+
+9.0.36 (2018-04-26)
 -------------------
 
 - Translation updates in Castillian (es), Catalan (ca) and Dutch (nl)
