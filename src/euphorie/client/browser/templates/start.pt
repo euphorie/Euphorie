@@ -125,6 +125,7 @@
 
         <div class="button-bar"
              id="nav-bar"
+             tal:condition="can_edit"
         >
           <button class="pat-button continue"
                   type="submit"
