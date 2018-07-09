@@ -11,6 +11,7 @@ from OFS.SimpleItem import SimpleItem
 from PIL.ImageColor import getrgb
 
 import colorsys
+import mock
 import unittest
 
 
@@ -24,6 +25,12 @@ class MockRequest:
 
     def get_header(self, key, default):
         return self.__headers.get(key, default)
+
+
+class MockSession(object):
+
+    def __init__(self, account=None):
+        self.account = account
 
 
 class TestURLs(EuphorieIntegrationTestCase):
@@ -71,6 +78,32 @@ class TestURLs(EuphorieIntegrationTestCase):
         view = WebHelpers(country, testRequest())
         self.assertFalse(view._base_url().startswith(survey.absolute_url()))
         self.assertTrue(view._base_url().startswith(country.absolute_url()))
+
+
+class WebhelperUnitTests(unittest.TestCase):
+
+    def patch_view(self, name, is_property=False):
+        dotted = '.'.join((WebHelpers.__module__, WebHelpers.__name__, name))
+        if is_property:
+            new_callable = mock.PropertyMock
+        else:
+            new_callable = None
+        return mock.patch(dotted, new_callable=new_callable)
+
+    def test_is_owner(self):
+        # If no session is set is_owner return False
+        view = WebHelpers(None, MockRequest())
+        self.assertEqual(view.session, None)
+        self.assertFalse(view.is_owner())
+        # Otherwise we will return True is the session account is equal
+        # to the current account
+        with self.patch_view('session', is_property=True) as mocked_session:
+            session = MockSession('account_1')
+            mocked_session.return_value = session
+            view.get_current_account = lambda: 'account_2'
+            self.assertFalse(view.is_owner())
+            view.get_current_account = lambda: 'account_1'
+            self.assertTrue(view.is_owner())
 
 
 class WebhelperTests(EuphorieIntegrationTestCase):

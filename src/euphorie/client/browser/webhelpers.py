@@ -592,6 +592,14 @@ class WebHelpers(BrowserView):
     def get_current_account(self):
         return get_current_account()
 
+    def is_owner(self):
+        ''' Check if the current user is the owner of the session
+        '''
+        session = self.session
+        if not session:
+            return False
+        return self.get_current_account() == session.account
+
     @memoize
     def can_view_session(self, session=None):
         account = self.get_current_account()
