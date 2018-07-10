@@ -39,23 +39,6 @@ class Client(dexterity.Container):
     exclude_from_nav = True
 
 
-grok.templatedir("templates")
-
-
-class View(grok.View):
-    """View name: @@frontpage
-    """
-    grok.context(IClient)
-    grok.require("zope2.Public")
-    grok.layer(IClientSkinLayer)
-    grok.template("frontpage")
-
-    def update(self):
-        """Set a view attribute with the set of enabled countries.
-        """
-        self.enabled_countries = frozenset(self.context.keys())
-
-
 class ClientUserProvider(grok.Adapter):
     """Expose the client as a user to the system.
 

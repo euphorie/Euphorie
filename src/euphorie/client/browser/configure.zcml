@@ -86,6 +86,14 @@
       />
 
   <browser:page
+      name="view"
+      for="euphorie.client.client.IClient"
+      permission="zope2.Public"
+      class=".client.ClientView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="new-session.html"
       for="*"
       permission="zope2.View"

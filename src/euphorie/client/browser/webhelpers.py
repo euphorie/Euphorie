@@ -128,6 +128,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def default_country(self):
+        return self._settings.get('default_country', '')
+
+    @property
+    @memoize
     def _user(self):
         return getSecurityManager().getUser()
 
