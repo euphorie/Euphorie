@@ -4,8 +4,8 @@ Changelog
 9.0.38 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fixes for LT
+- Translation fix for the measures report: use translated month abbreviations
 
 9.0.37 (2018-06-14)
 -------------------
