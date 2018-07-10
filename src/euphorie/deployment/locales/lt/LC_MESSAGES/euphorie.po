@@ -892,12 +892,12 @@ msgstr ""
 #. Default: Page
 #: src/euphorie/client/survey.py:611
 msgid "label_page"
-msgstr "Pagina"
+msgstr "Puslapis"
 
 #. Default: of
 #: src/euphorie/client/survey.py:612
 msgid "label_page_of"
-msgstr "di"
+msgstr "iš"
 
 #. Default: OiRA - Online interactive Risk Assessment
 #: src/euphorie/client/utils.py:283
