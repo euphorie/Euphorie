@@ -738,6 +738,34 @@ msgstr "Nurodykite naują šios OiRA priemonės pavadinimą"
 msgid "Please enter your email address"
 msgstr "Įveskite savo el. pašto adresą"
 
+#. Default: Page
+#: src/euphorie/client/survey.py:611
+msgid "label_page"
+msgstr "Puslapis"
+
+#. Default: of
+#: src/euphorie/client/survey.py:612
+msgid "label_page_of"
+msgstr "iš"
+
+#. Default: OiRA - Online interactive Risk Assessment
+#: src/euphorie/client/utils.py:283
+#: src/euphorie/client/templates/appendix.pt:11
+#: src/euphorie/client/templates/conditions.pt:12
+#: src/euphorie/client/templates/frontpage.pt:12
+#: src/euphorie/client/templates/layout.pt:12
+#: src/euphorie/client/templates/module_evaluation.pt:11
+#: src/euphorie/client/templates/plain.pt:19
+#: src/euphorie/client/templates/report_identification.pt:11
+#: src/euphorie/client/templates/risk_evaluation.pt:11
+#: src/euphorie/client/templates/shell.pt:23
+#: src/euphorie/client/templates/webhelpers.pt:21
+#: src/euphorie/content/sector.py:278
+msgid "title_tool"
+msgstr ""
+"OiRA - internetinis interaktyvus rizikos vertinimas (angl. Online "
+"interactive Risk Assessment)"
+
 #: euphorie/content/templates/library.pt:24
 msgid ""
 "Please note that you may not be able to use all available content: profile "
