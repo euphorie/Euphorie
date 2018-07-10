@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2006-12-15 23:20+0000\n"
+"PO-Revision-Date: 2006-12-15 23:00+0000\n"
+"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${b} ${d}, ${Y} ${I}:${M} ${p}
+#: ./TranslationServiceTool.py
+msgid "date_format_long"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${b} ${d}, ${Y}
+#: ./TranslationServiceTool.py
+msgid "date_format_short"
+msgstr ""
+
+#. Date format used with the datepicker jqueryui plugin.
+#. Please only use 'dd', 'mm', 'yy', '-', '/', '.' in this string.
+#. Default: "mm/dd/yy"
+msgid "date_format_short_datepicker"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${I}:${M} ${p}
+#: ./TranslationServiceTool.py
+msgid "time_format"
+msgstr ""
+
+#. Default: "April"
+#: datetime name of a month, format %B
+msgid "month_apr"
+msgstr "Balandis"
+
+#. Default: "Apr"
+#: datetime name of a month, format %b
+msgid "month_apr_abbr"
+msgstr "Bal"
+
+#. Default: "August"
+#: datetime name of a month, format %B
+msgid "month_aug"
+msgstr "Rugpjūtis"
+
+#. Default: "Aug"
+#: datetime name of a month, format %b
+msgid "month_aug_abbr"
+msgstr "Rugp"
+
+#. Default: "December"
+#: datetime name of a month, format %B
+msgid "month_dec"
+msgstr "Gruodis"
+
+#. Default: "Dec"
+#: datetime name of a month, format %b
+msgid "month_dec_abbr"
+msgstr "Gru"
+
+#. Default: "February"
+#: datetime name of a month, format %B
+msgid "month_feb"
+msgstr "Vasaris"
+
+#. Default: "Feb"
+#: datetime name of a month, format %b
+msgid "month_feb_abbr"
+msgstr "Vas"
+
+#. Default: "January"
+#: datetime name of a month, format %B
+msgid "month_jan"
+msgstr "Sausis"
+
+#. Default: "Jan"
+#: datetime name of a month, format %b
+msgid "month_jan_abbr"
+msgstr "Sau"
+
+#. Default: "July"
+#: datetime name of a month, format %B
+msgid "month_jul"
+msgstr "Liepa"
+
+#. Default: "Jul"
+#: datetime name of a month, format %b
+msgid "month_jul_abbr"
+msgstr "Lie"
+
+#. Default: "June"
+#: datetime name of a month, format %B
+msgid "month_jun"
+msgstr "Birželis"
+
+#. Default: "Jun"
+#: datetime name of a month, format %b
+msgid "month_jun_abbr"
+msgstr "Bir"
+
+#. Default: "March"
+#: datetime name of a month, format %B
+msgid "month_mar"
+msgstr "Kovas"
+
+#. Default: "Mar"
+#: datetime name of a month, format %b
+msgid "month_mar_abbr"
+msgstr "Kov"
+
+#. Default: "May"
+#: datetime name of a month, format %B
+msgid "month_may"
+msgstr "Gegužė"
+
+#. Default: "May"
+#: datetime name of a month, format %b
+msgid "month_may_abbr"
+msgstr "Geg"
+
+#. Default: "November"
+#: datetime name of a month, format %B
+msgid "month_nov"
+msgstr "Lapkritis"
+
+#. Default: "Nov"
+#: datetime name of a month, format %b
+msgid "month_nov_abbr"
+msgstr "Lap"
+
+#. Default: "October"
+#: datetime name of a month, format %B
+msgid "month_oct"
+msgstr "Spalis"
+
+#. Default: "Oct"
+#: datetime name of a month, format %b
+msgid "month_oct_abbr"
+msgstr "Spa"
+
+#. Default: "September"
+#: datetime name of a month, format %B
+msgid "month_sep"
+msgstr "Rugsėjis"
+
+#. Default: "Sep"
+#: datetime name of a month, format %b
+msgid "month_sep_abbr"
+msgstr "Rug"
+
+
+
+#. Default: "Friday"
+#: datetime name of a day, format %A
+msgid "weekday_fri"
+msgstr ""
+
+#. Default: "Fri"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_fri_abbr"
+msgstr ""
+
+#. Default: "Fr"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_fri_short"
+msgstr ""
+
+#. Default: "Monday"
+#: datetime name of a day, format %A
+msgid "weekday_mon"
+msgstr ""
+
+#. Default: "Mon"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_mon_abbr"
+msgstr ""
+
+#. Default: "Mo"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_mon_short"
+msgstr ""
+
+#. Default: "Saturday"
+#: datetime name of a day, format %A
+msgid "weekday_sat"
+msgstr ""
+
+#. Default: "Sat"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_sat_abbr"
+msgstr ""
+
+#. Default: "Sa"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_sat_short"
+msgstr ""
+
+#. Default: "Sunday"
+#: datetime name of a day, format %A
+msgid "weekday_sun"
+msgstr ""
+
+#. Default: "Sun"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_sun_abbr"
+msgstr ""
+
+#. Default: "Su"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_sun_short"
+msgstr ""
+
+#. Default: "Thursday"
+#: datetime name of a day, format %A
+msgid "weekday_thu"
+msgstr ""
+
+#. Default: "Thu"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_thu_abbr"
+msgstr ""
+
+#. Default: "Th"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_thu_short"
+msgstr ""
+
+#. Default: "Tuesday"
+#: datetime name of a day, format %A
+msgid "weekday_tue"
+msgstr ""
+
+#. Default: "Tue"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_tue_abbr"
+msgstr ""
+
+#. Default: "Tu"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_tue_short"
+msgstr ""
+
+#. Default: "Wednesday"
+#: datetime name of a day, format %A
+msgid "weekday_wed"
+msgstr ""
+
+#. Default: "Wed"
+#: datetime abbreviation of a day, format %a
+msgid "weekday_wed_abbr"
+msgstr ""
+
+#. Default: "We"
+#: datetime two letter abbreviation of a day used in the portlet_calendar
+msgid "weekday_wed_short"
+msgstr ""

@@ -86,7 +86,7 @@ ul.title {margin-bottom:3em;}
                                     High priority risks
                                 </h3>
                             </th>
-                            <td tal:repeat="month view/months" class="legend" i18n:domain="plone" i18n:translate="">
+                            <td tal:repeat="month view/monthstrings" class="legend" i18n:domain="plone" i18n:translate="">
                                 ${month}
                             </td>
                         </tr>
@@ -118,7 +118,7 @@ ul.title {margin-bottom:3em;}
                                     Medium priority risks
                                 </h3>
                             </th>
-                            <td tal:repeat="month view/months" class="legend">
+                            <td tal:repeat="month view/monthstrings" class="legend">
                                 ${month}
                             </td>
                         </tr>
@@ -133,7 +133,7 @@ ul.title {margin-bottom:3em;}
                                     Low priority risks
                                 </h3>
                             </th>
-                            <td tal:repeat="month view/months" class="legend">
+                            <td tal:repeat="month view/monthstrings" class="legend">
                                 ${month}
                             </td>
                         </tr>
