@@ -19,9 +19,12 @@ class ClientView(WebHelpers):
                 found = getattr(self.context, self.default_country)
                 if IClientCountry.providedBy(found):
                     target = found
-        while not target:
+        if not target:
             for id, found in self.context.objectItems():
                 if IClientCountry.providedBy(found):
                     target = found
+                    break
+        if not target:
+            return self
         self.request.RESPONSE.redirect("{}{}".format(
             target.absolute_url(), url_param))
