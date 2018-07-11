@@ -239,8 +239,9 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, survey)
         addSurvey(self.portal, survey_nl)
         browser = self.get_browser()
-        browser.open(self.portal.client.absolute_url())
-        browser.getLink("Nederlands").click()
+        # Pass the language as URL parameter to ensure that we get the NL
+        # version
+        browser.open("%s?language=nl" % self.portal.client.absolute_url())
         registerUserInClient(browser, link="Registreer")
         # Note, this used to test that the URL was that of the client,
         # in the correct country (nl), with `?language=nl-NL` appended.

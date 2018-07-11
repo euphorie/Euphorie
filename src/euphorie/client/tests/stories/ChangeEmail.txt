@@ -65,7 +65,7 @@ When we click on the link the change is triggered:
 >>> browser.contents
 '...Your email address has been updated...'
 >>> browser.url
-'http://nohost/plone/client'
+'http://nohost/plone/client/nl'
 
 
 Logging in with new address

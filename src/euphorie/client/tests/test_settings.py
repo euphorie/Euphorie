@@ -117,7 +117,8 @@ class AccountDeleteTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-delete")
         browser.getControl(name="form.widgets.password").value = "guest"
         browser.getControl(name="form.buttons.delete").click()
-        self.assertEqual(browser.url, "http://nohost/plone/client")
+        self.assertTrue(
+            browser.url.startswith("http://nohost/plone/client/nl"))
         self.assertEqual(Session.query(Account).count(), 0)
 
 
