@@ -617,6 +617,10 @@ class WebHelpers(BrowserView):
             session in account.acquired_sessions
         )
 
+    @memoize
+    def can_edit_session(self, session=None):
+        return self.can_view_session(session=session)
+
     def resume(self, session):
         ''' Resume a session for the current user if he is allowed to
         '''
