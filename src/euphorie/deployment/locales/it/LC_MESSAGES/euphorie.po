@@ -3285,57 +3285,57 @@ msgstr "Utilizzare pre"
 #: src/euphorie/client/templates/risks_overview.pt:222
 #: src/euphorie/client/templates/status.pt:89
 msgid "label_no_risk"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
 
 #. Default: No risks
 #: src/euphorie/client/templates/risks_overview.pt:223
 #: src/euphorie/client/templates/status.pt:90
 msgid "label_no_risks_2"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
 
 #. Default: No risks
 #: src/euphorie/client/templates/risks_overview.pt:224
 #: src/euphorie/client/templates/status.pt:91
 msgid "label_no_risks_3_4"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
 
 #. Default: No risks
 #: src/euphorie/client/templates/risks_overview.pt:225
 #: src/euphorie/client/templates/status.pt:92
 msgid "label_no_risks_5_or_more"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
 
 #. Default: Risk with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:229
 #: src/euphorie/client/templates/status.pt:96
 msgid "label_risk_with_measure"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:230
 #: src/euphorie/client/templates/status.pt:97
 msgid "label_risks_with_measure_2"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:231
 #: src/euphorie/client/templates/status.pt:98
 msgid "label_risks_with_measure_3_4"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: Risks with measure(s)
 #: src/euphorie/client/templates/risks_overview.pt:232
 #: src/euphorie/client/templates/status.pt:99
 msgid "label_risks_with_measure_5_or_more"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: Risk without measure
 #: src/euphorie/client/templates/risks_overview.pt:236

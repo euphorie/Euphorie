@@ -4,8 +4,7 @@ Changelog
 9.0.39 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Italy: change labels for "green" and "dark red" on status page
 
 9.0.38 (2018-07-10)
 -------------------
