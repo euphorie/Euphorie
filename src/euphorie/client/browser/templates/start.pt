@@ -9,7 +9,7 @@
         webhelpers nocall:context/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
         session webhelpers/session;
-        can_edit view/can_edit;
+        can_edit webhelpers/can_edit_session;
       "
       i18n:domain="euphorie"
 >

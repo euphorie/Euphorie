@@ -47,13 +47,6 @@ class Start(AutoExtensibleForm, EditForm):
             self.request,
         )
 
-    @property
-    @memoize
-    def can_edit(self):
-        ''' Check if a user can edit this session
-        '''
-        return True
-
     @memoize
     def has_introduction(self):
         survey = aq_inner(self.context)
