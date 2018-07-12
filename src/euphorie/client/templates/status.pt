@@ -112,7 +112,9 @@
                             <strong class="number">${num_todo}</strong> <em class="label" i18n:translate="Unvisited">Unanswered</em>
                         </li>
                     </ul>
-                    <div class="six columns high-prio-risks" tal:define="high_risks python:view.risks_by_status[module.get('path')]['present']['high']" tal:condition="high_risks">
+                    <div class="six columns high-prio-risks"
+                        tal:define="high_risks python:view.risks_by_status[module.get('path')]['present']['high']"
+                        tal:condition="python:high_risks and view.show_high_risks">
                         <h4 i18n:translate="heading_high_prio_risks">High priority risks</h4>
                         <ul>
                             <li tal:repeat="risk high_risks">
