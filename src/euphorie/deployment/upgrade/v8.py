@@ -67,7 +67,7 @@ def add_column_to_account(context):
     q = "ALTER TABLE account ADD COLUMN account_type CHARACTER varying(16)";
     try:
         session.execute(q)
-    except InternalError, e:
+    except InternalError as e:
         # There might be previous SQL queries which failed due to the
         # account_type column not yet being in the Account table. For example,
         # the authenticate method in authentication.py does such a query.
@@ -153,7 +153,7 @@ def enable_custom_risks_on_all_modules(context):
                             if is_new:
                                 survey.published = (
                                     survey.id, survey.title, datetime.datetime.now())
-                        except Exception, e:
+                        except Exception as e:
                             log.error("Could not enable custom risks for module. %s" % e)
     log.info('All %d published surveys can now have custom risks.' % count)
     session = Session()
