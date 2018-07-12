@@ -597,10 +597,12 @@ class WebHelpers(BrowserView):
     def get_current_account(self):
         return get_current_account()
 
-    def is_owner(self):
+    @memoize_contextless
+    def is_owner(self, session=None):
         ''' Check if the current user is the owner of the session
         '''
-        session = self.session
+        if session is None:
+            session = self.session
         if not session:
             return False
         return self.get_current_account() == session.account
