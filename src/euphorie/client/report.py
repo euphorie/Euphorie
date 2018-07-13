@@ -1089,9 +1089,6 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         :py:class:`ActionPlan <euphorie.client.model.ActionPlan>`. Each
         entry in the list will correspond to a row in the generated Excel
         file.
-
-        XXX: This appears to be broken in sqlalchemy >= 1.2
-        (at least on 1.2.5 and 1.2.6)
         """
         module_paths = self.getModulePaths()
         risk_data = self.getRisks(module_paths)
