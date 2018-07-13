@@ -1222,8 +1222,6 @@ class MeasuresOverview(survey.Status):
                             for m in [now, next_month, month_after_next]],
                  })
 
-        # re-use top-level module computation from the Status overview
-        modules = self.getModules()
         main_modules = {}
         for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
             module_obj = self.request.survey.restrictedTraverse(module.zodb_path.split('/'))
@@ -1242,8 +1240,8 @@ class MeasuresOverview(survey.Status):
                     else:
                         main_modules[path]['risks'][prio] = risks[prio]
             else:
-                title = modules[path]['title']
-                number = modules[path]['number']
+                title = module.title
+                number = module.number
                 main_modules[path] = {'name': title, 'number': number, 'risks': risks}
 
         self.modules = []

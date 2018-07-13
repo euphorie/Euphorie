@@ -1,7 +1,35 @@
 Changelog
 =========
 
-9.0.37 (unreleased)
+9.0.41 (unreleased)
+-------------------
+
+- Bugfix for the "measures" report: Do not rely on the pre-computed
+  list of modules, since this can fail for a scenario with 
+  module->module->Optional module
+
+
+9.0.40 (2018-07-13)
+-------------------
+
+- Italy: more translation changes
+- Italy special: insert a fixed text snippet at the end of every risk description
+  in the identification phase
+
+9.0.39 (2018-07-12)
+-------------------
+
+- Italy: change labels for "green" and "dark red" on status page
+- Italy special: on status page and risks overview, only show the status bar,
+  but no additional box(es) about individual risks
+
+9.0.38 (2018-07-10)
+-------------------
+
+- Translation fixes for LT
+- Translation fix for the measures report: use translated month abbreviations
+
+9.0.37 (2018-06-14)
 -------------------
 
 - Label change: "Obsolete OiRA tool" instead of "Survey"
