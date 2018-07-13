@@ -4,7 +4,9 @@ Changelog
 9.0.41 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Bugfix for the "measures" report: Do not rely on the pre-computed
+  list of modules, since this can fail for a scenario with 
+  module->module->Optional module
 
 
 9.0.40 (2018-07-13)
