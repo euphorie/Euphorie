@@ -38,11 +38,6 @@ class MockRequest(object):
         return self.__headers.get(key, default)
 
 
-# Allow memoize
-gsm = getGlobalSiteManager()
-gsm.registerAdapter(AttributeAnnotations, (MockRequest, ), IAnnotations)
-
-
 class MockSession(object):
 
     def __init__(self, account=None):
@@ -108,6 +103,12 @@ class WebhelperUnitTests(unittest.TestCase):
 
     def test_is_owner(self):
         # If no session is set is_owner return False
+        # Allow memoize
+        gsm = getGlobalSiteManager()
+        gsm.registerAdapter(
+            AttributeAnnotations, (MockRequest, ), IAnnotations
+        )
+
         view = WebHelpers(None, MockRequest())
         self.assertEqual(view.session, None)
         self.assertFalse(view.is_owner())
