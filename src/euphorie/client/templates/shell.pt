@@ -133,7 +133,7 @@
                            "
                            condition="not:is_anonymous"
           >
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="step-1"
                 tal:define="
                   active python:page_section == 'preparation' and 'active' or '';
@@ -147,7 +147,7 @@
                  i18n:translate="label_preparation"
               >Preparation</a>
             </li>
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="step-2"
                 tal:define="
                   active python:page_section == 'identification';
@@ -173,7 +173,7 @@
               </tal:block>
 
             </li>
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="step-4"
                 tal:define="
                   active python:page_section == 'actionplan';
@@ -198,7 +198,7 @@
               </tal:block>
             </li>
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="step-5"
                 tal:define="
                   active python:page_section == 'report';
@@ -219,7 +219,7 @@
               >Report</a>
             </li>
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="step-6"
                 tal:define="
                   active python:page_section == 'training';
@@ -241,7 +241,7 @@
             </li>
 
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None;}"
+            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                 id="status"
                 tal:define="
                   active python: page_section == 'status' and 'active' or '';
