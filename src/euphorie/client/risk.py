@@ -147,7 +147,18 @@ class IdentificationView(grok.View):
 
             ploneview = getMultiAdapter(
                 (self.context, self.request), name="plone")
-            stripped_description = StripMarkup(self.risk.description)
+            self.description = self.risk.description
+            # Italian special
+            if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
+                self.skip_evaluation = True
+                self.description += u"""<p>Tutte le misure sono riepilogate
+                nella tabella accessibile dal riquadro sottostante tramite il
+                link “risorse aggiuntive” e vanno selezionate nella sezione
+                misure/programma (almeno quelle obbligatorie).</p>
+                """
+            else:
+                self.skip_evaluation = False
+            stripped_description = StripMarkup(self.description)
             if len(stripped_description) > self.DESCRIPTION_CROP_LENGTH:
                 self.description_intro = ploneview.cropText(
                     stripped_description, self.DESCRIPTION_CROP_LENGTH)
@@ -187,11 +198,6 @@ class IdentificationView(grok.View):
                 custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
                 self.description_severity = custom_ds.strip() or self.description_severity
 
-            # Italian special
-            if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
-                self.skip_evaluation = True
-            else:
-                self.skip_evaluation = False
             super(IdentificationView, self).update()
 
     def get_existing_measures(self):

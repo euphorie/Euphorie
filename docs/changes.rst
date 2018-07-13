@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Italy: more translation changes
+- Italy special: insert a fixed text snippet at the end of every risk description
+  in the identification phase
 
 9.0.39 (2018-07-12)
 -------------------

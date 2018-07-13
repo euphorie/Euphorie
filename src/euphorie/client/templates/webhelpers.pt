@@ -257,13 +257,13 @@
       </tal:description_intro>
       <tal:no_description_intro condition="not:view/description_intro">
         <p class="introduction">
-          <tal:text replace="structure risk/description">description</tal:text>
+          <tal:text replace="structure view/description">description</tal:text>
         </p>
       </tal:no_description_intro>
     </section>
 
     <article id="full-content" hidden="hidden">
-      <tal:text replace="structure risk/description">description</tal:text>
+      <tal:text replace="structure view/description">description</tal:text>
       <p class="show-more-or-less">
         <a href="${request/ACTUAL_URL}" class="pat-inject" data-pat-inject="source: #short_description; target: #concise-content"><strong i18n:translate="Show less…" class="show-less">Show less…</strong></a>
       </p>
