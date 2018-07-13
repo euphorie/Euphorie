@@ -83,7 +83,7 @@
                     </p>
                 </section>
                 <section class="row">
-                    <ul class="six columns legend">
+                    <ul class="${python:view.show_high_risks and 'six' or 'twelve'} columns legend">
                         <li class="answered" tal:condition="num_ok">
                             <strong class="number">${num_ok}</strong>
                             <em tal:condition="python:num_ok==1" class="label" i18n:translate="label_no_risk">No risk</em>
