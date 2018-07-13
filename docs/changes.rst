@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.40 (unreleased)
+9.0.40 (2018-07-13)
 -------------------
 
 - Italy: more translation changes
