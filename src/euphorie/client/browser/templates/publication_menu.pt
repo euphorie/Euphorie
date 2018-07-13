@@ -21,44 +21,46 @@
         on
         ${python:toLocalizedTime(session.modified, long_format=1)}.
       </p>
-      <ul class="menu"
-          tal:switch="session/review_state"
-      >
-        <tal:case case="string:private">
-          <li>
-            <form class="pat-inject"
-                  action="${here/absolute_url}/@@publication_date/set_date#content"
-            >
-              <button class="icon-publish"
-                      type="submit"
-                      i18n:translate=""
-              >Publish Risk Assessment</button>
-            </form>
-          </li>
-        </tal:case>
-        <tal:case case="string:published">
-          <li>
-            <form class="pat-inject"
-                  action="${here/absolute_url}/@@publication_date/unset_date#content"
-            >
-              <button class="icon-cancel-circled"
-                      type="submit"
-                      i18n:translate=""
-              >Unpublish Risk Assessment</button>
-            </form>
-          </li>
-          <li>
-            <form class="pat-inject"
-                  action="${here/absolute_url}/@@publication_date/reset_date#content"
-            >
-              <button class="icon-arrows-cw"
-                      type="submit"
-                      i18n:translate=""
-              >Refresh publication date</button>
-            </form>
-          </li>
-        </tal:case>
-      </ul>
+      <tal:can_edit condition="view/webhelpers/can_edit_session">
+        <ul class="menu"
+            tal:switch="session/review_state"
+        >
+          <tal:case case="string:private">
+            <li>
+              <form class="pat-inject"
+                    action="${here/absolute_url}/@@publication_date/set_date#content"
+              >
+                <button class="icon-publish"
+                        type="submit"
+                        i18n:translate=""
+                >Publish Risk Assessment</button>
+              </form>
+            </li>
+          </tal:case>
+          <tal:case case="string:published">
+            <li>
+              <form class="pat-inject"
+                    action="${here/absolute_url}/@@publication_date/unset_date#content"
+              >
+                <button class="icon-cancel-circled"
+                        type="submit"
+                        i18n:translate=""
+                >Unpublish Risk Assessment</button>
+              </form>
+            </li>
+            <li>
+              <form class="pat-inject"
+                    action="${here/absolute_url}/@@publication_date/reset_date#content"
+              >
+                <button class="icon-arrows-cw"
+                        type="submit"
+                        i18n:translate=""
+                >Refresh publication date</button>
+              </form>
+            </li>
+          </tal:case>
+        </ul>
+      </tal:can_edit>
     </div>
   </body>
 </html>

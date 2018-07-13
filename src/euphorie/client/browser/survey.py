@@ -80,6 +80,15 @@ class Start(AutoExtensibleForm, EditForm):
 
 class PubblicationMenu(BrowserView):
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
+
     def notify_modified(self):
         notify(ObjectModifiedEvent(self.session))
 
