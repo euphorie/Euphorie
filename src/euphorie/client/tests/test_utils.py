@@ -9,13 +9,16 @@ from euphorie.content.survey import Survey
 from euphorie.testing import EuphorieIntegrationTestCase
 from OFS.SimpleItem import SimpleItem
 from PIL.ImageColor import getrgb
+from zope.annotation import IAnnotations
+from zope.annotation.attribute import AttributeAnnotations
+from zope.component import getGlobalSiteManager
 
 import colorsys
 import mock
 import unittest
 
 
-class MockRequest:
+class MockRequest(object):
     form = {}
 
     def __init__(self, agent=None):
@@ -23,8 +26,21 @@ class MockRequest:
         if agent is not None:
             self.__headers['User-Agent'] = agent
 
+    def purge_memoize(self):
+        ''' Clean up the memoize cache
+        '''
+        try:
+            self.__annotations__.pop('plone.memoize', None)
+        except AttributeError:
+            pass
+
     def get_header(self, key, default):
         return self.__headers.get(key, default)
+
+
+# Allow memoize
+gsm = getGlobalSiteManager()
+gsm.registerAdapter(AttributeAnnotations, (MockRequest, ), IAnnotations)
 
 
 class MockSession(object):
@@ -103,6 +119,7 @@ class WebhelperUnitTests(unittest.TestCase):
             view.get_current_account = lambda: 'account_2'
             self.assertFalse(view.is_owner())
             view.get_current_account = lambda: 'account_1'
+            view.request.purge_memoize()
             self.assertTrue(view.is_owner())
 
 
