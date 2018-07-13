@@ -37,6 +37,7 @@
                href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
                title="Delete this session"
                i18n:attributes="title"
+               tal:condition="can_edit"
             >Delete</a>
           </metal:actions>
         </nav>
