@@ -3341,32 +3341,32 @@ msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
 #: src/euphorie/client/templates/risks_overview.pt:236
 #: src/euphorie/client/templates/status.pt:103
 msgid "label_risk_without_measure"
-msgstr "Rischio senza misure intraprese"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/risks_overview.pt:237
 #: src/euphorie/client/templates/status.pt:104
 msgid "label_risks_without_measure_2"
-msgstr "Rischio senza misure intraprese"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/risks_overview.pt:238
 #: src/euphorie/client/templates/status.pt:105
 msgid "label_risks_without_measure_3_4"
-msgstr "Rischio senza misure intraprese"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
 
 #. Default: Risks without measure
 #: src/euphorie/client/templates/risks_overview.pt:239
 #: src/euphorie/client/templates/status.pt:106
 msgid "label_risks_without_measure_5_or_more"
-msgstr "Rischio senza misure intraprese"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
 
 #. Default: Postponed
 #: src/euphorie/client/templates/risks_overview.pt:242
 #: src/euphorie/client/templates/status.pt:109
 #: src/euphorie/client/templates/webhelpers.pt:100
 msgid "Postponed"
-msgstr "Adempimenti/rischi non ancora compilati o non pertinenti"
+msgstr "Adempimenti/rischi non pertinenti"
 
 #. Default: Unanswered
 #: src/euphorie/client/templates/risks_overview.pt:245

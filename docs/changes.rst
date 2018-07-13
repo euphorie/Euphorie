@@ -4,8 +4,7 @@ Changelog
 9.0.40 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Italy: more translation changes
 
 9.0.39 (2018-07-12)
 -------------------
