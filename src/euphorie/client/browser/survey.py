@@ -4,7 +4,7 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.session import SessionManager
 from plone import api
-from plone.app.event.base import localized_now
+from datetime import datetime
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.supermodel import model
@@ -101,7 +101,7 @@ class PubblicationMenu(BrowserView):
     def reset_date(self):
         ''' Reset the session date to now
         '''
-        self.session.published = localized_now()
+        self.session.published = datetime.now()
         self.notify_modified()
         return self.redirect()
 
