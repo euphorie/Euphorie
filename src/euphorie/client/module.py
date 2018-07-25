@@ -266,6 +266,16 @@ class IdentificationView(grok.View, Mixin):
         url = QuestionURL(self.request.survey, next, phase="identification")
         self.request.response.redirect(url)
 
+    def __call__(self):
+        ''' Render the page only if the user has edit rights,
+        otherwise redirect to the start page of the session.
+        '''
+        if self.context.restrictedTraverse('webhelpers').can_edit_session():
+            return super(IdentificationView, self).__call__()
+        return self.request.response.redirect(
+            self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+        )
+
 
 class ActionPlanView(grok.View):
     """The introduction page for an :obj:`euphorie.content.module` in an action
