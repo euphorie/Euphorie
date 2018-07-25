@@ -10,6 +10,7 @@
         default_introduction nocall:context/@@default_introduction;
         session webhelpers/session;
         can_edit webhelpers/can_edit_session;
+        can_delete webhelpers/can_delete_session;
       "
       i18n:domain="euphorie"
 >
@@ -37,7 +38,7 @@
                href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
                title="Delete this session"
                i18n:attributes="title"
-               tal:condition="can_edit"
+               tal:condition="can_delete"
             >Delete</a>
           </metal:actions>
         </nav>
