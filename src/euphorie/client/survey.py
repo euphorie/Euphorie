@@ -275,6 +275,16 @@ class ActionPlan(grok.View):
         else:
             self.next_url = None
 
+    def __call__(self):
+        ''' Render the page only if the user has edit rights,
+        otherwise redirect to the start page of the session.
+        '''
+        if self.context.restrictedTraverse('webhelpers').can_edit_session():
+            return super(ActionPlan, self).__call__()
+        return self.request.response.redirect(
+            self.context.aq_parent.absolute_url() + '/@@start'
+        )
+
 
 class _StatusHelper(object):
 
