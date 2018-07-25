@@ -2,7 +2,6 @@ from five import grok
 from euphorie.json import export_image
 from ..navigation import FindPreviousQuestion
 from ..navigation import FindNextQuestion
-# from ..module import EvaluationView as BaseEvaluation
 from ..module import ActionPlanView as BaseActionPlan
 from ..utils import HasText
 from ..model import Module
