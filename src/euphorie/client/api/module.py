@@ -72,16 +72,6 @@ class Identification(JsonView):
         return self.do_GET()
 
 
-# class Evaluation(Identification):
-#     grok.context(Module)
-#     grok.require('zope2.View')
-#     grok.name('evaluation')
-
-#     phase = 'evaluation'
-#     next_phase = 'actionplan'
-#     question_filter = BaseEvaluation.question_filter
-
-
 class ActionPlan(Identification):
     grok.context(Module)
     grok.require('zope2.View')
