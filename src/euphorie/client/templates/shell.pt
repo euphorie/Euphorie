@@ -18,7 +18,9 @@
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
                   styles_override webhelpers/styles_override;
-                  tools context/@@tools">
+                  tools context/@@tools;
+                  can_edit webhelpers/can_edit_session;
+                ">
 
 <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
@@ -151,7 +153,7 @@
                 id="step-2"
                 tal:define="
                   active python:page_section == 'identification';
-                  disabled python:page_section in ('', 'preparation');
+                  disabled python:page_section in ('', 'preparation') or (not can_edit);
                 "
             >
               <a class="identification pat-switch pat-inject"
@@ -177,7 +179,7 @@
                 id="step-4"
                 tal:define="
                   active python:page_section == 'actionplan';
-                  disabled python:page_section in ('', 'preparation');
+                  disabled python:page_section in ('', 'preparation') or (not can_edit);
                 "
             >
               <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
