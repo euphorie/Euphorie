@@ -9,7 +9,6 @@ from Acquisition import aq_inner
 from Products.statusmessages.interfaces import IStatusMessage
 from euphorie.client import model
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-# from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
@@ -266,43 +265,6 @@ class IdentificationView(grok.View, Mixin):
 
         url = QuestionURL(self.request.survey, next, phase="identification")
         self.request.response.redirect(url)
-
-
-# class EvaluationView(grok.View):
-#     grok.context(model.Module)
-#     grok.require("euphorie.client.ViewSurvey")
-#     grok.layer(IEvaluationPhaseSkinLayer)
-#     grok.template("module_evaluation")
-#     grok.name("index_html")
-#     phase = "evaluation"
-#     question_filter = model.EVALUATION_FILTER
-
-#     def update(self):
-#         if redirectOnSurveyUpdate(self.request):
-#             return
-
-#         survey = self.request.survey
-#         self.module = survey.restrictedTraverse(
-#                 self.context.zodb_path.split("/"))
-#         self.title = self.context.title
-#         self.tree = getTreeData(self.request, self.context,
-#                 filter=self.question_filter, phase=self.phase)
-
-#         previous = FindPreviousQuestion(self.context,
-#                 filter=self.question_filter)
-#         if previous is None:
-#             self.previous_url = "%s/%s" % (self.request.survey.absolute_url(),
-#                                            self.phase)
-#         else:
-#             self.previous_url = QuestionURL(survey, previous, phase=self.phase)
-
-#         next = FindNextQuestion(self.context, filter=self.question_filter)
-#         if next is None:
-#             self.next_url = "%s/actionplan" % \
-#                     self.request.survey.absolute_url()
-#         else:
-#             self.next_url = QuestionURL(survey, next, phase=self.phase)
-#         super(EvaluationView, self).update()
 
 
 class ActionPlanView(grok.View):
