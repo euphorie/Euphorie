@@ -286,6 +286,19 @@ class Group(BaseObject):
         return descendants
 
     @property
+    def parents(self):
+        ''' Return all the groups in the hierarchy flattened
+        '''
+        group = self
+        parents = []
+        while True:
+            parent = group.parent
+            if not parent:
+                return parents
+            parents.append(parent)
+            group = parent
+
+    @property
     def acquired_sessions(self):
         ''' All the session relative to this group and its children
         '''
