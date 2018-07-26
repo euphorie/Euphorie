@@ -97,32 +97,23 @@
           <figure class="postit external-reference"
                   tal:condition="context/external_site_logo | nothing"
           >
-            <a href="#"
+            <a href="context/external_site_url | nothing"
                target="_blank"
                tal:omit-tag="not:context/external_site_url | nothing"
-               tal:attributes="
-                 href context/external_site_url | nothing;
-               "
             >
               <img alt=""
-                   src="http://client.oiraproject.eu/eu/leather-tanning/@@images/7870a759-8982-4217-858a-1348ef6edc14.jpeg"
+                   src="${context/absolute_url}/@@display-file/external_site_logo"
                    style="cursor: pointer"
-                   tal:attributes="
-                     src string:${context/absolute_url}/@@display-file/external_site_logo;
-                   "
               />
             </a>
             <figcaption tal:condition="context/external_site_name"
                         i18n:translate=""
             >
             This OiRA tool was offered to you by
-              <a href="#"
+              <a href="context/external_site_url | nothing"
                  target="_blank"
                  tal:content="context/external_site_name"
                  tal:omit-tag="not:context/external_site_url | nothing"
-                 tal:attributes="
-                   href context/external_site_url | nothing;
-                 "
                  i18n:name="external_site"
               >Leather Tanning</a>
             </figcaption>
@@ -180,7 +171,7 @@
           </li>
           <li>
             <a class="email icon-mail"
-               href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}"
+               href="mailto:?subject=OiRA &mdash; ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}"
                onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Email', 'Start']);"
                i18n:translate=""
             >E-mail</a>
