@@ -1,77 +1,128 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       id="login"
       meta:interpolation="true"
-      tal:define="webhelpers nocall:context/@@webhelpers;
-                  client nocall:request/client"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+        client nocall:request/client;
+      "
+      i18n:domain="euphorie"
+>
 
-<body>
-<metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account; is_outside_of_survey webhelpers/is_outside_of_survey; came_from_param webhelpers/came_from_param">
-  <tal:block replace="tile:statusmessages"/>
-  <article class="rich">
-    <h1 i18n:translate="header_welcome">Welcome</h1>
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  is_guest_account webhelpers/is_guest_account;
+                  is_outside_of_survey webhelpers/is_outside_of_survey;
+                  came_from_param webhelpers/came_from_param;
+                "
+    >
+      <tal:block replace="tile:statusmessages" />
+      <article class="rich">
+        <h1 i18n:translate="header_welcome">Welcome</h1>
 
-    <p i18n:translate="teaser_try_oira" tal:condition="view/allow_guest_accounts">
-        Want to try OiRA? You may <strong i18n:name="tryout_link"><a i18n:translate="label_tryout" tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" data-pat-modal="class: large" class="pat-modal" title="Start a new test session">run a test session</a><a i18n:translate="label_tryout" tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session">run a test session</a></strong> or <strong i18n:name="register_link"><a i18n:translate="label_register" href="${view/register_url}">register</a></strong> to start for real.
-    </p>
-    <p i18n:translate="label_login_here">If you are a registered user, you can <strong i18n:name="log_in"><a i18n:translate="log in" href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large">log in</a></strong> here.</p>
-    <p i18n:translate="label_create_account" tal:condition="not:view/allow_guest_accounts">
-      If you do not have an account for the OiRA application yet, please
-      <strong i18n:name="register_link"><a i18n:translate="label_register" href="${view/register_url}">register</a></strong>
-      to start for real<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.
-    </p>
-
-    <h2 i18n:translate="">What is OiRA (Online Interactive Risk Assessment)?</h2>
-    <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>
-
-    <div class="extra pat-collapsible closed show-more">
-        <p class="show-more-or-less">
-          <strong class="show-more" i18n:translate="Show more…">Show more…</strong> <span class="divider">/</span> <strong class="show-less" i18n:translate="Show less…">Show less…</strong>
+        <p tal:condition="view/allow_guest_accounts"
+           i18n:translate="teaser_try_oira"
+        >
+        Want to try OiRA? You may
+          <strong i18n:name="tryout_link"><a class="pat-modal"
+               href="${base_url}/new-session-test.html?${came_from_param}#document-content"
+               title="Start a new test session"
+               data-pat-modal="class: large"
+               tal:condition="is_outside_of_survey"
+               i18n:translate="label_tryout"
+            >run a test session</a><a href="${base_url}/@@tryout?${came_from_param}#document-content"
+               title="Start a new test session"
+               tal:condition="not:is_outside_of_survey"
+               i18n:translate="label_tryout"
+            >run a test session</a></strong>
+          or
+          <strong i18n:name="register_link"><a href="${view/register_url}"
+               i18n:translate="label_register"
+            >register</a></strong>
+           to start for real.
         </p>
-        <div class="panel-content">
+        <p i18n:translate="label_login_here">If you are a registered user, you can
+          <strong i18n:name="log_in"><a class="pat-modal login"
+               href="${base_url}/login_form?${came_from_param}#document-content"
+               data-pat-modal="class: large"
+               i18n:translate="log in"
+            >log in</a></strong>
+          here.</p>
+        <p tal:condition="not:view/allow_guest_accounts"
+           i18n:translate="label_create_account"
+        >
+      If you do not have an account for the OiRA application yet, please
+          <strong i18n:name="register_link"><a href="${view/register_url}"
+               i18n:translate="label_register"
+            >register</a></strong>
+      to start for real
+          <sup i18n:name="tooltip_register"><a class="icon-help-circle iconified pat-tooltip"
+               href="${base_url}/tooltips#why-register"
+               data-pat-tooltip="source: ajax; position-list: lt; class: rich info"
+            >Info</a></sup>.
+        </p>
 
-          <h4 i18n:translate="">Who is the OiRA tool for?</h4>
-          <p i18n:translate="">OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace.</p>
+        <h2 i18n:translate="">What is OiRA (Online Interactive Risk Assessment)?</h2>
+        <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>
 
-          <p i18n:translate="">However, OiRA is designed to be of most value to smaller businesses.</p>
-          <p i18n:translate="">OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements.</p>
+        <div class="extra pat-collapsible closed show-more">
+          <p class="show-more-or-less">
+            <strong class="show-more"
+                    i18n:translate="label_show_more_hellip"
+            >Show more&hellip;</strong>
+            <span class="divider">/</span>
+            <strong class="show-less"
+                    i18n:translate="label_show_less_hellip"
+            >Show less&hellip;</strong>
+          </p>
+          <div class="panel-content">
+
+            <h4 i18n:translate="">Who is the OiRA tool for?</h4>
+            <p i18n:translate="">OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace.</p>
+
+            <p i18n:translate="">However, OiRA is designed to be of most value to smaller businesses.</p>
+            <p i18n:translate="">OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements.</p>
 
 
-          <h4 i18n:translate="">What do I have to do?</h4>
-          <p i18n:translate="">There are four main stages to complete in the assessment process:</p>
-          <ul>
-            <li i18n:translate=""><strong i18n:name="preparation"><tal:span i18n:translate="label_preparation">Preparation</tal:span>:</strong> This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business.</li>
-            <li i18n:translate=""><strong i18n:name="identification"><tal:span i18n:translate="label_identification">Identification</tal:span>:</strong> OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage.</li>
-            <li i18n:translate=""><strong i18n:name="evaluation"><tal:span i18n:translate="label_evaluation">Evaluation</tal:span>:</strong> Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage.</li>
-            <li i18n:translate=""><strong i18n:name="action-plan"><tal:span i18n:translate="label_action_plan">Action Plan</tal:span>:</strong> In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically  produced in the next step.</li>
-          </ul>
+            <h4 i18n:translate="">What do I have to do?</h4>
+            <p i18n:translate="">There are four main stages to complete in the assessment process:</p>
+            <ul>
+              <li i18n:translate=""><strong i18n:name="preparation"><tal:span i18n:translate="label_preparation">Preparation</tal:span>:</strong>
+                This gives you an overview of the particular assessment you are about to begin and can allow you to further customise the assessment to the specific nature of your business.</li>
+              <li i18n:translate=""><strong i18n:name="identification"><tal:span i18n:translate="label_identification">Identification</tal:span>:</strong>
+                OiRA will present a series of potential health and safety hazards or problems that could exist in your workplace. By answering the statements/questions with either yes or no, you state if such hazards or problems are present. You can also decide to leave a question unanswered and thus put it on hold to be answered at a later stage.</li>
+              <li i18n:translate=""><strong i18n:name="evaluation"><tal:span i18n:translate="label_evaluation">Evaluation</tal:span>:</strong>
+                Here you will be able to determine the level of risk attached to each of the items you identified as 'need to be addressed' in the 'Identification' stage.</li>
+              <li i18n:translate=""><strong i18n:name="action-plan"><tal:span i18n:translate="label_action_plan">Action Plan</tal:span>:</strong>
+                In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically  produced in the next step.</li>
+            </ul>
 
 
-          <h4 i18n:translate="">How long will it take?</h4>
-          <p i18n:translate="">It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries.</p>
-          <p i18n:translate="">However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off.</p>
+            <h4 i18n:translate="">How long will it take?</h4>
+            <p i18n:translate="">It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries.</p>
+            <p i18n:translate="">However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off.</p>
 
 
-          <h4 i18n:translate="">Why do I have to register?</h4>
-          <p i18n:translate="">The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
-          <p i18n:translate="">Registering allows you to simply log in at any time to continue previous assessments or to start new ones.</p>
-          <p i18n:translate="">You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time).</p>
+            <h4 i18n:translate="">Why do I have to register?</h4>
+            <p i18n:translate="">The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
+            <p i18n:translate="">Registering allows you to simply log in at any time to continue previous assessments or to start new ones.</p>
+            <p i18n:translate="">You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time).</p>
 
-          <h4 i18n:translate="">Do I need to prepare?</h4>
-          <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
+            <h4 i18n:translate="">Do I need to prepare?</h4>
+            <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
+          </div>
         </div>
-      </div>
 
-    <metal:css use-macro="context/appendix/macros/appendix"/>
+        <metal:css use-macro="context/appendix/macros/appendix" />
 
-    <tal:block replace="tile:client-analytics"/>
-  </article>
-  </metal:slot>
+        <tal:block replace="tile:client-analytics" />
+      </article>
+    </metal:slot>
   </body>
 </html>

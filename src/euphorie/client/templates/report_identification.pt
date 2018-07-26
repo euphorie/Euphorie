@@ -5,23 +5,36 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers">
+>
   <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:meta use-macro="webhelpers/macros/headers" />
+    <metal:css use-macro="webhelpers/macros/css" />
     <style>
       ol.toc:before { content: "<tal:span i18n:translate="toc_header">Contents</tal:span>"; }
     </style>
   </head>
   <body class="report ${webhelpers/extra_css}"
-        tal:define="survey_url python:webhelpers.survey_url(phase='identification')">
+        tal:define="
+          survey_url python:webhelpers.survey_url(phase='identification');
+        "
+  >
     <h1>${view/report_title}</h1>
 
     <div class="buttonBar super">
-      <a class="button-small" rel="download" href="${python:view.url(name='report')}/download" i18n:translate="button_download">Download</a>
-      <a class="button-small printButton jsOnly" i18n:translate="button_print">Print</a>
+      <a class="button-small"
+         href="${python:view.url(name='report')}/download"
+         rel="download"
+         i18n:translate="button_download"
+      >Download</a>
+      <a class="button-small printButton jsOnly"
+         i18n:translate="button_print"
+      >Print</a>
     </div>
 
     <ol class="toc">
@@ -32,23 +45,46 @@
 
     <tal:block repeat="node view/nodes">
       <tal:module condition="python:node.type!='risk'">
-        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)"/><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)"/>
+        <tal:tag replace="structure python:'&lt;h%s id=\'node-%s\'&gt;' % (node.depth+1, node.id)" /><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${node/title}</a><tal:tag replace="structure python:'&lt;/h%s&gt;' % (node.depth+1)" />
       </tal:module>
 
       <tal:risk condition="python:node.type=='risk'">
-      <tal:block define="zodbnode python:view.getZodbNode(node)" condition="python:zodbnode is not None">
-        <tal:block define="title python:view.title(node, zodbnode);
-                           images zodbnode/@@images;
-                           scale python:images.scale('image', width=150, height='500', direction='thumbnail');
-                           status python:view.risk_status(node, zodbnode)"
-                  on-error="nothing">
-            <div class="warning" tal:attributes="class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status]"
-                 tal:omit-tag="python:status=='unanswered'">
+        <tal:block define="
+                     zodbnode python:view.getZodbNode(node);
+                   "
+                   condition="python:zodbnode is not None"
+        >
+          <tal:block define="
+                       title python:view.title(node, zodbnode);
+                       images zodbnode/@@images;
+                       scale python:images.scale('image', width=150, height='500', direction='thumbnail');
+                       status python:view.risk_status(node, zodbnode);
+                     "
+                     on-error="nothing"
+          >
+            <div class="warning"
+                 tal:omit-tag="python:status=='unanswered'"
+                 tal:attributes="
+                   class python:{'unanswered':None, 'not-present':'success', 'present':'warning'}[status];
+                 "
+            >
               <h4><a href="${survey_url}/${python:'/'.join(node.short_path)}">${node/number} ${title}</a></h4>
-              <img alt="" tal:condition="scale" title="${zodbnode/caption}" src="${scale/url}" width="${scale/width}" height="${scale/height}"  class="${python:'floatBefore' if view.random() else 'floatAfter'}" />
+              <img class="${python:'floatBefore' if view.random() else 'floatAfter'}"
+                   alt=""
+                   height="${scale/height}"
+                   src="${scale/url}"
+                   title="${zodbnode/caption}"
+                   width="${scale/width}"
+                   tal:condition="scale"
+              />
 
-              <p class="negation" tal:condition="python:view.show_negate_warning(node, zodbnode)"><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
-              <p class="message emphasis" tal:condition="python:status=='unanswered'" i18n:translate="risk_unanswered">This risk still needs to be inventorised.</p>
+              <p class="negation"
+                 tal:condition="python:view.show_negate_warning(node, zodbnode)"
+              ><em><strong class="icon warning">&#9888;</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+              <p class="message emphasis"
+                 tal:condition="python:status=='unanswered'"
+                 i18n:translate="risk_unanswered"
+              >This risk still needs to be inventorised.</p>
 
               <p tal:replace="structure zodbnode/description">
                 This is a description of the risk.
@@ -57,49 +93,83 @@
           </tal:block>
         </tal:block>
 
-        <blockquote class="comments" tal:condition="python:node.comment and node.comment.strip()"><p tal:content="node/comment">
+        <blockquote class="comments"
+                    tal:condition="python:node.comment and node.comment.strip()"
+        ><p tal:content="node/comment">
           Here are the comments the user has added to this risk.
-        </p></blockquote>
+          </p></blockquote>
       </tal:risk>
     </tal:block>
 
-    <ol id="steps" tal:define="survey_url webhelpers/survey_url">
-      <li class="complete" id="step-1">
+    <ol id="steps"
+        tal:define="
+          survey_url webhelpers/survey_url;
+        "
+    >
+      <li class="complete"
+          id="step-1"
+      >
         <a href="${survey_url}/start">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_preparation">Preparation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_preparation">Preparation</tal:span>
+          <tal:span condition="not:webhelpers/is_iphone"
+                    i18n:translate="label_preparation"
+          >Preparation</tal:span>
+          <tal:span condition="webhelpers/is_iphone"
+                    i18n:translate="iphone_label_preparation"
+          >Preparation</tal:span>
         </a>
       </li>
-      <li class="active current" id="step-2">
+      <li class="active current"
+          id="step-2"
+      >
         <a href="${survey_url}/identification">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_identification">Identification</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_identification">Identification</tal:span>
+          <tal:span condition="not:webhelpers/is_iphone"
+                    i18n:translate="label_identification"
+          >Identification</tal:span>
+          <tal:span condition="webhelpers/is_iphone"
+                    i18n:translate="iphone_label_identification"
+          >Identification</tal:span>
         </a>
       </li>
       <li id="step-3">
         <a href="${survey_url}/evaluation">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_evaluation">Evaluation</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_evaluation">Evaluation</tal:span>
+          <tal:span condition="not:webhelpers/is_iphone"
+                    i18n:translate="label_evaluation"
+          >Evaluation</tal:span>
+          <tal:span condition="webhelpers/is_iphone"
+                    i18n:translate="iphone_label_evaluation"
+          >Evaluation</tal:span>
         </a>
       </li>
       <li id="step-4">
         <a href="${survey_url}/actionplan">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_action_plan">Action Plan</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_label_action_plan">Action Plan</tal:span>
+          <tal:span condition="not:webhelpers/is_iphone"
+                    i18n:translate="label_action_plan"
+          >Action Plan</tal:span>
+          <tal:span condition="webhelpers/is_iphone"
+                    i18n:translate="iphone_label_action_plan"
+          >Action Plan</tal:span>
         </a>
       </li>
       <li id="step-5">
         <a href="${survey_url}/report">
-          <tal:span condition="not:webhelpers/is_iphone" i18n:translate="label_report">Report</tal:span>
-          <tal:span condition="webhelpers/is_iphone" i18n:translate="iphone_report">Report</tal:span>
+          <tal:span condition="not:webhelpers/is_iphone"
+                    i18n:translate="label_report"
+          >Report</tal:span>
+          <tal:span condition="webhelpers/is_iphone"
+                    i18n:translate="iphone_report"
+          >Report</tal:span>
         </a>
       </li>
     </ol>
 
-    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation" tal:define="site_section string:identification"/>
-    <metal:css use-macro="context/appendix/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-    <tal:analytics replace="tile:client-analytics"/>
+    <metal:navigation use-macro="webhelpers/macros/toplevel-navigation"
+                      tal:define="
+                        site_section string:identification;
+                      "
+    />
+    <metal:css use-macro="context/appendix/macros/appendix" />
+    <metal:css use-macro="webhelpers/macros/javascript" />
+    <tal:analytics replace="tile:client-analytics" />
     <script type="text/javascript">
       $(document).ready(function() {
           $.localScroll();
@@ -107,5 +177,3 @@
     </script>
   </body>
 </html>
-
-

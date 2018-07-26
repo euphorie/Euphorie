@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
 
-<body>
-<metal:slot fill-slot="content">
-    <article class="rich">
-    <h1>${context/title}</h1>
-    <tal:block replace="tile:statusmessages"/>
+  <body>
+    <metal:slot fill-slot="content">
+      <article class="rich">
+        <h1>${context/title}</h1>
+        <tal:block replace="tile:statusmessages" />
 
-    <tal:block condition="view/next_url">
-        <p i18n:translate="expl_actionplan_1">
+        <tal:block condition="view/next_url">
+          <p i18n:translate="expl_actionplan_1">
             After having identified the risks, you need to put an action plan in
             place to manage the risks. To eliminate or reduce risks you need to
             determine which preventive and protective measures are to be taken.
-        </p>
-        <p i18n:translate="expl_actionplan_2">
+          </p>
+          <p i18n:translate="expl_actionplan_2">
             Among the things to be considered for this step are:
-        </p>
-        <p>
-            <ol>
-                <li i18n:translate="expl_actionplan_3">
-                    Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:
-                    <ul i18n:name="expl_actionplan_4_and_5">
-                        <li i18n:translate="expl_actionplan_4">considering whether the task or job is necessary</li>
-                        <li i18n:translate="expl_actionplan_5">removing the hazard</li>
-                    </ul>
-                </li>
-                <li i18n:translate="expl_actionplan_6">
-                If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?
-                </li>
-            </ol>
-        </p>
-        <p i18n:translate="expl_actionplan_7">
+          </p>
+          <ol>
+            <li i18n:translate="expl_actionplan_3">
+              Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:
+              <ul i18n:name="expl_actionplan_4_and_5">
+                <li i18n:translate="expl_actionplan_4">considering whether the task or job is necessary</li>
+                <li i18n:translate="expl_actionplan_5">removing the hazard</li>
+              </ul>
+            </li>
+            <li i18n:translate="expl_actionplan_6">
+              If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?
+            </li>
+          </ol>
+          <p i18n:translate="expl_actionplan_7">
             Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective.
-        </p>
-    </tal:block>
-    <tal:block condition="not:view/next_url">
-        <p i18n:translate="expl_actionplan_empty">
+          </p>
+        </tal:block>
+        <tal:block condition="not:view/next_url">
+          <p i18n:translate="expl_actionplan_empty">
             No risks were identified.  Please proceed directly to the report.
-        </p>
-    </tal:block>
-    </article>
+          </p>
+        </tal:block>
+      </article>
 
-    <p class="button-bar" id="nav-bar">
-      <a class="pat-button continue pat-inject" data-pat-inject="history: record; source: #step-4; target: #step-4 &amp;&amp; source: #content; target: #content" tal:condition="view/next_url" href="${view/next_url}" i18n:translate="label_create_action_plan">Create action plan</a>
-      <a class="pat-button" tal:condition="not:view/next_url" href="${python:webhelpers.survey_url(phase='report')}" i18n:translate="label_jump_to_report">Go to report</a>
-    </p>
-</metal:slot>
-</body>
+      <p class="button-bar"
+         id="nav-bar"
+      >
+        <a class="pat-button continue pat-inject"
+           href="${view/next_url}"
+           data-pat-inject="history: record; source: #step-4; target: #step-4 &amp;&amp; source: #content; target: #content"
+           tal:condition="view/next_url"
+           i18n:translate="label_create_action_plan"
+        >Create action plan</a>
+        <a class="pat-button"
+           href="${python:webhelpers.survey_url(phase='report')}"
+           tal:condition="not:view/next_url"
+           i18n:translate="label_jump_to_report"
+        >Go to report</a>
+      </p>
+    </metal:slot>
+  </body>
 </html>

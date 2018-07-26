@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers;
-                  isAnonymous here/portal_membership/isAnonymousUser">
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+        isAnonymous here/portal_membership/isAnonymousUser;
+      "
+      i18n:domain="euphorie"
+>
   <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers"/>
-    <metal:css use-macro="webhelpers/macros/css"/>
+    <metal:meta use-macro="webhelpers/macros/headers" />
+    <metal:css use-macro="webhelpers/macros/css" />
   </head>
   <body>
     <h1 i18n:translate="header_terms">Terms and conditions</h1>
 
     <tal:if condition="not:isAnonymous">
-    <p class="message warning" i18n:translate="terms_changed" tal:condition="view/terms_changed">
+      <p class="message warning"
+         tal:condition="view/terms_changed"
+         i18n:translate="terms_changed"
+      >
     The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding.
-    </p>
+      </p>
     </tal:if>
 
-    <form action="${request/getURL}" method="POST" class="concise">
+    <form class="concise"
+          action="${request/getURL}"
+          method="POST"
+    >
       <fieldset class="concise">
-        <input type="hidden" name="came_from" value="${view/came_from}" tal:condition="view/came_from"/>
-        <div id="conditions" class="conditions">
+        <input name="came_from"
+               type="hidden"
+               value="${view/came_from}"
+               tal:condition="view/came_from"
+        />
+        <div class="conditions"
+             id="conditions"
+        >
           <p i18n:translate="conditions_intro1">
             The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
           </p>
 
           <p i18n:translate="conditions_intro2">
-            Your personal data is processed in line with Regulation (EC) N° 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: <a href="http://osha.europa.eu/en/privacy-policy" i18n:name="url">http://osha.europa.eu/en/privacy-policy</a>.
+            Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at:
+            <a href="http://osha.europa.eu/en/privacy-policy"
+               i18n:name="url"
+            >http://osha.europa.eu/en/privacy-policy</a>.
           </p>
 
           <h2 i18n:translate="conditions_info_header">The Information we collect and for what purposes</h2>
 
           <p i18n:translate="conditions_info_entry">
-          The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:</p>
+          The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:
+          </p>
 
           <ul>
             <li i18n:translate="conditions_info_email">
@@ -49,11 +69,11 @@
             </li>
 
             <li i18n:translate="conditions_info_cookies">
-              Cookies – When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser.  Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled.
+              Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser.  Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled.
             </li>
 
             <li i18n:translate="conditions_info_logs">
-              Log information – When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system.
+              Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system.
             </li>
           </ul>
 
@@ -96,22 +116,40 @@
           <h2 i18n:translate="conditions_contact_header">Contact information</h2>
 
           <p i18n:translate="conditions_contact">
-            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at <a i18n:name="dpo-email" href="mailto:DPO@osha.europa.eu">DPO@osha.europa.eu</a> or to the EDPS at <a i18n:name="edps-email" href="mailto:edps@edps.europa.eu">edps@edps.europa.eu</a>.
+            EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at
+            <a href="mailto:DPO@osha.europa.eu"
+               i18n:name="dpo-email"
+            >DPO@osha.europa.eu</a>
+            or to the EDPS at
+            <a href="mailto:edps@edps.europa.eu"
+               i18n:name="edps-email"
+            >edps@edps.europa.eu</a>.
           </p>
         </div>
-        <p class="buttonBar" tal:condition="not:isAnonymous">
-          <button id="agreeButton" type="submit" disabled="disabled" value="agree" i18n:translate="agree_and_continue">Agree and continue</button>
+        <p class="buttonBar"
+           tal:condition="not:isAnonymous"
+        >
+          <button id="agreeButton"
+                  disabled="disabled"
+                  type="submit"
+                  value="agree"
+                  i18n:translate="agree_and_continue"
+          >Agree and continue</button>
         </p>
       </fieldset>
     </form>
 
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li><a href="${webhelpers/help_url}#authentication" i18n:translate="navigation_help">Help</a></li>
+      <metal:home use-macro="webhelpers/macros/homelink" />
+      <li><a href="${webhelpers/help_url}#authentication"
+           i18n:translate="navigation_help"
+        >Help</a></li>
     </ul>
-    <metal:css use-macro="context/appendix/macros/appendix"/>
-    <metal:css use-macro="webhelpers/macros/javascript"/>
-   <script type="text/javascript" meta:interpolation="false">
+    <metal:css use-macro="context/appendix/macros/appendix" />
+    <metal:css use-macro="webhelpers/macros/javascript" />
+    <script meta:interpolation="false"
+            type="text/javascript"
+    >
 // <![CDATA[
     function updateButton() {
         var $conditions = $(this),
@@ -132,8 +170,7 @@
         $("#conditions").scroll(updateButton);
     });
 // ]]>
-  </script>
-    <tal:block replace="tile:client-analytics"/>
+    </script>
+    <tal:block replace="tile:client-analytics" />
   </body>
 </html>
-

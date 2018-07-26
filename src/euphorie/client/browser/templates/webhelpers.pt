@@ -5,208 +5,399 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
-      i18n:domain="euphorie">
+      i18n:domain="euphorie"
+>
 
   <metal:headers define-macro="headers">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"
+    />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge"
+    />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"
+    />
+    <link href="${client/++resource++euphorie.media}/favicon.png"
+          rel="icon"
+          type="image/png"
+    />
   </metal:headers>
 
-  <metal:home define-macro="homelink" meta:interpolation="true" tal:define="logo_mode webhelpers/logoMode">
+  <metal:home define-macro="homelink"
+              meta:interpolation="true"
+              tal:define="
+                logo_mode webhelpers/logoMode;
+              "
+  >
     <li id="home">
-      <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='alien'">${webhelpers/sector/title}</a>
-      <a href="${webhelpers/client_url}" tal:condition="python:logo_mode=='native'">
-        <strong i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</strong><br/>
-        <span tal:omit-tag="" i18n:translate="oira_name_line_1">Online interactive</span><br/>
-        <span tal:omit-tag="" i18n:translate="oira_name_line_2">Risk Assessment</span></a>
+      <a href="${webhelpers/client_url}"
+         tal:condition="python:logo_mode=='alien'"
+      >${webhelpers/sector/title}</a>
+      <a href="${webhelpers/client_url}"
+         tal:condition="python:logo_mode=='native'"
+      >
+        <strong i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</strong><br />
+        <span tal:omit-tag=""
+              i18n:translate="oira_name_line_1"
+        >Online interactive</span><br />
+        <span tal:omit-tag=""
+              i18n:translate="oira_name_line_2"
+        >Risk Assessment</span></a>
     </li>
   </metal:home>
 
   <metal:topnav define-macro="toplevel-navigation">
     <ul id="navigation">
-      <metal:home use-macro="webhelpers/macros/homelink"/>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}" i18n:translate="navigation_surveys">My Assessments</a></li>
-      <li><a href="${webhelpers/help_url}#${site_section}" i18n:translate="navigation_help">Help</a></li>
-      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status" i18n:translate="navigation_status">Check your progress</a></li>
-      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings" i18n:translate="navigation_settings">Settings</a></li>
-      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@login?came_from=${context/absolute_url}" i18n:translate="Sign in">Sign in</a></li>
+      <metal:home use-macro="webhelpers/macros/homelink" />
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/logout"
+           i18n:translate="navigation_logout"
+        >Logout</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/session_overview_url}"
+           i18n:translate="navigation_surveys"
+        >My Assessments</a></li>
+      <li><a href="${webhelpers/help_url}#${site_section}"
+           i18n:translate="navigation_help"
+        >Help</a></li>
+      <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status"
+           i18n:translate="navigation_status"
+        >Check your progress</a></li>
+      <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings"
+           i18n:translate="navigation_settings"
+        >Settings</a></li>
+      <li tal:condition="webhelpers/is_guest_account"><a href="${webhelpers/country_url}/@@login?came_from=${context/absolute_url}"
+           i18n:translate="Sign in"
+        >Sign in</a></li>
     </ul>
   </metal:topnav>
 
-  <metal:css define-macro="css" meta:interpolation="true"
-         tal:define="base_url client/++resource++euphorie.resources">
+  <metal:css define-macro="css"
+             meta:interpolation="true"
+             tal:define="
+               base_url client/++resource++euphorie.resources;
+             "
+  >
 
     <tal:block condition="webhelpers/debug_mode">
-    <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+      <link href="${base_url}/screen.css"
+            rel="stylesheet"
+            type="text/css"
+      />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: needs to be minified -->
-    <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+      <!-- TODO: needs to be minified -->
+      <link href="${base_url}/screen.css"
+            rel="stylesheet"
+            type="text/css"
+      />
     </tal:block>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=Edge"
+    />
   </metal:css>
 
-  <metal:javascript define-macro="javascript" meta:interpolation="true" tal:define="lib_url client/++resource++euphorie.resources">
+  <metal:javascript define-macro="javascript"
+                    meta:interpolation="true"
+                    tal:define="
+                      lib_url client/++resource++euphorie.resources;
+                    "
+  >
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${lib_url}/bundle.js"></script>
+      <script src="${lib_url}/bundle.js"
+              type="text/javascript"
+      ></script>
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${lib_url}/bundle.min.js"></script>
+      <!-- TODO: this must be minified -->
+      <script src="${lib_url}/bundle.min.js"
+              type="text/javascript"
+      ></script>
     </tal:block>
   </metal:javascript>
 
-  <metal:survey define-macro="survey_tree_inner" meta:interpolation="true" tal:define="target_inject python:page_section=='identification' and 'step-2' or 'step-4'">
-    <ol tal:condition="exists:tree" tal:attributes="class python:tree['leaf_module'] and 'navigation questions' or ''">
+  <metal:survey define-macro="survey_tree_inner"
+                meta:interpolation="true"
+                tal:define="
+                  target_inject python:page_section=='identification' and 'step-2' or 'step-4';
+                "
+  >
+    <ol tal:condition="exists:tree"
+        tal:attributes="
+          class python:tree['leaf_module'] and 'navigation questions' or '';
+        "
+    >
       <tal:items repeat="item tree/children">
-      <li tal:condition="python: item['type']!='location'"
-          title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
-          class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']>1 else '')}">
-        <a tal:define="item_class item/class" class="pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-document" data-pat-inject="history: record; source: #${target_inject}; target: #${target_inject} &amp;&amp; source: #content; target: #content"
-            href="${item/url}">
-                <strong class="${python:'counter' if item['type']=='module' else 'number'}">${item/number}</strong> ${item/title}
-        </a>
+        <li class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']&gt;1 else '')}"
+            title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
+            tal:condition="python: item['type']!='location'"
+        >
+          <a class="pat-switch pat-inject"
+             href="${item/url}"
+             data-pat-inject="history: record; source: #${target_inject}; target: #${target_inject} &amp;&amp; source: #content; target: #content"
+             data-pat-switch="selector: body; remove: focus-*; add: focus-document"
+             tal:define="
+               item_class item/class;
+             "
+          >
+            <strong class="${python:'counter' if item['type']=='module' else 'number'}">${item/number}</strong>
+             ${item/title}
+          </a>
 
-        <tal:subtree condition="python:item['children']" define="tree python:item">
-          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
-        </tal:subtree>
-      </li>
-      <tal:location condition="python: item['type']=='location'">
-        <h4 class="location-tag">${item/title}</h4>
-        <tal:subtree condition="python:item['children']" define="tree python:item">
-          <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
-        </tal:subtree>
-      </tal:location>
+          <tal:subtree define="
+                         tree python:item;
+                       "
+                       condition="python:item['children']"
+          >
+            <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+          </tal:subtree>
+        </li>
+        <tal:location condition="python: item['type']=='location'">
+          <h4 class="location-tag">${item/title}</h4>
+          <tal:subtree define="
+                         tree python:item;
+                       "
+                       condition="python:item['children']"
+          >
+            <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
+          </tal:subtree>
+        </tal:location>
 
-    </tal:items>
+      </tal:items>
     </ol>
   </metal:survey>
 
-  <metal:survey define-macro="survey_tree" meta:interpolation="true">
+  <metal:survey define-macro="survey_tree"
+                meta:interpolation="true"
+  >
 
-    <div tal:condition="exists:tree" class="topics">
+    <div class="topics"
+         tal:condition="exists:tree"
+    >
       <h2 class="module-title">
         <tal:phase_identification condition="python:page_section=='identification'">
-          <tal:identification i18n:translate="label_identification">Identification</tal:identification> + <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation>
+          <tal:identification i18n:translate="label_identification">Identification</tal:identification>
+          +
+          <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation>
         </tal:phase_identification>
-        <tal:phase_actionplan condition="python:page_section=='actionplan'" i18n:translate="label_action_plan">Action Plan</tal:phase_actionplan>
+        <tal:phase_actionplan condition="python:page_section=='actionplan'"
+                              i18n:translate="label_action_plan"
+        >Action Plan</tal:phase_actionplan>
       </h2>
       <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
-        <ul class="legend">
-          <li class="unvisited" i18n:translate="">Unvisited</li>
-          <li class="postponed" i18n:translate="">Postponed</li>
-          <li class="answered" i18n:translate="">Risk not present</li>
-          <li class="answered risk" i18n:translate="">Risk present</li>
-        </ul>
+      <ul class="legend">
+        <li class="unvisited"
+            i18n:translate=""
+        >Unvisited</li>
+        <li class="postponed"
+            i18n:translate=""
+        >Postponed</li>
+        <li class="answered"
+            i18n:translate=""
+        >Risk not present</li>
+        <li class="answered risk"
+            i18n:translate=""
+        >Risk present</li>
+      </ul>
     </div>
   </metal:survey>
 
-  <metal:risk_info_actionplan define-macro="risk_info_actionplan" meta:interpolation="true" i18n:domain="euphorie" >
-  <div tal:condition="python:view.number_images > 1" class="image-collage pat-gallery pat-equaliser">
-    <tal:get define="images risk/@@images">
-    <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+  <metal:risk_info_actionplan define-macro="risk_info_actionplan"
+                              meta:interpolation="true"
+                              i18n:domain="euphorie"
+  >
+    <div class="image-collage pat-gallery pat-equaliser"
+         tal:condition="python:view.number_images &gt; 1"
+    >
+      <tal:get define="
+                 images risk/@@images;
+               "
+      >
+        <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
 
-    <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+        <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
 
-    <!-- Notice that each image has an image caption in the title tag. -->
-        <a title="${risk/caption|nothing}" tal:on-error="nothing"
-              class="${view/image_class} columns"
-              style="background-image: url(${large/url|nothing})"
-              tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
-                          large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
-              href="${large/url|nothing}"
-              tal:condition="thumb"><img  alt="" src="${thumb/url}" />
+        <!-- Notice that each image has an image caption in the title tag. -->
+        <a class="${view/image_class} columns"
+           href="${large/url|nothing}"
+           style="background-image: url(${large/url|nothing})"
+           title="${risk/caption|nothing}"
+           tal:define="
+             thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+             large python:images.scale('image', width=590, height=1900, direction='thumbnail');
+           "
+           tal:condition="thumb"
+           tal:on-error="nothing"
+        ><img alt=""
+               src="${thumb/url}"
+          />
         </a>
-        <a title="${risk/caption2|nothing}" tal:on-error="nothing"
-              class="${view/image_class} columns"
-              style="background-image: url(${large/url|nothing})"
-              tal:define="thumb python:images.scale('image2', width=400, height=600, direction='thumbnail');
-                          large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
-              href="${large/url|nothing}"
-              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        <a class="${view/image_class} columns"
+           href="${large/url|nothing}"
+           style="background-image: url(${large/url|nothing})"
+           title="${risk/caption2|nothing}"
+           tal:define="
+             thumb python:images.scale('image2', width=400, height=600, direction='thumbnail');
+             large python:images.scale('image2', width=590, height=1900, direction='thumbnail');
+           "
+           tal:condition="thumb"
+           tal:on-error="nothing"
+        ><img alt=""
+               src="${thumb/url}"
+          />
         </a>
-        <a title="${risk/caption3|nothing}" tal:on-error="nothing"
-              class="${view/image_class} columns"
-              style="background-image: url(${large/url|nothing})"
-              tal:define="thumb python:images.scale('image3', width=400, height=600, direction='thumbnail');
-                          large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
-              href="${large/url|nothing}"
-              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        <a class="${view/image_class} columns"
+           href="${large/url|nothing}"
+           style="background-image: url(${large/url|nothing})"
+           title="${risk/caption3|nothing}"
+           tal:define="
+             thumb python:images.scale('image3', width=400, height=600, direction='thumbnail');
+             large python:images.scale('image3', width=590, height=1900, direction='thumbnail');
+           "
+           tal:condition="thumb"
+           tal:on-error="nothing"
+        ><img alt=""
+               src="${thumb/url}"
+          />
         </a>
-        <a title="${risk/caption4|nothing}" tal:on-error="nothing"
-              class="${view/image_class} columns"
-              style="background-image: url(${large/url|nothing})"
-              tal:define="thumb python:images.scale('image4', width=400, height=600, direction='thumbnail');
-                          large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
-              href="${large/url|nothing}"
-              tal:condition="thumb"><img alt="" src="${thumb/url}" />
+        <a class="${view/image_class} columns"
+           href="${large/url|nothing}"
+           style="background-image: url(${large/url|nothing})"
+           title="${risk/caption4|nothing}"
+           tal:define="
+             thumb python:images.scale('image4', width=400, height=600, direction='thumbnail');
+             large python:images.scale('image4', width=590, height=1900, direction='thumbnail');
+           "
+           tal:condition="thumb"
+           tal:on-error="nothing"
+        ><img alt=""
+               src="${thumb/url}"
+          />
         </a>
       </tal:get>
     </div>
-    <nav class="pat-gallery" tal:condition="python:view.number_images == 1" tal:on-error="nothing">
+    <nav class="pat-gallery"
+         tal:condition="python:view.number_images == 1"
+         tal:on-error="nothing"
+    >
       <a href="${large/url|nothing}"
-         tal:define="images risk/@@images;
-                     thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
-                     large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
-          style="background-image: url(${large/url|nothing})">
-        <img class="medium float-before" src="${thumb/url}" alt="" />
+         style="background-image: url(${large/url|nothing})"
+         tal:define="
+           images risk/@@images;
+           thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+           large python:images.scale('image', width=590, height=1900, direction='thumbnail');
+         "
+      >
+        <img class="medium float-before"
+             alt=""
+             src="${thumb/url}"
+        />
       </a>
     </nav>
 
-    <tal:block condition="show_statement|nothing" define="use_problem_description view/use_problem_description; is_custom_risk view/is_custom_risk">
+    <tal:block define="
+                 use_problem_description view/use_problem_description;
+                 is_custom_risk view/is_custom_risk;
+               "
+               condition="show_statement|nothing"
+    >
       <tal:block condition="not:view/risk_present">
-        <p tal:condition="python:risk.type=='top5'" i18n:translate="top5_risk_not_present">
+        <p tal:condition="python:risk.type=='top5'"
+           i18n:translate="top5_risk_not_present"
+        >
             This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
             included in this report.
         </p>
       </tal:block>
       <tal:block condition="view/risk_present">
         <tal:block condition="not:use_problem_description">
-          <p class="negation" tal:condition="not:is_custom_risk">
+          <p class="negation"
+             tal:condition="not:is_custom_risk"
+          >
             <em><strong class="icon warning">⚠</strong>
-                <tal:span i18n:translate="warn_risk_present"> You responded negative to the above statement.</tal:span>
+              <tal:span i18n:translate="warn_risk_present">
+                You responded negative to the above statement.</tal:span>
             </em>
-        </p>
+          </p>
         </tal:block>
       </tal:block>
     </tal:block>
 
-    <div class="pat-collapsible closed" tal:condition="risk/description">
-      <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more" i18n:translate="Read more">Read more</tal:more> about this risk.</h4>
+    <div class="pat-collapsible closed"
+         tal:condition="risk/description"
+    >
+      <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more"
+                  i18n:translate="Read more"
+        >Read more</tal:more>
+        about this risk.</h4>
       <tal:description tal:replace="structure risk/description" />
     </div>
   </metal:risk_info_actionplan>
 
   <metal:risk_identification define-macro="risk_identification">
-    <fieldset class="vertical" id="${view/risk_number}" tal:define="always_present risk/risk_always_present; existing_measures view/get_existing_measures">
+    <fieldset class="vertical"
+              id="${view/risk_number}"
+              tal:define="
+                always_present risk/risk_always_present;
+                existing_measures view/get_existing_measures;
+              "
+    >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone" data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none" id="ActionPlanItemForm">
+      <fieldset class="pat-checklist pat-clone"
+                id="ActionPlanItemForm"
+                data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
+      >
         <tal:existing_measures condition="view/show_existing_measures">
           <p i18n:translate="select_add_existing_measure">
             Select or add any measures that are already in place.
           </p>
-          <tal:measures define="measures view/get_existing_measures"
-                        repeat="measure measures">
+          <tal:measures define="
+                          measures view/get_existing_measures;
+                        "
+                        repeat="measure measures"
+          >
             <label>
-                <input checked="${python:measures[measure] and 'checked' or None}" type="checkbox" name="measure-${repeat/measure/index}" />
+              <input checked="${python:measures[measure] and 'checked' or None}"
+                     name="measure-${repeat/measure/index}"
+                     type="checkbox"
+              />
                 ${python:measure}
             </label>
           </tal:measures>
 
-          <label id="measure-template" class="clone" hidden="hidden">
-            <input type="checkbox" name="use-new-measure-#{1}" class="pat-autofocus" autofocus="autofocus" disabled="disabled" checked="checked" />
-            <textarea placeholder="Describe a measure that is already in place but not yet listed here." cols="50" rows="3" name="new-measure-#{1}" i18n:attributes="placeholder placeholder_new_existing"></textarea>
-            <button class="icon-trash iconified remove-clone" title="Remove this existing measure">Remove</button>
+          <label class="clone"
+                 id="measure-template"
+                 hidden="hidden"
+          >
+            <input class="pat-autofocus"
+                   autofocus="autofocus"
+                   checked="checked"
+                   disabled="disabled"
+                   name="use-new-measure-#{1}"
+                   type="checkbox"
+            />
+            <textarea cols="50"
+                      name="new-measure-#{1}"
+                      placeholder="Describe a measure that is already in place but not yet listed here."
+                      rows="3"
+                      i18n:attributes="placeholder placeholder_new_existing"
+            ></textarea>
+            <button class="icon-trash iconified remove-clone"
+                    title="Remove this existing measure"
+            >Remove</button>
           </label>
         </tal:existing_measures>
       </fieldset>
 
-      <div class="button-bar cloning" tal:condition="view/show_existing_measures">
-        <button class="add-clone small pat-button icon-plus-circle" id="addMeasureButton" title="Add another measure" type="button" i18n:translate="button_add_existing_measure">Add a missing measure</button>
+      <div class="button-bar cloning"
+           tal:condition="view/show_existing_measures"
+      >
+        <button class="add-clone small pat-button icon-plus-circle"
+                id="addMeasureButton"
+                title="Add another measure"
+                type="button"
+                i18n:translate="button_add_existing_measure"
+        >Add a missing measure</button>
       </div>
       <!-- END Existing measures -->
 
@@ -215,213 +406,434 @@
         <tal:existing condition="view/show_existing_measures">
           <p tal:condition="view/title_extra">${view/title_extra}</p>
         </tal:existing>
-        <p class="byline" tal:condition="always_present" i18n:translate="explanation_risk_always_present">This risk was automatically set as being present. You cannot change this.</p>
+        <p class="byline"
+           tal:condition="always_present"
+           i18n:translate="explanation_risk_always_present"
+        >This risk was automatically set as being present. You cannot change this.</p>
         <tal:answers condition="not:always_present">
-        <input type="hidden" name="answer:default" value="postponed"/>
-        <tal:existing condition="view/show_existing_measures">
-          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes_sufficient">Yes, the remaining risk is acceptable</tal:span></label>
-          <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_not_sufficient">No, more measures are required</tal:span></label>
-        </tal:existing>
-        <tal:default condition="not:view/show_existing_measures">
-          <label class="yes"><input type="radio" name="answer" value="yes" checked="${python:'checked' if context.identification=='yes' else None}"/><tal:span i18n:translate="label_yes">Yes</tal:span></label>
-          <label class="no"><input type="radio" name="answer" value="no" checked="${python:'checked' if context.identification=='no' else None}"/><tal:span i18n:translate="label_no">No</tal:span></label>
-        </tal:default>
-        <label tal:condition="risk/show_notapplicable" class="not-applicable"><input type="radio" name="answer" value="n/a" checked="${python:'checked' if context.identification=='n/a' else None}"/><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
+          <input name="answer:default"
+                 type="hidden"
+                 value="postponed"
+          />
+          <tal:existing condition="view/show_existing_measures">
+            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                     name="answer"
+                     type="radio"
+                     value="yes"
+              /><tal:span i18n:translate="label_yes_sufficient">Yes, the remaining risk is acceptable</tal:span></label>
+            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                     name="answer"
+                     type="radio"
+                     value="no"
+              /><tal:span i18n:translate="label_not_sufficient">No, more measures are required</tal:span></label>
+          </tal:existing>
+          <tal:default condition="not:view/show_existing_measures">
+            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                     name="answer"
+                     type="radio"
+                     value="yes"
+              /><tal:span i18n:translate="label_yes">Yes</tal:span></label>
+            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                     name="answer"
+                     type="radio"
+                     value="no"
+              /><tal:span i18n:translate="label_no">No</tal:span></label>
+          </tal:default>
+          <label class="not-applicable"
+                 tal:condition="risk/show_notapplicable"
+          ><input checked="${python:'checked' if context.identification=='n/a' else None}"
+                   name="answer"
+                   type="radio"
+                   value="n/a"
+            /><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
         </tal:answers>
-        <tal:always_present condition="always_present"><input type="hidden" name="answer" value="no" /></tal:always_present>
+        <tal:always_present condition="always_present"><input name="answer"
+                 type="hidden"
+                 value="no"
+          /></tal:always_present>
       </fieldset>
     </fieldset>
   </metal:risk_identification>
 
   <metal:risk_evaluation define-macro="risk_evaluation">
-    <fieldset
-        class="pat-well notice pat-depends vertical evaluation"
-        id="evaluation"
-        tal:define="evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method"
-        tal:condition="not:view/skip_evaluation"
-        data-pat-depends="condition: answer=no; transition: slide">
-        <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
-        <tal:block condition="python:evaluation_method=='calculated'">
-            <p class="instruction" i18n:translate="help_calculated_evaluation">Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>
-            <tal:get define="algorithm python:view.evaluation_algorithm(risk)">
-                <tal:kinney condition="python:algorithm!='french'">
-                    <fieldset class="pat-checklist radio" tal:define="value context/probability">
-                        <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
-                            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt" i18n:translate="help_default_probability">${view/description_probability}</dfn>
-                        </legend>
-                        <label><input type="radio" name="probability:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-                        <tal:span i18n:translate="probability_small">Small</tal:span></label>
-                        <label><input type="radio" name="probability:int" value="3" checked="${python:'checked' if value==3 else None}"/>
-                        <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
-                        <label><input type="radio" name="probability:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-                        <tal:span i18n:translate="probability_large">Large</tal:span></label>
-                    </fieldset>
-
-                    <fieldset class="pat-checklist radio" tal:define="value context/frequency">
-                        <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
-                            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_frequency}</dfn>
-                        </legend>
-                        <label><input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-                        <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
-                        <label><input type="radio" name="frequency:int" value="4" checked="${python:'checked' if value==4 else None}"/>
-                        <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
-                        <label><input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-                        <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
-                    </fieldset>
-
-                    <fieldset class="pat-checklist radio" tal:define="value context/effect">
-                        <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
-                            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_severity}</dfn>
-                        </legend>
-                        <label><input type="radio" name="effect:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-                        <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
-                        <label><input type="radio" name="effect:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-                        <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
-                        <label><input type="radio" name="effect:int" value="10" checked="${python:'checked' if value==10 else None}"/>
-                        <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
-                    </fieldset>
-                </tal:kinney>
-
-                <tal:french condition="python:algorithm=='french'">
-                    <fieldset class="pat-checklist radio" tal:define="value context/effect">
-                        <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
-                            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_severity}</dfn>
-                        </legend>
-                        <label>
-                            <input type="radio" name="severity:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-                            <tal:span i18n:translate="severity_weak">Weak</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_weak_help;" title="No need to stop working"></dfn>
-                        </label>
-                        <label><input type="radio" name="severity:int" value="5" checked="${python:'checked' if value==5 else None}"/>
-                            <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_not_severe_help" title="Need to stop working for less than 3 days"></dfn>
-                        </label>
-                        <label><input type="radio" name="severity:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-                            <tal:span i18n:translate="severity_severe">Severe</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_severe_help;" title="Need to stop working for more than 3 days"></dfn>
-                        </label>
-                        <label>
-                            <input type="radio" name="severity:int" value="10" checked="${python:'checked' if value==10 else None}"/>
-                            <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title severity_very_severe_help;" title="Irreversible injury, incurable illness, death"></dfn>
-                        </label>
-                    </fieldset>
-
-                    <fieldset class="pat-checklist radio" tal:define="value context/frequency">
-                        <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
-                            <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">${view/description_frequency}</dfn>
-                        </legend>
-                        <label>
-                            <input type="radio" name="frequency:int" value="1" checked="${python:'checked' if value==1 else None}"/>
-                            <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_rare_help;" title="Once per year"></dfn>
-                        </label>
-                        <label>
-                            <input type="radio" name="frequency:int" value="3" checked="${python:'checked' if value==3 else None}"/>
-                            <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_not_often_help;" title="Once per month"></dfn>
-                        </label>
-                        <label>
-                            <input type="radio" name="frequency:int" value="7" checked="${python:'checked' if value==7 else None}"/>
-                            <tal:span i18n:translate="frequency_french_often">Often</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_often_help;" title="Once per week"></dfn>
-                        </label>
-                        <label>
-                            <input type="radio" name="frequency:int" value="9" checked="${python:'checked' if value==9 else None}"/>
-                            <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br/>
-                            <dfn class="icon info pat-tooltip" i18n:attributes="title frequency_french_regularly_help;" title="Minimum once per day"></dfn>
-                        </label>
-                    </fieldset>
-                </tal:french>
-            </tal:get>
-        </tal:block>
-
-        <tal:block condition="python:evaluation_method=='direct'">
-            <fieldset class="pat-checklist radio" tal:define="value context/priority">
-                <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
-                <label><input type="radio" name="priority" value="low" checked="${python:'checked' if value=='low' else None}"/>
-                <tal:span i18n:translate="priority_low">Low</tal:span></label>
-                <label><input type="radio" name="priority" value="medium" checked="${python:'checked' if value=='medium' else None}"/>
-                <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
-                <label><input type="radio" name="priority" value="high" checked="${python:'checked' if value=='high' else None}"/>
-                <tal:span i18n:translate="priority_high">High</tal:span></label>
+    <fieldset class="pat-well notice pat-depends vertical evaluation"
+              id="evaluation"
+              data-pat-depends="condition: answer=no; transition: slide"
+              tal:define="
+                evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method;
+              "
+              tal:condition="not:view/skip_evaluation"
+    >
+      <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
+      <tal:block condition="python:evaluation_method=='calculated'">
+        <p class="instruction"
+           i18n:translate="help_calculated_evaluation"
+        >Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>
+        <tal:get define="
+                   algorithm python:view.evaluation_algorithm(risk);
+                 "
+        >
+          <tal:kinney condition="python:algorithm!='french'">
+            <fieldset class="pat-checklist radio"
+                      tal:define="
+                        value context/probability;
+                      "
+            >
+              <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
+                <dfn class="icon-help-circle iconified pat-tooltip"
+                     data-pat-tooltip="source: content; position-list: lt"
+                     i18n:translate="help_default_probability"
+                >${view/description_probability}</dfn>
+              </legend>
+              <label><input checked="${python:'checked' if value==1 else None}"
+                       name="probability:int"
+                       type="radio"
+                       value="1"
+                />
+                <tal:span i18n:translate="probability_small">Small</tal:span></label>
+              <label><input checked="${python:'checked' if value==3 else None}"
+                       name="probability:int"
+                       type="radio"
+                       value="3"
+                />
+                <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
+              <label><input checked="${python:'checked' if value==5 else None}"
+                       name="probability:int"
+                       type="radio"
+                       value="5"
+                />
+                <tal:span i18n:translate="probability_large">Large</tal:span></label>
             </fieldset>
-        </tal:block>
 
-        <tal:block condition="python:evaluation_method in ('top5', 'policy', 'fixed')">
-            <p i18n:translate="description_automatic_evaluation">The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk – if you consider it necessary – in the action plan.</p>
-        </tal:block>
+            <fieldset class="pat-checklist radio"
+                      tal:define="
+                        value context/frequency;
+                      "
+            >
+              <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+                <dfn class="icon-help-circle iconified pat-tooltip"
+                     data-pat-tooltip="source: content; position-list: lt"
+                >${view/description_frequency}</dfn>
+              </legend>
+              <label><input checked="${python:'checked' if value==1 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="1"
+                />
+                <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
+              <label><input checked="${python:'checked' if value==4 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="4"
+                />
+                <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
+              <label><input checked="${python:'checked' if value==7 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="7"
+                />
+                <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
+            </fieldset>
+
+            <fieldset class="pat-checklist radio"
+                      tal:define="
+                        value context/effect;
+                      "
+            >
+              <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+                <dfn class="icon-help-circle iconified pat-tooltip"
+                     data-pat-tooltip="source: content; position-list: lt"
+                >${view/description_severity}</dfn>
+              </legend>
+              <label><input checked="${python:'checked' if value==1 else None}"
+                       name="effect:int"
+                       type="radio"
+                       value="1"
+                />
+                <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
+              <label><input checked="${python:'checked' if value==5 else None}"
+                       name="effect:int"
+                       type="radio"
+                       value="5"
+                />
+                <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
+              <label><input checked="${python:'checked' if value==10 else None}"
+                       name="effect:int"
+                       type="radio"
+                       value="10"
+                />
+                <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
+            </fieldset>
+          </tal:kinney>
+
+          <tal:french condition="python:algorithm=='french'">
+            <fieldset class="pat-checklist radio"
+                      tal:define="
+                        value context/effect;
+                      "
+            >
+              <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+                <dfn class="icon-help-circle iconified pat-tooltip"
+                     data-pat-tooltip="source: content; position-list: lt"
+                >${view/description_severity}</dfn>
+              </legend>
+              <label>
+                <input checked="${python:'checked' if value==1 else None}"
+                       name="severity:int"
+                       type="radio"
+                       value="1"
+                />
+                <tal:span i18n:translate="severity_weak">Weak</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="No need to stop working"
+                     i18n:attributes="title severity_weak_help;"
+                ></dfn>
+              </label>
+              <label><input checked="${python:'checked' if value==5 else None}"
+                       name="severity:int"
+                       type="radio"
+                       value="5"
+                />
+                <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Need to stop working for less than 3 days"
+                     i18n:attributes="title severity_not_severe_help"
+                ></dfn>
+              </label>
+              <label><input checked="${python:'checked' if value==7 else None}"
+                       name="severity:int"
+                       type="radio"
+                       value="7"
+                />
+                <tal:span i18n:translate="severity_severe">Severe</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Need to stop working for more than 3 days"
+                     i18n:attributes="title severity_severe_help;"
+                ></dfn>
+              </label>
+              <label>
+                <input checked="${python:'checked' if value==10 else None}"
+                       name="severity:int"
+                       type="radio"
+                       value="10"
+                />
+                <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Irreversible injury, incurable illness, death"
+                     i18n:attributes="title severity_very_severe_help;"
+                ></dfn>
+              </label>
+            </fieldset>
+
+            <fieldset class="pat-checklist radio"
+                      tal:define="
+                        value context/frequency;
+                      "
+            >
+              <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+                <dfn class="icon-help-circle iconified pat-tooltip"
+                     data-pat-tooltip="source: content; position-list: lt"
+                >${view/description_frequency}</dfn>
+              </legend>
+              <label>
+                <input checked="${python:'checked' if value==1 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="1"
+                />
+                <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Once per year"
+                     i18n:attributes="title frequency_french_rare_help;"
+                ></dfn>
+              </label>
+              <label>
+                <input checked="${python:'checked' if value==3 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="3"
+                />
+                <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Once per month"
+                     i18n:attributes="title frequency_french_not_often_help;"
+                ></dfn>
+              </label>
+              <label>
+                <input checked="${python:'checked' if value==7 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="7"
+                />
+                <tal:span i18n:translate="frequency_french_often">Often</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Once per week"
+                     i18n:attributes="title frequency_french_often_help;"
+                ></dfn>
+              </label>
+              <label>
+                <input checked="${python:'checked' if value==9 else None}"
+                       name="frequency:int"
+                       type="radio"
+                       value="9"
+                />
+                <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br />
+                <dfn class="icon info pat-tooltip"
+                     title="Minimum once per day"
+                     i18n:attributes="title frequency_french_regularly_help;"
+                ></dfn>
+              </label>
+            </fieldset>
+          </tal:french>
+        </tal:get>
+      </tal:block>
+
+      <tal:block condition="python:evaluation_method=='direct'">
+        <fieldset class="pat-checklist radio"
+                  tal:define="
+                    value context/priority;
+                  "
+        >
+          <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
+          <label><input checked="${python:'checked' if value=='low' else None}"
+                   name="priority"
+                   type="radio"
+                   value="low"
+            />
+            <tal:span i18n:translate="priority_low">Low</tal:span></label>
+          <label><input checked="${python:'checked' if value=='medium' else None}"
+                   name="priority"
+                   type="radio"
+                   value="medium"
+            />
+            <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+          <label><input checked="${python:'checked' if value=='high' else None}"
+                   name="priority"
+                   type="radio"
+                   value="high"
+            />
+            <tal:span i18n:translate="priority_high">High</tal:span></label>
+        </fieldset>
+      </tal:block>
+
+      <tal:block condition="python:evaluation_method in ('top5', 'policy', 'fixed')">
+        <p i18n:translate="description_automatic_evaluation">The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan.</p>
+      </tal:block>
     </fieldset>
   </metal:risk_evaluation>
 
   <metal:riskinfo define-macro="riskinfo">
-    <article class="rich pat-collapsible risk-module ${default_state|nothing}" tal:condition="view/show_info">
-        <h3 i18n:translate="header_information">
+    <article class="rich pat-collapsible risk-module ${default_state|nothing}"
+             tal:condition="view/show_info"
+    >
+      <h3 i18n:translate="header_information">
             Information
-        </h3>
-        <div tal:condition="view/has_images" class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}" tal:define="images risk/@@images" >
-            <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
+      </h3>
+      <div class="image-collage pat-gallery pat-equaliser image-count-${view/number_images}"
+           tal:define="
+             images risk/@@images;
+           "
+           tal:condition="view/has_images"
+      >
+        <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
 
-            <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
+        <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
 
-            <!-- Notice that each image has an image caption in the title tag. -->
-            <tal:many condition="python:view.number_images > 1">
-                <div class="${view/image_class} columns" tal:on-error="nothing"
-                  tal:define="thumb python:images.scale('image', width=590, height=800, direction='thumbnail');
-                              large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
-                  tal:condition="large">
-                  <a title="${risk/caption|nothing}"
-                        style="background-image: url(${large/url|nothing})"
-                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
-                  </a>
-                </div>
-                <div class="${view/image_class} columns" tal:on-error="nothing"
-                  tal:define="thumb python:images.scale('image2', width=590, height=800, direction='thumbnail');
-                              large python:images.scale('image2', width=590, height=1900, direction='thumbnail')"
-                  tal:condition="large">
-                  <a title="${risk/caption2|nothing}"
-                        style="background-image: url(${large/url|nothing})"
-                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
-                  </a>
-                </div>
-                <div class="${view/image_class} columns" tal:on-error="nothing"
-                  tal:define="thumb python:images.scale('image3', width=590, height=800, direction='thumbnail');
-                              large python:images.scale('image3', width=590, height=1900, direction='thumbnail')"
-                  tal:condition="large">
-                  <a title="${risk/caption3|nothing}"
-                        style="background-image: url(${large/url|nothing})"
-                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
-                  </a>
-                </div>
-                <div class="${view/image_class} columns" tal:on-error="nothing"
-                  tal:define="thumb python:images.scale('image4', width=590, height=800, direction='thumbnail');
-                              large python:images.scale('image4', width=590, height=1900, direction='thumbnail')"
-                  tal:condition="large">
-                  <a title="${risk/caption4|nothing}"
-                        style="background-image: url(${large/url|nothing})"
-                        href="${large/url|nothing}"><img alt="" src="${thumb/url}" />
-                  </a>
-                </div>
-            </tal:many>
-            <tal:single condition="python:view.number_images == 1" tal:on-error="nothing">
-                <figure>
-                    <a title="${risk/caption|nothing}"
-                          tal:define="thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
-                                      large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
-                          href="${large/url|nothing}"
-                          tal:condition="large"><img  alt="" src="${thumb/url}" />
-                    </a>
+        <!-- Notice that each image has an image caption in the title tag. -->
+        <tal:many condition="python:view.number_images &gt; 1">
+          <div class="${view/image_class} columns"
+               tal:define="
+                 thumb python:images.scale('image', width=590, height=800, direction='thumbnail');
+                 large python:images.scale('image', width=590, height=1900, direction='thumbnail');
+               "
+               tal:condition="large"
+               tal:on-error="nothing"
+          >
+            <a href="${large/url|nothing}"
+               style="background-image: url(${large/url|nothing})"
+               title="${risk/caption|nothing}"
+            ><img alt=""
+                   src="${thumb/url}"
+              />
+            </a>
+          </div>
+          <div class="${view/image_class} columns"
+               tal:define="
+                 thumb python:images.scale('image2', width=590, height=800, direction='thumbnail');
+                 large python:images.scale('image2', width=590, height=1900, direction='thumbnail');
+               "
+               tal:condition="large"
+               tal:on-error="nothing"
+          >
+            <a href="${large/url|nothing}"
+               style="background-image: url(${large/url|nothing})"
+               title="${risk/caption2|nothing}"
+            ><img alt=""
+                   src="${thumb/url}"
+              />
+            </a>
+          </div>
+          <div class="${view/image_class} columns"
+               tal:define="
+                 thumb python:images.scale('image3', width=590, height=800, direction='thumbnail');
+                 large python:images.scale('image3', width=590, height=1900, direction='thumbnail');
+               "
+               tal:condition="large"
+               tal:on-error="nothing"
+          >
+            <a href="${large/url|nothing}"
+               style="background-image: url(${large/url|nothing})"
+               title="${risk/caption3|nothing}"
+            ><img alt=""
+                   src="${thumb/url}"
+              />
+            </a>
+          </div>
+          <div class="${view/image_class} columns"
+               tal:define="
+                 thumb python:images.scale('image4', width=590, height=800, direction='thumbnail');
+                 large python:images.scale('image4', width=590, height=1900, direction='thumbnail');
+               "
+               tal:condition="large"
+               tal:on-error="nothing"
+          >
+            <a href="${large/url|nothing}"
+               style="background-image: url(${large/url|nothing})"
+               title="${risk/caption4|nothing}"
+            ><img alt=""
+                   src="${thumb/url}"
+              />
+            </a>
+          </div>
+        </tal:many>
+        <tal:single condition="python:view.number_images == 1"
+                    tal:on-error="nothing"
+        >
+          <figure>
+            <a href="${large/url|nothing}"
+               title="${risk/caption|nothing}"
+               tal:define="
+                 thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                 large python:images.scale('image', width=590, height=1900, direction='thumbnail');
+               "
+               tal:condition="large"
+            ><img alt=""
+                   src="${thumb/url}"
+              />
+            </a>
 
-                </figure>
-            </tal:single>
-        </div>
+          </figure>
+        </tal:single>
+      </div>
 
-        <tal:text replace="structure risk/description">description</tal:text>
+      <tal:text replace="structure risk/description">description</tal:text>
     </article>
   </metal:riskinfo>
 
   <metal:legal_references define-macro="legal_references">
-    <section class="legal-references" tal:condition="view/has_legal">
+    <section class="legal-references"
+             tal:condition="view/has_legal"
+    >
       <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
       <tal:legal replace="structure risk/legal_reference">
         The requirements for fridges are defined in section 13.1 section a
@@ -431,20 +843,34 @@
   </metal:legal_references>
 
   <metal:additional_files define-macro="additional_files">
-    <section class="more-information" tal:condition="view/has_files">
-      <h4 tal:condition="python:risk.Type()=='Risk'" i18n:translate="header_additional_resources">Additional resources to assess the risk</h4>
-      <h4 tal:condition="python:risk.Type()=='Module'" i18n:translate="header_additional_resources_module">Additional resources for this module</h4>
+    <section class="more-information"
+             tal:condition="view/has_files"
+    >
+      <h4 tal:condition="python:risk.Type()=='Risk'"
+          i18n:translate="header_additional_resources"
+      >Additional resources to assess the risk</h4>
+      <h4 tal:condition="python:risk.Type()=='Module'"
+          i18n:translate="header_additional_resources_module"
+      >Additional resources for this module</h4>
       <ul>
-        <li class="icon-download" tal:condition="nocall:risk/file1|nothing">
+        <li class="icon-download"
+            tal:condition="nocall:risk/file1|nothing"
+        >
           <a href="${risk/absolute_url}/download/file1"><tal:caption condition="risk/file1_caption|nothing">${risk/file1_caption} (${risk/file1/filename})</tal:caption><tal:nocaption condition="not:risk/file1_caption|nothing">${risk/file1/filename}</tal:nocaption></a>
         </li>
-        <li class="icon-download" tal:condition="nocall:risk/file2|nothing">
+        <li class="icon-download"
+            tal:condition="nocall:risk/file2|nothing"
+        >
           <a href="${risk/absolute_url}/download/file2"><tal:caption condition="risk/file2_caption|nothing">${risk/file2_caption} (${risk/file2/filename})</tal:caption><tal:nocaption condition="not:risk/file2_caption|nothing">${risk/file2/filename}</tal:nocaption></a>
         </li>
-        <li class="icon-download" tal:condition="nocall:risk/file3|nothing">
+        <li class="icon-download"
+            tal:condition="nocall:risk/file3|nothing"
+        >
           <a href="${risk/absolute_url}/download/file3"><tal:caption condition="risk/file3_caption|nothing">${risk/file3_caption} (${risk/file3/filename})</tal:caption><tal:nocaption condition="not:risk/file3_caption|nothing">${risk/file3/filename}</tal:nocaption></a>
         </li>
-        <li class="icon-download" tal:condition="nocall:risk/file4|nothing">
+        <li class="icon-download"
+            tal:condition="nocall:risk/file4|nothing"
+        >
           <a href="${risk/absolute_url}/download/file4"><tal:caption condition="risk/file4_caption|nothing">${risk/file4_caption} (${risk/file4/filename})</tal:caption><tal:nocaption condition="not:risk/file4_caption|nothing">${risk/file4/filename}</tal:nocaption></a>
         </li>
       </ul>
@@ -453,22 +879,32 @@
 
   <metal:risk_comments define-macro="risk_comments">
     <fieldset class="pat-collapsible risk-module ${default_state|nothing}">
-        <legend i18n:translate="heading_comments">
+      <legend i18n:translate="heading_comments">
             Comments
-        </legend>
+      </legend>
 
-        <fieldset class="vertical" id="comments">
-            <textarea id="comment" name="comment:utf8:ustring" class="span-15" rows="3" tal:content="context/comment"
-                placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-                i18n:attributes="placeholder label_comment">
-            </textarea>
-        </fieldset>
+      <fieldset class="vertical"
+                id="comments"
+      >
+        <textarea class="span-15"
+                  id="comment"
+                  name="comment:utf8:ustring"
+                  placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                  rows="3"
+                  tal:content="context/comment"
+                  i18n:attributes="placeholder label_comment"
+        >
+        </textarea>
+      </fieldset>
     </fieldset>
   </metal:risk_comments>
 
 
-  <metal:webstats_js define-macro="webstats_js" meta:interpolation="true" i18n:domain="euphorie">
-    <span tal:replace="structure webhelpers/get_webstats_js" />
+  <metal:webstats_js define-macro="webstats_js"
+                     meta:interpolation="true"
+                     i18n:domain="euphorie"
+  >
+    <span tal:replace="structure webhelpers/get_webstats_js"></span>
   </metal:webstats_js>
 
 </html>
