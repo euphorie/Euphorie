@@ -2341,12 +2341,12 @@ msgstr ""
 
 #. Default: Show more…
 #: src/euphorie/client/templates/login.pt:35
-msgid "Show more…"
+msgid "label_show_more_hellip"
 msgstr "Mehr anzeigen…"
 
 #. Default: Show less…
 #: src/euphorie/client/templates/login.pt:35
-msgid "Show less…"
+msgid "label_show_less_hellip"
 msgstr "Weniger anzeigen"
 
 #: src/euphorie/client/templates/login.pt:39

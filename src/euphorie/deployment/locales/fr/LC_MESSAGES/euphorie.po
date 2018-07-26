@@ -1981,13 +1981,13 @@ msgstr ""
 
 #. Default: Show more…
 #: src/euphorie/client/templates/login.pt:36
-msgid "Show more…"
+msgid "label_show_more_hellip"
 msgstr "Afficher davantage…"
 
 #. Default: Show less…
 #: src/euphorie/client/templates/login.pt:36
 #: src/euphorie/client/templates/webhelpers.pt:268
-msgid "Show less…"
+msgid "label_show_less_hellip"
 msgstr "Réduire"
 
 #: src/euphorie/client/templates/login.pt:40
