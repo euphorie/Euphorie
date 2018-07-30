@@ -57,7 +57,6 @@
           </li>
         </ul>
 
-        <?python import decimal ???>
         <dl class="status">
           <tal:loop repeat="module status">
             <tal:defs define="
@@ -67,12 +66,12 @@
                         num_postponed python:module.get('postponed', 0);
                         num_todo python:module.get('todo', 0);
                         num_total python:num_ok + num_risks_with_measures + num_risks_without_measures + num_postponed + num_todo;
-                        perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/decimal.Decimal(num_total)*100;
-                        perc_ok python:not num_total and 100 or num_ok/decimal.Decimal(num_total)*100;
-                        perc_risks_without_measures python:num_total and num_risks_without_measures/decimal.Decimal(num_total)*100 or 0;
-                        perc_risks_with_measures python:num_total and num_risks_with_measures/decimal.Decimal(num_total)*100 or 0;
-                        perc_postponed python:num_total and num_postponed/decimal.Decimal(num_total)*100 or 0;
-                        perc_todo python:num_total and num_todo/decimal.Decimal(num_total)*100 or 0;
+                        perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/view.as_decimal(num_total)*100;
+                        perc_ok python:not num_total and 100 or num_ok/view.as_decimal(num_total)*100;
+                        perc_risks_without_measures python:num_total and num_risks_without_measures/view.as_decimal(num_total)*100 or 0;
+                        perc_risks_with_measures python:num_total and num_risks_with_measures/view.as_decimal(num_total)*100 or 0;
+                        perc_postponed python:num_total and num_postponed/view.as_decimal(num_total)*100 or 0;
+                        perc_todo python:num_total and num_todo/view.as_decimal(num_total)*100 or 0;
                       "
             >
               <dt><a name="${module/path}">

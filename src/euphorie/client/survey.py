@@ -53,6 +53,7 @@ from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
+import decimal
 import logging
 import urlparse
 
@@ -574,6 +575,9 @@ class _StatusHelper(object):
                 module = modules_by_path[module_path]
                 filtered_risks.append((module, risk))
         return filtered_risks
+
+    def as_decimal(self, num):
+        return decimal.Decimal(num)
 
 
 class Status(grok.View, _StatusHelper):
