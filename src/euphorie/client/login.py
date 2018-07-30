@@ -12,7 +12,6 @@ from .conditions import checkTermsAndConditions
 from .country import IClientCountry
 from .interfaces import IClientSkinLayer
 from .session import SessionManager
-from .utils import CreateEmailTo
 from .utils import setLanguage
 from AccessControl import getSecurityManager
 from Acquisition import aq_chain
@@ -28,8 +27,6 @@ from plone.memoize.view import memoize
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
@@ -43,8 +40,7 @@ import datetime
 import logging
 import os
 import re
-import smtplib
-import socket
+import six
 import urllib
 import urlparse
 
@@ -74,7 +70,7 @@ class Login(grok.View):
         if not lang:
             if IClientCountry.providedBy(self.context):
                 lang = getattr(self.context, 'language', None)
-                if lang and isinstance(lang, basestring):
+                if lang and isinstance(lang, six.string_types):
                     lang = [lang]
         if not lang:
             return
@@ -82,10 +78,14 @@ class Login(grok.View):
 
     def login(self, account, remember):
         pas = getToolByName(self.context, "acl_users")
-        pas.updateCredentials(self.request, self.response,
-                account.loginname, account.password)
+        pas.updateCredentials(
+            self.request,
+            self.response,
+            account.loginname,
+            account.password,
+        )
         if remember:
-            self.response.cookies['__ac']['expires'] = cookie_expiration_date(120)
+            self.response.cookies['__ac']['expires'] = cookie_expiration_date(120)  # noqa: E501
             self.response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
 
     def transferGuestSession(self, session_id):
@@ -122,31 +122,42 @@ class Login(grok.View):
                 self.response.redirect(next)
                 return
 
-            if isinstance(account, model.Account) and \
-                    account.getUserName() == reply.get("__ac_name", '').lower():
-
+            if (
+                isinstance(account, model.Account) and
+                account.getUserName() == reply.get("__ac_name", '').lower()
+            ):
                 self.transferGuestSession(reply.get('guest_session_id'))
                 self.login(account, bool(self.request.form.get('remember')))
                 v_url = urlparse.urlsplit(self.url()+'/success').path
                 trigger_extra_pageview(self.request, v_url)
 
-                if checkTermsAndConditions() and \
-                        not approvedTermsAndConditions(account):
+                if (
+                    checkTermsAndConditions() and
+                    not approvedTermsAndConditions(account)
+                ):
                     self.response.redirect(
-                        "%s/terms-and-conditions?%s" %
-                        (context.absolute_url(),
-                            urllib.urlencode({"came_from": came_from})))
+                        "%s/terms-and-conditions?%s" % (
+                            context.absolute_url(),
+                            urllib.urlencode({"came_from": came_from}),
+                        )
+                    )
                 else:
                     self.response.redirect(came_from)
                 return
             self.error = True
 
-        self.reminder_url = "%s/@@reminder?%s" % (context.absolute_url(),
-                urllib.urlencode({'came_from': came_from}))
-        self.register_url = "%s/@@register?%s" % (context.absolute_url(),
-                urllib.urlencode({'came_from': came_from}))
-        self.tryout_url = "%s/@@tryout?%s" % (context.absolute_url(),
-                urllib.urlencode({'came_from': came_from}))
+        self.reset_password_request_url = "%s/@@reset_password_request?%s" % (
+            context.absolute_url(),
+            urllib.urlencode({'came_from': came_from}),
+        )
+        self.register_url = "%s/@@register?%s" % (
+            context.absolute_url(),
+            urllib.urlencode({'came_from': came_from}),
+        )
+        self.tryout_url = "%s/@@tryout?%s" % (
+            context.absolute_url(),
+            urllib.urlencode({'came_from': came_from}),
+        )
 
 
 class LoginForm(Login):
@@ -177,7 +188,9 @@ class Tryout(Login):
     def update(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            return self.request.response.redirect(api.portal.get().absolute_url())
+            return self.request.response.redirect(
+                api.portal.get().absolute_url()
+            )
         account = self.createGuestAccount()
         self.login(account, False)
         client_url = self.request.client.absolute_url()
@@ -237,99 +250,6 @@ class CreateTestSession(CountryView, Tryout):
                     self.login(account, False)
                     self._NewSurvey(reply, account)
         self._updateSurveys()
-
-
-class Reminder(grok.View):
-    """Send a password reminder by email
-    """
-    grok.context(Interface)
-    grok.require("zope2.Public")
-    grok.layer(IClientSkinLayer)
-    grok.template("reminder")
-
-    email_template = ViewPageTemplateFile("templates/reminder-email.pt")
-
-    @property
-    def email_from_name(self):
-        return api.portal.get_registry_record(
-            'plone.email_from_name',
-        )
-
-    @property
-    def email_from_address(self):
-        return api.portal.get_registry_record(
-            'plone.email_from_address',
-        )
-
-    def _sendReminder(self):
-        reply = self.request.form
-        loginname = reply.get("loginname")
-        if not loginname:
-            self.error = _(u"Please enter your email address")
-            return False
-
-        account = (
-            Session
-            .query(model.Account)
-            .filter(model.Account.loginname == loginname)
-            .first()
-        )
-        if not account:
-            self.error = _(u"Unknown email address")
-            return False
-
-        mailhost = getToolByName(self.context, "MailHost")
-        body = self.email_template(
-                loginname=account.loginname,
-                password=account.password)
-        subject = translate(_(u"OiRA registration reminder"),
-                context=self.request)
-        mail = CreateEmailTo(self.email_from_name, self.email_from_address,
-                account.email, subject, body)
-
-        try:
-            mailhost.send(mail, account.email, self.email_from_address,
-                    immediate=True)
-            log.info("Sent password reminder to %s", account.email)
-        except MailHostError as e:
-            log.error("MailHost error sending password reminder to %s: %s",
-                    account.email, e)
-            self.error = _(
-                    u"An error occured while sending the password reminder")
-            return False
-        except smtplib.SMTPException as e:
-            log.error("smtplib error sending password reminder to %s: %s",
-                    account.email, e)
-            self.error = _(
-                    u"An error occured while sending the password reminder")
-            return False
-        except socket.error as e:
-            log.error("Socket error sending password reminder to %s: %s",
-                    account.email, e[1])
-            self.error = _(
-                    u"An error occured while sending the password reminder")
-            return False
-        return True
-
-    def update(self):
-        context = aq_inner(self.context)
-        self.back_url = self.request.form.get("came_from")
-        if not self.back_url:
-            self.back_url = context.absolute_url()
-
-        if self.request.method != "POST":
-            return
-        if self.request.form.get('cancel', ''):
-            self.request.response.redirect(self.back_url)
-        if self._sendReminder():
-            flash = IStatusMessage(self.request).addStatusMessage
-            flash(_(u"An email with a password reminder has been "
-                    u"sent to your address."), "notice")
-            redir_url = self.back_url
-            if not redir_url.endswith("login"):
-                redir_url = "{0}/@@login?{1}".format(
-                    redir_url, urllib.urlencode({"came_from": redir_url}))
-            self.request.response.redirect(redir_url)
 
 
 class Register(grok.View):

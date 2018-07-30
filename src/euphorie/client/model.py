@@ -11,11 +11,13 @@ Also: PAS-based user account for users of the client
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from euphorie.client.enum import Enum
 from plone import api
+from plone.memoize import ram
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
 from sqlalchemy import types
+from sqlalchemy.event import listen
 from sqlalchemy.ext import declarative
 from sqlalchemy.orm import backref
 from sqlalchemy.orm import relationship
@@ -27,15 +29,26 @@ from zope.interface import Interface
 from zope.sqlalchemy import datamanager
 
 import Acquisition
+import bcrypt
 import datetime
 import logging
 import OFS.Traversable
 import random
+import re
+import six
 
+
+BCRYPTED_PATTERN = re.compile('^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$')
 
 metadata = schema.MetaData()
 
 log = logging.getLogger(__name__)
+
+
+def _forever_cache_key(func, self, *args):
+    ''' Cache this function call forever.
+    '''
+    return (func.__name__, args)
 
 
 def GenerateSecret(length=32):
@@ -415,6 +428,51 @@ class Account(BaseObject):
                 return True
 
         return False
+
+    @ram.cache(_forever_cache_key)
+    def verify_password(self, password):
+        ''' Verify the given password against the one
+        stored in the account table
+        '''
+        if not password:
+            return False
+        if not isinstance(password, six.string_types):
+            return False
+        if password == self.password:
+            return True
+        if isinstance(password, six.text_type):
+            password = password.encode('utf8')
+        return bcrypt.checkpw(password, self.password)
+
+    def hash_password(self):
+        ''' hash the account password using bcrypt
+        '''
+        try:
+            password = self.password
+        except AttributeError:
+            return
+        if not password:
+            return
+        if isinstance(password, six.text_type):
+            password = password.encode('utf8')
+        if BCRYPTED_PATTERN.match(password):
+            # The password is already encrypted, do not encrypt it again
+            # XXX this is broken with passwords that are actually an hash
+            return
+        self.password = bcrypt.hashpw(
+            password,
+            bcrypt.gensalt(),
+        ).decode('utf8')
+
+
+def account_before_insert_subscriber(mapper, connection, account):
+    account.hash_password()
+
+
+account_before_update_subscriber = account_before_insert_subscriber
+
+listen(Account, 'before_insert', account_before_insert_subscriber)
+listen(Account, 'before_update', account_before_update_subscriber)
 
 
 class AccountChangeRequest(BaseObject):

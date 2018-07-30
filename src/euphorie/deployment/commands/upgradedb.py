@@ -7,6 +7,7 @@ from pkg_resources import parse_version
 from Products.Five import zcml
 from sqlalchemy.engine.reflection import Inspector
 from sys import argv
+from transaction import commit
 from z3c.saconfig import Session
 
 
@@ -135,6 +136,15 @@ def add_last_modifier_id_to_session():
     execute(statement)
 
 
+def hash_passwords():
+    ''' We want the passwords stored in the account table to be encrypted
+    '''
+    accounts = session.query(model.Account)
+    for account in accounts:
+        account.hash_password()
+    commit()
+
+
 def main():
     # It is always a good idea to run this one
     create_missing_tables()
@@ -144,6 +154,7 @@ def main():
         add_group_id_to_session()
         add_published_to_session()
         add_last_modifier_id_to_session()
+        hash_passwords()
 
 
 if __name__ == "__main__":

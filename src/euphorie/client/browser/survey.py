@@ -1,10 +1,10 @@
 # coding=utf-8
 from Acquisition import aq_inner
+from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.session import SessionManager
 from plone import api
-from datetime import datetime
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.supermodel import model

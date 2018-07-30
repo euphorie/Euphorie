@@ -102,4 +102,22 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="reset_password_request"
+      for="*"
+      permission="zope.Public"
+      class=".reset_password.ResetPasswordRequest"
+      template="templates/reset_password_form.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="passwordreset"
+      for="*"
+      permission="zope.Public"
+      class=".reset_password.ResetPasswordForm"
+      template="templates/reset_password_form.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>

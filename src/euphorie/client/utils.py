@@ -56,15 +56,12 @@ def getSecret():
 def randomString(length=16):
     """Return 32 bytes of random data. Only characters which do not require
     special escaping in HTML or URLs are generated."""
-
-    safe_characters = 'abcdefghijklmnopqrstuvwxyz' \
-                      'ABCDEFGHIJKLMNOPQRSTUVWXYZ' \
-                      '1234567890-'
-    output = []
-    append = output.append
-    for i in xrange(length):
-        append(random.choice(safe_characters))
-    return ''.join(output)
+    safe_characters = (
+        'abcdefghijklmnopqrstuvwxyz'
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        '1234567890-'
+    )
+    return ''.join(random.choice(safe_characters) for idx in range(length))
 
 
 @decorator

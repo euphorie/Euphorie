@@ -1,4 +1,5 @@
 # coding=utf-8
+from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
@@ -12,6 +13,7 @@ from zope.interface import alsoProvides
 
 import datetime
 import re
+import six
 
 
 class GuestAccountTests(EuphorieFunctionalTestCase):
@@ -169,7 +171,7 @@ class RegisterTests(EuphorieIntegrationTestCase):
             self.assertNotEqual(view._tryRegistration(), False)
 
 
-class ReminderTests(EuphorieFunctionalTestCase):
+class ResetPasswordTests(EuphorieFunctionalTestCase):
 
     def addDummySurvey(self):
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
@@ -186,12 +188,37 @@ class ReminderTests(EuphorieFunctionalTestCase):
         self.addDummySurvey()
         browser = self.get_browser()
         url = self.portal.client.nl.absolute_url()
+
         browser.open(url)
         browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
-        browser.getControl(name="loginname").value = "jane@example.com"
-        browser.getControl(name="next").click()
-        self.failUnless("Unknown email address" in browser.contents)
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"  # noqa: E501
+        browser.getControl(name="form.buttons.next").click()
+
+        # We do not have any account here
+        self.assertListEqual(model.Session.query(model.Account).all(), [])
+        # Even if the user does not exist, the form submission
+        # will be successfully sent
+        self.assertTrue(
+            browser.url.startswith('http://nohost/plone/client/nl/@@login?came_from')  # noqa: E501
+        )
+
+    def testInvalidEmail(self):
+        self.addDummySurvey()
+        browser = self.get_browser()
+        url = self.portal.client.nl.absolute_url()
+
+        browser.open(url)
+        browser.getLink('Login').click()
+        browser.getLink("I forgot my password").click()
+        # Test an invalid email address
+        browser.getControl(name="form.widgets.email").value = "jane @ joe.com"
+        browser.getControl(name="form.buttons.next").click()
+        self.assertIn('The specified email is not valid.', browser.contents)
+        self.assertEqual(
+            browser.url,
+            'http://nohost/plone/client/nl/@@reset_password_request',
+        )
 
     def testEmail(self):
         self.addDummySurvey()
@@ -201,17 +228,37 @@ class ReminderTests(EuphorieFunctionalTestCase):
         browser.open(self.portal.client.nl.absolute_url())
         browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
-        browser.getControl(name="loginname").value = "jane@example.com"
-        browser.getControl(name="next").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"  # noqa: E501
+        browser.getControl(name="form.buttons.next").click()
         self.assertEqual(len(mail_fixture.storage), 1)
         (args, kw) = mail_fixture.storage[0]
         (mail, mto, mfrom) = args[:3]
         self.assertEqual(mfrom, "discard@simplon.biz")
         self.assertEqual(mto, "jane@example.com")
         self.assertEqual(
-            unicode(mail["Subject"]), u"OiRA registration reminder"
+            six.text_type(mail["Subject"]),
+            u"OiRA password reset instructions",
         )
         body = mail.get_payload(0).get_payload(decode=True).decode(
             mail.get_content_charset("utf-8")
         )
-        self.failUnless(u"Øle" in body)
+        self.failUnless(u"/passwordreset/" in body)
+
+    def testInvalidResetKey(self):
+        ''' When the request key is invalid the user is invited
+        to request a new key
+        '''
+        self.addDummySurvey()
+        browser = self.get_browser()
+        for url in (
+            self.portal.client.nl.absolute_url() + '/passwordreset',
+            self.portal.client.nl.absolute_url() + '/passwordreset/foo',
+        ):
+            browser.open(url)
+            browser.getControl(name="form.widgets.new_password").value = "secret"  # noqa: E501
+            browser.getControl(name="form.widgets.new_password.confirm").value = "secret"  # noqa: E501
+            browser.getControl(label="Save changes").click()
+            self.assertEqual(
+                browser.url,
+                'http://nohost/plone/client/nl/@@reset_password_request',
+            )
