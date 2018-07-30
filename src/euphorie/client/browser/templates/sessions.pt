@@ -43,7 +43,7 @@
            title="Start a new session"
            data-pat-modal="class: large"
            i18n:attributes="title"
-           i18n:translate=""
+           i18n:translate="link_start_session"
         >start a new session</a>
       </form>
       <fieldset class="session-list"
