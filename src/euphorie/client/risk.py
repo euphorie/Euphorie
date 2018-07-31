@@ -192,7 +192,7 @@ class IdentificationView(grok.View):
                     self.request.survey.absolute_url()
                 self.request.response.redirect(url)
                 return
-        elif reply.get("next", None) == "next":
+        elif reply.get("next", None) in ("next", "skip"):
             next = FindNextQuestion(
                 self.context,
                 filter=self.question_filter)
