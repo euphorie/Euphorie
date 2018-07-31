@@ -34,7 +34,6 @@ setup(
         "Plone >=5.1.0",
         "Zope2 >=2.13.19",
         'AccessControl >= 3.0',
-        "Products.PasswordResetTool >=2.0.3",
         'Products.membrane >=2.1.3',
         "SQLAlchemy >=0.5.2",
         "anytree",
