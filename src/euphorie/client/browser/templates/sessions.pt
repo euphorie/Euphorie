@@ -83,6 +83,17 @@
                             "
                       >${value}</time>
                     </span>
+                    <span class="date field"
+                      tal:condition="not:session/published">
+                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                      <time class="pat-display-time"
+                            datetime="${value}"
+                            data-pat-display-time="from-now: true; locale: ${language}"
+                            tal:define="
+                              value session/modified/isoformat|nothing;
+                            "
+                      >${value}</time>
+                    </span>
                   </li>
                 </tal:session>
               </ul>
