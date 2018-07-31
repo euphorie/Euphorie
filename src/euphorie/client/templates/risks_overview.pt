@@ -183,7 +183,7 @@ ul.title {margin-bottom:3em;}
           </li>
         </ul>
 
-        <?python import decimal ??>
+        <?python import decimal ?>
         <dl class="status">
           <tal:loop repeat="module status">
             <tal:defs define="
