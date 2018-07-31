@@ -135,9 +135,11 @@ class CustomizationView(grok.View, Mixin):
         sql_risks = self.context.children()
         added = 0
         updated = 0
+        counter = 0
         for risk_values in form.get('risk', []):
             if not risk_values.get("description") or not risk_values.get("priority"):
                 continue
+            counter += 1
             if risk_values.get('id') in existing_risks:
                 # Update an existing risk
                 risk = sql_risks.filter_by(id=risk_values.get('id')).all()[0]
@@ -164,7 +166,12 @@ class CustomizationView(grok.View, Mixin):
                 risk.skip_children = False
                 risk.postponed = False
                 risk.has_description = None
-                risk.zodb_path = "/".join([session.zodb_path] + [self.context.zodb_path] + ['1'])
+                risk.zodb_path = "/".join(
+                    [session.zodb_path] +
+                    [self.context.zodb_path] +
+                    # There's a constraint for unique zodb_path per session
+                    ['%d' % counter]
+                )
                 risk.profile_index = 0  # XXX: not sure what this is for
                 self.context.addChild(risk)
                 added += 1
