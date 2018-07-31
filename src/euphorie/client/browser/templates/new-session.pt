@@ -21,16 +21,6 @@
                         <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
                     </select>
                 </label>
-                <label>
-                    <tal:span i18n:translate="label_session_title">Enter a title for your Risk Assessment</tal:span>:
-                    <dfn class="icon-help-circle iconified pat-tooltip"
-                        data-pat-tooltip="source: content; position-list: lt"
-                        i18n:translate="session_title_tooltip">
-                        Once you have started an OiRA tool session, you will be able to stop before the end.
-                        You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out.
-                    </dfn>
-                    <input type="text" placeholder="Session name" i18n:attributes="placeholder" name="title:utf8:ustring" />
-                </label>
             </fieldset>
             </div>
             <div class="buttons panel-footer">
