@@ -28,7 +28,11 @@
     </ul>
 </article>
 
-<form class="pat-validation" method="post" action="${request/URL}" novalidate="novalidate"
+<form class="pat-validation pat-inject pat-switch"
+      method="post"
+      action="${request/URL}"
+      novalidate="novalidate"
+      data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
       data-pat-validation="message-date: This value must be a valid date;
                            message-datetime: This value must be a valid date and time;
                            message-email: This value must be a valid email address;
