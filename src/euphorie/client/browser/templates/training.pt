@@ -8,9 +8,8 @@
       i18n:domain="euphorie"
       tal:define="client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
-        pptx_view nocall:request/survey/@@pptx;
-        presentation_metadata pptx_view/get_data;
-        slides presentation_metadata/slides;
+        presentation_metadata view/slide_data;
+        slides presentation_metadata/slides|nothing;
       "
       metal:use-macro="context/@@shell/macros/shell">
 
