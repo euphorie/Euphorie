@@ -171,7 +171,9 @@
   >
 
     <div class="topics"
-         tal:condition="exists:tree"
+      id="${python:page_section=='identification' and 'step-2-topics' or
+            page_section=='actionplan' and 'step-4-topics' or ''}"
+      tal:condition="exists:tree"
     >
       <h2 class="module-title">
         <tal:phase_identification condition="python:page_section=='identification'">
