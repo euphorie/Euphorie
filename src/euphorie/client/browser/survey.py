@@ -17,7 +17,9 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 class IStartFormSchema(model.Schema):
     title = schema.TextLine(
-        title=_("Enter a name for your Risk Assessment"),
+        title=_(
+            "label_session_title",
+            default=u"Enter a title for your Risk Assessment"),
         required=True,
     )
 
