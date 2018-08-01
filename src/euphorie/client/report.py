@@ -1242,6 +1242,9 @@ class MeasuresOverview(survey.Status):
             else:
                 title = module.title
                 number = module.number
+                if 'custom-risks' in module.zodb_path:
+                    num_elems = number.split('.')
+                    number = u".".join([u"Ω"] + num_elems[1:])
                 main_modules[path] = {'name': title, 'number': number, 'risks': risks}
 
         self.modules = []
