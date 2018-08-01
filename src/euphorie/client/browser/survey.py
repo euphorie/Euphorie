@@ -47,6 +47,11 @@ class Start(AutoExtensibleForm, EditForm):
             self.request,
         )
 
+    @property
+    @memoize
+    def has_profile(self):
+        return len(self.context.ProfileQuestions())
+
     @memoize
     def has_introduction(self):
         survey = aq_inner(self.context)

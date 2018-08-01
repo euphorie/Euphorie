@@ -11,6 +11,7 @@
         session webhelpers/session;
         can_edit webhelpers/can_edit_session;
         can_delete webhelpers/can_delete_session;
+        has_profile view/has_profile;
       "
       i18n:domain="euphorie"
 >
@@ -20,9 +21,10 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-form pat-inject"
+      <form class="pat-form pat-inject pat-switch"
             action="${request/URL}"
             method="POST"
+            data-pat-switch="selector: body; remove: sidebar-${python:has_profile and 'on' or 'off'}; add: sidebar-${python:has_profile and 'off' or 'on'}"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
       >
         <nav class="page-actions">
