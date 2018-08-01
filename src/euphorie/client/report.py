@@ -536,9 +536,13 @@ class IdentificationReportDownload(grok.View):
                     title = node.title
             if has_risk:
                 title += u' [*]'
+            number = node.number
+            if 'custom-risks' in node.zodb_path:
+                num_elems = number.split('.')
+                number = u".".join([u"Ω"] + num_elems[1:])
             section.append(
                 Paragraph(header_styles.get(node.depth, header_styles[4]),
-                          u'%s %s' % (node.number, title)))
+                          u'%s %s' % (number, title)))
 
             if node.type != "risk":
                 continue
@@ -746,9 +750,11 @@ class ActionPlanReportDownload(grok.View):
 
         for node in self.getNodes():
             has_risk = node.type == 'risk' and node.identification == 'no'
-            if 'custom-risks' in node.zodb_path:
+            if node.zodb_path == 'custom-risks':
                 title = utils.get_translated_custom_risks_title(self.request)
                 description = u""
+            elif getattr(node, 'is_custom_risk', None):
+                title = node.title
             else:
                 zodb_node = survey.restrictedTraverse(node.zodb_path.split('/'))
                 show_problem_description = has_risk and \
@@ -762,9 +768,13 @@ class ActionPlanReportDownload(grok.View):
             if has_risk:
                 title += u' [*]'
 
+            number = node.number
+            if 'custom-risks' in node.zodb_path:
+                num_elems = number.split('.')
+                number = u".".join([u"Ω"] + num_elems[1:])
             section.append(Paragraph(
                 header_styles.get(node.depth, header_styles[4]),
-                u"%s %s" % (node.number, title)))
+                u"%s %s" % (number, title)))
 
             if node.type != "risk":
                 continue
@@ -1090,6 +1100,10 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                         if getattr(zodb_node, 'problem_description', None) and \
                                 zodb_node.problem_description.strip():
                             value = zodb_node.problem_description
+                    elif key == 'number':
+                        if risk.is_custom_risk:
+                            num_elems = value.split('.')
+                            value = u".".join([u"Ω"] + num_elems[1:])
                 elif ntype == 'module':
                     if key == 'title':
                         if risk.is_custom_risk:
