@@ -14,13 +14,16 @@ from AccessControl import getSecurityManager
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
 from five import grok
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
+from plone.memoize.view import memoize_contextless
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
 from z3c.saconfig import Session
+from zExceptions import Unauthorized
 from zope import schema
 from zope.interface import directlyProvides
 from zope.interface import implementer
@@ -52,7 +55,18 @@ class ConfirmationDeleteSession(grok.View):
     grok.layer(IClientSkinLayer)
     grok.template("confirmation-delete-session")
 
-    def __call__(self, *args, **kwargs):
+    @property
+    @memoize_contextless
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            api.portal.get(),
+            self.request,
+        )
+
+    @property
+    @memoize_contextless
+    def session_title(self):
         try:
             self.session_id = int(self.request.get("id"))
         except (ValueError, TypeError):
@@ -61,12 +75,18 @@ class ConfirmationDeleteSession(grok.View):
         session = (
             object_session(user)
             .query(SurveySession)
-            .filter(SurveySession.account == user)
             .filter(SurveySession.id == self.session_id).first()
         )
         if session is None:
             raise KeyError("Unknown session id")
-        self.session_title = session.title
+        if not self.webhelpers.can_delete_session(session):
+            raise Unauthorized()
+        return session.title
+
+    def __call__(self, *args, **kwargs):
+        ''' Before rendering check if we can find session title
+        '''
+        self.session_title
         return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
 
 
