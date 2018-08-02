@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Navigation
 ----------
@@ -116,11 +117,16 @@ def getTreeData(request, context, phase="identification", filter=None):
     base_url = "%s/%s/" % (request.survey.absolute_url(), phase)
 
     def morph(obj):
+        number = obj.number
+        if obj.zodb_path.find('custom-risks') > -1:
+            num_elems = number.split('.')
+            number = u".".join([u"Ω"] + num_elems[1:])
         info = {'id': obj.id,
-                'number': obj.number,
+                'number': number,
                 'title': obj.title,
-                'active': obj.path != context.path and
-                                context.path.startswith(obj.path),
+                'active': (
+                    obj.path != context.path and
+                    context.path.startswith(obj.path)),
                 'current': (obj.path == context.path),
                 'current_parent': (obj.path == context.path[:-3]),
                 'path': context.path,

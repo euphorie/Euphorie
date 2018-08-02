@@ -204,7 +204,7 @@
                 id="step-5"
                 tal:define="
                   active python:page_section == 'report';
-                  disabled python:page_section in ('', 'preparation') and can_edit;
+                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
                 "
             >
               <!-- TODO: check if guest -->
@@ -225,7 +225,7 @@
                 id="step-6"
                 tal:define="
                   active python:page_section == 'training';
-                  disabled python:page_section in ('', 'preparation') and can_edit;
+                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
                 "
                 tal:condition="webhelpers/use_training_module"
             >

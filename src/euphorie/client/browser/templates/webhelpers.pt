@@ -171,7 +171,9 @@
   >
 
     <div class="topics"
-         tal:condition="exists:tree"
+      id="${python:page_section=='identification' and 'step-2-topics' or
+            page_section=='actionplan' and 'step-4-topics' or ''}"
+      tal:condition="exists:tree"
     >
       <h2 class="module-title">
         <tal:phase_identification condition="python:page_section=='identification'">
@@ -482,7 +484,7 @@
               <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
-                     i18n:translate="help_default_probability"
+                     i18n:translate=""
                 >${view/description_probability}</dfn>
               </legend>
               <label><input checked="${python:'checked' if value==1 else None}"

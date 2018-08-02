@@ -9,19 +9,22 @@
       metal:use-macro="context/@@shell/macros/shell">
 <body>
     <metal:slot fill-slot="content">
-        <div id="document-content" class="pat-modal">
+        <div id="document-content" class="pat-modal large">
             <h1 i18n:translate="header_new_session">New session</h1>
             <form method="post" action="${request/URL}" class="wizard-box">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body">
-            <fieldset class="vertical">
-                <label>
-                    <tal:span i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</tal:span>:
-                    <select class="oira_sessions_select" name="survey">
-                        <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
-                    </select>
-                </label>
-            </fieldset>
+              <fieldset class="vertical">
+                <p class="legend" i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</p>
+                <fieldset class="tool-list">
+                  <fieldset class="tools pat-checklist radio">
+                    <label class="tool" tal:repeat="survey view/surveys">
+                      <input type="radio" name="survey" value="${survey/id}">
+                      <strong class="field name">${survey/title}</strong>
+                    </label>
+                  </fieldset>
+                </fieldset>
+              </fieldset>
             </div>
             <div class="buttons panel-footer">
                 <button type="submit" name="next" class="pat-button " i18n:translate="button_start_session">Start session</button>

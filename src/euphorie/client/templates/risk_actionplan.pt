@@ -35,10 +35,11 @@
           .measures .measure .functions a.disabled { display: none; }
         </style>
 
-        <form class="pat-validation pat-inject pat-scroll"
+        <!-- Disable validation on the action plan, since an empty budget field falsely gets claimed as being required! -->
+        <form class="Xpat-validation pat-inject pat-scroll"
               action="${context/absolute_url}"
               method="post"
-              data-pat-inject="history: record; source: #step-4; target: #step-4 &amp;&amp; source: #content; target: #content"
+              data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
               data-pat-scroll="selector: #content; trigger: auto; offset: 0"
               data-pat-validation="disable-selector: button[name='next'], .remove-clone;
                                      message-date: This value must be a valid date;
