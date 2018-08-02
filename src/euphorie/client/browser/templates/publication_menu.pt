@@ -21,7 +21,7 @@
         on
         ${python:toLocalizedTime(session.modified, long_format=1)}.
       </p>
-      <tal:can_edit condition="view/webhelpers/can_edit_session">
+      <tal:can_publish condition="view/webhelpers/can_publish_session">
         <ul class="menu"
             tal:switch="session/review_state"
         >
@@ -60,7 +60,7 @@
             </li>
           </tal:case>
         </ul>
-      </tal:can_edit>
+      </tal:can_publish>
     </div>
   </body>
 </html>

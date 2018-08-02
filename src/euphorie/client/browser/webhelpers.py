@@ -624,6 +624,10 @@ class WebHelpers(BrowserView):
         return self.can_view_session(session=session)
 
     @memoize
+    def can_publish_session(self, session=None):
+        return self.can_edit_session(session=session)
+
+    @memoize
     def can_delete_session(self, session=None):
         return self.can_edit_session(session=session)
 
