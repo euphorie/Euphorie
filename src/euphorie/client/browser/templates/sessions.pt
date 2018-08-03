@@ -68,31 +68,29 @@
                         session child/context;
                       "
                   >
-                    <a class="name field"
-                       href="${request/getURL}?action=continue&amp;session=${session/id}"
-                    >${session/title}</a>
+                    <span class="name field">
+                      <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                        >${session/title}</a>,
+                      <span class="last-saved">
+                       <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                        <time class="pat-display-time"
+                              datetime="${value}"
+                              data-pat-display-time="from-now: true; locale: ${language}"
+                              tal:define="value session/modified/isoformat|nothing;"
+                        >${value}</time>
+                      </span>
+                    </span>
                     <span class="date field"
                           tal:condition="session/published"
                     >
-                      <tal:i18n i18n:translate="">Last published</tal:i18n>
-                      <time class="pat-display-time"
-                            datetime="${value}"
-                            data-pat-display-time="from-now: true; locale: ${language}"
-                            tal:define="
-                              value session/published/isoformat|nothing;
-                            "
-                      >${value}</time>
-                    </span>
-                    <span class="date field"
-                      tal:condition="not:session/published">
-                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                      <time class="pat-display-time"
-                            datetime="${value}"
-                            data-pat-display-time="from-now: true; locale: ${language}"
-                            tal:define="
-                              value session/modified/isoformat|nothing;
-                            "
-                      >${value}</time>
+                      <span class="label">
+                        <tal:i18n i18n:translate="">Last published</tal:i18n>
+                        <time class="pat-display-time"
+                              datetime="${value}"
+                              data-pat-display-time="from-now: true; locale: ${language}"
+                              tal:define="value session/published/isoformat|nothing;"
+                        >${value}</time>
+                      </span>
                     </span>
                   </li>
                 </tal:session>
