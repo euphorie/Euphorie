@@ -3785,16 +3785,6 @@ msgstr ""
 msgid "label_old_password"
 msgstr "Dabartinis slaptažodis"
 
-#. Default: "Page"
-#: euphorie/client/survey.py:624
-msgid "label_page"
-msgstr "Puslapis"
-
-#. Default: "of"
-#: euphorie/client/survey.py:627
-msgid "label_page_of"
-msgstr "iš"
-
 #. Default: "Password"
 #: euphorie/content/templates/settings.pt:66 euphorie/content/user.py:95
 msgid "label_password"
@@ -5116,15 +5106,6 @@ msgstr "Ekonominės veiklos"
 #: euphorie/client/templates/status.pt:34
 msgid "title_status_of"
 msgstr "${survey_title} statusas"
-
-#. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/templates/webhelpers.pt:40
-#: euphorie/client/browser/webhelpers.py:304
-#: euphorie/client/templates/conditions.pt:16
-msgid "title_tool"
-msgstr ""
-"OiRA - internetinis interaktyvus rizikos vertinimas (angl. Online "
-"interactive Risk Assessment)"
 
 #. Default: "Unpublish \"${title}\""
 #: euphorie/content/templates/unpublish.pt:12
