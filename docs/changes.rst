@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.41 (unreleased)
+9.0.41 (2018-08-06)
 -------------------
 
 - Bugfix for the "measures" report: Do not rely on the pre-computed
