@@ -247,7 +247,7 @@
                 id="status"
                 tal:define="
                   active python: page_section == 'status' and 'active' or '';
-                  disabled python:page_section in ('', 'preparation') and can_edit;
+                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
                 "
             >
               <a class="status pat-switch pat-inject"
