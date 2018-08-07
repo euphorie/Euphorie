@@ -142,6 +142,8 @@ class SessionsView(BrowserView):
         '''
         group = session.group
         survey = self.get_survey_by_path(session.zodb_path)
+        if not survey:
+            return
         return Node(
             session,
             parent=self.get_survey_node(survey, group),
