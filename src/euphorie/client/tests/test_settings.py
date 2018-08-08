@@ -77,10 +77,11 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.handleErrors = False
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
-            browser.url, "http://nohost/plone/client/nl/account-settings"
+            browser.url,
+            "http://nohost/plone/client/nl/account-settings"
         )
         account = Session.query(Account).first()
-        self.assertEqual(account.password, "secret")
+        self.assertTrue(account.verify_password("secret"))
 
 
 class AccountDeleteTests(EuphorieFunctionalTestCase):

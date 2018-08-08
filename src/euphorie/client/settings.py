@@ -102,7 +102,7 @@ class AccountSettings(form.SchemaForm):
         if not data["new_password"]:
             flash(_(u"There were no changes to be saved."), "notice")
             return
-        if data["old_password"] != user.password:
+        if not user.verify_password(data["old_password"]):
             raise WidgetActionExecutionError(
                 "old_password", Invalid(_(u"Invalid password"))
             )
@@ -140,7 +140,7 @@ class DeleteAccount(form.SchemaForm):
             return
 
         user = getSecurityManager().getUser()
-        if user.password != data["password"]:
+        if not user.verify_password(data["password"]):
             raise WidgetActionExecutionError(
                 "password", Invalid(_(u"Invalid password"))
             )
@@ -239,7 +239,7 @@ class NewEmail(form.SchemaForm):
             return False
         except smtplib.SMTPException as e:
             log.error(
-                "smtplib error sending password reminder to %s: %s",
+                "smtplib error sending the confirmation email to %s: %s",
                 account.email, e
             )
             flash(
@@ -249,7 +249,7 @@ class NewEmail(form.SchemaForm):
             return False
         except socket.error as e:
             log.error(
-                "Socket error sending password reminder to %s: %s",
+                "Socket error sending confirmation email to %s: %s",
                 account.email, e[1]
             )
             flash(
@@ -269,15 +269,16 @@ class NewEmail(form.SchemaForm):
             return
 
         user = getSecurityManager().getUser()
-        if user.password != data["password"]:
+        if not user.verify_password(data["password"]):
             raise WidgetActionExecutionError(
                 "password", Invalid(_(u"Invalid password"))
             )
 
-        settings_url = "%s/account-settings" % \
-                aq_inner(self.context).absolute_url()
-        if not data["loginname"] or \
-                data["loginname"].strip() == user.loginname:
+        settings_url = "%s/account-settings" % self.context.absolute_url()
+        if (
+            not data["loginname"]
+            or data["loginname"].strip() == user.loginname
+        ):
             self.request.response.redirect(settings_url)
             flash(_(u"There were no changes to be saved."), "notice")
             return
@@ -295,14 +296,17 @@ class NewEmail(form.SchemaForm):
         flash(
             _(
                 "email_change_pending",
-                default=u"Please confirm your new email address by clicking on "
-                u"the link in the email that will be sent in a few "
-                u"minutes to \"${email}\". Please note that the new "
-                u"email address is also your new login name.",
+                default=(
+                    u"Please confirm your new email address by clicking on "
+                    u"the link in the email that will be sent in a few "
+                    u"minutes to \"${email}\". Please note that the new "
+                    u"email address is also your new login name."
+                ),
                 mapping={
                     "email": data["loginname"]
                 }
-            ), "warning"
+            ),
+            "warning",
         )
         self.request.response.redirect(settings_url)
 

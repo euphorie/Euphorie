@@ -24,6 +24,7 @@ from z3c.saconfig import Session
 from zope.publisher.interfaces.browser import IBrowserView
 
 import logging
+import six
 import sqlalchemy.exc
 import traceback
 import urllib
@@ -241,12 +242,18 @@ def authenticate(login, password):
     """
     if not login or not password:
         return None
+    if isinstance(password, six.text_type):
+        password = password.encode('utf8')
 
     login = login.lower()
-    account = Session().query(model.Account)\
-            .filter(model.Account.loginname == login)\
-            .filter(model.Account.password == password).first()
-    return account
+    accounts = (
+        Session()
+        .query(model.Account)
+        .filter(model.Account.loginname == login)
+    )
+    for account in accounts:
+        if account.verify_password(password):
+            return account
 
 
 classImplements(
