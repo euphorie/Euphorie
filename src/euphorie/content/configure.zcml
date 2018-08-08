@@ -123,6 +123,13 @@
 
     <browser:page
         for="*"
+        name="minimal_main_template"
+        permission="zope.Public"
+        template="templates/minimal_main_template.pt"
+    />
+
+    <browser:page
+        for="*"
         name="prefs_main_template"
         permission="zope.Public"
         template="templates/prefs_main_template.pt"
