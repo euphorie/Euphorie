@@ -121,4 +121,12 @@
         class=".upgrade.CleanupContent"
         />
 
+    <browser:page
+        for="*"
+        name="prefs_main_template"
+        permission="zope.Public"
+        template="templates/prefs_main_template.pt"
+    />
+
+
 </configure>
