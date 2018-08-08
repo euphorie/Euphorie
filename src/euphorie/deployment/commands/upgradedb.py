@@ -1,10 +1,12 @@
 # -*- coding: UTF-8 -*-
 ''' Upgrade the database tables if needed'''
+from datetime import datetime
 from euphorie.client import model
 from logging import getLogger
 from pkg_resources import get_distribution
 from pkg_resources import parse_version
 from Products.Five import zcml
+from sqlalchemy import sql
 from sqlalchemy.engine.reflection import Inspector
 from sys import argv
 from transaction import commit
@@ -139,9 +141,28 @@ def add_last_modifier_id_to_session():
 def hash_passwords():
     ''' We want the passwords stored in the account table to be encrypted
     '''
-    accounts = session.query(model.Account)
+    accounts = session.query(model.Account).filter(
+        sql.or_(
+            sql.not_(model.Account.account_type == 'guest'),
+            model.Account.account_type == None
+        )
+    )
+    total = float(accounts.count())
+    start = datetime.now()
+    print "{} - {} accounts to convert".format(
+        start.strftime('%Y/%m/%d %H:%M:%S'), int(total))
+    cnt = 0
     for account in accounts:
         account.hash_password()
+        cnt += 1
+        if cnt % 500 == 0:
+            print "{} - {} accounts converted ({:2.2f}%)".format(
+                datetime.now().strftime('%Y/%m/%d %H:%M:%S'), cnt,
+                cnt / total * 100)
+            print "    {}".format(account.loginname)
+            commit()
+    print "{} accounts processed. Finished after {}".format(
+        cnt, datetime.now() - start)
     commit()
 
 
