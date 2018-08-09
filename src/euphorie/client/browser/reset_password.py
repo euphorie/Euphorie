@@ -75,7 +75,7 @@ class ResetPasswordRequest(BaseForm):
     description = _(
         'description_reset_password_request', (
             u'We will send you an email '
-            u'with the instructions to reset your password'
+            u'with the instructions to reset your password.'
         )
     )
 
@@ -174,7 +174,7 @@ class ResetPasswordRequest(BaseForm):
             )
         self.redirect(redir_url, msg)
 
-    @button.buttonAndHandler(_(u'Next'))
+    @button.buttonAndHandler(_(u'Save'))
     def next_handler(self, action):
         ''' Check if the security token is correct and if it is
         change the account password with the provided value
@@ -235,8 +235,8 @@ class ResetPasswordForm(BaseForm):
         )
         account.password = data['new_password']
         return self.redirect(
-            '{}/@@login_form'.format(self.context.absolute_url()),
-            msg=_('Password successfully reset'),
+            '{}/login_form'.format(self.context.absolute_url()),
+            msg=_('Your password was successfully changed.'),
         )
 
     @button.buttonAndHandler(_(u'Save changes'))

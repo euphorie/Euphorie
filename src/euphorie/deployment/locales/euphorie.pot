@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-09 08:18+0000\n"
+"POT-Creation-Date: 2018-08-09 08:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -564,10 +564,6 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:177
-msgid "Next"
-msgstr ""
-
 #: euphorie/client/templates/profile.pt:47
 #: euphorie/client/templates/updated.pt:31
 msgid "No"
@@ -653,10 +649,6 @@ msgstr ""
 #: euphorie/client/templates/report_landing.pt:154
 #: euphorie/client/templates/risks_overview.pt:154
 msgid "Pass information to the people concerned."
-msgstr ""
-
-#: euphorie/client/browser/reset_password.py:239
-msgid "Password successfully reset"
 msgstr ""
 
 #: euphorie/client/templates/new-email.pt:17
@@ -773,6 +765,7 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
+#: euphorie/client/browser/reset_password.py:177
 #: euphorie/client/country.py:151
 msgid "Save"
 msgstr ""
@@ -1103,6 +1096,7 @@ msgstr ""
 msgid "Your password must contain at least 5 characters."
 msgstr ""
 
+#: euphorie/client/browser/reset_password.py:239
 #: euphorie/client/settings.py:110
 msgid "Your password was successfully changed."
 msgstr ""
@@ -1573,7 +1567,7 @@ msgstr ""
 msgid "description_reset_password_form"
 msgstr ""
 
-#. Default: "We will send you an email with the instructions to reset your password"
+#. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:75
 msgid "description_reset_password_request"
 msgstr ""

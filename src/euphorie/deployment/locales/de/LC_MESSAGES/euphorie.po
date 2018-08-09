@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-09 08:18+0000\n"
+"POT-Creation-Date: 2018-08-09 08:59+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,6 +208,8 @@ msgid ""
 "An email will be sent if we can find an account for the inserted email "
 "address"
 msgstr ""
+"Eine E-mail wird an die angegeben E-mailadresse verschickt, falls wir ein "
+"dazu passendes Benutzerkonto finden."
 
 #: euphorie/client/settings.py:236
 msgid "An error occured while sending the confirmation email."
@@ -216,6 +218,7 @@ msgstr "Beim Versenden der Bestätigungs-E-Mail ist ein Fehler aufgetreten."
 #: euphorie/client/browser/reset_password.py:98
 msgid "An error occured while sending the password reset instructions"
 msgstr ""
+"Bei Senden der E-mail zum Zurücksetzen des Passworts gab es einen Fehler"
 
 #: euphorie/client/module.py:116
 msgid "An existing added risk has been updated."
@@ -634,10 +637,6 @@ msgstr ""
 msgid "New"
 msgstr "Neu"
 
-#: euphorie/client/browser/reset_password.py:177
-msgid "Next"
-msgstr ""
-
 #: euphorie/client/templates/profile.pt:47
 #: euphorie/client/templates/updated.pt:31
 msgid "No"
@@ -695,7 +694,7 @@ msgstr ""
 
 #: euphorie/client/browser/reset_password.py:117
 msgid "OiRA password reset instructions"
-msgstr ""
+msgstr "OiRA - Anleitung zum Zurücksetzen des Passworts"
 
 #: euphorie/client/templates/login.pt:72
 msgid ""
@@ -753,10 +752,6 @@ msgstr ""
 #: euphorie/client/templates/risks_overview.pt:154
 msgid "Pass information to the people concerned."
 msgstr "Informationen an betroffene Personen weitergeben."
-
-#: euphorie/client/browser/reset_password.py:239
-msgid "Password successfully reset"
-msgstr ""
 
 #: euphorie/client/templates/new-email.pt:17
 msgid ""
@@ -900,7 +895,7 @@ msgstr ""
 msgid "Run slideshow"
 msgstr "Diashow anzeigen"
 
-#: euphorie/client/country.py:151
+#: euphorie/client/browser/reset_password.py:177 euphorie/client/country.py:151
 msgid "Save"
 msgstr "Speichern"
 
@@ -1304,6 +1299,7 @@ msgstr "Ihr Passwort zur Bestätigung"
 msgid "Your password must contain at least 5 characters."
 msgstr ""
 
+#: euphorie/client/browser/reset_password.py:239
 #: euphorie/client/settings.py:110
 msgid "Your password was successfully changed."
 msgstr "Ihr Passwort wurde erfolgreich geändert."
@@ -1903,10 +1899,12 @@ msgstr ""
 msgid "description_reset_password_form"
 msgstr ""
 
-#. Default: "We will send you an email with the instructions to reset your password"
+#. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:75
 msgid "description_reset_password_request"
 msgstr ""
+"Wir werden Ihnen eine E-mail schicken, über die Sie Ihr Passwort "
+"zurücksetzen können."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:150
@@ -5194,12 +5192,12 @@ msgstr "Weitere Gefährdungen (durch Sie hinzugefügt)"
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:194
 msgid "title_reset_password_form"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
 #. Default: "Password recovery"
 #: euphorie/client/browser/reset_password.py:71
 msgid "title_reset_password_request"
-msgstr ""
+msgstr "Passwort vergessen"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12
