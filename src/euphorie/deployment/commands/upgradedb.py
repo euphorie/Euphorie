@@ -160,7 +160,6 @@ def hash_passwords():
                 datetime.now().strftime('%Y/%m/%d %H:%M:%S'), cnt,
                 cnt / total * 100)
             print "    {}".format(account.loginname)
-            commit()
     print "{} accounts processed. Finished after {}".format(
         cnt, datetime.now() - start)
     commit()
