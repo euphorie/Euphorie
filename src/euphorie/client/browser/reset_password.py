@@ -34,7 +34,7 @@ class ResetPasswordFormSchema(model.Schema):
 
 
 class ResetPasswordRequestSchema(model.Schema):
-    email = Email(title=_(u'label_email', default=u'Email'), )
+    email = Email(title=_(u'label_email', default=u'Email address'), )
 
 
 class BaseForm(AutoExtensibleForm, EditForm):

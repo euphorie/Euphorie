@@ -12,7 +12,7 @@
 <body>
 <metal:slot fill-slot="content">
     <div id="document-content" class="pat-modal">
-        <h1><tal:delete i18n:translate="label_delete">Delete</tal:delete> `${view/session_title}`</h1>
+        <h1 i18n:translate="">Delete risk assessment</h1>
         <form method="post" action="${context/absolute_url}/@@delete-session" class="wizard-box">
             <input type="hidden" name="id" value="${view/session_id}" />
             <div class="panel-body">

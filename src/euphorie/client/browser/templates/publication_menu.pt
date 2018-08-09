@@ -15,11 +15,12 @@
     >
       <p class="pat-message notice"
          tal:condition="last_modifier"
+         i18n:translate="last_edited_by"
       >
         Last edited by
-        <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+        <a href="mailto:${last_modifier/email}" i18n:name="name">${last_modifier/email}</a>
         on
-        ${python:toLocalizedTime(session.modified, long_format=1)}.
+        <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
       </p>
       <tal:can_publish condition="view/webhelpers/can_publish_session">
         <ul class="menu"

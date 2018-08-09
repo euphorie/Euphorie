@@ -12,7 +12,7 @@
       <form method="GET" action="${context/absolute_url}/@@context-search">
 
         <tal:block condition="python:view.did_search">
-          <h2><em i18n:translate="header_search_results">Search results for</em> <tal:q>${request/form/q}</tal:q></h2>
+          <h2><em i18n:translate="header_search_results_for">Search results for</em> <tal:q>${request/form/q}</tal:q></h2>
 
           <p class="message notice" tal:condition="python:not view.results" i18n:translate="search_no_results">No items found.</p>
           <tal:block condition="python:view.results">
