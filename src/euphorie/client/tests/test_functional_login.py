@@ -193,7 +193,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
         browser.getControl(name="form.widgets.email").value = "jane@example.com"  # noqa: E501
-        browser.getControl(name="form.buttons.next").click()
+        browser.getControl(name="form.buttons.save").click()
 
         # We do not have any account here
         self.assertListEqual(model.Session.query(model.Account).all(), [])
@@ -213,7 +213,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         browser.getLink("I forgot my password").click()
         # Test an invalid email address
         browser.getControl(name="form.widgets.email").value = "jane @ joe.com"
-        browser.getControl(name="form.buttons.next").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertIn('The specified email is not valid.', browser.contents)
         self.assertEqual(
             browser.url,
@@ -229,7 +229,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         browser.getLink('Login').click()
         browser.getLink("I forgot my password").click()
         browser.getControl(name="form.widgets.email").value = "jane@example.com"  # noqa: E501
-        browser.getControl(name="form.buttons.next").click()
+        browser.getControl(name="form.buttons.save").click()
         self.assertEqual(len(mail_fixture.storage), 1)
         (args, kw) = mail_fixture.storage[0]
         (mail, mto, mfrom) = args[:3]
