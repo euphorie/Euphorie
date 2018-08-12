@@ -21,10 +21,9 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-form pat-inject pat-switch"
+      <form class="pat-form pat-inject"
             action="${request/URL}"
             method="POST"
-            data-pat-switch="selector: body; remove: sidebar-${python:has_profile and 'on' or 'off'}; add: sidebar-${python:has_profile and 'off' or 'on'}"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
       >
         <nav class="page-actions">
@@ -137,8 +136,9 @@
              id="nav-bar"
              tal:condition="can_edit"
         >
-          <button class="pat-button continue"
+          <button class="pat-button pat-switch continue"
                   type="submit"
+                  data-pat-switch="selector: body; remove: sidebar-${python:has_profile and 'on' or 'off'}; add: sidebar-${python:has_profile and 'off' or 'on'}"
                   i18n:translate="label_start_survey"
           >Start</button>
         </div>
