@@ -13,6 +13,7 @@ from z3c.form.form import EditForm
 from zope import schema
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from euphorie.client.browser.country import SessionsView
 
 
 class IStartFormSchema(model.Schema):
@@ -22,6 +23,19 @@ class IStartFormSchema(model.Schema):
             default=u"Enter a title for your Risk Assessment"),
         required=True,
     )
+
+
+class SurveySessionsView(SessionsView):
+
+    @memoize
+    def get_sessions(self):
+        """ Filter user's sessions to match only those from the current survey
+        """
+        sessions = super(SurveySessionsView, self).get_sessions()
+        survey = aq_inner(self.context)
+        my_path = utils.RelativePath(self.request.client, survey)
+        my_sessions = [x for x in sessions if x.zodb_path == my_path]
+        return my_sessions
 
 
 class Start(AutoExtensibleForm, EditForm):

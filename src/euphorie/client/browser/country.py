@@ -152,7 +152,7 @@ class SessionsView(BrowserView):
         )
 
     @memoize
-    def get_sessions_tree_root(self):
+    def get_sessions(self):
         ''' Given some sessions create a tree
         '''
         scope = self.request.get('scope')
@@ -163,6 +163,13 @@ class SessionsView(BrowserView):
             sessions = self.account.sessions + self.account.acquired_sessions
         else:
             sessions = self.account.sessions
+        return sessions
+
+    @memoize
+    def get_sessions_tree_root(self):
+        ''' Given some sessions create a tree
+        '''
+        sessions = self.get_sessions()
         map(self.get_session_node, sessions)
         return self.sessions_root
 

@@ -4,8 +4,6 @@ Survey views
 """
 from .. import MessageFactory as _
 from ..ghost import PathGhost
-from AccessControl import getSecurityManager
-from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -37,14 +35,12 @@ from five import grok
 from plone import api
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
-from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from sqlalchemy import case
 from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
-from zExceptions import Unauthorized
 from zope.component import adapts
 from zope.component import getUtility
 from zope.i18n import translate
@@ -55,7 +51,6 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import decimal
 import logging
-import urlparse
 
 
 PloneLocalesFactory = MessageFactory("plonelocales")
@@ -63,94 +58,6 @@ PloneLocalesFactory = MessageFactory("plonelocales")
 log = logging.getLogger(__name__)
 
 grok.templatedir("templates")
-
-
-class View(grok.View):
-    """The default view which shows an overview of a user's sessions for the
-    current survey.
-
-    View name: @@index_html
-    """
-    grok.context(ISurvey)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.template("survey_sessions")
-    grok.name("index_html")
-
-    @property
-    @memoize_contextless
-    def account(self):
-        ''' The currenttly authenticated account
-        '''
-        return model.get_current_account()
-
-    def sessions(self):
-        """Return a list of all sessions for the current user. For each
-        session a dictionary is returned with the following keys:
-
-        * `id`: unique identifier for the session
-        * `title`: session title
-        * `modified`: timestamp of last session modification
-        """
-        survey = aq_inner(self.context)
-        my_path = utils.RelativePath(self.request.client, survey)
-        result = [{
-            'id': session.id,
-            'title': session.title,
-            'modified': session.modified
-        } for session in self.account.sessions if session.zodb_path == my_path]
-        result.sort(key=lambda s: s['modified'], reverse=True)
-        return result
-
-    def _NewSurvey(self, info):
-        """Utility method to start a new survey session."""
-        survey = aq_inner(self.context)
-        title = info.get("title", u"").strip()
-        if not title:
-            title = survey.Title()
-        SessionManager.start(title=title, survey=survey)
-        v_url = urlparse.urlsplit(self.url() + '/resume').path
-        trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect(
-            "%s/start?initial_view=1" % survey.absolute_url()
-        )
-
-    def _ContinueSurvey(self, info):
-        """Utility method to continue an existing session."""
-        session = Session.query(SessionManager.model).get(info["session"])
-        current_user = aq_base(getSecurityManager().getUser())
-        if session.account is not current_user:
-            log.warn(
-                'User %s tried to hijack session from %s',
-                getattr(current_user, 'loginname', repr(current_user)),
-                session.account.loginname
-            )
-            raise Unauthorized()
-        SessionManager.resume(session)
-        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
-        v_url = urlparse.urlsplit(self.url() + '/resume').path
-        trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect(
-            "%s/resume?initial_view=1" % survey.absolute_url()
-        )
-
-    def update(self):
-        utils.setLanguage(self.request, self.context)
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            if reply["action"] == "new":
-                self._NewSurvey(reply)
-            elif reply["action"] == "continue":
-                self._ContinueSurvey(reply)
-        else:
-            survey = aq_inner(self.context)
-            dbsession = SessionManager.session
-            if dbsession is not None and \
-                    dbsession.zodb_path == utils.RelativePath(
-                                        self.request.client, survey):
-                self.request.response.redirect(
-                    "%s/resume?initial_view=1" % survey.absolute_url()
-                )
 
 
 class Resume(grok.View):
