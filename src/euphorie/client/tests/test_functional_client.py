@@ -37,8 +37,8 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.open(url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -84,8 +84,8 @@ class SurveyTests(EuphorieFunctionalTestCase):
         )
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -131,8 +131,8 @@ class SurveyTests(EuphorieFunctionalTestCase):
         )
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring").value = "Test session"
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()

@@ -18,9 +18,8 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring"
-                           ).value = u"Sessiøn".encode("utf-8")  # noqa: E501
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -49,9 +48,8 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring"
-                           ).value = u"Sessiøn".encode("utf-8")
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -83,9 +81,8 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring"
-                           ).value = u"Sessiøn".encode("utf-8")  # noqa: E501
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
@@ -105,9 +102,8 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getControl(name="title:utf8:ustring"
-                           ).value = u"Sessiøn".encode("utf-8")
-        browser.getControl(name="next").click()
+        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
         browser.getLink("Start Risk Identification").click()
