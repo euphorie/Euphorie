@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+>
+  <body>
+    <div id="more-menu"
+         hidden
+    >
+      <ul class="menu"
+          tal:define="
+            webhelpers view/webhelpers;
+            can_edit webhelpers/can_edit_session;
+            can_delete webhelpers/can_delete_session;
+          "
+      >
+        <li>
+          <a class="icon-trash pat-modal"
+             href="${webhelpers/country_url}/@@confirmation-delete-session?id=${webhelpers/session_id}#document-content"
+             title="Delete this session"
+             i18n:attributes="title"
+             i18n:translate="label_delete"
+             tal:condition="can_delete"
+          >Delete</a>
+        </li>
+        <li tal:condition="nothing">
+          <!-- Not yet implemented for mainstream OIRA -->
+          <a class="pat-modal icon-clone"
+             href="${webhelpers/country_url}/@@confirmation-clone-session?id=${webhelpers/session_id}#document-content"
+             title="By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+             i18n:attributes="title"
+             i18n:translate="label_duplicate"
+          >Duplicate</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

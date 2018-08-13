@@ -130,6 +130,24 @@
       />
 
   <browser:page
+      name="more_badge"
+      for="euphorie.content.survey.ISurvey"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Start"
+      template="templates/more_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="more_menu"
+      for="euphorie.content.survey.ISurvey"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Start"
+      template="templates/more_menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="confirmation-delete-session"
       for="euphorie.client.country.IClientCountry"
       permission="zope2.View"
