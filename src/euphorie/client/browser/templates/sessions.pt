@@ -17,10 +17,12 @@
                 tal:define="
                   language view/portal/plone_portal_state/language;
                   root view/get_sessions_tree_root;
+                  my_context view/my_context;
                 "
     >
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-inject pat-autosubmit"
+      <form tal:condition="python:my_context=='country'"
+            class="pat-inject pat-autosubmit"
             id="canvas-toolbar"
             action="${request/getURL}#sessions"
             tal:define="
@@ -46,6 +48,11 @@
            i18n:translate="link_start_session"
         >start a new session</a>
       </form>
+      <article tal:condition="python:my_context=='survey'">
+        <p i18n:translate="header_select_session">
+            Select an earlier session to complete or review.
+        </p>
+      </article>
       <fieldset class="session-list"
                 id="sessions"
       >
@@ -99,6 +106,22 @@
           </metal:node>
         </tal:node>
       </fieldset>
+      <form tal:condition="python:my_context=='survey'"
+            method="post">
+        <article>
+          <p>
+            <tal:i18n i18n:translate="header_or">or&hellip;</tal:i18n>
+            <a id="button-new-session"
+               href="${here/absolute_url}/@@new-session.html?action=new#document-content"
+               title="Start a new session"
+               i18n:attributes="title"
+               i18n:translate="link_start_session"
+            >start a new session</a>
+            with this tool.
+          </p>
+        </article>
+      </form>
+
     </metal:slot>
 
     <metal:slot fill-slot="splash_message_slot">

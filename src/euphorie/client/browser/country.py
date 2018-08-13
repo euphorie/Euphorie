@@ -5,6 +5,7 @@ from anytree.node.util import _repr
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.country import IClientCountry
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
@@ -59,6 +60,14 @@ class Node(NodeMixin):
 
 
 class SessionsView(BrowserView):
+
+    @property
+    @memoize
+    def my_context(self):
+        if IClientCountry.providedBy(self.context):
+            return "country"
+        elif ISurvey.providedBy(self.context):
+            return "survey"
 
     @property
     @memoize_contextless
@@ -245,6 +254,8 @@ class SessionsView(BrowserView):
         reply = self.request.form
         action = reply.get('action')
         if action == "new":
+            if self.my_context == 'survey':
+                reply['survey'] = "/".join(self.context.getPhysicalPath())
             return self._NewSurvey(reply)
         elif action == "continue":
             return self._ContinueSurvey(reply)
