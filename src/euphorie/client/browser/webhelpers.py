@@ -11,6 +11,7 @@ from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IItaly
 from euphorie.client.model import get_current_account
+from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SESSION_COOKIE
 from euphorie.client.session import SessionManager
@@ -29,6 +30,7 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from sqlalchemy.orm import object_session
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
@@ -161,6 +163,16 @@ class WebHelpers(BrowserView):
     @memoize
     def session_id(self):
         return getattr(self.session, 'id', '')
+
+    @memoize
+    def session_by_id(self, session_id):
+        user = getSecurityManager().getUser()
+        session = (
+            object_session(user)
+            .query(SurveySession)
+            .filter(SurveySession.id == session_id).first()
+        )
+        return session
 
     @property
     @memoize
@@ -614,6 +626,8 @@ class WebHelpers(BrowserView):
             return False
         if session is None:
             session = self.session
+        if session is None and self.request.get('sessionid'):
+            session = self.session_by_id(self.request.get('sessionid'))
         return (
             session in account.sessions or
             session in account.acquired_sessions

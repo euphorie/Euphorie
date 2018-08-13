@@ -11,13 +11,13 @@
       <ul class="menu"
           tal:define="
             webhelpers view/webhelpers;
-            can_edit webhelpers/can_edit_session;
             can_delete webhelpers/can_delete_session;
+            sessionid request/sessionid|webhelpers/session_id;
           "
       >
         <li>
           <a class="icon-trash pat-modal"
-             href="${webhelpers/country_url}/@@confirmation-delete-session?id=${webhelpers/session_id}#document-content"
+             href="${webhelpers/country_url}/@@confirmation-delete-session?id=${sessionid}#document-content"
              title="Delete this session"
              i18n:attributes="title"
              i18n:translate="label_delete"
@@ -27,7 +27,7 @@
         <li tal:condition="nothing">
           <!-- Not yet implemented for mainstream OIRA -->
           <a class="pat-modal icon-clone"
-             href="${webhelpers/country_url}/@@confirmation-clone-session?id=${webhelpers/session_id}#document-content"
+             href="${webhelpers/country_url}/@@confirmation-clone-session?id=${sessionid}#document-content"
              title="By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
              i18n:attributes="title"
              i18n:translate="label_duplicate"
