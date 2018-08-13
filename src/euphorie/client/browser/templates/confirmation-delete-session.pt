@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:meta="http://xml.zope.org/namespaces/meta"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
       i18n:domain="euphorie"
-      meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content">
-    <div id="document-content" class="pat-modal">
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal"
+           id="document-content"
+      >
         <h1 i18n:translate="">Delete risk assessment</h1>
-        <form method="post" action="${context/absolute_url}/@@delete-session" class="wizard-box">
+        <form class="wizard-box"
+              method="post"
+              action="${context/absolute_url}/@@delete-session" >
             <input type="hidden" name="id" value="${view/session_id}" />
             <div class="panel-body">
+                <p><tal:i18n i18n:translate="label_title">Title</tal:i18n>: `${view/session_title}`</p>
                 <p i18n:translate="">Are you sure you want to delete this session? This action can not be reverted.</p>
             </div>
             <div class="buttons panel-footer">
@@ -23,7 +26,7 @@
                 <button type="button" class="pat-button close-panel"> <tal:label i18n:translate="button_cancel">Cancel</tal:label> </button>
             </div>
         </form>
-    </div>
-</metal:slot>
-</body>
+      </div>
+    </metal:slot>
+  </body>
 </html>

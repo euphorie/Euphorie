@@ -36,7 +36,7 @@
                i18n:attributes="title"
             >Share</a>
             <a class="iconified icon-trash pat-modal"
-               href="${webhelpers/country_url}/@@confirmation-delete-session.html?id=${webhelpers/session_id}#document-content"
+               href="${webhelpers/country_url}/@@confirmation-delete-session?id=${webhelpers/session_id}#document-content"
                title="Delete this session"
                i18n:attributes="title"
                tal:condition="can_delete"

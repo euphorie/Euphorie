@@ -1,4 +1,5 @@
 # coding=utf-8
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
@@ -6,6 +7,7 @@ from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
+from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
@@ -14,9 +16,9 @@ from plone import api
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.Five import BrowserView
+from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
-
 import six
 
 
@@ -261,3 +263,43 @@ class SessionsView(BrowserView):
             return self._ContinueSurvey(reply)
         self._updateSurveys()
         return super(SessionsView, self).__call__()
+
+
+class ConfirmationDeleteSession(BrowserView):
+    """View name: @@confirmation-delete-session
+    """
+
+    @property
+    @memoize_contextless
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            api.portal.get(),
+            self.request,
+        )
+
+    @property
+    @memoize_contextless
+    def session_title(self):
+        try:
+            self.session_id = int(self.request.get("id"))
+        except (ValueError, TypeError):
+            raise KeyError("Invalid session id")
+        user = getSecurityManager().getUser()
+        session = (
+            object_session(user)
+            .query(SurveySession)
+            .filter(SurveySession.id == self.session_id).first()
+        )
+        if session is None:
+            raise KeyError("Unknown session id")
+        if not self.webhelpers.can_delete_session(session):
+            raise Unauthorized()
+        return session.title
+
+    def __call__(self, *args, **kwargs):
+        ''' Before rendering check if we can find session title
+        '''
+        self.session_title
+        self.no_splash = True
+        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)

@@ -129,4 +129,14 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="confirmation-delete-session"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.ConfirmationDeleteSession"
+      template="templates/confirmation-delete-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+
 </configure>
