@@ -147,6 +147,11 @@
                  href="${survey_url}/start#content"
                  data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
                  data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                 tal:condition="not:disabled"
+                 i18n:translate="label_preparation"
+              >Preparation</a>
+              <a class="preparation"
+                 tal:condition="disabled"
                  i18n:translate="label_preparation"
               >Preparation</a>
             </li>
@@ -255,6 +260,11 @@
                  href="${survey_url}/status#content"
                  data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
                  data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                 tal:condition="not:disabled"
+                 i18n:translate="navigation_status"
+              >Check your progress</a>
+              <a class="status"
+                 tal:condition="disabled"
                  i18n:translate="navigation_status"
               >Check your progress</a>
             </li>
