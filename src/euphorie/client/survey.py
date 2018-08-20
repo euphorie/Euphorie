@@ -79,8 +79,8 @@ class Resume(grok.View):
             return
 
         question = FindFirstQuestion(dbsession=dbsession)
-        if question is None:
-            # No tree generated, so start over
+        if question is None or self.request.get('new_clone', None):
+            # No tree generated, or cloned session so start over
             self.request.response.redirect(
                 "%s/start?initial_view=1" % survey.absolute_url()
             )

@@ -244,8 +244,11 @@ class SessionsView(BrowserView):
         survey = self.request.client.restrictedTraverse(
             six.binary_type(session.zodb_path)
         )
+        extra = ""
+        if info.get('new_clone', None):
+            extra = "&new_clone=1"
         self.request.response.redirect(
-            "%s/resume?initial_view=1" % survey.absolute_url()
+            "%s/resume?initial_view=1%s" % (survey.absolute_url(), extra)
         )
 
     def __call__(self):
