@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ploneintranet.workspace"
+    >
+
+  <genericsetup:registerProfile
+      name="to_0020"
+      title="Upgrade profile that includes registry record for the navigation types"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/to_0020"
+      />
+
+  </configure>
