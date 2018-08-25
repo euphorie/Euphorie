@@ -42,7 +42,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         )
         # Therefore we land on the "start new session" page
         self.assertTrue("This is a test session" in browser.contents)
-        self.assertTrue("start a new session" in browser.contents)
+        self.assertTrue("Start a new session" in browser.contents)
         appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
     def test_guest_login_with_valid_survey(self):
