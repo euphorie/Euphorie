@@ -17,6 +17,7 @@
                 tal:define="
                   language view/portal/plone_portal_state/language;
                   root view/get_sessions_tree_root;
+                  has_sessions python:len(root.groups);
                   my_context view/my_context;
                 "
     >
@@ -44,15 +45,21 @@
            href="${here/absolute_url}/@@new-session.html#document-content"
            title="Start a new session"
            data-pat-modal="class: large"
-           i18n:attributes="title"
+           i18n:attributes="title link_start_session"
            i18n:translate="link_start_session"
-        >start a new session</a>
+        >Start a new session</a>
       </form>
-      <article tal:condition="python:my_context=='survey'">
+      <article tal:condition="python:my_context=='survey' and has_sessions">
         <p i18n:translate="header_select_session">
             Select an earlier session to complete or review.
         </p>
       </article>
+      <fieldset tal:condition="python:my_context=='survey' and not has_sessions"
+                class="session-list"
+                id="sessions"
+      >
+        <h3 class="tool-name">${context/title}</h3>
+      </fieldset>
       <fieldset class="session-list"
                 id="sessions"
       >
@@ -117,14 +124,15 @@
             method="post">
         <article>
           <p>
-            <tal:i18n i18n:translate="header_or">or&hellip;</tal:i18n>
-            <a id="button-new-session"
-               href="${here/absolute_url}/@@new-session.html?action=new#document-content"
-               title="Start a new session"
-               i18n:attributes="title"
-               i18n:translate="link_start_session"
-            >start a new session</a>
-            with this tool.
+            <tal:i18n i18n:translate="header_or" tal:condition="has_sessions">or&hellip;</tal:i18n>
+            <tal:1i8n i18n:translate="label_start_new_session">
+              <a id="button-new-session"
+                 href="${here/absolute_url}/@@new-session.html?action=new#document-content"
+                 i18n:name="link_start_session"
+                 i18n:translate="link_start_session"
+              >Start a new session</a>
+              with this tool.
+            </tal:1i8n>
           </p>
         </article>
       </form>
