@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-14 07:04+0000\n"
+"POT-Creation-Date: 2018-08-25 14:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,7 +192,6 @@ msgid "Are you sure you want to delete this measure? This action can not be reve
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:22
-#: euphorie/client/templates/confirmation-delete-session.pt:19
 msgid "Are you sure you want to delete this session? This action can not be reverted."
 msgstr ""
 
@@ -222,7 +221,7 @@ msgstr ""
 msgid "Candidate country"
 msgstr ""
 
-#: euphorie/client/templates/user-menu.pt:18
+#: euphorie/client/browser/templates/user-menu.pt:18
 msgid "Change email address"
 msgstr ""
 
@@ -290,19 +289,17 @@ msgstr ""
 msgid "Creative Commons License"
 msgstr ""
 
+#: euphorie/client/browser/templates/user-menu.pt:21
 #: euphorie/client/settings.py:136
 #: euphorie/client/templates/account-delete.pt:28
-#: euphorie/client/templates/user-menu.pt:21
 msgid "Delete account"
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:15
-#: euphorie/client/templates/confirmation-delete-session.pt:15
 msgid "Delete risk assessment"
 msgstr ""
 
 #: euphorie/client/browser/templates/more_menu.pt:19
-#: euphorie/client/templates/survey_sessions.pt:60
 msgid "Delete this session"
 msgstr ""
 
@@ -395,7 +392,7 @@ msgstr ""
 msgid "Euphorie content types"
 msgstr ""
 
-#: euphorie/client/configure.zcml:102
+#: euphorie/client/configure.zcml:101
 msgid "Euphorie online client"
 msgstr ""
 
@@ -741,10 +738,6 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: euphorie/client/templates/survey_sessions.pt:54
-msgid "Rename this session"
-msgstr ""
-
 #: euphorie/content/utils.py:26
 msgid "Republic of Serbia"
 msgstr ""
@@ -869,11 +862,6 @@ msgstr ""
 msgid "Standard solution"
 msgstr ""
 
-#: euphorie/client/browser/templates/sessions.pt:42
-#: euphorie/client/templates/shell.pt:123
-msgid "Start a new session"
-msgstr ""
-
 #: euphorie/client/templates/shell.pt:113
 msgid "Start test session"
 msgstr ""
@@ -948,7 +936,7 @@ msgstr ""
 msgid "The online client."
 msgstr ""
 
-#: euphorie/client/configure.zcml:102
+#: euphorie/client/configure.zcml:101
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
@@ -1329,7 +1317,6 @@ msgstr ""
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:25
-#: euphorie/client/templates/confirmation-delete-session.pt:22
 msgid "button_delete_session"
 msgstr ""
 
@@ -2103,7 +2090,6 @@ msgstr ""
 
 #. Default: "or…"
 #: euphorie/client/browser/templates/sessions.pt:120
-#: euphorie/client/templates/survey_sessions.pt:71
 msgid "header_or"
 msgstr ""
 
@@ -2234,7 +2220,6 @@ msgstr ""
 #. Default: "Select an earlier session to complete or review."
 #: euphorie/client/browser/templates/sessions.pt:52
 #: euphorie/client/templates/shell.pt:120
-#: euphorie/client/templates/survey_sessions.pt:29
 msgid "header_select_session"
 msgstr ""
 
@@ -3074,7 +3059,6 @@ msgstr ""
 
 #. Default: "Delete"
 #: euphorie/client/browser/templates/more_menu.pt:19
-#: euphorie/client/templates/survey_sessions.pt:60
 msgid "label_delete"
 msgstr ""
 
@@ -3343,7 +3327,6 @@ msgstr ""
 
 #. Default: "New test session"
 #: euphorie/client/templates/new-session-test.pt:13
-#: euphorie/client/templates/survey_sessions.pt:83
 msgid "label_new_session_test"
 msgstr ""
 
@@ -3508,11 +3491,6 @@ msgstr ""
 msgid "label_remove_measure"
 msgstr ""
 
-#. Default: "Rename"
-#: euphorie/client/templates/survey_sessions.pt:54
-msgid "label_rename"
-msgstr ""
-
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:75
@@ -3625,7 +3603,6 @@ msgstr ""
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/survey.py:21
 #: euphorie/client/templates/new-session-test.pt:25
-#: euphorie/client/templates/survey_sessions.pt:87
 msgid "label_session_title"
 msgstr ""
 
@@ -3662,6 +3639,11 @@ msgstr ""
 #. Default: "Start Risk Identification"
 #: euphorie/client/templates/identification.pt:25
 msgid "label_start_identification"
+msgstr ""
+
+#. Default: "${link_start_session} with this tool."
+#: euphorie/client/browser/templates/sessions.pt:122
+msgid "label_start_new_session"
 msgstr ""
 
 #. Default: "Start"
@@ -3800,11 +3782,6 @@ msgstr ""
 msgid "label_yes_sufficient"
 msgstr ""
 
-#. Default: "saved on ${date}"
-#: euphorie/client/templates/survey_sessions.pt:52
-msgid "lable_session_modified"
-msgstr ""
-
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:23
 msgid "last_edited_by"
@@ -3835,9 +3812,9 @@ msgstr ""
 msgid "link_sign_in"
 msgstr ""
 
-#. Default: "start a new session"
+#. Default: "Start a new session"
 #: euphorie/client/browser/templates/sessions.pt:42
-#: euphorie/client/templates/survey_sessions.pt:80
+#: euphorie/client/templates/shell.pt:123
 msgid "link_start_session"
 msgstr ""
 
@@ -4084,8 +4061,8 @@ msgid "navigation_help"
 msgstr ""
 
 #. Default: "Logout"
+#: euphorie/client/browser/templates/user-menu.pt:24
 #: euphorie/client/browser/templates/webhelpers.pt:53
-#: euphorie/client/templates/user-menu.pt:24
 msgid "navigation_logout"
 msgstr ""
 
@@ -4490,7 +4467,6 @@ msgstr ""
 
 #. Default: "Once you have started an OiRA tool session, you will be able to stop before the end. You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out."
 #: euphorie/client/templates/new-session-test.pt:27
-#: euphorie/client/templates/survey_sessions.pt:88
 msgid "session_title_tooltip"
 msgstr ""
 
@@ -4604,8 +4580,8 @@ msgid "title_account_settings"
 msgstr ""
 
 #. Default: "Change password"
+#: euphorie/client/browser/templates/user-menu.pt:15
 #: euphorie/client/settings.py:87
-#: euphorie/client/templates/user-menu.pt:15
 msgid "title_change_password"
 msgstr ""
 
