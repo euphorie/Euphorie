@@ -165,5 +165,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="user-menu.html"
+      for="*"
+      permission="zope2.View"
+      class=".webhelpers.UserMenu"
+      template="templates/user-menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+
 
 </configure>

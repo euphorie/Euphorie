@@ -10,18 +10,18 @@
 
 <body i18n:domain="euphorie">
   <metal:slot fill-slot="content">
-      <ul class="menu" tal:define="webhelpers nocall:context/@@webhelpers">
+      <ul class="menu">
         <li>
-            <a class="icon-key" href="${webhelpers/country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
+            <a class="icon-key" href="${view/country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
         </li>
         <li>
-            <a class="icon-mail" href="${webhelpers/country_url}/new-email" i18n:translate="">Change email address</a>
+            <a class="icon-mail" href="${view/country_url}/new-email" i18n:translate="">Change email address</a>
         </li>
         <li>
-            <a class="icon-cancel-circled" href="${webhelpers/country_url}/account-delete" i18n:translate="">Delete account</a>
+            <a class="icon-cancel-circled" href="${view/country_url}/account-delete" i18n:translate="">Delete account</a>
         </li>
         <li>
-          <a class="icon-logout" href="${webhelpers/country_url}/logout" i18n:translate="navigation_logout">Logout</a>
+          <a class="icon-logout" href="${view/country_url}/logout" i18n:translate="navigation_logout">Logout</a>
         </li>
       </ul>
   </metal:slot>

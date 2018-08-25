@@ -27,7 +27,6 @@
     <grok:grok package=".conditions" />
     <grok:grok package=".country" />
     <grok:grok package=".error" />
-    <grok:grok package=".feedback" />
     <grok:grok package=".help" />
     <grok:grok package=".layout" />
     <grok:grok package=".login" />

@@ -689,3 +689,13 @@ class Logo(WebHelpers):
 
     def __call__(self):
         return self
+
+
+class UserMenu(WebHelpers):
+    """
+    View class for the User Menu
+
+    """
+
+    def __call__(self):
+        return self.index()
