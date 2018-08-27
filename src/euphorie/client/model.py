@@ -7,8 +7,8 @@ Mainly: the connection between the ZODB-based content of the backend and the
 SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
-
 from AccessControl.PermissionRole import _what_not_even_god_should_do
+from collections import defaultdict
 from euphorie.client.enum import Enum
 from plone import api
 from plone.memoize import ram
@@ -289,14 +289,31 @@ class Group(BaseObject):
         return title
 
     @property
+    def descendantids(self):
+        ''' Return all the groups in the hierarchy flattened
+        '''
+        structure = self._group_structure
+        ids = []
+
+        def get_ids(groupid):
+            new_ids = structure[groupid]
+            if not new_ids:
+                return
+            ids.extend(new_ids)
+            map(get_ids, new_ids)
+
+        get_ids(self.group_id)
+        return ids
+
+    @property
     def descendants(self):
         ''' Return all the groups in the hierarchy flattened
         '''
-        descendants = []
-        for child in self.children:
-            descendants.append(child)
-            descendants.extend(child.descendants)
-        return descendants
+        return list(
+            Session
+            .query(self.__class__)
+            .filter(self.__class__.group_id.in_(self.descendantids))
+        )
 
     @property
     def parents(self):
@@ -312,13 +329,25 @@ class Group(BaseObject):
             group = parent
 
     @property
+    def _group_structure(self):
+        ''' Return a dict like structure
+        with the group ids as keys and the children group ids as values
+        '''
+        tree = defaultdict(list)
+        for g in Session.query(Group):
+            if g.parent:
+                tree[g.parent.group_id].append(g.group_id)
+        return tree
+
+    @property
     def acquired_sessions(self):
         ''' All the session relative to this group and its children
         '''
-        sessions = list(self.sessions)
-        for group in self.descendants:
-            sessions.extend(group.sessions)
-        return sessions
+        group_ids = [self.group_id]
+        group_ids.extend(g.group_id for g in self.descendants)
+        return Session.query(SurveySession).filter(
+            SurveySession.group_id.in_(group_ids)
+        ).all()
 
 
 @implementer(IBasicUser)
