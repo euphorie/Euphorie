@@ -3452,7 +3452,7 @@ msgstr "Seiteninhalt"
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Überspringen"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:224
