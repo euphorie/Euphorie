@@ -18,7 +18,7 @@
               action="${context/absolute_url}/@@delete-session" >
             <input type="hidden" name="id" value="${view/session_id}" />
             <div class="panel-body">
-                <p><tal:i18n i18n:translate="label_title">Title</tal:i18n>: `${view/session_title}`</p>
+                <p><tal:i18n i18n:translate="label_title">Title</tal:i18n>: &ldquo;${view/session_title}&rdquo;</p>
                 <p i18n:translate="">Are you sure you want to delete this session? This action can not be reverted.</p>
             </div>
             <div class="buttons panel-footer">
