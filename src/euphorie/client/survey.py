@@ -73,29 +73,18 @@ class Resume(grok.View):
     grok.name("resume")
 
     def render(self):
+        """ We always open the tool on the "Start" page.
+            Formerly, we would jump to the first question. Since the Start
+            page is now much more important, it is also used when a session
+            gets resumed.
+        """
         survey = aq_inner(self.context)
-        dbsession = SessionManager.session
         if redirectOnSurveyUpdate(self.request):
             return
 
-        question = FindFirstQuestion(dbsession=dbsession)
-        if question is None or self.request.get('new_clone', None):
-            # No tree generated, or cloned session so start over
-            self.request.response.redirect(
-                "%s/start?initial_view=1" % survey.absolute_url()
-            )
-        else:
-            # Redirect to the start page of the Identification phase.
-            # We do this to ensure the screen with the tool name gets shown.
-            # If we jump directly to the first question, the user does not
-            # see the tool name.
-            # This is especially relevant since the osc-header now displays the
-            # user-given session name.
-            self.request.response.redirect(
-                "{0}/{1}?initial_view=1".format(
-                    survey.absolute_url(), "identification"
-                )
-            )
+        self.request.response.redirect(
+            "%s/start?initial_view=1" % survey.absolute_url()
+        )
 
 
 class Identification(grok.View):
