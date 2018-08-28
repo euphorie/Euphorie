@@ -160,7 +160,7 @@ class IdentificationView(grok.View):
                         "Are the measures that are selected above sufficient?")
                 if not self.context.existing_measures:
                     existing_measures = OrderedDict([
-                        (text, 1) for text in measures.splitlines()
+                        (text, 0) for text in measures.splitlines()
                     ])
                     self.context.existing_measures = dumps(existing_measures)
 
@@ -217,7 +217,7 @@ class IdentificationView(grok.View):
             # All the pre-defined measures are always shown, either
             # activated or deactivated
             for text in defined_measures.splitlines():
-                if text in saved_existing_measures:
+                if saved_existing_measures.get(text):
                     existing_measures.update({text: 1})
                     saved_existing_measures.pop(text)
                 else:
@@ -226,7 +226,7 @@ class IdentificationView(grok.View):
             existing_measures.update(saved_existing_measures)
         except ValueError:
             existing_measures = OrderedDict([
-                (text, 1) for text in defined_measures.splitlines()
+                (text, 0) for text in defined_measures.splitlines()
             ])
             self.context.existing_measures = dumps(existing_measures)
         return existing_measures
