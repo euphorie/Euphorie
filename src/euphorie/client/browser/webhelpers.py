@@ -165,14 +165,8 @@ class WebHelpers(BrowserView):
         return getattr(self.session, 'id', '')
 
     @memoize
-    def session_by_id(self, session_id):
-        user = getSecurityManager().getUser()
-        session = (
-            object_session(user)
-            .query(SurveySession)
-            .filter(SurveySession.id == session_id).first()
-        )
-        return session
+    def session_by_id(self, sessionid):
+        return SessionManager.get_session_by_id(sessionid)
 
     @property
     @memoize

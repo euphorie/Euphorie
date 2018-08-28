@@ -50,6 +50,11 @@ class SessionManagerFactory(object):
         request.other["euphorie.session"] = session
         return session
 
+    def get_session_by_id(self, sessionid=None):
+        if sessionid is None:
+            return self.session
+        return Session.query(self.model).get(sessionid)
+
     def start(self, title, survey, account=None):
         """Create a new session and activate it.
 
