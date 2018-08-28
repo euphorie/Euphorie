@@ -336,7 +336,7 @@ class ActionPlanView(grok.View):
         self.use_existing_measures = asBool(
             settings.get('use_existing_measures', False))
 
-        self.next_is_report = False
+        self.next_is_report = self.previous_is_identification = False
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
         # need to switch off the sidebar
@@ -349,6 +349,16 @@ class ActionPlanView(grok.View):
         else:
             url = QuestionURL(
                 self.request.survey, next, phase="actionplan")
+
+        previous = FindPreviousQuestion(
+            context, filter=self.risk_filter)
+        if previous is None:
+            # We ran out of questions, step back to identification phase
+            previous_url = "%s/identification" % self.request.survey.absolute_url()
+            self.previous_is_identification = True
+        else:
+            previous_url = QuestionURL(
+                self.request.survey, previous, phase="actionplan")
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -363,14 +373,7 @@ class ActionPlanView(grok.View):
             SessionManager.session.touch()
 
             if reply["next"] == "previous":
-                next = FindPreviousQuestion(
-                    context, filter=self.risk_filter)
-                if next is None:
-                    # We ran out of questions, step back to intro page
-                    url = "%s/evaluation" % self.request.survey.absolute_url()
-                else:
-                    url = QuestionURL(
-                        self.request.survey, next, phase="actionplan")
+                url = previous_url
             return self.request.response.redirect(url)
 
         else:
