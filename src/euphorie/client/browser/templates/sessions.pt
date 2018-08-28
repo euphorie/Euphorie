@@ -98,7 +98,7 @@
                           tal:condition="session/published"
                     >
                       <span class="label">
-                        <tal:i18n i18n:translate="">Last published</tal:i18n>
+                        <tal:i18n i18n:translate="label_published">Published</tal:i18n>
                         <time class="pat-display-time"
                               datetime="${value}"
                               data-pat-display-time="from-now: true; locale: ${language}"
