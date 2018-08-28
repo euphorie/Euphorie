@@ -28,11 +28,10 @@
     </ul>
 </article>
 
-<form class="pat-validation pat-inject pat-switch"
+<form class="pat-validation pat-inject"
       method="post"
       action="${request/URL}"
       novalidate="novalidate"
-      data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
       data-pat-validation="message-date: This value must be a valid date;
                            message-datetime: This value must be a valid date and time;
                            message-email: This value must be a valid email address;
@@ -101,7 +100,10 @@
     </section>
 </fieldset>
 <p class="buttonBar">
-    <button class="pat-button" type="submit" i18n:translate="label_save_and_continue">Save and continue</button>
+    <button class="pat-button pat-switch"
+            data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
+            type="submit"
+            i18n:translate="label_save_and_continue">Save and continue</button>
 </p>
 </form>
 </metal:slot>
