@@ -271,7 +271,10 @@ class ActionPlanView(grok.View):
     grok.name("index_html")
 
     phase = "actionplan"
+    # The question filter will find modules AND risks
     question_filter = model.ACTION_PLAN_FILTER
+    # The risk filter will only find risks
+    risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
 
     def get_existing_measures(self):
         defined_measures = self.risk.existing_measures or ""
@@ -338,7 +341,7 @@ class ActionPlanView(grok.View):
         # if the next step might be the report phase, in which case we
         # need to switch off the sidebar
         next = FindNextQuestion(
-            context, filter=self.question_filter)
+            context, filter=self.risk_filter)
         if next is None:
             # We ran out of questions, proceed to the report
             url = "%s/report" % self.request.survey.absolute_url()
@@ -361,7 +364,7 @@ class ActionPlanView(grok.View):
 
             if reply["next"] == "previous":
                 next = FindPreviousQuestion(
-                    context, filter=self.question_filter)
+                    context, filter=self.risk_filter)
                 if next is None:
                     # We ran out of questions, step back to intro page
                     url = "%s/evaluation" % self.request.survey.absolute_url()

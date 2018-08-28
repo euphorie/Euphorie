@@ -156,16 +156,23 @@ class ActionPlan(grok.View):
     grok.template("actionplan")
     grok.name("index_html")
 
+    # The question filter will find modules AND risks
     question_filter = model.ACTION_PLAN_FILTER
+    # The risk filter will only find risks
+    risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
 
     def update(self):
         self.survey = survey = aq_parent(aq_inner(self.context))
-        question = FindFirstQuestion(filter=self.question_filter)
+        # We fetch the first actual risk, so that we can jump directly to it.
+        question = FindFirstQuestion(filter=self.risk_filter)
         if question is not None:
+            # We also fetch the first module, so that we can properly build the
+            # tree: Open at the first module, but with no risk being selected
+            module = FindFirstQuestion(filter=self.question_filter)
             self.next_url = QuestionURL(survey, question, phase="actionplan")
             self.tree = getTreeData(
                 self.request,
-                question,
+                module,
                 filter=self.question_filter,
                 phase="actionplan"
             )
