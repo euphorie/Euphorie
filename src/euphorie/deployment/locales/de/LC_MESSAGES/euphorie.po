@@ -241,8 +241,8 @@ msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
 msgstr ""
-"Sind Sie sicher, dass Sie diese Sitzung löschen möchten? Dieser Vorgang kann "
-"nicht rückgängig gemacht werden."
+"Sind Sie sicher, dass Sie diese Gefährdungsbeurteilung löschen möchten? "
+"Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -899,7 +899,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:24
 msgid "Run slideshow"
-msgstr "Diashow anzeigen"
+msgstr "Bildschirmpräsentation"
 
 #: euphorie/client/browser/reset_password.py:177 euphorie/client/country.py:105
 msgid "Save"
