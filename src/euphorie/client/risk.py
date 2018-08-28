@@ -26,6 +26,7 @@ from euphorie.content.survey import ISurvey
 from five import grok
 from json import dumps
 from json import loads
+from Products.CMFPlone.utils import safe_unicode
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
@@ -93,7 +94,8 @@ class IdentificationView(grok.View):
                     for k, val in reply.items():
                         if k.startswith('new-measure') and val.strip() != '':
                             new_measures.update({val: 1})
-                    self.context.existing_measures = dumps(new_measures)
+                    self.context.existing_measures = safe_unicode(
+                        dumps(new_measures))
                 self.context.postponed = (answer == "postponed")
                 if self.context.postponed:
                     self.context.identification = None
@@ -162,7 +164,8 @@ class IdentificationView(grok.View):
                     existing_measures = OrderedDict([
                         (text, 0) for text in measures.splitlines()
                     ])
-                    self.context.existing_measures = dumps(existing_measures)
+                    self.context.existing_measures = safe_unicode(
+                        dumps(existing_measures))
 
             if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
                 if self.request.survey.evaluation_algorithm != 'french':
@@ -228,7 +231,8 @@ class IdentificationView(grok.View):
             existing_measures = OrderedDict([
                 (text, 0) for text in defined_measures.splitlines()
             ])
-            self.context.existing_measures = dumps(existing_measures)
+            self.context.existing_measures = safe_unicode(
+                dumps(existing_measures))
         return existing_measures
 
     @property
@@ -288,7 +292,8 @@ class ActionPlanView(grok.View):
             existing_measures = OrderedDict([
                 (text, 1) for text in defined_measures.splitlines()
             ])
-            self.context.existing_measures = dumps(existing_measures)
+            self.context.existing_measures = safe_unicode(
+                dumps(existing_measures))
         return existing_measures
 
     @property
