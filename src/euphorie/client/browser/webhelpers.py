@@ -11,7 +11,6 @@ from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IItaly
 from euphorie.client.model import get_current_account
-from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SESSION_COOKIE
 from euphorie.client.session import SessionManager
@@ -30,7 +29,6 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from sqlalchemy.orm import object_session
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
