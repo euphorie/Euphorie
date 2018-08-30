@@ -142,13 +142,13 @@ class IdentificationView(grok.View):
 
             self.description_probability = _(
                 u"help_default_probability", default=u"Indicate how "
-                "likely occurence of this risk is in a normal situation.")
+                u"likely occurence of this risk is in a normal situation.")
             self.description_frequency = _(
                 u"help_default_frequency", default=u"Indicate how often this "
                 u"risk occurs in a normal situation.")
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
-                "severity if this risk occurs.")
+                u"severity if this risk occurs.")
 
             self.title_extra = ''
             self.show_existing_measures = False
