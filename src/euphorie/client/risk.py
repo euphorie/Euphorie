@@ -21,8 +21,10 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
+from euphorie.content.risk import tool_type
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from json import dumps
 from json import loads
@@ -34,6 +36,7 @@ from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
+
 
 grok.templatedir("templates")
 
@@ -150,16 +153,44 @@ class IdentificationView(grok.View):
                 u"help_default_severity", default=u"Indicate the "
                 u"severity if this risk occurs.")
 
-            self.title_extra = ''
+            my_tool_type = tool_type(self.risk)
+            tti = getUtility(IToolTypesInfo)
+            tool_types = tti()
+            tt_default = tti.default_tool_type
+            tool_type_data = tool_types.get(
+                my_tool_type, tool_types[tt_default])
+            default_type_data = tool_types[tt_default]
             self.show_existing_measures = False
-            if self.use_existing_measures:
+
+            # Fill some labels with default texts
+            self.answer_yes = default_type_data['answer_yes']
+            self.answer_no = default_type_data['answer_no']
+            self.answer_na = default_type_data['answer_na']
+            self.intro_extra = self.intro_questions = ""
+            self.button_add_extra = self.placeholder_add_extra = ""
+            self.button_remove_extra = ""
+            if (
+                self.use_existing_measures and
+                my_tool_type in tti.types_existing_measures
+            ):
                 measures = self.risk.existing_measures or ""
                 # Only show the form to select and add existing measures if
                 # at least one measure was defined in the CMS
+                # In this case, also change some labels
                 if len(measures):
                     self.show_existing_measures = True
-                    self.title_extra = _(
-                        "Are the measures that are selected above sufficient?")
+                    self.intro_extra = tool_type_data.get('intro_extra', '')
+                    self.intro_questions = tool_type_data.get(
+                        'intro_questions', '')
+                    self.button_add_extra = tool_type_data.get(
+                        'button_add_extra', '')
+                    self.placeholder_add_extra = tool_type_data.get(
+                        'placeholder_add_extra', '')
+                    self.button_remove_extra = tool_type_data.get(
+                        'button_remove_extra', '')
+                    self.answer_yes = tool_type_data['answer_yes']
+                    self.answer_no = tool_type_data['answer_no']
+                    self.answer_na = tool_type_data['answer_na']
                 if not self.context.existing_measures:
                     existing_measures = OrderedDict([
                         (text, 0) for text in measures.splitlines()
