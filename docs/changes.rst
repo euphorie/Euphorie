@@ -1,11 +1,19 @@
 Changelog
 =========
 
+10.0.0 (unreleased)
+------------------
+
+- XXX: add info about Plone5 etc
+- Added Tool Type: apart from the "classic" OiRA Tool type with positive
+  and negative statements, we can now set a tool to allow the definition
+  of measures that are already in place.
+
 9.0.41 (unreleased)
 -------------------
 
 - Bugfix for the "measures" report: Do not rely on the pre-computed
-  list of modules, since this can fail for a scenario with 
+  list of modules, since this can fail for a scenario with
   module->module->Optional module
 
 
