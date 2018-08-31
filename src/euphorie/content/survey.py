@@ -23,6 +23,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content.dependency import ConditionalHtmlText
 from euphorie.content.dependency import ConditionalTextLine
+from euphorie.content.utils import get_tool_type_default
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from OFS.event import ObjectClonedEvent
@@ -98,6 +99,18 @@ class ISurvey(form.Schema, IBasic):
                         u"codes are defined by national standards bodies "
                         u"and based on revision 2 of the NACE standard."),
             required=False)
+
+    tool_type = schema.Choice(
+        title=_(
+            "label_tool_type",
+            default=u"Type of OiRA Tool"),
+        description=_(
+            "description_tool_type",
+            default=u'This selection determines, which variant of an OiRA Tool'
+            u'will be created. If you are not sure, select "Classic".'),
+        vocabulary="euphorie.tool_types_vocabulary",
+        defaultFactory=get_tool_type_default,
+        required=True)
 
     enable_tool_notification = schema.Bool(
         title=_("label_enable_tool_notification",
