@@ -23,6 +23,8 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
+from euphorie.content.utils import get_tool_type_default
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -96,13 +98,16 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.order_after(description="problem_description")
 
     existing_measures = TextLinesWithBreaks(
-        title=_("label_existing_measures", default=u"Existing measures"),
+        title=_(
+            "label_existing_measures",
+            default=u"Measures that are already in place"),
         description=_(
             "help_existing_measures",
-            default=u"Use this field to define (common) existing measures."
-            u" Separate measures with a line break (Enter). The user will be "
+            default=u"Use this field to define (common) measures that the "
+            u"user might have already implemented. "
+            u"Separate measures with a line break (Enter). The user will be "
             u"able to deselect those measures that are not applicable to their"
-            u" situation."),
+            u"situation."),
         required=False)
     form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
     form.order_after(existing_measures="description")
@@ -551,6 +556,18 @@ def evaluation_algorithm(context):
     return u"kinney"
 
 
+def tool_type(context):
+    """Return the tool type used in a given context. The type is set on
+    the survey.
+    """
+    from euphorie.content.survey import ISurvey  # XXX Circular
+    tt_default = get_tool_type_default()
+    for parent in aq_chain(aq_inner(context)):
+        if ISurvey.providedBy(parent):
+            return parent.tool_type or tt_default
+    return tt_default
+
+
 @indexer(IRisk)
 def SearchableTextIndexer(obj):
     return " ".join([obj.title,
@@ -619,6 +636,7 @@ class Add(dexterity.AddForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.tool_type = tool_type(context)
 
     @property
     def schema(self):
@@ -634,7 +652,11 @@ class Add(dexterity.AddForm):
     def updateWidgets(self):
         super(Add, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        if not self.use_existing_measures:
+        tt = getUtility(IToolTypesInfo)
+        if not (
+            self.use_existing_measures and
+            self.tool_type in tt.types_existing_measures
+        ):
             self.widgets["existing_measures"].mode = "hidden"
 
     def create(self, data):
@@ -677,6 +699,7 @@ class Edit(form.SchemaEditForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.tool_type = tool_type(context)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
@@ -686,7 +709,11 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        if not self.use_existing_measures:
+        tt = getUtility(IToolTypesInfo)
+        if not (
+            self.use_existing_measures and
+            self.tool_type in tt.types_existing_measures
+        ):
             self.widgets["existing_measures"].mode = "hidden"
 
     def extractData(self, setErrors=True):
