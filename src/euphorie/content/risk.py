@@ -23,7 +23,6 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
-from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
@@ -556,18 +555,6 @@ def evaluation_algorithm(context):
     return u"kinney"
 
 
-def tool_type(context):
-    """Return the tool type used in a given context. The type is set on
-    the survey.
-    """
-    from euphorie.content.survey import ISurvey  # XXX Circular
-    tt_default = get_tool_type_default()
-    for parent in aq_chain(aq_inner(context)):
-        if ISurvey.providedBy(parent):
-            return parent.tool_type or tt_default
-    return tt_default
-
-
 @indexer(IRisk)
 def SearchableTextIndexer(obj):
     return " ".join([obj.title,
@@ -626,6 +613,7 @@ class Add(dexterity.AddForm):
     default_fieldset_label = None
 
     def __init__(self, context, request):
+        from euphorie.content.survey import get_tool_type
         dexterity.AddForm.__init__(self, context, request)
         self.evaluation_algorithm = evaluation_algorithm(context)
         self.order = ['header_identification',
@@ -636,7 +624,7 @@ class Add(dexterity.AddForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.tool_type = tool_type(context)
+        self.tool_type = get_tool_type(context)
 
     @property
     def schema(self):
@@ -686,6 +674,7 @@ class Edit(form.SchemaEditForm):
     default_fieldset_label = None
 
     def __init__(self, context, request):
+        from euphorie.content.survey import get_tool_type
         self.order = ['header_identification',
                       'header_evaluation',
                       'header_main_image',
@@ -699,7 +688,7 @@ class Edit(form.SchemaEditForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.tool_type = tool_type(context)
+        self.tool_type = get_tool_type(context)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):

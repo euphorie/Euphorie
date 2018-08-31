@@ -19,11 +19,13 @@ from .profilequestion import IProfileQuestion
 from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content.dependency import ConditionalHtmlText
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import get_tool_type_default
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from OFS.event import ObjectClonedEvent
@@ -41,6 +43,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 from ZODB.POSException import ConflictError
 from zope import schema
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.interface import implements
@@ -147,6 +150,18 @@ class SurveyAttributeField(ParentAttributeField):
     }
 
 
+def get_tool_type(context):
+    """Return the tool type used in a given context. The type is set on
+    the survey.
+    """
+    from euphorie.content.survey import ISurvey  # XXX Circular
+    tt_default = get_tool_type_default()
+    for parent in aq_chain(aq_inner(context)):
+        if ISurvey.providedBy(parent):
+            return parent.tool_type or tt_default
+    return tt_default
+
+
 class Survey(dexterity.Container):
     """A risk assessment survey.
 
@@ -199,6 +214,15 @@ class Survey(dexterity.Container):
         """Return a list of all profile questions."""
         return [child for child in self.values()
                 if IProfileQuestion.providedBy(child)]
+
+    def get_tool_type_name(self):
+        """ Returns the human readable name of the chosen tool type """
+        my_tool_type = get_tool_type(self)
+        tti = getUtility(IToolTypesInfo)
+        tool_types = tti()
+        if my_tool_type not in tool_types:
+            my_tool_type = tti.default_tool_type
+        return tool_types[my_tool_type]["title"]
 
 
 @indexer(ISurvey)

@@ -21,7 +21,7 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
-from euphorie.content.risk import tool_type
+from euphorie.content.survey import get_tool_type
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
@@ -153,7 +153,7 @@ class IdentificationView(grok.View):
                 u"help_default_severity", default=u"Indicate the "
                 u"severity if this risk occurs.")
 
-            my_tool_type = tool_type(self.risk)
+            my_tool_type = get_tool_type(self.risk)
             tti = getUtility(IToolTypesInfo)
             tool_types = tti()
             tt_default = tti.default_tool_type
