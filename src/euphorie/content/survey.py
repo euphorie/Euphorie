@@ -110,7 +110,7 @@ class ISurvey(form.Schema, IBasic):
         description=_(
             "description_tool_type",
             default=u'This selection determines, which variant of an OiRA Tool'
-            u'will be created. If you are not sure, select "Classic".'),
+            u' will be created. If you are not sure, select "Classic".'),
         vocabulary="euphorie.tool_types_vocabulary",
         defaultFactory=get_tool_type_default,
         required=True)

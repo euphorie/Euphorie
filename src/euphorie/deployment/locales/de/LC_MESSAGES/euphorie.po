@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-31 13:48+0000\n"
+"POT-Creation-Date: 2018-08-31 14:18+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -281,7 +281,7 @@ msgstr "Namen der Sitzung ändern"
 
 #: euphorie/content/utils.py:42
 msgid "Classic OiRA Tool with positive and negative statements."
-msgstr ""
+msgstr "Klassisches OiRA Tool mit positiven und negativen Aussagen"
 
 #: euphorie/content/templates/profilequestion_add.pt:67
 msgid "Client example for a single occurance."
@@ -685,7 +685,7 @@ msgstr "OiRA-Tool-Version"
 
 #: euphorie/content/utils.py:55
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
-msgstr ""
+msgstr "OiRA Tool bei dem “Bestehende Schutzmaßnahmen” definiert werden können"
 
 #: euphorie/client/templates/login.pt:87
 msgid ""
@@ -1930,10 +1930,13 @@ msgstr ""
 "wenn Nutzer das Tool öffnen. Diese Funktion kann verwendet werden, um Nutzer "
 "über Änderungen zu informieren."
 
-#. Default: "This selection determines, which variant of an OiRA Toolwill be created. If you are not sure, select \"Classic\"."
+#. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
 #: euphorie/content/survey.py:110
 msgid "description_tool_type"
 msgstr ""
+"Mit dieser Auswahl bestimmen Sie, welche Variante eines OiRA Tools verwendet "
+"wird. Falls Sie nicht sicher sind, was das bedeutet, verwenden Sie die "
+"Einstellung “Klassisches OiRA Tool”."
 
 #. Default: "If this part is active, the user will be asked to enter the name of all locations for which this module applies. This means, the module will be repeated as many times as there are locations. If you do not need this repeatable behaviour, untick the checkbox to turn it off."
 #: euphorie/content/profilequestion.py:58
@@ -4226,7 +4229,7 @@ msgstr "Tool-Benachrichtigung Titel"
 #. Default: "Type of OiRA Tool"
 #: euphorie/content/survey.py:107 euphorie/content/templates/survey_view.pt:27
 msgid "label_tool_type"
-msgstr ""
+msgstr "Art des OiRA Tools"
 
 #. Default: "run a test session"
 #: euphorie/client/templates/login.pt:33
