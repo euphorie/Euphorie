@@ -15,6 +15,7 @@ from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
+from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.upload import NSMAP
 from euphorie.content.upload import ProfileQuestionLocationFields
@@ -85,6 +86,7 @@ class ExportSurvey(grok.View):
             etree.SubElement(node, "classification-code").text = \
                     survey.classification_code
         etree.SubElement(node, "language").text = survey.language
+        etree.SubElement(node, "tool_type").text = get_tool_type(survey)
         etree.SubElement(node, "evaluation-algorithm").text = \
                 aq_parent(survey).evaluation_algorithm
         etree.SubElement(node, "evaluation-optional").text = \

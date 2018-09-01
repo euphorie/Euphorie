@@ -17,6 +17,7 @@ from .sector import ISector
 from .user import LoginField
 from .user import validLoginValue
 from Acquisition import aq_inner
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from plone.dexterity.utils import createContentInContainer
 from plone.directives import form
@@ -35,6 +36,7 @@ import lxml.etree
 import lxml.objectify
 import mimetypes
 import random
+
 
 ProfileQuestionLocationFields = [
     'label_multiple_present',
@@ -323,6 +325,8 @@ class SurveyImporter(object):
         survey.introduction = el_unicode(node, 'introduction')
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
+        tti = getUtility(IToolTypesInfo)
+        survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
         for child in node.iterchildren():
