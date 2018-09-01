@@ -158,7 +158,7 @@ def get_tool_type(context):
     tt_default = get_tool_type_default()
     for parent in aq_chain(aq_inner(context)):
         if ISurvey.providedBy(parent):
-            return parent.tool_type or tt_default
+            return getattr(parent, 'tool_type', '') or tt_default
     return tt_default
 
 

@@ -609,6 +609,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '  <survey>\n'
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
+            '    <tool_type>classic</tool_type>\n'
             '    <evaluation-algorithm>french</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
@@ -634,6 +635,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '  <survey>\n'
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
+            '    <tool_type>classic</tool_type>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
@@ -665,6 +667,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '  <survey>\n'
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
+            '    <tool_type>classic</tool_type>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '    <profile-question>\n'
@@ -703,6 +706,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '  <survey>\n'
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
+            '    <tool_type>classic</tool_type>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '    <module optional="false">\n'
@@ -726,6 +730,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         survey.classification_code = None
         survey.evaluation_optional = False
         survey.language = "en-GB"
+        survey.tool_type = "existing_measures"
         view = ExportSurvey(survey, TestRequest())
         output = view()
         response = view.request.response
@@ -740,6 +745,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '  <survey>\n'
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
+            '    <tool_type>existing_measures</tool_type>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
