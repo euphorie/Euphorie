@@ -52,8 +52,8 @@
         </tal:additional_files>
 
 
-        <p class="buttonBar">
-            <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button">Next</button>
+        <p class="button-bar" id="nav-bar">
+            <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
         </p>
     </form>
     </article>
