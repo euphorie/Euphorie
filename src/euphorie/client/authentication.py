@@ -220,7 +220,13 @@ class EuphorieAccountPlugin(BasePlugin):
                 query = "?" + query
             current_url += query
 
-        context = request.PUBLISHED
+        context = request.get('PUBLISHED')
+        if not context:
+            log.error(
+                'Refusing to authenticate because no context has been found in %r',  # noqa: E501
+                request,
+            )
+            return False
         if IBrowserView.providedBy(context):
             context = aq_parent(context)
 
