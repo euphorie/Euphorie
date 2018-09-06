@@ -26,10 +26,16 @@ def getSurveyTree(survey):
                 ['euphorie.profilequestion', 'euphorie.module',
                  'euphorie.risk']:
             continue
+        # Note that in profile.AddToTree, we pretend that an optional module
+        # always has a description. This logic needs to be replicated here.
+        if node.portal_type == 'euphorie.module':
+            has_description = HasText(node.description) or node.optional
+        else:
+            has_description = HasText(node.description)
         nodes.append({
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
             'type': node.portal_type[9:],
-            'has_description': HasText(node.description),
+            'has_description': has_description,
             'always_present': node.portal_type[9:] == "risk" and node.risk_always_present or False,
             'optional': node.optional, })
         if IQuestionContainer.providedBy(node):

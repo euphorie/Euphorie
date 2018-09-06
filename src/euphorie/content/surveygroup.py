@@ -310,7 +310,7 @@ class VersionCommand(grok.View):
             response.redirect("%s/%s/@@publish" %
                     (surveygroup.absolute_url(), survey_id))
         elif action == "unpublish":
-            response.redirect("%s//@@unpublish" % surveygroup.absolute_url())
+            response.redirect("%s/@@unpublish" % surveygroup.absolute_url())
         elif action == "clone":
             response.redirect("%s/++add++euphorie.survey?%s" %
                     (surveygroup.absolute_url(),

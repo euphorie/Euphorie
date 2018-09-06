@@ -264,8 +264,22 @@ def set_session_profile(survey, survey_session, profile):
         survey_session.touch()
         return survey_session
 
+    params = {
+        column.key: getattr(survey_session, column.key)
+        for column in survey_session.__table__.columns
+        if column.key not in (
+            'id',
+            'brand',
+            'account_id',
+            'group_id',
+            'title',
+            'created',
+            'modified',
+            'zodb_path',
+        )
+    }
     new_session = create_survey_session(
-        survey_session.title, survey, survey_session.account
+        survey_session.title, survey, survey_session.account, **params
     )
     BuildSurveyTree(survey, profile, new_session, survey_session)
     new_session.copySessionData(survey_session)
