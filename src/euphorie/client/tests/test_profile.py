@@ -4,6 +4,7 @@ from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
 from euphorie.client.profile import Profile
+from euphorie.client.session import create_survey_session
 from euphorie.client.tests.test_update import TreeTests
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.testing import EuphorieIntegrationTestCase
@@ -577,3 +578,17 @@ class Profile_setupSession_Tests(TreeTests):
                     view.setupSession()
                 self.failUnless(view.session is not session)
                 self.assertEqual(view.session.hasTree(), False)
+
+    def test_create_survey_session(self):
+        survey = self.createClientSurvey()
+        with self.makeView(survey) as view:
+            new_session = create_survey_session(
+                u'a',
+                survey,
+                view.session.account,
+                report_comment=u'b',
+            )
+            self.assertEqual(new_session.title, u'a')
+            self.assertEqual(new_session.account, view.session.account)
+            self.assertEqual(new_session.zodb_path, view.session.zodb_path)
+            self.assertEqual(new_session.report_comment, u'b')

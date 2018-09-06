@@ -126,7 +126,7 @@ SessionManager = SessionManagerFactory()
 """
 
 
-def create_survey_session(title, survey, account=None):
+def create_survey_session(title, survey, account=None, **params):
     """Create a new survey session.
 
     :param title: title for the new session.
@@ -148,6 +148,8 @@ def create_survey_session(title, survey, account=None):
         account_id=account.id,
         group_id=account.group_id,
     )
+    for key in params:
+        setattr(survey_session, key, params[key])
     session.add(survey_session)
     session.refresh(account)
     session.flush()  # flush so we get a session id
