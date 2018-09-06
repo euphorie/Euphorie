@@ -286,13 +286,18 @@ class TreeChangesTests(TreeTests):
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([('1', 'module', 'modified')]))
 
-    def test_module_made_optionsl(self):
+    def test_module_made_optional(self):
+        """
+        Note: an optional module is always considered to have a description, so
+        that is never gets skipped.
+        See https://github.com/euphorie/Euphorie/commit/c277d05
+        """
         session = self.createSurveySession()
         session_module = model.Module(
             title=u"Root",
             module_id="1",
             zodb_path="1",
-            has_description=False,
+            has_description=True,
             skip_children=False
         )
         session.addChild(session_module)
