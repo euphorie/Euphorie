@@ -44,7 +44,7 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
     def testChallenge_InClient(self):
         self.logout()
         request = self.app.REQUEST
-        request.PUBLISHED = self.portal
+        request['PUBLISHED'] = self.portal
         request._has_challenged = False
         alsoProvides(request, IClientSkinLayer)
         self.portal.acl_users(None, request)
