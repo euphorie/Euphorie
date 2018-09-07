@@ -192,6 +192,10 @@ class ActionPlan(grok.View):
 
 class _StatusHelper(object):
 
+    COUNTRIES_WITHOUT_HIGH_RISKS = [
+        'it',
+    ]
+
     @property
     @memoize
     def sql_session(self):
@@ -481,6 +485,15 @@ class _StatusHelper(object):
 
     def as_decimal(self, num):
         return decimal.Decimal(num)
+
+    @property
+    @memoize
+    def show_high_risks(self):
+        for obj in aq_chain(aq_inner(self.context)):
+            if IClientCountry.providedBy(obj):
+                if obj.id in self.COUNTRIES_WITHOUT_HIGH_RISKS:
+                    return False
+        return True
 
 
 class Status(grok.View, _StatusHelper):

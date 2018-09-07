@@ -332,7 +332,9 @@ ul.title {margin-bottom:3em;}
                       >Unvisited</em>
                     </li>
                   </ul>
-                  <tal:risk_lists tal:define="
+                  <tal:risk_lists
+                                  tal:condition="view/show_high_risks"
+                                  tal:define="
                                     risks_by_status python:view.risks_by_status[module.get('path')];
                                     num_high python:len(risks_by_status['present']['high']);
                                     num_medium python:len(risks_by_status['present']['medium']);
