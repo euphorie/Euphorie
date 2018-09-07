@@ -1882,7 +1882,7 @@ msgstr "Welkom"
 #. Default: run a test session
 #: src/euphorie/client/templates/login.pt:22
 msgid "label_tryout"
-msgstr "start een proefsessie"
+msgstr "Start een proefsessie"
 
 #. Default: register
 #: src/euphorie/client/templates/login.pt:22
@@ -1896,7 +1896,7 @@ msgstr "registreer"
 #: src/euphorie/client/templates/login.pt:21
 msgid "teaser_try_oira"
 msgstr ""
-"Wilt u OiRA uitproberen? U mag ${tryout_link} of ${register_link} om echt te "
+"Wilt u OiRA uitproberen? ${tryout_link} of ${register_link} om echt te "
 "beginnen."
 
 #. Default: log in
