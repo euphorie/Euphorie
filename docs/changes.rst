@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.42 (unreleased)
+9.0.42 (2018-09-07)
 -------------------
 
 - Translation changes nl_BE
