@@ -742,6 +742,7 @@ class SurveySession(BaseObject):
             effect = old_risk.effect,
             probability = old_risk.probability,
             priority = old_risk.priority,
+            existing_measures = old_risk.existing_measures,
             comment = old_risk.comment
         FROM risk AS old_risk JOIN tree AS old_tree ON old_tree.id=old_risk.id, tree
         WHERE tree.id=risk.id AND
