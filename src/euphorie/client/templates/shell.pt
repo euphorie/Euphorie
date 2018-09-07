@@ -46,10 +46,6 @@
         <link rel="stylesheet" href="${resources_url}/screen.css" type="text/css" />
     </tal:block>
 
-    <style type="text/css" tal:condition="styles_override">
-        ${styles_override}
-    </style>
-
 
         <meta name="description" content="${webhelpers/tool_description}" />
         <meta property="og:type" content="website" />
@@ -274,6 +270,10 @@
 
     <!-- The logo comes from a macro -->
     <metal:logo use-macro="context/logo/macros/logo"/>
+
+    <style type="text/css" tal:condition="styles_override">
+        ${styles_override}
+    </style>
 
     </aside>
 
