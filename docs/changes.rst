@@ -27,6 +27,7 @@ Changelog
 - Italy: change labels for "green" and "dark red" on status page
 - Italy special: on status page and risks overview, only show the status bar,
   but no additional box(es) about individual risks
+- Italy: change labels for "green" and "dark red" on status page
 
 9.0.38 (2018-07-10)
 -------------------

@@ -2533,9 +2533,8 @@ msgstr "Cercare"
 #. Default: "Search results for"
 #: euphorie/deployment/browser/templates/context_search.pt:15
 #: euphorie/deployment/browser/templates/search.pt:22
-#, fuzzy
 msgid "header_search_results"
-msgstr "Cercare risultati"
+msgstr ""
 
 #. Default: "Secondary images"
 #: euphorie/content/risk.py:228
@@ -2573,6 +2572,62 @@ msgstr "Misure standard"
 msgid "header_submodules"
 msgstr "Sotto-moduli"
 
+#. Default: No risk
+#: src/euphorie/client/templates/risks_overview.pt:222
+#: src/euphorie/client/templates/status.pt:89
+msgid "label_no_risk"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
+
+#. Default: No risks
+#: src/euphorie/client/templates/risks_overview.pt:223
+#: src/euphorie/client/templates/status.pt:90
+msgid "label_no_risks_2"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
+
+#. Default: No risks
+#: src/euphorie/client/templates/risks_overview.pt:224
+#: src/euphorie/client/templates/status.pt:91
+msgid "label_no_risks_3_4"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
+
+#. Default: No risks
+#: src/euphorie/client/templates/risks_overview.pt:225
+#: src/euphorie/client/templates/status.pt:92
+msgid "label_no_risks_5_or_more"
+msgstr ""
+"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
+"miglioramento"
+
+#. Default: Risk with measure(s)
+#: src/euphorie/client/templates/risks_overview.pt:229
+#: src/euphorie/client/templates/status.pt:96
+msgid "label_risk_with_measure"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+
+#. Default: Risks with measure(s)
+#: src/euphorie/client/templates/risks_overview.pt:230
+#: src/euphorie/client/templates/status.pt:97
+msgid "label_risks_with_measure_2"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+
+#. Default: Risks with measure(s)
+#: src/euphorie/client/templates/risks_overview.pt:231
+#: src/euphorie/client/templates/status.pt:98
+msgid "label_risks_with_measure_3_4"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+
+#. Default: Risks with measure(s)
+#: src/euphorie/client/templates/risks_overview.pt:232
+#: src/euphorie/client/templates/status.pt:99
+msgid "label_risks_with_measure_5_or_more"
+msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+
 #. Default: "Terms and conditions"
 #: euphorie/client/templates/conditions.pt:21
 msgid "header_terms"
@@ -2597,6 +2652,37 @@ msgstr "Benvenuto"
 #: euphorie/client/templates/about.pt:24
 msgid "header_what_is_oira"
 msgstr "Cosa è il progetto OiRA (Online Interactive Risk Assessment)"
+
+#. Default: Risk without measure
+#: src/euphorie/client/templates/risks_overview.pt:236
+#: src/euphorie/client/templates/status.pt:103
+msgid "label_risk_without_measure"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+
+#. Default: Risks without measure
+#: src/euphorie/client/templates/risks_overview.pt:237
+#: src/euphorie/client/templates/status.pt:104
+msgid "label_risks_without_measure_2"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+
+#. Default: Risks without measure
+#: src/euphorie/client/templates/risks_overview.pt:238
+#: src/euphorie/client/templates/status.pt:105
+msgid "label_risks_without_measure_3_4"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+
+#. Default: Risks without measure
+#: src/euphorie/client/templates/risks_overview.pt:239
+#: src/euphorie/client/templates/status.pt:106
+msgid "label_risks_without_measure_5_or_more"
+msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+
+#. Default: Postponed
+#: src/euphorie/client/templates/risks_overview.pt:242
+#: src/euphorie/client/templates/status.pt:109
+#: src/euphorie/client/templates/webhelpers.pt:100
+msgid "Postponed"
+msgstr "Adempimenti/rischi non pertinenti"
 
 #. Default: "Why the OiRA project"
 #: euphorie/client/templates/about.pt:79
