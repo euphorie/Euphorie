@@ -112,7 +112,7 @@
                   </p>
                 </section>
                 <section class="row">
-                  <ul class="six columns legend">
+                  <ul class="${python:view.show_high_risks and 'six' or 'twelve'} columns legend">
                     <li class="answered"
                         tal:condition="num_ok"
                     >
@@ -193,12 +193,9 @@
                       >Unvisited</em>
                     </li>
                   </ul>
-                  <div class="six columns high-prio-risks"
-                       tal:define="
-                         high_risks python:view.risks_by_status[module.get('path')]['present']['high'];
-                       "
-                       tal:condition="high_risks"
-                  >
+                    <div class="six columns high-prio-risks"
+                        tal:define="high_risks python:view.risks_by_status[module.get('path')]['present']['high']"
+                        tal:condition="python:high_risks and view.show_high_risks">
                     <h4 i18n:translate="heading_high_prio_risks">High priority risks</h4>
                     <ul>
                       <li tal:repeat="risk high_risks">

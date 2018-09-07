@@ -9,7 +9,12 @@ Changelog
   and negative statements, we can now set a tool to allow the definition
   of measures that are already in place.
 
-9.0.41 (unreleased)
+9.0.42 (unreleased)
+-------------------
+
+- Translation changes nl_BE
+
+9.0.41 (2018-08-06)
 -------------------
 
 - Bugfix for the "measures" report: Do not rely on the pre-computed
@@ -27,6 +32,9 @@ Changelog
 9.0.39 (2018-07-12)
 -------------------
 
+- Italy: change labels for "green" and "dark red" on status page
+- Italy special: on status page and risks overview, only show the status bar,
+  but no additional box(es) about individual risks
 - Italy: change labels for "green" and "dark red" on status page
 - Italy special: on status page and risks overview, only show the status bar,
   but no additional box(es) about individual risks
