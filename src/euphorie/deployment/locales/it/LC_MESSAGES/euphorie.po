@@ -764,12 +764,6 @@ msgstr ""
 msgid "Please refer to the examples below the form."
 msgstr "Riferirsi agli esempi in basso al modulo….."
 
-#: euphorie/client/browser/templates/webhelpers.pt:191
-#: euphorie/client/templates/risks_overview.pt:322
-#: euphorie/client/templates/status.pt:184
-msgid "Postponed"
-msgstr "Adempimenti/rischi non ancora compilati o non pertinenti"
-
 #: euphorie/deployment/tiles/templates/usermgmt-tree.pt:30
 msgid "Potential Candidate Countries"
 msgstr "Possibili Paesi candidati"
@@ -3850,30 +3844,6 @@ msgstr "Avanti"
 msgid "label_no"
 msgstr "No"
 
-#. Default: "No risk"
-#: euphorie/client/templates/risks_overview.pt:259
-#: euphorie/client/templates/status.pt:121
-msgid "label_no_risk"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
-
-#. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:263
-#: euphorie/client/templates/status.pt:125
-msgid "label_no_risks_2"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
-
-#. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:267
-#: euphorie/client/templates/status.pt:129
-msgid "label_no_risks_3_4"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
-
-#. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:271
-#: euphorie/client/templates/status.pt:133
-msgid "label_no_risks_5_or_more"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
-
 #. Default: "Not applicable"
 #: euphorie/client/browser/templates/webhelpers.pt:448
 msgid "label_not_applicable"
@@ -4027,62 +3997,6 @@ msgstr "Numero del rischio"
 #: euphorie/content/risk.py:130 euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Tipo di rischio"
-
-#. Default: "Risk with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:280
-#: euphorie/client/templates/status.pt:142
-msgid "label_risk_with_measure"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
-
-#. Default: "Risk without measure"
-#: euphorie/client/templates/risks_overview.pt:301
-#: euphorie/client/templates/status.pt:163
-msgid "label_risk_without_measure"
-msgstr "Rischio senza misure intraprese"
-
-#. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:284
-#: euphorie/client/templates/status.pt:146
-msgid "label_risks_with_measure_2"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
-
-#. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:288
-#: euphorie/client/templates/status.pt:150
-msgid "label_risks_with_measure_3_4"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
-
-#. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:292
-#: euphorie/client/templates/status.pt:154
-msgid "label_risks_with_measure_5_or_more"
-msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
-
-#. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:305
-#: euphorie/client/templates/status.pt:167
-msgid "label_risks_without_measure_2"
-msgstr "Rischio senza misure intraprese"
-
-#. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:309
-#: euphorie/client/templates/status.pt:171
-msgid "label_risks_without_measure_3_4"
-msgstr "Rischio senza misure intraprese"
-
-#. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:313
-#: euphorie/client/templates/status.pt:175
-msgid "label_risks_without_measure_5_or_more"
-msgstr "Rischio senza misure intraprese"
 
 #. Default: "Save and continue"
 #: euphorie/client/templates/module_customization.pt:62
