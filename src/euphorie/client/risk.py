@@ -428,9 +428,15 @@ class ActionPlanView(grok.View):
                 for i in range(2, 5):
                     number_images += getattr(
                         self.risk, 'image{0}'.format(i), None) and 1 or 0
+            existing_measures = [
+                txt.strip() for txt in self.get_existing_measures().keys()]
             self.solutions = [
                 solution for solution in self.risk.values()
-                if ISolution.providedBy(solution)]
+                if (
+                    ISolution.providedBy(solution) and
+                    solution.description.strip() not in existing_measures
+                )
+            ]
 
         self.number_images = number_images
         self.has_images = number_images > 0
