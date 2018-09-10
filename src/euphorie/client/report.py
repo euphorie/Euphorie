@@ -24,6 +24,8 @@ from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.survey import get_tool_type
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from lxml import etree
 from openpyxl.workbook import Workbook
@@ -43,8 +45,10 @@ from rtfng.PropertySets import ParagraphPropertySet
 from rtfng.PropertySets import TabPropertySet
 from rtfng.Renderer import Renderer
 from sqlalchemy import sql
+from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from zExceptions import NotFound
+from zope.component import getUtility
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 
@@ -620,6 +624,11 @@ class ActionPlanReportDownload(grok.View):
         self.session = SessionManager.session
         if self.session.company is None:
             self.session.company = model.Company()
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.tool_type = get_tool_type(self.context)
+        self.tti = getUtility(IToolTypesInfo)
 
     def getNodes(self):
         """Return an orderer list of all tree items for the current survey."""
