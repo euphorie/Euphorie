@@ -21,11 +21,12 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
-from euphorie.content.survey import get_tool_type
 from euphorie.content.solution import ISolution
+from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
+from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
 from Products.CMFPlone.utils import safe_unicode
@@ -431,7 +432,13 @@ class ActionPlanView(grok.View):
             existing_measures = [
                 txt.strip() for txt in self.get_existing_measures().keys()]
             self.solutions = [
-                solution for solution in self.risk.values()
+                {
+                    "description": StripMarkup(solution.description),
+                    "action_plan": solution.action_plan,
+                    "prevention_plan": solution.prevention_plan,
+                    "requirements": solution.requirements,
+                }
+                for solution in self.risk.values()
                 if (
                     ISolution.providedBy(solution) and
                     solution.description.strip() not in existing_measures

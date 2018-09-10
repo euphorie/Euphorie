@@ -118,7 +118,7 @@
                   ${repeat/measure/number}</h2>
                 <h4 i18n:translate="label_description">Description</h4>
                 <p>
-          ${python:measure}
+                  <tal:measure replace="structure measure" />
                 </p>
               </div>
             </tal:existing_measures>

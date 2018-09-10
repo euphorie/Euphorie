@@ -361,7 +361,7 @@
                      name="measure-${repeat/measure/index}"
                      type="checkbox"
               />
-                ${python:measure}
+                <tal:measure replace="structure measure" />
             </label>
           </tal:measures>
 
