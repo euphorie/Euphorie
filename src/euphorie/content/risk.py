@@ -31,6 +31,7 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
+from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
@@ -524,6 +525,26 @@ class Risk(dexterity.Container):
     @fixed_priority.setter
     def fixed_priority(self, value):
         self.default_priority = value
+
+    @property
+    @memoize
+    def pre_defined_measures(self):
+        """ For now, return the value of the field existing_measures
+            But we might switch the lookup of those pre-defined measues,
+            e.g. to take the Solution items defined on this risk.
+        """
+        # First implementation: use field existing_measures
+        # measures = self.existing_measures
+        # if measures:
+        #     measures = measures.splitlines()
+        # Alternative: use Solutions that are marked to be shown in
+        # Identification
+        measures = []
+        for item in self.objectValues():
+            if ISolution.providedBy(item):
+                if getattr(item, 'show_in_identification', False):
+                    measures.append(item.description)
+        return measures
 
 
 def EnsureInterface(risk):

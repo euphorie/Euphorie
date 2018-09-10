@@ -173,7 +173,7 @@ class IdentificationView(grok.View):
                 self.use_existing_measures and
                 my_tool_type in tti.types_existing_measures
             ):
-                measures = self.risk.existing_measures or ""
+                measures = self.risk.pre_defined_measures or ""
                 # Only show the form to select and add existing measures if
                 # at least one measure was defined in the CMS
                 # In this case, also change some labels
@@ -193,7 +193,7 @@ class IdentificationView(grok.View):
                     self.answer_na = tool_type_data['answer_na']
                 if not self.context.existing_measures:
                     existing_measures = OrderedDict([
-                        (text, 0) for text in measures.splitlines()
+                        (text, 0) for text in measures
                     ])
                     self.context.existing_measures = safe_unicode(
                         dumps(existing_measures))
@@ -243,14 +243,14 @@ class IdentificationView(grok.View):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = self.risk.existing_measures or ""
+        defined_measures = self.risk.pre_defined_measures or ""
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
-            for text in defined_measures.splitlines():
+            for text in defined_measures:
                 if saved_existing_measures.get(text):
                     existing_measures.update({text: 1})
                     saved_existing_measures.pop(text)
@@ -260,7 +260,7 @@ class IdentificationView(grok.View):
             existing_measures.update(saved_existing_measures)
         except ValueError:
             existing_measures = OrderedDict([
-                (text, 0) for text in defined_measures.splitlines()
+                (text, 0) for text in defined_measures
             ])
             self.context.existing_measures = safe_unicode(
                 dumps(existing_measures))
@@ -316,7 +316,7 @@ class ActionPlanView(grok.View):
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
-            for text in defined_measures.splitlines():
+            for text in defined_measures:
                 if text in saved_existing_measures:
                     existing_measures.update({text: 1})
                     saved_existing_measures.pop(text)
@@ -324,7 +324,7 @@ class ActionPlanView(grok.View):
             existing_measures.update(saved_existing_measures)
         except ValueError:
             existing_measures = OrderedDict([
-                (text, 1) for text in defined_measures.splitlines()
+                (text, 1) for text in defined_measures
             ])
             self.context.existing_measures = safe_unicode(
                 dumps(existing_measures))
