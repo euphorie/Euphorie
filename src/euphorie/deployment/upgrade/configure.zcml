@@ -322,6 +322,10 @@
       title="Update registry for navigation types"
       handler=".v20.update_nav_types_registry"/>
 
+    <genericsetup:upgradeStep
+      title="Migrate existing measures"
+      handler=".v20.migrate_existing_measures"/>
+
   </genericsetup:upgradeSteps>
 
 </configure>
