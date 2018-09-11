@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """
 Risk
 ----
@@ -99,8 +100,10 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
     existing_measures = TextLinesWithBreaks(
         title=_(
-            "label_existing_measures",
-            default=u"Measures that are already in place"),
+            "deprecated_label_existing_measures",
+            default=u"Measures that are already in place (Only shown here for "
+            u"reference! Use the “Add Measure” button on the Risk for adding "
+            u"measures that are shown to the user during Identification.)"),
         description=_(
             "help_existing_measures",
             default=u"Use this field to define (common) measures that the "
@@ -642,10 +645,6 @@ class Add(dexterity.AddForm):
                  'header_main_image',
                  'header_secondary_images',
                  'header_additional_content']
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
-        self.tool_type = get_tool_type(context)
 
     @property
     def schema(self):
@@ -661,12 +660,7 @@ class Add(dexterity.AddForm):
     def updateWidgets(self):
         super(Add, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        tt = getUtility(IToolTypesInfo)
-        if not (
-            self.use_existing_measures and
-            self.tool_type in tt.types_existing_measures
-        ):
-            self.widgets["existing_measures"].mode = "hidden"
+        self.widgets["existing_measures"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -725,6 +719,8 @@ class Edit(form.SchemaEditForm):
             self.tool_type in tt.types_existing_measures
         ):
             self.widgets["existing_measures"].mode = "hidden"
+        else:
+            self.widgets["existing_measures"].mode = "display"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)
