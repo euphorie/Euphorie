@@ -350,7 +350,7 @@
                 data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
-          <p>${view/intro_extra}</p>
+          <p tal:content="structure view/intro_extra"></p>
           <tal:measures define="
                           measures view/get_existing_measures;
                         "

@@ -160,7 +160,7 @@ class IdentificationView(grok.View):
             tt_default = tti.default_tool_type
             tool_type_data = tool_types.get(
                 my_tool_type, tool_types[tt_default])
-            default_type_data = tool_types[tt_default]
+            default_type_data = tool_types['classic']
             self.show_existing_measures = False
 
             # Fill some labels with default texts

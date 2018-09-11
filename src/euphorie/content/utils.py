@@ -58,7 +58,8 @@ TOOL_TYPES = OrderedDict([
         "description": "",
         "intro_extra": _(
             "select_add_existing_measure",
-            default=u"Select or add any measures that are already in place."),
+            default=u"Select or add any measures that are <strong>already in "
+            u"place</strong>."),
         "button_add_extra": _(
             "button_add_existing_measure",
             default=u"Add a missing measure"),
