@@ -72,8 +72,12 @@ class IdentificationView(grok.View):
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = asBool(
-            settings.get('use_existing_measures', False))
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.risk)
+        self.use_existing_measures = (
+            asBool(settings.get('use_existing_measures', False)) and
+            self.my_tool_type in self.tti.types_existing_measures
+        )
         self.use_training_module = asBool(
             settings.get('use_training_module', False))
 
@@ -154,12 +158,10 @@ class IdentificationView(grok.View):
                 u"help_default_severity", default=u"Indicate the "
                 u"severity if this risk occurs.")
 
-            my_tool_type = get_tool_type(self.risk)
-            tti = getUtility(IToolTypesInfo)
-            tool_types = tti()
-            tt_default = tti.default_tool_type
+            tool_types = self.tti()
+            tt_default = self.tti.default_tool_type
             tool_type_data = tool_types.get(
-                my_tool_type, tool_types[tt_default])
+                self.my_tool_type, tool_types[tt_default])
             default_type_data = tool_types['classic']
             self.show_existing_measures = False
 
@@ -170,10 +172,7 @@ class IdentificationView(grok.View):
             self.intro_extra = self.intro_questions = ""
             self.button_add_extra = self.placeholder_add_extra = ""
             self.button_remove_extra = ""
-            if (
-                self.use_existing_measures and
-                my_tool_type in tti.types_existing_measures
-            ):
+            if self.use_existing_measures:
                 measures = self.risk.pre_defined_measures or ""
                 # Only show the form to select and add existing measures if
                 # at least one measure was defined in the CMS
@@ -309,6 +308,8 @@ class ActionPlanView(grok.View):
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
 
     def get_existing_measures(self):
+        if not self.use_existing_measures:
+            return {}
         defined_measures = self.risk.existing_measures or ""
         try:
             saved_existing_measures = (
@@ -363,10 +364,20 @@ class ActionPlanView(grok.View):
             return
         context = aq_inner(self.context)
 
+        if self.context.is_custom_risk:
+            self.risk = self.context
+        else:
+            self.risk = self.request.survey.restrictedTraverse(
+                context.zodb_path.split("/"))
+
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = asBool(
-            settings.get('use_existing_measures', False))
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.risk)
+        self.use_existing_measures = (
+            asBool(settings.get('use_existing_measures', False)) and
+            self.my_tool_type in self.tti.types_existing_measures
+        )
 
         self.next_is_report = self.previous_is_identification = False
         # already compute "next" here, so that we can know in the template
@@ -418,12 +429,9 @@ class ActionPlanView(grok.View):
             self.request, context,
             filter=self.question_filter, phase="actionplan")
         if self.context.is_custom_risk:
-            self.risk = self.context
             self.risk.description = u""
             number_images = 0
         else:
-            self.risk = self.request.survey.restrictedTraverse(
-                context.zodb_path.split("/"))
             number_images = getattr(self.risk, 'image', None) and 1 or 0
             if number_images:
                 for i in range(2, 5):
