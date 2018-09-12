@@ -2342,7 +2342,7 @@ msgstr "Weitere Inhalte"
 #. Default: "Additional resources to assess the risk"
 #: euphorie/client/browser/templates/webhelpers.pt:833
 msgid "header_additional_resources"
-msgstr "Quellen und Anhänge zu dieser Gefährdung."
+msgstr "Anhänge"
 
 #. Default: "Additional resources for this module"
 #: euphorie/client/browser/templates/webhelpers.pt:836
@@ -2540,7 +2540,7 @@ msgstr "Berichterstellung"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr "Weitere Referenzen und Anhänge"
+msgstr "Weitere Informationen und Anhänge"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
