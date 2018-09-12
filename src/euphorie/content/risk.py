@@ -545,8 +545,8 @@ class Risk(dexterity.Container):
         measures = []
         for item in self.objectValues():
             if ISolution.providedBy(item):
-                if getattr(item, 'show_in_identification', False):
-                    measures.append(item.description)
+                # if getattr(item, 'show_in_identification', False):
+                measures.append(item.description)
         return measures
 
 
