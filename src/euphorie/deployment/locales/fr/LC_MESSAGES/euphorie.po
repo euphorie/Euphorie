@@ -231,7 +231,7 @@ msgstr "Un risque ajouté existant a été mis à jour."
 
 #: euphorie/content/utils.py:73
 msgid "Are the measures that are selected above sufficient?"
-msgstr ""
+msgstr "Les mesures ci-dessus sont-elles suffisantes?"
 
 #: euphorie/client/risk.py:456
 msgid ""
@@ -286,7 +286,7 @@ msgstr "Changer le nom de la session"
 
 #: euphorie/content/utils.py:42
 msgid "Classic OiRA Tool with positive and negative statements."
-msgstr ""
+msgstr "OiRA classique avec affirmations positives et négatives"
 
 #: euphorie/content/templates/profilequestion_add.pt:67
 msgid "Client example for a single occurance."
@@ -686,7 +686,7 @@ msgstr "Version de l'outil OiRA "
 
 #: euphorie/content/utils.py:55
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
-msgstr ""
+msgstr "Outil OiRA permettant l’ajout de “mesures déjà en place”"
 
 #: euphorie/client/templates/login.pt:87
 msgid ""
@@ -1538,7 +1538,7 @@ msgstr "Ajouter un gestionnaire pays"
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:63
 msgid "button_add_existing_measure"
-msgstr ""
+msgstr "Ajouter une mesure manquante"
 
 #. Default: "Add ${typename}"
 #: euphorie/deployment/tiles/templates/addbar.pt:24
@@ -1930,6 +1930,7 @@ msgstr ""
 #: euphorie/content/survey.py:110
 msgid "description_tool_type"
 msgstr ""
+"Choix du type d’outils OiRA à créer. Dans le doute, choisir “Actuel/ classique”."
 
 #. Default: "If this part is active, the user will be asked to enter the name of all locations for which this module applies. This means, the module will be repeated as many times as there are locations. If you do not need this repeatable behaviour, untick the checkbox to turn it off."
 #: euphorie/content/profilequestion.py:58
@@ -3651,7 +3652,7 @@ msgstr "Phase d’évaluation "
 #. Default: "Existing measure"
 #: euphorie/client/templates/risk_actionplan.pt:117
 msgid "label_existing_measure"
-msgstr ""
+msgstr "Mesure déjà en place"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:285
@@ -3888,7 +3889,7 @@ msgstr "Ne s'applique pas"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:78
 msgid "label_not_sufficient"
-msgstr ""
+msgstr "Non, d’autres mesures sont nécessaires"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:48
@@ -4234,7 +4235,7 @@ msgstr "Titre de la notification de l'outil"
 #. Default: "Type of OiRA Tool"
 #: euphorie/content/survey.py:107 euphorie/content/templates/survey_view.pt:27
 msgid "label_tool_type"
-msgstr ""
+msgstr "Version d’Oira"
 
 #. Default: "run a test session"
 #: euphorie/client/templates/login.pt:33
@@ -4291,7 +4292,7 @@ msgstr "Oui"
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:75
 msgid "label_yes_sufficient"
-msgstr ""
+msgstr "Oui, le risque est maîtrisé"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:23
@@ -4685,7 +4686,7 @@ msgstr ""
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:69
 msgid "placeholder_new_existing"
-msgstr ""
+msgstr "Décrivez une mesure déjà en place qui ne serait pas listé ci-dessus."
 
 #. Default: "Company details"
 #: euphorie/client/report.py:678
@@ -5021,7 +5022,7 @@ msgstr "Pertinence : ${percentage}"
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
 #: euphorie/content/utils.py:59
 msgid "select_add_existing_measure"
-msgstr ""
+msgstr "Sélectionner ou ajouter les mesures <strong>déjà en place</strong>."
 
 #. Default: "Once you have started an OiRA tool session, you will be able to stop before the end. You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out."
 #: euphorie/client/templates/new-session-test.pt:27
