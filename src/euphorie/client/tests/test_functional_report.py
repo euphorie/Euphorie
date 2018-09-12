@@ -22,6 +22,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Force creation of the company data
         browser.open("%s/report/company" % survey_url)
@@ -52,6 +53,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Update the risk
         risk = Session.query(model.Risk).first()
@@ -85,6 +87,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Check the company data
         browser.open("%s/report/company" % survey_url)
@@ -106,6 +109,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Enter some company data
         browser.open("%s/report/company" % survey_url)
