@@ -350,9 +350,7 @@
                 data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
-          <p i18n:translate="select_add_existing_measure">
-            Select or add any measures that are already in place.
-          </p>
+          <p tal:content="structure view/intro_extra"></p>
           <tal:measures define="
                           measures view/get_existing_measures;
                         "
@@ -363,7 +361,7 @@
                      name="measure-${repeat/measure/index}"
                      type="checkbox"
               />
-                ${python:measure}
+                <tal:measure replace="structure measure" />
             </label>
           </tal:measures>
 
@@ -380,12 +378,11 @@
             />
             <textarea cols="50"
                       name="new-measure-#{1}"
-                      placeholder="Describe a measure that is already in place but not yet listed here."
+                      placeholder="${view/placeholder_add_extra}"
                       rows="3"
-                      i18n:attributes="placeholder placeholder_new_existing"
             ></textarea>
             <button class="icon-trash iconified remove-clone"
-                    title="Remove this existing measure"
+                    title="${view/button_remove_extra}"
             >Remove</button>
           </label>
         </tal:existing_measures>
@@ -396,17 +393,16 @@
       >
         <button class="add-clone small pat-button icon-plus-circle"
                 id="addMeasureButton"
-                title="Add another measure"
+                title="${view/button_add_extra}"
                 type="button"
-                i18n:translate="button_add_existing_measure"
-        >Add a missing measure</button>
+        >${view/button_add_extra}</button>
       </div>
       <!-- END Existing measures -->
 
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio">
         <tal:existing condition="view/show_existing_measures">
-          <p tal:condition="view/title_extra">${view/title_extra}</p>
+          <p tal:condition="view/intro_questions">${view/intro_questions}</p>
         </tal:existing>
         <p class="byline"
            tal:condition="always_present"
@@ -417,37 +413,23 @@
                  type="hidden"
                  value="postponed"
           />
-          <tal:existing condition="view/show_existing_measures">
             <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
                      name="answer"
                      type="radio"
                      value="yes"
-              /><tal:span i18n:translate="label_yes_sufficient">Yes, the remaining risk is acceptable</tal:span></label>
+              />${view/answer_yes}</label>
             <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
                      name="answer"
                      type="radio"
                      value="no"
-              /><tal:span i18n:translate="label_not_sufficient">No, more measures are required</tal:span></label>
-          </tal:existing>
-          <tal:default condition="not:view/show_existing_measures">
-            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                     name="answer"
-                     type="radio"
-                     value="yes"
-              /><tal:span i18n:translate="label_yes">Yes</tal:span></label>
-            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                     name="answer"
-                     type="radio"
-                     value="no"
-              /><tal:span i18n:translate="label_no">No</tal:span></label>
-          </tal:default>
+              />${view/answer_no}</label>
           <label class="not-applicable"
                  tal:condition="risk/show_notapplicable"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
                    name="answer"
                    type="radio"
                    value="n/a"
-            /><tal:span i18n:translate="label_not_applicable">Not applicable</tal:span></label>
+            />${view/answer_na}</label>
         </tal:answers>
         <tal:always_present condition="always_present"><input name="answer"
                  type="hidden"

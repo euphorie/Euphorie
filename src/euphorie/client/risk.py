@@ -22,8 +22,11 @@ from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
 from euphorie.content.solution import ISolution
+from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
+from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
 from Products.CMFPlone.utils import safe_unicode
@@ -34,6 +37,7 @@ from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
+
 
 grok.templatedir("templates")
 
@@ -68,8 +72,12 @@ class IdentificationView(grok.View):
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = asBool(
-            settings.get('use_existing_measures', False))
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.risk)
+        self.use_existing_measures = (
+            asBool(settings.get('use_existing_measures', False)) and
+            self.my_tool_type in self.tti.types_existing_measures
+        )
         self.use_training_module = asBool(
             settings.get('use_training_module', False))
 
@@ -142,27 +150,50 @@ class IdentificationView(grok.View):
 
             self.description_probability = _(
                 u"help_default_probability", default=u"Indicate how "
-                "likely occurence of this risk is in a normal situation.")
+                u"likely occurence of this risk is in a normal situation.")
             self.description_frequency = _(
                 u"help_default_frequency", default=u"Indicate how often this "
                 u"risk occurs in a normal situation.")
             self.description_severity = _(
                 u"help_default_severity", default=u"Indicate the "
-                "severity if this risk occurs.")
+                u"severity if this risk occurs.")
 
-            self.title_extra = ''
+            tool_types = self.tti()
+            tt_default = self.tti.default_tool_type
+            tool_type_data = tool_types.get(
+                self.my_tool_type, tool_types[tt_default])
+            default_type_data = tool_types['classic']
             self.show_existing_measures = False
+
+            # Fill some labels with default texts
+            self.answer_yes = default_type_data['answer_yes']
+            self.answer_no = default_type_data['answer_no']
+            self.answer_na = default_type_data['answer_na']
+            self.intro_extra = self.intro_questions = ""
+            self.button_add_extra = self.placeholder_add_extra = ""
+            self.button_remove_extra = ""
             if self.use_existing_measures:
-                measures = self.risk.existing_measures or ""
+                measures = self.risk.pre_defined_measures or ""
                 # Only show the form to select and add existing measures if
                 # at least one measure was defined in the CMS
+                # In this case, also change some labels
                 if len(measures):
                     self.show_existing_measures = True
-                    self.title_extra = _(
-                        "Are the measures that are selected above sufficient?")
+                    self.intro_extra = tool_type_data.get('intro_extra', '')
+                    self.intro_questions = tool_type_data.get(
+                        'intro_questions', '')
+                    self.button_add_extra = tool_type_data.get(
+                        'button_add_extra', '')
+                    self.placeholder_add_extra = tool_type_data.get(
+                        'placeholder_add_extra', '')
+                    self.button_remove_extra = tool_type_data.get(
+                        'button_remove_extra', '')
+                    self.answer_yes = tool_type_data['answer_yes']
+                    self.answer_no = tool_type_data['answer_no']
+                    self.answer_na = tool_type_data['answer_na']
                 if not self.context.existing_measures:
                     existing_measures = OrderedDict([
-                        (text, 0) for text in measures.splitlines()
+                        (text, 0) for text in measures
                     ])
                     self.context.existing_measures = safe_unicode(
                         dumps(existing_measures))
@@ -212,14 +243,14 @@ class IdentificationView(grok.View):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = self.risk.existing_measures or ""
+        defined_measures = self.risk.pre_defined_measures or ""
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
-            for text in defined_measures.splitlines():
+            for text in defined_measures:
                 if saved_existing_measures.get(text):
                     existing_measures.update({text: 1})
                     saved_existing_measures.pop(text)
@@ -229,7 +260,7 @@ class IdentificationView(grok.View):
             existing_measures.update(saved_existing_measures)
         except ValueError:
             existing_measures = OrderedDict([
-                (text, 0) for text in defined_measures.splitlines()
+                (text, 0) for text in defined_measures
             ])
             self.context.existing_measures = safe_unicode(
                 dumps(existing_measures))
@@ -277,6 +308,8 @@ class ActionPlanView(grok.View):
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
 
     def get_existing_measures(self):
+        if not self.use_existing_measures:
+            return {}
         defined_measures = self.risk.existing_measures or ""
         try:
             saved_existing_measures = (
@@ -285,7 +318,7 @@ class ActionPlanView(grok.View):
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
-            for text in defined_measures.splitlines():
+            for text in defined_measures:
                 if text in saved_existing_measures:
                     existing_measures.update({text: 1})
                     saved_existing_measures.pop(text)
@@ -293,7 +326,7 @@ class ActionPlanView(grok.View):
             existing_measures.update(saved_existing_measures)
         except ValueError:
             existing_measures = OrderedDict([
-                (text, 1) for text in defined_measures.splitlines()
+                (text, 1) for text in defined_measures
             ])
             self.context.existing_measures = safe_unicode(
                 dumps(existing_measures))
@@ -331,10 +364,20 @@ class ActionPlanView(grok.View):
             return
         context = aq_inner(self.context)
 
+        if self.context.is_custom_risk:
+            self.risk = self.context
+        else:
+            self.risk = self.request.survey.restrictedTraverse(
+                context.zodb_path.split("/"))
+
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
-        self.use_existing_measures = asBool(
-            settings.get('use_existing_measures', False))
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.risk)
+        self.use_existing_measures = (
+            asBool(settings.get('use_existing_measures', False)) and
+            self.my_tool_type in self.tti.types_existing_measures
+        )
 
         self.next_is_report = self.previous_is_identification = False
         # already compute "next" here, so that we can know in the template
@@ -386,20 +429,29 @@ class ActionPlanView(grok.View):
             self.request, context,
             filter=self.question_filter, phase="actionplan")
         if self.context.is_custom_risk:
-            self.risk = self.context
             self.risk.description = u""
             number_images = 0
         else:
-            self.risk = self.request.survey.restrictedTraverse(
-                context.zodb_path.split("/"))
             number_images = getattr(self.risk, 'image', None) and 1 or 0
             if number_images:
                 for i in range(2, 5):
                     number_images += getattr(
                         self.risk, 'image{0}'.format(i), None) and 1 or 0
+            existing_measures = [
+                txt.strip() for txt in self.get_existing_measures().keys()]
             self.solutions = [
-                solution for solution in self.risk.values()
-                if ISolution.providedBy(solution)]
+                {
+                    "description": StripMarkup(solution.description),
+                    "action_plan": solution.action_plan,
+                    "prevention_plan": solution.prevention_plan,
+                    "requirements": solution.requirements,
+                }
+                for solution in self.risk.values()
+                if (
+                    ISolution.providedBy(solution) and
+                    solution.description.strip() not in existing_measures
+                )
+            ]
 
         self.number_images = number_images
         self.has_images = number_images > 0

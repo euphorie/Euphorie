@@ -94,9 +94,16 @@ class Start(AutoExtensibleForm, EditForm):
                 request=self.request,
                 type='success',
             )
-        self.request.response.redirect(
-            "%s/@@profile" % self.context.absolute_url()
-        )
+        # Optimize: if the form was auto-submitted, we know that we want to
+        # show the "start" page again
+        if "form.button.submit" not in self.request:
+            self.request.response.redirect(
+                "%s/@@start" % self.context.absolute_url()
+            )
+        else:
+            self.request.response.redirect(
+                "%s/@@profile" % self.context.absolute_url()
+            )
 
 
 class PubblicationMenu(BrowserView):

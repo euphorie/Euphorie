@@ -24,6 +24,8 @@
         <dt i18n:translate="label_language">Language</dt>
         <dd tal:condition="context/language">${python:tools.languageName(context.language, context.language)}</dd>
         <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
+        <dt i18n:translate="label_tool_type">Type of OiRA Tool</dt>
+        <dd>${context/get_tool_type_name}</dd>
       </dl>
 
       <tal:intro condition="python:context.introduction">

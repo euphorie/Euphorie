@@ -22,6 +22,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
@@ -63,6 +64,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
@@ -113,6 +115,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="next").click()
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
@@ -153,6 +156,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Session"
         # Start the survey
         browser.getForm().submit()
+        browser.getControl(name="form.button.submit").click()
         browser.getLink('Start Risk Identification').click()
         browser.getControl('next').click()
         # No answer should be set on initial view

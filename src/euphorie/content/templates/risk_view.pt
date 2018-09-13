@@ -84,7 +84,7 @@
             ${view/sortable_explanation}
           </div>
           <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}" i18n:translate="risk_solution_header">Measure <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
-          <p>${solution/description}</p></li>
+          <p tal:content="structure solution/description"></p></li>
         </ol>
       </tal:block>
     </metal:content>

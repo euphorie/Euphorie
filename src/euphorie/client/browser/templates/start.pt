@@ -132,6 +132,7 @@
              tal:condition="can_edit"
         >
           <button class="pat-button pat-switch continue"
+                  name="form.button.submit"
                   type="submit"
                   data-pat-switch="selector: body; remove: sidebar-${python:has_profile and 'on' or 'off'}; add: sidebar-${python:has_profile and 'off' or 'on'}"
                   i18n:translate="label_start_survey"

@@ -135,5 +135,14 @@
         template="templates/prefs_main_template.pt"
     />
 
+  <utility provides=".utils.IToolTypesInfo"
+           factory=".utils.ToolTypesInfo" />
+
+  <utility
+      name="euphorie.tool_types_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component=".utils.ToolTypesVocabularyFactory"
+      />
+
 
 </configure>

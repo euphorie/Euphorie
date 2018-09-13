@@ -261,7 +261,10 @@ def set_session_profile(survey, survey_session, profile):
 
     current_profile = extractProfile(survey, survey_session)
     if current_profile == profile and not treeChanges(survey_session, survey):
-        survey_session.touch()
+        # At this stage, we actually do not need to touch the session.
+        # It is enough that it gets touched when a Risk is edited, or if the
+        # tree gets rebuilt due to changes.
+        # survey_session.touch()
         return survey_session
 
     params = {

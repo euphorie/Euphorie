@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 from .. import MessageFactory as _
 from Acquisition import aq_parent
+from collections import OrderedDict
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
+from zope.component import queryUtility
 from zope.i18n import translate
 from zope.i18nmessageid.message import Message
+from zope.interface import implementer
+from zope.interface import Interface
 from zope.schema.interfaces import ITitledTokenizedTerm
+from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 import re
 
 
@@ -27,6 +34,103 @@ CUSTOM_COUNTRY_NAMES = {
     # Political issue, Macedonia can't be called Macedonia...
     "MK": _(u"F.Y.R. Macedonia"),
 }
+
+# New concept: "Type" or "Flavour" of an OiRA tool. Apart from the "Classic"
+# one, we add the type "With measures that are already in place".
+TOOL_TYPES = OrderedDict([
+    ("classic", {
+        "title": _(
+            u"Classic OiRA Tool with positive and negative statements."),
+        "description": "",
+        "intro_extra": "",
+        "button_add_extra": "",
+        "button_remove_extra": "",
+        "placeholder_add_extra": "",
+        "intro_questions": "",
+        "answer_yes": _("label_yes", default=u"Yes"),
+        "answer_no": _("label_no", default=u"No"),
+        "answer_na": _("label_not_applicable", default=u"Not applicable"),
+    }),
+    ("existing_measures", {
+        "title": _(
+            u'OiRA Tool where "Measures that are already in place" can be '
+            u'defined.'),
+        "description": "",
+        "intro_extra": _(
+            "select_add_existing_measure",
+            default=u"Select or add any measures that are <strong>already in "
+            u"place</strong>."),
+        "button_add_extra": _(
+            "button_add_existing_measure",
+            default=u"Add a missing measure"),
+        "button_remove_extra": _(
+            "button_remove_existing_measure",
+            default=u"Remove this existing measure"),
+        "placeholder_add_extra": _(
+            "placeholder_new_existing",
+            default=u"Describe a measure that is already in place but not yet "
+            u"listed here."),
+        "intro_questions": _(
+            "Are the measures that are selected above sufficient?"),
+        "answer_yes": _(
+            "label_yes_sufficient",
+            default=u"Yes, the remaining risk is acceptable"),
+        "answer_no": _(
+            "label_not_sufficient",
+            default=u"No, more measures are required"),
+        "answer_na": _("label_not_applicable", default=u"Not applicable"),
+    }),
+])
+
+
+class IToolTypesInfo(Interface):
+
+    def __call__():
+        """ Returns info (data-structure) about available tool types"""
+
+    def types_existing_measures():
+        """ Returns all tool type names that use the "Measures already in
+        place" feature"""
+
+    def default_tool_type():
+        """ Returns the default type of tool, valid for this installation"""
+
+
+@implementer(IToolTypesInfo)
+class ToolTypesInfo(object):
+
+    def __call__(self):
+        return TOOL_TYPES
+
+    @property
+    def types_existing_measures(self):
+        return ['existing_measures']
+
+    @property
+    def default_tool_type(self):
+        # The one defined as first option wins
+        return TOOL_TYPES.keys()[0]
+
+
+def get_tool_type_default():
+    tti = queryUtility(IToolTypesInfo)
+    if tti is not None:
+        return tti.default_tool_type
+    return "classic"
+
+
+@implementer(IVocabularyFactory)
+class ToolTypesVocabulary(object):
+
+    def __call__(self, context):
+        tti = queryUtility(IToolTypesInfo)
+        terms = []
+        if tti is not None:
+            for (key, val) in tti().items():
+                terms.append(SimpleTerm(key, title=val['title']))
+        return SimpleVocabulary(terms)
+
+ToolTypesVocabularyFactory = ToolTypesVocabulary()
 
 
 def getSurvey(context):
@@ -92,8 +196,8 @@ def getRegionTitle(request, id, default=None):
     return default if default is not None else id
 
 
-def summarizeCountries(container, request, current_country=None,
-        permission=None):
+def summarizeCountries(
+        container, request, current_country=None, permission=None):
     from euphorie.content.country import ICountry
     result = {}
     for country in container.values():
@@ -108,8 +212,8 @@ def summarizeCountries(container, request, current_country=None,
             country_type = 'country'
         countries = result.setdefault(country_type, [])
         countries.append({"id": country.id,
-                          "title": getRegionTitle(request, country.id,
-                                      country.title),
+                          "title": getRegionTitle(
+                              request, country.id, country.title),
                           "url": country.absolute_url(),
                           "current": (current_country == country.id),
                           })

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """
 Risk
 ----
@@ -23,6 +24,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
+from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -30,6 +32,7 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
+from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
@@ -96,13 +99,18 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     form.order_after(description="problem_description")
 
     existing_measures = TextLinesWithBreaks(
-        title=_("label_existing_measures", default=u"Existing measures"),
+        title=_(
+            "deprecated_label_existing_measures",
+            default=u"Measures that are already in place (Only shown here for "
+            u"reference! Use the “Add Measure” button on the Risk for adding "
+            u"measures that are shown to the user during Identification.)"),
         description=_(
             "help_existing_measures",
-            default=u"Use this field to define (common) existing measures."
-            u" Separate measures with a line break (Enter). The user will be "
+            default=u"Use this field to define (common) measures that the "
+            u"user might have already implemented. "
+            u"Separate measures with a line break (Enter). The user will be "
             u"able to deselect those measures that are not applicable to their"
-            u" situation."),
+            u"situation."),
         required=False)
     form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
     form.order_after(existing_measures="description")
@@ -521,6 +529,26 @@ class Risk(dexterity.Container):
     def fixed_priority(self, value):
         self.default_priority = value
 
+    @property
+    @memoize
+    def pre_defined_measures(self):
+        """ For now, return the value of the field existing_measures
+            But we might switch the lookup of those pre-defined measues,
+            e.g. to take the Solution items defined on this risk.
+        """
+        # First implementation: use field existing_measures
+        # measures = self.existing_measures
+        # if measures:
+        #     measures = measures.splitlines()
+        # Alternative: use Solutions that are marked to be shown in
+        # Identification
+        measures = []
+        for item in self.objectValues():
+            if ISolution.providedBy(item):
+                # if getattr(item, 'show_in_identification', False):
+                measures.append(item.description)
+        return measures
+
 
 def EnsureInterface(risk):
     """Make sure a risk has the correct interface set for, matching the
@@ -609,6 +637,7 @@ class Add(dexterity.AddForm):
     default_fieldset_label = None
 
     def __init__(self, context, request):
+        from euphorie.content.survey import get_tool_type
         dexterity.AddForm.__init__(self, context, request)
         self.evaluation_algorithm = evaluation_algorithm(context)
         self.order = ['header_identification',
@@ -616,9 +645,6 @@ class Add(dexterity.AddForm):
                  'header_main_image',
                  'header_secondary_images',
                  'header_additional_content']
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
 
     @property
     def schema(self):
@@ -634,8 +660,7 @@ class Add(dexterity.AddForm):
     def updateWidgets(self):
         super(Add, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        if not self.use_existing_measures:
-            self.widgets["existing_measures"].mode = "hidden"
+        self.widgets["existing_measures"].mode = "hidden"
 
     def create(self, data):
         # This is mostly a direct copy of
@@ -664,6 +689,7 @@ class Edit(form.SchemaEditForm):
     default_fieldset_label = None
 
     def __init__(self, context, request):
+        from euphorie.content.survey import get_tool_type
         self.order = ['header_identification',
                       'header_evaluation',
                       'header_main_image',
@@ -677,6 +703,7 @@ class Edit(form.SchemaEditForm):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get('use_existing_measures', False)
+        self.tool_type = get_tool_type(context)
         form.SchemaEditForm.__init__(self, context, request)
 
     def updateFields(self):
@@ -686,8 +713,14 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
-        if not self.use_existing_measures:
+        tt = getUtility(IToolTypesInfo)
+        if not (
+            self.use_existing_measures and
+            self.tool_type in tt.types_existing_measures
+        ):
             self.widgets["existing_measures"].mode = "hidden"
+        else:
+            self.widgets["existing_measures"].mode = "display"
 
     def extractData(self, setErrors=True):
         data = super(Edit, self).extractData(setErrors)
