@@ -184,7 +184,7 @@
             </li>
         </ol>
 
-        <a href="${webhelpers/client_url}" id="organisation-logo" tal:define="sector_logo webhelpers/get_sector_logo" tal:attributes="class python:sector_logo and 'alien' or 'native'">
+        <a href="${webhelpers/country_url}" id="organisation-logo" tal:define="sector_logo webhelpers/get_sector_logo" tal:attributes="class python:sector_logo and 'alien' or 'native'">
             <tal:native condition="not:nocall:sector_logo">
                 <!-- In case the organisation has not changed the logo, the link tag gets a class 'native' instead of 'alien' and the following markup applies: -->
                 <figure>
