@@ -31,10 +31,10 @@
               "
   >
     <li id="home">
-      <a href="${webhelpers/client_url}"
+      <a href="${webhelpers/country_url}"
          tal:condition="python:logo_mode=='alien'"
       >${webhelpers/sector/title}</a>
-      <a href="${webhelpers/client_url}"
+      <a href="${webhelpers/country_url}"
          tal:condition="python:logo_mode=='native'"
       >
         <strong i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</strong><br />
