@@ -3,6 +3,8 @@ from Acquisition import aq_inner
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import utils
+from euphorie.client.browser.country import SessionsView
+from euphorie.client.model import get_current_account
 from euphorie.client.session import SessionManager
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
@@ -13,7 +15,6 @@ from z3c.form.form import EditForm
 from zope import schema
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
-from euphorie.client.browser.country import SessionsView
 
 
 class IStartFormSchema(model.Schema):
@@ -130,6 +131,7 @@ class PubblicationMenu(BrowserView):
         ''' Reset the session date to now
         '''
         self.session.published = datetime.now()
+        self.session.last_publisher = get_current_account()
         self.notify_modified()
         return self.redirect()
 
@@ -142,6 +144,7 @@ class PubblicationMenu(BrowserView):
         ''' Unset the session date
         '''
         self.session.published = None
+        self.session.last_publisher = None
         self.notify_modified()
         return self.redirect()
 
