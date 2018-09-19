@@ -4437,7 +4437,7 @@ msgstr ""
 #. Default: "Please fill out this field."
 #: euphorie/client/module.py:78 euphorie/client/profile.py:394
 msgid "message_field_required"
-msgstr "Bitte befüllen Sie dieses Feld."
+msgstr "Erforderliche Eingabe fehlt."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

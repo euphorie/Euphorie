@@ -21,7 +21,9 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-form pat-inject"
+      <form class="pat-form pat-inject pat-validation"
+        data-pat-validation="disable-selector: button[name='form.button.submit'];
+                           message-required: ${view/message_required};"
             action="${request/URL}"
             method="POST"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"

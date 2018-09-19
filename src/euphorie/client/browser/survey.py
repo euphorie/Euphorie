@@ -14,6 +14,7 @@ from Products.Five import BrowserView
 from z3c.form.form import EditForm
 from zope import schema
 from zope.event import notify
+from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
 
 
@@ -76,6 +77,17 @@ class Start(AutoExtensibleForm, EditForm):
 
     def update(self):
         super(Start, self).update()
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        self.message_required = translate(
+            _(
+                u"message_field_required",
+                default=u"Please fill out this field."
+            ),
+            target_language=lang
+        )
         if self.request.environ["REQUEST_METHOD"] != "POST":
             return
         data, errors = self.extractData()
