@@ -133,7 +133,6 @@
       name="more_badge"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Start"
       template="templates/more_badge.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
