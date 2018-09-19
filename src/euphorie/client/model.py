@@ -559,6 +559,12 @@ class SurveySession(BaseObject):
         nullable=True,
         index=False,
     )
+    last_publisher_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=True,
+        index=False,
+    )
     group_id = schema.Column(
         types.Unicode(32),
         schema.ForeignKey('group.group_id'),
@@ -597,6 +603,10 @@ class SurveySession(BaseObject):
     last_modifier = orm.relation(
         Account,
         foreign_keys=[last_modifier_id],
+    )
+    last_publisher = orm.relation(
+        Account,
+        foreign_keys=[last_publisher_id],
     )
 
     group = orm.relation(

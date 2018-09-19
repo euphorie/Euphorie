@@ -138,6 +138,28 @@ def add_last_modifier_id_to_session():
     execute(statement)
 
 
+def add_last_publisher_id_to_session():
+    ''' A new 'last_publisher_id' column has been added to the 'session' table
+    '''
+    for column in inspector.get_columns('session'):
+        if 'last_publisher_id' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE session
+            ADD COLUMN last_publisher_id integer;
+        ALTER TABLE session
+            ADD CONSTRAINT session_last_publisher_id_fkey
+            FOREIGN KEY (last_publisher_id)
+            REFERENCES public.account (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION;
+        '''
+    )
+    execute(statement)
+
+
 def hash_passwords():
     ''' We want the passwords stored in the account table to be encrypted
     '''
@@ -174,6 +196,7 @@ def main():
         add_group_id_to_session()
         add_published_to_session()
         add_last_modifier_id_to_session()
+        add_last_publisher_id_to_session()
         hash_passwords()
 
 

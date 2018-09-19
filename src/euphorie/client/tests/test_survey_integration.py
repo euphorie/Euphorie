@@ -42,14 +42,18 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 self.assertRaises(TypeError, view)
                 # We have some default values that will be changed
                 # when publishing/unpublishing the session
+                self.assertEqual(survey_session.last_publisher, None)
                 self.assertEqual(survey_session.published, None)
                 self.assertEqual(survey_session.last_modifier, None)
                 self.assertEqual(survey_session.review_state, 'private')
                 # Calling set_date will reult in having this session published
-                # and the publication time will be recorded
+                # and the publication time and the publisher will be recorded
                 # If no referer is set,
                 # the methods will redirect to the context url
                 self.assertEqual(view.set_date(), survey.absolute_url())
+                self.assertEqual(
+                    survey_session.last_publisher, survey_session.account
+                )
                 self.assertIsInstance(survey_session.published, datetime)
                 self.assertEqual(survey_session.review_state, 'published')
                 old_modified = survey_session.modified
@@ -63,11 +67,15 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 self.assertEqual(view.reset_date(), 'foo')
                 self.assertTrue(survey_session.modified > old_modified)
                 self.assertEqual(
+                    survey_session.last_publisher, survey_session.account
+                )
+                self.assertEqual(
                     survey_session.last_modifier, survey_session.account
                 )
                 self.assertTrue(survey_session.published > old_published)
-                # Calling unset_date will restore the publication date to None
+                # Calling unset_date will restore the publication info
                 self.assertEqual(view.unset_date(), 'foo')
+                self.assertEqual(survey_session.last_publisher, None)
                 self.assertEqual(survey_session.published, None)
                 self.assertEqual(survey_session.review_state, 'private')
 
