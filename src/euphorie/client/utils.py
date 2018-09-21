@@ -326,7 +326,10 @@ class WebHelpers(grok.View):
         survey = self._survey
         if not survey:
             return None
-        if getattr(self, 'session', None):
+        if (
+            getattr(self, 'session', None) and
+            "/".join(survey.getPhysicalPath()).endswith(self.session.zodb_path)
+        ):
             return self.session.title
         return survey.title
 

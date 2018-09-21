@@ -4,8 +4,8 @@ Changelog
 9.0.43 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Bugfix: do not show a stale session's title if we're browsing
+  on a different survey
 
 9.0.42 (2018-09-07)
 -------------------
