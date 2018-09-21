@@ -15,7 +15,7 @@
 <body>
 <metal:slot fill-slot="content" tal:define="sessions view/sessions; country_url webhelpers/country_url; is_guest_account webhelpers/is_guest_account">
   <article class="rich">
-    <h1>${webhelpers/get_survey_title}</h1>
+    <h1>${view/survey/title}</h1>
     <tal:block condition="python:sessions">
       <h2 i18n:translate="header_select_session">Select an earlier session to complete or review</h2>
 

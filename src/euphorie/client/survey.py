@@ -128,13 +128,13 @@ class View(grok.View):
             elif reply["action"] == "continue":
                 self._ContinueSurvey(reply)
         else:
-            survey = aq_inner(self.context)
+            self.survey = aq_inner(self.context)
             dbsession = SessionManager.session
             if dbsession is not None and \
                     dbsession.zodb_path == utils.RelativePath(
-                                        self.request.client, survey):
+                                        self.request.client, self.survey):
                 self.request.response.redirect(
-                        "%s/resume?initial_view=1" % survey.absolute_url())
+                        "%s/resume?initial_view=1" % self.survey.absolute_url())
 
 
 class Start(grok.View):
