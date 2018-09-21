@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.43 (unreleased)
+9.0.43 (2018-09-21)
 -------------------
 
 - Bugfix: do not show a stale session's title if we're browsing
