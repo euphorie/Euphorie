@@ -359,7 +359,10 @@ class WebHelpers(BrowserView):
         survey = self._survey
         if not survey:
             return None
-        if self.session:
+        if (
+            getattr(self, 'session', None) and
+            "/".join(survey.getPhysicalPath()).endswith(self.session.zodb_path)
+        ):
             return self.session.title
         return survey.title
 
