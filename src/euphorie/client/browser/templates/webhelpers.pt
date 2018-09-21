@@ -402,7 +402,7 @@
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio">
         <tal:existing condition="view/show_existing_measures">
-          <p tal:condition="view/intro_questions">${view/intro_questions}</p>
+          <p tal:condition="view/intro_questions" tal:content="structure view/intro_questions"></p>
         </tal:existing>
         <p class="byline"
            tal:condition="always_present"
