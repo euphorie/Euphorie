@@ -300,8 +300,8 @@ msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"Enthält: Alle Information, die Sie währen der gesamten "
-"Gefährdungsbeurteilung eigegeben haben."
+"Enthält: Alle Informationen, die Sie währen der gesamten "
+"Gefährdungsbeurteilung eingegeben haben."
 
 #: euphorie/client/templates/report_landing.pt:178
 msgid "Contains: an overview of the measures to be implemented."
@@ -921,8 +921,8 @@ msgid ""
 "in the OiRA tool"
 msgstr ""
 "Speichern Sie Ihren Bericht auf Ihrem Computer ab, um ihn zu drucken. Sie "
-"können ihn auch bearbeiten oder weitere Informationen hinzufügen (gilt nicht "
-"für die PDF-Reports). Bitte denken Sie daran, dass alle Änderungen, die Sie "
+"können ihn auch bearbeiten oder weitere Informationen hinzufügen. "
+"Bitte denken Sie daran, dass alle Änderungen, die Sie "
 "an den Reports vornehmen, nicht im OiRA Tool abgespeichert werden."
 
 #: euphorie/deployment/tiles/configure.zcml:57
