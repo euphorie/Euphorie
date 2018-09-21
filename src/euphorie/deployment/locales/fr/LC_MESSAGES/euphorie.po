@@ -231,7 +231,7 @@ msgstr "Un risque ajouté existant a été mis à jour."
 
 #: euphorie/content/utils.py:73
 msgid "Are the measures that are selected above sufficient?"
-msgstr "Les mesures ci-dessus sont-elles suffisantes?"
+msgstr "<strong>Les mesures ci-dessus déjà en place sont elles suffisantes ?</strong>"
 
 #: euphorie/client/risk.py:456
 msgid ""
@@ -5022,7 +5022,7 @@ msgstr "Pertinence : ${percentage}"
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
 #: euphorie/content/utils.py:59
 msgid "select_add_existing_measure"
-msgstr "Sélectionner ou ajouter les mesures <strong>déjà en place</strong>."
+msgstr "<strong>Si oui</strong>, sélectionner ou ajouter les mesures <strong>déjà en place</strong>."
 
 #. Default: "Once you have started an OiRA tool session, you will be able to stop before the end. You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out."
 #: euphorie/client/templates/new-session-test.pt:27
