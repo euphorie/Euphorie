@@ -159,12 +159,11 @@ def EnableCustomRisks(survey):
             u"risks not included in the tool, you are able to add them now:"),
         optional=True,
         question=_(
-            u"question_other_risks", default=u"<p>Would you now like to add "
-            u"your own defined risks to this tool?</p><p><strong>Important:"
+            u"question_other_risks", default=u"<p><strong>Important:"
             u"</strong> In order to avoid duplicating risks, we strongly "
             u"recommend you to go first through all the previous modules, if "
             u"you have not done it yet.</p><p>If you don't need to add risks, "
-            u"please select 'No.'</p>"),
+            u"please continue.</p>"),
     )
     try:
         module = api.content.create(**args)
