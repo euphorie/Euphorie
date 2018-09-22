@@ -116,7 +116,6 @@
       for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class=".module.IdentificationView"
-      template="templates/module_identification.pt"
       layer="euphorie.client.interfaces.IIdentificationPhaseSkinLayer"
       />
 
