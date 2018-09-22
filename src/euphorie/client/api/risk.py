@@ -15,7 +15,7 @@ from ..utils import HasText
 from ..model import Risk
 from ..navigation import FindPreviousQuestion
 from ..navigation import FindNextQuestion
-from ..risk import ActionPlanView as BaseActionPlan
+from ..browser.risk import ActionPlanView as BaseActionPlan
 from . import JsonView
 from . import context_menu
 from .actionplans import RiskActionPlans
