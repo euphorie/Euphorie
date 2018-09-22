@@ -21,11 +21,11 @@
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
             explicabo.</p>
 
-        <form method="post" action="${context/absolute_url}"
+        <form action="/add-risk"
             class="pat-inject"
             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks">
                 <p>
-                    <button class="pat-button" type="submit" name="next" value="add_custom_risk" i18n:translate="button_add_custom_risk">Add a custom risk</button>
+                    <button class="pat-button" type="submit" i18n:translate="button_add_custom_risk">Add a custom risk</button>
                 </p>
         </form>
 

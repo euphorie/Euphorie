@@ -13,6 +13,7 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from logging import getLogger
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import sql
 from z3c.saconfig import Session
@@ -41,6 +42,7 @@ class IdentificationView(BrowserView, Mixin):
 
     phase = "identification"
     question_filter = None
+    template = ViewPageTemplateFile('templates/module_identification.pt')
 
     def __call__(self):
         # Render the page only if the user has edit rights,
@@ -69,16 +71,16 @@ class IdentificationView(BrowserView, Mixin):
                         self.request.survey, next, phase=self.phase)
                 return self.request.response.redirect(url)
 
-            elif ICustomRisksModule.providedBy(module) \
-                    and not self.context.skip_children \
-                    and len(self.get_custom_risks()):
-                url = "%s/customization/%d" % (
-                    self.request.survey.absolute_url(),
-                    int(self.context.path))
-                return self.request.response.redirect(url)
+            # elif ICustomRisksModule.providedBy(module) \
+            #         and not self.context.skip_children \
+            #         and len(self.get_custom_risks()):
+            #     url = "%s/customization/%d" % (
+            #         self.request.survey.absolute_url(),
+            #         int(self.context.path))
+            #     return self.request.response.redirect(url)
 
             self.tree = getTreeData(
-                self.request, context, filter=model.NO_CUSTOM_RISKS_FILTER)
+                self.request, context, filter=self.question_filter)
             self.title = module.title
             self.module = module
             number_files = 0
@@ -88,7 +90,13 @@ class IdentificationView(BrowserView, Mixin):
             self.has_files = number_files > 0
             self.next_is_actionplan = not FindNextQuestion(
                 context, filter=self.question_filter)
-            return self.index()
+            if ICustomRisksModule.providedBy(module):
+                template = ViewPageTemplateFile(
+                    'templates/module_identification_custom.pt'
+                ).__get__(self, "")
+            else:
+                template = self.template
+            return template()
 
     def save_and_continue(self, module):
         """ We received a POST request.
@@ -153,7 +161,7 @@ class CustomizationView(BrowserView, Mixin):
         self.title = context.title
         self.tree = getTreeData(
             self.request, self.context, phase="identification",
-            filter=model.NO_CUSTOM_RISKS_FILTER)
+            filter=self.question_filter)
 
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
