@@ -30,7 +30,6 @@
     <grok:grok package=".help" />
     <grok:grok package=".layout" />
     <grok:grok package=".login" />
-    <grok:grok package=".module" />
     <grok:grok package=".pdf" />
     <grok:grok package=".profile" />
     <grok:grok package=".publish" />
