@@ -1,5 +1,5 @@
 from euphorie.client.model import Risk
-from euphorie.client.risk import IdentificationView
+from euphorie.client.browser.risk import IdentificationView
 from euphorie.content.risk import IFrenchEvaluation as IFr
 from euphorie.content.risk import IKinneyEvaluation as IKi
 from euphorie.content.survey import Survey

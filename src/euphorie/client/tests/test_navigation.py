@@ -1,7 +1,7 @@
 # coding=utf-8
 from euphorie.client import model
 from euphorie.client import navigation
-from euphorie.client.risk import ActionPlanView
+from euphorie.client.browser.risk import ActionPlanView
 from euphorie.client.tests.utils import createSurvey
 from euphorie.testing import EuphorieIntegrationTestCase
 
