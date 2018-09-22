@@ -57,13 +57,19 @@ class IdentificationView(BrowserView):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        self.risk = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
+        if self.is_custom_risk:
+            # # Fetch the custom_risks module, so that we can at least
+            # # traverse to the survey
+            # path = "/".join(self.context.zodb_path.split('/')[:-1])
+            self.risk = None
+        else:
+            self.risk = self.request.survey.restrictedTraverse(
+                self.context.zodb_path.split("/"))
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.risk)
+        self.my_tool_type = get_tool_type(self.request.survey)
         self.use_existing_measures = (
             asBool(settings.get('use_existing_measures', False)) and
             self.my_tool_type in self.tti.types_existing_measures
@@ -99,11 +105,16 @@ class IdentificationView(BrowserView):
                     self.context.identification = None
                 else:
                     self.context.identification = answer
-                    if self.risk.type in ('top5', 'policy'):
+                    if getattr(self.risk, "type", "") in ('top5', 'policy'):
                         self.context.priority = 'high'
-                    elif self.risk.evaluation_method == 'calculated':
+                    elif getattr(
+                        self.risk, "evaluation_method", ""
+                    ) == 'calculated':
                         self.calculatePriority(self.risk, reply)
-                    elif self.risk.evaluation_method == "direct":
+                    elif (
+                        self.risk is None or
+                        self.risk.evaluation_method == "direct"
+                    ):
                         self.context.priority = reply.get("priority")
 
             if self.use_training_module:
@@ -115,9 +126,9 @@ class IdentificationView(BrowserView):
 
         else:
             self._prepare_risk()
-            # XXX add switch: different template for custom risk
-            if 0:
-                template = None
+            if self.is_custom_risk:
+                template = ViewPageTemplateFile(
+                    'templates/risk_identification_custom.pt').__get__(self, "")  # noqa
             else:
                 template = self.template
             return template()
@@ -126,7 +137,11 @@ class IdentificationView(BrowserView):
         self.tree = getTreeData(self.request, self.context)
         self.title = self.context.parent.title
         self.show_info = (
-            self.risk.image or HasText(self.risk.description)
+            getattr(self.risk, "image", None)
+            or (
+                self.risk is None or
+                HasText(self.risk.description)
+            )
         )
 
         number_images = getattr(self.risk, 'image', None) and 1 or 0
@@ -142,7 +157,7 @@ class IdentificationView(BrowserView):
             number_files += getattr(
                 self.risk, 'file{0}'.format(i), None) and 1 or 0
         self.has_files = number_files > 0
-        self.has_legal = HasText(self.risk.legal_reference)
+        self.has_legal = HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
 
         self.risk_number = self.context.number
@@ -172,7 +187,7 @@ class IdentificationView(BrowserView):
         self.button_add_extra = self.placeholder_add_extra = ""
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = self.risk.pre_defined_measures or ""
+            measures = getattr(self.risk, "pre_defined_measures", "") or ""
             # Only show the form to select and add existing measures if
             # at least one measure was defined in the CMS
             # In this case, also change some labels
@@ -241,7 +256,7 @@ class IdentificationView(BrowserView):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = self.risk.pre_defined_measures or ""
+        defined_measures = getattr(self.risk, "pre_defined_measures", "") or ""
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
@@ -270,6 +285,10 @@ class IdentificationView(BrowserView):
             self.context.zodb_path.split("/"))
         text = risk.problem_description
         return bool(text and text.strip())
+
+    @property
+    def is_custom_risk(self):
+        return getattr(self.context, 'is_custom_risk', False)
 
     def evaluation_algorithm(self, risk):
         return evaluation_algorithm(risk)
@@ -419,7 +438,7 @@ class ActionPlanView(BrowserView):
         self.tree = getTreeData(
             self.request, context,
             filter=self.question_filter, phase="actionplan")
-        if self.context.is_custom_risk:
+        if self.is_custom_risk:
             self.risk.description = u""
             number_images = 0
         else:
