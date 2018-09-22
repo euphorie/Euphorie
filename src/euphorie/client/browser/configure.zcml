@@ -85,6 +85,7 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Survey -->
   <browser:page
       name="index_html"
       for="euphorie.client.survey.ISurvey"
@@ -94,6 +95,7 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Client -->
   <browser:page
       name="view"
       for="euphorie.client.client.IClient"
@@ -111,6 +113,7 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Module -->
   <browser:page
       name="index_html"
       for="euphorie.client.model.Module"
@@ -137,6 +140,25 @@
       layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"
       />
 
+  <!-- Risk -->
+  <browser:page
+      name="index_html"
+      for="euphorie.client.model.Risk"
+      permission="euphorie.client.ViewSurvey"
+      class=".risk.IdentificationView"
+      layer="euphorie.client.interfaces.IIdentificationPhaseSkinLayer"
+      />
+
+  <browser:page
+      name="index_html"
+      for="euphorie.client.model.Risk"
+      permission="euphorie.client.ViewSurvey"
+      class=".risk.ActionPlanView"
+      template="templates/risk_actionplan.pt"
+      layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"
+      />
+
+  <!-- Password -->
   <browser:page
       name="reset_password_request"
       for="*"
@@ -155,6 +177,7 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- More menu / badge -->
   <browser:page
       name="more_badge"
       for="euphorie.content.survey.ISurvey"

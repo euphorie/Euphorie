@@ -6,13 +6,11 @@ Risk
 Views for the identification and action plan phases.
 """
 
-from .. import MessageFactory as _
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from collections import OrderedDict
+from euphorie import MessageFactory as _
 from euphorie.client import model
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
@@ -25,11 +23,12 @@ from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
-from five import grok
 from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
 from Products.CMFPlone.utils import safe_unicode
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
@@ -37,9 +36,6 @@ from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
-
-
-grok.templatedir("templates")
 
 IMAGE_CLASS = {
     0: '',
@@ -50,20 +46,14 @@ IMAGE_CLASS = {
 }
 
 
-class IdentificationView(grok.View):
+class IdentificationView(BrowserView):
     """A view for displaying a question in the identification phase
-
-    View name: @@index_html
     """
-    grok.context(model.Risk)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IIdentificationPhaseSkinLayer)
-    grok.template("risk_identification")
-    grok.name("index_html")
+    template = ViewPageTemplateFile('templates/risk_identification.pt')
 
     question_filter = None
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
@@ -213,7 +203,12 @@ class IdentificationView(grok.View):
                 self.skip_evaluation = True
             else:
                 self.skip_evaluation = False
-            super(IdentificationView, self).update()
+            # XXX add switch: different template for custom risk
+            if 0:
+                template = None
+            else:
+                template = self.template
+            return template()
 
     def proceed_to_next(self, reply):
         if reply.get("next", None) == "previous":
@@ -290,16 +285,9 @@ class IdentificationView(grok.View):
         return self.context.priority
 
 
-class ActionPlanView(grok.View):
+class ActionPlanView(BrowserView):
     """Logic for creating new action plans.
-
-    View name: @@index_html
     """
-    grok.context(model.Risk)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IActionPlanPhaseSkinLayer)
-    grok.template("risk_actionplan")
-    grok.name("index_html")
 
     phase = "actionplan"
     # The question filter will find modules AND risks
@@ -359,7 +347,7 @@ class ActionPlanView(grok.View):
             return None
         return datetime.date(year, month, day)
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
         context = aq_inner(self.context)
@@ -482,7 +470,7 @@ class ActionPlanView(grok.View):
             u"error_validation_positive_whole_number",
             default=u"This value must be a positive whole number."),
             target_language=lang)
-        super(ActionPlanView, self).update()
+        return self.index()
 
     def extract_plans_from_request(self):
         """ Create new ActionPlan objects by parsing the Request.
