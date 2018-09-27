@@ -123,151 +123,151 @@
         </header>
 
         <metal:include tal:define="id string:menu" use-macro="context/@@includes/macros/osh"/>
-
-        <ol class="pat-switch"
-            id="steps"
-            data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local"
-        >
-          <tal:if_not_anon define="
-                             tree view/tree|nothing;
-                           "
-                           condition="not:is_anonymous"
+        <metal:slot define-slot="aside-navigator">
+          <ol class="pat-switch"
+              id="steps"
+              data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local"
           >
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="step-1"
-                tal:define="
-                  active python:page_section == 'preparation' and 'active' or '';
-                  disabled python:page_section == '';
-                "
+            <tal:if_not_anon define="
+                               tree view/tree|nothing;
+                             "
+                             condition="not:is_anonymous"
             >
-              <a class="preparation pat-switch pat-inject"
-                 href="${survey_url}/start#content"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
-                 tal:condition="not:disabled"
-                 i18n:translate="label_preparation"
-              >Preparation</a>
-              <a class="preparation"
-                 tal:condition="disabled"
-                 i18n:translate="label_preparation"
-              >Preparation</a>
-            </li>
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="step-2"
-                tal:define="
-                  active python:page_section == 'identification';
-                  disabled python:page_section in ('', 'preparation') or (not can_edit);
-                "
-            >
-              <a class="identification pat-switch pat-inject"
-                 href="${survey_url}/identification"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-off; add: sidebar-on"
-                 tal:condition="not:disabled"
-              ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
-                  +
-                <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
-              <a class="identification"
-                 tal:condition="disabled"
-              ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
-                  +
-                <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="step-1"
+                  tal:define="
+                    active python:page_section == 'preparation' and 'active' or '';
+                    disabled python:page_section == '';
+                  "
+              >
+                <a class="preparation pat-switch pat-inject"
+                   href="${survey_url}/start#content"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                   tal:condition="not:disabled"
+                   i18n:translate="label_preparation"
+                >Preparation</a>
+                <a class="preparation"
+                   tal:condition="disabled"
+                   i18n:translate="label_preparation"
+                >Preparation</a>
+              </li>
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="step-2"
+                  tal:define="
+                    active python:page_section == 'identification';
+                    disabled python:page_section in ('', 'preparation') or (not can_edit);
+                  "
+              >
+                <a class="identification pat-switch pat-inject"
+                   href="${survey_url}/identification"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-off; add: sidebar-on"
+                   tal:condition="not:disabled"
+                ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
+                    +
+                  <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+                <a class="identification"
+                   tal:condition="disabled"
+                ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
+                    +
+                  <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
 
-              <tal:block condition="python: active and tree">
-                <metal:call use-macro="webhelpers/macros/survey_tree" />
-              </tal:block>
+                <tal:block condition="python: active and tree">
+                  <metal:call use-macro="webhelpers/macros/survey_tree" />
+                </tal:block>
 
-            </li>
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="step-4"
-                tal:define="
-                  active python:page_section == 'actionplan';
-                  disabled python:page_section in ('', 'preparation') or (not can_edit);
-                "
-            >
-              <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
-              <a class="action-plan pat-switch pat-inject"
-                 href="${survey_url}/actionplan"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; add: sidebar-on; remove: sidebar-off"
-                 tal:condition="not:disabled"
-                 i18n:translate="label_action_plan"
-              >Action Plan</a>
-              <a class="action-plan"
-                 tal:condition="disabled"
-                 i18n:translate="label_action_plan"
-              >Action Plan</a>
+              </li>
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="step-4"
+                  tal:define="
+                    active python:page_section == 'actionplan';
+                    disabled python:page_section in ('', 'preparation') or (not can_edit);
+                  "
+              >
+                <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
+                <a class="action-plan pat-switch pat-inject"
+                   href="${survey_url}/actionplan"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; add: sidebar-on; remove: sidebar-off"
+                   tal:condition="not:disabled"
+                   i18n:translate="label_action_plan"
+                >Action Plan</a>
+                <a class="action-plan"
+                   tal:condition="disabled"
+                   i18n:translate="label_action_plan"
+                >Action Plan</a>
 
-              <tal:block condition="python: active and tree">
-                <metal:call use-macro="webhelpers/macros/survey_tree" />
-              </tal:block>
-            </li>
+                <tal:block condition="python: active and tree">
+                  <metal:call use-macro="webhelpers/macros/survey_tree" />
+                </tal:block>
+              </li>
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="step-5"
-                tal:define="
-                  active python:page_section == 'report';
-                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
-                "
-            >
-              <!-- TODO: check if guest -->
-              <a class="report pat-switch pat-inject"
-                 href="${survey_url}/report"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
-                 tal:condition="not:disabled"
-                 i18n:translate="label_report"
-              >Report</a>
-              <a class="report"
-                 tal:condition="disabled"
-                 i18n:translate="label_report"
-              >Report</a>
-            </li>
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="step-5"
+                  tal:define="
+                    active python:page_section == 'report';
+                    disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                  "
+              >
+                <!-- TODO: check if guest -->
+                <a class="report pat-switch pat-inject"
+                   href="${survey_url}/report"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                   tal:condition="not:disabled"
+                   i18n:translate="label_report"
+                >Report</a>
+                <a class="report"
+                   tal:condition="disabled"
+                   i18n:translate="label_report"
+                >Report</a>
+              </li>
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="step-6"
-                tal:define="
-                  active python:page_section == 'training';
-                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
-                "
-                tal:condition="webhelpers/use_training_module"
-            >
-              <a class="training pat-inject pat-switch"
-                 href="${survey_url}/training"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
-                 tal:condition="not:disabled"
-                 i18n:translate="menu_training"
-              >Training</a>
-              <a class="training"
-                 tal:condition="disabled"
-                 i18n:translate="menu_training"
-              >Training</a>
-            </li>
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="step-6"
+                  tal:define="
+                    active python:page_section == 'training';
+                    disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                  "
+                  tal:condition="webhelpers/use_training_module"
+              >
+                <a class="training pat-inject pat-switch"
+                   href="${survey_url}/training"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                   tal:condition="not:disabled"
+                   i18n:translate="menu_training"
+                >Training</a>
+                <a class="training"
+                   tal:condition="disabled"
+                   i18n:translate="menu_training"
+                >Training</a>
+              </li>
 
 
-            <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
-                id="status"
-                tal:define="
-                  active python: page_section == 'status' and 'active' or '';
-                  disabled python:page_section=='' or (page_section=='preparation' and can_edit);
-                "
-            >
-              <a class="status pat-switch pat-inject"
-                 href="${survey_url}/status#content"
-                 data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
-                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
-                 tal:condition="not:disabled"
-                 i18n:translate="navigation_status"
-              >Check your progress</a>
-              <a class="status"
-                 tal:condition="disabled"
-                 i18n:translate="navigation_status"
-              >Check your progress</a>
-            </li>
-          </tal:if_not_anon>
-        </ol>
-
+              <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                  id="status"
+                  tal:define="
+                    active python: page_section == 'status' and 'active' or '';
+                    disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                  "
+              >
+                <a class="status pat-switch pat-inject"
+                   href="${survey_url}/status#content"
+                   data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                   tal:condition="not:disabled"
+                   i18n:translate="navigation_status"
+                >Check your progress</a>
+                <a class="status"
+                   tal:condition="disabled"
+                   i18n:translate="navigation_status"
+                >Check your progress</a>
+              </li>
+            </tal:if_not_anon>
+          </ol>
+        </metal:slot>
     <!-- The logo comes from a macro -->
     <metal:logo use-macro="context/logo/macros/logo"/>
 
