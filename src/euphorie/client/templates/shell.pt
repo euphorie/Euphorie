@@ -80,7 +80,11 @@
 
             <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar" tal:content="webhelpers/get_survey_title">Private Security EU</button>
             <a href="#help-menu" data-pat-tooltip="source: ajax; class: medium; position-list: tr" class="pat-tooltip help">?</a>
-
+            <a href="${webhelpers/country_url}"
+              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+              class="home pat-inject iconified icon-home"
+              i18n:attributes="title home_link"
+              title="Dashboard" i18n:translate="home_link">Dashboard</a>
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
                 <a href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
                 <a href="${base_url}/register" class="registration" i18n:translate="header_register">Register</a>
