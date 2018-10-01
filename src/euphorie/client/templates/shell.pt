@@ -60,7 +60,10 @@
     <metal:styleslot define-slot="style_slot" />
 </head>
 
-<body class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-on ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-on osc-s-off focus-sidebar ${sidebar_default}" i18n:domain="euphorie" tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
+<body
+  class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-on ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-on osc-s-off focus-document ${sidebar_default}"
+  i18n:domain="euphorie"
+  tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
     <div id="main">
         <span class="hidden" id="#metadata" hidden="hidden">
             <span id="country_name">${webhelpers/country_name}</span>
