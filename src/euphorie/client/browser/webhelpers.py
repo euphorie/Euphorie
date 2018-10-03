@@ -654,10 +654,10 @@ class WebHelpers(BrowserView):
             session.id,
         )
 
-    def as_md_list(self, text):
-        """ Return a text with Carriage Returns formatted as a Markdown list.
+    def as_md(self, text):
+        """ Return a text with Carriage Returns formatted as a Markdown.
         """
-        return u"\r".join([u"- %s" % x for x in text.split('\r')])
+        return u"\r\n".join([x for x in text.split('\r')])
 
     def __call__(self):
         return self
