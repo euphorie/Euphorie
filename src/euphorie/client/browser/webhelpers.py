@@ -352,7 +352,14 @@ class WebHelpers(BrowserView):
 
     @reify
     def is_outside_of_survey(self):
-        return self._base_url() != self.survey_url()
+        if self._base_url() != self.survey_url():
+            return True
+        if (
+            self.request.get('ACTUAL_URL').split('/')[-1] ==
+            self.survey_url().split('/')[-1]
+        ):
+            return True
+        return False
 
     @reify
     def get_survey_title(self):
