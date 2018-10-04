@@ -7,6 +7,7 @@ from Acquisition import aq_parent
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import config
+from euphorie.client.client import IClient
 from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IItaly
@@ -474,6 +475,20 @@ class WebHelpers(BrowserView):
             url += '/%s' % phase
         return url
 
+    @memoize
+    def survey_zodb_path(self):
+        """
+            Construct zodb_path from current survey.
+            Helper method, since I don't always trust self.session.zodb_path
+        """
+        elems = []
+        obj = self._survey
+        while not IClient.providedBy(obj):
+            elems.append(obj.id)
+            obj = aq_parent(obj)
+        elems.reverse()
+        return "/".join(elems)
+
     @reify
     def in_session(self):
         """Check if there is an active survey session."""
@@ -610,6 +625,11 @@ class WebHelpers(BrowserView):
     @memoize_contextless
     def get_current_account(self):
         return get_current_account()
+
+    @memoize_contextless
+    def get_group_id(self):
+        account = self.get_current_account()
+        return account and account.group_id or ""
 
     @memoize_contextless
     def is_owner(self, session=None):

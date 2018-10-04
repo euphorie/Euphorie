@@ -122,8 +122,8 @@
 
               <tal:if condition="not:is_anonymous">
                   <tal:if condition="not:is_outside_of_survey">
-                      <a href="${webhelpers/survey_url}"
-                         data-pat-inject="source: #osc; target: #osc &amp;&amp; source: #content; target: #content"
+                      <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
+                         data-pat-inject="source: #osc-header; target: #osc-header && source: #navigation; target: #navigation"
                          data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
                          class="back-button pat-inject pat-switch">Back</a>
                   </tal:if>
@@ -137,6 +137,7 @@
             <metal:include tal:define="id string:menu" use-macro="context/@@includes/macros/osh"/>
           </tal:if>
           <metal:slot define-slot="aside-navigator">
+          <div id="navigation">
             <ol class="pat-switch"
                 id="steps"
                 data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local"
@@ -280,6 +281,7 @@
                 </li>
               </tal:if_not_anon>
             </ol>
+          </div>
           </metal:slot>
         </tal:logged-in>
     <!-- The logo comes from a macro -->
