@@ -627,9 +627,13 @@ class WebHelpers(BrowserView):
         return get_current_account()
 
     @memoize_contextless
-    def get_group_id(self):
+    def get_my_group_id(self):
         account = self.get_current_account()
         return account and account.group_id or ""
+
+    @memoize
+    def get_session_group_id(self):
+        return getattr(self.session, 'group_id', '')
 
     @memoize_contextless
     def is_owner(self, session=None):
