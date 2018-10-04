@@ -32,7 +32,7 @@
 
             </div>
             <div class="buttons panel-footer">
-                <button type="submit" name="next" class="pat-button " i18n:translate="button_start_session">Start session</button>
+                <button type="submit" name="next" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
             </div>
           </form>
