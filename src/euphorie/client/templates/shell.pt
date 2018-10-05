@@ -125,8 +125,7 @@
                   <tal:if condition="not:is_outside_of_survey">
                       <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_session_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
                          data-pat-inject="source: #osc-header; target: #osc-header && source: #navigation; target: #navigation"
-                         data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
-                         class="back-button pat-inject pat-switch">Back</a>
+                         class="back-button pat-inject">Back</a>
                   </tal:if>
                   <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
                       data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus-circle" title="Start a new session" i18n:attributes="title link_start_session" i18n:translate="New">New</a>
