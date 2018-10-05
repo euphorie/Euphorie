@@ -70,7 +70,7 @@
           <h2 class="portlet-title"
               i18n:translate=""
           >
-    				Available tools
+            Available OiRA tools
           </h2>
           <form class="pat-inject"
                 action="${here/absolute_url}/@@new-session.html"

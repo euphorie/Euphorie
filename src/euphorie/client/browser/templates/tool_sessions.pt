@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      id="sessions"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        tools nocall:context/@@tools;
+      "
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:content fill-slot="content"
+                tal:define="
+                  language view/portal/plone_portal_state/language;
+                  sessions view/get_ordered_sessions;
+                  has_sessions python:len(sessions);
+                  my_context view/my_context;
+                  description context/description|string:;
+                  introduction context/introduction|string:;
+                "
+    >
+      <tal:block replace="tile:statusmessages" />
+
+      <article class="pat-rich">
+        <h1 class="tool-name">${context/title}</h1>
+        <section class="summary" tal:condition="python:description.strip()">
+          <p tal:content="description"/>
+        </section>
+      </article>
+
+      <div tal:condition="has_sessions" class="risk-assessments ra-list">
+        <h2 class="ra-list-title"
+            i18n:translate="">Risk assessments made with this tool</h2>
+
+
+            <ul class="ras">
+              <li tal:repeat="session sessions"
+                class="ra">
+                <span class="name field">
+                  <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                    >${session/title}</a>,
+                  <span class="last-saved">
+                   <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                    <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/modified/isoformat|nothing;"
+                    >${value}</time>
+                  </span>
+                </span>
+                <span class="date field"
+                      tal:condition="session/published"
+                >
+                  <span class="label">
+                    <tal:i18n i18n:translate="label_published">Published</tal:i18n>
+                    <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/published/isoformat|nothing;"
+                    >${value}</time>
+                  </span>
+                </span>
+                <span class="date field" tal:condition="not:session/published"></span>
+                <span class="icons field">
+                  <a class="iconified icon-ellipsis pat-tooltip inactive"
+                     href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                     data-pat-tooltip="source: ajax; position-list: tr"
+                     i18n:translate=""
+                  >More</a>
+                    </span>
+
+              </li>
+            </ul>
+      </div>
+
+      <p class="button-bar">
+        <a id="button-new-session"
+           class="pat-button pat-inject"
+           href="${here/absolute_url}/@@new-session.html?action=new"
+           i18n:translate="button_start_new_session"
+        >Start a new session with this tool</a>
+      </p>
+
+      <article class="pat-rich" tal:condition="python:introduction.strip()">
+        <section class="introduction">
+          <p tal:replace="structure introduction" />
+        </section>
+      </article>
+
+
+    </metal:content>
+
+    <metal:splash fill-slot="splash_message_slot">
+      <div class="splash-message"
+           tal:condition="python:splash_message is not None"
+      >
+        <hr class="trigger pat-switch"
+            data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
+        />
+        <article class="pat-rich content">
+          <p>
+            <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg"
+                 width="20%"
+            />
+          </p>
+          <h1 tal:content="structure splash_message/title">Message of the day!</h1>
+          <tal:content content="structure splash_message/text" />
+        </article>
+      </div>
+    </metal:splash>
+
+  <metal:slot fill-slot="aside-header">
+    <header id="osc-header">
+    </header>
+  </metal:slot>
+
+  <metal:slot fill-slot="aside-navigator">
+    <div id="navigation">
+    </div>
+  </metal:slot>
+
+  </body>
+</html>

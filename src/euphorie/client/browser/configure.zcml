@@ -99,7 +99,7 @@
       for="euphorie.client.survey.ISurvey"
       permission="zope2.View"
       class=".survey.SurveySessionsView"
-      template="templates/sessions.pt"
+      template="templates/tool_sessions.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

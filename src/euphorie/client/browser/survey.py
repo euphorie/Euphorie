@@ -28,6 +28,8 @@ class IStartFormSchema(model.Schema):
 
 
 class SurveySessionsView(SessionsView):
+    """ Template corresponds to proto:_layout/tool.html
+    """
 
     @memoize
     def get_sessions(self):
