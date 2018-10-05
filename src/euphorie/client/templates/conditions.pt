@@ -11,13 +11,8 @@
         isAnonymous here/portal_membership/isAnonymousUser;
       "
       i18n:domain="euphorie"
->
-  <head>
-    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <metal:meta use-macro="webhelpers/macros/headers" />
-    <metal:css use-macro="webhelpers/macros/css" />
-  </head>
-  <body>
+    metal:use-macro="context/@@shell/macros/shell">
+<metal:slot fill-slot="content">
     <h1 i18n:translate="header_terms">Terms and conditions</h1>
 
     <tal:if condition="not:isAnonymous">
@@ -171,6 +166,5 @@
     });
 // ]]>
     </script>
-    <tal:block replace="tile:client-analytics" />
-  </body>
+</metal:slot>
 </html>

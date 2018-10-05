@@ -316,6 +316,13 @@ class WebHelpers(BrowserView):
         """Return the absolute URL for the client."""
         return self.request.client.absolute_url()
 
+    @reify
+    def country_or_client_url(self):
+        """Return the country URL, but fall back to the client URL in case
+        the country URL is None.
+        Relevant in tests only, as far as I can see"""
+        return self.country_url or self.client_url
+
     def _base_url(self):
         """Return a base URL to be used for non-survey specific pages.
         If we are in a survey the help page will be located there. Otherwise
