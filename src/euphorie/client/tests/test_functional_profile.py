@@ -43,10 +43,10 @@ class ProfileTests(EuphorieFunctionalTestCase):
         )
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["sector-title/survey-title"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         # Enter the profile information
         browser.getControl(

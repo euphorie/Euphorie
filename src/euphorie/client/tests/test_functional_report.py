@@ -18,10 +18,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["ict/software-development"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Force creation of the company data
@@ -49,10 +49,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["ict/software-development"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Update the risk
@@ -83,10 +83,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["ict/software-development"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Check the company data
@@ -105,10 +105,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.open(survey_url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["ict/software-development"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Enter some company data

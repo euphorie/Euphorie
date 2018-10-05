@@ -248,14 +248,12 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         # I don't see where in the code this language URL parameter would
         # come from, so I remove it in this test as well.
         self.assertEqual(browser.url, "http://nohost/plone/client/nl")
-        browser.getLink(id='button-new-session').click()
         self.assertEqual(
             browser.getControl(name="survey").options, ["branche/vragenlijst"]
         )
         browser.open(
             "%s?language=en" % self.portal.client["nl"].absolute_url()
         )
-        browser.getLink(id='button-new-session').click()
         self.assertEqual(
             browser.getControl(name="survey").options, ["sector/survey"]
         )
