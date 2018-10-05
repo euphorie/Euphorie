@@ -81,7 +81,7 @@
       for="euphorie.client.country.IClientCountry"
       permission="zope2.View"
       class=".country.SessionsView"
-      template="templates/sessions.pt"
+      template="templates/sessions-dashboard.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

@@ -181,6 +181,16 @@ class SessionsView(BrowserView):
         return sessions
 
     @memoize
+    def get_ordered_sessions(self):
+        ''' Given some sessions create a tree
+        '''
+        return sorted(
+            self.get_sessions(),
+            key=lambda x: x.modified,
+            reverse=True
+        )
+
+    @memoize
     def get_sessions_tree_root(self):
         ''' Given some sessions create a tree
         '''
