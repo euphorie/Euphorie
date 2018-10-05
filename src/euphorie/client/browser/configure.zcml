@@ -86,6 +86,15 @@
       />
 
   <browser:page
+      name="session-browser-sidebar"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.SessionBrowserNavigator"
+      template="templates/session-browser-sidebar.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="index_html"
       for="euphorie.client.survey.ISurvey"
       permission="zope2.View"

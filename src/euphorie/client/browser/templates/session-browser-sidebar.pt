@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        webhelpers nocall:here/webhelpers;
+        root_group view/get_root_group;
+        root_parent root_group/parent|nothing;
+        language view/portal/plone_portal_state/language;
+        absolute_url here/absolute_url;
+        zodb_path request/zodb_path|nothing;
+      "
+      i18n:domain="euphorie"
+>
+
+  <metal:slot fill-slot="aside-header">
+    <header id="osc-header">
+      <tal:in-group condition="nocall: root_group">
+        <a class="back-button pat-inject"
+           href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
+           data-pat-inject="source: #osc-header; target: #osc-header &amp;&amp; source: #miller-columns; target: #miller-columns"
+           i18n:translate=""
+        >Back</a>
+        <h2 class="column-title">${root_group/fullname}</h2>
+      </tal:in-group>
+
+
+      <a class="no-label pat-modal iconified icon-plus-circle"
+         id="button-new-session-quick"
+         href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
+         title="Start a new session"
+         data-pat-modal="class: large"
+         i18n:attributes="title link_start_session"
+         i18n:translate="New"
+      >New</a>
+
+    </header>
+  </metal:slot>
+
+  <metal:slot fill-slot="aside-navigator">
+    <div id="navigation">
+      <div class="miller-columns"
+           id="miller-columns"
+      >
+<!-- Comment out the search until we know what to do with it -->
+<!--         <form class="search-form pat-autosubmit pat-inject"
+              action="${absolute_url}/@@${view/__name__}#browser"
+        >
+          <fieldset>
+            <label>
+              <input name="SearchableText"
+                     placeholder="Search a risk assessment"
+                     type="search"
+                     i18n:attributes="placeholder"
+              />
+              <button hidden
+                      type="submit"
+                      i18n:translate=""
+              >Search</button>
+            </label>
+          </fieldset>
+        </form> -->
+        <ul class="departments browser"
+            id="browser"
+            tal:define="
+              groups view/leaf_groups;
+            "
+        >
+          <li class="item type-department"
+              tal:repeat="group groups;"
+              tal:condition="not:zodb_path"
+          >
+            <a class="pat-inject pat-switch"
+               href="${absolute_url}/@@${view/__name__}?groupid=${group/group_id}"
+               data-pat-inject="source: #browser::element; target: #browser::element; &amp;&amp; source: #osc-header; target: #osc-header;"
+               data-pat-switch="#navigation going-* going-down"
+            >
+              <strong class="object-name">${group/fullname}</strong></a>
+          </li>
+          <li class="item type-tool"
+              tal:define="
+                tools python:view.get_tools_tree(zodb_path);
+              "
+              tal:repeat="tool python:sorted(tools)"
+          >
+          <tal:tool condition="nocall:tool">
+            <h3 class="object-name"
+              tal:define="description python:getattr(tool, 'description', '').strip() or tool.title ">
+              ${tool/title}
+              <a class="info iconified icon-info-circle pat-inject pat-switch"
+                 data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local"
+                 data-pat-inject="history: record"
+                 href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
+                 title="${description}">Info</a>
+            </h3>
+
+            <ul class="sessions">
+              <li class="session"
+                  tal:repeat="session python:tools[tool]"
+              >
+                <h4 class="name field">
+                  <a class="session-name pat-inject pat-switch"
+                     href="${request/getURL}?action=continue&amp;session=${session/id}"
+                     data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
+                     data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
+                  >${session/title}</a>
+                  <span class="icons field">
+                    <a class="iconified icon-ellipsis pat-tooltip inactive"
+                       href="${absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                       data-pat-tooltip="source: ajax; position-list: tr"
+                       i18n:translate=""
+                    >More</a>
+                  </span>
+                </h4>
+                <p class="meta"></p>
+                <span class="last-saved">
+                  <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                  <time class="pat-display-time"
+                        datetime="${value}"
+                        data-pat-display-time="from-now: true; locale: ${language}"
+                        tal:define="
+                          value session/modified/isoformat|nothing;
+                        "
+                  >${value}</time><tal:comma condition="session/published">, </tal:comma>
+                </span>
+                <span class="date field"
+                      tal:condition="session/published"
+                >
+                  <span class="label">
+                    <tal:i18n i18n:translate="label_published">Published</tal:i18n>
+                    <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="
+                            value session/published/isoformat|nothing;
+                          "
+                    >${value}</time>
+                  </span>
+                </span>
+                <span class="date field" tal:condition="not:session/published"></span>
+                <p></p>
+              </li>
+            </ul>
+          </tal:tool>
+          </li>
+          <li tal:condition="not:view/has_content">
+            <p class="pat-message notice"
+               i18n:translate=""
+            >
+              No risk assessments are available for this selection.
+            </p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </metal:slot>
+
+</html>
