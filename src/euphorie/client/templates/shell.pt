@@ -124,7 +124,7 @@
               <tal:if condition="not:is_anonymous">
                   <tal:if condition="not:is_outside_of_survey">
                       <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_session_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
-                         data-pat-inject="source: #osc-header; target: #osc-header && source: #navigation; target: #navigation"
+                         data-pat-inject="source: #osc-header; target: #osc-header && source: #osc; target: #osc"
                          class="back-button pat-inject">Back</a>
                   </tal:if>
                   <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
@@ -156,7 +156,7 @@
                 >
                   <a class="preparation pat-switch pat-inject"
                      href="${survey_url}/start#content"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_preparation"
@@ -175,7 +175,7 @@
                 >
                   <a class="identification pat-switch pat-inject"
                      href="${survey_url}/identification"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-off; add: sidebar-on"
                      tal:condition="not:disabled"
                   ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
@@ -202,7 +202,7 @@
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
                   <a class="action-plan pat-switch pat-inject"
                      href="${survey_url}/actionplan"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; add: sidebar-on; remove: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_action_plan"
@@ -227,7 +227,7 @@
                   <!-- TODO: check if guest -->
                   <a class="report pat-switch pat-inject"
                      href="${survey_url}/report"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_report"
@@ -248,7 +248,7 @@
                 >
                   <a class="training pat-inject pat-switch"
                      href="${survey_url}/training"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="menu_training"
@@ -269,7 +269,7 @@
                 >
                   <a class="status pat-switch pat-inject"
                      href="${survey_url}/status#content"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="navigation_status"

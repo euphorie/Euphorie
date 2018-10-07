@@ -26,7 +26,7 @@
                            message-required: ${view/message_required};"
             action="${request/URL}"
             method="POST"
-            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
+            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
       >
         <nav class="page-actions">
           <metal:actions define-slot="page-actions">
