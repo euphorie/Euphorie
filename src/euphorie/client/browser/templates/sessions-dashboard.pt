@@ -139,14 +139,20 @@
 
   <metal:slot fill-slot="aside-navigator">
     <div id="navigation">
-<!--
-    For Main OIRA, we don't show anything in the sidebar on the dashboard
-      <a class="pat-inject"
-         href="${here/absolute_url}/@@session-browser-sidebar"
-         data-pat-inject="source: #navigation; target: #navigation; trigger: autoload-visible"
-         i18n:translate=""
-      >Loading&hellip;</a>
--->
+      <div class="miller-columns"
+           id="miller-columns">
+        <!-- For Main OIRA, we don't show anything in the sidebar on the dashboard -->
+        <ul class="departments browser" id="browser">
+          <li>
+            <a class="pat-inject icon-search"
+               href="${here/absolute_url}/@@session-browser-sidebar"
+               data-pat-inject="source: #browser; target: #browser;"
+               hidden="hidden"
+               i18n:translate=""
+            >Loading Risk Assessments&hellip;</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </metal:slot>
 

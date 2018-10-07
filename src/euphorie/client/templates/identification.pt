@@ -22,7 +22,7 @@
     <p tal:condition="extra_text">${extra_text}</p>
 </article>
 <p class="button-bar">
-    <a class="pat-button pat-inject" data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
+    <a class="pat-button pat-inject" data-pat-inject="source: #content; target: #content; && source: #navigation; target: #navigation;" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
 </p>
 </metal:slot>
 
