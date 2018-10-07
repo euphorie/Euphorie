@@ -50,7 +50,8 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 # and the publication time and the publisher will be recorded
                 # If no referer is set,
                 # the methods will redirect to the context url
-                self.assertEqual(view.set_date(), survey.absolute_url())
+                self.assertEqual(
+                    view.set_date(survey_session.id), survey.absolute_url())
                 self.assertEqual(
                     survey_session.last_publisher, survey_session.account
                 )
@@ -64,7 +65,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 # We need to wait at least one second because the datetime
                 # is stored with that accuracy
                 sleep(1)
-                self.assertEqual(view.reset_date(), 'foo')
+                self.assertEqual(view.reset_date(survey_session.id), 'foo')
                 self.assertTrue(survey_session.modified > old_modified)
                 self.assertEqual(
                     survey_session.last_publisher, survey_session.account
@@ -74,7 +75,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 )
                 self.assertTrue(survey_session.published > old_published)
                 # Calling unset_date will restore the publication info
-                self.assertEqual(view.unset_date(), 'foo')
+                self.assertEqual(view.unset_date(survey_session.id), 'foo')
                 self.assertEqual(survey_session.last_publisher, None)
                 self.assertEqual(survey_session.published, None)
                 self.assertEqual(survey_session.review_state, 'private')
@@ -85,7 +86,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
             ) as view:
                 soup = html.fromstring(view())
                 self.assertListEqual(
-                    ['publication_date/set_date#content'],
+                    ['publication_date/set_date?sessionid=1#content'],
                     [
                         el.attrib['action'].rpartition('@@')[-1]
                         for el in soup.cssselect('form')
@@ -96,8 +97,8 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 soup = html.fromstring(view())
                 self.assertListEqual(
                     [
-                        'publication_date/unset_date#content',
-                        'publication_date/reset_date#content',
+                        'publication_date/unset_date?sessionid=1#content',
+                        'publication_date/reset_date?sessionid=1#content',
                     ],
                     [
                         el.attrib['action'].rpartition('@@')[-1]
