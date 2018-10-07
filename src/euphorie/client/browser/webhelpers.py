@@ -697,6 +697,11 @@ class WebHelpers(BrowserView):
         """
         return u"\r\n".join([x for x in text.split('\r')])
 
+    def show_logo(self):
+        """ In plain Euphorie, the logo is always shown
+        """
+        return True
+
     def __call__(self):
         return self
 

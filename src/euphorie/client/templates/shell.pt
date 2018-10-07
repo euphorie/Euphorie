@@ -285,7 +285,9 @@
           </metal:slot>
         </tal:logged-in>
     <!-- The logo comes from a macro -->
-    <metal:logo use-macro="context/logo/macros/logo"/>
+    <tal:logo condition="webhelpers/show_logo">
+      <metal:logo use-macro="context/logo/macros/logo"/>
+    </tal:logo>
 
     <style type="text/css" tal:condition="styles_override">
         ${styles_override}
