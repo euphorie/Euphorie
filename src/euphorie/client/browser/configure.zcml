@@ -62,7 +62,16 @@
       name="publication_date"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.PubblicationMenu"
+      class=".survey.PublicationMenu"
+      allowed_attributes="set_date reset_date unset_date"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_date"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.PublicationMenu"
       allowed_attributes="set_date reset_date unset_date"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -71,7 +80,16 @@
       name="publication_menu"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.PubblicationMenu"
+      class=".survey.PublicationMenu"
+      template="templates/publication_menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_menu"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.PublicationMenu"
       template="templates/publication_menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

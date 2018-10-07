@@ -8,28 +8,41 @@
     <div id="publication-menu"
          hidden="hidden"
          tal:define="
-           session view/session;
-           last_modifier session/last_modifier;
+           webhelpers nocall:view/webhelpers;
+           sessionid request/sessionid|webhelpers/session_id;
+           session python:view.session(sessionid);
+           last_modifier session/last_modifier|nothing;
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
+           language view/portal/plone_portal_state/language;
          "
     >
-      <p class="pat-message notice"
+      <div class="pat-message notice"
          tal:condition="last_modifier"
-         i18n:translate="last_edited_by"
       >
-        Last edited by
-        <a href="mailto:${last_modifier/email}" i18n:name="name">${last_modifier/email}</a>
-        on
-        <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
-      </p>
-      <tal:can_publish condition="view/webhelpers/can_publish_session">
+        <p tal:condition="session/published">
+          <!-- Diplay this paragraph only when the assessment is published. -->
+          <strong><tal:i18n i18n:translate="label_published">Published</tal:i18n>
+            <time class="pat-display-time"
+                  data-pat-display-time="from-now: true; locale: ${language}"
+                  tal:define="value session/published/isoformat|nothing;"
+                  datetime="${value}"
+            >${value}</time>
+          </strong>
+        </p>
+        <p i18n:translate="last_edited_by">Last edited by
+          <a href="mailto:${last_modifier/email}" i18n:name="name">${last_modifier/email}</a>
+          on
+          <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
+        </p>
+      </div>
+      <tal:can_publish condition="python:webhelpers.can_publish_session(session)">
         <ul class="menu"
             tal:switch="session/review_state"
         >
           <tal:case case="string:private">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/set_date#content"
+                    action="${here/absolute_url}/@@publication_date/set_date?sessionid=${sessionid}#content"
               >
                 <button class="icon-publish"
                         type="submit"
@@ -41,7 +54,7 @@
           <tal:case case="string:published">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/unset_date#content"
+                    action="${here/absolute_url}/@@publication_date/unset_date?sessionid=${sessionid}#content"
               >
                 <button class="icon-cancel-circled"
                         type="submit"
@@ -51,7 +64,7 @@
             </li>
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/reset_date#content"
+                    action="${here/absolute_url}/@@publication_date/reset_date?sessionid=${sessionid}#content"
               >
                 <button class="icon-arrows-cw"
                         type="submit"
@@ -62,6 +75,10 @@
           </tal:case>
         </ul>
       </tal:can_publish>
+      <div class="pat-message notice"
+           tal:condition="not:last_modifier">
+           <p i18n:translate="">No information about the last editor is available.</p>
+      </div>
     </div>
   </body>
 </html>

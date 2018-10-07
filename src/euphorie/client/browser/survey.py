@@ -5,10 +5,10 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
-from euphorie.client.session import SessionManager
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
+from plone.memoize.view import memoize_contextless
 from plone.supermodel import model
 from Products.Five import BrowserView
 from z3c.form.form import EditForm
@@ -121,7 +121,7 @@ class Start(AutoExtensibleForm, EditForm):
             )
 
 
-class PubblicationMenu(BrowserView):
+class PublicationMenu(BrowserView):
 
     @property
     @memoize
@@ -132,8 +132,15 @@ class PubblicationMenu(BrowserView):
             self.request,
         )
 
-    def notify_modified(self):
-        notify(ObjectModifiedEvent(self.session))
+    @property
+    @memoize_contextless
+    def portal(self):
+        ''' The currenttly authenticated account
+        '''
+        return api.portal.get()
+
+    def notify_modified(self, session):
+        notify(ObjectModifiedEvent(session))
 
     def redirect(self):
         target = (
@@ -141,28 +148,30 @@ class PubblicationMenu(BrowserView):
         )
         return self.request.response.redirect(target)
 
-    def reset_date(self):
+    def reset_date(self, sessionid):
         ''' Reset the session date to now
         '''
-        self.session.published = datetime.now()
-        self.session.last_publisher = get_current_account()
-        self.notify_modified()
+        session = self.session(sessionid)
+        session.published = datetime.now()
+        session.last_publisher = get_current_account()
+        self.notify_modified(session)
         return self.redirect()
 
-    def set_date(self):
+    def set_date(self, sessionid):
         ''' Set the session date to now
         '''
-        return self.reset_date()
+        return self.reset_date(sessionid)
 
-    def unset_date(self):
+    def unset_date(self, sessionid):
         ''' Unset the session date
         '''
-        self.session.published = None
-        self.session.last_publisher = None
-        self.notify_modified()
+        session = self.session(sessionid)
+        session.published = None
+        session.last_publisher = None
+        self.notify_modified(session)
         return self.redirect()
 
-    @property
     @memoize
-    def session(self):
-        return SessionManager.session
+    def session(self, sessionid):
+        return self.webhelpers.session_by_id(sessionid)
+        # return SessionManager.session
