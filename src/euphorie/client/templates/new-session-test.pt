@@ -16,7 +16,7 @@
             <div class="panel-body">
             <fieldset class="vertical">
                 <label>
-                    <tal:span i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</tal:span>:
+                    <tal:span i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools</tal:span>:
                     <select class="oira_sessions_select" name="survey">
                         <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
                     </select>

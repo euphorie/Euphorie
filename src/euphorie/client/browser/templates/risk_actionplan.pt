@@ -138,15 +138,15 @@
                      value="${actionplan/id}"
               />
               <p class="functions">
+                <a class="icon-trash remove-clone"
+                   i18n:translate="label_remove_measure"
+                >Delete this measure</a>
                 <a class="icon-pencil pat-tooltip"
                    href="#standard-solutions-${repeat/actionplan/number}"
                    data-pat-tooltip="source:ajax"
                    tal:condition="measures"
                    i18n:translate="label_prefill"
                 >Pre-fill</a>
-                <a class="icon-trash remove-clone"
-                   i18n:translate="label_remove_measure"
-                >Delete this measure</a>
               </p>
               <tal:if_has_measures condition="measures">
                 <div id="standard-solutions-${repeat/actionplan/number}"
@@ -296,15 +296,15 @@
               <h2><tal:measure i18n:translate="Measure">Measure</tal:measure>
                 #{1}</h2>
               <p class="functions">
+                <a class="icon-trash remove-clone"
+                   i18n:translate="label_remove_measure"
+                >Delete this measure</a>
                 <a class="icon-pencil pat-tooltip"
                    href="#standard-solutions-#{1}"
                    data-pat-tooltip="source: ajax"
                    tal:condition="measures"
                    i18n:translate="label_prefill"
                 >Pre-fill</a>
-                <a class="icon-trash remove-clone"
-                   i18n:translate="label_remove_measure"
-                >Delete this measure</a>
               </p>
 
               <tal:if_has_measures condition="measures">

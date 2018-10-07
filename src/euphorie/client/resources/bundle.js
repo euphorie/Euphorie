@@ -60,14 +60,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(22);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(23);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ }),
@@ -98,7 +98,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(3),
     __webpack_require__(4),
     // below here modules that are only loaded
-    __webpack_require__(25),
+    __webpack_require__(26),
     __webpack_require__(9)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, logger, utils) {
     var log = logger.getLogger("registry"),
@@ -692,7 +692,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  * Copyright 2012-2013 Florian Friesdorf
  */
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-    __webpack_require__(24)
+    __webpack_require__(25)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(logging) {
     var log = logging.getLogger('patterns');
     return log;
@@ -1212,7 +1212,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
   __webpack_require__(0),
   __webpack_require__(1),
-  __webpack_require__(31),
+  __webpack_require__(32),
   __webpack_require__(3)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Registry, mockupParser, logger) {
     "use strict";
@@ -2898,8 +2898,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     parser.addArgument("confirm-message", 'Are you sure you want to leave this page?');
     parser.addArgument("hooks", [], ["raptor"], true); // After injection, pat-inject will trigger an event for each hook: pat-inject-hook-$(hook)
     parser.addArgument("loading-class", "injecting"); // Add a class to the target while content is still loading.
+    parser.addArgument("executing-class", "executing"); // Add a class to the element while content is still loading.
+    parser.addArgument("executed-class", "executed"); // Add a class to the element when content is loaded.
     parser.addArgument("class"); // Add a class to the injected content.
     parser.addArgument("history");
+    parser.addArgument("push-marker");
     // XXX: this should not be here but the parser would bail on
     // unknown parameters and expand/collapsible need to pass the url
     // to us
@@ -2931,7 +2934,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     return $el.attr({href: (window.location.href.split("#")[0] || "") + cfgs[0].nextHref});
                 }
             }
-
+            if (cfgs[0].pushMarker) {
+                $('body').on('push', function(event, data) {
+                    if (data == cfgs[0].pushMarker) {
+                        inject.onTrigger.apply($el[0], []);
+                    }
+                });
+            }
             if (cfgs[0].idleTrigger) {
                 // XXX TODO: handle item removed from DOM
                 var timeout = parseInt(cfgs[0].idleTrigger, 10);
@@ -2988,13 +2997,21 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     if (!cfgs[0].delay) {
                         inject.onTrigger.apply($el[0], []);
                     } else {
+                        // generate UID
+                        var uid = Math.random().toString(36);
+                        $el.attr('data-pat-inject-uid', uid);
+
                         // function to trigger the autoload and mark as triggered
-                        function delayed_trigger() {
+                        function delayed_trigger(uid) {
+                            // Check if the element has been removed from the dom
+                            var still_there = $("[data-pat-inject-uid='"+uid+"']");
+                            if (still_there.length == 0) return false;
+
                             $el.data("pat-inject-autoloaded", true);
                             inject.onTrigger.apply($el[0], []);
                             return true;
                         }
-                        window.setTimeout(delayed_trigger, cfgs[0].delay);
+                        window.setTimeout(delayed_trigger.bind(null, uid), cfgs[0].delay);
                     }
                     break;
                 case "autoload-visible":
@@ -3005,7 +3022,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     break;
                 }
             }
-
+ 
             log.debug("initialised:", $el);
             return $el;
         },
@@ -3367,7 +3384,22 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $el.off("pat-ajax-error.pat-inject");
         },
 
-        _onInjectError: function ($el, cfgs) {
+        _onInjectError: function ($el, cfgs, event) {
+            var explanation = '';
+            var timestamp = new Date();
+            if (event.jqxhr.status % 100 == 4) {
+                explanation = "Sorry! We couldn't find the page to load. Please make a screenshot and send it to support. Thank you!";
+            } else if (event.jqxhr.status % 100 == 5) {
+                explanation = "I am very sorry! There was an error at the server. Please make a screenshot and contact support. Thank you!";
+            } else if (event.jqxhr.status == 0) {
+                explanation = "It seems, the server is down. Please make a screenshot and contact support. Thank you!";
+            }
+            var msg_attr = explanation + ' Status is '+event.jqxhr.status + ' ' + event.jqxhr.statusText + ', time was ' + timestamp + '. You can click to close this.' ;
+            $("body").attr('data-error-message', msg_attr);
+            $('body').on('click', function() {
+                $('body').removeAttr('data-error-message');
+                window.location.href = window.location.href;
+            })
             cfgs.forEach(function(cfg) {
                 if ("$injected" in cfg)
                     cfg.$injected.remove();
@@ -3397,6 +3429,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $el.data('pat-inject-triggered', true);
             // possibility for spinners on targets
             _.chain(cfgs).filter(_.property('loadingClass')).each(function(cfg) { cfg.$target.addClass(cfg.loadingClass); });
+            // Put the execute class on the elem that has pat inject on it
+            _.chain(cfgs).filter(_.property('loadingClass')).each(function(cfg) { $el.addClass(cfg.executingClass); });
 
             $el.on("pat-ajax-success.pat-inject", this._onInjectSuccess.bind(this, $el, cfgs));
             $el.on("pat-ajax-error.pat-inject", this._onInjectError.bind(this, $el, cfgs));
@@ -3553,7 +3587,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     value = $this.attr(attrName);
 
                 if (value && value.slice(0, 2) !== "@@" && value[0] !== "#" &&
-                    value.slice(0, 7) !== "mailto:") {
+                    value.slice(0, 7) !== "mailto:" && value.slice(0, 11) !== "javascript:") {
                     value = utils.rebaseURL(base, value);
                     $this.attr(attrName, value);
                 }
@@ -3736,6 +3770,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
          * then scan the injected content for new patterns.
          */
         cfg.$target.removeClass(cfg.loadingClass);
+        // Remove the executing class, add the executed class to the element with pat.inject on it.
+        $(trigger).removeClass(cfg.executingClass).addClass(cfg.executedClass);
         if (injected.nodeType !== TEXT_NODE && injected !== COMMENT_NODE) {
             registry.scan(injected, null, {type: "injection", element: trigger});
             $(injected).trigger("patterns-injected-scanned");
@@ -8525,9 +8561,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     // XXX: In compat.js we include things for browser compatibility,
     // but these two seem to be only convenience. Do we really want to
     // include these as part of patterns?
-    String.prototype.startsWith = function(str) { return (this.match("^"+str) !== null); };
-    String.prototype.endsWith = function(str) { return (this.match(str+"$") !== null); };
-
+    if (!String.prototype.startsWith) {
+        String.prototype.startsWith = function (str) {
+            return (this.match("^" + str) !== null);
+        };
+    }
+    if (!String.prototype.endsWith) {
+        String.prototype.endsWith = function(str) {
+            return (this.match(str+"$") !== null);
+        };
+    }
 
     /******************************
 
@@ -8834,7 +8877,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(3),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(28)
+    __webpack_require__(29)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, Parser, registry, jqform) {
     var log = logger.getLogger("pat.ajax"),
         parser = new Parser("ajax");
@@ -9201,7 +9244,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * imagesLoaded v4.1.1
+ * imagesLoaded v4.1.4
  * JavaScript is all like "You images are done yet or what?"
  * MIT License
  */
@@ -9214,7 +9257,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(53)
+      __webpack_require__(52)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
       return factory( window, EvEmitter );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -9233,7 +9276,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
     );
   }
 
-})( window,
+})( typeof window !== 'undefined' ? window : this,
 
 // --------------------------  factory -------------------------- //
 
@@ -9254,22 +9297,23 @@ function extend( a, b ) {
   return a;
 }
 
+var arraySlice = Array.prototype.slice;
+
 // turn element or nodeList into an array
 function makeArray( obj ) {
-  var ary = [];
   if ( Array.isArray( obj ) ) {
     // use object if already an array
-    ary = obj;
-  } else if ( typeof obj.length == 'number' ) {
-    // convert nodeList to array
-    for ( var i=0; i < obj.length; i++ ) {
-      ary.push( obj[i] );
-    }
-  } else {
-    // array of single index
-    ary.push( obj );
+    return obj;
   }
-  return ary;
+
+  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
+  if ( isArrayLike ) {
+    // convert nodeList to array
+    return arraySlice.call( obj );
+  }
+
+  // array of single index
+  return [ obj ];
 }
 
 // -------------------------- imagesLoaded -------------------------- //
@@ -9285,13 +9329,19 @@ function ImagesLoaded( elem, options, onAlways ) {
     return new ImagesLoaded( elem, options, onAlways );
   }
   // use elem as selector string
+  var queryElem = elem;
   if ( typeof elem == 'string' ) {
-    elem = document.querySelectorAll( elem );
+    queryElem = document.querySelectorAll( elem );
+  }
+  // bail if bad element
+  if ( !queryElem ) {
+    console.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
+    return;
   }
 
-  this.elements = makeArray( elem );
+  this.elements = makeArray( queryElem );
   this.options = extend( {}, this.options );
-
+  // shift arguments if no options set
   if ( typeof options == 'function' ) {
     onAlways = options;
   } else {
@@ -9310,9 +9360,7 @@ function ImagesLoaded( elem, options, onAlways ) {
   }
 
   // HACK check async to allow time to bind listeners
-  setTimeout( function() {
-    this.check();
-  }.bind( this ));
+  setTimeout( this.check.bind( this ) );
 }
 
 ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
@@ -9480,7 +9528,9 @@ LoadingImage.prototype.check = function() {
 };
 
 LoadingImage.prototype.getIsImageComplete = function() {
-  return this.img.complete && this.img.naturalWidth !== undefined;
+  // check for non-zero, non-undefined naturalWidth
+  // fixes Safari+InfiniteScroll+Masonry bug infinite-scroll#671
+  return this.img.complete && this.img.naturalWidth;
 };
 
 LoadingImage.prototype.confirm = function( isLoaded, message ) {
@@ -9630,6 +9680,6153 @@ module.exports = function(module) {
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports) {
+
+/*!
+ * modernizr v3.6.0
+ * Build https://modernizr.com/download?-adownload-appearance-applicationcache-backdropfilter-backgroundblendmode-backgroundcliptext-backgroundsize-bgpositionshorthand-bgpositionxy-bgrepeatspace_bgrepeatround-bgsizecover-blobconstructor-bloburls-borderimage-borderradius-boxshadow-boxsizing-canvas-canvasblending-canvastext-canvaswinding-capture-checked-classlist-contenteditable-contextmenu-cookies-cors-createelementattrs_createelement_attrs-cssall-cssanimations-csscalc-csschunit-csscolumns-cssescape-cssexunit-cssfilters-cssgradients-cssgrid_cssgridlegacy-cssinvalid-cssmask-csspointerevents-csspositionsticky-csspseudoanimations-csspseudotransitions-cssreflections-cssremunit-cssresize-cssscrollbar-csstransforms-csstransforms3d-csstransformslevel2-csstransitions-cssvalid-cssvhunit-cssvmaxunit-cssvminunit-cssvwunit-cubicbezierrange-customelements-dataset-datauri-devicemotion_deviceorientation-directory-display_runin-displaytable-documentfragment-ellipsis-eventlistener-exiforientation-fileinput-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fontface-formattribute-formvalidation-fullscreen-generatedcontent-hairline-hashchange-hidden-hiddenscroll-history-hovermq-hsla-htmlimports-json-lastchild-localizednumber-localstorage-mediaqueries-microdata-multiplebgs-mutationobserver-notification-nthchild-objectfit-oninput-opacity-overflowscrolling-pagevisibility-passiveeventlisteners-performance-placeholder-pointermq-postmessage-preserve3d-proximity-queryselector-regions-requestanimationframe-requestautocomplete-rgba-sandbox-scrollsnappoints-seamless-sessionstorage-shapes-siblinggeneral-srcdoc-subpixelfont-supports-target-textalignlast-textshadow-todataurljpeg_todataurlpng_todataurlwebp-touchevents-unicode-unicoderange-urlparser-urlsearchparams-userdata-userselect-vibrate-video-videoautoplay-videocrossorigin-videoloop-videopreload-websqldatabase-willchange-wrapflow-xdomainrequest-addtest-atrule-domprefixes-hasevent-load-mq-prefixed-prefixedcss-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
+ *
+ * Copyright (c)
+ *  Faruk Ates
+ *  Paul Irish
+ *  Alex Sexton
+ *  Ryan Seddon
+ *  Patrick Kettner
+ *  Stu Cox
+ *  Richard Herrera
+
+ * MIT License
+ */
+
+/*
+ * Modernizr tests which native CSS3 and HTML5 features are available in the
+ * current UA and makes the results available to you in two ways: as properties on
+ * a global `Modernizr` object, and as classes on the `<html>` element. This
+ * information allows you to progressively enhance your pages with a granular level
+ * of control over the experience.
+*/
+
+;(function(window, document, undefined){
+  var tests = [];
+  
+
+  /**
+   *
+   * ModernizrProto is the constructor for Modernizr
+   *
+   * @class
+   * @access public
+   */
+
+  var ModernizrProto = {
+    // The current version, dummy
+    _version: '3.6.0',
+
+    // Any settings that don't work as separate modules
+    // can go in here as configuration.
+    _config: {
+      'classPrefix': '',
+      'enableClasses': true,
+      'enableJSClass': true,
+      'usePrefixes': true
+    },
+
+    // Queue of tests
+    _q: [],
+
+    // Stub these for people who are listening
+    on: function(test, cb) {
+      // I don't really think people should do this, but we can
+      // safe guard it a bit.
+      // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
+      // This is in case people listen to synchronous tests. I would leave it out,
+      // but the code to *disallow* sync tests in the real version of this
+      // function is actually larger than this.
+      var self = this;
+      setTimeout(function() {
+        cb(self[test]);
+      }, 0);
+    },
+
+    addTest: function(name, fn, options) {
+      tests.push({name: name, fn: fn, options: options});
+    },
+
+    addAsyncTest: function(fn) {
+      tests.push({name: null, fn: fn});
+    }
+  };
+
+  
+
+  // Fake some of Object.create so we can force non test results to be non "own" properties.
+  var Modernizr = function() {};
+  Modernizr.prototype = ModernizrProto;
+
+  // Leak modernizr globally when you `require` it rather than force it here.
+  // Overwrite name so constructor name is nicer :D
+  Modernizr = new Modernizr();
+
+  
+
+  var classes = [];
+  
+
+  /**
+   * is returns a boolean if the typeof an obj is exactly type.
+   *
+   * @access private
+   * @function is
+   * @param {*} obj - A thing we want to check the type of
+   * @param {string} type - A string to compare the typeof against
+   * @returns {boolean}
+   */
+
+  function is(obj, type) {
+    return typeof obj === type;
+  }
+  ;
+
+  /**
+   * Run through all tests and detect their support in the current UA.
+   *
+   * @access private
+   */
+
+  function testRunner() {
+    var featureNames;
+    var feature;
+    var aliasIdx;
+    var result;
+    var nameIdx;
+    var featureName;
+    var featureNameSplit;
+
+    for (var featureIdx in tests) {
+      if (tests.hasOwnProperty(featureIdx)) {
+        featureNames = [];
+        feature = tests[featureIdx];
+        // run the test, throw the return value into the Modernizr,
+        // then based on that boolean, define an appropriate className
+        // and push it into an array of classes we'll join later.
+        //
+        // If there is no name, it's an 'async' test that is run,
+        // but not directly added to the object. That should
+        // be done with a post-run addTest call.
+        if (feature.name) {
+          featureNames.push(feature.name.toLowerCase());
+
+          if (feature.options && feature.options.aliases && feature.options.aliases.length) {
+            // Add all the aliases into the names list
+            for (aliasIdx = 0; aliasIdx < feature.options.aliases.length; aliasIdx++) {
+              featureNames.push(feature.options.aliases[aliasIdx].toLowerCase());
+            }
+          }
+        }
+
+        // Run the test, or use the raw value if it's not a function
+        result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
+
+
+        // Set each of the names on the Modernizr object
+        for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
+          featureName = featureNames[nameIdx];
+          // Support dot properties as sub tests. We don't do checking to make sure
+          // that the implied parent tests have been added. You must call them in
+          // order (either in the test, or make the parent test a dependency).
+          //
+          // Cap it to TWO to make the logic simple and because who needs that kind of subtesting
+          // hashtag famous last words
+          featureNameSplit = featureName.split('.');
+
+          if (featureNameSplit.length === 1) {
+            Modernizr[featureNameSplit[0]] = result;
+          } else {
+            // cast to a Boolean, if not one already
+            if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
+              Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
+            }
+
+            Modernizr[featureNameSplit[0]][featureNameSplit[1]] = result;
+          }
+
+          classes.push((result ? '' : 'no-') + featureNameSplit.join('-'));
+        }
+      }
+    }
+  }
+  ;
+
+  /**
+   * docElement is a convenience wrapper to grab the root element of the document
+   *
+   * @access private
+   * @returns {HTMLElement|SVGElement} The root element of the document
+   */
+
+  var docElement = document.documentElement;
+  
+
+  /**
+   * A convenience helper to check if the document we are running in is an SVG document
+   *
+   * @access private
+   * @returns {boolean}
+   */
+
+  var isSVG = docElement.nodeName.toLowerCase() === 'svg';
+  
+
+  /**
+   * setClasses takes an array of class names and adds them to the root element
+   *
+   * @access private
+   * @function setClasses
+   * @param {string[]} classes - Array of class names
+   */
+
+  // Pass in an and array of class names, e.g.:
+  //  ['no-webp', 'borderradius', ...]
+  function setClasses(classes) {
+    var className = docElement.className;
+    var classPrefix = Modernizr._config.classPrefix || '';
+
+    if (isSVG) {
+      className = className.baseVal;
+    }
+
+    // Change `no-js` to `js` (independently of the `enableClasses` option)
+    // Handle classPrefix on this too
+    if (Modernizr._config.enableJSClass) {
+      var reJS = new RegExp('(^|\\s)' + classPrefix + 'no-js(\\s|$)');
+      className = className.replace(reJS, '$1' + classPrefix + 'js$2');
+    }
+
+    if (Modernizr._config.enableClasses) {
+      // Add the new classes
+      className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+      if (isSVG) {
+        docElement.className.baseVal = className;
+      } else {
+        docElement.className = className;
+      }
+    }
+
+  }
+
+  ;
+
+  /**
+   * hasOwnProp is a shim for hasOwnProperty that is needed for Safari 2.0 support
+   *
+   * @author kangax
+   * @access private
+   * @function hasOwnProp
+   * @param {object} object - The object to check for a property
+   * @param {string} property - The property to check for
+   * @returns {boolean}
+   */
+
+  // hasOwnProperty shim by kangax needed for Safari 2.0 support
+  var hasOwnProp;
+
+  (function() {
+    var _hasOwnProperty = ({}).hasOwnProperty;
+    /* istanbul ignore else */
+    /* we have no way of testing IE 5.5 or safari 2,
+     * so just assume the else gets hit */
+    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
+      hasOwnProp = function(object, property) {
+        return _hasOwnProperty.call(object, property);
+      };
+    }
+    else {
+      hasOwnProp = function(object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
+        return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
+      };
+    }
+  })();
+
+  
+
+
+   // _l tracks listeners for async tests, as well as tests that execute after the initial run
+  ModernizrProto._l = {};
+
+  /**
+   * Modernizr.on is a way to listen for the completion of async tests. Being
+   * asynchronous, they may not finish before your scripts run. As a result you
+   * will get a possibly false negative `undefined` value.
+   *
+   * @memberof Modernizr
+   * @name Modernizr.on
+   * @access public
+   * @function on
+   * @param {string} feature - String name of the feature detect
+   * @param {function} cb - Callback function returning a Boolean - true if feature is supported, false if not
+   * @example
+   *
+   * ```js
+   * Modernizr.on('flash', function( result ) {
+   *   if (result) {
+   *    // the browser has flash
+   *   } else {
+   *     // the browser does not have flash
+   *   }
+   * });
+   * ```
+   */
+
+  ModernizrProto.on = function(feature, cb) {
+    // Create the list of listeners if it doesn't exist
+    if (!this._l[feature]) {
+      this._l[feature] = [];
+    }
+
+    // Push this test on to the listener list
+    this._l[feature].push(cb);
+
+    // If it's already been resolved, trigger it on next tick
+    if (Modernizr.hasOwnProperty(feature)) {
+      // Next Tick
+      setTimeout(function() {
+        Modernizr._trigger(feature, Modernizr[feature]);
+      }, 0);
+    }
+  };
+
+  /**
+   * _trigger is the private function used to signal test completion and run any
+   * callbacks registered through [Modernizr.on](#modernizr-on)
+   *
+   * @memberof Modernizr
+   * @name Modernizr._trigger
+   * @access private
+   * @function _trigger
+   * @param {string} feature - string name of the feature detect
+   * @param {function|boolean} [res] - A feature detection function, or the boolean =
+   * result of a feature detection function
+   */
+
+  ModernizrProto._trigger = function(feature, res) {
+    if (!this._l[feature]) {
+      return;
+    }
+
+    var cbs = this._l[feature];
+
+    // Force async
+    setTimeout(function() {
+      var i, cb;
+      for (i = 0; i < cbs.length; i++) {
+        cb = cbs[i];
+        cb(res);
+      }
+    }, 0);
+
+    // Don't trigger these again
+    delete this._l[feature];
+  };
+
+  /**
+   * addTest allows you to define your own feature detects that are not currently
+   * included in Modernizr (under the covers it's the exact same code Modernizr
+   * uses for its own [feature detections](https://github.com/Modernizr/Modernizr/tree/master/feature-detects)). Just like the offical detects, the result
+   * will be added onto the Modernizr object, as well as an appropriate className set on
+   * the html element when configured to do so
+   *
+   * @memberof Modernizr
+   * @name Modernizr.addTest
+   * @optionName Modernizr.addTest()
+   * @optionProp addTest
+   * @access public
+   * @function addTest
+   * @param {string|object} feature - The string name of the feature detect, or an
+   * object of feature detect names and test
+   * @param {function|boolean} test - Function returning true if feature is supported,
+   * false if not. Otherwise a boolean representing the results of a feature detection
+   * @example
+   *
+   * The most common way of creating your own feature detects is by calling
+   * `Modernizr.addTest` with a string (preferably just lowercase, without any
+   * punctuation), and a function you want executed that will return a boolean result
+   *
+   * ```js
+   * Modernizr.addTest('itsTuesday', function() {
+   *  var d = new Date();
+   *  return d.getDay() === 2;
+   * });
+   * ```
+   *
+   * When the above is run, it will set Modernizr.itstuesday to `true` when it is tuesday,
+   * and to `false` every other day of the week. One thing to notice is that the names of
+   * feature detect functions are always lowercased when added to the Modernizr object. That
+   * means that `Modernizr.itsTuesday` will not exist, but `Modernizr.itstuesday` will.
+   *
+   *
+   *  Since we only look at the returned value from any feature detection function,
+   *  you do not need to actually use a function. For simple detections, just passing
+   *  in a statement that will return a boolean value works just fine.
+   *
+   * ```js
+   * Modernizr.addTest('hasJquery', 'jQuery' in window);
+   * ```
+   *
+   * Just like before, when the above runs `Modernizr.hasjquery` will be true if
+   * jQuery has been included on the page. Not using a function saves a small amount
+   * of overhead for the browser, as well as making your code much more readable.
+   *
+   * Finally, you also have the ability to pass in an object of feature names and
+   * their tests. This is handy if you want to add multiple detections in one go.
+   * The keys should always be a string, and the value can be either a boolean or
+   * function that returns a boolean.
+   *
+   * ```js
+   * var detects = {
+   *  'hasjquery': 'jQuery' in window,
+   *  'itstuesday': function() {
+   *    var d = new Date();
+   *    return d.getDay() === 2;
+   *  }
+   * }
+   *
+   * Modernizr.addTest(detects);
+   * ```
+   *
+   * There is really no difference between the first methods and this one, it is
+   * just a convenience to let you write more readable code.
+   */
+
+  function addTest(feature, test) {
+
+    if (typeof feature == 'object') {
+      for (var key in feature) {
+        if (hasOwnProp(feature, key)) {
+          addTest(key, feature[ key ]);
+        }
+      }
+    } else {
+
+      feature = feature.toLowerCase();
+      var featureNameSplit = feature.split('.');
+      var last = Modernizr[featureNameSplit[0]];
+
+      // Again, we don't check for parent test existence. Get that right, though.
+      if (featureNameSplit.length == 2) {
+        last = last[featureNameSplit[1]];
+      }
+
+      if (typeof last != 'undefined') {
+        // we're going to quit if you're trying to overwrite an existing test
+        // if we were to allow it, we'd do this:
+        //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
+        //   docElement.className = docElement.className.replace( re, '' );
+        // but, no rly, stuff 'em.
+        return Modernizr;
+      }
+
+      test = typeof test == 'function' ? test() : test;
+
+      // Set the value (this is the magic, right here).
+      if (featureNameSplit.length == 1) {
+        Modernizr[featureNameSplit[0]] = test;
+      } else {
+        // cast to a Boolean, if not one already
+        if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
+          Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
+        }
+
+        Modernizr[featureNameSplit[0]][featureNameSplit[1]] = test;
+      }
+
+      // Set a single class (either `feature` or `no-feature`)
+      setClasses([(!!test && test != false ? '' : 'no-') + featureNameSplit.join('-')]);
+
+      // Trigger the event
+      Modernizr._trigger(feature, test);
+    }
+
+    return Modernizr; // allow chaining.
+  }
+
+  // After all the tests are run, add self to the Modernizr prototype
+  Modernizr._q.push(function() {
+    ModernizrProto.addTest = addTest;
+  });
+
+  
+
+
+  /**
+   * If the browsers follow the spec, then they would expose vendor-specific styles as:
+   *   elem.style.WebkitBorderRadius
+   * instead of something like the following (which is technically incorrect):
+   *   elem.style.webkitBorderRadius
+
+   * WebKit ghosts their properties in lowercase but Opera & Moz do not.
+   * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
+   *   erik.eae.net/archives/2008/03/10/21.48.10/
+
+   * More here: github.com/Modernizr/Modernizr/issues/issue/21
+   *
+   * @access private
+   * @returns {string} The string representing the vendor-specific style properties
+   */
+
+  var omPrefixes = 'Moz O ms Webkit';
+  
+
+  var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
+  ModernizrProto._cssomPrefixes = cssomPrefixes;
+  
+
+  /**
+   * atRule returns a given CSS property at-rule (eg @keyframes), possibly in
+   * some prefixed form, or false, in the case of an unsupported rule
+   *
+   * @memberof Modernizr
+   * @name Modernizr.atRule
+   * @optionName Modernizr.atRule()
+   * @optionProp atRule
+   * @access public
+   * @function atRule
+   * @param {string} prop - String name of the @-rule to test for
+   * @returns {string|boolean} The string representing the (possibly prefixed)
+   * valid version of the @-rule, or `false` when it is unsupported.
+   * @example
+   * ```js
+   *  var keyframes = Modernizr.atRule('@keyframes');
+   *
+   *  if (keyframes) {
+   *    // keyframes are supported
+   *    // could be `@-webkit-keyframes` or `@keyframes`
+   *  } else {
+   *    // keyframes === `false`
+   *  }
+   * ```
+   *
+   */
+
+  var atRule = function(prop) {
+    var length = prefixes.length;
+    var cssrule = window.CSSRule;
+    var rule;
+
+    if (typeof cssrule === 'undefined') {
+      return undefined;
+    }
+
+    if (!prop) {
+      return false;
+    }
+
+    // remove literal @ from beginning of provided property
+    prop = prop.replace(/^@/, '');
+
+    // CSSRules use underscores instead of dashes
+    rule = prop.replace(/-/g, '_').toUpperCase() + '_RULE';
+
+    if (rule in cssrule) {
+      return '@' + prop;
+    }
+
+    for (var i = 0; i < length; i++) {
+      // prefixes gives us something like -o-, and we want O_
+      var prefix = prefixes[i];
+      var thisRule = prefix.toUpperCase() + '_' + rule;
+
+      if (thisRule in cssrule) {
+        return '@-' + prefix.toLowerCase() + '-' + prop;
+      }
+    }
+
+    return false;
+  };
+
+  ModernizrProto.atRule = atRule;
+
+  
+
+  /**
+   * List of JavaScript DOM values used for tests
+   *
+   * @memberof Modernizr
+   * @name Modernizr._domPrefixes
+   * @optionName Modernizr._domPrefixes
+   * @optionProp domPrefixes
+   * @access public
+   * @example
+   *
+   * Modernizr._domPrefixes is exactly the same as [_prefixes](#modernizr-_prefixes), but rather
+   * than kebab-case properties, all properties are their Capitalized variant
+   *
+   * ```js
+   * Modernizr._domPrefixes === [ "Moz", "O", "ms", "Webkit" ];
+   * ```
+   */
+
+  var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
+  ModernizrProto._domPrefixes = domPrefixes;
+  
+
+  /**
+   * createElement is a convenience wrapper around document.createElement. Since we
+   * use createElement all over the place, this allows for (slightly) smaller code
+   * as well as abstracting away issues with creating elements in contexts other than
+   * HTML documents (e.g. SVG documents).
+   *
+   * @access private
+   * @function createElement
+   * @returns {HTMLElement|SVGElement} An HTML or SVG element
+   */
+
+  function createElement() {
+    if (typeof document.createElement !== 'function') {
+      // This is the case in IE7, where the type of createElement is "object".
+      // For this reason, we cannot call apply() as Object is not a Function.
+      return document.createElement(arguments[0]);
+    } else if (isSVG) {
+      return document.createElementNS.call(document, 'http://www.w3.org/2000/svg', arguments[0]);
+    } else {
+      return document.createElement.apply(document, arguments);
+    }
+  }
+
+  ;
+
+  /**
+   * Modernizr.hasEvent() detects support for a given event
+   *
+   * @memberof Modernizr
+   * @name Modernizr.hasEvent
+   * @optionName Modernizr.hasEvent()
+   * @optionProp hasEvent
+   * @access public
+   * @function hasEvent
+   * @param  {string|*} eventName - the name of an event to test for (e.g. "resize")
+   * @param  {Element|string} [element=HTMLDivElement] - is the element|document|window|tagName to test on
+   * @returns {boolean}
+   * @example
+   *  `Modernizr.hasEvent` lets you determine if the browser supports a supplied event.
+   *  By default, it does this detection on a div element
+   *
+   * ```js
+   *  hasEvent('blur') // true;
+   * ```
+   *
+   * However, you are able to give an object as a second argument to hasEvent to
+   * detect an event on something other than a div.
+   *
+   * ```js
+   *  hasEvent('devicelight', window) // true;
+   * ```
+   *
+   */
+
+  var hasEvent = (function() {
+
+    // Detect whether event support can be detected via `in`. Test on a DOM element
+    // using the "blur" event b/c it should always exist. bit.ly/event-detection
+    var needsFallback = !('onblur' in document.documentElement);
+
+    function inner(eventName, element) {
+
+      var isSupported;
+      if (!eventName) { return false; }
+      if (!element || typeof element === 'string') {
+        element = createElement(element || 'div');
+      }
+
+      // Testing via the `in` operator is sufficient for modern browsers and IE.
+      // When using `setAttribute`, IE skips "unload", WebKit skips "unload" and
+      // "resize", whereas `in` "catches" those.
+      eventName = 'on' + eventName;
+      isSupported = eventName in element;
+
+      // Fallback technique for old Firefox - bit.ly/event-detection
+      if (!isSupported && needsFallback) {
+        if (!element.setAttribute) {
+          // Switch to generic element if it lacks `setAttribute`.
+          // It could be the `document`, `window`, or something else.
+          element = createElement('div');
+        }
+
+        element.setAttribute(eventName, '');
+        isSupported = typeof element[eventName] === 'function';
+
+        if (element[eventName] !== undefined) {
+          // If property was created, "remove it" by setting value to `undefined`.
+          element[eventName] = undefined;
+        }
+        element.removeAttribute(eventName);
+      }
+
+      return isSupported;
+    }
+    return inner;
+  })();
+
+
+  ModernizrProto.hasEvent = hasEvent;
+  
+
+/**
+  * @optionName html5printshiv
+  * @optionProp html5printshiv
+  */
+
+  // Take the html5 variable out of the html5shiv scope so we can return it.
+  var html5;
+  if (!isSVG) {
+
+    /**
+     * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+     */
+    ;(function(window, document) {
+      /** version */
+      var version = '3.7.3';
+
+      /** Preset options */
+      var options = window.html5 || {};
+
+      /** Used to skip problem elements */
+      var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
+
+      /** Not all elements can be cloned in IE **/
+      var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
+
+      /** Detect whether the browser supports default html5 styles */
+      var supportsHtml5Styles;
+
+      /** Name of the expando, to work with multiple documents or to re-shiv one document */
+      var expando = '_html5shiv';
+
+      /** The id for the the documents expando */
+      var expanID = 0;
+
+      /** Cached data for each document */
+      var expandoData = {};
+
+      /** Detect whether the browser supports unknown elements */
+      var supportsUnknownElements;
+
+      (function() {
+        try {
+          var a = document.createElement('a');
+          a.innerHTML = '<xyz></xyz>';
+          //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
+          supportsHtml5Styles = ('hidden' in a);
+
+          supportsUnknownElements = a.childNodes.length == 1 || (function() {
+            // assign a false positive if unable to shiv
+            (document.createElement)('a');
+            var frag = document.createDocumentFragment();
+            return (
+              typeof frag.cloneNode == 'undefined' ||
+                typeof frag.createDocumentFragment == 'undefined' ||
+                typeof frag.createElement == 'undefined'
+            );
+          }());
+        } catch(e) {
+          // assign a false positive if detection fails => unable to shiv
+          supportsHtml5Styles = true;
+          supportsUnknownElements = true;
+        }
+
+      }());
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Creates a style sheet with the given CSS text and adds it to the document.
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @param {String} cssText The CSS text.
+       * @returns {StyleSheet} The style element.
+       */
+      function addStyleSheet(ownerDocument, cssText) {
+        var p = ownerDocument.createElement('p'),
+          parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
+
+        p.innerHTML = 'x<style>' + cssText + '</style>';
+        return parent.insertBefore(p.lastChild, parent.firstChild);
+      }
+
+      /**
+       * Returns the value of `html5.elements` as an array.
+       * @private
+       * @returns {Array} An array of shived element node names.
+       */
+      function getElements() {
+        var elements = html5.elements;
+        return typeof elements == 'string' ? elements.split(' ') : elements;
+      }
+
+      /**
+       * Extends the built-in list of html5 elements
+       * @memberOf html5
+       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
+       * @param {Document} ownerDocument The context document.
+       */
+      function addElements(newElements, ownerDocument) {
+        var elements = html5.elements;
+        if(typeof elements != 'string'){
+          elements = elements.join(' ');
+        }
+        if(typeof newElements != 'string'){
+          newElements = newElements.join(' ');
+        }
+        html5.elements = elements +' '+ newElements;
+        shivDocument(ownerDocument);
+      }
+
+      /**
+       * Returns the data associated to the given document
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @returns {Object} An object of data.
+       */
+      function getExpandoData(ownerDocument) {
+        var data = expandoData[ownerDocument[expando]];
+        if (!data) {
+          data = {};
+          expanID++;
+          ownerDocument[expando] = expanID;
+          expandoData[expanID] = data;
+        }
+        return data;
+      }
+
+      /**
+       * returns a shived element for the given nodeName and document
+       * @memberOf html5
+       * @param {String} nodeName name of the element
+       * @param {Document} ownerDocument The context document.
+       * @returns {Object} The shived element.
+       */
+      function createElement(nodeName, ownerDocument, data){
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        if(supportsUnknownElements){
+          return ownerDocument.createElement(nodeName);
+        }
+        if (!data) {
+          data = getExpandoData(ownerDocument);
+        }
+        var node;
+
+        if (data.cache[nodeName]) {
+          node = data.cache[nodeName].cloneNode();
+        } else if (saveClones.test(nodeName)) {
+          node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
+        } else {
+          node = data.createElem(nodeName);
+        }
+
+        // Avoid adding some elements to fragments in IE < 9 because
+        // * Attributes like `name` or `type` cannot be set/changed once an element
+        //   is inserted into a document/fragment
+        // * Link elements with `src` attributes that are inaccessible, as with
+        //   a 403 response, will cause the tab/window to crash
+        // * Script elements appended to fragments will execute when their `src`
+        //   or `text` property is set
+        return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
+      }
+
+      /**
+       * returns a shived DocumentFragment for the given document
+       * @memberOf html5
+       * @param {Document} ownerDocument The context document.
+       * @returns {Object} The shived DocumentFragment.
+       */
+      function createDocumentFragment(ownerDocument, data){
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        if(supportsUnknownElements){
+          return ownerDocument.createDocumentFragment();
+        }
+        data = data || getExpandoData(ownerDocument);
+        var clone = data.frag.cloneNode(),
+          i = 0,
+          elems = getElements(),
+          l = elems.length;
+        for(;i<l;i++){
+          clone.createElement(elems[i]);
+        }
+        return clone;
+      }
+
+      /**
+       * Shivs the `createElement` and `createDocumentFragment` methods of the document.
+       * @private
+       * @param {Document|DocumentFragment} ownerDocument The document.
+       * @param {Object} data of the document.
+       */
+      function shivMethods(ownerDocument, data) {
+        if (!data.cache) {
+          data.cache = {};
+          data.createElem = ownerDocument.createElement;
+          data.createFrag = ownerDocument.createDocumentFragment;
+          data.frag = data.createFrag();
+        }
+
+
+        ownerDocument.createElement = function(nodeName) {
+          //abort shiv
+          if (!html5.shivMethods) {
+            return data.createElem(nodeName);
+          }
+          return createElement(nodeName, ownerDocument, data);
+        };
+
+        ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
+                                                        'var n=f.cloneNode(),c=n.createElement;' +
+                                                        'h.shivMethods&&(' +
+                                                        // unroll the `createElement` calls
+                                                        getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
+                                                          data.createElem(nodeName);
+                                                          data.frag.createElement(nodeName);
+                                                          return 'c("' + nodeName + '")';
+                                                        }) +
+          ');return n}'
+                                                       )(html5, data.frag);
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Shivs the given document.
+       * @memberOf html5
+       * @param {Document} ownerDocument The document to shiv.
+       * @returns {Document} The shived document.
+       */
+      function shivDocument(ownerDocument) {
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        var data = getExpandoData(ownerDocument);
+
+        if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
+          data.hasCSS = !!addStyleSheet(ownerDocument,
+                                        // corrects block display not defined in IE6/7/8/9
+                                        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
+                                        // adds styling not present in IE6/7/8/9
+                                        'mark{background:#FF0;color:#000}' +
+                                        // hides non-rendered elements
+                                        'template{display:none}'
+                                       );
+        }
+        if (!supportsUnknownElements) {
+          shivMethods(ownerDocument, data);
+        }
+        return ownerDocument;
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * The `html5` object is exposed so that more elements can be shived and
+       * existing shiving can be detected on iframes.
+       * @type Object
+       * @example
+       *
+       * // options can be changed before the script is included
+       * html5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };
+       */
+      var html5 = {
+
+        /**
+         * An array or space separated string of node names of the elements to shiv.
+         * @memberOf html5
+         * @type Array|String
+         */
+        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
+
+        /**
+         * current version of html5shiv
+         */
+        'version': version,
+
+        /**
+         * A flag to indicate that the HTML5 style sheet should be inserted.
+         * @memberOf html5
+         * @type Boolean
+         */
+        'shivCSS': (options.shivCSS !== false),
+
+        /**
+         * Is equal to true if a browser supports creating unknown/HTML5 elements
+         * @memberOf html5
+         * @type boolean
+         */
+        'supportsUnknownElements': supportsUnknownElements,
+
+        /**
+         * A flag to indicate that the document's `createElement` and `createDocumentFragment`
+         * methods should be overwritten.
+         * @memberOf html5
+         * @type Boolean
+         */
+        'shivMethods': (options.shivMethods !== false),
+
+        /**
+         * A string to describe the type of `html5` object ("default" or "default print").
+         * @memberOf html5
+         * @type String
+         */
+        'type': 'default',
+
+        // shivs the document according to the specified `html5` object options
+        'shivDocument': shivDocument,
+
+        //creates a shived element
+        createElement: createElement,
+
+        //creates a shived documentFragment
+        createDocumentFragment: createDocumentFragment,
+
+        //extends list of elements
+        addElements: addElements
+      };
+
+      /*--------------------------------------------------------------------------*/
+
+      // expose html5
+      window.html5 = html5;
+
+      // shiv the document
+      shivDocument(document);
+
+      /*------------------------------- Print Shiv -------------------------------*/
+
+      /** Used to filter media types */
+      var reMedia = /^$|\b(?:all|print)\b/;
+
+      /** Used to namespace printable elements */
+      var shivNamespace = 'html5shiv';
+
+      /** Detect whether the browser supports shivable style sheets */
+      var supportsShivableSheets = !supportsUnknownElements && (function() {
+        // assign a false negative if unable to shiv
+        var docEl = document.documentElement;
+        return !(
+          typeof document.namespaces == 'undefined' ||
+            typeof document.parentWindow == 'undefined' ||
+            typeof docEl.applyElement == 'undefined' ||
+            typeof docEl.removeNode == 'undefined' ||
+            typeof window.attachEvent == 'undefined'
+        );
+      }());
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Wraps all HTML5 elements in the given document with printable elements.
+       * (eg. the "header" element is wrapped with the "html5shiv:header" element)
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @returns {Array} An array wrappers added.
+       */
+      function addWrappers(ownerDocument) {
+        var node,
+          nodes = ownerDocument.getElementsByTagName('*'),
+          index = nodes.length,
+          reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
+          result = [];
+
+        while (index--) {
+          node = nodes[index];
+          if (reElements.test(node.nodeName)) {
+            result.push(node.applyElement(createWrapper(node)));
+          }
+        }
+        return result;
+      }
+
+      /**
+       * Creates a printable wrapper for the given element.
+       * @private
+       * @param {Element} element The element.
+       * @returns {Element} The wrapper.
+       */
+      function createWrapper(element) {
+        var node,
+          nodes = element.attributes,
+          index = nodes.length,
+          wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
+
+        // copy element attributes to the wrapper
+        while (index--) {
+          node = nodes[index];
+          node.specified && wrapper.setAttribute(node.nodeName, node.nodeValue);
+        }
+        // copy element styles to the wrapper
+        wrapper.style.cssText = element.style.cssText;
+        return wrapper;
+      }
+
+      /**
+       * Shivs the given CSS text.
+       * (eg. header{} becomes html5shiv\:header{})
+       * @private
+       * @param {String} cssText The CSS text to shiv.
+       * @returns {String} The shived CSS text.
+       */
+      function shivCssText(cssText) {
+        var pair,
+          parts = cssText.split('{'),
+          index = parts.length,
+          reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
+          replacement = '$1' + shivNamespace + '\\:$2';
+
+        while (index--) {
+          pair = parts[index] = parts[index].split('}');
+          pair[pair.length - 1] = pair[pair.length - 1].replace(reElements, replacement);
+          parts[index] = pair.join('}');
+        }
+        return parts.join('{');
+      }
+
+      /**
+       * Removes the given wrappers, leaving the original elements.
+       * @private
+       * @params {Array} wrappers An array of printable wrappers.
+       */
+      function removeWrappers(wrappers) {
+        var index = wrappers.length;
+        while (index--) {
+          wrappers[index].removeNode();
+        }
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Shivs the given document for print.
+       * @memberOf html5
+       * @param {Document} ownerDocument The document to shiv.
+       * @returns {Document} The shived document.
+       */
+      function shivPrint(ownerDocument) {
+        var shivedSheet,
+          wrappers,
+          data = getExpandoData(ownerDocument),
+          namespaces = ownerDocument.namespaces,
+          ownerWindow = ownerDocument.parentWindow;
+
+        if (!supportsShivableSheets || ownerDocument.printShived) {
+          return ownerDocument;
+        }
+        if (typeof namespaces[shivNamespace] == 'undefined') {
+          namespaces.add(shivNamespace);
+        }
+
+        function removeSheet() {
+          clearTimeout(data._removeSheetTimer);
+          if (shivedSheet) {
+            shivedSheet.removeNode(true);
+          }
+          shivedSheet= null;
+        }
+
+        ownerWindow.attachEvent('onbeforeprint', function() {
+
+          removeSheet();
+
+          var imports,
+            length,
+            sheet,
+            collection = ownerDocument.styleSheets,
+            cssText = [],
+            index = collection.length,
+            sheets = Array(index);
+
+          // convert styleSheets collection to an array
+          while (index--) {
+            sheets[index] = collection[index];
+          }
+          // concat all style sheet CSS text
+          while ((sheet = sheets.pop())) {
+            // IE does not enforce a same origin policy for external style sheets...
+            // but has trouble with some dynamically created stylesheets
+            if (!sheet.disabled && reMedia.test(sheet.media)) {
+
+              try {
+                imports = sheet.imports;
+                length = imports.length;
+              } catch(er){
+                length = 0;
+              }
+
+              for (index = 0; index < length; index++) {
+                sheets.push(imports[index]);
+              }
+
+              try {
+                cssText.push(sheet.cssText);
+              } catch(er){}
+            }
+          }
+
+          // wrap all HTML5 elements with printable elements and add the shived style sheet
+          cssText = shivCssText(cssText.reverse().join(''));
+          wrappers = addWrappers(ownerDocument);
+          shivedSheet = addStyleSheet(ownerDocument, cssText);
+
+        });
+
+        ownerWindow.attachEvent('onafterprint', function() {
+          // remove wrappers, leaving the original elements, and remove the shived style sheet
+          removeWrappers(wrappers);
+          clearTimeout(data._removeSheetTimer);
+          data._removeSheetTimer = setTimeout(removeSheet, 500);
+        });
+
+        ownerDocument.printShived = true;
+        return ownerDocument;
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      // expose API
+      html5.type += ' print';
+      html5.shivPrint = shivPrint;
+
+      // shiv for print
+      shivPrint(document);
+
+      if(typeof module == 'object' && module.exports){
+        module.exports = html5;
+      }
+
+    }(typeof window !== 'undefined' ? window : this, document));
+  }
+
+  ;
+
+  /**
+   * Previously, Modernizr.load was an alias for yepnope. Since yepnope was
+   * deprecated, we removed it as well. It is not available on the website builder,
+   * this is only included as an improved warning to those who build a custom
+   * version locally.
+   *
+   * @memberof Modernizr
+   * @name Modernizr.load
+   * @access private
+   * @function load
+   *
+   */
+
+  var err = function() {};
+  var warn = function() {};
+
+  if (window.console) {
+    err = function() {
+      var method = console.error ? 'error' : 'log';
+      window.console[method].apply(window.console, Array.prototype.slice.call(arguments));
+    };
+
+    warn = function() {
+      var method = console.warn ? 'warn' : 'log';
+      window.console[method].apply(window.console, Array.prototype.slice.call(arguments));
+    };
+  }
+
+  ModernizrProto.load = function() {
+    if ('yepnope' in window) {
+      warn('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. yepnope appears to be available on the page, so we’ll use it to handle this call to Modernizr.load, but please update your code to use yepnope directly.\n See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
+      window.yepnope.apply(window, [].slice.call(arguments, 0));
+    } else {
+      err('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. Get it from http://yepnopejs.com. See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
+    }
+  };
+
+
+
+  /**
+   * getBody returns the body of a document, or an element that can stand in for
+   * the body if a real body does not exist
+   *
+   * @access private
+   * @function getBody
+   * @returns {HTMLElement|SVGElement} Returns the real body of a document, or an
+   * artificially created element that stands in for the body
+   */
+
+  function getBody() {
+    // After page load injecting a fake body doesn't work so check if body exists
+    var body = document.body;
+
+    if (!body) {
+      // Can't use the real body create a fake one.
+      body = createElement(isSVG ? 'svg' : 'body');
+      body.fake = true;
+    }
+
+    return body;
+  }
+
+  ;
+
+  /**
+   * injectElementWithStyles injects an element with style element and some CSS rules
+   *
+   * @access private
+   * @function injectElementWithStyles
+   * @param {string} rule - String representing a css rule
+   * @param {function} callback - A function that is used to test the injected element
+   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
+   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
+   * @returns {boolean}
+   */
+
+  function injectElementWithStyles(rule, callback, nodes, testnames) {
+    var mod = 'modernizr';
+    var style;
+    var ret;
+    var node;
+    var docOverflow;
+    var div = createElement('div');
+    var body = getBody();
+
+    if (parseInt(nodes, 10)) {
+      // In order not to give false positives we create a node for each test
+      // This also allows the method to scale for unspecified uses
+      while (nodes--) {
+        node = createElement('div');
+        node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
+        div.appendChild(node);
+      }
+    }
+
+    style = createElement('style');
+    style.type = 'text/css';
+    style.id = 's' + mod;
+
+    // IE6 will false positive on some tests due to the style element inside the test div somehow interfering offsetHeight, so insert it into body or fakebody.
+    // Opera will act all quirky when injecting elements in documentElement when page is served as xml, needs fakebody too. #270
+    (!body.fake ? div : body).appendChild(style);
+    body.appendChild(div);
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = rule;
+    } else {
+      style.appendChild(document.createTextNode(rule));
+    }
+    div.id = mod;
+
+    if (body.fake) {
+      //avoid crashing IE8, if background image is used
+      body.style.background = '';
+      //Safari 5.13/5.1.4 OSX stops loading if ::-webkit-scrollbar is used and scrollbars are visible
+      body.style.overflow = 'hidden';
+      docOverflow = docElement.style.overflow;
+      docElement.style.overflow = 'hidden';
+      docElement.appendChild(body);
+    }
+
+    ret = callback(div, rule);
+    // If this is done after page load we don't want to remove the body so check if body exists
+    if (body.fake) {
+      body.parentNode.removeChild(body);
+      docElement.style.overflow = docOverflow;
+      // Trigger layout so kinetic scrolling isn't disabled in iOS6+
+      // eslint-disable-next-line
+      docElement.offsetHeight;
+    } else {
+      div.parentNode.removeChild(div);
+    }
+
+    return !!ret;
+
+  }
+
+  ;
+
+  /**
+   * Modernizr.mq tests a given media query, live against the current state of the window
+   * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
+   * gist.github.com/786768
+   *
+   * @memberof Modernizr
+   * @name Modernizr.mq
+   * @optionName Modernizr.mq()
+   * @optionProp mq
+   * @access public
+   * @function mq
+   * @param {string} mq - String of the media query we want to test
+   * @returns {boolean}
+   * @example
+   * Modernizr.mq allows for you to programmatically check if the current browser
+   * window state matches a media query.
+   *
+   * ```js
+   *  var query = Modernizr.mq('(min-width: 900px)');
+   *
+   *  if (query) {
+   *    // the browser window is larger than 900px
+   *  }
+   * ```
+   *
+   * Only valid media queries are supported, therefore you must always include values
+   * with your media query
+   *
+   * ```js
+   * // good
+   *  Modernizr.mq('(min-width: 900px)');
+   *
+   * // bad
+   *  Modernizr.mq('min-width');
+   * ```
+   *
+   * If you would just like to test that media queries are supported in general, use
+   *
+   * ```js
+   *  Modernizr.mq('only all'); // true if MQ are supported, false if not
+   * ```
+   *
+   *
+   * Note that if the browser does not support media queries (e.g. old IE) mq will
+   * always return false.
+   */
+
+  var mq = (function() {
+    var matchMedia = window.matchMedia || window.msMatchMedia;
+    if (matchMedia) {
+      return function(mq) {
+        var mql = matchMedia(mq);
+        return mql && mql.matches || false;
+      };
+    }
+
+    return function(mq) {
+      var bool = false;
+
+      injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
+        bool = (window.getComputedStyle ?
+                window.getComputedStyle(node, null) :
+                node.currentStyle).position == 'absolute';
+      });
+
+      return bool;
+    };
+  })();
+
+
+  ModernizrProto.mq = mq;
+
+  
+
+
+  /**
+   * contains checks to see if a string contains another string
+   *
+   * @access private
+   * @function contains
+   * @param {string} str - The string we want to check for substrings
+   * @param {string} substr - The substring we want to search the first string for
+   * @returns {boolean}
+   */
+
+  function contains(str, substr) {
+    return !!~('' + str).indexOf(substr);
+  }
+
+  ;
+
+  /**
+   * Create our "modernizr" element that we do most feature tests on.
+   *
+   * @access private
+   */
+
+  var modElem = {
+    elem: createElement('modernizr')
+  };
+
+  // Clean up this element
+  Modernizr._q.push(function() {
+    delete modElem.elem;
+  });
+
+  
+
+  var mStyle = {
+    style: modElem.elem.style
+  };
+
+  // kill ref for gc, must happen before mod.elem is removed, so we unshift on to
+  // the front of the queue.
+  Modernizr._q.unshift(function() {
+    delete mStyle.style;
+  });
+
+  
+
+  /**
+   * domToCSS takes a camelCase string and converts it to kebab-case
+   * e.g. boxSizing -> box-sizing
+   *
+   * @access private
+   * @function domToCSS
+   * @param {string} name - String name of camelCase prop we want to convert
+   * @returns {string} The kebab-case version of the supplied name
+   */
+
+  function domToCSS(name) {
+    return name.replace(/([A-Z])/g, function(str, m1) {
+      return '-' + m1.toLowerCase();
+    }).replace(/^ms-/, '-ms-');
+  }
+  ;
+
+
+  /**
+   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
+   * called inside of a hidden iframe
+   *
+   * @access private
+   * @function computedStyle
+   * @param {HTMLElement|SVGElement} - The element we want to find the computed styles of
+   * @param {string|null} [pseudoSelector]- An optional pseudo element selector (e.g. :before), of null if none
+   * @returns {CSSStyleDeclaration}
+   */
+
+  function computedStyle(elem, pseudo, prop) {
+    var result;
+
+    if ('getComputedStyle' in window) {
+      result = getComputedStyle.call(window, elem, pseudo);
+      var console = window.console;
+
+      if (result !== null) {
+        if (prop) {
+          result = result.getPropertyValue(prop);
+        }
+      } else {
+        if (console) {
+          var method = console.error ? 'error' : 'log';
+          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
+        }
+      }
+    } else {
+      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
+    }
+
+    return result;
+  }
+
+  ;
+
+  /**
+   * nativeTestProps allows for us to use native feature detection functionality if available.
+   * some prefixed form, or false, in the case of an unsupported rule
+   *
+   * @access private
+   * @function nativeTestProps
+   * @param {array} props - An array of property names
+   * @param {string} value - A string representing the value we want to check via @supports
+   * @returns {boolean|undefined} A boolean when @supports exists, undefined otherwise
+   */
+
+  // Accepts a list of property names and a single value
+  // Returns `undefined` if native detection not available
+  function nativeTestProps(props, value) {
+    var i = props.length;
+    // Start with the JS API: http://www.w3.org/TR/css3-conditional/#the-css-interface
+    if ('CSS' in window && 'supports' in window.CSS) {
+      // Try every prefixed variant of the property
+      while (i--) {
+        if (window.CSS.supports(domToCSS(props[i]), value)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    // Otherwise fall back to at-rule (for Opera 12.x)
+    else if ('CSSSupportsRule' in window) {
+      // Build a condition string for every prefixed variant
+      var conditionText = [];
+      while (i--) {
+        conditionText.push('(' + domToCSS(props[i]) + ':' + value + ')');
+      }
+      conditionText = conditionText.join(' or ');
+      return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
+        return computedStyle(node, null, 'position') == 'absolute';
+      });
+    }
+    return undefined;
+  }
+  ;
+
+  /**
+   * cssToDOM takes a kebab-case string and converts it to camelCase
+   * e.g. box-sizing -> boxSizing
+   *
+   * @access private
+   * @function cssToDOM
+   * @param {string} name - String name of kebab-case prop we want to convert
+   * @returns {string} The camelCase version of the supplied name
+   */
+
+  function cssToDOM(name) {
+    return name.replace(/([a-z])-([a-z])/g, function(str, m1, m2) {
+      return m1 + m2.toUpperCase();
+    }).replace(/^-/, '');
+  }
+  ;
+
+  // testProps is a generic CSS / DOM property test.
+
+  // In testing support for a given CSS property, it's legit to test:
+  //    `elem.style[styleName] !== undefined`
+  // If the property is supported it will return an empty string,
+  // if unsupported it will return undefined.
+
+  // We'll take advantage of this quick test and skip setting a style
+  // on our modernizr element, but instead just testing undefined vs
+  // empty string.
+
+  // Property names can be provided in either camelCase or kebab-case.
+
+  function testProps(props, prefixed, value, skipValueTest) {
+    skipValueTest = is(skipValueTest, 'undefined') ? false : skipValueTest;
+
+    // Try native detect first
+    if (!is(value, 'undefined')) {
+      var result = nativeTestProps(props, value);
+      if (!is(result, 'undefined')) {
+        return result;
+      }
+    }
+
+    // Otherwise do it properly
+    var afterInit, i, propsLength, prop, before;
+
+    // If we don't have a style element, that means we're running async or after
+    // the core tests, so we'll need to create our own elements to use
+
+    // inside of an SVG element, in certain browsers, the `style` element is only
+    // defined for valid tags. Therefore, if `modernizr` does not have one, we
+    // fall back to a less used element and hope for the best.
+    // for strict XHTML browsers the hardly used samp element is used
+    var elems = ['modernizr', 'tspan', 'samp'];
+    while (!mStyle.style && elems.length) {
+      afterInit = true;
+      mStyle.modElem = createElement(elems.shift());
+      mStyle.style = mStyle.modElem.style;
+    }
+
+    // Delete the objects if we created them.
+    function cleanElems() {
+      if (afterInit) {
+        delete mStyle.style;
+        delete mStyle.modElem;
+      }
+    }
+
+    propsLength = props.length;
+    for (i = 0; i < propsLength; i++) {
+      prop = props[i];
+      before = mStyle.style[prop];
+
+      if (contains(prop, '-')) {
+        prop = cssToDOM(prop);
+      }
+
+      if (mStyle.style[prop] !== undefined) {
+
+        // If value to test has been passed in, do a set-and-check test.
+        // 0 (integer) is a valid property value, so check that `value` isn't
+        // undefined, rather than just checking it's truthy.
+        if (!skipValueTest && !is(value, 'undefined')) {
+
+          // Needs a try catch block because of old IE. This is slow, but will
+          // be avoided in most cases because `skipValueTest` will be used.
+          try {
+            mStyle.style[prop] = value;
+          } catch (e) {}
+
+          // If the property value has changed, we assume the value used is
+          // supported. If `value` is empty string, it'll fail here (because
+          // it hasn't changed), which matches how browsers have implemented
+          // CSS.supports()
+          if (mStyle.style[prop] != before) {
+            cleanElems();
+            return prefixed == 'pfx' ? prop : true;
+          }
+        }
+        // Otherwise just return true, or the property name if this is a
+        // `prefixed()` call
+        else {
+          cleanElems();
+          return prefixed == 'pfx' ? prop : true;
+        }
+      }
+    }
+    cleanElems();
+    return false;
+  }
+
+  ;
+
+  /**
+   * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
+   *
+   * @access private
+   * @function fnBind
+   * @param {function} fn - a function you want to change `this` reference to
+   * @param {object} that - the `this` you want to call the function with
+   * @returns {function} The wrapped version of the supplied function
+   */
+
+  function fnBind(fn, that) {
+    return function() {
+      return fn.apply(that, arguments);
+    };
+  }
+
+  ;
+
+  /**
+   * testDOMProps is a generic DOM property test; if a browser supports
+   *   a certain property, it won't return undefined for it.
+   *
+   * @access private
+   * @function testDOMProps
+   * @param {array.<string>} props - An array of properties to test for
+   * @param {object} obj - An object or Element you want to use to test the parameters again
+   * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
+   * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
+   */
+  function testDOMProps(props, obj, elem) {
+    var item;
+
+    for (var i in props) {
+      if (props[i] in obj) {
+
+        // return the property name as a string
+        if (elem === false) {
+          return props[i];
+        }
+
+        item = obj[props[i]];
+
+        // let's bind a function
+        if (is(item, 'function')) {
+          // bind to obj unless overriden
+          return fnBind(item, elem || obj);
+        }
+
+        // return the unbound function or obj or value
+        return item;
+      }
+    }
+    return false;
+  }
+
+  ;
+
+  /**
+   * testPropsAll tests a list of DOM properties we want to check against.
+   * We specify literally ALL possible (known and/or likely) properties on
+   * the element including the non-vendor prefixed one, for forward-
+   * compatibility.
+   *
+   * @access private
+   * @function testPropsAll
+   * @param {string} prop - A string of the property to test for
+   * @param {string|object} [prefixed] - An object to check the prefixed properties on. Use a string to skip
+   * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
+   * @param {string} [value] - A string of a css value
+   * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
+   * @returns {false|string} returns the string version of the property, or false if it is unsupported
+   */
+  function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
+
+    var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
+      props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+
+    // did they call .prefixed('boxSizing') or are we just testing a prop?
+    if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
+      return testProps(props, prefixed, value, skipValueTest);
+
+      // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
+    } else {
+      props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
+      return testDOMProps(props, prefixed, elem);
+    }
+  }
+
+  // Modernizr.testAllProps() investigates whether a given style property,
+  // or any of its vendor-prefixed variants, is recognized
+  //
+  // Note that the property names must be provided in the camelCase variant.
+  // Modernizr.testAllProps('boxSizing')
+  ModernizrProto.testAllProps = testPropsAll;
+
+  
+
+  /**
+   * prefixed returns the prefixed or nonprefixed property name variant of your input
+   *
+   * @memberof Modernizr
+   * @name Modernizr.prefixed
+   * @optionName Modernizr.prefixed()
+   * @optionProp prefixed
+   * @access public
+   * @function prefixed
+   * @param {string} prop - String name of the property to test for
+   * @param {object} [obj] - An object to test for the prefixed properties on
+   * @param {HTMLElement} [elem] - An element used to test specific properties against
+   * @returns {string|false} The string representing the (possibly prefixed) valid
+   * version of the property, or `false` when it is unsupported.
+   * @example
+   *
+   * Modernizr.prefixed takes a string css value in the DOM style camelCase (as
+   * opposed to the css style kebab-case) form and returns the (possibly prefixed)
+   * version of that property that the browser actually supports.
+   *
+   * For example, in older Firefox...
+   * ```js
+   * prefixed('boxSizing')
+   * ```
+   * returns 'MozBoxSizing'
+   *
+   * In newer Firefox, as well as any other browser that support the unprefixed
+   * version would simply return `boxSizing`. Any browser that does not support
+   * the property at all, it will return `false`.
+   *
+   * By default, prefixed is checked against a DOM element. If you want to check
+   * for a property on another object, just pass it as a second argument
+   *
+   * ```js
+   * var rAF = prefixed('requestAnimationFrame', window);
+   *
+   * raf(function() {
+   *  renderFunction();
+   * })
+   * ```
+   *
+   * Note that this will return _the actual function_ - not the name of the function.
+   * If you need the actual name of the property, pass in `false` as a third argument
+   *
+   * ```js
+   * var rAFProp = prefixed('requestAnimationFrame', window, false);
+   *
+   * rafProp === 'WebkitRequestAnimationFrame' // in older webkit
+   * ```
+   *
+   * One common use case for prefixed is if you're trying to determine which transition
+   * end event to bind to, you might do something like...
+   * ```js
+   * var transEndEventNames = {
+   *     'WebkitTransition' : 'webkitTransitionEnd', * Saf 6, Android Browser
+   *     'MozTransition'    : 'transitionend',       * only for FF < 15
+   *     'transition'       : 'transitionend'        * IE10, Opera, Chrome, FF 15+, Saf 7+
+   * };
+   *
+   * var transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
+   * ```
+   *
+   * If you want a similar lookup, but in kebab-case, you can use [prefixedCSS](#modernizr-prefixedcss).
+   */
+
+  var prefixed = ModernizrProto.prefixed = function(prop, obj, elem) {
+    if (prop.indexOf('@') === 0) {
+      return atRule(prop);
+    }
+
+    if (prop.indexOf('-') != -1) {
+      // Convert kebab-case to camelCase
+      prop = cssToDOM(prop);
+    }
+    if (!obj) {
+      return testPropsAll(prop, 'pfx');
+    } else {
+      // Testing DOM property e.g. Modernizr.prefixed('requestAnimationFrame', window) // 'mozRequestAnimationFrame'
+      return testPropsAll(prop, obj, elem);
+    }
+  };
+
+  
+
+  /**
+   * List of property values to set for css tests. See ticket #21
+   * http://git.io/vUGl4
+   *
+   * @memberof Modernizr
+   * @name Modernizr._prefixes
+   * @optionName Modernizr._prefixes
+   * @optionProp prefixes
+   * @access public
+   * @example
+   *
+   * Modernizr._prefixes is the internal list of prefixes that we test against
+   * inside of things like [prefixed](#modernizr-prefixed) and [prefixedCSS](#-code-modernizr-prefixedcss). It is simply
+   * an array of kebab-case vendor prefixes you can use within your code.
+   *
+   * Some common use cases include
+   *
+   * Generating all possible prefixed version of a CSS property
+   * ```js
+   * var rule = Modernizr._prefixes.join('transform: rotate(20deg); ');
+   *
+   * rule === 'transform: rotate(20deg); webkit-transform: rotate(20deg); moz-transform: rotate(20deg); o-transform: rotate(20deg); ms-transform: rotate(20deg);'
+   * ```
+   *
+   * Generating all possible prefixed version of a CSS value
+   * ```js
+   * rule = 'display:' +  Modernizr._prefixes.join('flex; display:') + 'flex';
+   *
+   * rule === 'display:flex; display:-webkit-flex; display:-moz-flex; display:-o-flex; display:-ms-flex; display:flex'
+   * ```
+   */
+
+  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
+  // values in feature detects to continue to work
+  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
+
+  // expose these for the plugin API. Look in the source for how to join() them against your input
+  ModernizrProto._prefixes = prefixes;
+
+  
+
+  /**
+   * prefixedCSS is just like [prefixed](#modernizr-prefixed), but the returned values are in
+   * kebab-case (e.g. `box-sizing`) rather than camelCase (boxSizing).
+   *
+   * @memberof Modernizr
+   * @name Modernizr.prefixedCSS
+   * @optionName Modernizr.prefixedCSS()
+   * @optionProp prefixedCSS
+   * @access public
+   * @function prefixedCSS
+   * @param {string} prop - String name of the property to test for
+   * @returns {string|false} The string representing the (possibly prefixed)
+   * valid version of the property, or `false` when it is unsupported.
+   * @example
+   *
+   * `Modernizr.prefixedCSS` is like `Modernizr.prefixed`, but returns the result
+   * in hyphenated form
+   *
+   * ```js
+   * Modernizr.prefixedCSS('transition') // '-moz-transition' in old Firefox
+   * ```
+   *
+   * Since it is only useful for CSS style properties, it can only be tested against
+   * an HTMLElement.
+   *
+   * Properties can be passed as both the DOM style camelCase or CSS style kebab-case.
+   */
+
+  var prefixedCSS = ModernizrProto.prefixedCSS = function(prop) {
+    var prefixedProp = prefixed(prop);
+    return prefixedProp && domToCSS(prefixedProp);
+  };
+  
+
+  /**
+   * testAllProps determines whether a given CSS property is supported in the browser
+   *
+   * @memberof Modernizr
+   * @name Modernizr.testAllProps
+   * @optionName Modernizr.testAllProps()
+   * @optionProp testAllProps
+   * @access public
+   * @function testAllProps
+   * @param {string} prop - String naming the property to test (either camelCase or kebab-case)
+   * @param {string} [value] - String of the value to test
+   * @param {boolean} [skipValueTest=false] - Whether to skip testing that the value is supported when using non-native detection
+   * @example
+   *
+   * testAllProps determines whether a given CSS property, in some prefixed form,
+   * is supported by the browser.
+   *
+   * ```js
+   * testAllProps('boxSizing')  // true
+   * ```
+   *
+   * It can optionally be given a CSS value in string form to test if a property
+   * value is valid
+   *
+   * ```js
+   * testAllProps('display', 'block') // true
+   * testAllProps('display', 'penguin') // false
+   * ```
+   *
+   * A boolean can be passed as a third parameter to skip the value check when
+   * native detection (@supports) isn't available.
+   *
+   * ```js
+   * testAllProps('shapeOutside', 'content-box', true);
+   * ```
+   */
+
+  function testAllProps(prop, value, skipValueTest) {
+    return testPropsAll(prop, undefined, undefined, value, skipValueTest);
+  }
+  ModernizrProto.testAllProps = testAllProps;
+  
+
+  /**
+   * testProp() investigates whether a given style property is recognized
+   * Property names can be provided in either camelCase or kebab-case.
+   *
+   * @memberof Modernizr
+   * @name Modernizr.testProp
+   * @access public
+   * @optionName Modernizr.testProp()
+   * @optionProp testProp
+   * @function testProp
+   * @param {string} prop - Name of the CSS property to check
+   * @param {string} [value] - Name of the CSS value to check
+   * @param {boolean} [useValue] - Whether or not to check the value if @supports isn't supported
+   * @returns {boolean}
+   * @example
+   *
+   * Just like [testAllProps](#modernizr-testallprops), only it does not check any vendor prefixed
+   * version of the string.
+   *
+   * Note that the property name must be provided in camelCase (e.g. boxSizing not box-sizing)
+   *
+   * ```js
+   * Modernizr.testProp('pointerEvents')  // true
+   * ```
+   *
+   * You can also provide a value as an optional second argument to check if a
+   * specific value is supported
+   *
+   * ```js
+   * Modernizr.testProp('pointerEvents', 'none') // true
+   * Modernizr.testProp('pointerEvents', 'penguin') // false
+   * ```
+   */
+
+  var testProp = ModernizrProto.testProp = function(prop, value, useValue) {
+    return testProps([prop], undefined, value, useValue);
+  };
+  
+
+  /**
+   * testStyles injects an element with style element and some CSS rules
+   *
+   * @memberof Modernizr
+   * @name Modernizr.testStyles
+   * @optionName Modernizr.testStyles()
+   * @optionProp testStyles
+   * @access public
+   * @function testStyles
+   * @param {string} rule - String representing a css rule
+   * @param {function} callback - A function that is used to test the injected element
+   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
+   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
+   * @returns {boolean}
+   * @example
+   *
+   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
+   * along with (possibly multiple) DOM elements. This lets you check for features
+   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
+   *   // elem is the first DOM node in the page (by default #modernizr)
+   *   // rule is the first argument you supplied - the CSS rule in string form
+   *
+   *   addTest('widthworks', elem.style.width === '9px')
+   * });
+   * ```
+   *
+   * If your test requires multiple nodes, you can include a third argument
+   * indicating how many additional div elements to include on the page. The
+   * additional nodes are injected as children of the `elem` that is returned as
+   * the first argument to the callback.
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
+   *   document.getElementById('modernizr').style.width === '1px'; // true
+   *   document.getElementById('modernizr2').style.width === '2px'; // true
+   *   elem.firstChild === document.getElementById('modernizr2'); // true
+   * }, 1);
+   * ```
+   *
+   * By default, all of the additional elements have an ID of `modernizr[n]`, where
+   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
+   * the second additional is `#modernizr3`, etc.).
+   * If you want to have more meaningful IDs for your function, you can provide
+   * them as the fourth argument, as an array of strings
+   *
+   * ```js
+   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
+   *   elem.firstChild === document.getElementById('foo'); // true
+   *   elem.lastChild === document.getElementById('bar'); // true
+   * }, 2, ['foo', 'bar']);
+   * ```
+   *
+   */
+
+  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
+  
+/*!
+{
+  "name": "a[download] Attribute",
+  "property": "adownload",
+  "caniuse" : "download",
+  "tags": ["media", "attribute"],
+  "builderAliases": ["a_download"],
+  "notes": [{
+    "name": "WhatWG Reference",
+    "href": "https://developers.whatwg.org/links.html#downloading-resources"
+  }]
+}
+!*/
+/* DOC
+When used on an `<a>`, this attribute signifies that the resource it points to should be downloaded by the browser rather than navigating to it.
+*/
+
+  Modernizr.addTest('adownload', !window.externalHost && 'download' in createElement('a'));
+
+/*!
+{
+  "name": "Application Cache",
+  "property": "applicationcache",
+  "caniuse": "offline-apps",
+  "tags": ["storage", "offline"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en/docs/HTML/Using_the_application_cache"
+  }],
+  "polyfills": ["html5gears"]
+}
+!*/
+/* DOC
+Detects support for the Application Cache, for storing data to enable web-based applications run offline.
+
+The API has been [heavily criticized](http://alistapart.com/article/application-cache-is-a-douchebag) and discussions are underway to address this.
+*/
+
+  Modernizr.addTest('applicationcache', 'applicationCache' in window);
+
+/*!
+{
+  "name": "Blob constructor",
+  "property": "blobconstructor",
+  "aliases": ["blob-constructor"],
+  "builderAliases": ["blob_constructor"],
+  "caniuse": "blobbuilder",
+  "notes": [{
+    "name": "W3C spec",
+    "href": "https://w3c.github.io/FileAPI/#constructorBlob"
+  }],
+  "polyfills": ["blobjs"]
+}
+!*/
+/* DOC
+Detects support for the Blob constructor, for creating file-like objects of immutable, raw data.
+*/
+
+  Modernizr.addTest('blobconstructor', function() {
+    try {
+      return !!new Blob();
+    } catch (e) {
+      return false;
+    }
+  }, {
+    aliases: ['blob-constructor']
+  });
+
+/*!
+{
+  "name": "Canvas",
+  "property": "canvas",
+  "caniuse": "canvas",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
+}
+!*/
+/* DOC
+Detects support for the `<canvas>` element for 2D drawing.
+*/
+
+  // On the S60 and BB Storm, getContext exists, but always returns undefined
+  // so we actually have to call getContext() to verify
+  // github.com/Modernizr/Modernizr/issues/issue/97/
+  Modernizr.addTest('canvas', function() {
+    var elem = createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d'));
+  });
+
+/*!
+{
+  "name": "canvas blending support",
+  "property": "canvasblending",
+  "tags": ["canvas"],
+  "async" : false,
+  "notes": [{
+      "name": "HTML5 Spec",
+      "href": "https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html#blending"
+    },
+    {
+      "name": "Article",
+      "href": "https://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas"
+    }]
+}
+!*/
+/* DOC
+Detects if Photoshop style blending modes are available in canvas.
+*/
+
+
+  Modernizr.addTest('canvasblending', function() {
+    if (Modernizr.canvas === false) {
+      return false;
+    }
+    var ctx = createElement('canvas').getContext('2d');
+    // firefox 3 throws an error when setting an invalid `globalCompositeOperation`
+    try {
+      ctx.globalCompositeOperation = 'screen';
+    } catch (e) {}
+
+    return ctx.globalCompositeOperation === 'screen';
+  });
+
+
+/*!
+{
+  "name": "canvas.toDataURL type support",
+  "property": ["todataurljpeg", "todataurlpng", "todataurlwebp"],
+  "tags": ["canvas"],
+  "builderAliases": ["canvas_todataurl_type"],
+  "async" : false,
+  "notes": [{
+    "name": "MDN article",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement.toDataURL"
+  }]
+}
+!*/
+
+
+  var canvas = createElement('canvas');
+
+  Modernizr.addTest('todataurljpeg', function() {
+    return !!Modernizr.canvas && canvas.toDataURL('image/jpeg').indexOf('data:image/jpeg') === 0;
+  });
+  Modernizr.addTest('todataurlpng', function() {
+    return !!Modernizr.canvas && canvas.toDataURL('image/png').indexOf('data:image/png') === 0;
+  });
+  Modernizr.addTest('todataurlwebp', function() {
+    var supports = false;
+
+    // firefox 3 throws an error when you use an "invalid" toDataUrl
+    try {
+      supports = !!Modernizr.canvas && canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    } catch (e) {}
+
+    return supports;
+  });
+
+
+/*!
+{
+  "name": "canvas winding support",
+  "property": ["canvaswinding"],
+  "tags": ["canvas"],
+  "async" : false,
+  "notes": [{
+    "name": "Article",
+    "href": "https://blogs.adobe.com/webplatform/2013/01/30/winding-rules-in-canvas/"
+  }]
+}
+!*/
+/* DOC
+Determines if winding rules, which controls if a path can go clockwise or counterclockwise
+*/
+
+
+  Modernizr.addTest('canvaswinding', function() {
+    if (Modernizr.canvas === false) {
+      return false;
+    }
+    var ctx = createElement('canvas').getContext('2d');
+
+    ctx.rect(0, 0, 10, 10);
+    ctx.rect(2, 2, 6, 6);
+    return ctx.isPointInPath(5, 5, 'evenodd') === false;
+  });
+
+
+/*!
+{
+  "name": "Canvas text",
+  "property": "canvastext",
+  "caniuse": "canvas-text",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["canvastext"]
+}
+!*/
+/* DOC
+Detects support for the text APIs for `<canvas>` elements.
+*/
+
+  Modernizr.addTest('canvastext',  function() {
+    if (Modernizr.canvas  === false) {
+      return false;
+    }
+    return typeof createElement('canvas').getContext('2d').fillText == 'function';
+  });
+
+/*!
+{
+  "name": "Content Editable",
+  "property": "contenteditable",
+  "caniuse": "contenteditable",
+  "notes": [{
+    "name": "WHATWG spec",
+    "href": "https://html.spec.whatwg.org/multipage/interaction.html#contenteditable"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `contenteditable` attribute of elements, allowing their DOM text contents to be edited directly by the user.
+*/
+
+  Modernizr.addTest('contenteditable', function() {
+    // early bail out
+    if (!('contentEditable' in docElement)) {
+      return;
+    }
+
+    // some mobile browsers (android < 3.0, iOS < 5) claim to support
+    // contentEditable, but but don't really. This test checks to see
+    // confirms whether or not it actually supports it.
+
+    var div = createElement('div');
+    div.contentEditable = true;
+    return div.contentEditable === 'true';
+  });
+
+/*!
+{
+  "name": "Context menus",
+  "property": "contextmenu",
+  "caniuse": "menu",
+  "notes": [{
+    "name": "W3C spec",
+    "href": "http://www.w3.org/TR/html5/interactive-elements.html#context-menus"
+  },{
+    "name": "thewebrocks.com Demo",
+    "href": "http://thewebrocks.com/demos/context-menu/"
+  }],
+  "polyfills": ["jquery-contextmenu"]
+}
+!*/
+/* DOC
+Detects support for custom context menus.
+*/
+
+  Modernizr.addTest(
+    'contextmenu',
+    ('contextMenu' in docElement && 'HTMLMenuItemElement' in window)
+  );
+
+/*!
+{
+  "name": "Cookies",
+  "property": "cookies",
+  "tags": ["storage"],
+  "authors": ["tauren"]
+}
+!*/
+/* DOC
+Detects whether cookie support is enabled.
+*/
+
+  // https://github.com/Modernizr/Modernizr/issues/191
+
+  Modernizr.addTest('cookies', function() {
+    // navigator.cookieEnabled cannot detect custom or nuanced cookie blocking
+    // configurations. For example, when blocking cookies via the Advanced
+    // Privacy Settings in IE9, it always returns true. And there have been
+    // issues in the past with site-specific exceptions.
+    // Don't rely on it.
+
+    // try..catch because some in situations `document.cookie` is exposed but throws a
+    // SecurityError if you try to access it; e.g. documents created from data URIs
+    // or in sandboxed iframes (depending on flags/context)
+    try {
+      // Create cookie
+      document.cookie = 'cookietest=1';
+      var ret = document.cookie.indexOf('cookietest=') != -1;
+      // Delete cookie
+      document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+      return ret;
+    }
+    catch (e) {
+      return false;
+    }
+  });
+
+/*!
+{
+  "name": "Cross-Origin Resource Sharing",
+  "property": "cors",
+  "caniuse": "cors",
+  "authors": ["Theodoor van Donge"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
+  }],
+  "polyfills": ["pmxdr", "ppx", "flxhr"]
+}
+!*/
+/* DOC
+Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
+*/
+
+  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
+
+/*!
+{
+  "name": "Custom Elements API",
+  "property": "customelements",
+  "tags": ["customelements"],
+  "polyfills": ["customelements"],
+  "notes": [{
+    "name": "Specs for Custom Elements",
+    "href": "https://www.w3.org/TR/custom-elements/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the Custom Elements API, to create custom html elements via js
+*/
+
+  Modernizr.addTest('customelements', 'customElements' in window);
+
+/*!
+{
+  "name": "cssall",
+  "property": "cssall",
+  "notes": [{
+    "name": "Spec",
+    "href": "https://drafts.csswg.org/css-cascade/#all-shorthand"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `all` css property, which is a shorthand to reset all css properties (except direction and unicode-bidi) to their original value
+*/
+
+
+  Modernizr.addTest('cssall', 'all' in docElement.style);
+
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "https://goo.gl/OGw5Gm"
+  }]
+}
+!*/
+/* DOC
+Detects whether or not elements can be animated using CSS
+*/
+
+  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
+
+/*!
+{
+  "name": "Appearance",
+  "property": "appearance",
+  "caniuse": "css-appearance",
+  "tags": ["css"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance"
+  },{
+    "name": "CSS-Tricks CSS Almanac: appearance",
+    "href": "https://css-tricks.com/almanac/properties/a/appearance/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `appearance` css property, which is used to make an
+element inherit the style of a standard user interface element. It can also be
+used to remove the default styles of an element, such as input and buttons.
+*/
+
+  Modernizr.addTest('appearance', testAllProps('appearance'));
+
+/*!
+{
+  "name": "Backdrop Filter",
+  "property": "backdropfilter",
+  "authors": ["Brian Seward"],
+  "tags": ["css"],
+  "notes": [
+    {
+      "name": "W3C Editor’s Draft specification",
+      "href": "https://drafts.fxtf.org/filters-2/#BackdropFilterProperty"
+    },
+    {
+      "name": "Caniuse for CSS Backdrop Filter",
+      "href": "http://caniuse.com/#feat=css-backdrop-filter"
+    },
+    {
+      "name": "WebKit Blog introduction + Demo",
+      "href": "https://www.webkit.org/blog/3632/introducing-backdrop-filters/"
+    }
+  ]
+}
+!*/
+/* DOC
+Detects support for CSS Backdrop Filters, allowing for background blur effects like those introduced in iOS 7. Support for this was added to iOS Safari/WebKit in iOS 9.
+*/
+
+  Modernizr.addTest('backdropfilter', testAllProps('backdropFilter'));
+
+/*!
+{
+  "name": "CSS Background Blend Mode",
+  "property": "backgroundblendmode",
+  "caniuse": "css-backgroundblendmode",
+  "tags": ["css"],
+  "notes": [
+    {
+      "name": "CSS Blend Modes could be the next big thing in Web Design",
+      "href": " https://medium.com/@bennettfeely/css-blend-modes-could-be-the-next-big-thing-in-web-design-6b51bf53743a"
+    }, {
+      "name": "Demo",
+      "href": "http://bennettfeely.com/gradients/"
+    }
+  ]
+}
+!*/
+/* DOC
+Detects the ability for the browser to composite backgrounds using blending modes similar to ones found in Photoshop or Illustrator.
+*/
+
+  Modernizr.addTest('backgroundblendmode', prefixed('backgroundBlendMode', 'text'));
+
+/*!
+{
+  "name": "CSS Background Clip Text",
+  "property": "backgroundcliptext",
+  "authors": ["ausi"],
+  "tags": ["css"],
+  "notes": [
+    {
+      "name": "CSS Tricks Article",
+      "href": "https://css-tricks.com/image-under-text/"
+    },
+    {
+      "name": "MDN Docs",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
+    },
+    {
+      "name": "Related Github Issue",
+      "href": "https://github.com/Modernizr/Modernizr/issues/199"
+    }
+  ]
+}
+!*/
+/* DOC
+Detects the ability to control specifies whether or not an element's background
+extends beyond its border in CSS
+*/
+
+  Modernizr.addTest('backgroundcliptext', function() {
+    return testAllProps('backgroundClip', 'text');
+  });
+
+/*!
+{
+  "name": "Background Position Shorthand",
+  "property": "bgpositionshorthand",
+  "tags": ["css"],
+  "builderAliases": ["css_backgroundposition_shorthand"],
+  "notes": [{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en/CSS/background-position"
+  }, {
+    "name": "W3 Spec",
+    "href": "https://www.w3.org/TR/css3-background/#background-position"
+  }, {
+    "name": "Demo",
+    "href": "https://jsfiddle.net/Blink/bBXvt/"
+  }]
+}
+!*/
+/* DOC
+Detects if you can use the shorthand method to define multiple parts of an
+element's background-position simultaniously.
+
+eg `background-position: right 10px bottom 10px`
+*/
+
+  Modernizr.addTest('bgpositionshorthand', function() {
+    var elem = createElement('a');
+    var eStyle = elem.style;
+    var val = 'right 10px bottom 10px';
+    eStyle.cssText = 'background-position: ' + val + ';';
+    return (eStyle.backgroundPosition === val);
+  });
+
+/*!
+{
+  "name": "Background Position XY",
+  "property": "bgpositionxy",
+  "tags": ["css"],
+  "builderAliases": ["css_backgroundposition_xy"],
+  "authors": ["Allan Lei", "Brandom Aaron"],
+  "notes": [{
+    "name": "Demo",
+    "href": "https://jsfiddle.net/allanlei/R8AYS/"
+  }, {
+    "name": "Adapted From",
+    "href": "https://github.com/brandonaaron/jquery-cssHooks/blob/master/bgpos.js"
+  }]
+}
+!*/
+/* DOC
+Detects the ability to control an element's background position using css
+*/
+
+  Modernizr.addTest('bgpositionxy', function() {
+    return testAllProps('backgroundPositionX', '3px', true) && testAllProps('backgroundPositionY', '5px', true);
+  });
+
+/*!
+{
+  "name": "Background Repeat",
+  "property": ["bgrepeatspace", "bgrepeatround"],
+  "tags": ["css"],
+  "builderAliases": ["css_backgroundrepeat"],
+  "authors": ["Ryan Seddon"],
+  "notes": [{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat"
+  }, {
+    "name": "Test Page",
+    "href": "https://jsbin.com/uzesun/"
+  }, {
+    "name": "Demo",
+    "href": "https://jsfiddle.net/ryanseddon/yMLTQ/6/"
+  }]
+}
+!*/
+/* DOC
+Detects the ability to use round and space as properties for background-repeat
+*/
+
+  // Must value-test these
+  Modernizr.addTest('bgrepeatround', testAllProps('backgroundRepeat', 'round'));
+  Modernizr.addTest('bgrepeatspace', testAllProps('backgroundRepeat', 'space'));
+
+/*!
+{
+  "name": "Background Size",
+  "property": "backgroundsize",
+  "tags": ["css"],
+  "knownBugs": ["This will false positive in Opera Mini - https://github.com/Modernizr/Modernizr/issues/396"],
+  "notes": [{
+    "name": "Related Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/396"
+  }]
+}
+!*/
+
+  Modernizr.addTest('backgroundsize', testAllProps('backgroundSize', '100%', true));
+
+/*!
+{
+  "name": "Background Size Cover",
+  "property": "bgsizecover",
+  "tags": ["css"],
+  "builderAliases": ["css_backgroundsizecover"],
+  "notes": [{
+    "name" : "MDN Docs",
+    "href": "https://developer.mozilla.org/en/CSS/background-size"
+  }]
+}
+!*/
+
+  // Must test value, as this specifically tests the `cover` value
+  Modernizr.addTest('bgsizecover', testAllProps('backgroundSize', 'cover'));
+
+/*!
+{
+  "name": "Border Image",
+  "property": "borderimage",
+  "caniuse": "border-image",
+  "polyfills": ["css3pie"],
+   "knownBugs": ["Android < 2.0 is true, but has a broken implementation"],
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('borderimage', testAllProps('borderImage', 'url() 1', true));
+
+/*!
+{
+  "name": "Border Radius",
+  "property": "borderradius",
+  "caniuse": "border-radius",
+  "polyfills": ["css3pie"],
+  "tags": ["css"],
+  "notes": [{
+    "name": "Comprehensive Compat Chart",
+    "href": "https://muddledramblings.com/table-of-css3-border-radius-compliance"
+  }]
+}
+!*/
+
+  Modernizr.addTest('borderradius', testAllProps('borderRadius', '0px', true));
+
+/*!
+{
+  "name": "Box Shadow",
+  "property": "boxshadow",
+  "caniuse": "css-boxshadow",
+  "tags": ["css"],
+  "knownBugs": [
+    "WebOS false positives on this test.",
+    "The Kindle Silk browser false positives"
+  ]
+}
+!*/
+
+  Modernizr.addTest('boxshadow', testAllProps('boxShadow', '1px 1px', true));
+
+/*!
+{
+  "name": "Box Sizing",
+  "property": "boxsizing",
+  "caniuse": "css3-boxsizing",
+  "polyfills": ["borderboxmodel", "boxsizingpolyfill", "borderbox"],
+  "tags": ["css"],
+  "builderAliases": ["css_boxsizing"],
+  "notes": [{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/248"
+  }]
+}
+!*/
+
+  Modernizr.addTest('boxsizing', testAllProps('boxSizing', 'border-box', true) && (document.documentMode === undefined || document.documentMode > 7));
+
+/*!
+{
+  "name": "CSS Calc",
+  "property": "csscalc",
+  "caniuse": "calc",
+  "tags": ["css"],
+  "builderAliases": ["css_calc"],
+  "authors": ["@calvein"]
+}
+!*/
+/* DOC
+Method of allowing calculated values for length units. For example:
+
+```css
+//lem {
+  width: calc(100% - 3em);
+}
+```
+*/
+
+  Modernizr.addTest('csscalc', function() {
+    var prop = 'width:';
+    var value = 'calc(10px);';
+    var el = createElement('a');
+
+    el.style.cssText = prop + prefixes.join(value + prop);
+
+    return !!el.style.length;
+  });
+
+/*!
+{
+  "name": "CSS :checked pseudo-selector",
+  "caniuse": "css-sel3",
+  "property": "checked",
+  "tags": ["css"],
+  "notes": [{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/pull/879"
+  }]
+}
+!*/
+
+  Modernizr.addTest('checked', function() {
+    return testStyles('#modernizr {position:absolute} #modernizr input {margin-left:10px} #modernizr :checked {margin-left:20px;display:block}', function(elem) {
+      var cb = createElement('input');
+      cb.setAttribute('type', 'checkbox');
+      cb.setAttribute('checked', 'checked');
+      elem.appendChild(cb);
+      return cb.offsetLeft === 20;
+    });
+  });
+
+/*!
+{
+  "name": "CSS Font ch Units",
+  "authors": ["Ron Waldon (@jokeyrhyme)"],
+  "property": "csschunit",
+  "tags": ["css"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/css3-values/#font-relative-lengths"
+  }]
+}
+!*/
+
+  Modernizr.addTest('csschunit', function() {
+    var elemStyle = modElem.elem.style;
+    var supports;
+    try {
+      elemStyle.fontSize = '3ch';
+      supports = elemStyle.fontSize.indexOf('ch') !== -1;
+    } catch (e) {
+      supports = false;
+    }
+    return supports;
+  });
+
+/*!
+{
+  "name": "CSS Columns",
+  "property": "csscolumns",
+  "caniuse": "multicolumn",
+  "polyfills": ["css3multicolumnjs"],
+  "tags": ["css"]
+}
+!*/
+
+
+  (function() {
+
+    Modernizr.addTest('csscolumns', function() {
+      var bool = false;
+      var test = testAllProps('columnCount');
+      try {
+        bool = !!test
+        if (bool) {
+          bool = new Boolean(bool);
+        }
+      } catch (e) {}
+
+      return bool;
+    });
+
+    var props = ['Width', 'Span', 'Fill', 'Gap', 'Rule', 'RuleColor', 'RuleStyle', 'RuleWidth', 'BreakBefore', 'BreakAfter', 'BreakInside'];
+    var name, test;
+
+    for (var i = 0; i < props.length; i++) {
+      name = props[i].toLowerCase();
+      test = testAllProps('column' + props[i]);
+
+      // break-before, break-after & break-inside are not "column"-prefixed in spec
+      if (name === 'breakbefore' || name === 'breakafter' || name == 'breakinside') {
+        test = test || testAllProps(props[i]);
+      }
+
+      Modernizr.addTest('csscolumns.' + name, test);
+    }
+
+
+  })();
+
+
+/*!
+{
+  "name": "CSS Grid (old & new)",
+  "property": ["cssgrid", "cssgridlegacy"],
+  "authors": ["Faruk Ates"],
+  "tags": ["css"],
+  "notes": [{
+    "name": "The new, standardized CSS Grid",
+    "href": "https://www.w3.org/TR/css3-grid-layout/"
+  }, {
+    "name": "The _old_ CSS Grid (legacy)",
+    "href": "https://www.w3.org/TR/2011/WD-css3-grid-layout-20110407/"
+  }]
+}
+!*/
+
+  // `grid-columns` is only in the old syntax, `grid-column` exists in both and so `grid-template-rows` is used for the new syntax.
+  Modernizr.addTest('cssgridlegacy', testAllProps('grid-columns', '10px', true));
+  Modernizr.addTest('cssgrid', testAllProps('grid-template-rows', 'none', true));
+
+/*!
+{
+  "name": "CSS Cubic Bezier Range",
+  "property": "cubicbezierrange",
+  "tags": ["css"],
+  "builderAliases": ["css_cubicbezierrange"],
+  "doc" : null,
+  "authors": ["@calvein"],
+  "warnings": ["cubic-bezier values can't be > 1 for Webkit until [bug #45761](https://bugs.webkit.org/show_bug.cgi?id=45761) is fixed"],
+  "notes": [{
+    "name": "Comprehensive Compat Chart",
+    "href": "http://muddledramblings.com/table-of-css3-border-radius-compliance"
+  }]
+}
+!*/
+
+  Modernizr.addTest('cubicbezierrange', function() {
+    var el = createElement('a');
+    el.style.cssText = prefixes.join('transition-timing-function:cubic-bezier(1,0,0,1.1); ');
+    return !!el.style.length;
+  });
+
+/*!
+{
+  "name": "CSS Display run-in",
+  "property": "display-runin",
+  "authors": ["alanhogan"],
+  "tags": ["css"],
+  "builderAliases": ["css_displayrunin"],
+  "notes": [{
+    "name": "CSS Tricks Article",
+    "href": "https://css-tricks.com/596-run-in/"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/198"
+  }]
+}
+!*/
+
+  Modernizr.addTest('displayrunin', testAllProps('display', 'run-in'),
+    {aliases: ['display-runin']});
+
+/*!
+{
+  "name": "CSS Display table",
+  "property": "displaytable",
+  "caniuse": "css-table",
+  "authors": ["scottjehl"],
+  "tags": ["css"],
+  "builderAliases": ["css_displaytable"],
+  "notes": [{
+    "name": "Detects for all additional table display values",
+    "href": "http://pastebin.com/Gk9PeVaQ"
+  }]
+}
+!*/
+/* DOC
+`display: table` and `table-cell` test. (both are tested under one name `table-cell` )
+*/
+
+  // If a document is in rtl mode this test will fail so we force ltr mode on the injeced
+  // element https://github.com/Modernizr/Modernizr/issues/716
+  testStyles('#modernizr{display: table; direction: ltr}#modernizr div{display: table-cell; padding: 10px}', function(elem) {
+    var ret;
+    var child = elem.childNodes;
+    ret = child[0].offsetLeft < child[1].offsetLeft;
+    Modernizr.addTest('displaytable', ret, {aliases: ['display-table']});
+  }, 2);
+
+/*!
+{
+  "name": "CSS text-overflow ellipsis",
+  "property": "ellipsis",
+  "caniuse": "text-overflow",
+  "polyfills": [
+    "text-overflow"
+  ],
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('ellipsis', testAllProps('textOverflow', 'ellipsis'));
+
+/*!
+{
+  "name": "CSS.escape()",
+  "property": "cssescape",
+  "polyfills": [
+    "css-escape"
+  ],
+  "tags": [
+    "css",
+    "cssom"
+  ]
+}
+!*/
+/* DOC
+Tests for `CSS.escape()` support.
+*/
+
+  var CSS = window.CSS;
+  Modernizr.addTest('cssescape', CSS ? typeof CSS.escape == 'function' : false);
+
+/*!
+{
+  "name": "CSS Font ex Units",
+  "authors": ["Ron Waldon (@jokeyrhyme)"],
+  "property": "cssexunit",
+  "tags": ["css"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/css3-values/#font-relative-lengths"
+  }]
+}
+!*/
+
+  Modernizr.addTest('cssexunit', function() {
+    var elemStyle = modElem.elem.style;
+    var supports;
+    try {
+      elemStyle.fontSize = '3ex';
+      supports = elemStyle.fontSize.indexOf('ex') !== -1;
+    } catch (e) {
+      supports = false;
+    }
+    return supports;
+  });
+
+/*!
+{
+  "name": "CSS Supports",
+  "property": "supports",
+  "caniuse": "css-featurequeries",
+  "tags": ["css"],
+  "builderAliases": ["css_supports"],
+  "notes": [{
+    "name": "W3 Spec",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#at-supports"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/648"
+  },{
+    "name": "W3 Info",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
+  }]
+}
+!*/
+
+  var newSyntax = 'CSS' in window && 'supports' in window.CSS;
+  var oldSyntax = 'supportsCSS' in window;
+  Modernizr.addTest('supports', newSyntax || oldSyntax);
+
+/*!
+{
+  "name": "CSS Filters",
+  "property": "cssfilters",
+  "caniuse": "css-filters",
+  "polyfills": ["polyfilter"],
+  "tags": ["css"],
+  "builderAliases": ["css_filters"],
+  "notes": [{
+    "name": "MDN article on CSS filters",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/filter"
+  }]
+}
+!*/
+
+  Modernizr.addTest('cssfilters', function() {
+    if (Modernizr.supports) {
+      return testAllProps('filter', 'blur(2px)');
+    } else {
+      var el = createElement('a');
+      el.style.cssText = prefixes.join('filter:blur(2px); ');
+      // https://github.com/Modernizr/Modernizr/issues/615
+      // documentMode is needed for false positives in oldIE, please see issue above
+      return !!el.style.length && ((document.documentMode === undefined || document.documentMode > 9));
+    }
+  });
+
+
+/*!
+{
+  "name": "Flexbox",
+  "property": "flexbox",
+  "caniuse": "flexbox",
+  "tags": ["css"],
+  "notes": [{
+    "name": "The _new_ flexbox",
+    "href": "http://dev.w3.org/csswg/css3-flexbox"
+  }],
+  "warnings": [
+    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
+  ]
+}
+!*/
+/* DOC
+Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
+*/
+
+  Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "Flexbox (legacy)",
+  "property": "flexboxlegacy",
+  "tags": ["css"],
+  "polyfills": ["flexie"],
+  "notes": [{
+    "name": "The _old_ flexbox",
+    "href": "https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('flexboxlegacy', testAllProps('boxDirection', 'reverse', true));
+
+/*!
+{
+  "name": "Flexbox (tweener)",
+  "property": "flexboxtweener",
+  "tags": ["css"],
+  "polyfills": ["flexie"],
+  "notes": [{
+    "name": "The _inbetween_ flexbox",
+    "href": "https://www.w3.org/TR/2011/WD-css3-flexbox-20111129/"
+  }],
+  "warnings": ["This represents an old syntax, not the latest standard syntax."]
+}
+!*/
+
+  Modernizr.addTest('flexboxtweener', testAllProps('flexAlign', 'end', true));
+
+/*!
+{
+  "name": "Flex Line Wrapping",
+  "property": "flexwrap",
+  "tags": ["css", "flexbox"],
+  "notes": [{
+    "name": "W3C Flexible Box Layout spec",
+    "href": "http://dev.w3.org/csswg/css3-flexbox"
+  }],
+  "warnings": [
+    "Does not imply a modern implementation – see documentation."
+  ]
+}
+!*/
+/* DOC
+Detects support for the `flex-wrap` CSS property, part of Flexbox, which isn’t present in all Flexbox implementations (notably Firefox).
+
+This featured in both the 'tweener' syntax (implemented by IE10) and the 'modern' syntax (implemented by others). This detect will return `true` for either of these implementations, as long as the `flex-wrap` property is supported. So to ensure the modern syntax is supported, use together with `Modernizr.flexbox`:
+
+```javascript
+if (Modernizr.flexbox && Modernizr.flexwrap) {
+  // Modern Flexbox with `flex-wrap` supported
+}
+else {
+  // Either old Flexbox syntax, or `flex-wrap` not supported
+}
+```
+*/
+
+  Modernizr.addTest('flexwrap', testAllProps('flexWrap', 'wrap', true));
+
+/*!
+{
+  "name": "@font-face",
+  "property": "fontface",
+  "authors": ["Diego Perini", "Mat Marquis"],
+  "tags": ["css"],
+  "knownBugs": [
+    "False Positive: WebOS https://github.com/Modernizr/Modernizr/issues/342",
+    "False Postive: WP7 https://github.com/Modernizr/Modernizr/issues/538"
+  ],
+  "notes": [{
+    "name": "@font-face detection routine by Diego Perini",
+    "href": "http://javascript.nwbox.com/CSSSupport/"
+  },{
+    "name": "Filament Group @font-face compatibility research",
+    "href": "https://docs.google.com/presentation/d/1n4NyG4uPRjAA8zn_pSQ_Ket0RhcWC6QlZ6LMjKeECo0/edit#slide=id.p"
+  },{
+    "name": "Filament Grunticon/@font-face device testing results",
+    "href": "https://docs.google.com/spreadsheet/ccc?key=0Ag5_yGvxpINRdHFYeUJPNnZMWUZKR2ItMEpRTXZPdUE#gid=0"
+  },{
+    "name": "CSS fonts on Android",
+    "href": "https://stackoverflow.com/questions/3200069/css-fonts-on-android"
+  },{
+    "name": "@font-face and Android",
+    "href": "http://archivist.incutio.com/viewlist/css-discuss/115960"
+  }]
+}
+!*/
+
+  var blacklist = (function() {
+    var ua = navigator.userAgent;
+    var webos = ua.match(/w(eb)?osbrowser/gi);
+    var wppre8 = ua.match(/windows phone/gi) && ua.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
+    return webos || wppre8;
+  }());
+  if (blacklist) {
+    Modernizr.addTest('fontface', false);
+  } else {
+    testStyles('@font-face {font-family:"font";src:url("https://")}', function(node, rule) {
+      var style = document.getElementById('smodernizr');
+      var sheet = style.sheet || style.styleSheet;
+      var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+      var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
+      Modernizr.addTest('fontface', bool);
+    });
+  }
+;
+/*!
+{
+  "name": "CSS Generated Content",
+  "property": "generatedcontent",
+  "tags": ["css"],
+  "warnings": ["Android won't return correct height for anything below 7px #738"],
+  "notes": [{
+    "name": "W3C CSS Selectors Level 3 spec",
+    "href": "https://www.w3.org/TR/css3-selectors/#gen-content"
+  },{
+    "name": "MDN article on :before",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  },{
+    "name": "MDN article on :after",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  }]
+}
+!*/
+
+  testStyles('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(node) {
+    // See bug report on why this value is 6 crbug.com/608142
+    Modernizr.addTest('generatedcontent', node.offsetHeight >= 6);
+  });
+
+/*!
+{
+  "name": "CSS Gradients",
+  "caniuse": "css-gradients",
+  "property": "cssgradients",
+  "tags": ["css"],
+  "knownBugs": ["False-positives on webOS (https://github.com/Modernizr/Modernizr/issues/202)"],
+  "notes": [{
+    "name": "Webkit Gradient Syntax",
+    "href": "https://webkit.org/blog/175/introducing-css-gradients/"
+  },{
+    "name": "Linear Gradient Syntax",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient"
+  },{
+    "name": "W3C Gradient Spec",
+    "href": "https://drafts.csswg.org/css-images-3/#gradients"
+  }]
+}
+!*/
+
+
+  Modernizr.addTest('cssgradients', function() {
+
+    var str1 = 'background-image:';
+    var str2 = 'gradient(linear,left top,right bottom,from(#9f9),to(white));';
+    var css = '';
+    var angle;
+
+    for (var i = 0, len = prefixes.length - 1; i < len; i++) {
+      angle = (i === 0 ? 'to ' : '');
+      css += str1 + prefixes[i] + 'linear-gradient(' + angle + 'left top, #9f9, white);';
+    }
+
+    if (Modernizr._config.usePrefixes) {
+    // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
+      css += str1 + '-webkit-' + str2;
+    }
+
+    var elem = createElement('a');
+    var style = elem.style;
+    style.cssText = css;
+
+    // IE6 returns undefined so cast to string
+    return ('' + style.backgroundImage).indexOf('gradient') > -1;
+  });
+
+/*! {
+  "name": "CSS Hairline",
+  "property": "hairline",
+  "tags": ["css"],
+  "authors": ["strarsis"],
+  "notes": [{
+    "name": "Blog post about CSS retina hairlines",
+    "href": "http://dieulot.net/css-retina-hairline"
+  },{
+    "name": "Derived from",
+    "href": "https://gist.github.com/dieulot/520a49463f6058fbc8d1"
+  }]
+}
+!*/
+/* DOC
+Detects support for hidpi/retina hairlines, which are CSS borders with less than 1px in width, for being physically 1px on hidpi screens.
+*/
+
+
+  Modernizr.addTest('hairline', function() {
+    return testStyles('#modernizr {border:.5px solid transparent}', function(elem) {
+      return elem.offsetHeight === 1;
+    });
+  });
+
+/*!
+{
+  "name": "CSS HSLA Colors",
+  "caniuse": "css3-colors",
+  "property": "hsla",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('hsla', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:hsla(120,40%,100%,.5)';
+    return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
+  });
+
+/*!
+{
+  "name": "CSS :invalid pseudo-class",
+  "property": "cssinvalid",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid"
+  }]
+}
+!*/
+/* DOC
+  Detects support for the ':invalid' CSS pseudo-class.
+*/
+
+  Modernizr.addTest('cssinvalid', function() {
+    return testStyles('#modernizr input{height:0;border:0;padding:0;margin:0;width:10px} #modernizr input:invalid{width:50px}', function(elem) {
+      var input = createElement('input');
+      input.required = true;
+      elem.appendChild(input);
+      return input.clientWidth > 10;
+    });
+  });
+
+/*!
+{
+  "name": "CSS :last-child pseudo-selector",
+  "caniuse": "css-sel3",
+  "property": "lastchild",
+  "tags": ["css"],
+  "builderAliases": ["css_lastchild"],
+  "notes": [{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/pull/304"
+  }]
+}
+!*/
+
+  testStyles('#modernizr div {width:100px} #modernizr :last-child{width:200px;display:block}', function(elem) {
+    Modernizr.addTest('lastchild', elem.lastChild.offsetWidth > elem.firstChild.offsetWidth);
+  }, 2);
+
+/*!
+{
+  "name": "CSS Mask",
+  "caniuse": "css-masks",
+  "property": "cssmask",
+  "tags": ["css"],
+  "builderAliases": ["css_mask"],
+  "notes": [
+    {
+      "name": "Webkit blog on CSS Masks",
+      "href": "https://webkit.org/blog/181/css-masks/"
+    },
+    {
+      "name": "Safari Docs",
+      "href": "https://developer.apple.com/library/safari/#documentation/InternetWeb/Conceptual/SafariVisualEffectsProgGuide/Masks/Masks.html"
+    },
+    {
+      "name": "CSS SVG mask",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/mask"
+    },
+    {
+      "name": "Combine with clippaths for awesomeness",
+      "href": "https://generic.cx/for/webkit/test.html"
+    }
+  ]
+}
+!*/
+
+  Modernizr.addTest('cssmask', testAllProps('maskRepeat', 'repeat-x', true));
+
+/*!
+{
+  "name": "CSS Media Queries",
+  "caniuse": "css-mediaqueries",
+  "property": "mediaqueries",
+  "tags": ["css"],
+  "builderAliases": ["css_mediaqueries"]
+}
+!*/
+
+  Modernizr.addTest('mediaqueries', mq('only all'));
+
+/*!
+{
+  "name": "CSS Multiple Backgrounds",
+  "caniuse": "multibackgrounds",
+  "property": "multiplebgs",
+  "tags": ["css"]
+}
+!*/
+
+  // Setting multiple images AND a color on the background shorthand property
+  // and then querying the style.background property value for the number of
+  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
+
+  Modernizr.addTest('multiplebgs', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background:url(https://),url(https://),red url(https://)';
+
+    // If the UA supports multiple backgrounds, there should be three occurrences
+    // of the string "url(" in the return value for elemStyle.background
+    return (/(url\s*\(.*?){3}/).test(style.background);
+  });
+
+/*!
+{
+  "name": "CSS :nth-child pseudo-selector",
+  "caniuse": "css-sel3",
+  "property": "nthchild",
+  "tags": ["css"],
+  "notes": [
+    {
+      "name": "Related Github Issue",
+      "href": "https://github.com/Modernizr/Modernizr/pull/685"
+    },
+    {
+      "name": "Sitepoint :nth-child documentation",
+      "href": "http://reference.sitepoint.com/css/pseudoclass-nthchild"
+    }
+  ],
+  "authors": ["@emilchristensen"],
+  "warnings": ["Known false negative in Safari 3.1 and Safari 3.2.2"]
+}
+!*/
+/* DOC
+Detects support for the ':nth-child()' CSS pseudo-selector.
+*/
+
+  // 5 `<div>` elements with `1px` width are created.
+  // Then every other element has its `width` set to `2px`.
+  // A Javascript loop then tests if the `<div>`s have the expected width
+  // using the modulus operator.
+  testStyles('#modernizr div {width:1px} #modernizr div:nth-child(2n) {width:2px;}', function(elem) {
+    var elems = elem.getElementsByTagName('div');
+    var correctWidths = true;
+
+    for (var i = 0; i < 5; i++) {
+      correctWidths = correctWidths && elems[i].offsetWidth === i % 2 + 1;
+    }
+    Modernizr.addTest('nthchild', correctWidths);
+  }, 5);
+
+/*!
+{
+  "name": "CSS Object Fit",
+  "caniuse": "object-fit",
+  "property": "objectfit",
+  "tags": ["css"],
+  "builderAliases": ["css_objectfit"],
+  "notes": [{
+    "name": "Opera Article on Object Fit",
+    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
+
+/*!
+{
+  "name": "CSS Opacity",
+  "caniuse": "css-opacity",
+  "property": "opacity",
+  "tags": ["css"]
+}
+!*/
+
+  // Browsers that actually have CSS Opacity implemented have done so
+  // according to spec, which means their return values are within the
+  // range of [0.0,1.0] - including the leading zero.
+
+  Modernizr.addTest('opacity', function() {
+    var style = createElement('a').style;
+    style.cssText = prefixes.join('opacity:.55;');
+
+    // The non-literal . in this regex is intentional:
+    // German Chrome returns this value as 0,55
+    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
+    return (/^0.55$/).test(style.opacity);
+  });
+
+/*!
+{
+  "name": "CSS Overflow Scrolling",
+  "property": "overflowscrolling",
+  "tags": ["css"],
+  "builderAliases": ["css_overflow_scrolling"],
+  "warnings": ["Introduced in iOS5b2. API is subject to change."],
+  "notes": [{
+    "name": "Article on iOS overflow scrolling",
+    "href": "https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('overflowscrolling', testAllProps('overflowScrolling', 'touch', true));
+
+/*!
+{
+  "name": "CSS Pointer Events",
+  "caniuse": "pointer-events",
+  "property": "csspointerevents",
+  "authors": ["ausi"],
+  "tags": ["css"],
+  "builderAliases": ["css_pointerevents"],
+  "notes": [
+    {
+      "name": "MDN Docs",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
+    },{
+      "name": "Test Project Page",
+      "href": "https://ausi.github.com/Feature-detection-technique-for-pointer-events/"
+    },{
+      "name": "Test Project Wiki",
+      "href": "https://github.com/ausi/Feature-detection-technique-for-pointer-events/wiki"
+    },
+    {
+      "name": "Related Github Issue",
+      "href": "https://github.com/Modernizr/Modernizr/issues/80"
+    }
+  ]
+}
+!*/
+
+  Modernizr.addTest('csspointerevents', function() {
+    var style = createElement('a').style;
+    style.cssText = 'pointer-events:auto';
+    return style.pointerEvents === 'auto';
+  });
+
+/*!
+{
+  "name": "CSS position: sticky",
+  "property": "csspositionsticky",
+  "tags": ["css"],
+  "builderAliases": ["css_positionsticky"],
+  "notes": [{
+    "name": "Chrome bug report",
+    "href":"https://code.google.com/p/chromium/issues/detail?id=322972"
+  }],
+  "warnings": [ "using position:sticky on anything but top aligned elements is buggy in Chrome < 37 and iOS <=7+" ]
+}
+!*/
+
+  // Sticky positioning - constrains an element to be positioned inside the
+  // intersection of its container box, and the viewport.
+  Modernizr.addTest('csspositionsticky', function() {
+    var prop = 'position:';
+    var value = 'sticky';
+    var el = createElement('a');
+    var mStyle = el.style;
+
+    mStyle.cssText = prop + prefixes.join(value + ';' + prop).slice(0, -prop.length);
+
+    return mStyle.position.indexOf(value) !== -1;
+  });
+
+/*!
+{
+  "name": "CSS Generated Content Animations",
+  "property": "csspseudoanimations",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csspseudoanimations', function() {
+    var result = false;
+
+    if (!Modernizr.cssanimations || !window.getComputedStyle) {
+      return result;
+    }
+
+    var styles = [
+      '@', Modernizr._prefixes.join('keyframes csspseudoanimations { from { font-size: 10px; } }@').replace(/\@$/, ''),
+      '#modernizr:before { content:" "; font-size:5px;',
+      Modernizr._prefixes.join('animation:csspseudoanimations 1ms infinite;'),
+      '}'
+    ].join('');
+
+    Modernizr.testStyles(styles, function(elem) {
+      result = window.getComputedStyle(elem, ':before').getPropertyValue('font-size') === '10px';
+    });
+
+    return result;
+  });
+
+/*!
+{
+  "name": "CSS Transitions",
+  "property": "csstransitions",
+  "caniuse": "css-transitions",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csstransitions', testAllProps('transition', 'all', true));
+
+/*!
+{
+  "name": "CSS Generated Content Transitions",
+  "property": "csspseudotransitions",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csspseudotransitions', function() {
+    var result = false;
+
+    if (!Modernizr.csstransitions || !window.getComputedStyle) {
+      return result;
+    }
+
+    var styles =
+      '#modernizr:before { content:" "; font-size:5px;' + Modernizr._prefixes.join('transition:0s 100s;') + '}' +
+      '#modernizr.trigger:before { font-size:10px; }';
+
+    Modernizr.testStyles(styles, function(elem) {
+      // Force rendering of the element's styles so that the transition will trigger
+      window.getComputedStyle(elem, ':before').getPropertyValue('font-size');
+      elem.className += 'trigger';
+      result = window.getComputedStyle(elem, ':before').getPropertyValue('font-size') === '5px';
+    });
+
+    return result;
+  });
+
+/*!
+{
+  "name": "CSS Reflections",
+  "caniuse": "css-reflections",
+  "property": "cssreflections",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('cssreflections', testAllProps('boxReflect', 'above', true));
+
+/*!
+{
+  "name": "CSS Regions",
+  "caniuse": "css-regions",
+  "authors": ["Mihai Balan"],
+  "property": "regions",
+  "tags": ["css"],
+  "builderAliases": ["css_regions"],
+  "notes": [{
+    "name": "W3C Specification",
+    "href": "https://www.w3.org/TR/css3-regions/"
+  }]
+}
+!*/
+
+  // We start with a CSS parser test then we check page geometry to see if it's affected by regions
+  // Later we might be able to retire the second part, as WebKit builds with the false positives die out
+
+  Modernizr.addTest('regions', function() {
+
+    if (isSVG) {
+      // css regions don't work inside of SVG elements. Rather than update the
+      // below test to work in an SVG context, just exit early to save bytes
+      return false;
+    }
+
+    /* Get the 'flowFrom' property name available in the browser. Either default or vendor prefixed.
+       If the property name can't be found we'll get Boolean 'false' and fail quickly */
+    var flowFromProperty = prefixed('flowFrom');
+    var flowIntoProperty = prefixed('flowInto');
+    var result = false;
+
+    if (!flowFromProperty || !flowIntoProperty) {
+      return result;
+    }
+
+    /* If CSS parsing is there, try to determine if regions actually work. */
+    var iframeContainer = createElement('iframe');
+    var container = createElement('div');
+    var content = createElement('div');
+    var region = createElement('div');
+
+    /* we create a random, unlikely to be generated flow number to make sure we don't
+       clash with anything more vanilla, like 'flow', or 'article', or 'f1' */
+    var flowName = 'modernizr_flow_for_regions_check';
+
+    /* First create a div with two adjacent divs inside it. The first will be the
+       content, the second will be the region. To be able to distinguish between the two,
+       we'll give the region a particular padding */
+    content.innerText = 'M';
+    container.style.cssText = 'top: 150px; left: 150px; padding: 0px;';
+    region.style.cssText = 'width: 50px; height: 50px; padding: 42px;';
+
+    region.style[flowFromProperty] = flowName;
+    container.appendChild(content);
+    container.appendChild(region);
+    docElement.appendChild(container);
+
+    /* Now compute the bounding client rect, before and after attempting to flow the
+       content div in the region div. If regions are enabled, the after bounding rect
+       should reflect the padding of the region div.*/
+    var flowedRect, delta;
+    var plainRect = content.getBoundingClientRect();
+
+
+    content.style[flowIntoProperty] = flowName;
+    flowedRect = content.getBoundingClientRect();
+
+    delta = parseInt(flowedRect.left - plainRect.left, 10);
+    docElement.removeChild(container);
+
+    if (delta == 42) {
+      result = true;
+    } else {
+      /* IE only allows for the content to come from iframes. This has the
+       * side effect of automatic collapsing of iframes once they get the flow-into
+       * property set. checking for a change on the height allows us to detect this
+       * in a sync way, without having to wait for a frame to load */
+
+      docElement.appendChild(iframeContainer);
+      plainRect = iframeContainer.getBoundingClientRect();
+      iframeContainer.style[flowIntoProperty] = flowName;
+      flowedRect = iframeContainer.getBoundingClientRect();
+
+      if (plainRect.height > 0 && plainRect.height !== flowedRect.height && flowedRect.height === 0) {
+        result = true;
+      }
+    }
+
+    content = region = container = iframeContainer = undefined;
+
+    return result;
+  });
+
+/*!
+{
+  "name": "CSS Font rem Units",
+  "caniuse": "rem",
+  "authors": ["nsfmc"],
+  "property": "cssremunit",
+  "tags": ["css"],
+  "builderAliases": ["css_remunit"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/css3-values/#relative0"
+  },{
+    "name": "Font Size with rem by Jonathan Snook",
+    "href": "http://snook.ca/archives/html_and_css/font-size-with-rem"
+  }]
+}
+!*/
+
+  // "The 'rem' unit ('root em') is relative to the computed
+  // value of the 'font-size' value of the root element."
+  // you can test by checking if the prop was ditched
+
+  Modernizr.addTest('cssremunit', function() {
+    var style = createElement('a').style;
+    try {
+      style.fontSize = '3rem';
+    }
+    catch (e) {}
+    return (/rem/).test(style.fontSize);
+  });
+
+/*!
+{
+  "name": "CSS UI Resize",
+  "property": "cssresize",
+  "caniuse": "css-resize",
+  "tags": ["css"],
+  "builderAliases": ["css_resize"],
+  "notes": [{
+    "name": "W3C Specification",
+    "href": "https://www.w3.org/TR/css3-ui/#resize"
+  },{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en/CSS/resize"
+  }]
+}
+!*/
+/* DOC
+Test for CSS 3 UI "resize" property
+*/
+
+  Modernizr.addTest('cssresize', testAllProps('resize', 'both', true));
+
+/*!
+{
+  "name": "CSS rgba",
+  "caniuse": "css3-colors",
+  "property": "rgba",
+  "tags": ["css"],
+  "notes": [{
+    "name": "CSSTricks Tutorial",
+    "href": "https://css-tricks.com/rgba-browser-support/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('rgba', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:rgba(150,255,150,.5)';
+
+    return ('' + style.backgroundColor).indexOf('rgba') > -1;
+  });
+
+/*!
+{
+  "name": "CSS Stylable Scrollbars",
+  "property": "cssscrollbar",
+  "tags": ["css"],
+  "builderAliases": ["css_scrollbars"]
+}
+!*/
+
+  testStyles('#modernizr{overflow: scroll; width: 40px; height: 40px; }#' + prefixes
+    .join('scrollbar{width:10px}' + ' #modernizr::')
+    .split('#')
+    .slice(1)
+    .join('#') + 'scrollbar{width:10px}',
+  function(node) {
+    Modernizr.addTest('cssscrollbar', 'scrollWidth' in node && node.scrollWidth == 30);
+  });
+
+/*!
+{
+  "name": "Scroll Snap Points",
+  "property": "scrollsnappoints",
+  "notes": [{
+    "name": "Setting native-like scrolling offsets in CSS with Scrolling Snap Points",
+    "href": "http://generatedcontent.org/post/66817675443/setting-native-like-scrolling-offsets-in-css-with"
+  },{
+    "name": "MDN Article",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap_Points"
+  }],
+  "polyfills": ["scrollsnap"]
+}
+!*/
+/* DOC
+Detects support for CSS Snap Points
+*/
+
+  Modernizr.addTest('scrollsnappoints', testAllProps('scrollSnapType'));
+
+/*!
+{
+  "name": "CSS Shapes",
+  "property": "shapes",
+  "tags": ["css"],
+  "notes": [{
+    "name": "CSS Shapes W3C specification",
+    "href": "https://www.w3.org/TR/css-shapes"
+  },{
+    "name": "Examples from Adobe",
+    "href": "http://webplatform.adobe.com/shapes/"
+  }, {
+    "name": "Samples showcasing uses of Shapes",
+    "href": "http://codepen.io/collection/qFesk"
+  }]
+}
+!*/
+
+  Modernizr.addTest('shapes', testAllProps('shapeOutside', 'content-box', true));
+
+/*!
+{
+  "name": "CSS general sibling selector",
+  "caniuse": "css-sel3",
+  "property": "siblinggeneral",
+  "tags": ["css"],
+  "notes": [{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/pull/889"
+  }]
+}
+!*/
+
+  Modernizr.addTest('siblinggeneral', function() {
+    return testStyles('#modernizr div {width:100px} #modernizr div ~ div {width:200px;display:block}', function(elem) {
+      return elem.lastChild.offsetWidth == 200;
+    }, 2);
+  });
+
+/*!
+{
+  "name": "CSS Subpixel Fonts",
+  "property": "subpixelfont",
+  "tags": ["css"],
+  "builderAliases": ["css_subpixelfont"],
+  "authors": [
+    "@derSchepp",
+    "@gerritvanaaken",
+    "@rodneyrehm",
+    "@yatil",
+    "@ryanseddon"
+  ],
+  "notes": [{
+    "name": "Origin Test",
+    "href": "https://github.com/gerritvanaaken/subpixeldetect"
+  }]
+}
+!*/
+
+  /*
+   * (to infer if GDI or DirectWrite is used on Windows)
+   */
+  testStyles(
+    '#modernizr{position: absolute; top: -10em; visibility:hidden; font: normal 10px arial;}#subpixel{float: left; font-size: 33.3333%;}',
+  function(elem) {
+    var subpixel = elem.firstChild;
+    subpixel.innerHTML = 'This is a text written in Arial';
+    Modernizr.addTest('subpixelfont', window.getComputedStyle ?
+      window.getComputedStyle(subpixel, null).getPropertyValue('width') !== '44px'
+    : false);
+  }, 1, ['subpixel']);
+
+/*!
+{
+  "name": "CSS :target pseudo-class",
+  "caniuse": "css-sel3",
+  "property": "target",
+  "tags": ["css"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:target"
+  }],
+  "authors": ["@zachleat"],
+  "warnings": ["Opera Mini supports :target but doesn't update the hash for anchor links."]
+}
+!*/
+/* DOC
+Detects support for the ':target' CSS pseudo-class.
+*/
+
+  // querySelector
+  Modernizr.addTest('target', function() {
+    var doc = window.document;
+    if (!('querySelectorAll' in doc)) {
+      return false;
+    }
+
+    try {
+      doc.querySelectorAll(':target');
+      return true;
+    } catch (e) {
+      return false;
+    }
+  });
+
+/*!
+{
+  "name": "CSS text-align-last",
+  "property": "textalignlast",
+  "tags": ["css"],
+  "knownBugs": ["IE does not support the 'start' or 'end' values."],
+  "notes": [{
+      "name": "Quicksmode",
+      "href": "http://www.quirksmode.org/css/text/textalignlast.html"
+    },{
+      "name": "MDN",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last"
+    }]
+}
+!*/
+
+  Modernizr.addTest('textalignlast', testAllProps('textAlignLast'));
+
+/*!
+{
+  "name": "CSS textshadow",
+  "property": "textshadow",
+  "caniuse": "css-textshadow",
+  "tags": ["css"],
+  "knownBugs": ["FF3.0 will false positive on this test"]
+}
+!*/
+
+  Modernizr.addTest('textshadow', testProp('textShadow', '1px 1px'));
+
+/*!
+{
+  "name": "CSS Transforms",
+  "property": "csstransforms",
+  "caniuse": "transforms2d",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csstransforms', function() {
+    // Android < 3.0 is buggy, so we sniff and blacklist
+    // http://git.io/hHzL7w
+    return navigator.userAgent.indexOf('Android 2.') === -1 &&
+           testAllProps('transform', 'scale(1)', true);
+  });
+
+/*!
+{
+  "name": "CSS Transforms Level 2",
+  "property": "csstransformslevel2",
+  "authors": ["rupl"],
+  "tags": ["css"],
+  "notes": [{
+    "name": "CSSWG Draft Spec",
+    "href": "https://drafts.csswg.org/css-transforms-2/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('csstransformslevel2', function() {
+    return testAllProps('translate', '45px', true);
+  });
+
+/*!
+{
+  "name": "CSS Transforms 3D",
+  "property": "csstransforms3d",
+  "caniuse": "transforms3d",
+  "tags": ["css"],
+  "warnings": [
+    "Chrome may occassionally fail this test on some systems; more info: https://code.google.com/p/chromium/issues/detail?id=129004"
+  ]
+}
+!*/
+
+  Modernizr.addTest('csstransforms3d', function() {
+    return !!testAllProps('perspective', '1px', true);
+  });
+
+/*!
+{
+  "name": "CSS Transform Style preserve-3d",
+  "property": "preserve3d",
+  "authors": ["denyskoch", "aFarkas"],
+  "tags": ["css"],
+  "notes": [{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/1748"
+  }]
+}
+!*/
+/* DOC
+Detects support for `transform-style: preserve-3d`, for getting a proper 3D perspective on elements.
+*/
+
+  Modernizr.addTest('preserve3d', function() {
+    var outerAnchor, innerAnchor;
+    var CSS = window.CSS;
+    var result = false;
+
+    if (CSS && CSS.supports && CSS.supports('(transform-style: preserve-3d)')) {
+      return true;
+    }
+
+    outerAnchor = createElement('a');
+    innerAnchor = createElement('a');
+
+    outerAnchor.style.cssText = 'display: block; transform-style: preserve-3d; transform-origin: right; transform: rotateY(40deg);';
+    innerAnchor.style.cssText = 'display: block; width: 9px; height: 1px; background: #000; transform-origin: right; transform: rotateY(40deg);';
+
+    outerAnchor.appendChild(innerAnchor);
+    docElement.appendChild(outerAnchor);
+
+    result = innerAnchor.getBoundingClientRect();
+    docElement.removeChild(outerAnchor);
+
+    result = result.width && result.width < 4;
+    return result;
+  });
+
+/*!
+{
+  "name": "CSS user-select",
+  "property": "userselect",
+  "caniuse": "user-select-none",
+  "authors": ["ryan seddon"],
+  "tags": ["css"],
+  "builderAliases": ["css_userselect"],
+  "notes": [{
+    "name": "Related Modernizr Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/250"
+  }]
+}
+!*/
+
+  //https://github.com/Modernizr/Modernizr/issues/250
+  Modernizr.addTest('userselect', testAllProps('userSelect', 'none', true));
+
+/*!
+{
+  "name": "CSS :valid pseudo-class",
+  "property": "cssvalid",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:valid"
+  }]
+}
+!*/
+/* DOC
+  Detects support for the ':valid' CSS pseudo-class.
+*/
+
+  Modernizr.addTest('cssvalid', function() {
+    return testStyles('#modernizr input{height:0;border:0;padding:0;margin:0;width:10px} #modernizr input:valid{width:50px}', function(elem) {
+      var input = createElement('input');
+      elem.appendChild(input);
+      return input.clientWidth > 10;
+    });
+  });
+
+
+  /**
+   * roundedEquals takes two integers and checks if the first is within 1 of the second
+   *
+   * @access private
+   * @function roundedEquals
+   * @param {number} a
+   * @param {number} b
+   * @returns {boolean}
+   */
+
+  function roundedEquals(a, b) {
+    return a - 1 === b || a === b || a + 1 === b;
+  }
+
+  ;
+/*!
+{
+  "name": "CSS vh unit",
+  "property": "cssvhunit",
+  "caniuse": "viewport-units",
+  "tags": ["css"],
+  "builderAliases": ["css_vhunit"],
+  "notes": [{
+    "name": "Related Modernizr Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/572"
+  },{
+    "name": "Similar JSFiddle",
+    "href": "https://jsfiddle.net/FWeinb/etnYC/"
+  }]
+}
+!*/
+
+  testStyles('#modernizr { height: 50vh; }', function(elem) {
+    var height = parseInt(window.innerHeight / 2, 10);
+    var compStyle = parseInt(computedStyle(elem, null, 'height'), 10);
+
+    Modernizr.addTest('cssvhunit', roundedEquals(compStyle, height));
+  });
+
+/*!
+{
+  "name": "CSS vmax unit",
+  "property": "cssvmaxunit",
+  "caniuse": "viewport-units",
+  "tags": ["css"],
+  "builderAliases": ["css_vmaxunit"],
+  "notes": [{
+    "name": "Related Modernizr Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/572"
+  },{
+    "name": "JSFiddle Example",
+    "href": "https://jsfiddle.net/glsee/JDsWQ/4/"
+  }]
+}
+!*/
+
+  testStyles('#modernizr1{width: 50vmax}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
+    var elem = node.childNodes[2];
+    var scroller = node.childNodes[1];
+    var fullSizeElem = node.childNodes[0];
+    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
+
+    var one_vw = fullSizeElem.clientWidth / 100;
+    var one_vh = fullSizeElem.clientHeight / 100;
+    var expectedWidth = parseInt(Math.max(one_vw, one_vh) * 50, 10);
+    var compWidth = parseInt(computedStyle(elem, null, 'width'), 10);
+
+    Modernizr.addTest('cssvmaxunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
+  }, 3);
+
+/*!
+{
+  "name": "CSS vmin unit",
+  "property": "cssvminunit",
+  "caniuse": "viewport-units",
+  "tags": ["css"],
+  "builderAliases": ["css_vminunit"],
+  "notes": [{
+    "name": "Related Modernizr Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/572"
+  },{
+    "name": "JSFiddle Example",
+    "href": "https://jsfiddle.net/glsee/JRmdq/8/"
+  }]
+}
+!*/
+
+  testStyles('#modernizr1{width: 50vm;width:50vmin}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
+    var elem = node.childNodes[2];
+    var scroller = node.childNodes[1];
+    var fullSizeElem = node.childNodes[0];
+    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
+
+    var one_vw = fullSizeElem.clientWidth / 100;
+    var one_vh = fullSizeElem.clientHeight / 100;
+    var expectedWidth = parseInt(Math.min(one_vw, one_vh) * 50, 10);
+    var compWidth = parseInt(computedStyle(elem, null, 'width'), 10);
+
+    Modernizr.addTest('cssvminunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
+  }, 3);
+
+/*!
+{
+  "name": "CSS vw unit",
+  "property": "cssvwunit",
+  "caniuse": "viewport-units",
+  "tags": ["css"],
+  "builderAliases": ["css_vwunit"],
+  "notes": [{
+    "name": "Related Modernizr Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/572"
+  },{
+    "name": "JSFiddle Example",
+    "href": "https://jsfiddle.net/FWeinb/etnYC/"
+  }]
+}
+!*/
+
+  testStyles('#modernizr { width: 50vw; }', function(elem) {
+    var width = parseInt(window.innerWidth / 2, 10);
+    var compStyle = parseInt(computedStyle(elem, null, 'width'), 10);
+
+    Modernizr.addTest('cssvwunit', roundedEquals(compStyle, width));
+  });
+
+/*!
+{
+  "name": "will-change",
+  "property": "willchange",
+  "notes": [{
+    "name": "Spec",
+    "href": "https://drafts.csswg.org/css-will-change/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `will-change` css property, which formally signals to the
+browser that an element will be animating.
+*/
+
+  Modernizr.addTest('willchange', 'willChange' in docElement.style);
+
+/*!
+{
+  "name": "CSS wrap-flow",
+  "property": "wrapflow",
+  "tags": ["css"],
+  "notes": [
+    {
+      "name": "W3C Exclusions spec",
+      "href": "https://www.w3.org/TR/css3-exclusions"
+    },
+    {
+      "name": "Example by Adobe",
+      "href": "http://html.adobe.com/webstandards/cssexclusions"
+    }
+  ]
+}
+!*/
+
+  Modernizr.addTest('wrapflow', function() {
+    var prefixedProperty = prefixed('wrapFlow');
+    if (!prefixedProperty || isSVG) {
+      return false;
+    }
+
+    var wrapFlowProperty = prefixedProperty.replace(/([A-Z])/g, function(str, m1) { return '-' + m1.toLowerCase(); }).replace(/^ms-/, '-ms-');
+
+    /* If the CSS parsing is there we need to determine if wrap-flow actually works to avoid false positive cases, e.g. the browser parses
+       the property, but it hasn't got the implementation for the functionality yet. */
+    var container = createElement('div');
+    var exclusion = createElement('div');
+    var content = createElement('span');
+
+    /* First we create a div with two adjacent divs inside it. The first div will be the content, the second div will be the exclusion area.
+       We use the "wrap-flow: end" property to test the actual behavior. (http://dev.w3.org/csswg/css3-exclusions/#wrap-flow-property)
+       The wrap-flow property is applied to the exclusion area what has a 50px left offset and a 100px width.
+       If the wrap-flow property is working correctly then the content should start after the exclusion area, so the content's left offset should be 150px. */
+    exclusion.style.cssText = 'position: absolute; left: 50px; width: 100px; height: 20px;' + wrapFlowProperty + ':end;';
+    content.innerText = 'X';
+
+    container.appendChild(exclusion);
+    container.appendChild(content);
+    docElement.appendChild(container);
+
+    var leftOffset = content.offsetLeft;
+
+    docElement.removeChild(container);
+    exclusion = content = container = undefined;
+
+    return (leftOffset == 150);
+  });
+
+/*!
+{
+  "name": "classList",
+  "caniuse": "classlist",
+  "property": "classlist",
+  "tags": ["dom"],
+  "builderAliases": ["dataview_api"],
+  "notes": [{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en/DOM/element.classList"
+  }]
+}
+!*/
+
+  Modernizr.addTest('classlist', 'classList' in docElement);
+
+/*!
+{
+  "name": "createElement with Attributes",
+  "property": ["createelementattrs", "createelement-attrs"],
+  "tags": ["dom"],
+  "builderAliases": ["dom_createElement_attrs"],
+  "authors": ["James A. Rosen"],
+  "notes": [{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/258"
+  }]
+}
+!*/
+
+  Modernizr.addTest('createelementattrs', function() {
+    try {
+      return createElement('<input name="test" />').getAttribute('name') == 'test';
+    } catch (e) {
+      return false;
+    }
+  }, {
+    aliases: ['createelement-attrs']
+  });
+
+/*!
+{
+  "name": "dataset API",
+  "caniuse": "dataset",
+  "property": "dataset",
+  "tags": ["dom"],
+  "builderAliases": ["dom_dataset"],
+  "authors": ["@phiggins42"]
+}
+!*/
+
+  // dataset API for data-* attributes
+  Modernizr.addTest('dataset', function() {
+    var n = createElement('div');
+    n.setAttribute('data-a-b', 'c');
+    return !!(n.dataset && n.dataset.aB === 'c');
+  });
+
+/*!
+{
+  "name": "Document Fragment",
+  "property": "documentfragment",
+  "notes": [{
+    "name": "W3C DOM Level 1 Reference",
+    "href": "https://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3"
+  }, {
+    "name": "SitePoint Reference",
+    "href": "http://reference.sitepoint.com/javascript/DocumentFragment"
+  }, {
+    "name": "QuirksMode Compatibility Tables",
+    "href": "http://www.quirksmode.org/m/w3c_core.html#t112"
+  }],
+  "authors": ["Ron Waldon (@jokeyrhyme)"],
+  "knownBugs": ["false-positive on Blackberry 9500, see QuirksMode note"],
+  "tags": []
+}
+!*/
+/* DOC
+Append multiple elements to the DOM within a single insertion.
+*/
+
+  Modernizr.addTest('documentfragment', function() {
+    return 'createDocumentFragment' in document &&
+      'appendChild' in docElement;
+  });
+
+/*!
+{
+  "name": "[hidden] Attribute",
+  "property": "hidden",
+  "tags": ["dom"],
+  "notes": [{
+    "name": "WHATWG: The hidden attribute",
+    "href": "https://developers.whatwg.org/editing.html#the-hidden-attribute"
+  }, {
+    "name": "original implementation of detect code",
+    "href": "https://github.com/aFarkas/html5shiv/blob/bf4fcc4/src/html5shiv.js#L38"
+  }],
+  "polyfills": ["html5shiv"],
+  "authors": ["Ron Waldon (@jokeyrhyme)"]
+}
+!*/
+/* DOC
+Does the browser support the HTML5 [hidden] attribute?
+*/
+
+  Modernizr.addTest('hidden', 'hidden' in createElement('a'));
+
+/*!
+{
+  "name": "microdata",
+  "property": "microdata",
+  "tags": ["dom"],
+  "builderAliases": ["dom_microdata"],
+  "notes": [{
+    "name": "W3 Spec",
+    "href": "https://www.w3.org/TR/microdata/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('microdata', 'getItems' in document);
+
+/*!
+{
+  "name": "DOM4 MutationObserver",
+  "property": "mutationobserver",
+  "caniuse": "mutationobserver",
+  "tags": ["dom"],
+  "authors": ["Karel Sedláček (@ksdlck)"],
+  "polyfills": ["mutationobservers"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"
+  }]
+}
+!*/
+/* DOC
+
+Determines if DOM4 MutationObserver support is available.
+
+*/
+
+  Modernizr.addTest('mutationobserver',
+    !!window.MutationObserver || !!window.WebKitMutationObserver);
+
+/*!
+{
+  "authors": ["Rick Byers"],
+  "name": "Passive event listeners",
+  "notes": [
+    {
+      "name": "WHATWG specification",
+      "href": "https://dom.spec.whatwg.org/#dom-addeventlisteneroptions-passive"
+    },
+    {
+      "name": "WICG explainer",
+      "href": "https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md"
+    }
+  ],
+  "property": "passiveeventlisteners",
+  "tags": ["dom"]
+}
+!*/
+
+/* DOC
+Detects support for the passive option to addEventListener.
+*/
+
+
+  Modernizr.addTest('passiveeventlisteners', function() {
+    var supportsPassiveOption = false;
+    try {
+      var opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+          supportsPassiveOption = true;
+        }
+      });
+      window.addEventListener('test', null, opts);
+    } catch (e) {}
+    return supportsPassiveOption;
+  });
+
+/*!
+{
+  "name": "Orientation and Motion Events",
+  "property": ["devicemotion", "deviceorientation"],
+  "caniuse": "deviceorientation",
+  "notes": [{
+    "name": "W3C Editor's Draft",
+    "href": "http://w3c.github.io/deviceorientation/spec-source-orientation.html"
+  },{
+    "name": "Implementation by iOS Safari (Orientation)",
+    "href": "http://goo.gl/fhce3"
+  },{
+    "name": "Implementation by iOS Safari (Motion)",
+    "href": "http://goo.gl/rLKz8"
+  }],
+  "authors": ["Shi Chuan"],
+  "tags": ["event"],
+  "builderAliases": ["event_deviceorientation_motion"]
+}
+!*/
+/* DOC
+Part of Device Access aspect of HTML5, same category as geolocation.
+
+`devicemotion` tests for Device Motion Event support, returns boolean value true/false.
+
+`deviceorientation` tests for Device Orientation Event support, returns boolean value true/false
+*/
+
+  Modernizr.addTest('devicemotion', 'DeviceMotionEvent' in window);
+  Modernizr.addTest('deviceorientation', 'DeviceOrientationEvent' in window);
+
+/*!
+{
+  "name": "onInput Event",
+  "property": "oninput",
+  "notes": [{
+    "name": "MDN article",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers.oninput"
+  },{
+    "name": "WHATWG spec",
+    "href": "https://html.spec.whatwg.org/multipage/forms.html#common-input-element-attributes"
+  },{
+    "name": "Detecting onInput support",
+    "href": "http://danielfriesen.name/blog/2010/02/16/html5-browser-maze-oninput-support"
+  }],
+  "authors": ["Patrick Kettner"],
+  "tags": ["event"]
+}
+!*/
+/* DOC
+`oninput` tests if the browser is able to detect the input event
+*/
+
+
+  Modernizr.addTest('oninput', function() {
+    var input = createElement('input');
+    var supportsOnInput;
+    input.setAttribute('oninput', 'return');
+
+    if (hasEvent('oninput', docElement) || typeof input.oninput == 'function') {
+      return true;
+    }
+
+    // IE doesn't support onInput, so we wrap up the non IE APIs
+    // (createEvent, addEventListener) in a try catch, rather than test for
+    // their trident equivalent.
+    try {
+      // Older Firefox didn't map oninput attribute to oninput property
+      var testEvent  = document.createEvent('KeyboardEvent');
+      supportsOnInput = false;
+      var handler = function(e) {
+        supportsOnInput = true;
+        e.preventDefault();
+        e.stopPropagation();
+      };
+
+      testEvent.initKeyEvent('keypress', true, true, window, false, false, false, false, 0, 'e'.charCodeAt(0));
+      docElement.appendChild(input);
+      input.addEventListener('input', handler, false);
+      input.focus();
+      input.dispatchEvent(testEvent);
+      input.removeEventListener('input', handler, false);
+      docElement.removeChild(input);
+    } catch (e) {
+      supportsOnInput = false;
+    }
+    return supportsOnInput;
+  });
+
+/*!
+{
+  "name": "Event Listener",
+  "property": "eventlistener",
+  "authors": ["Andrew Betts (@triblondon)"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Registration-interfaces"
+  }],
+  "polyfills": ["eventlistener"]
+}
+!*/
+/* DOC
+Detects native support for addEventListener
+*/
+
+  Modernizr.addTest('eventlistener', 'addEventListener' in window);
+
+/*!
+{
+  "name": "EXIF Orientation",
+  "property": "exiforientation",
+  "tags": ["image"],
+  "builderAliases": ["exif_orientation"],
+  "async": true,
+  "authors": ["Paul Sayre"],
+  "notes": [{
+    "name": "Article by Dave Perrett",
+    "href": "http://recursive-design.com/blog/2012/07/28/exif-orientation-handling-is-a-ghetto/"
+  },{
+    "name": "Article by Calvin Hass",
+    "href": "http://www.impulseadventure.com/photo/exif-orientation.html"
+  }]
+}
+!*/
+/* DOC
+Detects support for EXIF Orientation in JPEG images.
+
+iOS looks at the EXIF Orientation flag in JPEGs and rotates the image accordingly. Most desktop browsers just ignore this data.
+*/
+
+  // Bug trackers:
+  //    bugzil.la/298619 (unimplemented)
+  //    crbug.com/56845 (looks incomplete)
+  //    webk.it/19688 (available upstream but its up all ports to turn on individually)
+  Modernizr.addAsyncTest(function() {
+    var img = new Image();
+
+    img.onerror = function() {
+      addTest('exiforientation', false, {aliases: ['exif-orientation']});
+    };
+
+    img.onload = function() {
+      addTest('exiforientation', img.width !== 2, {aliases: ['exif-orientation']});
+    };
+
+    // There may be a way to shrink this more, it's a 1x2 white jpg with the orientation flag set to 6
+    img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAABgASAAAAAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAABAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+/iiiigD/2Q==';
+  });
+
+/*!
+{
+  "name": "input[capture] Attribute",
+  "property": "capture",
+  "tags": ["video", "image", "audio", "media", "attribute"],
+  "notes": [{
+    "name": "W3C draft: HTML Media Capture",
+    "href": "https://www.w3.org/TR/html-media-capture/"
+  }]
+}
+!*/
+/* DOC
+When used on an `<input>`, this attribute signifies that the resource it takes should be generated via device's camera, camcorder, sound recorder.
+*/
+
+  // testing for capture attribute in inputs
+  Modernizr.addTest('capture', ('capture' in createElement('input')));
+
+/*!
+{
+  "name": "input[file] Attribute",
+  "property": "fileinput",
+  "caniuse" : "forms",
+  "tags": ["file", "forms", "input"],
+  "builderAliases": ["forms_fileinput"]
+}
+!*/
+/* DOC
+Detects whether input type="file" is available on the platform
+
+E.g. iOS < 6 and some android version don't support this
+*/
+
+  Modernizr.addTest('fileinput', function() {
+    if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+      return false;
+    }
+    var elem = createElement('input');
+    elem.type = 'file';
+    return !elem.disabled;
+  });
+
+/*!
+{
+  "name": "input[directory] Attribute",
+  "property": "directory",
+  "authors": ["silverwind"],
+  "tags": ["file", "input", "attribute"]
+}
+!*/
+/* DOC
+When used on an `<input type="file">`, the `directory` attribute instructs
+the user agent to present a directory selection dialog instead of the usual
+file selection dialog.
+*/
+
+  Modernizr.addTest('fileinputdirectory', function() {
+    var elem = createElement('input'), dir = 'directory';
+    elem.type = 'file';
+    if (dir in elem) {
+      return true;
+    } else {
+      for (var i = 0, len = domPrefixes.length; i < len; i++) {
+        if (domPrefixes[i] + dir in elem) {
+          return true;
+        }
+      }
+    }
+    return false;
+  });
+
+/*!
+{
+  "name": "input[form] Attribute",
+  "property": "formattribute",
+  "tags": ["attribute", "forms", "input"],
+  "builderAliases": ["forms_formattribute"]
+}
+!*/
+/* DOC
+Detects whether input form="form_id" is available on the platform
+E.g. IE 10 (and below), don't support this
+*/
+
+
+  Modernizr.addTest('formattribute', function() {
+    var form = createElement('form');
+    var input = createElement('input');
+    var div = createElement('div');
+    var id = 'formtest' + (new Date()).getTime();
+    var attr;
+    var bool = false;
+
+    form.id = id;
+
+    //IE6/7 confuses the form idl attribute and the form content attribute, so we use document.createAttribute
+    try {
+      input.setAttribute('form', id);
+    }
+    catch (e) {
+      if (document.createAttribute) {
+        attr = document.createAttribute('form');
+        attr.nodeValue = id;
+        input.setAttributeNode(attr);
+      }
+    }
+
+    div.appendChild(form);
+    div.appendChild(input);
+
+    docElement.appendChild(div);
+
+    bool = form.elements && form.elements.length === 1 && input.form == form;
+
+    div.parentNode.removeChild(div);
+    return bool;
+  });
+
+
+  /**
+   * since we have a fairly large number of input tests that don't mutate the input
+   * we create a single element that can be shared with all of those tests for a
+   * minor perf boost
+   *
+   * @access private
+   * @returns {HTMLInputElement}
+   */
+  var inputElem = createElement('input');
+  
+/*!
+{
+  "name": "Form input types",
+  "property": "inputtypes",
+  "caniuse": "forms",
+  "tags": ["forms"],
+  "authors": ["Mike Taylor"],
+  "polyfills": [
+    "jquerytools",
+    "webshims",
+    "h5f",
+    "webforms2",
+    "nwxforms",
+    "fdslider",
+    "html5slider",
+    "galleryhtml5forms",
+    "jscolor",
+    "html5formshim",
+    "selectedoptionsjs",
+    "formvalidationjs"
+  ]
+}
+!*/
+/* DOC
+Detects support for HTML5 form input types and exposes Boolean subproperties with the results:
+
+```javascript
+Modernizr.inputtypes.color
+Modernizr.inputtypes.date
+Modernizr.inputtypes.datetime
+Modernizr.inputtypes['datetime-local']
+Modernizr.inputtypes.email
+Modernizr.inputtypes.month
+Modernizr.inputtypes.number
+Modernizr.inputtypes.range
+Modernizr.inputtypes.search
+Modernizr.inputtypes.tel
+Modernizr.inputtypes.time
+Modernizr.inputtypes.url
+Modernizr.inputtypes.week
+```
+*/
+
+  // Run through HTML5's new input types to see if the UA understands any.
+  //   This is put behind the tests runloop because it doesn't return a
+  //   true/false like all the other tests; instead, it returns an object
+  //   containing each input type with its corresponding true/false value
+
+  // Big thanks to @miketaylr for the html5 forms expertise. miketaylr.com/
+  var inputtypes = 'search tel url email datetime date month week time datetime-local number range color'.split(' ');
+  var inputs = {};
+
+  Modernizr.inputtypes = (function(props) {
+    var len = props.length;
+    var smile = '1)';
+    var inputElemType;
+    var defaultView;
+    var bool;
+
+    for (var i = 0; i < len; i++) {
+
+      inputElem.setAttribute('type', inputElemType = props[i]);
+      bool = inputElem.type !== 'text' && 'style' in inputElem;
+
+      // We first check to see if the type we give it sticks..
+      // If the type does, we feed it a textual value, which shouldn't be valid.
+      // If the value doesn't stick, we know there's input sanitization which infers a custom UI
+      if (bool) {
+
+        inputElem.value         = smile;
+        inputElem.style.cssText = 'position:absolute;visibility:hidden;';
+
+        if (/^range$/.test(inputElemType) && inputElem.style.WebkitAppearance !== undefined) {
+
+          docElement.appendChild(inputElem);
+          defaultView = document.defaultView;
+
+          // Safari 2-4 allows the smiley as a value, despite making a slider
+          bool =  defaultView.getComputedStyle &&
+            defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&
+            // Mobile android web browser has false positive, so must
+            // check the height to see if the widget is actually there.
+            (inputElem.offsetHeight !== 0);
+
+          docElement.removeChild(inputElem);
+
+        } else if (/^(search|tel)$/.test(inputElemType)) {
+          // Spec doesn't define any special parsing or detectable UI
+          //   behaviors so we pass these through as true
+
+          // Interestingly, opera fails the earlier test, so it doesn't
+          //  even make it here.
+
+        } else if (/^(url|email)$/.test(inputElemType)) {
+          // Real url and email support comes with prebaked validation.
+          bool = inputElem.checkValidity && inputElem.checkValidity() === false;
+
+        } else {
+          // If the upgraded input compontent rejects the :) text, we got a winner
+          bool = inputElem.value != smile;
+        }
+      }
+
+      inputs[ props[i] ] = !!bool;
+    }
+    return inputs;
+  })(inputtypes);
+
+/*!
+{
+  "name": "Form Validation",
+  "property": "formvalidation",
+  "tags": ["forms", "validation", "attribute"],
+  "builderAliases": ["forms_validation"]
+}
+!*/
+/* DOC
+This implementation only tests support for interactive form validation.
+To check validation for a specific type or a specific other constraint,
+the test can be combined:
+
+- `Modernizr.inputtypes.number && Modernizr.formvalidation` (browser supports rangeOverflow, typeMismatch etc. for type=number)
+- `Modernizr.input.required && Modernizr.formvalidation` (browser supports valueMissing)
+*/
+
+  Modernizr.addTest('formvalidation', function() {
+    var form = createElement('form');
+    if (!('checkValidity' in form) || !('addEventListener' in form)) {
+      return false;
+    }
+    if ('reportValidity' in form) {
+      return true;
+    }
+    var invalidFired = false;
+    var input;
+
+    Modernizr.formvalidationapi =  true;
+
+    // Prevent form from being submitted
+    form.addEventListener('submit', function(e) {
+      // Old Presto based Opera does not validate form, if submit is prevented
+      // although Opera Mini servers use newer Presto.
+      if (!window.opera || window.operamini) {
+        e.preventDefault();
+      }
+      e.stopPropagation();
+    }, false);
+
+    // Calling form.submit() doesn't trigger interactive validation,
+    // use a submit button instead
+    //older opera browsers need a name attribute
+    form.innerHTML = '<input name="modTest" required="required" /><button></button>';
+
+    testStyles('#modernizr form{position:absolute;top:-99999em}', function(node) {
+      node.appendChild(form);
+
+      input = form.getElementsByTagName('input')[0];
+
+      // Record whether "invalid" event is fired
+      input.addEventListener('invalid', function(e) {
+        invalidFired = true;
+        e.preventDefault();
+        e.stopPropagation();
+      }, false);
+
+      //Opera does not fully support the validationMessage property
+      Modernizr.formvalidationmessage = !!input.validationMessage;
+
+      // Submit form by clicking submit button
+      form.getElementsByTagName('button')[0].click();
+    });
+
+    return invalidFired;
+  });
+
+/*!
+{
+  "name": "input[type=\"number\"] Localization",
+  "property": "localizednumber",
+  "tags": ["forms", "localization", "attribute"],
+  "authors": ["Peter Janes"],
+  "notes": [{
+    "name": "Webkit Bug Tracker Listing",
+    "href": "https://bugs.webkit.org/show_bug.cgi?id=42484"
+  },{
+    "name": "Based on This",
+    "href": "https://trac.webkit.org/browser/trunk/LayoutTests/fast/forms/script-tests/input-number-keyoperation.js?rev=80096#L9"
+  }],
+  "knownBugs": ["Only ever returns true if the browser/OS is configured to use comma as a decimal separator. This is probably fine for most use cases."]
+}
+!*/
+/* DOC
+Detects whether input type="number" is capable of receiving and displaying localized numbers, e.g. with comma separator.
+*/
+
+  Modernizr.addTest('localizednumber', function() {
+    // this extends our testing of input[type=number], so bomb out if that's missing
+    if (!Modernizr.inputtypes.number) { return false; }
+    // we rely on checkValidity later, so bomb out early if we don't have it
+    if (!Modernizr.formvalidation) { return false; }
+
+    var el = createElement('div');
+    var diff;
+    var body = getBody();
+
+    var root = (function() {
+      return docElement.insertBefore(body, docElement.firstElementChild || docElement.firstChild);
+    }());
+    el.innerHTML = '<input type="number" value="1.0" step="0.1"/>';
+    var input = el.childNodes[0];
+    root.appendChild(el);
+    input.focus();
+    try {
+      document.execCommand('SelectAll', false); // Overwrite current input value, rather than appending text
+      document.execCommand('InsertText', false, '1,1');
+    } catch (e) { // prevent warnings in IE
+    }
+    diff = input.type === 'number' && input.valueAsNumber === 1.1 && input.checkValidity();
+    root.removeChild(el);
+    if (body.fake) {
+      root.parentNode.removeChild(root);
+    }
+    return diff;
+  });
+
+
+/*!
+{
+  "name": "placeholder attribute",
+  "property": "placeholder",
+  "tags": ["forms", "attribute"],
+  "builderAliases": ["forms_placeholder"]
+}
+!*/
+/* DOC
+Tests for placeholder attribute in inputs and textareas
+*/
+
+  Modernizr.addTest('placeholder', ('placeholder' in createElement('input') && 'placeholder' in createElement('textarea')));
+
+/*!
+{
+  "name": "form#requestAutocomplete()",
+  "property": "requestautocomplete",
+  "tags": ["form", "forms", "requestAutocomplete", "payments"],
+  "notes": [{
+    "name": "WHATWG proposed spec",
+    "href": "https://wiki.whatwg.org/wiki/RequestAutocomplete"
+  }]
+}
+!*/
+/* DOC
+When used with input[autocomplete] to annotate a form, form.requestAutocomplete() shows a dialog in Chrome that speeds up
+checkout flows (payments specific for now).
+*/
+
+  Modernizr.addTest('requestautocomplete', !!prefixed('requestAutocomplete', createElement('form')));
+
+/*!
+{
+  "name": "Fullscreen API",
+  "property": "fullscreen",
+  "caniuse": "fullscreen",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en/API/Fullscreen"
+  }],
+  "polyfills": ["screenfulljs"],
+  "builderAliases": ["fullscreen_api"]
+}
+!*/
+/* DOC
+Detects support for the ability to make the current website take over the user's entire screen
+*/
+
+  // github.com/Modernizr/Modernizr/issues/739
+  Modernizr.addTest('fullscreen', !!(prefixed('exitFullscreen', document, false) || prefixed('cancelFullScreen', document, false)));
+
+/*!
+{
+  "name": "Hashchange event",
+  "property": "hashchange",
+  "caniuse": "hashchange",
+  "tags": ["history"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.onhashchange"
+  }],
+  "polyfills": [
+    "jquery-hashchange",
+    "moo-historymanager",
+    "jquery-ajaxy",
+    "hasher",
+    "shistory"
+  ]
+}
+!*/
+/* DOC
+Detects support for the `hashchange` event, fired when the current location fragment changes.
+*/
+
+  Modernizr.addTest('hashchange', function() {
+    if (hasEvent('hashchange', window) === false) {
+      return false;
+    }
+
+    // documentMode logic from YUI to filter out IE8 Compat Mode
+    //   which false positives.
+    return (document.documentMode === undefined || document.documentMode > 7);
+  });
+
+/*!
+{
+  "name": "Hidden Scrollbar",
+  "property": "hiddenscroll",
+  "authors": ["Oleg Korsunsky"],
+  "tags": ["overlay"],
+  "notes": [{
+    "name": "Overlay Scrollbar description",
+    "href": "https://developer.apple.com/library/mac/releasenotes/MacOSX/WhatsNewInOSX/Articles/MacOSX10_7.html#//apple_ref/doc/uid/TP40010355-SW39"
+  },{
+    "name": "Video example of overlay scrollbars",
+    "href": "https://gfycat.com/FoolishMeaslyAtlanticsharpnosepuffer"
+  }]
+}
+!*/
+/* DOC
+Detects overlay scrollbars (when scrollbars on overflowed blocks are visible). This is found most commonly on mobile and OS X.
+*/
+
+  Modernizr.addTest('hiddenscroll', function() {
+    return testStyles('#modernizr {width:100px;height:100px;overflow:scroll}', function(elem) {
+      return elem.offsetWidth === elem.clientWidth;
+    });
+  });
+
+/*!
+{
+  "name": "History API",
+  "property": "history",
+  "caniuse": "history",
+  "tags": ["history"],
+  "authors": ["Hay Kranen", "Alexander Farkas"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/html51/browsers.html#the-history-interface"
+  }, {
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.history"
+  }],
+  "polyfills": ["historyjs", "html5historyapi"]
+}
+!*/
+/* DOC
+Detects support for the History API for manipulating the browser session history.
+*/
+
+  Modernizr.addTest('history', function() {
+    // Issue #733
+    // The stock browser on Android 2.2 & 2.3, and 4.0.x returns positive on history support
+    // Unfortunately support is really buggy and there is no clean way to detect
+    // these bugs, so we fall back to a user agent sniff :(
+    var ua = navigator.userAgent;
+
+    // We only want Android 2 and 4.0, stock browser, and not Chrome which identifies
+    // itself as 'Mobile Safari' as well, nor Windows Phone (issue #1471).
+    if ((ua.indexOf('Android 2.') !== -1 ||
+        (ua.indexOf('Android 4.0') !== -1)) &&
+        ua.indexOf('Mobile Safari') !== -1 &&
+        ua.indexOf('Chrome') === -1 &&
+        ua.indexOf('Windows Phone') === -1 &&
+    // Since all documents on file:// share an origin, the History apis are
+    // blocked there as well
+        location.protocol !== 'file:'
+    ) {
+      return false;
+    }
+
+    // Return the regular check
+    return (window.history && 'pushState' in window.history);
+  });
+
+/*!
+{
+  "name": "HTML Imports",
+  "notes": [
+    {
+      "name": "W3C HTML Imports Specification",
+      "href": "https://w3c.github.io/webcomponents/spec/imports/"
+    },
+    {
+      "name": "HTML Imports - #include for the web",
+      "href": "http://www.html5rocks.com/en/tutorials/webcomponents/imports/"
+    }
+  ],
+  "polyfills": ["polymer-htmlimports"],
+  "property": "htmlimports",
+  "tags": ["html", "import"]
+}
+!*/
+/* DOC
+Detects support for HTML import, a feature that is used for loading in Web Components.
+ */
+
+
+  addTest('htmlimports', 'import' in createElement('link'));
+
+/*!
+{
+  "name": "iframe[sandbox] Attribute",
+  "property": "sandbox",
+  "tags": ["iframe"],
+  "builderAliases": ["iframe_sandbox"],
+  "notes": [
+  {
+    "name": "WhatWG Spec",
+    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-sandbox"
+  }],
+  "knownBugs": [ "False-positive on Firefox < 29" ]
+}
+!*/
+/* DOC
+Test for `sandbox` attribute in iframes.
+*/
+
+  Modernizr.addTest('sandbox', 'sandbox' in createElement('iframe'));
+
+/*!
+{
+  "name": "iframe[seamless] Attribute",
+  "property": "seamless",
+  "tags": ["iframe"],
+  "builderAliases": ["iframe_seamless"],
+  "notes": [{
+    "name": "WhatWG Spec",
+    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-seamless"
+  }]
+}
+!*/
+/* DOC
+Test for `seamless` attribute in iframes.
+*/
+
+  Modernizr.addTest('seamless', 'seamless' in createElement('iframe'));
+
+/*!
+{
+  "name": "iframe[srcdoc] Attribute",
+  "property": "srcdoc",
+  "tags": ["iframe"],
+  "builderAliases": ["iframe_srcdoc"],
+  "notes": [{
+    "name": "WhatWG Spec",
+    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-srcdoc"
+  }]
+}
+!*/
+/* DOC
+Test for `srcdoc` attribute in iframes.
+*/
+
+  Modernizr.addTest('srcdoc', 'srcdoc' in createElement('iframe'));
+
+/*!
+{
+  "name": "JSON",
+  "property": "json",
+  "caniuse": "json",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Glossary/JSON"
+  }],
+  "polyfills": ["json2"]
+}
+!*/
+/* DOC
+Detects native support for JSON handling functions.
+*/
+
+  // this will also succeed if you've loaded the JSON2.js polyfill ahead of time
+  //   ... but that should be obvious. :)
+
+  Modernizr.addTest('json', 'JSON' in window && 'parse' in JSON && 'stringify' in JSON);
+
+/*!
+{
+  "name": "Hover Media Query",
+  "property": "hovermq",
+  "notes": [{
+    "name": "//Name of reference document",
+    "href": "//URL of reference document"
+  }]
+}
+!*/
+/* DOC
+Detect support for Hover based media queries
+*/
+
+  Modernizr.addTest('hovermq', mq(('(hover)')));
+
+/*!
+{
+  "name": "Pointer Media Query",
+  "property": "pointermq",
+  "notes": [{
+    "name": "//Name of reference document",
+    "href": "//URL of reference document"
+  }]
+}
+!*/
+/* DOC
+Detect support for Pointer based media queries
+*/
+
+  Modernizr.addTest('pointermq', mq(('(pointer:coarse),(pointer:fine),(pointer:none)')));
+
+/*!
+{
+  "name": "Notification",
+  "property": "notification",
+  "caniuse": "notifications",
+  "authors": ["Theodoor van Donge", "Hendrik Beskow"],
+  "notes": [{
+    "name": "HTML5 Rocks tutorial",
+    "href": "http://www.html5rocks.com/en/tutorials/notifications/quick/"
+  },{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/notifications/"
+  }, {
+    "name": "Changes in Chrome to Notifications API due to Service Worker Push Notifications",
+    "href": "https://developers.google.com/web/updates/2015/05/Notifying-you-of-notificiation-changes"
+  }],
+  "knownBugs": [
+    "Possibility of false-positive on Chrome for Android if permissions we're granted for a website prior to Chrome 44."
+  ],
+  "polyfills": ["desktop-notify", "html5-notifications"]
+}
+!*/
+/* DOC
+Detects support for the Notifications API
+*/
+
+  Modernizr.addTest('notification', function() {
+    if (!window.Notification || !window.Notification.requestPermission) {
+      return false;
+    }
+    // if permission is already granted, assume support
+    if (window.Notification.permission === 'granted') {
+      return true;
+    }
+
+    try {
+      new window.Notification('');
+    } catch (e) {
+      if (e.name === 'TypeError') {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+/*!
+{
+  "name": "Page Visibility API",
+  "property": "pagevisibility",
+  "caniuse": "pagevisibility",
+  "tags": ["performance"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/DOM/Using_the_Page_Visibility_API"
+  },{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/2011/WD-page-visibility-20110602/"
+  },{
+    "name": "HTML5 Rocks tutorial",
+    "href": "http://www.html5rocks.com/en/tutorials/pagevisibility/intro/"
+  }],
+  "polyfills": ["visibilityjs", "visiblyjs", "jquery-visibility"]
+}
+!*/
+/* DOC
+Detects support for the Page Visibility API, which can be used to disable unnecessary actions and otherwise improve user experience.
+*/
+
+  Modernizr.addTest('pagevisibility', !!prefixed('hidden', document, false));
+
+/*!
+{
+  "name": "Navigation Timing API",
+  "property": "performance",
+  "caniuse": "nav-timing",
+  "tags": ["performance"],
+  "authors": ["Scott Murphy (@uxder)"],
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "https://www.w3.org/TR/navigation-timing/"
+  },{
+    "name": "HTML5 Rocks article",
+    "href": "http://www.html5rocks.com/en/tutorials/webperformance/basics/"
+  }],
+  "polyfills": ["perfnow"]
+}
+!*/
+/* DOC
+Detects support for the Navigation Timing API, for measuring browser and connection performance.
+*/
+
+  Modernizr.addTest('performance', !!prefixed('performance', window));
+
+/*!
+{
+  "name": "postMessage",
+  "property": "postmessage",
+  "caniuse": "x-doc-messaging",
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "http://www.w3.org/TR/html5/comms.html#posting-messages"
+  }],
+  "polyfills": ["easyxdm", "postmessage-jquery"]
+}
+!*/
+/* DOC
+Detects support for the `window.postMessage` protocol for cross-document messaging.
+*/
+
+  Modernizr.addTest('postmessage', 'postMessage' in window);
+
+/*!
+{
+  "authors": ["Cătălin Mariș"],
+  "caniuse": "proximity",
+  "name": "Proximity API",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Events"
+  },{
+    "name": "W3C specification",
+    "href": "https://www.w3.org/TR/proximity/"
+  }],
+  "property": "proximity",
+  "tags": ["events", "proximity"]
+}
+!*/
+/* DOC
+Detects support for an API that allows users to get proximity related information from the device's proximity sensor.
+*/
+
+
+  Modernizr.addAsyncTest(function() {
+
+    var timeout;
+    var timeoutTime = 300;
+
+    function advertiseSupport() {
+
+      // Clean up after ourselves
+      clearTimeout(timeout);
+      window.removeEventListener('deviceproximity', advertiseSupport);
+
+      // Advertise support as the browser supports
+      // the API and the device has a proximity sensor
+      addTest('proximity', true);
+
+    }
+
+    // Check if the browser has support for the API
+    if ('ondeviceproximity' in window && 'onuserproximity' in window) {
+
+      // Check if the device has a proximity sensor
+      // ( devices without such a sensor support the events but
+      //   will never fire them resulting in a false positive )
+      window.addEventListener('deviceproximity', advertiseSupport);
+
+      // If the event doesn't fire in a reasonable amount of time,
+      // it means that the device doesn't have a proximity sensor,
+      // thus, we can advertise the "lack" of support
+      timeout = setTimeout(function() {
+        window.removeEventListener('deviceproximity', advertiseSupport);
+        addTest('proximity', false);
+      }, timeoutTime);
+
+    } else {
+      addTest('proximity', false);
+    }
+
+  });
+
+
+/*!
+{
+  "name": "QuerySelector",
+  "property": "queryselector",
+  "caniuse": "queryselector",
+  "tags": ["queryselector"],
+  "authors": ["Andrew Betts (@triblondon)"],
+  "notes": [{
+    "name" : "W3C Selectors reference",
+    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
+  }],
+  "polyfills": ["css-selector-engine"]
+}
+!*/
+/* DOC
+Detects support for querySelector.
+*/
+
+  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
+
+/*!
+{
+  "name": "requestAnimationFrame",
+  "property": "requestanimationframe",
+  "aliases": ["raf"],
+  "caniuse": "requestanimationframe",
+  "tags": ["animation"],
+  "authors": ["Addy Osmani"],
+  "notes": [{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/animation-timing/"
+  }],
+  "polyfills": ["raf"]
+}
+!*/
+/* DOC
+Detects support for the `window.requestAnimationFrame` API, for offloading animation repainting to the browser for optimized performance.
+*/
+
+  Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
+
+/*!
+{
+  "name": "Local Storage",
+  "property": "localstorage",
+  "caniuse": "namevalue-storage",
+  "tags": ["storage"],
+  "knownBugs": [],
+  "notes": [],
+  "warnings": [],
+  "polyfills": [
+    "joshuabell-polyfill",
+    "cupcake",
+    "storagepolyfill",
+    "amplifyjs",
+    "yui-cacheoffline"
+  ]
+}
+!*/
+
+  // In FF4, if disabled, window.localStorage should === null.
+
+  // Normally, we could not test that directly and need to do a
+  //   `('localStorage' in window)` test first because otherwise Firefox will
+  //   throw bugzil.la/365772 if cookies are disabled
+
+  // Similarly, in Chrome with "Block third-party cookies and site data" enabled,
+  // attempting to access `window.sessionStorage` will throw an exception. crbug.com/357625
+
+  // Also in iOS5 Private Browsing mode, attempting to use localStorage.setItem
+  // will throw the exception:
+  //   QUOTA_EXCEEDED_ERROR DOM Exception 22.
+  // Peculiarly, getItem and removeItem calls do not throw.
+
+  // Because we are forced to try/catch this, we'll go aggressive.
+
+  // Just FWIW: IE8 Compat mode supports these features completely:
+  //   www.quirksmode.org/dom/html5.html
+  // But IE8 doesn't support either with local files
+
+  Modernizr.addTest('localstorage', function() {
+    var mod = 'modernizr';
+    try {
+      localStorage.setItem(mod, mod);
+      localStorage.removeItem(mod);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  });
+
+/*!
+{
+  "name": "Session Storage",
+  "property": "sessionstorage",
+  "tags": ["storage"],
+  "polyfills": ["joshuabell-polyfill", "cupcake", "sessionstorage"]
+}
+!*/
+
+  // Because we are forced to try/catch this, we'll go aggressive.
+
+  // Just FWIW: IE8 Compat mode supports these features completely:
+  //   www.quirksmode.org/dom/html5.html
+  // But IE8 doesn't support either with local files
+  Modernizr.addTest('sessionstorage', function() {
+    var mod = 'modernizr';
+    try {
+      sessionStorage.setItem(mod, mod);
+      sessionStorage.removeItem(mod);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  });
+
+/*!
+{
+  "name": "Web SQL Database",
+  "property": "websqldatabase",
+  "caniuse": "sql-storage",
+  "tags": ["storage"]
+}
+!*/
+
+  // Chrome incognito mode used to throw an exception when using openDatabase
+  // It doesn't anymore.
+  Modernizr.addTest('websqldatabase', 'openDatabase' in window);
+
+/*!
+{
+  "name": "Touch Events",
+  "property": "touchevents",
+  "caniuse" : "touch",
+  "tags": ["media", "attribute"],
+  "notes": [{
+    "name": "Touch Events spec",
+    "href": "https://www.w3.org/TR/2013/WD-touch-events-20130124/"
+  }],
+  "warnings": [
+    "Indicates if the browser supports the Touch Events spec, and does not necessarily reflect a touchscreen device"
+  ],
+  "knownBugs": [
+    "False-positive on some configurations of Nokia N900",
+    "False-positive on some BlackBerry 6.0 builds – https://github.com/Modernizr/Modernizr/issues/372#issuecomment-3112695"
+  ]
+}
+!*/
+/* DOC
+Indicates if the browser supports the W3C Touch Events API.
+
+This *does not* necessarily reflect a touchscreen device:
+
+* Older touchscreen devices only emulate mouse events
+* Modern IE touch devices implement the Pointer Events API instead: use `Modernizr.pointerevents` to detect support for that
+* Some browsers & OS setups may enable touch APIs when no touchscreen is connected
+* Future browsers may implement other event models for touch interactions
+
+See this article: [You Can't Detect A Touchscreen](http://www.stucox.com/blog/you-cant-detect-a-touchscreen/).
+
+It's recommended to bind both mouse and touch/pointer events simultaneously – see [this HTML5 Rocks tutorial](http://www.html5rocks.com/en/mobile/touchandmouse/).
+
+This test will also return `true` for Firefox 4 Multitouch support.
+*/
+
+  // Chrome (desktop) used to lie about its support on this, but that has since been rectified: http://crbug.com/36415
+  Modernizr.addTest('touchevents', function() {
+    var bool;
+    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+      bool = true;
+    } else {
+      // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+      // https://git.io/vznFH
+      var query = ['@media (', prefixes.join('touch-enabled),('), 'heartz', ')', '{#modernizr{top:9px;position:absolute}}'].join('');
+      testStyles(query, function(node) {
+        bool = node.offsetTop === 9;
+      });
+    }
+    return bool;
+  });
+
+/*!
+{
+  "name": "Unicode characters",
+  "property": "unicode",
+  "tags": ["encoding"],
+  "warnings": [
+    "positive Unicode support doesn't mean you can use it inside <title>, this seems more related to OS & Language packs"
+  ]
+}
+!*/
+/* DOC
+Detects if unicode characters are supported in the current document.
+*/
+
+  /**
+   * Unicode special character support
+   *
+   * Detection is made by testing missing glyph box rendering against star character
+   * If widths are the same, this "probably" means the browser didn't support the star character and rendered a glyph box instead
+   * Just need to ensure the font characters have different widths
+   */
+  Modernizr.addTest('unicode', function() {
+    var bool;
+    var missingGlyph = createElement('span');
+    var star = createElement('span');
+
+    testStyles('#modernizr{font-family:Arial,sans;font-size:300em;}', function(node) {
+
+      missingGlyph.innerHTML = isSVG ? '\u5987' : '&#5987;';
+      star.innerHTML = isSVG ? '\u2606' : '&#9734;';
+
+      node.appendChild(missingGlyph);
+      node.appendChild(star);
+
+      bool = 'offsetWidth' in missingGlyph && missingGlyph.offsetWidth !== star.offsetWidth;
+    });
+
+    return bool;
+
+  });
+
+/*!
+{
+  "name": "Unicode Range",
+  "property": "unicoderange",
+  "notes": [{
+    "name" : "W3C reference",
+    "href": "https://www.w3.org/TR/2013/CR-css-fonts-3-20131003/#descdef-unicode-range"
+  }, {
+    "name" : "24 Way article",
+    "href": "https://24ways.org/2011/creating-custom-font-stacks-with-unicode-range"
+  }]
+}
+!*/
+
+  Modernizr.addTest('unicoderange', function() {
+
+    return Modernizr.testStyles('@font-face{font-family:"unicodeRange";src:local("Arial");unicode-range:U+0020,U+002E}#modernizr span{font-size:20px;display:inline-block;font-family:"unicodeRange",monospace}#modernizr .mono{font-family:monospace}', function(elem) {
+
+      // we use specify a unicode-range of 002E (the `.` glyph,
+      // and a monospace font as the fallback. If the first of
+      // these test glyphs is a different width than the other
+      // the other three (which are all monospace), then we
+      // have a winner.
+      var testGlyphs = ['.', '.', 'm', 'm'];
+
+      for (var i = 0; i < testGlyphs.length; i++) {
+        var elm = createElement('span');
+        elm.innerHTML = testGlyphs[i];
+        elm.className = i % 2 ? 'mono' : '';
+        elem.appendChild(elm);
+        testGlyphs[i] = elm.clientWidth;
+      }
+
+      return (testGlyphs[0] !== testGlyphs[1] && testGlyphs[2] === testGlyphs[3]);
+    });
+  });
+
+/*!
+{
+  "name": "Blob URLs",
+  "property": "bloburls",
+  "caniuse": "bloburls",
+  "notes": [{
+    "name": "W3C Working Draft",
+    "href": "https://www.w3.org/TR/FileAPI/#creating-revoking"
+  }],
+  "tags": ["file", "url"],
+  "authors": ["Ron Waldon (@jokeyrhyme)"]
+}
+!*/
+/* DOC
+Detects support for creating Blob URLs
+*/
+
+  var url = prefixed('URL', window, false);
+  url = url && window[url];
+  Modernizr.addTest('bloburls', url && 'revokeObjectURL' in url && 'createObjectURL' in url);
+
+/*!
+{
+  "name": "Data URI",
+  "property": "datauri",
+  "caniuse": "datauri",
+  "tags": ["url"],
+  "builderAliases": ["url_data_uri"],
+  "async": true,
+  "notes": [{
+    "name": "Wikipedia article",
+    "href": "https://en.wikipedia.org/wiki/Data_URI_scheme"
+  }],
+  "warnings": ["Support in Internet Explorer 8 is limited to images and linked resources like CSS files, not HTML files"]
+}
+!*/
+/* DOC
+Detects support for data URIs. Provides a subproperty to report support for data URIs over 32kb in size:
+
+```javascript
+Modernizr.datauri           // true
+Modernizr.datauri.over32kb  // false in IE8
+```
+*/
+
+  // https://github.com/Modernizr/Modernizr/issues/14
+  Modernizr.addAsyncTest(function() {
+
+    // IE7 throw a mixed content warning on HTTPS for this test, so we'll
+    // just blacklist it (we know it doesn't support data URIs anyway)
+    // https://github.com/Modernizr/Modernizr/issues/362
+    if (navigator.userAgent.indexOf('MSIE 7.') !== -1) {
+      // Keep the test async
+      setTimeout(function() {
+        addTest('datauri', false);
+      }, 10);
+    }
+
+    var datauri = new Image();
+
+    datauri.onerror = function() {
+      addTest('datauri', false);
+    };
+    datauri.onload = function() {
+      if (datauri.width == 1 && datauri.height == 1) {
+        testOver32kb();
+      }
+      else {
+        addTest('datauri', false);
+      }
+    };
+
+    datauri.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
+    // Once we have datauri, let's check to see if we can use data URIs over
+    // 32kb (IE8 can't). https://github.com/Modernizr/Modernizr/issues/321
+    function testOver32kb() {
+
+      var datauriBig = new Image();
+
+      datauriBig.onerror = function() {
+        addTest('datauri', true);
+        Modernizr.datauri = new Boolean(true);
+        Modernizr.datauri.over32kb = false;
+      };
+      datauriBig.onload = function() {
+        addTest('datauri', true);
+        Modernizr.datauri = new Boolean(true);
+        Modernizr.datauri.over32kb = (datauriBig.width == 1 && datauriBig.height == 1);
+      };
+
+      var base64str = 'R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+      while (base64str.length < 33000) {
+        base64str = '\r\n' + base64str;
+      }
+      datauriBig.src = 'data:image/gif;base64,' + base64str;
+    }
+
+  });
+
+/*!
+{
+  "name": "URL parser",
+  "property": "urlparser",
+  "notes": [{
+    "name": "URL",
+    "href": "https://dvcs.w3.org/hg/url/raw-file/tip/Overview.html"
+  }],
+  "polyfills": ["urlparser"],
+  "authors": ["Ron Waldon (@jokeyrhyme)"],
+  "tags": ["url"]
+}
+!*/
+/* DOC
+Check if browser implements the URL constructor for parsing URLs.
+*/
+
+  Modernizr.addTest('urlparser', function() {
+    var url;
+    try {
+      // have to actually try use it, because Safari defines a dud constructor
+      url = new URL('http://modernizr.com/');
+      return url.href === 'http://modernizr.com/';
+    } catch (e) {
+      return false;
+    }
+  });
+
+/*!
+{
+  "authors": ["Cătălin Mariș"],
+  "name": "URLSearchParams API",
+  "notes": [
+    {
+      "name": "WHATWG specification",
+      "href": "https://url.spec.whatwg.org/#interface-urlsearchparams"
+    },
+    {
+      "name": "MDN documentation",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
+    }
+  ],
+  "property": "urlsearchparams",
+  "tags": ["querystring", "url"]
+}
+!*/
+
+/* DOC
+Detects support for an API that provides utility methods for working with the query string of a URL.
+*/
+
+
+  Modernizr.addTest('urlsearchparams', 'URLSearchParams' in window);
+
+/*!
+{
+  "name": "IE User Data API",
+  "property": "userdata",
+  "tags": ["storage"],
+  "authors": ["@stereobooster"],
+  "notes": [{
+    "name": "MSDN Documentation",
+    "href": "https://msdn.microsoft.com/en-us/library/ms531424.aspx"
+  }]
+}
+!*/
+/* DOC
+Detects support for IE userData for persisting data, an API similar to localStorage but supported since IE5.
+*/
+
+  Modernizr.addTest('userdata', !!createElement('div').addBehavior);
+
+/*!
+{
+  "name": "Vibration API",
+  "property": "vibrate",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en/DOM/window.navigator.mozVibrate"
+  },{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/vibration/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the API that provides access to the vibration mechanism of the hosting device, to provide tactile feedback.
+*/
+
+  Modernizr.addTest('vibrate', !!prefixed('vibrate', navigator));
+
+/*!
+{
+  "name": "HTML5 Video",
+  "property": "video",
+  "caniuse": "video",
+  "tags": ["html5"],
+  "knownBugs": [
+    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
+  ],
+  "polyfills": [
+    "html5media",
+    "mediaelementjs",
+    "sublimevideo",
+    "videojs",
+    "leanbackplayer",
+    "videoforeverybody"
+  ]
+}
+!*/
+/* DOC
+Detects support for the video element, as well as testing what types of content it supports.
+
+Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
+
+```javascript
+Modernizr.video         // true
+Modernizr.video.ogg     // 'probably'
+```
+*/
+
+  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+  //                     thx to NielsLeenheer and zcorpan
+
+  // Note: in some older browsers, "no" was a return value instead of empty string.
+  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
+  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
+
+  Modernizr.addTest('video', function() {
+    var elem = createElement('video');
+    var bool = false;
+
+    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
+    try {
+      bool = !!elem.canPlayType
+      if (bool) {
+        bool = new Boolean(bool);
+        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
+
+        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
+        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
+
+        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
+
+        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
+
+        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
+      }
+    } catch (e) {}
+
+    return bool;
+  });
+
+/*!
+{
+  "name": "Video Autoplay",
+  "property": "videoautoplay",
+  "tags": ["video"],
+  "async" : true,
+  "warnings": ["This test is very large – only include it if you absolutely need it"],
+  "knownBugs": ["crashes with an alert on iOS7 when added to homescreen"]
+}
+!*/
+/* DOC
+Checks for support of the autoplay attribute of the video element.
+*/
+
+
+  Modernizr.addAsyncTest(function() {
+    var timeout;
+    var waitTime = 200;
+    var retries = 5;
+    var currentTry = 0;
+    var elem = createElement('video');
+    var elemStyle = elem.style;
+
+    function testAutoplay(arg) {
+      currentTry++;
+      clearTimeout(timeout);
+
+      var result = arg && arg.type === 'playing' || elem.currentTime !== 0;
+
+      if (!result && currentTry < retries) {
+        //Detection can be flaky if the browser is slow, so lets retry in a little bit
+        timeout = setTimeout(testAutoplay, waitTime);
+        return;
+      }
+
+      elem.removeEventListener('playing', testAutoplay, false);
+      addTest('videoautoplay', result);
+
+      // Cleanup, but don't assume elem is still in the page -
+      // an extension (eg Flashblock) may already have removed it.
+      if (elem.parentNode) {
+        elem.parentNode.removeChild(elem);
+      }
+    }
+
+    //skip the test if video itself, or the autoplay
+    //element on it isn't supported
+    if (!Modernizr.video || !('autoplay' in elem)) {
+      addTest('videoautoplay', false);
+      return;
+    }
+
+    elemStyle.position = 'absolute';
+    elemStyle.height = 0;
+    elemStyle.width = 0;
+
+    try {
+      if (Modernizr.video.ogg) {
+        elem.src = 'data:video/ogg;base64,T2dnUwACAAAAAAAAAABmnCATAAAAAHDEixYBKoB0aGVvcmEDAgEAAQABAAAQAAAQAAAAAAAFAAAAAQAAAAAAAAAAAGIAYE9nZ1MAAAAAAAAAAAAAZpwgEwEAAAACrA7TDlj///////////////+QgXRoZW9yYSsAAABYaXBoLk9yZyBsaWJ0aGVvcmEgMS4xIDIwMDkwODIyIChUaHVzbmVsZGEpAQAAABoAAABFTkNPREVSPWZmbXBlZzJ0aGVvcmEtMC4yOYJ0aGVvcmG+zSj3uc1rGLWpSUoQc5zmMYxSlKQhCDGMYhCEIQhAAAAAAAAAAAAAEW2uU2eSyPxWEvx4OVts5ir1aKtUKBMpJFoQ/nk5m41mUwl4slUpk4kkghkIfDwdjgajQYC8VioUCQRiIQh8PBwMhgLBQIg4FRba5TZ5LI/FYS/Hg5W2zmKvVoq1QoEykkWhD+eTmbjWZTCXiyVSmTiSSCGQh8PB2OBqNBgLxWKhQJBGIhCHw8HAyGAsFAiDgUCw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDAwPEhQUFQ0NDhESFRUUDg4PEhQVFRUOEBETFBUVFRARFBUVFRUVEhMUFRUVFRUUFRUVFRUVFRUVFRUVFRUVEAwLEBQZGxwNDQ4SFRwcGw4NEBQZHBwcDhATFhsdHRwRExkcHB4eHRQYGxwdHh4dGxwdHR4eHh4dHR0dHh4eHRALChAYKDM9DAwOExo6PDcODRAYKDlFOA4RFh0zV1A+EhYlOkRtZ00YIzdAUWhxXDFATldneXhlSFxfYnBkZ2MTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEhIVGRoaGhoSFBYaGhoaGhUWGRoaGhoaGRoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhESFh8kJCQkEhQYIiQkJCQWGCEkJCQkJB8iJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQREhgvY2NjYxIVGkJjY2NjGBo4Y2NjY2MvQmNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRISEhUXGBkbEhIVFxgZGxwSFRcYGRscHRUXGBkbHB0dFxgZGxwdHR0YGRscHR0dHhkbHB0dHR4eGxwdHR0eHh4REREUFxocIBERFBcaHCAiERQXGhwgIiUUFxocICIlJRcaHCAiJSUlGhwgIiUlJSkcICIlJSUpKiAiJSUlKSoqEBAQFBgcICgQEBQYHCAoMBAUGBwgKDBAFBgcICgwQEAYHCAoMEBAQBwgKDBAQEBgICgwQEBAYIAoMEBAQGCAgAfF5cdH1e3Ow/L66wGmYnfIUbwdUTe3LMRbqON8B+5RJEvcGxkvrVUjTMrsXYhAnIwe0dTJfOYbWrDYyqUrz7dw/JO4hpmV2LsQQvkUeGq1BsZLx+cu5iV0e0eScJ91VIQYrmqfdVSK7GgjOU0oPaPOu5IcDK1mNvnD+K8LwS87f8Jx2mHtHnUkTGAurWZlNQa74ZLSFH9oF6FPGxzLsjQO5Qe0edcpttd7BXBSqMCL4k/4tFrHIPuEQ7m1/uIWkbDMWVoDdOSuRQ9286kvVUlQjzOE6VrNguN4oRXYGkgcnih7t13/9kxvLYKQezwLTrO44sVmMPgMqORo1E0sm1/9SludkcWHwfJwTSybR4LeAz6ugWVgRaY8mV/9SluQmtHrzsBtRF/wPY+X0JuYTs+ltgrXAmlk10xQHmTu9VSIAk1+vcvU4ml2oNzrNhEtQ3CysNP8UeR35wqpKUBdGdZMSjX4WVi8nJpdpHnbhzEIdx7mwf6W1FKAiucMXrWUWVjyRf23chNtR9mIzDoT/6ZLYailAjhFlZuvPtSeZ+2oREubDoWmT3TguY+JHPdRVSLKxfKH3vgNqJ/9emeEYikGXDFNzaLjvTeGAL61mogOoeG3y6oU4rW55ydoj0lUTSR/mmRhPmF86uwIfzp3FtiufQCmppaHDlGE0r2iTzXIw3zBq5hvaTldjG4CPb9wdxAme0SyedVKczJ9AtYbgPOzYKJvZZImsN7ecrxWZg5dR6ZLj/j4qpWsIA+vYwE+Tca9ounMIsrXMB4Stiib2SPQtZv+FVIpfEbzv8ncZoLBXc3YBqTG1HsskTTotZOYTG+oVUjLk6zhP8bg4RhMUNtfZdO7FdpBuXzhJ5Fh8IKlJG7wtD9ik8rWOJxy6iQ3NwzBpQ219mlyv+FLicYs2iJGSE0u2txzed++D61ZWCiHD/cZdQVCqkO2gJpdpNaObhnDfAPrT89RxdWFZ5hO3MseBSIlANppdZNIV/Rwe5eLTDvkfWKzFnH+QJ7m9QWV1KdwnuIwTNtZdJMoXBf74OhRnh2t+OTGL+AVUnIkyYY+QG7g9itHXyF3OIygG2s2kud679ZWKqSFa9n3IHD6MeLv1lZ0XyduRhiDRtrNnKoyiFVLcBm0ba5Yy3fQkDh4XsFE34isVpOzpa9nR8iCpS4HoxG2rJpnRhf3YboVa1PcRouh5LIJv/uQcPNd095ickTaiGBnWLKVWRc0OnYTSyex/n2FofEPnDG8y3PztHrzOLK1xo6RAml2k9owKajOC0Wr4D5x+3nA0UEhK2m198wuBHF3zlWWVKWLN1CHzLClUfuoYBcx4b1llpeBKmbayaR58njtE9onD66lUcsg0Spm2snsb+8HaJRn4dYcLbCuBuYwziB8/5U1C1DOOz2gZjSZtrLJk6vrLF3hwY4Io9xuT/ruUFRSBkNtUzTOWhjh26irLEPx4jPZL3Fo3QrReoGTTM21xYTT9oFdhTUIvjqTkfkvt0bzgVUjq/hOYY8j60IaO/0AzRBtqkTS6R5ellZd5uKdzzhb8BFlDdAcrwkE0rbXTOPB+7Y0FlZO96qFL4Ykg21StJs8qIW7h16H5hGiv8V2Cflau7QVDepTAHa6Lgt6feiEvJDM21StJsmOH/hynURrKxvUpQ8BH0JF7BiyG2qZpnL/7AOU66gt+reLEXY8pVOCQvSsBtqZTNM8bk9ohRcwD18o/WVkbvrceVKRb9I59IEKysjBeTMmmbA21xu/6iHadLRxuIzkLpi8wZYmmbbWi32RVAUjruxWlJ//iFxE38FI9hNKOoCdhwf5fDe4xZ81lgREhK2m1j78vW1CqkuMu/AjBNK210kzRUX/B+69cMMUG5bYrIeZxVSEZISmkzbXOi9yxwIfPgdsov7R71xuJ7rFcACjG/9PzApqFq7wEgzNJm2suWESPuwrQvejj7cbnQxMkxpm21lUYJL0fKmogPPqywn7e3FvB/FCNxPJ85iVUkCE9/tLKx31G4CgNtWTTPFhMvlu8G4/TrgaZttTChljfNJGgOT2X6EqpETy2tYd9cCBI4lIXJ1/3uVUllZEJz4baqGF64yxaZ+zPLYwde8Uqn1oKANtUrSaTOPHkhvuQP3bBlEJ/LFe4pqQOHUI8T8q7AXx3fLVBgSCVpMba55YxN3rv8U1Dv51bAPSOLlZWebkL8vSMGI21lJmmeVxPRwFlZF1CpqCN8uLwymaZyjbXHCRytogPN3o/n74CNykfT+qqRv5AQlHcRxYrC5KvGmbbUwmZY/29BvF6C1/93x4WVglXDLFpmbapmF89HKTogRwqqSlGbu+oiAkcWFbklC6Zhf+NtTLFpn8oWz+HsNRVSgIxZWON+yVyJlE5tq/+GWLTMutYX9ekTySEQPLVNQQ3OfycwJBM0zNtZcse7CvcKI0V/zh16Dr9OSA21MpmmcrHC+6pTAPHPwoit3LHHqs7jhFNRD6W8+EBGoSEoaZttTCZljfduH/fFisn+dRBGAZYtMzbVMwvul/T/crK1NQh8gN0SRRa9cOux6clC0/mDLFpmbarmF8/e6CopeOLCNW6S/IUUg3jJIYiAcDoMcGeRbOvuTPjXR/tyo79LK3kqqkbxkkMRAOB0GODPItnX3Jnxro/25Ud+llbyVVSN4ySGIgHA6DHBnkWzr7kz410f7cqO/Syt5KqpFVJwn6gBEvBM0zNtZcpGOEPiysW8vvRd2R0f7gtjhqUvXL+gWVwHm4XJDBiMpmmZtrLfPwd/IugP5+fKVSysH1EXreFAcEhelGmbbUmZY4Xdo1vQWVnK19P4RuEnbf0gQnR+lDCZlivNM22t1ESmopPIgfT0duOfQrsjgG4tPxli0zJmF5trdL1JDUIUT1ZXSqQDeR4B8mX3TrRro/2McGeUvLtwo6jIEKMkCUXWsLyZROd9P/rFYNtXPBli0z398iVUlVKAjFlY437JXImUTm2r/4ZYtMy61hf16RPJIU9nZ1MABAwAAAAAAAAAZpwgEwIAAABhp658BScAAAAAAADnUFBQXIDGXLhwtttNHDhw5OcpQRMETBEwRPduylKVB0HRdF0A';
+      }
+      else if (Modernizr.video.h264) {
+        elem.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAs1tZGF0AAACrgYF//+q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE0OCByMjYwMSBhMGNkN2QzIC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxNSAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTEgbG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRlcmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJfcHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTEwIHNjZW5lY3V0PTQwIGludHJhX3JlZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAuNjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAAD2WIhAA3//728P4FNjuZQQAAAu5tb292AAAAbG12aGQAAAAAAAAAAAAAAAAAAAPoAAAAZAABAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACGHRyYWsAAABcdGtoZAAAAAMAAAAAAAAAAAAAAAEAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAIAAAAAACRlZHRzAAAAHGVsc3QAAAAAAAAAAQAAAGQAAAAAAAEAAAAAAZBtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAAAACgAAAAEAFXEAAAAAAAtaGRscgAAAAAAAAAAdmlkZQAAAAAAAAAAAAAAAFZpZGVvSGFuZGxlcgAAAAE7bWluZgAAABR2bWhkAAAAAQAAAAAAAAAAAAAAJGRpbmYAAAAcZHJlZgAAAAAAAAABAAAADHVybCAAAAABAAAA+3N0YmwAAACXc3RzZAAAAAAAAAABAAAAh2F2YzEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgACAEgAAABIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY//8AAAAxYXZjQwFkAAr/4QAYZ2QACqzZX4iIhAAAAwAEAAADAFA8SJZYAQAGaOvjyyLAAAAAGHN0dHMAAAAAAAAAAQAAAAEAAAQAAAAAHHN0c2MAAAAAAAAAAQAAAAEAAAABAAAAAQAAABRzdHN6AAAAAAAAAsUAAAABAAAAFHN0Y28AAAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU2LjQwLjEwMQ==';
+      }
+      else {
+        addTest('videoautoplay', false);
+        return;
+      }
+    }
+
+    catch (e) {
+      addTest('videoautoplay', false);
+      return;
+    }
+
+    elem.setAttribute('autoplay', '');
+    elemStyle.cssText = 'display:none';
+    docElement.appendChild(elem);
+    // wait for the next tick to add the listener, otherwise the element may
+    // not have time to play in high load situations (e.g. the test suite)
+    setTimeout(function() {
+      elem.addEventListener('playing', testAutoplay, false);
+      timeout = setTimeout(testAutoplay, waitTime);
+    }, 0);
+  });
+
+/*!
+{
+  "name": "Video crossOrigin",
+  "property": "videocrossorigin",
+  "caniuse": "cors",
+  "authors": ["Florian Mailliet"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes"
+  }]
+}
+!*/
+/* DOC
+Detects support for the crossOrigin attribute on video tag
+*/
+
+  Modernizr.addTest('videocrossorigin', 'crossOrigin' in createElement('video'));
+
+/*!
+{
+  "name": "Video Loop Attribute",
+  "property": "videoloop",
+  "tags": ["video", "media"]
+}
+!*/
+
+  Modernizr.addTest('videoloop', 'loop' in createElement('video'));
+
+/*!
+{
+  "name": "Video Preload Attribute",
+  "property": "videopreload",
+  "tags": ["video", "media"]
+}
+!*/
+
+  Modernizr.addTest('videopreload', 'preload' in createElement('video'));
+
+/*!
+{
+  "name": "XDomainRequest",
+  "property": "xdomainrequest",
+  "tags": ["cors", "xdomainrequest", "ie9", "ie8"],
+  "authors": ["Ivan Pan (@hypotenuse)"],
+  "notes": [
+  {
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/XDomainRequest"
+  },
+  {
+    "name": "MSDN documentation",
+    "href": "https://msdn.microsoft.com/library/ie/cc288060.aspx/"
+  }]
+}
+!*/
+/* DOC
+Detects support for XDomainRequest in IE9 & IE8
+*/
+
+  Modernizr.addTest('xdomainrequest', 'XDomainRequest' in window);
+
+
+  // Run each test
+  testRunner();
+
+  // Remove the "no-js" class if it exists
+  setClasses(classes);
+
+  delete ModernizrProto.addTest;
+  delete ModernizrProto.addAsyncTest;
+
+  // Run the things that are supposed to run after the tests
+  for (var i = 0; i < Modernizr._q.length; i++) {
+    Modernizr._q[i]();
+  }
+
+  // Leak Modernizr namespace
+  window.Modernizr = Modernizr;
+
+
+;
+
+})(window, document);
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
@@ -10029,13 +16226,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
         var result0;
         
         reportFailures++;
-        if (input.charCodeAt(pos) === 61) {
-          result0 = "=";
-          pos++;
+        if (input.substr(pos, 2) === "=~") {
+          result0 = "=~";
+          pos += 2;
         } else {
           result0 = null;
           if (reportFailures === 0) {
-            matchFailed("\"=\"");
+            matchFailed("\"=~\"");
           }
         }
         if (result0 === null) {
@@ -10056,6 +16253,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
               result0 = null;
               if (reportFailures === 0) {
                 matchFailed("\"~=\"");
+              }
+            }
+            if (result0 === null) {
+              if (input.charCodeAt(pos) === 61) {
+                result0 = "=";
+                pos++;
+              } else {
+                result0 = null;
+                if (reportFailures === 0) {
+                  matchFailed("\"=\"");
+                }
               }
             }
           }
@@ -11383,7 +17591,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -11542,6 +17750,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $(document).off(".pat-modal");
             $el.remove();
             $('body').removeClass("modal-active");                
+            $('body').removeClass("modal-panel");                
         },
         destroy_inject: function() {
             var $el = this.$el;
@@ -11552,12 +17761,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     $(document).off(".pat-modal");
                     $el.remove();
                     $('body').removeClass("modal-active");                
+                    $('body').removeClass("modal-panel");                
                 });
             } else {
                 // if working without injection, destroy right away.
                 $(document).off(".pat-modal");
                 $el.remove();
                 $('body').removeClass("modal-active");                
+                $('body').removeClass("modal-panel");                
             }
         }   
     });
@@ -11569,7 +17780,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -11578,7 +17789,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bundle configuration.
@@ -11593,14 +17804,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
     __webpack_require__(1), // Keep separate as first argument to callback
     __webpack_require__(0),
     __webpack_require__(10),
-    __webpack_require__(27),
+    __webpack_require__(28),
     __webpack_require__(11),
-    __webpack_require__(29),
     __webpack_require__(30),
-    __webpack_require__(32),
+    __webpack_require__(31),
     __webpack_require__(33),
+    __webpack_require__(34),
     // "pat-breadcrumbs",
-    __webpack_require__(35),
+    __webpack_require__(36),
     // "pat-calendar",
     __webpack_require__(37),
     __webpack_require__(39),
@@ -11610,43 +17821,43 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
     __webpack_require__(44),
     // "pat-colour-picker",
     __webpack_require__(46),
-    __webpack_require__(49),
-    __webpack_require__(17),
-    __webpack_require__(51),
+    __webpack_require__(48),
+    __webpack_require__(18),
+    __webpack_require__(50),
     // "pat-edit-tinymce",
-    __webpack_require__(52),
+    __webpack_require__(51),
+    __webpack_require__(53),
     __webpack_require__(54),
     __webpack_require__(55),
     __webpack_require__(56),
     __webpack_require__(57),
-    __webpack_require__(58),
     // "pat-syntax-highlight",
-    __webpack_require__(21),
+    __webpack_require__(22),
     __webpack_require__(7),
     __webpack_require__(12),
+    __webpack_require__(61),
     __webpack_require__(62),
-    __webpack_require__(63),
-    __webpack_require__(65),
+    __webpack_require__(64),
+    __webpack_require__(66),
+    __webpack_require__(19),
     __webpack_require__(67),
-    __webpack_require__(18),
     __webpack_require__(68),
     __webpack_require__(69),
-    __webpack_require__(70),
+    __webpack_require__(71),
     __webpack_require__(72),
     __webpack_require__(73),
     __webpack_require__(74),
     __webpack_require__(75),
     __webpack_require__(76),
     __webpack_require__(77),
-    __webpack_require__(78),
+    __webpack_require__(79),
     __webpack_require__(80),
     __webpack_require__(81),
-    __webpack_require__(82),
-    __webpack_require__(84)
+    __webpack_require__(83)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(registry, $) {
-    var window = __webpack_require__(85);
+    var window = __webpack_require__(84);
     window.jQuery = $;
-    __webpack_require__(86);
+    __webpack_require__(85);
 
     $(function () {
         registry.init();
@@ -11658,7 +17869,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -11666,7 +17877,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(3),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(26)
+    __webpack_require__(27)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, Parser, registry) {
     var log = logger.getLogger("pat.image-crop"),
         parser = new Parser("image-crop");
@@ -11822,14 +18033,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(23);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(24);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -22173,7 +28384,7 @@ return jQuery;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -22421,7 +28632,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
@@ -22873,7 +29084,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -22890,7 +29101,7 @@ var jquery = __webpack_require__(0);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22973,7 +29184,7 @@ return de;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -23005,7 +29216,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -23075,7 +29286,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -23203,7 +29414,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -23259,7 +29470,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -23379,7 +29590,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -23394,7 +29605,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(3),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(34)
+    __webpack_require__(35)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, Parser, registry) {
     "use strict";
     var log = logger.getLogger("calendar");
@@ -23404,6 +29615,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     parser.addArgument("ajax-url", "");
     parser.addArgument("allow-new-words", true); // Should custom tags be allowed?
     parser.addArgument("max-selection-size", 0);
+    parser.addArgument("minimum-input-length", 2);
     parser.addArgument("placeholder", function($el) { return $el.attr("placeholder") || "Enter text"; });
     parser.addArgument("prefill", function($el) { return $el.val(); });
     parser.addArgument("prefill-json", ""); // JSON format for pre-filling
@@ -23434,7 +29646,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 placeholder: $el.attr("readonly") ? "" : pat_config.placeholder,
                 tokenSeparators: [","],
                 openOnEnter: false,
-                maximumSelectionSize: pat_config.maxSelectionSize
+                maximumSelectionSize: pat_config.maxSelectionSize,
+                minimumInputLength: pat_config.minimumInputLength
             };
 
             if (pat_config.selectionClasses) {
@@ -23483,7 +29696,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         },
 
         configureInput: function ($el, pat_config, select2_config) {
-            var d, data, words, ids = [], prefill;
+            var d, data, words = [], ids = [], prefill;
 
             select2_config.createSearchChoice = function(term, data) {
                 if (pat_config.allowNewWords) {
@@ -23506,10 +29719,24 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 if (! Array.isArray(words)) {
                     words = $.map(words, function (v, k) { return {id: k, text: v}; });
                 }
-            } else {
-                words = pat_config.words ? pat_config.words.split(/\s*,\s*/) : [];
+            } 
+            if (pat_config.words) {
+                words = pat_config.words.split(/\s*,\s*/);
+                words = $.map(words, function (v) { return {id: v, text: v}; });
             }
-            select2_config.tags = words;
+ 
+            // Per Cornelis, if our max lenght is 1, we want select style. If it is larger, we want tag style
+            // Now this is somewhat fishy because so far, we always configured tag style by setting config.tags = words.
+            // Even if words was [], we would get a tag stylee select
+            // That was then properly working with ajax if configured.
+
+            if (pat_config.maxSelectionSize == 1) {
+                select2_config.data = words;
+                // We allow exactly one value, use dropdown styles. How do we feed in words?
+            } else {
+                // We allow multiple values, use the pill style - called tags in select 2 speech
+                select2_config.tags = words;                
+            }
 
             if (pat_config.prefill && pat_config.prefill.length) {
                 prefill = pat_config.prefill.split(",");
@@ -23520,6 +29747,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     for (i=0; i<values.length; i++) {
                         data.push({id: values[i], text: values[i]});
                     }
+                    if (pat_config.maxSelectionSize == 1) data = data[0];
                     callback(data);
                 };
             }
@@ -23552,6 +29780,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                                 _data.push({id: d, text: data[d]});
                             }
                         }
+                        if (pat_config.maxSelectionSize == 1) _data = _data[0];
                         callback(_data);
                     };
                 } catch(SyntaxError) {
@@ -23561,7 +29790,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
             if ((pat_config.ajax) && (pat_config.ajax.url)) {
                 select2_config = $.extend(true, {
-                    minimumInputLength: 2,
+                    minimumInputLength: pat_config.minimumInputLength,
                     ajax: {
                         url: pat_config.ajax.url,
                         dataType: pat_config.ajax["data-type"],
@@ -23620,7 +29849,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -23642,7 +29871,7 @@ You may obtain a copy of the Apache License and the GPL License at:
     http://www.gnu.org/licenses/gpl-2.0.html
 
 Unless required by applicable law or agreed to in writing, software distributed under the
-Apache License or the GPL Licesnse is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+Apache License or the GPL License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the Apache License and the GPL License for
 the specific language governing permissions and limitations under the Apache License and the GPL License.
 */
@@ -23726,24 +29955,28 @@ the specific language governing permissions and limitations under the Apache Lic
     },
     MEASURE_SCROLLBAR_TEMPLATE = "<div class='select2-measure-scrollbar'></div>",
 
-    DIACRITICS = {"\u24B6":"A","\uFF21":"A","\u00C0":"A","\u00C1":"A","\u00C2":"A","\u1EA6":"A","\u1EA4":"A","\u1EAA":"A","\u1EA8":"A","\u00C3":"A","\u0100":"A","\u0102":"A","\u1EB0":"A","\u1EAE":"A","\u1EB4":"A","\u1EB2":"A","\u0226":"A","\u01E0":"A","\u00C4":"A","\u01DE":"A","\u1EA2":"A","\u00C5":"A","\u01FA":"A","\u01CD":"A","\u0200":"A","\u0202":"A","\u1EA0":"A","\u1EAC":"A","\u1EB6":"A","\u1E00":"A","\u0104":"A","\u023A":"A","\u2C6F":"A","\uA732":"AA","\u00C6":"AE","\u01FC":"AE","\u01E2":"AE","\uA734":"AO","\uA736":"AU","\uA738":"AV","\uA73A":"AV","\uA73C":"AY","\u24B7":"B","\uFF22":"B","\u1E02":"B","\u1E04":"B","\u1E06":"B","\u0243":"B","\u0182":"B","\u0181":"B","\u24B8":"C","\uFF23":"C","\u0106":"C","\u0108":"C","\u010A":"C","\u010C":"C","\u00C7":"C","\u1E08":"C","\u0187":"C","\u023B":"C","\uA73E":"C","\u24B9":"D","\uFF24":"D","\u1E0A":"D","\u010E":"D","\u1E0C":"D","\u1E10":"D","\u1E12":"D","\u1E0E":"D","\u0110":"D","\u018B":"D","\u018A":"D","\u0189":"D","\uA779":"D","\u01F1":"DZ","\u01C4":"DZ","\u01F2":"Dz","\u01C5":"Dz","\u24BA":"E","\uFF25":"E","\u00C8":"E","\u00C9":"E","\u00CA":"E","\u1EC0":"E","\u1EBE":"E","\u1EC4":"E","\u1EC2":"E","\u1EBC":"E","\u0112":"E","\u1E14":"E","\u1E16":"E","\u0114":"E","\u0116":"E","\u00CB":"E","\u1EBA":"E","\u011A":"E","\u0204":"E","\u0206":"E","\u1EB8":"E","\u1EC6":"E","\u0228":"E","\u1E1C":"E","\u0118":"E","\u1E18":"E","\u1E1A":"E","\u0190":"E","\u018E":"E","\u24BB":"F","\uFF26":"F","\u1E1E":"F","\u0191":"F","\uA77B":"F","\u24BC":"G","\uFF27":"G","\u01F4":"G","\u011C":"G","\u1E20":"G","\u011E":"G","\u0120":"G","\u01E6":"G","\u0122":"G","\u01E4":"G","\u0193":"G","\uA7A0":"G","\uA77D":"G","\uA77E":"G","\u24BD":"H","\uFF28":"H","\u0124":"H","\u1E22":"H","\u1E26":"H","\u021E":"H","\u1E24":"H","\u1E28":"H","\u1E2A":"H","\u0126":"H","\u2C67":"H","\u2C75":"H","\uA78D":"H","\u24BE":"I","\uFF29":"I","\u00CC":"I","\u00CD":"I","\u00CE":"I","\u0128":"I","\u012A":"I","\u012C":"I","\u0130":"I","\u00CF":"I","\u1E2E":"I","\u1EC8":"I","\u01CF":"I","\u0208":"I","\u020A":"I","\u1ECA":"I","\u012E":"I","\u1E2C":"I","\u0197":"I","\u24BF":"J","\uFF2A":"J","\u0134":"J","\u0248":"J","\u24C0":"K","\uFF2B":"K","\u1E30":"K","\u01E8":"K","\u1E32":"K","\u0136":"K","\u1E34":"K","\u0198":"K","\u2C69":"K","\uA740":"K","\uA742":"K","\uA744":"K","\uA7A2":"K","\u24C1":"L","\uFF2C":"L","\u013F":"L","\u0139":"L","\u013D":"L","\u1E36":"L","\u1E38":"L","\u013B":"L","\u1E3C":"L","\u1E3A":"L","\u0141":"L","\u023D":"L","\u2C62":"L","\u2C60":"L","\uA748":"L","\uA746":"L","\uA780":"L","\u01C7":"LJ","\u01C8":"Lj","\u24C2":"M","\uFF2D":"M","\u1E3E":"M","\u1E40":"M","\u1E42":"M","\u2C6E":"M","\u019C":"M","\u24C3":"N","\uFF2E":"N","\u01F8":"N","\u0143":"N","\u00D1":"N","\u1E44":"N","\u0147":"N","\u1E46":"N","\u0145":"N","\u1E4A":"N","\u1E48":"N","\u0220":"N","\u019D":"N","\uA790":"N","\uA7A4":"N","\u01CA":"NJ","\u01CB":"Nj","\u24C4":"O","\uFF2F":"O","\u00D2":"O","\u00D3":"O","\u00D4":"O","\u1ED2":"O","\u1ED0":"O","\u1ED6":"O","\u1ED4":"O","\u00D5":"O","\u1E4C":"O","\u022C":"O","\u1E4E":"O","\u014C":"O","\u1E50":"O","\u1E52":"O","\u014E":"O","\u022E":"O","\u0230":"O","\u00D6":"O","\u022A":"O","\u1ECE":"O","\u0150":"O","\u01D1":"O","\u020C":"O","\u020E":"O","\u01A0":"O","\u1EDC":"O","\u1EDA":"O","\u1EE0":"O","\u1EDE":"O","\u1EE2":"O","\u1ECC":"O","\u1ED8":"O","\u01EA":"O","\u01EC":"O","\u00D8":"O","\u01FE":"O","\u0186":"O","\u019F":"O","\uA74A":"O","\uA74C":"O","\u01A2":"OI","\uA74E":"OO","\u0222":"OU","\u24C5":"P","\uFF30":"P","\u1E54":"P","\u1E56":"P","\u01A4":"P","\u2C63":"P","\uA750":"P","\uA752":"P","\uA754":"P","\u24C6":"Q","\uFF31":"Q","\uA756":"Q","\uA758":"Q","\u024A":"Q","\u24C7":"R","\uFF32":"R","\u0154":"R","\u1E58":"R","\u0158":"R","\u0210":"R","\u0212":"R","\u1E5A":"R","\u1E5C":"R","\u0156":"R","\u1E5E":"R","\u024C":"R","\u2C64":"R","\uA75A":"R","\uA7A6":"R","\uA782":"R","\u24C8":"S","\uFF33":"S","\u1E9E":"S","\u015A":"S","\u1E64":"S","\u015C":"S","\u1E60":"S","\u0160":"S","\u1E66":"S","\u1E62":"S","\u1E68":"S","\u0218":"S","\u015E":"S","\u2C7E":"S","\uA7A8":"S","\uA784":"S","\u24C9":"T","\uFF34":"T","\u1E6A":"T","\u0164":"T","\u1E6C":"T","\u021A":"T","\u0162":"T","\u1E70":"T","\u1E6E":"T","\u0166":"T","\u01AC":"T","\u01AE":"T","\u023E":"T","\uA786":"T","\uA728":"TZ","\u24CA":"U","\uFF35":"U","\u00D9":"U","\u00DA":"U","\u00DB":"U","\u0168":"U","\u1E78":"U","\u016A":"U","\u1E7A":"U","\u016C":"U","\u00DC":"U","\u01DB":"U","\u01D7":"U","\u01D5":"U","\u01D9":"U","\u1EE6":"U","\u016E":"U","\u0170":"U","\u01D3":"U","\u0214":"U","\u0216":"U","\u01AF":"U","\u1EEA":"U","\u1EE8":"U","\u1EEE":"U","\u1EEC":"U","\u1EF0":"U","\u1EE4":"U","\u1E72":"U","\u0172":"U","\u1E76":"U","\u1E74":"U","\u0244":"U","\u24CB":"V","\uFF36":"V","\u1E7C":"V","\u1E7E":"V","\u01B2":"V","\uA75E":"V","\u0245":"V","\uA760":"VY","\u24CC":"W","\uFF37":"W","\u1E80":"W","\u1E82":"W","\u0174":"W","\u1E86":"W","\u1E84":"W","\u1E88":"W","\u2C72":"W","\u24CD":"X","\uFF38":"X","\u1E8A":"X","\u1E8C":"X","\u24CE":"Y","\uFF39":"Y","\u1EF2":"Y","\u00DD":"Y","\u0176":"Y","\u1EF8":"Y","\u0232":"Y","\u1E8E":"Y","\u0178":"Y","\u1EF6":"Y","\u1EF4":"Y","\u01B3":"Y","\u024E":"Y","\u1EFE":"Y","\u24CF":"Z","\uFF3A":"Z","\u0179":"Z","\u1E90":"Z","\u017B":"Z","\u017D":"Z","\u1E92":"Z","\u1E94":"Z","\u01B5":"Z","\u0224":"Z","\u2C7F":"Z","\u2C6B":"Z","\uA762":"Z","\u24D0":"a","\uFF41":"a","\u1E9A":"a","\u00E0":"a","\u00E1":"a","\u00E2":"a","\u1EA7":"a","\u1EA5":"a","\u1EAB":"a","\u1EA9":"a","\u00E3":"a","\u0101":"a","\u0103":"a","\u1EB1":"a","\u1EAF":"a","\u1EB5":"a","\u1EB3":"a","\u0227":"a","\u01E1":"a","\u00E4":"a","\u01DF":"a","\u1EA3":"a","\u00E5":"a","\u01FB":"a","\u01CE":"a","\u0201":"a","\u0203":"a","\u1EA1":"a","\u1EAD":"a","\u1EB7":"a","\u1E01":"a","\u0105":"a","\u2C65":"a","\u0250":"a","\uA733":"aa","\u00E6":"ae","\u01FD":"ae","\u01E3":"ae","\uA735":"ao","\uA737":"au","\uA739":"av","\uA73B":"av","\uA73D":"ay","\u24D1":"b","\uFF42":"b","\u1E03":"b","\u1E05":"b","\u1E07":"b","\u0180":"b","\u0183":"b","\u0253":"b","\u24D2":"c","\uFF43":"c","\u0107":"c","\u0109":"c","\u010B":"c","\u010D":"c","\u00E7":"c","\u1E09":"c","\u0188":"c","\u023C":"c","\uA73F":"c","\u2184":"c","\u24D3":"d","\uFF44":"d","\u1E0B":"d","\u010F":"d","\u1E0D":"d","\u1E11":"d","\u1E13":"d","\u1E0F":"d","\u0111":"d","\u018C":"d","\u0256":"d","\u0257":"d","\uA77A":"d","\u01F3":"dz","\u01C6":"dz","\u24D4":"e","\uFF45":"e","\u00E8":"e","\u00E9":"e","\u00EA":"e","\u1EC1":"e","\u1EBF":"e","\u1EC5":"e","\u1EC3":"e","\u1EBD":"e","\u0113":"e","\u1E15":"e","\u1E17":"e","\u0115":"e","\u0117":"e","\u00EB":"e","\u1EBB":"e","\u011B":"e","\u0205":"e","\u0207":"e","\u1EB9":"e","\u1EC7":"e","\u0229":"e","\u1E1D":"e","\u0119":"e","\u1E19":"e","\u1E1B":"e","\u0247":"e","\u025B":"e","\u01DD":"e","\u24D5":"f","\uFF46":"f","\u1E1F":"f","\u0192":"f","\uA77C":"f","\u24D6":"g","\uFF47":"g","\u01F5":"g","\u011D":"g","\u1E21":"g","\u011F":"g","\u0121":"g","\u01E7":"g","\u0123":"g","\u01E5":"g","\u0260":"g","\uA7A1":"g","\u1D79":"g","\uA77F":"g","\u24D7":"h","\uFF48":"h","\u0125":"h","\u1E23":"h","\u1E27":"h","\u021F":"h","\u1E25":"h","\u1E29":"h","\u1E2B":"h","\u1E96":"h","\u0127":"h","\u2C68":"h","\u2C76":"h","\u0265":"h","\u0195":"hv","\u24D8":"i","\uFF49":"i","\u00EC":"i","\u00ED":"i","\u00EE":"i","\u0129":"i","\u012B":"i","\u012D":"i","\u00EF":"i","\u1E2F":"i","\u1EC9":"i","\u01D0":"i","\u0209":"i","\u020B":"i","\u1ECB":"i","\u012F":"i","\u1E2D":"i","\u0268":"i","\u0131":"i","\u24D9":"j","\uFF4A":"j","\u0135":"j","\u01F0":"j","\u0249":"j","\u24DA":"k","\uFF4B":"k","\u1E31":"k","\u01E9":"k","\u1E33":"k","\u0137":"k","\u1E35":"k","\u0199":"k","\u2C6A":"k","\uA741":"k","\uA743":"k","\uA745":"k","\uA7A3":"k","\u24DB":"l","\uFF4C":"l","\u0140":"l","\u013A":"l","\u013E":"l","\u1E37":"l","\u1E39":"l","\u013C":"l","\u1E3D":"l","\u1E3B":"l","\u017F":"l","\u0142":"l","\u019A":"l","\u026B":"l","\u2C61":"l","\uA749":"l","\uA781":"l","\uA747":"l","\u01C9":"lj","\u24DC":"m","\uFF4D":"m","\u1E3F":"m","\u1E41":"m","\u1E43":"m","\u0271":"m","\u026F":"m","\u24DD":"n","\uFF4E":"n","\u01F9":"n","\u0144":"n","\u00F1":"n","\u1E45":"n","\u0148":"n","\u1E47":"n","\u0146":"n","\u1E4B":"n","\u1E49":"n","\u019E":"n","\u0272":"n","\u0149":"n","\uA791":"n","\uA7A5":"n","\u01CC":"nj","\u24DE":"o","\uFF4F":"o","\u00F2":"o","\u00F3":"o","\u00F4":"o","\u1ED3":"o","\u1ED1":"o","\u1ED7":"o","\u1ED5":"o","\u00F5":"o","\u1E4D":"o","\u022D":"o","\u1E4F":"o","\u014D":"o","\u1E51":"o","\u1E53":"o","\u014F":"o","\u022F":"o","\u0231":"o","\u00F6":"o","\u022B":"o","\u1ECF":"o","\u0151":"o","\u01D2":"o","\u020D":"o","\u020F":"o","\u01A1":"o","\u1EDD":"o","\u1EDB":"o","\u1EE1":"o","\u1EDF":"o","\u1EE3":"o","\u1ECD":"o","\u1ED9":"o","\u01EB":"o","\u01ED":"o","\u00F8":"o","\u01FF":"o","\u0254":"o","\uA74B":"o","\uA74D":"o","\u0275":"o","\u01A3":"oi","\u0223":"ou","\uA74F":"oo","\u24DF":"p","\uFF50":"p","\u1E55":"p","\u1E57":"p","\u01A5":"p","\u1D7D":"p","\uA751":"p","\uA753":"p","\uA755":"p","\u24E0":"q","\uFF51":"q","\u024B":"q","\uA757":"q","\uA759":"q","\u24E1":"r","\uFF52":"r","\u0155":"r","\u1E59":"r","\u0159":"r","\u0211":"r","\u0213":"r","\u1E5B":"r","\u1E5D":"r","\u0157":"r","\u1E5F":"r","\u024D":"r","\u027D":"r","\uA75B":"r","\uA7A7":"r","\uA783":"r","\u24E2":"s","\uFF53":"s","\u00DF":"s","\u015B":"s","\u1E65":"s","\u015D":"s","\u1E61":"s","\u0161":"s","\u1E67":"s","\u1E63":"s","\u1E69":"s","\u0219":"s","\u015F":"s","\u023F":"s","\uA7A9":"s","\uA785":"s","\u1E9B":"s","\u24E3":"t","\uFF54":"t","\u1E6B":"t","\u1E97":"t","\u0165":"t","\u1E6D":"t","\u021B":"t","\u0163":"t","\u1E71":"t","\u1E6F":"t","\u0167":"t","\u01AD":"t","\u0288":"t","\u2C66":"t","\uA787":"t","\uA729":"tz","\u24E4":"u","\uFF55":"u","\u00F9":"u","\u00FA":"u","\u00FB":"u","\u0169":"u","\u1E79":"u","\u016B":"u","\u1E7B":"u","\u016D":"u","\u00FC":"u","\u01DC":"u","\u01D8":"u","\u01D6":"u","\u01DA":"u","\u1EE7":"u","\u016F":"u","\u0171":"u","\u01D4":"u","\u0215":"u","\u0217":"u","\u01B0":"u","\u1EEB":"u","\u1EE9":"u","\u1EEF":"u","\u1EED":"u","\u1EF1":"u","\u1EE5":"u","\u1E73":"u","\u0173":"u","\u1E77":"u","\u1E75":"u","\u0289":"u","\u24E5":"v","\uFF56":"v","\u1E7D":"v","\u1E7F":"v","\u028B":"v","\uA75F":"v","\u028C":"v","\uA761":"vy","\u24E6":"w","\uFF57":"w","\u1E81":"w","\u1E83":"w","\u0175":"w","\u1E87":"w","\u1E85":"w","\u1E98":"w","\u1E89":"w","\u2C73":"w","\u24E7":"x","\uFF58":"x","\u1E8B":"x","\u1E8D":"x","\u24E8":"y","\uFF59":"y","\u1EF3":"y","\u00FD":"y","\u0177":"y","\u1EF9":"y","\u0233":"y","\u1E8F":"y","\u00FF":"y","\u1EF7":"y","\u1E99":"y","\u1EF5":"y","\u01B4":"y","\u024F":"y","\u1EFF":"y","\u24E9":"z","\uFF5A":"z","\u017A":"z","\u1E91":"z","\u017C":"z","\u017E":"z","\u1E93":"z","\u1E95":"z","\u01B6":"z","\u0225":"z","\u0240":"z","\u2C6C":"z","\uA763":"z"};
+    DIACRITICS = {"\u24B6":"A","\uFF21":"A","\u00C0":"A","\u00C1":"A","\u00C2":"A","\u1EA6":"A","\u1EA4":"A","\u1EAA":"A","\u1EA8":"A","\u00C3":"A","\u0100":"A","\u0102":"A","\u1EB0":"A","\u1EAE":"A","\u1EB4":"A","\u1EB2":"A","\u0226":"A","\u01E0":"A","\u00C4":"A","\u01DE":"A","\u1EA2":"A","\u00C5":"A","\u01FA":"A","\u01CD":"A","\u0200":"A","\u0202":"A","\u1EA0":"A","\u1EAC":"A","\u1EB6":"A","\u1E00":"A","\u0104":"A","\u023A":"A","\u2C6F":"A","\uA732":"AA","\u00C6":"AE","\u01FC":"AE","\u01E2":"AE","\uA734":"AO","\uA736":"AU","\uA738":"AV","\uA73A":"AV","\uA73C":"AY","\u24B7":"B","\uFF22":"B","\u1E02":"B","\u1E04":"B","\u1E06":"B","\u0243":"B","\u0182":"B","\u0181":"B","\u24B8":"C","\uFF23":"C","\u0106":"C","\u0108":"C","\u010A":"C","\u010C":"C","\u00C7":"C","\u1E08":"C","\u0187":"C","\u023B":"C","\uA73E":"C","\u24B9":"D","\uFF24":"D","\u1E0A":"D","\u010E":"D","\u1E0C":"D","\u1E10":"D","\u1E12":"D","\u1E0E":"D","\u0110":"D","\u018B":"D","\u018A":"D","\u0189":"D","\uA779":"D","\u01F1":"DZ","\u01C4":"DZ","\u01F2":"Dz","\u01C5":"Dz","\u24BA":"E","\uFF25":"E","\u00C8":"E","\u00C9":"E","\u00CA":"E","\u1EC0":"E","\u1EBE":"E","\u1EC4":"E","\u1EC2":"E","\u1EBC":"E","\u0112":"E","\u1E14":"E","\u1E16":"E","\u0114":"E","\u0116":"E","\u00CB":"E","\u1EBA":"E","\u011A":"E","\u0204":"E","\u0206":"E","\u1EB8":"E","\u1EC6":"E","\u0228":"E","\u1E1C":"E","\u0118":"E","\u1E18":"E","\u1E1A":"E","\u0190":"E","\u018E":"E","\u24BB":"F","\uFF26":"F","\u1E1E":"F","\u0191":"F","\uA77B":"F","\u24BC":"G","\uFF27":"G","\u01F4":"G","\u011C":"G","\u1E20":"G","\u011E":"G","\u0120":"G","\u01E6":"G","\u0122":"G","\u01E4":"G","\u0193":"G","\uA7A0":"G","\uA77D":"G","\uA77E":"G","\u24BD":"H","\uFF28":"H","\u0124":"H","\u1E22":"H","\u1E26":"H","\u021E":"H","\u1E24":"H","\u1E28":"H","\u1E2A":"H","\u0126":"H","\u2C67":"H","\u2C75":"H","\uA78D":"H","\u24BE":"I","\uFF29":"I","\u00CC":"I","\u00CD":"I","\u00CE":"I","\u0128":"I","\u012A":"I","\u012C":"I","\u0130":"I","\u00CF":"I","\u1E2E":"I","\u1EC8":"I","\u01CF":"I","\u0208":"I","\u020A":"I","\u1ECA":"I","\u012E":"I","\u1E2C":"I","\u0197":"I","\u24BF":"J","\uFF2A":"J","\u0134":"J","\u0248":"J","\u24C0":"K","\uFF2B":"K","\u1E30":"K","\u01E8":"K","\u1E32":"K","\u0136":"K","\u1E34":"K","\u0198":"K","\u2C69":"K","\uA740":"K","\uA742":"K","\uA744":"K","\uA7A2":"K","\u24C1":"L","\uFF2C":"L","\u013F":"L","\u0139":"L","\u013D":"L","\u1E36":"L","\u1E38":"L","\u013B":"L","\u1E3C":"L","\u1E3A":"L","\u0141":"L","\u023D":"L","\u2C62":"L","\u2C60":"L","\uA748":"L","\uA746":"L","\uA780":"L","\u01C7":"LJ","\u01C8":"Lj","\u24C2":"M","\uFF2D":"M","\u1E3E":"M","\u1E40":"M","\u1E42":"M","\u2C6E":"M","\u019C":"M","\u24C3":"N","\uFF2E":"N","\u01F8":"N","\u0143":"N","\u00D1":"N","\u1E44":"N","\u0147":"N","\u1E46":"N","\u0145":"N","\u1E4A":"N","\u1E48":"N","\u0220":"N","\u019D":"N","\uA790":"N","\uA7A4":"N","\u01CA":"NJ","\u01CB":"Nj","\u24C4":"O","\uFF2F":"O","\u00D2":"O","\u00D3":"O","\u00D4":"O","\u1ED2":"O","\u1ED0":"O","\u1ED6":"O","\u1ED4":"O","\u00D5":"O","\u1E4C":"O","\u022C":"O","\u1E4E":"O","\u014C":"O","\u1E50":"O","\u1E52":"O","\u014E":"O","\u022E":"O","\u0230":"O","\u00D6":"O","\u022A":"O","\u1ECE":"O","\u0150":"O","\u01D1":"O","\u020C":"O","\u020E":"O","\u01A0":"O","\u1EDC":"O","\u1EDA":"O","\u1EE0":"O","\u1EDE":"O","\u1EE2":"O","\u1ECC":"O","\u1ED8":"O","\u01EA":"O","\u01EC":"O","\u00D8":"O","\u01FE":"O","\u0186":"O","\u019F":"O","\uA74A":"O","\uA74C":"O","\u01A2":"OI","\uA74E":"OO","\u0222":"OU","\u24C5":"P","\uFF30":"P","\u1E54":"P","\u1E56":"P","\u01A4":"P","\u2C63":"P","\uA750":"P","\uA752":"P","\uA754":"P","\u24C6":"Q","\uFF31":"Q","\uA756":"Q","\uA758":"Q","\u024A":"Q","\u24C7":"R","\uFF32":"R","\u0154":"R","\u1E58":"R","\u0158":"R","\u0210":"R","\u0212":"R","\u1E5A":"R","\u1E5C":"R","\u0156":"R","\u1E5E":"R","\u024C":"R","\u2C64":"R","\uA75A":"R","\uA7A6":"R","\uA782":"R","\u24C8":"S","\uFF33":"S","\u1E9E":"S","\u015A":"S","\u1E64":"S","\u015C":"S","\u1E60":"S","\u0160":"S","\u1E66":"S","\u1E62":"S","\u1E68":"S","\u0218":"S","\u015E":"S","\u2C7E":"S","\uA7A8":"S","\uA784":"S","\u24C9":"T","\uFF34":"T","\u1E6A":"T","\u0164":"T","\u1E6C":"T","\u021A":"T","\u0162":"T","\u1E70":"T","\u1E6E":"T","\u0166":"T","\u01AC":"T","\u01AE":"T","\u023E":"T","\uA786":"T","\uA728":"TZ","\u24CA":"U","\uFF35":"U","\u00D9":"U","\u00DA":"U","\u00DB":"U","\u0168":"U","\u1E78":"U","\u016A":"U","\u1E7A":"U","\u016C":"U","\u00DC":"U","\u01DB":"U","\u01D7":"U","\u01D5":"U","\u01D9":"U","\u1EE6":"U","\u016E":"U","\u0170":"U","\u01D3":"U","\u0214":"U","\u0216":"U","\u01AF":"U","\u1EEA":"U","\u1EE8":"U","\u1EEE":"U","\u1EEC":"U","\u1EF0":"U","\u1EE4":"U","\u1E72":"U","\u0172":"U","\u1E76":"U","\u1E74":"U","\u0244":"U","\u24CB":"V","\uFF36":"V","\u1E7C":"V","\u1E7E":"V","\u01B2":"V","\uA75E":"V","\u0245":"V","\uA760":"VY","\u24CC":"W","\uFF37":"W","\u1E80":"W","\u1E82":"W","\u0174":"W","\u1E86":"W","\u1E84":"W","\u1E88":"W","\u2C72":"W","\u24CD":"X","\uFF38":"X","\u1E8A":"X","\u1E8C":"X","\u24CE":"Y","\uFF39":"Y","\u1EF2":"Y","\u00DD":"Y","\u0176":"Y","\u1EF8":"Y","\u0232":"Y","\u1E8E":"Y","\u0178":"Y","\u1EF6":"Y","\u1EF4":"Y","\u01B3":"Y","\u024E":"Y","\u1EFE":"Y","\u24CF":"Z","\uFF3A":"Z","\u0179":"Z","\u1E90":"Z","\u017B":"Z","\u017D":"Z","\u1E92":"Z","\u1E94":"Z","\u01B5":"Z","\u0224":"Z","\u2C7F":"Z","\u2C6B":"Z","\uA762":"Z","\u24D0":"a","\uFF41":"a","\u1E9A":"a","\u00E0":"a","\u00E1":"a","\u00E2":"a","\u1EA7":"a","\u1EA5":"a","\u1EAB":"a","\u1EA9":"a","\u00E3":"a","\u0101":"a","\u0103":"a","\u1EB1":"a","\u1EAF":"a","\u1EB5":"a","\u1EB3":"a","\u0227":"a","\u01E1":"a","\u00E4":"a","\u01DF":"a","\u1EA3":"a","\u00E5":"a","\u01FB":"a","\u01CE":"a","\u0201":"a","\u0203":"a","\u1EA1":"a","\u1EAD":"a","\u1EB7":"a","\u1E01":"a","\u0105":"a","\u2C65":"a","\u0250":"a","\uA733":"aa","\u00E6":"ae","\u01FD":"ae","\u01E3":"ae","\uA735":"ao","\uA737":"au","\uA739":"av","\uA73B":"av","\uA73D":"ay","\u24D1":"b","\uFF42":"b","\u1E03":"b","\u1E05":"b","\u1E07":"b","\u0180":"b","\u0183":"b","\u0253":"b","\u24D2":"c","\uFF43":"c","\u0107":"c","\u0109":"c","\u010B":"c","\u010D":"c","\u00E7":"c","\u1E09":"c","\u0188":"c","\u023C":"c","\uA73F":"c","\u2184":"c","\u24D3":"d","\uFF44":"d","\u1E0B":"d","\u010F":"d","\u1E0D":"d","\u1E11":"d","\u1E13":"d","\u1E0F":"d","\u0111":"d","\u018C":"d","\u0256":"d","\u0257":"d","\uA77A":"d","\u01F3":"dz","\u01C6":"dz","\u24D4":"e","\uFF45":"e","\u00E8":"e","\u00E9":"e","\u00EA":"e","\u1EC1":"e","\u1EBF":"e","\u1EC5":"e","\u1EC3":"e","\u1EBD":"e","\u0113":"e","\u1E15":"e","\u1E17":"e","\u0115":"e","\u0117":"e","\u00EB":"e","\u1EBB":"e","\u011B":"e","\u0205":"e","\u0207":"e","\u1EB9":"e","\u1EC7":"e","\u0229":"e","\u1E1D":"e","\u0119":"e","\u1E19":"e","\u1E1B":"e","\u0247":"e","\u025B":"e","\u01DD":"e","\u24D5":"f","\uFF46":"f","\u1E1F":"f","\u0192":"f","\uA77C":"f","\u24D6":"g","\uFF47":"g","\u01F5":"g","\u011D":"g","\u1E21":"g","\u011F":"g","\u0121":"g","\u01E7":"g","\u0123":"g","\u01E5":"g","\u0260":"g","\uA7A1":"g","\u1D79":"g","\uA77F":"g","\u24D7":"h","\uFF48":"h","\u0125":"h","\u1E23":"h","\u1E27":"h","\u021F":"h","\u1E25":"h","\u1E29":"h","\u1E2B":"h","\u1E96":"h","\u0127":"h","\u2C68":"h","\u2C76":"h","\u0265":"h","\u0195":"hv","\u24D8":"i","\uFF49":"i","\u00EC":"i","\u00ED":"i","\u00EE":"i","\u0129":"i","\u012B":"i","\u012D":"i","\u00EF":"i","\u1E2F":"i","\u1EC9":"i","\u01D0":"i","\u0209":"i","\u020B":"i","\u1ECB":"i","\u012F":"i","\u1E2D":"i","\u0268":"i","\u0131":"i","\u24D9":"j","\uFF4A":"j","\u0135":"j","\u01F0":"j","\u0249":"j","\u24DA":"k","\uFF4B":"k","\u1E31":"k","\u01E9":"k","\u1E33":"k","\u0137":"k","\u1E35":"k","\u0199":"k","\u2C6A":"k","\uA741":"k","\uA743":"k","\uA745":"k","\uA7A3":"k","\u24DB":"l","\uFF4C":"l","\u0140":"l","\u013A":"l","\u013E":"l","\u1E37":"l","\u1E39":"l","\u013C":"l","\u1E3D":"l","\u1E3B":"l","\u017F":"l","\u0142":"l","\u019A":"l","\u026B":"l","\u2C61":"l","\uA749":"l","\uA781":"l","\uA747":"l","\u01C9":"lj","\u24DC":"m","\uFF4D":"m","\u1E3F":"m","\u1E41":"m","\u1E43":"m","\u0271":"m","\u026F":"m","\u24DD":"n","\uFF4E":"n","\u01F9":"n","\u0144":"n","\u00F1":"n","\u1E45":"n","\u0148":"n","\u1E47":"n","\u0146":"n","\u1E4B":"n","\u1E49":"n","\u019E":"n","\u0272":"n","\u0149":"n","\uA791":"n","\uA7A5":"n","\u01CC":"nj","\u24DE":"o","\uFF4F":"o","\u00F2":"o","\u00F3":"o","\u00F4":"o","\u1ED3":"o","\u1ED1":"o","\u1ED7":"o","\u1ED5":"o","\u00F5":"o","\u1E4D":"o","\u022D":"o","\u1E4F":"o","\u014D":"o","\u1E51":"o","\u1E53":"o","\u014F":"o","\u022F":"o","\u0231":"o","\u00F6":"o","\u022B":"o","\u1ECF":"o","\u0151":"o","\u01D2":"o","\u020D":"o","\u020F":"o","\u01A1":"o","\u1EDD":"o","\u1EDB":"o","\u1EE1":"o","\u1EDF":"o","\u1EE3":"o","\u1ECD":"o","\u1ED9":"o","\u01EB":"o","\u01ED":"o","\u00F8":"o","\u01FF":"o","\u0254":"o","\uA74B":"o","\uA74D":"o","\u0275":"o","\u01A3":"oi","\u0223":"ou","\uA74F":"oo","\u24DF":"p","\uFF50":"p","\u1E55":"p","\u1E57":"p","\u01A5":"p","\u1D7D":"p","\uA751":"p","\uA753":"p","\uA755":"p","\u24E0":"q","\uFF51":"q","\u024B":"q","\uA757":"q","\uA759":"q","\u24E1":"r","\uFF52":"r","\u0155":"r","\u1E59":"r","\u0159":"r","\u0211":"r","\u0213":"r","\u1E5B":"r","\u1E5D":"r","\u0157":"r","\u1E5F":"r","\u024D":"r","\u027D":"r","\uA75B":"r","\uA7A7":"r","\uA783":"r","\u24E2":"s","\uFF53":"s","\u00DF":"s","\u015B":"s","\u1E65":"s","\u015D":"s","\u1E61":"s","\u0161":"s","\u1E67":"s","\u1E63":"s","\u1E69":"s","\u0219":"s","\u015F":"s","\u023F":"s","\uA7A9":"s","\uA785":"s","\u1E9B":"s","\u24E3":"t","\uFF54":"t","\u1E6B":"t","\u1E97":"t","\u0165":"t","\u1E6D":"t","\u021B":"t","\u0163":"t","\u1E71":"t","\u1E6F":"t","\u0167":"t","\u01AD":"t","\u0288":"t","\u2C66":"t","\uA787":"t","\uA729":"tz","\u24E4":"u","\uFF55":"u","\u00F9":"u","\u00FA":"u","\u00FB":"u","\u0169":"u","\u1E79":"u","\u016B":"u","\u1E7B":"u","\u016D":"u","\u00FC":"u","\u01DC":"u","\u01D8":"u","\u01D6":"u","\u01DA":"u","\u1EE7":"u","\u016F":"u","\u0171":"u","\u01D4":"u","\u0215":"u","\u0217":"u","\u01B0":"u","\u1EEB":"u","\u1EE9":"u","\u1EEF":"u","\u1EED":"u","\u1EF1":"u","\u1EE5":"u","\u1E73":"u","\u0173":"u","\u1E77":"u","\u1E75":"u","\u0289":"u","\u24E5":"v","\uFF56":"v","\u1E7D":"v","\u1E7F":"v","\u028B":"v","\uA75F":"v","\u028C":"v","\uA761":"vy","\u24E6":"w","\uFF57":"w","\u1E81":"w","\u1E83":"w","\u0175":"w","\u1E87":"w","\u1E85":"w","\u1E98":"w","\u1E89":"w","\u2C73":"w","\u24E7":"x","\uFF58":"x","\u1E8B":"x","\u1E8D":"x","\u24E8":"y","\uFF59":"y","\u1EF3":"y","\u00FD":"y","\u0177":"y","\u1EF9":"y","\u0233":"y","\u1E8F":"y","\u00FF":"y","\u1EF7":"y","\u1E99":"y","\u1EF5":"y","\u01B4":"y","\u024F":"y","\u1EFF":"y","\u24E9":"z","\uFF5A":"z","\u017A":"z","\u1E91":"z","\u017C":"z","\u017E":"z","\u1E93":"z","\u1E95":"z","\u01B6":"z","\u0225":"z","\u0240":"z","\u2C6C":"z","\uA763":"z","\u0386":"\u0391","\u0388":"\u0395","\u0389":"\u0397","\u038A":"\u0399","\u03AA":"\u0399","\u038C":"\u039F","\u038E":"\u03A5","\u03AB":"\u03A5","\u038F":"\u03A9","\u03AC":"\u03B1","\u03AD":"\u03B5","\u03AE":"\u03B7","\u03AF":"\u03B9","\u03CA":"\u03B9","\u0390":"\u03B9","\u03CC":"\u03BF","\u03CD":"\u03C5","\u03CB":"\u03C5","\u03B0":"\u03C5","\u03C9":"\u03C9","\u03C2":"\u03C3"};
 
     $document = $(document);
 
     nextUid=(function() { var counter=1; return function() { return counter++; }; }());
 
 
+    function reinsertElement(element) {
+        var placeholder = $(document.createTextNode(''));
+
+        element.before(placeholder);
+        placeholder.before(element);
+        placeholder.remove();
+    }
+
     function stripDiacritics(str) {
-        var ret, i, l, c;
-
-        if (!str || str.length < 1) return str;
-
-        ret = "";
-        for (i = 0, l = str.length; i < l; i++) {
-            c = str.charAt(i);
-            ret += DIACRITICS[c] || c;
+        // Used 'uni range + named function' from http://jsperf.com/diacritics/18
+        function match(a) {
+            return DIACRITICS[a] || a;
         }
-        return ret;
+
+        return str.replace(/[^\u0000-\u007E]/g, match);
     }
 
     function indexOf(value, array) {
@@ -23817,10 +30050,6 @@ the specific language governing permissions and limitations under the Apache Lic
         });
     }
 
-    $document.on("mousemove", function (e) {
-        lastMousePosition.x = e.pageX;
-        lastMousePosition.y = e.pageY;
-    });
 
     /**
      * filters mouse events so an event is fired only if the mouse moved.
@@ -23858,20 +30087,6 @@ the specific language governing permissions and limitations under the Apache Lic
         };
     }
 
-    /**
-     * A simple implementation of a thunk
-     * @param formula function used to lazily initialize the thunk
-     * @return {Function}
-     */
-    function thunk(formula) {
-        var evaluated = false,
-            value;
-        return function() {
-            if (evaluated === false) { value = formula(); evaluated = true; }
-            return value;
-        };
-    };
-
     function installDebouncedScroll(threshold, element) {
         var notify = debounce(threshold, function (e) { element.trigger("scroll-debounced", e);});
         element.on("scroll", function (e) {
@@ -23892,7 +30107,8 @@ the specific language governing permissions and limitations under the Apache Lic
 
             /* make sure el received focus so we do not error out when trying to manipulate the caret.
                 sometimes modals or others listeners may steal it after its set */
-            if ($el.is(":visible") && el === document.activeElement) {
+            var isVisible = (el.offsetWidth > 0 || el.offsetHeight > 0);
+            if (isVisible && el === document.activeElement) {
 
                 /* after the focus is set move the caret to the end, necessary when we val()
                     just before setting focus */
@@ -23961,27 +30177,34 @@ the specific language governing permissions and limitations under the Apache Lic
     function syncCssClasses(dest, src, adapter) {
         var classes, replacements = [], adapted;
 
-        classes = dest.attr("class");
+        classes = $.trim(dest.attr("class"));
+
         if (classes) {
             classes = '' + classes; // for IE which returns object
-            $(classes.split(" ")).each2(function() {
+
+            $(classes.split(/\s+/)).each2(function() {
                 if (this.indexOf("select2-") === 0) {
                     replacements.push(this);
                 }
             });
         }
-        classes = src.attr("class");
+
+        classes = $.trim(src.attr("class"));
+
         if (classes) {
             classes = '' + classes; // for IE which returns object
-            $(classes.split(" ")).each2(function() {
+
+            $(classes.split(/\s+/)).each2(function() {
                 if (this.indexOf("select2-") !== 0) {
                     adapted = adapter(this);
+
                     if (adapted) {
                         replacements.push(adapted);
                     }
                 }
             });
         }
+
         dest.attr("class", replacements.join(" "));
     }
 
@@ -24021,14 +30244,14 @@ the specific language governing permissions and limitations under the Apache Lic
     /**
      * Produces an ajax-based query function
      *
-     * @param options object containing configuration paramters
+     * @param options object containing configuration parameters
      * @param options.params parameter map for the transport ajax call, can contain such options as cache, jsonpCallback, etc. see $.ajax
      * @param options.transport function that will be used to execute the ajax request. must be compatible with parameters supported by $.ajax
      * @param options.url url for the data
      * @param options.data a function(searchTerm, pageNumber, context) that should return an object containing query string parameters for the above url.
-     * @param options.dataType request data type: ajax, jsonp, other datatatypes supported by jQuery's $.ajax function or the transport function if specified
+     * @param options.dataType request data type: ajax, jsonp, other datatypes supported by jQuery's $.ajax function or the transport function if specified
      * @param options.quietMillis (optional) milliseconds to wait before making the ajaxRequest, helps debounce the ajax function if invoked too often
-     * @param options.results a function(remoteData, pageNumber) that converts data returned form the remote request to the format expected by Select2.
+     * @param options.results a function(remoteData, pageNumber, query) that converts data returned form the remote request to the format expected by Select2.
      *      The expected format is an object containing the following keys:
      *      results array of objects that will be used as choices
      *      more (optional) boolean indicating whether there are more results available
@@ -24059,7 +30282,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 data = data ? data.call(self, query.term, query.page, query.context) : null;
                 url = (typeof url === 'function') ? url.call(self, query.term, query.page, query.context) : url;
 
-                if (handler) { handler.abort(); }
+                if (handler && typeof handler.abort === "function") { handler.abort(); }
 
                 if (options.params) {
                     if ($.isFunction(options.params)) {
@@ -24075,7 +30298,18 @@ the specific language governing permissions and limitations under the Apache Lic
                     data: data,
                     success: function (data) {
                         // TODO - replace query.page with query so users have access to term, page, etc.
-                        var results = options.results(data, query.page);
+                        // added query as third paramter to keep backwards compatibility
+                        var results = options.results(data, query.page, query);
+                        query.callback(results);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        var results = {
+                            hasError: true,
+                            jqXHR: jqXHR,
+                            textStatus: textStatus,
+                            errorThrown: errorThrown,
+                        };
+
                         query.callback(results);
                     }
                 });
@@ -24092,7 +30326,7 @@ the specific language governing permissions and limitations under the Apache Lic
      *
      * If the array form is used it is assumed that it contains objects with 'id' and 'text' keys.
      *
-     * If the object form is used ti is assumed that it contains 'data' and 'text' keys. The 'data' key should contain
+     * If the object form is used it is assumed that it contains 'data' and 'text' keys. The 'data' key should contain
      * an array of objects that will be used as choices. These objects must contain at least an 'id' key. The 'text'
      * key can either be a String in which case it is expected that each element in the 'data' array has a key with the
      * value of 'text' which will be used to match choices. Alternatively, text can be a function(item) that can extract
@@ -24161,14 +30395,17 @@ the specific language governing permissions and limitations under the Apache Lic
         var isFunc = $.isFunction(data);
         return function (query) {
             var t = query.term, filtered = {results: []};
-            $(isFunc ? data() : data).each(function () {
-                var isObject = this.text !== undefined,
-                    text = isObject ? this.text : this;
-                if (t === "" || query.matcher(t, text)) {
-                    filtered.results.push(isObject ? this : {id: this, text: this});
-                }
-            });
-            query.callback(filtered);
+            var result = isFunc ? data(query) : data;
+            if ($.isArray(result)) {
+                $(result).each(function () {
+                    var isObject = this.text !== undefined,
+                        text = isObject ? this.text : this;
+                    if (t === "" || query.matcher(t, text)) {
+                        filtered.results.push(isObject ? this : {id: this, text: this});
+                    }
+                });
+                query.callback(filtered);
+            }
         };
     }
 
@@ -24183,11 +30420,24 @@ the specific language governing permissions and limitations under the Apache Lic
     function checkFormatter(formatter, formatterName) {
         if ($.isFunction(formatter)) return true;
         if (!formatter) return false;
-        throw new Error(formatterName +" must be a function or a falsy value");
+        if (typeof(formatter) === 'string') return true;
+        throw new Error(formatterName +" must be a string, function, or falsy value");
     }
 
-    function evaluate(val) {
-        return $.isFunction(val) ? val() : val;
+  /**
+   * Returns a given value
+   * If given a function, returns its output
+   *
+   * @param val string|function
+   * @param context value of "this" to be passed to function
+   * @returns {*}
+   */
+    function evaluate(val, context) {
+        if ($.isFunction(val)) {
+            var args = Array.prototype.slice.call(arguments, 2);
+            return val.apply(context, args);
+        }
+        return val;
     }
 
     function countResults(results) {
@@ -24255,6 +30505,15 @@ the specific language governing permissions and limitations under the Apache Lic
         if (original!==input) return input;
     }
 
+    function cleanupJQueryElements() {
+        var self = this;
+
+        $.each(arguments, function (i, element) {
+            self[element].remove();
+            self[element] = null;
+        });
+    }
+
     /**
      * Creates a new class
      *
@@ -24297,18 +30556,28 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.container = this.createContainer();
 
+            this.liveRegion = $("<span>", {
+                    role: "status",
+                    "aria-live": "polite"
+                })
+                .addClass("select2-hidden-accessible")
+                .appendTo(document.body);
+
             this.containerId="s2id_"+(opts.element.attr("id") || "autogen"+nextUid());
-            this.containerSelector="#"+this.containerId.replace(/([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
+            this.containerEventName= this.containerId
+                .replace(/([.])/g, '_')
+                .replace(/([;&,\-\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
             this.container.attr("id", this.containerId);
 
-            // cache the body so future lookups are cheap
-            this.body = thunk(function() { return opts.element.closest("body"); });
+            this.container.attr("title", opts.element.attr("title"));
+
+            this.body = $("body");
 
             syncCssClasses(this.container, this.opts.element, this.opts.adaptContainerCssClass);
 
             this.container.attr("style", opts.element.attr("style"));
-            this.container.css(evaluate(opts.containerCss));
-            this.container.addClass(evaluate(opts.containerCssClass));
+            this.container.css(evaluate(opts.containerCss, this.opts.element));
+            this.container.addClass(evaluate(opts.containerCssClass, this.opts.element));
 
             this.elementTabIndex = this.opts.element.attr("tabindex");
 
@@ -24325,7 +30594,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             syncCssClasses(this.dropdown, this.opts.element, this.opts.adaptDropdownCssClass);
 
-            this.dropdown.addClass(evaluate(opts.dropdownCssClass));
+            this.dropdown.addClass(evaluate(opts.dropdownCssClass, this.opts.element));
             this.dropdown.data("select2", this);
             this.dropdown.on("click", killEvent);
 
@@ -24342,7 +30611,23 @@ the specific language governing permissions and limitations under the Apache Lic
             this.container.on("click", killEvent);
 
             installFilteredMouseMove(this.results);
-            this.dropdown.on("mousemove-filtered touchstart touchmove touchend", resultsSelector, this.bind(this.highlightUnderEvent));
+
+            this.dropdown.on("mousemove-filtered", resultsSelector, this.bind(this.highlightUnderEvent));
+            this.dropdown.on("touchstart touchmove touchend", resultsSelector, this.bind(function (event) {
+                this._touchEvent = true;
+                this.highlightUnderEvent(event);
+            }));
+            this.dropdown.on("touchmove", resultsSelector, this.bind(this.touchMoved));
+            this.dropdown.on("touchstart touchend", resultsSelector, this.bind(this.clearTouchMoved));
+
+            // Waiting for a click event on touch devices to select option and hide dropdown
+            // otherwise click will be triggered on an underlying element
+            this.dropdown.on('click', this.bind(function (event) {
+                if (this._touchEvent) {
+                    this._touchEvent = false;
+                    this.selectHighlighted();
+                }
+            }));
 
             installDebouncedScroll(80, this.results);
             this.dropdown.on("scroll-debounced", resultsSelector, this.bind(this.loadMoreIfNeeded));
@@ -24380,7 +30665,10 @@ the specific language governing permissions and limitations under the Apache Lic
             // trap all mouse events from leaving the dropdown. sometimes there may be a modal that is listening
             // for mouse events outside of itself so it can close itself. since the dropdown is now outside the select2's
             // dom it will trigger the popup close, which is not what we want
-            this.dropdown.on("click mouseup mousedown", function (e) { e.stopPropagation(); });
+            // focusin can cause focus wars between modals and select2 since the dropdown is outside the modal.
+            this.dropdown.on("click mouseup mousedown touchstart touchend focusin", function (e) { e.stopPropagation(); });
+
+            this.nextSearchTerm = undefined;
 
             if ($.isFunction(this.opts.initSelection)) {
                 // initialize selection based on the current value of the source element
@@ -24410,19 +30698,29 @@ the specific language governing permissions and limitations under the Apache Lic
             opts.element.prop("autofocus", false);
             if (this.autofocus) this.focus();
 
-            this.nextSearchTerm = undefined;
+            this.search.attr("placeholder", opts.searchInputPlaceholder);
         },
 
         // abstract
         destroy: function () {
-            var element=this.opts.element, select2 = element.data("select2");
+            var element=this.opts.element, select2 = element.data("select2"), self = this;
 
             this.close();
 
-            if (this.propertyObserver) { delete this.propertyObserver; this.propertyObserver = null; }
+            if (element.length && element[0].detachEvent) {
+                element.each(function () {
+                    this.detachEvent("onpropertychange", self._sync);
+                });
+            }
+            if (this.propertyObserver) {
+                this.propertyObserver.disconnect();
+                this.propertyObserver = null;
+            }
+            this._sync = null;
 
             if (select2 !== undefined) {
                 select2.container.remove();
+                select2.liveRegion.remove();
                 select2.dropdown.remove();
                 element
                     .removeClass("select2-offscreen")
@@ -24436,6 +30734,14 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
                 element.show();
             }
+
+            cleanupJQueryElements.call(this,
+                "container",
+                "liveRegion",
+                "dropdown",
+                "results",
+                "search"
+            );
         },
 
         // abstract
@@ -24480,7 +30786,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             opts = $.extend({}, {
                 populateResults: function(container, results, query) {
-                    var populate, id=this.opts.id;
+                    var populate, id=this.opts.id, liveRegion=this.liveRegion;
 
                     populate=function(results, container, depth) {
 
@@ -24488,6 +30794,8 @@ the specific language governing permissions and limitations under the Apache Lic
 
                         results = opts.sortResults(results, container, query);
 
+                        // collect the created nodes for bulk append
+                        var nodes = [];
                         for (i = 0, l = results.length; i < l; i = i + 1) {
 
                             result=results[i];
@@ -24514,9 +30822,9 @@ the specific language governing permissions and limitations under the Apache Lic
                             formatted=opts.formatResult(result, label, query, self.opts.escapeMarkup);
                             if (formatted!==undefined) {
                                 label.html(formatted);
+                                node.append(label);
                             }
 
-                            node.append(label);
 
                             if (compound) {
 
@@ -24527,8 +30835,12 @@ the specific language governing permissions and limitations under the Apache Lic
                             }
 
                             node.data("select2-data", result);
-                            container.append(node);
+                            nodes.push(node[0]);
                         }
+
+                        // bulk append the created nodes
+                        container.append(nodes);
+                        liveRegion.text(opts.formatMatches(results.length));
                     };
 
                     populate(results, container, 0);
@@ -24582,7 +30894,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
                     query.callback(data);
                 });
-                // this is needed because inside val() we construct choices from options and there id is hardcoded
+                // this is needed because inside val() we construct choices from options and their id is hardcoded
                 opts.id=function(e) { return e.id; };
             } else {
                 if (!("query" in opts)) {
@@ -24621,6 +30933,16 @@ the specific language governing permissions and limitations under the Apache Lic
                 throw "query function not defined for Select2 " + opts.element.attr("id");
             }
 
+            if (opts.createSearchChoicePosition === 'top') {
+                opts.createSearchChoicePosition = function(list, item) { list.unshift(item); };
+            }
+            else if (opts.createSearchChoicePosition === 'bottom') {
+                opts.createSearchChoicePosition = function(list, item) { list.push(item); };
+            }
+            else if (typeof(opts.createSearchChoicePosition) !== "function")  {
+                throw "invalid createSearchChoicePosition option must be 'top', 'bottom' or a custom function";
+            }
+
             return opts;
         },
 
@@ -24629,7 +30951,7 @@ the specific language governing permissions and limitations under the Apache Lic
          */
         // abstract
         monitorSource: function () {
-            var el = this.opts.element, sync, observer;
+            var el = this.opts.element, observer, self = this;
 
             el.on("change.select2", this.bind(function (e) {
                 if (this.opts.element.data("select2-change-triggered") !== true) {
@@ -24637,7 +30959,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
             }));
 
-            sync = this.bind(function () {
+            this._sync = this.bind(function () {
 
                 // sync enabled state
                 var disabled = el.prop("disabled");
@@ -24649,35 +30971,34 @@ the specific language governing permissions and limitations under the Apache Lic
                 this.readonly(readonly);
 
                 syncCssClasses(this.container, this.opts.element, this.opts.adaptContainerCssClass);
-                this.container.addClass(evaluate(this.opts.containerCssClass));
+                this.container.addClass(evaluate(this.opts.containerCssClass, this.opts.element));
 
                 syncCssClasses(this.dropdown, this.opts.element, this.opts.adaptDropdownCssClass);
-                this.dropdown.addClass(evaluate(this.opts.dropdownCssClass));
+                this.dropdown.addClass(evaluate(this.opts.dropdownCssClass, this.opts.element));
 
             });
 
-            // IE8-10
-            el.on("propertychange.select2", sync);
-
-            // hold onto a reference of the callback to work around a chromium bug
-            if (this.mutationCallback === undefined) {
-                this.mutationCallback = function (mutations) {
-                    mutations.forEach(sync);
-                }
+            // IE8-10 (IE9/10 won't fire propertyChange via attachEventListener)
+            if (el.length && el[0].attachEvent) {
+                el.each(function() {
+                    this.attachEvent("onpropertychange", self._sync);
+                });
             }
 
             // safari, chrome, firefox, IE11
             observer = window.MutationObserver || window.WebKitMutationObserver|| window.MozMutationObserver;
             if (observer !== undefined) {
                 if (this.propertyObserver) { delete this.propertyObserver; this.propertyObserver = null; }
-                this.propertyObserver = new observer(this.mutationCallback);
+                this.propertyObserver = new observer(function (mutations) {
+                    $.each(mutations, self._sync);
+                });
                 this.propertyObserver.observe(el.get(0), { attributes:true, subtree:false });
             }
         },
 
         // abstract
         triggerSelect: function(data) {
-            var evt = $.Event("select2-selecting", { val: this.id(data), object: data });
+            var evt = $.Event("select2-selecting", { val: this.id(data), object: data, choice: data });
             this.opts.element.trigger(evt);
             return !evt.isDefaultPrevented();
         },
@@ -24699,7 +31020,7 @@ the specific language governing permissions and limitations under the Apache Lic
             // so here we trigger the click event manually
             this.opts.element.click();
 
-            // ValidationEngine ignorea the change event and listens instead to blur
+            // ValidationEngine ignores the change event and listens instead to blur
             // so here we trigger the blur event manually if so desired
             if (this.opts.blurOnChange)
                 this.opts.element.blur();
@@ -24743,17 +31064,16 @@ the specific language governing permissions and limitations under the Apache Lic
         // abstract
         readonly: function(enabled) {
             if (enabled === undefined) enabled = false;
-            if (this._readonly === enabled) return false;
+            if (this._readonly === enabled) return;
             this._readonly = enabled;
 
             this.opts.element.prop("readonly", enabled);
             this.enableInterface();
-            return true;
         },
 
         // abstract
         opened: function () {
-            return this.container.hasClass("select2-dropdown-open");
+            return (this.container) ? this.container.hasClass("select2-dropdown-open") : false;
         },
 
         // abstract
@@ -24771,7 +31091,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 dropTop = offset.top + height,
                 dropLeft = offset.left,
                 enoughRoomBelow = dropTop + dropHeight <= viewportBottom,
-                enoughRoomAbove = (offset.top - dropHeight) >= this.body().scrollTop(),
+                enoughRoomAbove = (offset.top - dropHeight) >= $window.scrollTop(),
                 dropWidth = $dropdown.outerWidth(false),
                 enoughRoomOnRight = dropLeft + dropWidth <= viewPortRight,
                 aboveNow = $dropdown.hasClass("select2-drop-above"),
@@ -24810,6 +31130,9 @@ the specific language governing permissions and limitations under the Apache Lic
                 dropWidth = $dropdown.outerWidth(false);
                 enoughRoomOnRight = dropLeft + dropWidth <= viewPortRight;
                 $dropdown.show();
+
+                // fix so the cursor does not move to the left within the search-textbox in IE
+                this.focusSearch();
             }
 
             if (this.opts.dropdownAutoWidth) {
@@ -24819,6 +31142,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 // Add scrollbar width to dropdown if vertical scrollbar is present
                 dropWidth = $dropdown.outerWidth(false) + (resultsListNode.scrollHeight === resultsListNode.clientHeight ? 0 : scrollBarDimensions.width);
                 dropWidth > width ? width = dropWidth : dropWidth = width;
+                dropHeight = $dropdown.outerHeight(false);
                 enoughRoomOnRight = dropLeft + dropWidth <= viewPortRight;
             }
             else {
@@ -24826,17 +31150,17 @@ the specific language governing permissions and limitations under the Apache Lic
             }
 
             //console.log("below/ droptop:", dropTop, "dropHeight", dropHeight, "sum", (dropTop+dropHeight)+" viewport bottom", viewportBottom, "enough?", enoughRoomBelow);
-            //console.log("above/ offset.top", offset.top, "dropHeight", dropHeight, "top", (offset.top-dropHeight), "scrollTop", this.body().scrollTop(), "enough?", enoughRoomAbove);
+            //console.log("above/ offset.top", offset.top, "dropHeight", dropHeight, "top", (offset.top-dropHeight), "scrollTop", this.body.scrollTop(), "enough?", enoughRoomAbove);
 
             // fix positioning when body has an offset and is not position: static
-            if (this.body().css('position') !== 'static') {
-                bodyOffset = this.body().offset();
+            if (this.body.css('position') !== 'static') {
+                bodyOffset = this.body.offset();
                 dropTop -= bodyOffset.top;
                 dropLeft -= bodyOffset.left;
             }
 
             if (!enoughRoomOnRight) {
-               dropLeft -= (dropLeft + dropWidth) - viewPortRight;
+                dropLeft = offset.left + this.container.outerWidth(false) - dropWidth;
             }
 
             css =  {
@@ -24856,7 +31180,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 this.container.removeClass("select2-drop-above");
                 $dropdown.removeClass("select2-drop-above");
             }
-            css = $.extend(css, evaluate(this.opts.dropdownCss));
+            css = $.extend(css, evaluate(this.opts.dropdownCss, this.opts.element));
 
             $dropdown.css(css);
         },
@@ -24894,6 +31218,12 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.opening();
 
+            // Only bind the document mousemove when the dropdown is visible
+            $document.on("mousemove.select2Event", function (e) {
+                lastMousePosition.x = e.pageX;
+                lastMousePosition.y = e.pageY;
+            });
+
             return true;
         },
 
@@ -24902,7 +31232,7 @@ the specific language governing permissions and limitations under the Apache Lic
          */
         // abstract
         opening: function() {
-            var cid = this.containerId,
+            var cid = this.containerEventName,
                 scroll = "scroll." + cid,
                 resize = "resize."+cid,
                 orient = "orientationchange."+cid,
@@ -24912,25 +31242,28 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.clearDropdownAlignmentPreference();
 
-            if(this.dropdown[0] !== this.body().children().last()[0]) {
-                this.dropdown.detach().appendTo(this.body());
+            if(this.dropdown[0] !== this.body.children().last()[0]) {
+                this.dropdown.detach().appendTo(this.body);
             }
 
-            // create the dropdown mask if doesnt already exist
+            // create the dropdown mask if doesn't already exist
             mask = $("#select2-drop-mask");
             if (mask.length == 0) {
                 mask = $(document.createElement("div"));
                 mask.attr("id","select2-drop-mask").attr("class","select2-drop-mask");
                 mask.hide();
-                mask.appendTo(this.body());
+                mask.appendTo(this.body);
                 mask.on("mousedown touchstart click", function (e) {
+                    // Prevent IE from generating a click event on the body
+                    reinsertElement(mask);
+
                     var dropdown = $("#select2-drop"), self;
                     if (dropdown.length > 0) {
                         self=dropdown.data("select2");
                         if (self.opts.selectOnBlur) {
                             self.selectHighlighted({noFocus: true});
                         }
-                        self.close({focus:true});
+                        self.close();
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -24960,7 +31293,7 @@ the specific language governing permissions and limitations under the Apache Lic
             var that = this;
             this.container.parents().add(window).each(function () {
                 $(this).on(resize+" "+scroll+" "+orient, function (e) {
-                    that.positionDropdown();
+                    if (that.opened()) that.positionDropdown();
                 });
             });
 
@@ -24971,7 +31304,7 @@ the specific language governing permissions and limitations under the Apache Lic
         close: function () {
             if (!this.opened()) return;
 
-            var cid = this.containerId,
+            var cid = this.containerEventName,
                 scroll = "scroll." + cid,
                 resize = "resize."+cid,
                 orient = "orientationchange."+cid;
@@ -24987,6 +31320,8 @@ the specific language governing permissions and limitations under the Apache Lic
             this.container.removeClass("select2-dropdown-open").removeClass("select2-container-active");
             this.results.empty();
 
+            // Now that the dropdown is closed, unbind the global document mousemove event
+            $document.off("mousemove.select2Event");
 
             this.clearSearch();
             this.search.removeClass("select2-active");
@@ -25010,12 +31345,12 @@ the specific language governing permissions and limitations under the Apache Lic
 
         //abstract
         getMaximumSelectionSize: function() {
-            return evaluate(this.opts.maximumSelectionSize);
+            return evaluate(this.opts.maximumSelectionSize, this.opts.element);
         },
 
         // abstract
         ensureHighlightVisible: function () {
-            var results = this.results, children, index, child, hb, rb, y, more;
+            var results = this.results, children, index, child, hb, rb, y, more, topOffset;
 
             index = this.highlight();
 
@@ -25035,7 +31370,9 @@ the specific language governing permissions and limitations under the Apache Lic
 
             child = $(children[index]);
 
-            hb = child.offset().top + child.outerHeight(true);
+            topOffset = (child.offset() || {}).top || 0;
+
+            hb = topOffset + child.outerHeight(true);
 
             // if this is the last child lets also make sure select2-more-results is visible
             if (index === children.length - 1) {
@@ -25049,7 +31386,7 @@ the specific language governing permissions and limitations under the Apache Lic
             if (hb > rb) {
                 results.scrollTop(results.scrollTop() + (hb - rb));
             }
-            y = child.offset().top - results.offset().top;
+            y = topOffset - results.offset().top;
 
             // make sure the top of the element is visible
             if (y < 0 && child.css('display') != 'none' ) {
@@ -25059,7 +31396,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
         // abstract
         findHighlightableChoices: function() {
-            return this.results.find(".select2-result-selectable:not(.select2-disabled, .select2-selected)");
+            return this.results.find(".select2-result-selectable:not(.select2-disabled):not(.select2-selected)");
         },
 
         // abstract
@@ -25100,6 +31437,8 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.ensureHighlightVisible();
 
+            this.liveRegion.text(choice.text());
+
             data = choice.data("select2-data");
             if (data) {
                 this.opts.element.trigger({ type: "select2-highlight", val: this.id(data), choice: data });
@@ -25108,6 +31447,14 @@ the specific language governing permissions and limitations under the Apache Lic
 
         removeHighlight: function() {
             this.results.find(".select2-highlighted").removeClass("select2-highlighted");
+        },
+
+        touchMoved: function() {
+            this._touchMoved = true;
+        },
+
+        clearTouchMoved: function() {
+          this._touchMoved = false;
         },
 
         // abstract
@@ -25158,7 +31505,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     self.postprocessResults(data, false, false);
 
                     if (data.more===true) {
-                        more.detach().appendTo(results).text(self.opts.formatLoadMore(page+1));
+                        more.detach().appendTo(results).text(evaluate(self.opts.formatLoadMore, self.opts.element, page+1));
                         window.setTimeout(function() { self.loadMoreIfNeeded(); }, 10);
                     } else {
                         more.remove();
@@ -25207,6 +31554,12 @@ the specific language governing permissions and limitations under the Apache Lic
             function postRender() {
                 search.removeClass("select2-active");
                 self.positionDropdown();
+                if (results.find('.select2-no-results,.select2-selection-limit,.select2-searching').length) {
+                    self.liveRegion.text(results.text());
+                }
+                else {
+                    self.liveRegion.text(self.opts.formatMatches(results.find('.select2-result-selectable').length));
+                }
             }
 
             function render(html) {
@@ -25220,14 +31573,14 @@ the specific language governing permissions and limitations under the Apache Lic
             if (maxSelSize >=1) {
                 data = this.data();
                 if ($.isArray(data) && data.length >= maxSelSize && checkFormatter(opts.formatSelectionTooBig, "formatSelectionTooBig")) {
-                    render("<li class='select2-selection-limit'>" + opts.formatSelectionTooBig(maxSelSize) + "</li>");
+                    render("<li class='select2-selection-limit'>" + evaluate(opts.formatSelectionTooBig, opts.element, maxSelSize) + "</li>");
                     return;
                 }
             }
 
             if (search.val().length < opts.minimumInputLength) {
                 if (checkFormatter(opts.formatInputTooShort, "formatInputTooShort")) {
-                    render("<li class='select2-no-results'>" + opts.formatInputTooShort(search.val(), opts.minimumInputLength) + "</li>");
+                    render("<li class='select2-no-results'>" + evaluate(opts.formatInputTooShort, opts.element, search.val(), opts.minimumInputLength) + "</li>");
                 } else {
                     render("");
                 }
@@ -25237,7 +31590,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             if (opts.maximumInputLength && search.val().length > opts.maximumInputLength) {
                 if (checkFormatter(opts.formatInputTooLong, "formatInputTooLong")) {
-                    render("<li class='select2-no-results'>" + opts.formatInputTooLong(search.val(), opts.maximumInputLength) + "</li>");
+                    render("<li class='select2-no-results'>" + evaluate(opts.formatInputTooLong, opts.element, search.val(), opts.maximumInputLength) + "</li>");
                 } else {
                     render("");
                 }
@@ -25245,7 +31598,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }
 
             if (opts.formatSearching && this.findHighlightableChoices().length === 0) {
-                render("<li class='select2-searching'>" + opts.formatSearching() + "</li>");
+                render("<li class='select2-searching'>" + evaluate(opts.formatSearching, opts.element) + "</li>");
             }
 
             search.addClass("select2-active");
@@ -25280,6 +31633,12 @@ the specific language governing permissions and limitations under the Apache Lic
                     return;
                 }
 
+                // handle ajax error
+                if(data.hasError !== undefined && checkFormatter(opts.formatAjaxError, "formatAjaxError")) {
+                    render("<li class='select2-ajax-error'>" + evaluate(opts.formatAjaxError, opts.element, data.jqXHR, data.textStatus, data.errorThrown) + "</li>");
+                    return;
+                }
+
                 // save context, if any
                 this.context = (data.context===undefined) ? null : data.context;
                 // create a default choice and prepend it to the list
@@ -25290,13 +31649,13 @@ the specific language governing permissions and limitations under the Apache Lic
                             function () {
                                 return equal(self.id(this), self.id(def));
                             }).length === 0) {
-                            data.results.unshift(def);
+                            this.opts.createSearchChoicePosition(data.results, def);
                         }
                     }
                 }
 
                 if (data.results.length === 0 && checkFormatter(opts.formatNoMatches, "formatNoMatches")) {
-                    render("<li class='select2-no-results'>" + opts.formatNoMatches(search.val()) + "</li>");
+                    render("<li class='select2-no-results'>" + evaluate(opts.formatNoMatches, opts.element, search.val()) + "</li>");
                     return;
                 }
 
@@ -25304,7 +31663,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 self.opts.populateResults.call(this, results, data.results, {term: search.val(), page: this.resultsPage, context:null});
 
                 if (data.more === true && checkFormatter(opts.formatLoadMore, "formatLoadMore")) {
-                    results.append("<li class='select2-more-results'>" + self.opts.escapeMarkup(opts.formatLoadMore(this.resultsPage)) + "</li>");
+                    results.append("<li class='select2-more-results'>" + opts.escapeMarkup(evaluate(opts.formatLoadMore, opts.element, this.resultsPage)) + "</li>");
                     window.setTimeout(function() { self.loadMoreIfNeeded(); }, 10);
                 }
 
@@ -25342,6 +31701,10 @@ the specific language governing permissions and limitations under the Apache Lic
 
         // abstract
         selectHighlighted: function (options) {
+            if (this._touchMoved) {
+              this.clearTouchMoved();
+              return;
+            }
             var index=this.highlight(),
                 highlighted=this.results.find(".select2-highlighted"),
                 data = highlighted.closest('.select2-result').data("select2-data");
@@ -25372,7 +31735,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     //Determine the placeholder option based on the specified placeholderOption setting
                     return (this.opts.placeholderOption === "first" && firstOption) ||
                            (typeof this.opts.placeholderOption === "function" && this.opts.placeholderOption(this.select));
-                } else if (firstOption.text() === "" && firstOption.val() === "") {
+                } else if ($.trim(firstOption.text()) === "" && firstOption.val() === "") {
                     //No explicit placeholder option specified, use the first if it's blank
                     return firstOption;
                 }
@@ -25440,15 +31803,17 @@ the specific language governing permissions and limitations under the Apache Lic
             var container = $(document.createElement("div")).attr({
                 "class": "select2-container"
             }).html([
-                "<a href='javascript:void(0)' onclick='return false;' class='select2-choice' tabindex='-1'>",
-                "   <span class='select2-chosen'>&nbsp;</span><abbr class='select2-search-choice-close'></abbr>",
+                "<a href='javascript:void(0)' class='select2-choice' tabindex='-1'>",
+                "   <span class='select2-chosen'>&#160;</span><abbr class='select2-search-choice-close'></abbr>",
                 "   <span class='select2-arrow' role='presentation'><b role='presentation'></b></span>",
                 "</a>",
+                "<label for='' class='select2-offscreen'></label>",
                 "<input class='select2-focusser select2-offscreen' type='text' aria-haspopup='true' role='button' />",
                 "<div class='select2-drop select2-display-none'>",
                 "   <div class='select2-search'>",
+                "       <label for='' class='select2-offscreen'></label>",
                 "       <input type='text' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' class='select2-input' role='combobox' aria-expanded='true'",
-                "       aria-autocomplete='list' title='Search field' />",
+                "       aria-autocomplete='list' />",
                 "   </div>",
                 "   <ul class='select2-results' role='listbox'>",
                 "   </ul>",
@@ -25479,17 +31844,19 @@ the specific language governing permissions and limitations under the Apache Lic
 
                 this.search.val(this.focusser.val());
             }
-            this.search.focus();
-            // move the cursor to the end after focussing, otherwise it will be at the beginning and
-            // new text will appear *before* focusser.val()
-            el = this.search.get(0);
-            if (el.createTextRange) {
-                range = el.createTextRange();
-                range.collapse(false);
-                range.select();
-            } else if (el.setSelectionRange) {
-                len = this.search.val().length;
-                el.setSelectionRange(len, len);
+            if (this.opts.shouldFocusInput(this)) {
+                this.search.focus();
+                // move the cursor to the end after focussing, otherwise it will be at the beginning and
+                // new text will appear *before* focusser.val()
+                el = this.search.get(0);
+                if (el.createTextRange) {
+                    range = el.createTextRange();
+                    range.collapse(false);
+                    range.select();
+                } else if (el.setSelectionRange) {
+                    len = this.search.val().length;
+                    el.setSelectionRange(len, len);
+                }
             }
 
             // initializes search's value with nextSearchTerm (if defined by user)
@@ -25507,14 +31874,13 @@ the specific language governing permissions and limitations under the Apache Lic
         },
 
         // single
-        close: function (params) {
+        close: function () {
             if (!this.opened()) return;
             this.parent.close.apply(this, arguments);
 
-            params = params || {focus: true};
-            this.focusser.removeAttr("disabled");
+            this.focusser.prop("disabled", false);
 
-            if (params.focus) {
+            if (this.opts.shouldFocusInput(this)) {
                 this.focusser.focus();
             }
         },
@@ -25524,8 +31890,10 @@ the specific language governing permissions and limitations under the Apache Lic
             if (this.opened()) {
                 this.close();
             } else {
-                this.focusser.removeAttr("disabled");
-                this.focusser.focus();
+                this.focusser.prop("disabled", false);
+                if (this.opts.shouldFocusInput(this)) {
+                    this.focusser.focus();
+                }
             }
         },
 
@@ -25537,8 +31905,11 @@ the specific language governing permissions and limitations under the Apache Lic
         // single
         cancel: function () {
             this.parent.cancel.apply(this, arguments);
-            this.focusser.removeAttr("disabled");
-            this.focusser.focus();
+            this.focusser.prop("disabled", false);
+
+            if (this.opts.shouldFocusInput(this)) {
+                this.focusser.focus();
+            }
         },
 
         // single
@@ -25546,6 +31917,11 @@ the specific language governing permissions and limitations under the Apache Lic
             $("label[for='" + this.focusser.attr('id') + "']")
                 .attr('for', this.opts.element.attr("id"));
             this.parent.destroy.apply(this, arguments);
+
+            cleanupJQueryElements.call(this,
+                "selection",
+                "focusser"
+            );
         },
 
         // single
@@ -25576,7 +31952,10 @@ the specific language governing permissions and limitations under the Apache Lic
             // rewrite labels from original element to focusser
             this.focusser.attr("id", "s2id_autogen"+idSuffix);
 
-            elementLabel = $("label[for='" + this.opts.element.attr("id") + "']")
+            elementLabel = $("label[for='" + this.opts.element.attr("id") + "']");
+
+            this.focusser.prev()
+                .text(elementLabel.text())
                 .attr('for', this.focusser.attr('id'));
 
             // Ensure the original element retains an accessible name
@@ -25585,8 +31964,18 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.focusser.attr("tabindex", this.elementTabIndex);
 
+            // write label for search field using the label from the focusser element
+            this.search.attr("id", this.focusser.attr('id') + '_search');
+
+            this.search.prev()
+                .text($("label[for='" + this.focusser.attr('id') + "']").text())
+                .attr('for', this.search.attr('id'));
+
             this.search.on("keydown", this.bind(function (e) {
                 if (!this.isInterfaceEnabled()) return;
+
+                // filter 229 keyCodes (input method editor is processing key input)
+                if (229 == e.keyCode) return;
 
                 if (e.which === KEY.PAGE_UP || e.which === KEY.PAGE_DOWN) {
                     // prevent the page from scrolling
@@ -25617,7 +32006,7 @@ the specific language governing permissions and limitations under the Apache Lic
             this.search.on("blur", this.bind(function(e) {
                 // a workaround for chrome to keep the search field focussed when the scroll bar is used to scroll the dropdown.
                 // without this the search field loses focus which is annoying
-                if (document.activeElement === this.body().get(0)) {
+                if (document.activeElement === this.body.get(0)) {
                     window.setTimeout(this.bind(function() {
                         if (this.opened()) {
                             this.search.focus();
@@ -25667,7 +32056,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
             }));
 
-            selection.on("mousedown", "abbr", this.bind(function (e) {
+            selection.on("mousedown touchstart", "abbr", this.bind(function (e) {
                 if (!this.isInterfaceEnabled()) return;
                 this.clear();
                 killEventImmediately(e);
@@ -25675,7 +32064,9 @@ the specific language governing permissions and limitations under the Apache Lic
                 this.selection.focus();
             }));
 
-            selection.on("mousedown", this.bind(function (e) {
+            selection.on("mousedown touchstart", this.bind(function (e) {
+                // Prevent IE from generating a click event on the body
+                reinsertElement(selection);
 
                 if (!this.container.hasClass("select2-container-active")) {
                     this.opts.element.trigger($.Event("select2-focus"));
@@ -25690,7 +32081,11 @@ the specific language governing permissions and limitations under the Apache Lic
                 killEvent(e);
             }));
 
-            dropdown.on("mousedown", this.bind(function() { this.search.focus(); }));
+            dropdown.on("mousedown touchstart", this.bind(function() {
+                if (this.opts.shouldFocusInput(this)) {
+                    this.search.focus();
+                }
+            }));
 
             selection.on("focus", this.bind(function(e) {
                 killEvent(e);
@@ -25759,6 +32154,7 @@ the specific language governing permissions and limitations under the Apache Lic
                         self.updateSelection(selected);
                         self.close();
                         self.setPlaceholder();
+                        self.nextSearchTerm = self.opts.nextSearchTerm(selected, self.search.val());
                     }
                 });
             }
@@ -25766,7 +32162,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
         isPlaceholderOptionSelected: function() {
             var placeholderOption;
-            if (!this.getPlaceholder()) return false; // no placeholder specified so no option should be considered
+            if (this.getPlaceholder() === undefined) return false; // no placeholder specified so no option should be considered
             return ((placeholderOption = this.getPlaceholderOption()) !== undefined && placeholderOption.prop("selected"))
                 || (this.opts.element.val() === "")
                 || (this.opts.element.val() === undefined)
@@ -25781,7 +32177,7 @@ the specific language governing permissions and limitations under the Apache Lic
             if (opts.element.get(0).tagName.toLowerCase() === "select") {
                 // install the selection initializer
                 opts.initSelection = function (element, callback) {
-                    var selected = element.find("option").filter(function() { return this.selected });
+                    var selected = element.find("option").filter(function() { return this.selected && !this.disabled });
                     // a single select box always has a value, no need to null check 'selected'
                     callback(self.optionToData(selected));
                 };
@@ -25898,10 +32294,13 @@ the specific language governing permissions and limitations under the Apache Lic
             this.nextSearchTerm = this.opts.nextSearchTerm(data, this.search.val());
             this.close();
 
-            if (!options || !options.noFocus)
+            if ((!options || !options.noFocus) && this.opts.shouldFocusInput(this)) {
                 this.focusser.focus();
+            }
 
-            if (!equal(old, this.id(data))) { this.triggerChange({added:data,removed:oldData}); }
+            if (!equal(old, this.id(data))) {
+                this.triggerChange({ added: data, removed: oldData });
+            }
         },
 
         // single
@@ -26023,6 +32422,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }).html([
                 "<ul class='select2-choices'>",
                 "  <li class='select2-search-field'>",
+                "    <label for='' class='select2-offscreen'></label>",
                 "    <input type='text' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' class='select2-input'>",
                 "  </li>",
                 "</ul>",
@@ -26041,12 +32441,12 @@ the specific language governing permissions and limitations under the Apache Lic
             // TODO validate placeholder is a string if specified
 
             if (opts.element.get(0).tagName.toLowerCase() === "select") {
-                // install sthe selection initializer
+                // install the selection initializer
                 opts.initSelection = function (element, callback) {
 
                     var data = [];
 
-                    element.find("option").filter(function() { return this.selected }).each2(function (i, elm) {
+                    element.find("option").filter(function() { return this.selected && !this.disabled }).each2(function (i, elm) {
                         data.push(self.optionToData(elm));
                     });
                     callback(data);
@@ -26115,6 +32515,11 @@ the specific language governing permissions and limitations under the Apache Lic
             $("label[for='" + this.search.attr('id') + "']")
                 .attr('for', this.opts.element.attr("id"));
             this.parent.destroy.apply(this, arguments);
+
+            cleanupJQueryElements.call(this,
+                "searchContainer",
+                "selection"
+            );
         },
 
         // multi
@@ -26134,10 +32539,13 @@ the specific language governing permissions and limitations under the Apache Lic
 
             // rewrite labels from original element to focusser
             this.search.attr("id", "s2id_autogen"+nextUid());
-            $("label[for='" + this.opts.element.attr("id") + "']")
+
+            this.search.prev()
+                .text($("label[for='" + this.opts.element.attr("id") + "']").text())
                 .attr('for', this.search.attr('id'));
 
             this.search.on("input paste", this.bind(function() {
+                if (this.search.attr('placeholder') && this.search.val().length == 0) return;
                 if (!this.isInterfaceEnabled()) return;
                 if (!this.opened()) {
                     this.open();
@@ -26166,13 +32574,15 @@ the specific language governing permissions and limitations under the Apache Lic
                         selectedChoice = next.length ? next : null;
                     }
                     else if (e.which === KEY.BACKSPACE) {
-                        this.unselect(selected.first());
-                        this.search.width(10);
-                        selectedChoice = prev.length ? prev : next;
+                        if (this.unselect(selected.first())) {
+                            this.search.width(10);
+                            selectedChoice = prev.length ? prev : next;
+                        }
                     } else if (e.which == KEY.DELETE) {
-                        this.unselect(selected.first());
-                        this.search.width(10);
-                        selectedChoice = next.length ? next : null;
+                        if (this.unselect(selected.first())) {
+                            this.search.width(10);
+                            selectedChoice = next.length ? next : null;
+                        }
                     } else if (e.which == KEY.ENTER) {
                         selectedChoice = null;
                     }
@@ -26350,8 +32760,19 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.focusSearch();
 
+            // initializes search's value with nextSearchTerm (if defined by user)
+            // ignore nextSearchTerm if the dropdown is opened by the user pressing a letter
+            if(this.search.val() === "") {
+                if(this.nextSearchTerm != undefined){
+                    this.search.val(this.nextSearchTerm);
+                    this.search.select();
+                }
+            }
+
             this.updateResults(true);
-            this.search.focus();
+            if (this.opts.shouldFocusInput(this)) {
+                this.search.focus();
+            }
             this.opts.element.trigger($.Event("select2-open"));
         },
 
@@ -26408,11 +32829,17 @@ the specific language governing permissions and limitations under the Apache Lic
         // multi
         onSelect: function (data, options) {
 
-            if (!this.triggerSelect(data)) { return; }
+            if (!this.triggerSelect(data) || data.text === "") { return; }
 
             this.addSelectedChoice(data);
 
             this.opts.element.trigger({ type: "selected", val: this.id(data), choice: data });
+
+            // keep track of the search's value before it gets cleared
+            this.nextSearchTerm = this.opts.nextSearchTerm(data, this.search.val());
+
+            this.clearSearch();
+            this.updateResults();
 
             if (this.select || !this.opts.closeOnSelect) this.postprocessResults(data, false, this.opts.closeOnSelect===true);
 
@@ -26427,6 +32854,13 @@ the specific language governing permissions and limitations under the Apache Lic
                         // if we reached max selection size repaint the results so choices
                         // are replaced with the max selection reached message
                         this.updateResults(true);
+                    } else {
+                        // initializes search's value with nextSearchTerm and update search result
+                        if(this.nextSearchTerm != undefined){
+                            this.search.val(this.nextSearchTerm);
+                            this.updateResults();
+                            this.search.select();
+                        }
                     }
                     this.positionDropdown();
                 } else {
@@ -26455,7 +32889,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 enabledItem = $(
                     "<li class='select2-search-choice'>" +
                     "    <div></div>" +
-                    "    <a href='#' onclick='return false;' class='select2-search-choice-close' tabindex='-1'></a>" +
+                    "    <a href='#' class='select2-search-choice-close' tabindex='-1'></a>" +
                     "</li>"),
                 disabledItem = $(
                     "<li class='select2-search-choice select2-locked'>" +
@@ -26482,13 +32916,11 @@ the specific language governing permissions and limitations under the Apache Lic
                   .on("click dblclick", this.bind(function (e) {
                   if (!this.isInterfaceEnabled()) return;
 
-                  $(e.target).closest(".select2-search-choice").fadeOut('fast', this.bind(function(){
-                      this.unselect($(e.target));
-                      this.selection.find(".select2-search-choice-focus").removeClass("select2-search-choice-focus");
-                      this.close();
-                      this.focusSearch();
-                  })).dequeue();
+                  this.unselect($(e.target));
+                  this.selection.find(".select2-search-choice-focus").removeClass("select2-search-choice-focus");
                   killEvent(e);
+                  this.close();
+                  this.focusSearch();
               })).on("focus", this.bind(function () {
                   if (!this.isInterfaceEnabled()) return;
                   this.container.addClass("select2-container-active");
@@ -26522,25 +32954,27 @@ the specific language governing permissions and limitations under the Apache Lic
                 return;
             }
 
-            while((index = indexOf(this.id(data), val)) >= 0) {
-                val.splice(index, 1);
-                this.setVal(val);
-                if (this.select) this.postprocessResults();
-            }
-
             var evt = $.Event("select2-removing");
             evt.val = this.id(data);
             evt.choice = data;
             this.opts.element.trigger(evt);
 
             if (evt.isDefaultPrevented()) {
-                return;
+                return false;
+            }
+
+            while((index = indexOf(this.id(data), val)) >= 0) {
+                val.splice(index, 1);
+                this.setVal(val);
+                if (this.select) this.postprocessResults();
             }
 
             selected.remove();
 
             this.opts.element.trigger({ type: "select2-removed", val: this.id(data), choice: data });
             this.triggerChange({ removed: data });
+
+            return true;
         },
 
         // multi
@@ -26560,7 +32994,7 @@ the specific language governing permissions and limitations under the Apache Lic
             });
 
             compound.each2(function(i, choice) {
-                // hide an optgroup if it doesnt have any selectable children
+                // hide an optgroup if it doesn't have any selectable children
                 if (!choice.is('.select2-result-selectable')
                     && choice.find(".select2-result-selectable:not(.select2-selected)").length === 0) {
                     choice.addClass("select2-selected");
@@ -26571,11 +33005,11 @@ the specific language governing permissions and limitations under the Apache Lic
                 self.highlight(0);
             }
 
-            //If all results are chosen render formatNoMAtches
+            //If all results are chosen render formatNoMatches
             if(!this.opts.createSearchChoice && !choices.filter('.select2-result:not(.select2-selected)').length > 0){
                 if(!data || data && !data.more && this.results.find(".select2-no-results").length === 0) {
                     if (checkFormatter(self.opts.formatNoMatches, "formatNoMatches")) {
-                        this.results.append("<li class='select2-no-results'>" + self.opts.formatNoMatches(self.search.val()) + "</li>");
+                        this.results.append("<li class='select2-no-results'>" + evaluate(self.opts.formatNoMatches, self.opts.element, self.search.val()) + "</li>");
                     }
                 }
             }
@@ -26751,7 +33185,7 @@ the specific language governing permissions and limitations under the Apache Lic
             var self=this, ids, old;
             if (arguments.length === 0) {
                  return this.selection
-                     .find(".select2-search-choice")
+                     .children(".select2-search-choice")
                      .map(function() { return $(this).data("select2-data"); })
                      .get();
             } else {
@@ -26791,7 +33225,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     if ("tags" in opts) {opts.multiple = multiple = true;}
                 }
 
-                select2 = multiple ? new MultiSelect2() : new SingleSelect2();
+                select2 = multiple ? new window.Select2["class"].multi() : new window.Select2["class"].single();
                 select2.init(opts);
             } else if (typeof(args[0]) === "string") {
 
@@ -26815,7 +33249,7 @@ the specific language governing permissions and limitations under the Apache Lic
                     value = select2[method].apply(select2, args.slice(1));
                 }
                 if (indexOf(args[0], valueMethods) >= 0
-                    || (indexOf(args[0], propertyMethods) && args.length == 1)) {
+                    || (indexOf(args[0], propertyMethods) >= 0 && args.length == 1)) {
                     return false; // abort the iteration, ready to return first matched value
                 }
             } else {
@@ -26848,17 +33282,11 @@ the specific language governing permissions and limitations under the Apache Lic
         },
         formatResultCssClass: function(data) {return data.css;},
         formatSelectionCssClass: function(data, container) {return undefined;},
-        formatNoMatches: function () { return "No matches found"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Please enter " + n + " more character" + (n == 1? "" : "s"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Please delete " + n + " character" + (n == 1? "" : "s"); },
-        formatSelectionTooBig: function (limit) { return "You can only select " + limit + " item" + (limit == 1 ? "" : "s"); },
-        formatLoadMore: function (pageNumber) { return "Loading more results..."; },
-        formatSearching: function () { return "Searching..."; },
         minimumResultsForSearch: 0,
         minimumInputLength: 0,
         maximumInputLength: null,
         maximumSelectionSize: 0,
-        id: function (e) { return e.id; },
+        id: function (e) { return e == undefined ? null : e.id; },
         matcher: function(term, text) {
             return stripDiacritics(''+text).toUpperCase().indexOf(stripDiacritics(''+term).toUpperCase()) >= 0;
         },
@@ -26870,8 +33298,42 @@ the specific language governing permissions and limitations under the Apache Lic
         selectOnBlur: false,
         adaptContainerCssClass: function(c) { return c; },
         adaptDropdownCssClass: function(c) { return null; },
-        nextSearchTerm: function(selectedObject, currentSearchTerm) { return undefined; }
+        nextSearchTerm: function(selectedObject, currentSearchTerm) { return undefined; },
+        searchInputPlaceholder: '',
+        createSearchChoicePosition: 'top',
+        shouldFocusInput: function (instance) {
+            // Attempt to detect touch devices
+            var supportsTouchEvents = (('ontouchstart' in window) ||
+                                       (navigator.msMaxTouchPoints > 0));
+
+            // Only devices which support touch events should be special cased
+            if (!supportsTouchEvents) {
+                return true;
+            }
+
+            // Never focus the input if search is disabled
+            if (instance.opts.minimumResultsForSearch < 0) {
+                return false;
+            }
+
+            return true;
+        }
     };
+
+    $.fn.select2.locales = [];
+
+    $.fn.select2.locales['en'] = {
+         formatMatches: function (matches) { if (matches === 1) { return "One result is available, press enter to select it."; } return matches + " results are available, use up and down arrow keys to navigate."; },
+         formatNoMatches: function () { return "No matches found"; },
+         formatAjaxError: function (jqXHR, textStatus, errorThrown) { return "Loading failed"; },
+         formatInputTooShort: function (input, min) { var n = min - input.length; return "Please enter " + n + " or more character" + (n == 1 ? "" : "s"); },
+         formatInputTooLong: function (input, max) { var n = input.length - max; return "Please delete " + n + " character" + (n == 1 ? "" : "s"); },
+         formatSelectionTooBig: function (limit) { return "You can only select " + limit + " item" + (limit == 1 ? "" : "s"); },
+         formatLoadMore: function (pageNumber) { return "Loading more results…"; },
+         formatSearching: function () { return "Searching…"; },
+    };
+
+    $.extend($.fn.select2.defaults, $.fn.select2.locales['en']);
 
     $.fn.select2.ajaxDefaults = {
         transport: $.ajax,
@@ -26883,7 +33345,7 @@ the specific language governing permissions and limitations under the Apache Lic
     };
 
     // exports
-    module.exports = {
+    window.Select2 = {
         query: {
             ajax: ajax,
             local: local,
@@ -26906,7 +33368,7 @@ the specific language governing permissions and limitations under the Apache Lic
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -26923,7 +33385,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(2),
     __webpack_require__(5),
     __webpack_require__(1),
-    __webpack_require__(36)
+    __webpack_require__(17)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, logger, Parser, Base, registry) {
     var parser = new Parser("bumper"),
         log = logger.getLogger("bumper");
@@ -27066,6181 +33528,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 // vim: sw=4 expandtab
 
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-/*!
- * modernizr v3.5.0
- * Build https://modernizr.com/download?-adownload-appearance-applicationcache-backdropfilter-backgroundblendmode-backgroundcliptext-backgroundsize-bgpositionshorthand-bgpositionxy-bgrepeatspace_bgrepeatround-bgsizecover-blobconstructor-bloburls-borderimage-borderradius-boxshadow-boxsizing-canvas-canvasblending-canvastext-canvaswinding-capture-checked-classlist-contenteditable-contextmenu-cookies-cors-createelementattrs_createelement_attrs-cssall-cssanimations-csscalc-csschunit-csscolumns-cssescape-cssexunit-cssfilters-cssgradients-cssgrid_cssgridlegacy-cssinvalid-cssmask-csspointerevents-csspositionsticky-csspseudoanimations-csspseudotransitions-cssreflections-cssremunit-cssresize-cssscrollbar-csstransforms-csstransforms3d-csstransformslevel2-csstransitions-cssvalid-cssvhunit-cssvmaxunit-cssvminunit-cssvwunit-cubicbezierrange-customelements-dataset-datauri-devicemotion_deviceorientation-directory-display_runin-displaytable-documentfragment-ellipsis-eventlistener-exiforientation-fileinput-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fontface-formattribute-formvalidation-fullscreen-generatedcontent-hairline-hashchange-hidden-hiddenscroll-history-hovermq-hsla-htmlimports-json-lastchild-localizednumber-localstorage-mediaqueries-microdata-multiplebgs-mutationobserver-notification-nthchild-objectfit-oninput-opacity-overflowscrolling-pagevisibility-passiveeventlisteners-performance-placeholder-pointermq-postmessage-preserve3d-proximity-queryselector-regions-requestanimationframe-requestautocomplete-rgba-sandbox-scrollsnappoints-seamless-sessionstorage-shapes-siblinggeneral-srcdoc-subpixelfont-supports-target-textalignlast-textshadow-todataurljpeg_todataurlpng_todataurlwebp-touchevents-unicode-unicoderange-urlparser-urlsearchparams-userdata-userselect-vibrate-video-videoautoplay-videocrossorigin-videoloop-videopreload-websqldatabase-willchange-wrapflow-xdomainrequest-addtest-atrule-domprefixes-hasevent-load-mq-prefixed-prefixedcss-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
- *
- * Copyright (c)
- *  Faruk Ates
- *  Paul Irish
- *  Alex Sexton
- *  Ryan Seddon
- *  Patrick Kettner
- *  Stu Cox
- *  Richard Herrera
-
- * MIT License
- */
-
-/*
- * Modernizr tests which native CSS3 and HTML5 features are available in the
- * current UA and makes the results available to you in two ways: as properties on
- * a global `Modernizr` object, and as classes on the `<html>` element. This
- * information allows you to progressively enhance your pages with a granular level
- * of control over the experience.
-*/
-
-;(function(window, document, undefined){
-  var tests = [];
-  
-
-  /**
-   *
-   * ModernizrProto is the constructor for Modernizr
-   *
-   * @class
-   * @access public
-   */
-
-  var ModernizrProto = {
-    // The current version, dummy
-    _version: '3.5.0',
-
-    // Any settings that don't work as separate modules
-    // can go in here as configuration.
-    _config: {
-      'classPrefix': '',
-      'enableClasses': true,
-      'enableJSClass': true,
-      'usePrefixes': true
-    },
-
-    // Queue of tests
-    _q: [],
-
-    // Stub these for people who are listening
-    on: function(test, cb) {
-      // I don't really think people should do this, but we can
-      // safe guard it a bit.
-      // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
-      // This is in case people listen to synchronous tests. I would leave it out,
-      // but the code to *disallow* sync tests in the real version of this
-      // function is actually larger than this.
-      var self = this;
-      setTimeout(function() {
-        cb(self[test]);
-      }, 0);
-    },
-
-    addTest: function(name, fn, options) {
-      tests.push({name: name, fn: fn, options: options});
-    },
-
-    addAsyncTest: function(fn) {
-      tests.push({name: null, fn: fn});
-    }
-  };
-
-  
-
-  // Fake some of Object.create so we can force non test results to be non "own" properties.
-  var Modernizr = function() {};
-  Modernizr.prototype = ModernizrProto;
-
-  // Leak modernizr globally when you `require` it rather than force it here.
-  // Overwrite name so constructor name is nicer :D
-  Modernizr = new Modernizr();
-
-  
-
-  var classes = [];
-  
-
-  /**
-   * is returns a boolean if the typeof an obj is exactly type.
-   *
-   * @access private
-   * @function is
-   * @param {*} obj - A thing we want to check the type of
-   * @param {string} type - A string to compare the typeof against
-   * @returns {boolean}
-   */
-
-  function is(obj, type) {
-    return typeof obj === type;
-  }
-  ;
-
-  /**
-   * Run through all tests and detect their support in the current UA.
-   *
-   * @access private
-   */
-
-  function testRunner() {
-    var featureNames;
-    var feature;
-    var aliasIdx;
-    var result;
-    var nameIdx;
-    var featureName;
-    var featureNameSplit;
-
-    for (var featureIdx in tests) {
-      if (tests.hasOwnProperty(featureIdx)) {
-        featureNames = [];
-        feature = tests[featureIdx];
-        // run the test, throw the return value into the Modernizr,
-        // then based on that boolean, define an appropriate className
-        // and push it into an array of classes we'll join later.
-        //
-        // If there is no name, it's an 'async' test that is run,
-        // but not directly added to the object. That should
-        // be done with a post-run addTest call.
-        if (feature.name) {
-          featureNames.push(feature.name.toLowerCase());
-
-          if (feature.options && feature.options.aliases && feature.options.aliases.length) {
-            // Add all the aliases into the names list
-            for (aliasIdx = 0; aliasIdx < feature.options.aliases.length; aliasIdx++) {
-              featureNames.push(feature.options.aliases[aliasIdx].toLowerCase());
-            }
-          }
-        }
-
-        // Run the test, or use the raw value if it's not a function
-        result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
-
-
-        // Set each of the names on the Modernizr object
-        for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
-          featureName = featureNames[nameIdx];
-          // Support dot properties as sub tests. We don't do checking to make sure
-          // that the implied parent tests have been added. You must call them in
-          // order (either in the test, or make the parent test a dependency).
-          //
-          // Cap it to TWO to make the logic simple and because who needs that kind of subtesting
-          // hashtag famous last words
-          featureNameSplit = featureName.split('.');
-
-          if (featureNameSplit.length === 1) {
-            Modernizr[featureNameSplit[0]] = result;
-          } else {
-            // cast to a Boolean, if not one already
-            if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
-              Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
-            }
-
-            Modernizr[featureNameSplit[0]][featureNameSplit[1]] = result;
-          }
-
-          classes.push((result ? '' : 'no-') + featureNameSplit.join('-'));
-        }
-      }
-    }
-  }
-  ;
-
-  /**
-   * docElement is a convenience wrapper to grab the root element of the document
-   *
-   * @access private
-   * @returns {HTMLElement|SVGElement} The root element of the document
-   */
-
-  var docElement = document.documentElement;
-  
-
-  /**
-   * A convenience helper to check if the document we are running in is an SVG document
-   *
-   * @access private
-   * @returns {boolean}
-   */
-
-  var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-  
-
-  /**
-   * setClasses takes an array of class names and adds them to the root element
-   *
-   * @access private
-   * @function setClasses
-   * @param {string[]} classes - Array of class names
-   */
-
-  // Pass in an and array of class names, e.g.:
-  //  ['no-webp', 'borderradius', ...]
-  function setClasses(classes) {
-    var className = docElement.className;
-    var classPrefix = Modernizr._config.classPrefix || '';
-
-    if (isSVG) {
-      className = className.baseVal;
-    }
-
-    // Change `no-js` to `js` (independently of the `enableClasses` option)
-    // Handle classPrefix on this too
-    if (Modernizr._config.enableJSClass) {
-      var reJS = new RegExp('(^|\\s)' + classPrefix + 'no-js(\\s|$)');
-      className = className.replace(reJS, '$1' + classPrefix + 'js$2');
-    }
-
-    if (Modernizr._config.enableClasses) {
-      // Add the new classes
-      className += ' ' + classPrefix + classes.join(' ' + classPrefix);
-      if (isSVG) {
-        docElement.className.baseVal = className;
-      } else {
-        docElement.className = className;
-      }
-    }
-
-  }
-
-  ;
-
-  /**
-   * hasOwnProp is a shim for hasOwnProperty that is needed for Safari 2.0 support
-   *
-   * @author kangax
-   * @access private
-   * @function hasOwnProp
-   * @param {object} object - The object to check for a property
-   * @param {string} property - The property to check for
-   * @returns {boolean}
-   */
-
-  // hasOwnProperty shim by kangax needed for Safari 2.0 support
-  var hasOwnProp;
-
-  (function() {
-    var _hasOwnProperty = ({}).hasOwnProperty;
-    /* istanbul ignore else */
-    /* we have no way of testing IE 5.5 or safari 2,
-     * so just assume the else gets hit */
-    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
-      hasOwnProp = function(object, property) {
-        return _hasOwnProperty.call(object, property);
-      };
-    }
-    else {
-      hasOwnProp = function(object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
-        return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
-      };
-    }
-  })();
-
-  
-
-
-   // _l tracks listeners for async tests, as well as tests that execute after the initial run
-  ModernizrProto._l = {};
-
-  /**
-   * Modernizr.on is a way to listen for the completion of async tests. Being
-   * asynchronous, they may not finish before your scripts run. As a result you
-   * will get a possibly false negative `undefined` value.
-   *
-   * @memberof Modernizr
-   * @name Modernizr.on
-   * @access public
-   * @function on
-   * @param {string} feature - String name of the feature detect
-   * @param {function} cb - Callback function returning a Boolean - true if feature is supported, false if not
-   * @example
-   *
-   * ```js
-   * Modernizr.on('flash', function( result ) {
-   *   if (result) {
-   *    // the browser has flash
-   *   } else {
-   *     // the browser does not have flash
-   *   }
-   * });
-   * ```
-   */
-
-  ModernizrProto.on = function(feature, cb) {
-    // Create the list of listeners if it doesn't exist
-    if (!this._l[feature]) {
-      this._l[feature] = [];
-    }
-
-    // Push this test on to the listener list
-    this._l[feature].push(cb);
-
-    // If it's already been resolved, trigger it on next tick
-    if (Modernizr.hasOwnProperty(feature)) {
-      // Next Tick
-      setTimeout(function() {
-        Modernizr._trigger(feature, Modernizr[feature]);
-      }, 0);
-    }
-  };
-
-  /**
-   * _trigger is the private function used to signal test completion and run any
-   * callbacks registered through [Modernizr.on](#modernizr-on)
-   *
-   * @memberof Modernizr
-   * @name Modernizr._trigger
-   * @access private
-   * @function _trigger
-   * @param {string} feature - string name of the feature detect
-   * @param {function|boolean} [res] - A feature detection function, or the boolean =
-   * result of a feature detection function
-   */
-
-  ModernizrProto._trigger = function(feature, res) {
-    if (!this._l[feature]) {
-      return;
-    }
-
-    var cbs = this._l[feature];
-
-    // Force async
-    setTimeout(function() {
-      var i, cb;
-      for (i = 0; i < cbs.length; i++) {
-        cb = cbs[i];
-        cb(res);
-      }
-    }, 0);
-
-    // Don't trigger these again
-    delete this._l[feature];
-  };
-
-  /**
-   * addTest allows you to define your own feature detects that are not currently
-   * included in Modernizr (under the covers it's the exact same code Modernizr
-   * uses for its own [feature detections](https://github.com/Modernizr/Modernizr/tree/master/feature-detects)). Just like the offical detects, the result
-   * will be added onto the Modernizr object, as well as an appropriate className set on
-   * the html element when configured to do so
-   *
-   * @memberof Modernizr
-   * @name Modernizr.addTest
-   * @optionName Modernizr.addTest()
-   * @optionProp addTest
-   * @access public
-   * @function addTest
-   * @param {string|object} feature - The string name of the feature detect, or an
-   * object of feature detect names and test
-   * @param {function|boolean} test - Function returning true if feature is supported,
-   * false if not. Otherwise a boolean representing the results of a feature detection
-   * @example
-   *
-   * The most common way of creating your own feature detects is by calling
-   * `Modernizr.addTest` with a string (preferably just lowercase, without any
-   * punctuation), and a function you want executed that will return a boolean result
-   *
-   * ```js
-   * Modernizr.addTest('itsTuesday', function() {
-   *  var d = new Date();
-   *  return d.getDay() === 2;
-   * });
-   * ```
-   *
-   * When the above is run, it will set Modernizr.itstuesday to `true` when it is tuesday,
-   * and to `false` every other day of the week. One thing to notice is that the names of
-   * feature detect functions are always lowercased when added to the Modernizr object. That
-   * means that `Modernizr.itsTuesday` will not exist, but `Modernizr.itstuesday` will.
-   *
-   *
-   *  Since we only look at the returned value from any feature detection function,
-   *  you do not need to actually use a function. For simple detections, just passing
-   *  in a statement that will return a boolean value works just fine.
-   *
-   * ```js
-   * Modernizr.addTest('hasJquery', 'jQuery' in window);
-   * ```
-   *
-   * Just like before, when the above runs `Modernizr.hasjquery` will be true if
-   * jQuery has been included on the page. Not using a function saves a small amount
-   * of overhead for the browser, as well as making your code much more readable.
-   *
-   * Finally, you also have the ability to pass in an object of feature names and
-   * their tests. This is handy if you want to add multiple detections in one go.
-   * The keys should always be a string, and the value can be either a boolean or
-   * function that returns a boolean.
-   *
-   * ```js
-   * var detects = {
-   *  'hasjquery': 'jQuery' in window,
-   *  'itstuesday': function() {
-   *    var d = new Date();
-   *    return d.getDay() === 2;
-   *  }
-   * }
-   *
-   * Modernizr.addTest(detects);
-   * ```
-   *
-   * There is really no difference between the first methods and this one, it is
-   * just a convenience to let you write more readable code.
-   */
-
-  function addTest(feature, test) {
-
-    if (typeof feature == 'object') {
-      for (var key in feature) {
-        if (hasOwnProp(feature, key)) {
-          addTest(key, feature[ key ]);
-        }
-      }
-    } else {
-
-      feature = feature.toLowerCase();
-      var featureNameSplit = feature.split('.');
-      var last = Modernizr[featureNameSplit[0]];
-
-      // Again, we don't check for parent test existence. Get that right, though.
-      if (featureNameSplit.length == 2) {
-        last = last[featureNameSplit[1]];
-      }
-
-      if (typeof last != 'undefined') {
-        // we're going to quit if you're trying to overwrite an existing test
-        // if we were to allow it, we'd do this:
-        //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
-        //   docElement.className = docElement.className.replace( re, '' );
-        // but, no rly, stuff 'em.
-        return Modernizr;
-      }
-
-      test = typeof test == 'function' ? test() : test;
-
-      // Set the value (this is the magic, right here).
-      if (featureNameSplit.length == 1) {
-        Modernizr[featureNameSplit[0]] = test;
-      } else {
-        // cast to a Boolean, if not one already
-        if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
-          Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
-        }
-
-        Modernizr[featureNameSplit[0]][featureNameSplit[1]] = test;
-      }
-
-      // Set a single class (either `feature` or `no-feature`)
-      setClasses([(!!test && test != false ? '' : 'no-') + featureNameSplit.join('-')]);
-
-      // Trigger the event
-      Modernizr._trigger(feature, test);
-    }
-
-    return Modernizr; // allow chaining.
-  }
-
-  // After all the tests are run, add self to the Modernizr prototype
-  Modernizr._q.push(function() {
-    ModernizrProto.addTest = addTest;
-  });
-
-  
-
-
-  /**
-   * If the browsers follow the spec, then they would expose vendor-specific styles as:
-   *   elem.style.WebkitBorderRadius
-   * instead of something like the following (which is technically incorrect):
-   *   elem.style.webkitBorderRadius
-
-   * WebKit ghosts their properties in lowercase but Opera & Moz do not.
-   * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
-   *   erik.eae.net/archives/2008/03/10/21.48.10/
-
-   * More here: github.com/Modernizr/Modernizr/issues/issue/21
-   *
-   * @access private
-   * @returns {string} The string representing the vendor-specific style properties
-   */
-
-  var omPrefixes = 'Moz O ms Webkit';
-  
-
-  var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
-  ModernizrProto._cssomPrefixes = cssomPrefixes;
-  
-
-  /**
-   * atRule returns a given CSS property at-rule (eg @keyframes), possibly in
-   * some prefixed form, or false, in the case of an unsupported rule
-   *
-   * @memberof Modernizr
-   * @name Modernizr.atRule
-   * @optionName Modernizr.atRule()
-   * @optionProp atRule
-   * @access public
-   * @function atRule
-   * @param {string} prop - String name of the @-rule to test for
-   * @returns {string|boolean} The string representing the (possibly prefixed)
-   * valid version of the @-rule, or `false` when it is unsupported.
-   * @example
-   * ```js
-   *  var keyframes = Modernizr.atRule('@keyframes');
-   *
-   *  if (keyframes) {
-   *    // keyframes are supported
-   *    // could be `@-webkit-keyframes` or `@keyframes`
-   *  } else {
-   *    // keyframes === `false`
-   *  }
-   * ```
-   *
-   */
-
-  var atRule = function(prop) {
-    var length = prefixes.length;
-    var cssrule = window.CSSRule;
-    var rule;
-
-    if (typeof cssrule === 'undefined') {
-      return undefined;
-    }
-
-    if (!prop) {
-      return false;
-    }
-
-    // remove literal @ from beginning of provided property
-    prop = prop.replace(/^@/, '');
-
-    // CSSRules use underscores instead of dashes
-    rule = prop.replace(/-/g, '_').toUpperCase() + '_RULE';
-
-    if (rule in cssrule) {
-      return '@' + prop;
-    }
-
-    for (var i = 0; i < length; i++) {
-      // prefixes gives us something like -o-, and we want O_
-      var prefix = prefixes[i];
-      var thisRule = prefix.toUpperCase() + '_' + rule;
-
-      if (thisRule in cssrule) {
-        return '@-' + prefix.toLowerCase() + '-' + prop;
-      }
-    }
-
-    return false;
-  };
-
-  ModernizrProto.atRule = atRule;
-
-  
-
-  /**
-   * List of JavaScript DOM values used for tests
-   *
-   * @memberof Modernizr
-   * @name Modernizr._domPrefixes
-   * @optionName Modernizr._domPrefixes
-   * @optionProp domPrefixes
-   * @access public
-   * @example
-   *
-   * Modernizr._domPrefixes is exactly the same as [_prefixes](#modernizr-_prefixes), but rather
-   * than kebab-case properties, all properties are their Capitalized variant
-   *
-   * ```js
-   * Modernizr._domPrefixes === [ "Moz", "O", "ms", "Webkit" ];
-   * ```
-   */
-
-  var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
-  ModernizrProto._domPrefixes = domPrefixes;
-  
-
-  /**
-   * createElement is a convenience wrapper around document.createElement. Since we
-   * use createElement all over the place, this allows for (slightly) smaller code
-   * as well as abstracting away issues with creating elements in contexts other than
-   * HTML documents (e.g. SVG documents).
-   *
-   * @access private
-   * @function createElement
-   * @returns {HTMLElement|SVGElement} An HTML or SVG element
-   */
-
-  function createElement() {
-    if (typeof document.createElement !== 'function') {
-      // This is the case in IE7, where the type of createElement is "object".
-      // For this reason, we cannot call apply() as Object is not a Function.
-      return document.createElement(arguments[0]);
-    } else if (isSVG) {
-      return document.createElementNS.call(document, 'http://www.w3.org/2000/svg', arguments[0]);
-    } else {
-      return document.createElement.apply(document, arguments);
-    }
-  }
-
-  ;
-
-  /**
-   * Modernizr.hasEvent() detects support for a given event
-   *
-   * @memberof Modernizr
-   * @name Modernizr.hasEvent
-   * @optionName Modernizr.hasEvent()
-   * @optionProp hasEvent
-   * @access public
-   * @function hasEvent
-   * @param  {string|*} eventName - the name of an event to test for (e.g. "resize")
-   * @param  {Element|string} [element=HTMLDivElement] - is the element|document|window|tagName to test on
-   * @returns {boolean}
-   * @example
-   *  `Modernizr.hasEvent` lets you determine if the browser supports a supplied event.
-   *  By default, it does this detection on a div element
-   *
-   * ```js
-   *  hasEvent('blur') // true;
-   * ```
-   *
-   * However, you are able to give an object as a second argument to hasEvent to
-   * detect an event on something other than a div.
-   *
-   * ```js
-   *  hasEvent('devicelight', window) // true;
-   * ```
-   *
-   */
-
-  var hasEvent = (function() {
-
-    // Detect whether event support can be detected via `in`. Test on a DOM element
-    // using the "blur" event b/c it should always exist. bit.ly/event-detection
-    var needsFallback = !('onblur' in document.documentElement);
-
-    function inner(eventName, element) {
-
-      var isSupported;
-      if (!eventName) { return false; }
-      if (!element || typeof element === 'string') {
-        element = createElement(element || 'div');
-      }
-
-      // Testing via the `in` operator is sufficient for modern browsers and IE.
-      // When using `setAttribute`, IE skips "unload", WebKit skips "unload" and
-      // "resize", whereas `in` "catches" those.
-      eventName = 'on' + eventName;
-      isSupported = eventName in element;
-
-      // Fallback technique for old Firefox - bit.ly/event-detection
-      if (!isSupported && needsFallback) {
-        if (!element.setAttribute) {
-          // Switch to generic element if it lacks `setAttribute`.
-          // It could be the `document`, `window`, or something else.
-          element = createElement('div');
-        }
-
-        element.setAttribute(eventName, '');
-        isSupported = typeof element[eventName] === 'function';
-
-        if (element[eventName] !== undefined) {
-          // If property was created, "remove it" by setting value to `undefined`.
-          element[eventName] = undefined;
-        }
-        element.removeAttribute(eventName);
-      }
-
-      return isSupported;
-    }
-    return inner;
-  })();
-
-
-  ModernizrProto.hasEvent = hasEvent;
-  
-
-/**
-  * @optionName html5printshiv
-  * @optionProp html5printshiv
-  */
-
-  // Take the html5 variable out of the html5shiv scope so we can return it.
-  var html5;
-  if (!isSVG) {
-
-    /**
-     * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
-     */
-    ;(function(window, document) {
-      /** version */
-      var version = '3.7.3';
-
-      /** Preset options */
-      var options = window.html5 || {};
-
-      /** Used to skip problem elements */
-      var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-      /** Not all elements can be cloned in IE **/
-      var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-      /** Detect whether the browser supports default html5 styles */
-      var supportsHtml5Styles;
-
-      /** Name of the expando, to work with multiple documents or to re-shiv one document */
-      var expando = '_html5shiv';
-
-      /** The id for the the documents expando */
-      var expanID = 0;
-
-      /** Cached data for each document */
-      var expandoData = {};
-
-      /** Detect whether the browser supports unknown elements */
-      var supportsUnknownElements;
-
-      (function() {
-        try {
-          var a = document.createElement('a');
-          a.innerHTML = '<xyz></xyz>';
-          //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
-          supportsHtml5Styles = ('hidden' in a);
-
-          supportsUnknownElements = a.childNodes.length == 1 || (function() {
-            // assign a false positive if unable to shiv
-            (document.createElement)('a');
-            var frag = document.createDocumentFragment();
-            return (
-              typeof frag.cloneNode == 'undefined' ||
-                typeof frag.createDocumentFragment == 'undefined' ||
-                typeof frag.createElement == 'undefined'
-            );
-          }());
-        } catch(e) {
-          // assign a false positive if detection fails => unable to shiv
-          supportsHtml5Styles = true;
-          supportsUnknownElements = true;
-        }
-
-      }());
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Creates a style sheet with the given CSS text and adds it to the document.
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @param {String} cssText The CSS text.
-       * @returns {StyleSheet} The style element.
-       */
-      function addStyleSheet(ownerDocument, cssText) {
-        var p = ownerDocument.createElement('p'),
-          parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-        p.innerHTML = 'x<style>' + cssText + '</style>';
-        return parent.insertBefore(p.lastChild, parent.firstChild);
-      }
-
-      /**
-       * Returns the value of `html5.elements` as an array.
-       * @private
-       * @returns {Array} An array of shived element node names.
-       */
-      function getElements() {
-        var elements = html5.elements;
-        return typeof elements == 'string' ? elements.split(' ') : elements;
-      }
-
-      /**
-       * Extends the built-in list of html5 elements
-       * @memberOf html5
-       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
-       * @param {Document} ownerDocument The context document.
-       */
-      function addElements(newElements, ownerDocument) {
-        var elements = html5.elements;
-        if(typeof elements != 'string'){
-          elements = elements.join(' ');
-        }
-        if(typeof newElements != 'string'){
-          newElements = newElements.join(' ');
-        }
-        html5.elements = elements +' '+ newElements;
-        shivDocument(ownerDocument);
-      }
-
-      /**
-       * Returns the data associated to the given document
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Object} An object of data.
-       */
-      function getExpandoData(ownerDocument) {
-        var data = expandoData[ownerDocument[expando]];
-        if (!data) {
-          data = {};
-          expanID++;
-          ownerDocument[expando] = expanID;
-          expandoData[expanID] = data;
-        }
-        return data;
-      }
-
-      /**
-       * returns a shived element for the given nodeName and document
-       * @memberOf html5
-       * @param {String} nodeName name of the element
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived element.
-       */
-      function createElement(nodeName, ownerDocument, data){
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if(supportsUnknownElements){
-          return ownerDocument.createElement(nodeName);
-        }
-        if (!data) {
-          data = getExpandoData(ownerDocument);
-        }
-        var node;
-
-        if (data.cache[nodeName]) {
-          node = data.cache[nodeName].cloneNode();
-        } else if (saveClones.test(nodeName)) {
-          node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-        } else {
-          node = data.createElem(nodeName);
-        }
-
-        // Avoid adding some elements to fragments in IE < 9 because
-        // * Attributes like `name` or `type` cannot be set/changed once an element
-        //   is inserted into a document/fragment
-        // * Link elements with `src` attributes that are inaccessible, as with
-        //   a 403 response, will cause the tab/window to crash
-        // * Script elements appended to fragments will execute when their `src`
-        //   or `text` property is set
-        return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
-      }
-
-      /**
-       * returns a shived DocumentFragment for the given document
-       * @memberOf html5
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived DocumentFragment.
-       */
-      function createDocumentFragment(ownerDocument, data){
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if(supportsUnknownElements){
-          return ownerDocument.createDocumentFragment();
-        }
-        data = data || getExpandoData(ownerDocument);
-        var clone = data.frag.cloneNode(),
-          i = 0,
-          elems = getElements(),
-          l = elems.length;
-        for(;i<l;i++){
-          clone.createElement(elems[i]);
-        }
-        return clone;
-      }
-
-      /**
-       * Shivs the `createElement` and `createDocumentFragment` methods of the document.
-       * @private
-       * @param {Document|DocumentFragment} ownerDocument The document.
-       * @param {Object} data of the document.
-       */
-      function shivMethods(ownerDocument, data) {
-        if (!data.cache) {
-          data.cache = {};
-          data.createElem = ownerDocument.createElement;
-          data.createFrag = ownerDocument.createDocumentFragment;
-          data.frag = data.createFrag();
-        }
-
-
-        ownerDocument.createElement = function(nodeName) {
-          //abort shiv
-          if (!html5.shivMethods) {
-            return data.createElem(nodeName);
-          }
-          return createElement(nodeName, ownerDocument, data);
-        };
-
-        ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-                                                        'var n=f.cloneNode(),c=n.createElement;' +
-                                                        'h.shivMethods&&(' +
-                                                        // unroll the `createElement` calls
-                                                        getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
-                                                          data.createElem(nodeName);
-                                                          data.frag.createElement(nodeName);
-                                                          return 'c("' + nodeName + '")';
-                                                        }) +
-          ');return n}'
-                                                       )(html5, data.frag);
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivDocument(ownerDocument) {
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        var data = getExpandoData(ownerDocument);
-
-        if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-          data.hasCSS = !!addStyleSheet(ownerDocument,
-                                        // corrects block display not defined in IE6/7/8/9
-                                        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
-                                        // adds styling not present in IE6/7/8/9
-                                        'mark{background:#FF0;color:#000}' +
-                                        // hides non-rendered elements
-                                        'template{display:none}'
-                                       );
-        }
-        if (!supportsUnknownElements) {
-          shivMethods(ownerDocument, data);
-        }
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * The `html5` object is exposed so that more elements can be shived and
-       * existing shiving can be detected on iframes.
-       * @type Object
-       * @example
-       *
-       * // options can be changed before the script is included
-       * html5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };
-       */
-      var html5 = {
-
-        /**
-         * An array or space separated string of node names of the elements to shiv.
-         * @memberOf html5
-         * @type Array|String
-         */
-        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
-
-        /**
-         * current version of html5shiv
-         */
-        'version': version,
-
-        /**
-         * A flag to indicate that the HTML5 style sheet should be inserted.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivCSS': (options.shivCSS !== false),
-
-        /**
-         * Is equal to true if a browser supports creating unknown/HTML5 elements
-         * @memberOf html5
-         * @type boolean
-         */
-        'supportsUnknownElements': supportsUnknownElements,
-
-        /**
-         * A flag to indicate that the document's `createElement` and `createDocumentFragment`
-         * methods should be overwritten.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivMethods': (options.shivMethods !== false),
-
-        /**
-         * A string to describe the type of `html5` object ("default" or "default print").
-         * @memberOf html5
-         * @type String
-         */
-        'type': 'default',
-
-        // shivs the document according to the specified `html5` object options
-        'shivDocument': shivDocument,
-
-        //creates a shived element
-        createElement: createElement,
-
-        //creates a shived documentFragment
-        createDocumentFragment: createDocumentFragment,
-
-        //extends list of elements
-        addElements: addElements
-      };
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose html5
-      window.html5 = html5;
-
-      // shiv the document
-      shivDocument(document);
-
-      /*------------------------------- Print Shiv -------------------------------*/
-
-      /** Used to filter media types */
-      var reMedia = /^$|\b(?:all|print)\b/;
-
-      /** Used to namespace printable elements */
-      var shivNamespace = 'html5shiv';
-
-      /** Detect whether the browser supports shivable style sheets */
-      var supportsShivableSheets = !supportsUnknownElements && (function() {
-        // assign a false negative if unable to shiv
-        var docEl = document.documentElement;
-        return !(
-          typeof document.namespaces == 'undefined' ||
-            typeof document.parentWindow == 'undefined' ||
-            typeof docEl.applyElement == 'undefined' ||
-            typeof docEl.removeNode == 'undefined' ||
-            typeof window.attachEvent == 'undefined'
-        );
-      }());
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Wraps all HTML5 elements in the given document with printable elements.
-       * (eg. the "header" element is wrapped with the "html5shiv:header" element)
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Array} An array wrappers added.
-       */
-      function addWrappers(ownerDocument) {
-        var node,
-          nodes = ownerDocument.getElementsByTagName('*'),
-          index = nodes.length,
-          reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
-          result = [];
-
-        while (index--) {
-          node = nodes[index];
-          if (reElements.test(node.nodeName)) {
-            result.push(node.applyElement(createWrapper(node)));
-          }
-        }
-        return result;
-      }
-
-      /**
-       * Creates a printable wrapper for the given element.
-       * @private
-       * @param {Element} element The element.
-       * @returns {Element} The wrapper.
-       */
-      function createWrapper(element) {
-        var node,
-          nodes = element.attributes,
-          index = nodes.length,
-          wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
-
-        // copy element attributes to the wrapper
-        while (index--) {
-          node = nodes[index];
-          node.specified && wrapper.setAttribute(node.nodeName, node.nodeValue);
-        }
-        // copy element styles to the wrapper
-        wrapper.style.cssText = element.style.cssText;
-        return wrapper;
-      }
-
-      /**
-       * Shivs the given CSS text.
-       * (eg. header{} becomes html5shiv\:header{})
-       * @private
-       * @param {String} cssText The CSS text to shiv.
-       * @returns {String} The shived CSS text.
-       */
-      function shivCssText(cssText) {
-        var pair,
-          parts = cssText.split('{'),
-          index = parts.length,
-          reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
-          replacement = '$1' + shivNamespace + '\\:$2';
-
-        while (index--) {
-          pair = parts[index] = parts[index].split('}');
-          pair[pair.length - 1] = pair[pair.length - 1].replace(reElements, replacement);
-          parts[index] = pair.join('}');
-        }
-        return parts.join('{');
-      }
-
-      /**
-       * Removes the given wrappers, leaving the original elements.
-       * @private
-       * @params {Array} wrappers An array of printable wrappers.
-       */
-      function removeWrappers(wrappers) {
-        var index = wrappers.length;
-        while (index--) {
-          wrappers[index].removeNode();
-        }
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document for print.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivPrint(ownerDocument) {
-        var shivedSheet,
-          wrappers,
-          data = getExpandoData(ownerDocument),
-          namespaces = ownerDocument.namespaces,
-          ownerWindow = ownerDocument.parentWindow;
-
-        if (!supportsShivableSheets || ownerDocument.printShived) {
-          return ownerDocument;
-        }
-        if (typeof namespaces[shivNamespace] == 'undefined') {
-          namespaces.add(shivNamespace);
-        }
-
-        function removeSheet() {
-          clearTimeout(data._removeSheetTimer);
-          if (shivedSheet) {
-            shivedSheet.removeNode(true);
-          }
-          shivedSheet= null;
-        }
-
-        ownerWindow.attachEvent('onbeforeprint', function() {
-
-          removeSheet();
-
-          var imports,
-            length,
-            sheet,
-            collection = ownerDocument.styleSheets,
-            cssText = [],
-            index = collection.length,
-            sheets = Array(index);
-
-          // convert styleSheets collection to an array
-          while (index--) {
-            sheets[index] = collection[index];
-          }
-          // concat all style sheet CSS text
-          while ((sheet = sheets.pop())) {
-            // IE does not enforce a same origin policy for external style sheets...
-            // but has trouble with some dynamically created stylesheets
-            if (!sheet.disabled && reMedia.test(sheet.media)) {
-
-              try {
-                imports = sheet.imports;
-                length = imports.length;
-              } catch(er){
-                length = 0;
-              }
-
-              for (index = 0; index < length; index++) {
-                sheets.push(imports[index]);
-              }
-
-              try {
-                cssText.push(sheet.cssText);
-              } catch(er){}
-            }
-          }
-
-          // wrap all HTML5 elements with printable elements and add the shived style sheet
-          cssText = shivCssText(cssText.reverse().join(''));
-          wrappers = addWrappers(ownerDocument);
-          shivedSheet = addStyleSheet(ownerDocument, cssText);
-
-        });
-
-        ownerWindow.attachEvent('onafterprint', function() {
-          // remove wrappers, leaving the original elements, and remove the shived style sheet
-          removeWrappers(wrappers);
-          clearTimeout(data._removeSheetTimer);
-          data._removeSheetTimer = setTimeout(removeSheet, 500);
-        });
-
-        ownerDocument.printShived = true;
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose API
-      html5.type += ' print';
-      html5.shivPrint = shivPrint;
-
-      // shiv for print
-      shivPrint(document);
-
-      if(typeof module == 'object' && module.exports){
-        module.exports = html5;
-      }
-
-    }(typeof window !== 'undefined' ? window : this, document));
-  }
-
-  ;
-
-  /**
-   * Previously, Modernizr.load was an alias for yepnope. Since yepnope was
-   * deprecated, we removed it as well. It is not available on the website builder,
-   * this is only included as an improved warning to those who build a custom
-   * version locally.
-   *
-   * @memberof Modernizr
-   * @name Modernizr.load
-   * @access private
-   * @function load
-   *
-   */
-
-  var err = function() {};
-  var warn = function() {};
-
-  if (window.console) {
-    err = function() {
-      var method = console.error ? 'error' : 'log';
-      window.console[method].apply(window.console, Array.prototype.slice.call(arguments));
-    };
-
-    warn = function() {
-      var method = console.warn ? 'warn' : 'log';
-      window.console[method].apply(window.console, Array.prototype.slice.call(arguments));
-    };
-  }
-
-  ModernizrProto.load = function() {
-    if ('yepnope' in window) {
-      warn('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. yepnope appears to be available on the page, so we’ll use it to handle this call to Modernizr.load, but please update your code to use yepnope directly.\n See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
-      window.yepnope.apply(window, [].slice.call(arguments, 0));
-    } else {
-      err('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. Get it from http://yepnopejs.com. See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
-    }
-  };
-
-
-
-  /**
-   * getBody returns the body of a document, or an element that can stand in for
-   * the body if a real body does not exist
-   *
-   * @access private
-   * @function getBody
-   * @returns {HTMLElement|SVGElement} Returns the real body of a document, or an
-   * artificially created element that stands in for the body
-   */
-
-  function getBody() {
-    // After page load injecting a fake body doesn't work so check if body exists
-    var body = document.body;
-
-    if (!body) {
-      // Can't use the real body create a fake one.
-      body = createElement(isSVG ? 'svg' : 'body');
-      body.fake = true;
-    }
-
-    return body;
-  }
-
-  ;
-
-  /**
-   * injectElementWithStyles injects an element with style element and some CSS rules
-   *
-   * @access private
-   * @function injectElementWithStyles
-   * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
-   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
-   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
-   * @returns {boolean}
-   */
-
-  function injectElementWithStyles(rule, callback, nodes, testnames) {
-    var mod = 'modernizr';
-    var style;
-    var ret;
-    var node;
-    var docOverflow;
-    var div = createElement('div');
-    var body = getBody();
-
-    if (parseInt(nodes, 10)) {
-      // In order not to give false positives we create a node for each test
-      // This also allows the method to scale for unspecified uses
-      while (nodes--) {
-        node = createElement('div');
-        node.id = testnames ? testnames[nodes] : mod + (nodes + 1);
-        div.appendChild(node);
-      }
-    }
-
-    style = createElement('style');
-    style.type = 'text/css';
-    style.id = 's' + mod;
-
-    // IE6 will false positive on some tests due to the style element inside the test div somehow interfering offsetHeight, so insert it into body or fakebody.
-    // Opera will act all quirky when injecting elements in documentElement when page is served as xml, needs fakebody too. #270
-    (!body.fake ? div : body).appendChild(style);
-    body.appendChild(div);
-
-    if (style.styleSheet) {
-      style.styleSheet.cssText = rule;
-    } else {
-      style.appendChild(document.createTextNode(rule));
-    }
-    div.id = mod;
-
-    if (body.fake) {
-      //avoid crashing IE8, if background image is used
-      body.style.background = '';
-      //Safari 5.13/5.1.4 OSX stops loading if ::-webkit-scrollbar is used and scrollbars are visible
-      body.style.overflow = 'hidden';
-      docOverflow = docElement.style.overflow;
-      docElement.style.overflow = 'hidden';
-      docElement.appendChild(body);
-    }
-
-    ret = callback(div, rule);
-    // If this is done after page load we don't want to remove the body so check if body exists
-    if (body.fake) {
-      body.parentNode.removeChild(body);
-      docElement.style.overflow = docOverflow;
-      // Trigger layout so kinetic scrolling isn't disabled in iOS6+
-      // eslint-disable-next-line
-      docElement.offsetHeight;
-    } else {
-      div.parentNode.removeChild(div);
-    }
-
-    return !!ret;
-
-  }
-
-  ;
-
-  /**
-   * Modernizr.mq tests a given media query, live against the current state of the window
-   * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
-   * gist.github.com/786768
-   *
-   * @memberof Modernizr
-   * @name Modernizr.mq
-   * @optionName Modernizr.mq()
-   * @optionProp mq
-   * @access public
-   * @function mq
-   * @param {string} mq - String of the media query we want to test
-   * @returns {boolean}
-   * @example
-   * Modernizr.mq allows for you to programmatically check if the current browser
-   * window state matches a media query.
-   *
-   * ```js
-   *  var query = Modernizr.mq('(min-width: 900px)');
-   *
-   *  if (query) {
-   *    // the browser window is larger than 900px
-   *  }
-   * ```
-   *
-   * Only valid media queries are supported, therefore you must always include values
-   * with your media query
-   *
-   * ```js
-   * // good
-   *  Modernizr.mq('(min-width: 900px)');
-   *
-   * // bad
-   *  Modernizr.mq('min-width');
-   * ```
-   *
-   * If you would just like to test that media queries are supported in general, use
-   *
-   * ```js
-   *  Modernizr.mq('only all'); // true if MQ are supported, false if not
-   * ```
-   *
-   *
-   * Note that if the browser does not support media queries (e.g. old IE) mq will
-   * always return false.
-   */
-
-  var mq = (function() {
-    var matchMedia = window.matchMedia || window.msMatchMedia;
-    if (matchMedia) {
-      return function(mq) {
-        var mql = matchMedia(mq);
-        return mql && mql.matches || false;
-      };
-    }
-
-    return function(mq) {
-      var bool = false;
-
-      injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
-        bool = (window.getComputedStyle ?
-                window.getComputedStyle(node, null) :
-                node.currentStyle).position == 'absolute';
-      });
-
-      return bool;
-    };
-  })();
-
-
-  ModernizrProto.mq = mq;
-
-  
-
-
-  /**
-   * contains checks to see if a string contains another string
-   *
-   * @access private
-   * @function contains
-   * @param {string} str - The string we want to check for substrings
-   * @param {string} substr - The substring we want to search the first string for
-   * @returns {boolean}
-   */
-
-  function contains(str, substr) {
-    return !!~('' + str).indexOf(substr);
-  }
-
-  ;
-
-  /**
-   * Create our "modernizr" element that we do most feature tests on.
-   *
-   * @access private
-   */
-
-  var modElem = {
-    elem: createElement('modernizr')
-  };
-
-  // Clean up this element
-  Modernizr._q.push(function() {
-    delete modElem.elem;
-  });
-
-  
-
-  var mStyle = {
-    style: modElem.elem.style
-  };
-
-  // kill ref for gc, must happen before mod.elem is removed, so we unshift on to
-  // the front of the queue.
-  Modernizr._q.unshift(function() {
-    delete mStyle.style;
-  });
-
-  
-
-  /**
-   * domToCSS takes a camelCase string and converts it to kebab-case
-   * e.g. boxSizing -> box-sizing
-   *
-   * @access private
-   * @function domToCSS
-   * @param {string} name - String name of camelCase prop we want to convert
-   * @returns {string} The kebab-case version of the supplied name
-   */
-
-  function domToCSS(name) {
-    return name.replace(/([A-Z])/g, function(str, m1) {
-      return '-' + m1.toLowerCase();
-    }).replace(/^ms-/, '-ms-');
-  }
-  ;
-
-
-  /**
-   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
-   * called inside of a hidden iframe
-   *
-   * @access private
-   * @function computedStyle
-   * @param {HTMLElement|SVGElement} - The element we want to find the computed styles of
-   * @param {string|null} [pseudoSelector]- An optional pseudo element selector (e.g. :before), of null if none
-   * @returns {CSSStyleDeclaration}
-   */
-
-  function computedStyle(elem, pseudo, prop) {
-    var result;
-
-    if ('getComputedStyle' in window) {
-      result = getComputedStyle.call(window, elem, pseudo);
-      var console = window.console;
-
-      if (result !== null) {
-        if (prop) {
-          result = result.getPropertyValue(prop);
-        }
-      } else {
-        if (console) {
-          var method = console.error ? 'error' : 'log';
-          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
-        }
-      }
-    } else {
-      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
-    }
-
-    return result;
-  }
-
-  ;
-
-  /**
-   * nativeTestProps allows for us to use native feature detection functionality if available.
-   * some prefixed form, or false, in the case of an unsupported rule
-   *
-   * @access private
-   * @function nativeTestProps
-   * @param {array} props - An array of property names
-   * @param {string} value - A string representing the value we want to check via @supports
-   * @returns {boolean|undefined} A boolean when @supports exists, undefined otherwise
-   */
-
-  // Accepts a list of property names and a single value
-  // Returns `undefined` if native detection not available
-  function nativeTestProps(props, value) {
-    var i = props.length;
-    // Start with the JS API: http://www.w3.org/TR/css3-conditional/#the-css-interface
-    if ('CSS' in window && 'supports' in window.CSS) {
-      // Try every prefixed variant of the property
-      while (i--) {
-        if (window.CSS.supports(domToCSS(props[i]), value)) {
-          return true;
-        }
-      }
-      return false;
-    }
-    // Otherwise fall back to at-rule (for Opera 12.x)
-    else if ('CSSSupportsRule' in window) {
-      // Build a condition string for every prefixed variant
-      var conditionText = [];
-      while (i--) {
-        conditionText.push('(' + domToCSS(props[i]) + ':' + value + ')');
-      }
-      conditionText = conditionText.join(' or ');
-      return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
-        return computedStyle(node, null, 'position') == 'absolute';
-      });
-    }
-    return undefined;
-  }
-  ;
-
-  /**
-   * cssToDOM takes a kebab-case string and converts it to camelCase
-   * e.g. box-sizing -> boxSizing
-   *
-   * @access private
-   * @function cssToDOM
-   * @param {string} name - String name of kebab-case prop we want to convert
-   * @returns {string} The camelCase version of the supplied name
-   */
-
-  function cssToDOM(name) {
-    return name.replace(/([a-z])-([a-z])/g, function(str, m1, m2) {
-      return m1 + m2.toUpperCase();
-    }).replace(/^-/, '');
-  }
-  ;
-
-  // testProps is a generic CSS / DOM property test.
-
-  // In testing support for a given CSS property, it's legit to test:
-  //    `elem.style[styleName] !== undefined`
-  // If the property is supported it will return an empty string,
-  // if unsupported it will return undefined.
-
-  // We'll take advantage of this quick test and skip setting a style
-  // on our modernizr element, but instead just testing undefined vs
-  // empty string.
-
-  // Property names can be provided in either camelCase or kebab-case.
-
-  function testProps(props, prefixed, value, skipValueTest) {
-    skipValueTest = is(skipValueTest, 'undefined') ? false : skipValueTest;
-
-    // Try native detect first
-    if (!is(value, 'undefined')) {
-      var result = nativeTestProps(props, value);
-      if (!is(result, 'undefined')) {
-        return result;
-      }
-    }
-
-    // Otherwise do it properly
-    var afterInit, i, propsLength, prop, before;
-
-    // If we don't have a style element, that means we're running async or after
-    // the core tests, so we'll need to create our own elements to use
-
-    // inside of an SVG element, in certain browsers, the `style` element is only
-    // defined for valid tags. Therefore, if `modernizr` does not have one, we
-    // fall back to a less used element and hope for the best.
-    // for strict XHTML browsers the hardly used samp element is used
-    var elems = ['modernizr', 'tspan', 'samp'];
-    while (!mStyle.style && elems.length) {
-      afterInit = true;
-      mStyle.modElem = createElement(elems.shift());
-      mStyle.style = mStyle.modElem.style;
-    }
-
-    // Delete the objects if we created them.
-    function cleanElems() {
-      if (afterInit) {
-        delete mStyle.style;
-        delete mStyle.modElem;
-      }
-    }
-
-    propsLength = props.length;
-    for (i = 0; i < propsLength; i++) {
-      prop = props[i];
-      before = mStyle.style[prop];
-
-      if (contains(prop, '-')) {
-        prop = cssToDOM(prop);
-      }
-
-      if (mStyle.style[prop] !== undefined) {
-
-        // If value to test has been passed in, do a set-and-check test.
-        // 0 (integer) is a valid property value, so check that `value` isn't
-        // undefined, rather than just checking it's truthy.
-        if (!skipValueTest && !is(value, 'undefined')) {
-
-          // Needs a try catch block because of old IE. This is slow, but will
-          // be avoided in most cases because `skipValueTest` will be used.
-          try {
-            mStyle.style[prop] = value;
-          } catch (e) {}
-
-          // If the property value has changed, we assume the value used is
-          // supported. If `value` is empty string, it'll fail here (because
-          // it hasn't changed), which matches how browsers have implemented
-          // CSS.supports()
-          if (mStyle.style[prop] != before) {
-            cleanElems();
-            return prefixed == 'pfx' ? prop : true;
-          }
-        }
-        // Otherwise just return true, or the property name if this is a
-        // `prefixed()` call
-        else {
-          cleanElems();
-          return prefixed == 'pfx' ? prop : true;
-        }
-      }
-    }
-    cleanElems();
-    return false;
-  }
-
-  ;
-
-  /**
-   * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
-   *
-   * @access private
-   * @function fnBind
-   * @param {function} fn - a function you want to change `this` reference to
-   * @param {object} that - the `this` you want to call the function with
-   * @returns {function} The wrapped version of the supplied function
-   */
-
-  function fnBind(fn, that) {
-    return function() {
-      return fn.apply(that, arguments);
-    };
-  }
-
-  ;
-
-  /**
-   * testDOMProps is a generic DOM property test; if a browser supports
-   *   a certain property, it won't return undefined for it.
-   *
-   * @access private
-   * @function testDOMProps
-   * @param {array.<string>} props - An array of properties to test for
-   * @param {object} obj - An object or Element you want to use to test the parameters again
-   * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
-   * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
-   */
-  function testDOMProps(props, obj, elem) {
-    var item;
-
-    for (var i in props) {
-      if (props[i] in obj) {
-
-        // return the property name as a string
-        if (elem === false) {
-          return props[i];
-        }
-
-        item = obj[props[i]];
-
-        // let's bind a function
-        if (is(item, 'function')) {
-          // bind to obj unless overriden
-          return fnBind(item, elem || obj);
-        }
-
-        // return the unbound function or obj or value
-        return item;
-      }
-    }
-    return false;
-  }
-
-  ;
-
-  /**
-   * testPropsAll tests a list of DOM properties we want to check against.
-   * We specify literally ALL possible (known and/or likely) properties on
-   * the element including the non-vendor prefixed one, for forward-
-   * compatibility.
-   *
-   * @access private
-   * @function testPropsAll
-   * @param {string} prop - A string of the property to test for
-   * @param {string|object} [prefixed] - An object to check the prefixed properties on. Use a string to skip
-   * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
-   * @param {string} [value] - A string of a css value
-   * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
-   * @returns {false|string} returns the string version of the property, or false if it is unsupported
-   */
-  function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
-
-    var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
-      props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
-
-    // did they call .prefixed('boxSizing') or are we just testing a prop?
-    if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
-      return testProps(props, prefixed, value, skipValueTest);
-
-      // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
-    } else {
-      props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
-      return testDOMProps(props, prefixed, elem);
-    }
-  }
-
-  // Modernizr.testAllProps() investigates whether a given style property,
-  // or any of its vendor-prefixed variants, is recognized
-  //
-  // Note that the property names must be provided in the camelCase variant.
-  // Modernizr.testAllProps('boxSizing')
-  ModernizrProto.testAllProps = testPropsAll;
-
-  
-
-  /**
-   * prefixed returns the prefixed or nonprefixed property name variant of your input
-   *
-   * @memberof Modernizr
-   * @name Modernizr.prefixed
-   * @optionName Modernizr.prefixed()
-   * @optionProp prefixed
-   * @access public
-   * @function prefixed
-   * @param {string} prop - String name of the property to test for
-   * @param {object} [obj] - An object to test for the prefixed properties on
-   * @param {HTMLElement} [elem] - An element used to test specific properties against
-   * @returns {string|false} The string representing the (possibly prefixed) valid
-   * version of the property, or `false` when it is unsupported.
-   * @example
-   *
-   * Modernizr.prefixed takes a string css value in the DOM style camelCase (as
-   * opposed to the css style kebab-case) form and returns the (possibly prefixed)
-   * version of that property that the browser actually supports.
-   *
-   * For example, in older Firefox...
-   * ```js
-   * prefixed('boxSizing')
-   * ```
-   * returns 'MozBoxSizing'
-   *
-   * In newer Firefox, as well as any other browser that support the unprefixed
-   * version would simply return `boxSizing`. Any browser that does not support
-   * the property at all, it will return `false`.
-   *
-   * By default, prefixed is checked against a DOM element. If you want to check
-   * for a property on another object, just pass it as a second argument
-   *
-   * ```js
-   * var rAF = prefixed('requestAnimationFrame', window);
-   *
-   * raf(function() {
-   *  renderFunction();
-   * })
-   * ```
-   *
-   * Note that this will return _the actual function_ - not the name of the function.
-   * If you need the actual name of the property, pass in `false` as a third argument
-   *
-   * ```js
-   * var rAFProp = prefixed('requestAnimationFrame', window, false);
-   *
-   * rafProp === 'WebkitRequestAnimationFrame' // in older webkit
-   * ```
-   *
-   * One common use case for prefixed is if you're trying to determine which transition
-   * end event to bind to, you might do something like...
-   * ```js
-   * var transEndEventNames = {
-   *     'WebkitTransition' : 'webkitTransitionEnd', * Saf 6, Android Browser
-   *     'MozTransition'    : 'transitionend',       * only for FF < 15
-   *     'transition'       : 'transitionend'        * IE10, Opera, Chrome, FF 15+, Saf 7+
-   * };
-   *
-   * var transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
-   * ```
-   *
-   * If you want a similar lookup, but in kebab-case, you can use [prefixedCSS](#modernizr-prefixedcss).
-   */
-
-  var prefixed = ModernizrProto.prefixed = function(prop, obj, elem) {
-    if (prop.indexOf('@') === 0) {
-      return atRule(prop);
-    }
-
-    if (prop.indexOf('-') != -1) {
-      // Convert kebab-case to camelCase
-      prop = cssToDOM(prop);
-    }
-    if (!obj) {
-      return testPropsAll(prop, 'pfx');
-    } else {
-      // Testing DOM property e.g. Modernizr.prefixed('requestAnimationFrame', window) // 'mozRequestAnimationFrame'
-      return testPropsAll(prop, obj, elem);
-    }
-  };
-
-  
-
-  /**
-   * List of property values to set for css tests. See ticket #21
-   * http://git.io/vUGl4
-   *
-   * @memberof Modernizr
-   * @name Modernizr._prefixes
-   * @optionName Modernizr._prefixes
-   * @optionProp prefixes
-   * @access public
-   * @example
-   *
-   * Modernizr._prefixes is the internal list of prefixes that we test against
-   * inside of things like [prefixed](#modernizr-prefixed) and [prefixedCSS](#-code-modernizr-prefixedcss). It is simply
-   * an array of kebab-case vendor prefixes you can use within your code.
-   *
-   * Some common use cases include
-   *
-   * Generating all possible prefixed version of a CSS property
-   * ```js
-   * var rule = Modernizr._prefixes.join('transform: rotate(20deg); ');
-   *
-   * rule === 'transform: rotate(20deg); webkit-transform: rotate(20deg); moz-transform: rotate(20deg); o-transform: rotate(20deg); ms-transform: rotate(20deg);'
-   * ```
-   *
-   * Generating all possible prefixed version of a CSS value
-   * ```js
-   * rule = 'display:' +  Modernizr._prefixes.join('flex; display:') + 'flex';
-   *
-   * rule === 'display:flex; display:-webkit-flex; display:-moz-flex; display:-o-flex; display:-ms-flex; display:flex'
-   * ```
-   */
-
-  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
-  // values in feature detects to continue to work
-  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
-
-  // expose these for the plugin API. Look in the source for how to join() them against your input
-  ModernizrProto._prefixes = prefixes;
-
-  
-
-  /**
-   * prefixedCSS is just like [prefixed](#modernizr-prefixed), but the returned values are in
-   * kebab-case (e.g. `box-sizing`) rather than camelCase (boxSizing).
-   *
-   * @memberof Modernizr
-   * @name Modernizr.prefixedCSS
-   * @optionName Modernizr.prefixedCSS()
-   * @optionProp prefixedCSS
-   * @access public
-   * @function prefixedCSS
-   * @param {string} prop - String name of the property to test for
-   * @returns {string|false} The string representing the (possibly prefixed)
-   * valid version of the property, or `false` when it is unsupported.
-   * @example
-   *
-   * `Modernizr.prefixedCSS` is like `Modernizr.prefixed`, but returns the result
-   * in hyphenated form
-   *
-   * ```js
-   * Modernizr.prefixedCSS('transition') // '-moz-transition' in old Firefox
-   * ```
-   *
-   * Since it is only useful for CSS style properties, it can only be tested against
-   * an HTMLElement.
-   *
-   * Properties can be passed as both the DOM style camelCase or CSS style kebab-case.
-   */
-
-  var prefixedCSS = ModernizrProto.prefixedCSS = function(prop) {
-    var prefixedProp = prefixed(prop);
-    return prefixedProp && domToCSS(prefixedProp);
-  };
-  
-
-  /**
-   * testAllProps determines whether a given CSS property is supported in the browser
-   *
-   * @memberof Modernizr
-   * @name Modernizr.testAllProps
-   * @optionName Modernizr.testAllProps()
-   * @optionProp testAllProps
-   * @access public
-   * @function testAllProps
-   * @param {string} prop - String naming the property to test (either camelCase or kebab-case)
-   * @param {string} [value] - String of the value to test
-   * @param {boolean} [skipValueTest=false] - Whether to skip testing that the value is supported when using non-native detection
-   * @example
-   *
-   * testAllProps determines whether a given CSS property, in some prefixed form,
-   * is supported by the browser.
-   *
-   * ```js
-   * testAllProps('boxSizing')  // true
-   * ```
-   *
-   * It can optionally be given a CSS value in string form to test if a property
-   * value is valid
-   *
-   * ```js
-   * testAllProps('display', 'block') // true
-   * testAllProps('display', 'penguin') // false
-   * ```
-   *
-   * A boolean can be passed as a third parameter to skip the value check when
-   * native detection (@supports) isn't available.
-   *
-   * ```js
-   * testAllProps('shapeOutside', 'content-box', true);
-   * ```
-   */
-
-  function testAllProps(prop, value, skipValueTest) {
-    return testPropsAll(prop, undefined, undefined, value, skipValueTest);
-  }
-  ModernizrProto.testAllProps = testAllProps;
-  
-
-  /**
-   * testProp() investigates whether a given style property is recognized
-   * Property names can be provided in either camelCase or kebab-case.
-   *
-   * @memberof Modernizr
-   * @name Modernizr.testProp
-   * @access public
-   * @optionName Modernizr.testProp()
-   * @optionProp testProp
-   * @function testProp
-   * @param {string} prop - Name of the CSS property to check
-   * @param {string} [value] - Name of the CSS value to check
-   * @param {boolean} [useValue] - Whether or not to check the value if @supports isn't supported
-   * @returns {boolean}
-   * @example
-   *
-   * Just like [testAllProps](#modernizr-testallprops), only it does not check any vendor prefixed
-   * version of the string.
-   *
-   * Note that the property name must be provided in camelCase (e.g. boxSizing not box-sizing)
-   *
-   * ```js
-   * Modernizr.testProp('pointerEvents')  // true
-   * ```
-   *
-   * You can also provide a value as an optional second argument to check if a
-   * specific value is supported
-   *
-   * ```js
-   * Modernizr.testProp('pointerEvents', 'none') // true
-   * Modernizr.testProp('pointerEvents', 'penguin') // false
-   * ```
-   */
-
-  var testProp = ModernizrProto.testProp = function(prop, value, useValue) {
-    return testProps([prop], undefined, value, useValue);
-  };
-  
-
-  /**
-   * testStyles injects an element with style element and some CSS rules
-   *
-   * @memberof Modernizr
-   * @name Modernizr.testStyles
-   * @optionName Modernizr.testStyles()
-   * @optionProp testStyles
-   * @access public
-   * @function testStyles
-   * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
-   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
-   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
-   * @returns {boolean}
-   * @example
-   *
-   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
-   * along with (possibly multiple) DOM elements. This lets you check for features
-   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
-   *
-   * ```js
-   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
-   *   // elem is the first DOM node in the page (by default #modernizr)
-   *   // rule is the first argument you supplied - the CSS rule in string form
-   *
-   *   addTest('widthworks', elem.style.width === '9px')
-   * });
-   * ```
-   *
-   * If your test requires multiple nodes, you can include a third argument
-   * indicating how many additional div elements to include on the page. The
-   * additional nodes are injected as children of the `elem` that is returned as
-   * the first argument to the callback.
-   *
-   * ```js
-   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
-   *   document.getElementById('modernizr').style.width === '1px'; // true
-   *   document.getElementById('modernizr2').style.width === '2px'; // true
-   *   elem.firstChild === document.getElementById('modernizr2'); // true
-   * }, 1);
-   * ```
-   *
-   * By default, all of the additional elements have an ID of `modernizr[n]`, where
-   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
-   * the second additional is `#modernizr3`, etc.).
-   * If you want to have more meaningful IDs for your function, you can provide
-   * them as the fourth argument, as an array of strings
-   *
-   * ```js
-   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
-   *   elem.firstChild === document.getElementById('foo'); // true
-   *   elem.lastChild === document.getElementById('bar'); // true
-   * }, 2, ['foo', 'bar']);
-   * ```
-   *
-   */
-
-  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
-  
-/*!
-{
-  "name": "a[download] Attribute",
-  "property": "adownload",
-  "caniuse" : "download",
-  "tags": ["media", "attribute"],
-  "builderAliases": ["a_download"],
-  "notes": [{
-    "name": "WhatWG Reference",
-    "href": "https://developers.whatwg.org/links.html#downloading-resources"
-  }]
-}
-!*/
-/* DOC
-When used on an `<a>`, this attribute signifies that the resource it points to should be downloaded by the browser rather than navigating to it.
-*/
-
-  Modernizr.addTest('adownload', !window.externalHost && 'download' in createElement('a'));
-
-/*!
-{
-  "name": "Application Cache",
-  "property": "applicationcache",
-  "caniuse": "offline-apps",
-  "tags": ["storage", "offline"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en/docs/HTML/Using_the_application_cache"
-  }],
-  "polyfills": ["html5gears"]
-}
-!*/
-/* DOC
-Detects support for the Application Cache, for storing data to enable web-based applications run offline.
-
-The API has been [heavily criticized](http://alistapart.com/article/application-cache-is-a-douchebag) and discussions are underway to address this.
-*/
-
-  Modernizr.addTest('applicationcache', 'applicationCache' in window);
-
-/*!
-{
-  "name": "Blob constructor",
-  "property": "blobconstructor",
-  "aliases": ["blob-constructor"],
-  "builderAliases": ["blob_constructor"],
-  "caniuse": "blobbuilder",
-  "notes": [{
-    "name": "W3C spec",
-    "href": "https://w3c.github.io/FileAPI/#constructorBlob"
-  }],
-  "polyfills": ["blobjs"]
-}
-!*/
-/* DOC
-Detects support for the Blob constructor, for creating file-like objects of immutable, raw data.
-*/
-
-  Modernizr.addTest('blobconstructor', function() {
-    try {
-      return !!new Blob();
-    } catch (e) {
-      return false;
-    }
-  }, {
-    aliases: ['blob-constructor']
-  });
-
-/*!
-{
-  "name": "Canvas",
-  "property": "canvas",
-  "caniuse": "canvas",
-  "tags": ["canvas", "graphics"],
-  "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
-}
-!*/
-/* DOC
-Detects support for the `<canvas>` element for 2D drawing.
-*/
-
-  // On the S60 and BB Storm, getContext exists, but always returns undefined
-  // so we actually have to call getContext() to verify
-  // github.com/Modernizr/Modernizr/issues/issue/97/
-  Modernizr.addTest('canvas', function() {
-    var elem = createElement('canvas');
-    return !!(elem.getContext && elem.getContext('2d'));
-  });
-
-/*!
-{
-  "name": "canvas blending support",
-  "property": "canvasblending",
-  "tags": ["canvas"],
-  "async" : false,
-  "notes": [{
-      "name": "HTML5 Spec",
-      "href": "https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html#blending"
-    },
-    {
-      "name": "Article",
-      "href": "https://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas"
-    }]
-}
-!*/
-/* DOC
-Detects if Photoshop style blending modes are available in canvas.
-*/
-
-
-  Modernizr.addTest('canvasblending', function() {
-    if (Modernizr.canvas === false) {
-      return false;
-    }
-    var ctx = createElement('canvas').getContext('2d');
-    // firefox 3 throws an error when setting an invalid `globalCompositeOperation`
-    try {
-      ctx.globalCompositeOperation = 'screen';
-    } catch (e) {}
-
-    return ctx.globalCompositeOperation === 'screen';
-  });
-
-
-/*!
-{
-  "name": "canvas.toDataURL type support",
-  "property": ["todataurljpeg", "todataurlpng", "todataurlwebp"],
-  "tags": ["canvas"],
-  "builderAliases": ["canvas_todataurl_type"],
-  "async" : false,
-  "notes": [{
-    "name": "MDN article",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement.toDataURL"
-  }]
-}
-!*/
-
-
-  var canvas = createElement('canvas');
-
-  Modernizr.addTest('todataurljpeg', function() {
-    return !!Modernizr.canvas && canvas.toDataURL('image/jpeg').indexOf('data:image/jpeg') === 0;
-  });
-  Modernizr.addTest('todataurlpng', function() {
-    return !!Modernizr.canvas && canvas.toDataURL('image/png').indexOf('data:image/png') === 0;
-  });
-  Modernizr.addTest('todataurlwebp', function() {
-    var supports = false;
-
-    // firefox 3 throws an error when you use an "invalid" toDataUrl
-    try {
-      supports = !!Modernizr.canvas && canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-    } catch (e) {}
-
-    return supports;
-  });
-
-
-/*!
-{
-  "name": "canvas winding support",
-  "property": ["canvaswinding"],
-  "tags": ["canvas"],
-  "async" : false,
-  "notes": [{
-    "name": "Article",
-    "href": "https://blogs.adobe.com/webplatform/2013/01/30/winding-rules-in-canvas/"
-  }]
-}
-!*/
-/* DOC
-Determines if winding rules, which controls if a path can go clockwise or counterclockwise
-*/
-
-
-  Modernizr.addTest('canvaswinding', function() {
-    if (Modernizr.canvas === false) {
-      return false;
-    }
-    var ctx = createElement('canvas').getContext('2d');
-
-    ctx.rect(0, 0, 10, 10);
-    ctx.rect(2, 2, 6, 6);
-    return ctx.isPointInPath(5, 5, 'evenodd') === false;
-  });
-
-
-/*!
-{
-  "name": "Canvas text",
-  "property": "canvastext",
-  "caniuse": "canvas-text",
-  "tags": ["canvas", "graphics"],
-  "polyfills": ["canvastext"]
-}
-!*/
-/* DOC
-Detects support for the text APIs for `<canvas>` elements.
-*/
-
-  Modernizr.addTest('canvastext',  function() {
-    if (Modernizr.canvas  === false) {
-      return false;
-    }
-    return typeof createElement('canvas').getContext('2d').fillText == 'function';
-  });
-
-/*!
-{
-  "name": "Content Editable",
-  "property": "contenteditable",
-  "caniuse": "contenteditable",
-  "notes": [{
-    "name": "WHATWG spec",
-    "href": "https://html.spec.whatwg.org/multipage/interaction.html#contenteditable"
-  }]
-}
-!*/
-/* DOC
-Detects support for the `contenteditable` attribute of elements, allowing their DOM text contents to be edited directly by the user.
-*/
-
-  Modernizr.addTest('contenteditable', function() {
-    // early bail out
-    if (!('contentEditable' in docElement)) {
-      return;
-    }
-
-    // some mobile browsers (android < 3.0, iOS < 5) claim to support
-    // contentEditable, but but don't really. This test checks to see
-    // confirms whether or not it actually supports it.
-
-    var div = createElement('div');
-    div.contentEditable = true;
-    return div.contentEditable === 'true';
-  });
-
-/*!
-{
-  "name": "Context menus",
-  "property": "contextmenu",
-  "caniuse": "menu",
-  "notes": [{
-    "name": "W3C spec",
-    "href": "http://www.w3.org/TR/html5/interactive-elements.html#context-menus"
-  },{
-    "name": "thewebrocks.com Demo",
-    "href": "http://thewebrocks.com/demos/context-menu/"
-  }],
-  "polyfills": ["jquery-contextmenu"]
-}
-!*/
-/* DOC
-Detects support for custom context menus.
-*/
-
-  Modernizr.addTest(
-    'contextmenu',
-    ('contextMenu' in docElement && 'HTMLMenuItemElement' in window)
-  );
-
-/*!
-{
-  "name": "Cookies",
-  "property": "cookies",
-  "tags": ["storage"],
-  "authors": ["tauren"]
-}
-!*/
-/* DOC
-Detects whether cookie support is enabled.
-*/
-
-  // https://github.com/Modernizr/Modernizr/issues/191
-
-  Modernizr.addTest('cookies', function() {
-    // navigator.cookieEnabled cannot detect custom or nuanced cookie blocking
-    // configurations. For example, when blocking cookies via the Advanced
-    // Privacy Settings in IE9, it always returns true. And there have been
-    // issues in the past with site-specific exceptions.
-    // Don't rely on it.
-
-    // try..catch because some in situations `document.cookie` is exposed but throws a
-    // SecurityError if you try to access it; e.g. documents created from data URIs
-    // or in sandboxed iframes (depending on flags/context)
-    try {
-      // Create cookie
-      document.cookie = 'cookietest=1';
-      var ret = document.cookie.indexOf('cookietest=') != -1;
-      // Delete cookie
-      document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
-      return ret;
-    }
-    catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "Cross-Origin Resource Sharing",
-  "property": "cors",
-  "caniuse": "cors",
-  "authors": ["Theodoor van Donge"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
-  }],
-  "polyfills": ["pmxdr", "ppx", "flxhr"]
-}
-!*/
-/* DOC
-Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
-*/
-
-  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
-
-/*!
-{
-  "name": "Custom Elements API",
-  "property": "customelements",
-  "tags": ["customelements"],
-  "polyfills": ["customelements"],
-  "notes": [{
-    "name": "Specs for Custom Elements",
-    "href": "https://www.w3.org/TR/custom-elements/"
-  }]
-}
-!*/
-/* DOC
-Detects support for the Custom Elements API, to create custom html elements via js
-*/
-
-  Modernizr.addTest('customelements', 'customElements' in window);
-
-/*!
-{
-  "name": "cssall",
-  "property": "cssall",
-  "notes": [{
-    "name": "Spec",
-    "href": "https://drafts.csswg.org/css-cascade/#all-shorthand"
-  }]
-}
-!*/
-/* DOC
-Detects support for the `all` css property, which is a shorthand to reset all css properties (except direction and unicode-bidi) to their original value
-*/
-
-
-  Modernizr.addTest('cssall', 'all' in docElement.style);
-
-/*!
-{
-  "name": "CSS Animations",
-  "property": "cssanimations",
-  "caniuse": "css-animation",
-  "polyfills": ["transformie", "csssandpaper"],
-  "tags": ["css"],
-  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
-  "notes": [{
-    "name" : "Article: 'Dispelling the Android CSS animation myths'",
-    "href": "https://goo.gl/OGw5Gm"
-  }]
-}
-!*/
-/* DOC
-Detects whether or not elements can be animated using CSS
-*/
-
-  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
-
-/*!
-{
-  "name": "Appearance",
-  "property": "appearance",
-  "caniuse": "css-appearance",
-  "tags": ["css"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance"
-  },{
-    "name": "CSS-Tricks CSS Almanac: appearance",
-    "href": "https://css-tricks.com/almanac/properties/a/appearance/"
-  }]
-}
-!*/
-/* DOC
-Detects support for the `appearance` css property, which is used to make an
-element inherit the style of a standard user interface element. It can also be
-used to remove the default styles of an element, such as input and buttons.
-*/
-
-  Modernizr.addTest('appearance', testAllProps('appearance'));
-
-/*!
-{
-  "name": "Backdrop Filter",
-  "property": "backdropfilter",
-  "authors": ["Brian Seward"],
-  "tags": ["css"],
-  "notes": [
-    {
-      "name": "W3C Editor’s Draft specification",
-      "href": "https://drafts.fxtf.org/filters-2/#BackdropFilterProperty"
-    },
-    {
-      "name": "Caniuse for CSS Backdrop Filter",
-      "href": "http://caniuse.com/#feat=css-backdrop-filter"
-    },
-    {
-      "name": "WebKit Blog introduction + Demo",
-      "href": "https://www.webkit.org/blog/3632/introducing-backdrop-filters/"
-    }
-  ]
-}
-!*/
-/* DOC
-Detects support for CSS Backdrop Filters, allowing for background blur effects like those introduced in iOS 7. Support for this was added to iOS Safari/WebKit in iOS 9.
-*/
-
-  Modernizr.addTest('backdropfilter', testAllProps('backdropFilter'));
-
-/*!
-{
-  "name": "CSS Background Blend Mode",
-  "property": "backgroundblendmode",
-  "caniuse": "css-backgroundblendmode",
-  "tags": ["css"],
-  "notes": [
-    {
-      "name": "CSS Blend Modes could be the next big thing in Web Design",
-      "href": " https://medium.com/@bennettfeely/css-blend-modes-could-be-the-next-big-thing-in-web-design-6b51bf53743a"
-    }, {
-      "name": "Demo",
-      "href": "http://bennettfeely.com/gradients/"
-    }
-  ]
-}
-!*/
-/* DOC
-Detects the ability for the browser to composite backgrounds using blending modes similar to ones found in Photoshop or Illustrator.
-*/
-
-  Modernizr.addTest('backgroundblendmode', prefixed('backgroundBlendMode', 'text'));
-
-/*!
-{
-  "name": "CSS Background Clip Text",
-  "property": "backgroundcliptext",
-  "authors": ["ausi"],
-  "tags": ["css"],
-  "notes": [
-    {
-      "name": "CSS Tricks Article",
-      "href": "https://css-tricks.com/image-under-text/"
-    },
-    {
-      "name": "MDN Docs",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
-    },
-    {
-      "name": "Related Github Issue",
-      "href": "https://github.com/Modernizr/Modernizr/issues/199"
-    }
-  ]
-}
-!*/
-/* DOC
-Detects the ability to control specifies whether or not an element's background
-extends beyond its border in CSS
-*/
-
-  Modernizr.addTest('backgroundcliptext', function() {
-    return testAllProps('backgroundClip', 'text');
-  });
-
-/*!
-{
-  "name": "Background Position Shorthand",
-  "property": "bgpositionshorthand",
-  "tags": ["css"],
-  "builderAliases": ["css_backgroundposition_shorthand"],
-  "notes": [{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en/CSS/background-position"
-  }, {
-    "name": "W3 Spec",
-    "href": "https://www.w3.org/TR/css3-background/#background-position"
-  }, {
-    "name": "Demo",
-    "href": "https://jsfiddle.net/Blink/bBXvt/"
-  }]
-}
-!*/
-/* DOC
-Detects if you can use the shorthand method to define multiple parts of an
-element's background-position simultaniously.
-
-eg `background-position: right 10px bottom 10px`
-*/
-
-  Modernizr.addTest('bgpositionshorthand', function() {
-    var elem = createElement('a');
-    var eStyle = elem.style;
-    var val = 'right 10px bottom 10px';
-    eStyle.cssText = 'background-position: ' + val + ';';
-    return (eStyle.backgroundPosition === val);
-  });
-
-/*!
-{
-  "name": "Background Position XY",
-  "property": "bgpositionxy",
-  "tags": ["css"],
-  "builderAliases": ["css_backgroundposition_xy"],
-  "authors": ["Allan Lei", "Brandom Aaron"],
-  "notes": [{
-    "name": "Demo",
-    "href": "https://jsfiddle.net/allanlei/R8AYS/"
-  }, {
-    "name": "Adapted From",
-    "href": "https://github.com/brandonaaron/jquery-cssHooks/blob/master/bgpos.js"
-  }]
-}
-!*/
-/* DOC
-Detects the ability to control an element's background position using css
-*/
-
-  Modernizr.addTest('bgpositionxy', function() {
-    return testAllProps('backgroundPositionX', '3px', true) && testAllProps('backgroundPositionY', '5px', true);
-  });
-
-/*!
-{
-  "name": "Background Repeat",
-  "property": ["bgrepeatspace", "bgrepeatround"],
-  "tags": ["css"],
-  "builderAliases": ["css_backgroundrepeat"],
-  "authors": ["Ryan Seddon"],
-  "notes": [{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat"
-  }, {
-    "name": "Test Page",
-    "href": "https://jsbin.com/uzesun/"
-  }, {
-    "name": "Demo",
-    "href": "https://jsfiddle.net/ryanseddon/yMLTQ/6/"
-  }]
-}
-!*/
-/* DOC
-Detects the ability to use round and space as properties for background-repeat
-*/
-
-  // Must value-test these
-  Modernizr.addTest('bgrepeatround', testAllProps('backgroundRepeat', 'round'));
-  Modernizr.addTest('bgrepeatspace', testAllProps('backgroundRepeat', 'space'));
-
-/*!
-{
-  "name": "Background Size",
-  "property": "backgroundsize",
-  "tags": ["css"],
-  "knownBugs": ["This will false positive in Opera Mini - https://github.com/Modernizr/Modernizr/issues/396"],
-  "notes": [{
-    "name": "Related Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/396"
-  }]
-}
-!*/
-
-  Modernizr.addTest('backgroundsize', testAllProps('backgroundSize', '100%', true));
-
-/*!
-{
-  "name": "Background Size Cover",
-  "property": "bgsizecover",
-  "tags": ["css"],
-  "builderAliases": ["css_backgroundsizecover"],
-  "notes": [{
-    "name" : "MDN Docs",
-    "href": "https://developer.mozilla.org/en/CSS/background-size"
-  }]
-}
-!*/
-
-  // Must test value, as this specifically tests the `cover` value
-  Modernizr.addTest('bgsizecover', testAllProps('backgroundSize', 'cover'));
-
-/*!
-{
-  "name": "Border Image",
-  "property": "borderimage",
-  "caniuse": "border-image",
-  "polyfills": ["css3pie"],
-   "knownBugs": ["Android < 2.0 is true, but has a broken implementation"],
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('borderimage', testAllProps('borderImage', 'url() 1', true));
-
-/*!
-{
-  "name": "Border Radius",
-  "property": "borderradius",
-  "caniuse": "border-radius",
-  "polyfills": ["css3pie"],
-  "tags": ["css"],
-  "notes": [{
-    "name": "Comprehensive Compat Chart",
-    "href": "https://muddledramblings.com/table-of-css3-border-radius-compliance"
-  }]
-}
-!*/
-
-  Modernizr.addTest('borderradius', testAllProps('borderRadius', '0px', true));
-
-/*!
-{
-  "name": "Box Shadow",
-  "property": "boxshadow",
-  "caniuse": "css-boxshadow",
-  "tags": ["css"],
-  "knownBugs": [
-    "WebOS false positives on this test.",
-    "The Kindle Silk browser false positives"
-  ]
-}
-!*/
-
-  Modernizr.addTest('boxshadow', testAllProps('boxShadow', '1px 1px', true));
-
-/*!
-{
-  "name": "Box Sizing",
-  "property": "boxsizing",
-  "caniuse": "css3-boxsizing",
-  "polyfills": ["borderboxmodel", "boxsizingpolyfill", "borderbox"],
-  "tags": ["css"],
-  "builderAliases": ["css_boxsizing"],
-  "notes": [{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
-  },{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/248"
-  }]
-}
-!*/
-
-  Modernizr.addTest('boxsizing', testAllProps('boxSizing', 'border-box', true) && (document.documentMode === undefined || document.documentMode > 7));
-
-/*!
-{
-  "name": "CSS Calc",
-  "property": "csscalc",
-  "caniuse": "calc",
-  "tags": ["css"],
-  "builderAliases": ["css_calc"],
-  "authors": ["@calvein"]
-}
-!*/
-/* DOC
-Method of allowing calculated values for length units. For example:
-
-```css
-//lem {
-  width: calc(100% - 3em);
-}
-```
-*/
-
-  Modernizr.addTest('csscalc', function() {
-    var prop = 'width:';
-    var value = 'calc(10px);';
-    var el = createElement('a');
-
-    el.style.cssText = prop + prefixes.join(value + prop);
-
-    return !!el.style.length;
-  });
-
-/*!
-{
-  "name": "CSS :checked pseudo-selector",
-  "caniuse": "css-sel3",
-  "property": "checked",
-  "tags": ["css"],
-  "notes": [{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/pull/879"
-  }]
-}
-!*/
-
-  Modernizr.addTest('checked', function() {
-    return testStyles('#modernizr {position:absolute} #modernizr input {margin-left:10px} #modernizr :checked {margin-left:20px;display:block}', function(elem) {
-      var cb = createElement('input');
-      cb.setAttribute('type', 'checkbox');
-      cb.setAttribute('checked', 'checked');
-      elem.appendChild(cb);
-      return cb.offsetLeft === 20;
-    });
-  });
-
-/*!
-{
-  "name": "CSS Font ch Units",
-  "authors": ["Ron Waldon (@jokeyrhyme)"],
-  "property": "csschunit",
-  "tags": ["css"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/css3-values/#font-relative-lengths"
-  }]
-}
-!*/
-
-  Modernizr.addTest('csschunit', function() {
-    var elemStyle = modElem.elem.style;
-    var supports;
-    try {
-      elemStyle.fontSize = '3ch';
-      supports = elemStyle.fontSize.indexOf('ch') !== -1;
-    } catch (e) {
-      supports = false;
-    }
-    return supports;
-  });
-
-/*!
-{
-  "name": "CSS Columns",
-  "property": "csscolumns",
-  "caniuse": "multicolumn",
-  "polyfills": ["css3multicolumnjs"],
-  "tags": ["css"]
-}
-!*/
-
-
-  (function() {
-
-    Modernizr.addTest('csscolumns', function() {
-      var bool = false;
-      var test = testAllProps('columnCount');
-      try {
-        bool = !!test
-        if (bool) {
-          bool = new Boolean(bool);
-        }
-      } catch (e) {}
-
-      return bool;
-    });
-
-    var props = ['Width', 'Span', 'Fill', 'Gap', 'Rule', 'RuleColor', 'RuleStyle', 'RuleWidth', 'BreakBefore', 'BreakAfter', 'BreakInside'];
-    var name, test;
-
-    for (var i = 0; i < props.length; i++) {
-      name = props[i].toLowerCase();
-      test = testAllProps('column' + props[i]);
-
-      // break-before, break-after & break-inside are not "column"-prefixed in spec
-      if (name === 'breakbefore' || name === 'breakafter' || name == 'breakinside') {
-        test = test || testAllProps(props[i]);
-      }
-
-      Modernizr.addTest('csscolumns.' + name, test);
-    }
-
-
-  })();
-
-
-/*!
-{
-  "name": "CSS Grid (old & new)",
-  "property": ["cssgrid", "cssgridlegacy"],
-  "authors": ["Faruk Ates"],
-  "tags": ["css"],
-  "notes": [{
-    "name": "The new, standardized CSS Grid",
-    "href": "https://www.w3.org/TR/css3-grid-layout/"
-  }, {
-    "name": "The _old_ CSS Grid (legacy)",
-    "href": "https://www.w3.org/TR/2011/WD-css3-grid-layout-20110407/"
-  }]
-}
-!*/
-
-  // `grid-columns` is only in the old syntax, `grid-column` exists in both and so `grid-template-rows` is used for the new syntax.
-  Modernizr.addTest('cssgridlegacy', testAllProps('grid-columns', '10px', true));
-  Modernizr.addTest('cssgrid', testAllProps('grid-template-rows', 'none', true));
-
-/*!
-{
-  "name": "CSS Cubic Bezier Range",
-  "property": "cubicbezierrange",
-  "tags": ["css"],
-  "builderAliases": ["css_cubicbezierrange"],
-  "doc" : null,
-  "authors": ["@calvein"],
-  "warnings": ["cubic-bezier values can't be > 1 for Webkit until [bug #45761](https://bugs.webkit.org/show_bug.cgi?id=45761) is fixed"],
-  "notes": [{
-    "name": "Comprehensive Compat Chart",
-    "href": "http://muddledramblings.com/table-of-css3-border-radius-compliance"
-  }]
-}
-!*/
-
-  Modernizr.addTest('cubicbezierrange', function() {
-    var el = createElement('a');
-    el.style.cssText = prefixes.join('transition-timing-function:cubic-bezier(1,0,0,1.1); ');
-    return !!el.style.length;
-  });
-
-/*!
-{
-  "name": "CSS Display run-in",
-  "property": "display-runin",
-  "authors": ["alanhogan"],
-  "tags": ["css"],
-  "builderAliases": ["css_displayrunin"],
-  "notes": [{
-    "name": "CSS Tricks Article",
-    "href": "https://css-tricks.com/596-run-in/"
-  },{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/198"
-  }]
-}
-!*/
-
-  Modernizr.addTest('displayrunin', testAllProps('display', 'run-in'),
-    {aliases: ['display-runin']});
-
-/*!
-{
-  "name": "CSS Display table",
-  "property": "displaytable",
-  "caniuse": "css-table",
-  "authors": ["scottjehl"],
-  "tags": ["css"],
-  "builderAliases": ["css_displaytable"],
-  "notes": [{
-    "name": "Detects for all additional table display values",
-    "href": "http://pastebin.com/Gk9PeVaQ"
-  }]
-}
-!*/
-/* DOC
-`display: table` and `table-cell` test. (both are tested under one name `table-cell` )
-*/
-
-  // If a document is in rtl mode this test will fail so we force ltr mode on the injeced
-  // element https://github.com/Modernizr/Modernizr/issues/716
-  testStyles('#modernizr{display: table; direction: ltr}#modernizr div{display: table-cell; padding: 10px}', function(elem) {
-    var ret;
-    var child = elem.childNodes;
-    ret = child[0].offsetLeft < child[1].offsetLeft;
-    Modernizr.addTest('displaytable', ret, {aliases: ['display-table']});
-  }, 2);
-
-/*!
-{
-  "name": "CSS text-overflow ellipsis",
-  "property": "ellipsis",
-  "caniuse": "text-overflow",
-  "polyfills": [
-    "text-overflow"
-  ],
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('ellipsis', testAllProps('textOverflow', 'ellipsis'));
-
-/*!
-{
-  "name": "CSS.escape()",
-  "property": "cssescape",
-  "polyfills": [
-    "css-escape"
-  ],
-  "tags": [
-    "css",
-    "cssom"
-  ]
-}
-!*/
-/* DOC
-Tests for `CSS.escape()` support.
-*/
-
-  var CSS = window.CSS;
-  Modernizr.addTest('cssescape', CSS ? typeof CSS.escape == 'function' : false);
-
-/*!
-{
-  "name": "CSS Font ex Units",
-  "authors": ["Ron Waldon (@jokeyrhyme)"],
-  "property": "cssexunit",
-  "tags": ["css"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/css3-values/#font-relative-lengths"
-  }]
-}
-!*/
-
-  Modernizr.addTest('cssexunit', function() {
-    var elemStyle = modElem.elem.style;
-    var supports;
-    try {
-      elemStyle.fontSize = '3ex';
-      supports = elemStyle.fontSize.indexOf('ex') !== -1;
-    } catch (e) {
-      supports = false;
-    }
-    return supports;
-  });
-
-/*!
-{
-  "name": "CSS Supports",
-  "property": "supports",
-  "caniuse": "css-featurequeries",
-  "tags": ["css"],
-  "builderAliases": ["css_supports"],
-  "notes": [{
-    "name": "W3 Spec",
-    "href": "http://dev.w3.org/csswg/css3-conditional/#at-supports"
-  },{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/648"
-  },{
-    "name": "W3 Info",
-    "href": "http://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
-  }]
-}
-!*/
-
-  var newSyntax = 'CSS' in window && 'supports' in window.CSS;
-  var oldSyntax = 'supportsCSS' in window;
-  Modernizr.addTest('supports', newSyntax || oldSyntax);
-
-/*!
-{
-  "name": "CSS Filters",
-  "property": "cssfilters",
-  "caniuse": "css-filters",
-  "polyfills": ["polyfilter"],
-  "tags": ["css"],
-  "builderAliases": ["css_filters"],
-  "notes": [{
-    "name": "MDN article on CSS filters",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/filter"
-  }]
-}
-!*/
-
-  Modernizr.addTest('cssfilters', function() {
-    if (Modernizr.supports) {
-      return testAllProps('filter', 'blur(2px)');
-    } else {
-      var el = createElement('a');
-      el.style.cssText = prefixes.join('filter:blur(2px); ');
-      // https://github.com/Modernizr/Modernizr/issues/615
-      // documentMode is needed for false positives in oldIE, please see issue above
-      return !!el.style.length && ((document.documentMode === undefined || document.documentMode > 9));
-    }
-  });
-
-
-/*!
-{
-  "name": "Flexbox",
-  "property": "flexbox",
-  "caniuse": "flexbox",
-  "tags": ["css"],
-  "notes": [{
-    "name": "The _new_ flexbox",
-    "href": "http://dev.w3.org/csswg/css3-flexbox"
-  }],
-  "warnings": [
-    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
-  ]
-}
-!*/
-/* DOC
-Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
-*/
-
-  Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
-
-/*!
-{
-  "name": "Flexbox (legacy)",
-  "property": "flexboxlegacy",
-  "tags": ["css"],
-  "polyfills": ["flexie"],
-  "notes": [{
-    "name": "The _old_ flexbox",
-    "href": "https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('flexboxlegacy', testAllProps('boxDirection', 'reverse', true));
-
-/*!
-{
-  "name": "Flexbox (tweener)",
-  "property": "flexboxtweener",
-  "tags": ["css"],
-  "polyfills": ["flexie"],
-  "notes": [{
-    "name": "The _inbetween_ flexbox",
-    "href": "https://www.w3.org/TR/2011/WD-css3-flexbox-20111129/"
-  }],
-  "warnings": ["This represents an old syntax, not the latest standard syntax."]
-}
-!*/
-
-  Modernizr.addTest('flexboxtweener', testAllProps('flexAlign', 'end', true));
-
-/*!
-{
-  "name": "Flex Line Wrapping",
-  "property": "flexwrap",
-  "tags": ["css", "flexbox"],
-  "notes": [{
-    "name": "W3C Flexible Box Layout spec",
-    "href": "http://dev.w3.org/csswg/css3-flexbox"
-  }],
-  "warnings": [
-    "Does not imply a modern implementation – see documentation."
-  ]
-}
-!*/
-/* DOC
-Detects support for the `flex-wrap` CSS property, part of Flexbox, which isn’t present in all Flexbox implementations (notably Firefox).
-
-This featured in both the 'tweener' syntax (implemented by IE10) and the 'modern' syntax (implemented by others). This detect will return `true` for either of these implementations, as long as the `flex-wrap` property is supported. So to ensure the modern syntax is supported, use together with `Modernizr.flexbox`:
-
-```javascript
-if (Modernizr.flexbox && Modernizr.flexwrap) {
-  // Modern Flexbox with `flex-wrap` supported
-}
-else {
-  // Either old Flexbox syntax, or `flex-wrap` not supported
-}
-```
-*/
-
-  Modernizr.addTest('flexwrap', testAllProps('flexWrap', 'wrap', true));
-
-/*!
-{
-  "name": "@font-face",
-  "property": "fontface",
-  "authors": ["Diego Perini", "Mat Marquis"],
-  "tags": ["css"],
-  "knownBugs": [
-    "False Positive: WebOS https://github.com/Modernizr/Modernizr/issues/342",
-    "False Postive: WP7 https://github.com/Modernizr/Modernizr/issues/538"
-  ],
-  "notes": [{
-    "name": "@font-face detection routine by Diego Perini",
-    "href": "http://javascript.nwbox.com/CSSSupport/"
-  },{
-    "name": "Filament Group @font-face compatibility research",
-    "href": "https://docs.google.com/presentation/d/1n4NyG4uPRjAA8zn_pSQ_Ket0RhcWC6QlZ6LMjKeECo0/edit#slide=id.p"
-  },{
-    "name": "Filament Grunticon/@font-face device testing results",
-    "href": "https://docs.google.com/spreadsheet/ccc?key=0Ag5_yGvxpINRdHFYeUJPNnZMWUZKR2ItMEpRTXZPdUE#gid=0"
-  },{
-    "name": "CSS fonts on Android",
-    "href": "https://stackoverflow.com/questions/3200069/css-fonts-on-android"
-  },{
-    "name": "@font-face and Android",
-    "href": "http://archivist.incutio.com/viewlist/css-discuss/115960"
-  }]
-}
-!*/
-
-  var blacklist = (function() {
-    var ua = navigator.userAgent;
-    var webos = ua.match(/w(eb)?osbrowser/gi);
-    var wppre8 = ua.match(/windows phone/gi) && ua.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
-    return webos || wppre8;
-  }());
-  if (blacklist) {
-    Modernizr.addTest('fontface', false);
-  } else {
-    testStyles('@font-face {font-family:"font";src:url("https://")}', function(node, rule) {
-      var style = document.getElementById('smodernizr');
-      var sheet = style.sheet || style.styleSheet;
-      var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
-      var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
-      Modernizr.addTest('fontface', bool);
-    });
-  }
-;
-/*!
-{
-  "name": "CSS Generated Content",
-  "property": "generatedcontent",
-  "tags": ["css"],
-  "warnings": ["Android won't return correct height for anything below 7px #738"],
-  "notes": [{
-    "name": "W3C CSS Selectors Level 3 spec",
-    "href": "https://www.w3.org/TR/css3-selectors/#gen-content"
-  },{
-    "name": "MDN article on :before",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
-  },{
-    "name": "MDN article on :after",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
-  }]
-}
-!*/
-
-  testStyles('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(node) {
-    // See bug report on why this value is 6 crbug.com/608142
-    Modernizr.addTest('generatedcontent', node.offsetHeight >= 6);
-  });
-
-/*!
-{
-  "name": "CSS Gradients",
-  "caniuse": "css-gradients",
-  "property": "cssgradients",
-  "tags": ["css"],
-  "knownBugs": ["False-positives on webOS (https://github.com/Modernizr/Modernizr/issues/202)"],
-  "notes": [{
-    "name": "Webkit Gradient Syntax",
-    "href": "https://webkit.org/blog/175/introducing-css-gradients/"
-  },{
-    "name": "Linear Gradient Syntax",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient"
-  },{
-    "name": "W3C Gradient Spec",
-    "href": "https://drafts.csswg.org/css-images-3/#gradients"
-  }]
-}
-!*/
-
-
-  Modernizr.addTest('cssgradients', function() {
-
-    var str1 = 'background-image:';
-    var str2 = 'gradient(linear,left top,right bottom,from(#9f9),to(white));';
-    var css = '';
-    var angle;
-
-    for (var i = 0, len = prefixes.length - 1; i < len; i++) {
-      angle = (i === 0 ? 'to ' : '');
-      css += str1 + prefixes[i] + 'linear-gradient(' + angle + 'left top, #9f9, white);';
-    }
-
-    if (Modernizr._config.usePrefixes) {
-    // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
-      css += str1 + '-webkit-' + str2;
-    }
-
-    var elem = createElement('a');
-    var style = elem.style;
-    style.cssText = css;
-
-    // IE6 returns undefined so cast to string
-    return ('' + style.backgroundImage).indexOf('gradient') > -1;
-  });
-
-/*! {
-  "name": "hairline",
-  "property": "hairline",
-  "tags": ["css"],
-  "authors": ["strarsis"],
-  "notes": [{
-    "name": "Blog post about CSS retina hairlines",
-    "href": "http://dieulot.net/css-retina-hairline"
-  },{
-    "name": "Derived from",
-    "href": "https://gist.github.com/dieulot/520a49463f6058fbc8d1"
-  }]
-}
-!*/
-/* DOC
-Detects support for hidpi/retina hairlines, which are CSS borders with less than 1px in width, for being physically 1px on hidpi screens.
-*/
-
-
-  Modernizr.addTest('hairline', function() {
-    return testStyles('#modernizr {border:.5px solid transparent}', function(elem) {
-      return elem.offsetHeight === 1;
-    });
-  });
-
-/*!
-{
-  "name": "CSS HSLA Colors",
-  "caniuse": "css3-colors",
-  "property": "hsla",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('hsla', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background-color:hsla(120,40%,100%,.5)';
-    return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
-  });
-
-/*!
-{
-  "name": "CSS :invalid pseudo-class",
-  "property": "cssinvalid",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid"
-  }]
-}
-!*/
-/* DOC
-  Detects support for the ':invalid' CSS pseudo-class.
-*/
-
-  Modernizr.addTest('cssinvalid', function() {
-    return testStyles('#modernizr input{height:0;border:0;padding:0;margin:0;width:10px} #modernizr input:invalid{width:50px}', function(elem) {
-      var input = createElement('input');
-      input.required = true;
-      elem.appendChild(input);
-      return input.clientWidth > 10;
-    });
-  });
-
-/*!
-{
-  "name": "CSS :last-child pseudo-selector",
-  "caniuse": "css-sel3",
-  "property": "lastchild",
-  "tags": ["css"],
-  "builderAliases": ["css_lastchild"],
-  "notes": [{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/pull/304"
-  }]
-}
-!*/
-
-  testStyles('#modernizr div {width:100px} #modernizr :last-child{width:200px;display:block}', function(elem) {
-    Modernizr.addTest('lastchild', elem.lastChild.offsetWidth > elem.firstChild.offsetWidth);
-  }, 2);
-
-/*!
-{
-  "name": "CSS Mask",
-  "caniuse": "css-masks",
-  "property": "cssmask",
-  "tags": ["css"],
-  "builderAliases": ["css_mask"],
-  "notes": [
-    {
-      "name": "Webkit blog on CSS Masks",
-      "href": "https://webkit.org/blog/181/css-masks/"
-    },
-    {
-      "name": "Safari Docs",
-      "href": "https://developer.apple.com/library/safari/#documentation/InternetWeb/Conceptual/SafariVisualEffectsProgGuide/Masks/Masks.html"
-    },
-    {
-      "name": "CSS SVG mask",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/mask"
-    },
-    {
-      "name": "Combine with clippaths for awesomeness",
-      "href": "https://generic.cx/for/webkit/test.html"
-    }
-  ]
-}
-!*/
-
-  Modernizr.addTest('cssmask', testAllProps('maskRepeat', 'repeat-x', true));
-
-/*!
-{
-  "name": "CSS Media Queries",
-  "caniuse": "css-mediaqueries",
-  "property": "mediaqueries",
-  "tags": ["css"],
-  "builderAliases": ["css_mediaqueries"]
-}
-!*/
-
-  Modernizr.addTest('mediaqueries', mq('only all'));
-
-/*!
-{
-  "name": "CSS Multiple Backgrounds",
-  "caniuse": "multibackgrounds",
-  "property": "multiplebgs",
-  "tags": ["css"]
-}
-!*/
-
-  // Setting multiple images AND a color on the background shorthand property
-  // and then querying the style.background property value for the number of
-  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
-
-  Modernizr.addTest('multiplebgs', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background:url(https://),url(https://),red url(https://)';
-
-    // If the UA supports multiple backgrounds, there should be three occurrences
-    // of the string "url(" in the return value for elemStyle.background
-    return (/(url\s*\(.*?){3}/).test(style.background);
-  });
-
-/*!
-{
-  "name": "CSS :nth-child pseudo-selector",
-  "caniuse": "css-sel3",
-  "property": "nthchild",
-  "tags": ["css"],
-  "notes": [
-    {
-      "name": "Related Github Issue",
-      "href": "https://github.com/Modernizr/Modernizr/pull/685"
-    },
-    {
-      "name": "Sitepoint :nth-child documentation",
-      "href": "http://reference.sitepoint.com/css/pseudoclass-nthchild"
-    }
-  ],
-  "authors": ["@emilchristensen"],
-  "warnings": ["Known false negative in Safari 3.1 and Safari 3.2.2"]
-}
-!*/
-/* DOC
-Detects support for the ':nth-child()' CSS pseudo-selector.
-*/
-
-  // 5 `<div>` elements with `1px` width are created.
-  // Then every other element has its `width` set to `2px`.
-  // A Javascript loop then tests if the `<div>`s have the expected width
-  // using the modulus operator.
-  testStyles('#modernizr div {width:1px} #modernizr div:nth-child(2n) {width:2px;}', function(elem) {
-    var elems = elem.getElementsByTagName('div');
-    var correctWidths = true;
-
-    for (var i = 0; i < 5; i++) {
-      correctWidths = correctWidths && elems[i].offsetWidth === i % 2 + 1;
-    }
-    Modernizr.addTest('nthchild', correctWidths);
-  }, 5);
-
-/*!
-{
-  "name": "CSS Object Fit",
-  "caniuse": "object-fit",
-  "property": "objectfit",
-  "tags": ["css"],
-  "builderAliases": ["css_objectfit"],
-  "notes": [{
-    "name": "Opera Article on Object Fit",
-    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
-
-/*!
-{
-  "name": "CSS Opacity",
-  "caniuse": "css-opacity",
-  "property": "opacity",
-  "tags": ["css"]
-}
-!*/
-
-  // Browsers that actually have CSS Opacity implemented have done so
-  // according to spec, which means their return values are within the
-  // range of [0.0,1.0] - including the leading zero.
-
-  Modernizr.addTest('opacity', function() {
-    var style = createElement('a').style;
-    style.cssText = prefixes.join('opacity:.55;');
-
-    // The non-literal . in this regex is intentional:
-    // German Chrome returns this value as 0,55
-    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
-    return (/^0.55$/).test(style.opacity);
-  });
-
-/*!
-{
-  "name": "CSS Overflow Scrolling",
-  "property": "overflowscrolling",
-  "tags": ["css"],
-  "builderAliases": ["css_overflow_scrolling"],
-  "warnings": ["Introduced in iOS5b2. API is subject to change."],
-  "notes": [{
-    "name": "Article on iOS overflow scrolling",
-    "href": "https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('overflowscrolling', testAllProps('overflowScrolling', 'touch', true));
-
-/*!
-{
-  "name": "CSS Pointer Events",
-  "caniuse": "pointer-events",
-  "property": "csspointerevents",
-  "authors": ["ausi"],
-  "tags": ["css"],
-  "builderAliases": ["css_pointerevents"],
-  "notes": [
-    {
-      "name": "MDN Docs",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
-    },{
-      "name": "Test Project Page",
-      "href": "https://ausi.github.com/Feature-detection-technique-for-pointer-events/"
-    },{
-      "name": "Test Project Wiki",
-      "href": "https://github.com/ausi/Feature-detection-technique-for-pointer-events/wiki"
-    },
-    {
-      "name": "Related Github Issue",
-      "href": "https://github.com/Modernizr/Modernizr/issues/80"
-    }
-  ]
-}
-!*/
-
-  Modernizr.addTest('csspointerevents', function() {
-    var style = createElement('a').style;
-    style.cssText = 'pointer-events:auto';
-    return style.pointerEvents === 'auto';
-  });
-
-/*!
-{
-  "name": "CSS position: sticky",
-  "property": "csspositionsticky",
-  "tags": ["css"],
-  "builderAliases": ["css_positionsticky"],
-  "notes": [{
-    "name": "Chrome bug report",
-    "href":"https://code.google.com/p/chromium/issues/detail?id=322972"
-  }],
-  "warnings": [ "using position:sticky on anything but top aligned elements is buggy in Chrome < 37 and iOS <=7+" ]
-}
-!*/
-
-  // Sticky positioning - constrains an element to be positioned inside the
-  // intersection of its container box, and the viewport.
-  Modernizr.addTest('csspositionsticky', function() {
-    var prop = 'position:';
-    var value = 'sticky';
-    var el = createElement('a');
-    var mStyle = el.style;
-
-    mStyle.cssText = prop + prefixes.join(value + ';' + prop).slice(0, -prop.length);
-
-    return mStyle.position.indexOf(value) !== -1;
-  });
-
-/*!
-{
-  "name": "CSS Generated Content Animations",
-  "property": "csspseudoanimations",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('csspseudoanimations', function() {
-    var result = false;
-
-    if (!Modernizr.cssanimations || !window.getComputedStyle) {
-      return result;
-    }
-
-    var styles = [
-      '@', Modernizr._prefixes.join('keyframes csspseudoanimations { from { font-size: 10px; } }@').replace(/\@$/, ''),
-      '#modernizr:before { content:" "; font-size:5px;',
-      Modernizr._prefixes.join('animation:csspseudoanimations 1ms infinite;'),
-      '}'
-    ].join('');
-
-    Modernizr.testStyles(styles, function(elem) {
-      result = window.getComputedStyle(elem, ':before').getPropertyValue('font-size') === '10px';
-    });
-
-    return result;
-  });
-
-/*!
-{
-  "name": "CSS Transitions",
-  "property": "csstransitions",
-  "caniuse": "css-transitions",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('csstransitions', testAllProps('transition', 'all', true));
-
-/*!
-{
-  "name": "CSS Generated Content Transitions",
-  "property": "csspseudotransitions",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('csspseudotransitions', function() {
-    var result = false;
-
-    if (!Modernizr.csstransitions || !window.getComputedStyle) {
-      return result;
-    }
-
-    var styles =
-      '#modernizr:before { content:" "; font-size:5px;' + Modernizr._prefixes.join('transition:0s 100s;') + '}' +
-      '#modernizr.trigger:before { font-size:10px; }';
-
-    Modernizr.testStyles(styles, function(elem) {
-      // Force rendering of the element's styles so that the transition will trigger
-      window.getComputedStyle(elem, ':before').getPropertyValue('font-size');
-      elem.className += 'trigger';
-      result = window.getComputedStyle(elem, ':before').getPropertyValue('font-size') === '5px';
-    });
-
-    return result;
-  });
-
-/*!
-{
-  "name": "CSS Reflections",
-  "caniuse": "css-reflections",
-  "property": "cssreflections",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('cssreflections', testAllProps('boxReflect', 'above', true));
-
-/*!
-{
-  "name": "CSS Regions",
-  "caniuse": "css-regions",
-  "authors": ["Mihai Balan"],
-  "property": "regions",
-  "tags": ["css"],
-  "builderAliases": ["css_regions"],
-  "notes": [{
-    "name": "W3C Specification",
-    "href": "https://www.w3.org/TR/css3-regions/"
-  }]
-}
-!*/
-
-  // We start with a CSS parser test then we check page geometry to see if it's affected by regions
-  // Later we might be able to retire the second part, as WebKit builds with the false positives die out
-
-  Modernizr.addTest('regions', function() {
-
-    if (isSVG) {
-      // css regions don't work inside of SVG elements. Rather than update the
-      // below test to work in an SVG context, just exit early to save bytes
-      return false;
-    }
-
-    /* Get the 'flowFrom' property name available in the browser. Either default or vendor prefixed.
-       If the property name can't be found we'll get Boolean 'false' and fail quickly */
-    var flowFromProperty = prefixed('flowFrom');
-    var flowIntoProperty = prefixed('flowInto');
-    var result = false;
-
-    if (!flowFromProperty || !flowIntoProperty) {
-      return result;
-    }
-
-    /* If CSS parsing is there, try to determine if regions actually work. */
-    var iframeContainer = createElement('iframe');
-    var container = createElement('div');
-    var content = createElement('div');
-    var region = createElement('div');
-
-    /* we create a random, unlikely to be generated flow number to make sure we don't
-       clash with anything more vanilla, like 'flow', or 'article', or 'f1' */
-    var flowName = 'modernizr_flow_for_regions_check';
-
-    /* First create a div with two adjacent divs inside it. The first will be the
-       content, the second will be the region. To be able to distinguish between the two,
-       we'll give the region a particular padding */
-    content.innerText = 'M';
-    container.style.cssText = 'top: 150px; left: 150px; padding: 0px;';
-    region.style.cssText = 'width: 50px; height: 50px; padding: 42px;';
-
-    region.style[flowFromProperty] = flowName;
-    container.appendChild(content);
-    container.appendChild(region);
-    docElement.appendChild(container);
-
-    /* Now compute the bounding client rect, before and after attempting to flow the
-       content div in the region div. If regions are enabled, the after bounding rect
-       should reflect the padding of the region div.*/
-    var flowedRect, delta;
-    var plainRect = content.getBoundingClientRect();
-
-
-    content.style[flowIntoProperty] = flowName;
-    flowedRect = content.getBoundingClientRect();
-
-    delta = parseInt(flowedRect.left - plainRect.left, 10);
-    docElement.removeChild(container);
-
-    if (delta == 42) {
-      result = true;
-    } else {
-      /* IE only allows for the content to come from iframes. This has the
-       * side effect of automatic collapsing of iframes once they get the flow-into
-       * property set. checking for a change on the height allows us to detect this
-       * in a sync way, without having to wait for a frame to load */
-
-      docElement.appendChild(iframeContainer);
-      plainRect = iframeContainer.getBoundingClientRect();
-      iframeContainer.style[flowIntoProperty] = flowName;
-      flowedRect = iframeContainer.getBoundingClientRect();
-
-      if (plainRect.height > 0 && plainRect.height !== flowedRect.height && flowedRect.height === 0) {
-        result = true;
-      }
-    }
-
-    content = region = container = iframeContainer = undefined;
-
-    return result;
-  });
-
-/*!
-{
-  "name": "CSS Font rem Units",
-  "caniuse": "rem",
-  "authors": ["nsfmc"],
-  "property": "cssremunit",
-  "tags": ["css"],
-  "builderAliases": ["css_remunit"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/css3-values/#relative0"
-  },{
-    "name": "Font Size with rem by Jonathan Snook",
-    "href": "http://snook.ca/archives/html_and_css/font-size-with-rem"
-  }]
-}
-!*/
-
-  // "The 'rem' unit ('root em') is relative to the computed
-  // value of the 'font-size' value of the root element."
-  // you can test by checking if the prop was ditched
-
-  Modernizr.addTest('cssremunit', function() {
-    var style = createElement('a').style;
-    try {
-      style.fontSize = '3rem';
-    }
-    catch (e) {}
-    return (/rem/).test(style.fontSize);
-  });
-
-/*!
-{
-  "name": "CSS UI Resize",
-  "property": "cssresize",
-  "caniuse": "css-resize",
-  "tags": ["css"],
-  "builderAliases": ["css_resize"],
-  "notes": [{
-    "name": "W3C Specification",
-    "href": "https://www.w3.org/TR/css3-ui/#resize"
-  },{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en/CSS/resize"
-  }]
-}
-!*/
-/* DOC
-Test for CSS 3 UI "resize" property
-*/
-
-  Modernizr.addTest('cssresize', testAllProps('resize', 'both', true));
-
-/*!
-{
-  "name": "CSS rgba",
-  "caniuse": "css3-colors",
-  "property": "rgba",
-  "tags": ["css"],
-  "notes": [{
-    "name": "CSSTricks Tutorial",
-    "href": "https://css-tricks.com/rgba-browser-support/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('rgba', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background-color:rgba(150,255,150,.5)';
-
-    return ('' + style.backgroundColor).indexOf('rgba') > -1;
-  });
-
-/*!
-{
-  "name": "CSS Stylable Scrollbars",
-  "property": "cssscrollbar",
-  "tags": ["css"],
-  "builderAliases": ["css_scrollbars"]
-}
-!*/
-
-  testStyles('#modernizr{overflow: scroll; width: 40px; height: 40px; }#' + prefixes
-    .join('scrollbar{width:10px}' + ' #modernizr::')
-    .split('#')
-    .slice(1)
-    .join('#') + 'scrollbar{width:10px}',
-  function(node) {
-    Modernizr.addTest('cssscrollbar', 'scrollWidth' in node && node.scrollWidth == 30);
-  });
-
-/*!
-{
-  "name": "Scroll Snap Points",
-  "property": "scrollsnappoints",
-  "notes": [{
-    "name": "Setting native-like scrolling offsets in CSS with Scrolling Snap Points",
-    "href": "http://generatedcontent.org/post/66817675443/setting-native-like-scrolling-offsets-in-css-with"
-  },{
-    "name": "MDN Article",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap_Points"
-  }],
-  "polyfills": ["scrollsnap"]
-}
-!*/
-/* DOC
-Detects support for CSS Snap Points
-*/
-
-  Modernizr.addTest('scrollsnappoints', testAllProps('scrollSnapType'));
-
-/*!
-{
-  "name": "CSS Shapes",
-  "property": "shapes",
-  "tags": ["css"],
-  "notes": [{
-    "name": "CSS Shapes W3C specification",
-    "href": "https://www.w3.org/TR/css-shapes"
-  },{
-    "name": "Examples from Adobe",
-    "href": "http://webplatform.adobe.com/shapes/"
-  }, {
-    "name": "Samples showcasing uses of Shapes",
-    "href": "http://codepen.io/collection/qFesk"
-  }]
-}
-!*/
-
-  Modernizr.addTest('shapes', testAllProps('shapeOutside', 'content-box', true));
-
-/*!
-{
-  "name": "CSS general sibling selector",
-  "caniuse": "css-sel3",
-  "property": "siblinggeneral",
-  "tags": ["css"],
-  "notes": [{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/pull/889"
-  }]
-}
-!*/
-
-  Modernizr.addTest('siblinggeneral', function() {
-    return testStyles('#modernizr div {width:100px} #modernizr div ~ div {width:200px;display:block}', function(elem) {
-      return elem.lastChild.offsetWidth == 200;
-    }, 2);
-  });
-
-/*!
-{
-  "name": "CSS Subpixel Fonts",
-  "property": "subpixelfont",
-  "tags": ["css"],
-  "builderAliases": ["css_subpixelfont"],
-  "authors": [
-    "@derSchepp",
-    "@gerritvanaaken",
-    "@rodneyrehm",
-    "@yatil",
-    "@ryanseddon"
-  ],
-  "notes": [{
-    "name": "Origin Test",
-    "href": "https://github.com/gerritvanaaken/subpixeldetect"
-  }]
-}
-!*/
-
-  /*
-   * (to infer if GDI or DirectWrite is used on Windows)
-   */
-  testStyles(
-    '#modernizr{position: absolute; top: -10em; visibility:hidden; font: normal 10px arial;}#subpixel{float: left; font-size: 33.3333%;}',
-  function(elem) {
-    var subpixel = elem.firstChild;
-    subpixel.innerHTML = 'This is a text written in Arial';
-    Modernizr.addTest('subpixelfont', window.getComputedStyle ?
-      window.getComputedStyle(subpixel, null).getPropertyValue('width') !== '44px'
-    : false);
-  }, 1, ['subpixel']);
-
-/*!
-{
-  "name": "CSS :target pseudo-class",
-  "caniuse": "css-sel3",
-  "property": "target",
-  "tags": ["css"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:target"
-  }],
-  "authors": ["@zachleat"],
-  "warnings": ["Opera Mini supports :target but doesn't update the hash for anchor links."]
-}
-!*/
-/* DOC
-Detects support for the ':target' CSS pseudo-class.
-*/
-
-  // querySelector
-  Modernizr.addTest('target', function() {
-    var doc = window.document;
-    if (!('querySelectorAll' in doc)) {
-      return false;
-    }
-
-    try {
-      doc.querySelectorAll(':target');
-      return true;
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "CSS text-align-last",
-  "property": "textalignlast",
-  "tags": ["css"],
-  "knownBugs": ["IE does not support the 'start' or 'end' values."],
-  "notes": [{
-      "name": "Quicksmode",
-      "href": "http://www.quirksmode.org/css/text/textalignlast.html"
-    },{
-      "name": "MDN",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last"
-    }]
-}
-!*/
-
-  Modernizr.addTest('textalignlast', testAllProps('textAlignLast'));
-
-/*!
-{
-  "name": "CSS textshadow",
-  "property": "textshadow",
-  "caniuse": "css-textshadow",
-  "tags": ["css"],
-  "knownBugs": ["FF3.0 will false positive on this test"]
-}
-!*/
-
-  Modernizr.addTest('textshadow', testProp('textShadow', '1px 1px'));
-
-/*!
-{
-  "name": "CSS Transforms",
-  "property": "csstransforms",
-  "caniuse": "transforms2d",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('csstransforms', function() {
-    // Android < 3.0 is buggy, so we sniff and blacklist
-    // http://git.io/hHzL7w
-    return navigator.userAgent.indexOf('Android 2.') === -1 &&
-           testAllProps('transform', 'scale(1)', true);
-  });
-
-/*!
-{
-  "name": "CSS Transforms Level 2",
-  "property": "csstransformslevel2",
-  "authors": ["rupl"],
-  "tags": ["css"],
-  "notes": [{
-    "name": "CSSWG Draft Spec",
-    "href": "https://drafts.csswg.org/css-transforms-2/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('csstransformslevel2', function() {
-    return testAllProps('translate', '45px', true);
-  });
-
-/*!
-{
-  "name": "CSS Transforms 3D",
-  "property": "csstransforms3d",
-  "caniuse": "transforms3d",
-  "tags": ["css"],
-  "warnings": [
-    "Chrome may occassionally fail this test on some systems; more info: https://code.google.com/p/chromium/issues/detail?id=129004"
-  ]
-}
-!*/
-
-  Modernizr.addTest('csstransforms3d', function() {
-    var ret = !!testAllProps('perspective', '1px', true);
-    var usePrefix = Modernizr._config.usePrefixes;
-
-    // Webkit's 3D transforms are passed off to the browser's own graphics renderer.
-    //   It works fine in Safari on Leopard and Snow Leopard, but not in Chrome in
-    //   some conditions. As a result, Webkit typically recognizes the syntax but
-    //   will sometimes throw a false positive, thus we must do a more thorough check:
-    if (ret && (!usePrefix || 'webkitPerspective' in docElement.style)) {
-      var mq;
-      var defaultStyle = '#modernizr{width:0;height:0}';
-      // Use CSS Conditional Rules if available
-      if (Modernizr.supports) {
-        mq = '@supports (perspective: 1px)';
-      } else {
-        // Otherwise, Webkit allows this media query to succeed only if the feature is enabled.
-        // `@media (transform-3d),(-webkit-transform-3d){ ... }`
-        mq = '@media (transform-3d)';
-        if (usePrefix) {
-          mq += ',(-webkit-transform-3d)';
-        }
-      }
-
-      mq += '{#modernizr{width:7px;height:18px;margin:0;padding:0;border:0}}';
-
-      testStyles(defaultStyle + mq, function(elem) {
-        ret = elem.offsetWidth === 7 && elem.offsetHeight === 18;
-      });
-    }
-
-    return ret;
-  });
-
-/*!
-{
-  "name": "CSS Transform Style preserve-3d",
-  "property": "preserve3d",
-  "authors": ["denyskoch", "aFarkas"],
-  "tags": ["css"],
-  "notes": [{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style"
-  },{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/1748"
-  }]
-}
-!*/
-/* DOC
-Detects support for `transform-style: preserve-3d`, for getting a proper 3D perspective on elements.
-*/
-
-  Modernizr.addTest('preserve3d', function() {
-    var outerAnchor, innerAnchor;
-    var CSS = window.CSS;
-    var result = false;
-
-    if (CSS && CSS.supports && CSS.supports('(transform-style: preserve-3d)')) {
-      return true;
-    }
-
-    outerAnchor = createElement('a');
-    innerAnchor = createElement('a');
-
-    outerAnchor.style.cssText = 'display: block; transform-style: preserve-3d; transform-origin: right; transform: rotateY(40deg);';
-    innerAnchor.style.cssText = 'display: block; width: 9px; height: 1px; background: #000; transform-origin: right; transform: rotateY(40deg);';
-
-    outerAnchor.appendChild(innerAnchor);
-    docElement.appendChild(outerAnchor);
-
-    result = innerAnchor.getBoundingClientRect();
-    docElement.removeChild(outerAnchor);
-
-    result = result.width && result.width < 4;
-    return result;
-  });
-
-/*!
-{
-  "name": "CSS user-select",
-  "property": "userselect",
-  "caniuse": "user-select-none",
-  "authors": ["ryan seddon"],
-  "tags": ["css"],
-  "builderAliases": ["css_userselect"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/250"
-  }]
-}
-!*/
-
-  //https://github.com/Modernizr/Modernizr/issues/250
-  Modernizr.addTest('userselect', testAllProps('userSelect', 'none', true));
-
-/*!
-{
-  "name": "CSS :valid pseudo-class",
-  "property": "cssvalid",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/:valid"
-  }]
-}
-!*/
-/* DOC
-  Detects support for the ':valid' CSS pseudo-class.
-*/
-
-  Modernizr.addTest('cssvalid', function() {
-    return testStyles('#modernizr input{height:0;border:0;padding:0;margin:0;width:10px} #modernizr input:valid{width:50px}', function(elem) {
-      var input = createElement('input');
-      elem.appendChild(input);
-      return input.clientWidth > 10;
-    });
-  });
-
-/*!
-{
-  "name": "CSS vh unit",
-  "property": "cssvhunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vhunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "Similar JSFiddle",
-    "href": "https://jsfiddle.net/FWeinb/etnYC/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr { height: 50vh; }', function(elem) {
-    var height = parseInt(window.innerHeight / 2, 10);
-    var compStyle = parseInt(computedStyle(elem, null, 'height'), 10);
-    Modernizr.addTest('cssvhunit', compStyle == height);
-  });
-
-
-  /**
-   * roundedEquals takes two integers and checks if the first is within 1 of the second
-   *
-   * @access private
-   * @function roundedEquals
-   * @param {number} a
-   * @param {number} b
-   * @returns {boolean}
-   */
-
-  function roundedEquals(a, b) {
-    return a - 1 === b || a === b || a + 1 === b;
-  }
-
-  ;
-/*!
-{
-  "name": "CSS vmax unit",
-  "property": "cssvmaxunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vmaxunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/glsee/JDsWQ/4/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr1{width: 50vmax}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
-    var elem = node.childNodes[2];
-    var scroller = node.childNodes[1];
-    var fullSizeElem = node.childNodes[0];
-    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
-
-    var one_vw = fullSizeElem.clientWidth / 100;
-    var one_vh = fullSizeElem.clientHeight / 100;
-    var expectedWidth = parseInt(Math.max(one_vw, one_vh) * 50, 10);
-    var compWidth = parseInt(computedStyle(elem, null, 'width'), 10);
-
-    Modernizr.addTest('cssvmaxunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
-  }, 3);
-
-/*!
-{
-  "name": "CSS vmin unit",
-  "property": "cssvminunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vminunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/glsee/JRmdq/8/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr1{width: 50vm;width:50vmin}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
-    var elem = node.childNodes[2];
-    var scroller = node.childNodes[1];
-    var fullSizeElem = node.childNodes[0];
-    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
-
-    var one_vw = fullSizeElem.clientWidth / 100;
-    var one_vh = fullSizeElem.clientHeight / 100;
-    var expectedWidth = parseInt(Math.min(one_vw, one_vh) * 50, 10);
-    var compWidth = parseInt(computedStyle(elem, null, 'width'), 10);
-
-    Modernizr.addTest('cssvminunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
-  }, 3);
-
-/*!
-{
-  "name": "CSS vw unit",
-  "property": "cssvwunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vwunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/FWeinb/etnYC/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr { width: 50vw; }', function(elem) {
-    var width = parseInt(window.innerWidth / 2, 10);
-    var compStyle = parseInt(computedStyle(elem, null, 'width'), 10);
-
-    Modernizr.addTest('cssvwunit', compStyle == width);
-  });
-
-/*!
-{
-  "name": "will-change",
-  "property": "willchange",
-  "notes": [{
-    "name": "Spec",
-    "href": "https://drafts.csswg.org/css-will-change/"
-  }]
-}
-!*/
-/* DOC
-Detects support for the `will-change` css property, which formally signals to the
-browser that an element will be animating.
-*/
-
-  Modernizr.addTest('willchange', 'willChange' in docElement.style);
-
-/*!
-{
-  "name": "CSS wrap-flow",
-  "property": "wrapflow",
-  "tags": ["css"],
-  "notes": [
-    {
-      "name": "W3C Exclusions spec",
-      "href": "https://www.w3.org/TR/css3-exclusions"
-    },
-    {
-      "name": "Example by Adobe",
-      "href": "http://html.adobe.com/webstandards/cssexclusions"
-    }
-  ]
-}
-!*/
-
-  Modernizr.addTest('wrapflow', function() {
-    var prefixedProperty = prefixed('wrapFlow');
-    if (!prefixedProperty || isSVG) {
-      return false;
-    }
-
-    var wrapFlowProperty = prefixedProperty.replace(/([A-Z])/g, function(str, m1) { return '-' + m1.toLowerCase(); }).replace(/^ms-/, '-ms-');
-
-    /* If the CSS parsing is there we need to determine if wrap-flow actually works to avoid false positive cases, e.g. the browser parses
-       the property, but it hasn't got the implementation for the functionality yet. */
-    var container = createElement('div');
-    var exclusion = createElement('div');
-    var content = createElement('span');
-
-    /* First we create a div with two adjacent divs inside it. The first div will be the content, the second div will be the exclusion area.
-       We use the "wrap-flow: end" property to test the actual behavior. (http://dev.w3.org/csswg/css3-exclusions/#wrap-flow-property)
-       The wrap-flow property is applied to the exclusion area what has a 50px left offset and a 100px width.
-       If the wrap-flow property is working correctly then the content should start after the exclusion area, so the content's left offset should be 150px. */
-    exclusion.style.cssText = 'position: absolute; left: 50px; width: 100px; height: 20px;' + wrapFlowProperty + ':end;';
-    content.innerText = 'X';
-
-    container.appendChild(exclusion);
-    container.appendChild(content);
-    docElement.appendChild(container);
-
-    var leftOffset = content.offsetLeft;
-
-    docElement.removeChild(container);
-    exclusion = content = container = undefined;
-
-    return (leftOffset == 150);
-  });
-
-/*!
-{
-  "name": "classList",
-  "caniuse": "classlist",
-  "property": "classlist",
-  "tags": ["dom"],
-  "builderAliases": ["dataview_api"],
-  "notes": [{
-    "name": "MDN Docs",
-    "href": "https://developer.mozilla.org/en/DOM/element.classList"
-  }]
-}
-!*/
-
-  Modernizr.addTest('classlist', 'classList' in docElement);
-
-/*!
-{
-  "name": "createElement with Attributes",
-  "property": ["createelementattrs", "createelement-attrs"],
-  "tags": ["dom"],
-  "builderAliases": ["dom_createElement_attrs"],
-  "authors": ["James A. Rosen"],
-  "notes": [{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/258"
-  }]
-}
-!*/
-
-  Modernizr.addTest('createelementattrs', function() {
-    try {
-      return createElement('<input name="test" />').getAttribute('name') == 'test';
-    } catch (e) {
-      return false;
-    }
-  }, {
-    aliases: ['createelement-attrs']
-  });
-
-/*!
-{
-  "name": "dataset API",
-  "caniuse": "dataset",
-  "property": "dataset",
-  "tags": ["dom"],
-  "builderAliases": ["dom_dataset"],
-  "authors": ["@phiggins42"]
-}
-!*/
-
-  // dataset API for data-* attributes
-  Modernizr.addTest('dataset', function() {
-    var n = createElement('div');
-    n.setAttribute('data-a-b', 'c');
-    return !!(n.dataset && n.dataset.aB === 'c');
-  });
-
-/*!
-{
-  "name": "Document Fragment",
-  "property": "documentfragment",
-  "notes": [{
-    "name": "W3C DOM Level 1 Reference",
-    "href": "https://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3"
-  }, {
-    "name": "SitePoint Reference",
-    "href": "http://reference.sitepoint.com/javascript/DocumentFragment"
-  }, {
-    "name": "QuirksMode Compatibility Tables",
-    "href": "http://www.quirksmode.org/m/w3c_core.html#t112"
-  }],
-  "authors": ["Ron Waldon (@jokeyrhyme)"],
-  "knownBugs": ["false-positive on Blackberry 9500, see QuirksMode note"],
-  "tags": []
-}
-!*/
-/* DOC
-Append multiple elements to the DOM within a single insertion.
-*/
-
-  Modernizr.addTest('documentfragment', function() {
-    return 'createDocumentFragment' in document &&
-      'appendChild' in docElement;
-  });
-
-/*!
-{
-  "name": "[hidden] Attribute",
-  "property": "hidden",
-  "tags": ["dom"],
-  "notes": [{
-    "name": "WHATWG: The hidden attribute",
-    "href": "https://developers.whatwg.org/editing.html#the-hidden-attribute"
-  }, {
-    "name": "original implementation of detect code",
-    "href": "https://github.com/aFarkas/html5shiv/blob/bf4fcc4/src/html5shiv.js#L38"
-  }],
-  "polyfills": ["html5shiv"],
-  "authors": ["Ron Waldon (@jokeyrhyme)"]
-}
-!*/
-/* DOC
-Does the browser support the HTML5 [hidden] attribute?
-*/
-
-  Modernizr.addTest('hidden', 'hidden' in createElement('a'));
-
-/*!
-{
-  "name": "microdata",
-  "property": "microdata",
-  "tags": ["dom"],
-  "builderAliases": ["dom_microdata"],
-  "notes": [{
-    "name": "W3 Spec",
-    "href": "https://www.w3.org/TR/microdata/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('microdata', 'getItems' in document);
-
-/*!
-{
-  "name": "DOM4 MutationObserver",
-  "property": "mutationobserver",
-  "caniuse": "mutationobserver",
-  "tags": ["dom"],
-  "authors": ["Karel Sedláček (@ksdlck)"],
-  "polyfills": ["mutationobservers"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"
-  }]
-}
-!*/
-/* DOC
-
-Determines if DOM4 MutationObserver support is available.
-
-*/
-
-  Modernizr.addTest('mutationobserver',
-    !!window.MutationObserver || !!window.WebKitMutationObserver);
-
-/*!
-{
-  "authors": ["Rick Byers"],
-  "name": "Passive event listeners",
-  "notes": [
-    {
-      "name": "WHATWG specification",
-      "href": "https://dom.spec.whatwg.org/#dom-addeventlisteneroptions-passive"
-    },
-    {
-      "name": "WICG explainer",
-      "href": "https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md"
-    }
-  ],
-  "property": "passiveeventlisteners",
-  "tags": ["dom"]
-}
-!*/
-
-/* DOC
-Detects support for the passive option to addEventListener.
-*/
-
-
-  Modernizr.addTest('passiveeventlisteners', function() {
-    var supportsPassiveOption = false;
-    try {
-      var opts = Object.defineProperty({}, 'passive', {
-        get: function() {
-          supportsPassiveOption = true;
-        }
-      });
-      window.addEventListener('test', null, opts);
-    } catch (e) {}
-    return supportsPassiveOption;
-  });
-
-/*!
-{
-  "name": "Orientation and Motion Events",
-  "property": ["devicemotion", "deviceorientation"],
-  "caniuse": "deviceorientation",
-  "notes": [{
-    "name": "W3C Editor's Draft",
-    "href": "http://w3c.github.io/deviceorientation/spec-source-orientation.html"
-  },{
-    "name": "Implementation by iOS Safari (Orientation)",
-    "href": "http://goo.gl/fhce3"
-  },{
-    "name": "Implementation by iOS Safari (Motion)",
-    "href": "http://goo.gl/rLKz8"
-  }],
-  "authors": ["Shi Chuan"],
-  "tags": ["event"],
-  "builderAliases": ["event_deviceorientation_motion"]
-}
-!*/
-/* DOC
-Part of Device Access aspect of HTML5, same category as geolocation.
-
-`devicemotion` tests for Device Motion Event support, returns boolean value true/false.
-
-`deviceorientation` tests for Device Orientation Event support, returns boolean value true/false
-*/
-
-  Modernizr.addTest('devicemotion', 'DeviceMotionEvent' in window);
-  Modernizr.addTest('deviceorientation', 'DeviceOrientationEvent' in window);
-
-/*!
-{
-  "name": "onInput Event",
-  "property": "oninput",
-  "notes": [{
-    "name": "MDN article",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers.oninput"
-  },{
-    "name": "WHATWG spec",
-    "href": "https://html.spec.whatwg.org/multipage/forms.html#common-input-element-attributes"
-  },{
-    "name": "Detecting onInput support",
-    "href": "http://danielfriesen.name/blog/2010/02/16/html5-browser-maze-oninput-support"
-  }],
-  "authors": ["Patrick Kettner"],
-  "tags": ["event"]
-}
-!*/
-/* DOC
-`oninput` tests if the browser is able to detect the input event
-*/
-
-
-  Modernizr.addTest('oninput', function() {
-    var input = createElement('input');
-    var supportsOnInput;
-    input.setAttribute('oninput', 'return');
-
-    if (hasEvent('oninput', docElement) || typeof input.oninput == 'function') {
-      return true;
-    }
-
-    // IE doesn't support onInput, so we wrap up the non IE APIs
-    // (createEvent, addEventListener) in a try catch, rather than test for
-    // their trident equivalent.
-    try {
-      // Older Firefox didn't map oninput attribute to oninput property
-      var testEvent  = document.createEvent('KeyboardEvent');
-      supportsOnInput = false;
-      var handler = function(e) {
-        supportsOnInput = true;
-        e.preventDefault();
-        e.stopPropagation();
-      };
-
-      testEvent.initKeyEvent('keypress', true, true, window, false, false, false, false, 0, 'e'.charCodeAt(0));
-      docElement.appendChild(input);
-      input.addEventListener('input', handler, false);
-      input.focus();
-      input.dispatchEvent(testEvent);
-      input.removeEventListener('input', handler, false);
-      docElement.removeChild(input);
-    } catch (e) {
-      supportsOnInput = false;
-    }
-    return supportsOnInput;
-  });
-
-/*!
-{
-  "name": "Event Listener",
-  "property": "eventlistener",
-  "authors": ["Andrew Betts (@triblondon)"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Registration-interfaces"
-  }],
-  "polyfills": ["eventlistener"]
-}
-!*/
-/* DOC
-Detects native support for addEventListener
-*/
-
-  Modernizr.addTest('eventlistener', 'addEventListener' in window);
-
-/*!
-{
-  "name": "EXIF Orientation",
-  "property": "exiforientation",
-  "tags": ["image"],
-  "builderAliases": ["exif_orientation"],
-  "async": true,
-  "authors": ["Paul Sayre"],
-  "notes": [{
-    "name": "Article by Dave Perrett",
-    "href": "http://recursive-design.com/blog/2012/07/28/exif-orientation-handling-is-a-ghetto/"
-  },{
-    "name": "Article by Calvin Hass",
-    "href": "http://www.impulseadventure.com/photo/exif-orientation.html"
-  }]
-}
-!*/
-/* DOC
-Detects support for EXIF Orientation in JPEG images.
-
-iOS looks at the EXIF Orientation flag in JPEGs and rotates the image accordingly. Most desktop browsers just ignore this data.
-*/
-
-  // Bug trackers:
-  //    bugzil.la/298619 (unimplemented)
-  //    crbug.com/56845 (looks incomplete)
-  //    webk.it/19688 (available upstream but its up all ports to turn on individually)
-  Modernizr.addAsyncTest(function() {
-    var img = new Image();
-
-    img.onerror = function() {
-      addTest('exiforientation', false, {aliases: ['exif-orientation']});
-    };
-
-    img.onload = function() {
-      addTest('exiforientation', img.width !== 2, {aliases: ['exif-orientation']});
-    };
-
-    // There may be a way to shrink this more, it's a 1x2 white jpg with the orientation flag set to 6
-    img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAABgASAAAAAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAABAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+/iiiigD/2Q==';
-  });
-
-/*!
-{
-  "name": "input[capture] Attribute",
-  "property": "capture",
-  "tags": ["video", "image", "audio", "media", "attribute"],
-  "notes": [{
-    "name": "W3C draft: HTML Media Capture",
-    "href": "https://www.w3.org/TR/html-media-capture/"
-  }]
-}
-!*/
-/* DOC
-When used on an `<input>`, this attribute signifies that the resource it takes should be generated via device's camera, camcorder, sound recorder.
-*/
-
-  // testing for capture attribute in inputs
-  Modernizr.addTest('capture', ('capture' in createElement('input')));
-
-/*!
-{
-  "name": "input[file] Attribute",
-  "property": "fileinput",
-  "caniuse" : "forms",
-  "tags": ["file", "forms", "input"],
-  "builderAliases": ["forms_fileinput"]
-}
-!*/
-/* DOC
-Detects whether input type="file" is available on the platform
-
-E.g. iOS < 6 and some android version don't support this
-*/
-
-  Modernizr.addTest('fileinput', function() {
-    if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
-      return false;
-    }
-    var elem = createElement('input');
-    elem.type = 'file';
-    return !elem.disabled;
-  });
-
-/*!
-{
-  "name": "input[directory] Attribute",
-  "property": "directory",
-  "authors": ["silverwind"],
-  "tags": ["file", "input", "attribute"]
-}
-!*/
-/* DOC
-When used on an `<input type="file">`, the `directory` attribute instructs
-the user agent to present a directory selection dialog instead of the usual
-file selection dialog.
-*/
-
-  Modernizr.addTest('fileinputdirectory', function() {
-    var elem = createElement('input'), dir = 'directory';
-    elem.type = 'file';
-    if (dir in elem) {
-      return true;
-    } else {
-      for (var i = 0, len = domPrefixes.length; i < len; i++) {
-        if (domPrefixes[i] + dir in elem) {
-          return true;
-        }
-      }
-    }
-    return false;
-  });
-
-/*!
-{
-  "name": "input[form] Attribute",
-  "property": "formattribute",
-  "tags": ["attribute", "forms", "input"],
-  "builderAliases": ["forms_formattribute"]
-}
-!*/
-/* DOC
-Detects whether input form="form_id" is available on the platform
-E.g. IE 10 (and below), don't support this
-*/
-
-
-  Modernizr.addTest('formattribute', function() {
-    var form = createElement('form');
-    var input = createElement('input');
-    var div = createElement('div');
-    var id = 'formtest' + (new Date()).getTime();
-    var attr;
-    var bool = false;
-
-    form.id = id;
-
-    //IE6/7 confuses the form idl attribute and the form content attribute, so we use document.createAttribute
-    try {
-      input.setAttribute('form', id);
-    }
-    catch (e) {
-      if (document.createAttribute) {
-        attr = document.createAttribute('form');
-        attr.nodeValue = id;
-        input.setAttributeNode(attr);
-      }
-    }
-
-    div.appendChild(form);
-    div.appendChild(input);
-
-    docElement.appendChild(div);
-
-    bool = form.elements && form.elements.length === 1 && input.form == form;
-
-    div.parentNode.removeChild(div);
-    return bool;
-  });
-
-
-  /**
-   * since we have a fairly large number of input tests that don't mutate the input
-   * we create a single element that can be shared with all of those tests for a
-   * minor perf boost
-   *
-   * @access private
-   * @returns {HTMLInputElement}
-   */
-  var inputElem = createElement('input');
-  
-/*!
-{
-  "name": "Form input types",
-  "property": "inputtypes",
-  "caniuse": "forms",
-  "tags": ["forms"],
-  "authors": ["Mike Taylor"],
-  "polyfills": [
-    "jquerytools",
-    "webshims",
-    "h5f",
-    "webforms2",
-    "nwxforms",
-    "fdslider",
-    "html5slider",
-    "galleryhtml5forms",
-    "jscolor",
-    "html5formshim",
-    "selectedoptionsjs",
-    "formvalidationjs"
-  ]
-}
-!*/
-/* DOC
-Detects support for HTML5 form input types and exposes Boolean subproperties with the results:
-
-```javascript
-Modernizr.inputtypes.color
-Modernizr.inputtypes.date
-Modernizr.inputtypes.datetime
-Modernizr.inputtypes['datetime-local']
-Modernizr.inputtypes.email
-Modernizr.inputtypes.month
-Modernizr.inputtypes.number
-Modernizr.inputtypes.range
-Modernizr.inputtypes.search
-Modernizr.inputtypes.tel
-Modernizr.inputtypes.time
-Modernizr.inputtypes.url
-Modernizr.inputtypes.week
-```
-*/
-
-  // Run through HTML5's new input types to see if the UA understands any.
-  //   This is put behind the tests runloop because it doesn't return a
-  //   true/false like all the other tests; instead, it returns an object
-  //   containing each input type with its corresponding true/false value
-
-  // Big thanks to @miketaylr for the html5 forms expertise. miketaylr.com/
-  var inputtypes = 'search tel url email datetime date month week time datetime-local number range color'.split(' ');
-  var inputs = {};
-
-  Modernizr.inputtypes = (function(props) {
-    var len = props.length;
-    var smile = '1)';
-    var inputElemType;
-    var defaultView;
-    var bool;
-
-    for (var i = 0; i < len; i++) {
-
-      inputElem.setAttribute('type', inputElemType = props[i]);
-      bool = inputElem.type !== 'text' && 'style' in inputElem;
-
-      // We first check to see if the type we give it sticks..
-      // If the type does, we feed it a textual value, which shouldn't be valid.
-      // If the value doesn't stick, we know there's input sanitization which infers a custom UI
-      if (bool) {
-
-        inputElem.value         = smile;
-        inputElem.style.cssText = 'position:absolute;visibility:hidden;';
-
-        if (/^range$/.test(inputElemType) && inputElem.style.WebkitAppearance !== undefined) {
-
-          docElement.appendChild(inputElem);
-          defaultView = document.defaultView;
-
-          // Safari 2-4 allows the smiley as a value, despite making a slider
-          bool =  defaultView.getComputedStyle &&
-            defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&
-            // Mobile android web browser has false positive, so must
-            // check the height to see if the widget is actually there.
-            (inputElem.offsetHeight !== 0);
-
-          docElement.removeChild(inputElem);
-
-        } else if (/^(search|tel)$/.test(inputElemType)) {
-          // Spec doesn't define any special parsing or detectable UI
-          //   behaviors so we pass these through as true
-
-          // Interestingly, opera fails the earlier test, so it doesn't
-          //  even make it here.
-
-        } else if (/^(url|email)$/.test(inputElemType)) {
-          // Real url and email support comes with prebaked validation.
-          bool = inputElem.checkValidity && inputElem.checkValidity() === false;
-
-        } else {
-          // If the upgraded input compontent rejects the :) text, we got a winner
-          bool = inputElem.value != smile;
-        }
-      }
-
-      inputs[ props[i] ] = !!bool;
-    }
-    return inputs;
-  })(inputtypes);
-
-/*!
-{
-  "name": "Form Validation",
-  "property": "formvalidation",
-  "tags": ["forms", "validation", "attribute"],
-  "builderAliases": ["forms_validation"]
-}
-!*/
-/* DOC
-This implementation only tests support for interactive form validation.
-To check validation for a specific type or a specific other constraint,
-the test can be combined:
-
-- `Modernizr.inputtypes.number && Modernizr.formvalidation` (browser supports rangeOverflow, typeMismatch etc. for type=number)
-- `Modernizr.input.required && Modernizr.formvalidation` (browser supports valueMissing)
-*/
-
-  Modernizr.addTest('formvalidation', function() {
-    var form = createElement('form');
-    if (!('checkValidity' in form) || !('addEventListener' in form)) {
-      return false;
-    }
-    if ('reportValidity' in form) {
-      return true;
-    }
-    var invalidFired = false;
-    var input;
-
-    Modernizr.formvalidationapi =  true;
-
-    // Prevent form from being submitted
-    form.addEventListener('submit', function(e) {
-      // Old Presto based Opera does not validate form, if submit is prevented
-      // although Opera Mini servers use newer Presto.
-      if (!window.opera || window.operamini) {
-        e.preventDefault();
-      }
-      e.stopPropagation();
-    }, false);
-
-    // Calling form.submit() doesn't trigger interactive validation,
-    // use a submit button instead
-    //older opera browsers need a name attribute
-    form.innerHTML = '<input name="modTest" required="required" /><button></button>';
-
-    testStyles('#modernizr form{position:absolute;top:-99999em}', function(node) {
-      node.appendChild(form);
-
-      input = form.getElementsByTagName('input')[0];
-
-      // Record whether "invalid" event is fired
-      input.addEventListener('invalid', function(e) {
-        invalidFired = true;
-        e.preventDefault();
-        e.stopPropagation();
-      }, false);
-
-      //Opera does not fully support the validationMessage property
-      Modernizr.formvalidationmessage = !!input.validationMessage;
-
-      // Submit form by clicking submit button
-      form.getElementsByTagName('button')[0].click();
-    });
-
-    return invalidFired;
-  });
-
-/*!
-{
-  "name": "input[type=\"number\"] Localization",
-  "property": "localizednumber",
-  "tags": ["forms", "localization", "attribute"],
-  "authors": ["Peter Janes"],
-  "notes": [{
-    "name": "Webkit Bug Tracker Listing",
-    "href": "https://bugs.webkit.org/show_bug.cgi?id=42484"
-  },{
-    "name": "Based on This",
-    "href": "https://trac.webkit.org/browser/trunk/LayoutTests/fast/forms/script-tests/input-number-keyoperation.js?rev=80096#L9"
-  }],
-  "knownBugs": ["Only ever returns true if the browser/OS is configured to use comma as a decimal separator. This is probably fine for most use cases."]
-}
-!*/
-/* DOC
-Detects whether input type="number" is capable of receiving and displaying localized numbers, e.g. with comma separator.
-*/
-
-  Modernizr.addTest('localizednumber', function() {
-    // this extends our testing of input[type=number], so bomb out if that's missing
-    if (!Modernizr.inputtypes.number) { return false; }
-    // we rely on checkValidity later, so bomb out early if we don't have it
-    if (!Modernizr.formvalidation) { return false; }
-
-    var el = createElement('div');
-    var diff;
-    var body = getBody();
-
-    var root = (function() {
-      return docElement.insertBefore(body, docElement.firstElementChild || docElement.firstChild);
-    }());
-    el.innerHTML = '<input type="number" value="1.0" step="0.1"/>';
-    var input = el.childNodes[0];
-    root.appendChild(el);
-    input.focus();
-    try {
-      document.execCommand('SelectAll', false); // Overwrite current input value, rather than appending text
-      document.execCommand('InsertText', false, '1,1');
-    } catch (e) { // prevent warnings in IE
-    }
-    diff = input.type === 'number' && input.valueAsNumber === 1.1 && input.checkValidity();
-    root.removeChild(el);
-    if (body.fake) {
-      root.parentNode.removeChild(root);
-    }
-    return diff;
-  });
-
-
-/*!
-{
-  "name": "placeholder attribute",
-  "property": "placeholder",
-  "tags": ["forms", "attribute"],
-  "builderAliases": ["forms_placeholder"]
-}
-!*/
-/* DOC
-Tests for placeholder attribute in inputs and textareas
-*/
-
-  Modernizr.addTest('placeholder', ('placeholder' in createElement('input') && 'placeholder' in createElement('textarea')));
-
-/*!
-{
-  "name": "form#requestAutocomplete()",
-  "property": "requestautocomplete",
-  "tags": ["form", "forms", "requestAutocomplete", "payments"],
-  "notes": [{
-    "name": "WHATWG proposed spec",
-    "href": "https://wiki.whatwg.org/wiki/RequestAutocomplete"
-  }]
-}
-!*/
-/* DOC
-When used with input[autocomplete] to annotate a form, form.requestAutocomplete() shows a dialog in Chrome that speeds up
-checkout flows (payments specific for now).
-*/
-
-  Modernizr.addTest('requestautocomplete', !!prefixed('requestAutocomplete', createElement('form')));
-
-/*!
-{
-  "name": "Fullscreen API",
-  "property": "fullscreen",
-  "caniuse": "fullscreen",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en/API/Fullscreen"
-  }],
-  "polyfills": ["screenfulljs"],
-  "builderAliases": ["fullscreen_api"]
-}
-!*/
-/* DOC
-Detects support for the ability to make the current website take over the user's entire screen
-*/
-
-  // github.com/Modernizr/Modernizr/issues/739
-  Modernizr.addTest('fullscreen', !!(prefixed('exitFullscreen', document, false) || prefixed('cancelFullScreen', document, false)));
-
-/*!
-{
-  "name": "Hashchange event",
-  "property": "hashchange",
-  "caniuse": "hashchange",
-  "tags": ["history"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.onhashchange"
-  }],
-  "polyfills": [
-    "jquery-hashchange",
-    "moo-historymanager",
-    "jquery-ajaxy",
-    "hasher",
-    "shistory"
-  ]
-}
-!*/
-/* DOC
-Detects support for the `hashchange` event, fired when the current location fragment changes.
-*/
-
-  Modernizr.addTest('hashchange', function() {
-    if (hasEvent('hashchange', window) === false) {
-      return false;
-    }
-
-    // documentMode logic from YUI to filter out IE8 Compat Mode
-    //   which false positives.
-    return (document.documentMode === undefined || document.documentMode > 7);
-  });
-
-/*!
-{
-  "name": "Hidden Scrollbar",
-  "property": "hiddenscroll",
-  "authors": ["Oleg Korsunsky"],
-  "tags": ["overlay"],
-  "notes": [{
-    "name": "Overlay Scrollbar description",
-    "href": "https://developer.apple.com/library/mac/releasenotes/MacOSX/WhatsNewInOSX/Articles/MacOSX10_7.html#//apple_ref/doc/uid/TP40010355-SW39"
-  },{
-    "name": "Video example of overlay scrollbars",
-    "href": "https://gfycat.com/FoolishMeaslyAtlanticsharpnosepuffer"
-  }]
-}
-!*/
-/* DOC
-Detects overlay scrollbars (when scrollbars on overflowed blocks are visible). This is found most commonly on mobile and OS X.
-*/
-
-  Modernizr.addTest('hiddenscroll', function() {
-    return testStyles('#modernizr {width:100px;height:100px;overflow:scroll}', function(elem) {
-      return elem.offsetWidth === elem.clientWidth;
-    });
-  });
-
-/*!
-{
-  "name": "History API",
-  "property": "history",
-  "caniuse": "history",
-  "tags": ["history"],
-  "authors": ["Hay Kranen", "Alexander Farkas"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/html51/browsers.html#the-history-interface"
-  }, {
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.history"
-  }],
-  "polyfills": ["historyjs", "html5historyapi"]
-}
-!*/
-/* DOC
-Detects support for the History API for manipulating the browser session history.
-*/
-
-  Modernizr.addTest('history', function() {
-    // Issue #733
-    // The stock browser on Android 2.2 & 2.3, and 4.0.x returns positive on history support
-    // Unfortunately support is really buggy and there is no clean way to detect
-    // these bugs, so we fall back to a user agent sniff :(
-    var ua = navigator.userAgent;
-
-    // We only want Android 2 and 4.0, stock browser, and not Chrome which identifies
-    // itself as 'Mobile Safari' as well, nor Windows Phone (issue #1471).
-    if ((ua.indexOf('Android 2.') !== -1 ||
-        (ua.indexOf('Android 4.0') !== -1)) &&
-        ua.indexOf('Mobile Safari') !== -1 &&
-        ua.indexOf('Chrome') === -1 &&
-        ua.indexOf('Windows Phone') === -1 &&
-    // Since all documents on file:// share an origin, the History apis are
-    // blocked there as well
-        location.protocol !== 'file:'
-    ) {
-      return false;
-    }
-
-    // Return the regular check
-    return (window.history && 'pushState' in window.history);
-  });
-
-/*!
-{
-  "name": "HTML Imports",
-  "notes": [
-    {
-      "name": "W3C HTML Imports Specification",
-      "href": "https://w3c.github.io/webcomponents/spec/imports/"
-    },
-    {
-      "name": "HTML Imports - #include for the web",
-      "href": "http://www.html5rocks.com/en/tutorials/webcomponents/imports/"
-    }
-  ],
-  "polyfills": ["polymer-htmlimports"],
-  "property": "htmlimports",
-  "tags": ["html", "import"]
-}
-!*/
-/* DOC
-Detects support for HTML import, a feature that is used for loading in Web Components.
- */
-
-
-  addTest('htmlimports', 'import' in createElement('link'));
-
-/*!
-{
-  "name": "iframe[sandbox] Attribute",
-  "property": "sandbox",
-  "tags": ["iframe"],
-  "builderAliases": ["iframe_sandbox"],
-  "notes": [
-  {
-    "name": "WhatWG Spec",
-    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-sandbox"
-  }],
-  "knownBugs": [ "False-positive on Firefox < 29" ]
-}
-!*/
-/* DOC
-Test for `sandbox` attribute in iframes.
-*/
-
-  Modernizr.addTest('sandbox', 'sandbox' in createElement('iframe'));
-
-/*!
-{
-  "name": "iframe[seamless] Attribute",
-  "property": "seamless",
-  "tags": ["iframe"],
-  "builderAliases": ["iframe_seamless"],
-  "notes": [{
-    "name": "WhatWG Spec",
-    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-seamless"
-  }]
-}
-!*/
-/* DOC
-Test for `seamless` attribute in iframes.
-*/
-
-  Modernizr.addTest('seamless', 'seamless' in createElement('iframe'));
-
-/*!
-{
-  "name": "iframe[srcdoc] Attribute",
-  "property": "srcdoc",
-  "tags": ["iframe"],
-  "builderAliases": ["iframe_srcdoc"],
-  "notes": [{
-    "name": "WhatWG Spec",
-    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-srcdoc"
-  }]
-}
-!*/
-/* DOC
-Test for `srcdoc` attribute in iframes.
-*/
-
-  Modernizr.addTest('srcdoc', 'srcdoc' in createElement('iframe'));
-
-/*!
-{
-  "name": "JSON",
-  "property": "json",
-  "caniuse": "json",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Glossary/JSON"
-  }],
-  "polyfills": ["json2"]
-}
-!*/
-/* DOC
-Detects native support for JSON handling functions.
-*/
-
-  // this will also succeed if you've loaded the JSON2.js polyfill ahead of time
-  //   ... but that should be obvious. :)
-
-  Modernizr.addTest('json', 'JSON' in window && 'parse' in JSON && 'stringify' in JSON);
-
-/*!
-{
-  "name": "Hover Media Query",
-  "property": "hovermq",
-  "notes": [{
-    "name": "//Name of reference document",
-    "href": "//URL of reference document"
-  }]
-}
-!*/
-/* DOC
-Detect support for Hover based media queries
-*/
-
-  Modernizr.addTest('hovermq', mq(('(hover)')));
-
-/*!
-{
-  "name": "Pointer Media Query",
-  "property": "pointermq",
-  "notes": [{
-    "name": "//Name of reference document",
-    "href": "//URL of reference document"
-  }]
-}
-!*/
-/* DOC
-Detect support for Pointer based media queries
-*/
-
-  Modernizr.addTest('pointermq', mq(('(pointer:coarse),(pointer:fine),(pointer:none)')));
-
-/*!
-{
-  "name": "Notification",
-  "property": "notification",
-  "caniuse": "notifications",
-  "authors": ["Theodoor van Donge", "Hendrik Beskow"],
-  "notes": [{
-    "name": "HTML5 Rocks tutorial",
-    "href": "http://www.html5rocks.com/en/tutorials/notifications/quick/"
-  },{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/notifications/"
-  }, {
-    "name": "Changes in Chrome to Notifications API due to Service Worker Push Notifications",
-    "href": "https://developers.google.com/web/updates/2015/05/Notifying-you-of-notificiation-changes"
-  }],
-  "knownBugs": [
-    "Possibility of false-positive on Chrome for Android if permissions we're granted for a website prior to Chrome 44."
-  ],
-  "polyfills": ["desktop-notify", "html5-notifications"]
-}
-!*/
-/* DOC
-Detects support for the Notifications API
-*/
-
-  Modernizr.addTest('notification', function() {
-    if (!window.Notification || !window.Notification.requestPermission) {
-      return false;
-    }
-    // if permission is already granted, assume support
-    if (window.Notification.permission === 'granted') {
-      return true;
-    }
-
-    try {
-      new window.Notification('');
-    } catch (e) {
-      if (e.name === 'TypeError') {
-        return false;
-      }
-    }
-
-    return true;
-  });
-
-/*!
-{
-  "name": "Page Visibility API",
-  "property": "pagevisibility",
-  "caniuse": "pagevisibility",
-  "tags": ["performance"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/DOM/Using_the_Page_Visibility_API"
-  },{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/2011/WD-page-visibility-20110602/"
-  },{
-    "name": "HTML5 Rocks tutorial",
-    "href": "http://www.html5rocks.com/en/tutorials/pagevisibility/intro/"
-  }],
-  "polyfills": ["visibilityjs", "visiblyjs", "jquery-visibility"]
-}
-!*/
-/* DOC
-Detects support for the Page Visibility API, which can be used to disable unnecessary actions and otherwise improve user experience.
-*/
-
-  Modernizr.addTest('pagevisibility', !!prefixed('hidden', document, false));
-
-/*!
-{
-  "name": "Navigation Timing API",
-  "property": "performance",
-  "caniuse": "nav-timing",
-  "tags": ["performance"],
-  "authors": ["Scott Murphy (@uxder)"],
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "https://www.w3.org/TR/navigation-timing/"
-  },{
-    "name": "HTML5 Rocks article",
-    "href": "http://www.html5rocks.com/en/tutorials/webperformance/basics/"
-  }],
-  "polyfills": ["perfnow"]
-}
-!*/
-/* DOC
-Detects support for the Navigation Timing API, for measuring browser and connection performance.
-*/
-
-  Modernizr.addTest('performance', !!prefixed('performance', window));
-
-/*!
-{
-  "name": "postMessage",
-  "property": "postmessage",
-  "caniuse": "x-doc-messaging",
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "http://www.w3.org/TR/html5/comms.html#posting-messages"
-  }],
-  "polyfills": ["easyxdm", "postmessage-jquery"]
-}
-!*/
-/* DOC
-Detects support for the `window.postMessage` protocol for cross-document messaging.
-*/
-
-  Modernizr.addTest('postmessage', 'postMessage' in window);
-
-/*!
-{
-  "authors": ["Cătălin Mariș"],
-  "caniuse": "proximity",
-  "name": "Proximity API",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Events"
-  },{
-    "name": "W3C specification",
-    "href": "https://www.w3.org/TR/proximity/"
-  }],
-  "property": "proximity",
-  "tags": ["events", "proximity"]
-}
-!*/
-/* DOC
-Detects support for an API that allows users to get proximity related information from the device's proximity sensor.
-*/
-
-
-  Modernizr.addAsyncTest(function() {
-
-    var timeout;
-    var timeoutTime = 300;
-
-    function advertiseSupport() {
-
-      // Clean up after ourselves
-      clearTimeout(timeout);
-      window.removeEventListener('deviceproximity', advertiseSupport);
-
-      // Advertise support as the browser supports
-      // the API and the device has a proximity sensor
-      addTest('proximity', true);
-
-    }
-
-    // Check if the browser has support for the API
-    if ('ondeviceproximity' in window && 'onuserproximity' in window) {
-
-      // Check if the device has a proximity sensor
-      // ( devices without such a sensor support the events but
-      //   will never fire them resulting in a false positive )
-      window.addEventListener('deviceproximity', advertiseSupport);
-
-      // If the event doesn't fire in a reasonable amount of time,
-      // it means that the device doesn't have a proximity sensor,
-      // thus, we can advertise the "lack" of support
-      timeout = setTimeout(function() {
-        window.removeEventListener('deviceproximity', advertiseSupport);
-        addTest('proximity', false);
-      }, timeoutTime);
-
-    } else {
-      addTest('proximity', false);
-    }
-
-  });
-
-
-/*!
-{
-  "name": "QuerySelector",
-  "property": "queryselector",
-  "caniuse": "queryselector",
-  "tags": ["queryselector"],
-  "authors": ["Andrew Betts (@triblondon)"],
-  "notes": [{
-    "name" : "W3C Selectors reference",
-    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
-  }],
-  "polyfills": ["css-selector-engine"]
-}
-!*/
-/* DOC
-Detects support for querySelector.
-*/
-
-  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
-
-/*!
-{
-  "name": "requestAnimationFrame",
-  "property": "requestanimationframe",
-  "aliases": ["raf"],
-  "caniuse": "requestanimationframe",
-  "tags": ["animation"],
-  "authors": ["Addy Osmani"],
-  "notes": [{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/animation-timing/"
-  }],
-  "polyfills": ["raf"]
-}
-!*/
-/* DOC
-Detects support for the `window.requestAnimationFrame` API, for offloading animation repainting to the browser for optimized performance.
-*/
-
-  Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
-
-/*!
-{
-  "name": "Local Storage",
-  "property": "localstorage",
-  "caniuse": "namevalue-storage",
-  "tags": ["storage"],
-  "knownBugs": [],
-  "notes": [],
-  "warnings": [],
-  "polyfills": [
-    "joshuabell-polyfill",
-    "cupcake",
-    "storagepolyfill",
-    "amplifyjs",
-    "yui-cacheoffline"
-  ]
-}
-!*/
-
-  // In FF4, if disabled, window.localStorage should === null.
-
-  // Normally, we could not test that directly and need to do a
-  //   `('localStorage' in window)` test first because otherwise Firefox will
-  //   throw bugzil.la/365772 if cookies are disabled
-
-  // Similarly, in Chrome with "Block third-party cookies and site data" enabled,
-  // attempting to access `window.sessionStorage` will throw an exception. crbug.com/357625
-
-  // Also in iOS5 Private Browsing mode, attempting to use localStorage.setItem
-  // will throw the exception:
-  //   QUOTA_EXCEEDED_ERROR DOM Exception 22.
-  // Peculiarly, getItem and removeItem calls do not throw.
-
-  // Because we are forced to try/catch this, we'll go aggressive.
-
-  // Just FWIW: IE8 Compat mode supports these features completely:
-  //   www.quirksmode.org/dom/html5.html
-  // But IE8 doesn't support either with local files
-
-  Modernizr.addTest('localstorage', function() {
-    var mod = 'modernizr';
-    try {
-      localStorage.setItem(mod, mod);
-      localStorage.removeItem(mod);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "Session Storage",
-  "property": "sessionstorage",
-  "tags": ["storage"],
-  "polyfills": ["joshuabell-polyfill", "cupcake", "sessionstorage"]
-}
-!*/
-
-  // Because we are forced to try/catch this, we'll go aggressive.
-
-  // Just FWIW: IE8 Compat mode supports these features completely:
-  //   www.quirksmode.org/dom/html5.html
-  // But IE8 doesn't support either with local files
-  Modernizr.addTest('sessionstorage', function() {
-    var mod = 'modernizr';
-    try {
-      sessionStorage.setItem(mod, mod);
-      sessionStorage.removeItem(mod);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "Web SQL Database",
-  "property": "websqldatabase",
-  "caniuse": "sql-storage",
-  "tags": ["storage"]
-}
-!*/
-
-  // Chrome incognito mode used to throw an exception when using openDatabase
-  // It doesn't anymore.
-  Modernizr.addTest('websqldatabase', 'openDatabase' in window);
-
-/*!
-{
-  "name": "Touch Events",
-  "property": "touchevents",
-  "caniuse" : "touch",
-  "tags": ["media", "attribute"],
-  "notes": [{
-    "name": "Touch Events spec",
-    "href": "https://www.w3.org/TR/2013/WD-touch-events-20130124/"
-  }],
-  "warnings": [
-    "Indicates if the browser supports the Touch Events spec, and does not necessarily reflect a touchscreen device"
-  ],
-  "knownBugs": [
-    "False-positive on some configurations of Nokia N900",
-    "False-positive on some BlackBerry 6.0 builds – https://github.com/Modernizr/Modernizr/issues/372#issuecomment-3112695"
-  ]
-}
-!*/
-/* DOC
-Indicates if the browser supports the W3C Touch Events API.
-
-This *does not* necessarily reflect a touchscreen device:
-
-* Older touchscreen devices only emulate mouse events
-* Modern IE touch devices implement the Pointer Events API instead: use `Modernizr.pointerevents` to detect support for that
-* Some browsers & OS setups may enable touch APIs when no touchscreen is connected
-* Future browsers may implement other event models for touch interactions
-
-See this article: [You Can't Detect A Touchscreen](http://www.stucox.com/blog/you-cant-detect-a-touchscreen/).
-
-It's recommended to bind both mouse and touch/pointer events simultaneously – see [this HTML5 Rocks tutorial](http://www.html5rocks.com/en/mobile/touchandmouse/).
-
-This test will also return `true` for Firefox 4 Multitouch support.
-*/
-
-  // Chrome (desktop) used to lie about its support on this, but that has since been rectified: http://crbug.com/36415
-  Modernizr.addTest('touchevents', function() {
-    var bool;
-    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-      bool = true;
-    } else {
-      // include the 'heartz' as a way to have a non matching MQ to help terminate the join
-      // https://git.io/vznFH
-      var query = ['@media (', prefixes.join('touch-enabled),('), 'heartz', ')', '{#modernizr{top:9px;position:absolute}}'].join('');
-      testStyles(query, function(node) {
-        bool = node.offsetTop === 9;
-      });
-    }
-    return bool;
-  });
-
-/*!
-{
-  "name": "Unicode characters",
-  "property": "unicode",
-  "tags": ["encoding"],
-  "warnings": [
-    "positive Unicode support doesn't mean you can use it inside <title>, this seems more related to OS & Language packs"
-  ]
-}
-!*/
-/* DOC
-Detects if unicode characters are supported in the current document.
-*/
-
-  /**
-   * Unicode special character support
-   *
-   * Detection is made by testing missing glyph box rendering against star character
-   * If widths are the same, this "probably" means the browser didn't support the star character and rendered a glyph box instead
-   * Just need to ensure the font characters have different widths
-   */
-  Modernizr.addTest('unicode', function() {
-    var bool;
-    var missingGlyph = createElement('span');
-    var star = createElement('span');
-
-    testStyles('#modernizr{font-family:Arial,sans;font-size:300em;}', function(node) {
-
-      missingGlyph.innerHTML = isSVG ? '\u5987' : '&#5987;';
-      star.innerHTML = isSVG ? '\u2606' : '&#9734;';
-
-      node.appendChild(missingGlyph);
-      node.appendChild(star);
-
-      bool = 'offsetWidth' in missingGlyph && missingGlyph.offsetWidth !== star.offsetWidth;
-    });
-
-    return bool;
-
-  });
-
-/*!
-{
-  "name": "Unicode Range",
-  "property": "unicoderange",
-  "notes": [{
-    "name" : "W3C reference",
-    "href": "https://www.w3.org/TR/2013/CR-css-fonts-3-20131003/#descdef-unicode-range"
-  }, {
-    "name" : "24 Way article",
-    "href": "https://24ways.org/2011/creating-custom-font-stacks-with-unicode-range"
-  }]
-}
-!*/
-
-  Modernizr.addTest('unicoderange', function() {
-
-    return Modernizr.testStyles('@font-face{font-family:"unicodeRange";src:local("Arial");unicode-range:U+0020,U+002E}#modernizr span{font-size:20px;display:inline-block;font-family:"unicodeRange",monospace}#modernizr .mono{font-family:monospace}', function(elem) {
-
-      // we use specify a unicode-range of 002E (the `.` glyph,
-      // and a monospace font as the fallback. If the first of
-      // these test glyphs is a different width than the other
-      // the other three (which are all monospace), then we
-      // have a winner.
-      var testGlyphs = ['.', '.', 'm', 'm'];
-
-      for (var i = 0; i < testGlyphs.length; i++) {
-        var elm = createElement('span');
-        elm.innerHTML = testGlyphs[i];
-        elm.className = i % 2 ? 'mono' : '';
-        elem.appendChild(elm);
-        testGlyphs[i] = elm.clientWidth;
-      }
-
-      return (testGlyphs[0] !== testGlyphs[1] && testGlyphs[2] === testGlyphs[3]);
-    });
-  });
-
-/*!
-{
-  "name": "Blob URLs",
-  "property": "bloburls",
-  "caniuse": "bloburls",
-  "notes": [{
-    "name": "W3C Working Draft",
-    "href": "https://www.w3.org/TR/FileAPI/#creating-revoking"
-  }],
-  "tags": ["file", "url"],
-  "authors": ["Ron Waldon (@jokeyrhyme)"]
-}
-!*/
-/* DOC
-Detects support for creating Blob URLs
-*/
-
-  var url = prefixed('URL', window, false);
-  url = url && window[url];
-  Modernizr.addTest('bloburls', url && 'revokeObjectURL' in url && 'createObjectURL' in url);
-
-/*!
-{
-  "name": "Data URI",
-  "property": "datauri",
-  "caniuse": "datauri",
-  "tags": ["url"],
-  "builderAliases": ["url_data_uri"],
-  "async": true,
-  "notes": [{
-    "name": "Wikipedia article",
-    "href": "https://en.wikipedia.org/wiki/Data_URI_scheme"
-  }],
-  "warnings": ["Support in Internet Explorer 8 is limited to images and linked resources like CSS files, not HTML files"]
-}
-!*/
-/* DOC
-Detects support for data URIs. Provides a subproperty to report support for data URIs over 32kb in size:
-
-```javascript
-Modernizr.datauri           // true
-Modernizr.datauri.over32kb  // false in IE8
-```
-*/
-
-  // https://github.com/Modernizr/Modernizr/issues/14
-  Modernizr.addAsyncTest(function() {
-
-    // IE7 throw a mixed content warning on HTTPS for this test, so we'll
-    // just blacklist it (we know it doesn't support data URIs anyway)
-    // https://github.com/Modernizr/Modernizr/issues/362
-    if (navigator.userAgent.indexOf('MSIE 7.') !== -1) {
-      // Keep the test async
-      setTimeout(function() {
-        addTest('datauri', false);
-      }, 10);
-    }
-
-    var datauri = new Image();
-
-    datauri.onerror = function() {
-      addTest('datauri', false);
-    };
-    datauri.onload = function() {
-      if (datauri.width == 1 && datauri.height == 1) {
-        testOver32kb();
-      }
-      else {
-        addTest('datauri', false);
-      }
-    };
-
-    datauri.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-    // Once we have datauri, let's check to see if we can use data URIs over
-    // 32kb (IE8 can't). https://github.com/Modernizr/Modernizr/issues/321
-    function testOver32kb() {
-
-      var datauriBig = new Image();
-
-      datauriBig.onerror = function() {
-        addTest('datauri', true);
-        Modernizr.datauri = new Boolean(true);
-        Modernizr.datauri.over32kb = false;
-      };
-      datauriBig.onload = function() {
-        addTest('datauri', true);
-        Modernizr.datauri = new Boolean(true);
-        Modernizr.datauri.over32kb = (datauriBig.width == 1 && datauriBig.height == 1);
-      };
-
-      var base64str = 'R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-      while (base64str.length < 33000) {
-        base64str = '\r\n' + base64str;
-      }
-      datauriBig.src = 'data:image/gif;base64,' + base64str;
-    }
-
-  });
-
-/*!
-{
-  "name": "URL parser",
-  "property": "urlparser",
-  "notes": [{
-    "name": "URL",
-    "href": "https://dvcs.w3.org/hg/url/raw-file/tip/Overview.html"
-  }],
-  "polyfills": ["urlparser"],
-  "authors": ["Ron Waldon (@jokeyrhyme)"],
-  "tags": ["url"]
-}
-!*/
-/* DOC
-Check if browser implements the URL constructor for parsing URLs.
-*/
-
-  Modernizr.addTest('urlparser', function() {
-    var url;
-    try {
-      // have to actually try use it, because Safari defines a dud constructor
-      url = new URL('http://modernizr.com/');
-      return url.href === 'http://modernizr.com/';
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "authors": ["Cătălin Mariș"],
-  "name": "URLSearchParams API",
-  "notes": [
-    {
-      "name": "WHATWG specification",
-      "href": "https://url.spec.whatwg.org/#interface-urlsearchparams"
-    },
-    {
-      "name": "MDN documentation",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
-    }
-  ],
-  "property": "urlsearchparams",
-  "tags": ["querystring", "url"]
-}
-!*/
-
-/* DOC
-Detects support for an API that provides utility methods for working with the query string of a URL.
-*/
-
-
-  Modernizr.addTest('urlsearchparams', 'URLSearchParams' in window);
-
-/*!
-{
-  "name": "IE User Data API",
-  "property": "userdata",
-  "tags": ["storage"],
-  "authors": ["@stereobooster"],
-  "notes": [{
-    "name": "MSDN Documentation",
-    "href": "https://msdn.microsoft.com/en-us/library/ms531424.aspx"
-  }]
-}
-!*/
-/* DOC
-Detects support for IE userData for persisting data, an API similar to localStorage but supported since IE5.
-*/
-
-  Modernizr.addTest('userdata', !!createElement('div').addBehavior);
-
-/*!
-{
-  "name": "Vibration API",
-  "property": "vibrate",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en/DOM/window.navigator.mozVibrate"
-  },{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/vibration/"
-  }]
-}
-!*/
-/* DOC
-Detects support for the API that provides access to the vibration mechanism of the hosting device, to provide tactile feedback.
-*/
-
-  Modernizr.addTest('vibrate', !!prefixed('vibrate', navigator));
-
-/*!
-{
-  "name": "HTML5 Video",
-  "property": "video",
-  "caniuse": "video",
-  "tags": ["html5"],
-  "knownBugs": [
-    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
-  ],
-  "polyfills": [
-    "html5media",
-    "mediaelementjs",
-    "sublimevideo",
-    "videojs",
-    "leanbackplayer",
-    "videoforeverybody"
-  ]
-}
-!*/
-/* DOC
-Detects support for the video element, as well as testing what types of content it supports.
-
-Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
-
-```javascript
-Modernizr.video         // true
-Modernizr.video.ogg     // 'probably'
-```
-*/
-
-  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
-  //                     thx to NielsLeenheer and zcorpan
-
-  // Note: in some older browsers, "no" was a return value instead of empty string.
-  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
-  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
-
-  Modernizr.addTest('video', function() {
-    var elem = createElement('video');
-    var bool = false;
-
-    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
-    try {
-      bool = !!elem.canPlayType
-      if (bool) {
-        bool = new Boolean(bool);
-        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
-
-        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
-        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
-
-        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
-
-        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
-
-        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
-      }
-    } catch (e) {}
-
-    return bool;
-  });
-
-/*!
-{
-  "name": "Video Autoplay",
-  "property": "videoautoplay",
-  "tags": ["video"],
-  "async" : true,
-  "warnings": ["This test is very large – only include it if you absolutely need it"],
-  "knownBugs": ["crashes with an alert on iOS7 when added to homescreen"]
-}
-!*/
-/* DOC
-Checks for support of the autoplay attribute of the video element.
-*/
-
-
-  Modernizr.addAsyncTest(function() {
-    var timeout;
-    var waitTime = 200;
-    var retries = 5;
-    var currentTry = 0;
-    var elem = createElement('video');
-    var elemStyle = elem.style;
-
-    function testAutoplay(arg) {
-      currentTry++;
-      clearTimeout(timeout);
-
-      var result = arg && arg.type === 'playing' || elem.currentTime !== 0;
-
-      if (!result && currentTry < retries) {
-        //Detection can be flaky if the browser is slow, so lets retry in a little bit
-        timeout = setTimeout(testAutoplay, waitTime);
-        return;
-      }
-
-      elem.removeEventListener('playing', testAutoplay, false);
-      addTest('videoautoplay', result);
-
-      // Cleanup, but don't assume elem is still in the page -
-      // an extension (eg Flashblock) may already have removed it.
-      if (elem.parentNode) {
-        elem.parentNode.removeChild(elem);
-      }
-    }
-
-    //skip the test if video itself, or the autoplay
-    //element on it isn't supported
-    if (!Modernizr.video || !('autoplay' in elem)) {
-      addTest('videoautoplay', false);
-      return;
-    }
-
-    elemStyle.position = 'absolute';
-    elemStyle.height = 0;
-    elemStyle.width = 0;
-
-    try {
-      if (Modernizr.video.ogg) {
-        elem.src = 'data:video/ogg;base64,T2dnUwACAAAAAAAAAABmnCATAAAAAHDEixYBKoB0aGVvcmEDAgEAAQABAAAQAAAQAAAAAAAFAAAAAQAAAAAAAAAAAGIAYE9nZ1MAAAAAAAAAAAAAZpwgEwEAAAACrA7TDlj///////////////+QgXRoZW9yYSsAAABYaXBoLk9yZyBsaWJ0aGVvcmEgMS4xIDIwMDkwODIyIChUaHVzbmVsZGEpAQAAABoAAABFTkNPREVSPWZmbXBlZzJ0aGVvcmEtMC4yOYJ0aGVvcmG+zSj3uc1rGLWpSUoQc5zmMYxSlKQhCDGMYhCEIQhAAAAAAAAAAAAAEW2uU2eSyPxWEvx4OVts5ir1aKtUKBMpJFoQ/nk5m41mUwl4slUpk4kkghkIfDwdjgajQYC8VioUCQRiIQh8PBwMhgLBQIg4FRba5TZ5LI/FYS/Hg5W2zmKvVoq1QoEykkWhD+eTmbjWZTCXiyVSmTiSSCGQh8PB2OBqNBgLxWKhQJBGIhCHw8HAyGAsFAiDgUCw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDAwPEhQUFQ0NDhESFRUUDg4PEhQVFRUOEBETFBUVFRARFBUVFRUVEhMUFRUVFRUUFRUVFRUVFRUVFRUVFRUVEAwLEBQZGxwNDQ4SFRwcGw4NEBQZHBwcDhATFhsdHRwRExkcHB4eHRQYGxwdHh4dGxwdHR4eHh4dHR0dHh4eHRALChAYKDM9DAwOExo6PDcODRAYKDlFOA4RFh0zV1A+EhYlOkRtZ00YIzdAUWhxXDFATldneXhlSFxfYnBkZ2MTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEhIVGRoaGhoSFBYaGhoaGhUWGRoaGhoaGRoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhESFh8kJCQkEhQYIiQkJCQWGCEkJCQkJB8iJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQREhgvY2NjYxIVGkJjY2NjGBo4Y2NjY2MvQmNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRISEhUXGBkbEhIVFxgZGxwSFRcYGRscHRUXGBkbHB0dFxgZGxwdHR0YGRscHR0dHhkbHB0dHR4eGxwdHR0eHh4REREUFxocIBERFBcaHCAiERQXGhwgIiUUFxocICIlJRcaHCAiJSUlGhwgIiUlJSkcICIlJSUpKiAiJSUlKSoqEBAQFBgcICgQEBQYHCAoMBAUGBwgKDBAFBgcICgwQEAYHCAoMEBAQBwgKDBAQEBgICgwQEBAYIAoMEBAQGCAgAfF5cdH1e3Ow/L66wGmYnfIUbwdUTe3LMRbqON8B+5RJEvcGxkvrVUjTMrsXYhAnIwe0dTJfOYbWrDYyqUrz7dw/JO4hpmV2LsQQvkUeGq1BsZLx+cu5iV0e0eScJ91VIQYrmqfdVSK7GgjOU0oPaPOu5IcDK1mNvnD+K8LwS87f8Jx2mHtHnUkTGAurWZlNQa74ZLSFH9oF6FPGxzLsjQO5Qe0edcpttd7BXBSqMCL4k/4tFrHIPuEQ7m1/uIWkbDMWVoDdOSuRQ9286kvVUlQjzOE6VrNguN4oRXYGkgcnih7t13/9kxvLYKQezwLTrO44sVmMPgMqORo1E0sm1/9SludkcWHwfJwTSybR4LeAz6ugWVgRaY8mV/9SluQmtHrzsBtRF/wPY+X0JuYTs+ltgrXAmlk10xQHmTu9VSIAk1+vcvU4ml2oNzrNhEtQ3CysNP8UeR35wqpKUBdGdZMSjX4WVi8nJpdpHnbhzEIdx7mwf6W1FKAiucMXrWUWVjyRf23chNtR9mIzDoT/6ZLYailAjhFlZuvPtSeZ+2oREubDoWmT3TguY+JHPdRVSLKxfKH3vgNqJ/9emeEYikGXDFNzaLjvTeGAL61mogOoeG3y6oU4rW55ydoj0lUTSR/mmRhPmF86uwIfzp3FtiufQCmppaHDlGE0r2iTzXIw3zBq5hvaTldjG4CPb9wdxAme0SyedVKczJ9AtYbgPOzYKJvZZImsN7ecrxWZg5dR6ZLj/j4qpWsIA+vYwE+Tca9ounMIsrXMB4Stiib2SPQtZv+FVIpfEbzv8ncZoLBXc3YBqTG1HsskTTotZOYTG+oVUjLk6zhP8bg4RhMUNtfZdO7FdpBuXzhJ5Fh8IKlJG7wtD9ik8rWOJxy6iQ3NwzBpQ219mlyv+FLicYs2iJGSE0u2txzed++D61ZWCiHD/cZdQVCqkO2gJpdpNaObhnDfAPrT89RxdWFZ5hO3MseBSIlANppdZNIV/Rwe5eLTDvkfWKzFnH+QJ7m9QWV1KdwnuIwTNtZdJMoXBf74OhRnh2t+OTGL+AVUnIkyYY+QG7g9itHXyF3OIygG2s2kud679ZWKqSFa9n3IHD6MeLv1lZ0XyduRhiDRtrNnKoyiFVLcBm0ba5Yy3fQkDh4XsFE34isVpOzpa9nR8iCpS4HoxG2rJpnRhf3YboVa1PcRouh5LIJv/uQcPNd095ickTaiGBnWLKVWRc0OnYTSyex/n2FofEPnDG8y3PztHrzOLK1xo6RAml2k9owKajOC0Wr4D5x+3nA0UEhK2m198wuBHF3zlWWVKWLN1CHzLClUfuoYBcx4b1llpeBKmbayaR58njtE9onD66lUcsg0Spm2snsb+8HaJRn4dYcLbCuBuYwziB8/5U1C1DOOz2gZjSZtrLJk6vrLF3hwY4Io9xuT/ruUFRSBkNtUzTOWhjh26irLEPx4jPZL3Fo3QrReoGTTM21xYTT9oFdhTUIvjqTkfkvt0bzgVUjq/hOYY8j60IaO/0AzRBtqkTS6R5ellZd5uKdzzhb8BFlDdAcrwkE0rbXTOPB+7Y0FlZO96qFL4Ykg21StJs8qIW7h16H5hGiv8V2Cflau7QVDepTAHa6Lgt6feiEvJDM21StJsmOH/hynURrKxvUpQ8BH0JF7BiyG2qZpnL/7AOU66gt+reLEXY8pVOCQvSsBtqZTNM8bk9ohRcwD18o/WVkbvrceVKRb9I59IEKysjBeTMmmbA21xu/6iHadLRxuIzkLpi8wZYmmbbWi32RVAUjruxWlJ//iFxE38FI9hNKOoCdhwf5fDe4xZ81lgREhK2m1j78vW1CqkuMu/AjBNK210kzRUX/B+69cMMUG5bYrIeZxVSEZISmkzbXOi9yxwIfPgdsov7R71xuJ7rFcACjG/9PzApqFq7wEgzNJm2suWESPuwrQvejj7cbnQxMkxpm21lUYJL0fKmogPPqywn7e3FvB/FCNxPJ85iVUkCE9/tLKx31G4CgNtWTTPFhMvlu8G4/TrgaZttTChljfNJGgOT2X6EqpETy2tYd9cCBI4lIXJ1/3uVUllZEJz4baqGF64yxaZ+zPLYwde8Uqn1oKANtUrSaTOPHkhvuQP3bBlEJ/LFe4pqQOHUI8T8q7AXx3fLVBgSCVpMba55YxN3rv8U1Dv51bAPSOLlZWebkL8vSMGI21lJmmeVxPRwFlZF1CpqCN8uLwymaZyjbXHCRytogPN3o/n74CNykfT+qqRv5AQlHcRxYrC5KvGmbbUwmZY/29BvF6C1/93x4WVglXDLFpmbapmF89HKTogRwqqSlGbu+oiAkcWFbklC6Zhf+NtTLFpn8oWz+HsNRVSgIxZWON+yVyJlE5tq/+GWLTMutYX9ekTySEQPLVNQQ3OfycwJBM0zNtZcse7CvcKI0V/zh16Dr9OSA21MpmmcrHC+6pTAPHPwoit3LHHqs7jhFNRD6W8+EBGoSEoaZttTCZljfduH/fFisn+dRBGAZYtMzbVMwvul/T/crK1NQh8gN0SRRa9cOux6clC0/mDLFpmbarmF8/e6CopeOLCNW6S/IUUg3jJIYiAcDoMcGeRbOvuTPjXR/tyo79LK3kqqkbxkkMRAOB0GODPItnX3Jnxro/25Ud+llbyVVSN4ySGIgHA6DHBnkWzr7kz410f7cqO/Syt5KqpFVJwn6gBEvBM0zNtZcpGOEPiysW8vvRd2R0f7gtjhqUvXL+gWVwHm4XJDBiMpmmZtrLfPwd/IugP5+fKVSysH1EXreFAcEhelGmbbUmZY4Xdo1vQWVnK19P4RuEnbf0gQnR+lDCZlivNM22t1ESmopPIgfT0duOfQrsjgG4tPxli0zJmF5trdL1JDUIUT1ZXSqQDeR4B8mX3TrRro/2McGeUvLtwo6jIEKMkCUXWsLyZROd9P/rFYNtXPBli0z398iVUlVKAjFlY437JXImUTm2r/4ZYtMy61hf16RPJIU9nZ1MABAwAAAAAAAAAZpwgEwIAAABhp658BScAAAAAAADnUFBQXIDGXLhwtttNHDhw5OcpQRMETBEwRPduylKVB0HRdF0A';
-      }
-      else if (Modernizr.video.h264) {
-        elem.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAs1tZGF0AAACrgYF//+q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE0OCByMjYwMSBhMGNkN2QzIC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxNSAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTEgbG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRlcmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJfcHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTEwIHNjZW5lY3V0PTQwIGludHJhX3JlZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAuNjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAAD2WIhAA3//728P4FNjuZQQAAAu5tb292AAAAbG12aGQAAAAAAAAAAAAAAAAAAAPoAAAAZAABAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACGHRyYWsAAABcdGtoZAAAAAMAAAAAAAAAAAAAAAEAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAIAAAAAACRlZHRzAAAAHGVsc3QAAAAAAAAAAQAAAGQAAAAAAAEAAAAAAZBtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAAAACgAAAAEAFXEAAAAAAAtaGRscgAAAAAAAAAAdmlkZQAAAAAAAAAAAAAAAFZpZGVvSGFuZGxlcgAAAAE7bWluZgAAABR2bWhkAAAAAQAAAAAAAAAAAAAAJGRpbmYAAAAcZHJlZgAAAAAAAAABAAAADHVybCAAAAABAAAA+3N0YmwAAACXc3RzZAAAAAAAAAABAAAAh2F2YzEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgACAEgAAABIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY//8AAAAxYXZjQwFkAAr/4QAYZ2QACqzZX4iIhAAAAwAEAAADAFA8SJZYAQAGaOvjyyLAAAAAGHN0dHMAAAAAAAAAAQAAAAEAAAQAAAAAHHN0c2MAAAAAAAAAAQAAAAEAAAABAAAAAQAAABRzdHN6AAAAAAAAAsUAAAABAAAAFHN0Y28AAAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU2LjQwLjEwMQ==';
-      }
-      else {
-        addTest('videoautoplay', false);
-        return;
-      }
-    }
-
-    catch (e) {
-      addTest('videoautoplay', false);
-      return;
-    }
-
-    elem.setAttribute('autoplay', '');
-    elem.style.cssText = 'display:none';
-    docElement.appendChild(elem);
-    // wait for the next tick to add the listener, otherwise the element may
-    // not have time to play in high load situations (e.g. the test suite)
-    setTimeout(function() {
-      elem.addEventListener('playing', testAutoplay, false);
-      timeout = setTimeout(testAutoplay, waitTime);
-    }, 0);
-  });
-
-/*!
-{
-  "name": "Video crossOrigin",
-  "property": "videocrossorigin",
-  "caniuse": "cors",
-  "authors": ["Florian Mailliet"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes"
-  }]
-}
-!*/
-/* DOC
-Detects support for the crossOrigin attribute on video tag
-*/
-
-  Modernizr.addTest('videocrossorigin', 'crossOrigin' in createElement('video'));
-
-/*!
-{
-  "name": "Video Loop Attribute",
-  "property": "videoloop",
-  "tags": ["video", "media"]
-}
-!*/
-
-  Modernizr.addTest('videoloop', 'loop' in createElement('video'));
-
-/*!
-{
-  "name": "Video Preload Attribute",
-  "property": "videopreload",
-  "tags": ["video", "media"]
-}
-!*/
-
-  Modernizr.addTest('videopreload', 'preload' in createElement('video'));
-
-/*!
-{
-  "name": "XDomainRequest",
-  "property": "xdomainrequest",
-  "tags": ["cors", "xdomainrequest", "ie9", "ie8"],
-  "authors": ["Ivan Pan (@hypotenuse)"],
-  "notes": [
-  {
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/XDomainRequest"
-  },
-  {
-    "name": "MSDN documentation",
-    "href": "https://msdn.microsoft.com/library/ie/cc288060.aspx/"
-  }]
-}
-!*/
-/* DOC
-Detects support for XDomainRequest in IE9 & IE8
-*/
-
-  Modernizr.addTest('xdomainrequest', 'XDomainRequest' in window);
-
-
-  // Run each test
-  testRunner();
-
-  // Remove the "no-js" class if it exists
-  setClasses(classes);
-
-  delete ModernizrProto.addTest;
-  delete ModernizrProto.addAsyncTest;
-
-  // Run the things that are supposed to run after the tests
-  for (var i = 0; i < Modernizr._q.length; i++) {
-    Modernizr._q[i]();
-  }
-
-  // Leak Modernizr namespace
-  window.Modernizr = Modernizr;
-
-
-;
-
-})(window, document);
 
 /***/ }),
 /* 37 */
@@ -36673,7 +36960,24 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         },
 
         _findSiblings: function(elem, sel) {
-            return $(elem).closest('.pat-checklist').find(sel);
+            // Looks for the closest elements that match the `sel` selector
+            var checkbox_children, $parent;
+            var parents = $(elem).parents();
+            for (var i=0; i<parents.length; i++) {
+                $parent = $(parents[i]);
+                checkbox_children = $(parents[i]).find(sel);
+                if (checkbox_children.length != 0) {
+                    return checkbox_children;
+                }
+                if ($parent.hasClass('pat-checklist')) {
+                    // we reached the top node and did not find any match,
+                    // return an empty match
+                    return $([]);
+                }
+            }
+            // This should not happen because because we expect `elem` to have
+            // a .pat-checklist parent
+            return $([]);
         },
         onChange: function(event) {
             var $trigger = event.data.trigger,
@@ -37023,7 +37327,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     AbstractChosen.prototype.choice_label = function(item) {
       if (this.include_group_label_in_selected && (item.group_label != null)) {
-        return "<b class='group-name'>" + item.group_label + "</b>" + item.html;
+        return "<b class='group-name'>" + (this.escape_html(item.group_label)) + "</b>" + item.html;
       } else {
         return item.html;
       }
@@ -37129,7 +37433,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
       }
       option_el = document.createElement("li");
       option_el.className = classes.join(" ");
-      option_el.style.cssText = option.style;
+      if (option.style) {
+        option_el.style.cssText = option.style;
+      }
       option_el.setAttribute("data-option-array-index", option.array_index);
       option_el.innerHTML = option.highlighted_html || option.html;
       if (option.title) {
@@ -37203,7 +37509,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
       }
     };
 
-    AbstractChosen.prototype.winnow_results = function() {
+    AbstractChosen.prototype.winnow_results = function(options) {
       var escapedQuery, fix, i, len, option, prefix, query, ref, regex, results, results_group, search_match, startpos, suffix, text;
       this.no_results_clear();
       results = 0;
@@ -37259,7 +37565,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         return this.no_results(query);
       } else {
         this.update_results_content(this.results_option_build());
-        return this.winnow_results_set_highlight();
+        if (!(options != null ? options.skip_highlight : void 0)) {
+          return this.winnow_results_set_highlight();
+        }
       }
     };
 
@@ -37446,7 +37754,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     };
 
     AbstractChosen.prototype.get_single_html = function() {
-      return "<a class=\"chosen-single chosen-default\">\n  <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" />\n  <span>" + this.default_text + "</span>\n  <div><b></b></div>\n</a>\n<div class=\"chosen-drop\">\n  <div class=\"chosen-search\">\n  </div>\n  <ul class=\"chosen-results\"></ul>\n</div>";
+      return "<a class=\"chosen-single chosen-default\">\n  <span>" + this.default_text + "</span>\n  <div><b></b></div>\n</a>\n<div class=\"chosen-drop\">\n  <div class=\"chosen-search\">\n    <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" />\n  </div>\n  <ul class=\"chosen-results\"></ul>\n</div>";
     };
 
     AbstractChosen.prototype.get_multi_html = function() {
@@ -37803,7 +38111,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
       this.results_data = SelectParser.select_to_array(this.form_field);
       if (this.is_multiple) {
         this.search_choices.find("li.search-choice").remove();
-      } else if (!this.is_multiple) {
+      } else {
         this.single_set_selected_text();
         if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
           this.search_field[0].readOnly = true;
@@ -37855,9 +38163,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         });
         return false;
       }
-      if (!this.is_multiple) {
-        this.search_container.append(this.search_field);
-      }
       this.container.addClass("chosen-with-drop");
       this.results_showing = true;
       this.search_field.focus();
@@ -37875,10 +38180,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     Chosen.prototype.results_hide = function() {
       if (this.results_showing) {
         this.result_clear_highlight();
-        if (!this.is_multiple) {
-          this.selected_item.prepend(this.search_field);
-          this.search_field.focus();
-        }
         this.container.removeClass("chosen-with-drop");
         this.form_field_jq.trigger("chosen:hiding_dropdown", {
           chosen: this
@@ -38023,14 +38324,20 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         item.selected = true;
         this.form_field.options[item.options_index].selected = true;
         this.selected_option_count = null;
-        this.search_field.val("");
         if (this.is_multiple) {
           this.choice_build(item);
         } else {
           this.single_set_selected_text(this.choice_label(item));
         }
         if (this.is_multiple && (!this.hide_results_on_select || (evt.metaKey || evt.ctrlKey))) {
-          this.winnow_results();
+          if (evt.metaKey || evt.ctrlKey) {
+            this.winnow_results({
+              skip_highlight: true
+            });
+          } else {
+            this.search_field.val("");
+            this.winnow_results();
+          }
         } else {
           this.results_hide();
           this.show_search_field_default();
@@ -38887,69 +39194,83 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
 /* WEBPACK VAR INJECTION */(function($) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* pat-date-picker  - Polyfill for input type=date */
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-    __webpack_require__(6),
-    __webpack_require__(2),
-    __webpack_require__(1),
-    __webpack_require__(5),
-    __webpack_require__(47),
-    __webpack_require__(8),
-    __webpack_require__(48)
-], __WEBPACK_AMD_DEFINE_RESULT__ = (function(_, Parser, registry, Base, Pikaday, moment, momenttimezone) {
-    "use strict";
-    var parser = new Parser("date-picker");
-    parser.addArgument("behavior", "styled", ["native", "styled"]);
-    parser.addArgument("week-numbers", [], ["show", "hide"]);
-    parser.addArgument("i18n"); // URL pointing to JSON resource with i18n values
-    /* JSON format for i18n
-     * { "previousMonth": "Previous Month",
-     *   "nextMonth"    : "Next Month",
-     *   "months"       : ["January","February","March","April","May","June","July","August","September","October","November","December"],
-     *   "weekdays"     : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-     *   "weekdaysShort": ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-     * } */
-    parser.addAlias("behaviour", "behavior");
+        __webpack_require__(6),
+        __webpack_require__(2),
+        __webpack_require__(1),
+        __webpack_require__(5),
+        __webpack_require__(47),
+        __webpack_require__(8),
+        __webpack_require__(17)
+    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(_, Parser, registry, Base, Pikaday, moment) {
+        var parser = new Parser('date-picker');
+        parser.addArgument('behavior', 'styled', ['native', 'styled']);
+        parser.addArgument('format', 'YYYY-MM-DD');
+        parser.addArgument('week-numbers', [], ['show', 'hide']);
+        parser.addArgument('i18n'); // URL pointing to JSON resource with i18n values
+        /* JSON format for i18n
+        * { "previousMonth": "Previous Month",
+        *   "nextMonth"    : "Next Month",
+        *   "months"       : ["January","February","March","April","May","June","July","August","September","October","November","December"],
+        *   "weekdays"     : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        *   "weekdaysShort": ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+        * } */
+        parser.addAlias('behaviour', 'behavior');
 
-    return Base.extend({
-        name: "date-picker",
-        trigger: ".pat-date-picker",
-        init: function() {
-            this.options = $.extend(this.options, parser.parse(this.$el));
-            this.polyfill = this.options.behavior === "native";
-            if (this.polyfill && Modernizr.inputtypes.date) {
-                return;
-            }
-            if (this.$el.attr("type") === "date") {
-                this.$el.attr("type", "text");
-            }
-            var config = {
-                "field": this.$el[0],
-                "minDate": this.$el.attr("min") ? moment(this.$el.attr("min")).toDate() : undefined,
-                "maxDate": this.$el.attr("max") ? moment(this.$el.attr("max")).toDate() : undefined,
-                "showWeekNumber": this.options.weekNumbers === "show",
-                "onSelect": function () {
-                    $(this._o.field).closest("form").trigger("input-change");
-                    /* Also trigger input change on date field to support pat-autosubmit. */
-                    $(this._o.field).trigger("input-change");
+        return Base.extend({
+            name: 'date-picker',
+            trigger: '.pat-date-picker',
+            init: function() {
+                this.options = $.extend(parser.parse(this.$el), this.options);
+                this.polyfill = this.options.behavior === 'native';
+                if (this.polyfill && Modernizr.inputtypes.date) {
+                    return;
                 }
-            };
-            if (this.options.i18n) {
-                $.getJSON(this.options.i18n, 
-                    function (data) {
-                        config.i18n = data;
-                        new Pikaday(config);
-                    }
-                );
-            } else {
-                new Pikaday(config);
-            }
-            return this.$el;
-        }
-    });
-}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+                if (this.$el.attr('type') === 'date') {
+                    this.$el.attr('type', 'text');
+                }
 
-// jshint indent: 4, browser: true, jquery: true, quotmark: double
-// vim: sw=4 expandtab
+                var config = {
+                    field: this.$el[0],
+                    format: this.options.format,
+                    showWeekNumber: this.options.weekNumbers === 'show',
+                    toString: function (date, format) {
+                        var date = moment(date).format(format);
+                        return date;
+                    },
+                    onSelect: function() {
+                        $(this._o.field)
+                            .closest('form')
+                            .trigger('input-change');
+                        /* Also trigger input change on date field to support pat-autosubmit. */
+                        $(this._o.field).trigger('input-change');
+                    }
+                };
+
+                if (this.$el.attr('min')) {
+                    config.minDate = moment(this.$el.attr('min')).toDate();
+                }
+                if (this.$el.attr('max')) {
+                    config.maxDate = moment(this.$el.attr('max')).toDate();
+                }
+
+                if (this.options.i18n) {
+                    $.getJSON(this.options.i18n, function(data) {
+                        config.i18n = data;
+                    });
+                }
+
+                new Pikaday(config);
+                return this.$el;
+            },
+
+            isodate: function() {
+                var now = new Date();
+                return now.toISOString().substr(0,10);
+            }
+
+        });
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -39015,22 +39336,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             el.removeEventListener(e, callback, !!capture);
         } else {
             el.detachEvent('on' + e, callback);
-        }
-    },
-
-    fireEvent = function(el, eventName, data)
-    {
-        var ev;
-
-        if (document.createEvent) {
-            ev = document.createEvent('HTMLEvents');
-            ev.initEvent(eventName, true, false);
-            ev = extend(ev, data);
-            el.dispatchEvent(ev);
-        } else if (document.createEventObject) {
-            ev = document.createEventObject();
-            ev = extend(ev, data);
-            el.fireEvent('on' + eventName, ev);
         }
     },
 
@@ -39119,6 +39424,22 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         return to;
     },
 
+    fireEvent = function(el, eventName, data)
+    {
+        var ev;
+
+        if (document.createEvent) {
+            ev = document.createEvent('HTMLEvents');
+            ev.initEvent(eventName, true, false);
+            ev = extend(ev, data);
+            el.dispatchEvent(ev);
+        } else if (document.createEventObject) {
+            ev = document.createEventObject();
+            ev = extend(ev, data);
+            el.fireEvent('on' + eventName, ev);
+        }
+    },
+
     adjustCalendar = function(calendar) {
         if (calendar.month < 0) {
             calendar.year -= Math.ceil(Math.abs(calendar.month)/12);
@@ -39152,6 +39473,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         // the default output format for `.toString()` and `field` value
         format: 'YYYY-MM-DD',
 
+        // the toString function which gets passed a current date object and format
+        // and returns a string
+        toString: null,
+
+        // used to create date object from current input string
+        parse: null,
+
         // the initial date to view when first opened
         defaultDate: null,
 
@@ -39160,6 +39488,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
         // first day of week (0: Sunday, 1: Monday etc)
         firstDay: 0,
+
+        // the default flag for moment's strict date parsing
+        formatStrict: false,
 
         // the minimum/earliest date that can be selected
         minDate: null,
@@ -39172,11 +39503,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         // show week numbers at head of row
         showWeekNumber: false,
 
+        // Week picker mode
+        pickWholeWeek: false,
+
         // used internally (don't config outside)
         minYear: 0,
         maxYear: 9999,
         minMonth: undefined,
         maxMonth: undefined,
+
+        startRange: null,
+        endRange: null,
 
         isRTL: false,
 
@@ -39185,6 +39522,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
         // Render the month after year in the calendar title
         showMonthAfterYear: false,
+
+        // Render days of the calendar grid that fall in the next or previous month
+        showDaysInNextAndPreviousMonths: false,
+
+        // Allows user to select days that fall in the next or previous month
+        enableSelectionDaysInNextAndPreviousMonths: false,
 
         // how many months are visible
         numberOfMonths: 1,
@@ -39196,6 +39539,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         // Specify a DOM element to render the calendar in
         container: undefined,
 
+        // Blur field when date is selected
+        blurFieldOnSelect : true,
+
         // internationalization
         i18n: {
             previousMonth : 'Previous Month',
@@ -39205,11 +39551,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             weekdaysShort : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
         },
 
+        // Theme Classname
+        theme: null,
+
+        // events array
+        events: [],
+
         // callback function
         onSelect: null,
         onOpen: null,
         onClose: null,
-        onDraw: null
+        onDraw: null,
+
+        // Enable keyboard input
+        keyboardInput: true
     },
 
 
@@ -39225,25 +39580,48 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         return abbr ? opts.i18n.weekdaysShort[day] : opts.i18n.weekdays[day];
     },
 
-    renderDay = function(d, m, y, isSelected, isToday, isDisabled, isEmpty)
+    renderDay = function(opts)
     {
-        if (isEmpty) {
-            return '<td class="is-empty"></td>';
-        }
         var arr = [];
-        if (isDisabled) {
+        var ariaSelected = 'false';
+        if (opts.isEmpty) {
+            if (opts.showDaysInNextAndPreviousMonths) {
+                arr.push('is-outside-current-month');
+
+                if(!opts.enableSelectionDaysInNextAndPreviousMonths) {
+                    arr.push('is-selection-disabled');
+                }
+
+            } else {
+                return '<td class="is-empty"></td>';
+            }
+        }
+        if (opts.isDisabled) {
             arr.push('is-disabled');
         }
-        if (isToday) {
+        if (opts.isToday) {
             arr.push('is-today');
         }
-        if (isSelected) {
+        if (opts.isSelected) {
             arr.push('is-selected');
+            ariaSelected = 'true';
         }
-        return '<td data-day="' + d + '" class="' + arr.join(' ') + '">' +
+        if (opts.hasEvent) {
+            arr.push('has-event');
+        }
+        if (opts.isInRange) {
+            arr.push('is-inrange');
+        }
+        if (opts.isStartRange) {
+            arr.push('is-startrange');
+        }
+        if (opts.isEndRange) {
+            arr.push('is-endrange');
+        }
+        return '<td data-day="' + opts.day + '" class="' + arr.join(' ') + '" aria-selected="' + ariaSelected + '">' +
                  '<button class="pika-button pika-day" type="button" ' +
-                    'data-pika-year="' + y + '" data-pika-month="' + m + '" data-pika-day="' + d + '">' +
-                        d +
+                    'data-pika-year="' + opts.year + '" data-pika-month="' + opts.month + '" data-pika-day="' + opts.day + '">' +
+                        opts.day +
                  '</button>' +
                '</td>';
     },
@@ -39255,9 +39633,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         return '<td class="pika-week">' + weekNum + '</td>';
     },
 
-    renderRow = function(days, isRTL)
+    renderRow = function(days, isRTL, pickWholeWeek, isRowSelected)
     {
-        return '<tr>' + (isRTL ? days.reverse() : days).join('') + '</tr>';
+        return '<tr class="pika-row' + (pickWholeWeek ? ' pick-whole-week' : '') + (isRowSelected ? ' is-selected' : '') + '">' + (isRTL ? days.reverse() : days).join('') + '</tr>';
     },
 
     renderBody = function(rows)
@@ -39274,16 +39652,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         for (i = 0; i < 7; i++) {
             arr.push('<th scope="col"><abbr title="' + renderDayName(opts, i) + '">' + renderDayName(opts, i, true) + '</abbr></th>');
         }
-        return '<thead>' + (opts.isRTL ? arr.reverse() : arr).join('') + '</thead>';
+        return '<thead><tr>' + (opts.isRTL ? arr.reverse() : arr).join('') + '</tr></thead>';
     },
 
-    renderTitle = function(instance, c, year, month, refYear)
+    renderTitle = function(instance, c, year, month, refYear, randId)
     {
         var i, j, arr,
             opts = instance._o,
             isMinYear = year === opts.minYear,
             isMaxYear = year === opts.maxYear,
-            html = '<div class="pika-title">',
+            html = '<div id="' + randId + '" class="pika-title" role="heading" aria-live="assertive">',
             monthHtml,
             yearHtml,
             prev = true,
@@ -39291,11 +39669,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
         for (arr = [], i = 0; i < 12; i++) {
             arr.push('<option value="' + (year === refYear ? i - c : 12 + i - c) + '"' +
-                (i === month ? ' selected': '') +
-                ((isMinYear && i < opts.minMonth) || (isMaxYear && i > opts.maxMonth) ? 'disabled' : '') + '>' +
+                (i === month ? ' selected="selected"': '') +
+                ((isMinYear && i < opts.minMonth) || (isMaxYear && i > opts.maxMonth) ? 'disabled="disabled"' : '') + '>' +
                 opts.i18n.months[i] + '</option>');
         }
-        monthHtml = '<div class="pika-label">' + opts.i18n.months[month] + '<select class="pika-select pika-select-month">' + arr.join('') + '</select></div>';
+
+        monthHtml = '<div class="pika-label">' + opts.i18n.months[month] + '<select class="pika-select pika-select-month" tabindex="-1">' + arr.join('') + '</select></div>';
 
         if (isArray(opts.yearRange)) {
             i = opts.yearRange[0];
@@ -39307,10 +39686,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
         for (arr = []; i < j && i <= opts.maxYear; i++) {
             if (i >= opts.minYear) {
-                arr.push('<option value="' + i + '"' + (i === year ? ' selected': '') + '>' + (i) + '</option>');
+                arr.push('<option value="' + i + '"' + (i === year ? ' selected="selected"': '') + '>' + (i) + '</option>');
             }
         }
-        yearHtml = '<div class="pika-label">' + year + opts.yearSuffix + '<select class="pika-select pika-select-year">' + arr.join('') + '</select></div>';
+        yearHtml = '<div class="pika-label">' + year + opts.yearSuffix + '<select class="pika-select pika-select-year" tabindex="-1">' + arr.join('') + '</select></div>';
 
         if (opts.showMonthAfterYear) {
             html += yearHtml + monthHtml;
@@ -39336,9 +39715,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         return html += '</div>';
     },
 
-    renderTable = function(opts, data)
+    renderTable = function(opts, data, randId)
     {
-        return '<table cellpadding="0" cellspacing="0" class="pika-table">' + renderHead(opts) + renderBody(data) + '</table>';
+        return '<table cellpadding="0" cellspacing="0" class="pika-table" role="grid" aria-labelledby="' + randId + '">' + renderHead(opts) + renderBody(data) + '</table>';
     },
 
 
@@ -39362,17 +39741,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             }
 
             if (!hasClass(target, 'is-disabled')) {
-                if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty')) {
+                if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty') && !hasClass(target.parentNode, 'is-disabled')) {
                     self.setDate(new Date(target.getAttribute('data-pika-year'), target.getAttribute('data-pika-month'), target.getAttribute('data-pika-day')));
                     if (opts.bound) {
                         sto(function() {
                             self.hide();
-                            if (opts.field) {
+                            if (opts.blurFieldOnSelect && opts.field) {
                                 opts.field.blur();
                             }
                         }, 100);
                     }
-                    return;
                 }
                 else if (hasClass(target, 'pika-prev')) {
                     self.prevMonth();
@@ -39382,6 +39760,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 }
             }
             if (!hasClass(target, 'pika-select')) {
+                // if this is touch event prevent mouse events emulation
                 if (e.preventDefault) {
                     e.preventDefault();
                 } else {
@@ -39408,6 +39787,36 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             }
         };
 
+        self._onKeyChange = function(e)
+        {
+            e = e || window.event;
+
+            if (self.isVisible()) {
+
+                switch(e.keyCode){
+                    case 13:
+                    case 27:
+                        if (opts.field) {
+                            opts.field.blur();
+                        }
+                        break;
+                    case 37:
+                        e.preventDefault();
+                        self.adjustDate('subtract', 1);
+                        break;
+                    case 38:
+                        self.adjustDate('subtract', 7);
+                        break;
+                    case 39:
+                        self.adjustDate('add', 1);
+                        break;
+                    case 40:
+                        self.adjustDate('add', 7);
+                        break;
+                }
+            }
+        };
+
         self._onInputChange = function(e)
         {
             var date;
@@ -39415,14 +39824,18 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             if (e.firedBy === self) {
                 return;
             }
-            if (hasMoment) {
-                date = moment(opts.field.value, opts.format);
+            if (opts.parse) {
+                date = opts.parse(opts.field.value, opts.format);
+            } else if (hasMoment) {
+                date = moment(opts.field.value, opts.format, opts.formatStrict);
                 date = (date && date.isValid()) ? date.toDate() : null;
             }
             else {
                 date = new Date(Date.parse(opts.field.value));
             }
-            self.setDate(isDate(date) ? date : null);
+            if (isDate(date)) {
+              self.setDate(date);
+            }
             if (!self._v) {
                 self.show();
             }
@@ -39448,7 +39861,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 }
             }
             while ((pEl = pEl.parentNode));
-            
+
             if (!self._c) {
                 self._b = sto(function() {
                     self.hide();
@@ -39483,10 +39896,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
         };
 
         self.el = document.createElement('div');
-        self.el.className = 'pika-single' + (opts.isRTL ? ' is-rtl' : '');
+        self.el.className = 'pika-single' + (opts.isRTL ? ' is-rtl' : '') + (opts.theme ? ' ' + opts.theme : '');
 
         addEvent(self.el, 'mousedown', self._onMouseDown, true);
+        addEvent(self.el, 'touchend', self._onMouseDown, true);
         addEvent(self.el, 'change', self._onChange);
+
+        if (opts.keyboardInput) {
+            addEvent(document, 'keydown', self._onKeyChange);
+        }
 
         if (opts.field) {
             if (opts.container) {
@@ -39553,13 +39971,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
             opts.field = (opts.field && opts.field.nodeName) ? opts.field : null;
 
+            opts.theme = (typeof opts.theme) === 'string' && opts.theme ? opts.theme : null;
+
             opts.bound = !!(opts.bound !== undefined ? opts.field && opts.bound : opts.field);
 
             opts.trigger = (opts.trigger && opts.trigger.nodeName) ? opts.trigger : opts.field;
 
             opts.disableWeekends = !!opts.disableWeekends;
 
-            opts.disableDayFn = (typeof opts.disableDayFn) == "function" ? opts.disableDayFn : null;
+            opts.disableDayFn = (typeof opts.disableDayFn) === 'function' ? opts.disableDayFn : null;
 
             var nom = parseInt(opts.numberOfMonths, 10) || 1;
             opts.numberOfMonths = nom > 4 ? 4 : nom;
@@ -39574,14 +39994,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 opts.maxDate = opts.minDate = false;
             }
             if (opts.minDate) {
-                setToStartOfDay(opts.minDate);
-                opts.minYear  = opts.minDate.getFullYear();
-                opts.minMonth = opts.minDate.getMonth();
+                this.setMinDate(opts.minDate);
             }
             if (opts.maxDate) {
-                setToStartOfDay(opts.maxDate);
-                opts.maxYear  = opts.maxDate.getFullYear();
-                opts.maxMonth = opts.maxDate.getMonth();
+                this.setMaxDate(opts.maxDate);
             }
 
             if (isArray(opts.yearRange)) {
@@ -39603,7 +40019,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
          */
         toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
+            format = format || this._o.format;
+            if (!isDate(this._d)) {
+                return '';
+            }
+            if (this._o.toString) {
+              return this._o.toString(this._d, format);
+            }
+            if (hasMoment) {
+              return moment(this._d).format(format);
+            }
+            return this._d.toDateString();
         },
 
         /**
@@ -39710,6 +40136,22 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             this.adjustCalendars();
         },
 
+        adjustDate: function(sign, days) {
+
+            var day = this.getDate() || new Date();
+            var difference = parseInt(days)*24*60*60*1000;
+
+            var newDay;
+
+            if (sign === 'add') {
+                newDay = new Date(day.valueOf() + difference);
+            } else if (sign === 'subtract') {
+                newDay = new Date(day.valueOf() - difference);
+            }
+
+            this.setDate(newDay);
+        },
+
         adjustCalendars: function() {
             this.calendars[0] = adjustCalendar(this.calendars[0]);
             for (var c = 1; c < this._o.numberOfMonths; c++) {
@@ -39765,7 +40207,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
          */
         setMinDate: function(value)
         {
-            this._o.minDate = value;
+            if(value instanceof Date) {
+                setToStartOfDay(value);
+                this._o.minDate = value;
+                this._o.minYear  = value.getFullYear();
+                this._o.minMonth = value.getMonth();
+            } else {
+                this._o.minDate = defaults.minDate;
+                this._o.minYear  = defaults.minYear;
+                this._o.minMonth = defaults.minMonth;
+                this._o.startRange = defaults.startRange;
+            }
+
+            this.draw();
         },
 
         /**
@@ -39773,7 +40227,29 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
          */
         setMaxDate: function(value)
         {
-            this._o.maxDate = value;
+            if(value instanceof Date) {
+                setToStartOfDay(value);
+                this._o.maxDate = value;
+                this._o.maxYear = value.getFullYear();
+                this._o.maxMonth = value.getMonth();
+            } else {
+                this._o.maxDate = defaults.maxDate;
+                this._o.maxYear = defaults.maxYear;
+                this._o.maxMonth = defaults.maxMonth;
+                this._o.endRange = defaults.endRange;
+            }
+
+            this.draw();
+        },
+
+        setStartRange: function(value)
+        {
+            this._o.startRange = value;
+        },
+
+        setEndRange: function(value)
+        {
+            this._o.endRange = value;
         },
 
         /**
@@ -39789,7 +40265,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 maxYear = opts.maxYear,
                 minMonth = opts.minMonth,
                 maxMonth = opts.maxMonth,
-                html = '';
+                html = '',
+                randId;
 
             if (this._y <= minYear) {
                 this._y = minYear;
@@ -39804,8 +40281,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 }
             }
 
+            randId = 'pika-title-' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2);
+
             for (var c = 0; c < opts.numberOfMonths; c++) {
-                html += '<div class="pika-lendar">' + renderTitle(this, c, this.calendars[c].year, this.calendars[c].month, this.calendars[0].year) + this.render(this.calendars[c].year, this.calendars[c].month) + '</div>';
+                html += '<div class="pika-lendar">' + renderTitle(this, c, this.calendars[c].year, this.calendars[c].month, this.calendars[0].year, randId) + this.render(this.calendars[c].year, this.calendars[c].month, randId) + '</div>';
             }
 
             this.el.innerHTML = html;
@@ -39819,22 +40298,30 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
             }
 
             if (typeof this._o.onDraw === 'function') {
-                var self = this;
-                sto(function() {
-                    self._o.onDraw.call(self);
-                }, 0);
+                this._o.onDraw(this);
+            }
+
+            if (opts.bound) {
+                // let the screen reader user know to use arrow keys
+                opts.field.setAttribute('aria-label', 'Use the arrow keys to pick a date');
             }
         },
 
         adjustPosition: function()
         {
+            var field, pEl, width, height, viewportWidth, viewportHeight, scrollTop, left, top, clientRect;
+
             if (this._o.container) return;
-            var field = this._o.trigger, pEl = field,
-            width = this.el.offsetWidth, height = this.el.offsetHeight,
-            viewportWidth = window.innerWidth || document.documentElement.clientWidth,
-            viewportHeight = window.innerHeight || document.documentElement.clientHeight,
-            scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
-            left, top, clientRect;
+
+            this.el.style.position = 'absolute';
+
+            field = this._o.trigger;
+            pEl = field;
+            width = this.el.offsetWidth;
+            height = this.el.offsetHeight;
+            viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
 
             if (typeof field.getBoundingClientRect === 'function') {
                 clientRect = field.getBoundingClientRect();
@@ -39867,17 +40354,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 top = top - height - field.offsetHeight;
             }
 
-            this.el.style.cssText = [
-                'position: absolute',
-                'left: ' + left + 'px',
-                'top: ' + top + 'px'
-            ].join(';');
+            this.el.style.left = left + 'px';
+            this.el.style.top = top + 'px';
         },
 
         /**
          * render HTML for a particular month
          */
-        render: function(year, month)
+        render: function(year, month, randId)
         {
             var opts   = this._o,
                 now    = new Date(),
@@ -39892,35 +40376,81 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                     before += 7;
                 }
             }
+            var previousMonth = month === 0 ? 11 : month - 1,
+                nextMonth = month === 11 ? 0 : month + 1,
+                yearOfPreviousMonth = month === 0 ? year - 1 : year,
+                yearOfNextMonth = month === 11 ? year + 1 : year,
+                daysInPreviousMonth = getDaysInMonth(yearOfPreviousMonth, previousMonth);
             var cells = days + before,
                 after = cells;
             while(after > 7) {
                 after -= 7;
             }
             cells += 7 - after;
+            var isWeekSelected = false;
             for (var i = 0, r = 0; i < cells; i++)
             {
                 var day = new Date(year, month, 1 + (i - before)),
                     isSelected = isDate(this._d) ? compareDates(day, this._d) : false,
                     isToday = compareDates(day, now),
+                    hasEvent = opts.events.indexOf(day.toDateString()) !== -1 ? true : false,
                     isEmpty = i < before || i >= (days + before),
+                    dayNumber = 1 + (i - before),
+                    monthNumber = month,
+                    yearNumber = year,
+                    isStartRange = opts.startRange && compareDates(opts.startRange, day),
+                    isEndRange = opts.endRange && compareDates(opts.endRange, day),
+                    isInRange = opts.startRange && opts.endRange && opts.startRange < day && day < opts.endRange,
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
                                  (opts.disableWeekends && isWeekend(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
-                row.push(renderDay(1 + (i - before), month, year, isSelected, isToday, isDisabled, isEmpty));
+                if (isEmpty) {
+                    if (i < before) {
+                        dayNumber = daysInPreviousMonth + dayNumber;
+                        monthNumber = previousMonth;
+                        yearNumber = yearOfPreviousMonth;
+                    } else {
+                        dayNumber = dayNumber - days;
+                        monthNumber = nextMonth;
+                        yearNumber = yearOfNextMonth;
+                    }
+                }
+
+                var dayConfig = {
+                        day: dayNumber,
+                        month: monthNumber,
+                        year: yearNumber,
+                        hasEvent: hasEvent,
+                        isSelected: isSelected,
+                        isToday: isToday,
+                        isDisabled: isDisabled,
+                        isEmpty: isEmpty,
+                        isStartRange: isStartRange,
+                        isEndRange: isEndRange,
+                        isInRange: isInRange,
+                        showDaysInNextAndPreviousMonths: opts.showDaysInNextAndPreviousMonths,
+                        enableSelectionDaysInNextAndPreviousMonths: opts.enableSelectionDaysInNextAndPreviousMonths
+                    };
+
+                if (opts.pickWholeWeek && isSelected) {
+                    isWeekSelected = true;
+                }
+
+                row.push(renderDay(dayConfig));
 
                 if (++r === 7) {
                     if (opts.showWeekNumber) {
                         row.unshift(renderWeek(i - before, month, year));
                     }
-                    data.push(renderRow(row, opts.isRTL));
+                    data.push(renderRow(row, opts.isRTL, opts.pickWholeWeek, isWeekSelected));
                     row = [];
                     r = 0;
+                    isWeekSelected = false;
                 }
             }
-            return renderTable(opts, data);
+            return renderTable(opts, data, randId);
         },
 
         isVisible: function()
@@ -39930,10 +40460,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
         show: function()
         {
-            if (!this._v) {
-                removeClass(this.el, 'is-hidden');
+            if (!this.isVisible()) {
                 this._v = true;
                 this.draw();
+                removeClass(this.el, 'is-hidden');
                 if (this._o.bound) {
                     addEvent(document, 'click', this._onClick);
                     this.adjustPosition();
@@ -39951,7 +40481,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
                 if (this._o.bound) {
                     removeEvent(document, 'click', this._onClick);
                 }
-                this.el.style.cssText = '';
+                this.el.style.position = 'static'; // reset
+                this.el.style.left = 'auto';
+                this.el.style.top = 'auto';
                 addClass(this.el, 'is-hidden');
                 this._v = false;
                 if (v !== undefined && typeof this._o.onClose === 'function') {
@@ -39965,15 +40497,21 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
          */
         destroy: function()
         {
+            var opts = this._o;
+
             this.hide();
             removeEvent(this.el, 'mousedown', this._onMouseDown, true);
+            removeEvent(this.el, 'touchend', this._onMouseDown, true);
             removeEvent(this.el, 'change', this._onChange);
-            if (this._o.field) {
-                removeEvent(this._o.field, 'change', this._onInputChange);
-                if (this._o.bound) {
-                    removeEvent(this._o.trigger, 'click', this._onInputClick);
-                    removeEvent(this._o.trigger, 'focus', this._onInputFocus);
-                    removeEvent(this._o.trigger, 'blur', this._onInputBlur);
+            if (opts.keyboardInput) {
+                removeEvent(document, 'keydown', this._onKeyChange);
+            }
+            if (opts.field) {
+                removeEvent(opts.field, 'change', this._onInputChange);
+                if (opts.bound) {
+                    removeEvent(opts.trigger, 'click', this._onInputClick);
+                    removeEvent(opts.trigger, 'focus', this._onInputFocus);
+                    removeEvent(opts.trigger, 'blur', this._onInputBlur);
                 }
             }
             if (this.el.parentNode) {
@@ -39984,1216 +40522,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
     };
 
     return Pikaday;
-
 }));
 
 
 /***/ }),
 /* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//! moment-timezone.js
-//! version : 0.5.5
-//! author : Tim Wood
-//! license : MIT
-//! github.com/moment/moment-timezone
-
-(function (root, factory) {
-	"use strict";
-
-	/*global define*/
-	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));                 // AMD
-	} else if (typeof module === 'object' && module.exports) {
-		module.exports = factory(require('moment')); // Node
-	} else {
-		factory(root.moment);                        // Browser
-	}
-}(this, function (moment) {
-	"use strict";
-
-	// Do not load moment-timezone a second time.
-	if (moment.tz !== undefined) {
-		logError('Moment Timezone ' + moment.tz.version + ' was already loaded ' + (moment.tz.dataVersion ? 'with data from ' : 'without any data') + moment.tz.dataVersion);
-		return moment;
-	}
-
-	var VERSION = "0.5.5",
-		zones = {},
-		links = {},
-		names = {},
-		guesses = {},
-		cachedGuess,
-
-		momentVersion = moment.version.split('.'),
-		major = +momentVersion[0],
-		minor = +momentVersion[1];
-
-	// Moment.js version check
-	if (major < 2 || (major === 2 && minor < 6)) {
-		logError('Moment Timezone requires Moment.js >= 2.6.0. You are using Moment.js ' + moment.version + '. See momentjs.com');
-	}
-
-	/************************************
-		Unpacking
-	************************************/
-
-	function charCodeToInt(charCode) {
-		if (charCode > 96) {
-			return charCode - 87;
-		} else if (charCode > 64) {
-			return charCode - 29;
-		}
-		return charCode - 48;
-	}
-
-	function unpackBase60(string) {
-		var i = 0,
-			parts = string.split('.'),
-			whole = parts[0],
-			fractional = parts[1] || '',
-			multiplier = 1,
-			num,
-			out = 0,
-			sign = 1;
-
-		// handle negative numbers
-		if (string.charCodeAt(0) === 45) {
-			i = 1;
-			sign = -1;
-		}
-
-		// handle digits before the decimal
-		for (i; i < whole.length; i++) {
-			num = charCodeToInt(whole.charCodeAt(i));
-			out = 60 * out + num;
-		}
-
-		// handle digits after the decimal
-		for (i = 0; i < fractional.length; i++) {
-			multiplier = multiplier / 60;
-			num = charCodeToInt(fractional.charCodeAt(i));
-			out += num * multiplier;
-		}
-
-		return out * sign;
-	}
-
-	function arrayToInt (array) {
-		for (var i = 0; i < array.length; i++) {
-			array[i] = unpackBase60(array[i]);
-		}
-	}
-
-	function intToUntil (array, length) {
-		for (var i = 0; i < length; i++) {
-			array[i] = Math.round((array[i - 1] || 0) + (array[i] * 60000)); // minutes to milliseconds
-		}
-
-		array[length - 1] = Infinity;
-	}
-
-	function mapIndices (source, indices) {
-		var out = [], i;
-
-		for (i = 0; i < indices.length; i++) {
-			out[i] = source[indices[i]];
-		}
-
-		return out;
-	}
-
-	function unpack (string) {
-		var data = string.split('|'),
-			offsets = data[2].split(' '),
-			indices = data[3].split(''),
-			untils  = data[4].split(' ');
-
-		arrayToInt(offsets);
-		arrayToInt(indices);
-		arrayToInt(untils);
-
-		intToUntil(untils, indices.length);
-
-		return {
-			name       : data[0],
-			abbrs      : mapIndices(data[1].split(' '), indices),
-			offsets    : mapIndices(offsets, indices),
-			untils     : untils,
-			population : data[5] | 0
-		};
-	}
-
-	/************************************
-		Zone object
-	************************************/
-
-	function Zone (packedString) {
-		if (packedString) {
-			this._set(unpack(packedString));
-		}
-	}
-
-	Zone.prototype = {
-		_set : function (unpacked) {
-			this.name       = unpacked.name;
-			this.abbrs      = unpacked.abbrs;
-			this.untils     = unpacked.untils;
-			this.offsets    = unpacked.offsets;
-			this.population = unpacked.population;
-		},
-
-		_index : function (timestamp) {
-			var target = +timestamp,
-				untils = this.untils,
-				i;
-
-			for (i = 0; i < untils.length; i++) {
-				if (target < untils[i]) {
-					return i;
-				}
-			}
-		},
-
-		parse : function (timestamp) {
-			var target  = +timestamp,
-				offsets = this.offsets,
-				untils  = this.untils,
-				max     = untils.length - 1,
-				offset, offsetNext, offsetPrev, i;
-
-			for (i = 0; i < max; i++) {
-				offset     = offsets[i];
-				offsetNext = offsets[i + 1];
-				offsetPrev = offsets[i ? i - 1 : i];
-
-				if (offset < offsetNext && tz.moveAmbiguousForward) {
-					offset = offsetNext;
-				} else if (offset > offsetPrev && tz.moveInvalidForward) {
-					offset = offsetPrev;
-				}
-
-				if (target < untils[i] - (offset * 60000)) {
-					return offsets[i];
-				}
-			}
-
-			return offsets[max];
-		},
-
-		abbr : function (mom) {
-			return this.abbrs[this._index(mom)];
-		},
-
-		offset : function (mom) {
-			return this.offsets[this._index(mom)];
-		}
-	};
-
-	/************************************
-		Current Timezone
-	************************************/
-
-	function OffsetAt(at) {
-		var timeString = at.toTimeString();
-		var abbr = timeString.match(/\([a-z ]+\)/i);
-		if (abbr && abbr[0]) {
-			// 17:56:31 GMT-0600 (CST)
-			// 17:56:31 GMT-0600 (Central Standard Time)
-			abbr = abbr[0].match(/[A-Z]/g);
-			abbr = abbr ? abbr.join('') : undefined;
-		} else {
-			// 17:56:31 CST
-			// 17:56:31 GMT+0800 (台北標準時間)
-			abbr = timeString.match(/[A-Z]{3,5}/g);
-			abbr = abbr ? abbr[0] : undefined;
-		}
-
-		if (abbr === 'GMT') {
-			abbr = undefined;
-		}
-
-		this.at = +at;
-		this.abbr = abbr;
-		this.offset = at.getTimezoneOffset();
-	}
-
-	function ZoneScore(zone) {
-		this.zone = zone;
-		this.offsetScore = 0;
-		this.abbrScore = 0;
-	}
-
-	ZoneScore.prototype.scoreOffsetAt = function (offsetAt) {
-		this.offsetScore += Math.abs(this.zone.offset(offsetAt.at) - offsetAt.offset);
-		if (this.zone.abbr(offsetAt.at).replace(/[^A-Z]/g, '') !== offsetAt.abbr) {
-			this.abbrScore++;
-		}
-	};
-
-	function findChange(low, high) {
-		var mid, diff;
-
-		while ((diff = ((high.at - low.at) / 12e4 | 0) * 6e4)) {
-			mid = new OffsetAt(new Date(low.at + diff));
-			if (mid.offset === low.offset) {
-				low = mid;
-			} else {
-				high = mid;
-			}
-		}
-
-		return low;
-	}
-
-	function userOffsets() {
-		var startYear = new Date().getFullYear() - 2,
-			last = new OffsetAt(new Date(startYear, 0, 1)),
-			offsets = [last],
-			change, next, i;
-
-		for (i = 1; i < 48; i++) {
-			next = new OffsetAt(new Date(startYear, i, 1));
-			if (next.offset !== last.offset) {
-				change = findChange(last, next);
-				offsets.push(change);
-				offsets.push(new OffsetAt(new Date(change.at + 6e4)));
-			}
-			last = next;
-		}
-
-		for (i = 0; i < 4; i++) {
-			offsets.push(new OffsetAt(new Date(startYear + i, 0, 1)));
-			offsets.push(new OffsetAt(new Date(startYear + i, 6, 1)));
-		}
-
-		return offsets;
-	}
-
-	function sortZoneScores (a, b) {
-		if (a.offsetScore !== b.offsetScore) {
-			return a.offsetScore - b.offsetScore;
-		}
-		if (a.abbrScore !== b.abbrScore) {
-			return a.abbrScore - b.abbrScore;
-		}
-		return b.zone.population - a.zone.population;
-	}
-
-	function addToGuesses (name, offsets) {
-		var i, offset;
-		arrayToInt(offsets);
-		for (i = 0; i < offsets.length; i++) {
-			offset = offsets[i];
-			guesses[offset] = guesses[offset] || {};
-			guesses[offset][name] = true;
-		}
-	}
-
-	function guessesForUserOffsets (offsets) {
-		var offsetsLength = offsets.length,
-			filteredGuesses = {},
-			out = [],
-			i, j, guessesOffset;
-
-		for (i = 0; i < offsetsLength; i++) {
-			guessesOffset = guesses[offsets[i].offset] || {};
-			for (j in guessesOffset) {
-				if (guessesOffset.hasOwnProperty(j)) {
-					filteredGuesses[j] = true;
-				}
-			}
-		}
-
-		for (i in filteredGuesses) {
-			if (filteredGuesses.hasOwnProperty(i)) {
-				out.push(names[i]);
-			}
-		}
-
-		return out;
-	}
-
-	function rebuildGuess () {
-
-		// use Intl API when available and returning valid time zone
-		try {
-			var intlName = Intl.DateTimeFormat().resolvedOptions().timeZone;  // jshint ignore:line
-			if (intlName){
-				var name = names[normalizeName(intlName)];
-				if (name) {
-					return name;
-				}
-				logError("Moment Timezone found " + intlName + " from the Intl api, but did not have that data loaded.");
-			}
-		} catch (e) {
-			// Intl unavailable, fall back to manual guessing.
-		}
-		var offsets = userOffsets(),
-			offsetsLength = offsets.length,
-			guesses = guessesForUserOffsets(offsets),
-			zoneScores = [],
-			zoneScore, i, j;
-
-		for (i = 0; i < guesses.length; i++) {
-			zoneScore = new ZoneScore(getZone(guesses[i]), offsetsLength);
-			for (j = 0; j < offsetsLength; j++) {
-				zoneScore.scoreOffsetAt(offsets[j]);
-			}
-			zoneScores.push(zoneScore);
-		}
-
-		zoneScores.sort(sortZoneScores);
-
-		return zoneScores.length > 0 ? zoneScores[0].zone.name : undefined;
-	}
-
-	function guess (ignoreCache) {
-		if (!cachedGuess || ignoreCache) {
-			cachedGuess = rebuildGuess();
-		}
-		return cachedGuess;
-	}
-
-	/************************************
-		Global Methods
-	************************************/
-
-	function normalizeName (name) {
-		return (name || '').toLowerCase().replace(/\//g, '_');
-	}
-
-	function addZone (packed) {
-		var i, name, split, normalized;
-
-		if (typeof packed === "string") {
-			packed = [packed];
-		}
-
-		for (i = 0; i < packed.length; i++) {
-			split = packed[i].split('|');
-			name = split[0];
-			normalized = normalizeName(name);
-			zones[normalized] = packed[i];
-			names[normalized] = name;
-			if (split[5]) {
-				addToGuesses(normalized, split[2].split(' '));
-			}
-		}
-	}
-
-	function getZone (name, caller) {
-		name = normalizeName(name);
-
-		var zone = zones[name];
-		var link;
-
-		if (zone instanceof Zone) {
-			return zone;
-		}
-
-		if (typeof zone === 'string') {
-			zone = new Zone(zone);
-			zones[name] = zone;
-			return zone;
-		}
-
-		// Pass getZone to prevent recursion more than 1 level deep
-		if (links[name] && caller !== getZone && (link = getZone(links[name], getZone))) {
-			zone = zones[name] = new Zone();
-			zone._set(link);
-			zone.name = names[name];
-			return zone;
-		}
-
-		return null;
-	}
-
-	function getNames () {
-		var i, out = [];
-
-		for (i in names) {
-			if (names.hasOwnProperty(i) && (zones[i] || zones[links[i]]) && names[i]) {
-				out.push(names[i]);
-			}
-		}
-
-		return out.sort();
-	}
-
-	function addLink (aliases) {
-		var i, alias, normal0, normal1;
-
-		if (typeof aliases === "string") {
-			aliases = [aliases];
-		}
-
-		for (i = 0; i < aliases.length; i++) {
-			alias = aliases[i].split('|');
-
-			normal0 = normalizeName(alias[0]);
-			normal1 = normalizeName(alias[1]);
-
-			links[normal0] = normal1;
-			names[normal0] = alias[0];
-
-			links[normal1] = normal0;
-			names[normal1] = alias[1];
-		}
-	}
-
-	function loadData (data) {
-		addZone(data.zones);
-		addLink(data.links);
-		tz.dataVersion = data.version;
-	}
-
-	function zoneExists (name) {
-		if (!zoneExists.didShowError) {
-			zoneExists.didShowError = true;
-				logError("moment.tz.zoneExists('" + name + "') has been deprecated in favor of !moment.tz.zone('" + name + "')");
-		}
-		return !!getZone(name);
-	}
-
-	function needsOffset (m) {
-		return !!(m._a && (m._tzm === undefined));
-	}
-
-	function logError (message) {
-		if (typeof console !== 'undefined' && typeof console.error === 'function') {
-			console.error(message);
-		}
-	}
-
-	/************************************
-		moment.tz namespace
-	************************************/
-
-	function tz (input) {
-		var args = Array.prototype.slice.call(arguments, 0, -1),
-			name = arguments[arguments.length - 1],
-			zone = getZone(name),
-			out  = moment.utc.apply(null, args);
-
-		if (zone && !moment.isMoment(input) && needsOffset(out)) {
-			out.add(zone.parse(out), 'minutes');
-		}
-
-		out.tz(name);
-
-		return out;
-	}
-
-	tz.version      = VERSION;
-	tz.dataVersion  = '';
-	tz._zones       = zones;
-	tz._links       = links;
-	tz._names       = names;
-	tz.add          = addZone;
-	tz.link         = addLink;
-	tz.load         = loadData;
-	tz.zone         = getZone;
-	tz.zoneExists   = zoneExists; // deprecated in 0.1.0
-	tz.guess        = guess;
-	tz.names        = getNames;
-	tz.Zone         = Zone;
-	tz.unpack       = unpack;
-	tz.unpackBase60 = unpackBase60;
-	tz.needsOffset  = needsOffset;
-	tz.moveInvalidForward   = true;
-	tz.moveAmbiguousForward = false;
-
-	/************************************
-		Interface with Moment.js
-	************************************/
-
-	var fn = moment.fn;
-
-	moment.tz = tz;
-
-	moment.defaultZone = null;
-
-	moment.updateOffset = function (mom, keepTime) {
-		var zone = moment.defaultZone,
-			offset;
-
-		if (mom._z === undefined) {
-			if (zone && needsOffset(mom) && !mom._isUTC) {
-				mom._d = moment.utc(mom._a)._d;
-				mom.utc().add(zone.parse(mom), 'minutes');
-			}
-			mom._z = zone;
-		}
-		if (mom._z) {
-			offset = mom._z.offset(mom);
-			if (Math.abs(offset) < 16) {
-				offset = offset / 60;
-			}
-			if (mom.utcOffset !== undefined) {
-				mom.utcOffset(-offset, keepTime);
-			} else {
-				mom.zone(offset, keepTime);
-			}
-		}
-	};
-
-	fn.tz = function (name) {
-		if (name) {
-			this._z = getZone(name);
-			if (this._z) {
-				moment.updateOffset(this);
-			} else {
-				logError("Moment Timezone has no data for " + name + ". See http://momentjs.com/timezone/docs/#/data-loading/.");
-			}
-			return this;
-		}
-		if (this._z) { return this._z.name; }
-	};
-
-	function abbrWrap (old) {
-		return function () {
-			if (this._z) { return this._z.abbr(this); }
-			return old.call(this);
-		};
-	}
-
-	function resetZoneWrap (old) {
-		return function () {
-			this._z = null;
-			return old.apply(this, arguments);
-		};
-	}
-
-	fn.zoneName = abbrWrap(fn.zoneName);
-	fn.zoneAbbr = abbrWrap(fn.zoneAbbr);
-	fn.utc      = resetZoneWrap(fn.utc);
-
-	moment.tz.setDefault = function(name) {
-		if (major < 2 || (major === 2 && minor < 9)) {
-			logError('Moment Timezone setDefault() requires Moment.js >= 2.9.0. You are using Moment.js ' + moment.version + '.');
-		}
-		moment.defaultZone = name ? getZone(name) : null;
-		return moment;
-	};
-
-	// Cloning a moment should include the _z property.
-	var momentProperties = moment.momentProperties;
-	if (Object.prototype.toString.call(momentProperties) === '[object Array]') {
-		// moment 2.8.1+
-		momentProperties.push('_z');
-		momentProperties.push('_a');
-	} else if (momentProperties) {
-		// moment 2.7.0
-		momentProperties._z = null;
-	}
-
-	loadData({
-		"version": "2016f",
-		"zones": [
-			"Africa/Abidjan|GMT|0|0||48e5",
-			"Africa/Khartoum|EAT|-30|0||51e5",
-			"Africa/Algiers|CET|-10|0||26e5",
-			"Africa/Lagos|WAT|-10|0||17e6",
-			"Africa/Maputo|CAT|-20|0||26e5",
-			"Africa/Cairo|EET EEST|-20 -30|010101010|1Cby0 Fb0 c10 8n0 8Nd0 gL0 e10 mn0|15e6",
-			"Africa/Casablanca|WET WEST|0 -10|01010101010101010101010101010101010101010|1Cco0 Db0 1zd0 Lz0 1Nf0 wM0 co0 go0 1o00 s00 dA0 vc0 11A0 A00 e00 y00 11A0 uM0 e00 Dc0 11A0 s00 e00 IM0 WM0 mo0 gM0 LA0 WM0 jA0 e00 Rc0 11A0 e00 e00 U00 11A0 8o0 e00 11A0|32e5",
-			"Europe/Paris|CET CEST|-10 -20|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|11e6",
-			"Africa/Johannesburg|SAST|-20|0||84e5",
-			"Africa/Tripoli|EET CET CEST|-20 -10 -20|0120|1IlA0 TA0 1o00|11e5",
-			"Africa/Windhoek|WAST WAT|-20 -10|01010101010101010101010|1C1c0 11B0 1nX0 11B0 1nX0 11B0 1qL0 WN0 1qL0 11B0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1qL0 WN0 1qL0 11B0|32e4",
-			"America/Adak|HST HDT|a0 90|01010101010101010101010|1BR00 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|326",
-			"America/Anchorage|AKST AKDT|90 80|01010101010101010101010|1BQX0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|30e4",
-			"America/Santo_Domingo|AST|40|0||29e5",
-			"America/Araguaina|BRT BRST|30 20|010|1IdD0 Lz0|14e4",
-			"America/Argentina/Buenos_Aires|ART|30|0|",
-			"America/Asuncion|PYST PYT|30 40|01010101010101010101010|1C430 1a10 1fz0 1a10 1fz0 1cN0 17b0 1ip0 17b0 1ip0 17b0 1ip0 19X0 1fB0 19X0 1fB0 19X0 1ip0 17b0 1ip0 17b0 1ip0|28e5",
-			"America/Panama|EST|50|0||15e5",
-			"America/Bahia|BRT BRST|30 20|010|1FJf0 Rb0|27e5",
-			"America/Bahia_Banderas|MST CDT CST|70 50 60|01212121212121212121212|1C1l0 1nW0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0|84e3",
-			"America/Fortaleza|BRT|30|0||34e5",
-			"America/Managua|CST|60|0||22e5",
-			"America/Manaus|AMT|40|0||19e5",
-			"America/Bogota|COT|50|0||90e5",
-			"America/Denver|MST MDT|70 60|01010101010101010101010|1BQV0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|26e5",
-			"America/Campo_Grande|AMST AMT|30 40|01010101010101010101010|1BIr0 1zd0 On0 1zd0 Rb0 1zd0 Lz0 1C10 Lz0 1C10 On0 1zd0 On0 1zd0 On0 1zd0 On0 1C10 Lz0 1C10 Lz0 1C10|77e4",
-			"America/Cancun|CST CDT EST|60 50 50|010101010102|1C1k0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 Dd0|63e4",
-			"America/Caracas|VET VET|4u 40|01|1QMT0|29e5",
-			"America/Cayenne|GFT|30|0||58e3",
-			"America/Chicago|CST CDT|60 50|01010101010101010101010|1BQU0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|92e5",
-			"America/Chihuahua|MST MDT|70 60|01010101010101010101010|1C1l0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0|81e4",
-			"America/Phoenix|MST|70|0||42e5",
-			"America/Los_Angeles|PST PDT|80 70|01010101010101010101010|1BQW0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|15e6",
-			"America/New_York|EST EDT|50 40|01010101010101010101010|1BQT0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|21e6",
-			"America/Rio_Branco|AMT ACT|40 50|01|1KLE0|31e4",
-			"America/Fort_Nelson|PST PDT MST|80 70 70|010101010102|1BQW0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0|39e2",
-			"America/Halifax|AST ADT|40 30|01010101010101010101010|1BQS0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|39e4",
-			"America/Godthab|WGT WGST|30 20|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|17e3",
-			"America/Goose_Bay|AST ADT|40 30|01010101010101010101010|1BQQ1 1zb0 Op0 1zcX Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|76e2",
-			"America/Grand_Turk|EST EDT AST|50 40 40|0101010101012|1BQT0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|37e2",
-			"America/Guayaquil|ECT|50|0||27e5",
-			"America/Guyana|GYT|40|0||80e4",
-			"America/Havana|CST CDT|50 40|01010101010101010101010|1BQR0 1wo0 U00 1zc0 U00 1qM0 Oo0 1zc0 Oo0 1zc0 Oo0 1zc0 Rc0 1zc0 Oo0 1zc0 Oo0 1zc0 Oo0 1zc0 Oo0 1zc0|21e5",
-			"America/La_Paz|BOT|40|0||19e5",
-			"America/Lima|PET|50|0||11e6",
-			"America/Mexico_City|CST CDT|60 50|01010101010101010101010|1C1k0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0|20e6",
-			"America/Metlakatla|PST AKST AKDT|80 90 80|012121212121|1PAa0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|14e2",
-			"America/Miquelon|PMST PMDT|30 20|01010101010101010101010|1BQR0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|61e2",
-			"America/Montevideo|UYST UYT|20 30|010101010101|1BQQ0 1ld0 14n0 1ld0 14n0 1o10 11z0 1o10 11z0 1o10 11z0|17e5",
-			"America/Noronha|FNT|20|0||30e2",
-			"America/North_Dakota/Beulah|MST MDT CST CDT|70 60 60 50|01232323232323232323232|1BQV0 1zb0 Oo0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0",
-			"America/Paramaribo|SRT|30|0||24e4",
-			"America/Port-au-Prince|EST EDT|50 40|010101010|1GI70 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|23e5",
-			"America/Santiago|CLST CLT|30 40|010101010101010101010|1C1f0 1fB0 1nX0 G10 1EL0 Op0 1zb0 Rd0 1wn0 Rd0 46n0 Ap0 1Nb0 Ap0 1Nb0 Ap0 1Nb0 Ap0 1Nb0 Ap0|62e5",
-			"America/Sao_Paulo|BRST BRT|20 30|01010101010101010101010|1BIq0 1zd0 On0 1zd0 Rb0 1zd0 Lz0 1C10 Lz0 1C10 On0 1zd0 On0 1zd0 On0 1zd0 On0 1C10 Lz0 1C10 Lz0 1C10|20e6",
-			"America/Scoresbysund|EGT EGST|10 0|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|452",
-			"America/St_Johns|NST NDT|3u 2u|01010101010101010101010|1BQPv 1zb0 Op0 1zcX Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|11e4",
-			"Antarctica/Casey|CAST AWST|-b0 -80|0101|1BN30 40P0 KL0|10",
-			"Antarctica/Davis|DAVT DAVT|-50 -70|0101|1BPw0 3Wn0 KN0|70",
-			"Antarctica/DumontDUrville|DDUT|-a0|0||80",
-			"Antarctica/Macquarie|AEDT MIST|-b0 -b0|01|1C140|1",
-			"Antarctica/Mawson|MAWT|-50|0||60",
-			"Pacific/Auckland|NZDT NZST|-d0 -c0|01010101010101010101010|1C120 1a00 1fA0 1a00 1fA0 1cM0 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1cM0 1fA0 1a00 1fA0 1a00|14e5",
-			"Antarctica/Rothera|ROTT|30|0||130",
-			"Antarctica/Syowa|SYOT|-30|0||20",
-			"Antarctica/Troll|UTC CEST|0 -20|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|40",
-			"Antarctica/Vostok|VOST|-60|0||25",
-			"Asia/Baghdad|AST|-30|0||66e5",
-			"Asia/Almaty|+06|-60|0||15e5",
-			"Asia/Amman|EET EEST|-20 -30|010101010101010101010|1BVy0 1qM0 11A0 1o00 11A0 4bX0 Dd0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0|25e5",
-			"Asia/Anadyr|ANAT ANAST ANAT|-c0 -c0 -b0|0120|1BWe0 1qN0 WM0|13e3",
-			"Asia/Aqtobe|+05|-50|0||27e4",
-			"Asia/Ashgabat|TMT|-50|0||41e4",
-			"Asia/Baku|AZT AZST|-40 -50|0101010101010|1BWo0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00|27e5",
-			"Asia/Bangkok|ICT|-70|0||15e6",
-			"Asia/Barnaul|+06 +07|-60 -70|010101|1BWk0 1qM0 WM0 8Hz0 3rd0",
-			"Asia/Beirut|EET EEST|-20 -30|01010101010101010101010|1BWm0 1qL0 WN0 1qL0 WN0 1qL0 11B0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1qL0 WN0 1qL0 WN0 1qL0 11B0 1nX0 11B0 1nX0|22e5",
-			"Asia/Bishkek|KGT|-60|0||87e4",
-			"Asia/Brunei|BNT|-80|0||42e4",
-			"Asia/Kolkata|IST|-5u|0||15e6",
-			"Asia/Chita|YAKT YAKST YAKT IRKT|-90 -a0 -a0 -80|010230|1BWh0 1qM0 WM0 8Hz0 3re0|33e4",
-			"Asia/Choibalsan|CHOT CHOST|-80 -90|0101010101010|1O8G0 1cJ0 1cP0 1cJ0 1cP0 1fx0 1cP0 1cJ0 1cP0 1cJ0 1cP0 1cJ0|38e3",
-			"Asia/Shanghai|CST|-80|0||23e6",
-			"Asia/Dhaka|BDT|-60|0||16e6",
-			"Asia/Damascus|EET EEST|-20 -30|01010101010101010101010|1C0m0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1qL0 WN0 1qL0 WN0 1qL0 11B0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1qL0|26e5",
-			"Asia/Dili|TLT|-90|0||19e4",
-			"Asia/Dubai|GST|-40|0||39e5",
-			"Asia/Dushanbe|TJT|-50|0||76e4",
-			"Asia/Gaza|EET EEST|-20 -30|01010101010101010101010|1BVW1 SKX 1xd1 MKX 1AN0 1a00 1fA0 1cL0 1cN0 1nX0 1210 1nz0 1220 1ny0 1220 1qm0 1220 1ny0 1220 1ny0 1220 1ny0|18e5",
-			"Asia/Hebron|EET EEST|-20 -30|0101010101010101010101010|1BVy0 Tb0 1xd1 MKX bB0 cn0 1cN0 1a00 1fA0 1cL0 1cN0 1nX0 1210 1nz0 1220 1ny0 1220 1qm0 1220 1ny0 1220 1ny0 1220 1ny0|25e4",
-			"Asia/Hong_Kong|HKT|-80|0||73e5",
-			"Asia/Hovd|HOVT HOVST|-70 -80|0101010101010|1O8H0 1cJ0 1cP0 1cJ0 1cP0 1fx0 1cP0 1cJ0 1cP0 1cJ0 1cP0 1cJ0|81e3",
-			"Asia/Irkutsk|IRKT IRKST IRKT|-80 -90 -90|01020|1BWi0 1qM0 WM0 8Hz0|60e4",
-			"Europe/Istanbul|EET EEST|-20 -30|01010101010101010101010|1BWp0 1qM0 Xc0 1qo0 WM0 1qM0 11A0 1o00 1200 1nA0 11A0 1tA0 U00 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|13e6",
-			"Asia/Jakarta|WIB|-70|0||31e6",
-			"Asia/Jayapura|WIT|-90|0||26e4",
-			"Asia/Jerusalem|IST IDT|-20 -30|01010101010101010101010|1BVA0 17X0 1kp0 1dz0 1c10 1aL0 1eN0 1oL0 10N0 1oL0 10N0 1oL0 10N0 1rz0 W10 1rz0 W10 1rz0 10N0 1oL0 10N0 1oL0|81e4",
-			"Asia/Kabul|AFT|-4u|0||46e5",
-			"Asia/Kamchatka|PETT PETST PETT|-c0 -c0 -b0|0120|1BWe0 1qN0 WM0|18e4",
-			"Asia/Karachi|PKT|-50|0||24e6",
-			"Asia/Urumqi|XJT|-60|0||32e5",
-			"Asia/Kathmandu|NPT|-5J|0||12e5",
-			"Asia/Khandyga|VLAT VLAST VLAT YAKT YAKT|-a0 -b0 -b0 -a0 -90|010234|1BWg0 1qM0 WM0 17V0 7zD0|66e2",
-			"Asia/Krasnoyarsk|KRAT KRAST KRAT|-70 -80 -80|01020|1BWj0 1qM0 WM0 8Hz0|10e5",
-			"Asia/Kuala_Lumpur|MYT|-80|0||71e5",
-			"Asia/Magadan|MAGT MAGST MAGT MAGT|-b0 -c0 -c0 -a0|010230|1BWf0 1qM0 WM0 8Hz0 3Cq0|95e3",
-			"Asia/Makassar|WITA|-80|0||15e5",
-			"Asia/Manila|PHT|-80|0||24e6",
-			"Europe/Athens|EET EEST|-20 -30|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|35e5",
-			"Asia/Novokuznetsk|+07 +06|-70 -60|010|1Dp80 WM0|55e4",
-			"Asia/Novosibirsk|+06 +07|-60 -70|010101|1BWk0 1qM0 WM0 8Hz0 4eN0|15e5",
-			"Asia/Omsk|OMST OMSST OMST|-60 -70 -70|01020|1BWk0 1qM0 WM0 8Hz0|12e5",
-			"Asia/Pyongyang|KST KST|-90 -8u|01|1P4D0|29e5",
-			"Asia/Rangoon|MMT|-6u|0||48e5",
-			"Asia/Sakhalin|SAKT SAKST SAKT|-a0 -b0 -b0|010202|1BWg0 1qM0 WM0 8Hz0 3rd0|58e4",
-			"Asia/Tashkent|UZT|-50|0||23e5",
-			"Asia/Seoul|KST|-90|0||23e6",
-			"Asia/Singapore|SGT|-80|0||56e5",
-			"Asia/Srednekolymsk|MAGT MAGST MAGT SRET|-b0 -c0 -c0 -b0|01023|1BWf0 1qM0 WM0 8Hz0|35e2",
-			"Asia/Tbilisi|GET|-40|0||11e5",
-			"Asia/Tehran|IRST IRDT|-3u -4u|01010101010101010101010|1BTUu 1dz0 1cp0 1dz0 1cp0 1dz0 1cN0 1dz0 1cp0 1dz0 1cp0 1dz0 1cp0 1dz0 1cN0 1dz0 1cp0 1dz0 1cp0 1dz0 1cp0 1dz0|14e6",
-			"Asia/Thimphu|BTT|-60|0||79e3",
-			"Asia/Tokyo|JST|-90|0||38e6",
-			"Asia/Tomsk|+06 +07|-60 -70|010101|1BWk0 1qM0 WM0 8Hz0 3Qp0|10e5",
-			"Asia/Ulaanbaatar|ULAT ULAST|-80 -90|0101010101010|1O8G0 1cJ0 1cP0 1cJ0 1cP0 1fx0 1cP0 1cJ0 1cP0 1cJ0 1cP0 1cJ0|12e5",
-			"Asia/Ust-Nera|MAGT MAGST MAGT VLAT VLAT|-b0 -c0 -c0 -b0 -a0|010234|1BWf0 1qM0 WM0 17V0 7zD0|65e2",
-			"Asia/Vladivostok|VLAT VLAST VLAT|-a0 -b0 -b0|01020|1BWg0 1qM0 WM0 8Hz0|60e4",
-			"Asia/Yakutsk|YAKT YAKST YAKT|-90 -a0 -a0|01020|1BWh0 1qM0 WM0 8Hz0|28e4",
-			"Asia/Yekaterinburg|YEKT YEKST YEKT|-50 -60 -60|01020|1BWl0 1qM0 WM0 8Hz0|14e5",
-			"Asia/Yerevan|AMT AMST|-40 -50|01010|1BWm0 1qM0 WM0 1qM0|13e5",
-			"Atlantic/Azores|AZOT AZOST|10 0|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|25e4",
-			"Europe/Lisbon|WET WEST|0 -10|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|27e5",
-			"Atlantic/Cape_Verde|CVT|10|0||50e4",
-			"Atlantic/South_Georgia|GST|20|0||30",
-			"Atlantic/Stanley|FKST FKT|30 40|010|1C6R0 U10|21e2",
-			"Australia/Sydney|AEDT AEST|-b0 -a0|01010101010101010101010|1C140 1cM0 1cM0 1cM0 1cM0 1fA0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1fA0 1cM0 1cM0 1cM0 1cM0|40e5",
-			"Australia/Adelaide|ACDT ACST|-au -9u|01010101010101010101010|1C14u 1cM0 1cM0 1cM0 1cM0 1fA0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1fA0 1cM0 1cM0 1cM0 1cM0|11e5",
-			"Australia/Brisbane|AEST|-a0|0||20e5",
-			"Australia/Darwin|ACST|-9u|0||12e4",
-			"Australia/Eucla|ACWST|-8J|0||368",
-			"Australia/Lord_Howe|LHDT LHST|-b0 -au|01010101010101010101010|1C130 1cMu 1cLu 1cMu 1cLu 1fAu 1cLu 1cMu 1cLu 1cMu 1cLu 1cMu 1cLu 1cMu 1cLu 1cMu 1cLu 1fAu 1cLu 1cMu 1cLu 1cMu|347",
-			"Australia/Perth|AWST|-80|0||18e5",
-			"Pacific/Easter|EASST EAST|50 60|010101010101010101010|1C1f0 1fB0 1nX0 G10 1EL0 Op0 1zb0 Rd0 1wn0 Rd0 46n0 Ap0 1Nb0 Ap0 1Nb0 Ap0 1Nb0 Ap0 1Nb0 Ap0|30e2",
-			"Europe/Dublin|GMT IST|0 -10|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5",
-			"Etc/GMT+1|GMT+1|10|0|",
-			"Etc/GMT+10|GMT+10|a0|0|",
-			"Etc/GMT+11|GMT+11|b0|0|",
-			"Etc/GMT+12|GMT+12|c0|0|",
-			"Etc/GMT+2|GMT+2|20|0|",
-			"Etc/GMT+3|GMT+3|30|0|",
-			"Etc/GMT+4|GMT+4|40|0|",
-			"Etc/GMT+5|GMT+5|50|0|",
-			"Etc/GMT+6|GMT+6|60|0|",
-			"Etc/GMT+7|GMT+7|70|0|",
-			"Etc/GMT+8|GMT+8|80|0|",
-			"Etc/GMT+9|GMT+9|90|0|",
-			"Etc/GMT-1|GMT-1|-10|0|",
-			"Etc/GMT-10|GMT-10|-a0|0|",
-			"Etc/GMT-11|GMT-11|-b0|0|",
-			"Etc/GMT-12|GMT-12|-c0|0|",
-			"Etc/GMT-13|GMT-13|-d0|0|",
-			"Etc/GMT-14|GMT-14|-e0|0|",
-			"Etc/GMT-2|GMT-2|-20|0|",
-			"Etc/GMT-3|GMT-3|-30|0|",
-			"Etc/GMT-4|GMT-4|-40|0|",
-			"Etc/GMT-5|GMT-5|-50|0|",
-			"Etc/GMT-6|GMT-6|-60|0|",
-			"Etc/GMT-7|GMT-7|-70|0|",
-			"Etc/GMT-8|GMT-8|-80|0|",
-			"Etc/GMT-9|GMT-9|-90|0|",
-			"Etc/UCT|UCT|0|0|",
-			"Etc/UTC|UTC|0|0|",
-			"Europe/Astrakhan|+03 +04|-30 -40|010101|1BWn0 1qM0 WM0 8Hz0 3rd0",
-			"Europe/London|GMT BST|0 -10|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|10e6",
-			"Europe/Chisinau|EET EEST|-20 -30|01010101010101010101010|1BWo0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|67e4",
-			"Europe/Kaliningrad|EET EEST FET|-20 -30 -30|01020|1BWo0 1qM0 WM0 8Hz0|44e4",
-			"Europe/Kirov|+03 +04|-30 -40|01010|1BWn0 1qM0 WM0 8Hz0|48e4",
-			"Europe/Minsk|EET EEST FET MSK|-20 -30 -30 -30|01023|1BWo0 1qM0 WM0 8Hy0|19e5",
-			"Europe/Moscow|MSK MSD MSK|-30 -40 -40|01020|1BWn0 1qM0 WM0 8Hz0|16e6",
-			"Europe/Samara|SAMT SAMST SAMT|-40 -40 -30|0120|1BWm0 1qN0 WM0|12e5",
-			"Europe/Simferopol|EET EEST MSK MSK|-20 -30 -40 -30|01010101023|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11z0 1nW0|33e4",
-			"Pacific/Honolulu|HST|a0|0||37e4",
-			"Indian/Chagos|IOT|-60|0||30e2",
-			"Indian/Christmas|CXT|-70|0||21e2",
-			"Indian/Cocos|CCT|-6u|0||596",
-			"Indian/Kerguelen|TFT|-50|0||130",
-			"Indian/Mahe|SCT|-40|0||79e3",
-			"Indian/Maldives|MVT|-50|0||35e4",
-			"Indian/Mauritius|MUT|-40|0||15e4",
-			"Indian/Reunion|RET|-40|0||84e4",
-			"Pacific/Majuro|MHT|-c0|0||28e3",
-			"MET|MET MEST|-10 -20|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00",
-			"Pacific/Chatham|CHADT CHAST|-dJ -cJ|01010101010101010101010|1C120 1a00 1fA0 1a00 1fA0 1cM0 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1cM0 1fA0 1a00 1fA0 1a00|600",
-			"Pacific/Apia|SST SDT WSDT WSST|b0 a0 -e0 -d0|01012323232323232323232|1Dbn0 1ff0 1a00 CI0 AQ0 1cM0 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1a00 1fA0 1cM0 1fA0 1a00 1fA0 1a00|37e3",
-			"Pacific/Bougainville|PGT BST|-a0 -b0|01|1NwE0|18e4",
-			"Pacific/Chuuk|CHUT|-a0|0||49e3",
-			"Pacific/Efate|VUT|-b0|0||66e3",
-			"Pacific/Enderbury|PHOT|-d0|0||1",
-			"Pacific/Fakaofo|TKT TKT|b0 -d0|01|1Gfn0|483",
-			"Pacific/Fiji|FJST FJT|-d0 -c0|01010101010101010101010|1BWe0 1o00 Rc0 1wo0 Ao0 1Nc0 Ao0 1Q00 xz0 1SN0 uM0 1SM0 uM0 1VA0 s00 1VA0 uM0 1SM0 uM0 1SM0 uM0 1SM0|88e4",
-			"Pacific/Funafuti|TVT|-c0|0||45e2",
-			"Pacific/Galapagos|GALT|60|0||25e3",
-			"Pacific/Gambier|GAMT|90|0||125",
-			"Pacific/Guadalcanal|SBT|-b0|0||11e4",
-			"Pacific/Guam|ChST|-a0|0||17e4",
-			"Pacific/Kiritimati|LINT|-e0|0||51e2",
-			"Pacific/Kosrae|KOST|-b0|0||66e2",
-			"Pacific/Marquesas|MART|9u|0||86e2",
-			"Pacific/Pago_Pago|SST|b0|0||37e2",
-			"Pacific/Nauru|NRT|-c0|0||10e3",
-			"Pacific/Niue|NUT|b0|0||12e2",
-			"Pacific/Norfolk|NFT NFT|-bu -b0|01|1PoCu|25e4",
-			"Pacific/Noumea|NCT|-b0|0||98e3",
-			"Pacific/Palau|PWT|-90|0||21e3",
-			"Pacific/Pitcairn|PST|80|0||56",
-			"Pacific/Pohnpei|PONT|-b0|0||34e3",
-			"Pacific/Port_Moresby|PGT|-a0|0||25e4",
-			"Pacific/Rarotonga|CKT|a0|0||13e3",
-			"Pacific/Tahiti|TAHT|a0|0||18e4",
-			"Pacific/Tarawa|GILT|-c0|0||29e3",
-			"Pacific/Tongatapu|TOT|-d0|0||75e3",
-			"Pacific/Wake|WAKT|-c0|0||16e3",
-			"Pacific/Wallis|WFT|-c0|0||94"
-		],
-		"links": [
-			"Africa/Abidjan|Africa/Accra",
-			"Africa/Abidjan|Africa/Bamako",
-			"Africa/Abidjan|Africa/Banjul",
-			"Africa/Abidjan|Africa/Bissau",
-			"Africa/Abidjan|Africa/Conakry",
-			"Africa/Abidjan|Africa/Dakar",
-			"Africa/Abidjan|Africa/Freetown",
-			"Africa/Abidjan|Africa/Lome",
-			"Africa/Abidjan|Africa/Monrovia",
-			"Africa/Abidjan|Africa/Nouakchott",
-			"Africa/Abidjan|Africa/Ouagadougou",
-			"Africa/Abidjan|Africa/Sao_Tome",
-			"Africa/Abidjan|Africa/Timbuktu",
-			"Africa/Abidjan|America/Danmarkshavn",
-			"Africa/Abidjan|Atlantic/Reykjavik",
-			"Africa/Abidjan|Atlantic/St_Helena",
-			"Africa/Abidjan|Etc/GMT",
-			"Africa/Abidjan|Etc/GMT+0",
-			"Africa/Abidjan|Etc/GMT-0",
-			"Africa/Abidjan|Etc/GMT0",
-			"Africa/Abidjan|Etc/Greenwich",
-			"Africa/Abidjan|GMT",
-			"Africa/Abidjan|GMT+0",
-			"Africa/Abidjan|GMT-0",
-			"Africa/Abidjan|GMT0",
-			"Africa/Abidjan|Greenwich",
-			"Africa/Abidjan|Iceland",
-			"Africa/Algiers|Africa/Tunis",
-			"Africa/Cairo|Egypt",
-			"Africa/Casablanca|Africa/El_Aaiun",
-			"Africa/Johannesburg|Africa/Maseru",
-			"Africa/Johannesburg|Africa/Mbabane",
-			"Africa/Khartoum|Africa/Addis_Ababa",
-			"Africa/Khartoum|Africa/Asmara",
-			"Africa/Khartoum|Africa/Asmera",
-			"Africa/Khartoum|Africa/Dar_es_Salaam",
-			"Africa/Khartoum|Africa/Djibouti",
-			"Africa/Khartoum|Africa/Juba",
-			"Africa/Khartoum|Africa/Kampala",
-			"Africa/Khartoum|Africa/Mogadishu",
-			"Africa/Khartoum|Africa/Nairobi",
-			"Africa/Khartoum|Indian/Antananarivo",
-			"Africa/Khartoum|Indian/Comoro",
-			"Africa/Khartoum|Indian/Mayotte",
-			"Africa/Lagos|Africa/Bangui",
-			"Africa/Lagos|Africa/Brazzaville",
-			"Africa/Lagos|Africa/Douala",
-			"Africa/Lagos|Africa/Kinshasa",
-			"Africa/Lagos|Africa/Libreville",
-			"Africa/Lagos|Africa/Luanda",
-			"Africa/Lagos|Africa/Malabo",
-			"Africa/Lagos|Africa/Ndjamena",
-			"Africa/Lagos|Africa/Niamey",
-			"Africa/Lagos|Africa/Porto-Novo",
-			"Africa/Maputo|Africa/Blantyre",
-			"Africa/Maputo|Africa/Bujumbura",
-			"Africa/Maputo|Africa/Gaborone",
-			"Africa/Maputo|Africa/Harare",
-			"Africa/Maputo|Africa/Kigali",
-			"Africa/Maputo|Africa/Lubumbashi",
-			"Africa/Maputo|Africa/Lusaka",
-			"Africa/Tripoli|Libya",
-			"America/Adak|America/Atka",
-			"America/Adak|US/Aleutian",
-			"America/Anchorage|America/Juneau",
-			"America/Anchorage|America/Nome",
-			"America/Anchorage|America/Sitka",
-			"America/Anchorage|America/Yakutat",
-			"America/Anchorage|US/Alaska",
-			"America/Argentina/Buenos_Aires|America/Argentina/Catamarca",
-			"America/Argentina/Buenos_Aires|America/Argentina/ComodRivadavia",
-			"America/Argentina/Buenos_Aires|America/Argentina/Cordoba",
-			"America/Argentina/Buenos_Aires|America/Argentina/Jujuy",
-			"America/Argentina/Buenos_Aires|America/Argentina/La_Rioja",
-			"America/Argentina/Buenos_Aires|America/Argentina/Mendoza",
-			"America/Argentina/Buenos_Aires|America/Argentina/Rio_Gallegos",
-			"America/Argentina/Buenos_Aires|America/Argentina/Salta",
-			"America/Argentina/Buenos_Aires|America/Argentina/San_Juan",
-			"America/Argentina/Buenos_Aires|America/Argentina/San_Luis",
-			"America/Argentina/Buenos_Aires|America/Argentina/Tucuman",
-			"America/Argentina/Buenos_Aires|America/Argentina/Ushuaia",
-			"America/Argentina/Buenos_Aires|America/Buenos_Aires",
-			"America/Argentina/Buenos_Aires|America/Catamarca",
-			"America/Argentina/Buenos_Aires|America/Cordoba",
-			"America/Argentina/Buenos_Aires|America/Jujuy",
-			"America/Argentina/Buenos_Aires|America/Mendoza",
-			"America/Argentina/Buenos_Aires|America/Rosario",
-			"America/Campo_Grande|America/Cuiaba",
-			"America/Chicago|America/Indiana/Knox",
-			"America/Chicago|America/Indiana/Tell_City",
-			"America/Chicago|America/Knox_IN",
-			"America/Chicago|America/Matamoros",
-			"America/Chicago|America/Menominee",
-			"America/Chicago|America/North_Dakota/Center",
-			"America/Chicago|America/North_Dakota/New_Salem",
-			"America/Chicago|America/Rainy_River",
-			"America/Chicago|America/Rankin_Inlet",
-			"America/Chicago|America/Resolute",
-			"America/Chicago|America/Winnipeg",
-			"America/Chicago|CST6CDT",
-			"America/Chicago|Canada/Central",
-			"America/Chicago|US/Central",
-			"America/Chicago|US/Indiana-Starke",
-			"America/Chihuahua|America/Mazatlan",
-			"America/Chihuahua|Mexico/BajaSur",
-			"America/Denver|America/Boise",
-			"America/Denver|America/Cambridge_Bay",
-			"America/Denver|America/Edmonton",
-			"America/Denver|America/Inuvik",
-			"America/Denver|America/Ojinaga",
-			"America/Denver|America/Shiprock",
-			"America/Denver|America/Yellowknife",
-			"America/Denver|Canada/Mountain",
-			"America/Denver|MST7MDT",
-			"America/Denver|Navajo",
-			"America/Denver|US/Mountain",
-			"America/Fortaleza|America/Belem",
-			"America/Fortaleza|America/Maceio",
-			"America/Fortaleza|America/Recife",
-			"America/Fortaleza|America/Santarem",
-			"America/Halifax|America/Glace_Bay",
-			"America/Halifax|America/Moncton",
-			"America/Halifax|America/Thule",
-			"America/Halifax|Atlantic/Bermuda",
-			"America/Halifax|Canada/Atlantic",
-			"America/Havana|Cuba",
-			"America/Los_Angeles|America/Dawson",
-			"America/Los_Angeles|America/Ensenada",
-			"America/Los_Angeles|America/Santa_Isabel",
-			"America/Los_Angeles|America/Tijuana",
-			"America/Los_Angeles|America/Vancouver",
-			"America/Los_Angeles|America/Whitehorse",
-			"America/Los_Angeles|Canada/Pacific",
-			"America/Los_Angeles|Canada/Yukon",
-			"America/Los_Angeles|Mexico/BajaNorte",
-			"America/Los_Angeles|PST8PDT",
-			"America/Los_Angeles|US/Pacific",
-			"America/Los_Angeles|US/Pacific-New",
-			"America/Managua|America/Belize",
-			"America/Managua|America/Costa_Rica",
-			"America/Managua|America/El_Salvador",
-			"America/Managua|America/Guatemala",
-			"America/Managua|America/Regina",
-			"America/Managua|America/Swift_Current",
-			"America/Managua|America/Tegucigalpa",
-			"America/Managua|Canada/East-Saskatchewan",
-			"America/Managua|Canada/Saskatchewan",
-			"America/Manaus|America/Boa_Vista",
-			"America/Manaus|America/Porto_Velho",
-			"America/Manaus|Brazil/West",
-			"America/Mexico_City|America/Merida",
-			"America/Mexico_City|America/Monterrey",
-			"America/Mexico_City|Mexico/General",
-			"America/New_York|America/Detroit",
-			"America/New_York|America/Fort_Wayne",
-			"America/New_York|America/Indiana/Indianapolis",
-			"America/New_York|America/Indiana/Marengo",
-			"America/New_York|America/Indiana/Petersburg",
-			"America/New_York|America/Indiana/Vevay",
-			"America/New_York|America/Indiana/Vincennes",
-			"America/New_York|America/Indiana/Winamac",
-			"America/New_York|America/Indianapolis",
-			"America/New_York|America/Iqaluit",
-			"America/New_York|America/Kentucky/Louisville",
-			"America/New_York|America/Kentucky/Monticello",
-			"America/New_York|America/Louisville",
-			"America/New_York|America/Montreal",
-			"America/New_York|America/Nassau",
-			"America/New_York|America/Nipigon",
-			"America/New_York|America/Pangnirtung",
-			"America/New_York|America/Thunder_Bay",
-			"America/New_York|America/Toronto",
-			"America/New_York|Canada/Eastern",
-			"America/New_York|EST5EDT",
-			"America/New_York|US/East-Indiana",
-			"America/New_York|US/Eastern",
-			"America/New_York|US/Michigan",
-			"America/Noronha|Brazil/DeNoronha",
-			"America/Panama|America/Atikokan",
-			"America/Panama|America/Cayman",
-			"America/Panama|America/Coral_Harbour",
-			"America/Panama|America/Jamaica",
-			"America/Panama|EST",
-			"America/Panama|Jamaica",
-			"America/Phoenix|America/Creston",
-			"America/Phoenix|America/Dawson_Creek",
-			"America/Phoenix|America/Hermosillo",
-			"America/Phoenix|MST",
-			"America/Phoenix|US/Arizona",
-			"America/Rio_Branco|America/Eirunepe",
-			"America/Rio_Branco|America/Porto_Acre",
-			"America/Rio_Branco|Brazil/Acre",
-			"America/Santiago|Antarctica/Palmer",
-			"America/Santiago|Chile/Continental",
-			"America/Santo_Domingo|America/Anguilla",
-			"America/Santo_Domingo|America/Antigua",
-			"America/Santo_Domingo|America/Aruba",
-			"America/Santo_Domingo|America/Barbados",
-			"America/Santo_Domingo|America/Blanc-Sablon",
-			"America/Santo_Domingo|America/Curacao",
-			"America/Santo_Domingo|America/Dominica",
-			"America/Santo_Domingo|America/Grenada",
-			"America/Santo_Domingo|America/Guadeloupe",
-			"America/Santo_Domingo|America/Kralendijk",
-			"America/Santo_Domingo|America/Lower_Princes",
-			"America/Santo_Domingo|America/Marigot",
-			"America/Santo_Domingo|America/Martinique",
-			"America/Santo_Domingo|America/Montserrat",
-			"America/Santo_Domingo|America/Port_of_Spain",
-			"America/Santo_Domingo|America/Puerto_Rico",
-			"America/Santo_Domingo|America/St_Barthelemy",
-			"America/Santo_Domingo|America/St_Kitts",
-			"America/Santo_Domingo|America/St_Lucia",
-			"America/Santo_Domingo|America/St_Thomas",
-			"America/Santo_Domingo|America/St_Vincent",
-			"America/Santo_Domingo|America/Tortola",
-			"America/Santo_Domingo|America/Virgin",
-			"America/Sao_Paulo|Brazil/East",
-			"America/St_Johns|Canada/Newfoundland",
-			"Asia/Almaty|Asia/Qyzylorda",
-			"Asia/Aqtobe|Asia/Aqtau",
-			"Asia/Aqtobe|Asia/Oral",
-			"Asia/Ashgabat|Asia/Ashkhabad",
-			"Asia/Baghdad|Asia/Aden",
-			"Asia/Baghdad|Asia/Bahrain",
-			"Asia/Baghdad|Asia/Kuwait",
-			"Asia/Baghdad|Asia/Qatar",
-			"Asia/Baghdad|Asia/Riyadh",
-			"Asia/Bangkok|Asia/Ho_Chi_Minh",
-			"Asia/Bangkok|Asia/Phnom_Penh",
-			"Asia/Bangkok|Asia/Saigon",
-			"Asia/Bangkok|Asia/Vientiane",
-			"Asia/Dhaka|Asia/Dacca",
-			"Asia/Dubai|Asia/Muscat",
-			"Asia/Hong_Kong|Hongkong",
-			"Asia/Jakarta|Asia/Pontianak",
-			"Asia/Jerusalem|Asia/Tel_Aviv",
-			"Asia/Jerusalem|Israel",
-			"Asia/Kathmandu|Asia/Katmandu",
-			"Asia/Kolkata|Asia/Calcutta",
-			"Asia/Kolkata|Asia/Colombo",
-			"Asia/Kuala_Lumpur|Asia/Kuching",
-			"Asia/Makassar|Asia/Ujung_Pandang",
-			"Asia/Seoul|ROK",
-			"Asia/Shanghai|Asia/Chongqing",
-			"Asia/Shanghai|Asia/Chungking",
-			"Asia/Shanghai|Asia/Harbin",
-			"Asia/Shanghai|Asia/Macao",
-			"Asia/Shanghai|Asia/Macau",
-			"Asia/Shanghai|Asia/Taipei",
-			"Asia/Shanghai|PRC",
-			"Asia/Shanghai|ROC",
-			"Asia/Singapore|Singapore",
-			"Asia/Tashkent|Asia/Samarkand",
-			"Asia/Tehran|Iran",
-			"Asia/Thimphu|Asia/Thimbu",
-			"Asia/Tokyo|Japan",
-			"Asia/Ulaanbaatar|Asia/Ulan_Bator",
-			"Asia/Urumqi|Asia/Kashgar",
-			"Australia/Adelaide|Australia/Broken_Hill",
-			"Australia/Adelaide|Australia/South",
-			"Australia/Adelaide|Australia/Yancowinna",
-			"Australia/Brisbane|Australia/Lindeman",
-			"Australia/Brisbane|Australia/Queensland",
-			"Australia/Darwin|Australia/North",
-			"Australia/Lord_Howe|Australia/LHI",
-			"Australia/Perth|Australia/West",
-			"Australia/Sydney|Australia/ACT",
-			"Australia/Sydney|Australia/Canberra",
-			"Australia/Sydney|Australia/Currie",
-			"Australia/Sydney|Australia/Hobart",
-			"Australia/Sydney|Australia/Melbourne",
-			"Australia/Sydney|Australia/NSW",
-			"Australia/Sydney|Australia/Tasmania",
-			"Australia/Sydney|Australia/Victoria",
-			"Etc/UCT|UCT",
-			"Etc/UTC|Etc/Universal",
-			"Etc/UTC|Etc/Zulu",
-			"Etc/UTC|UTC",
-			"Etc/UTC|Universal",
-			"Etc/UTC|Zulu",
-			"Europe/Astrakhan|Europe/Ulyanovsk",
-			"Europe/Athens|Asia/Nicosia",
-			"Europe/Athens|EET",
-			"Europe/Athens|Europe/Bucharest",
-			"Europe/Athens|Europe/Helsinki",
-			"Europe/Athens|Europe/Kiev",
-			"Europe/Athens|Europe/Mariehamn",
-			"Europe/Athens|Europe/Nicosia",
-			"Europe/Athens|Europe/Riga",
-			"Europe/Athens|Europe/Sofia",
-			"Europe/Athens|Europe/Tallinn",
-			"Europe/Athens|Europe/Uzhgorod",
-			"Europe/Athens|Europe/Vilnius",
-			"Europe/Athens|Europe/Zaporozhye",
-			"Europe/Chisinau|Europe/Tiraspol",
-			"Europe/Dublin|Eire",
-			"Europe/Istanbul|Asia/Istanbul",
-			"Europe/Istanbul|Turkey",
-			"Europe/Lisbon|Atlantic/Canary",
-			"Europe/Lisbon|Atlantic/Faeroe",
-			"Europe/Lisbon|Atlantic/Faroe",
-			"Europe/Lisbon|Atlantic/Madeira",
-			"Europe/Lisbon|Portugal",
-			"Europe/Lisbon|WET",
-			"Europe/London|Europe/Belfast",
-			"Europe/London|Europe/Guernsey",
-			"Europe/London|Europe/Isle_of_Man",
-			"Europe/London|Europe/Jersey",
-			"Europe/London|GB",
-			"Europe/London|GB-Eire",
-			"Europe/Moscow|Europe/Volgograd",
-			"Europe/Moscow|W-SU",
-			"Europe/Paris|Africa/Ceuta",
-			"Europe/Paris|Arctic/Longyearbyen",
-			"Europe/Paris|Atlantic/Jan_Mayen",
-			"Europe/Paris|CET",
-			"Europe/Paris|Europe/Amsterdam",
-			"Europe/Paris|Europe/Andorra",
-			"Europe/Paris|Europe/Belgrade",
-			"Europe/Paris|Europe/Berlin",
-			"Europe/Paris|Europe/Bratislava",
-			"Europe/Paris|Europe/Brussels",
-			"Europe/Paris|Europe/Budapest",
-			"Europe/Paris|Europe/Busingen",
-			"Europe/Paris|Europe/Copenhagen",
-			"Europe/Paris|Europe/Gibraltar",
-			"Europe/Paris|Europe/Ljubljana",
-			"Europe/Paris|Europe/Luxembourg",
-			"Europe/Paris|Europe/Madrid",
-			"Europe/Paris|Europe/Malta",
-			"Europe/Paris|Europe/Monaco",
-			"Europe/Paris|Europe/Oslo",
-			"Europe/Paris|Europe/Podgorica",
-			"Europe/Paris|Europe/Prague",
-			"Europe/Paris|Europe/Rome",
-			"Europe/Paris|Europe/San_Marino",
-			"Europe/Paris|Europe/Sarajevo",
-			"Europe/Paris|Europe/Skopje",
-			"Europe/Paris|Europe/Stockholm",
-			"Europe/Paris|Europe/Tirane",
-			"Europe/Paris|Europe/Vaduz",
-			"Europe/Paris|Europe/Vatican",
-			"Europe/Paris|Europe/Vienna",
-			"Europe/Paris|Europe/Warsaw",
-			"Europe/Paris|Europe/Zagreb",
-			"Europe/Paris|Europe/Zurich",
-			"Europe/Paris|Poland",
-			"Pacific/Auckland|Antarctica/McMurdo",
-			"Pacific/Auckland|Antarctica/South_Pole",
-			"Pacific/Auckland|NZ",
-			"Pacific/Chatham|NZ-CHAT",
-			"Pacific/Chuuk|Pacific/Truk",
-			"Pacific/Chuuk|Pacific/Yap",
-			"Pacific/Easter|Chile/EasterIsland",
-			"Pacific/Guam|Pacific/Saipan",
-			"Pacific/Honolulu|HST",
-			"Pacific/Honolulu|Pacific/Johnston",
-			"Pacific/Honolulu|US/Hawaii",
-			"Pacific/Majuro|Kwajalein",
-			"Pacific/Majuro|Pacific/Kwajalein",
-			"Pacific/Pago_Pago|Pacific/Midway",
-			"Pacific/Pago_Pago|Pacific/Samoa",
-			"Pacific/Pago_Pago|US/Samoa",
-			"Pacific/Pohnpei|Pacific/Ponape"
-		]
-	});
-
-
-	return moment;
-}));
-
-
-/***/ }),
-/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -41208,7 +40541,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(5),
     __webpack_require__(4),
     __webpack_require__(3),
-    __webpack_require__(50),
+    __webpack_require__(49),
     __webpack_require__(2)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, Base, utils, logging, DependsHandler, Parser) {
     var log = logging.getLogger("depends"),
@@ -41389,12 +40722,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
-    __webpack_require__(17)
+    __webpack_require__(18)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, parser) {
     function DependsHandler($el, expression) {
         var $context = $el.closest("form");
@@ -41474,6 +40807,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                             if (value===null)
                                 return false;
                             return value.indexOf(node.value)!=-1;
+                        case "=~":
+                            if (value===null || !node.value)
+                                return false;
+                            return node.value.indexOf(value)!=-1;
                     }
                     break;
                 case "truthy":
@@ -41493,7 +40830,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -41568,7 +40905,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root,
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -41665,11 +41002,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * EvEmitter v1.0.3
+ * EvEmitter v1.1.0
  * Lil' event emitter
  * MIT License
  */
@@ -41778,13 +41115,19 @@ proto.emitEvent = function( eventName, args ) {
   return this;
 };
 
+proto.allOff =
+proto.removeAllListeners = function() {
+  delete this._events;
+  delete this._onceEvents;
+};
+
 return EvEmitter;
 
 }));
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -41859,7 +41202,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -41952,7 +41295,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -41960,7 +41303,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(3),
     __webpack_require__(1),
     __webpack_require__(4),
-    __webpack_require__(18),
+    __webpack_require__(19),
     __webpack_require__(12)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, modal, input_change_events) {
     var log = logger.getLogger("form-state");
@@ -42065,7 +41408,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -42114,7 +41457,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -42127,9 +41470,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(1),
     __webpack_require__(5),
     __webpack_require__(2),
+    __webpack_require__(58),
     __webpack_require__(59),
     __webpack_require__(60),
-    __webpack_require__(61),
     __webpack_require__(6)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, Base, Parser, PhotoSwipe, PhotoSwipeUI, template, _) {
     var parser = new Parser('gallery');
@@ -42173,6 +41516,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 } else {
                     options.index = 0;
                 }
+                options.history = false;  // this fixes the reload on gallery close which was induced by a history back call.
+                
                 var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI, images, options);
                 gallery.listen('gettingData', function(index, item) {
                     // Workaround for the fact that we don't know the image sizes.
@@ -42206,7 +41551,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe - v4.1.0 - 2015-07-11
@@ -45934,7 +45279,7 @@ _registerModule('History', {
 });
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe Default UI - 4.1.0 - 2015-07-11
@@ -46803,13 +46148,13 @@ return PhotoSwipeUI_Default;
 });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports) {
 
 module.exports = "<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div id=\"photoswipe-template\" class=\"pswp\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">\n\n    <!-- Background of PhotoSwipe. \n         It's a separate element as animating opacity is faster than rgba(). -->\n    <div class=\"pswp__bg\"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class=\"pswp__scroll-wrap\">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don't modify these 3 pswp__item elements, data is added later on. -->\n        <div class=\"pswp__container\">\n            <div class=\"pswp__item\"></div>\n            <div class=\"pswp__item\"></div>\n            <div class=\"pswp__item\"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class=\"pswp__ui pswp__ui--hidden\">\n\n            <div class=\"pswp__top-bar\">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n                <div class=\"pswp__counter\"></div>\n\n                <button class=\"pswp__button pswp__button--close\" title=\"Close (Esc)\"></button>\n                <button class=\"pswp__button pswp__button--share\" title=\"Share\"></button>\n                <button class=\"pswp__button pswp__button--fs\" title=\"Toggle fullscreen\"></button>\n                <button class=\"pswp__button pswp__button--zoom\" title=\"Zoom in/out\"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader__active when preloader is running -->\n                <div class=\"pswp__preloader\">\n                    <div class=\"pswp__preloader__icn\">\n                      <div class=\"pswp__preloader__cut\">\n                        <div class=\"pswp__preloader__donut\"></div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"pswp__share-modal pswp__share-modal--hidden pswp__single-tap\">\n                <div class=\"pswp__share-tooltip\"></div> \n            </div>\n\n            <button class=\"pswp__button pswp__button--arrow--left\" title=\"Previous (arrow left)\">\n            </button>\n\n            <button class=\"pswp__button pswp__button--arrow--right\" title=\"Next (arrow right)\">\n            </button>\n\n            <div class=\"pswp__caption\">\n                <div class=\"pswp__caption__center\"></div>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -46848,7 +46193,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -46858,7 +46203,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(4),
     __webpack_require__(5),
     __webpack_require__(7),
-    __webpack_require__(64),
+    __webpack_require__(63),
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, Base, inject, Showdown) {
     var log = logger.getLogger("pat.markdown");
     var is_markdown_resource = /\.md$/;
@@ -46972,7 +46317,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown 05-08-2017 */
@@ -49930,7 +49275,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -49947,7 +49292,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             __webpack_require__(2),
             __webpack_require__(5),
             __webpack_require__(4),
-            __webpack_require__(66),
+            __webpack_require__(65),
             __webpack_require__(14)
             ], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
                 return factory.apply(this, arguments);
@@ -49960,17 +49305,31 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     "use strict";
     var log = logger.getLogger("pat.masonry");
     var parser = new Parser("masonry");
+
+    // parser.addArgument("stagger", "");
     parser.addArgument("column-width");
     parser.addArgument("container-style", '{ "position": "relative" }');
     parser.addArgument("gutter");
-    parser.addArgument("hidden-style", "{ opacity: 0, transform: 'scale(0.001)' }");
     parser.addArgument("is-fit-width", false);
+    parser.addArgument("is-horizontal-order", false);  // preserve horizontal order.
     parser.addArgument("is-origin-left", true);
     parser.addArgument("is-origin-top", true);
+    parser.addArgument("is-percent-position", false);  // set item positions in percent values. items will not transition on resize.
+    parser.addArgument("is-resize", true);  // adjust sizes and position on resize.
     parser.addArgument("item-selector", ".item");
     parser.addArgument("stamp", "");
     parser.addArgument("transition-duration", "0.4s");
-    parser.addArgument("visible-style", "{ opacity: 1, transform: 'scale(1)' }");
+
+    // is-* are masonry v3 options, here we add v4 style names.
+    // we keep the is-* as there is special support with options parsing.
+    parser.addAlias("fit-width", "is-fit-width");
+    parser.addAlias("origin-left", "is-origin-left");
+    parser.addAlias("origin-top", "is-origin-top");
+    parser.addAlias("horizontal-order", "is-horizontal-order");
+    parser.addAlias("percent-position", "is-percent-position");
+    parser.addAlias("resize", "is-resize");
+
+
 
     return Base.extend({
         name: "masonry",
@@ -49978,6 +49337,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
         init: function masonryInit($el, opts) {
             this.options = parser.parse(this.$el, opts);
+            // Initialize
+            this.initMasonry();
+
             var imgLoad = imagesLoaded(this.$el);
             imgLoad.on("progress", function() {
                 if (! this.msnry) {
@@ -49991,8 +49353,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 }
                 this.layout();
             }.bind(this));
+
             // Update if something gets injected inside the pat-masonry
-            // element.
             this.$el
                 .on("patterns-injected.pat-masonry",
                     utils.debounce(this.update.bind(this), 100))
@@ -50008,8 +49370,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
               attributes: true
             };
             observer.observe(document.body, config);
-
-
         },
 
         initMasonry: function () {
@@ -50026,16 +49386,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             this.msnry = new Masonry(this.$el[0], {
                 columnWidth:         this.getTypeCastedValue(this.options.columnWidth),
                 containerStyle:      containerStyle,
+                fitWidth:            this.options.is["fit-width"],
                 gutter:              this.getTypeCastedValue(this.options.gutter),
-                hiddenStyle:         this.options.hiddenStyle,
-                isFitWidth:          this.options.is["fit-width"],
-                isInitLayout:        false,
-                isOriginLeft:        this.options.is["origin-left"],
-                isOriginTOp:         this.options.is["origin-top"],
+                horizontalOrder:     this.options.is["horizontal-order"],
+                initLayout:          false,
                 itemSelector:        this.options.itemSelector,
+                originLeft:          this.options.is["origin-left"],
+                originTop:           this.options.is["origin-top"],
+                percentPosition:     this.options.is["percent-position"],
+                resize:              this.options.is["resize"],
                 stamp:               this.options.stamp,
                 transitionDuration:  this.options.transitionDuration,
-                visibleStyle:        this.options.visibleStyle
             });
         },
 
@@ -50077,11 +49438,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LOCAL_MODULE_1__, __WEBPACK_LOCAL_MODULE_1__factory, __WEBPACK_LOCAL_MODULE_1__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_2__;var __WEBPACK_LOCAL_MODULE_3__, __WEBPACK_LOCAL_MODULE_3__factory, __WEBPACK_LOCAL_MODULE_3__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_4__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_5__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_6__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * Masonry PACKAGED v4.1.1
+ * Masonry PACKAGED v4.2.0
  * Cascading grid layout library
  * http://masonry.desandro.com
  * MIT License
@@ -50089,15 +49450,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LO
  */
 
 !function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(i){return e(t,i)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=e(t,require("jquery")):t.jQueryBridget=e(t,t.jQuery)}(window,function(t,e){"use strict";function i(i,r,a){function h(t,e,n){var o,r="$()."+i+'("'+e+'")';return t.each(function(t,h){var u=a.data(h,i);if(!u)return void s(i+" not initialized. Cannot call methods, i.e. "+r);var d=u[e];if(!d||"_"==e.charAt(0))return void s(r+" is not a valid method");var l=d.apply(u,n);o=void 0===o?l:o}),void 0!==o?o:t}function u(t,e){t.each(function(t,n){var o=a.data(n,i);o?(o.option(e),o._init()):(o=new r(n,e),a.data(n,i,o))})}a=a||e||t.jQuery,a&&(r.prototype.option||(r.prototype.option=function(t){a.isPlainObject(t)&&(this.options=a.extend(!0,this.options,t))}),a.fn[i]=function(t){if("string"==typeof t){var e=o.call(arguments,1);return h(this,t,e)}return u(this,t),this},n(a))}function n(t){!t||t&&t.bridget||(t.bridget=i)}var o=Array.prototype.slice,r=t.console,s="undefined"==typeof r?function(){}:function(t){r.error(t)};return n(e||t.jQuery),i}),function(t,e){ true?!(__WEBPACK_LOCAL_MODULE_1__factory = (e), (__WEBPACK_LOCAL_MODULE_1__module = { id: "ev-emitter/ev-emitter", exports: {}, loaded: false }), __WEBPACK_LOCAL_MODULE_1__ = (typeof __WEBPACK_LOCAL_MODULE_1__factory === 'function' ? (__WEBPACK_LOCAL_MODULE_1__factory.call(__WEBPACK_LOCAL_MODULE_1__module.exports, __webpack_require__, __WEBPACK_LOCAL_MODULE_1__module.exports, __WEBPACK_LOCAL_MODULE_1__module)) : __WEBPACK_LOCAL_MODULE_1__factory), (__WEBPACK_LOCAL_MODULE_1__module.loaded = true), __WEBPACK_LOCAL_MODULE_1__ === undefined && (__WEBPACK_LOCAL_MODULE_1__ = __WEBPACK_LOCAL_MODULE_1__module.exports)):"object"==typeof module&&module.exports?module.exports=e():t.EvEmitter=e()}("undefined"!=typeof window?window:this,function(){function t(){}var e=t.prototype;return e.on=function(t,e){if(t&&e){var i=this._events=this._events||{},n=i[t]=i[t]||[];return-1==n.indexOf(e)&&n.push(e),this}},e.once=function(t,e){if(t&&e){this.on(t,e);var i=this._onceEvents=this._onceEvents||{},n=i[t]=i[t]||{};return n[e]=!0,this}},e.off=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=i.indexOf(e);return-1!=n&&i.splice(n,1),this}},e.emitEvent=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=0,o=i[n];e=e||[];for(var r=this._onceEvents&&this._onceEvents[t];o;){var s=r&&r[o];s&&(this.off(t,o),delete r[o]),o.apply(this,e),n+=s?0:1,o=i[n]}return this}},t}),function(t,e){"use strict"; true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_LOCAL_MODULE_2__ = ((function(){return e()}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__))):"object"==typeof module&&module.exports?module.exports=e():t.getSize=e()}(window,function(){"use strict";function t(t){var e=parseFloat(t),i=-1==t.indexOf("%")&&!isNaN(e);return i&&e}function e(){}function i(){for(var t={width:0,height:0,innerWidth:0,innerHeight:0,outerWidth:0,outerHeight:0},e=0;u>e;e++){var i=h[e];t[i]=0}return t}function n(t){var e=getComputedStyle(t);return e||a("Style returned "+e+". Are you running this code in a hidden iframe on Firefox? See http://bit.ly/getsizebug1"),e}function o(){if(!d){d=!0;var e=document.createElement("div");e.style.width="200px",e.style.padding="1px 2px 3px 4px",e.style.borderStyle="solid",e.style.borderWidth="1px 2px 3px 4px",e.style.boxSizing="border-box";var i=document.body||document.documentElement;i.appendChild(e);var o=n(e);r.isBoxSizeOuter=s=200==t(o.width),i.removeChild(e)}}function r(e){if(o(),"string"==typeof e&&(e=document.querySelector(e)),e&&"object"==typeof e&&e.nodeType){var r=n(e);if("none"==r.display)return i();var a={};a.width=e.offsetWidth,a.height=e.offsetHeight;for(var d=a.isBorderBox="border-box"==r.boxSizing,l=0;u>l;l++){var c=h[l],f=r[c],m=parseFloat(f);a[c]=isNaN(m)?0:m}var p=a.paddingLeft+a.paddingRight,g=a.paddingTop+a.paddingBottom,y=a.marginLeft+a.marginRight,v=a.marginTop+a.marginBottom,_=a.borderLeftWidth+a.borderRightWidth,E=a.borderTopWidth+a.borderBottomWidth,z=d&&s,b=t(r.width);b!==!1&&(a.width=b+(z?0:p+_));var x=t(r.height);return x!==!1&&(a.height=x+(z?0:g+E)),a.innerWidth=a.width-(p+_),a.innerHeight=a.height-(g+E),a.outerWidth=a.width+y,a.outerHeight=a.height+v,a}}var s,a="undefined"==typeof console?e:function(t){console.error(t)},h=["paddingLeft","paddingRight","paddingTop","paddingBottom","marginLeft","marginRight","marginTop","marginBottom","borderLeftWidth","borderRightWidth","borderTopWidth","borderBottomWidth"],u=h.length,d=!1;return r}),function(t,e){"use strict"; true?!(__WEBPACK_LOCAL_MODULE_3__factory = (e), (__WEBPACK_LOCAL_MODULE_3__module = { id: "desandro-matches-selector/matches-selector", exports: {}, loaded: false }), __WEBPACK_LOCAL_MODULE_3__ = (typeof __WEBPACK_LOCAL_MODULE_3__factory === 'function' ? (__WEBPACK_LOCAL_MODULE_3__factory.call(__WEBPACK_LOCAL_MODULE_3__module.exports, __webpack_require__, __WEBPACK_LOCAL_MODULE_3__module.exports, __WEBPACK_LOCAL_MODULE_3__module)) : __WEBPACK_LOCAL_MODULE_3__factory), (__WEBPACK_LOCAL_MODULE_3__module.loaded = true), __WEBPACK_LOCAL_MODULE_3__ === undefined && (__WEBPACK_LOCAL_MODULE_3__ = __WEBPACK_LOCAL_MODULE_3__module.exports)):"object"==typeof module&&module.exports?module.exports=e():t.matchesSelector=e()}(window,function(){"use strict";var t=function(){var t=Element.prototype;if(t.matches)return"matches";if(t.matchesSelector)return"matchesSelector";for(var e=["webkit","moz","ms","o"],i=0;i<e.length;i++){var n=e[i],o=n+"MatchesSelector";if(t[o])return o}}();return function(e,i){return e[t](i)}}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_3__], __WEBPACK_LOCAL_MODULE_4__ = ((function(i){return e(t,i)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__))):"object"==typeof module&&module.exports?module.exports=e(t,require("desandro-matches-selector")):t.fizzyUIUtils=e(t,t.matchesSelector)}(window,function(t,e){var i={};i.extend=function(t,e){for(var i in e)t[i]=e[i];return t},i.modulo=function(t,e){return(t%e+e)%e},i.makeArray=function(t){var e=[];if(Array.isArray(t))e=t;else if(t&&"number"==typeof t.length)for(var i=0;i<t.length;i++)e.push(t[i]);else e.push(t);return e},i.removeFrom=function(t,e){var i=t.indexOf(e);-1!=i&&t.splice(i,1)},i.getParent=function(t,i){for(;t!=document.body;)if(t=t.parentNode,e(t,i))return t},i.getQueryElement=function(t){return"string"==typeof t?document.querySelector(t):t},i.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},i.filterFindElements=function(t,n){t=i.makeArray(t);var o=[];return t.forEach(function(t){if(t instanceof HTMLElement){if(!n)return void o.push(t);e(t,n)&&o.push(t);for(var i=t.querySelectorAll(n),r=0;r<i.length;r++)o.push(i[r])}}),o},i.debounceMethod=function(t,e,i){var n=t.prototype[e],o=e+"Timeout";t.prototype[e]=function(){var t=this[o];t&&clearTimeout(t);var e=arguments,r=this;this[o]=setTimeout(function(){n.apply(r,e),delete r[o]},i||100)}},i.docReady=function(t){var e=document.readyState;"complete"==e||"interactive"==e?t():document.addEventListener("DOMContentLoaded",t)},i.toDashed=function(t){return t.replace(/(.)([A-Z])/g,function(t,e,i){return e+"-"+i}).toLowerCase()};var n=t.console;return i.htmlInit=function(e,o){i.docReady(function(){var r=i.toDashed(o),s="data-"+r,a=document.querySelectorAll("["+s+"]"),h=document.querySelectorAll(".js-"+r),u=i.makeArray(a).concat(i.makeArray(h)),d=s+"-options",l=t.jQuery;u.forEach(function(t){var i,r=t.getAttribute(s)||t.getAttribute(d);try{i=r&&JSON.parse(r)}catch(a){return void(n&&n.error("Error parsing "+s+" on "+t.className+": "+a))}var h=new e(t,i);l&&l.data(t,o,h)})})},i}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_1__,__WEBPACK_LOCAL_MODULE_2__], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=e(t,require("jquery")):t.jQueryBridget=e(t,t.jQuery)}(window,function(t,e){"use strict";function i(i,r,a){function h(t,e,n){var o,r="$()."+i+'("'+e+'")';return t.each(function(t,h){var u=a.data(h,i);if(!u)return void s(i+" not initialized. Cannot call methods, i.e. "+r);var d=u[e];if(!d||"_"==e.charAt(0))return void s(r+" is not a valid method");var l=d.apply(u,n);o=void 0===o?l:o}),void 0!==o?o:t}function u(t,e){t.each(function(t,n){var o=a.data(n,i);o?(o.option(e),o._init()):(o=new r(n,e),a.data(n,i,o))})}a=a||e||t.jQuery,a&&(r.prototype.option||(r.prototype.option=function(t){a.isPlainObject(t)&&(this.options=a.extend(!0,this.options,t))}),a.fn[i]=function(t){if("string"==typeof t){var e=o.call(arguments,1);return h(this,t,e)}return u(this,t),this},n(a))}function n(t){!t||t&&t.bridget||(t.bridget=i)}var o=Array.prototype.slice,r=t.console,s="undefined"==typeof r?function(){}:function(t){r.error(t)};return n(e||t.jQuery),i}),function(t,e){ true?!(__WEBPACK_LOCAL_MODULE_1__factory = (e), (__WEBPACK_LOCAL_MODULE_1__module = { id: "ev-emitter/ev-emitter", exports: {}, loaded: false }), __WEBPACK_LOCAL_MODULE_1__ = (typeof __WEBPACK_LOCAL_MODULE_1__factory === 'function' ? (__WEBPACK_LOCAL_MODULE_1__factory.call(__WEBPACK_LOCAL_MODULE_1__module.exports, __webpack_require__, __WEBPACK_LOCAL_MODULE_1__module.exports, __WEBPACK_LOCAL_MODULE_1__module)) : __WEBPACK_LOCAL_MODULE_1__factory), (__WEBPACK_LOCAL_MODULE_1__module.loaded = true), __WEBPACK_LOCAL_MODULE_1__ === undefined && (__WEBPACK_LOCAL_MODULE_1__ = __WEBPACK_LOCAL_MODULE_1__module.exports)):"object"==typeof module&&module.exports?module.exports=e():t.EvEmitter=e()}("undefined"!=typeof window?window:this,function(){function t(){}var e=t.prototype;return e.on=function(t,e){if(t&&e){var i=this._events=this._events||{},n=i[t]=i[t]||[];return-1==n.indexOf(e)&&n.push(e),this}},e.once=function(t,e){if(t&&e){this.on(t,e);var i=this._onceEvents=this._onceEvents||{},n=i[t]=i[t]||{};return n[e]=!0,this}},e.off=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=i.indexOf(e);return-1!=n&&i.splice(n,1),this}},e.emitEvent=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=0,o=i[n];e=e||[];for(var r=this._onceEvents&&this._onceEvents[t];o;){var s=r&&r[o];s&&(this.off(t,o),delete r[o]),o.apply(this,e),n+=s?0:1,o=i[n]}return this}},t}),function(t,e){"use strict"; true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_LOCAL_MODULE_2__ = ((function(){return e()}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__))):"object"==typeof module&&module.exports?module.exports=e():t.getSize=e()}(window,function(){"use strict";function t(t){var e=parseFloat(t),i=-1==t.indexOf("%")&&!isNaN(e);return i&&e}function e(){}function i(){for(var t={width:0,height:0,innerWidth:0,innerHeight:0,outerWidth:0,outerHeight:0},e=0;u>e;e++){var i=h[e];t[i]=0}return t}function n(t){var e=getComputedStyle(t);return e||a("Style returned "+e+". Are you running this code in a hidden iframe on Firefox? See http://bit.ly/getsizebug1"),e}function o(){if(!d){d=!0;var e=document.createElement("div");e.style.width="200px",e.style.padding="1px 2px 3px 4px",e.style.borderStyle="solid",e.style.borderWidth="1px 2px 3px 4px",e.style.boxSizing="border-box";var i=document.body||document.documentElement;i.appendChild(e);var o=n(e);r.isBoxSizeOuter=s=200==t(o.width),i.removeChild(e)}}function r(e){if(o(),"string"==typeof e&&(e=document.querySelector(e)),e&&"object"==typeof e&&e.nodeType){var r=n(e);if("none"==r.display)return i();var a={};a.width=e.offsetWidth,a.height=e.offsetHeight;for(var d=a.isBorderBox="border-box"==r.boxSizing,l=0;u>l;l++){var c=h[l],f=r[c],m=parseFloat(f);a[c]=isNaN(m)?0:m}var p=a.paddingLeft+a.paddingRight,g=a.paddingTop+a.paddingBottom,y=a.marginLeft+a.marginRight,v=a.marginTop+a.marginBottom,_=a.borderLeftWidth+a.borderRightWidth,z=a.borderTopWidth+a.borderBottomWidth,E=d&&s,b=t(r.width);b!==!1&&(a.width=b+(E?0:p+_));var x=t(r.height);return x!==!1&&(a.height=x+(E?0:g+z)),a.innerWidth=a.width-(p+_),a.innerHeight=a.height-(g+z),a.outerWidth=a.width+y,a.outerHeight=a.height+v,a}}var s,a="undefined"==typeof console?e:function(t){console.error(t)},h=["paddingLeft","paddingRight","paddingTop","paddingBottom","marginLeft","marginRight","marginTop","marginBottom","borderLeftWidth","borderRightWidth","borderTopWidth","borderBottomWidth"],u=h.length,d=!1;return r}),function(t,e){"use strict"; true?!(__WEBPACK_LOCAL_MODULE_3__factory = (e), (__WEBPACK_LOCAL_MODULE_3__module = { id: "desandro-matches-selector/matches-selector", exports: {}, loaded: false }), __WEBPACK_LOCAL_MODULE_3__ = (typeof __WEBPACK_LOCAL_MODULE_3__factory === 'function' ? (__WEBPACK_LOCAL_MODULE_3__factory.call(__WEBPACK_LOCAL_MODULE_3__module.exports, __webpack_require__, __WEBPACK_LOCAL_MODULE_3__module.exports, __WEBPACK_LOCAL_MODULE_3__module)) : __WEBPACK_LOCAL_MODULE_3__factory), (__WEBPACK_LOCAL_MODULE_3__module.loaded = true), __WEBPACK_LOCAL_MODULE_3__ === undefined && (__WEBPACK_LOCAL_MODULE_3__ = __WEBPACK_LOCAL_MODULE_3__module.exports)):"object"==typeof module&&module.exports?module.exports=e():t.matchesSelector=e()}(window,function(){"use strict";var t=function(){var t=window.Element.prototype;if(t.matches)return"matches";if(t.matchesSelector)return"matchesSelector";for(var e=["webkit","moz","ms","o"],i=0;i<e.length;i++){var n=e[i],o=n+"MatchesSelector";if(t[o])return o}}();return function(e,i){return e[t](i)}}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_3__], __WEBPACK_LOCAL_MODULE_4__ = ((function(i){return e(t,i)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__))):"object"==typeof module&&module.exports?module.exports=e(t,require("desandro-matches-selector")):t.fizzyUIUtils=e(t,t.matchesSelector)}(window,function(t,e){var i={};i.extend=function(t,e){for(var i in e)t[i]=e[i];return t},i.modulo=function(t,e){return(t%e+e)%e},i.makeArray=function(t){var e=[];if(Array.isArray(t))e=t;else if(t&&"object"==typeof t&&"number"==typeof t.length)for(var i=0;i<t.length;i++)e.push(t[i]);else e.push(t);return e},i.removeFrom=function(t,e){var i=t.indexOf(e);-1!=i&&t.splice(i,1)},i.getParent=function(t,i){for(;t!=document.body;)if(t=t.parentNode,e(t,i))return t},i.getQueryElement=function(t){return"string"==typeof t?document.querySelector(t):t},i.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},i.filterFindElements=function(t,n){t=i.makeArray(t);var o=[];return t.forEach(function(t){if(t instanceof HTMLElement){if(!n)return void o.push(t);e(t,n)&&o.push(t);for(var i=t.querySelectorAll(n),r=0;r<i.length;r++)o.push(i[r])}}),o},i.debounceMethod=function(t,e,i){var n=t.prototype[e],o=e+"Timeout";t.prototype[e]=function(){var t=this[o];t&&clearTimeout(t);var e=arguments,r=this;this[o]=setTimeout(function(){n.apply(r,e),delete r[o]},i||100)}},i.docReady=function(t){var e=document.readyState;"complete"==e||"interactive"==e?setTimeout(t):document.addEventListener("DOMContentLoaded",t)},i.toDashed=function(t){return t.replace(/(.)([A-Z])/g,function(t,e,i){return e+"-"+i}).toLowerCase()};var n=t.console;return i.htmlInit=function(e,o){i.docReady(function(){var r=i.toDashed(o),s="data-"+r,a=document.querySelectorAll("["+s+"]"),h=document.querySelectorAll(".js-"+r),u=i.makeArray(a).concat(i.makeArray(h)),d=s+"-options",l=t.jQuery;u.forEach(function(t){var i,r=t.getAttribute(s)||t.getAttribute(d);try{i=r&&JSON.parse(r)}catch(a){return void(n&&n.error("Error parsing "+s+" on "+t.className+": "+a))}var h=new e(t,i);l&&l.data(t,o,h)})})},i}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_1__,__WEBPACK_LOCAL_MODULE_2__], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
 				__WEBPACK_LOCAL_MODULE_5__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__)):"object"==typeof module&&module.exports?module.exports=e(require("ev-emitter"),require("get-size")):(t.Outlayer={},t.Outlayer.Item=e(t.EvEmitter,t.getSize))}(window,function(t,e){"use strict";function i(t){for(var e in t)return!1;return e=null,!0}function n(t,e){t&&(this.element=t,this.layout=e,this.position={x:0,y:0},this._create())}function o(t){return t.replace(/([A-Z])/g,function(t){return"-"+t.toLowerCase()})}var r=document.documentElement.style,s="string"==typeof r.transition?"transition":"WebkitTransition",a="string"==typeof r.transform?"transform":"WebkitTransform",h={WebkitTransition:"webkitTransitionEnd",transition:"transitionend"}[s],u={transform:a,transition:s,transitionDuration:s+"Duration",transitionProperty:s+"Property",transitionDelay:s+"Delay"},d=n.prototype=Object.create(t.prototype);d.constructor=n,d._create=function(){this._transn={ingProperties:{},clean:{},onEnd:{}},this.css({position:"absolute"})},d.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},d.getSize=function(){this.size=e(this.element)},d.css=function(t){var e=this.element.style;for(var i in t){var n=u[i]||i;e[n]=t[i]}},d.getPosition=function(){var t=getComputedStyle(this.element),e=this.layout._getOption("originLeft"),i=this.layout._getOption("originTop"),n=t[e?"left":"right"],o=t[i?"top":"bottom"],r=this.layout.size,s=-1!=n.indexOf("%")?parseFloat(n)/100*r.width:parseInt(n,10),a=-1!=o.indexOf("%")?parseFloat(o)/100*r.height:parseInt(o,10);s=isNaN(s)?0:s,a=isNaN(a)?0:a,s-=e?r.paddingLeft:r.paddingRight,a-=i?r.paddingTop:r.paddingBottom,this.position.x=s,this.position.y=a},d.layoutPosition=function(){var t=this.layout.size,e={},i=this.layout._getOption("originLeft"),n=this.layout._getOption("originTop"),o=i?"paddingLeft":"paddingRight",r=i?"left":"right",s=i?"right":"left",a=this.position.x+t[o];e[r]=this.getXValue(a),e[s]="";var h=n?"paddingTop":"paddingBottom",u=n?"top":"bottom",d=n?"bottom":"top",l=this.position.y+t[h];e[u]=this.getYValue(l),e[d]="",this.css(e),this.emitEvent("layout",[this])},d.getXValue=function(t){var e=this.layout._getOption("horizontal");return this.layout.options.percentPosition&&!e?t/this.layout.size.width*100+"%":t+"px"},d.getYValue=function(t){var e=this.layout._getOption("horizontal");return this.layout.options.percentPosition&&e?t/this.layout.size.height*100+"%":t+"px"},d._transitionTo=function(t,e){this.getPosition();var i=this.position.x,n=this.position.y,o=parseInt(t,10),r=parseInt(e,10),s=o===this.position.x&&r===this.position.y;if(this.setPosition(t,e),s&&!this.isTransitioning)return void this.layoutPosition();var a=t-i,h=e-n,u={};u.transform=this.getTranslate(a,h),this.transition({to:u,onTransitionEnd:{transform:this.layoutPosition},isCleaning:!0})},d.getTranslate=function(t,e){var i=this.layout._getOption("originLeft"),n=this.layout._getOption("originTop");return t=i?t:-t,e=n?e:-e,"translate3d("+t+"px, "+e+"px, 0)"},d.goTo=function(t,e){this.setPosition(t,e),this.layoutPosition()},d.moveTo=d._transitionTo,d.setPosition=function(t,e){this.position.x=parseInt(t,10),this.position.y=parseInt(e,10)},d._nonTransition=function(t){this.css(t.to),t.isCleaning&&this._removeStyles(t.to);for(var e in t.onTransitionEnd)t.onTransitionEnd[e].call(this)},d.transition=function(t){if(!parseFloat(this.layout.options.transitionDuration))return void this._nonTransition(t);var e=this._transn;for(var i in t.onTransitionEnd)e.onEnd[i]=t.onTransitionEnd[i];for(i in t.to)e.ingProperties[i]=!0,t.isCleaning&&(e.clean[i]=!0);if(t.from){this.css(t.from);var n=this.element.offsetHeight;n=null}this.enableTransition(t.to),this.css(t.to),this.isTransitioning=!0};var l="opacity,"+o(a);d.enableTransition=function(){if(!this.isTransitioning){var t=this.layout.options.transitionDuration;t="number"==typeof t?t+"ms":t,this.css({transitionProperty:l,transitionDuration:t,transitionDelay:this.staggerDelay||0}),this.element.addEventListener(h,this,!1)}},d.onwebkitTransitionEnd=function(t){this.ontransitionend(t)},d.onotransitionend=function(t){this.ontransitionend(t)};var c={"-webkit-transform":"transform"};d.ontransitionend=function(t){if(t.target===this.element){var e=this._transn,n=c[t.propertyName]||t.propertyName;if(delete e.ingProperties[n],i(e.ingProperties)&&this.disableTransition(),n in e.clean&&(this.element.style[t.propertyName]="",delete e.clean[n]),n in e.onEnd){var o=e.onEnd[n];o.call(this),delete e.onEnd[n]}this.emitEvent("transitionEnd",[this])}},d.disableTransition=function(){this.removeTransitionStyles(),this.element.removeEventListener(h,this,!1),this.isTransitioning=!1},d._removeStyles=function(t){var e={};for(var i in t)e[i]="";this.css(e)};var f={transitionProperty:"",transitionDuration:"",transitionDelay:""};return d.removeTransitionStyles=function(){this.css(f)},d.stagger=function(t){t=isNaN(t)?0:t,this.staggerDelay=t+"ms"},d.removeElem=function(){this.element.parentNode.removeChild(this.element),this.css({display:""}),this.emitEvent("remove",[this])},d.remove=function(){return s&&parseFloat(this.layout.options.transitionDuration)?(this.once("transitionEnd",function(){this.removeElem()}),void this.hide()):void this.removeElem()},d.reveal=function(){delete this.isHidden,this.css({display:""});var t=this.layout.options,e={},i=this.getHideRevealTransitionEndProperty("visibleStyle");e[i]=this.onRevealTransitionEnd,this.transition({from:t.hiddenStyle,to:t.visibleStyle,isCleaning:!0,onTransitionEnd:e})},d.onRevealTransitionEnd=function(){this.isHidden||this.emitEvent("reveal")},d.getHideRevealTransitionEndProperty=function(t){var e=this.layout.options[t];if(e.opacity)return"opacity";for(var i in e)return i},d.hide=function(){this.isHidden=!0,this.css({display:""});var t=this.layout.options,e={},i=this.getHideRevealTransitionEndProperty("hiddenStyle");e[i]=this.onHideTransitionEnd,this.transition({from:t.visibleStyle,to:t.hiddenStyle,isCleaning:!0,onTransitionEnd:e})},d.onHideTransitionEnd=function(){this.isHidden&&(this.css({display:"none"}),this.emitEvent("hide"))},d.destroy=function(){this.css({position:"",left:"",right:"",top:"",bottom:"",transition:"",transform:""})},n}),function(t,e){"use strict"; true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_1__,__WEBPACK_LOCAL_MODULE_2__,__WEBPACK_LOCAL_MODULE_4__,__WEBPACK_LOCAL_MODULE_5__], __WEBPACK_LOCAL_MODULE_6__ = ((function(i,n,o,r){return e(t,i,n,o,r)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__))):"object"==typeof module&&module.exports?module.exports=e(t,require("ev-emitter"),require("get-size"),require("fizzy-ui-utils"),require("./item")):t.Outlayer=e(t,t.EvEmitter,t.getSize,t.fizzyUIUtils,t.Outlayer.Item)}(window,function(t,e,i,n,o){"use strict";function r(t,e){var i=n.getQueryElement(t);if(!i)return void(h&&h.error("Bad element for "+this.constructor.namespace+": "+(i||t)));this.element=i,u&&(this.$element=u(this.element)),this.options=n.extend({},this.constructor.defaults),this.option(e);var o=++l;this.element.outlayerGUID=o,c[o]=this,this._create();var r=this._getOption("initLayout");r&&this.layout()}function s(t){function e(){t.apply(this,arguments)}return e.prototype=Object.create(t.prototype),e.prototype.constructor=e,e}function a(t){if("number"==typeof t)return t;var e=t.match(/(^\d*\.?\d*)(\w*)/),i=e&&e[1],n=e&&e[2];if(!i.length)return 0;i=parseFloat(i);var o=m[n]||1;return i*o}var h=t.console,u=t.jQuery,d=function(){},l=0,c={};r.namespace="outlayer",r.Item=o,r.defaults={containerStyle:{position:"relative"},initLayout:!0,originLeft:!0,originTop:!0,resize:!0,resizeContainer:!0,transitionDuration:"0.4s",hiddenStyle:{opacity:0,transform:"scale(0.001)"},visibleStyle:{opacity:1,transform:"scale(1)"}};var f=r.prototype;n.extend(f,e.prototype),f.option=function(t){n.extend(this.options,t)},f._getOption=function(t){var e=this.constructor.compatOptions[t];return e&&void 0!==this.options[e]?this.options[e]:this.options[t]},r.compatOptions={initLayout:"isInitLayout",horizontal:"isHorizontal",layoutInstant:"isLayoutInstant",originLeft:"isOriginLeft",originTop:"isOriginTop",resize:"isResizeBound",resizeContainer:"isResizingContainer"},f._create=function(){this.reloadItems(),this.stamps=[],this.stamp(this.options.stamp),n.extend(this.element.style,this.options.containerStyle);var t=this._getOption("resize");t&&this.bindResize()},f.reloadItems=function(){this.items=this._itemize(this.element.children)},f._itemize=function(t){for(var e=this._filterFindItemElements(t),i=this.constructor.Item,n=[],o=0;o<e.length;o++){var r=e[o],s=new i(r,this);n.push(s)}return n},f._filterFindItemElements=function(t){return n.filterFindElements(t,this.options.itemSelector)},f.getItemElements=function(){return this.items.map(function(t){return t.element})},f.layout=function(){this._resetLayout(),this._manageStamps();var t=this._getOption("layoutInstant"),e=void 0!==t?t:!this._isLayoutInited;this.layoutItems(this.items,e),this._isLayoutInited=!0},f._init=f.layout,f._resetLayout=function(){this.getSize()},f.getSize=function(){this.size=i(this.element)},f._getMeasurement=function(t,e){var n,o=this.options[t];o?("string"==typeof o?n=this.element.querySelector(o):o instanceof HTMLElement&&(n=o),this[t]=n?i(n)[e]:o):this[t]=0},f.layoutItems=function(t,e){t=this._getItemsForLayout(t),this._layoutItems(t,e),this._postLayout()},f._getItemsForLayout=function(t){return t.filter(function(t){return!t.isIgnored})},f._layoutItems=function(t,e){if(this._emitCompleteOnItems("layout",t),t&&t.length){var i=[];t.forEach(function(t){var n=this._getItemLayoutPosition(t);n.item=t,n.isInstant=e||t.isLayoutInstant,i.push(n)},this),this._processLayoutQueue(i)}},f._getItemLayoutPosition=function(){return{x:0,y:0}},f._processLayoutQueue=function(t){this.updateStagger(),t.forEach(function(t,e){this._positionItem(t.item,t.x,t.y,t.isInstant,e)},this)},f.updateStagger=function(){var t=this.options.stagger;return null===t||void 0===t?void(this.stagger=0):(this.stagger=a(t),this.stagger)},f._positionItem=function(t,e,i,n,o){n?t.goTo(e,i):(t.stagger(o*this.stagger),t.moveTo(e,i))},f._postLayout=function(){this.resizeContainer()},f.resizeContainer=function(){var t=this._getOption("resizeContainer");if(t){var e=this._getContainerSize();e&&(this._setContainerMeasure(e.width,!0),this._setContainerMeasure(e.height,!1))}},f._getContainerSize=d,f._setContainerMeasure=function(t,e){if(void 0!==t){var i=this.size;i.isBorderBox&&(t+=e?i.paddingLeft+i.paddingRight+i.borderLeftWidth+i.borderRightWidth:i.paddingBottom+i.paddingTop+i.borderTopWidth+i.borderBottomWidth),t=Math.max(t,0),this.element.style[e?"width":"height"]=t+"px"}},f._emitCompleteOnItems=function(t,e){function i(){o.dispatchEvent(t+"Complete",null,[e])}function n(){s++,s==r&&i()}var o=this,r=e.length;if(!e||!r)return void i();var s=0;e.forEach(function(e){e.once(t,n)})},f.dispatchEvent=function(t,e,i){var n=e?[e].concat(i):i;if(this.emitEvent(t,n),u)if(this.$element=this.$element||u(this.element),e){var o=u.Event(e);o.type=t,this.$element.trigger(o,i)}else this.$element.trigger(t,i)},f.ignore=function(t){var e=this.getItem(t);e&&(e.isIgnored=!0)},f.unignore=function(t){var e=this.getItem(t);e&&delete e.isIgnored},f.stamp=function(t){t=this._find(t),t&&(this.stamps=this.stamps.concat(t),t.forEach(this.ignore,this))},f.unstamp=function(t){t=this._find(t),t&&t.forEach(function(t){n.removeFrom(this.stamps,t),this.unignore(t)},this)},f._find=function(t){return t?("string"==typeof t&&(t=this.element.querySelectorAll(t)),t=n.makeArray(t)):void 0},f._manageStamps=function(){this.stamps&&this.stamps.length&&(this._getBoundingRect(),this.stamps.forEach(this._manageStamp,this))},f._getBoundingRect=function(){var t=this.element.getBoundingClientRect(),e=this.size;this._boundingRect={left:t.left+e.paddingLeft+e.borderLeftWidth,top:t.top+e.paddingTop+e.borderTopWidth,right:t.right-(e.paddingRight+e.borderRightWidth),bottom:t.bottom-(e.paddingBottom+e.borderBottomWidth)}},f._manageStamp=d,f._getElementOffset=function(t){var e=t.getBoundingClientRect(),n=this._boundingRect,o=i(t),r={left:e.left-n.left-o.marginLeft,top:e.top-n.top-o.marginTop,right:n.right-e.right-o.marginRight,bottom:n.bottom-e.bottom-o.marginBottom};return r},f.handleEvent=n.handleEvent,f.bindResize=function(){t.addEventListener("resize",this),this.isResizeBound=!0},f.unbindResize=function(){t.removeEventListener("resize",this),this.isResizeBound=!1},f.onresize=function(){this.resize()},n.debounceMethod(r,"onresize",100),f.resize=function(){this.isResizeBound&&this.needsResizeLayout()&&this.layout()},f.needsResizeLayout=function(){var t=i(this.element),e=this.size&&t;return e&&t.innerWidth!==this.size.innerWidth},f.addItems=function(t){var e=this._itemize(t);return e.length&&(this.items=this.items.concat(e)),e},f.appended=function(t){var e=this.addItems(t);e.length&&(this.layoutItems(e,!0),this.reveal(e))},f.prepended=function(t){var e=this._itemize(t);if(e.length){var i=this.items.slice(0);this.items=e.concat(i),this._resetLayout(),this._manageStamps(),this.layoutItems(e,!0),this.reveal(e),this.layoutItems(i)}},f.reveal=function(t){if(this._emitCompleteOnItems("reveal",t),t&&t.length){var e=this.updateStagger();t.forEach(function(t,i){t.stagger(i*e),t.reveal()})}},f.hide=function(t){if(this._emitCompleteOnItems("hide",t),t&&t.length){var e=this.updateStagger();t.forEach(function(t,i){t.stagger(i*e),t.hide()})}},f.revealItemElements=function(t){var e=this.getItems(t);this.reveal(e)},f.hideItemElements=function(t){var e=this.getItems(t);this.hide(e)},f.getItem=function(t){for(var e=0;e<this.items.length;e++){var i=this.items[e];if(i.element==t)return i}},f.getItems=function(t){t=n.makeArray(t);var e=[];return t.forEach(function(t){var i=this.getItem(t);i&&e.push(i)},this),e},f.remove=function(t){var e=this.getItems(t);this._emitCompleteOnItems("remove",e),e&&e.length&&e.forEach(function(t){t.remove(),n.removeFrom(this.items,t)},this)},f.destroy=function(){var t=this.element.style;t.height="",t.position="",t.width="",this.items.forEach(function(t){t.destroy()}),this.unbindResize();var e=this.element.outlayerGUID;delete c[e],delete this.element.outlayerGUID,u&&u.removeData(this.element,this.constructor.namespace)},r.data=function(t){t=n.getQueryElement(t);var e=t&&t.outlayerGUID;return e&&c[e]},r.create=function(t,e){var i=s(r);return i.defaults=n.extend({},r.defaults),n.extend(i.defaults,e),i.compatOptions=n.extend({},r.compatOptions),i.namespace=t,i.data=r.data,i.Item=s(o),n.htmlInit(i,t),u&&u.bridget&&u.bridget(t,i),i};var m={ms:1,s:1e3};return r.Item=o,r}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__WEBPACK_LOCAL_MODULE_6__,__WEBPACK_LOCAL_MODULE_2__], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=e(require("outlayer"),require("get-size")):t.Masonry=e(t.Outlayer,t.getSize)}(window,function(t,e){var i=t.create("masonry");return i.compatOptions.fitWidth="isFitWidth",i.prototype._resetLayout=function(){this.getSize(),this._getMeasurement("columnWidth","outerWidth"),this._getMeasurement("gutter","outerWidth"),this.measureColumns(),this.colYs=[];for(var t=0;t<this.cols;t++)this.colYs.push(0);this.maxY=0},i.prototype.measureColumns=function(){if(this.getContainerWidth(),!this.columnWidth){var t=this.items[0],i=t&&t.element;this.columnWidth=i&&e(i).outerWidth||this.containerWidth}var n=this.columnWidth+=this.gutter,o=this.containerWidth+this.gutter,r=o/n,s=n-o%n,a=s&&1>s?"round":"floor";r=Math[a](r),this.cols=Math.max(r,1)},i.prototype.getContainerWidth=function(){var t=this._getOption("fitWidth"),i=t?this.element.parentNode:this.element,n=e(i);this.containerWidth=n&&n.innerWidth},i.prototype._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth%this.columnWidth,i=e&&1>e?"round":"ceil",n=Math[i](t.size.outerWidth/this.columnWidth);n=Math.min(n,this.cols);for(var o=this._getColGroup(n),r=Math.min.apply(Math,o),s=o.indexOf(r),a={x:this.columnWidth*s,y:r},h=r+t.size.outerHeight,u=this.cols+1-o.length,d=0;u>d;d++)this.colYs[s+d]=h;return a},i.prototype._getColGroup=function(t){if(2>t)return this.colYs;for(var e=[],i=this.cols+1-t,n=0;i>n;n++){var o=this.colYs.slice(n,n+t);e[n]=Math.max.apply(Math,o)}return e},i.prototype._manageStamp=function(t){var i=e(t),n=this._getElementOffset(t),o=this._getOption("originLeft"),r=o?n.left:n.right,s=r+i.outerWidth,a=Math.floor(r/this.columnWidth);a=Math.max(0,a);var h=Math.floor(s/this.columnWidth);h-=s%this.columnWidth?0:1,h=Math.min(this.cols-1,h);for(var u=this._getOption("originTop"),d=(u?n.top:n.bottom)+i.outerHeight,l=a;h>=l;l++)this.colYs[l]=Math.max(d,this.colYs[l])},i.prototype._getContainerSize=function(){this.maxY=Math.max.apply(Math,this.colYs);var t={height:this.maxY};return this._getOption("fitWidth")&&(t.width=this._getContainerFitWidth()),t},i.prototype._getContainerFitWidth=function(){for(var t=0,e=this.cols;--e&&0===this.colYs[e];)t++;return(this.cols-t)*this.columnWidth-this.gutter},i.prototype.needsResizeLayout=function(){var t=this.containerWidth;return this.getContainerWidth(),t!=this.containerWidth},i});
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=e(require("outlayer"),require("get-size")):t.Masonry=e(t.Outlayer,t.getSize)}(window,function(t,e){var i=t.create("masonry");i.compatOptions.fitWidth="isFitWidth";var n=i.prototype;return n._resetLayout=function(){this.getSize(),this._getMeasurement("columnWidth","outerWidth"),this._getMeasurement("gutter","outerWidth"),this.measureColumns(),this.colYs=[];for(var t=0;t<this.cols;t++)this.colYs.push(0);this.maxY=0,this.horizontalColIndex=0},n.measureColumns=function(){if(this.getContainerWidth(),!this.columnWidth){var t=this.items[0],i=t&&t.element;this.columnWidth=i&&e(i).outerWidth||this.containerWidth}var n=this.columnWidth+=this.gutter,o=this.containerWidth+this.gutter,r=o/n,s=n-o%n,a=s&&1>s?"round":"floor";r=Math[a](r),this.cols=Math.max(r,1)},n.getContainerWidth=function(){var t=this._getOption("fitWidth"),i=t?this.element.parentNode:this.element,n=e(i);this.containerWidth=n&&n.innerWidth},n._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth%this.columnWidth,i=e&&1>e?"round":"ceil",n=Math[i](t.size.outerWidth/this.columnWidth);n=Math.min(n,this.cols);for(var o=this.options.horizontalOrder?"_getHorizontalColPosition":"_getTopColPosition",r=this[o](n,t),s={x:this.columnWidth*r.col,y:r.y},a=r.y+t.size.outerHeight,h=n+r.col,u=r.col;h>u;u++)this.colYs[u]=a;return s},n._getTopColPosition=function(t){var e=this._getTopColGroup(t),i=Math.min.apply(Math,e);return{col:e.indexOf(i),y:i}},n._getTopColGroup=function(t){if(2>t)return this.colYs;for(var e=[],i=this.cols+1-t,n=0;i>n;n++)e[n]=this._getColGroupY(n,t);return e},n._getColGroupY=function(t,e){if(2>e)return this.colYs[t];var i=this.colYs.slice(t,t+e);return Math.max.apply(Math,i)},n._getHorizontalColPosition=function(t,e){var i=this.horizontalColIndex%this.cols,n=t>1&&i+t>this.cols;i=n?0:i;var o=e.size.outerWidth&&e.size.outerHeight;return this.horizontalColIndex=o?i+t:this.horizontalColIndex,{col:i,y:this._getColGroupY(i,t)}},n._manageStamp=function(t){var i=e(t),n=this._getElementOffset(t),o=this._getOption("originLeft"),r=o?n.left:n.right,s=r+i.outerWidth,a=Math.floor(r/this.columnWidth);a=Math.max(0,a);var h=Math.floor(s/this.columnWidth);h-=s%this.columnWidth?0:1,h=Math.min(this.cols-1,h);for(var u=this._getOption("originTop"),d=(u?n.top:n.bottom)+i.outerHeight,l=a;h>=l;l++)this.colYs[l]=Math.max(d,this.colYs[l])},n._getContainerSize=function(){this.maxY=Math.max.apply(Math,this.colYs);var t={height:this.maxY};return this._getOption("fitWidth")&&(t.width=this._getContainerFitWidth()),t},n._getContainerFitWidth=function(){for(var t=0,e=this.cols;--e&&0===this.colYs[e];)t++;return(this.cols-t)*this.columnWidth-this.gutter},n.needsResizeLayout=function(){var t=this.containerWidth;return this.getContainerWidth(),t!=this.containerWidth},i});
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -50165,7 +49526,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -50268,7 +49629,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -50495,12 +49856,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(1),
-    __webpack_require__(71)
+    __webpack_require__(70)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(patterns) {
     var pattern_spec = {
         name: "placeholder",
@@ -50524,7 +49885,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -50718,7 +50079,7 @@ var jquery = __webpack_require__(0);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -50843,6 +50204,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         },
 
         smoothScroll: function() {
+            var href, fragment;
             var scroll = this.options.direction == "top" ? 'scrollTop' : 'scrollLeft',
                 scrollable, options = {};
             if (typeof this.options.offset != "undefined") {
@@ -50906,7 +50268,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -51097,7 +50459,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51222,7 +50584,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51354,7 +50716,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51481,7 +50843,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51715,7 +51077,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51733,7 +51095,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(4),
     __webpack_require__(2),
     __webpack_require__(7),
-    __webpack_require__(79)
+    __webpack_require__(78)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, Parser, inject) {
     var log = logger.getLogger("tooltip"),
         parser = new Parser("tooltip");
@@ -52369,7 +51731,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -52394,7 +51756,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Update Social pattern */
@@ -52483,7 +51845,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Update Social
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -52555,7 +51917,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -52571,7 +51933,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(5),
     __webpack_require__(4),
     __webpack_require__(8),
-    __webpack_require__(83)
+    __webpack_require__(82)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, Parser, Base, utils, moment, validate) {
     "use strict";
     validate.moment = moment;
@@ -52740,7 +52102,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 constraints = {};
             if (!name) { return; }
             constraints[name.replace(/\./g, '\\.')] = {
-                'presence': input.getAttribute('required') ? { 'message': '^'+this.options.message.required } : {allowEmpty: true},
+                'presence': input.getAttribute('required') ? { 'message': '^'+this.options.message.required } : false,
                 'email': type == 'email' ? { 'message': '^'+this.options.message.email } : false,
                 'numericality': type == 'number' ? true : false,
                 'datetime': type == 'datetime' ? { 'message': '^'+this.options.message.datetime } : false,
@@ -52941,7 +52303,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {/*!
@@ -54113,16 +53475,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
   };
 
-  validate.exposeModule(validate, this, exports, module, __webpack_require__(19));
+  validate.exposeModule(validate, this, exports, module, __webpack_require__(20));
 }).call(this,
          true ? /* istanbul ignore next */ exports : null,
          true ? /* istanbul ignore next */ module : null,
-        __webpack_require__(19));
+        __webpack_require__(20));
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -54175,13 +53537,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = window;
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/

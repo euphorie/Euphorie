@@ -3,11 +3,8 @@ from euphorie.client.session import SessionManager
 from logging import getLogger
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-import re
 
 logger = getLogger(__name__)
-
-multi_breaks = re.compile('(\n|\r)+')
 
 
 class TrainingSlide(BrowserView):
@@ -40,8 +37,7 @@ class TrainingView(BrowserView):
                         continue
                     risk_data = self.slide_data['slides'][index]
                     sql_item = risk_data['row']
-                    value = safe_unicode(
-                        multi_breaks.sub('\r', self.request[entry]))
+                    value = safe_unicode(self.request[entry])
                     sql_item.training_notes = value
                     self.slide_data['slides'][index]['row'] = sql_item
                     risk_data['training_notes'] = value

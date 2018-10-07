@@ -29,6 +29,7 @@
 </article>
 
 <form class="pat-validation pat-inject"
+      data-pat-inject="source: #content; target: #content; && source: #navigation; target: #navigation;"
       method="post"
       action="${request/URL}"
       novalidate="novalidate"

@@ -37,10 +37,10 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.open(url)
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["sector-title/survey-title"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
@@ -85,10 +85,10 @@ class SurveyTests(EuphorieFunctionalTestCase):
         )
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["sector-title/survey-title"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk
@@ -133,10 +133,10 @@ class SurveyTests(EuphorieFunctionalTestCase):
         )
         registerUserInClient(browser)
         # Create a new survey session
-        browser.getLink(id="button-new-session").click()
+        browser.getControl(name="survey").value = ["sector-title/survey-title"]
+        browser.getForm().submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
-        browser.getForm().submit()
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk

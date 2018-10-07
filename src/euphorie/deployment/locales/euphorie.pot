@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-09-12 13:57+0000\n"
+"POT-Creation-Date: 2018-10-03 10:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Are the measures that are selected above sufficient?"
 msgstr ""
 
-#: euphorie/client/risk.py:456
+#: euphorie/client/risk.py:464
 msgid "Are you sure you want to delete this measure? This action can not be reverted."
 msgstr ""
 
@@ -327,7 +327,7 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: euphorie/client/profile.py:298
+#: euphorie/client/profile.py:301
 msgid "Does this happen in multiple places?"
 msgstr ""
 
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Download the risks overview"
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:171
+#: euphorie/client/browser/templates/start.pt:173
 #: euphorie/client/templates/report_landing.pt:41
 msgid "E-mail"
 msgstr ""
@@ -384,11 +384,11 @@ msgstr ""
 msgid "Email address/account name"
 msgstr ""
 
-#: euphorie/client/profile.py:302
+#: euphorie/client/profile.py:305
 msgid "Enter the name of the location"
 msgstr ""
 
-#: euphorie/client/profile.py:306
+#: euphorie/client/profile.py:309
 msgid "Enter the names of each location"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off."
 msgstr ""
 
-#: euphorie/client/browser/webhelpers.py:594
+#: euphorie/client/browser/webhelpers.py:597
 msgid "I wish to share the following with you"
 msgstr ""
 
@@ -469,7 +469,7 @@ msgid "Important"
 msgstr ""
 
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:104
 msgid "Info"
 msgstr ""
 
@@ -567,7 +567,7 @@ msgstr ""
 msgid "Navigation tree for sector management"
 msgstr ""
 
-#: euphorie/client/templates/shell.pt:119
+#: euphorie/client/templates/shell.pt:129
 msgid "New"
 msgstr ""
 
@@ -576,7 +576,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: euphorie/client/risk.py:534
+#: euphorie/client/risk.py:542
 msgid "No changes were made to measures in your action plan."
 msgstr ""
 
@@ -813,7 +813,7 @@ msgstr ""
 msgid "Session `${name}` has been deleted."
 msgstr ""
 
-#: euphorie/client/browser/survey.py:93
+#: euphorie/client/browser/survey.py:106
 msgid "Session data successfully updated"
 msgstr ""
 
@@ -829,7 +829,7 @@ msgstr ""
 msgid "Setup a standard Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:31
+#: euphorie/client/browser/templates/start.pt:33
 msgid "Share this OiRA-Tool"
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr ""
 msgid "Standard solution"
 msgstr ""
 
-#: euphorie/client/templates/shell.pt:109
+#: euphorie/client/templates/shell.pt:118
 msgid "Start test session"
 msgstr ""
 
@@ -920,7 +920,7 @@ msgstr ""
 msgid "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr ""
 
-#: euphorie/client/risk.py:460
+#: euphorie/client/risk.py:468
 msgid "The current text in the fields 'Action plan', 'Prevention plan' and 'Requirements' of this measure will be overwritten. This action cannot be reverted. Are you sure you want to continue?"
 msgstr ""
 
@@ -956,7 +956,7 @@ msgstr ""
 msgid "There were no changes to be saved."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:109
+#: euphorie/client/browser/templates/start.pt:111
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr ""
 
@@ -996,7 +996,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:149
+#: euphorie/client/browser/templates/start.pt:151
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 
@@ -1004,7 +1004,7 @@ msgstr ""
 msgid "Tip"
 msgstr ""
 
-#: euphorie/client/templates/shell.pt:289
+#: euphorie/client/templates/shell.pt:301
 msgid "Toggle on screen help"
 msgstr ""
 
@@ -1075,7 +1075,7 @@ msgstr ""
 msgid "You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:47
+#: euphorie/client/browser/templates/start.pt:49
 msgid "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the ${download_section}."
 msgstr ""
 
@@ -1297,13 +1297,13 @@ msgstr ""
 
 #. Default: "Cancel"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:26
-#: euphorie/client/browser/templates/new-session.pt:31
+#: euphorie/client/browser/templates/new-session.pt:36
 #: euphorie/client/publish.py:265
 msgid "button_cancel"
 msgstr ""
 
 #. Default: "Close"
-#: euphorie/client/browser/webhelpers.py:589
+#: euphorie/client/browser/webhelpers.py:592
 #: euphorie/client/templates/new-session-test.pt:51
 msgid "button_close"
 msgstr ""
@@ -1383,7 +1383,7 @@ msgid "button_search"
 msgstr ""
 
 #. Default: "Start session"
-#: euphorie/client/browser/templates/new-session.pt:30
+#: euphorie/client/browser/templates/new-session.pt:35
 #: euphorie/client/templates/new-session-test.pt:40
 msgid "button_start_session"
 msgstr ""
@@ -1629,7 +1629,7 @@ msgstr ""
 msgid "documentation_online_help_online_help"
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:47
+#: euphorie/client/browser/templates/start.pt:49
 msgid "download section"
 msgstr ""
 
@@ -1758,17 +1758,17 @@ msgid "error_password_mismatch"
 msgstr ""
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/risk.py:469
+#: euphorie/client/risk.py:477
 msgid "error_validation_after_start_date"
 msgstr ""
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/risk.py:465
+#: euphorie/client/risk.py:473
 msgid "error_validation_before_end_date"
 msgstr ""
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/risk.py:473
+#: euphorie/client/risk.py:481
 msgid "error_validation_positive_whole_number"
 msgstr ""
 
@@ -2062,7 +2062,7 @@ msgstr ""
 
 #. Default: "Login"
 #: euphorie/client/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:85
+#: euphorie/client/templates/shell.pt:93
 msgid "header_login"
 msgstr ""
 
@@ -2159,7 +2159,7 @@ msgstr ""
 
 #. Default: "Register"
 #: euphorie/client/templates/register.pt:74
-#: euphorie/client/templates/shell.pt:86
+#: euphorie/client/templates/shell.pt:94
 msgid "header_register"
 msgstr ""
 
@@ -2238,7 +2238,7 @@ msgstr ""
 
 #. Default: "Select an earlier session to complete or review."
 #: euphorie/client/browser/templates/sessions.pt:53
-#: euphorie/client/templates/shell.pt:116
+#: euphorie/client/templates/shell.pt:126
 msgid "header_select_session"
 msgstr ""
 
@@ -2485,7 +2485,7 @@ msgid "help_create_new_version"
 msgstr ""
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/risk.py:150
+#: euphorie/client/risk.py:154
 #: euphorie/content/risk.py:360
 msgid "help_default_frequency"
 msgstr ""
@@ -2496,13 +2496,13 @@ msgid "help_default_priority"
 msgstr ""
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/risk.py:147
+#: euphorie/client/risk.py:151
 #: euphorie/content/risk.py:387
 msgid "help_default_probability"
 msgstr ""
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/risk.py:153
+#: euphorie/client/risk.py:157
 #: euphorie/content/risk.py:338
 msgid "help_default_severity"
 msgstr ""
@@ -2728,6 +2728,11 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr ""
 
+#. Default: "Dashboard"
+#: euphorie/client/templates/shell.pt:87
+msgid "home_link"
+msgstr ""
+
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${reset_your_password}."
 #: euphorie/client/templates/login_form.pt:25
 msgid "incorrect_login"
@@ -2775,7 +2780,7 @@ msgstr ""
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:104
 msgid "info_testsession"
 msgstr ""
 
@@ -3426,7 +3431,7 @@ msgstr ""
 #. Default: "Preparation"
 #: euphorie/client/templates/login.pt:96
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:143
+#: euphorie/client/templates/shell.pt:154
 msgid "label_preparation"
 msgstr ""
 
@@ -3509,7 +3514,7 @@ msgstr ""
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:75
-#: euphorie/client/templates/shell.pt:214
+#: euphorie/client/templates/shell.pt:225
 msgid "label_report"
 msgstr ""
 
@@ -3609,14 +3614,14 @@ msgstr ""
 msgid "label_select_measure"
 msgstr ""
 
-#. Default: "Start a new session choosing one of the following sectoral tools"
-#: euphorie/client/browser/templates/new-session.pt:18
+#. Default: "Start a new session by choosing one of the following sectoral tools"
+#: euphorie/client/browser/templates/new-session.pt:22
 #: euphorie/client/templates/new-session-test.pt:19
 msgid "label_select_new_session"
 msgstr ""
 
 #. Default: "Enter a title for your Risk Assessment"
-#: euphorie/client/browser/survey.py:21
+#: euphorie/client/browser/survey.py:23
 #: euphorie/client/templates/new-session-test.pt:25
 msgid "label_session_title"
 msgstr ""
@@ -3662,7 +3667,7 @@ msgid "label_start_new_session"
 msgstr ""
 
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:134
+#: euphorie/client/browser/templates/start.pt:136
 msgid "label_start_survey"
 msgstr ""
 
@@ -3829,13 +3834,13 @@ msgstr ""
 
 #. Default: "Sign in"
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:104
 msgid "link_sign_in"
 msgstr ""
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/sessions.pt:43
-#: euphorie/client/templates/shell.pt:119
+#: euphorie/client/templates/shell.pt:129
 msgid "link_start_session"
 msgstr ""
 
@@ -3909,7 +3914,7 @@ msgid "menu_import"
 msgstr ""
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:235
+#: euphorie/client/templates/shell.pt:246
 msgid "menu_training"
 msgstr ""
 
@@ -3924,8 +3929,9 @@ msgid "message_delete_no_last_survey"
 msgstr ""
 
 #. Default: "Please fill out this field."
+#: euphorie/client/browser/survey.py:85
 #: euphorie/client/module.py:78
-#: euphorie/client/profile.py:408
+#: euphorie/client/profile.py:411
 msgid "message_field_required"
 msgstr ""
 
@@ -3935,62 +3941,62 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "A measure has been removed from your action plan."
-#: euphorie/client/risk.py:599
+#: euphorie/client/risk.py:607
 msgid "message_measure_removed"
 msgstr ""
 
 #. Default: "A measure has been added to your action plan."
-#: euphorie/client/risk.py:539
+#: euphorie/client/risk.py:547
 msgid "message_measure_saved"
 msgstr ""
 
 #. Default: "A measure has been updated in your action plan."
-#: euphorie/client/risk.py:569
+#: euphorie/client/risk.py:577
 msgid "message_measure_updated"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/risk.py:620
+#: euphorie/client/risk.py:628
 msgid "message_measures_removed"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/risk.py:604
+#: euphorie/client/risk.py:612
 msgid "message_measures_removed_3"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/risk.py:612
+#: euphorie/client/risk.py:620
 msgid "message_measures_removed_3_4"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/risk.py:560
+#: euphorie/client/risk.py:568
 msgid "message_measures_saved"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/risk.py:544
+#: euphorie/client/risk.py:552
 msgid "message_measures_saved_2"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/risk.py:552
+#: euphorie/client/risk.py:560
 msgid "message_measures_saved_3_4"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/risk.py:590
+#: euphorie/client/risk.py:598
 msgid "message_measures_updated"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/risk.py:574
+#: euphorie/client/risk.py:582
 msgid "message_measures_updated_2"
 msgstr ""
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/risk.py:582
+#: euphorie/client/risk.py:590
 msgid "message_measures_updated_3_4"
 msgstr ""
 
@@ -4077,7 +4083,7 @@ msgstr ""
 #. Default: "Help"
 #: euphorie/client/browser/templates/webhelpers.pt:59
 #: euphorie/client/templates/conditions.pt:144
-#: euphorie/client/templates/shell.pt:295
+#: euphorie/client/templates/shell.pt:307
 msgid "navigation_help"
 msgstr ""
 
@@ -4094,7 +4100,7 @@ msgstr ""
 
 #. Default: "Check your progress"
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/templates/shell.pt:256
+#: euphorie/client/templates/shell.pt:267
 #: euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
 msgstr ""
@@ -4701,7 +4707,7 @@ msgid "toc_header"
 msgstr ""
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:72
+#: euphorie/client/templates/shell.pt:76
 msgid "tooltip_menu_toggle"
 msgstr ""
 

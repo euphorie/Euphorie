@@ -3,10 +3,13 @@ from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
+from collections import defaultdict
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
+from euphorie.client.model import get_current_account
+from euphorie.client.model import Group
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SessionManager
@@ -15,6 +18,7 @@ from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
@@ -177,6 +181,16 @@ class SessionsView(BrowserView):
         return sessions
 
     @memoize
+    def get_ordered_sessions(self):
+        ''' Given some sessions create a tree
+        '''
+        return sorted(
+            self.get_sessions(),
+            key=lambda x: x.modified,
+            reverse=True
+        )
+
+    @memoize
     def get_sessions_tree_root(self):
         ''' Given some sessions create a tree
         '''
@@ -266,6 +280,95 @@ class SessionsView(BrowserView):
             return self._ContinueSurvey(reply)
         self._updateSurveys()
         return super(SessionsView, self).__call__()
+
+
+class SessionBrowserNavigator(SessionsView):
+    ''' Logic to build the navigator for the sessions
+    '''
+
+    no_splash = True
+
+    @memoize
+    def get_root_group(self):
+        ''' Return the group that is the root of the navigation tree
+        '''
+        groupid = self.request.get('groupid')
+        if not groupid:
+            return
+        base_query = Session.query(Group).order_by(Group.short_name)
+        return base_query.filter(Group.group_id == groupid).one()
+
+    @property
+    @memoize
+    def searchable_text(self):
+        ''' Return the text we need to search in postgres
+        already surrounded with '%'
+        Allow a minimum size of 3 characters to reduce the load.
+        '''
+        searchable_text = self.request.get('SearchableText')
+        if not isinstance(searchable_text, six.string_types):
+            return ''
+        if len(searchable_text) < 3:
+            return ''
+        return u'%{}%'.format(safe_unicode(searchable_text))
+
+    def get_tools_tree(self, zodb_path=None):
+        ''' Return a dict like structure to render the leaf sessions,
+        something like:
+
+        {
+            'tool': [<SurveySession>, ...],
+            ...
+        }
+        Optionally, we can pass in zodb_path, to filter for tools that match
+        this path
+        '''
+        sessions = self.leaf_sessions()
+        if not sessions.count():
+            return {}
+        tools = defaultdict(list)
+        for session in sessions:
+            # XXX
+            # Filter by zodb_path for specific tools
+            # if zodb_path and session.zodb_path != zodb_path:
+            #     continue
+            tool = self.get_survey_by_path(session.zodb_path)
+            tools[tool].append(session)
+        return tools
+
+    @memoize
+    def leaf_groups(self, groupid=None):
+        """ Nothing to do in main OiRA - to be filled in customer-specific
+        packages.
+        Here we just return a Query with 0 items.
+        """
+        base_query = Session.query(SurveySession)
+        return base_query.filter(False)
+
+    def leaf_sessions(self):
+        ''' The sessions we want to display in the navigation
+        '''
+        base_query = (
+            Session
+            .query(SurveySession)
+            .order_by(SurveySession.title)
+        )
+        # XXX Search to be defined...
+        # if self.searchable_text:
+        #     return base_query.filter(
+        #         DaimlerSurveySession.title.ilike(self.searchable_text)
+        #     )
+        account = get_current_account()
+        return base_query.filter(SurveySession.account_id == account.id)
+
+    def has_content(self):
+        ''' Checks if we have something meaningfull to display
+        '''
+        if self.leaf_groups().count():
+            return True
+        if self.leaf_sessions().count():
+            return True
+        return False
 
 
 class ConfirmationDeleteSession(BrowserView):

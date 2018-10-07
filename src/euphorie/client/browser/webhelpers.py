@@ -7,6 +7,7 @@ from Acquisition import aq_parent
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import config
+from euphorie.client.client import IClient
 from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IItaly
@@ -315,6 +316,13 @@ class WebHelpers(BrowserView):
         """Return the absolute URL for the client."""
         return self.request.client.absolute_url()
 
+    @reify
+    def country_or_client_url(self):
+        """Return the country URL, but fall back to the client URL in case
+        the country URL is None.
+        Relevant in tests only, as far as I can see"""
+        return self.country_url or self.client_url
+
     def _base_url(self):
         """Return a base URL to be used for non-survey specific pages.
         If we are in a survey the help page will be located there. Otherwise
@@ -352,7 +360,14 @@ class WebHelpers(BrowserView):
 
     @reify
     def is_outside_of_survey(self):
-        return self._base_url() != self.survey_url()
+        if self._base_url() != self.survey_url():
+            return True
+        if (
+            self.request.get('ACTUAL_URL').split('/')[-1] ==
+            self.survey_url().split('/')[-1]
+        ):
+            return True
+        return False
 
     @reify
     def get_survey_title(self):
@@ -466,6 +481,20 @@ class WebHelpers(BrowserView):
         if phase is not None:
             url += '/%s' % phase
         return url
+
+    @memoize
+    def survey_zodb_path(self):
+        """
+            Construct zodb_path from current survey.
+            Helper method, since I don't always trust self.session.zodb_path
+        """
+        elems = []
+        obj = self._survey
+        while not IClient.providedBy(obj):
+            elems.append(obj.id)
+            obj = aq_parent(obj)
+        elems.reverse()
+        return "/".join(elems)
 
     @reify
     def in_session(self):
@@ -605,6 +634,15 @@ class WebHelpers(BrowserView):
         return get_current_account()
 
     @memoize_contextless
+    def get_my_group_id(self):
+        account = self.get_current_account()
+        return account and account.group_id or ""
+
+    @memoize
+    def get_session_group_id(self):
+        return getattr(self.session, 'group_id', '')
+
+    @memoize_contextless
     def is_owner(self, session=None):
         ''' Check if the current user is the owner of the session
         '''
@@ -654,10 +692,15 @@ class WebHelpers(BrowserView):
             session.id,
         )
 
-    def as_md_list(self, text):
-        """ Return a text with Carriage Returns formatted as a Markdown list.
+    def as_md(self, text):
+        """ Return a text with Carriage Returns formatted as a Markdown.
         """
-        return u"\r".join([u"- %s" % x for x in text.split('\r')])
+        return u"\r\n".join([x for x in text.split('\r')])
+
+    def show_logo(self):
+        """ In plain Euphorie, the logo is always shown
+        """
+        return True
 
     def __call__(self):
         return self

@@ -10,27 +10,32 @@
 <body>
     <metal:slot fill-slot="content">
         <div id="document-content" class="pat-modal large">
-            <h1 i18n:translate="header_new_session">New session</h1>
-            <form method="post" action="${request/URL}" class="wizard-box">
+          <h1 i18n:translate="header_new_session">New session</h1>
+          <form method="post"
+            action="${request/URL}"
+            class="wizard-box pat-inject pat-switch"
+            data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc;"
+            data-pat-switch="selector: body; remove: focus-*; add: focus-document && selector: body; add: sidebar-off; remove: sidebar-on">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body">
-              <fieldset class="vertical">
-                <p class="legend" i18n:translate="label_select_new_session">Start a new session choosing one of the following sectoral tools</p>
-                <fieldset class="tool-list">
-                  <fieldset class="tools pat-checklist radio">
-                    <label class="tool" tal:repeat="survey view/surveys">
-                      <input type="radio" name="survey" value="${survey/id}">
-                      <strong class="field name">${survey/title}</strong>
-                    </label>
-                  </fieldset>
+              <article class="pat-rich">
+                <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools</p>
+              </article>
+              <fieldset class="tool-list">
+                <fieldset class="tools pat-checklist radio">
+                  <label class="tool" tal:repeat="survey view/surveys">
+                    <input type="radio" name="survey" value="${survey/id}">
+                    <strong class="field name">${survey/title}</strong>
+                  </label>
                 </fieldset>
               </fieldset>
+
             </div>
             <div class="buttons panel-footer">
-                <button type="submit" name="next" class="pat-button " i18n:translate="button_start_session">Start session</button>
+                <button type="submit" name="next" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
             </div>
-            </form>
+          </form>
         </div>
     </metal:slot>
 </body>

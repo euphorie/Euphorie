@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content"
+    tal:define="language view/portal/plone_portal_state/language;
+                my_sessions view/get_ordered_sessions;">
+    <tal:block replace="tile:statusmessages" />
+    <article>
+    </article>
+    <div class="row pat-masonry"
+         id="dashboard"
+         data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
+    >
+      <div class="grid-sizer"></div>
+      <div class="portlet span-3" tal:condition="python:len(my_sessions)>0">
+        <div class="content">
+          <h2 class="portlet-title"
+              i18n:translate=""
+          >My risk assessments</h2>
+          <div class="risk-assessments ra-list">
+            <ul class="ras">
+              <li tal:repeat="session my_sessions"
+                class="ra">
+                <span class="name field">
+                  <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                    >${session/title}</a>,
+                  <span class="last-saved">
+                   <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                    <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/modified/isoformat|nothing;"
+                    >${value}</time>
+                  </span>
+                </span>
+                <span class="date field"
+                      tal:condition="session/published"
+                >
+                  <span class="label">
+                    <tal:i18n i18n:translate="label_published">Published</tal:i18n>
+                    <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/published/isoformat|nothing;"
+                    >${value}</time>
+                  </span>
+                </span>
+                <span class="date field" tal:condition="not:session/published"></span>
+                <span class="icons field">
+                  <a class="iconified icon-ellipsis pat-tooltip inactive"
+                     href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                     data-pat-tooltip="source: ajax; position-list: tr"
+                     i18n:translate=""
+                  >More</a>
+                    </span>
+
+              </li>
+            </ul>
+         </div>
+        </div>
+      </div>
+      <div class="portlet span-3">
+        <div class="content">
+          <h2 class="portlet-title"
+              i18n:translate=""
+          >
+            Available OiRA tools
+          </h2>
+          <form class="pat-inject"
+                action="${here/absolute_url}/@@new-session.html"
+          >
+            <article class="pat-rich">
+              <p i18n:translate="label_select_new_session">
+                Start a new session by choosing one of the following sectoral tools
+              </p>
+            </article>
+
+            <fieldset class="tool-list">
+              <fieldset class="department">
+                <fieldset class="tools pat-checklist radio">
+                  <label class="tool"
+                         tal:repeat="survey view/surveys"
+                  >
+                    <input name="survey"
+                           type="radio"
+                           value="${survey/id}"
+                    />
+                    <strong class="field name">${survey/title}</strong>
+                  </label>
+                </fieldset>
+              </fieldset>
+            </fieldset>
+
+            <p class="button-bar">
+              <button class="small pat-button pat-depends"
+                      type="submit"
+                      data-pat-depends="condition: survey; action: enable"
+                      i18n:translate="button_start_session"
+              >Start session</button>
+            </p>
+
+            <input name="action"
+                   type="hidden"
+                   value="new"
+            />
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+  </metal:slot>
+
+  <metal:slot fill-slot="splash_message_slot">
+    <div class="splash-message"
+         tal:condition="python:splash_message is not None"
+    >
+      <hr class="trigger pat-switch"
+          data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
+      />
+      <article class="pat-rich content">
+        <p>
+          <img src="${base_url}/++resource++oira.media/oira-logo-colour.svg"
+               width="20%"
+          />
+        </p>
+        <h1 tal:content="structure splash_message/title">Message of the day!</h1>
+        <tal:content content="structure splash_message/text" />
+      </article>
+    </div>
+  </metal:slot>
+
+  <metal:slot fill-slot="aside-navigator">
+    <div id="navigation">
+      <div class="miller-columns"
+           id="miller-columns">
+        <!-- For Main OIRA, we don't show anything in the sidebar on the dashboard -->
+        <ul class="departments browser" id="browser">
+          <li>
+            <a class="pat-inject icon-search"
+               href="${here/absolute_url}/@@session-browser-sidebar"
+               data-pat-inject="source: #browser; target: #browser;"
+               hidden="hidden"
+               i18n:translate=""
+            >Loading Risk Assessments&hellip;</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </metal:slot>
+
+</html>
