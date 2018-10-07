@@ -120,6 +120,8 @@ class IdentificationView(BrowserView):
             if self.use_training_module:
                 self.context.training_notes = reply.get("training_notes")
 
+            self.context.custom_description = reply.get("custom_description")
+
             SessionManager.session.touch()
 
             return self.proceed_to_next(reply)

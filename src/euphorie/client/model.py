@@ -895,6 +895,7 @@ class Risk(SurveyTreeItem):
     comment = schema.Column(types.UnicodeText())
     existing_measures = schema.Column(types.UnicodeText())
     training_notes = schema.Column(types.UnicodeText())
+    custom_description = schema.Column(types.UnicodeText())
 
 
 class ActionPlan(BaseObject):

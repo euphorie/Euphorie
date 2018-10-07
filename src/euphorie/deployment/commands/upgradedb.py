@@ -160,6 +160,22 @@ def add_last_publisher_id_to_session():
     execute(statement)
 
 
+def add_custom_description_to_risk():
+    ''' A new 'custom_description' column has been added to the 'risk' table
+    '''
+    for column in inspector.get_columns('risk'):
+        if 'custom_description' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE risk
+            ADD COLUMN custom_description text;
+        '''
+    )
+    execute(statement)
+
+
 def hash_passwords():
     ''' We want the passwords stored in the account table to be encrypted
     '''
@@ -197,6 +213,7 @@ def main():
         add_published_to_session()
         add_last_modifier_id_to_session()
         add_last_publisher_id_to_session()
+        add_custom_description_to_risk()
         hash_passwords()
 
 

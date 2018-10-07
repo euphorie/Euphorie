@@ -12,13 +12,28 @@
 <body>
 <metal:slot fill-slot="content" tal:define="risk nocall:view/risk">
 <tal:block replace="tile:statusmessages"/>
-<form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}" class="pat-inject pat-scroll"
-      data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #content; target: #content"
-      data-pat-scroll="selector: #content; trigger: auto; offset: 0">
+  <form enctype="multipart/form-data"
+        accept-charset="UTF-8"
+        method="post"
+        action="${context/absolute_url}"
+        class="pat-inject pat-scroll"
+        data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #content; target: #content"
+        data-pat-scroll="selector: #content; trigger: auto; offset: 0">
 
     <h2 class="risk-title">${here/title}</h2>
 
     <!-- Identification -->
+    <fieldset class="pat-collapsible closed risk-module">
+      <legend>
+        Information
+      </legend>
+      <fieldset class="vertical">
+        <textarea rows="8"
+          name="custom_description"
+          placeholder="Provide some further information on this risk."
+          i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
+      </fieldset>
+    </fieldset>
     <!-- END Identificaton -->
 
     <!-- Evaluation -->
