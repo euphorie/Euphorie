@@ -59,6 +59,23 @@
 
     <metal:javascriptslot define-slot="javascript_head_slot" />
     <metal:styleslot define-slot="style_slot" />
+    <script>
+    function openSlideFullScreen(slide) {
+      var docElm = document.documentElement;
+      if (docElm.requestFullscreen) {
+        document.getElementById(slide).requestFullscreen()
+      }
+      else if (docElm.mozRequestFullScreen) {
+        document.getElementById(slide).mozRequestFullScreen()
+      }
+      else if (docElm.webkitRequestFullScreen) {
+        document.getElementById(slide).webkitRequestFullScreen()
+      }
+      else if (docElm.msRequestFullscreen) {
+        document.getElementById(slide).msRequestFullscreen()
+      }
+    }
+    </script>
 </head>
 
 <body
