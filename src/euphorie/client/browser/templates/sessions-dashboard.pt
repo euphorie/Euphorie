@@ -135,21 +135,10 @@
 
   <metal:slot fill-slot="aside-navigator">
     <div id="navigation">
-      <div class="miller-columns"
-           id="miller-columns">
-        <!-- For Main OIRA, we don't show anything in the sidebar on the dashboard -->
-        <ul class="departments browser" id="browser">
-          <li>
-            <a class="pat-inject icon-search"
-               href="${here/absolute_url}/@@session-browser-sidebar"
-               data-pat-inject="source: #browser; target: #browser;"
-               hidden="hidden"
-               i18n:translate=""
-            >Loading Risk Assessments&hellip;</a>
-          </li>
-        </ul>
-      </div>
     </div>
+    <tal:logo condition="webhelpers/show_logo">
+      <metal:logo use-macro="context/logo/macros/logo"/>
+    </tal:logo>
   </metal:slot>
 
 </html>
