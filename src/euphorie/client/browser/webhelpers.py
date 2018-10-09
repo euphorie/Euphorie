@@ -129,6 +129,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def use_publication_feature(self):
+        return asBool(self._settings.get('use_publication_feature', False))
+
+    @property
+    @memoize
     def default_country(self):
         return self._settings.get('default_country', '')
 
