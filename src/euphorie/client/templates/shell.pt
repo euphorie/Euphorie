@@ -19,6 +19,7 @@
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
+                  new_session request/new_session|nothing;
                   styles_override webhelpers/styles_override;
                   tools context/@@tools;
                   can_edit webhelpers/can_edit_session;
@@ -187,7 +188,7 @@
                     id="step-2"
                     tal:define="
                       active python:page_section == 'identification';
-                      disabled python:page_section in ('', 'preparation') or (not can_edit);
+                      disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);
                     "
                 >
                   <a class="identification pat-switch pat-inject"
@@ -213,7 +214,7 @@
                     id="step-4"
                     tal:define="
                       active python:page_section == 'actionplan';
-                      disabled python:page_section in ('', 'preparation') or (not can_edit);
+                      disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);
                     "
                 >
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
@@ -238,7 +239,7 @@
                     id="step-5"
                     tal:define="
                       active python:page_section == 'report';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                 >
                   <!-- TODO: check if guest -->
@@ -259,7 +260,7 @@
                     id="step-6"
                     tal:define="
                       active python:page_section == 'training';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                     tal:condition="webhelpers/use_training_module"
                 >
@@ -281,7 +282,7 @@
                     id="status"
                     tal:define="
                       active python: page_section == 'status' and 'active' or '';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                 >
                   <a class="status pat-switch pat-inject"

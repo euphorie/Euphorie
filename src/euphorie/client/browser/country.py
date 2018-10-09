@@ -248,7 +248,7 @@ class SessionsView(BrowserView):
 
         SessionManager.start(title=title, survey=survey, account=account)
         self.request.response.redirect(
-            "%s/start?initial_view=1" % survey.absolute_url()
+            "%s/start?initial_view=1&new_session=1" % survey.absolute_url()
         )
 
     def _ContinueSurvey(self, info):
