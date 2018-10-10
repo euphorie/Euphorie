@@ -4,12 +4,33 @@ Changelog
 10.0.0 (unreleased)
 ------------------
 
-- XXX: add info about Plone5 etc
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release is dependent on Plone 5.1 and higher.
+Run the console script `upgradedb`, as well as all upgrade steps in Plone
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- UI rework: introduction of initial dashboard, different sessions browser, mobile
+  improvements, and other changes.
 - Added Tool Type: apart from the "classic" OiRA Tool type with positive
   and negative statements, we can now set a tool to allow the definition
   of measures that are already in place.
+- Client user passwords are no longer stored as plain text.
+- Added Training module: a slide is created per module and risk, with the possibility
+  to add user-defined extra notes.
+
+Bugfixes
+~~~~~~~~
+
+- Fixed various inconsistencies
+
 
 9.0.42 (unreleased)
+
 -------------------
 
 - Translation changes nl_BE

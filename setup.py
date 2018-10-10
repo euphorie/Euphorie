@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '9.0.36.dev0'
+version = '10.0.0b1.dev0'
 
 setup(
     name="Euphorie",
@@ -21,8 +21,8 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords="",
-    author="Wichert Akkerman",
-    author_email="wichert@simplon.biz",
+    author="Wichert Akkerman and Syslab.com",
+    author_email="info@syslab.com",
     url="http://euphorie.readthedocs.org/en/latest/",
     license="GPL",
     packages=find_packages('src'),
