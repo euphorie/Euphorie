@@ -349,6 +349,15 @@ class Group(BaseObject):
             SurveySession.group_id.in_(group_ids)
         ).all()
 
+    @property
+    def sessions(self):
+        ''' All the session relative to this group
+        '''
+        group_ids = [self.group_id]
+        return Session.query(SurveySession).filter(
+            SurveySession.group_id.in_(group_ids)
+        ).all()
+
 
 @implementer(IBasicUser)
 class Account(BaseObject):
@@ -398,6 +407,15 @@ class Account(BaseObject):
         if not group:
             return []
         return list(group.acquired_sessions)
+
+    @property
+    def group_sessions(self):
+        ''' The session the account acquires because he belongs to a group.
+        '''
+        group = self.group
+        if not group:
+            return []
+        return list(group.sessions)
 
     @property
     def email(self):
