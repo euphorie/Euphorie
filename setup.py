@@ -20,7 +20,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords="",
+    keywords="euphorie OiRA Interactive Risk Assessment",
     author="Wichert Akkerman and Syslab.com",
     author_email="info@syslab.com",
     url="http://euphorie.readthedocs.org/en/latest/",
