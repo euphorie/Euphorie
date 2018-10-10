@@ -231,7 +231,7 @@ msgstr "Un risque ajouté existant a été mis à jour."
 
 #: euphorie/content/utils.py:73
 msgid "Are the measures that are selected above sufficient?"
-msgstr "<strong>Les mesures ci-dessus déjà en place sont elles suffisantes ?</strong>"
+msgstr "<strong>Les mesures déjà en place sont elles suffisantes ?</strong>"
 
 #: euphorie/client/risk.py:456
 msgid ""
@@ -1538,7 +1538,7 @@ msgstr "Ajouter un gestionnaire pays"
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:63
 msgid "button_add_existing_measure"
-msgstr "Ajouter une mesure manquante"
+msgstr "Ajouter une autre mesure"
 
 #. Default: "Add ${typename}"
 #: euphorie/deployment/tiles/templates/addbar.pt:24
@@ -2680,7 +2680,7 @@ msgstr "Pourquoi le projet OiRA "
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr ""
+msgstr "Commentaires"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
@@ -3489,7 +3489,7 @@ msgstr "Contenu de la page "
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Passer"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232
