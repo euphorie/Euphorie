@@ -25,12 +25,17 @@ prune *.cfg
 prune tools
 graft src/euphorie/client/profiles
 graft src/euphorie/client/templates
+graft src/euphorie/client/browser/templates
+graft src/euphorie/client/resources
 graft src/euphorie/content/profiles
 graft src/euphorie/content/templates
 graft src/euphorie/deployment/profiles
+graft src/euphorie/deployment/upgrade
 graft src/euphorie/deployment/browser/templates
 graft src/euphorie/deployment/tiles/templates
 recursive-exclude src/euphorie *.pt.py
 recursive-exclude src/euphorie *.pt.pyc
 prune Work
+prune *.pyc
+prune src/euphorie/client/resources/brands/daimler
 recursive-include etc *.ini
