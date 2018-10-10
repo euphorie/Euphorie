@@ -156,6 +156,9 @@
           </tal:if>
           <metal:slot define-slot="aside-navigator">
           <div id="navigation">
+            <style type="text/css" tal:condition="styles_override">
+                ${styles_override}
+            </style>
             <ol class="pat-switch"
                 id="steps"
                 data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local"
@@ -306,10 +309,6 @@
     <tal:logo condition="webhelpers/show_logo">
       <metal:logo use-macro="context/logo/macros/logo"/>
     </tal:logo>
-
-    <style type="text/css" tal:condition="styles_override">
-        ${styles_override}
-    </style>
 
     </aside>
 

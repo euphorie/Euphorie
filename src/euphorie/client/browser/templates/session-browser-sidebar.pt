@@ -12,6 +12,7 @@
         language view/portal/plone_portal_state/language;
         absolute_url here/absolute_url;
         zodb_path request/zodb_path|nothing;
+        styles_override webhelpers/styles_override;
       "
       i18n:domain="euphorie"
 >
@@ -42,6 +43,9 @@
 
   <metal:slot fill-slot="aside-navigator">
     <div id="navigation">
+      <style type="text/css" tal:condition="styles_override">
+          ${styles_override}
+      </style>
       <div class="miller-columns"
            id="miller-columns"
       >
