@@ -5143,7 +5143,7 @@ msgstr "Settur tal-Importazzjoni u l-Għodda tal-OiRA"
 #: euphorie/client/templates/module_customization.pt:15
 #: euphorie/client/utils.py:83
 msgid "title_other_risks"
-msgstr "Riskji miżjuda (minnek)."
+msgstr "Riskji miżjuda (minnek)"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12

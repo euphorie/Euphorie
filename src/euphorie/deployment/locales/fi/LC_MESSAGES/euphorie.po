@@ -5727,7 +5727,6 @@ msgstr "Tuo toimiala ja OiRA-työkalu"
 #: euphorie/client/publish.py:155
 #: euphorie/client/templates/module_customization.pt:15
 #: euphorie/client/utils.py:83
-#, fuzzy
 msgid "title_other_risks"
 msgstr "Muut tunnistetut riskitekijät"
 

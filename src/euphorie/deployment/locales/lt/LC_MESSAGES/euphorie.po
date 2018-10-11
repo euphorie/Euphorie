@@ -4626,7 +4626,7 @@ msgstr ""
 "<p>Ar norėtumėte pridėti savo nustatytą riziką šioje priemonėje dabar?</"
 "p><p><strong>Svarbu:</strong> Siekdami išvengti dvigubo rizikos nurodymo, "
 "labai rekomenduojame pirmiausia susipažinti su visais ankstesniais "
-"moduliais, jeigu to dar nepadarėte./p><p>Jeigu rizikos pridėti nereikia, "
+"moduliais, jeigu to dar nepadarėte.</p><p>Jeigu rizikos pridėti nereikia, "
 "pasirinkite „Ne.“</p>"
 
 #. Default: "an employers' organisation"
