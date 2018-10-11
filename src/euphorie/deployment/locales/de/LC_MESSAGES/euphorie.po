@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-03 10:10+0000\n"
+"POT-Creation-Date: 2018-10-11 11:46+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -182,7 +182,7 @@ msgstr "Gefährdung hinzufügen"
 msgid "Add Submodule"
 msgstr "Untermodul hinzufügen"
 
-#: euphorie/client/templates/profile.pt:96
+#: euphorie/client/templates/profile.pt:97
 #: euphorie/client/templates/updated.pt:81
 msgid "Add another item"
 msgstr "Weiters Element hinzufügen"
@@ -246,6 +246,14 @@ msgstr ""
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
+msgstr ""
+
+#: euphorie/client/browser/templates/sessions-dashboard.pt:67
+msgid "Available OiRA tools"
+msgstr ""
+
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:23
+msgid "Back"
 msgstr ""
 
 #: euphorie/deployment/tiles/configure.zcml:18
@@ -389,7 +397,7 @@ msgstr "Muss ich mich vorbereiten?"
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: euphorie/client/profile.py:301
+#: euphorie/client/profile.py:300
 msgid "Does this happen in multiple places?"
 msgstr "Geschieht dies an mehreren Orten?"
 
@@ -417,7 +425,7 @@ msgstr "Übersicht der Maßnahmen herunterladen"
 msgid "Download the risks overview"
 msgstr "Übersicht der Gefährdungen herunterladen"
 
-#: euphorie/client/browser/templates/start.pt:173
+#: euphorie/client/browser/templates/start.pt:172
 #: euphorie/client/templates/report_landing.pt:41
 msgid "E-mail"
 msgstr "E-Mail"
@@ -446,11 +454,11 @@ msgstr "Profilfrage bearbeiten"
 msgid "Email address/account name"
 msgstr "E-Mail-Adresse/Kontoname"
 
-#: euphorie/client/profile.py:305
+#: euphorie/client/profile.py:304
 msgid "Enter the name of the location"
 msgstr "Geben Sie den Namen des Ortes ein."
 
-#: euphorie/client/profile.py:309
+#: euphorie/client/profile.py:308
 msgid "Enter the names of each location"
 msgstr "Geben Sie den Namen für jeden Ort ein."
 
@@ -520,7 +528,7 @@ msgstr ""
 "Allerdings können Sie eine Gefährdungsbeurteilung jederzeit unterbrechen und "
 "dann fortführen, wenn es Ihre Zeit erlaubt."
 
-#: euphorie/client/browser/webhelpers.py:597
+#: euphorie/client/browser/webhelpers.py:631
 msgid "I wish to share the following with you"
 msgstr "Ich würde Ihnen gerne folgendes Tool empfehlen"
 
@@ -537,7 +545,7 @@ msgid "Important"
 msgstr "Wichtig"
 
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:104
+#: euphorie/client/templates/shell.pt:123
 msgid "Info"
 msgstr "Info"
 
@@ -570,6 +578,8 @@ msgstr ""
 msgid "Kosovo"
 msgstr ""
 
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:123
+#: euphorie/client/browser/templates/sessions-dashboard.pt:46
 #: euphorie/client/browser/templates/sessions.pt:89
 msgid "Last saved"
 msgstr "Zuletzt gespeichert"
@@ -618,6 +628,8 @@ msgstr ""
 msgid "Montenegro"
 msgstr ""
 
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:114
+#: euphorie/client/browser/templates/sessions-dashboard.pt:56
 #: euphorie/client/browser/templates/sessions.pt:110
 msgid "More"
 msgstr ""
@@ -635,6 +647,10 @@ msgstr "Frage bezüglich mehrfacher Anwendbarkeit"
 msgid "Multiple occurance prompt"
 msgstr "Aufforderung bei mehreren Standorten"
 
+#: euphorie/client/browser/templates/sessions-dashboard.pt:24
+msgid "My risk assessments"
+msgstr ""
+
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
 msgstr "Name"
@@ -643,11 +659,12 @@ msgstr "Name"
 msgid "Navigation tree for sector management"
 msgstr ""
 
-#: euphorie/client/templates/shell.pt:129
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:32
+#: euphorie/client/templates/shell.pt:148
 msgid "New"
 msgstr "Neu"
 
-#: euphorie/client/templates/profile.pt:46
+#: euphorie/client/templates/profile.pt:47
 #: euphorie/client/templates/updated.pt:31
 msgid "No"
 msgstr "Nein"
@@ -660,6 +677,18 @@ msgstr ""
 #: euphorie/client/module.py:94
 msgid "No changes were made to your added risks."
 msgstr "Es gab keine Änderungen an den zusätzlichen Gefährdungen."
+
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:159
+msgid "No departments found for this selection."
+msgstr "Zu dieser Suche wurden keine Abteilungen gefunden."
+
+#: euphorie/client/browser/templates/publication_menu.pt:80
+msgid "No information about the last editor is available."
+msgstr ""
+
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:153
+msgid "No risk assessments are available for this selection."
+msgstr "Für diese Abteilung gibt es keine Gefährdungsbeurteilungen."
 
 #: euphorie/content/templates/profilequestion_view.pt:28
 msgid "Not provided"
@@ -833,7 +862,7 @@ msgstr "Dokumentation bereitstellen"
 msgid "Provide evidence for supervisory authorities."
 msgstr "Bereitstellen von Dokumentation für Aufsichtsbehörden."
 
-#: euphorie/client/browser/templates/publication_menu.pt:34
+#: euphorie/client/browser/templates/publication_menu.pt:47
 msgid "Publish Risk Assessment"
 msgstr "GBU veröffentlichen"
 
@@ -849,7 +878,7 @@ msgstr ""
 "Festhalten von Änderungen, die sich aus veränderten Umständen ergeben (neue "
 "Maschinen, neue Mitarbeiter, als Folge einer Unfalluntersuchung, usw.)"
 
-#: euphorie/client/browser/templates/publication_menu.pt:56
+#: euphorie/client/browser/templates/publication_menu.pt:69
 msgid "Refresh publication date"
 msgstr "Aktualität bestätigen (Zeitstempel erneuern)"
 
@@ -870,7 +899,7 @@ msgstr ""
 "Anmelden zu Ihren bereits angefangenen Sitzungen zurückkehren und diese "
 "fortführen."
 
-#: euphorie/client/templates/profile.pt:66
+#: euphorie/client/templates/profile.pt:67
 #: euphorie/client/templates/updated.pt:51
 msgid "Remove"
 msgstr "Entfernen"
@@ -888,6 +917,10 @@ msgstr ""
 #: euphorie/deployment/browser/search.py:16
 msgid "Risk"
 msgstr "Gefährdung"
+
+#: euphorie/client/browser/templates/tool_sessions.pt:37
+msgid "Risk assessments made with this tool"
+msgstr ""
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -925,9 +958,14 @@ msgstr ""
 "denken Sie daran, dass alle Änderungen, die Sie an den Reports vornehmen, "
 "nicht im OiRA Tool abgespeichert werden."
 
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:64
 #: euphorie/deployment/tiles/configure.zcml:57
 msgid "Search"
 msgstr ""
+
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:59
+msgid "Search for departments"
+msgstr "Nach Abteilungen suchen"
 
 #: euphorie/content/profiles/default/types/euphorie.sector.xml
 #: euphorie/content/templates/user_mgmt.pt:26
@@ -951,7 +989,7 @@ msgstr "Branchen-Workflow"
 msgid "Session `${name}` has been deleted."
 msgstr "Die Sitzung “${name}” wurde gelöscht."
 
-#: euphorie/client/browser/survey.py:106
+#: euphorie/client/browser/survey.py:108
 msgid "Session data successfully updated"
 msgstr "Die Kopfdaten Ihrer Gefährdungsbeurteilung wurden geändert."
 
@@ -967,11 +1005,11 @@ msgstr "Die Sitzung wurde in “${name}” umbenannt."
 msgid "Setup a standard Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:33
+#: euphorie/client/browser/templates/start.pt:32
 msgid "Share this OiRA-Tool"
 msgstr "Dieses OiRA-Tool weitergeben"
 
-#: euphorie/client/browser/country.py:105
+#: euphorie/client/browser/country.py:109
 msgid "Show all risk assessments"
 msgstr ""
 
@@ -979,7 +1017,7 @@ msgstr ""
 msgid "Show library from ${dropdown}."
 msgstr "Zeige die Bibliothek aus ${dropdown}."
 
-#: euphorie/client/browser/country.py:101
+#: euphorie/client/browser/country.py:105
 msgid "Show my risk assessments only"
 msgstr ""
 
@@ -1004,7 +1042,7 @@ msgstr "Standard"
 msgid "Standard solution"
 msgstr "Standardlösung"
 
-#: euphorie/client/templates/shell.pt:118
+#: euphorie/client/templates/shell.pt:137
 msgid "Start test session"
 msgstr "Eine Test-Sitzung starten"
 
@@ -1123,7 +1161,7 @@ msgid "There were no changes to be saved."
 msgstr ""
 "Es wurden keine Änderungen vorgenommen, die noch gespeichert werden müssen."
 
-#: euphorie/client/browser/templates/start.pt:111
+#: euphorie/client/browser/templates/start.pt:110
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr ""
 
@@ -1177,7 +1215,7 @@ msgstr ""
 "Hier muss der Endnutzer gefragt werden, ob das Profil für sie/ihn anwendbar "
 "ist."
 
-#: euphorie/client/browser/templates/start.pt:151
+#: euphorie/client/browser/templates/start.pt:150
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 "Dieses Tool verdient es, überall bekannt zu werden! Geben Sie es weiter!"
@@ -1186,7 +1224,7 @@ msgstr ""
 msgid "Tip"
 msgstr "Tipp"
 
-#: euphorie/client/templates/shell.pt:301
+#: euphorie/client/templates/shell.pt:324
 msgid "Toggle on screen help"
 msgstr "Hilfstexte ein-/ ausschalten"
 
@@ -1194,7 +1232,7 @@ msgstr "Hilfstexte ein-/ ausschalten"
 msgid "Unique id for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/publication_menu.pt:46
+#: euphorie/client/browser/templates/publication_menu.pt:59
 msgid "Unpublish Risk Assessment"
 msgstr "Veröffentlichung der GBU zurückziehen"
 
@@ -1248,7 +1286,7 @@ msgstr "Für wen ist das OiRA Tool gedacht?"
 msgid "Why do I have to register?"
 msgstr "Warum muss ich mich registrieren?"
 
-#: euphorie/client/templates/profile.pt:45
+#: euphorie/client/templates/profile.pt:46
 #: euphorie/client/templates/updated.pt:30
 msgid "Yes"
 msgstr "Ja"
@@ -1275,7 +1313,7 @@ msgstr ""
 "Gefährdungsbeurteilung durchführen wird, wie Mitarbeiter in den Prozess "
 "eingebunden werden, usw."
 
-#: euphorie/client/browser/templates/start.pt:49
+#: euphorie/client/browser/templates/start.pt:48
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -1488,7 +1526,7 @@ msgid "add_survey"
 msgstr "ein neues OiRA-Tool hinzufügen"
 
 #. Default: "Agree and continue"
-#: euphorie/client/templates/conditions.pt:132
+#: euphorie/client/templates/conditions.pt:127
 msgid "agree_and_continue"
 msgstr "Zustimmen und Fortfahren"
 
@@ -1574,7 +1612,7 @@ msgid "button_cancel"
 msgstr "Abbrechen"
 
 #. Default: "Close"
-#: euphorie/client/browser/webhelpers.py:592
+#: euphorie/client/browser/webhelpers.py:626
 #: euphorie/client/templates/new-session-test.pt:51
 msgid "button_close"
 msgstr "Schließen"
@@ -1653,8 +1691,14 @@ msgstr "Änderungen speichern"
 msgid "button_search"
 msgstr "Suchen"
 
+#. Default: "Start a new session with this tool"
+#: euphorie/client/browser/templates/tool_sessions.pt:75
+msgid "button_start_new_session"
+msgstr ""
+
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session.pt:35
+#: euphorie/client/browser/templates/sessions-dashboard.pt:98
 #: euphorie/client/templates/new-session-test.pt:40
 msgid "button_start_session"
 msgstr "Sitzung beginnen"
@@ -1686,41 +1730,41 @@ msgid "company_details_intro"
 msgstr ""
 
 #. Default: "Conservation and processing of information"
-#: euphorie/client/templates/conditions.pt:94
+#: euphorie/client/templates/conditions.pt:89
 msgid "conditions_conservation_header"
 msgstr "Erhalten und Verarbeiten von Informationen"
 
 #. Default: "We keep your data, which is inaccessible for external users, until you delete your account and your session(s)."
-#: euphorie/client/templates/conditions.pt:96
+#: euphorie/client/templates/conditions.pt:91
 msgid "conditions_conservation_keep_data"
 msgstr ""
 "Ihre Daten werden gespeichert, bis Sie Ihr Konto bzw. Ihre Sitzung / Ihre "
 "Sitzungen löschen. Ein Zugriff durch externe Benutzer ist nicht möglich."
 
 #. Default: "EU-OSHA stores data on our servers in Zamudio, Spain."
-#: euphorie/client/templates/conditions.pt:100
+#: euphorie/client/templates/conditions.pt:95
 msgid "conditions_conservation_storage"
 msgstr ""
 "Die Europäische Agentur für Sicherheit und Gesundheitsschutz am Arbeitsplatz "
 "speichert die Daten auf unseren Servern in Halle, Deutschland."
 
 #. Default: "EU-OSHA regularly reviews its compliance with this Privacy Policy. Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}."
-#: euphorie/client/templates/conditions.pt:124
+#: euphorie/client/templates/conditions.pt:119
 msgid "conditions_contact"
 msgstr "Kontaktdaten"
 
 #. Default: "Contact information"
-#: euphorie/client/templates/conditions.pt:116
+#: euphorie/client/templates/conditions.pt:111
 msgid "conditions_contact_header"
 msgstr "Kontaktdaten"
 
 #. Default: "Data controller"
-#: euphorie/client/templates/conditions.pt:88
+#: euphorie/client/templates/conditions.pt:83
 msgid "conditions_datacontroller_header"
 msgstr "Verantwortlicher für die Datenvearbeitung"
 
 #. Default: "You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s)."
-#: euphorie/client/templates/conditions.pt:106
+#: euphorie/client/templates/conditions.pt:101
 msgid "conditions_datareview"
 msgstr ""
 "In Ihren Kontoeinstellungen und (der) gespeicherten OiRA-Sitzung(en) können "
@@ -1728,12 +1772,12 @@ msgstr ""
 "Sitzungen gespeichert sind, prüfen, verwalten und löschen."
 
 #. Default: "Reviewing and removing your information"
-#: euphorie/client/templates/conditions.pt:104
+#: euphorie/client/templates/conditions.pt:99
 msgid "conditions_datareview_header"
 msgstr "Überprüfen und Entfernen von Informationen"
 
 #. Default: "Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser. Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled."
-#: euphorie/client/templates/conditions.pt:71
+#: euphorie/client/templates/conditions.pt:66
 msgid "conditions_info_cookies"
 msgstr ""
 "Cookies – Wenn Sie die Website besuchen und eine Sprache auswählen, wird ein "
@@ -1750,7 +1794,7 @@ msgstr ""
 "wenn die Cookies deaktiviert sind."
 
 #. Default: "Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes."
-#: euphorie/client/templates/conditions.pt:63
+#: euphorie/client/templates/conditions.pt:58
 msgid "conditions_info_email"
 msgstr ""
 "E-Mail-Konto: Ein solches ist zum Zugriff auf das Online-Tool sowie für die "
@@ -1759,7 +1803,7 @@ msgstr ""
 "Adressen werden nicht für kommerzielle Zwecke verwendet."
 
 #. Default: "The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:"
-#: euphorie/client/templates/conditions.pt:58
+#: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_entry"
 msgstr ""
 "Jegliche Informationen, die Sie in die Freitextfelder des Tools und im "
@@ -1768,12 +1812,12 @@ msgstr ""
 "Eingabe von Informationen in die Freitextfelder ist freiwillig."
 
 #. Default: "The Information we collect and for what purposes"
-#: euphorie/client/templates/conditions.pt:56
+#: euphorie/client/templates/conditions.pt:51
 msgid "conditions_info_header"
 msgstr "Art und Zweck der von uns erfassten Informationen"
 
 #. Default: "Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system."
-#: euphorie/client/templates/conditions.pt:75
+#: euphorie/client/templates/conditions.pt:70
 msgid "conditions_info_logs"
 msgstr ""
 "Protokollieren von Informationen – Wenn Sie auf den Service zugreifen, "
@@ -1784,12 +1828,12 @@ msgstr ""
 "Datum Ihrer Anforderung enthalten. IP-Adressen werden nicht im System "
 "gespeichert."
 
-#: euphorie/client/templates/conditions.pt:86
+#: euphorie/client/templates/conditions.pt:81
 msgid "conditions_info_not_personal"
 msgstr ""
 
 #. Default: "Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary."
-#: euphorie/client/templates/conditions.pt:67
+#: euphorie/client/templates/conditions.pt:62
 msgid "conditions_info_text"
 msgstr ""
 "Jegliche Informationen, die Sie in die Freitextfelder des Tools und im "
@@ -1797,23 +1841,23 @@ msgstr ""
 "Gefährdung, die für diese Maßnahme verantwortliche Person usw. eingeben. Die "
 "Eingabe von Informationen in die Freitextfelder ist freiwillig."
 
-#: euphorie/client/templates/conditions.pt:84
+#: euphorie/client/templates/conditions.pt:79
 msgid "conditions_info_use_develop"
 msgstr ""
 
 #. Default: "In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data."
-#: euphorie/client/templates/conditions.pt:80
+#: euphorie/client/templates/conditions.pt:75
 msgid "conditions_info_use_intro"
 msgstr ""
 "Zusätzlich zu den obengenannten Zwecken können wir die erfassten "
 "Informationen noch für folgende Zwecke verwenden:"
 
-#: euphorie/client/templates/conditions.pt:85
+#: euphorie/client/templates/conditions.pt:80
 msgid "conditions_info_use_statistics"
 msgstr ""
 
 #. Default: "The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
-#: euphorie/client/templates/conditions.pt:45
+#: euphorie/client/templates/conditions.pt:40
 msgid "conditions_intro1"
 msgstr ""
 "Das OiRA-Tool wird Ihnen von der Europäischen Agentur für Sicherheit und "
@@ -1824,7 +1868,7 @@ msgstr ""
 "interaktiven Online-Werkzeug zur Gefährdungsbeurteilung) anbietet."
 
 #. Default: "Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: ${url}."
-#: euphorie/client/templates/conditions.pt:51
+#: euphorie/client/templates/conditions.pt:46
 msgid "conditions_intro2"
 msgstr ""
 "Ihre persönlichen Daten werden gemäß der Verordnung (EG) Nr. 45/2001 des "
@@ -1836,7 +1880,7 @@ msgstr ""
 "sowie den vollständigen Text der Verordnung finden Sie unter: ${url}."
 
 #. Default: "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access."
-#: euphorie/client/templates/conditions.pt:112
+#: euphorie/client/templates/conditions.pt:107
 msgid "conditions_security"
 msgstr ""
 "Der Zugriff auf persönliche Daten ist auf Benutzer mit der erforderlichen "
@@ -1852,12 +1896,12 @@ msgstr ""
 "auf das System identifiziert werden können."
 
 #. Default: "Information security"
-#: euphorie/client/templates/conditions.pt:110
+#: euphorie/client/templates/conditions.pt:105
 msgid "conditions_security_header"
 msgstr "Informationssicherheit"
 
 #. Default: "The data controller is the European Agency for Safety and Health at Work, Bilbao."
-#: euphorie/client/templates/conditions.pt:90
+#: euphorie/client/templates/conditions.pt:85
 msgid "condtions_datacontroller"
 msgstr ""
 "Der Verantwortliche für die Datenvearbeitung ist Andrew Smith, Europäische "
@@ -1985,7 +2029,7 @@ msgstr "Der Text der ${online_help} kann geändert werden."
 msgid "documentation_online_help_online_help"
 msgstr "Online-Hilfe"
 
-#: euphorie/client/browser/templates/start.pt:49
+#: euphorie/client/browser/templates/start.pt:48
 msgid "download section"
 msgstr "Reiter “Bericht”"
 
@@ -2438,7 +2482,7 @@ msgstr "Lizenzen"
 
 #. Default: "Login"
 #: euphorie/client/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:93
+#: euphorie/client/templates/shell.pt:112
 msgid "header_login"
 msgstr "Login"
 
@@ -2535,7 +2579,7 @@ msgstr "Beantwortete Fragen pro Modul"
 
 #. Default: "Register"
 #: euphorie/client/templates/register.pt:74
-#: euphorie/client/templates/shell.pt:94
+#: euphorie/client/templates/shell.pt:113
 msgid "header_register"
 msgstr "Registrieren"
 
@@ -2615,7 +2659,6 @@ msgstr "Branchen"
 
 #. Default: "Select an earlier session to complete or review."
 #: euphorie/client/browser/templates/sessions.pt:53
-#: euphorie/client/templates/shell.pt:126
 msgid "header_select_session"
 msgstr "Frühere Sitzung zum Beenden oder zur Vorschau auswählen"
 
@@ -2635,7 +2678,7 @@ msgid "header_submodules"
 msgstr "Untermodule"
 
 #. Default: "Terms and conditions"
-#: euphorie/client/templates/conditions.pt:21
+#: euphorie/client/templates/conditions.pt:16
 msgid "header_terms"
 msgstr "Nutzungsbedingungen"
 
@@ -3173,7 +3216,7 @@ msgstr ""
 "Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
 
 #. Default: "Dashboard"
-#: euphorie/client/templates/shell.pt:87
+#: euphorie/client/templates/shell.pt:105
 msgid "home_link"
 msgstr ""
 
@@ -3244,9 +3287,14 @@ msgstr ""
 "Sie können diese Bildschirmhilfe selbst jederzeit an- und ausschalten, indem "
 "Sie auf das ${questionmark} rechts oben in der Menüleiste klicken."
 
+#. Default: "Select an earlier session to complete or review or ${start_session}."
+#: euphorie/client/browser/templates/sessions-dashboard.pt:29
+msgid "info_select_session"
+msgstr ""
+
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:104
+#: euphorie/client/templates/shell.pt:123
 msgid "info_testsession"
 msgstr ""
 "Dies ist eine Test-Sitzung. ${link_sign_in} um Ihre Antworten zu speichern."
@@ -3645,7 +3693,7 @@ msgstr "Bewertung kann übersprungen werden."
 msgid "label_evaluation_phase"
 msgstr "Bewertungsphase"
 
-#. Default: "Existing measure"
+#. Default: "Measure already implemented"
 #: euphorie/client/templates/risk_actionplan.pt:117
 msgid "label_existing_measure"
 msgstr ""
@@ -3913,14 +3961,14 @@ msgid "label_password_confirm"
 msgstr "Wiederholung Passwort"
 
 #. Default: "Pre-fill"
-#: euphorie/client/templates/risk_actionplan.pt:141
+#: euphorie/client/templates/risk_actionplan.pt:144
 msgid "label_prefill"
 msgstr "Übernehmen"
 
 #. Default: "Preparation"
 #: euphorie/client/templates/login.pt:96
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:154
+#: euphorie/client/templates/shell.pt:178
 msgid "label_preparation"
 msgstr "Vorbereitung"
 
@@ -3948,8 +3996,9 @@ msgid "label_profilequestion_question"
 msgstr "Frage"
 
 #. Default: "Published"
+#: euphorie/client/browser/templates/publication_menu.pt:24
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:136
 #: euphorie/client/browser/templates/sessions.pt:101
-#: euphorie/deployment/tiles/templates/versions.pt:48
 msgid "label_published"
 msgstr "Veröffentlicht"
 
@@ -3994,14 +4043,14 @@ msgid "label_register_first"
 msgstr "registrieren"
 
 #. Default: "Delete this measure"
-#: euphorie/client/templates/risk_actionplan.pt:147
+#: euphorie/client/templates/risk_actionplan.pt:141
 msgid "label_remove_measure"
 msgstr "Diese Maßnahme löschen"
 
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:75
-#: euphorie/client/templates/shell.pt:225
+#: euphorie/client/templates/shell.pt:249
 msgid "label_report"
 msgstr "Bericht"
 
@@ -4077,7 +4126,7 @@ msgstr "Gefährdungen ohne Maßnahme(n)"
 
 #. Default: "Save and continue"
 #: euphorie/client/templates/module_customization.pt:62
-#: euphorie/client/templates/profile.pt:103
+#: euphorie/client/templates/profile.pt:104
 #: euphorie/client/templates/report.pt:40
 msgid "label_save_and_continue"
 msgstr "Speichern und weiter"
@@ -4104,8 +4153,9 @@ msgstr ""
 "Wählen Sie eine oder mehrere der angebotenen bekannten, allgemeinen "
 "Maßnahmen."
 
-#. Default: "Start a new session by choosing one of the following sectoral tools"
+#. Default: "Start a new session by choosing one of the following sectoral tools."
 #: euphorie/client/browser/templates/new-session.pt:22
+#: euphorie/client/browser/templates/sessions-dashboard.pt:76
 #: euphorie/client/templates/new-session-test.pt:19
 msgid "label_select_new_session"
 msgstr ""
@@ -4159,7 +4209,7 @@ msgid "label_start_new_session"
 msgstr "${link_start_session} mit diesem Tool."
 
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:136
+#: euphorie/client/browser/templates/start.pt:135
 msgid "label_start_survey"
 msgstr "Starten"
 
@@ -4298,7 +4348,7 @@ msgid "label_yes_sufficient"
 msgstr "Ja, das Restrisiko ist vertretbar"
 
 #. Default: "Last edited by ${name} on ${date}."
-#: euphorie/client/browser/templates/publication_menu.pt:23
+#: euphorie/client/browser/templates/publication_menu.pt:35
 msgid "last_edited_by"
 msgstr "Zuletzt bearbeitet von ${name} am ${date}."
 
@@ -4326,13 +4376,14 @@ msgstr "Einschränkungen"
 
 #. Default: "Sign in"
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:104
+#: euphorie/client/templates/shell.pt:123
 msgid "link_sign_in"
 msgstr "Loggen Sie sich ein"
 
 #. Default: "Start a new session"
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:32
+#: euphorie/client/browser/templates/sessions-dashboard.pt:29
 #: euphorie/client/browser/templates/sessions.pt:43
-#: euphorie/client/templates/shell.pt:129
 msgid "link_start_session"
 msgstr "Beginnen Sie eine neue Sitzung"
 
@@ -4422,7 +4473,7 @@ msgid "menu_import"
 msgstr "OiRA-Tool importieren"
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:246
+#: euphorie/client/templates/shell.pt:270
 msgid "menu_training"
 msgstr "Unterweisung"
 
@@ -4441,8 +4492,8 @@ msgstr ""
 "Wenn Sie diese entfernen möchten, löschen Sie das OiRA-Tool."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/survey.py:85 euphorie/client/module.py:78
-#: euphorie/client/profile.py:411
+#: euphorie/client/browser/survey.py:87 euphorie/client/module.py:78
+#: euphorie/client/profile.py:410
 msgid "message_field_required"
 msgstr "Erforderliche Eingabe fehlt."
 
@@ -4603,8 +4654,8 @@ msgstr "Benutzerverwaltung"
 
 #. Default: "Help"
 #: euphorie/client/browser/templates/webhelpers.pt:59
-#: euphorie/client/templates/conditions.pt:144
-#: euphorie/client/templates/shell.pt:307
+#: euphorie/client/templates/conditions.pt:139
+#: euphorie/client/templates/shell.pt:330
 msgid "navigation_help"
 msgstr "Hilfe"
 
@@ -4621,7 +4672,7 @@ msgstr "Einstellungen"
 
 #. Default: "Check your progress"
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/templates/shell.pt:267
+#: euphorie/client/templates/shell.pt:291
 #: euphorie/content/templates/colour-preview.pt:58
 msgid "navigation_status"
 msgstr "Status"
@@ -5134,7 +5185,7 @@ msgstr ""
 "${register_link} um konkret loszulegen."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
-#: euphorie/client/templates/conditions.pt:24
+#: euphorie/client/templates/conditions.pt:19
 msgid "terms_changed"
 msgstr ""
 "Die Nutzungsbedingungen wurden seit Ihrem letzten Besuch geändert. Bitte "
@@ -5250,8 +5301,8 @@ msgstr "Status von “${survey_title}”"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
 #: euphorie/client/browser/templates/webhelpers.pt:40
-#: euphorie/client/browser/webhelpers.py:308
-#: euphorie/client/templates/conditions.pt:16
+#: euphorie/client/browser/webhelpers.py:314
+#: euphorie/client/templates/layout.pt:12
 msgid "title_tool"
 msgstr ""
 "OiRA – Online interactive Risk Assessment – das interaktive Online-Werkzeug "
@@ -5278,7 +5329,7 @@ msgid "toc_header"
 msgstr "Inhalt"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:76
+#: euphorie/client/templates/shell.pt:94
 msgid "tooltip_menu_toggle"
 msgstr "Hauptmenü einblenden/ausblenden"
 
