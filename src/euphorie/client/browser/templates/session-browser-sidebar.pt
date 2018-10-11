@@ -42,21 +42,22 @@
   </metal:slot>
 
   <metal:slot fill-slot="aside-navigator">
-    <div id="navigation">
+    <div id="navigation"
+         tal:define="groups view/leaf_groups;">
       <style type="text/css" tal:condition="styles_override">
           ${styles_override}
       </style>
       <div class="miller-columns"
            id="miller-columns"
       >
-<!-- Comment out the search until we know what to do with it -->
-<!--         <form class="search-form pat-autosubmit pat-inject"
+        <form class="search-form pat-autosubmit pat-inject"
               action="${absolute_url}/@@${view/__name__}#browser"
+              tal:condition="groups/count"
         >
           <fieldset>
             <label>
               <input name="SearchableText"
-                     placeholder="Search a risk assessment"
+                     placeholder="Search for departments"
                      type="search"
                      i18n:attributes="placeholder"
               />
@@ -66,12 +67,10 @@
               >Search</button>
             </label>
           </fieldset>
-        </form> -->
+        </form>
+
         <ul class="departments browser"
             id="browser"
-            tal:define="
-              groups view/leaf_groups;
-            "
         >
           <li class="item type-department"
               tal:repeat="group groups;"
@@ -152,9 +151,16 @@
           </li>
           <li tal:condition="not:view/has_content">
             <p class="pat-message notice"
+               tal:condition="not:view/searchable_text"
                i18n:translate=""
             >
               No risk assessments are available for this selection.
+            </p>
+            <p class="pat-message notice"
+               tal:condition="view/searchable_text"
+               i18n:translate=""
+            >
+              No departments found for this selection.
             </p>
           </li>
         </ul>
