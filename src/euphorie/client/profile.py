@@ -274,7 +274,6 @@ def set_session_profile(survey, survey_session, profile):
             'id',
             'brand',
             'account_id',
-            'group_id',
             'title',
             'created',
             'modified',
