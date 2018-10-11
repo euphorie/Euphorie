@@ -10,7 +10,6 @@
         default_introduction nocall:context/@@default_introduction;
         session webhelpers/session;
         can_edit webhelpers/can_edit_session;
-        can_delete webhelpers/can_delete_session;
         has_profile view/has_profile;
       "
       i18n:domain="euphorie"

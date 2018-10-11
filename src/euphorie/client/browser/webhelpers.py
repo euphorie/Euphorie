@@ -680,7 +680,7 @@ class WebHelpers(BrowserView):
         return self.can_edit_session(session=session)
 
     @memoize
-    def can_delete_session(self, session=None):
+    def can_delete_session(self, session=None, sessionid=''):
         return self.can_edit_session(session=session)
 
     def resume(self, session):
