@@ -423,19 +423,23 @@ class Profile(grok.View):
         )
 
         if (
-            not self.profile_questions
-            or self.request.environ["REQUEST_METHOD"] == "POST"
+            not self.profile_questions or
+            self.request.environ["REQUEST_METHOD"] == "POST"
         ):
             self.setupSession()
+            if isinstance(self, Update):
+                target = "/start"
+            else:
+                target = "/identification"
             self.request.response.redirect(
-                survey.absolute_url() + "/identification"
+                survey.absolute_url() + target
             )
 
 
 class Update(Profile):
     """Update a survey session after a survey has been republished. If a
     the survey has a profile the user is asked to confirm the current
-    profile before continueing.
+    profile before continuing.
 
     The behaviour is exactly the same as the normal start page for a session
     (see the :py:class:`Profile` view), but uses a different template with more
