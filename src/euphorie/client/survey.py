@@ -109,6 +109,7 @@ class Identification(grok.View):
     question_filter = None
 
     def update(self):
+        self.next_url = None
         if redirectOnSurveyUpdate(self.request):
             return
         self.survey = survey = aq_parent(aq_inner(self.context))
@@ -118,8 +119,6 @@ class Identification(grok.View):
                 survey, question, phase="identification"
             )
             self.tree = getTreeData(self.request, question)
-        else:
-            self.next_url = None
 
     @property
     def extra_text(self):
@@ -162,6 +161,8 @@ class ActionPlan(grok.View):
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
 
     def update(self):
+        if redirectOnSurveyUpdate(self.request):
+            return
         self.survey = survey = aq_parent(aq_inner(self.context))
         # We fetch the first actual risk, so that we can jump directly to it.
         question = FindFirstQuestion(filter=self.risk_filter)
