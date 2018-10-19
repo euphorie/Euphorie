@@ -9,6 +9,7 @@
       i18n:domain="euphorie"
       class="no-js"
       tal:define="webhelpers nocall:context/@@webhelpers;
+                  dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
                   no_splash view/no_splash|python:False;
                   tool_notification webhelpers/tool_notification;
@@ -30,6 +31,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
