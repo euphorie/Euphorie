@@ -6,34 +6,32 @@ Register new users, login/logout, create a "Guest user" account and convert
 existing guest accounts to normal accounts.
 """
 
-from .. import MessageFactory as _
-from .conditions import approvedTermsAndConditions
-from .conditions import checkTermsAndConditions
-from .country import IClientCountry
-from .interfaces import IClientSkinLayer
-from .session import SessionManager
-from .utils import setLanguage
+from euphorie.client import MessageFactory as _
+from ..conditions import approvedTermsAndConditions
+from ..conditions import checkTermsAndConditions
+from ..country import IClientCountry
+from ..session import SessionManager
+from ..utils import setLanguage
 from AccessControl import getSecurityManager
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import config
 from euphorie.client import model
-from euphorie.client.browser.country import SessionsView as CountryView
+from euphorie.client.browser.country import SessionsView
 from euphorie.content.survey import ISurvey
-from five import grok
 from plone import api
 from plone.memoize.view import memoize
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope import component
 from zope.i18n import translate
-from zope.interface import Interface
 
 import cgi
 import datetime
@@ -52,16 +50,9 @@ EMAIL_RE = re.compile(
     r'[_a-z0-9+-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})',
     re.IGNORECASE)
 
-grok.templatedir("templates")
 
-
-class Login(grok.View):
+class Login(BrowserView):
     """View name: @@login"""
-    grok.context(Interface)
-    grok.layer(IClientSkinLayer)
-    grok.require("zope2.Public")
-    grok.name("login")
-    grok.template("login")
 
     def setLanguage(self, came_from):
         qs = urlparse.urlparse(came_from)[4]
@@ -80,13 +71,13 @@ class Login(grok.View):
         pas = getToolByName(self.context, "acl_users")
         pas.updateCredentials(
             self.request,
-            self.response,
+            self.request.RESPONSE,
             account.loginname,
             account.password,
         )
         if remember:
-            self.response.cookies['__ac']['expires'] = cookie_expiration_date(120)  # noqa: E501
-            self.response.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60
+            self.request.RESPONSE.cookies['__ac']['expires'] = cookie_expiration_date(120)  # noqa: E501
+            self.request.RESPONSE.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60  # noqa: E501
 
     def transferGuestSession(self, session_id):
         """ Transfer guest session to an existing user account
@@ -98,7 +89,7 @@ class Login(grok.View):
         session.account_id = account.id
         SessionManager.resume(session)
 
-    def update(self):
+    def __call__(self):
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -119,7 +110,7 @@ class Login(grok.View):
             reply = self.request.form
             if reply["next"] == "previous":
                 next = aq_parent(aq_inner(context)).absolute_url()
-                self.response.redirect(next)
+                self.request.RESPONSE.redirect(next)
                 return
 
             if (
@@ -128,21 +119,22 @@ class Login(grok.View):
             ):
                 self.transferGuestSession(reply.get('guest_session_id'))
                 self.login(account, bool(self.request.form.get('remember')))
-                v_url = urlparse.urlsplit(self.url()+'/success').path
+                v_url = urlparse.urlsplit(
+                    self.request.URL + '/success').path.replace("@@", "")
                 trigger_extra_pageview(self.request, v_url)
 
                 if (
                     checkTermsAndConditions() and
                     not approvedTermsAndConditions(account)
                 ):
-                    self.response.redirect(
+                    self.request.RESPONSE.redirect(
                         "%s/terms-and-conditions?%s" % (
                             context.absolute_url(),
                             urllib.urlencode({"came_from": came_from}),
                         )
                     )
                 else:
-                    self.response.redirect(came_from)
+                    self.request.RESPONSE.redirect(came_from)
                 return
             self.error = True
 
@@ -158,13 +150,11 @@ class Login(grok.View):
             context.absolute_url(),
             urllib.urlencode({'came_from': came_from}),
         )
+        return self.index()
 
 
 class LoginForm(Login):
     """View name: @@login_form"""
-    grok.layer(IClientSkinLayer)
-    grok.name("login_form")
-    grok.template("login_form")
 
 
 class Tryout(Login):
@@ -172,10 +162,6 @@ class Tryout(Login):
 
     View name: @@tryout
     """
-    grok.context(Interface)
-    grok.require("zope2.Public")
-    grok.layer(IClientSkinLayer)
-    grok.name("tryout")
 
     def createGuestAccount(self):
         account = model.Account(
@@ -185,7 +171,7 @@ class Tryout(Login):
         Session().add(account)
         return account
 
-    def update(self):
+    def __call__(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
             return self.request.response.redirect(
@@ -211,17 +197,13 @@ class Tryout(Login):
         self.request.response.redirect("%s/start" % survey_url)
 
 
-class CreateTestSession(CountryView, Tryout):
+class CreateTestSession(SessionsView, Tryout):
     """Create a guest session
 
     View name: @@new-session-test.html
     """
-    grok.context(Interface)
-    grok.require("zope2.View")
-    grok.name("new-session-test.html")
-    grok.template("new-session-test")
 
-    def update(self):
+    def __call__(self):
         appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.allow_guest_accounts = asBool(
@@ -250,15 +232,12 @@ class CreateTestSession(CountryView, Tryout):
                     self.login(account, False)
                     self._NewSurvey(reply, account)
         self._updateSurveys()
+        return self.index()
 
 
-class Register(grok.View):
+class Register(BrowserView):
     """Register a new account or convert an existing guest account
     """
-    grok.context(Interface)
-    grok.require("zope2.Public")
-    grok.layer(IClientSkinLayer)
-    grok.template("register")
 
     def _tryRegistration(self):
         reply = self.request.form
@@ -306,7 +285,8 @@ class Register(grok.View):
             )
         Session().add(account)
         log.info("Registered new account %s", loginname)
-        v_url = urlparse.urlsplit(self.url()+'/success').path
+        v_url = urlparse.urlsplit(self.request.URL + '/success').path.replace(
+            "@@", "")
         trigger_extra_pageview(self.request, v_url)
         return account
 
@@ -323,13 +303,13 @@ class Register(grok.View):
             target_language=lang,
         )
 
-    def update(self):
+    def __call__(self):
         self.errors = {}
         if self.request.method != "POST":
-            return
+            return self.index()
         account = self._tryRegistration()
         if not account:
-            return
+            return self.index()
         pas = getToolByName(self.context, "acl_users")
         pas.updateCredentials(
             self.request,
@@ -362,12 +342,9 @@ class Register(grok.View):
         return name
 
 
-class Logout(grok.View):
-    grok.context(Interface)
-    grok.require("zope2.View")
-    grok.layer(IClientSkinLayer)
+class Logout(BrowserView):
 
-    def render(self):
+    def __call__(self):
         SessionManager.stop()
 
         pas = getToolByName(self.context, "acl_users")
