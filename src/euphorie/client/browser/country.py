@@ -288,11 +288,16 @@ class SessionBrowserNavigator(SessionsView):
 
     no_splash = True
 
+    @property
+    @memoize
+    def groupid(self):
+        return self.request.get('groupid')
+
     @memoize
     def get_root_group(self):
         ''' Return the group that is the root of the navigation tree
         '''
-        groupid = self.request.get('groupid')
+        groupid = self.groupid
         if not groupid:
             return
         base_query = Session.query(Group).order_by(Group.short_name)
