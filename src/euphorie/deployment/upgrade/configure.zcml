@@ -326,6 +326,10 @@
       title="Migrate existing measures"
       handler=".v20.migrate_existing_measures"/>
 
+    <genericsetup:upgradeStep
+      title="Extend zodb-path field"
+      handler=".v20.extend_zodb_path_field"/>
+
   </genericsetup:upgradeSteps>
 
 </configure>

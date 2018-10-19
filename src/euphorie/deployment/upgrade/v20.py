@@ -57,3 +57,12 @@ def migrate_existing_measures(context):
                     solution.action_plan = measure
                     count += 1
     log.info("Created %d Solutions", count)
+
+
+def extend_zodb_path_field(context):
+    session = Session()
+    session.execute(
+        "ALTER TABLE %s ALTER COLUMN zodb_path TYPE varchar(512);" %
+        model.SurveySession.__table__.name
+    )
+    datamanager.mark_changed(session)
