@@ -1,3 +1,4 @@
+# coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -8,7 +9,7 @@ from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.membrane.interfaces.user import IMembraneUser
-from zope.component import adapts
+from zope.component import adapter
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
@@ -33,16 +34,15 @@ class Frontpage(grok.View):
                     "%s/sectors/" % portal.absolute_url())
 
 
+@adapter(IPloneSiteRoot, NuPloneSkin)
 class SitePublishTraverser(DefaultPublishTraverse):
     """Publish traverser to manage access to the CMS API.
 
     This traverser marks the request with IClientSkinLayer. We can not use
     BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
     """
-    adapts(IPloneSiteRoot, NuPloneSkin)
 
     def publishTraverse(self, request, name):
         if name == 'api':
             return access_api(request).__of__(self.context)
-        return super(SitePublishTraverser, self)\
-                .publishTraverse(request, name)
+        return super(SitePublishTraverser, self).publishTraverse(request, name)
