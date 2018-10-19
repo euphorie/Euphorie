@@ -4,34 +4,38 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content.api.entry import access_api
 from euphorie.content.countrymanager import ICountryManager
-from five import grok
+from plone import api
+from plone.memoize.view import memoize_contextless
+from plone.protect.interfaces import IDisableCSRFProtection
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
+from Products.Five import BrowserView
 from Products.membrane.interfaces.user import IMembraneUser
+from time import time
 from zope.component import adapter
+from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
+import six
 
-class Frontpage(grok.View):
-    grok.context(IPloneSiteRoot)
-    grok.layer(NuPloneSkin)
-    grok.name("nuplone-view")
-    grok.require("zope2.Public")
 
-    def render(self):
+class Frontpage(BrowserView):
+
+    def __call__(self):
         user = getSecurityManager().getUser()
         if IMembraneUser.providedBy(user):
             mt = getToolByName(self.context, "membrane_tool")
             obj = mt.getUserObject(user_id=user.getUserId())
             if ICountryManager.providedBy(obj):
-                self.request.response.redirect(aq_parent(obj).absolute_url())
-            else:
-                self.request.response.redirect(obj.absolute_url())
-        else:
-            portal = aq_inner(self.context)
-            self.request.response.redirect(
-                    "%s/sectors/" % portal.absolute_url())
+                return self.request.response.redirect(
+                    aq_parent(obj).absolute_url()
+                )
+            return self.request.response.redirect(obj.absolute_url())
+        portal = aq_inner(self.context)
+        return self.request.response.redirect(
+            "%s/sectors/" % portal.absolute_url()
+        )
 
 
 @adapter(IPloneSiteRoot, NuPloneSkin)
@@ -46,3 +50,28 @@ class SitePublishTraverser(DefaultPublishTraverse):
         if name == 'api':
             return access_api(request).__of__(self.context)
         return super(SitePublishTraverser, self).publishTraverse(request, name)
+
+
+class EuphorieRefreshResourcesTimestamp(BrowserView):
+
+    @property
+    @memoize_contextless
+    def resources_timestamp(self):
+        return api.portal.get_registry_record(
+            'euphorie.deployment.resources_timestamp',
+            default='',
+        )
+
+    def refresh_timestamp(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        api.portal.set_registry_record(
+            'euphorie.deployment.resources_timestamp',
+            six.text_type(int(time())),
+        )
+
+    def __call__(self):
+        ''' Refresh the registry record that adds a timestamp
+        to the resources urls
+        '''
+        self.refresh_timestamp()
+        return 'OK'

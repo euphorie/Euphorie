@@ -93,4 +93,12 @@
       <element>sv</element>
     </value>
   </record>
+  <record name="euphorie.deployment.resources_timestamp">
+    <field type="plone.registry.field.TextLine">
+      <default />
+      <title>Resources timestamp</title>
+      <required>False</required>
+    </field>
+    <value purge="false" />
+  </record>
 </registry>
