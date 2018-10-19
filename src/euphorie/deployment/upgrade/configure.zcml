@@ -332,4 +332,12 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeDepends
+      source="20"
+      destination="21"
+      profile="euphorie.deployment:default"
+      title="Upgrade profile that includes registry record for invalidating the static resources"
+      import_profile="euphorie.deployment.upgrade:to_0021"
+      />
+
 </configure>
