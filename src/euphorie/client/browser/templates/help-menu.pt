@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="
+        base_url view/base_url;
+      "
+      >
+
+  <metal:help-menu define-macro="help-menu" meta:interpolation="true" i18n:domain="euphorie">
+    <div id="help-menu" hidden="hidden">
+        <ul class="menu">
+            <li>
+                <button id="osh-toggle"
+                    i18n:translate=""
+                    class="icon-circles osh-toggle pat-toggle close-panel"
+                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
+            </li>
+            <li>
+                <a href="${base_url}/help#content"
+                    i18n:translate="navigation_help"
+                    class="icon-help-circle close-panel"
+                    target="Help"
+                    >Help</a>
+            </li>
+        </ul>
+      </div>
+  </metal:help-menu>
+</html>

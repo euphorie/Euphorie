@@ -742,3 +742,13 @@ class UserMenu(WebHelpers):
 
     def __call__(self):
         return self.index()
+
+
+class HelpMenu(WebHelpers):
+    """
+    View class for the User Menu
+
+    """
+
+    def __call__(self):
+        return self.index()
