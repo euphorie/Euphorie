@@ -9,32 +9,29 @@
       metal:use-macro="context/@@shell/macros/shell">
 <body>
     <metal:slot fill-slot="content">
-        <div id="document-content" class="pat-modal" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
+        <div id="document-content" class="pat-modal large" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
             <h1 i18n:translate="label_new_session_test">New test session</h1>
             <form method="post" action="${request/URL}" class="wizard-box" tal:condition="view/allow_guest_accounts">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body">
-            <fieldset class="vertical">
-                <label>
-                    <tal:span i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools</tal:span>:
-                    <select class="oira_sessions_select" name="survey">
-                        <option tal:repeat="survey view/surveys" value="${survey/id}">${survey/title}</option>
-                    </select>
-                </label>
-                <label>
-                    <tal:span i18n:translate="label_session_title">Enter a title for your Risk Assessment</tal:span>:
-                    <sup>
-                        <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt; class: info" i18n:translate="session_title_tooltip">Once you have started an OiRA tool session, you will be able to stop before the end. You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out.</dfn>
-                    </sup>
-                    <input type="text" placeholder="Session name" i18n:attributes="placeholder" name="title:utf8:ustring" />
-                </label>
-            </fieldset>
-            <p>
-                <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>
-            </p>
-            <p>
-                <tal:span i18n:translate="testsession_register">Or <a href="${view/register_url}" i18n:name="register_link"><strong i18n:translate="label_register">register</strong></a> instead. Find out why you should register<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.</tal:span>
-            </p>
+                <article class="pat-rich">
+                    <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools:</p>
+                </article>
+                <fieldset class="tool-list">
+                    <fieldset class="tools pat-checklist radio">
+                      <label class="tool" tal:repeat="survey view/surveys">
+                        <input type="radio" name="survey" value="${survey/id}">
+                        <strong class="field name">${survey/title}</strong>
+                      </label>
+                    </fieldset>
+                </fieldset>
+
+                <p>
+                    <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>
+                </p>
+                <p>
+                    <tal:span i18n:translate="testsession_register">Or <a href="${view/register_url}" i18n:name="register_link"><strong i18n:translate="label_register">register</strong></a> instead. Find out why you should register<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.</tal:span>
+                </p>
             </div>
             <div class="buttons panel-footer">
                 <button type="submit" class="pat-button " i18n:translate="button_start_session">Start session</button>
