@@ -200,6 +200,13 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
-
+  <browser:page
+      name="help_menu"
+      for="*"
+      permission="zope2.View"
+      class=".webhelpers.HelpMenu"
+      template="templates/help-menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
 
 </configure>

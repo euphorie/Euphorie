@@ -316,23 +316,7 @@
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
-    <div id="help-menu" hidden="hidden">
-        <ul class="menu">
-            <li>
-                <button id="osh-toggle"
-                    i18n:translate=""
-                    class="icon-circles osh-toggle pat-toggle close-panel"
-                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
-            </li>
-            <li>
-                <a href="${base_url}/help#content"
-                    i18n:translate="navigation_help"
-                    class="icon-help-circle close-panel"
-                    target="Help"
-                    >Help</a>
-            </li>
-        </ul>
-    </div>
+    <metal:help-menu use-macro="context/help_menu/macros/help-menu"/>
 
 </body>
 </html>
