@@ -166,6 +166,12 @@ class SessionsView(BrowserView):
             type='session',
         )
 
+    def filter_valid_sessions(self, sessions):
+        return [
+            session for session in sessions
+            if self.get_survey_by_path(session.zodb_path)
+        ]
+
     @memoize
     def get_sessions(self):
         ''' Given some sessions create a tree
@@ -178,7 +184,8 @@ class SessionsView(BrowserView):
             sessions = self.account.sessions + self.account.acquired_sessions
         else:
             sessions = self.account.sessions
-        return sessions
+
+        return self.filter_valid_sessions(sessions)
 
     @memoize
     def get_ordered_sessions(self):
