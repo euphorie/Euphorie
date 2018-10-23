@@ -13,4 +13,13 @@
       directory="profiles/to_0020"
       />
 
-  </configure>
+  <genericsetup:registerProfile
+      name="to_0021"
+      title="Upgrade profile that includes registry record for invalidating the static resources"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/to_0021"
+      />
+
+</configure>

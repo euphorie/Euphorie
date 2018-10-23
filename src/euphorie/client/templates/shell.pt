@@ -9,12 +9,14 @@
       i18n:domain="euphorie"
       class="no-js"
       tal:define="webhelpers nocall:context/@@webhelpers;
+                  dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
                   no_splash view/no_splash|python:False;
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
                   resources_url webhelpers/resources_url;
+                  resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
                   page_section webhelpers/get_phase;
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
@@ -30,22 +32,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name}"></script>
+        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
+        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name_min}"></script>
-    </tal:block>
-
-    <tal:block condition="webhelpers/debug_mode">
-        <link rel="stylesheet" href="${resources_url}/screen.css" type="text/css" />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
+        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
         <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${resources_url}/screen.css" type="text/css" />
+        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
 
 
@@ -318,23 +316,7 @@
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
-    <div id="help-menu" hidden="hidden">
-        <ul class="menu">
-            <li>
-                <button id="osh-toggle"
-                    i18n:translate=""
-                    class="icon-circles osh-toggle pat-toggle close-panel"
-                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
-            </li>
-            <li>
-                <a href="${base_url}/help#content"
-                    i18n:translate="navigation_help"
-                    class="icon-help-circle close-panel"
-                    target="Help"
-                    >Help</a>
-            </li>
-        </ul>
-    </div>
+    <metal:help-menu use-macro="context/help_menu/macros/help-menu"/>
 
 </body>
 </html>

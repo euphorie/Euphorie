@@ -1,7 +1,26 @@
-<configure xmlns="http://namespaces.zope.org/zope">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
 
   <adapter
-    factory=".site.SitePublishTraverser"
-    provides="zope.publisher.interfaces.IPublishTraverse"/>
+      provides="zope.publisher.interfaces.IPublishTraverse"
+      factory=".site.SitePublishTraverser"
+      />
+
+  <browser:page
+      name="nuplone-view"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="zope2.Public"
+      class=".site.Frontpage"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
+      name="refresh-resources-timestamp"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".site.EuphorieRefreshResourcesTimestamp"
+      />
 
 </configure>

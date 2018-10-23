@@ -200,6 +200,67 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Login -->
+  <browser:page
+      name="login"
+      for="*"
+      permission="zope.Public"
+      class=".login.Login"
+      template="templates/login.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
 
+  <browser:page
+      name="login_form"
+      for="*"
+      permission="zope.Public"
+      class=".login.LoginForm"
+      template="templates/login_form.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="tryout"
+      for="*"
+      permission="zope.Public"
+      class=".login.Tryout"
+      template="templates/login.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="new-session-test.html"
+      for="*"
+      permission="zope2.View"
+      class=".login.CreateTestSession"
+      template="templates/new-session-test.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="register"
+      for="*"
+      permission="zope.Public"
+      class=".login.Register"
+      template="templates/register.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="logout"
+      for="*"
+      permission="zope2.View"
+      class=".login.Logout"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="help_menu"
+      for="*"
+      permission="zope2.View"
+      class=".webhelpers.HelpMenu"
+      template="templates/help-menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
 
 </configure>

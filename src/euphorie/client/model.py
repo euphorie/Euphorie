@@ -605,7 +605,7 @@ class SurveySession(BaseObject):
         default=None,
     )
 
-    zodb_path = schema.Column(types.String(128), nullable=False)
+    zodb_path = schema.Column(types.String(512), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
 

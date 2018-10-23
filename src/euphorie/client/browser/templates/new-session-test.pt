@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell">
+<body>
+    <metal:slot fill-slot="content">
+        <div id="document-content" class="pat-modal large" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
+            <h1 i18n:translate="label_new_session_test">New test session</h1>
+            <form method="post" action="${request/URL}" class="wizard-box" tal:condition="view/allow_guest_accounts">
+            <input type="hidden" name="action" value="new"/>
+            <div class="panel-body">
+                <article class="pat-rich">
+                    <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools:</p>
+                </article>
+                <fieldset class="tool-list">
+                    <fieldset class="tools pat-checklist radio">
+                      <label class="tool" tal:repeat="survey view/surveys">
+                        <input type="radio" name="survey" value="${survey/id}">
+                        <strong class="field name">${survey/title}</strong>
+                      </label>
+                    </fieldset>
+                </fieldset>
+
+                <p>
+                    <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>
+                </p>
+                <p>
+                    <tal:span i18n:translate="testsession_register">Or <a href="${view/register_url}" i18n:name="register_link"><strong i18n:translate="label_register">register</strong></a> instead. Find out why you should register<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.</tal:span>
+                </p>
+            </div>
+            <div class="buttons panel-footer">
+                <button type="submit" class="pat-button " i18n:translate="button_start_session">Start session</button>
+                <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
+            </div>
+            </form>
+            <tal:not_allowed condition="not:view/allow_guest_accounts">
+                <div class="panel-body">
+                    <article class="rich">
+                        <p i18n:translate="">Starting a test session is not available in this OiRA application.</p>
+                    </article>
+                </div>
+                <div class="buttons panel-footer">
+                    <button type="button" class="pat-button close-panel" i18n:translate="button_close">Close</button>
+                </div>
+            </tal:not_allowed>
+        </div>
+    </metal:slot>
+</body>
+</html>

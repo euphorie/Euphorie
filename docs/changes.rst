@@ -5,6 +5,8 @@ Changelog
 ---------------------
 
 - Upgrade to Plone 5.1.4
+- A new view ``@@refresh-resources-timestamp`` has been introduced
+  to break the browser cache
 
 
 10.0.0b1 (2018-10-10)
