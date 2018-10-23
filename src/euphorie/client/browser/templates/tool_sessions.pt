@@ -21,7 +21,7 @@
                   has_sessions python:len(sessions);
                   my_context view/my_context;
                   description context/description|string:;
-                  introduction context/introduction|string:;
+                  introduction python:getattr(context, 'introduction', '') or '';
                 "
     >
       <tal:block replace="tile:statusmessages" />
