@@ -98,7 +98,7 @@
             </a>
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
-            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar" tal:content="webhelpers/get_survey_title">Private Security EU</button>
+            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar"></button>
             <a href="#help-menu" data-pat-tooltip="source: ajax; class: medium; position-list: tr" class="pat-tooltip help">?</a>
             <a href="${webhelpers/country_or_client_url}"
               data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
