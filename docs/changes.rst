@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.0b2 (unreleased)
+10.0.0b2 (2018-10-23)
 ---------------------
 
 - Upgrade to Plone 5.1.4
