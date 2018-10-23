@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from .. import MessageFactory as _
+from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import OrderedDict
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
+from Products.Five import BrowserView
 from zope.component import queryUtility
 from zope.i18n import translate
 from zope.i18nmessageid.message import Message
@@ -237,3 +239,36 @@ class DragDropHelper(object):
             u"Change order of items by dragging the handle",
             default=u"Change order of items by dragging the handle"),
             target_language=lang)
+
+
+class UserExport(BrowserView):
+
+    def __call__(self):
+        ret = u"<html><body><h1>User Export</h1>"
+        from euphorie.content.countrymanager import ICountryManager
+        from euphorie.content.sector import ISector
+        for id, country in aq_inner(self.context).objectItems():
+            if len(id) != 2:
+                continue
+            managers = [
+                item for item in country.values()
+                if ICountryManager.providedBy(item)]
+            sectors = [
+                item for item in country.values()
+                if ISector.providedBy(item)]
+            if len(managers) + len(sectors) == 0:
+                continue
+            ret += u"<h2>{}</h2>".format(country.title)
+            ret += u"<h3>Country managers</h3><ul>"
+            for manager in managers:
+                ret += u"<li>{}, {}</li>".format(
+                    manager.title, manager.contact_email)
+            ret += u"</ul>"
+            ret += u"<h3>Sector managers</h3><dl>"
+            for sector in sectors:
+                ret += u"<dt><strong>Sector: {}</strong></dt><dd>{}, {}</dd>".format(  # noqa
+                    sector.title, sector.contact_name, sector.contact_email)
+            ret += u"</dl>"
+
+        ret += u"</body></html>"
+        return ret

@@ -145,4 +145,13 @@
       />
 
 
+  <browser:page
+      name="export_users"
+      for="euphorie.content.sectorcontainer.ISectorContainer"
+      permission="cmf.ManagePortal"
+      class=".utils.UserExport"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+
 </configure>
