@@ -221,7 +221,7 @@ msgstr "Ένας πρόσθετος κίνδυνος διαγράφηκε."
 msgid ""
 "An email will be sent if we can find an account for the inserted email "
 "address"
-msgstr ""
+msgstr "Ένα μήνυμα ηλεκτρονικού ταχυδρομείου θα σταλεί αν βρούμε λογαριασμό για τη διεύθυνση ηλεκτρονικού ταχυδρομείου που έχει εισαχθεί."
 
 #: euphorie/client/settings.py:236
 msgid "An error occured while sending the confirmation email."
@@ -261,7 +261,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Διαθέσιμα εργαλεία OiRA"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -666,7 +666,7 @@ msgstr "Ειδοποίηση για περισσότερες από μία εμ�
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Προηγούμενες μελέτες μου εκτίμησης κινδύνου"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: euphorie/client/browser/reset_password.py:118
 msgid "OiRA password reset instructions"
-msgstr ""
+msgstr "Οδηγίες επαναφοράς κωδικού πρόσβασης στο εργαλείο OiRA"
 
 #: euphorie/client/browser/templates/login.pt:72
 msgid ""
@@ -1242,7 +1242,7 @@ msgstr "Συμβουλή"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
 msgid "Toggle on screen help"
-msgstr ""
+msgstr "Εναλλαγή στη βοήθεια οθόνης"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Unique id for content"
@@ -1978,7 +1978,7 @@ msgstr ""
 #. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:76
 msgid "description_reset_password_request"
-msgstr ""
+msgstr "Θα σας στείλουμε ένα μήνυμα ηλεκτρονικού ταχυδρομείου με τις οδηγίες για την επαναφορά του κωδικού πρόσβασής σας."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:158
@@ -2620,7 +2620,7 @@ msgstr "Σύνταξη έκθεσης"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr ""
+msgstr "Πόροι"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
@@ -2738,7 +2738,7 @@ msgstr "Γιατί το έργο OiRA"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr ""
+msgstr "Σχόλια"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
@@ -3570,7 +3570,7 @@ msgstr "Περιεχόμενο σελίδας"
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Παράληψη"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232
@@ -5304,12 +5304,12 @@ msgstr "Πρόσθετοι κίνδυνοι (από το χρήστη)"
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
 msgid "title_reset_password_form"
-msgstr ""
+msgstr "Επαναφέρετε τον κωδικό πρόσβασης"
 
 #. Default: "Password recovery"
 #: euphorie/client/browser/reset_password.py:72
 msgid "title_reset_password_request"
-msgstr ""
+msgstr "Ανάκτηση Κωδικού Πρόσβασης"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12

@@ -206,7 +206,7 @@ msgstr "Riski on poistettu."
 msgid ""
 "An email will be sent if we can find an account for the inserted email "
 "address"
-msgstr ""
+msgstr "Sähköposti lähetetään, jos annetulla sähköpostiosoitteella on luotu OiRA-tili."
 
 #: euphorie/client/settings.py:236
 msgid "An error occured while sending the confirmation email."
@@ -243,7 +243,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Saatavilla olevat OiRA-työkalut"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -635,7 +635,7 @@ msgstr "Moninkertainen esiintyminen lyhyesti"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Omat riskinarvioinnit"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -720,7 +720,7 @@ msgstr ""
 
 #: euphorie/client/browser/reset_password.py:118
 msgid "OiRA password reset instructions"
-msgstr ""
+msgstr "OiRA: ohjeet salasanan vaihtamiseksi"
 
 #: euphorie/client/browser/templates/login.pt:72
 msgid ""
@@ -1196,7 +1196,7 @@ msgstr "Vihje"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
 msgid "Toggle on screen help"
-msgstr ""
+msgstr "Ohjeen näyttöpainike"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Unique id for content"
@@ -1983,7 +1983,7 @@ msgstr ""
 #. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:76
 msgid "description_reset_password_request"
-msgstr ""
+msgstr "Saat ohjeet salasanan vaihtamisesta sähköpostiisi."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:158
@@ -2714,7 +2714,7 @@ msgstr "Raportointi"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr ""
+msgstr "Lisätietoa"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
@@ -2852,7 +2852,7 @@ msgstr "Miksi OiRA-projekti"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr ""
+msgstr "Kommentit"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
@@ -3769,7 +3769,7 @@ msgstr "Sivun sisältö"
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Ohita"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232
@@ -5760,12 +5760,12 @@ msgstr "Muut tunnistetut riskitekijät"
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
 msgid "title_reset_password_form"
-msgstr ""
+msgstr "Vaihda salasana"
 
 #. Default: "Password recovery"
 #: euphorie/client/browser/reset_password.py:72
 msgid "title_reset_password_request"
-msgstr ""
+msgstr "Unohtunut salasana?"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12
