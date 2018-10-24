@@ -818,7 +818,7 @@
     <section class="legal-references"
              tal:condition="view/has_legal"
     >
-      <h4 i18n:translate="header_legal_references">Legal and policy references</h4>
+      <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
       <tal:legal replace="structure risk/legal_reference">
         The requirements for fridges are defined in section 13.1 section a
         of the health code.
