@@ -495,7 +495,7 @@ class ActionPlanView(grok.View):
             existing_plans[str(plan.id)] = plan
         form = self.request.form
         form["action_plans"] = []
-        for i in range(0, len(form['measure'])):
+        for i in range(0, len(form.get('measure', []))):
             measure = dict([p for p in form['measure'][i].items()
                             if p[1].strip()])
             form['action_plans'].append(measure)
