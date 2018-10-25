@@ -240,8 +240,12 @@ class ResetPasswordForm(BaseForm):
             Session().query(Account).filter(Account.id == account_id).one()
         )
         account.password = data['new_password']
+        current_url = self.context.absolute_url()
         return self.redirect(
-            '{}/@@login_form'.format(self.context.absolute_url()),
+            '{}/@@login_form?{}'.format(
+                current_url,
+                urllib.urlencode(dict(came_from=current_url))
+            ),
             msg=_('Your password was successfully changed.'),
         )
 
