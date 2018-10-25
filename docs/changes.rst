@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.0b3 (unreleased)
+10.0.0b3 (2018-10-25)
 ---------------------
 
 - Nothing changed yet.
