@@ -397,14 +397,14 @@ class WebHelpers(BrowserView):
 
     @property
     def came_from_param(self):
+        param = ''
         if self.came_from:
             survey_url = self.survey_url()
             if survey_url:
                 param = 'came_from={0}'.format(survey_url)
             else:
                 param = 'came_from={0}'.format(self.came_from)
-        else:
-            param = ''
+
         return param
 
     @reify
