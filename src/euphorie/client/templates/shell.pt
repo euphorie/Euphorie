@@ -108,7 +108,7 @@
               title="Dashboard" i18n:translate="home_link">Dashboard</a>
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
                 <a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
-                <a href="{webhelpers/country_or_client_url}/register" class="registration" i18n:translate="header_register">Register</a>
+                <a href="${webhelpers/country_or_client_url}/register" class="registration" i18n:translate="header_register">Register</a>
             </tal:if_anon>
             <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
                 <a href="${webhelpers/session_overview_url}/user-menu.html#content"
