@@ -135,6 +135,12 @@
 
   <metal:slot fill-slot="aside-navigator">
     <div id="navigation">
+      <a class="pat-inject icon-search"
+         href="${here/absolute_url}/@@session-browser-sidebar"
+         data-pat-inject="source: #navigation; target: #navigation; trigger: autoload; &amp;&amp; source: #osc-header; target: #osc-header; trigger: autoload"
+         hidden="hidden"
+         i18n:translate=""
+      >Loading Risk Assessments&hellip;</a>
     </div>
     <tal:logo condition="webhelpers/show_logo">
       <metal:logo use-macro="context/logo/macros/logo"/>
