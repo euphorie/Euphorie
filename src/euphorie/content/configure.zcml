@@ -154,4 +154,12 @@
       />
 
 
+  <browser:page
+      name="export_users_csv"
+      for="euphorie.content.sectorcontainer.ISectorContainer"
+      permission="cmf.ManagePortal"
+      class=".utils.UserExportCSV"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>
