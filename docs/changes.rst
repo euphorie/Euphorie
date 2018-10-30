@@ -4,8 +4,7 @@ Changelog
 10.0.0b4 (unreleased)
 ---------------------
 
-- Nothing changed yet.
-
+- More translations
 
 10.0.0b3 (2018-10-25)
 ---------------------
