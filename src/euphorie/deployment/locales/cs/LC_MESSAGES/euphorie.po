@@ -904,7 +904,7 @@ msgstr "Riziko"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Hodnocení rizika vytvořené tímto nástrojem"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1634,7 +1634,7 @@ msgstr "Vyhledat"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Spustit nový modul s tímto nástrojem"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37

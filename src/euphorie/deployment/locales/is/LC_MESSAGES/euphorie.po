@@ -888,7 +888,7 @@ msgstr "Áhætta "
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Áhættumat sem gerðar eru með þessu tóli"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1619,7 +1619,7 @@ msgstr "Leita"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Byrjaðu nýtt áhættumat með þessu tóli"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37

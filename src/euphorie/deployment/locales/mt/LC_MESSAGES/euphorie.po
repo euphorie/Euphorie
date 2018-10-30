@@ -911,7 +911,7 @@ msgstr "Riskju"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Evalwazzjonijiet tar-riskju li saru ma 'din l-għodda"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1668,7 +1668,7 @@ msgstr "Fittex"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Ibda sessjoni ġdida ma 'din l-għodda"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37

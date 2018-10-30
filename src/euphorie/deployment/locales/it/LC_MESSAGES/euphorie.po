@@ -227,7 +227,7 @@ msgstr "Un rischio aggiuntivo esistente è stato aggiornato."
 
 #: euphorie/content/utils.py:75
 msgid "Are the measures that are selected above sufficient?"
-msgstr ""
+msgstr "Di default il tool prevede la programmazione delle misure di miglioramento (da aggiungere nella fase “misure/programma”). Indica se è confermato per questo specifico rischio."
 
 #: euphorie/client/risk.py:464
 msgid ""
@@ -251,7 +251,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Strumenti OIRA disponibili"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -290,7 +290,7 @@ msgstr "Modificare nome della seduta"
 
 #: euphorie/content/utils.py:44
 msgid "Classic OiRA Tool with positive and negative statements."
-msgstr ""
+msgstr "Versione dello strumento OIRA classica con affermazioni positive e negative"
 
 #: euphorie/content/templates/profilequestion_add.pt:67
 msgid "Client example for a single occurance."
@@ -644,7 +644,7 @@ msgstr "Localizzazioni multiple"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Le mie valutazioni del rischio"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -709,7 +709,7 @@ msgstr "Versione dello strumento OiRA"
 
 #: euphorie/content/utils.py:57
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
-msgstr ""
+msgstr "Versione dello strumento OIRA con possibilità di definire le “Misure che sono gia state attuate”"
 
 #: euphorie/client/browser/templates/login.pt:87
 msgid ""
@@ -910,7 +910,7 @@ msgstr "Rischio"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Valutazioni del rischio effettuate con questo strumento"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1206,7 +1206,7 @@ msgstr "Suggerimento"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
 msgid "Toggle on screen help"
-msgstr ""
+msgstr "Attiva la schermata di aiuto"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Unique id for content"
@@ -1545,7 +1545,7 @@ msgstr "Aggiungere country manager"
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:65
 msgid "button_add_existing_measure"
-msgstr ""
+msgstr "Aggiungi eventuali misure non elencate"
 
 #. Default: "Add ${typename}"
 #: euphorie/deployment/tiles/templates/addbar.pt:24
@@ -1652,7 +1652,7 @@ msgstr "Cercare"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Avvia una nuova sessione con questo strumento"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37
@@ -1943,7 +1943,7 @@ msgstr ""
 #. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
 #: euphorie/content/survey.py:110
 msgid "description_tool_type"
-msgstr ""
+msgstr "Questa selezione determina la versione dello strumento OIRA che verrà utilizzata. In caso di dubbio, selezionare “Versione classica”."
 
 #. Default: "If this part is active, the user will be asked to enter the name of all locations for which this module applies. This means, the module will be repeated as many times as there are locations. If you do not need this repeatable behaviour, untick the checkbox to turn it off."
 #: euphorie/content/profilequestion.py:58
@@ -2548,7 +2548,7 @@ msgstr "Report"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr ""
+msgstr "Risorse"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
@@ -2665,7 +2665,7 @@ msgstr "Perché il progetto OiRA"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr ""
+msgstr "Commenti"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
@@ -3464,7 +3464,7 @@ msgstr "Contenuto della pagina"
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Salta"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232
@@ -3630,7 +3630,7 @@ msgstr "Fase di valutazione"
 #. Default: "Measure already implemented"
 #: euphorie/client/templates/risk_actionplan.pt:117
 msgid "label_existing_measure"
-msgstr ""
+msgstr "Misure già attuate"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:285
@@ -3873,7 +3873,7 @@ msgstr "Non applicabile"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:80
 msgid "label_not_sufficient"
-msgstr ""
+msgstr "No, il rischio è gestito con le misure già attuate e non sono previste ulteriori migliorie"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:48
@@ -4225,7 +4225,7 @@ msgstr "Titolo notifica strumento"
 #. Default: "Type of OiRA Tool"
 #: euphorie/content/survey.py:107 euphorie/content/templates/survey_view.pt:27
 msgid "label_tool_type"
-msgstr ""
+msgstr "Versione dello strumento OIRA"
 
 #. Default: "run a test session"
 #: euphorie/client/browser/templates/login.pt:33
@@ -4282,7 +4282,7 @@ msgstr "Sì"
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:77
 msgid "label_yes_sufficient"
-msgstr ""
+msgstr "Si, il rischio è gestito con le misure già attuate e sono previste ulteriori migliorie"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:35
@@ -4677,7 +4677,7 @@ msgstr ""
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:71
 msgid "placeholder_new_existing"
-msgstr ""
+msgstr "Descrivi una misura che è già stata attuata ma non è presente in elenco"
 
 #. Default: "Company details"
 #: euphorie/client/report.py:680
@@ -5014,7 +5014,7 @@ msgstr "Pertinenza: ${percentage}"
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
 #: euphorie/content/utils.py:61
 msgid "select_add_existing_measure"
-msgstr ""
+msgstr "Per la gestione adeguata del rischio è necessario aver attuato almeno tutte le misure obbligatorie. <strong>Seleziona o aggiungi tutte le misure attuate.</strong>"
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:581
@@ -5189,7 +5189,7 @@ msgstr "Importare settore e strumento OiRA"
 #: euphorie/client/templates/module_customization.pt:15
 #: euphorie/client/utils.py:80
 msgid "title_other_risks"
-msgstr "Rischi aggiuntivi"
+msgstr "Rischi aggiuntivi (inseriti dall’utente)"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195

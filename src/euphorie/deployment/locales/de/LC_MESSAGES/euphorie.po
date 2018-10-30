@@ -920,7 +920,7 @@ msgstr "Gefährdung"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Vorhandene GBUs, die mit dieser Vorlage erstellt wurden"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1690,7 +1690,7 @@ msgstr "Suchen"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Neue GBU mit dieser Vorlage beginnen"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37
