@@ -215,7 +215,7 @@ msgstr "Un risque ajouté existant a été retiré."
 msgid ""
 "An email will be sent if we can find an account for the inserted email "
 "address"
-msgstr ""
+msgstr "Un email vous sera envoyé si un compte est associé à l’adresse email renseignée."
 
 #: euphorie/client/settings.py:236
 msgid "An error occured while sending the confirmation email."
@@ -255,7 +255,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Outils Oira disponibles"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -652,7 +652,7 @@ msgstr "Message-guide d’occurrences multiples"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Mon évaluation des risques"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -739,7 +739,7 @@ msgstr ""
 
 #: euphorie/client/browser/reset_password.py:118
 msgid "OiRA password reset instructions"
-msgstr ""
+msgstr "Instructions pour réinitialiser votre mot de passe OiRA"
 
 #: euphorie/client/browser/templates/login.pt:72
 msgid ""
@@ -919,7 +919,7 @@ msgstr "Risque"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Évaluations des risques réalisées avec cet outil"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1211,7 +1211,7 @@ msgstr "Conseil"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
 msgid "Toggle on screen help"
-msgstr ""
+msgstr "Afficher les options d’aide"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Unique id for content"
@@ -1680,7 +1680,7 @@ msgstr "Rechercher"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Commencer une nouvelle session avec cet outil"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37
@@ -1952,7 +1952,7 @@ msgstr ""
 #. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:76
 msgid "description_reset_password_request"
-msgstr ""
+msgstr "Nous vous enverrons un email avec les instructions pour réinitialiser votre mot de passe."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:158
@@ -2597,7 +2597,7 @@ msgstr "Rapport"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr ""
+msgstr "Ressources"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
@@ -5255,12 +5255,12 @@ msgstr "Risques ajoutés (par vous)"
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
 msgid "title_reset_password_form"
-msgstr ""
+msgstr "Réinitialiser le mot de passe"
 
 #. Default: "Password recovery"
 #: euphorie/client/browser/reset_password.py:72
 msgid "title_reset_password_request"
-msgstr ""
+msgstr "Récupération de votre mot de passe"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12

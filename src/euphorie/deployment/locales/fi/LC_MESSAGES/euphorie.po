@@ -904,7 +904,7 @@ msgstr "Riski"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Tämän työkalun avulla tehdyt riskinarvioinnit"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1691,7 +1691,7 @@ msgstr "Haku"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Luo uusi riskinarviointi tämän työkalun avulla"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37

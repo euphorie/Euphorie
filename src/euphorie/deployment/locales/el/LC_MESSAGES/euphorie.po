@@ -942,7 +942,7 @@ msgstr "Κίνδυνος"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Μελέτες αξιολόγησης κινδύνου που έγιναν με αυτό το εργαλείο"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1704,7 +1704,7 @@ msgstr "Αναζήτηση"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Ξεκινήστε μια νέα μελέτη εκτίμησης κινδύνου με αυτό το εργαλείο"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37

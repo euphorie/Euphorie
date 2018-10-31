@@ -5,7 +5,9 @@ from Acquisition import aq_parent
 from collections import OrderedDict
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from StringIO import StringIO
 from zope.component import queryUtility
 from zope.i18n import translate
 from zope.i18nmessageid.message import Message
@@ -15,8 +17,13 @@ from zope.schema.interfaces import ITitledTokenizedTerm
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+import csv
 import re
 
+csv.register_dialect(
+    'bilbomatica', delimiter=',', doublequote=False,
+    quoting=csv.QUOTE_ALL,
+)
 
 TAG = re.compile(u"<.*?>")
 UNWANTED = re.compile(u"(\r|&#13;)")
@@ -272,3 +279,48 @@ class UserExport(BrowserView):
 
         ret += u"</body></html>"
         return ret
+
+
+class UserExportCSV(BrowserView):
+
+    def __call__(self):
+        from euphorie.content.countrymanager import ICountryManager
+        from euphorie.content.sector import ISector
+        fieldnames = ["fullname", "email"]
+        buffer = StringIO()
+        writer = csv.DictWriter(
+            buffer,
+            fieldnames=fieldnames,
+            dialect='bilbomatica')
+        writer.writerow(dict((fn, fn) for fn in fieldnames))
+        for id, country in aq_inner(self.context).objectItems():
+            if len(id) != 2:
+                continue
+            managers = [
+                item for item in country.values()
+                if ICountryManager.providedBy(item)]
+            sectors = [
+                item for item in country.values()
+                if ISector.providedBy(item)]
+            for manager in managers:
+                data = dict(
+                    fullname=safe_unicode(manager.title).encode('utf-8'),
+                    email=safe_unicode(manager.contact_email).encode('utf-8'),
+                )
+                writer.writerow(data)
+            for sector in sectors:
+                data = dict(
+                    fullname=safe_unicode(sector.contact_name).encode('utf-8'),
+                    email=safe_unicode(sector.contact_email).encode('utf-8'),
+                )
+                writer.writerow(data)
+        csv_data = buffer.getvalue()
+        buffer.close()
+        response = self.request.RESPONSE
+        response.setHeader(
+            "Content-Disposition",
+            "attachment; filename=oira_admin_users.csv",
+        )
+        response.setHeader(
+            "Content-Type", 'text/csv;charset=utf-8')
+        return csv_data

@@ -1,11 +1,16 @@
 Changelog
 =========
 
-10.0.0b4 (unreleased)
+10.0.0b5 (unreleased)
 ---------------------
 
 - Nothing changed yet.
 
+
+10.0.0b4 (2018-10-30)
+---------------------
+
+- More translations
 
 10.0.0b3 (2018-10-25)
 ---------------------
