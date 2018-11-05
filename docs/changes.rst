@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.0 (unreleased)
+10.0.0 (2018-11-05)
 -------------------
 
 Upgrade notes
