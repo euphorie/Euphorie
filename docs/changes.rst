@@ -1,6 +1,37 @@
 Changelog
 =========
 
+10.0.0 (unreleased)
+-------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release is dependent on Plone 5.1 and higher.
+Run the console script `upgradedb`, as well as all upgrade steps in Plone
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- UI rework: introduction of initial dashboard, different sessions browser, mobile
+  improvements, and other changes.
+- Added Tool Type: apart from the "classic" OiRA Tool type with positive
+  and negative statements, we can now set a tool to allow the definition
+  of measures that are already in place.
+- Client user passwords are no longer stored as plain text.
+- Added Training module: a slide is created per module and risk, with the possibility
+  to add user-defined extra notes.
+- A new view ``@@refresh-resources-timestamp`` has been introduced
+  to break the browser cache
+
+Bugfixes
+~~~~~~~~
+
+- Fixed various inconsistencies
+
+
+
 10.0.0b5 (unreleased)
 ---------------------
 
@@ -22,8 +53,6 @@ Changelog
 ---------------------
 
 - Upgrade to Plone 5.1.4
-- A new view ``@@refresh-resources-timestamp`` has been introduced
-  to break the browser cache
 - Translation updates
 - Bugfixes
 
@@ -31,30 +60,7 @@ Changelog
 10.0.0b1 (2018-10-10)
 ---------------------
 
-Upgrade notes
-~~~~~~~~~~~~~
-
-This release is dependent on Plone 5.1 and higher.
-Run the console script `upgradedb`, as well as all upgrade steps in Plone
-
-
-Feature changes
-~~~~~~~~~~~~~~~
-
-- UI rework: introduction of initial dashboard, different sessions browser, mobile
-  improvements, and other changes.
-- Added Tool Type: apart from the "classic" OiRA Tool type with positive
-  and negative statements, we can now set a tool to allow the definition
-  of measures that are already in place.
-- Client user passwords are no longer stored as plain text.
-- Added Training module: a slide is created per module and risk, with the possibility
-  to add user-defined extra notes.
-
-Bugfixes
-~~~~~~~~
-
-- Fixed various inconsistencies
-
+- Initial work on Plone5 version
 
 9.0.42 (unreleased)
 
