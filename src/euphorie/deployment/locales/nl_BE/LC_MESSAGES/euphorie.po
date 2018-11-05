@@ -207,7 +207,7 @@ msgstr "Er is een bijkomend risico verwijderd."
 msgid ""
 "An email will be sent if we can find an account for the inserted email "
 "address"
-msgstr ""
+msgstr "Er wordt een e-mail verzonden als we een account kunnen vinden voor het ingevoegde e-mailadres."
 
 #: euphorie/client/settings.py:236
 msgid "An error occured while sending the confirmation email."
@@ -246,7 +246,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Beschikbare OiRA-tools"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -643,7 +643,7 @@ msgstr "Invoeren meerdere gebeurtenissen"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Mijn risicobeoordelingen"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -726,7 +726,7 @@ msgstr " "
 
 #: euphorie/client/browser/reset_password.py:118
 msgid "OiRA password reset instructions"
-msgstr ""
+msgstr "OiRA-wachtwoord reset-instructies"
 
 #: euphorie/client/browser/templates/login.pt:72
 msgid ""
@@ -906,7 +906,7 @@ msgstr "Risico"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr ""
+msgstr "Risicobeoordelingen gemaakt met deze instrument"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1196,7 +1196,7 @@ msgstr "Tip"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
 msgid "Toggle on screen help"
-msgstr ""
+msgstr "Schakel schermhulp in"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Unique id for content"
@@ -1655,7 +1655,7 @@ msgstr "Zoeken"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr ""
+msgstr "Start een nieuwe sessie met deze instrument"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37
@@ -1925,7 +1925,7 @@ msgstr ""
 #. Default: "We will send you an email with the instructions to reset your password."
 #: euphorie/client/browser/reset_password.py:76
 msgid "description_reset_password_request"
-msgstr ""
+msgstr "We sturen u een e-mail met de instructies om uw wachtwoord opnieuw in te stellen."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:158
@@ -2553,7 +2553,7 @@ msgstr "Rapportering"
 #. Default: "Resources"
 #: euphorie/client/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr ""
+msgstr "Middelen"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6
@@ -2671,7 +2671,7 @@ msgstr "Waarom het OiRA-project"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr ""
+msgstr "Commentaar"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
@@ -3479,7 +3479,7 @@ msgstr "Pagina-inhoud"
 #. Default: "Skip"
 #: euphorie/client/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr ""
+msgstr "Overslaan"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232
@@ -5191,12 +5191,12 @@ msgstr "Bijkomende risico’s (door u toegevoegd)"
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
 msgid "title_reset_password_form"
-msgstr ""
+msgstr "Wachtwoord opnieuw instellen"
 
 #. Default: "Password recovery"
 #: euphorie/client/browser/reset_password.py:72
 msgid "title_reset_password_request"
-msgstr ""
+msgstr "Wachtwoord herstel"
 
 #. Default: "Sectors"
 #: euphorie/content/templates/sectorcontainer_view.pt:12
