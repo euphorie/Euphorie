@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.1 (unreleased)
+10.0.1 (2018-11-06)
 -------------------
 
 - Restore old javascript bundle, because pat-display-time introduces
