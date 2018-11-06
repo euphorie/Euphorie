@@ -79,6 +79,22 @@ def add_brand_to_session():
     execute(statement)
 
 
+def add_brand_to_group():
+    ''' A new 'brand' column has been added to the 'group' table
+    '''
+    for column in inspector.get_columns('group'):
+        if 'brand' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE "group"
+            ADD COLUMN brand character varying(64);
+        '''
+    )
+    execute(statement)
+
+
 def add_group_id_to_session():
     ''' A new 'group_id' column has been added to the 'session' table
     '''
@@ -205,6 +221,7 @@ def main():
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_brand_to_session()
+        add_brand_to_group()
         add_group_id_to_session()
         add_published_to_session()
         add_last_modifier_id_to_session()
