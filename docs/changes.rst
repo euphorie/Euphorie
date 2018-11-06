@@ -4,8 +4,8 @@ Changelog
 10.0.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Restore old javascript bundle, because pat-display-time introduces
+  syntax that does not work in IE11.
 
 10.0.0 (2018-11-05)
 -------------------
