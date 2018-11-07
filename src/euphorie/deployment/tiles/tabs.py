@@ -1,15 +1,11 @@
-from AccessControl import getSecurityManager
+# coding=utf-8
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from Acquisition import aq_parent
 from euphorie.content import MessageFactory as _
 from euphorie.content.country import ICountry
-from euphorie.content.countrymanager import ICountryManager
+from plone import api
+from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.tiles.tabs import TabsTile
-from plonetheme.nuplone.utils import checkPermission
-from plonetheme.nuplone.utils import getPortal
-from Products.CMFCore.utils import getToolByName
-from Products.membrane.interfaces.user import IMembraneUser
 
 import re
 
@@ -22,71 +18,70 @@ class SiteRootTabsTile(TabsTile):
         (re.compile(r"/documents"), "documents"),
     ]
 
-    def update(self):
-        context = aq_inner(self.context)
-        portal = getPortal(context)
-        currentUrl = self.request.getURL()[len(portal.absolute_url()):]
-        user = getSecurityManager().getUser()
+    @property
+    @memoize_contextless
+    def portal(self):
+        return api.portal.get()
 
-        if IMembraneUser.providedBy(user):
-            mt = getToolByName(self.context, "membrane_tool")
-            user_object = mt.getUserObject(user_id=user.getUserId())
-        else:
-            user_object = None
+    @property
+    @memoize_contextless
+    def user(self):
+        return api.user.get_current()
 
+    def get_current_country(self):
+        for obj in aq_chain(aq_inner(self.context)):
+            if ICountry.providedBy(obj):
+                return obj
+
+    def is_country_manager(self):
+        ''' Check if we are in the context of a country and
+        if we have enough permissions to manage it
+        '''
+        country = self.get_current_country()
+        if not country:
+            return False
+        if api.user.has_permission('Euphorie: Manage country', obj=country):
+            return True
+
+    def get_current_url(self):
+        currentUrl = self.request.getURL()[len(self.portal.absolute_url()):]
         for (test, id) in self.current_map:
             if test.match(currentUrl):
-                current = id
-                break
-        else:
-            current = None
+                return id
 
-        results = [{
+    def update(self):
+        current = self.get_current_url()
+        self.tabs = [{
             "id": "sectors",
             "title": _("nav_surveys", default=u"OiRA Tools"),
-            "url": portal.sectors.absolute_url(),
+            "url": self.portal.sectors.absolute_url(),
             "class": "current" if current == "sectors" else None,
         }]
-
-        if checkPermission(portal, "Manage portal"):
-            for country in aq_chain(context):
-                if ICountry.providedBy(country):
-                    url = "%s/@@manage-users" % country.absolute_url()
-                    break
-            else:
-                countries = sorted(portal.sectors.keys())
-                url = "%s/@@manage-users" % (
-                    portal.sectors[countries[0]].absolute_url()
-                )
-            results.append({
+        is_country_manager = self.is_country_manager()
+        if is_country_manager:
+            country = self.get_current_country()
+            country_url = country.absolute_url()
+            self.tabs.append({
                 "id": "usermgmt",
                 "title": _("nav_usermanagement", default=u"User management"),
-                "url": url,
+                "url": '%s/@@manage-users' % country_url,
                 "class": "current" if current == "usermgmt" else None,
             })
-            results.append({
+
+        if api.user.has_permission('Manage portal', user=self.user):
+            self.tabs.append({
                 "id": "documents",
                 "title": _("nav_documents", default=u"Documents"),
-                "url": portal.documents.absolute_url(),
+                "url": self.portal.documents.absolute_url(),
                 "class": "current" if current == "documents" else None,
             })
-        elif ICountryManager.providedBy(user_object):
-            country = aq_parent(user_object)
-            results.append({
-                "id": "usermgmt",
-                "title": _("nav_usermanagement", default=u"User management"),
-                "url": "%s/@@manage-users" % country.absolute_url(),
-                "class": "current" if current == "usermgmt" else None,
-            })
 
-        if user_object is not None:
-            country = aq_parent(user_object)
-            results.append({
+        if is_country_manager:
+            self.tabs.append({
                 "id": "help",
                 "title": _("nav_help", default=u"Help"),
                 "url": "%s/help" % country.absolute_url(),
                 "class": "current" if current == "help" else None,
             })
 
-        self.tabs = results
-        self.home_url = portal.absolute_url()
+        self.home_url = self.portal.absolute_url()
