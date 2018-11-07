@@ -4,8 +4,7 @@ Changelog
 10.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation correction NL_BE
 
 10.0.1 (2018-11-06)
 -------------------

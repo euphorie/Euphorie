@@ -906,7 +906,7 @@ msgstr "Risico"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:37
 msgid "Risk assessments made with this tool"
-msgstr "Risicobeoordelingen gemaakt met deze instrument"
+msgstr "Risicobeoordelingen gemaakt met dit instrument"
 
 #: euphorie/client/browser/templates/webhelpers.pt:196
 msgid "Risk not present"
@@ -1655,7 +1655,7 @@ msgstr "Zoeken"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
-msgstr "Start een nieuwe sessie met deze instrument"
+msgstr "Start een nieuwe sessie met dit instrument"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:37
