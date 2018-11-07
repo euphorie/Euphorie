@@ -221,13 +221,13 @@ def main():
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_brand_to_session()
-        add_brand_to_group()
         add_group_id_to_session()
         add_published_to_session()
         add_last_modifier_id_to_session()
         add_last_publisher_id_to_session()
         hash_passwords()
-
+    if euphorie_version < parse_version('10.0.2'):
+        add_brand_to_group()
 
 if __name__ == "__main__":
     main()
