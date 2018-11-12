@@ -142,6 +142,8 @@ class EuphorieAccountPlugin(BasePlugin):
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
+        if not IClientSkinLayer.providedBy(self.REQUEST):
+            return None
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
@@ -170,6 +172,8 @@ class EuphorieAccountPlugin(BasePlugin):
                        sort_by=None, max_results=None, **kw):
         """IUserEnumerationPlugin implementation"""
         if not exact_match:
+            return []
+        if not IClientSkinLayer.providedBy(self.REQUEST):
             return []
 
         query = Session().query(model.Account)
