@@ -277,6 +277,17 @@ class Group(BaseObject):
         ),
     )
 
+    brand = schema.Column(
+        types.String(64)
+    )
+
+    # Allow this class to be subclassed in other projects
+    __mapper_args__ = {
+        'polymorphic_identity': 'euphorie',
+        'polymorphic_on': brand,
+        'with_polymorphic': '*',
+    }
+
     @property
     def fullname(self):
         ''' This is the name that will be display in the selectors and

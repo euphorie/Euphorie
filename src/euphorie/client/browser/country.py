@@ -23,6 +23,7 @@ from Products.Five import BrowserView
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+
 import six
 
 
@@ -293,6 +294,7 @@ class SessionBrowserNavigator(SessionsView):
     ''' Logic to build the navigator for the sessions
     '''
 
+    group_model = Group
     no_splash = True
 
     @property
@@ -307,8 +309,16 @@ class SessionBrowserNavigator(SessionsView):
         groupid = self.groupid
         if not groupid:
             return
-        base_query = Session.query(Group).order_by(Group.short_name)
-        return base_query.filter(Group.group_id == groupid).one()
+        base_query = (
+            Session
+            .query(self.group_model)
+            .order_by(self.group_model.short_name)
+        )
+        return (
+            base_query
+            .filter(self.group_model.group_id == groupid)
+            .one()
+        )
 
     @property
     @memoize
