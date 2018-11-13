@@ -17,7 +17,6 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from borg.localrole.interfaces import ILocalRoleProvider
-from euphorie.content import colour
 from euphorie.content.behaviour.dirtytree import isDirty
 from euphorie.content.survey import ISurvey
 from euphorie.content.surveygroup import ISurveyGroup
@@ -82,14 +81,6 @@ class ISector(form.Schema, IUser, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            required=False)
-
-    main_colour = colour.Colour(
-            title=_("label_main_colour", default=u"Main colour"),
-            required=False)
-
-    support_colour = colour.Colour(
-            title=_("label_support_colour", default=u"Support colour"),
             required=False)
 
 
