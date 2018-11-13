@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Translation correction NL_BE
+- Let the Euphorie PAS plugin only handle requests from with the client
 
 10.0.1 (2018-11-06)
 -------------------
