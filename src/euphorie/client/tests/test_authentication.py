@@ -151,7 +151,10 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
+        request = MockRequest(ACTUAL_URL='http://www.example.com/client')
+        directlyProvides(request, IClientSkinLayer)
         plugin = EuphorieAccountPlugin('plugin')
+        plugin.REQUEST = request
         info = plugin.enumerateUsers(id='1', exact_match=True)
         self.assertEqual(info, [{'id': '1', 'login': 'john'}])
         self.assertTrue(isinstance(info[0]['id'], str))
@@ -161,7 +164,10 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
+        request = MockRequest(ACTUAL_URL='http://www.example.com/client')
+        directlyProvides(request, IClientSkinLayer)
         plugin = EuphorieAccountPlugin('plugin')
+        plugin.REQUEST = request
         self.assertEqual(
             plugin.enumerateUsers(login='john', exact_match=True), [{
                 'id': '1',
@@ -173,7 +179,10 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session = Session()
         account = model.Account(loginname='john', password=u'jane')
         session.add(account)
+        request = MockRequest(ACTUAL_URL='http://www.example.com/client')
+        directlyProvides(request, IClientSkinLayer)
         plugin = EuphorieAccountPlugin('plugin')
+        plugin.REQUEST = request
         self.assertEqual(
             plugin.enumerateUsers(id='1', login='john', exact_match=True), [{
                 'id': '1',

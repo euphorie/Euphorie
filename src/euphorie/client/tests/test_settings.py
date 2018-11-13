@@ -284,20 +284,3 @@ class ChangeEmailTests(EuphorieFunctionalTestCase):
         self.assertEqual(
             Session.query(Account.loginname).first()[0], "new-login"
         )
-
-
-class ClientAvailabilityTests(EuphorieFunctionalTestCase):
-
-    def testSectorsOnClient(self):
-        addSurvey(self.portal, BASIC_SURVEY)
-        survey = self.portal.client["nl"]["ict"]["software-development"]
-        browser = self.get_browser()
-        browser.open(survey.absolute_url())
-        registerUserInClient(browser)
-        browser.open("http://nohost/plone")
-        browser.getLink("OiRA Tools").click()
-        self.assertTrue('Sectors' in browser.contents)
-        url = "http://nohost/plone/client/%s" % browser.url.split('/')[-1]
-        browser.raiseHttpErrors = False
-        browser.open(url)
-        self.assertTrue('404 Not Found' in str(browser.headers))
