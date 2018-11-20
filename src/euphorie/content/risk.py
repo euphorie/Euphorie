@@ -531,22 +531,32 @@ class Risk(dexterity.Container):
 
     @property
     @memoize
-    def pre_defined_measures(self):
-        """ For now, return the value of the field existing_measures
-            But we might switch the lookup of those pre-defined measues,
-            e.g. to take the Solution items defined on this risk.
-        """
-        # First implementation: use field existing_measures
-        # measures = self.existing_measures
-        # if measures:
-        #     measures = measures.splitlines()
-        # Alternative: use Solutions that are marked to be shown in
-        # Identification
-        measures = []
+    def _solutions(self):
+        solutions = []
         for item in self.objectValues():
             if ISolution.providedBy(item):
-                # if getattr(item, 'show_in_identification', False):
-                measures.append(item.description)
+                solutions.append(item)
+        return solutions
+
+    def get_pre_defined_measures(self, request=None):
+        """ Iterate over the Solution items on this risk.
+        """
+        from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer   # noqa
+        from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
+        measures = []
+        for item in self._solutions:
+            description = item.description and item.description.strip() or ""
+            prevention_plan = (
+                item.prevention_plan and item.prevention_plan.strip() or "")
+            if (
+                IItalyIdentificationPhaseSkinLayer.providedBy(request) or
+                IItalyReportPhaseSkinLayer.providedBy(request)
+            ):
+                measures.append(
+                    u"%s: %s" % (description, prevention_plan)
+                )
+            else:
+                measures.append(description)
         return measures
 
 

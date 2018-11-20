@@ -3873,7 +3873,7 @@ msgstr "Non applicabile"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:80
 msgid "label_not_sufficient"
-msgstr "No, il rischio è gestito con le misure già attuate e non sono previste ulteriori migliorie"
+msgstr "Si, il rischio è gestito con le misure già attuate e sono previste ulteriori migliorie"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:48
@@ -4282,7 +4282,7 @@ msgstr "Sì"
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:77
 msgid "label_yes_sufficient"
-msgstr "Si, il rischio è gestito con le misure già attuate e sono previste ulteriori migliorie"
+msgstr "No, il rischio è gestito con le misure già attuate e non sono previste ulteriori migliorie"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:35

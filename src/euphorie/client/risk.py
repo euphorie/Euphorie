@@ -13,6 +13,7 @@ from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
@@ -173,7 +174,8 @@ class IdentificationView(grok.View):
             self.button_add_extra = self.placeholder_add_extra = ""
             self.button_remove_extra = ""
             if self.use_existing_measures:
-                measures = self.risk.pre_defined_measures or ""
+                measures = (
+                    self.risk.get_pre_defined_measures(self.request) or "")
                 # Only show the form to select and add existing measures if
                 # at least one measure was defined in the CMS
                 # In this case, also change some labels
@@ -243,7 +245,8 @@ class IdentificationView(grok.View):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = self.risk.pre_defined_measures or ""
+        defined_measures = (
+            self.risk.get_pre_defined_measures(self.request) or "")
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
@@ -439,19 +442,27 @@ class ActionPlanView(grok.View):
                         self.risk, 'image{0}'.format(i), None) and 1 or 0
             existing_measures = [
                 txt.strip() for txt in self.get_existing_measures().keys()]
-            self.solutions = [
-                {
-                    "description": StripMarkup(solution.description),
-                    "action_plan": solution.action_plan,
-                    "prevention_plan": solution.prevention_plan,
-                    "requirements": solution.requirements,
-                }
-                for solution in self.risk.values()
-                if (
-                    ISolution.providedBy(solution) and
-                    solution.description.strip() not in existing_measures
-                )
-            ]
+            solutions = []
+            for solution in self.risk.values():
+                if not ISolution.providedBy(solution):
+                    continue
+                if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+                    match = u"%s: %s" % (
+                        solution.description.strip(),
+                        solution.prevention_plan.strip()
+                    )
+                else:
+                    match = solution.description.strip()
+                if match not in existing_measures:
+                    solutions.append(
+                        {
+                            "description": StripMarkup(solution.description),
+                            "action_plan": solution.action_plan,
+                            "prevention_plan": solution.prevention_plan,
+                            "requirements": solution.requirements,
+                        }
+                    )
+            self.solutions = solutions
 
         self.number_images = number_images
         self.has_images = number_images > 0
