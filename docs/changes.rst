@@ -4,8 +4,8 @@ Changelog
 10.0.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Italy special: for existing measures, use both the text of the description
+  and the prevention plan
 
 10.0.2 (2018-11-14)
 -------------------
