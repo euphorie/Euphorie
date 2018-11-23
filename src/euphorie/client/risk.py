@@ -513,23 +513,35 @@ class ActionPlanView(grok.View):
             if len(measure):
                 budget = measure.get("budget")
                 budget = budget and budget.split(',')[0].split('.')[0]
+                p_start = measure.get('planning_start')
+                if p_start:
+                    try:
+                        datetime.datetime.strptime(p_start, '%Y-%m-%d')
+                    except ValueError:
+                        p_start = None
+                p_end = measure.get('planning_end')
+                if p_end:
+                    try:
+                        datetime.datetime.strptime(p_end, '%Y-%m-%d')
+                    except ValueError:
+                        p_end = None
                 if measure.get('id', '-1') in existing_plans:
                     plan = existing_plans[measure.get('id')]
                     if (
                         measure.get("action_plan") != plan.action_plan or
-                        measure.get("prevention_plan") != plan.prevention_plan or
+                        measure.get("prevention_plan") != plan.prevention_plan or  # noqa
                         measure.get("requirements") != plan.requirements or
                         measure.get("responsible") != plan .responsible or (
                             plan.budget and (budget != str(plan.budget)) or
                             plan.budget is None and budget
                         ) or (
                             (plan.planning_start and
-                                measure.get('planning_start') != plan.planning_start.strftime('%Y-%m-%d')) or
-                            (plan.planning_start is None and measure.get('planning_start'))
+                                p_start != plan.planning_start.strftime('%Y-%m-%d')) or  # noqa
+                            (plan.planning_start is None and p_start)
                         ) or (
                             (plan.planning_end and
-                                measure.get('planning_end') != plan.planning_end.strftime('%Y-%m-%d')) or
-                            (plan.planning_end is None and measure.get('planning_end'))
+                                p_end != plan.planning_end.strftime('%Y-%m-%d')) or  # noqa
+                            (plan.planning_end is None and p_end)
                         )
                     ):
                         updated += 1
@@ -543,8 +555,8 @@ class ActionPlanView(grok.View):
                         requirements=measure.get("requirements"),
                         responsible=measure.get("responsible"),
                         budget=budget,
-                        planning_start=measure.get('planning_start'),
-                        planning_end=measure.get('planning_end')
+                        planning_start=p_start,
+                        planning_end=p_end,
                     )
                 )
         removed = len(existing_plans)

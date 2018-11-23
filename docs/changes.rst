@@ -6,6 +6,11 @@ Changelog
 
 - Italy special: for existing measures, use both the text of the description
   and the prevention plan
+- Workaround for potential error in action plan. Because pat-validation is
+  flawed, no validation is applied to the measures. This allows a user to
+  write any value into the date fields, resulting in a white screen for them
+  because of a SQL error in the background. Therefore, we silently eliminate
+  illegal date values now.
 
 10.0.2 (2018-11-14)
 -------------------
