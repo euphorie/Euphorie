@@ -12,6 +12,7 @@ from collections import defaultdict
 from euphorie.client.enum import Enum
 from plone import api
 from plone.memoize import ram
+from Products.CMFPlone.utils import safe_unicode
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
@@ -1139,8 +1140,14 @@ def get_current_account():
              otherwise None
     '''
     username = api.user.get_current().getUserName()
-    return Session.query(Account).filter(Account.loginname == username).first()
-
+    try:
+        return Session.query(Account).filter(
+            Account.loginname == username).first()
+    except:
+        log.warning("Unable to fetch account for username:")
+        log.warning(username)
+        return Session.query(Account).filter(
+            Account.loginname == safe_unicode(username)).first()
 
 __all__ = [
     "SurveySession",
