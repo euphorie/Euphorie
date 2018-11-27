@@ -1129,6 +1129,68 @@ ACTION_PLAN_FILTER = sql.or_(
     RISK_PRESENT_OR_TOP5_FILTER,
 )
 
+SKIPPED_MODULE = sql.exists().where(
+    sql.and_(
+        SurveyTreeItem.type == "module",
+        child_node.session_id == SurveyTreeItem.session_id,
+        child_node.skip_children == True  # noqa: E712
+    )
+)
+
+UNANSWERED_RISKS_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(sql.and_(
+            Risk.sql_risk_id == SurveyTreeItem.id,
+            Risk.identification == None,  # noqa: E712
+        ))
+    )
+)
+
+MODULE_WITH_UNANSWERED_RISKS_FILTER = sql.and_(
+    SurveyTreeItem.type == "module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == "risk",
+                Risk.identification == None,
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%")
+            )
+        )
+    )
+)
+
+MODULE_WITH_RISKS_NOT_PRESENT_FILTER = sql.and_(
+    SurveyTreeItem.type == "module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == "risk",
+                Risk.identification == 'yes',
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%")
+            ))
+    )
+)
+
+RISK_NOT_PRESENT_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                Risk.identification == "yes"
+            )
+        ))
+)
+
 del child_node
 
 
