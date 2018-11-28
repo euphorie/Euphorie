@@ -89,8 +89,14 @@ class DocxCompiler(BaseOfficeCompiler):
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text
         '''
-
         self.template.paragraphs[0].text = data['heading']
+        txt = self.t(_("toc_header", default=u"Contents"))
+        self.template.paragraphs[1].text = txt
+        p = self.template.paragraphs[2]
+        for nodes, heading in zip(data["nodes"], data["section_headings"]):
+            if not nodes:
+                continue
+            p.insert_paragraph_before(heading, style="TOC Heading 1")
 
     def set_body(self, data):
         for nodes, heading in zip(data["nodes"], data["section_headings"]):

@@ -234,7 +234,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         return nodes
 
     def get_data(self, for_download=False):
-        ''' Get's the data structure in a format suitable for `DocxCompiler`
+        ''' Gets the data structure in a format suitable for `DocxCompiler`
         '''
 
         data = {
