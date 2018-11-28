@@ -89,14 +89,27 @@ class DocxCompiler(BaseOfficeCompiler):
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text
         '''
+        request = self.request
         self.template.paragraphs[0].text = data['heading']
         txt = self.t(_("toc_header", default=u"Contents"))
         self.template.paragraphs[1].text = txt
         p = self.template.paragraphs[2]
+        p_before_break = self.template.paragraphs[3]
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
             if not nodes:
                 continue
             p.insert_paragraph_before(heading, style="TOC Heading 1")
+        survey = self.request.survey
+
+        footer_txt = self.t(
+            _("report_identification_revision",
+                default=u"This document was based on the OiRA Tool '${title}' "
+                        u"of revision date ${date}.",
+                mapping={"title": survey.published[1],
+                         "date": formatDate(request, survey.published[2])}))
+
+        p_before_break.insert_paragraph_before("")
+        p_before_break.insert_paragraph_before(footer_txt, 'Footer')
 
     def set_body(self, data):
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
