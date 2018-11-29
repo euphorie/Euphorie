@@ -1,21 +1,17 @@
 # coding=utf-8
-from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import _escape_text
 from euphorie.client.docx.compiler import DocxCompiler
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
-from json import loads
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
-from sqlalchemy import and_
 from sqlalchemy import sql
 from StringIO import StringIO
 from urllib import quote
 from z3c.saconfig import Session
 from zope.i18n import translate
-import htmllaundry
 
 
 class OfficeDocumentView(BrowserView):
@@ -89,95 +85,11 @@ def _get_action_plan(action):
 
 
 class ActionPlanDocxView(OfficeDocumentView):
-    ''' Generate a report based on the demo docx we have been given
+    ''' Generate a report based on a basic docx template
     '''
-    # This is a mapping to fill the the `justifiable` value in a risk
-    justifiable_map = {
-        'yes': 'Ja',
-        'no': 'Nein',
-    }
+
     _compiler = DocxCompiler
     _content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # noqa: E 501
-
-    def get_risks_for(self, sql_module):
-        sql_risks = Session.query(model.Risk).filter(
-            model.Risk.parent_id == sql_module.id
-        ).order_by(
-            model.SurveyTreeItem.path
-        )
-        risks = []
-        for sql_risk in sql_risks:
-            if sql_risk.identification == 'n/a':
-                continue
-            if not sql_risk.is_custom_risk:
-                risk = self.request.survey.restrictedTraverse(
-                    sql_risk.zodb_path.split("/"))
-                risk_description = risk.description
-                defined_measures = risk.get_pre_defined_measures(self.request)
-            else:
-                risk_description = defined_measures = ""
-            measures = sql_risk.existing_measures or []
-            try:
-                # We try to get at least some order in: First, the pre-
-                # defined measures that the user has confirmed, then the
-                # additional custom-defined ones.
-                existing_measures = OrderedDict()
-                saved_measures = loads(sql_risk.existing_measures)
-                for text in defined_measures:
-                    if saved_measures.get(text):
-                        existing_measures.update(
-                            {htmllaundry.StripMarkup(text): 1})
-                        saved_measures.pop(text)
-                # Finally, add the user-defined measures as well
-                existing_measures.update({
-                    htmllaundry.StripMarkup(key): val for (key, val)
-                    in saved_measures.items()})
-                measures = existing_measures.keys()
-            except:
-                measures = []
-            risks.append({
-                u'title': sql_risk.title.strip(),
-                u'description': risk_description,
-                u'comment': _escape_text(sql_risk.comment),
-                u'actions': [
-                    _get_action_plan(action)
-                    for action in sql_risk.action_plans
-                ],
-                u'measures': measures,
-                u'epilogue': u'',
-                u'justifiable': self.justifiable_map.get(
-                    sql_risk.identification, ''
-                ),
-            })
-        return risks
-
-    def get_modules(self):
-        ''' Returns the modules for this session
-        '''
-        sql_modules = Session.query(model.Module).filter(
-            and_(
-                model.SurveyTreeItem.session == self.session,
-                # model.Module.zodb_path != u'custom-risks',
-            )
-        ).order_by(
-            model.SurveyTreeItem.path
-        )
-        modules = []
-        for sql_module in sql_modules:
-            if sql_module.skip_children:
-                continue
-            if sql_module.zodb_path.find('custom-risks') != -1:
-                module_title = utils.get_translated_custom_risks_title(
-                    self.request)
-            else:
-                module_title = sql_module.title
-            risks = self.get_risks_for(sql_module)
-            modules.append({
-                u'title': module_title,
-                u'checked': bool(risks),
-                u'risks': risks,
-            })
-        return modules
 
     def get_heading(self, title):
         heading = self.t(
@@ -241,7 +153,6 @@ class ActionPlanDocxView(OfficeDocumentView):
             'title': self.session.title,
             'heading': self.get_heading(self.session.title),
             'section_headings': self.get_section_headings(),
-            'modules': self.get_modules(),
             'nodes': self.get_sorted_nodes(),
         }
         return data
