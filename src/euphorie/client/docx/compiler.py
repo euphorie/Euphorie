@@ -1,5 +1,6 @@
 # coding=utf-8
 from collections import OrderedDict
+from datetime import date
 from docx.api import Document
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
@@ -13,9 +14,9 @@ from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
+import docx
 import htmllaundry
 import lxml.html
-import docx
 
 
 def _escape_text(txt):
@@ -93,13 +94,14 @@ class DocxCompiler(BaseOfficeCompiler):
         request = self.request
         self.template.paragraphs[0].text = data['heading']
         txt = self.t(_("toc_header", default=u"Contents"))
-        self.template.paragraphs[1].text = txt
-        p = self.template.paragraphs[2]
-        p_before_break = self.template.paragraphs[3]
+        par_contents = self.template.paragraphs[1]
+        par_contents.text = txt
+        par_toc = self.template.paragraphs[2]
+        par_before_break = self.template.paragraphs[3]
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
             if not nodes:
                 continue
-            p.insert_paragraph_before(heading, style="TOC Heading 1")
+            par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
         survey = self.request.survey
 
         footer_txt = self.t(
@@ -109,8 +111,10 @@ class DocxCompiler(BaseOfficeCompiler):
                 mapping={"title": survey.published[1],
                          "date": formatDate(request, survey.published[2])}))
 
-        p_before_break.insert_paragraph_before("")
-        p_before_break.insert_paragraph_before(footer_txt, 'Footer')
+        par_contents.insert_paragraph_before(
+            formatDate(request, date.today()), style="Comment")
+        par_before_break.insert_paragraph_before("")
+        par_before_break.insert_paragraph_before(footer_txt, 'Footer')
 
     def set_body(self, data):
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
