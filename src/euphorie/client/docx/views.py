@@ -1,7 +1,6 @@
 # coding=utf-8
 from euphorie.client import model
 from euphorie.client import utils
-from euphorie.client.docx.compiler import _escape_text
 from euphorie.client.docx.compiler import DocxCompiler
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
@@ -57,6 +56,7 @@ class OfficeDocumentView(BrowserView):
                     model.RISK_PRESENT_OR_TOP5_FILTER
                 )
         ).order_by(model.SurveyTreeItem.path)
+
         return query.all()
 
     def __call__(self):
@@ -71,6 +71,10 @@ class OfficeDocumentView(BrowserView):
             self._content_type,
         )
         return self.get_payload()
+
+
+def _escape_text(txt):
+    return txt and txt.replace('<', '&lt;') or ''
 
 
 def _get_action_plan(action):
