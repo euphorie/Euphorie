@@ -3,7 +3,6 @@ from collections import OrderedDict
 from docx.api import Document
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
-from euphorie.client import utils
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
@@ -171,11 +170,6 @@ class DocxCompiler(BaseOfficeCompiler):
                 else:
                     description = zodb_node.description
 
-                doc.add_paragraph(
-                    self.t(_(utils.html_unescape(
-                        htmllaundry.StripMarkup(description))))
-                )
-
                 doc = HtmlToWord(description, doc)
 
             if node.comment and node.comment.strip():
@@ -291,6 +285,7 @@ class DocxCompiler(BaseOfficeCompiler):
         self.set_session_title_row(data)
         self.set_body(data)
 
+
 def add_hyperlink_into_run(paragraph, run, url):
     runs = paragraph.runs
     for i in range(len(runs)):
@@ -367,8 +362,8 @@ class _HtmlToWord(object):
         tail = node.tail
         # Prevent unwanted empty lines inside listings and paragraphs that come
         # from newlines in the markup
-        if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
-            tail = tail and tail.strip()
+        # if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
+        tail = tail and tail.strip()
         if tail:
             doc.add_paragraph(tail)
         return doc
