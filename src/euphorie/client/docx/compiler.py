@@ -269,7 +269,7 @@ class DocxCompiler(BaseOfficeCompiler):
             ]
         for heading, value in zip(headings, values):
             doc.add_paragraph(heading, style="MeasureField")
-            doc.add_paragraph(value, style="MeasureText")
+            doc = HtmlToWord(value, doc, style="MeasureText")
 
     def compile(self, data):
         '''
