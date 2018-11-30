@@ -63,9 +63,9 @@ class _HtmlToWord(object):
             run.text = node.tail
         return p
 
-    def handleElement(self, node, doc):
+    def handleElement(self, node, doc, style=None):
         if node.tag in ["p", "li", 'strong', 'b', 'em', 'i', 'u', 'a']:
-            p = doc.add_paragraph()
+            p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
 
@@ -87,9 +87,9 @@ class _HtmlToWord(object):
             doc.add_paragraph(tail)
         return doc
 
-    def __call__(self, markup, doc):
+    def __call__(self, markup, doc, style=None):
         if not markup or not markup.strip():
-            return []
+            return doc
         try:
             markup_doc = lxml.html.document_fromstring(markup)
         except etree.XMLSyntaxError:
@@ -99,7 +99,7 @@ class _HtmlToWord(object):
             return doc
 
         for node in markup_doc.find('body'):
-            doc = self.handleElement(node, doc)
+            doc = self.handleElement(node, doc, style)
 
         return doc
 
