@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.3 (unreleased)
+10.0.3 (2018-12-05)
 -------------------
 
 - Italy special: for existing measures, use both the text of the description
