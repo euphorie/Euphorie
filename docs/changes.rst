@@ -11,6 +11,7 @@ Changelog
   write any value into the date fields, resulting in a white screen for them
   because of a SQL error in the background. Therefore, we silently eliminate
   illegal date values now.
+- Translation updates Dutch (NL) and Icelandic (IS)
 
 10.0.2 (2018-11-14)
 -------------------
