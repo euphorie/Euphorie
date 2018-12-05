@@ -5327,6 +5327,9 @@ msgstr ""
 msgid "yes"
 msgstr "Ja"
 
+msgid "header_oira_report_download"
+msgstr "Plan van aanpak: ${title}"
+
 #~ msgid "An email with a password reminder has been sent to your address."
 #~ msgstr "Er is een e-mail met wachtwoord herinnering verstuurd."
 

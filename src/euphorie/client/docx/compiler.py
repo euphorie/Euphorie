@@ -6,6 +6,7 @@ from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
+from euphorie.client.session import SessionManager
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from json import loads
@@ -52,6 +53,10 @@ class BaseOfficeCompiler(object):
             'title_other_risks', default=u'Added risks (by you)'),
             target_language=lang)
 
+    @property
+    def session(self):
+        return SessionManager.session
+
 
 class DocxCompiler(BaseOfficeCompiler):
 
@@ -90,7 +95,7 @@ class DocxCompiler(BaseOfficeCompiler):
             if not nodes:
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
-        survey = self.request.survey
+        survey = request.survey
 
         footer_txt = self.t(
             _("report_identification_revision",
@@ -201,7 +206,7 @@ class DocxCompiler(BaseOfficeCompiler):
                     heading = self.t(
                         _(
                             "label_existing_measure",
-                            default="Existing measure"
+                            default="Measure already implemented"
                         )
                     ) + " " + str(idx + 1)
                     action_plan = model.ActionPlan()
