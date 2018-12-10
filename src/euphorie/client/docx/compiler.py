@@ -168,11 +168,15 @@ class DocxCompiler(BaseOfficeCompiler):
 
                 doc.add_paragraph(self.t(msg), style="RiskPriority")
 
+            print_description = True
             # In the report for Italy, don't print the description
-            if (
-                getattr(node, 'identification', None) == 'no' and
-                not IItalyReportPhaseSkinLayer.providedBy(self.request)
-            ):
+            if IItalyReportPhaseSkinLayer.providedBy(self.request):
+                print_description = False
+            if not getattr(node, 'identification', None) == 'no':
+                if not extra.get('always_print_description', None) is True:
+                    print_description = False
+
+            if print_description:
                 if zodb_node is None:
                     description = node.title
                 else:
