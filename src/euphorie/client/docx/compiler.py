@@ -98,7 +98,7 @@ class DocxCompiler(BaseOfficeCompiler):
         survey = request.survey
 
         footer_txt = self.t(
-            _("report_identification_revision",
+            _("report_survey_revision",
                 default=u"This document was based on the OiRA Tool '${title}' "
                         u"of revision date ${date}.",
                 mapping={"title": survey.published[1],
@@ -109,13 +109,13 @@ class DocxCompiler(BaseOfficeCompiler):
         par_before_break.insert_paragraph_before("")
         par_before_break.insert_paragraph_before(footer_txt, 'Footer')
 
-    def set_body(self, data):
+    def set_body(self, data, **extra):
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
             if not nodes:
                 continue
-            self.add_report_section(nodes, heading)
+            self.add_report_section(nodes, heading, **extra)
 
-    def add_report_section(self, nodes, heading):
+    def add_report_section(self, nodes, heading, **extra):
         doc = self.template
         doc.add_paragraph(heading, style="Heading 1")
 
@@ -142,6 +142,17 @@ class DocxCompiler(BaseOfficeCompiler):
 
             if node.type != "risk":
                 continue
+
+            if extra.get('show_risk_state', False):
+                if node.identification == 'no':
+                    msg = _("risk_present",
+                            default="Risk is present.")
+                    doc.add_paragraph(self.t(msg), style="RiskPriority")
+                elif node.postponed or not node.identification:
+                    msg = _(
+                        "risk_unanswered",
+                        default=u"This risk still needs to be inventorised.")
+                    doc.add_paragraph(self.t(msg), style="RiskPriority")
 
             if node.priority:
                 if node.priority == "low":
