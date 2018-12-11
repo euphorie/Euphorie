@@ -4,8 +4,7 @@ Changelog
 10.0.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation update IS
 
 10.0.3 (2018-12-05)
 -------------------
