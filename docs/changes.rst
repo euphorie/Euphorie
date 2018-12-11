@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.0.4 (unreleased)
+10.0.4 (2018-12-11)
 -------------------
 
 - Translation update IS
