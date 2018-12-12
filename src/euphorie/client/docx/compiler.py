@@ -144,14 +144,25 @@ class DocxCompiler(BaseOfficeCompiler):
                 continue
 
             if extra.get('show_risk_state', False):
+                msg = ''
                 if node.identification == 'no':
                     msg = _("risk_present",
                             default="Risk is present.")
-                    doc.add_paragraph(self.t(msg), style="RiskPriority")
                 elif node.postponed or not node.identification:
                     msg = _(
                         "risk_unanswered",
                         default=u"This risk still needs to be inventorised.")
+                elif (
+                    node.identification in [u"n/a", u"yes"] and
+                    node.risk_type == "top5"
+                ):
+                    msg = _(
+                        "top5_risk_not_present",
+                        default=u"This risk is not present in your "
+                        u"organisation, but since the sector organisation "
+                        u"considers this one of the priority risks it must "
+                        u"be included in this report.")
+                if msg:
                     doc.add_paragraph(self.t(msg), style="RiskPriority")
 
             if node.priority:
