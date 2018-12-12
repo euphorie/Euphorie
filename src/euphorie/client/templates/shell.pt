@@ -8,7 +8,10 @@
       metal:define-macro="shell"
       i18n:domain="euphorie"
       class="no-js"
+      lang="${language}"
       tal:define="webhelpers nocall:context/@@webhelpers;
+                  portal_state context/plone_portal_state;
+                  language portal_state/language;
                   dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
                   no_splash view/no_splash|python:False;
