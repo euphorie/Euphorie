@@ -1,7 +1,18 @@
 Changelog
 =========
 
-10.0.3 (unreleased)
+10.0.5 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+10.0.4 (2018-12-11)
+-------------------
+
+- Translation update IS
+
+10.0.3 (2018-12-05)
 -------------------
 
 - Italy special: for existing measures, use both the text of the description
@@ -11,6 +22,7 @@ Changelog
   write any value into the date fields, resulting in a white screen for them
   because of a SQL error in the background. Therefore, we silently eliminate
   illegal date values now.
+- Translation updates Dutch (NL) and Icelandic (IS)
 
 10.0.2 (2018-11-14)
 -------------------

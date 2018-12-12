@@ -53,14 +53,13 @@
         <form class="search-form pat-autosubmit pat-inject"
               data-pat-autosubmit="500ms"
               action="${absolute_url}/@@${view/__name__}#browser"
-              tal:condition="groups/count"
         >
           <fieldset>
             <label>
               <input name="SearchableText"
-                     placeholder="Search for departments"
+                     placeholder="Search for risk assessments"
                      type="search"
-                     i18n:attributes="placeholder"
+                     i18n:attributes="placeholder osc_search_placeholder"
               />
               <button hidden
                       type="submit"
@@ -88,7 +87,7 @@
               tal:define="
                 tools python:view.get_tools_tree(zodb_path);
               "
-              tal:repeat="tool python:sorted(tools)"
+              tal:repeat="tool tools"
           >
           <tal:tool condition="nocall:tool">
             <h3 class="object-name"

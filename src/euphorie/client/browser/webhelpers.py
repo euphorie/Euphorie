@@ -133,6 +133,10 @@ class WebHelpers(BrowserView):
         return asBool(self._settings.get('use_publication_feature', False))
 
     @property
+    def use_clone_feature(self):
+        return asBool(self._settings.get('use_clone_feature', False))
+
+    @property
     @memoize
     def default_country(self):
         return self._settings.get('default_country', '')
@@ -682,6 +686,10 @@ class WebHelpers(BrowserView):
     @memoize
     def can_delete_session(self, session=None, sessionid=''):
         return self.can_edit_session(session=session)
+
+    @memoize
+    def can_duplicate_session(self, session=None, sessionid=''):
+        return self.use_clone_feature
 
     def resume(self, session):
         ''' Resume a session for the current user if he is allowed to

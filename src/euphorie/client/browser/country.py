@@ -4,13 +4,18 @@ from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
 from collections import defaultdict
+from collections import OrderedDict
+from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
+from euphorie.client.model import Module
+from euphorie.client.model import Risk
 from euphorie.client.model import SurveySession
+from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
@@ -23,6 +28,9 @@ from Products.Five import BrowserView
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.event import notify
+from zope.i18n import translate
+from zope.lifecycleevent import ObjectModifiedEvent
 
 import six
 
@@ -67,6 +75,9 @@ class Node(NodeMixin):
 
 
 class SessionsView(BrowserView):
+
+    # switch from radio buttons to dropdown above this number of tools
+    tools_threshold = 12
 
     @property
     @memoize
@@ -356,7 +367,15 @@ class SessionBrowserNavigator(SessionsView):
             #     continue
             tool = self.get_survey_by_path(session.zodb_path)
             tools[tool].append(session)
-        return tools
+
+        ordered_tools = OrderedDict()
+        for tool in sorted(
+            [x for x in tools.keys() if x], key=lambda s: s.title
+        ):
+            ordered_tools[tool] = sorted(
+                tools[tool], key=lambda s: s.modified, reverse=True)
+
+        return ordered_tools
 
     @memoize
     def leaf_groups(self, groupid=None):
@@ -375,11 +394,10 @@ class SessionBrowserNavigator(SessionsView):
             .query(SurveySession)
             .order_by(SurveySession.title)
         )
-        # XXX Search to be defined...
-        # if self.searchable_text:
-        #     return base_query.filter(
-        #         DaimlerSurveySession.title.ilike(self.searchable_text)
-        #     )
+        if self.searchable_text:
+            base_query = base_query.filter(
+                SurveySession.title.ilike(self.searchable_text)
+            )
         account = get_current_account()
         return base_query.filter(SurveySession.account_id == account.id)
 
@@ -431,3 +449,146 @@ class ConfirmationDeleteSession(BrowserView):
         self.session_title
         self.no_splash = True
         return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
+
+
+def sql_clone(obj, skip={}, session=None):
+    ''' Clone a sql object avoiding the properties in the skip parameter
+
+    The skip parameter is optional but you probably want to always pass the
+    primary key
+    '''
+    # Never copy the _sa_instance_state attribute
+    skip.add('_sa_instance_state')
+    params = {
+        key: value
+        for key, value in obj.__dict__.iteritems()
+        if key not in skip
+    }
+    clone = obj.__class__(**params)
+    if session:
+        session.add(clone)
+    return clone
+
+
+class CloneSession(BrowserView):
+    """View name: @@confirmation-clone-session
+    """
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
+
+    @property
+    @memoize
+    def session(self):
+        ''' Get the requested session
+        '''
+        try:
+            session_id = int(self.request.get("id"))
+        except (ValueError, TypeError):
+            raise KeyError("Invalid session id")
+        return Session.query(SurveySession).filter(
+            SurveySession.id == session_id
+        ).one()
+
+    def get_cloned_session(self):
+        sql_session = Session
+        old_session = self.session
+        new_session = sql_clone(
+            old_session,
+            skip={
+                'id',
+                'created',
+                'modified',
+                'last_modifier_id',
+                'company',
+                'published',
+                'group_id',
+            },
+            session=sql_session,
+        )
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        new_session.title = u"{}: {}".format(
+            translate(
+                _('prefix_cloned_title', default=u'COPY'),
+                target_language=lang
+            ), new_session.title)
+        account = self.webhelpers.get_current_account()
+        new_session.group = account.group
+        new_session.modified = new_session.created = datetime.now()
+        new_session.account = account
+        if old_session.company:
+            new_session.company = sql_clone(
+                old_session.company,
+                skip={'id', 'session'},
+                session=sql_session,
+            )
+
+        risk_module_skipped_attributes = {
+            'id',
+            'session',
+            'sql_module_id',
+            'parent_id',
+            'session_id',
+            'sql_risk_id',
+            'risk_id',
+        }
+        module_mapping = {}
+
+        old_modules = (
+            sql_session
+            .query(Module)
+            .filter(SurveyTreeItem.session == old_session)
+        )
+        for old_module in old_modules:
+            new_module = sql_clone(
+                old_module,
+                skip=risk_module_skipped_attributes,
+                session=sql_session,
+            )
+            module_mapping[old_module.id] = new_module
+            new_module.session = new_session
+
+        old_risks = (
+            sql_session
+            .query(Risk)
+            .filter(SurveyTreeItem.session == old_session)
+        )
+        for old_risk in old_risks:
+            new_risk = sql_clone(
+                old_risk,
+                skip=risk_module_skipped_attributes,
+                session=sql_session,
+            )
+            new_risk.parent_id = module_mapping[old_risk.parent_id].id
+            new_risk.session = new_session
+
+            for old_plan in old_risk.action_plans:
+                new_plan = sql_clone(
+                    old_plan,
+                    skip={'id', 'risk_id'},
+                    session=sql_session,
+                )
+                new_plan.risk = new_risk
+        notify(ObjectModifiedEvent(new_session))
+        return new_session
+
+    def clone(self):
+        ''' Clone this session and redirect to the start view
+        '''
+        new_session = self.get_cloned_session()
+        api.portal.show_message(
+            _('The risk assessment has been cloned'),
+            self.request,
+            'success',
+        )
+        target = '{contexturl}/@@view?action=continue&new_clone=1&session={sessionid}'.format(  # noqa: E501
+            contexturl=self.context.absolute_url(),
+            sessionid=new_session.id,
+        )
+        self.request.response.redirect(target)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal"
+           id="document-content"
+      >
+        <h1 i18n:translate="label_clone">Clone risk assessment</h1>
+        <form class="wizard-box"
+              action="${context/absolute_url}/@@clone-session"
+              method="post"
+        >
+          <input name="id"
+                 type="hidden"
+                 value="${view/session/id}"
+          />
+          <div class="panel-body">
+            <article class="pat-rich">
+              <p i18n:translate="">
+                By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point.
+              </p>
+              <p i18n:translate="">
+                Are you sure you want to proceed?
+              </p>
+            </article>
+          </div>
+          <div class="buttons panel-footer">
+            <button class="pat-button"
+                    type="submit"
+                    i18n:translate=""
+            >
+              Yes, clone risk assessment
+            </button>
+            <button class="pat-button close-panel"
+                    type="button"
+            >
+              <tal:label i18n:translate="button_cancel">Cancel</tal:label>
+            </button>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>
