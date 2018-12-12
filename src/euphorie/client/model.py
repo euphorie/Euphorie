@@ -1051,6 +1051,35 @@ MODULE_WITH_RISK_OR_TOP5_FILTER = (
     )
 )
 
+# Used by tno.euphorie
+MODULE_WITH_RISK_TOP5_TNO_FILTER = (
+    sql.and_(
+        SurveyTreeItem.type == u"module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    sql.or_(
+                        Risk.identification == u"no",
+                        sql.and_(
+                            Risk.risk_type == u"top5",
+                            sql.or_(
+                                sql.not_(
+                                    Risk.identification.in_([u"n/a", u"yes"])),
+                                Risk.identification == None  # noqa: E712
+                            )
+                        )
+                    ), child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%")
+                )
+            )
+        )
+    )
+)
+
 MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
     sql.and_(
         SurveyTreeItem.type == "module",
@@ -1081,6 +1110,29 @@ RISK_PRESENT_FILTER = (
                 sql.and_(
                     Risk.sql_risk_id == SurveyTreeItem.id,
                     Risk.identification == u"no"
+                )
+            )
+        )
+    )
+)
+RISK_PRESENT_FILTER_TOP5_TNO_FILTER = (
+    sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk.sql_risk_id]).where(
+                sql.and_(
+                    Risk.sql_risk_id == SurveyTreeItem.id,
+                    sql.or_(
+                        Risk.identification == u"no",
+                        sql.and_(
+                            Risk.risk_type == u"top5",
+                            sql.or_(
+                                sql.not_(
+                                    Risk.identification.in_([u"n/a", u"yes"])),
+                                Risk.identification == None  # noqa: E712
+                            )
+                        )
+                    )
                 )
             )
         )
@@ -1218,6 +1270,8 @@ __all__ = [
     "ActionPlan",
     "SKIPPED_PARENTS",
     "MODULE_WITH_RISK_FILTER",
+    "MODULE_WITH_RISK_TOP5_TNO_FILTER",
     "RISK_PRESENT_FILTER",
+    "RISK_PRESENT_FILTER_TOP5_TNO_FILTER",
     'get_current_account',
 ]
