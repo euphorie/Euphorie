@@ -69,6 +69,9 @@ class Node(NodeMixin):
 
 class SessionsView(BrowserView):
 
+    # switch from radio buttons to dropdown above this number of tools
+    tools_threshold = 12
+
     @property
     @memoize
     def my_context(self):
