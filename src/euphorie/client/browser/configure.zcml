@@ -263,4 +263,22 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="clone-session"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.CloneSession"
+      attribute="clone"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="confirmation-clone-session"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.CloneSession"
+      template="templates/confirmation-clone-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>
