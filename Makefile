@@ -49,7 +49,7 @@ clean-proto:
 
 prototype:: ## Get the latest version of the prototype
 	@if [ ! -d "prototype" ]; then \
-		git clone git@github.com:euphorie/oira.prototype.git prototype; \
+		git clone git@github.com:syslabcom/oira.prototype.git prototype; \
 	else \
 		cd prototype && git pull; \
 	fi;
