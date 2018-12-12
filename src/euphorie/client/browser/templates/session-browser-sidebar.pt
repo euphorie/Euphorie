@@ -87,7 +87,7 @@
               tal:define="
                 tools python:view.get_tools_tree(zodb_path);
               "
-              tal:repeat="tool python:sorted(tools)"
+              tal:repeat="tool tools"
           >
           <tal:tool condition="nocall:tool">
             <h3 class="object-name"

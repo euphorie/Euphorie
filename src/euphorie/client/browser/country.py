@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
 from collections import defaultdict
+from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
@@ -356,7 +357,13 @@ class SessionBrowserNavigator(SessionsView):
             #     continue
             tool = self.get_survey_by_path(session.zodb_path)
             tools[tool].append(session)
-        return tools
+
+        ordered_tools = OrderedDict()
+        for tool in sorted(
+            [x for x in tools.keys() if x], key=lambda s: s.title
+        ):
+            ordered_tools[tool] = tools[tool]
+        return ordered_tools
 
     @memoize
     def leaf_groups(self, groupid=None):
