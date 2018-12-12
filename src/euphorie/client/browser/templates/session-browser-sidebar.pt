@@ -158,9 +158,9 @@
             </p>
             <p class="pat-message notice"
                tal:condition="view/searchable_text"
-               i18n:translate=""
+               i18n:translate="osc_search_no_results_for_search"
             >
-              No departments found for this selection.
+              No risk assessments were found for this selection.
             </p>
           </li>
         </ul>

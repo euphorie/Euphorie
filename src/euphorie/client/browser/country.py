@@ -406,7 +406,7 @@ class SessionBrowserNavigator(SessionsView):
         '''
         if self.leaf_groups().count():
             return True
-        if self.leaf_sessions().count():
+        if len(self.get_tools_tree()):
             return True
         return False
 
