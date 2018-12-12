@@ -375,11 +375,10 @@ class SessionBrowserNavigator(SessionsView):
             .query(SurveySession)
             .order_by(SurveySession.title)
         )
-        # XXX Search to be defined...
-        # if self.searchable_text:
-        #     return base_query.filter(
-        #         DaimlerSurveySession.title.ilike(self.searchable_text)
-        #     )
+        if self.searchable_text:
+            base_query = base_query.filter(
+                SurveySession.title.ilike(self.searchable_text)
+            )
         account = get_current_account()
         return base_query.filter(SurveySession.account_id == account.id)
 
