@@ -362,7 +362,9 @@ class SessionBrowserNavigator(SessionsView):
         for tool in sorted(
             [x for x in tools.keys() if x], key=lambda s: s.title
         ):
-            ordered_tools[tool] = tools[tool]
+            ordered_tools[tool] = sorted(
+                tools[tool], key=lambda s: s.modified, reverse=True)
+
         return ordered_tools
 
     @memoize
