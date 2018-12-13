@@ -53,6 +53,7 @@
         <form class="search-form pat-autosubmit pat-inject"
               data-pat-autosubmit="500ms"
               action="${absolute_url}/@@${view/__name__}#browser"
+              tal:condition="groups/count"
         >
           <fieldset>
             <label>
