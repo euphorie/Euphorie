@@ -577,7 +577,7 @@ msgstr "Kosovas"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:46
 #: euphorie/client/browser/templates/sessions.pt:89
 msgid "Last saved"
-msgstr ""
+msgstr "išsaugota"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:138
 msgid "Loading Risk Assessments&hellip;"
