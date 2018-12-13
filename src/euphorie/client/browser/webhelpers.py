@@ -78,6 +78,7 @@ class WebHelpers(BrowserView):
     SESSION_COOKIE = SESSION_COOKIE
 
     resources_name = "++resource++euphorie.resources"
+    js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"
     bundle_name_min = "bundle.min.js"
 
@@ -366,6 +367,11 @@ class WebHelpers(BrowserView):
     def resources_url(self):
         return "{}/{}".format(
             self.client_url, self.resources_name)
+
+    @reify
+    def js_resources_url(self):
+        return "{}/{}".format(
+            self.client_url, self.js_resources_name)
 
     @reify
     def is_outside_of_survey(self):

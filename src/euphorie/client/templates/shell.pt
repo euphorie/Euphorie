@@ -19,6 +19,7 @@
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
                   resources_url webhelpers/resources_url;
+                  js_resources_url webhelpers/js_resources_url;
                   resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
                   page_section webhelpers/get_phase;
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
@@ -40,11 +41,11 @@
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
+        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
         <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
+        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
         <!-- TODO: needs to be minified -->
         <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
