@@ -1,7 +1,7 @@
 Changelog
 =========
 
-9.0.44 (unreleased)
+9.0.44 (2018-12-14)
 -------------------
 
 - Bugfix for the `treeChanges` method that determines if the SQL data
