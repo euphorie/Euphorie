@@ -4,8 +4,9 @@ Changelog
 9.0.44 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Bugfix for the `treeChanges` method that determines if the SQL data
+  of the tree needs to be updated: we now also check if the risk_type
+  was changed, since that info determines display behaviour.
 
 9.0.43 (2018-09-21)
 -------------------

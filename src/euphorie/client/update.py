@@ -28,7 +28,11 @@ def getSurveyTree(survey):
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
             'type': node.portal_type[9:],
             'has_description': HasText(node.description),
-            'always_present': node.portal_type[9:] == "risk" and node.risk_always_present or False,
+            'always_present': (
+                node.portal_type[9:] == "risk" and node.risk_always_present or
+                False),
+            'risk_type': (
+                node.portal_type[9:] == "risk" and node.type or None),
             'optional': node.optional, })
         if IQuestionContainer.providedBy(node):
             queue.extend(node.values())
@@ -47,6 +51,7 @@ class Node(object):
         self.skip_children = item.skip_children
         self.has_description = item.has_description
         self.identification = item.type == 'risk' and item.identification or None
+        self.risk_type = item.type == 'risk' and item.risk_type or None
 
     def __repr__(self):
         return "<Node zodb_path=%s type=%s path=%s>" % \
@@ -97,7 +102,9 @@ def treeChanges(session, survey):
                             (entry["zodb_path"], nodes[0].type, "modified"))
             if node.type == entry['type'] == 'risk':
                 if entry['always_present'] and node.identification != u'no':
-                    # import pdb; pdb.set_trace( )
+                    results.add(
+                        (entry["zodb_path"], node.type, "modified"))
+                if entry['risk_type'] != node.risk_type:
                     results.add(
                         (entry["zodb_path"], node.type, "modified"))
             if nodes[0].type == entry["type"] or \
