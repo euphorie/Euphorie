@@ -22,6 +22,8 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
         self.assertEqual(self.portal.acl_users.getUserById("john"), None)
 
     def testGetUserById_ValidAccount(self):
+        request = self.app.REQUEST
+        alsoProvides(request, IClientSkinLayer)
         account = self.createAccount()
         user = self.portal.acl_users.getUserById(str(account.id))
         self.failUnless(aq_base(user) is account)

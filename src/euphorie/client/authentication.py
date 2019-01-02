@@ -8,10 +8,12 @@ User account plugins and authentication.
 from . import model
 from ..content.api.authentication import authenticate_token as authenticate_cms_token
 from .api.authentication import authenticate_token as authenticate_client_token
+from .api.interfaces import IClientAPISkinLayer
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_parent
 from App.class_init import InitializeClass
+from euphorie.content.api.interfaces import ICMSAPISkinLayer
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
@@ -142,6 +144,12 @@ class EuphorieAccountPlugin(BasePlugin):
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
+        if not (
+            IClientSkinLayer.providedBy(self.REQUEST) or
+            IClientAPISkinLayer.providedBy(self.REQUEST) or
+            ICMSAPISkinLayer.providedBy(self.REQUEST)
+        ):
+            return None
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
@@ -170,6 +178,8 @@ class EuphorieAccountPlugin(BasePlugin):
                        sort_by=None, max_results=None, **kw):
         """IUserEnumerationPlugin implementation"""
         if not exact_match:
+            return []
+        if not IClientSkinLayer.providedBy(self.REQUEST):
             return []
 
         query = Session().query(model.Account)

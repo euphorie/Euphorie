@@ -38,7 +38,10 @@ class SurveySessionsView(SessionsView):
         sessions = super(SurveySessionsView, self).get_sessions()
         survey = aq_inner(self.context)
         my_path = utils.RelativePath(self.request.client, survey)
-        my_sessions = [x for x in sessions if x.zodb_path == my_path]
+        my_sessions = sorted(
+            [x for x in sessions if x.zodb_path == my_path],
+            key=lambda s: s.modified,
+            reverse=True)
         return my_sessions
 
 

@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '9.0.36.dev0'
+version = '10.0.5.dev0'
 
 setup(
     name="Euphorie",
@@ -13,16 +13,16 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
+        "Framework :: Plone :: 5.1",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 2 :: Only",
-        "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords="",
-    author="Wichert Akkerman",
-    author_email="wichert@simplon.biz",
+    keywords="euphorie OiRA Interactive Risk Assessment",
+    author="Wichert Akkerman and Syslab.com",
+    author_email="info@syslab.com",
     url="http://euphorie.readthedocs.org/en/latest/",
     license="GPL",
     packages=find_packages('src'),

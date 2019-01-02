@@ -259,6 +259,7 @@ class IdentificationView(BrowserView):
 
     def get_existing_measures(self):
         defined_measures = getattr(self.risk, "pre_defined_measures", "") or ""
+
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
@@ -451,19 +452,27 @@ class ActionPlanView(BrowserView):
                         self.risk, 'image{0}'.format(i), None) and 1 or 0
             existing_measures = [
                 txt.strip() for txt in self.get_existing_measures().keys()]
-            self.solutions = [
-                {
-                    "description": StripMarkup(solution.description),
-                    "action_plan": solution.action_plan,
-                    "prevention_plan": solution.prevention_plan,
-                    "requirements": solution.requirements,
-                }
-                for solution in self.risk.values()
-                if (
-                    ISolution.providedBy(solution) and
-                    solution.description.strip() not in existing_measures
-                )
-            ]
+            solutions = []
+            for solution in self.risk.values():
+                if not ISolution.providedBy(solution):
+                    continue
+                if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+                    match = u"%s: %s" % (
+                        solution.description.strip(),
+                        solution.prevention_plan.strip()
+                    )
+                else:
+                    match = solution.description.strip()
+                if match not in existing_measures:
+                    solutions.append(
+                        {
+                            "description": StripMarkup(solution.description),
+                            "action_plan": solution.action_plan,
+                            "prevention_plan": solution.prevention_plan,
+                            "requirements": solution.requirements,
+                        }
+                    )
+            self.solutions = solutions
 
         self.number_images = number_images
         self.has_images = number_images > 0
@@ -507,30 +516,42 @@ class ActionPlanView(BrowserView):
             existing_plans[str(plan.id)] = plan
         form = self.request.form
         form["action_plans"] = []
-        for i in range(0, len(form['measure'])):
+        for i in range(0, len(form.get('measure', []))):
             measure = dict([p for p in form['measure'][i].items()
                             if p[1].strip()])
             form['action_plans'].append(measure)
             if len(measure):
                 budget = measure.get("budget")
                 budget = budget and budget.split(',')[0].split('.')[0]
+                p_start = measure.get('planning_start')
+                if p_start:
+                    try:
+                        datetime.datetime.strptime(p_start, '%Y-%m-%d')
+                    except ValueError:
+                        p_start = None
+                p_end = measure.get('planning_end')
+                if p_end:
+                    try:
+                        datetime.datetime.strptime(p_end, '%Y-%m-%d')
+                    except ValueError:
+                        p_end = None
                 if measure.get('id', '-1') in existing_plans:
                     plan = existing_plans[measure.get('id')]
                     if (
                         measure.get("action_plan") != plan.action_plan or
-                        measure.get("prevention_plan") != plan.prevention_plan or
+                        measure.get("prevention_plan") != plan.prevention_plan or  # noqa
                         measure.get("requirements") != plan.requirements or
                         measure.get("responsible") != plan .responsible or (
                             plan.budget and (budget != str(plan.budget)) or
                             plan.budget is None and budget
                         ) or (
                             (plan.planning_start and
-                                measure.get('planning_start') != plan.planning_start.strftime('%Y-%m-%d')) or
-                            (plan.planning_start is None and measure.get('planning_start'))
+                                p_start != plan.planning_start.strftime('%Y-%m-%d')) or  # noqa
+                            (plan.planning_start is None and p_start)
                         ) or (
                             (plan.planning_end and
-                                measure.get('planning_end') != plan.planning_end.strftime('%Y-%m-%d')) or
-                            (plan.planning_end is None and measure.get('planning_end'))
+                                p_end != plan.planning_end.strftime('%Y-%m-%d')) or  # noqa
+                            (plan.planning_end is None and p_end)
                         )
                     ):
                         updated += 1
@@ -544,8 +565,8 @@ class ActionPlanView(BrowserView):
                         requirements=measure.get("requirements"),
                         responsible=measure.get("responsible"),
                         budget=budget,
-                        planning_start=measure.get('planning_start'),
-                        planning_end=measure.get('planning_end')
+                        planning_start=p_start,
+                        planning_end=p_end,
                     )
                 )
         removed = len(existing_plans)

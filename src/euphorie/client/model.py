@@ -12,6 +12,7 @@ from collections import defaultdict
 from euphorie.client.enum import Enum
 from plone import api
 from plone.memoize import ram
+from Products.CMFPlone.utils import safe_unicode
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
@@ -277,6 +278,17 @@ class Group(BaseObject):
         ),
     )
 
+    brand = schema.Column(
+        types.String(64)
+    )
+
+    # Allow this class to be subclassed in other projects
+    __mapper_args__ = {
+        'polymorphic_identity': 'euphorie',
+        'polymorphic_on': brand,
+        'with_polymorphic': '*',
+    }
+
     @property
     def fullname(self):
         ''' This is the name that will be display in the selectors and
@@ -349,6 +361,15 @@ class Group(BaseObject):
             SurveySession.group_id.in_(group_ids)
         ).all()
 
+    @property
+    def sessions(self):
+        ''' All the session relative to this group
+        '''
+        group_ids = [self.group_id]
+        return Session.query(SurveySession).filter(
+            SurveySession.group_id.in_(group_ids)
+        ).all()
+
 
 @implementer(IBasicUser)
 class Account(BaseObject):
@@ -398,6 +419,15 @@ class Account(BaseObject):
         if not group:
             return []
         return list(group.acquired_sessions)
+
+    @property
+    def group_sessions(self):
+        ''' The session the account acquires because he belongs to a group.
+        '''
+        group = self.group
+        if not group:
+            return []
+        return list(group.sessions)
 
     @property
     def email(self):
@@ -587,7 +617,7 @@ class SurveySession(BaseObject):
         default=None,
     )
 
-    zodb_path = schema.Column(types.String(128), nullable=False)
+    zodb_path = schema.Column(types.String(512), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
 
@@ -1022,6 +1052,35 @@ MODULE_WITH_RISK_OR_TOP5_FILTER = (
     )
 )
 
+# Used by tno.euphorie
+MODULE_WITH_RISK_TOP5_TNO_FILTER = (
+    sql.and_(
+        SurveyTreeItem.type == u"module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    sql.or_(
+                        Risk.identification == u"no",
+                        sql.and_(
+                            Risk.risk_type == u"top5",
+                            sql.or_(
+                                sql.not_(
+                                    Risk.identification.in_([u"n/a", u"yes"])),
+                                Risk.identification == None  # noqa: E712
+                            )
+                        )
+                    ), child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%")
+                )
+            )
+        )
+    )
+)
+
 MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
     sql.and_(
         SurveyTreeItem.type == "module",
@@ -1052,6 +1111,29 @@ RISK_PRESENT_FILTER = (
                 sql.and_(
                     Risk.sql_risk_id == SurveyTreeItem.id,
                     Risk.identification == u"no"
+                )
+            )
+        )
+    )
+)
+RISK_PRESENT_FILTER_TOP5_TNO_FILTER = (
+    sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk.sql_risk_id]).where(
+                sql.and_(
+                    Risk.sql_risk_id == SurveyTreeItem.id,
+                    sql.or_(
+                        Risk.identification == u"no",
+                        sql.and_(
+                            Risk.risk_type == u"top5",
+                            sql.or_(
+                                sql.not_(
+                                    Risk.identification.in_([u"n/a", u"yes"])),
+                                Risk.identification == None  # noqa: E712
+                            )
+                        )
+                    )
                 )
             )
         )
@@ -1111,8 +1193,14 @@ def get_current_account():
              otherwise None
     '''
     username = api.user.get_current().getUserName()
-    return Session.query(Account).filter(Account.loginname == username).first()
-
+    try:
+        return Session.query(Account).filter(
+            Account.loginname == username).first()
+    except:
+        log.warning("Unable to fetch account for username:")
+        log.warning(username)
+        return Session.query(Account).filter(
+            Account.loginname == safe_unicode(username)).first()
 
 __all__ = [
     "SurveySession",
@@ -1121,6 +1209,8 @@ __all__ = [
     "ActionPlan",
     "SKIPPED_PARENTS",
     "MODULE_WITH_RISK_FILTER",
+    "MODULE_WITH_RISK_TOP5_TNO_FILTER",
     "RISK_PRESENT_FILTER",
+    "RISK_PRESENT_FILTER_TOP5_TNO_FILTER",
     'get_current_account',
 ]

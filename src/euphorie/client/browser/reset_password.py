@@ -3,6 +3,7 @@ from euphorie import MessageFactory as _
 from euphorie.client.model import Account
 from euphorie.client.utils import CreateEmailTo
 from logging import getLogger
+from p01.widget.password.widget import PasswordComparsionError
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize_contextless
@@ -215,6 +216,11 @@ class ResetPasswordForm(BaseForm):
         '''
         (data, errors) = self.extractData()
         if errors:
+            for err in errors:
+                if isinstance(err.error, PasswordComparsionError):
+                    err.message = _(
+                        "error_password_mismatch",
+                        default=u"Passwords do not match")
             return
 
         key = self.key
@@ -234,8 +240,12 @@ class ResetPasswordForm(BaseForm):
             Session().query(Account).filter(Account.id == account_id).one()
         )
         account.password = data['new_password']
+        current_url = self.context.absolute_url()
         return self.redirect(
-            '{}/@@login_form'.format(self.context.absolute_url()),
+            '{}/@@login_form?{}'.format(
+                current_url,
+                urllib.urlencode(dict(came_from=current_url))
+            ),
             msg=_('Your password was successfully changed.'),
         )
 

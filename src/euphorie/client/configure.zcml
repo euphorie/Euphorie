@@ -29,7 +29,6 @@
     <grok:grok package=".error" />
     <grok:grok package=".help" />
     <grok:grok package=".layout" />
-    <grok:grok package=".login" />
     <grok:grok package=".pdf" />
     <grok:grok package=".profile" />
     <grok:grok package=".publish" />

@@ -12,6 +12,7 @@
         language view/portal/plone_portal_state/language;
         absolute_url here/absolute_url;
         zodb_path request/zodb_path|nothing;
+        styles_override webhelpers/styles_override;
       "
       i18n:domain="euphorie"
 >
@@ -41,20 +42,25 @@
   </metal:slot>
 
   <metal:slot fill-slot="aside-navigator">
-    <div id="navigation">
+    <div id="navigation"
+         tal:define="groups view/leaf_groups;">
+      <style type="text/css" tal:condition="styles_override">
+          ${styles_override}
+      </style>
       <div class="miller-columns"
            id="miller-columns"
       >
-<!-- Comment out the search until we know what to do with it -->
-<!--         <form class="search-form pat-autosubmit pat-inject"
+        <form class="search-form pat-autosubmit pat-inject"
+              data-pat-autosubmit="500ms"
               action="${absolute_url}/@@${view/__name__}#browser"
+              tal:condition="groups/count"
         >
           <fieldset>
             <label>
               <input name="SearchableText"
-                     placeholder="Search a risk assessment"
+                     placeholder="Search for risk assessments"
                      type="search"
-                     i18n:attributes="placeholder"
+                     i18n:attributes="placeholder osc_search_placeholder"
               />
               <button hidden
                       type="submit"
@@ -62,12 +68,10 @@
               >Search</button>
             </label>
           </fieldset>
-        </form> -->
+        </form>
+
         <ul class="departments browser"
             id="browser"
-            tal:define="
-              groups view/leaf_groups;
-            "
         >
           <li class="item type-department"
               tal:repeat="group groups;"
@@ -84,7 +88,7 @@
               tal:define="
                 tools python:view.get_tools_tree(zodb_path);
               "
-              tal:repeat="tool python:sorted(tools)"
+              tal:repeat="tool tools"
           >
           <tal:tool condition="nocall:tool">
             <h3 class="object-name"
@@ -148,9 +152,16 @@
           </li>
           <li tal:condition="not:view/has_content">
             <p class="pat-message notice"
+               tal:condition="not:view/searchable_text"
                i18n:translate=""
             >
               No risk assessments are available for this selection.
+            </p>
+            <p class="pat-message notice"
+               tal:condition="view/searchable_text"
+               i18n:translate="osc_search_no_results_for_search"
+            >
+              No risk assessments were found for this selection.
             </p>
           </li>
         </ul>

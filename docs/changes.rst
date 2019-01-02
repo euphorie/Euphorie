@@ -1,15 +1,105 @@
 Changelog
 =========
 
-10.0.0 (unreleased)
-------------------
+10.0.5 (unreleased)
+-------------------
 
-- XXX: add info about Plone5 etc
+- Bugfix for the `treeChanges` method that determines if the SQL data
+  of the tree needs to be updated: we now also check if the risk_type
+  was changed, since that info determines display behaviour.
+
+10.0.4 (2018-12-11)
+-------------------
+
+- Translation update IS
+
+10.0.3 (2018-12-05)
+-------------------
+
+- Italy special: for existing measures, use both the text of the description
+  and the prevention plan
+- Workaround for potential error in action plan. Because pat-validation is
+  flawed, no validation is applied to the measures. This allows a user to
+  write any value into the date fields, resulting in a white screen for them
+  because of a SQL error in the background. Therefore, we silently eliminate
+  illegal date values now.
+- Translation updates Dutch (NL) and Icelandic (IS)
+
+10.0.2 (2018-11-14)
+-------------------
+
+- Translation correction NL_BE
+- Let the Euphorie PAS plugin only handle requests from with the client
+
+10.0.1 (2018-11-06)
+-------------------
+
+- Restore old javascript bundle, because pat-display-time introduces
+  syntax that does not work in IE11.
+
+10.0.0 (2018-11-05)
+-------------------
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release is dependent on Plone 5.1 and higher.
+Run the console script `upgradedb`, as well as all upgrade steps in Plone
+
+
+Feature changes
+~~~~~~~~~~~~~~~
+
+- UI rework: introduction of initial dashboard, different sessions browser, mobile
+  improvements, and other changes.
 - Added Tool Type: apart from the "classic" OiRA Tool type with positive
   and negative statements, we can now set a tool to allow the definition
   of measures that are already in place.
+- Client user passwords are no longer stored as plain text.
+- Added Training module: a slide is created per module and risk, with the possibility
+  to add user-defined extra notes.
+- A new view ``@@refresh-resources-timestamp`` has been introduced
+  to break the browser cache
+
+Bugfixes
+~~~~~~~~
+
+- Fixed various inconsistencies
+
+
+
+10.0.0b5 (unreleased)
+---------------------
+
+- Nothing changed yet.
+
+
+10.0.0b4 (2018-10-30)
+---------------------
+
+- More translations
+
+10.0.0b3 (2018-10-25)
+---------------------
+
+- Nothing changed yet.
+
+
+10.0.0b2 (2018-10-23)
+---------------------
+
+- Upgrade to Plone 5.1.4
+- Translation updates
+- Bugfixes
+
+
+10.0.0b1 (2018-10-10)
+---------------------
+
+- Initial work on Plone5 version
 
 9.0.42 (unreleased)
+
 -------------------
 
 - Translation changes nl_BE

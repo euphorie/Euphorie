@@ -15,7 +15,7 @@
               tal:condition="webhelpers/use_training_module"
     >
       <legend i18n:translate="header_training">
-          Training
+          Training notes
       </legend>
 
       <div class="presentation-slide">

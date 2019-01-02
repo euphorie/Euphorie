@@ -332,6 +332,8 @@ class ReportView(grok.View):
     grok.name("index_html")
 
     def update(self):
+        if redirectOnSurveyUpdate(self.request):
+            return
         self.session = SessionManager.session
 
         if self.request.environ["REQUEST_METHOD"] == "POST":

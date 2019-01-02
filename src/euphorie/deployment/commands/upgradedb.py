@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 ''' Upgrade the database tables if needed'''
+from __future__ import print_function
 from datetime import datetime
 from euphorie.client import model
 from logging import getLogger
@@ -72,6 +73,22 @@ def add_brand_to_session():
     statement = (
         '''
         ALTER TABLE session
+            ADD COLUMN brand character varying(64);
+        '''
+    )
+    execute(statement)
+
+
+def add_brand_to_group():
+    ''' A new 'brand' column has been added to the 'group' table
+    '''
+    for column in inspector.get_columns('group'):
+        if 'brand' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE "group"
             ADD COLUMN brand character varying(64);
         '''
     )
@@ -182,24 +199,35 @@ def hash_passwords():
     accounts = session.query(model.Account).filter(
         sql.or_(
             sql.not_(model.Account.account_type == 'guest'),
-            model.Account.account_type == None
+            model.Account.account_type == None  # noqa: E711
         )
     )
     total = float(accounts.count())
     start = datetime.now()
-    print "{} - {} accounts to convert".format(
-        start.strftime('%Y/%m/%d %H:%M:%S'), int(total))
+    print(
+        '{} - {} accounts to convert'.format(
+            start.strftime('%Y/%m/%d %H:%M:%S'), int(total)
+        )
+    )
     cnt = 0
     for account in accounts:
         account.hash_password()
         cnt += 1
         if cnt % 500 == 0:
-            print "{} - {} accounts converted ({:2.2f}%)".format(
-                datetime.now().strftime('%Y/%m/%d %H:%M:%S'), cnt,
-                cnt / total * 100)
-            print "    {}".format(account.loginname)
-    print "{} accounts processed. Finished after {}".format(
-        cnt, datetime.now() - start)
+            print(
+                '{} - {} accounts converted ({:2.2f}%)'.format(
+                    datetime.now().strftime('%Y/%m/%d %H:%M:%S'),
+                    cnt,
+                    cnt / total * 100,
+                )
+            )
+            print('    {}'.format(account.loginname))
+    print(
+        '{} accounts processed. Finished after {}'.format(
+            cnt,
+            datetime.now() - start,
+        )
+    )
     commit()
 
 
@@ -215,7 +243,8 @@ def main():
         add_last_publisher_id_to_session()
         add_custom_description_to_risk()
         hash_passwords()
-
+    if euphorie_version < parse_version('10.0.2'):
+        add_brand_to_group()
 
 if __name__ == "__main__":
     main()

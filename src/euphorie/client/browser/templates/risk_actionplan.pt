@@ -114,7 +114,7 @@
               <div class="measure pat-collapsible"
                    tal:repeat="measure measures"
               >
-                <h2><tal:translate i18n:translate="label_existing_measure">Existing measure</tal:translate>
+                <h2><tal:translate i18n:translate="label_existing_measure">Measure already implemented</tal:translate>
                   ${repeat/measure/number}</h2>
                 <h4 i18n:translate="label_description">Description</h4>
                 <p>

@@ -8,17 +8,24 @@
       metal:define-macro="shell"
       i18n:domain="euphorie"
       class="no-js"
+      lang="${language}"
       tal:define="webhelpers nocall:context/@@webhelpers;
+                  portal_state context/plone_portal_state;
+                  language portal_state/language;
+                  dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
                   no_splash view/no_splash|python:False;
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
                   resources_url webhelpers/resources_url;
+                  js_resources_url webhelpers/js_resources_url;
+                  resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
                   page_section webhelpers/get_phase;
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
+                  new_session request/new_session|nothing;
                   styles_override webhelpers/styles_override;
                   tools context/@@tools;
                   can_edit webhelpers/can_edit_session;
@@ -29,22 +36,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name}"></script>
+        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
+        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${resources_url}/${webhelpers/bundle_name_min}"></script>
-    </tal:block>
-
-    <tal:block condition="webhelpers/debug_mode">
-        <link rel="stylesheet" href="${resources_url}/screen.css" type="text/css" />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
+        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
         <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${resources_url}/screen.css" type="text/css" />
+        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
 
 
@@ -59,6 +62,23 @@
 
     <metal:javascriptslot define-slot="javascript_head_slot" />
     <metal:styleslot define-slot="style_slot" />
+    <script>
+    function openSlideFullScreen(slide) {
+      var docElm = document.documentElement;
+      if (docElm.requestFullscreen) {
+        document.getElementById(slide).requestFullscreen()
+      }
+      else if (docElm.mozRequestFullScreen) {
+        document.getElementById(slide).mozRequestFullScreen()
+      }
+      else if (docElm.webkitRequestFullScreen) {
+        document.getElementById(slide).webkitRequestFullScreen()
+      }
+      else if (docElm.msRequestFullscreen) {
+        document.getElementById(slide).msRequestFullscreen()
+      }
+    }
+    </script>
 </head>
 
 <body
@@ -82,7 +102,7 @@
             </a>
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
-            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar" tal:content="webhelpers/get_survey_title">Private Security EU</button>
+            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar"></button>
             <a href="#help-menu" data-pat-tooltip="source: ajax; class: medium; position-list: tr" class="pat-tooltip help">?</a>
             <a href="${webhelpers/country_or_client_url}"
               data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
@@ -91,8 +111,8 @@
               i18n:attributes="title home_link"
               title="Dashboard" i18n:translate="home_link">Dashboard</a>
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
-                <a href="${base_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
-                <a href="${base_url}/register" class="registration" i18n:translate="header_register">Register</a>
+                <a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
+                <a href="${webhelpers/country_or_client_url}/register" class="registration" i18n:translate="header_register">Register</a>
             </tal:if_anon>
             <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
                 <a href="${webhelpers/session_overview_url}/user-menu.html#content"
@@ -102,7 +122,7 @@
         </header>
         <div id="content">
             <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
-                <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${base_url}/login_form?${came_from_param}#document-content" class="registration" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
+                <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" data-pat-modal="class: large" class="registration pat-modal" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
             </p>
             <tal:statusmsg tal:repeat="message webhelpers/messages">
                 <p class="pat-notification" data-pat-notification="type: banner; class: ${message/type}; close-text: ${webhelpers/closetext}" id="${message/id}-body" tal:content="message/message | nothing">Status message</p>
@@ -138,6 +158,9 @@
           </tal:if>
           <metal:slot define-slot="aside-navigator">
           <div id="navigation">
+            <style type="text/css" tal:condition="styles_override">
+                ${styles_override}
+            </style>
             <ol class="pat-switch"
                 id="steps"
                 data-pat-switch="selector: body; remove: osc-s-*; add: osc-s-off; store: local"
@@ -170,7 +193,7 @@
                     id="step-2"
                     tal:define="
                       active python:page_section == 'identification';
-                      disabled python:page_section in ('', 'preparation') or (not can_edit);
+                      disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);
                     "
                 >
                   <a class="identification pat-switch pat-inject"
@@ -196,7 +219,7 @@
                     id="step-4"
                     tal:define="
                       active python:page_section == 'actionplan';
-                      disabled python:page_section in ('', 'preparation') or (not can_edit);
+                      disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);
                     "
                 >
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
@@ -221,7 +244,7 @@
                     id="step-5"
                     tal:define="
                       active python:page_section == 'report';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                 >
                   <!-- TODO: check if guest -->
@@ -242,7 +265,7 @@
                     id="step-6"
                     tal:define="
                       active python:page_section == 'training';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                     tal:condition="webhelpers/use_training_module"
                 >
@@ -264,7 +287,7 @@
                     id="status"
                     tal:define="
                       active python: page_section == 'status' and 'active' or '';
-                      disabled python:page_section=='' or (page_section=='preparation' and can_edit);
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                 >
                   <a class="status pat-switch pat-inject"
@@ -289,10 +312,6 @@
       <metal:logo use-macro="context/logo/macros/logo"/>
     </tal:logo>
 
-    <style type="text/css" tal:condition="styles_override">
-        ${styles_override}
-    </style>
-
     </aside>
 
     <tal:block replace="tile:client-analytics"/>
@@ -301,23 +320,7 @@
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
-    <div id="help-menu" hidden="hidden">
-        <ul class="menu">
-            <li>
-                <button id="osh-toggle"
-                    i18n:translate=""
-                    class="icon-circles osh-toggle pat-toggle close-panel"
-                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
-            </li>
-            <li>
-                <a href="${base_url}/help#content"
-                    i18n:translate="navigation_help"
-                    class="icon-help-circle close-panel"
-                    target="Help"
-                    >Help</a>
-            </li>
-        </ul>
-    </div>
+    <metal:help-menu use-macro="context/help_menu/macros/help-menu"/>
 
 </body>
 </html>

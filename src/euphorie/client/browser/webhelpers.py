@@ -78,6 +78,7 @@ class WebHelpers(BrowserView):
     SESSION_COOKIE = SESSION_COOKIE
 
     resources_name = "++resource++euphorie.resources"
+    js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"
     bundle_name_min = "bundle.min.js"
 
@@ -126,6 +127,15 @@ class WebHelpers(BrowserView):
     @memoize
     def use_training_module(self):
         return asBool(self._settings.get('use_training_module', False))
+
+    @property
+    @memoize
+    def use_publication_feature(self):
+        return asBool(self._settings.get('use_publication_feature', False))
+
+    @property
+    def use_clone_feature(self):
+        return asBool(self._settings.get('use_clone_feature', False))
 
     @property
     @memoize
@@ -359,6 +369,11 @@ class WebHelpers(BrowserView):
             self.client_url, self.resources_name)
 
     @reify
+    def js_resources_url(self):
+        return "{}/{}".format(
+            self.client_url, self.js_resources_name)
+
+    @reify
     def is_outside_of_survey(self):
         if self._base_url() != self.survey_url():
             return True
@@ -392,14 +407,14 @@ class WebHelpers(BrowserView):
 
     @property
     def came_from_param(self):
+        param = ''
         if self.came_from:
             survey_url = self.survey_url()
             if survey_url:
                 param = 'came_from={0}'.format(survey_url)
             else:
                 param = 'came_from={0}'.format(self.came_from)
-        else:
-            param = ''
+
         return param
 
     @reify
@@ -675,8 +690,12 @@ class WebHelpers(BrowserView):
         return self.can_edit_session(session=session)
 
     @memoize
-    def can_delete_session(self, session=None):
+    def can_delete_session(self, session=None, sessionid=''):
         return self.can_edit_session(session=session)
+
+    @memoize
+    def can_duplicate_session(self, session=None, sessionid=''):
+        return self.use_clone_feature
 
     def resume(self, session):
         ''' Resume a session for the current user if he is allowed to
@@ -730,6 +749,16 @@ class Logo(WebHelpers):
 
 
 class UserMenu(WebHelpers):
+    """
+    View class for the User Menu
+
+    """
+
+    def __call__(self):
+        return self.index()
+
+
+class HelpMenu(WebHelpers):
     """
     View class for the User Menu
 

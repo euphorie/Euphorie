@@ -10,7 +10,6 @@
         default_introduction nocall:context/@@default_introduction;
         session webhelpers/session;
         can_edit webhelpers/can_edit_session;
-        can_delete webhelpers/can_delete_session;
         has_profile view/has_profile;
       "
       i18n:domain="euphorie"
@@ -51,7 +50,7 @@
              i18n:translate=""
           >download section</a>.
         </p>
-        <fieldset class="vertical pat-inject pat-subform pat-autosubmit focus"
+        <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
                   tal:condition="can_edit"
         >
@@ -63,8 +62,8 @@
                      "
               >
                 ${widget/label}
-                <input class="huge${python: ' error' if widget.error else None}"
-                       autofocus="autofocus"
+                <input class="${python: ' error' if widget.error else None}"
+                       autofocus="${python:'autofocus' if widgetid=='title' else None}"
                        name="${name}"
                        type="text"
                        value="${request/?name|session/?widgetid|nothing}"

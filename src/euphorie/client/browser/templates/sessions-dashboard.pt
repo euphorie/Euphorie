@@ -18,51 +18,48 @@
          data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
     >
       <div class="grid-sizer"></div>
+
       <div class="portlet span-3" tal:condition="python:len(my_sessions)>0">
         <div class="content">
           <h2 class="portlet-title"
               i18n:translate=""
           >My risk assessments</h2>
-          <div class="risk-assessments ra-list">
-            <ul class="ras">
-              <li tal:repeat="session my_sessions"
-                class="ra">
-                <span class="name field">
-                  <a href="${request/getURL}?action=continue&amp;session=${session/id}"
-                    >${session/title}</a>,
-                  <span class="last-saved">
-                   <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                    <time class="pat-display-time"
-                          datetime="${value}"
-                          data-pat-display-time="from-now: true; locale: ${language}"
-                          tal:define="value session/modified/isoformat|nothing;"
-                    >${value}</time>
-                  </span>
-                </span>
-                <span class="date field"
-                      tal:condition="session/published"
-                >
-                  <span class="label">
-                    <tal:i18n i18n:translate="label_published">Published</tal:i18n>
-                    <time class="pat-display-time"
-                          datetime="${value}"
-                          data-pat-display-time="from-now: true; locale: ${language}"
-                          tal:define="value session/published/isoformat|nothing;"
-                    >${value}</time>
-                  </span>
-                </span>
-                <span class="date field" tal:condition="not:session/published"></span>
-                <span class="icons field">
-                  <a class="iconified icon-ellipsis pat-tooltip inactive"
-                     href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
-                     data-pat-tooltip="source: ajax; position-list: tr"
-                     i18n:translate=""
-                  >More</a>
-                    </span>
+          <article>
+          <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+            <a href="${webhelpers/session_overview_url}/new-session.html#document-content"
+               i18n:name="start_session"
+               i18n:translate="link_start_session"
+               class="pat-modal icon-plus-circle">start a new session</a>.
+          </p>
+        </article>
+          <ul class="ras">
+            <li tal:repeat="session my_sessions"
+              class="ra">
 
-              </li>
-            </ul>
-         </div>
+              <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                class="pat-inject follow"
+                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record"
+              >
+                <h4 class="name field">${session/title}</h4>
+                <p class="date field">
+                  <span class="last-saved">
+                    <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                    <time class="pat-display-time"
+                        datetime="${value}"
+                        data-pat-display-time="from-now: true; locale: ${language}"
+                        tal:define="value session/modified/isoformat|nothing;"
+                    >${value}</time>
+                  </span>
+                </p>
+              </a>
+
+              <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+                 href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                 data-pat-tooltip="source: ajax; position-list: tr"
+                 i18n:translate=""
+              >More</a>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="portlet span-3">
@@ -77,7 +74,7 @@
           >
             <article class="pat-rich">
               <p i18n:translate="label_select_new_session">
-                Start a new session by choosing one of the following sectoral tools
+                Start a new session by choosing one of the following sectoral tools.
               </p>
             </article>
 
@@ -113,7 +110,6 @@
         </div>
       </div>
 
-
     </div>
 
   </metal:slot>
@@ -139,21 +135,16 @@
 
   <metal:slot fill-slot="aside-navigator">
     <div id="navigation">
-      <div class="miller-columns"
-           id="miller-columns">
-        <!-- For Main OIRA, we don't show anything in the sidebar on the dashboard -->
-        <ul class="departments browser" id="browser">
-          <li>
-            <a class="pat-inject icon-search"
-               href="${here/absolute_url}/@@session-browser-sidebar"
-               data-pat-inject="source: #browser; target: #browser;"
-               hidden="hidden"
-               i18n:translate=""
-            >Loading Risk Assessments&hellip;</a>
-          </li>
-        </ul>
-      </div>
+      <a class="pat-inject icon-search"
+         href="${here/absolute_url}/@@session-browser-sidebar"
+         data-pat-inject="source: #navigation; target: #navigation; trigger: autoload; &amp;&amp; source: #osc-header; target: #osc-header; trigger: autoload"
+         hidden="hidden"
+         i18n:translate=""
+      >Loading Risk Assessments&hellip;</a>
     </div>
+    <tal:logo condition="webhelpers/show_logo">
+      <metal:logo use-macro="context/logo/macros/logo"/>
+    </tal:logo>
   </metal:slot>
 
 </html>
