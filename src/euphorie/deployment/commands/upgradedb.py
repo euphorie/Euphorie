@@ -180,6 +180,7 @@ def add_last_publisher_id_to_session():
 def add_custom_description_to_risk():
     ''' A new 'custom_description' column has been added to the 'risk' table
     '''
+    print("add custom description to risk")
     for column in inspector.get_columns('risk'):
         if 'custom_description' == column['name']:
             return
@@ -241,10 +242,11 @@ def main():
         add_published_to_session()
         add_last_modifier_id_to_session()
         add_last_publisher_id_to_session()
-        add_custom_description_to_risk()
         hash_passwords()
-    if euphorie_version < parse_version('10.0.2'):
+    if euphorie_version < parse_version('10.0.4'):
         add_brand_to_group()
+    if euphorie_version < parse_version('10.1.0'):
+        add_custom_description_to_risk()
 
 if __name__ == "__main__":
     main()
