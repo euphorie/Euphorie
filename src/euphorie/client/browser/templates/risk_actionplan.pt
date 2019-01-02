@@ -75,7 +75,8 @@
                           value data/priority;
                         "
               >
-                <label i18n:translate="risk_priority">This is a
+                <label tal:condition="not:view/skip_evaluation"
+                  i18n:translate="risk_priority">This is a
                   <select name="priority"
                           i18n:name="priority_value"
                   >

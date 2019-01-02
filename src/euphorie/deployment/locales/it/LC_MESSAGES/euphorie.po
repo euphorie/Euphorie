@@ -4970,7 +4970,7 @@ msgstr ""
 #: euphorie/client/templates/module_customization.pt:33
 #: euphorie/client/templates/risk_actionplan.pt:79
 msgid "risk_priority"
-msgstr " "
+msgstr "Questo è un rischio di priorità ${priority_value}."
 
 #. Default: "high"
 #: euphorie/client/templates/module_customization.pt:36

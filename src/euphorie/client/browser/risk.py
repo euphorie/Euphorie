@@ -54,6 +54,9 @@ class IdentificationView(BrowserView):
 
     question_filter = None
 
+    # default value is False, can be overwritten by certain conditions
+    skip_evaluation = False
+
     def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
@@ -228,8 +231,6 @@ class IdentificationView(BrowserView):
         # Italian special
         if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
             self.skip_evaluation = True
-        else:
-            self.skip_evaluation = False
 
     def proceed_to_next(self, reply):
         if reply.get("next", None) == "previous":
@@ -320,6 +321,8 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
+    # default value is False, can be overwritten by certain conditions
+    skip_evaluation = False
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -442,6 +445,13 @@ class ActionPlanView(BrowserView):
         self.tree = getTreeData(
             self.request, context,
             filter=self.question_filter, phase="actionplan")
+
+        # Italian special
+        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+            self.skip_evaluation = True
+            measures_full_text = True
+        else:
+            measures_full_text = False
         if self.is_custom_risk:
             self.risk.description = u""
             number_images = 0
@@ -457,7 +467,7 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+                if measures_full_text:
                     match = u"%s: %s" % (
                         solution.description.strip(),
                         solution.prevention_plan.strip()
