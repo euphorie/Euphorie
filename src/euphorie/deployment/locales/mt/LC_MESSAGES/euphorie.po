@@ -3481,7 +3481,7 @@ msgstr "Bidu tal-ippjanar"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Żid miżura oħra"
 
 #. Default: "Add another risk"

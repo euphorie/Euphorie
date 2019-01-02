@@ -3451,7 +3451,7 @@ msgstr "A planear o início"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Adicionar outra medida"
 
 #. Default: "Add another risk"

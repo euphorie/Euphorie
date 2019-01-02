@@ -3404,7 +3404,7 @@ msgstr "Načrtovani začetek"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Dodaj nov ukrep"
 
 #. Default: "Add another risk"

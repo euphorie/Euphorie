@@ -3482,7 +3482,7 @@ msgstr "Планиране на началото"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Добави друга мярка"
 
 #. Default: "Add another risk"

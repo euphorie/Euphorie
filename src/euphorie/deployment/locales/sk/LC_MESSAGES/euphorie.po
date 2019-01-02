@@ -3301,7 +3301,7 @@ msgstr "Plánovanie spustenia"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Pridať ďalšie opatrenie"
 
 #. Default: "Add another risk"

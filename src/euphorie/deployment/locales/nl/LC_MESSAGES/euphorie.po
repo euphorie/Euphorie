@@ -3474,7 +3474,7 @@ msgstr "Begindatum"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Voeg een andere maatregel toe"
 
 #. Default: "Add another risk"

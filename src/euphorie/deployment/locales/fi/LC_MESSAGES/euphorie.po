@@ -3761,13 +3761,11 @@ msgstr "Aikataulu: Toimenpiteiden suunnittelu"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-#, fuzzy
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Lisää toinen toimenpide"
 
 #. Default: "Add another risk"
 #: euphorie/client/templates/module_customization.pt:61
-#, fuzzy
 msgid "label_add_risk"
 msgstr "Lisää uusi riski"
 

@@ -3465,7 +3465,7 @@ msgstr "Stima inizio attuazione (solo per misure di miglioramento)"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Aggiungere un'altra misura"
 
 #. Default: "Add another risk"

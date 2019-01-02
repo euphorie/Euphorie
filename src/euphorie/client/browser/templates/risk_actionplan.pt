@@ -131,7 +131,8 @@
                  tal:repeat="actionplan action_plans"
             >
 
-              <h2><tal:span i18n:translate="Measure">Measure</tal:span>
+              <h2><tal:span condition="not:view/use_existing_measures" i18n:translate="Measure">Measure</tal:span>
+                <tal:span condition="view/use_existing_measures" i18n:translate="Additional Measure">Additional Measure</tal:span>
                 ${repeat/actionplan/number}</h2>
               <input name="measure.id:records"
                      type="hidden"
@@ -281,7 +282,7 @@
                     id="addMeasureButton"
                     title="Add another measure"
                     type="button"
-                    i18n:translate="label_add"
+                    i18n:translate="label_add_measure"
             >Add another measure</button>
           </div>
 

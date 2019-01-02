@@ -3534,7 +3534,7 @@ msgstr "Date de commencement prévue"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Ajouter une autre mesure"
 
 #. Default: "Add another risk"

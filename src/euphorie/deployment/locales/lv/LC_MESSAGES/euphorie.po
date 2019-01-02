@@ -3417,7 +3417,7 @@ msgstr "Uzsākšanas datums"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Pievienot citu pasâkumu"
 
 #. Default: "Add another risk"

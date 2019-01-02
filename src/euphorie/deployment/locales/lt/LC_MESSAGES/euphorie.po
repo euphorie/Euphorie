@@ -3418,7 +3418,7 @@ msgstr "Įgyvendinimo pradžia"
 
 #. Default: "Add another measure"
 #: euphorie/client/templates/risk_actionplan.pt:280
-msgid "label_add"
+msgid "label_add_measure"
 msgstr "Įkelti naują priemonę"
 
 #. Default: "Add another risk"
