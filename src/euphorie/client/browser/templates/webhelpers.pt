@@ -206,6 +206,7 @@
   <metal:risk_info_actionplan define-macro="risk_info_actionplan"
                               meta:interpolation="true"
                               i18n:domain="euphorie"
+    tal:define="is_custom_risk view/is_custom_risk"
   >
     <div class="image-collage pat-gallery pat-equaliser"
          tal:condition="python:view.number_images &gt; 1"
@@ -298,7 +299,6 @@
 
     <tal:block define="
                  use_problem_description view/use_problem_description;
-                 is_custom_risk view/is_custom_risk;
                "
                condition="show_statement|nothing"
     >
@@ -333,6 +333,9 @@
         about this risk.</h4>
       <tal:description tal:replace="structure risk/description" />
     </div>
+    <tal:custom condition="is_custom_risk">
+      <span tal:replace="structure context/custom_description" />
+    </tal:custom>
   </metal:risk_info_actionplan>
 
   <metal:risk_identification define-macro="risk_identification">
