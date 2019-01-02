@@ -321,8 +321,13 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-    # default value is False, can be overwritten by certain conditions
+    # Skip evaluation?
+    # The default value is False, can be overwritten by certain conditions
     skip_evaluation = False
+    # Which fields should be skipped? Default are none, i.e. show all
+    skip_fields = []
+    # What extra style to use for buttons like "Add measure". Default is None.
+    style_buttons = None
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
