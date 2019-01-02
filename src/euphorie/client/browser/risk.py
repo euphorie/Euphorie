@@ -11,6 +11,7 @@ from Acquisition import aq_inner
 from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
+from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
