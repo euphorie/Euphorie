@@ -23,7 +23,14 @@
     <h2 class="risk-title">${here/title}</h2>
 
     <!-- Identification -->
-    <fieldset class="pat-collapsible closed risk-module">
+    <metal:call use-macro="webhelpers/macros/risk_identification" />
+    <!-- END Identificaton -->
+
+    <!-- Evaluation -->
+    <!-- END Evaluation -->
+
+    <!-- Information -->
+    <fieldset class="pat-collapsible open risk-module">
       <legend>
         Information
       </legend>
@@ -34,17 +41,10 @@
           i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
       </fieldset>
     </fieldset>
-    <!-- END Identificaton -->
-
-    <!-- Evaluation -->
-    <!-- END Evaluation -->
-
-    <!-- Information -->
     <!-- END Information -->
 
-
     <!-- Training -->
-    <metal:call use-macro="context/training_slide/macros/training_slide" />
+    <metal:call tal:define="template string:template-default" use-macro="context/training_slide/macros/training_slide" />
     <!-- END Training -->
 
     <!-- Comments -->

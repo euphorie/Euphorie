@@ -339,7 +339,7 @@
     <fieldset class="vertical"
               id="${view/risk_number}"
               tal:define="
-                always_present risk/risk_always_present;
+                always_present risk/risk_always_present|nothing;
                 existing_measures view/get_existing_measures;
               "
     >
@@ -424,7 +424,7 @@
                      value="no"
               />${view/answer_no}</label>
           <label class="not-applicable"
-                 tal:condition="risk/show_notapplicable"
+                 tal:condition="risk/show_notapplicable|nothing"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
                    name="answer"
                    type="radio"
