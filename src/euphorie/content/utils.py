@@ -59,6 +59,9 @@ TOOL_TYPES = OrderedDict([
         "answer_yes": _("label_yes", default=u"Yes"),
         "answer_no": _("label_no", default=u"No"),
         "answer_na": _("label_not_applicable", default=u"Not applicable"),
+        "custom_intro_extra": _(
+            "is_risk_acceptable",
+            default=u"Is this risk acceptable or under control?"),
     }),
     ("existing_measures", {
         "title": _(
@@ -88,6 +91,10 @@ TOOL_TYPES = OrderedDict([
             "label_not_sufficient",
             default=u"No, more measures are required"),
         "answer_na": _("label_not_applicable", default=u"Not applicable"),
+        "custom_intro_extra": _(
+            "is_risk_acceptable",
+            default=u"Is this risk acceptable or under control? If applicable, "
+            u"<a class='add-clone'>add all measures that have already been implemented.</a>"),
     }),
 ])
 

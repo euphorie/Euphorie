@@ -73,7 +73,7 @@ class IdentificationView(BrowserView):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.request.survey)
+        self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
             asBool(settings.get('use_existing_measures', False)) and
             self.my_tool_type in self.tti.types_existing_measures
@@ -125,6 +125,9 @@ class IdentificationView(BrowserView):
                 self.context.training_notes = reply.get("training_notes")
 
             self.context.custom_description = reply.get("custom_description")
+            # This only happens on custom risks
+            if reply.get("title"):
+                self.context.title = reply.get("title")
 
             SessionManager.session.touch()
 
@@ -143,8 +146,8 @@ class IdentificationView(BrowserView):
         self.tree = getTreeData(self.request, self.context)
         self.title = self.context.parent.title
         self.show_info = (
-            getattr(self.risk, "image", None)
-            or (
+            getattr(self.risk, "image", None) or
+            (
                 self.risk is None or
                 HasText(self.risk.description)
             )
@@ -189,23 +192,26 @@ class IdentificationView(BrowserView):
         self.answer_yes = default_type_data['answer_yes']
         self.answer_no = default_type_data['answer_no']
         self.answer_na = default_type_data['answer_na']
-        self.intro_extra = self.intro_questions = ""
-        self.button_add_extra = self.placeholder_add_extra = ""
+        self.intro_extra = ""
+        if self.is_custom_risk:
+            self.intro_extra = tool_type_data.get('custom_intro_extra', '')
+            if self.use_existing_measures:
+                self.answer_yes = tool_type_data['answer_yes']
+                self.answer_no = tool_type_data['answer_no']
+        self.button_add_extra = tool_type_data.get('button_add_extra', '')
+        self.intro_questions = tool_type_data.get('intro_questions', '')
+        self.placeholder_add_extra = tool_type_data.get(
+                'placeholder_add_extra', '')
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = getattr(self.risk, "pre_defined_measures", "") or ""
+            measures = self.get_existing_measures()
             # Only show the form to select and add existing measures if
-            # at least one measure was defined in the CMS
+            # at least one pre-existring measure is present
             # In this case, also change some labels
             if len(measures):
                 self.show_existing_measures = True
                 self.intro_extra = tool_type_data.get('intro_extra', '')
-                self.intro_questions = tool_type_data.get(
-                    'intro_questions', '')
-                self.button_add_extra = tool_type_data.get(
-                    'button_add_extra', '')
-                self.placeholder_add_extra = tool_type_data.get(
-                    'placeholder_add_extra', '')
+
                 self.button_remove_extra = tool_type_data.get(
                     'button_remove_extra', '')
                 self.answer_yes = tool_type_data['answer_yes']
@@ -260,7 +266,11 @@ class IdentificationView(BrowserView):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = getattr(self.risk, "pre_defined_measures", "") or ""
+        if not self.risk:
+            defined_measures = []
+        else:
+            defined_measures = (
+                self.risk.get_pre_defined_measures(self.request) or "")
 
         try:
             saved_existing_measures = loads(
@@ -395,7 +405,7 @@ class ActionPlanView(BrowserView):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.risk)
+        self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
             asBool(settings.get('use_existing_measures', False)) and
             self.my_tool_type in self.tti.types_existing_measures
