@@ -128,6 +128,7 @@
     >
       <tal:items repeat="item tree/children">
         <li class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']&gt;1 else '')}"
+            id="${python:item['css_id']}"
             title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
             tal:condition="python: item['type']!='location'"
         >
