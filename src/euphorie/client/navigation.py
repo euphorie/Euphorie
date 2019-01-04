@@ -118,6 +118,7 @@ def getTreeData(request, context, phase="identification", filter=None):
 
     def morph(obj):
         number = obj.number
+        # The custom risks don't have a real number, but an Omega instead
         if obj.zodb_path.find('custom-risks') > -1:
             num_elems = number.split('.')
             number = u".".join([u"Ω"] + num_elems[1:])

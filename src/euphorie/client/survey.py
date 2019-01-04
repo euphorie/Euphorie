@@ -30,6 +30,7 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.profile import extractProfile
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api
@@ -320,7 +321,7 @@ class _StatusHelper(object):
             # top-level module, always include it in the toc
             if len(path) == 3:
                 title = titles[path]
-                if title == 'title_other_risks':
+                if title == 'title_other_risks' or title == u"Other risks":
                     title = title_custom_risks
                 toc[path] = {
                     'path': path,
@@ -419,18 +420,22 @@ class _StatusHelper(object):
                     elem.zodb_path.split('/')
                 )
                 if getattr(zodb_elem, 'optional', False):
-                    if elem.postponed in (True, None) or elem.skip_children:
+                    if (
+                        (
+                            elem.postponed in (True, None) or
+                            elem.skip_children
+                        ) and not ICustomRisksModule.providedBy(zodb_elem)
+                    ):
                         return
                 children = [
-                    x for x in s_paths if x.path.startswith(elem.path)
-                    and len(x.path) == len(elem.path) + 3
+                    x for x in s_paths if x.path.startswith(elem.path) and
+                    len(x.path) == len(elem.path) + 3
                 ]
                 if children:
                     for child in children:
                         use_node(child)
                 else:
                     use_nodes.append(elem.path)
-
             for elem in top_nodes:
                 use_node(elem)
             ret = []
@@ -599,9 +604,11 @@ class Status(grok.View, _StatusHelper):
                 del modules[key]
                 del self.tocdata[key]
         self.percentage_ok = (
-            not len(filtered_risks) and 100
-            or int((total_ok + total_with_measures) /
-                   Decimal(len(filtered_risks)) * 100)
+            not len(filtered_risks) and 100 or
+            int(
+                (total_ok + total_with_measures) /
+                Decimal(len(filtered_risks)) * 100
+            )
         )
         self.status = modules.values()
         self.status.sort(key=lambda m: m["path"])
