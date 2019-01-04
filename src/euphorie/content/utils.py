@@ -46,6 +46,14 @@ CUSTOM_COUNTRY_NAMES = {
 
 # New concept: "Type" or "Flavour" of an OiRA tool. Apart from the "Classic"
 # one, we add the type "With measures that are already in place".
+link_add_measures = _(
+        "no_translate_link_add_measures",
+        default=u"<a class='add-clone'>${text_add_measures}</a>",
+        mapping={"text_add_measures": _(
+            "text_add_measures",
+            default=u"add all measures that have already been implemented")}
+)
+
 TOOL_TYPES = OrderedDict([
     ("classic", {
         "title": _(
@@ -92,9 +100,11 @@ TOOL_TYPES = OrderedDict([
             default=u"No, more measures are required"),
         "answer_na": _("label_not_applicable", default=u"Not applicable"),
         "custom_intro_extra": _(
-            "is_risk_acceptable",
+            "is_risk_acceptable_add_measures",
             default=u"Is this risk acceptable or under control? If applicable, "
-            u"<a class='add-clone'>add all measures that have already been implemented.</a>"),
+            u"${link_add_measures}.",
+            mapping={"link_add_measures": link_add_measures},
+        )
     }),
 ])
 
