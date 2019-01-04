@@ -1,6 +1,5 @@
 # coding=utf-8
 from Acquisition import aq_inner
-from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
@@ -14,10 +13,8 @@ from euphorie.content.profilequestion import IProfileQuestion
 from logging import getLogger
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import sql
 from z3c.saconfig import Session
-from zope.i18n import translate
 
 logger = getLogger(__name__)
 
