@@ -23,9 +23,9 @@
 
     <fieldset class="content-mirror risk-title pat-inject pat-autosubmit"
       data-pat-autosubmit="1000ms">
-      <h2 id="risk-title-main" class="output">${here/title}</h2>
+      <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
       <textarea name="title" autofocus="autofocus"
-        class="pat-content-mirror" placeholder="Describe the risk…"
+        class="pat-content-mirror" placeholder="Describe the risk..."
         i18n:attributes="placeholder"
         data-pat-content-mirror="target: #risk-title-main">${here/title}</textarea>
     </fieldset>
@@ -192,8 +192,8 @@
 
     <p class="button-bar" id="nav-bar">
         <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
-        <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
-        <button type="submit" name="next" value="skip" class="pat-button skip" i18n:translate="label_button_skip">Skip</button>
+        <button type="submit" name="next" value="next" class="pat-button continue" i18n:translate="label_save_and_add_new">Save and add new risk</button>
+        <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_finish">Save and finish</button>
     </p>
 </form>
 </metal:slot>
