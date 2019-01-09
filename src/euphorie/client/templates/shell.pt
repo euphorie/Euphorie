@@ -82,6 +82,7 @@
 </head>
 
 <body
+  id="body"
   class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-off ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-on osc-s-off focus-document ${sidebar_default}"
   i18n:domain="euphorie"
   tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
@@ -93,34 +94,34 @@
             <span id="language_code">${webhelpers/language_code}</span>
         </span>
         <header id="toolbar">
-            <a href="#osc" class="icon-menu pat-toggle"
+            <a href="#osc" class="iconified pat-toggle"
                data-pat-toggle="selector: body; value: osc-on osc-off; store: local &amp;&amp; selector: body; value: osc-s-on osc-s-off; store: local"
-               id="burger"
+               id="toggle-osc"
                i18n:attributes="title tooltip_menu_toggle"
                title="Show/hide menu">
                 Menu
             </a>
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
-            <button class="icon-left pat-switch pat-inject" data-pat-switch="selector: body; remove: focus-*; add: focus-sidebar"></button>
-            <a href="#help-menu" data-pat-tooltip="source: ajax; class: medium; position-list: tr" class="pat-tooltip help">?</a>
-            <a href="${webhelpers/country_or_client_url}"
-              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
-              class="home pat-inject iconified icon-home pat-switch"
-              data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
-              i18n:attributes="title home_link"
-              title="Dashboard" i18n:translate="home_link">Dashboard</a>
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
                 <a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" class="pat-modal login" data-pat-modal="class: large" i18n:translate="header_login">Login</a>
                 <a href="${webhelpers/country_or_client_url}/register" class="registration" i18n:translate="header_register">Register</a>
             </tal:if_anon>
             <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
                 <a href="${webhelpers/session_overview_url}/user-menu.html#content"
-                   class="user-status pat-tooltip icon-user dropdown"
+                  id="more-menu"
+                   class="iconified pat-tooltip pat-switch"
                    data-pat-tooltip="source: ajax; class: medium; position-list: tr">${webhelpers/get_username}</a>
             </tal:if_not_anon>
+            <a href="${webhelpers/country_or_client_url}"
+              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+              class="home pat-inject iconified icon-home pat-switch"
+              data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
+              i18n:attributes="title home_link"
+              title="Dashboard" i18n:translate="home_link">Dashboard</a>
         </header>
         <div id="content">
+          <div id="main-content" class="${python: getattr(view, 'variation_class', None)}">
             <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
                 <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" data-pat-modal="class: large" class="registration pat-modal" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
             </p>
@@ -129,6 +130,7 @@
                 </tal:statusmsg>
 
             <metal:block define-slot="content"/>
+          </div>
         </div>
     </div>
 
@@ -320,7 +322,6 @@
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
-    <metal:help-menu use-macro="context/help_menu/macros/help-menu"/>
 
 </body>
 </html>

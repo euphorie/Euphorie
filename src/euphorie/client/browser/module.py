@@ -38,7 +38,7 @@ class Mixin(object):
 class IdentificationView(BrowserView, Mixin):
     """The introduction page for a module.
     """
-
+    variation_class = "variation-risk-assessment"
     phase = "identification"
     question_filter = None
 
@@ -138,7 +138,7 @@ class CustomizationView(BrowserView, Mixin):
     """Module without a connection to a real module in the backend, container
     for custom risks.
     """
-
+    variation_class = "variation-risk-assessment"
     phase = "customization"
     question_filter = None
 
@@ -271,7 +271,7 @@ class ActionPlanView(BrowserView):
     plan.
 
     """
-
+    variation_class = "variation-risk-assessment"
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
 

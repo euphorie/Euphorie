@@ -132,6 +132,7 @@ class Company(form.SchemaForm):
     grok.layer(IReportPhaseSkinLayer)
     grok.template("report_company")
     grok.name("company")
+    variation_class = "variation-risk-assessment"
 
     schema = CompanySchema
     company = None

@@ -105,6 +105,7 @@ class Identification(grok.View):
     grok.layer(IIdentificationPhaseSkinLayer)
     grok.template("identification")
     grok.name("index_html")
+    variation_class = "variation-risk-assessment"
 
     question_filter = None
 
@@ -154,6 +155,7 @@ class ActionPlan(grok.View):
     grok.layer(IActionPlanPhaseSkinLayer)
     grok.template("actionplan")
     grok.name("index_html")
+    variation_class = "variation-risk-assessment"
 
     # The question filter will find modules AND risks
     question_filter = model.ACTION_PLAN_FILTER
@@ -505,6 +507,7 @@ class Status(grok.View, _StatusHelper):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.template("status")
+    variation_class = "variation-risk-assessment"
 
     def __init__(self, context, request):
         super(Status, self).__init__(context, request)

@@ -78,6 +78,7 @@ class SessionsView(BrowserView):
 
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
+    variation_class = "variation-dashboard"
 
     @property
     @memoize

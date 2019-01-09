@@ -56,6 +56,7 @@ class Start(AutoExtensibleForm, EditForm):
     """
     ignoreContext = True
     schema = IStartFormSchema
+    variation_class = "variation-risk-assessment"
 
     @property
     def template(self):

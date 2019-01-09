@@ -13,6 +13,7 @@
     <tal:block replace="tile:statusmessages" />
     <article>
     </article>
+    <div id="content-pane">
     <div class="row pat-masonry"
          id="dashboard"
          data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
@@ -110,6 +111,7 @@
         </div>
       </div>
 
+    </div>
     </div>
 
   </metal:slot>
