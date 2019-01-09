@@ -7,6 +7,8 @@ Changelog
 - Bugfix for the `treeChanges` method that determines if the SQL data
   of the tree needs to be updated: we now also check if the risk_type
   was changed, since that info determines display behaviour.
+- Translation update FR
+
 
 10.0.4 (2018-12-11)
 -------------------
