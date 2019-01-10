@@ -29,12 +29,10 @@
     <grok:grok package=".error" />
     <grok:grok package=".help" />
     <grok:grok package=".layout" />
-    <grok:grok package=".module" />
     <grok:grok package=".pdf" />
     <grok:grok package=".profile" />
     <grok:grok package=".publish" />
     <grok:grok package=".report" />
-    <grok:grok package=".risk" />
     <grok:grok package=".sector" />
     <grok:grok package=".settings" />
     <grok:grok package=".survey" />

@@ -6,13 +6,11 @@ Risk
 Views for the identification and action plan phases.
 """
 
-from .. import MessageFactory as _
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from collections import OrderedDict
+from euphorie import MessageFactory as _
 from euphorie.client import model
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
@@ -26,11 +24,12 @@ from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
-from five import grok
 from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
 from Products.CMFPlone.utils import safe_unicode
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
@@ -38,9 +37,6 @@ from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
-
-
-grok.templatedir("templates")
 
 IMAGE_CLASS = {
     0: '',
@@ -51,20 +47,14 @@ IMAGE_CLASS = {
 }
 
 
-class IdentificationView(grok.View):
+class IdentificationView(BrowserView):
     """A view for displaying a question in the identification phase
-
-    View name: @@index_html
     """
-    grok.context(model.Risk)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IIdentificationPhaseSkinLayer)
-    grok.template("risk_identification")
-    grok.name("index_html")
+    template = ViewPageTemplateFile('templates/risk_identification.pt')
 
     question_filter = None
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
@@ -125,97 +115,105 @@ class IdentificationView(grok.View):
             return self.proceed_to_next(reply)
 
         else:
-            self.tree = getTreeData(self.request, self.context)
-            self.title = self.context.parent.title
-            self.show_info = (
-                self.risk.image or HasText(self.risk.description)
-            )
-
-            number_images = getattr(self.risk, 'image', None) and 1 or 0
-            if number_images:
-                for i in range(2, 5):
-                    number_images += getattr(
-                        self.risk, 'image{0}'.format(i), None) and 1 or 0
-            self.has_images = number_images > 0
-            self.number_images = number_images
-            self.image_class = IMAGE_CLASS[number_images]
-            number_files = 0
-            for i in range(1, 5):
-                number_files += getattr(
-                    self.risk, 'file{0}'.format(i), None) and 1 or 0
-            self.has_files = number_files > 0
-            self.has_legal = HasText(self.risk.legal_reference)
-            self.show_resources = self.has_legal or self.has_files
-
-            self.risk_number = self.context.number
-
-            self.description_probability = _(
-                u"help_default_probability", default=u"Indicate how "
-                u"likely occurence of this risk is in a normal situation.")
-            self.description_frequency = _(
-                u"help_default_frequency", default=u"Indicate how often this "
-                u"risk occurs in a normal situation.")
-            self.description_severity = _(
-                u"help_default_severity", default=u"Indicate the "
-                u"severity if this risk occurs.")
-
-            tool_types = self.tti()
-            tt_default = self.tti.default_tool_type
-            tool_type_data = tool_types.get(
-                self.my_tool_type, tool_types[tt_default])
-            default_type_data = tool_types['classic']
-            self.show_existing_measures = False
-
-            # Fill some labels with default texts
-            self.answer_yes = default_type_data['answer_yes']
-            self.answer_no = default_type_data['answer_no']
-            self.answer_na = default_type_data['answer_na']
-            self.intro_extra = self.intro_questions = ""
-            self.button_add_extra = self.placeholder_add_extra = ""
-            self.button_remove_extra = ""
-            if self.use_existing_measures:
-                measures = (
-                    self.risk.get_pre_defined_measures(self.request) or "")
-                # Only show the form to select and add existing measures if
-                # at least one measure was defined in the CMS
-                # In this case, also change some labels
-                if len(measures):
-                    self.show_existing_measures = True
-                    self.intro_extra = tool_type_data.get('intro_extra', '')
-                    self.intro_questions = tool_type_data.get(
-                        'intro_questions', '')
-                    self.button_add_extra = tool_type_data.get(
-                        'button_add_extra', '')
-                    self.placeholder_add_extra = tool_type_data.get(
-                        'placeholder_add_extra', '')
-                    self.button_remove_extra = tool_type_data.get(
-                        'button_remove_extra', '')
-                    self.answer_yes = tool_type_data['answer_yes']
-                    self.answer_no = tool_type_data['answer_no']
-                    self.answer_na = tool_type_data['answer_na']
-                if not self.context.existing_measures:
-                    existing_measures = OrderedDict([
-                        (text, 0) for text in measures
-                    ])
-                    self.context.existing_measures = safe_unicode(
-                        dumps(existing_measures))
-
-            if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
-                if self.request.survey.evaluation_algorithm != 'french':
-                    custom_dp = getattr(
-                        self.request.survey, 'description_probability', '') or ''
-                    self.description_probability = custom_dp.strip() or self.description_probability
-                custom_df = getattr(self.request.survey, 'description_frequency', '') or ''
-                self.description_frequency = custom_df.strip() or self.description_frequency
-                custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
-                self.description_severity = custom_ds.strip() or self.description_severity
-
-            # Italian special
-            if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
-                self.skip_evaluation = True
+            self._prepare_risk()
+            # XXX add switch: different template for custom risk
+            if 0:
+                template = None
             else:
-                self.skip_evaluation = False
-            super(IdentificationView, self).update()
+                template = self.template
+            return template()
+
+    def _prepare_risk(self):
+        self.tree = getTreeData(self.request, self.context)
+        self.title = self.context.parent.title
+        self.show_info = (
+            self.risk.image or HasText(self.risk.description)
+        )
+
+        number_images = getattr(self.risk, 'image', None) and 1 or 0
+        if number_images:
+            for i in range(2, 5):
+                number_images += getattr(
+                    self.risk, 'image{0}'.format(i), None) and 1 or 0
+        self.has_images = number_images > 0
+        self.number_images = number_images
+        self.image_class = IMAGE_CLASS[number_images]
+        number_files = 0
+        for i in range(1, 5):
+            number_files += getattr(
+                self.risk, 'file{0}'.format(i), None) and 1 or 0
+        self.has_files = number_files > 0
+        self.has_legal = HasText(self.risk.legal_reference)
+        self.show_resources = self.has_legal or self.has_files
+
+        self.risk_number = self.context.number
+
+        self.description_probability = _(
+            u"help_default_probability", default=u"Indicate how "
+            u"likely occurence of this risk is in a normal situation.")
+        self.description_frequency = _(
+            u"help_default_frequency", default=u"Indicate how often this "
+            u"risk occurs in a normal situation.")
+        self.description_severity = _(
+            u"help_default_severity", default=u"Indicate the "
+            u"severity if this risk occurs.")
+
+        tool_types = self.tti()
+        tt_default = self.tti.default_tool_type
+        tool_type_data = tool_types.get(
+            self.my_tool_type, tool_types[tt_default])
+        default_type_data = tool_types['classic']
+        self.show_existing_measures = False
+
+        # Fill some labels with default texts
+        self.answer_yes = default_type_data['answer_yes']
+        self.answer_no = default_type_data['answer_no']
+        self.answer_na = default_type_data['answer_na']
+        self.intro_extra = self.intro_questions = ""
+        self.button_add_extra = self.placeholder_add_extra = ""
+        self.button_remove_extra = ""
+        if self.use_existing_measures:
+            measures = (
+                self.risk.get_pre_defined_measures(self.request) or "")
+            # Only show the form to select and add existing measures if
+            # at least one measure was defined in the CMS
+            # In this case, also change some labels
+            if len(measures):
+                self.show_existing_measures = True
+                self.intro_extra = tool_type_data.get('intro_extra', '')
+                self.intro_questions = tool_type_data.get(
+                    'intro_questions', '')
+                self.button_add_extra = tool_type_data.get(
+                    'button_add_extra', '')
+                self.placeholder_add_extra = tool_type_data.get(
+                    'placeholder_add_extra', '')
+                self.button_remove_extra = tool_type_data.get(
+                    'button_remove_extra', '')
+                self.answer_yes = tool_type_data['answer_yes']
+                self.answer_no = tool_type_data['answer_no']
+                self.answer_na = tool_type_data['answer_na']
+            if not self.context.existing_measures:
+                existing_measures = OrderedDict([
+                    (text, 0) for text in measures
+                ])
+                self.context.existing_measures = safe_unicode(
+                    dumps(existing_measures))
+
+        if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
+            if self.request.survey.evaluation_algorithm != 'french':
+                custom_dp = getattr(
+                    self.request.survey, 'description_probability', '') or ''
+                self.description_probability = custom_dp.strip() or self.description_probability
+            custom_df = getattr(self.request.survey, 'description_frequency', '') or ''
+            self.description_frequency = custom_df.strip() or self.description_frequency
+            custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
+            self.description_severity = custom_ds.strip() or self.description_severity
+
+        # Italian special
+        if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
+            self.skip_evaluation = True
+        else:
+            self.skip_evaluation = False
 
     def proceed_to_next(self, reply):
         if reply.get("next", None) == "previous":
@@ -293,16 +291,9 @@ class IdentificationView(grok.View):
         return self.context.priority
 
 
-class ActionPlanView(grok.View):
+class ActionPlanView(BrowserView):
     """Logic for creating new action plans.
-
-    View name: @@index_html
     """
-    grok.context(model.Risk)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IActionPlanPhaseSkinLayer)
-    grok.template("risk_actionplan")
-    grok.name("index_html")
 
     phase = "actionplan"
     # The question filter will find modules AND risks
@@ -362,7 +353,7 @@ class ActionPlanView(grok.View):
             return None
         return datetime.date(year, month, day)
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
         context = aq_inner(self.context)
@@ -493,7 +484,7 @@ class ActionPlanView(grok.View):
             u"error_validation_positive_whole_number",
             default=u"This value must be a positive whole number."),
             target_language=lang)
-        super(ActionPlanView, self).update()
+        return self.index()
 
     def extract_plans_from_request(self):
         """ Create new ActionPlan objects by parsing the Request.

@@ -1,33 +1,24 @@
 # coding=utf-8
-"""
-Module
-------
-
-Module views for the client.
-"""
-
 from Acquisition import aq_inner
-from Products.statusmessages.interfaces import IStatusMessage
+from euphorie import MessageFactory as _
 from euphorie.client import model
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
-from euphorie.client.navigation import QuestionURL
 from euphorie.client.navigation import getTreeData
+from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
-from five import grok
+from logging import getLogger
+from Products.Five import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.i18n import translate
-from .. import MessageFactory as _
 
-grok.templatedir("templates")
+logger = getLogger(__name__)
 
 
 class Mixin(object):
@@ -44,28 +35,121 @@ class Mixin(object):
         return query.all()
 
 
-class CustomizationView(grok.View, Mixin):
+class IdentificationView(BrowserView, Mixin):
+    """The introduction page for a module.
+    """
+
+    phase = "identification"
+    question_filter = None
+
+    def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not (
+            self.context.restrictedTraverse('webhelpers').can_edit_session()
+        ):
+
+            return self.request.response.redirect(
+                self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+            )
+        if redirectOnSurveyUpdate(self.request):
+            return
+        context = aq_inner(self.context)
+        module = self.request.survey.restrictedTraverse(
+            context.zodb_path.split("/"))
+        if self.request.environ["REQUEST_METHOD"] == "POST":
+            self.save_and_continue(module)
+        else:
+            if IProfileQuestion.providedBy(module) and context.depth == 2:
+                next = FindNextQuestion(context, filter=self.question_filter)
+                if next is None:
+                    url = "%s/actionplan" % self.request.survey.absolute_url()
+                else:
+                    url = QuestionURL(
+                        self.request.survey, next, phase=self.phase)
+                return self.request.response.redirect(url)
+
+            elif ICustomRisksModule.providedBy(module) \
+                    and not self.context.skip_children \
+                    and len(self.get_custom_risks()):
+                url = "%s/customization/%d" % (
+                    self.request.survey.absolute_url(),
+                    int(self.context.path))
+                return self.request.response.redirect(url)
+
+            self.tree = getTreeData(
+                self.request, context, filter=model.NO_CUSTOM_RISKS_FILTER)
+            self.title = module.title
+            self.module = module
+            number_files = 0
+            for i in range(1, 5):
+                number_files += getattr(
+                    self.module, 'file{0}'.format(i), None) and 1 or 0
+            self.has_files = number_files > 0
+            self.next_is_actionplan = not FindNextQuestion(
+                context, filter=self.question_filter)
+            return self.index()
+
+    def save_and_continue(self, module):
+        """ We received a POST request.
+            Submit the form and figure out where to go next.
+        """
+        context = aq_inner(self.context)
+        reply = self.request.form
+        if module.optional:
+            if "skip_children" in reply:
+                context.skip_children = reply.get("skip_children")
+                context.postponed = False
+            else:
+                context.postponed = True
+            SessionManager.session.touch()
+
+        if reply["next"] == "previous":
+            next = FindPreviousQuestion(context, filter=self.question_filter)
+            if next is None:
+                # We ran out of questions, step back to intro page
+                url = "%s/identification" % self.request.survey.absolute_url()
+                self.request.response.redirect(url)
+                return
+        else:
+            if ICustomRisksModule.providedBy(module):
+                if not context.skip_children:
+                    # The user will now be allowed to create custom
+                    # (user-defined) risks.
+                    url = "%s/customization/%d" % (
+                        self.request.survey.absolute_url(),
+                        int(self.context.path))
+                    return self.request.response.redirect(url)
+                else:
+                    # We ran out of questions, proceed to the evaluation
+                    url = "%s/actionplan" % self.request.survey.absolute_url()
+                    return self.request.response.redirect(url)
+            next = FindNextQuestion(context, filter=self.question_filter)
+            if next is None:
+                # We ran out of questions, proceed to the evaluation
+                url = "%s/actionplan" % self.request.survey.absolute_url()
+                return self.request.response.redirect(url)
+
+        url = QuestionURL(self.request.survey, next, phase="identification")
+        self.request.response.redirect(url)
+
+
+class CustomizationView(BrowserView, Mixin):
     """Module without a connection to a real module in the backend, container
     for custom risks.
-
-    View name: @@index_html
     """
-    grok.context(model.Module)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(ICustomizationPhaseSkinLayer)
-    grok.template("module_customization")
-    grok.name("index_html")
 
     phase = "customization"
     question_filter = None
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
         context = aq_inner(self.context)
         survey = self.request.survey
-        self.module = survey.restrictedTraverse(self.context.zodb_path.split("/"))
+        self.module = survey.restrictedTraverse(
+            self.context.zodb_path.split("/"))
         self.title = context.title
         self.tree = getTreeData(
             self.request, self.context, phase="identification",
@@ -86,7 +170,7 @@ class CustomizationView(grok.View, Mixin):
                 url = "%s/actionplan" % self.request.survey.absolute_url()
                 return self.request.response.redirect(url)
 
-        return super(CustomizationView, self).update()
+        return self.index()
 
     def give_customization_feedback(self, added, updated, removed):
         if removed == 0 and added == 0 and updated == 0:
@@ -138,7 +222,10 @@ class CustomizationView(grok.View, Mixin):
         updated = 0
         counter = 0
         for risk_values in form.get('risk', []):
-            if not risk_values.get("description") or not risk_values.get("priority"):
+            if (
+                not risk_values.get("description") or
+                not risk_values.get("priority")
+            ):
                 continue
             counter += 1
             if risk_values.get('id') in existing_risks:
@@ -179,123 +266,11 @@ class CustomizationView(grok.View, Mixin):
         self.give_customization_feedback(added, updated, removed)
 
 
-class IdentificationView(grok.View, Mixin):
-    """The introduction page for a module.
-
-    View name: @@index_html
-    """
-    grok.context(model.Module)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IIdentificationPhaseSkinLayer)
-    grok.template("module_identification")
-    grok.name("index_html")
-
-    phase = "identification"
-    question_filter = None
-
-    def update(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-        context = aq_inner(self.context)
-        module = self.request.survey.restrictedTraverse(
-            context.zodb_path.split("/"))
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            self.save_and_continue(module)
-        else:
-            if IProfileQuestion.providedBy(module) and context.depth == 2:
-                next = FindNextQuestion(context, filter=self.question_filter)
-                if next is None:
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
-                else:
-                    url = QuestionURL(self.request.survey, next, phase=self.phase)
-                return self.request.response.redirect(url)
-
-            elif ICustomRisksModule.providedBy(module) \
-                    and not self.context.skip_children \
-                    and len(self.get_custom_risks()):
-                url = "%s/customization/%d" % (
-                    self.request.survey.absolute_url(),
-                    int(self.context.path))
-                return self.request.response.redirect(url)
-
-            self.tree = getTreeData(
-                self.request, context, filter=model.NO_CUSTOM_RISKS_FILTER)
-            self.title = module.title
-            self.module = module
-            number_files = 0
-            for i in range(1, 5):
-                number_files += getattr(
-                    self.module, 'file{0}'.format(i), None) and 1 or 0
-            self.has_files = number_files > 0
-            self.next_is_actionplan = not FindNextQuestion(
-                context, filter=self.question_filter)
-            super(IdentificationView, self).update()
-
-    def save_and_continue(self, module):
-        """ We received a POST request.
-            Submit the form and figure out where to go next.
-        """
-        context = aq_inner(self.context)
-        reply = self.request.form
-        if module.optional:
-            if "skip_children" in reply:
-                context.skip_children = reply.get("skip_children")
-                context.postponed = False
-            else:
-                context.postponed = True
-            SessionManager.session.touch()
-
-        if reply["next"] == "previous":
-            next = FindPreviousQuestion(context, filter=self.question_filter)
-            if next is None:
-                # We ran out of questions, step back to intro page
-                url = "%s/identification" % self.request.survey.absolute_url()
-                self.request.response.redirect(url)
-                return
-        else:
-            if ICustomRisksModule.providedBy(module):
-                if not context.skip_children:
-                    # The user will now be allowed to create custom
-                    # (user-defined) risks.
-                    url = "%s/customization/%d" % (
-                        self.request.survey.absolute_url(),
-                        int(self.context.path))
-                    return self.request.response.redirect(url)
-                else:
-                    # We ran out of questions, proceed to the evaluation
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
-                    return self.request.response.redirect(url)
-            next = FindNextQuestion(context, filter=self.question_filter)
-            if next is None:
-                # We ran out of questions, proceed to the evaluation
-                url = "%s/actionplan" % self.request.survey.absolute_url()
-                return self.request.response.redirect(url)
-
-        url = QuestionURL(self.request.survey, next, phase="identification")
-        self.request.response.redirect(url)
-
-    def __call__(self):
-        ''' Render the page only if the user has edit rights,
-        otherwise redirect to the start page of the session.
-        '''
-        if self.context.restrictedTraverse('webhelpers').can_edit_session():
-            return super(IdentificationView, self).__call__()
-        return self.request.response.redirect(
-            self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
-        )
-
-
-class ActionPlanView(grok.View):
+class ActionPlanView(BrowserView):
     """The introduction page for an :obj:`euphorie.content.module` in an action
     plan.
 
-    View name: @@index_html
     """
-    grok.context(model.Module)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IActionPlanPhaseSkinLayer)
-    grok.template("module_actionplan")
-    grok.name("index_html")
 
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
@@ -303,10 +278,10 @@ class ActionPlanView(grok.View):
     @property
     def use_solution_direction(self):
         module = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+            self.context.zodb_path.split("/"))
         return HasText(getattr(module, "solution_direction", None))
 
-    def update(self):
+    def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
         if self.request.environ["REQUEST_METHOD"] == "POST":
@@ -318,7 +293,10 @@ class ActionPlanView(grok.View):
         self.module = module
         if (
             (IProfileQuestion.providedBy(module) and context.depth == 2) or
-            (ICustomRisksModule.providedBy(module) and self.phase == 'actionplan')
+            (
+                ICustomRisksModule.providedBy(module) and
+                self.phase == 'actionplan'
+            )
         ):
             next = FindNextQuestion(context, filter=self.question_filter)
             if next is None:
@@ -353,4 +331,4 @@ class ActionPlanView(grok.View):
             self.next_url = "%s/report" % self.request.survey.absolute_url()
         else:
             self.next_url = QuestionURL(survey, next, phase=self.phase)
-        super(ActionPlanView, self).update()
+        return self.index()

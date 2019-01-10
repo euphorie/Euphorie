@@ -1,5 +1,5 @@
 from euphorie.client.model import Risk
-from euphorie.client.risk import IdentificationView
+from euphorie.client.browser.risk import IdentificationView
 from euphorie.content.risk import IFrenchEvaluation as IFr
 from euphorie.content.risk import IKinneyEvaluation as IKi
 from euphorie.content.survey import Survey
@@ -57,7 +57,8 @@ class EvaluationViewTests(unittest.TestCase):
         risk = self.Risk()
         risk.evaluation_method = 'calculated'
         with mock.patch(
-            'euphorie.client.risk.evaluation_algorithm', return_value='kinney'
+            'euphorie.client.browser.risk.evaluation_algorithm',
+            return_value='kinney'
         ):
             self.assertEqual(view.calculatePriority(risk, {}), None)
 
@@ -66,14 +67,16 @@ class EvaluationViewTests(unittest.TestCase):
         risk = self.Risk()
         risk.evaluation_method = 'calculated'
         with mock.patch(
-            'euphorie.client.risk.evaluation_algorithm', return_value='french'
+            'euphorie.client.browser.risk.evaluation_algorithm',
+            return_value='french'
         ):
             self.assertEqual(view.calculatePriority(risk, {}), None)
 
     def test_calculatePriority_french(self):
         view = self.EvaluationView()
         with mock.patch(
-            'euphorie.client.risk.evaluation_algorithm', return_value='french'
+            'euphorie.client.browser.risk.evaluation_algorithm',
+            return_value='french'
         ):
             risk = self.Risk()
             risk.evaluation_method = 'calculated'
@@ -120,7 +123,8 @@ class EvaluationViewTests(unittest.TestCase):
         risk = self.Risk()
         risk.evaluation_method = 'calculated'
         with mock.patch(
-            'euphorie.client.risk.evaluation_algorithm', return_value='kinney'
+            'euphorie.client.browser.risk.evaluation_algorithm',
+            return_value='kinney'
         ):
             # Risks with weak severity are always low priority
             for freq in ["almost-never", "regular", "constant"]:
