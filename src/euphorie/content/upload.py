@@ -17,6 +17,7 @@ from .sector import ISector
 from .user import LoginField
 from .user import validLoginValue
 from Acquisition import aq_inner
+from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from plone.dexterity.utils import createContentInContainer
@@ -45,6 +46,7 @@ ProfileQuestionLocationFields = [
 
 NSMAP = {None: "http://xml.simplon.biz/euphorie/survey/1.0"}
 XMLNS = "{%s}" % NSMAP[None]
+COMMA_REPLACEMENT = "__COMMA__"
 
 
 def attr_unicode(node, attr, default=None):
@@ -329,6 +331,11 @@ class SurveyImporter(object):
         survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
+        if IToolCategory.providedBy(survey):
+            IToolCategory(survey).tool_category = ([
+                x.replace(COMMA_REPLACEMENT, ",").strip()
+                for x in el_unicode(node, 'tool-category').split(",")
+            ])
         for child in node.iterchildren():
             if child.tag == XMLNS + "profile-question":
                 self.ImportProfileQuestion(child, survey)
