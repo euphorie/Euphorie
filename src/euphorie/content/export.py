@@ -10,6 +10,7 @@ View name: @@export
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client.utils import HasText
+from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IKinneyEvaluation
@@ -17,6 +18,7 @@ from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
+from euphorie.content.upload import COMMA_REPLACEMENT
 from euphorie.content.upload import NSMAP
 from euphorie.content.upload import ProfileQuestionLocationFields
 from euphorie.content.utils import StripMarkup
@@ -91,6 +93,11 @@ class ExportSurvey(grok.View):
                 aq_parent(survey).evaluation_algorithm
         etree.SubElement(node, "evaluation-optional").text = \
                 "true" if survey.evaluation_optional else "false"
+        if IToolCategory.providedBy(survey):
+            etree.SubElement(node, "tool-category").text = ", ".join([
+                x.replace(",", COMMA_REPLACEMENT)
+                for x in IToolCategory(survey).tool_category
+            ])
 
         for child in survey.values():
             if IProfileQuestion.providedBy(child):

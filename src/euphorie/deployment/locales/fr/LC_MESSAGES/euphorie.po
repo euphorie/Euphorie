@@ -233,7 +233,7 @@ msgstr "Un risque ajouté existant a été mis à jour."
 
 #: euphorie/content/utils.py:82
 msgid "Are the measures that are selected above sufficient?"
-msgstr "<strong>Les mesures déjà en place sont elles suffisantes ?</strong>"
+msgstr "<strong>Le risque est-il maîtrisé ?</strong>"
 
 #: euphorie/client/risk.py:475
 msgid ""
@@ -4350,7 +4350,7 @@ msgstr "Oui"
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:84
 msgid "label_yes_sufficient"
-msgstr "Oui, le risque est maîtrisé"
+msgstr "Oui, les mesures en place sont suffisantes "
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:35
@@ -5099,7 +5099,7 @@ msgstr "Pertinence : ${percentage}"
 #: euphorie/content/utils.py:68
 msgid "select_add_existing_measure"
 msgstr ""
-"<strong>Si oui</strong>, sélectionner ou ajouter les mesures <strong>déjà en "
+"Sélectionner ou ajouter les mesures <strong>déjà en "
 "place</strong>."
 
 #. Default: "Not very severe"

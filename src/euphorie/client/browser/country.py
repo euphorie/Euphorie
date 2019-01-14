@@ -65,6 +65,24 @@ class Node(NodeMixin):
             reverse=True,
         )
 
+    @property
+    def survey_templates(self):
+        ''' Return all children that are survey_templates, sorted by title
+        '''
+        return sorted(
+            [item for item in self.children if item.type == 'survey_template'],
+            key=lambda x: x.title,
+        )
+
+    @property
+    def categories(self):
+        ''' Return all children that are categories, sorted by title
+        '''
+        return sorted(
+            [item for item in self.children if item.type == 'category'],
+            key=lambda x: x.title,
+        )
+
     def __repr__(self):
         args = [
             "%r" % self.separator.join(
@@ -216,6 +234,77 @@ class SessionsView(BrowserView):
         sessions = self.get_sessions()
         map(self.get_session_node, sessions)
         return self.sessions_root
+
+    # Here, we assemble the list of available tools for starting a new session
+
+    @property
+    @memoize
+    def survey_templates_root(self):
+        return Node(None, title='', type='root')
+
+    @memoize
+    def get_survey_category_node(self, category):
+        if category is None:
+            # Everything is grouped under the survey_templates_root node
+            return self.survey_templates_root
+        return Node(
+            category,
+            parent=self.get_survey_category_node(None),
+            title=category,
+            type='category'
+        )
+
+    @memoize
+    def get_survey_template_node(self, survey_item):
+        category, survey, id = survey_item
+        return Node(
+            survey,
+            parent=self.get_survey_category_node(category),
+            title=survey.title,
+            type='survey_template',
+            id=id,
+        )
+
+    @memoize
+    def get_survey_templates_tree_root(self):
+        survey_items = self.get_survey_templates()
+        map(self.get_survey_template_node, survey_items)
+        return self.survey_templates_root
+
+    @memoize
+    def get_survey_templates(self):
+        # This number might be higher than the actual amount of survey
+        # templates, since some might appear under more than one category.
+        self.template_count = 0
+        # this is a list of tuples of the form
+        # (category name, survey object, survey id)
+        survey_items = []
+        language = self.request.locale.id.language or ''
+        for sector in aq_inner(self.context).values():
+            if not IClientSector.providedBy(sector):
+                continue
+
+            for survey in sector.values():
+                if not ISurvey.providedBy(survey):
+                    continue
+                if getattr(survey, "preview", False):
+                    continue
+                if survey.language and survey.language != language and not \
+                        survey.language.strip().startswith(language):
+                    continue
+                if getattr(survey, 'obsolete', False):
+                    continue
+                categories = getattr(survey, 'tool_category', None)
+                id = "%s/%s" % (sector.id, survey.id)
+                if not isinstance(categories, list):
+                    categories = [categories]
+                for category in categories:
+                    survey_items.append((category, survey, id))
+                    self.template_count += 1
+        return sorted(
+            survey_items,
+            key=lambda x: (x[0], x[1].title)
+        )
 
     def _updateSurveys(self):
         self.surveys = []

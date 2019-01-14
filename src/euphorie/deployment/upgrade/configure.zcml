@@ -340,4 +340,12 @@
       import_profile="euphorie.deployment.upgrade:to_0021"
       />
 
+  <genericsetup:upgradeDepends
+      source="21"
+      destination="22"
+      profile="euphorie.deployment:default"
+      title="Add vocabulary for optional tool category"
+      import_profile="euphorie.deployment.upgrade:to_0022"
+      />
+
 </configure>

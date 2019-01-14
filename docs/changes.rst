@@ -7,6 +7,11 @@ Changelog
 - Bugfix for the `treeChanges` method that determines if the SQL data
   of the tree needs to be updated: we now also check if the risk_type
   was changed, since that info determines display behaviour.
+- Translation update FR
+- New behavior for Survey that makes it possible to assign one or more categories
+  to it. If set, the "new session" modal in the client will display that survey
+  under its categories
+
 
 10.0.4 (2018-12-11)
 -------------------

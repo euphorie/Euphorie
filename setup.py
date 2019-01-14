@@ -67,7 +67,7 @@ setup(
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
-        "NuPlone >=1.4.0",
+        "NuPlone >=1.6.0",
         "plone.uuid",
         "pyrtf-ng",
         "z3c.appconfig >=1.0",

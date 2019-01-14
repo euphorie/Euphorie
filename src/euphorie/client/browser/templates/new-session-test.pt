@@ -14,26 +14,49 @@
             <form method="post" action="${request/URL}" class="wizard-box" tal:condition="view/allow_guest_accounts">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body"
-              tal:define="surveys view/surveys;
+              tal:define="root view/get_survey_templates_tree_root;
                           threshold view/tools_threshold">
                 <article class="pat-rich">
                     <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools:</p>
                 </article>
-                <fieldset class="tool-list">
-                    <fieldset class="tools pat-checklist radio"
-                        tal:condition="python:len(surveys) <= threshold">
-                      <label class="tool" tal:repeat="survey view/surveys">
+
+              <fieldset class="tool-list" tal:condition="python:view.template_count <= threshold">
+                <metal:templates define-macro="templates">
+                  <tal:surveys define="surveys root/survey_templates">
+                    <fieldset class="tools pat-checklist radio">
+                      <label class="tool" tal:repeat="survey surveys">
                         <input type="radio" name="survey" value="${survey/id}">
                         <strong class="field name">${survey/title}</strong>
                       </label>
                     </fieldset>
-                    <fieldset class="tools"
-                     tal:condition="python:len(surveys) > threshold">
-                        <select name="survey">
-                            <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
-                        </select>
-                    </fieldset>
-                </fieldset>
+                  </tal:surveys>
+                </metal:templates>
+                <tal:categories repeat="child root/categories">
+                  <fieldset class="department">
+                    <legend>${child/title}</legend>
+                    <tal:survey define="root child">
+                      <metal:node use-macro="template/macros/templates" />
+                    </tal:survey>
+                  </fieldset>
+                </tal:categories>
+              </fieldset>
+
+              <label class="tool-list-many" tal:condition="python:view.template_count > threshold">
+                <select name="survey">
+                  <metal:templates define-macro="templates_many">
+                    <tal:surveys define="surveys root/survey_templates">
+                      <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
+                    </tal:surveys>
+                  </metal:templates>
+                  <tal:categories repeat="child root/categories">
+                    <optgroup label="${child/title}">
+                      <tal:survey define="root child">
+                        <metal:node use-macro="template/macros/templates_many" />
+                      </tal:survey>
+                    </optgroup>
+                  </tal:categories>
+                </select>
+              </label>
 
                 <p>
                     <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>
