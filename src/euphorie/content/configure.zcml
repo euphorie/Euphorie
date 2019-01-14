@@ -16,6 +16,7 @@
     <include package="plone.uuid" />
     <include package="htmllaundry" />
     <include package=".api" />
+    <include package=".behaviors" />
 
     <browser:resourceDirectory
         name="euphorie.static"
