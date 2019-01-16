@@ -9,6 +9,7 @@ from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
+from euphorie.content.utils import UNWANTED
 from json import loads
 from lxml import etree
 from pkg_resources import resource_filename
@@ -17,6 +18,17 @@ from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
+import re
+
+all_breaks = re.compile('(\n|\r)+')
+multi_spaces = re.compile('( )+')
+
+
+def _sanitize_html(txt):
+    txt = all_breaks.sub(" ", txt)
+    txt = UNWANTED.sub("", txt)
+    txt = multi_spaces.sub(" ", txt)
+    return txt
 
 
 def node_title(node, zodbnode):
@@ -90,12 +102,17 @@ class DocxCompiler(BaseOfficeCompiler):
         par_contents = self.template.paragraphs[1]
         par_contents.text = txt
         par_toc = self.template.paragraphs[2]
-        par_before_break = self.template.paragraphs[3]
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
             if not nodes:
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
         survey = request.survey
+
+        header = self.template.sections[0].header
+        header_table = header.tables[0]
+        header_table.cell(0, 0).paragraphs[0].text = data['title']
+        header_table.cell(0, 1).paragraphs[0].text = formatDate(
+            request, date.today())
 
         footer_txt = self.t(
             _("report_survey_revision",
@@ -103,11 +120,10 @@ class DocxCompiler(BaseOfficeCompiler):
                         u"of revision date ${date}.",
                 mapping={"title": survey.published[1],
                          "date": formatDate(request, survey.published[2])}))
-
-        par_contents.insert_paragraph_before(
-            formatDate(request, date.today()), style="Comment")
-        par_before_break.insert_paragraph_before("")
-        par_before_break.insert_paragraph_before(footer_txt, 'Footer')
+        footer = self.template.sections[0].footer
+        paragraph = footer.tables[0].cell(0, 0).paragraphs[0]
+        paragraph.style = "Footer"
+        paragraph.text = footer_txt
 
     def set_body(self, data, **extra):
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
@@ -193,7 +209,7 @@ class DocxCompiler(BaseOfficeCompiler):
                 else:
                     description = zodb_node.description
 
-                doc = HtmlToWord(description, doc)
+                doc = HtmlToWord(_sanitize_html(description), doc)
 
             if node.comment and node.comment.strip():
                 doc.add_paragraph(node.comment, style="Comment")
