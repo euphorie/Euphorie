@@ -82,7 +82,7 @@ msgstr ""
 
 #: euphorie/client/templates/measures_overview.pt:62
 msgid "(measures to be implemented in the coming months)"
-msgstr "(maatregelen geïmplementeerd in de komende maanden)"
+msgstr "(maatregelen geïmplementeerd in de komende 3 maanden)"
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml
 msgid "A folder for all documentation for a specific language."
@@ -5271,8 +5271,7 @@ msgstr "Toon/verberg menu"
 #: euphorie/client/report.py:809
 msgid "top5_risk_not_present"
 msgstr ""
-"Dit risico is niet aanwezig in uw organisatie, maar aangezien het een top-5 "
-"risico is het wel opgenomen in de rapportage."
+"Dit risico is nog niet beoordeeld maar aangezien het een top-5 risico is, is het hier wel opgenomen. Ga terug naar inventarisatie en vul ja, nee of n.v.t. in bij dit risico."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19
