@@ -84,12 +84,15 @@ class BaseOfficeCompiler(object):
 
 class DocxCompiler(BaseOfficeCompiler):
 
-    # The template is the compiled one taken from #15664
-    # The not compiled one has different styles
     _template_filename = resource_filename(
         'euphorie.client.docx',
         'templates/oira.docx',
     )
+    # In case of templates that contain additional content before the actual
+    # first page, this can be defined by providing offsets to the first
+    # paragraph for content and the first section for the header / footer.
+    paragraphs_offset = 0
+    sections_offset = 0
 
     def __init__(self, context, request=None):
         ''' Read the docx template and initialize some instance attributes
@@ -109,18 +112,18 @@ class DocxCompiler(BaseOfficeCompiler):
         ''' This fills the workspace activity run with some text
         '''
         request = self.request
-        self.template.paragraphs[0].text = data['heading']
+        self.template.paragraphs[self.paragraphs_offset].text = data['heading']
         txt = self.t(_("toc_header", default=u"Contents"))
-        par_contents = self.template.paragraphs[1]
+        par_contents = self.template.paragraphs[self.paragraphs_offset + 1]
         par_contents.text = txt
-        par_toc = self.template.paragraphs[2]
+        par_toc = self.template.paragraphs[self.paragraphs_offset + 2]
         for nodes, heading in zip(data["nodes"], data["section_headings"]):
             if not nodes:
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
         survey = request.survey
 
-        header = self.template.sections[0].header
+        header = self.template.sections[self.sections_offset].header
         header_table = header.tables[0]
         header_table.cell(0, 0).paragraphs[0].text = data['title']
         header_table.cell(0, 1).paragraphs[0].text = formatDate(
@@ -132,7 +135,7 @@ class DocxCompiler(BaseOfficeCompiler):
                         u"of revision date ${date}.",
                 mapping={"title": survey.published[1],
                          "date": formatDate(request, survey.published[2])}))
-        footer = self.template.sections[0].footer
+        footer = self.template.sections[self.sections_offset].footer
         paragraph = footer.tables[0].cell(0, 0).paragraphs[0]
         paragraph.style = "Footer"
         paragraph.text = footer_txt
@@ -348,6 +351,16 @@ class DocxCompiler(BaseOfficeCompiler):
         '''
         self.set_session_title_row(data)
         self.set_body(data)
+
+
+class DocxCompilerItaly(DocxCompiler):
+
+    _template_filename = resource_filename(
+        'euphorie.client.docx',
+        'templates/oira_it.docx',
+    )
+    paragraphs_offset = 29
+    sections_offset = 1
 
 
 class IdentificationReportCompiler(DocxCompiler):

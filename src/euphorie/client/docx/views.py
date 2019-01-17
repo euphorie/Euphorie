@@ -2,7 +2,9 @@
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import DocxCompiler
+from euphorie.client.docx.compiler import DocxCompilerItaly
 from euphorie.client.docx.compiler import IdentificationReportCompiler
+from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
 from plone.memoize.view import memoize
@@ -95,6 +97,11 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     _compiler = DocxCompiler
     _content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # noqa: E 501
+
+    def __init__(self, context, request):
+        super(ActionPlanDocxView, self).__init__(context, request)
+        if IItalyReportPhaseSkinLayer.providedBy(request):
+            self._compiler = DocxCompilerItaly
 
     def get_heading(self, title):
         heading = self.t(
