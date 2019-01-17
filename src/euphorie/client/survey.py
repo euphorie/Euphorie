@@ -195,7 +195,6 @@ class _StatusHelper(object):
 
     COUNTRIES_WITHOUT_HIGH_RISKS = [
         'it',
-        'nl',
     ]
 
     @property
