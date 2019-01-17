@@ -490,8 +490,8 @@ msgid "Format: Portable Document Format (.pdf)"
 msgstr "Snið: Portable Document Format (.pdf)"
 
 #: euphorie/client/templates/report_landing.pt:86
-msgid "Format: Rich Text Format (.rtf)"
-msgstr "Snið: Rich Text Format (.rtf)"
+msgid "label_format"
+msgstr "Snið"
 
 #: euphorie/content/behaviour/configure.zcml:26
 msgid "Generated unique ids are only unique within this context"

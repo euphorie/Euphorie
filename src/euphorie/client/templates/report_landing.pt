@@ -75,13 +75,7 @@
               <a class="pat-button bar download rtf icon-download piwik_download"
                  href="${python:view.url(name='oira-report.docx')}"
                  >
-              <tal:trans i18n:translate="label_report">Report</tal:trans> (new, in DOCX)</a>
-            </p>
-            <p class="button-bar">
-              <a class="pat-button bar download rtf icon-download piwik_download"
-                 href="${python:view.url(name='download')}"
-                 >
-              <tal:trans i18n:translate="label_report">Report</tal:trans> (old, in RTF)</a>
+              <tal:trans i18n:translate="label_report">Report</tal:trans></a>
             </p>
             <p class="explanation"
                i18n:translate=""
@@ -89,7 +83,7 @@
               Download the full report
             </p>
             <ul>
-              <li i18n:translate="">Format: Rich Text Format (.rtf)</li>
+              <li><tal:i18n i18n:translate="label_format">Format</tal:i18n>: Word (.docx)</li>
               <li i18n:translate="">Contains: all the information and input provided by you throughout the risk assessment process.</li>
             </ul>
 
