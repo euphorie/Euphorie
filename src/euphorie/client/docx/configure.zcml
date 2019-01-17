@@ -5,7 +5,7 @@
     >
 
   <browser:page
-      name="action_plan.docx"
+      name="oira-report.docx"
       for="euphorie.ghost.PathGhost"
       permission="zope2.View"
       class=".views.ActionPlanDocxView"

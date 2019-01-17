@@ -73,7 +73,7 @@
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download rtf icon-download piwik_download"
-                 href="${python:view.url(name='action_plan.docx')}"
+                 href="${python:view.url(name='oira-report.docx')}"
                  >
               <tal:trans i18n:translate="label_report">Report</tal:trans> (new, in DOCX)</a>
             </p>
