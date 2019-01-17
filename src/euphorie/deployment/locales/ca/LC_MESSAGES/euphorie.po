@@ -5373,8 +5373,8 @@ msgstr "Sí"
 #~ "Si us plau, escriviu la vostra adreça de correu electrònic. Us enviarem "
 #~ "les dades d'inici de sessió."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Referències legals i de la política"
+msgid "header_legal_references"
+msgstr "Referències legals i de la política"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Recordatori de contrasenya"

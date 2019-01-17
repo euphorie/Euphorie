@@ -5292,8 +5292,8 @@ msgstr "Ano"
 #~ msgid "description_password_reminder"
 #~ msgstr "Zadejte svoji e-mailovou adresu. Zašleme vám přihlašovací údaje."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Odkazy na právní předpisy a postupy"
+msgid "header_legal_references"
+msgstr "Odkazy na právní předpisy a postupy"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Připomenutí hesla"

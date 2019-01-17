@@ -5374,8 +5374,8 @@ msgstr "Sì"
 #~ msgid "Session name"
 #~ msgstr "nome della sessione"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Riferimenti normativi"
+msgid "header_legal_references"
+msgstr "Riferimenti normativi"
 
 #~ msgid "session_title_tooltip"
 #~ msgstr ""

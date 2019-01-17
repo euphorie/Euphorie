@@ -5232,8 +5232,8 @@ msgstr ""
 #~ "Vinsamlega sláðu inn netfangið þitt. Innskráningarupplýsingarnar þínar "
 #~ "verða sendar til þín."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Lög og reglugerðir"
+msgid "header_legal_references"
+msgstr "Lög og reglugerðir"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Fá sent lykilorð"

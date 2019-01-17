@@ -5974,9 +5974,8 @@ msgstr "Kyllä"
 #~ "Anna sähköpostiosoitteesi. Kirjautumistiedot lähetetään antamaasi "
 #~ "osoitteeseen."
 
-#, fuzzy
-#~ msgid "header_legal_references"
-#~ msgstr "Oikeudelliset ja toimintaperiaatteita koskevat viitteet"
+msgid "header_legal_references"
+msgstr "Oikeudelliset ja toimintaperiaatteita koskevat viitteet"
 
 #, fuzzy
 #~ msgid "header_password_reminder"

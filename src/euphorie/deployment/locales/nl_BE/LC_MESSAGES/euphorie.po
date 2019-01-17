@@ -5359,8 +5359,8 @@ msgstr "Ja"
 #~ msgid "Session name"
 #~ msgstr "Sessie naam"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Wettelijke bepalingen en beleidsreferenties"
+msgid "header_legal_references"
+msgstr "Wettelijke bepalingen en beleidsreferenties"
 
 #~ msgid "session_title_tooltip"
 #~ msgstr ""

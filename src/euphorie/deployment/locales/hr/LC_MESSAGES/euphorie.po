@@ -5321,8 +5321,8 @@ msgstr "Da"
 #~ msgstr ""
 #~ "Unesite adresu svoje e-pošte. Pojedinosti za prijavu primit ćete e-poštom."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Propisi i dodatne informacije"
+msgid "header_legal_references"
+msgstr "Propisi i dodatne informacije"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Podsjetnik za lozinku"

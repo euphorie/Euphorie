@@ -5392,8 +5392,8 @@ msgstr "Да"
 #~ "Въведете адрес на електронна поща. Данните за  достъп ще ви бъдат "
 #~ "изпратени."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Правни източници и източници от политики"
+msgid "header_legal_references"
+msgstr "Правни източници и източници от политики"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Напомняне за паролата"

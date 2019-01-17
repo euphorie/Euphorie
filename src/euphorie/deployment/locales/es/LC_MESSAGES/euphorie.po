@@ -5379,8 +5379,8 @@ msgstr "Sí"
 #~ "Introduzca su dirección de correo electrónico. Se le enviarán los datos "
 #~ "de acceso."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Referencias legales y de políticas"
+msgid "header_legal_references"
+msgstr "Referencias legales y de políticas"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Recordatorio de contraseña"

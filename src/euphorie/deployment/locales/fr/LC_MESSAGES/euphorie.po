@@ -5423,8 +5423,8 @@ msgstr "Oui"
 #~ msgid "Session name"
 #~ msgstr "Nom de la session"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Références juridiques et techniques"
+msgid "header_legal_references"
+msgstr "Références juridiques et techniques"
 
 #~ msgid "session_title_tooltip"
 #~ msgstr ""

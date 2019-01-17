@@ -5316,8 +5316,8 @@ msgstr "Taip"
 #~ msgstr ""
 #~ "Įrašykite savo e. pašto adresą. Prisijungimo duomenis gausite e. paštu."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Nuorodos į teisės aktus"
+msgid "header_legal_references"
+msgstr "Nuorodos į teisės aktus"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Slaptažodžio priminimas"

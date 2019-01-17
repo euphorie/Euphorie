@@ -5158,8 +5158,8 @@ msgstr "Áno"
 #~ msgid "Unknown email address"
 #~ msgstr "Neznáma e-mailová adresa"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Právne a politické odkazy"
+msgid "header_legal_references"
+msgstr "Právne a politické odkazy"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Pripomienka hesla"

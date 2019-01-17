@@ -5303,8 +5303,8 @@ msgstr "Da"
 #~ msgid "description_password_reminder"
 #~ msgstr "Vnesite svoj e-naslov. Podatki za prijavo vam bodo poslani."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Zakonodaja in drugi viri"
+msgid "header_legal_references"
+msgstr "Zakonodaja in drugi viri"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Opomnik za geslo"

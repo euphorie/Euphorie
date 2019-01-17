@@ -5313,8 +5313,8 @@ msgstr "Jā"
 #~ "Lūdzu, ievadiet savu e-pasta adresi. Jums nosūtīs jūsu reģistrācijas "
 #~ "informāciju."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Atsauces uz normatīvajiem aktiem"
+msgid "header_legal_references"
+msgstr "Atsauces uz normatīvajiem aktiem"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Paroles atgādinājums"

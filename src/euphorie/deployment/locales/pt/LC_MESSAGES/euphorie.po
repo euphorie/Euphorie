@@ -5351,8 +5351,8 @@ msgstr "Sim"
 #~ "Insira o seu endereço de correio eletrónico. Os seu dados de acesso ser-"
 #~ "lhe-ão enviados."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Referências legais e normativas"
+msgid "header_legal_references"
+msgstr "Referências legais e normativas"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Lembrete da palavra-passe"

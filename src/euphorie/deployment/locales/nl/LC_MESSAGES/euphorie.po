@@ -5388,8 +5388,8 @@ msgstr "Ja"
 #~ msgstr ""
 #~ "Voer uw e-mailadres in. Uw logingegevens zullen naar u worden toegezonden."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Wet- en regelgeving"
+msgid "header_legal_references"
+msgstr "Wet- en regelgeving"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Wachtwoord herinnering"

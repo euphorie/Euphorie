@@ -5382,8 +5382,8 @@ msgstr "Iva"
 #~ "Jekk jogħġbok daħħal l-indirizz tal-email tiegħek. Id-dettalji tal-"
 #~ "illoggjar tiegħek ser jintbagħtulek."
 
-#~ msgid "header_legal_references"
-#~ msgstr "Referenzi legali u tal-politika"
+msgid "header_legal_references"
+msgstr "Referenzi legali u tal-politika"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Tfakkira tal-password"

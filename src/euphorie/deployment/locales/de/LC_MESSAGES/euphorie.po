@@ -5434,8 +5434,8 @@ msgstr "Ja"
 #~ msgid "Session name"
 #~ msgstr "Name der Sitzung"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Rechtliche und politische Referenzen"
+msgid "header_legal_references"
+msgstr "Rechtliche und politische Referenzen"
 
 #~ msgid "session_title_tooltip"
 #~ msgstr ""
