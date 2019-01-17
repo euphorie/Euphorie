@@ -19,6 +19,7 @@ from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
 import re
+from plone.memoize.view import memoize
 
 all_breaks = re.compile('(\n|\r)+')
 multi_spaces = re.compile('( )+')
@@ -29,6 +30,12 @@ def _sanitize_html(txt):
     txt = UNWANTED.sub("", txt)
     txt = multi_spaces.sub(" ", txt)
     return txt
+
+
+def delete_paragraph(paragraph):
+    p = paragraph._element
+    p.getparent().remove(p)
+    p._p = p._element = None
 
 
 def node_title(node, zodbnode):
@@ -56,14 +63,19 @@ class BaseOfficeCompiler(object):
         return translate(txt, context=self.request)
 
     @property
-    def title_custom_risks(self):
+    @memoize
+    def lang(self):
         lang = getattr(self.request, 'LANGUAGE', 'en')
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return lang
+
+    @property
+    def title_custom_risks(self):
         return translate(_(
             'title_other_risks', default=u'Added risks (by you)'),
-            target_language=lang)
+            target_language=self.lang)
 
     @property
     def session(self):
@@ -181,7 +193,7 @@ class DocxCompiler(BaseOfficeCompiler):
                 if msg:
                     doc.add_paragraph(self.t(msg), style="RiskPriority")
 
-            if node.priority:
+            if node.priority and extra.get('show_priority', True):
                 if node.priority == "low":
                     level = _("risk_priority_low", default=u"low")
                 elif node.priority == "medium":
@@ -214,10 +226,23 @@ class DocxCompiler(BaseOfficeCompiler):
             if node.comment and node.comment.strip():
                 doc.add_paragraph(node.comment, style="Comment")
 
-            skip_planned_measures = False
+            if not extra.get('skip_legal_references', True):
+                legal_reference = getattr(zodb_node, "legal_reference", None)
+                if legal_reference and legal_reference.strip():
+                    doc.add_paragraph()
+                    legal_heading = translate(_(
+                                'header_legal_references',
+                                default=u'Legal and policy references'),
+                                target_language=self.lang,
+                    )
+                    doc.add_paragraph(legal_heading, style="Legal Heading")
+                    doc = HtmlToWord(_sanitize_html(legal_reference), doc)
+
+            skip_planned_measures = extra.get('skip_planned_measures', False)
             if (
                 self.use_existing_measures and
-                self.tool_type in self.tti.types_existing_measures
+                self.tool_type in self.tti.types_existing_measures and
+                not extra.get('skip_existing_measures', False)
             ):
                 if IItalyReportPhaseSkinLayer.providedBy(self.request):
                     skip_planned_measures = True
@@ -323,3 +348,46 @@ class DocxCompiler(BaseOfficeCompiler):
         '''
         self.set_session_title_row(data)
         self.set_body(data)
+
+
+class IdentificationReportCompiler(DocxCompiler):
+
+    def set_session_title_row(self, data):
+
+        request = self.request
+        survey = request.survey
+
+        # Remove existing paragraphs
+        for paragraph in self.template.paragraphs:
+            delete_paragraph(paragraph)
+
+        header = self.template.sections[0].header
+        header_table = header.tables[0]
+        header_table.cell(0, 0).paragraphs[0].text = data['title']
+        header_table.cell(0, 1).paragraphs[0].text = formatDate(
+            request, date.today())
+
+        footer_txt = self.t(
+            _("report_identification_revision",
+                default=u"This document was based on the OiRA Tool '${title}' "
+                        u"of revision date ${date}.",
+                mapping={"title": survey.published[1],
+                         "date": formatDate(request, survey.published[2])}))
+
+        footer = self.template.sections[0].footer
+        paragraph = footer.tables[0].cell(0, 0).paragraphs[0]
+        paragraph.style = "Footer"
+        paragraph.text = footer_txt
+
+    def compile(self, data):
+        '''
+        '''
+        self.set_session_title_row(data)
+        self.set_body(
+            data,
+            show_priority=False,
+            always_print_description=True,
+            skip_legal_references=False,
+            skip_existing_measures=True,
+            skip_planned_measures=True,
+        )

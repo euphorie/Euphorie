@@ -11,4 +11,11 @@
       class=".views.ActionPlanDocxView"
       />
 
+  <browser:page
+      name="identification-report.docx"
+      for="euphorie.ghost.PathGhost"
+      permission="zope2.View"
+      class=".views.IdentificationReportDocxView"
+      />
+
 </configure>

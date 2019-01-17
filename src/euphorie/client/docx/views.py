@@ -2,6 +2,7 @@
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import DocxCompiler
+from euphorie.client.docx.compiler import IdentificationReportCompiler
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
 from plone.memoize.view import memoize
@@ -170,5 +171,47 @@ class ActionPlanDocxView(OfficeDocumentView):
             default=u"Action plan ${title}",
             mapping={'title': self.session.title}
         )
+        filename = translate(filename, context=self.request)
+        return filename.encode('utf8') + '.docx'
+
+
+class IdentificationReportDocxView(OfficeDocumentView):
+    ''' Generate a report based on a basic docx template
+    '''
+
+    _compiler = IdentificationReportCompiler
+    _content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # noqa: E 501
+
+    def get_session_nodes(self):
+        """ Return an ordered list of all relevant tree items for the current
+            survey.
+        """
+        query = Session.query(model.SurveyTreeItem).filter(
+            model.SurveyTreeItem.session == self.session).filter(
+                sql.not_(model.SKIPPED_PARENTS)
+            ).order_by(model.SurveyTreeItem.path)
+
+        return query.all()
+
+    def get_data(self, for_download=False):
+        ''' Gets the data structure in a format suitable for `DocxCompiler`
+        '''
+
+        data = {
+            'title': self.session.title,
+            'heading': '',
+            'section_headings': [self.session.title],
+            'nodes': [self.get_session_nodes()],
+        }
+        return data
+
+    @property
+    def _filename(self):
+        ''' Return the document filename
+        '''
+        filename = _(
+            "filename_report_identification",
+            default=u"Identification report ${title}",
+            mapping=dict(title=self.session.title))
         filename = translate(filename, context=self.request)
         return filename.encode('utf8') + '.docx'
