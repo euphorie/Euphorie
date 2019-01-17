@@ -7,6 +7,7 @@ from lxml import etree
 
 def add_hyperlink_into_run(paragraph, run, url):
     runs = paragraph.runs
+    i = 0
     for i in range(len(runs)):
         if runs[i].text == run.text:
             break
