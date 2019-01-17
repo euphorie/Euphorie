@@ -459,7 +459,7 @@ class SessionBrowserNavigator(SessionsView):
 
         ordered_tools = OrderedDict()
         for tool in sorted(
-            [x for x in tools.keys() if x], key=lambda s: s.title
+            [x for x in tools.keys() if x], key=lambda s: s.title.lower()
         ):
             ordered_tools[tool] = sorted(
                 tools[tool], key=lambda s: s.modified, reverse=True)
