@@ -334,7 +334,7 @@ class SurveyImporter(object):
         if IToolCategory.providedBy(survey):
             IToolCategory(survey).tool_category = ([
                 x.replace(COMMA_REPLACEMENT, ",").strip()
-                for x in el_unicode(node, 'tool-category').split(",")
+                for x in el_unicode(node, 'tool-category', '').split(",")
             ])
         for child in node.iterchildren():
             if child.tag == XMLNS + "profile-question":
