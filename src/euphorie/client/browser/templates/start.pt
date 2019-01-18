@@ -103,7 +103,7 @@
                    style="cursor: pointer"
               />
             </a>
-            <figcaption tal:condition="context/external_site_name"
+            <figcaption tal:condition="context/external_site_name | nothing"
                         i18n:translate=""
             >
             This OiRA tool was offered to you by
