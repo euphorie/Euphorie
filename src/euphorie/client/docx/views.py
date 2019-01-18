@@ -107,7 +107,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         heading = self.t(
             _(
                 "header_oira_report_download",
-                default=u"OiRA Report: \"${title}\"",
+                default=u"OiRA Report: “${title}”",
                 mapping=dict(title=title)
             ),
         )
