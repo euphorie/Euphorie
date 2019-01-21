@@ -298,6 +298,8 @@ class SessionsView(BrowserView):
                 id = "%s/%s" % (sector.id, survey.id)
                 if not isinstance(categories, list):
                     categories = [categories]
+                if not categories:
+                    categories = [None]
                 for category in categories:
                     survey_items.append((category, survey, id))
                     self.template_count += 1
