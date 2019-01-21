@@ -32,6 +32,11 @@ def _sanitize_html(txt):
     return txt
 
 
+def _simple_breaks(txt):
+    txt = all_breaks.sub('\n', txt)
+    return txt
+
+
 def delete_paragraph(paragraph):
     p = paragraph._element
     p.getparent().remove(p)
@@ -329,12 +334,12 @@ class DocxCompiler(BaseOfficeCompiler):
 
         m = measure
         values = [
-            m.action_plan,
+            _simple_breaks(m.action_plan or ""),
         ]
         if not implemented:
             values = values + [
-                m.prevention_plan,
-                m.requirements,
+                _simple_breaks(m.prevention_plan or ""),
+                _simple_breaks(m.requirements or ""),
                 m.responsible,
                 m.budget and str(m.budget) or '',
                 m.planning_start and formatDate(
