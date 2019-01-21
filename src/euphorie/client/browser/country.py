@@ -71,7 +71,7 @@ class Node(NodeMixin):
         '''
         return sorted(
             [item for item in self.children if item.type == 'survey_template'],
-            key=lambda x: x.title,
+            key=lambda x: x.title.lower(),
         )
 
     @property
