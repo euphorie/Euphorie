@@ -2,6 +2,8 @@
 from collections import OrderedDict
 from datetime import date
 from docx.api import Document
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
@@ -13,13 +15,13 @@ from euphorie.content.utils import UNWANTED
 from json import loads
 from lxml import etree
 from pkg_resources import resource_filename
+from plone.memoize.view import memoize
 from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
 import re
-from plone.memoize.view import memoize
 
 all_breaks = re.compile('(\n|\r)+')
 multi_spaces = re.compile('( )+')
@@ -366,6 +368,86 @@ class DocxCompilerItaly(DocxCompiler):
     )
     paragraphs_offset = 29
     sections_offset = 1
+
+
+class DocxCompilerFrance(DocxCompiler):
+    _template_filename = resource_filename(
+        'euphorie.client.docx',
+        'templates/oira_fr.docx',
+    )
+
+    def __init__(self, context, request=None):
+        super(DocxCompilerFrance, self).__init__(context, request)
+
+        modules_table = self.get_modules_table()
+        # Finally clean up the modules table
+        # map(self.remove_row, modules_table.rows[1:])
+
+    def remove_row(self, row):
+        tbl = row._parent._parent
+        tr = row._tr
+        tbl._element.remove(tr)
+
+    @memoize
+    def get_modules_table(self):
+        ''' Returns the first table of the template,
+        which contains the modules
+        '''
+        return self.template.tables[0]
+
+    def set_session_title_row(self, data):
+        ''' This fills the workspace activity run with some text
+
+        The run is empirically determined by studying the template.
+        This is in a paragraph structure before the first table.
+        Tou may want to change this if you change the template.
+        Be aware that the paragraph is the 2nd only
+        after this class is initialized.
+        We have 2 fields to fill, all following the same principle
+        '''
+        lookup = {
+            0: "title",
+            4: "today",
+        }
+        data['today'] = formatDate(self.request, date.today())
+
+        for num, fname in lookup.items():
+            _r = self.template.paragraphs[1].runs[num]
+            # This run should be set in two paragraphs (which appear clones)
+            # One is inside a mc:Choice and the other is inside a mc:Fallback
+            for subpar in _r._element.findall('.//%s' % qn('w:p')):
+                subpar.clear_content()
+                subrun = subpar.add_r()
+                subrun.text = data.get(fname, '') or ''
+                subrpr = subrun.get_or_add_rPr()
+                subrpr.get_or_add_rFonts()
+                subrpr.get_or_add_rFonts().set(qn('w:ascii'), 'CorpoS')
+                subrpr.get_or_add_rFonts().set(qn('w:hAnsi'), 'CorpoS')
+                subrpr.get_or_add_sz().set(qn('w:val'), '32')
+                szCs = OxmlElement('w:szCs')
+                szCs.attrib[qn('w:val')] = '16'
+                subrpr.append(szCs)
+
+        header = self.template.sections[0].header
+        header.paragraphs[1].text = (
+            u"{} - Evaluation des risques professionnels".format(
+                data['survey_title'])
+        )
+
+    def compile(self, data):
+        ''' Compile the template using data
+
+        We need to compile two areas of the template:
+
+        - the paragraph above the first table (containing the session title)
+        - the first table (containing all the modules)
+
+        data is a dict like object.
+        Check the file .../daimler/oira/tests/mocked_data.py
+        to understand its format
+        '''
+        self.set_session_title_row(data)
+        # self.set_modules_rows(data)
 
 
 class IdentificationReportCompiler(DocxCompiler):

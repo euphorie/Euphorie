@@ -17,6 +17,11 @@ from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
 from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
+from euphorie.client.interfaces import IFranceActionPlanPhaseSkinLayer
+from euphorie.client.interfaces import IFranceCustomizationPhaseSkinLayer
+from euphorie.client.interfaces import IFranceEvaluationPhaseSkinLayer
+from euphorie.client.interfaces import IFranceIdentificationPhaseSkinLayer
+from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IItalyCustomizationPhaseSkinLayer
@@ -735,7 +740,14 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             'evaluation': IItalyEvaluationPhaseSkinLayer,
             'actionplan': IItalyActionPlanPhaseSkinLayer,
             'report': IItalyReportPhaseSkinLayer,
-        }
+        },
+        'fr': {
+            'identification': IFranceIdentificationPhaseSkinLayer,
+            'customization': IFranceCustomizationPhaseSkinLayer,
+            'evaluation': IFranceEvaluationPhaseSkinLayer,
+            'actionplan': IFranceActionPlanPhaseSkinLayer,
+            'report': IFranceReportPhaseSkinLayer,
+        },
     }
 
     def hasValidSession(self, request):

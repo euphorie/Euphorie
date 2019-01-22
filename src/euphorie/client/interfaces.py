@@ -48,3 +48,21 @@ class IItalyActionPlanPhaseSkinLayer(IItaly, IActionPlanPhaseSkinLayer):
 class IItalyReportPhaseSkinLayer(IItaly, IReportPhaseSkinLayer):
     """Skin layer to mark the country Italy"""
 
+
+class IFrance(Interface):
+    """Skin layer to mark the country France"""
+
+class IFranceIdentificationPhaseSkinLayer(IFrance, IIdentificationPhaseSkinLayer):
+    """Skin layer to mark the country France"""
+
+class IFranceCustomizationPhaseSkinLayer(IFrance, ICustomizationPhaseSkinLayer):
+    """Skin layer to mark the country France"""
+
+class IFranceEvaluationPhaseSkinLayer(IFrance, IEvaluationPhaseSkinLayer):
+    """Skin layer to mark the country France"""
+
+class IFranceActionPlanPhaseSkinLayer(IFrance, IActionPlanPhaseSkinLayer):
+    """Skin layer to mark the country France"""
+
+class IFranceReportPhaseSkinLayer(IFrance, IReportPhaseSkinLayer):
+    """Skin layer to mark the country France"""

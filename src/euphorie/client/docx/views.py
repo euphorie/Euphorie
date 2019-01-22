@@ -2,8 +2,10 @@
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import DocxCompiler
+from euphorie.client.docx.compiler import DocxCompilerFrance
 from euphorie.client.docx.compiler import DocxCompilerItaly
 from euphorie.client.docx.compiler import IdentificationReportCompiler
+from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
@@ -102,6 +104,8 @@ class ActionPlanDocxView(OfficeDocumentView):
         super(ActionPlanDocxView, self).__init__(context, request)
         if IItalyReportPhaseSkinLayer.providedBy(request):
             self._compiler = DocxCompilerItaly
+        elif IFranceReportPhaseSkinLayer.providedBy(request):
+            self._compiler = DocxCompilerFrance
 
     def get_heading(self, title):
         heading = self.t(
@@ -166,7 +170,9 @@ class ActionPlanDocxView(OfficeDocumentView):
             'heading': self.get_heading(self.session.title),
             'section_headings': self.get_section_headings(),
             'nodes': self.get_sorted_nodes(),
+            'survey_title': self.request.survey.title,
         }
+
         return data
 
     @property
