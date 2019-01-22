@@ -2380,7 +2380,7 @@ msgstr " Risku pārskata piemērs PDF formātā "
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Pilna novērtējuma  piemērs bagātinātā teksta formātā (.rtf)"
+msgstr "Pilna novērtējuma piemērs Word formātā (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

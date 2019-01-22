@@ -2423,7 +2423,7 @@ msgstr "Eżempju ta’ rapport ta’ ħarsa ġenerali tal-miżuri f’format PDF
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Eżempju ta' rapport sħiħ f'rich text format (.rtf)"
+msgstr "Eżempju ta' rapport sħiħ f'Word format (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

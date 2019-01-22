@@ -2402,7 +2402,7 @@ msgstr "Voorbeeld van een maatregelen overzichtsrapport in PDF formaat"
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Voorbeeld van een volledig verslag in rich text format (.rtf)."
+msgstr "Voorbeeld van een volledig verslag in Word format (.docx)."
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

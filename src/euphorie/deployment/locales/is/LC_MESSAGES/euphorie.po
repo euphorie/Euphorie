@@ -2324,7 +2324,7 @@ msgstr "Yfirlit í skýrslunni um úrbætur áPDF formi"
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Dæmi um fullbúna skýrslu í rich text format (.rtf)"
+msgstr "Dæmi um fullbúna skýrslu í Word format (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

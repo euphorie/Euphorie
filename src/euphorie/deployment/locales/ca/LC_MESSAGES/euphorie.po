@@ -2412,7 +2412,7 @@ msgstr "Exemple d’informe resum de mesures en format PDF"
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Exemple d'un informe complet en format de text enriquit (.rtf)"
+msgstr "Exemple d'un informe complet en format de Word (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

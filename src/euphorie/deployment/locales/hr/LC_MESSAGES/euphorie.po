@@ -2384,7 +2384,7 @@ msgstr "Primjer izvješća s pregledom mjera u PDF obliku"
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Primjer potpunog izvješća u obliku obogaćenog teksta (.rtf)"
+msgstr "Primjer potpunog izvješća u obliku Word (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

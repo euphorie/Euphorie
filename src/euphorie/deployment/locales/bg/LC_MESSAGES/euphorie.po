@@ -2423,7 +2423,7 @@ msgstr "Примерен доклад с обзор на мерките във �
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Примерен пълен доклад във формат rich text (.rtf)"
+msgstr "Примерен пълен доклад във формат Word (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

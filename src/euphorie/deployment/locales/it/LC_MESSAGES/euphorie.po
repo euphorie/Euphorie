@@ -2411,7 +2411,7 @@ msgstr ""
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Esempio di un report completo in formato Rich Text Format (.rtf)"
+msgstr "Esempio di un report completo in formato Word (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58

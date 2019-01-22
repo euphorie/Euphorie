@@ -2537,25 +2537,21 @@ msgstr "Arviointi"
 
 #. Default: "Example of a measures overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:66
-#, fuzzy
 msgid "header_example_report_measures"
 msgstr "Esimerkki toimenpiteiden yhteenvetoraportista PDF-muodossa"
 
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
-#, fuzzy
 msgid "header_example_report_rft"
-msgstr "Esimerkki koko raportista rich text format -muodossa (.rtf)."
+msgstr "Esimerkki koko raportista Word format -muodossa (.docx)."
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58
-#, fuzzy
 msgid "header_example_report_risks"
 msgstr "Esimerkki riskien yhteenvetoraportista PDF-muodossa"
 
 #. Default: "Example of an action plan in Office Open XML Workbook format (.xlsx)"
 #: euphorie/client/browser/templates/register.pt:43
-#, fuzzy
 msgid "header_example_report_xlsx"
 msgstr ""
 "Esimerkki toimintasuunnitelmasta Office Open XML Workbook -muodossa (.xlsx)."

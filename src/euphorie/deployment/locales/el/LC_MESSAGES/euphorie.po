@@ -2481,7 +2481,7 @@ msgstr "Παράδειγμα της έκθεσης επισκόπησης  τω�
 msgid "header_example_report_rft"
 msgstr ""
 "Παράδειγμα πλήρους έκθεσης Εκτίμησης Κινδύνου σε μορφή εμπλουτισμένου "
-"κειμένου (.rtf)"
+"κειμένου (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58
