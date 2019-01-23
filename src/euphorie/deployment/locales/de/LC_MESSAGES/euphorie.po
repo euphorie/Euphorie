@@ -504,8 +504,8 @@ msgid "Format: Portable Document Format (.pdf)"
 msgstr "Format: Portable Document Format (.pdf)"
 
 #: euphorie/client/templates/report_landing.pt:86
-msgid "Format: Rich Text Format (.rtf)"
-msgstr "Format: Rich Text Format (.rtf)"
+msgid "label_format"
+msgstr "Format"
 
 #: euphorie/content/behaviour/configure.zcml:26
 msgid "Generated unique ids are only unique within this context"
@@ -2440,7 +2440,7 @@ msgstr "Beispiel für den Überblick der Maßnahmen in PDF Format"
 #. Default: "Example of a full report in rich text format (.rtf)"
 #: euphorie/client/browser/templates/register.pt:35
 msgid "header_example_report_rft"
-msgstr "Beispiel für einen kompletten Bericht im Rich Text Format (.rtf)"
+msgstr "Beispiel für einen kompletten Bericht im Word Format (.docx)"
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:58
@@ -5434,8 +5434,8 @@ msgstr "Ja"
 #~ msgid "Session name"
 #~ msgstr "Name der Sitzung"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Rechtliche und politische Referenzen"
+msgid "header_legal_references"
+msgstr "Rechtliche und politische Referenzen"
 
 #~ msgid "session_title_tooltip"
 #~ msgstr ""

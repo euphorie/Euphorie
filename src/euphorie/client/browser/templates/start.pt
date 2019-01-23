@@ -79,6 +79,7 @@
         <dl class="pat-grid-list"
             tal:condition="not:can_edit"
         >
+        <metal:widgets define-slot="widgets">
           <tal:for repeat="widgetid view/widgets">
             <dt tal:define="
                   widget nocall:view/widgets/?widgetid;
@@ -88,22 +89,24 @@
             </dt>
             <dd>${session/?widgetid}</dd>
           </tal:for>
+        </metal:widgets>
         </dl>
 
         <article class="rich">
           <figure class="postit external-reference"
                   tal:condition="context/external_site_logo | nothing"
           >
-            <a href="context/external_site_url | nothing"
+            <a href="${context/external_site_url | nothing}"
                target="_blank"
                tal:omit-tag="not:context/external_site_url | nothing"
             >
-              <img alt=""
-                   src="${context/absolute_url}/@@display-file/external_site_logo"
-                   style="cursor: pointer"
-              />
+              <tal:img define="
+                scales context/@@images;
+                scale python: scales.scale('external_site_logo', scale='large')">
+                <img src="${scale/url}" />
+              </tal:img>
             </a>
-            <figcaption tal:condition="context/external_site_name"
+            <figcaption tal:condition="context/external_site_name | nothing"
                         i18n:translate=""
             >
             This OiRA tool was offered to you by

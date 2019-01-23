@@ -56,6 +56,7 @@ setup(
         "plone.memoize",
         "plone.namedfile[blobs]",
         "plone.api",
+        "python-docx",
         "repoze.formapi >=0.4.2",
         "setuptools",
         "simplejson",

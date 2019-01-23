@@ -5127,8 +5127,8 @@ msgstr "Ja"
 #~ msgid "Unknown email address"
 #~ msgstr "Okänd e-postadress"
 
-#~ msgid "header_legal_references"
-#~ msgstr "rättsliga och politiska referenser"
+msgid "header_legal_references"
+msgstr "Rättsliga och politiska referenser"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Glömt lösenord"

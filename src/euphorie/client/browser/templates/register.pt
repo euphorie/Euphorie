@@ -32,9 +32,9 @@
         ">
           <a href="${rtf_img_full}" class="four columns push-two">
               <figure>
-                  <img src="${rtf_img_thumb}" alt="Example of a full report in rich text format (.rtf)" title="Example of a full report in rich text format (.rtf)" i18n:attributes="title header_example_report_rft; alt header_example_report_rft" />
+                  <img src="${rtf_img_thumb}" alt="Example of a full report in Word format (.docx)" title="Example of a full report in Word format (.docx)" i18n:attributes="title header_example_report_rft; alt header_example_report_rft" />
                   <figcaption i18n:translate="header_example_report_rft">
-                      Example of a full report in rich text format (.rtf)
+                      Example of a full report in Word format (.docx)
                   </figcaption>
               </figure>
           </a>

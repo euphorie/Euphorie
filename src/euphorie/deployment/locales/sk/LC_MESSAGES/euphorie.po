@@ -492,8 +492,8 @@ msgid "Format: Portable Document Format (.pdf)"
 msgstr ""
 
 #: euphorie/client/templates/report_landing.pt:86
-msgid "Format: Rich Text Format (.rtf)"
-msgstr "Formát: Bohatý textový formát (.rtf)"
+msgid "label_format"
+msgstr "Formát"
 
 #: euphorie/content/behaviour/configure.zcml:26
 msgid "Generated unique ids are only unique within this context"
@@ -5158,8 +5158,8 @@ msgstr "Áno"
 #~ msgid "Unknown email address"
 #~ msgstr "Neznáma e-mailová adresa"
 
-#~ msgid "header_legal_references"
-#~ msgstr "Právne a politické odkazy"
+msgid "header_legal_references"
+msgstr "Právne a politické odkazy"
 
 #~ msgid "header_password_reminder"
 #~ msgstr "Pripomienka hesla"

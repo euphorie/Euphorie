@@ -1,0 +1,121 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-12-10 15:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"Generated-By: Babel 0.9.5\n"
+
+#. Default: "Type of OiRA Tool"
+#: euphorie/content/survey.py:107
+#: euphorie/content/templates/survey_view.pt:27
+msgid "label_tool_type"
+msgstr "Tip ta’ Għodda OiRA"
+
+#: euphorie/content/utils.py:51
+msgid "Classic OiRA Tool with positive and negative statements."
+msgstr "L-għodda klassika OiRA b’dikjarazzjonijiet pożittivi u negattivi."
+
+#: euphorie/content/utils.py:64
+msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
+msgstr "L-Għodda OiRA fejn jistgħu jiġu definiti l- “Miżuri li huma diġà fis-seħħ”."
+
+#. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
+#: euphorie/content/survey.py:110
+msgid "description_tool_type"
+msgstr "Din l-għażla tiddetermina liema varjant tal-Għodda OiRA se jinħoloq. Jekk m’intix ċert, agħżel “Classic”."
+
+#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#: euphorie/content/utils.py:68
+msgid "select_add_existing_measure"
+msgstr "Agħżel jew żid kwalunkwe miżura diġà fis-seħħ."
+
+#: euphorie/content/utils.py:82
+msgid "Are the measures that are selected above sufficient?"
+msgstr "Il-miżuri li huma magħżula hawn fuq biżżejjed?"
+
+#. Default: "Yes, the remaining risk is acceptable"
+#: euphorie/content/utils.py:84
+msgid "label_yes_sufficient"
+msgstr "Iva, ir-riskju li jifdal huwa aċċettabbli"
+
+#. Default: "No, more measures are required"
+#: euphorie/content/utils.py:87
+msgid "label_not_sufficient"
+msgstr "Le, huma meħtieġa aktar miżuri"
+
+#. Default: "Add a missing measure"
+#: euphorie/content/utils.py:72
+msgid "button_add_existing_measure"
+msgstr "Żid miżura nieqsa"
+
+#. Default: "Describe a measure that is already in place but not yet listed here."
+#: euphorie/content/utils.py:78
+msgid "placeholder_new_existing"
+msgstr "Iddeskrivi miżura li hija diġà fis-seħħ iżda li għadha mhix elenkata hawn."
+
+#. Default: "Measure already implemented"
+#: euphorie/client/docx/compiler.py:218
+#: euphorie/client/templates/risk_actionplan.pt:117
+msgid "label_existing_measure"
+msgstr "Il-miżura diġà implimentata"
+
+#. Default: "Add a custom risk"
+#: euphorie/client/browser/templates/module_identification_custom.pt:28
+msgid "button_add_custom_risk"
+msgstr "Żid riskju ordinarju"
+
+#. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+#: euphorie/client/publish.py:161
+#: euphorie/deployment/upgrade/v8.py:146
+msgid "question_other_risks"
+msgstr ""
+"<p>Trid iżżid ir-riskji tiegħek ma’ dinl-għodda? </p><p><strong>Important:</"
+"strong> Sabiex tevita li tidduplika ir-riskji,nirrakomandawlek li terġa’ "
+"iddur il-moduli preċedenti, jekkdan għadek m’għamiltux.</p><p>Jekk ma għandekx bżonn iżżid riskji, jekk jogħġbok kompli.</p>"
+
+#: euphorie/client/browser/templates/risk_identification_custom.pt:26
+msgid "Describe the risk..."
+msgstr "Iddeskrivi r-riskju…"
+
+#. Default: "Is this risk acceptable or under control?"
+#: euphorie/content/utils.py:70
+msgid "is_risk_acceptable"
+msgstr "Ir-riskju huwa aċċettabbli?"
+
+#. Default: "Provide some further information on this risk."
+#: euphorie/client/browser/templates/risk_identification_custom.pt:177
+msgid "placeholder_custom_risk_description"
+msgstr "Ipprovdi xi informazzjoni ulterjuri dwar dan ir-riskju."
+
+#. Default: "Save and add new risk"
+#: euphorie/client/browser/templates/risk_identification_custom.pt:195
+msgid "label_save_and_add_new"
+msgstr "Issejvja u żid riskju ieħor"
+
+#: euphorie/client/browser/templates/tool_sessions.pt:37
+msgid "Risk assessments made with this tool"
+msgstr "Valutazzjonijiet tar-riskju li jsiru b’din l-għodda"
+
+#. Default: "Start a new session with this tool"
+#: euphorie/client/browser/templates/tool_sessions.pt:75
+msgid "button_start_new_session"
+msgstr "Ibda sessjoni ġdida b’din l-għodda"
+
+
+

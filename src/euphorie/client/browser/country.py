@@ -71,7 +71,7 @@ class Node(NodeMixin):
         '''
         return sorted(
             [item for item in self.children if item.type == 'survey_template'],
-            key=lambda x: x.title,
+            key=lambda x: x.title.lower(),
         )
 
     @property
@@ -298,6 +298,8 @@ class SessionsView(BrowserView):
                 id = "%s/%s" % (sector.id, survey.id)
                 if not isinstance(categories, list):
                     categories = [categories]
+                if not categories:
+                    categories = [None]
                 for category in categories:
                     survey_items.append((category, survey, id))
                     self.template_count += 1

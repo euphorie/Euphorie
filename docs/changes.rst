@@ -11,6 +11,7 @@ Changelog
 - New behavior for Survey that makes it possible to assign one or more categories
   to it. If set, the "new session" modal in the client will display that survey
   under its categories
+- The reports that were formerly in RTF format are now created in docx
 
 
 10.0.4 (2018-12-11)

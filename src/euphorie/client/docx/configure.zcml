@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="euphorie"
+    >
+
+  <browser:page
+      name="oira-report.docx"
+      for="euphorie.ghost.PathGhost"
+      permission="zope2.View"
+      class=".views.ActionPlanDocxView"
+      />
+
+  <browser:page
+      name="identification-report.docx"
+      for="euphorie.ghost.PathGhost"
+      permission="zope2.View"
+      class=".views.IdentificationReportDocxView"
+      />
+
+</configure>
