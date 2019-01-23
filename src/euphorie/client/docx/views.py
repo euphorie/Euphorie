@@ -9,6 +9,7 @@ from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.content import MessageFactory as _
+from euphorie.content.survey import get_tool_type
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sqlalchemy import sql
@@ -105,7 +106,8 @@ class ActionPlanDocxView(OfficeDocumentView):
         if IItalyReportPhaseSkinLayer.providedBy(request):
             self._compiler = DocxCompilerItaly
         elif IFranceReportPhaseSkinLayer.providedBy(request):
-            self._compiler = DocxCompilerFrance
+            if get_tool_type(context) == 'existing_measures':
+                self._compiler = DocxCompilerFrance
 
     def get_heading(self, title):
         heading = self.t(
