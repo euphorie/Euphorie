@@ -588,7 +588,7 @@ class DocxCompilerFrance(DocxCompiler):
                 self.set_cell_risk(row_risk.cells[1], risk)
                 row_risk.cells[2].text = self.justifiable_map.get(
                     risk.get('justifiable', '')
-                ),
+                ) or ""
                 self.set_cell_actions(row_risk.cells[3], risk)
 
                 if len(risks) > 1:
