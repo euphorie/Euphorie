@@ -169,6 +169,10 @@ def _escape_text(txt):
 def _get_action_plan(action):
     action_plan = {}
     action_plan['text'] = _escape_text(action.action_plan)
+    prevention_plan = getattr(action, 'prevention_plan') or ""
+    action_plan['prevention_plan'] = _escape_text(prevention_plan)
+    requirements = getattr(action, 'requirements') or ""
+    action_plan['requirements'] = _escape_text(requirements)
     if action.responsible:
         action_plan['responsible'] = _escape_text(action.responsible)
     if action.planning_start:

@@ -1,7 +1,9 @@
 # coding=utf-8
 from collections import OrderedDict
+from copy import deepcopy
 from datetime import date
 from docx.api import Document
+from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
@@ -22,7 +24,6 @@ from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
 import re
-from copy import deepcopy
 
 all_breaks = re.compile('(\n|\r)+')
 multi_spaces = re.compile('( )+')
@@ -63,6 +64,11 @@ def node_title(node, zodbnode):
 
 
 class BaseOfficeCompiler(object):
+
+    justifiable_map = {
+        'yes': 'Yes',
+        'no': 'No',
+    }
 
     def xmlprint(self, obj):
         ''' Utility method that pretty prints the xml serialization of obj.
@@ -432,6 +438,11 @@ class DocxCompilerFrance(DocxCompiler):
         'templates/oira_fr.docx',
     )
 
+    justifiable_map = {
+        'yes': 'Oui',
+        'no': 'Non',
+    }
+
     def __init__(self, context, request=None):
         super(DocxCompilerFrance, self).__init__(context, request)
 
@@ -506,7 +517,7 @@ class DocxCompilerFrance(DocxCompiler):
         HtmlToWord(risk['description'], cell)
         if risk['measures']:
             cell.add_paragraph()
-            cell.add_paragraph(u"Schutzmaßnamhmen:", style="Risk Italics")
+            cell.add_paragraph(u"Mesures déjà en place :", style="Risk Italics")
             for measure in risk['measures']:
                 HtmlToWord(measure, cell, style="Risk Italics List")
         paragraph = cell.add_paragraph(style="Risk Normal")
@@ -521,16 +532,26 @@ class DocxCompilerFrance(DocxCompiler):
                 paragraph = cell.add_paragraph()
             paragraph.style = "Measure List"
             paragraph.text = action['text']
+            if action.get('prevention_plan', None):
+                paragraph = cell.add_paragraph(
+                    action['prevention_plan'],
+                    style="Measure Indent")
+            if action.get('requirements', None):
+                paragraph = cell.add_paragraph(
+                    action['requirements'],
+                    style="Measure Indent")
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
-                    u"Verantwortlich: {}".format(action['responsible']),
+                    u"Responsable: {}".format(action['responsible']),
                     style="Measure Indent"
                 )
+                paragraph.runs[0].italic = True
             if action.get('planning_start', None):
                 paragraph = cell.add_paragraph(
-                    u"Zieltermin: {}".format(action['planning_start']),
+                    u"Date de fin: {}".format(action['planning_start']),
                     style="Measure Indent"
                 )
+                paragraph.runs[0].italic = True
 
     def merge_module_rows(self, row_module, row_risk):
         ''' This merges the the first cell of the given rows,
@@ -560,20 +581,14 @@ class DocxCompilerFrance(DocxCompiler):
                 if r_idx:
                     row_risk = table.add_row()
                 else:
-                    # cell_check = row_module.cells[0]
-                    # if module.get('checked', False):
-                    #     cell_check.paragraphs[0]._element.append(
-                    #         deepcopy(self.elem_checked))
-                    # else:
-                    #     cell_check.paragraphs[0]._element.append(
-                    #         deepcopy(self.elem_unchecked))
-                    # cell_check.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
                     cell = row_module.cells[0]
                     cell.paragraphs[0].text = module.get('title', '')
-                    # cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+                    cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
                     row_risk = row_module
                 self.set_cell_risk(row_risk.cells[1], risk)
-                row_risk.cells[2].text = risk.get('justifiable', '')
+                row_risk.cells[2].text = self.justifiable_map.get(
+                    risk.get('justifiable', '')
+                ),
                 self.set_cell_actions(row_risk.cells[3], risk)
 
                 if len(risks) > 1:
@@ -584,16 +599,14 @@ class DocxCompilerFrance(DocxCompiler):
             settings['top'] = False
             self.set_row_borders(row_risk, settings=settings)
 
-        # Set the footer row of the table
-        row = table.add_row()
-        self.set_row_borders(row)
+        # # Set the footer row of the table
+        # row = table.add_row()
+        # self.set_row_borders(row)
 
         def _merge_cells(row):
-            cell1, cell2, cell3, cell4, cell5, cell6 = row.cells
+            cell1, cell2, cell3, cell4 = row.cells
             cell2_new = cell2.merge(cell3)
             cell2_new = cell2_new.merge(cell4)
-            cell2_new = cell2_new.merge(cell5)
-            cell2_new = cell2_new.merge(cell6)
             return (cell1, cell2_new)
 
         # cell1_new, cell2_new = _merge_cells(row)
