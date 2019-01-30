@@ -4,8 +4,8 @@ Changelog
 10.1.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Re-build JS bundle / chunks to fix a problem with pat-display-time for
+  the locale nl-NL
 
 10.1.0 (2019-01-23)
 -------------------
