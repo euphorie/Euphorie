@@ -87,7 +87,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "../bundles/chunks/" + ({}[chunkId]||chunkId) + "-" + {"0":"d05d992689bfe8aa3d45","1":"d7b9bb3cc0a03cf8eb68","2":"8f50889d6ebb6f1c847b","3":"5ffbbe84f48208e26cde","4":"ca69c940dcd3af90b199","5":"9016c25edbd77f319fcc","6":"18a7d21c91547fad25bf","7":"d1bff790c4a22e11e143","8":"54d4ee1bda99739c3643","9":"e1b2021b8be72c609a16","10":"fa3eb4b1b261e372fce7","11":"272cbd5c7f7b52307a2e","12":"94bd294fcb9c2c73515a","13":"2ff947a2102b216fea26","14":"59dd305d87beb729bfb0","15":"3c8b26c2e4f5823c6407","16":"3b6d039bfe3c75ab9d25","17":"271c9318cd14442b8f8d","18":"ee9f56e5f4773b78b47e","19":"90c28a4195cb87cc35a0","20":"53969ee3050e1a122d6a","21":"3c95b07e90abc76303c9"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "../bundles/chunks/" + ({}[chunkId]||chunkId) + "-" + {"0":"736edbf866eb16a3a8e5","1":"95bf057db0f7ce19666c","2":"98378f10ba20e80115fa","3":"c5927d3a0cadd11d396a","4":"969d07928a501313f940","5":"442932c3d41e929a7005","6":"1ec069660725c06458f1","7":"99afdaa30084e420dc62","8":"f063cec81e7b307b5af5","9":"e458dde3cf73157275b5","10":"6cf0a74eba59247301c6","11":"2dff9dfd30646b59d5f4","12":"1c174873c0af5a2a60ab","13":"c18f09ae47bfd3468240","14":"2281e193d2b0134335e9","15":"744d93e6025bba252163","16":"ab3fd457171c3b83d8db","17":"033adb014d4cc9fa85e8","18":"d830363508b7915ffce6","19":"90c28a4195cb87cc35a0","20":"53969ee3050e1a122d6a","21":"3c95b07e90abc76303c9"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -22491,27 +22491,27 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
     __webpack_require__(90)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(registry, $, moment) {
     __webpack_require__.e/* import() */(21).then(__webpack_require__.bind(null, 93));
-    __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, 99));
+    __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, 100));
     __webpack_require__.e/* import() */(20).then(__webpack_require__.bind(null, 94));
     __webpack_require__.e/* import() */(19).then(__webpack_require__.bind(null, 95));
-    __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, 105));
-    __webpack_require__.e/* import() */(0/* duplicate */).then(__webpack_require__.bind(null, 24));
-    __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, 97));
-    __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, 98));
+    __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, 106));
     __webpack_require__.e/* import() */(1/* duplicate */).then(__webpack_require__.bind(null, 23));
+    __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, 98));
+    __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, 99));
     __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, 96));
-    __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, 100));
+    __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, 97));
     __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, 101));
     __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, 102));
     __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, 103));
     __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, 104));
-    __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, 106));
+    __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, 105));
     __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, 107));
     __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, 108));
-    __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 110));
     __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, 109));
-    __webpack_require__.e/* import() */(0/* duplicate */).then(__webpack_require__.bind(null, 24));
     __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 111));
+    __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 110));
+    __webpack_require__.e/* import() */(1/* duplicate */).then(__webpack_require__.bind(null, 23));
+    __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 112));
 
     var window = __webpack_require__(91);
     window.jQuery = $;
@@ -46005,8 +46005,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
         // we don't support any country-specific language variants, always use first 2 letters
         lang = lang.substr(0, 2).toLowerCase();
         new Promise(function (resolve) {
-            __webpack_require__.e/* require.ensure */(1/* duplicate */).then((function (require) {
-                resolve(__webpack_require__(23));
+            __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+                resolve(__webpack_require__(24)("./" + lang + '.js'));
             }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
         }).then(function () {
             moment.locale(lang);
@@ -46048,8 +46048,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
                 // try to find language in chunks
                 return new Promise(function (resolve) {
-                    __webpack_require__.e/* require.ensure */(2).then((function (require) {
-                        resolve(__webpack_require__(112)("./" + lang + '.js'));
+                    __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+                        resolve(__webpack_require__(24)("./" + lang + '.js'));
                     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
                 }).catch(function () {
                     // lang does not exists
