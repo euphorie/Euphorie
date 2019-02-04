@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.1 (unreleased)
+10.1.1 (2019-02-04)
 -------------------
 
 - Re-build JS bundle / chunks to fix a problem with pat-display-time for
