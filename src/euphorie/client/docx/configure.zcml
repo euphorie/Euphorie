@@ -9,6 +9,7 @@
       for="euphorie.ghost.PathGhost"
       permission="zope2.View"
       class=".views.ActionPlanDocxView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
@@ -16,6 +17,7 @@
       for="euphorie.ghost.PathGhost"
       permission="zope2.View"
       class=".views.IdentificationReportDocxView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
 </configure>

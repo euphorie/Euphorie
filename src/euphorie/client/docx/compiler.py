@@ -1,7 +1,11 @@
 # coding=utf-8
 from collections import OrderedDict
+from copy import deepcopy
 from datetime import date
 from docx.api import Document
+from docx.enum.table import WD_ALIGN_VERTICAL
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
@@ -13,16 +17,20 @@ from euphorie.content.utils import UNWANTED
 from json import loads
 from lxml import etree
 from pkg_resources import resource_filename
+from plone.memoize.view import memoize
 from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
 import re
-from plone.memoize.view import memoize
 
 all_breaks = re.compile('(\n|\r)+')
 multi_spaces = re.compile('( )+')
+
+BORDER_COLOR = '9E9E9E'
+ALL_BORDERS = dict(top=True, right=True, bottom=True, left=True)
+LEFT_RIGHT_BORDERS = dict(top=False, right=True, bottom=False, left=True)
 
 
 def _sanitize_html(txt):
@@ -57,6 +65,11 @@ def node_title(node, zodbnode):
 
 class BaseOfficeCompiler(object):
 
+    justifiable_map = {
+        'yes': 'Yes',
+        'no': 'No',
+    }
+
     def xmlprint(self, obj):
         ''' Utility method that pretty prints the xml serialization of obj.
         Useful in tests and in depug
@@ -85,6 +98,57 @@ class BaseOfficeCompiler(object):
     @property
     def session(self):
         return SessionManager.session
+
+
+    def set_cell_border(self, cell, settings=ALL_BORDERS, color=BORDER_COLOR):
+        tcPr = cell._element.tcPr
+        tcBorders = OxmlElement('w:tcBorders')
+
+        bottom = OxmlElement('w:bottom')
+        if settings.get('bottom', False):
+            bottom.set(qn('w:val'), 'single')
+            bottom.set(qn('w:sz'), '4')
+            bottom.set(qn('w:space'), '0')
+            bottom.set(qn('w:color'), color)
+        else:
+            bottom.set(qn('w:val'), 'nil')
+
+        top = OxmlElement('w:top')
+        if settings.get('top', False):
+            top.set(qn('w:val'), 'single')
+            top.set(qn('w:sz'), '4')
+            top.set(qn('w:space'), '0')
+            top.set(qn('w:color'), color)
+        else:
+            top.set(qn('w:val'), 'nil')
+
+        left = OxmlElement('w:left')
+        if settings.get('left', False):
+            left.set(qn('w:val'), 'single')
+            left.set(qn('w:sz'), '4')
+            left.set(qn('w:space'), '0')
+            left.set(qn('w:color'), color)
+        else:
+            left.set(qn('w:val'), 'nil')
+
+        right = OxmlElement('w:right')
+        if settings.get('right', False):
+            right.set(qn('w:val'), 'single')
+            right.set(qn('w:sz'), '4')
+            right.set(qn('w:space'), '0')
+            right.set(qn('w:color'), color)
+        else:
+            right.set(qn('w:val'), 'nil')
+
+        tcBorders.append(top)
+        tcBorders.append(left)
+        tcBorders.append(bottom)
+        tcBorders.append(right)
+        tcPr.append(tcBorders)
+
+    def set_row_borders(self, row, settings=ALL_BORDERS, color=BORDER_COLOR):
+        for idx, cell in enumerate(row.cells):
+            self.set_cell_border(cell, settings, color)
 
 
 class DocxCompiler(BaseOfficeCompiler):
@@ -366,6 +430,221 @@ class DocxCompilerItaly(DocxCompiler):
     )
     paragraphs_offset = 29
     sections_offset = 1
+
+
+class DocxCompilerFrance(DocxCompiler):
+    _template_filename = resource_filename(
+        'euphorie.client.docx',
+        'templates/oira_fr.docx',
+    )
+
+    justifiable_map = {
+        'yes': 'Oui',
+        'no': 'Non',
+    }
+
+    def __init__(self, context, request=None):
+        super(DocxCompilerFrance, self).__init__(context, request)
+
+    def remove_row(self, row):
+        tbl = row._parent._parent
+        tr = row._tr
+        tbl._element.remove(tr)
+
+    @memoize
+    def get_modules_table(self):
+        ''' Returns the first table of the template,
+        which contains the modules
+        '''
+        return self.template.tables[0]
+
+    def set_session_title_row(self, data):
+        ''' This fills the workspace activity run with some text
+
+        The run is empirically determined by studying the template.
+        This is in a paragraph structure before the first table.
+        Tou may want to change this if you change the template.
+        Be aware that the paragraph is the 2nd only
+        after this class is initialized.
+        We have 2 fields to fill, all following the same principle
+        '''
+        lookup = {
+            0: "title",
+            4: "today",
+        }
+        data['today'] = formatDate(self.request, date.today())
+
+        for num, fname in lookup.items():
+            _r = self.template.paragraphs[1].runs[num]
+            # This run should be set in two paragraphs (which appear clones)
+            # One is inside a mc:Choice and the other is inside a mc:Fallback
+            for subpar in _r._element.findall('.//%s' % qn('w:p')):
+                subpar.clear_content()
+                subrun = subpar.add_r()
+                subrun.text = data.get(fname, '') or ''
+                subrpr = subrun.get_or_add_rPr()
+                subrpr.get_or_add_rFonts()
+                subrpr.get_or_add_rFonts().set(qn('w:ascii'), 'CorpoS')
+                subrpr.get_or_add_rFonts().set(qn('w:hAnsi'), 'CorpoS')
+                subrpr.get_or_add_sz().set(qn('w:val'), '32')
+                szCs = OxmlElement('w:szCs')
+                szCs.attrib[qn('w:val')] = '16'
+                subrpr.append(szCs)
+
+        header = self.template.sections[0].header
+        header.paragraphs[1].text = (
+            u"{} - Evaluation des risques professionnels".format(
+                data['survey_title'])
+        )
+
+        # And now we handle the document footer
+        footer = self.template.sections[0].footer
+        # The footer contains a table with 3 columns:
+        # left we have a logo, center for text, right for the page numbers
+        cell1, cell2, cell3 = footer.tables[0].row_cells(0)
+        cell2.paragraphs[0].text = u"{}".format(
+            date.today().strftime("%d.%m.%Y"))
+
+    def set_cell_risk(self, cell, risk):
+        """ Take the risk and add the appropriate text:
+            title, descripton, comment, measures in place
+        """
+        paragraph = cell.paragraphs[0]
+        paragraph.style = "Risk Bold List"
+        paragraph.text = risk['title']
+        if risk['comment']:
+            cell.add_paragraph(risk['comment'], style="Risk Normal")
+        HtmlToWord(risk['description'], cell)
+        if risk['measures']:
+            cell.add_paragraph()
+            cell.add_paragraph(u"Mesures déjà en place :", style="Risk Italics")
+            for measure in risk['measures']:
+                HtmlToWord(measure, cell, style="Risk Italics List")
+        paragraph = cell.add_paragraph(style="Risk Normal")
+
+    def set_cell_actions(self, cell, risk):
+        """ Take the risk and add the appropriate text:
+            planned measures
+        """
+        paragraph = cell.paragraphs[0]
+        for idx, action in enumerate(risk['actions']):
+            if idx != 0:
+                paragraph = cell.add_paragraph()
+            paragraph.style = "Measure List"
+            paragraph.text = action['text']
+            if action.get('prevention_plan', None):
+                paragraph = cell.add_paragraph(
+                    action['prevention_plan'],
+                    style="Measure Indent")
+            if action.get('requirements', None):
+                paragraph = cell.add_paragraph(
+                    action['requirements'],
+                    style="Measure Indent")
+            if action.get('responsible', None):
+                paragraph = cell.add_paragraph(
+                    u"Responsable: {}".format(action['responsible']),
+                    style="Measure Indent"
+                )
+                paragraph.runs[0].italic = True
+            if action.get('planning_start', None):
+                paragraph = cell.add_paragraph(
+                    u"Date de fin: {}".format(action['planning_start']),
+                    style="Measure Indent"
+                )
+                paragraph.runs[0].italic = True
+
+    def merge_module_rows(self, row_module, row_risk):
+        ''' This merges the the first cell of the given rows,
+        the one containing the module title.
+        Also remove the horizontal borders between the not merged cells.
+        '''
+        for idx in range(1):
+            first_cell = row_module.cells[idx]
+            last_cell = row_risk.cells[idx]
+            self.set_cell_border(last_cell)
+            first_cell.merge(last_cell)
+        for idx, cell in enumerate(row_risk.cells[1:]):
+            self.set_cell_border(cell, settings=LEFT_RIGHT_BORDERS)
+
+    def set_modules_rows(self, data):
+        ''' This takes a list of modules and creates the rows for them
+        '''
+        modules = data.get('modules', [])
+        table = self.get_modules_table()
+
+        for module in modules:
+            risks = module['risks']
+            if not risks:
+                continue
+            row_module = table.add_row()
+            for r_idx, risk in enumerate(risks):
+                if r_idx:
+                    row_risk = table.add_row()
+                else:
+                    cell = row_module.cells[0]
+                    cell.paragraphs[0].text = module.get('title', '')
+                    cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+                    row_risk = row_module
+                self.set_cell_risk(row_risk.cells[1], risk)
+                row_risk.cells[2].text = self.justifiable_map.get(
+                    risk.get('justifiable', '')
+                ) or ""
+                self.set_cell_actions(row_risk.cells[3], risk)
+
+                if len(risks) > 1:
+                    self.merge_module_rows(row_module, row_risk)
+
+            # set borders on last risk row, but not the top
+            settings = deepcopy(ALL_BORDERS)
+            settings['top'] = False
+            self.set_row_borders(row_risk, settings=settings)
+
+        # # Set the footer row of the table
+        # row = table.add_row()
+        # self.set_row_borders(row)
+
+        def _merge_cells(row):
+            cell1, cell2, cell3, cell4 = row.cells
+            cell2_new = cell2.merge(cell3)
+            cell2_new = cell2_new.merge(cell4)
+            return (cell1, cell2_new)
+
+        # cell1_new, cell2_new = _merge_cells(row)
+        # cell1_new.paragraphs[0].text = u"Freigegeben:"
+        # txt = (
+        #     data.get('publisher', None) and
+        #     data['publisher'].loginname or u""
+        # )
+        # if data.get('published', None):
+        #     if txt:
+        #         txt = u"{} – ".format(txt)
+        #     txt = u"{}{}".format(
+        #         txt, data['published'].strftime('%d.%m.%Y'))
+        # cell2_new.paragraphs[0].text = txt
+
+        # Finally, an empty row at the end
+        row = table.add_row()
+        self.set_row_borders(row)
+        _merge_cells(row)
+
+    def compile(self, data):
+        ''' Compile the template using data
+
+        We need to compile two areas of the template:
+
+        - the paragraph above the first table (containing the session title)
+        - the first table (containing all the modules)
+
+        data is a dict like object.
+        Check the file .../daimler/oira/tests/mocked_data.py
+        to understand its format
+        '''
+        self.set_session_title_row(data)
+        self.set_modules_rows(data)
+
+        # Finally clean up the modules table
+        modules_table = self.get_modules_table()
+        self.remove_row(modules_table.rows[1])
 
 
 class IdentificationReportCompiler(DocxCompiler):
