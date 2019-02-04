@@ -6,6 +6,8 @@ Changelog
 
 - Re-build JS bundle / chunks to fix a problem with pat-display-time for
   the locale nl-NL
+- France: create own Word report, based on the Daimler template, which is
+  used by tools of type existing-measures
 
 10.1.0 (2019-01-23)
 -------------------
