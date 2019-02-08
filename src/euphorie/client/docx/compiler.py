@@ -252,16 +252,22 @@ class DocxCompiler(BaseOfficeCompiler):
                     msg = _(
                         "risk_unanswered",
                         default=u"This risk still needs to be inventorised.")
-                elif (
-                    node.identification in [u"n/a", u"yes"] and
-                    node.risk_type == "top5"
-                ):
-                    msg = _(
-                        "top5_risk_not_present",
-                        default=u"This risk is not present in your "
-                        u"organisation, but since the sector organisation "
-                        u"considers this one of the priority risks it must "
-                        u"be included in this report.")
+                if node.risk_type == "top5":
+                    if node.postponed:
+                        msg = _(
+                            "top5_risk_not_present",
+                            default=u"This risk is not present in your "
+                            u"organisation, but since the sector organisation "
+                            u"considers this one of the priority risks it must "
+                            u"be included in this report.")
+                    elif node.identification == "yes":
+                        # we need this distinction for Dutch RIE
+                        msg = _(
+                            "top5_risk_not_present_answer_yes",
+                            default=u"This risk is not present in your "
+                            u"organisation, but since the sector organisation "
+                            u"considers this one of the priority risks it must "
+                            u"be included in this report.")
                 if msg:
                     doc.add_paragraph(self.t(msg), style="RiskPriority")
 

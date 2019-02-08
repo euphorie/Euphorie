@@ -4,8 +4,8 @@ Changelog
 10.1.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Better logic for the text hint on top5 risks that were answered as
+  yes in the report. Needed for RIE
 
 10.1.1 (2019-02-04)
 -------------------
