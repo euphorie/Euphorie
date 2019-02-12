@@ -154,15 +154,6 @@
       name="index_html"
       for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
-      class=".module.CustomizationView"
-      template="templates/module_customization.pt"
-      layer="euphorie.client.interfaces.ICustomizationPhaseSkinLayer"
-      />
-
-  <browser:page
-      name="index_html"
-      for="euphorie.client.model.Module"
-      permission="euphorie.client.ViewSurvey"
       class=".module.ActionPlanView"
       template="templates/module_actionplan.pt"
       layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"

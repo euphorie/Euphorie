@@ -75,7 +75,8 @@
                           value data/priority;
                         "
               >
-                <label i18n:translate="risk_priority">This is a
+                <label tal:condition="not:view/skip_evaluation"
+                  i18n:translate="risk_priority">This is a
                   <select name="priority"
                           i18n:name="priority_value"
                   >
@@ -131,7 +132,8 @@
                  tal:repeat="actionplan action_plans"
             >
 
-              <h2><tal:span i18n:translate="Measure">Measure</tal:span>
+              <h2><tal:span condition="not:view/use_existing_measures" i18n:translate="Measure">Measure</tal:span>
+                <tal:span condition="view/use_existing_measures" i18n:translate="Additional Measure">Additional Measure</tal:span>
                 ${repeat/actionplan/number}</h2>
               <input name="measure.id:records"
                      type="hidden"
@@ -163,7 +165,7 @@
                       >
                         <em class="iconified icon-plus-circle"
                             i18n:translate="button_add"
-                        >Add</em>${measure/description}</a>
+                        >Add</em><tal:measure replace="structure measure/description" /></a>
                     </li>
                   </ol>
                 </div>
@@ -185,6 +187,7 @@
                             tal:content="actionplan/action_plan|nothing"
                             i18n:attributes="placeholder label_measure_action_plan"
                   ></textarea>
+                  <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
                   <br />
                   <textarea class="preventionPlan"
                             name="measure.prevention_plan:utf8:ustring:records"
@@ -193,6 +196,8 @@
                             tal:content="actionplan/prevention_plan|nothing"
                             i18n:attributes="placeholder label_measure_prevention_plan"
                   ></textarea>
+                  </tal:preventionPlan>
+                  <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                   <br />
                   <textarea class="requirements"
                             name="measure.requirements:utf8:ustring:records"
@@ -201,6 +206,7 @@
                             tal:content="actionplan/requirements|nothing"
                             i18n:attributes="placeholder label_measure_requirements"
                   ></textarea>
+                  </tal:requirements>
                 </label>
               </fieldset>
 
@@ -221,7 +227,8 @@
                          value="${actionplan/responsible|nothing}"
                   />
                 </label>
-                <label class="${python:'error' if exists('errors/budget') else None}">
+                <label tal:condition="python: 'budget' not in view.skip_fields"
+                    class="${python:'error' if exists('errors/budget') else None}">
                   <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
                   <em class="message error"
                       tal:condition="exists:errors/budget"
@@ -257,7 +264,8 @@
                   />
                 </label>
 
-                <label tal:define="
+                <label tal:condition="python: 'planning_end' not in view.skip_fields"
+                      tal:define="
                          date_error exists:errors/planning_end_date;
                        "
                 >
@@ -277,11 +285,11 @@
           </div>
 
           <div class="button-bar">
-            <button class="add-clone pat-button icon-plus-circle"
+            <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
                     id="addMeasureButton"
                     title="Add another measure"
                     type="button"
-                    i18n:translate="label_add"
+                    i18n:translate="label_add_measure"
             >Add another measure</button>
           </div>
 
@@ -342,6 +350,7 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_action_plan"
                 ></textarea>
+                <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
                 <br />
                 <textarea class="preventionPlan"
                           name="measure.prevention_plan:utf8:ustring:records"
@@ -349,6 +358,8 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_prevention_plan"
                 ></textarea>
+                </tal:preventionPlan>
+                <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                 <br />
                 <textarea class="requirements"
                           name="measure.requirements:utf8:ustring:records"
@@ -356,6 +367,7 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_requirements"
                 ></textarea>
+                </tal:requirements>
               </label>
             </fieldset>
 
@@ -371,7 +383,7 @@
                        type="text"
                 />
               </label>
-              <label class="currency">
+              <label class="currency" tal:condition="python: 'budget' not in view.skip_fields">
                 <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
@@ -396,7 +408,7 @@
                        data-pat-validation="type: date; not-after: #planning-end-#{1}; message-date: ${view/message_date_before}"
                 />
               </label>
-              <label>
+              <label tal:condition="python: 'planning_end' not in view.skip_fields">
                 <tal:label i18n:translate="label_action_plan_end">Planning end</tal:label>
                 <input class="pat-date-picker"
                        id="planning-end-#{1}"

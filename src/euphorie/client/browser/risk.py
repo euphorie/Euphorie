@@ -54,17 +54,26 @@ class IdentificationView(BrowserView):
 
     question_filter = None
 
+    # default value is False, can be overwritten by certain conditions
+    skip_evaluation = False
+
     def __call__(self):
         if redirectOnSurveyUpdate(self.request):
             return
 
-        self.risk = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
+        if self.is_custom_risk:
+            # # Fetch the custom_risks module, so that we can at least
+            # # traverse to the survey
+            # path = "/".join(self.context.zodb_path.split('/')[:-1])
+            self.risk = None
+        else:
+            self.risk = self.request.survey.restrictedTraverse(
+                self.context.zodb_path.split("/"))
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.risk)
+        self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
             asBool(settings.get('use_existing_measures', False)) and
             self.my_tool_type in self.tti.types_existing_measures
@@ -100,15 +109,25 @@ class IdentificationView(BrowserView):
                     self.context.identification = None
                 else:
                     self.context.identification = answer
-                    if self.risk.type in ('top5', 'policy'):
+                    if getattr(self.risk, "type", "") in ('top5', 'policy'):
                         self.context.priority = 'high'
-                    elif self.risk.evaluation_method == 'calculated':
+                    elif getattr(
+                        self.risk, "evaluation_method", ""
+                    ) == 'calculated':
                         self.calculatePriority(self.risk, reply)
-                    elif self.risk.evaluation_method == "direct":
+                    elif (
+                        self.risk is None or
+                        self.risk.evaluation_method == "direct"
+                    ):
                         self.context.priority = reply.get("priority")
 
             if self.use_training_module:
                 self.context.training_notes = reply.get("training_notes")
+
+            self.context.custom_description = reply.get("custom_description")
+            # This only happens on custom risks
+            if reply.get("title"):
+                self.context.title = reply.get("title")
 
             SessionManager.session.touch()
 
@@ -116,9 +135,9 @@ class IdentificationView(BrowserView):
 
         else:
             self._prepare_risk()
-            # XXX add switch: different template for custom risk
-            if 0:
-                template = None
+            if self.is_custom_risk:
+                template = ViewPageTemplateFile(
+                    'templates/risk_identification_custom.pt').__get__(self, "")  # noqa
             else:
                 template = self.template
             return template()
@@ -127,7 +146,11 @@ class IdentificationView(BrowserView):
         self.tree = getTreeData(self.request, self.context)
         self.title = self.context.parent.title
         self.show_info = (
-            self.risk.image or HasText(self.risk.description)
+            getattr(self.risk, "image", None) or
+            (
+                self.risk is None or
+                HasText(self.risk.description)
+            )
         )
 
         number_images = getattr(self.risk, 'image', None) and 1 or 0
@@ -143,7 +166,7 @@ class IdentificationView(BrowserView):
             number_files += getattr(
                 self.risk, 'file{0}'.format(i), None) and 1 or 0
         self.has_files = number_files > 0
-        self.has_legal = HasText(self.risk.legal_reference)
+        self.has_legal = HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
 
         self.risk_number = self.context.number
@@ -169,24 +192,25 @@ class IdentificationView(BrowserView):
         self.answer_yes = default_type_data['answer_yes']
         self.answer_no = default_type_data['answer_no']
         self.answer_na = default_type_data['answer_na']
-        self.intro_extra = self.intro_questions = ""
-        self.button_add_extra = self.placeholder_add_extra = ""
+        self.intro_extra = ""
+        if self.is_custom_risk:
+            self.intro_extra = tool_type_data.get('custom_intro_extra', '')
+            if self.use_existing_measures:
+                self.answer_yes = tool_type_data['answer_yes']
+                self.answer_no = tool_type_data['answer_no']
+        self.button_add_extra = tool_type_data.get('button_add_extra', '')
+        self.intro_questions = tool_type_data.get('intro_questions', '')
+        self.placeholder_add_extra = tool_type_data.get(
+                'placeholder_add_extra', '')
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = (
-                self.risk.get_pre_defined_measures(self.request) or "")
+            measures = self.get_existing_measures()
             # Only show the form to select and add existing measures if
-            # at least one measure was defined in the CMS
+            # at least one pre-existring measure is present
             # In this case, also change some labels
             if len(measures):
                 self.show_existing_measures = True
                 self.intro_extra = tool_type_data.get('intro_extra', '')
-                self.intro_questions = tool_type_data.get(
-                    'intro_questions', '')
-                self.button_add_extra = tool_type_data.get(
-                    'button_add_extra', '')
-                self.placeholder_add_extra = tool_type_data.get(
-                    'placeholder_add_extra', '')
                 self.button_remove_extra = tool_type_data.get(
                     'button_remove_extra', '')
                 self.answer_yes = tool_type_data['answer_yes']
@@ -212,8 +236,6 @@ class IdentificationView(BrowserView):
         # Italian special
         if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
             self.skip_evaluation = True
-        else:
-            self.skip_evaluation = False
 
     def proceed_to_next(self, reply):
         if reply.get("next", None) == "previous":
@@ -243,8 +265,12 @@ class IdentificationView(BrowserView):
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
-        defined_measures = (
-            self.risk.get_pre_defined_measures(self.request) or "")
+        if not self.risk:
+            defined_measures = []
+        else:
+            defined_measures = (
+                self.risk.get_pre_defined_measures(self.request) or "")
+
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
@@ -274,6 +300,10 @@ class IdentificationView(BrowserView):
         text = risk.problem_description
         return bool(text and text.strip())
 
+    @property
+    def is_custom_risk(self):
+        return getattr(self.context, 'is_custom_risk', False)
+
     def evaluation_algorithm(self, risk):
         return evaluation_algorithm(risk)
 
@@ -300,6 +330,13 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
+    # Skip evaluation?
+    # The default value is False, can be overwritten by certain conditions
+    skip_evaluation = False
+    # Which fields should be skipped? Default are none, i.e. show all
+    skip_fields = []
+    # What extra style to use for buttons like "Add measure". Default is None.
+    style_buttons = None
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -367,7 +404,7 @@ class ActionPlanView(BrowserView):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.risk)
+        self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
             asBool(settings.get('use_existing_measures', False)) and
             self.my_tool_type in self.tti.types_existing_measures
@@ -422,7 +459,14 @@ class ActionPlanView(BrowserView):
         self.tree = getTreeData(
             self.request, context,
             filter=self.question_filter, phase="actionplan")
-        if self.context.is_custom_risk:
+
+        # Italian special
+        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+            self.skip_evaluation = True
+            measures_full_text = True
+        else:
+            measures_full_text = False
+        if self.is_custom_risk:
             self.risk.description = u""
             number_images = 0
         else:
@@ -437,7 +481,7 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+                if measures_full_text:
                     match = u"%s: %s" % (
                         solution.description.strip(),
                         solution.prevention_plan.strip()

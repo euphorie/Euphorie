@@ -128,6 +128,7 @@
     >
       <tal:items repeat="item tree/children">
         <li class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']&gt;1 else '')}"
+            id="${python:item['css_id']}"
             title="${python:'%s. %s' % (item['number'], item['title']) if tree['leaf_module'] else None}"
             tal:condition="python: item['type']!='location'"
         >
@@ -206,6 +207,7 @@
   <metal:risk_info_actionplan define-macro="risk_info_actionplan"
                               meta:interpolation="true"
                               i18n:domain="euphorie"
+    tal:define="is_custom_risk view/is_custom_risk"
   >
     <div class="image-collage pat-gallery pat-equaliser"
          tal:condition="python:view.number_images &gt; 1"
@@ -298,7 +300,6 @@
 
     <tal:block define="
                  use_problem_description view/use_problem_description;
-                 is_custom_risk view/is_custom_risk;
                "
                condition="show_statement|nothing"
     >
@@ -333,13 +334,16 @@
         about this risk.</h4>
       <tal:description tal:replace="structure risk/description" />
     </div>
+    <tal:custom condition="is_custom_risk">
+      <span tal:replace="structure context/custom_description" />
+    </tal:custom>
   </metal:risk_info_actionplan>
 
   <metal:risk_identification define-macro="risk_identification">
     <fieldset class="vertical"
               id="${view/risk_number}"
               tal:define="
-                always_present risk/risk_always_present;
+                always_present risk/risk_always_present|nothing;
                 existing_measures view/get_existing_measures;
               "
     >
@@ -424,7 +428,7 @@
                      value="no"
               />${view/answer_no}</label>
           <label class="not-applicable"
-                 tal:condition="risk/show_notapplicable"
+                 tal:condition="risk/show_notapplicable|nothing"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
                    name="answer"
                    type="radio"

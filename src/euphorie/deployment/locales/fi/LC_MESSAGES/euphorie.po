@@ -3790,14 +3790,12 @@ msgid "label_action_plan_start"
 msgstr "Aikataulu: Toimenpiteiden suunnittelu"
 
 #. Default: "Add another measure"
-#: euphorie/client/browser/templates/risk_actionplan.pt:280
-#, fuzzy
-msgid "label_add"
+#: euphorie/client/templates/risk_actionplan.pt:280
+msgid "label_add_measure"
 msgstr "Lisää toinen toimenpide"
 
 #. Default: "Add another risk"
-#: euphorie/client/browser/templates/module_customization.pt:61
-#, fuzzy
+#: euphorie/client/templates/module_customization.pt:61
 msgid "label_add_risk"
 msgstr "Lisää uusi riski"
 

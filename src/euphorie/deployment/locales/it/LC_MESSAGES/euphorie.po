@@ -5003,7 +5003,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:79
 #: euphorie/client/docx/compiler.py:282
 msgid "risk_priority"
-msgstr " "
+msgstr "Questo è un rischio di priorità ${priority_value}."
 
 #. Default: "high"
 #: euphorie/client/browser/templates/module_customization.pt:36
