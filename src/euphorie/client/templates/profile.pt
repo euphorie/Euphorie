@@ -11,8 +11,9 @@
 
 <body>
 <metal:slot fill-slot="content">
+  <div id="content-pane">
     <tal:block replace="tile:statusmessages"/>
-    <article class="rich">
+    <article class="pat-rich">
     <h1 i18n:translate="header_profile">Tailor the risk assessment to your organisation</h1>
     <p i18n:translate="expl_profile">
         In order to tailor the risk assessment to your organisation you may be
@@ -26,11 +27,12 @@
         risks will be repeated for each name you have entered.
         </li>
     </ul>
-</article>
+    </article>
 
 <form class="pat-validation pat-inject"
       data-pat-inject="source: #content; target: #content; && source: #navigation; target: #navigation;"
       method="post"
+      id="profile-form"
       action="${request/URL}"
       novalidate="novalidate"
       data-pat-validation="message-date: This value must be a valid date;
@@ -107,7 +109,9 @@
             i18n:translate="label_save_and_continue">Save and continue</button>
 </p>
 </form>
+</div>
 </metal:slot>
+
 <metal:slot fill-slot="splash_message_slot">
     <div tal:condition="python:tool_notification is not None" class="splash-message">
         <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />

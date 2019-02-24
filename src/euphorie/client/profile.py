@@ -327,6 +327,7 @@ class Profile(grok.View):
     grok.template("profile")
 
     id_patt = re.compile("pq([0-9]*)\.present")
+    variation_class = "variation-risk-assessment"
 
     def getDesiredProfile(self):
         """Get the requested profile from the request.
