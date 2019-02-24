@@ -427,6 +427,18 @@
       ]
     },
     {
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59545,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "cancel-1",
+      "code": 59441,
+      "src": "websymbols"
+    },
+    {
       "uid": "ed53e2e7bf982c38275468a84e453feb",
       "css": "patterns-logo",
       "code": 59392,
