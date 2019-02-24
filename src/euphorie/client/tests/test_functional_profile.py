@@ -44,7 +44,7 @@ class ProfileTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -55,7 +55,7 @@ class ProfileTests(EuphorieFunctionalTestCase):
         browser.getControl(
             name="1:utf8:utext:list", index=1
         ).value = "Profile 2"
-        browser.getForm().submit()
+        browser.getForm(id='profile-form').submit()
 
 
 class UpdateTests(EuphorieFunctionalTestCase):

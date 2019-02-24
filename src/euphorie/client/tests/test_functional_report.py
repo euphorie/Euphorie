@@ -19,7 +19,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -50,7 +50,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -84,7 +84,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -106,7 +106,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
