@@ -18,6 +18,7 @@
 >
 
   <metal:slot fill-slot="aside-header">
+  <h2>aside header macro</h2>
     <header id="osc-header">
       <tal:in-group condition="nocall: root_group">
         <a class="back-button pat-inject"
@@ -41,7 +42,8 @@
     </header>
   </metal:slot>
 
-  <metal:slot fill-slot="aside-navigator">
+  <metal:slot fill-slot="aside-sessions">
+  <h2>aside sessions macro</h2>
     <div id="navigation"
          tal:define="groups view/leaf_groups;">
       <style type="text/css" tal:condition="styles_override">

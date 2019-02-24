@@ -105,7 +105,7 @@
 
   <browser:page
       name="session-browser-sidebar"
-      for="euphorie.client.country.IClientCountry"
+      for="*"
       permission="zope2.View"
       class=".country.SessionBrowserNavigator"
       template="templates/session-browser-sidebar.pt"
