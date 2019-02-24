@@ -27,6 +27,7 @@
             method="POST"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
       >
+      <div id="content-pane">
         <nav class="page-actions">
           <metal:actions define-slot="page-actions">
             <a class="icon-share iconified pat-tooltip"
@@ -92,7 +93,7 @@
         </metal:widgets>
         </dl>
 
-        <article class="rich">
+        <article class="pat-rich">
           <figure class="postit external-reference"
                   tal:condition="context/external_site_logo | nothing"
           >
@@ -120,14 +121,16 @@
           </figure>
 
           <h1>${context/title}</h1>
-          <tal:block condition="not:view/has_introduction">
-            <metal:introduction use-macro="default_introduction/macros/default_introduction" />
-          </tal:block>
-          <p tal:condition="view/has_introduction"
-             tal:replace="structure context/introduction"
-          >
-              Introduction text for this sector.
-          </p>
+          <section>
+            <tal:block condition="not:view/has_introduction">
+              <metal:introduction use-macro="default_introduction/macros/default_introduction" />
+            </tal:block>
+            <p tal:condition="view/has_introduction"
+               tal:replace="structure context/introduction"
+            >
+                Introduction text for this sector.
+            </p>
+          </section>
 
         </article>
 
@@ -143,6 +146,7 @@
           >Start</button>
         </div>
 
+      </div>
       </form>
 
       <div id="sharing-menu"

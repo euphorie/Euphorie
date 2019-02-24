@@ -19,6 +19,7 @@
                      language view/preferred_language;
                    "
     >
+    <div id="content-pane">
       <div class="statuses language-${language}"
            tal:define="
              status python:view.status;
@@ -210,6 +211,7 @@
         </dl>
       </div>
       <tal:block replace="tile:client-analytics" />
+    </div>
     </metal:content>
   </body>
 </html>

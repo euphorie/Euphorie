@@ -14,10 +14,11 @@
 
 <body>
 <metal:slot fill-slot="content">
-    <tal:block replace="tile:statusmessages"/>
 
     <form id="report_comment_form" accept-charset="UTF-8" method="post" action="${request/URL}">
-      <article class="rich">
+      <div id="content-pane">
+        <tal:block replace="tile:statusmessages"/>
+      <article class="pat-rich">
         <h1 i18n:translate="header_reporting">Reporting</h1>
         <p i18n:translate="report_intro">
             Now that you have finished identifying all the risks in your organisation
@@ -44,6 +45,7 @@
                 i18n:translate="label_save_and_continue"
                 class="pat-button">Save and continue</button>
     </p>
+    </div>
     </form>
   </metal:slot>
   </body>

@@ -289,7 +289,9 @@
 
     <aside id="osc">
       <!-- The aside header and sessions browser comes from a macro -->
+      <tal:anon condition="not:is_anonymous">
       <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
+      </tal:anon>
       <!-- The logo comes from a macro -->
       <tal:logo condition="webhelpers/show_logo">
         <metal:logo use-macro="context/logo/macros/logo"/>

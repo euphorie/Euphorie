@@ -14,6 +14,7 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="company view/session/company">
+<div id="content-pane">
     <article class="pat-rich">
     <h1 i18n:translate="hader_company_details">You are about to print the report... please complete the optional form and then proceed.</h1>
 
@@ -94,7 +95,7 @@
       </p>
     </form>
   </article>
-
+  </div>
   </metal:slot>
   </body>
 </html>

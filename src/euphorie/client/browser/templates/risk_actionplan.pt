@@ -22,6 +22,7 @@
                   data view/data;
                 "
     >
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
       <tal:def define="
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
@@ -473,7 +474,7 @@
           </fieldset>
         </tal:loop>
       </tal:def>
-
+      </div>
     </metal:slot>
   </body>
 </html>

@@ -11,7 +11,8 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="module nocall:view/module">
-<article class="rich">
+<div id="content-pane">
+<article class="pat-rich">
     <h1>${module/title}</h1>
     <tal:block replace="tile:statusmessages"/>
 
@@ -48,6 +49,7 @@
 <p class="button-bar" id="nav-bar">
     <a class="pat-button continue pat-inject pat-scroll" data-pat-inject="history: record; source: #step-4; target: #step-4 &amp;&amp; source: #content; target: #content" data-pat-scroll="selector: #content; trigger: auto; offset: 0" href="${view/next_url}" i18n:translate="label_next">Next</a>
 </p>
+</div>
 </metal:slot>
 </body>
 </html>

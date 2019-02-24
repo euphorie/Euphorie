@@ -17,6 +17,7 @@
 
   <body>
     <metal:slot fill-slot="content">
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
 
       <div class="pat-well pat-message notice"
@@ -189,6 +190,7 @@
       </div>
 
       <tal:block replace="tile:client-analytics" />
+    </div>
     </metal:slot>
   </body>
 </html>
