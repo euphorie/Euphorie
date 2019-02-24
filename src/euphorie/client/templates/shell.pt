@@ -288,34 +288,12 @@
     </div>
 
     <aside id="osc">
-        <metal:slot define-slot="aside-header">
-        <h2>aside header</h2>
-          <header id="osc-header">
-              <tal:if condition="python:is_anonymous and webhelpers.allow_guest_accounts">
-                  <a tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" id="button-new-session"
-                      data-pat-modal="class: large" class="pat-modal icon-plus-circle" i18n:attributes="title " title="Start test session" i18n:translate="">Start test session</a>
-                  <a tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session" id="button-new-session" class="icon-plus-circle" i18n:translate="">Start test session</a>
-              </tal:if>
-
-              <tal:if condition="not:is_anonymous">
-                  <tal:if condition="not:is_outside_of_survey">
-                      <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_session_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
-                         data-pat-inject="source: #osc-header; target: #osc-header && source: #osc; target: #osc"
-                         class="back-button pat-inject">Back</a>
-                  </tal:if>
-                  <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
-                      data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus-circle" title="Start a new session" i18n:attributes="title link_start_session" i18n:translate="New">New</a>
-              </tal:if>
-          </header>
-        </metal:slot>
-        <metal:slot define-slot="aside-sessions">
-        <h2>aside sessions</h2>
-        </metal:slot>
-    <!-- The logo comes from a macro -->
-    <tal:logo condition="webhelpers/show_logo">
-      <metal:logo use-macro="context/logo/macros/logo"/>
-    </tal:logo>
-
+      <!-- The aside header and sessions browser comes from a macro -->
+      <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
+      <!-- The logo comes from a macro -->
+      <tal:logo condition="webhelpers/show_logo">
+        <metal:logo use-macro="context/logo/macros/logo"/>
+      </tal:logo>
     </aside>
 
     <tal:block replace="tile:client-analytics"/>
