@@ -26,7 +26,7 @@ csv.register_dialect(
 )
 
 TAG = re.compile(u"<.*?>")
-UNWANTED = re.compile(u"(\r|&#13;)")
+UNWANTED = re.compile(u"(\r|&#13;|\xad)")
 WHITE = re.compile(' +')
 
 REGION_NAMES = {

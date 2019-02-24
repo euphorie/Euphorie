@@ -1,0 +1,9 @@
+<registry>
+  <record name="euphorie.content.vocabularies.toolcategories">
+    <field type="plone.registry.field.Tuple">
+      <title>Available tool categories</title>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false" />
+  </record>
+</registry>

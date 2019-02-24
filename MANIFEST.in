@@ -33,6 +33,7 @@ graft src/euphorie/deployment/profiles
 graft src/euphorie/deployment/upgrade
 graft src/euphorie/deployment/browser/templates
 graft src/euphorie/deployment/tiles/templates
+graft src/euphorie/client/docx/templates
 recursive-exclude src/euphorie *.pt.py
 recursive-exclude src/euphorie *.pt.pyc
 prune Work

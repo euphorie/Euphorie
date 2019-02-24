@@ -6,4 +6,9 @@
       handler=".surveysession.modified"
       />
 
+	<subscriber
+		for="plone.app.imagecropping.dx.IImageCroppingDX
+		     zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+		handler=".imagecropping.crop_on_image_edit" />
+
 </configure>

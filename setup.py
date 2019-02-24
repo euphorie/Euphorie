@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '10.0.5.dev0'
+version = '10.1.2.dev0'
 
 setup(
     name="Euphorie",
@@ -45,6 +45,7 @@ setup(
         "plone.app.dexterity [grok, relations]",
         "plone.app.folder",
         "plone.app.imaging",
+        "plone.app.imagecropping",
         "plone.app.redirector >= 1.0.12dev-r27477",
         "plone.app.vocabularies",
         "plone.app.z3cform",
@@ -56,6 +57,7 @@ setup(
         "plone.memoize",
         "plone.namedfile[blobs]",
         "plone.api",
+        "python-docx",
         "repoze.formapi >=0.4.2",
         "setuptools",
         "simplejson",
@@ -66,7 +68,7 @@ setup(
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
-        "NuPlone >=1.4.0",
+        "NuPlone >=1.6.0",
         "plone.uuid",
         "pyrtf-ng",
         "z3c.appconfig >=1.0",

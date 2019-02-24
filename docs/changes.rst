@@ -1,13 +1,31 @@
 Changelog
 =========
 
-10.0.5 (unreleased)
+10.1.2 (unreleased)
+-------------------
+
+- Better logic for the text hint on top5 risks that were answered as
+  yes in the report. Needed for RIE
+
+10.1.1 (2019-02-04)
+-------------------
+
+- Re-build JS bundle / chunks to fix a problem with pat-display-time for
+  the locale nl-NL
+- France: create own Word report, based on the Daimler template, which is
+  used by tools of type existing-measures
+
+10.1.0 (2019-01-23)
 -------------------
 
 - Bugfix for the `treeChanges` method that determines if the SQL data
   of the tree needs to be updated: we now also check if the risk_type
   was changed, since that info determines display behaviour.
 - Translation update FR
+- New behavior for Survey that makes it possible to assign one or more categories
+  to it. If set, the "new session" modal in the client will display that survey
+  under its categories
+- The reports that were formerly in RTF format are now created in docx
 
 
 10.0.4 (2018-12-11)

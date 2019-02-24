@@ -1,0 +1,123 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-12-10 15:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"Generated-By: Babel 0.9.5\n"
+
+#. Default: "Type of OiRA Tool"
+#: euphorie/content/survey.py:107
+#: euphorie/content/templates/survey_view.pt:27
+msgid "label_tool_type"
+msgstr "Τύπος εργαλείου OiRA"
+
+#: euphorie/content/utils.py:51
+msgid "Classic OiRA Tool with positive and negative statements."
+msgstr "Κλασικό εργαλείο OiRA με θετικές και αρνητικές δηλώσεις."
+
+#: euphorie/content/utils.py:64
+msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
+msgstr "Εργαλείο OiRA στο οποίο μπορούν να ορίζονται τα «Ήδη υφιστάμενα μέτρα»."
+
+#. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
+#: euphorie/content/survey.py:110
+msgid "description_tool_type"
+msgstr "Η επιλογή αυτή καθορίζει ποια παραλλαγή ενός εργαλείου OiRA θα δημιουργηθεί. Εάν δεν είστε σίγουροι, επιλέξτε την «Classic»."
+
+#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#: euphorie/content/utils.py:68
+msgid "select_add_existing_measure"
+msgstr "Επιλέξτε ή προσθέστε τυχόν μέτρα που εφαρμόζονται ήδη."
+
+#: euphorie/content/utils.py:82
+msgid "Are the measures that are selected above sufficient?"
+msgstr "Τα μέτρα που έχουν επιλεγεί ανωτέρω είναι επαρκή;"
+
+#. Default: "Yes, the remaining risk is acceptable"
+#: euphorie/content/utils.py:84
+msgid "label_yes_sufficient"
+msgstr "Ναι, ο εναπομένων κίνδυνος είναι αποδεκτός"
+
+#. Default: "No, more measures are required"
+#: euphorie/content/utils.py:87
+msgid "label_not_sufficient"
+msgstr "Όχι, απαιτούνται περισσότερα μέτρα"
+
+#. Default: "Add a missing measure"
+#: euphorie/content/utils.py:72
+msgid "button_add_existing_measure"
+msgstr "Προσθήκη μέτρου που λείπει"
+
+#. Default: "Describe a measure that is already in place but not yet listed here."
+#: euphorie/content/utils.py:78
+msgid "placeholder_new_existing"
+msgstr "Περιγράψτε ένα μέτρο που εφαρμόζεται ήδη αλλά δεν αναφέρεται ακόμη εδώ."
+
+#. Default: "Measure already implemented"
+#: euphorie/client/docx/compiler.py:218
+#: euphorie/client/templates/risk_actionplan.pt:117
+msgid "label_existing_measure"
+msgstr "Μέτρο που έχει ήδη εφαρμοστεί"
+
+#. Default: "Add a custom risk"
+#: euphorie/client/browser/templates/module_identification_custom.pt:28
+msgid "button_add_custom_risk"
+msgstr "Προσθήκη εξατομικευμένου κινδύνου"
+
+#. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+#: euphorie/client/publish.py:161
+#: euphorie/deployment/upgrade/v8.py:146
+msgid "question_other_risks"
+msgstr ""
+"<p>Θα θέλατε να εισάγετε πρόσθετους κινδύνους που εσείς έχετε αναγνωρίσει "
+"στο χώρο εργασίας σας και δεν υπάρχουν στο εργαλείο:</p><p><strong>Σημαντικό:"
+"</strong> Σας συμβουλεύουμε, αν δεν το έχετε κάνει ακόμα, να περιηγηθείτε "
+"πρώτα σε όλες τις ενότητες κινδύνων (modules) αυτού του εργαλείου ώστε να "
+"αποφευχθεί η εισαγωγή κινδύνων που υπάρχουν ήδη.</p><p>Εάν δεν χρειάζεται να προσθέσετε κινδύνους, συνεχίστε.</p>"
+
+#: euphorie/client/browser/templates/risk_identification_custom.pt:26
+msgid "Describe the risk..."
+msgstr "Περιγράψτε τον κίνδυνο…"
+
+#. Default: "Is this risk acceptable or under control?"
+#: euphorie/content/utils.py:70
+msgid "is_risk_acceptable"
+msgstr "Είναι αποδεκτός ο κίνδυνος;"
+
+#. Default: "Provide some further information on this risk."
+#: euphorie/client/browser/templates/risk_identification_custom.pt:177
+msgid "placeholder_custom_risk_description"
+msgstr "Δώστε ορισμένες περαιτέρω πληροφορίες σχετικά με τον εν λόγω κίνδυνο."
+
+#. Default: "Save and add new risk"
+#: euphorie/client/browser/templates/risk_identification_custom.pt:195
+msgid "label_save_and_add_new"
+msgstr "Αποθήκευση και προσθήκη άλλου κινδύνου"
+
+#: euphorie/client/browser/templates/tool_sessions.pt:37
+msgid "Risk assessments made with this tool"
+msgstr "Εκτιμήσεις επικινδυνότητας με το εργαλείο αυτό"
+
+#. Default: "Start a new session with this tool"
+#: euphorie/client/browser/templates/tool_sessions.pt:75
+msgid "button_start_new_session"
+msgstr "Έναρξη νέας συνόδου με αυτό το εργαλείο"
+
+
+

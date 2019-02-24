@@ -22,4 +22,13 @@
       directory="profiles/to_0021"
       />
 
+  <genericsetup:registerProfile
+      name="to_0022"
+      title="Upgrade profile that includes registry record for tool category vocabulary"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/to_0022"
+      />
+
 </configure>
