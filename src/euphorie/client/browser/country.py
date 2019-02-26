@@ -376,6 +376,14 @@ class SessionsView(BrowserView):
             "%s/resume?initial_view=1%s" % (survey.absolute_url(), extra)
         )
 
+    def tool_byline(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        title = translate(
+            _("title_tool",
+                default=u"OiRA - Online interactive Risk Assessment"),
+            target_language=lang)
+        return title.split('-')[-1].strip()
+
     def __call__(self):
         if not self.account:
             raise Unauthorized()

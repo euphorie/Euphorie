@@ -24,12 +24,13 @@
                   introduction python:getattr(context, 'introduction', '') or '';
                 "
     >
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
 
       <article class="pat-rich">
         <h1 class="tool-name">${context/title}</h1>
         <section class="summary" tal:condition="python:description.strip()">
-          <p tal:content="description"/>
+          <p tal:content="description"></p>
         </section>
       </article>
 
@@ -81,11 +82,11 @@
 
       <article class="pat-rich" tal:condition="python:introduction.strip()">
         <section class="introduction">
-          <p tal:replace="structure introduction" />
+          <p tal:replace="structure introduction"></p>
         </section>
       </article>
 
-
+    </div>
     </metal:content>
 
     <metal:splash fill-slot="splash_message_slot">

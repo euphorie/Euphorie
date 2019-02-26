@@ -10,10 +10,16 @@
   <metal:slot fill-slot="content"
     tal:define="language view/portal/plone_portal_state/language;
                 my_sessions view/get_ordered_sessions;">
-    <tal:block replace="tile:statusmessages" />
-    <article>
+  <tal:block replace="tile:statusmessages" />
+  <div id="content-pane">
+    <article id="screen-intro">
+      <h1>
+        OiRA
+      </h1>
+      <p class="byline">
+        ${view/tool_byline}
+      </p>
     </article>
-    <div id="content-pane">
     <div class="row pat-masonry"
          id="dashboard"
          data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"

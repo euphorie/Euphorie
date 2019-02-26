@@ -22,6 +22,7 @@
                   came_from_param webhelpers/came_from_param;
                 "
     >
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
       <article class="rich">
         <h1 i18n:translate="header_welcome">Welcome</h1>
@@ -123,6 +124,7 @@
 
         <tal:block replace="tile:client-analytics" />
       </article>
+    </div>
     </metal:slot>
   </body>
 </html>
