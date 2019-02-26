@@ -421,23 +421,7 @@
             ></textarea>
           </fieldset>
 
-          <div class="button-bar"
-               id="nav-bar"
-          >
-            <button class="pat-button back"
-                    name="next"
-                    type="submit"
-                    value="previous"
-                    i18n:translate="label_previous"
-            >Previous</button>
-            <button class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}"
-                    name="next"
-                    type="submit"
-                    value="next"
-                    data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
-                    i18n:translate="label_save_and_continue"
-            >Save and continue</button>
-          </div>
+
         </form>
 
         <tal:loop repeat="solution view/solutions|python:[]">
@@ -475,6 +459,23 @@
         </tal:loop>
       </tal:def>
       </div>
+          <div class="button-bar"
+               id="nav-bar"
+          >
+            <button class="pat-button back"
+                    name="next"
+                    type="submit"
+                    value="previous"
+                    i18n:translate="label_previous"
+            >Previous</button>
+            <button class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}"
+                    name="next"
+                    type="submit"
+                    value="next"
+                    data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
+                    i18n:translate="label_save_and_continue"
+            >Save and continue</button>
+          </div>
     </metal:slot>
   </body>
 </html>

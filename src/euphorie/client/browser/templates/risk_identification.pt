@@ -51,12 +51,12 @@
     <metal:call tal:define="default_state string:closed" use-macro="webhelpers/macros/risk_comments" />
     <!-- END Comments -->
 
-    <p class="button-bar" id="nav-bar">
+</div>
+      <p class="button-bar" id="nav-bar">
         <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
         <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
         <button type="submit" name="next" value="skip" class="pat-button skip" i18n:translate="label_button_skip">Skip</button>
     </p>
-</div>
 </form>
 </metal:slot>
 </body>

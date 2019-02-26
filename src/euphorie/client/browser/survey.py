@@ -31,6 +31,8 @@ class SurveySessionsView(SessionsView):
     """ Template corresponds to proto:_layout/tool.html
     """
 
+    variation_class = ""
+
     @memoize
     def get_sessions(self):
         """ Filter user's sessions to match only those from the current survey

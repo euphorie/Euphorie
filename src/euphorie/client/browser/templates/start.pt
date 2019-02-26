@@ -134,6 +134,7 @@
 
         </article>
 
+      </div>
         <div class="button-bar"
              id="nav-bar"
              tal:condition="can_edit"
@@ -145,8 +146,6 @@
                   i18n:translate="label_start_survey"
           >Start</button>
         </div>
-
-      </div>
       </form>
 
       <div id="sharing-menu"
@@ -184,7 +183,7 @@
           </li>
         </ul>
       </div>
-      <metal:css use-macro="context/appendix/macros/appendix" />
+      <!-- metal:css use-macro="context/appendix/macros/appendix" / -->
 
     </metal:slot>
 
