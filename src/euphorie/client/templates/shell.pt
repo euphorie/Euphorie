@@ -88,6 +88,7 @@
   i18n:domain="euphorie"
   tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
     <div id="main">
+    <!-- class="${python:is_anonymous and 'sidebar-off' or None}"-->
         <span class="hidden" id="metadata" hidden="hidden">
             <span id="country_name">${webhelpers/country_name}</span>
             <span id="sector_name">${webhelpers/sector_name}</span>
@@ -95,6 +96,7 @@
             <span id="language_code">${webhelpers/language_code}</span>
         </span>
         <header id="toolbar">
+          <tal:anon condition="not:is_anonymous">
             <a href="#osc" class="iconified pat-toggle"
                data-pat-toggle="selector: body; value: osc-on osc-off; store: local &amp;&amp; selector: body; value: osc-s-on osc-s-off; store: local"
                id="toggle-osc"
@@ -102,6 +104,7 @@
                title="Show/hide menu">
                 Menu
             </a>
+          </tal:anon>
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
@@ -287,16 +290,12 @@
         </div>
     </div>
 
+    <tal:anon condition="not:is_anonymous">
     <aside id="osc">
       <!-- The aside header and sessions browser comes from a macro -->
-      <tal:anon condition="not:is_anonymous">
       <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
-      </tal:anon>
-      <!-- The logo comes from a macro -->
-      <tal:logo condition="webhelpers/show_logo">
-        <metal:logo use-macro="context/logo/macros/logo"/>
-      </tal:logo>
     </aside>
+    </tal:anon>
 
     <tal:block replace="tile:client-analytics"/>
 
