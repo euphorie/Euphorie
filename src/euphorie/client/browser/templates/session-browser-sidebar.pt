@@ -106,7 +106,7 @@
               >
                 <h4 class="name field">
                   <a class="session-name pat-inject pat-switch"
-                     href="${request/getURL}?action=continue&amp;session=${session/id}"
+                     href="${tool/absolute_url}?action=continue&amp;session=${session/id}"
                      data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
                      data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
                   >${session/title}</a>
