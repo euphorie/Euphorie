@@ -9,8 +9,24 @@
       metal:use-macro="context/@@shell/macros/shell">
 
 <body i18n:domain="euphorie">
-  <metal:slot fill-slot="content">
+  <metal:slot fill-slot="content"
+    tal:define="
+        base_url view/base_url;
+      ">
       <ul class="menu">
+        <li>
+            <button id="osh-toggle"
+                i18n:translate=""
+                class="icon-circles osh-toggle pat-toggle close-panel"
+                data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
+        </li>
+        <li>
+            <a href="${base_url}/help"
+                i18n:translate="navigation_help"
+                class="icon-help-circle close-panel"
+                target="Help"
+                >Help</a>
+        </li>
         <li>
             <a class="icon-key" href="${view/country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
         </li>
