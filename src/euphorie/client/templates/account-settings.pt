@@ -12,6 +12,7 @@
 
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
+    <div id="content-pane">
       <article class="pat-rich">
         <h1>${view/label}</h1>
       </article>
@@ -25,6 +26,7 @@
           </div>
         </fieldset>
       </form>
+    </div>
     </metal:content>
   </body>
 </html>
