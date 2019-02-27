@@ -14,7 +14,8 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="company view/session/company">
-<div id="content-pane">
+<form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}" class="concise">
+  <div id="content-pane">
     <article class="pat-rich">
     <h1 i18n:translate="hader_company_details">You are about to print the report... please complete the optional form and then proceed.</h1>
 
@@ -23,7 +24,6 @@
         You are free to provide the information below. This information is meant to improve the tools and the services provided.
         This data will not appear in the report.
     </p>
-    <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}" class="concise">
     <fieldset class="vertical">
         <label tal:define="widget nocall:view/widgets/country; value widget/value">
             <tal:span i18n:translate="label_company_country">Your country</tal:span>
@@ -85,17 +85,15 @@
             <tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
         </fieldset>
 
-    </fieldset>
-
-
-      <p class="button-bar" id="nav-bar">
+      </fieldset>
+    </article>
+    </div>
+    <p class="button-bar" id="nav-bar">
         <button type="submit" name="form.buttons.previous" i18n:translate="label_previous" class="pat-button back">Previous</button>
         <button type="submit" name="form.buttons.next" i18n:translate="label_save_and_continue" class="pat-button continue">Save and continue</button>
         <button type="submit" name="form.buttons.skip" i18n:translate="label_skip" class="pat-button skip">Skip this step</button>
-      </p>
-    </form>
-  </article>
-  </div>
+    </p>
+  </form>
   </metal:slot>
   </body>
 </html>
