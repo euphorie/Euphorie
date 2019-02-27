@@ -51,6 +51,9 @@
              i18n:translate=""
           >download section</a>.
         </p>
+        <article class="pat-rich">
+          <h1>${context/title}</h1>
+        </article>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
                   tal:condition="can_edit"
@@ -120,7 +123,6 @@
             </figcaption>
           </figure>
 
-          <h1>${context/title}</h1>
           <section>
             <tal:block condition="not:view/has_introduction">
               <metal:introduction use-macro="default_introduction/macros/default_introduction" />
@@ -183,7 +185,6 @@
           </li>
         </ul>
       </div>
-      <!-- metal:css use-macro="context/appendix/macros/appendix" / -->
 
     </metal:slot>
 
