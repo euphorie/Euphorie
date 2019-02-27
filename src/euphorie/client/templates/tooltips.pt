@@ -42,21 +42,25 @@
   <article id="osh-hamburger">
     <h3 i18n:translate="header_osh_hamburger">Menu toggle</h3>
     <p i18n:translate="info_osh_hamburger">
-      The menu toggle lets you hide and show the &lsquo;off canvas&rsquo; menu
-      so it's only there when you need it.
-      Hide the menu when you're concentrating on filling out a tool or
-      show it when you're clicking between various parts of the application.
+      The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you’re concentrating on making a risk assessment or show it when you’re clicking about between various parts of the application.
     </p>
 
+    <metal:footer define-macro="footer">
     <p class="footer">
       <strong class="icon-lightbulb"
               i18n:translate="Tip"
       >Tip</strong>:
       <tal:help i18n:translate="info_screen_help">
-        You may switch this on screen help feature on or off at any time by clicking on the
-        <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name>
-        at the top right on the toolbar.</tal:help>
+      You may switch this on screen help feature on or off at any time by selecting “Toggle on screen help” from the menu at the top right on the toolbar. </tal:help>
+      <br>
+      <br>
+      <a href="/feedback/osh.html#osh-toggle"
+        data-pat-forward="selector: #osh-toggle"
+        class="pat-forward"
+        data-pat-switch="body osh-on osh-off"
+        i18n:translate="screen_help_switch_off">Switch tips off now</a>
     </p>
+    </metal:footer>
   </article>
 
   <article id="osh-menu">
@@ -65,14 +69,7 @@
     </h3>
     <p i18n:translate="info_osh_menu">The new off canvas menu provides access to the core functions of the applications. Also on mobile!</p>
 
-    <p class="footer">
-      <strong class="icon-lightbulb"
-              i18n:translate="Tip"
-      >Tip</strong>:
-      <tal:help i18n:translate="info_screen_help">You may switch this on screen help feature on or off at any time by clicking on the
-        <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name>
-        at the top right on the toolbar.</tal:help>
-    </p>
+    <metal:footer use-macro="here/tooltips/macros/footer"/>
   </article>
 
   <article id="osh-session-menu">
@@ -81,14 +78,25 @@
     </h3>
     <p i18n:translate="info_osh_session_menu">From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately.</p>
 
-    <p class="footer">
-      <strong class="icon-lightbulb"
-              i18n:translate="Tip"
-      >Tip</strong>:
-      <tal:help i18n:translate="info_screen_help">You may switch this on screen help feature on or off at any time by clicking on the
-        <tal:name i18n:name="questionmark">'&nbsp;<strong>?</strong>&nbsp;'</tal:name>
-        at the top right on the toolbar.</tal:help>
-    </p>
+    <metal:footer use-macro="here/tooltips/macros/footer"/>
+  </article>
+
+  <article id="osh-tool-navigation">
+    <h3 i18n:translate="header_osh_tool_navigation">
+            Tool navigation
+    </h3>
+    <p i18n:translate="info_osh_tool_navigation">This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will.</p>
+
+    <metal:footer use-macro="here/tooltips/macros/footer"/>
+  </article>
+
+  <article id="osh-ra-browser">
+    <h3 i18n:translate="header_osh_ra_browser">
+            Risk assessment browser
+    </h3>
+    <p i18n:translate="info_osh_ra_browser">The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the ‘+’ or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select ‘clone’.</p>
+
+    <metal:footer use-macro="here/tooltips/macros/footer"/>
   </article>
 
 </html>

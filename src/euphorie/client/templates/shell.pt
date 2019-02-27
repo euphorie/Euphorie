@@ -126,7 +126,7 @@
         <div id="content">
           <aside tal:condition="python:variation_class=='variation-risk-assessment'"
             id="tree" class="${variation_class}">
-          <metal:include tal:define="id string:menu" use-macro="context/@@includes/macros/osh"/>
+          <metal:include tal:define="id string:tool-navigation" use-macro="context/@@includes/macros/osh"/>
           <metal:slot define-slot="aside-navigator">
             <style type="text/css" tal:condition="styles_override">
                 ${styles_override}
@@ -291,6 +291,7 @@
 
     <tal:anon condition="not:is_anonymous">
       <aside id="osc">
+        <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
         <!-- The aside header and sessions browser comes from a macro -->
         <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
       </aside>
