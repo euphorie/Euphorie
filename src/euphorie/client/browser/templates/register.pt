@@ -13,6 +13,7 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account; base_url webhelpers/base_url">
+  <div id="content-pane">
     <tal:block replace="tile:statusmessages"/>
     <article tal:condition="python:is_guest_account and request.get('report_blurb')">
       <h1 i18n:translate="header_reporting">Reporting</h1>
@@ -100,6 +101,7 @@
     </form>
 
     <tal:block replace="tile:client-analytics"/>
+  </div>
   </metal:slot>
   </body>
 </html>
