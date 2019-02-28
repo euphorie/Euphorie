@@ -423,10 +423,11 @@ class SessionBrowserNavigator(SessionsView):
         return self.request.get('groupid')
 
     @memoize
-    def get_root_group(self):
+    def get_root_group(self, groupid=None):
         ''' Return the group that is the root of the navigation tree
         '''
-        groupid = self.groupid
+        if not groupid:
+            groupid = self.groupid
         if not groupid:
             return
         base_query = (
