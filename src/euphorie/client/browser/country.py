@@ -410,6 +410,15 @@ class SessionBrowserNavigator(SessionsView):
 
     @property
     @memoize
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
+
+    @property
+    @memoize
     def groupid(self):
         return self.request.get('groupid')
 

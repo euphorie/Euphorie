@@ -6,10 +6,11 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
 >
-<metal:aside-browser define-macro="aside-browser" meta:interpolation="true" i18n:domain="euphorie"
-      tal:define="
-        my_view nocall:here/session-browser-sidebar;
-        webhelpers nocall:here/webhelpers;
+<metal:aside-browser define-macro="aside-browser" meta:interpolation="true" i18n:domain="euphorie">
+  <aside id="osc"
+        tal:define="
+        my_view nocall:context/session-browser-sidebar;
+        webhelpers nocall:context/webhelpers;
         root_group my_view/get_root_group;
         root_parent root_group/parent|nothing;
         language my_view/portal/plone_portal_state/language;
@@ -17,6 +18,7 @@
         zodb_path request/zodb_path|nothing;
         styles_override webhelpers/styles_override;
       ">
+  <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
   <metal:slot define-slot="aside-header">
     <header id="osc-header">
       <tal:in-group condition="nocall: root_group">
@@ -168,5 +170,6 @@
       </div>
     </div>
   </metal:slot>
+</aside>
 </metal:aside-browser>
 </html>

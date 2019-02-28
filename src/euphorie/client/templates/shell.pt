@@ -290,11 +290,10 @@
     </div>
 
     <tal:anon condition="not:is_anonymous">
-      <aside id="osc">
-        <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
+
         <!-- The aside header and sessions browser comes from a macro -->
         <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
-      </aside>
+
       <tal:logo condition="webhelpers/show_logo">
         <metal:logo use-macro="context/logo/macros/logo"/>
       </tal:logo>
