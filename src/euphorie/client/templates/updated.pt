@@ -11,6 +11,7 @@
 
 <body>
 <metal:slot fill-slot="content">
+<div id="content-pane">
 <h1 i18n:translate="title_updated">OiRA Tool was updated</h1>
 
 <article class="rich">
@@ -88,6 +89,7 @@
     <p class="buttonBar"><button class="pat-button" type="submit" i18n:translate="label_accept update">Update</button></p>
 </form>
 </article>
+</div>
 </metal:slot>
 <metal:slot fill-slot="splash_message_slot">
     <div tal:condition="python:tool_notification is not None" class="splash-message">

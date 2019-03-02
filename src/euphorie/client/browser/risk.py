@@ -51,6 +51,7 @@ class IdentificationView(BrowserView):
     """A view for displaying a question in the identification phase
     """
     template = ViewPageTemplateFile('templates/risk_identification.pt')
+    variation_class = "variation-risk-assessment"
 
     question_filter = None
 
@@ -326,6 +327,7 @@ class ActionPlanView(BrowserView):
     """
 
     phase = "actionplan"
+    variation_class = "variation-risk-assessment"
     # The question filter will find modules AND risks
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks

@@ -15,7 +15,8 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <article class="rich">
+    <div id="content-pane">
+      <article class="pat-rich">
         <h1>${context/title}</h1>
         <tal:block replace="tile:statusmessages" />
 
@@ -66,6 +67,7 @@
            i18n:translate="label_jump_to_report"
         >Go to report</a>
       </p>
+    </div>
     </metal:slot>
   </body>
 </html>

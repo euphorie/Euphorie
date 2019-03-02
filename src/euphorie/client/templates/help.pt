@@ -15,7 +15,8 @@
 <body>
 <metal:slot fill-slot="content"
   tal:define="base_url string:${here/absolute_url}/help">
-  <article class="rich">
+  <div id="content-pane">
+  <article class="pat-rich">
     <h1 i18n:translate="title_help">Help</h1>
     <ul class="toc">
       <li><a href="${base_url}#introduction" i18n:translate="help_header_introduction">Introduction</a></li>
@@ -56,9 +57,10 @@
     <h2 id="finalwords" i18n:translate="help_header_finalwords">What happens next?</h2>
     <p tal:replace="structure view/help/finalwords">Aliquam cursus tincidunt enim. Mauris sed diam felis. Curabitur bibendum tempor nibh eu blandit. Nam eu ante ac mi lobortis lobortis tincidunt a lectus. Cras non lorem est, eget sagittis dui. Aliquam erat volutpat. Nulla a tincidunt eros. Praesent fringilla sollicitudin lacus, dignissim tristique erat porttitor eu. Nulla vulputate bibendum diam, in sagittis neque pulvinar vel. Sed cursus vehicula dui eu consectetur. Nullam vel est purus, a placerat libero.</p>
 
+      <metal:appendix use-macro="context/appendix/macros/appendix"/>
   </article>
-    <metal:css use-macro="context/appendix/macros/appendix"/>
-    <tal:block replace="tile:client-analytics"/>
+  </div>
+  <tal:block replace="tile:client-analytics"/>
   </metal:slot>
   </body>
 </html>

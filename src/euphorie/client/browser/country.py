@@ -96,6 +96,7 @@ class SessionsView(BrowserView):
 
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
+    variation_class = "variation-dashboard"
 
     @property
     @memoize
@@ -375,6 +376,14 @@ class SessionsView(BrowserView):
             "%s/resume?initial_view=1%s" % (survey.absolute_url(), extra)
         )
 
+    def tool_byline(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        title = translate(
+            _("title_tool",
+                default=u"OiRA - Online interactive Risk Assessment"),
+            target_language=lang)
+        return title.split('-')[-1].strip()
+
     def __call__(self):
         if not self.account:
             raise Unauthorized()
@@ -401,14 +410,24 @@ class SessionBrowserNavigator(SessionsView):
 
     @property
     @memoize
+    def webhelpers(self):
+        return api.content.get_view(
+            'webhelpers',
+            self.context,
+            self.request,
+        )
+
+    @property
+    @memoize
     def groupid(self):
         return self.request.get('groupid')
 
     @memoize
-    def get_root_group(self):
+    def get_root_group(self, groupid=None):
         ''' Return the group that is the root of the navigation tree
         '''
-        groupid = self.groupid
+        if not groupid:
+            groupid = self.groupid
         if not groupid:
             return
         base_query = (

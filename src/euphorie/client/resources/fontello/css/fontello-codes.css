@@ -47,10 +47,15 @@
 .icon-published:before { content: '\e82d'; } /* '' */
 .icon-unpublished:before { content: '\e82e'; } /* '' */
 .icon-publish:before { content: '\e82f'; } /* '' */
+.icon-menu-bars:before { content: '\e830'; } /* '' */
+.icon-cancel-1:before { content: '\e831'; } /* '' */
 .icon-bank:before { content: '\e84c'; } /* '' */
 .icon-ellipsis:before { content: '\e865'; } /* '' */
+.icon-cancel:before { content: '\e899'; } /* '' */
 .icon-arrows-cw:before { content: '\e89c'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
+.icon-menu-1:before { content: '\f0c9'; } /* '' */
 .icon-ellipsis-vertical:before { content: '\f142'; } /* '' */
+.icon-tree:before { content: '\f1bb'; } /* '' */
 .icon-facebook:before { content: '\f230'; } /* '' */
 .icon-clone:before { content: '\f24d'; } /* '' */

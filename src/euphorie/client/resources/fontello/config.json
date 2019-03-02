@@ -401,6 +401,44 @@
       "src": "entypo"
     },
     {
+      "uid": "88da60b3a17e5744695682833a178e73",
+      "css": "tree",
+      "code": 61883,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu-1",
+      "code": 61641,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "307042a443006ea16475fe1f51e66c2d",
+      "css": "menu-bars",
+      "code": 59440,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M12 0H988V153.4H12V0ZM286.2 277.5H986.9V430.9H286.2V277.5ZM12 569.1H988V722.5H12V569.1ZM286.2 846.6H986.9V1000H286.2V846.6Z",
+        "width": 1000
+      },
+      "search": [
+        "menu-bars"
+      ]
+    },
+    {
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59545,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "cancel-1",
+      "code": 59441,
+      "src": "websymbols"
+    },
+    {
       "uid": "ed53e2e7bf982c38275468a84e453feb",
       "css": "patterns-logo",
       "code": 59392,

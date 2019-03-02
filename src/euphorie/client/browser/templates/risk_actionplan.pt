@@ -49,6 +49,7 @@
                                      message-min: ${view/message_positive_number};
                                      message-required: This field is required;"
         >
+         <div id="content-pane">
           <article class="rich pat-well warning"
                    id="${view/risk_number}"
           >
@@ -432,7 +433,8 @@
             ></textarea>
           </fieldset>
 
-          <div class="button-bar"
+          </div>
+          <p class="button-bar"
                id="nav-bar"
           >
             <button class="pat-button back"
@@ -441,15 +443,17 @@
                     value="previous"
                     i18n:translate="label_previous"
             >Previous</button>
-            <button class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}"
+            <button class="pat-button continue"
                     name="next"
                     type="submit"
                     value="next"
-                    data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
                     i18n:translate="label_save_and_continue"
             >Save and continue</button>
-          </div>
+          </p>
         </form>
+      </tal:def>
+
+
 
         <tal:loop repeat="solution view/solutions|python:[]">
           <fieldset class="vertical"
@@ -484,8 +488,6 @@
             </label>
           </fieldset>
         </tal:loop>
-      </tal:def>
-
     </metal:slot>
   </body>
 </html>

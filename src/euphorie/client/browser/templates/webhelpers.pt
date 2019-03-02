@@ -176,16 +176,6 @@
             page_section=='actionplan' and 'step-4-topics' or ''}"
       tal:condition="exists:tree"
     >
-      <h2 class="module-title">
-        <tal:phase_identification condition="python:page_section=='identification'">
-          <tal:identification i18n:translate="label_identification">Identification</tal:identification>
-          +
-          <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation>
-        </tal:phase_identification>
-        <tal:phase_actionplan condition="python:page_section=='actionplan'"
-                              i18n:translate="label_action_plan"
-        >Action Plan</tal:phase_actionplan>
-      </h2>
       <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
       <ul class="legend">
         <li class="unvisited"
