@@ -2280,7 +2280,7 @@ msgstr "Plan van aanpak ${title}"
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:315 euphorie/client/report.py:596
 msgid "filename_report_identification"
-msgstr "Inventarisatie ${title}.doc"
+msgstr "Inventarisatie ${title}"
 
 #. Default: "Timeline for ${title}"
 #: euphorie/client/report.py:1132

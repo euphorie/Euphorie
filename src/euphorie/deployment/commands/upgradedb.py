@@ -235,7 +235,8 @@ def hash_passwords():
 def main():
     # It is always a good idea to run this one
     create_missing_tables()
-    if euphorie_version < parse_version('10.0.1'):
+    # should be 10.0.1 - raising temporarily for the TNO migration
+    if euphorie_version < parse_version('10.1.3'):
         add_group_id_to_account()
         add_brand_to_session()
         add_group_id_to_session()
@@ -243,9 +244,9 @@ def main():
         add_last_modifier_id_to_session()
         add_last_publisher_id_to_session()
         hash_passwords()
-    if euphorie_version < parse_version('10.0.4'):
+    # should be 10.0.4 - raising temporarily for the TNO migration
+    if euphorie_version < parse_version('10.1.3'):
         add_brand_to_group()
-    if euphorie_version < parse_version('10.1.0'):
         add_custom_description_to_risk()
 
 if __name__ == "__main__":

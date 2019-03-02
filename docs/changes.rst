@@ -1,7 +1,13 @@
 Changelog
 =========
 
-10.1.2 (unreleased)
+10.1.3 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+10.1.2 (2019-02-26)
 -------------------
 
 - Better logic for the text hint on top5 risks that were answered as
