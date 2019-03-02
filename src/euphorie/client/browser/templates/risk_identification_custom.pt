@@ -19,7 +19,7 @@
         class="pat-inject pat-scroll"
         data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #content; target: #content"
         data-pat-scroll="selector: #content; trigger: auto; offset: 0">
-
+    <div id="content-pane">
 
     <fieldset class="content-mirror risk-title pat-inject pat-autosubmit"
       data-pat-autosubmit="1000ms">
@@ -189,12 +189,14 @@
     <!-- Comments -->
     <metal:call tal:define="default_state string:closed" use-macro="webhelpers/macros/risk_comments" />
     <!-- END Comments -->
+  </div>
 
-    <p class="button-bar" id="nav-bar">
-        <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
-        <button type="submit" name="next" value="next" class="pat-button continue" i18n:translate="label_save_and_add_new">Save and add new risk</button>
-        <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_finish">Save and finish</button>
-    </p>
+  <p class="button-bar" id="nav-bar">
+      <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
+      <button type="submit" name="next" value="next" class="pat-button continue" i18n:translate="label_save_and_add_new">Save and add new risk</button>
+      <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_finish">Save and finish</button>
+  </p>
+
 </form>
 </metal:slot>
 </body>

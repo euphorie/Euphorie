@@ -11,7 +11,8 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="module nocall:view/module">
-    <article class="rich">
+  <div id="content-pane">
+    <article class="pat-rich">
         <tal:block replace="tile:statusmessages"/>
 
 
@@ -31,15 +32,17 @@
 
 
         <tal:question tal:replace="structure module/question">question</tal:question>
+      </article>
 
-        <p class="buttonBar" id="nav-bar">
-                <!-- <a class="pat-button back">Previous</a> -->
-                <a href="${webhelpers/survey_url}/actionplan"
-                class="pat-button pat-inject"
-                data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc">Continue to action plan</a>
-        </p>
+      <p class="buttonBar" id="nav-bar">
+              <!-- <a class="pat-button back">Previous</a> -->
+              <a href="${webhelpers/survey_url}/actionplan"
+              class="pat-button pat-inject"
+              data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc">Continue to action plan</a>
+      </p>
 
-    </article>
+
+  </div>
 </metal:slot>
 </body>
 </html>
