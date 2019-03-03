@@ -351,11 +351,11 @@
                         repeat="measure measures"
           >
             <label>
-              <input checked="${python:measures[measure] and 'checked' or None}"
+              <input checked="${python:measure[1] and 'checked' or None}"
                      name="measure-${repeat/measure/index}"
                      type="checkbox"
               />
-                <tal:measure replace="structure measure" />
+                <tal:measure replace="structure python:measure[0]" />
             </label>
           </tal:measures>
 
