@@ -110,7 +110,10 @@ class IdentificationView(BrowserView):
                     ):
                         self.context.priority = reply.get("priority")
 
-            if self.use_existing_measures:
+            if (
+                self.use_existing_measures and
+                reply.get('handle_measures_in_place')
+            ):
                 measures = self.get_existing_measures()
                 new_measures = []
                 seen = []
@@ -135,11 +138,13 @@ class IdentificationView(BrowserView):
                 self.context.existing_measures = safe_unicode(
                     dumps([entry for entry in new_measures if entry[1]]))
 
-            if self.use_training_module:
+            if self.use_training_module and reply.get('handle_training_notes'):
                 self.context.training_notes = reply.get("training_notes")
 
-            self.context.custom_description = reply.get("custom_description")
             # This only happens on custom risks
+            if reply.get("handle_custom_description"):
+                self.context.custom_description = reply.get("custom_description")
+
             if reply.get("title"):
                 self.context.title = reply.get("title")
 

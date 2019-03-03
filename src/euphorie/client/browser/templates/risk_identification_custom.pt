@@ -28,7 +28,7 @@
 
     <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
       data-pat-autosubmit="1000ms"
-      data-pat-inject="source: #steps; target: #steps">
+      data-pat-inject="source: #steps; target: #steps && source: #slide-content; target: #slide-content">
       <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
       <textarea name="title" autofocus="autofocus"
         class="pat-content-mirror" placeholder="Describe the risk..."
@@ -46,7 +46,6 @@
       tal:define="
                 existing_measures view/get_existing_measures;
               ">
-
 
         <tal:existing-measures condition="view/show_existing_measures">
 
@@ -69,6 +68,7 @@
                 >${python:measure[0]}</textarea>
             </label>
           </tal:measures>
+          <input type="hidden" name="handle_measures_in_place" value="1" />
 
           <label class="clone"
                  id="measure-template"
@@ -93,6 +93,7 @@
             >Remove</button>
           </label>
         </tal:existing-measures>
+
     </fieldset>
 
     <div class="button-bar cloning"
@@ -123,6 +124,7 @@
                   placeholder="${view/placeholder_add_extra}"
                   rows="3"
         ></textarea>
+        <input type="hidden" name="handle_measures_in_place" value="1" />
         <button class="icon-trash iconified remove-clone"
                 title="${view/button_remove_extra}"
         >Remove</button>
@@ -195,6 +197,7 @@
           name="custom_description"
           placeholder="Provide some further information on this risk."
           i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
+        <input type="hidden" name="handle_custom_description" value="1" />
       </fieldset>
     </fieldset>
     <!-- END Information -->

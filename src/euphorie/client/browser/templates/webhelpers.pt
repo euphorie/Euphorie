@@ -358,6 +358,7 @@
                 <tal:measure replace="structure python:measure[0]" />
             </label>
           </tal:measures>
+          <input type="hidden" name="handle_measures_in_place" value="1" />
 
           <label class="clone"
                  id="measure-template"
