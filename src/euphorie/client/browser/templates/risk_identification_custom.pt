@@ -14,15 +14,21 @@
 <tal:block replace="tile:statusmessages"/>
   <form enctype="multipart/form-data"
         accept-charset="UTF-8"
-        method="post"
+        method="POST"
         action="${context/absolute_url}"
-        class="pat-inject pat-scroll"
-        data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #content; target: #content"
-        data-pat-scroll="selector: #content; trigger: auto; offset: 0">
+        class="pat-inject"
+        data-pat-inject="history: record;">
     <div id="content-pane">
+    <nav class="page-actions">
+      <a href="/feedback/confirmation-delete-risk.html#document-content"
+         class="iconified icon-trash pat-modal"
+         data-pat-inject="source: #document-content; target: #document-content"
+         title="Delete risk">Delete risk</a>
+    </nav>
 
-    <fieldset class="content-mirror risk-title pat-inject pat-autosubmit"
-      data-pat-autosubmit="1000ms">
+    <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
+      data-pat-autosubmit="1000ms"
+      data-pat-inject="source: #steps; target: #steps">
       <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
       <textarea name="title" autofocus="autofocus"
         class="pat-content-mirror" placeholder="Describe the risk..."
@@ -33,9 +39,10 @@
     <!-- Identification -->
 
     <fieldset id="add-measure-in-place"
-      class="add-measure-in-place-other pat-checklist measures-in-place pat-clone"
+      class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-autosubmit pat-inject pat-subform"
       data-pat-clone="template: #measure-template; remove-confirmation: Are you sure you want to remove this existing measure?"
-      id="action-plan-item-form"
+      data-pat-inject="source: #slide-preview-existing-measures; target: #slide-preview-existing-measures &amp;&amp; source: #add-measure-in-place; target: #add-measure-in-place"
+      data-pat-autosubmit="1000ms"
       tal:define="
                 existing_measures view/get_existing_measures;
               ">
@@ -53,7 +60,13 @@
                      name="measure-${repeat/measure/index}"
                      type="checkbox"
               />
-                <tal:measure replace="structure measure" />
+                <textarea cols="50"
+                          class="pat-autosubmit"
+                          data-pat-autosubmit="1000ms"
+                          name="present-measure-${repeat/measure/index}"
+                          placeholder="${view/placeholder_add_extra}"
+                          rows="3"
+                >${measure}</textarea>
             </label>
           </tal:measures>
 
@@ -69,6 +82,8 @@
                    type="checkbox"
             />
             <textarea cols="50"
+                      class="pat-autosubmit"
+                      data-pat-autosubmit="1000ms"
                       name="new-measure-#{1}"
                       placeholder="${view/placeholder_add_extra}"
                       rows="3"
@@ -102,6 +117,8 @@
                type="checkbox"
         />
         <textarea cols="50"
+                  class="pat-autosubmit"
+                  data-pat-autosubmit="1000ms"
                   name="new-measure-#{1}"
                   placeholder="${view/placeholder_add_extra}"
                   rows="3"
@@ -194,7 +211,7 @@
   <p class="button-bar" id="nav-bar">
       <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
       <button type="submit" name="next" value="next" class="pat-button continue" i18n:translate="label_save_and_add_new">Save and add new risk</button>
-      <button class="pat-button" type="submit" name="next" value="next" i18n:translate="label_save_and_finish">Save and finish</button>
+      <button class="pat-button float-after" type="submit" name="next" value="" i18n:translate="label_save_and_finish">Save and finish</button>
   </p>
 
 </form>

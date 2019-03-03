@@ -93,18 +93,6 @@ class IdentificationView(BrowserView):
             # from a sub-form.
             if answer:
                 self.context.comment = reply.get("comment")
-                if self.use_existing_measures:
-                    measures = self.get_existing_measures()
-                    new_measures = OrderedDict()
-                    for i, entry in enumerate(measures.keys()):
-                        on = int(bool(reply.get('measure-{}'.format(i))))
-                        if on:
-                            new_measures.update({entry: 1})
-                    for k, val in reply.items():
-                        if k.startswith('new-measure') and val.strip() != '':
-                            new_measures.update({val: 1})
-                    self.context.existing_measures = safe_unicode(
-                        dumps(new_measures))
                 self.context.postponed = (answer == "postponed")
                 if self.context.postponed:
                     self.context.identification = None
@@ -121,6 +109,35 @@ class IdentificationView(BrowserView):
                         self.risk.evaluation_method == "direct"
                     ):
                         self.context.priority = reply.get("priority")
+
+            if self.use_existing_measures:
+                measures = self.get_existing_measures()
+                new_measures = []
+                seen = []
+                for i, entry in enumerate(measures.keys()):
+                    on = int(bool(reply.get('measure-{}'.format(i))))
+                    new_measures.append((entry, on))
+                    if on:
+                        seen.append(i)
+                for k, val in reply.items():
+                    if k.startswith('new-measure') and val.strip() != '':
+                        new_measures.append((val, 1))
+                    elif k.startswith('present-measure') and val.strip() != '':
+                        idx = k.rsplit("-", 1)[-1]
+                        try:
+                            idx = int(idx)
+                        except (TypeError, ValueError):
+                            continue
+                        if idx in seen:
+                            new_measures[idx] = (val, 1)
+
+                new_measures_dict = OrderedDict()
+                for record in new_measures:
+                    entry, on = record
+                    if on:
+                        new_measures_dict.update({entry: 1})
+                self.context.existing_measures = safe_unicode(
+                    dumps(new_measures_dict))
 
             if self.use_training_module:
                 self.context.training_notes = reply.get("training_notes")
