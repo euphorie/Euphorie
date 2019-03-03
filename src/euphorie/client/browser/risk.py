@@ -20,6 +20,7 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
+from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
@@ -373,7 +374,7 @@ class ActionPlanView(BrowserView):
     def get_existing_measures(self):
         if not self.use_existing_measures:
             return {}
-        if not self.risk:
+        if not self.risk or not IRisk.providedBy(self.risk):
             defined_measures = []
         else:
             defined_measures = (
