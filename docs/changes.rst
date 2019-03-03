@@ -4,7 +4,8 @@ Changelog
 10.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Word report: add "Consultation of workers" box at the end, which had been present
+  in the RTF report, but so far not in the new Word report.
 
 
 10.1.2 (2019-02-26)
