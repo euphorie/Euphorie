@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.3 (unreleased)
+10.1.3 (2019-03-04)
 -------------------
 
 - Word report: add "Consultation of workers" box at the end, which had been present
