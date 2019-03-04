@@ -140,7 +140,11 @@ class IdentificationView(BrowserView, Mixin):
 
         session = SessionManager.session
         sql_risks = self.context.children()
-        counter = sql_risks.count() + 1
+        if sql_risks.count():
+            counter_id = max(
+                [int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
+        else:
+            counter_id = 1
 
         # Add a new risk
         risk = model.Risk(
@@ -162,11 +166,11 @@ class IdentificationView(BrowserView, Mixin):
             [session.zodb_path] +
             [self.context.zodb_path] +
             # There's a constraint for unique zodb_path per session
-            ['%d' % counter]
+            ['%d' % counter_id]
         )
         risk.profile_index = 0  # XXX: not sure what this is for
         self.context.addChild(risk)
-        return counter
+        return counter_id
 
 
 class ActionPlanView(BrowserView):
