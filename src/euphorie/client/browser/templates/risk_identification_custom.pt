@@ -192,7 +192,9 @@
       <legend>
         Information
       </legend>
-      <fieldset class="vertical">
+      <fieldset class="vertical pat-subform pat-autosubmit pat-inject"
+        data-pat-autosubmit="1000ms"
+        data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
         <textarea rows="8"
           name="custom_description"
           placeholder="Provide some further information on this risk."
