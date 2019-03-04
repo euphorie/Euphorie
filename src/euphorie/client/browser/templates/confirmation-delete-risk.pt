@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal"
+           id="document-content"
+      >
+        <h1 i18n:translate="">Delete custom risk</h1>
+        <form class="wizard-box panel-class-small Xpat-inject"
+              data-pat-inject="source: #main-content; target: #main-content"
+              method="post"
+              action="${view/form_action}" >
+              <input type="hidden" name="risk_id" value="${view/risk_id}" />
+            <div class="panel-body">
+                <p><tal:translate i18n:translate="">Delete custom risk</tal:translate>  &ldquo;${view/risk_title}&rdquo;</p>
+                <p i18n:translate="">Are you sure you want to continue? This action can not be reverted.</p>
+            </div>
+            <div class="buttons panel-footer">
+                <button type="submit" class="pat-button"> <tal:label i18n:translate="button_delete_risk">Yes, delete risk</tal:label> </button>
+                <button type="button" class="pat-button close-panel"> <tal:label i18n:translate="button_cancel">Cancel</tal:label> </button>
+            </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

@@ -20,7 +20,7 @@
         data-pat-inject="history: record;">
     <div id="content-pane">
     <nav class="page-actions">
-      <a href="/feedback/confirmation-delete-risk.html#document-content"
+      <a href="${context/absolute_url}/confirmation-delete-risk#document-content"
          class="iconified icon-trash pat-modal"
          data-pat-inject="source: #document-content; target: #document-content"
          title="Delete risk">Delete risk</a>

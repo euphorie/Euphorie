@@ -232,6 +232,24 @@
       />
 
   <browser:page
+      name="confirmation-delete-risk"
+      for="euphorie.client.model.Risk"
+      permission="zope2.View"
+      class=".risk.ConfirmationDeleteRisk"
+      template="templates/confirmation-delete-risk.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="delete-risk"
+      for="*"
+      permission="zope2.View"
+      class=".risk.DeleteRisk"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+
+  <browser:page
       name="user-menu.html"
       for="*"
       permission="zope2.View"

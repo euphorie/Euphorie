@@ -8,6 +8,7 @@ Views for the identification and action plan phases.
 
 from Acquisition import aq_chain
 from Acquisition import aq_inner
+from Acquisition import aq_parent
 from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
@@ -779,3 +780,48 @@ def evaluation_algorithm(risk):
             return getattr(parent, 'evaluation_algorithm', u'kinney')
     else:
         return u'kinney'
+
+
+class ConfirmationDeleteRisk(BrowserView):
+    """View name: @@confirmation-delete-risk
+    """
+
+    @property
+    def risk_title(self):
+        return self.context.title
+
+    @property
+    def risk_id(self):
+        return self.context.id
+
+    @property
+    def form_action(self):
+        return "{0}/@@delete-risk".format(
+            aq_parent(self.context).absolute_url())
+
+    def __call__(self, *args, **kwargs):
+        ''' Before rendering check if we can find session title
+        '''
+        self.risk_title
+        self.no_splash = True
+        return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
+
+
+class DeleteRisk(BrowserView):
+    """View name: @@delete-session
+    """
+
+    def __call__(self):
+        risk_id = self.request.form.get('risk_id', None)
+        if risk_id:
+            try:
+                risk_id = int(risk_id)
+            except ValueError:
+                pass
+            else:
+                keep_ids = [
+                    risk.id for risk in self.context.children().all()
+                    if risk.id != risk_id]
+                self.context.removeChildren(excluded=keep_ids)
+
+        self.request.response.redirect(self.context.absolute_url())
