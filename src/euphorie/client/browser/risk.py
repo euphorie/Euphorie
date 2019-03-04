@@ -33,9 +33,11 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
+from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.i18n import translate
 import datetime
@@ -278,6 +280,31 @@ class IdentificationView(BrowserView):
                 url = "%s/actionplan" % self.request.survey.absolute_url()
                 self.request.response.redirect(url)
                 return
+
+        elif reply.get("next", None) == "add_custom_risk":
+            module = aq_parent(self.context)
+            sql_module_q = Session.query(model.Module).filter(
+                and_(
+                    model.SurveyTreeItem.session == SessionManager.session,
+                    model.Module.zodb_path == u'custom-risks',
+                    )
+            )
+            if not sql_module_q.count():
+                url = QuestionURL(
+                    self.request.survey, self.context, phase="identification")
+                self.request.response.redirect(url)
+                return
+            sql_module = sql_module_q.one()
+            view = getMultiAdapter(
+                (sql_module, self.request), name="index_html")
+            risk_id = view.add_custom_risk()
+            url = "%s/%d" % (module.absolute_url(), risk_id)
+            self.request.response.redirect(url)
+            return
+        elif reply.get("next", None) == "actionplan":
+            url = "%s/actionplan" % self.request.survey.absolute_url()
+            self.request.response.redirect(url)
+            return
         # stay on current risk
         else:
             next = self.context
