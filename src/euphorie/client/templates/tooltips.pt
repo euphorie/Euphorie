@@ -42,7 +42,7 @@
   <article id="osh-hamburger">
     <h3 i18n:translate="header_osh_hamburger">Menu toggle</h3>
     <p i18n:translate="info_osh_hamburger">
-      The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you’re concentrating on making a risk assessment or show it when you’re clicking about between various parts of the application.
+      The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you are concentrating on making a risk assessment or show it when you are clicking about between various parts of the application.
     </p>
 
     <metal:footer define-macro="footer">
@@ -51,7 +51,7 @@
               i18n:translate="Tip"
       >Tip</strong>:
       <tal:help i18n:translate="info_screen_help">
-      You may switch this on screen help feature on or off at any time by selecting “Toggle on screen help” from the menu at the top right on the toolbar. </tal:help>
+      You may switch this on screen help feature on or off at any time by selecting &ldquo;Toggle on screen help&rdquo; from the menu at the top right on the toolbar. </tal:help>
       <br>
       <br>
       <a href="/feedback/osh.html#osh-toggle"
@@ -94,7 +94,7 @@
     <h3 i18n:translate="header_osh_ra_browser">
             Risk assessment browser
     </h3>
-    <p i18n:translate="info_osh_ra_browser">The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the ‘+’ or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select ‘clone’.</p>
+    <p i18n:translate="info_osh_ra_browser">The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; .</p>
 
     <metal:footer use-macro="here/tooltips/macros/footer"/>
   </article>

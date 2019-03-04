@@ -28,7 +28,7 @@
 
     <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
       data-pat-autosubmit="1000ms"
-      data-pat-inject="source: #steps; target: #steps && source: #slide-content; target: #slide-content">
+      data-pat-inject="source: #steps; target: #steps" xx="&& source: #slide-content; target: #slide-content">
       <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
       <textarea name="title" autofocus="autofocus"
         class="pat-content-mirror" placeholder="Describe the risk..."
