@@ -127,7 +127,11 @@ class IdentificationView(BrowserView):
                     if on:
                         seen.append(i)
                 for k, val in reply.items():
-                    if k.startswith('new-measure') and val.strip() != '':
+                    if (
+                        k.startswith('new-measure') and
+                        isinstance(val, str) and
+                        val.strip() != ''
+                    ):
                         new_measures.append((val, 1))
                     elif k.startswith('present-measure') and val.strip() != '':
                         idx = k.rsplit("-", 1)[-1]
