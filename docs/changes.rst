@@ -1,7 +1,21 @@
 Changelog
 =========
 
-10.1.2 (unreleased)
+10.1.4 (unreleased)
+-------------------
+
+- Translation fixes EL
+- Login (intro) page: hide several sections of text in French, by special request
+
+10.1.3 (2019-03-04)
+-------------------
+
+- Word report: add "Consultation of workers" box at the end, which had been present
+  in the RTF report, but so far not in the new Word report.
+- Updated IS translations
+
+
+10.1.2 (2019-02-26)
 -------------------
 
 - Better logic for the text hint on top5 risks that were answered as
