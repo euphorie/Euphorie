@@ -134,8 +134,8 @@
         >
           <a class="pat-switch pat-inject"
              href="${item/url}"
-             data-pat-inject="history: record; source: #${target_inject}; target: #${target_inject} &amp;&amp; source: #content; target: #content"
-             data-pat-switch="selector: body; remove: focus-*; add: focus-document"
+             data-pat-inject="history: record; source: #step-2; target: #step-2 &amp;&amp; source: #main-content; target: #main-content"
+             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
              tal:define="
                item_class item/class;
              "
