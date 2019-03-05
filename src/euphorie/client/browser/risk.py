@@ -172,6 +172,10 @@ class IdentificationView(BrowserView):
     def _prepare_risk(self):
         self.tree = getTreeData(self.request, self.context)
         self.title = self.context.parent.title
+        has_risk_description = (
+            (self.risk and HasText(self.risk.description)) or
+            getattr(self.context, 'custom_description', '')
+        )
         self.show_info = (
             getattr(self.risk, "image", None) or
             (
@@ -259,6 +263,12 @@ class IdentificationView(BrowserView):
             self.description_frequency = custom_df.strip() or self.description_frequency
             custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
             self.description_severity = custom_ds.strip() or self.description_severity
+
+        # compute training side template
+        self.slide_template = (
+            (has_risk_description or number_images) and "template-two-column"
+            or "template-default"
+        )
 
         # Italian special
         if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):

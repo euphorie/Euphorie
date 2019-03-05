@@ -192,7 +192,7 @@
       <legend>
         Information
       </legend>
-      <fieldset class="vertical pat-subform pat-autosubmit pat-inject"
+      <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-autosubmit pat-inject' or None}"
         data-pat-autosubmit="1000ms"
         data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
         <textarea rows="8"
@@ -205,7 +205,7 @@
     <!-- END Information -->
 
     <!-- Training -->
-    <metal:call tal:define="template string:template-default" use-macro="context/training_slide/macros/training_slide" />
+    <metal:call tal:define="template view/slide_template" use-macro="context/training_slide/macros/training_slide" />
     <!-- END Training -->
 
     <!-- Comments -->
