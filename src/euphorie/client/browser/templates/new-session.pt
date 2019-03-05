@@ -9,18 +9,19 @@
       metal:use-macro="context/@@shell/macros/shell">
 <body>
     <metal:slot fill-slot="content">
-        <div id="document-content" class="pat-modal large">
-          <h1 i18n:translate="header_new_session">New session</h1>
+        <div id="document-content" class="pat-modal small">
+          <h1 panel-class-small i18n:translate="header_new_session">New session</h1>
           <form method="post"
             action="${request/URL}"
-            class="wizard-box pat-inject pat-switch"
-            data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc;"
-            data-pat-switch="selector: body; remove: focus-*; add: focus-document && selector: body; add: sidebar-off; remove: sidebar-on">
+            class="wizard-box panel-class-small pat-inject"
+            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
+            >
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body"
               tal:define="
                           root view/get_survey_templates_tree_root;
                           threshold view/tools_threshold">
+              <div class="container">
               <article class="pat-rich">
                 <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools.</p>
               </article>
@@ -62,11 +63,13 @@
                   </tal:categories>
                 </select>
               </label>
-
+            </div>
             </div>
             <div class="buttons panel-footer">
+              <div class="container">
                 <button type="submit" name="next" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
+              </div>
             </div>
           </form>
         </div>

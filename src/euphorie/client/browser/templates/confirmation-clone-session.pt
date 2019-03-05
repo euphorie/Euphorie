@@ -9,11 +9,11 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div class="pat-modal"
+      <div class="pat-modal small"
            id="document-content"
       >
-        <h1 i18n:translate="label_clone">Clone risk assessment</h1>
-        <form class="wizard-box"
+        <h1 panel-class-small i18n:translate="label_clone">Clone risk assessment</h1>
+        <form class="wizard-box panel-class-small"
               action="${context/absolute_url}/@@clone-session"
               method="post"
         >
@@ -22,27 +22,31 @@
                  value="${view/session/id}"
           />
           <div class="panel-body">
-            <article class="pat-rich">
-              <p i18n:translate="">
-                By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point.
-              </p>
-              <p i18n:translate="">
-                Are you sure you want to proceed?
-              </p>
-            </article>
+            <div class="container">
+              <article class="pat-rich">
+                <p i18n:translate="">
+                  By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point.
+                </p>
+                <p i18n:translate="">
+                  Are you sure you want to proceed?
+                </p>
+              </article>
+            </div>
           </div>
           <div class="buttons panel-footer">
-            <button class="pat-button"
-                    type="submit"
-                    i18n:translate=""
-            >
-              Yes, clone risk assessment
-            </button>
-            <button class="pat-button close-panel"
-                    type="button"
-            >
-              <tal:label i18n:translate="button_cancel">Cancel</tal:label>
-            </button>
+            <div class="container">
+              <button class="pat-button"
+                      type="submit"
+                      i18n:translate=""
+              >
+                Yes, clone risk assessment
+              </button>
+              <button class="pat-button close-panel"
+                      type="button"
+              >
+                <tal:label i18n:translate="button_cancel">Cancel</tal:label>
+              </button>
+            </div>
           </div>
         </form>
       </div>
