@@ -4,8 +4,7 @@ Changelog
 10.1.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fixes EL
 
 10.1.3 (2019-03-04)
 -------------------
