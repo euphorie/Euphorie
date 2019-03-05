@@ -2520,7 +2520,7 @@ msgstr "Αναγνώριση"
 #: euphorie/content/templates/module_view.pt:22
 #: euphorie/content/templates/profilequestion_view.pt:20
 msgid "header_information"
-msgstr "Πλοροφορίες"
+msgstr "Πληροφορίες"
 
 #. Default: "Official launch of the project &ndash; September 2011"
 #: euphorie/client/templates/about.pt:111
@@ -2665,7 +2665,7 @@ msgstr "Σύνταξη έκθεσης"
 #. Default: "Resources"
 #: euphorie/client/browser/templates/risk_identification.pt:35
 msgid "header_resources"
-msgstr "Πόροι"
+msgstr "Πηγές Πληροφόρησης"
 
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/templates/default_introduction.pt:6

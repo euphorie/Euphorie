@@ -4,8 +4,8 @@ Changelog
 10.1.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fixes EL
+- Login (intro) page: hide several sections of text in French, by special request
 
 10.1.3 (2019-03-04)
 -------------------

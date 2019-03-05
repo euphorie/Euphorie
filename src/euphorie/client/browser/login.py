@@ -108,6 +108,13 @@ class Login(BrowserView):
         self.allow_guest_accounts = asBool(
             settings.get('allow_guest_accounts', False))
 
+        lang = api.portal.get_current_language()
+        self.show_whofor = False if lang in ('fr', ) else True
+        self.show_what_to_do = False if lang in ('fr', ) else True
+        self.show_how_long = False if lang in ('fr', ) else True
+        self.show_why_register = True
+        self.show_prepare = False if lang in ('fr', ) else True
+
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
             if reply["next"] == "previous":
