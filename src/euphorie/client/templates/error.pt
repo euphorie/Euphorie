@@ -11,11 +11,15 @@
 
 <body>
   <metal:slot fill-slot="content">
+  <div id="content-pane">
+    <article class="pat-rich">
     <h1 i18n:translate="title_error">Error</h1>
 
     <p class="message error" i18n:translate="expl_error">
       We're sorry, but an unforseen error has occured.
     </p>
+  </article>
+  </div>
   </metal:slot>
 </body>
 </html>
