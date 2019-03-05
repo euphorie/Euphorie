@@ -14,12 +14,16 @@
 <body>
 <metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account">
   <div id="document-content" class="pat-modal">
-     <h1 i18n:translate="header_login">Login</h1>
+     <h1 panel-class- i18n:translate="header_login">Login</h1>
 
-      <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/@@absolute_url}/@@login_form" class="wizard-box">
+      <form class="wizard-box panel-class-"
+            enctype="multipart/form-data"
+            accept-charset="UTF-8"
+            method="post"
+            action="${context/@@absolute_url}/@@login_form">
 
         <div class="panel-body">
-
+          <div class="container">
           <p class="message warning" tal:condition="exists:view/error" i18n:translate="incorrect_login">
             Your login name and/or password were entered incorrectly. Please check and try again or
             <a class="reminder"
@@ -51,10 +55,13 @@
             </p>
           </fieldset>
         </div>
+        </div>
 
         <div class="buttons panel-footer">
-          <button tabindex="4" id="login_submit" type="submit" name="next" value="next" class="pat-button" i18n:translate="label_login">Login</button>
-          <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
+          <div class="container">
+            <button tabindex="4" id="login_submit" type="submit" name="next" value="next" class="pat-button" i18n:translate="label_login">Login</button>
+            <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
+          </div>
         </div>
 
       </form>
