@@ -23,6 +23,7 @@ from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from five import grok
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.directives import dexterity
@@ -173,10 +174,12 @@ def getSurveys(context):
     allow_history = checkPermission(context, AccessPreviousVersions)
 
     def morph(group, survey):
+        published = survey.id == group.published
         info = {'id': survey.id,
                 'title': survey.title,
                 'url': survey.absolute_url(),
-                'published': survey.id == group.published,
+                'published': published,
+                'publication_date': published and survey.published or None,
                 'current': aq_base(survey) is current_version,
                 'modified': isDirty(survey),
                 'versions': []}
@@ -222,6 +225,10 @@ class View(grok.View):
         self.add_survey_url = "%s/++add++euphorie.surveygroup" % \
                 aq_inner(self.context).absolute_url()
         self.surveys = getSurveys(self.context)
+        permission = "Euphorie: Add new RIE Content"
+        user = api.user.get_current()
+        self.can_add = api.user.has_permission(
+            permission, user=user, obj=self.context)
         super(View, self).update()
 
 

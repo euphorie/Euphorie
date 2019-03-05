@@ -262,7 +262,8 @@ class GetSurveysTests(EuphorieIntegrationTestCase):
                     "test-survey/standard-version",
                     "versions": [],
                     "modified": False,
-                    "published": False
+                    "published": False,
+                    "publication_date": None,
                 }],
             }]
         )

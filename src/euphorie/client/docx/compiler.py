@@ -4,6 +4,7 @@ from copy import deepcopy
 from datetime import date
 from docx.api import Document
 from docx.enum.table import WD_ALIGN_VERTICAL
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
@@ -98,7 +99,6 @@ class BaseOfficeCompiler(object):
     @property
     def session(self):
         return SessionManager.session
-
 
     def set_cell_border(self, cell, settings=ALL_BORDERS, color=BORDER_COLOR):
         tcPr = cell._element.tcPr
@@ -421,11 +421,52 @@ class DocxCompiler(BaseOfficeCompiler):
             doc.add_paragraph(heading, style="MeasureField")
             doc = HtmlToWord(value, doc, style="MeasureText")
 
+    def set_consultation_box(self):
+        doc = self.template
+        doc.add_paragraph()
+        doc.add_paragraph()
+        table = doc.add_table(rows=4, cols=1)
+        color = '000000'
+
+        row = table.rows[0]
+        cell = row.cells[0]
+        self.set_row_borders(row, settings=ALL_BORDERS, color=color)
+        paragraph = cell.paragraphs[0]
+        paragraph.style = "Heading 3"
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        paragraph.text = self.t(_(
+            "header_oira_report_consultation",
+            default="Consultation of workers"))
+
+        paragraph = cell.add_paragraph()
+        paragraph.text = self.t(_(
+                "paragraph_oira_consultation_of_workers",
+                default="The undersigned hereby declare that the workers "
+                        "have been consulted on the content of this "
+                        "document."))
+
+        paragraph = cell.add_paragraph()
+        employer = self.t(_(
+            "oira_consultation_employer",
+            default="On behalf of the employer:"))
+        workers = self.t(_(
+            "oira_consultation_workers",
+            default="On behalf of the workers:"))
+        paragraph.text = u"{0}\t\t\t{1}".format(employer, workers)
+        cell.add_paragraph()
+        cell.add_paragraph()
+
+        paragraph = cell.add_paragraph()
+        paragraph.text = self.t(_("oira_survey_date", default="Date:"))
+        cell.add_paragraph()
+        cell.add_paragraph()
+
     def compile(self, data):
         '''
         '''
         self.set_session_title_row(data)
         self.set_body(data)
+        self.set_consultation_box()
 
 
 class DocxCompilerItaly(DocxCompiler):
@@ -436,6 +477,12 @@ class DocxCompilerItaly(DocxCompiler):
     )
     paragraphs_offset = 29
     sections_offset = 1
+
+    def compile(self, data):
+        '''
+        '''
+        self.set_session_title_row(data)
+        self.set_body(data)
 
 
 class DocxCompilerFrance(DocxCompiler):

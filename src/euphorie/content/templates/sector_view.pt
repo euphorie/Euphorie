@@ -13,7 +13,7 @@
     <metal:content fill-slot="content">
       <h2 i18n:translate="header_sector_survey_list">OiRA Tools</h2>
 
-      <p tal:condition="python:not view.surveys" i18n:translate="no_surveys_present">
+      <p tal:condition="python:not view.surveys and view.can_add" i18n:translate="no_surveys_present">
       There are no OiRA Tools present. You can <a href="#" i18n:name="add_link"
         tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
         a new OiRA Tool</tal:span></a>.
@@ -28,7 +28,7 @@
         </ul>
       </tal:group>
 
-      <p tal:condition="python:view.surveys" i18n:translate="survey_list_footer">
+      <p tal:condition="python:view.surveys and view.can_add" i18n:translate="survey_list_footer">
       You can also <a href="#" i18n:name="add_link"
         tal:attributes="href view/add_survey_url"><tal:span i18n:translate="add_survey">add
         a new OiRA Tool</tal:span></a>.
