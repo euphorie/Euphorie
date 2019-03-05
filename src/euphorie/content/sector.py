@@ -225,7 +225,7 @@ class View(grok.View):
         self.add_survey_url = "%s/++add++euphorie.surveygroup" % \
                 aq_inner(self.context).absolute_url()
         self.surveys = getSurveys(self.context)
-        permission = "euphorie.content.AddNewRIEContent"
+        permission = "Euphorie: Add new RIE Content"
         user = api.user.get_current()
         self.can_add = api.user.has_permission(
             permission, user=user, obj=self.context)
