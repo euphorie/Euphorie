@@ -84,10 +84,10 @@
 
 <body
   id="body"
-  class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-off ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-off osc-s-off focus-document ${sidebar_default}"
+  class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-off ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-off osc-s-off"
   i18n:domain="euphorie"
   tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
-    <div id="main" class="${python:is_anonymous and 'sidebar-off' or None}">
+    <div id="main" class="sidebar-off">
         <span class="hidden" id="metadata" hidden="hidden">
             <span id="country_name">${webhelpers/country_name}</span>
             <span id="sector_name">${webhelpers/sector_name}</span>
@@ -150,8 +150,8 @@
                 >
                   <a class="preparation pat-switch pat-inject"
                      href="${survey_url}/start#content"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_preparation"
                   >Preparation</a>
@@ -168,7 +168,7 @@
                     "
                 >
                   <a class="identification pat-switch pat-inject"
-                     href="${survey_url}/identification"
+                     href="${survey_url}/identification#content"
                      data-pat-inject="history: record;"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -195,9 +195,9 @@
                 >
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
                   <a class="action-plan pat-switch pat-inject"
-                     href="${survey_url}/actionplan"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; add: sidebar-on; remove: sidebar-off"
+                     href="${survey_url}/actionplan#content"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_action_plan"
                   >Action Plan</a>
@@ -220,9 +220,9 @@
                 >
                   <!-- TODO: check if guest -->
                   <a class="report pat-switch pat-inject"
-                     href="${survey_url}/report"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                     href="${survey_url}/report#content"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="label_report"
                   >Report</a>
@@ -241,9 +241,9 @@
                     tal:condition="webhelpers/use_training_module"
                 >
                   <a class="training pat-inject pat-switch"
-                     href="${survey_url}/training"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
+                     href="${survey_url}/training#content"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="menu_training"
                   >Training</a>
