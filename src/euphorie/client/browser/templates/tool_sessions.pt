@@ -90,7 +90,7 @@
     </metal:content>
 
     <metal:splash fill-slot="splash_message_slot">
-      <div class="splash-message"
+      <div class="splash-message" id="splash-message"
            tal:condition="python:splash_message is not None"
       >
         <hr class="trigger pat-switch"

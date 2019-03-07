@@ -45,7 +45,7 @@
 
               <a href="${request/getURL}?action=continue&amp;session=${session/id}"
                 class="pat-inject follow"
-                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record"
+                data-pat-inject="source: #content; target: #content; &amp;&amp; source: #splash-message; target: #splash-message; &amp;&amp; source: #osc; target: #osc; history: record"
               >
                 <h4 class="name field">${session/title}</h4>
                 <p class="date field">
@@ -123,7 +123,7 @@
   </metal:slot>
 
   <metal:slot fill-slot="splash_message_slot">
-    <div class="splash-message"
+    <div class="splash-message" id="splash-message"
          tal:condition="python:splash_message is not None"
     >
       <hr class="trigger pat-switch"

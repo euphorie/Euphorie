@@ -113,7 +113,7 @@
 </metal:slot>
 
 <metal:slot fill-slot="splash_message_slot">
-    <div tal:condition="python:tool_notification is not None" class="splash-message">
+    <div tal:condition="python:tool_notification is not None" class="splash-message" id="splash-message">
         <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />
         <article class="pat-rich content">
             <p>
