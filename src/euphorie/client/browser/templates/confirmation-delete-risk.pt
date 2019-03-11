@@ -19,14 +19,18 @@
               action="${view/form_action}" >
               <input type="hidden" name="risk_id" value="${view/risk_id}" />
             <div class="panel-body">
-              <article class="pat-rich">
-                <p i18n:translate="label_delete_risk">You are about to delete the risk: &ldquo;<tal:name i18n:name="risk-name">${view/risk_title}</tal:name>&rdquo;.</p>
-                <p i18n:translate="">Are you sure you want to continue? This action can not be reverted.</p>
-              </article>
+              <div class="container">
+                <article class="pat-rich">
+                  <p i18n:translate="label_delete_risk">You are about to delete the risk: &ldquo;<tal:name i18n:name="risk-name">${view/risk_title}</tal:name>&rdquo;.</p>
+                  <p i18n:translate="">Are you sure you want to continue? This action can not be reverted.</p>
+                </article>
+              </div>
             </div>
             <div class="buttons panel-footer">
+              <div class="container">
                 <button type="submit" class="pat-button"> <tal:label i18n:translate="button_delete_risk">Yes, delete risk</tal:label> </button>
                 <button type="button" class="pat-button close-panel"> <tal:label i18n:translate="button_cancel">Cancel</tal:label> </button>
+              </div>
             </div>
         </form>
       </div>
