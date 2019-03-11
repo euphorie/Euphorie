@@ -4963,7 +4963,7 @@ msgid "question_other_risks"
 msgstr ""
 "<p><strong>Wichtig:</strong> Um doppelte Einträge zu vermeiden, empfehlen "
 "wir, zuerst alle vorherigen Module zu durchlaufen.</p><p>Falls Sie keine "
-"weiteren Gefährdungen eintragen wollen, wählen sie bitte “Weiter”.</p>"
+"weiteren Gefährdungen eintragen wollen, wählen Sie bitte “Weiter”.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56
