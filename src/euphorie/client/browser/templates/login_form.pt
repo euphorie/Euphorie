@@ -9,7 +9,7 @@
       meta:interpolation="true"
       tal:define="webhelpers nocall:context/@@webhelpers;
                   client nocall:request/client"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@modal-template/macros/shell">
 
 <body>
 <metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account">
