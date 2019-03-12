@@ -123,9 +123,8 @@
   </metal:slot>
 
   <metal:slot fill-slot="splash_message_slot">
-    <div class="splash-message" id="splash-message"
-         tal:condition="python:splash_message is not None"
-    >
+    <div class="splash-message" id="splash-message">
+    <tal:splash condition="python:splash_message is not None">
       <hr class="trigger pat-switch"
           data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
       />
@@ -138,6 +137,7 @@
         <h1 tal:content="structure splash_message/title">Message of the day!</h1>
         <tal:content content="structure splash_message/text" />
       </article>
+    </tal:splash>
     </div>
   </metal:slot>
 
