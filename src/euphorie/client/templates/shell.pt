@@ -95,7 +95,7 @@
             <span id="language_code">${webhelpers/language_code}</span>
         </span>
         <header id="toolbar">
-          <tal:anon condition="not:is_anonymous">
+          <tal:anon condition="python:not is_anonymous or webhelpers.is_guest_account">
           <a href="#tree" id="toggle-tree" class="iconified pat-toggle" data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;">Toggle tree</a>
             <a href="#osc" class="iconified pat-toggle"
                data-pat-toggle="selector: body; value: osc-on osc-off; store: local &amp;&amp; selector: body; value: osc-s-on osc-s-off; store: local"
