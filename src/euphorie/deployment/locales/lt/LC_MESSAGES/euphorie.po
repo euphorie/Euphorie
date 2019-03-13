@@ -46,8 +46,8 @@ msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
 "statements/questions with either yes or no, you state if such hazards or "
-"problems are present. You can also decide to leave a question unanswered and "
-"thus put it on hold to be answered at a later stage."
+"problems are present. You can also decide to leave a question unanswered and"
+" thus put it on hold to be answered at a later stage."
 msgstr ""
 "${identification} OiRA priemonėje pateikiami įvairūs galimi pavojai ar "
 "problemos darbuotojų saugai ir sveikatai, esantys jūsų darbo vietoje. "
@@ -235,7 +235,8 @@ msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
 msgstr ""
-"Ar tikrai norite pašalinti šią priemonę? Šio veiksmo atšaukti nebebus galima."
+"Ar tikrai norite pašalinti šią priemonę? Šio veiksmo atšaukti nebebus "
+"galima."
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:22
 msgid ""
@@ -270,7 +271,8 @@ msgid ""
 "the contents of this risk assessment as a starting point."
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:130
+#: euphorie/client/browser/reset_password.py:185
+#: euphorie/client/country.py:130
 #: euphorie/client/templates/account-delete.pt:29
 msgid "Cancel"
 msgstr "Panaikinti"
@@ -312,8 +314,8 @@ msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
-"pateikiama: visa informacija ir duomenys, kuriuos nurodėte atlikdami rizikos "
-"vertinimą"
+"pateikiama: visa informacija ir duomenys, kuriuos nurodėte atlikdami rizikos"
+" vertinimą"
 
 #: euphorie/client/templates/report_landing.pt:178
 msgid "Contains: an overview of the measures to be implemented."
@@ -378,7 +380,7 @@ msgstr "Pašalinti rizikos vertinimą"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:26
 msgid "Describe the risk..."
-msgstr ""
+msgstr "Aprašykite riziką…"
 
 #: euphorie/client/browser/templates/module_customization.pt:26
 msgid "Description of the risk"
@@ -520,8 +522,8 @@ msgstr "OiRA priemonė naudingiausia turėtų būti mažoms įmonėms."
 
 #: euphorie/client/browser/templates/login.pt:109
 msgid ""
-"However, you can spend whatever time you have available on an assessment and "
-"then return to it when convenient to pick up from the same point you left "
+"However, you can spend whatever time you have available on an assessment and"
+" then return to it when convenient to pick up from the same point you left "
 "off."
 msgstr ""
 "Tačiau vertinimui skirkite tiek laiko, kiek jo turite – bet kada galėsite "
@@ -714,17 +716,17 @@ msgstr "OiRA Priemonė, kurioje galima apibrėžti „Jau įdiegtas priemones“
 
 #: euphorie/client/browser/templates/login.pt:87
 msgid ""
-"OiRA can be used by anyone wishing to assess health and safety-related risks "
-"that might exist in their workplace."
+"OiRA can be used by anyone wishing to assess health and safety-related risks"
+" that might exist in their workplace."
 msgstr ""
 "OiRA gali naudotis visi norintys įvertinti esamą ar galimą riziką darbo "
 "vietoje. "
 
 #: euphorie/client/browser/templates/login.pt:90
 msgid ""
-"OiRA is designed specifically to support them in assessing the risks at work "
-"and helping them to produce a documented risk assessment including an action "
-"plan tailored to the business's requirements."
+"OiRA is designed specifically to support them in assessing the risks at work"
+" and helping them to produce a documented risk assessment including an "
+"action plan tailored to the business's requirements."
 msgstr ""
 "OiRA sukurta tam, kad padėtų įmonėms įvertinti darbe kylančią riziką ir "
 "parengti dokumentuotą rizikos vertinimą ir prevencinių veiksmų planą."
@@ -745,8 +747,8 @@ msgstr ""
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Vienos šalies veiklos srities objektų darbų srautas, veiklos srities "
 "naudotojui suteikiant turinio redagavimo teisę."
@@ -789,8 +791,8 @@ msgstr "Perduokite informaciją susijusiems asmenims."
 
 #: euphorie/client/templates/new-email.pt:17
 msgid ""
-"Please bear in mind that by changing the email address, your login name will "
-"also change."
+"Please bear in mind that by changing the email address, your login name will"
+" also change."
 msgstr ""
 "Nepamirškite, kad pakeitus el. pašto adresą, pasikeis ir jūsų prisijungimo "
 "vardas."
@@ -841,8 +843,8 @@ msgid ""
 msgstr ""
 "Profilio klausimais siekiama sužinoti, ar konkretūs moduliai apskritai "
 "aktualūs galutiniam vartotojui (t.y. profilio klausimo moduliai yra "
-"NEPRIVALOMI), o jei jie aktualūs, ar juos reikia pakartotinai pateikti kelis "
-"kartus (t.y. moduliai gali KARTOTIS)."
+"NEPRIVALOMI), o jei jie aktualūs, ar juos reikia pakartotinai pateikti kelis"
+" kartus (t.y. moduliai gali KARTOTIS)."
 
 #: euphorie/client/templates/report_landing.pt:92
 msgid "Provide evidence"
@@ -862,8 +864,8 @@ msgstr "Sužinokite daugiau"
 
 #: euphorie/client/templates/report_landing.pt:62
 msgid ""
-"Record any revision if circumstances change (new machines, new workers, as a "
-"result of findings of any accident investigations, etc.)"
+"Record any revision if circumstances change (new machines, new workers, as a"
+" result of findings of any accident investigations, etc.)"
 msgstr ""
 "papildomai informacijai įrašyti, pasikeitus aplinkybėms (nauji įrenginiai, "
 "nauji darbuotojai, nelaimingo atsitikimo darbe tyrimo išvados ir pan.) "
@@ -927,20 +929,22 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:105
+#: euphorie/client/browser/reset_password.py:178
+#: euphorie/client/country.py:105
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: euphorie/client/browser/reset_password.py:252 euphorie/client/settings.py:94
+#: euphorie/client/browser/reset_password.py:252
+#: euphorie/client/settings.py:94
 #: euphorie/client/templates/account-settings.pt:24
 msgid "Save changes"
 msgstr "Išsaugoti keitinius"
 
 #: euphorie/client/templates/report_landing.pt:55
 msgid ""
-"Save the report on your computer and print it. You can also modify it or add "
-"more information. Please note that changes made on your pc will NOT be saved "
-"in the OiRA tool"
+"Save the report on your computer and print it. You can also modify it or add"
+" more information. Please note that changes made on your pc will NOT be "
+"saved in the OiRA tool"
 msgstr ""
 "Išsaugokite ataskaitą savo kompiuteryje ir atsispausdinkite ją. Ataskaitą "
 "taip pat galite tikslinti arba papildyti nauja informacija. Atminkite, kad "
@@ -1096,14 +1100,15 @@ msgid ""
 "'Requirements' of this measure will be overwritten. This action cannot be "
 "reverted. Are you sure you want to continue?"
 msgstr ""
-"Teksto laukeliuose 'bendrinė priemonė', 'konkretūs veiksmai' ir 'tyrimai/"
-"būtinos sąlygos' bus įrašomos priemonės. Šis veiksmas yra negrįžtamas. Ar "
-"tikrai norite tęsti?"
+"Teksto laukeliuose 'bendrinė priemonė', 'konkretūs veiksmai' ir "
+"'tyrimai/būtinos sąlygos' bus įrašomos priemonės. Šis veiksmas yra "
+"negrįžtamas. Ar tikrai norite tęsti?"
 
 #: euphorie/client/browser/templates/login.pt:113
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
-"assessment is to create an OiRA account - this is a simple and quick process."
+"assessment is to create an OiRA account - this is a simple and quick "
+"process."
 msgstr ""
 "Pradėdami pirmąjį rizikos vertinimo etapą, pirmiausia turite susikurti OiRA "
 "paskyrą – tai nesudėtinga ir ilgai neužtruks."
@@ -1163,7 +1168,8 @@ msgstr "Tai unikalus šio objekto identifikatorius."
 #: euphorie/content/templates/surveygroup_add.pt:85
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
-msgstr "Remiantis Kinney metodu, rekomenduojama naudoti šį vertinimo algoritmą"
+msgstr ""
+"Remiantis Kinney metodu, rekomenduojama naudoti šį vertinimo algoritmą"
 
 #: euphorie/content/behaviour/configure.zcml:12
 msgid "This makes objects keep track of changes in child objects."
@@ -1268,8 +1274,8 @@ msgstr ""
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
-"You can use content from the standard libary as provided by OSHA in your own "
-"surveys. Just select the module or risk you want to use in the list below "
+"You can use content from the standard libary as provided by OSHA in your own"
+" surveys. Just select the module or risk you want to use in the list below "
 "and it will be copied to your survey."
 msgstr ""
 "Galite naudotis bibliotekos medžiaga, kurią pateikė EU-OSHA. Toliau "
@@ -1326,7 +1332,8 @@ msgstr "Jūsų slaptažodis sėkmingai pakeistas."
 msgid "about_licenses_1"
 msgstr "OiRA programos šaltinio kodas turi ${GPL} licenciją."
 
-#. Default: "The content of OiRA sectoral tools is licensed under a ${license}"
+#. Default: "The content of OiRA sectoral tools is licensed under a
+#. ${license}"
 #: euphorie/client/templates/about.pt:186
 msgid "about_licenses_2"
 msgstr "OiRA priemonės turiniui yra taikoma ${license}"
@@ -1341,13 +1348,19 @@ msgstr "OiRA priemones nemokai gali naudoti visi naudotojai."
 msgid "about_oiraproject"
 msgstr "Daugiau informacijos apie OiRA projektą (anglų kalba)"
 
-#. Default: "European Community Strategy on Health and Safety at Work 2007-2012"
+#. Default: "European Community Strategy on Health and Safety at Work
+#. 2007-2012"
 #: euphorie/client/templates/about.pt:85
 msgid "about_paragraph3_agency"
 msgstr ""
 "Europos Bendrijos strategija dėl sveikatos ir saugos darbe, 2007-2012 m."
 
-#. Default: "Experience shows that ${key}. This is why EU-OSHA developed an ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that can help micro and small organisations to put in place a ${step} &ndash; starting with the ${identification} and ${evaluation} of workplace risks, through decision making on ${preventive_actions} and the taking of action, to monitoring and ${reporting}."
+#. Default: "Experience shows that ${key}. This is why EU-OSHA developed an
+#. ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that
+#. can help micro and small organisations to put in place a ${step} &ndash;
+#. starting with the ${identification} and ${evaluation} of workplace risks,
+#. through decision making on ${preventive_actions} and the taking of action,
+#. to monitoring and ${reporting}."
 #: euphorie/client/templates/about.pt:68
 msgid "about_paragraph_1"
 msgstr ""
@@ -1392,7 +1405,9 @@ msgstr "ataskaitų rengimas"
 msgid "about_paragraph_1_step"
 msgstr "nuoseklus rizikos vertinimo procesas"
 
-#. Default: "The OiRA web application gives access to the sectoral Risk Assessment tools created and maintained by sectoral organisations at national level."
+#. Default: "The OiRA web application gives access to the sectoral Risk
+#. Assessment tools created and maintained by sectoral organisations at
+#. national level."
 #: euphorie/client/templates/about.pt:74
 msgid "about_paragraph_2"
 msgstr ""
@@ -1400,7 +1415,14 @@ msgstr ""
 "veiklos rizikos vertinimo priemonių, kurias sukūrė ir palaiko sektoriaus "
 "organizacijos nacionaliniu lygmeniu."
 
-#. Default: "The ${agency} calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that ${smb} when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome."
+#. Default: "The ${agency} calls for the development of simple tools to
+#. facilitate risk assessment. Since the adoption of the European Framework
+#. directive in 1989, risk assessment has become a familiar concept for
+#. organising prevention in the workplace, and hundreds of thousands of
+#. companies all over Europe assess their risks regularly. Nevertheless, there
+#. is sufficient evidence to conclude that ${smb} when it comes to risk
+#. assessment and the adoption of a preventive policy in general which the
+#. OiRA project aims to overcome."
 #: euphorie/client/templates/about.pt:89
 msgid "about_paragraph_3"
 msgstr ""
@@ -1408,11 +1430,17 @@ msgstr ""
 "procesus. Nuo tada, kai 1989 m. buvo pritaikyta Europos pagrindų direktyva, "
 "rizikos vertinimas tapo žinoma sąvoka taikant prevencines priemones darbo "
 "vietose. Šimtai tūkstančių kompanijų Europoje pradėjo reguliariai vertinti "
-"kylančias rizikas. Be to, pakanka faktų, kad būtų galima teigti, jog ${smb}, "
-"kai kalbame apie rizikos vertinimą ir prevencinės politikos taikymą bendrąja "
-"prasme. To OiRA projektu ir siekiama."
+"kylančias rizikas. Be to, pakanka faktų, kad būtų galima teigti, jog ${smb},"
+" kai kalbame apie rizikos vertinimą ir prevencinės politikos taikymą "
+"bendrąja prasme. To OiRA projektu ir siekiama."
 
-#. Default: "The OiRA project and its related web application has been developed by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed by the Dutch government, was initially developed by TNO in collaboration with the employers organisation for small and medium-sized enterprises MKB-Nederland and the Dutch Ministry for Employment. Further development of the application was realised with input and participation of trade unions FNV, CNV and MHP."
+#. Default: "The OiRA project and its related web application has been
+#. developed by the ${eu-osha} based on the Dutch RA-instrument (called
+#. ${RIE}), which, financed by the Dutch government, was initially developed
+#. by TNO in collaboration with the employers organisation for small and
+#. medium-sized enterprises MKB-Nederland and the Dutch Ministry for
+#. Employment. Further development of the application was realised with input
+#. and participation of trade unions FNV, CNV and MHP."
 #: euphorie/client/templates/about.pt:126
 msgid "about_partners_1"
 msgstr ""
@@ -1423,32 +1451,41 @@ msgstr ""
 "Tolesni programos tobulinimo etapai vyko bendradarbiaujant su profesinėmis "
 "sąjungomis FNV, CNV ir MHP."
 
-#. Default: "The following technical partners contributed to the development of the OiRA project:"
+#. Default: "The following technical partners contributed to the development
+#. of the OiRA project:"
 #: euphorie/client/templates/about.pt:131
 msgid "about_partners_2"
 msgstr "Prie OiRA projekto prisidėjo šie techniniai partneriai:"
 
-#. Default: "The Agency was also given strategic and expert advice by a Steering Committee in the development and implementation of the OiRA project. Members and alternates of the Steering Committee were appointed by the interest groups at the Board, by the Commission and by EU-OSHA."
+#. Default: "The Agency was also given strategic and expert advice by a
+#. Steering Committee in the development and implementation of the OiRA
+#. project. Members and alternates of the Steering Committee were appointed by
+#. the interest groups at the Board, by the Commission and by EU-OSHA."
 #: euphorie/client/templates/about.pt:164
 msgid "about_partners_3"
 msgstr ""
 "Agentūrai dėl OiRA projekto kūrimo ir įgyvendinimo taip pat talkino "
-"iniciatyvinis komitetas. Iniciatyvinio komiteto narius ir pavaduotojus pagal "
-"interesų grupes valdyboje paskyrė Komisija ir ES-OSHA."
+"iniciatyvinis komitetas. Iniciatyvinio komiteto narius ir pavaduotojus pagal"
+" interesų grupes valdyboje paskyrė Komisija ir ES-OSHA."
 
 #. Default: "micro and small enterprises have some shortcomings"
 #: euphorie/client/templates/about.pt:89
 msgid "about_partners_3_smb"
 msgstr "mikro ir nedidelės įmonės turi tam tikrų trūkumų"
 
-#. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
+#. Default: "Although some measures do not cost any money, most do. The
+#. measures should therefore be budgeted for; include them in the annual
+#. budget round if necessary."
 #: euphorie/client/browser/templates/risk_actionplan.pt:237
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Kai kurios priemonės nekainuoja nė cento, tačiau daugelis kainuoja. Dėl to "
 "jas reikia finansuoti. Jas reikia įtraukti į metinį biudžetą (jei reikia)."
 
-#. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
+#. Default: "Appoint someone in your company to be responsible for the
+#. implementation of this measure. This person will have the authority to take
+#. the steps described in the Plan and/or the responsibility to ensure that
+#. they are carried out."
 #: euphorie/client/browser/templates/risk_actionplan.pt:220
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
@@ -1456,7 +1493,14 @@ msgstr ""
 "pritaikymą. Šis asmuo turėtų turėti teisę imtis plane aprašytų veiksmų ir "
 "(arba) užtikrinti, kad jie yra atliekami."
 
-#. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
+#. Default: "Describe: 1) what is your general approach to eliminate or (if
+#. the risk is not avoidable) reduce the risk; 2) the specific action(s)
+#. required to implement this approach (to eliminate or to reduce the risk);
+#. 3) the level of expertise needed to implement the measure, for instance
+#. &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific
+#. OSH expertise, but minimum OSH knowledge or training and/or consultation of
+#. OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also
+#. describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/risk_actionplan.pt:178
 msgid "actionplan_measure_tooltip"
 msgstr ""
@@ -1505,7 +1549,8 @@ msgstr "Sukūrė: ${EU-OSHA}."
 msgid "benefits"
 msgstr "nauda"
 
-#. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
+#. Default: "${Modules} (and potentially sub-modules): containers providing a
+#. logical structure"
 #: euphorie/content/templates/profilequestion_add.pt:42
 msgid "bullet_modules"
 msgstr ""
@@ -1534,7 +1579,7 @@ msgstr "Įkelti šalies administratorių"
 #. Default: "Add a custom risk"
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "button_add_custom_risk"
-msgstr ""
+msgstr "Pridėti papildytą rizikos rūšį"
 
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:83
@@ -1676,7 +1721,9 @@ msgstr "Atnaujintas"
 msgid "button_upload"
 msgstr "Įkelti"
 
-#. Default: "You are free to provide the information below. This information is meant to improve the tools and the services provided. This data will not appear in the report."
+#. Default: "You are free to provide the information below. This information
+#. is meant to improve the tools and the services provided. This data will not
+#. appear in the report."
 #: euphorie/client/templates/report_company.pt:21
 msgid "company_details_intro"
 msgstr ""
@@ -1688,19 +1735,23 @@ msgstr ""
 msgid "conditions_conservation_header"
 msgstr "Informacijos saugojimas ir apdorojimas"
 
-#. Default: "We keep your data, which is inaccessible for external users, until you delete your account and your session(s)."
+#. Default: "We keep your data, which is inaccessible for external users,
+#. until you delete your account and your session(s)."
 #: euphorie/client/templates/conditions.pt:91
 msgid "conditions_conservation_keep_data"
 msgstr ""
-"Jūsų duomenis, prie kurių išoriniai naudotojai prieigos neturi, saugome tol, "
-"kol jūs pašalinate savo paskyrą ir seansus."
+"Jūsų duomenis, prie kurių išoriniai naudotojai prieigos neturi, saugome tol,"
+" kol jūs pašalinate savo paskyrą ir seansus."
 
 #. Default: "EU-OSHA stores data on our servers in Zamudio, Spain."
 #: euphorie/client/templates/conditions.pt:95
 msgid "conditions_conservation_storage"
 msgstr "ES-OSHA duomenis laiko mūsų serveriuose Zamudio mieste, Ispanija."
 
-#. Default: "EU-OSHA regularly reviews its compliance with this Privacy Policy. Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}."
+#. Default: "EU-OSHA regularly reviews its compliance with this Privacy
+#. Policy. Any enquiries and complaints regarding our privacy policy can be
+#. sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-
+#. email}."
 #: euphorie/client/templates/conditions.pt:119
 msgid "conditions_contact"
 msgstr ""
@@ -1718,42 +1769,58 @@ msgstr "Kontaktinė informacija"
 msgid "conditions_datacontroller_header"
 msgstr "Duomenų tvarkytojas"
 
-#. Default: "You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s)."
+#. Default: "You can use the Account settings and your saved OiRA Session(s)
+#. to review, control and delete the information stored in your Account and in
+#. your Session(s)."
 #: euphorie/client/templates/conditions.pt:101
 msgid "conditions_datareview"
 msgstr ""
-"Savo paskyros parametrus ir išsaugotus OiRA seansus galite naudoti paskyroje "
-"ir seansuose išsaugotos informacijos peržiūrai, tvarkymui ir šalinimui."
+"Savo paskyros parametrus ir išsaugotus OiRA seansus galite naudoti paskyroje"
+" ir seansuose išsaugotos informacijos peržiūrai, tvarkymui ir šalinimui."
 
 #. Default: "Reviewing and removing your information"
 #: euphorie/client/templates/conditions.pt:99
 msgid "conditions_datareview_header"
 msgstr "Jūsų informacijos peržiūra ir šalinimas"
 
-#. Default: "Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser. Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled."
+#. Default: "Cookies &ndash; When you visit the site and select a language, we
+#. send a cookie to your computer or other device to store your language
+#. selection. This cookie stays in your browser until you close it. When you
+#. visit the site and log in, we send a cookie with your login information to
+#. keep you logged in during your visit. This cookie stays on your computer
+#. until you close your browser. Most browsers are initially set up to accept
+#. cookies, but you can reset your browser to refuse all cookies or to
+#. indicate when a cookie is being sent. However, some features and services
+#. may not function properly if your cookies are disabled."
 #: euphorie/client/templates/conditions.pt:66
 msgid "conditions_info_cookies"
 msgstr ""
 "Slapukai - Jums apsilankius mūsų svetainėje ir pasirinkus kalbą, mes į jūsų "
 "kompiuterį ar kitą naudojamą prietaisą išsiunčiame slapuką, kuriame bus "
-"laikoma informacija apie pasirinktą kalbą. Šis slapukas jūsų naršyklėje būna "
-"tol, ko ją uždarote. Jums apsilankius mūsų svetainėje ir prisijungus, mes "
+"laikoma informacija apie pasirinktą kalbą. Šis slapukas jūsų naršyklėje būna"
+" tol, ko ją uždarote. Jums apsilankius mūsų svetainėje ir prisijungus, mes "
 "nusiunčiame slapuką su jūsų prisijungimo informacija. Šis slapukas "
 "kompiuteryje išlieka tol, kol uždarote naršyklę. Daugelis naršyklių yra "
 "nustatytos priimti slapukus, tačiau galite nustatyti, kad slapukai būtų "
-"atmesti ar jums būtų pranešta, kada jie yra siunčiami. Vis dėlto, kai kurios "
-"savybės ir paslaugos gali tinkamai neveikti, jei slapukų priėmimą būsite "
+"atmesti ar jums būtų pranešta, kada jie yra siunčiami. Vis dėlto, kai kurios"
+" savybės ir paslaugos gali tinkamai neveikti, jei slapukų priėmimą būsite "
 "išjungę."
 
-#. Default: "Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes."
+#. Default: "Email account: this is necessary to access the online
+#. application, edit the input data, and delete the OiRA account. You can
+#. enter any valid e-mail address. Email addresses will not be used for
+#. commercial purposes."
 #: euphorie/client/templates/conditions.pt:58
 msgid "conditions_info_email"
 msgstr ""
 "El. pašto paskyra: ji reikalinga internetinės programos prieigai, įvedamų "
 "duomenų redagavimui ir OiRA paskyros šalinimui. Galite įvesti bet kokį "
-"galiojantį savo el. pašto adresą. Jis nebus naudojamas komerciniais tikslais."
+"galiojantį savo el. pašto adresą. Jis nebus naudojamas komerciniais "
+"tikslais."
 
-#. Default: "The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:"
+#. Default: "The kind of information we collect: when you sign up for an OiRA
+#. account and you enter data into the OiRA application we are asking you for
+#. the following information:"
 #: euphorie/client/templates/conditions.pt:53
 msgid "conditions_info_entry"
 msgstr ""
@@ -1765,13 +1832,18 @@ msgstr ""
 msgid "conditions_info_header"
 msgstr "Informacija, kurią renkame ir kokiu tikslu"
 
-#. Default: "Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system."
+#. Default: "Log information &ndash; When you access the service, our servers
+#. automatically record information that your browser sends whenever you visit
+#. a website. These server logs may include information such as your web
+#. request, your interaction with a service, browser type, browser language,
+#. the date and time of your request. IP addresses are not stored in the
+#. system."
 #: euphorie/client/templates/conditions.pt:70
 msgid "conditions_info_logs"
 msgstr ""
 "Žurnalo informacija - Jums pasirinkus paslaugą, mūsų serveriai automatiškai "
-"įrašo jūsų naršyklės siunčiamą informaciją kiekvieną kartą, jums apsilankius "
-"internetiniame puslapyje. Tokiuose serverio žurnaluose gali būti saugoma "
+"įrašo jūsų naršyklės siunčiamą informaciją kiekvieną kartą, jums apsilankius"
+" internetiniame puslapyje. Tokiuose serverio žurnaluose gali būti saugoma "
 "informacija, pavyzdžiui, jūsų internetinės užklausos, jūsų sąveika su "
 "paslauga, naršyklės tipas, naršyklės kalba, jūsų užklausos data ir laikas. "
 "IP adresas sistemoje nesaugomas."
@@ -1780,19 +1852,25 @@ msgstr ""
 msgid "conditions_info_not_personal"
 msgstr ""
 
-#. Default: "Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary."
+#. Default: "Any information you provide in the free text fields of the
+#. application (e.g. when you input a measure to tackle a risk, the person
+#. responsible for that measure, etc). The input of information in the free
+#. text fields is voluntary."
 #: euphorie/client/templates/conditions.pt:62
 msgid "conditions_info_text"
 msgstr ""
 "Bet kokia į programos neriboto dydžio laukelius įvedama informacija (pvz., "
-"nurodant rizikos šalinimo priemonę, už tą priemonę atsakingą asmenį ir kt.). "
-"Šiuo laukeliuose informaciją įvesti neprivaloma."
+"nurodant rizikos šalinimo priemonę, už tą priemonę atsakingą asmenį ir kt.)."
+" Šiuo laukeliuose informaciją įvesti neprivaloma."
 
 #: euphorie/client/templates/conditions.pt:79
 msgid "conditions_info_use_develop"
 msgstr ""
 
-#. Default: "In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data."
+#. Default: "In addition to the above mentioned purposes, we may use the
+#. information we collect to provide, maintain, protect, and improve our
+#. services and develop new services. In any case no personal data will be
+#. used for processing of data."
 #: euphorie/client/templates/conditions.pt:75
 msgid "conditions_info_use_intro"
 msgstr ""
@@ -1805,7 +1883,11 @@ msgstr ""
 msgid "conditions_info_use_statistics"
 msgstr ""
 
-#. Default: "The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
+#. Default: "The OiRA (Online interactive Risk Assessment) application is an
+#. instrument put at your disposal by the European Agency for Safety and
+#. Health at Work (EU-OSHA). This Privacy Policy applies to all products,
+#. services and websites offered by EU-OSHA in the framework of the OiRA
+#. application."
 #: euphorie/client/templates/conditions.pt:40
 msgid "conditions_intro1"
 msgstr ""
@@ -1814,7 +1896,12 @@ msgstr ""
 "priemonė. Ši privatumo politika taikoma visiems ES-OSHA produktams, "
 "paslaugoms ir internetiniams puslapiams, susijusiems su OiRA programa."
 
-#. Default: "Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: ${url}."
+#. Default: "Your personal data is processed in line with Regulation (EC)
+#. N&deg; 45/2001 of the European Parliament and of the Council of 18 December
+#. 2000 on the protection of individuals with regard to the processing of
+#. personal data by the Community institutions and bodies and on the free
+#. movement of such data. Further details of the privacy policy of EU-OSHA and
+#. the full text of the Regulation can be accessed at: ${url}."
 #: euphorie/client/templates/conditions.pt:46
 msgid "conditions_intro2"
 msgstr ""
@@ -1824,42 +1911,53 @@ msgstr ""
 "tokių duomenų judėjimo. Išsamesnę informaciją apie ES-OSHA privatumo "
 "politiką ir visą direktyvos tekstą galima rasti adresu ${url}."
 
-#. Default: "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access."
+#. Default: "We take appropriate security measures to protect against
+#. unauthorized access to or unauthorized alteration, disclosure or
+#. destruction of data. These include internal reviews of our data collection,
+#. storage and processing practices and security measures, including
+#. appropriate encryption of communication and physical security measures to
+#. guard against unauthorized access to systems where we store personal data.
+#. IP addresses are not saved so that end-users can not be identified through
+#. their access."
 #: euphorie/client/templates/conditions.pt:107
 msgid "conditions_security"
 msgstr ""
 "Mes imamės reikiamų saugos priemonių, kad apsaugotume duomenis nuo "
-"neįgaliotų asmenų prieigos, pakeitimų, atskleidimo ar sunaikinimo. Tai apima "
-"vidines mūsų duomenų rinkinių peržiūras, laikymo ir apdorojimo praktiką bei "
-"apsaugojimo priemones, įskaitant tam tikrą komunikacijų kodavimą ir fizines "
-"apsaugos priemones, siekiant apsisaugoti nuo neįgaliotų asmenų prieigos prie "
-"sistemų su asmeniniais duomenimis. IP adresai nėra saugomi, todėl galimybės "
-"pagal juos identifikuoti naudotojus nėra."
+"neįgaliotų asmenų prieigos, pakeitimų, atskleidimo ar sunaikinimo. Tai apima"
+" vidines mūsų duomenų rinkinių peržiūras, laikymo ir apdorojimo praktiką bei"
+" apsaugojimo priemones, įskaitant tam tikrą komunikacijų kodavimą ir fizines"
+" apsaugos priemones, siekiant apsisaugoti nuo neįgaliotų asmenų prieigos "
+"prie sistemų su asmeniniais duomenimis. IP adresai nėra saugomi, todėl "
+"galimybės pagal juos identifikuoti naudotojus nėra."
 
 #. Default: "Information security"
 #: euphorie/client/templates/conditions.pt:105
 msgid "conditions_security_header"
 msgstr "Informacijos saugumas"
 
-#. Default: "The data controller is the European Agency for Safety and Health at Work, Bilbao."
+#. Default: "The data controller is the European Agency for Safety and Health
+#. at Work, Bilbao."
 #: euphorie/client/templates/conditions.pt:85
 msgid "condtions_datacontroller"
 msgstr ""
 "Duomenų tvarkytojas yra Europos saugos ir sveikatos darbe agentūra, Bilbao."
 
 #. Default: "both own staff and an external consultant or service provider"
-#: euphorie/client/company.py:53 euphorie/client/templates/report_company.pt:49
+#: euphorie/client/company.py:53
+#: euphorie/client/templates/report_company.pt:49
 msgid "conductor_both"
 msgstr ""
 "organizacijos personalas ir išotinis konsultantas arba paslaugų teikėjas"
 
 #. Default: "own staff"
-#: euphorie/client/company.py:49 euphorie/client/templates/report_company.pt:47
+#: euphorie/client/company.py:49
+#: euphorie/client/templates/report_company.pt:47
 msgid "conductor_staff"
 msgstr "organizacijos personalas"
 
 #. Default: "an external consultant or service provider"
-#: euphorie/client/company.py:51 euphorie/client/templates/report_company.pt:48
+#: euphorie/client/company.py:51
+#: euphorie/client/templates/report_company.pt:48
 msgid "conductor_third_party"
 msgstr "išorinis konsultantas arba paslaugų teikėjas"
 
@@ -1878,19 +1976,24 @@ msgstr "Šiai šaliai jokie administratoriai nenurodyti."
 msgid "country_no_sectors"
 msgstr "Jokios šios šailes ekonominės veiklos nėra nurodytos."
 
-#. Default: "Measures that are already in place (Only shown here for reference! Use the “Add Measure” button on the Risk for adding measures that are shown to the user during Identification.)"
+#. Default: "Measures that are already in place (Only shown here for
+#. reference! Use the “Add Measure” button on the Risk for adding measures
+#. that are shown to the user during Identification.)"
 #: euphorie/content/risk.py:102
 msgid "deprecated_label_existing_measures"
 msgstr ""
 
-#. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
+#. Default: "The risk evaluation has been automatically done by the tool. You
+#. will be able to change the priority for this risk &ndash; if you consider
+#. it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:708
 msgid "description_automatic_evaluation"
 msgstr ""
 "Priemonė automatiškai atliko rizikos vertinimą. Veiksmų plane, jeigu "
 "manysite, kad tai reikalinga, galėsite pakeisti šios rizikos dydį."
 
-#. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
+#. Default: "In case you have identified risks not included in the tool, you
+#. are able to add them now:"
 #: euphorie/client/publish.py:157 euphorie/deployment/upgrade/v8.py:142
 msgid "description_other_risks"
 msgstr ""
@@ -1900,43 +2003,57 @@ msgstr ""
 msgid "description_reset_password_form"
 msgstr ""
 
-#. Default: "We will send you an email with the instructions to reset your password."
+#. Default: "We will send you an email with the instructions to reset your
+#. password."
 #: euphorie/client/browser/reset_password.py:76
 msgid "description_reset_password_request"
 msgstr ""
 "Įveskite el.pašto adresą, į kurį bus atsiųsta informaciją apie slaptažodžio "
 "atkūrimą."
 
-#. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
+#. Default: "If selected, the user will not be able to answer \"Yes\" or
+#. \"No\", since the risk is considered to be always present. The Evaluation
+#. and Action Plan will behave in the same way as for regular risks."
 #: euphorie/content/risk.py:158
 msgid "description_risk_always_present"
 msgstr ""
 
-#. Default: "Select one or more categories to which this OiRA tool is relevant. The user will then find this tool under the chosen categories."
+#. Default: "Select one or more categories to which this OiRA tool is
+#. relevant. The user will then find this tool under the chosen categories."
 #: euphorie/content/behaviors/toolcategory.py:15
 msgid "description_tool_category"
 msgstr ""
 
-#. Default: "If you enter text here, it will be shown to users in a pop-up when they open the tool. It can be used for notifying users about changes."
+#. Default: "If you enter text here, it will be shown to users in a pop-up
+#. when they open the tool. It can be used for notifying users about changes."
 #: euphorie/content/survey.py:121
 msgid "description_tool_notification"
 msgstr ""
 "Jei čia įrašysite tekstą, priemonę atsidarę naudotojai jį matys "
 "iškylančiajame lange. Taip naudotojus galima informuoti apie pasikeitimus."
 
-#. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
+#. Default: "This selection determines, which variant of an OiRA Tool will be
+#. created. If you are not sure, select \"Classic\"."
 #: euphorie/content/survey.py:110
 msgid "description_tool_type"
 msgstr ""
 "Pagal tai, ką pasirinksite, bus sukurta tam tikro varianto OiRA. Jei nesate "
 "tikri, pasirinkite „Įprastinė“."
 
-#. Default: "If this part is active, the user will be asked to enter the name of all locations for which this module applies. This means, the module will be repeated as many times as there are locations. If you do not need this repeatable behaviour, untick the checkbox to turn it off."
+#. Default: "If this part is active, the user will be asked to enter the name
+#. of all locations for which this module applies. This means, the module will
+#. be repeated as many times as there are locations. If you do not need this
+#. repeatable behaviour, untick the checkbox to turn it off."
 #: euphorie/content/profilequestion.py:58
 msgid "description_use_location_question"
 msgstr ""
 
-#. Default: "After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services."
+#. Default: "After the technical development of the tool in 2009, in 2010
+#. (until the first half of 2011) the Agency is piloting the development and
+#. diffusion model at both EU level (working with the Sectoral Social Dialogue
+#. Committees) and at Member State level (with several Member States) as part
+#. of the testing of the tool and the development of appropriate support and
+#. guidance services."
 #: euphorie/client/templates/about.pt:108
 msgid "devel_phase"
 msgstr ""
@@ -1946,7 +2063,8 @@ msgstr ""
 "lygmeniu. Tai yra dalis priemonės bandymo ir atitinkamų palaikymo ir mokymo "
 "paslaugų kūrimo proceso."
 
-#. Default: "Pages created in the ${appendix} folder are available via links in the footer of the online client."
+#. Default: "Pages created in the ${appendix} folder are available via links
+#. in the footer of the online client."
 #: euphorie/content/templates/documentation_view.pt:17
 msgid "documentation_appendix"
 msgstr ""
@@ -2017,14 +2135,17 @@ msgstr "Nekreipkite dėmesio į šį laišką, jei pakeitimo užklausos nesiunt�
 msgid "email_change_header"
 msgstr "Gerb. naudotojau,"
 
-#. Default: "Your email address and account name on ${url} will be changed to '${email}' when you click the confirmation link below."
+#. Default: "Your email address and account name on ${url} will be changed to
+#. '${email}' when you click the confirmation link below."
 #: euphorie/client/templates/confirm-email.pt:10
 msgid "email_change_intro"
 msgstr ""
 "Paspaudus žemiau esančią patvirtinimo nuorodą, jūsų el. pašto adresas ir "
 "paskyros pavadinimas ${url} bus pakeistas į '${email}'."
 
-#. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
+#. Default: "Please confirm your new email address by clicking on the link in
+#. the email that will be sent in a few minutes to \"${email}\". Please note
+#. that the new email address is also your new login name."
 #: euphorie/client/settings.py:297
 msgid "email_change_pending"
 msgstr ""
@@ -2033,22 +2154,26 @@ msgstr ""
 "el. pašto adresas taip pat yra ir naujasis prisijungimo vardas."
 
 #. Default: "10 to 49 employees"
-#: euphorie/client/company.py:36 euphorie/client/templates/report_company.pt:39
+#: euphorie/client/company.py:36
+#: euphorie/client/templates/report_company.pt:39
 msgid "employee_numbers_10_to_49"
 msgstr "Nuo 10 iki 49 darbuotojų"
 
 #. Default: "1 to 9 employees"
-#: euphorie/client/company.py:34 euphorie/client/templates/report_company.pt:38
+#: euphorie/client/company.py:34
+#: euphorie/client/templates/report_company.pt:38
 msgid "employee_numbers_1_to_9"
 msgstr "Nuo 1 iki 9 darbuotojų"
 
 #. Default: "250 or more employees"
-#: euphorie/client/company.py:40 euphorie/client/templates/report_company.pt:41
+#: euphorie/client/company.py:40
+#: euphorie/client/templates/report_company.pt:41
 msgid "employee_numbers_250_or_more"
 msgstr "250 arba daugiau darbuotojų"
 
 #. Default: "50 to 249 employees"
-#: euphorie/client/company.py:38 euphorie/client/templates/report_company.pt:40
+#: euphorie/client/company.py:38
+#: euphorie/client/templates/report_company.pt:40
 msgid "employee_numbers_50_to_249"
 msgstr "Nuo 50 iki 249 darbuotojų"
 
@@ -2128,7 +2253,9 @@ msgstr "Apytikris"
 msgid "evalmethod_fixed"
 msgstr "Apytikris"
 
-#. Default: "After having identified the risks, you need to put an action plan in place to manage the risks. To eliminate or reduce risks you need to determine which preventive and protective measures are to be taken."
+#. Default: "After having identified the risks, you need to put an action plan
+#. in place to manage the risks. To eliminate or reduce risks you need to
+#. determine which preventive and protective measures are to be taken."
 #: euphorie/client/templates/actionplan.pt:23
 msgid "expl_actionplan_1"
 msgstr ""
@@ -2141,7 +2268,8 @@ msgstr ""
 msgid "expl_actionplan_2"
 msgstr "Reikėtų apsvarstyti tokius dalykus:"
 
-#. Default: "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by: ${expl_actionplan_4_and_5}"
+#. Default: "Is a risk avoidable? Can it be removed entirely? For example,
+#. this could be achieved by: ${expl_actionplan_4_and_5}"
 #: euphorie/client/templates/actionplan.pt:34
 msgid "expl_actionplan_3"
 msgstr ""
@@ -2158,21 +2286,25 @@ msgstr "apsvarstykite, ar užduotis arba darbas yra reikalingas"
 msgid "expl_actionplan_5"
 msgstr "pavojaus šalinimas"
 
-#. Default: "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
+#. Default: "If certain risks are not avoidable, how can they be reduced to a
+#. level at which the health and safety of those exposed is not compromised?"
 #: euphorie/client/templates/actionplan.pt:39
 msgid "expl_actionplan_6"
 msgstr ""
-"Jei rizikos išvengti negalima, kaip ją galima sumažinti, kad nekiltų pavojus "
-"sveikatai ir saugai?"
+"Jei rizikos išvengti negalima, kaip ją galima sumažinti, kad nekiltų pavojus"
+" sveikatai ir saugai?"
 
-#. Default: "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
+#. Default: "Once you have decided how to eliminate or reduce a particular
+#. risk, then you describe the specific action(s) required to achieve this.
+#. You should also include details of the level of expertise and/or other
+#. requirements needed for those actions to be effective."
 #: euphorie/client/templates/actionplan.pt:43
 msgid "expl_actionplan_7"
 msgstr ""
 "Nustatę, kaip konkrečią riziką reikia šalinti arba sumažinti, nurodykite "
 "konkrečius veiksmus, kaip tą padaryti. Taip pat turėtumėte nurodyti "
-"reikalingų žinių ir (arba) reikalavimų lygį, kurio reikia, kad veiksmai būtų "
-"atlikti veiksmingai."
+"reikalingų žinių ir (arba) reikalavimų lygį, kurio reikia, kad veiksmai būtų"
+" atlikti veiksmingai."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/templates/actionplan.pt:48
@@ -2189,35 +2321,40 @@ msgstr "Atsiprašome, tačiau įvyko nenumatyta klaida."
 msgid "expl_error_notfound"
 msgstr "Puslapio, kurio ieškote, rasti nepavyko."
 
-#. Default: "In order to tailor the risk assessment to your organisation you may be asked to:"
+#. Default: "In order to tailor the risk assessment to your organisation you
+#. may be asked to:"
 #: euphorie/client/templates/profile.pt:17
 msgid "expl_profile"
 msgstr ""
 "Norėdami pritaikyti rizikos vertinimo procedūrą pagal savo organizaciją, "
 "galite būti paprašyti:"
 
-#. Default: "select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate"
+#. Default: "select or skip situation(s) relevant or not to your business
+#. activity and tick the box(es) if appropriate"
 #: euphorie/client/templates/profile.pt:22
 msgid "expl_profile_bullet1"
 msgstr ""
 "pasirinkti arba praleisti situacijas, kurios yra susijusios ar nesusijusios "
 "su jūsų vykdoma veikla bei pažymėti reikiamus laukelius"
 
-#. Default: "list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered."
+#. Default: "list multiple business units, or branches, or stores, etc. These
+#. related risks will be repeated for each name you have entered."
 #: euphorie/client/templates/profile.pt:25
 msgid "expl_profile_bullet2"
 msgstr ""
 "nurodyti padalinius, filialus, parduotuves ar kt. Susijusios rizikos bus "
 "kartojamos kiekvienam įvestam pavadinimui."
 
-#. Default: "This OiRA tool has changed since you last accessed it. Before you can continue, you need to update to these changes."
+#. Default: "This OiRA tool has changed since you last accessed it. Before you
+#. can continue, you need to update to these changes."
 #: euphorie/client/templates/updated.pt:17
 msgid "expl_update"
 msgstr ""
 "Nuo paskutiniojo apsilankymo, ši OiRA priemonė pasikeitė. Prieš tęsdami "
 "šiuos pakeitimus turite patvirtinti."
 
-#. Default: "This risk was automatically set as being present. You cannot change this."
+#. Default: "This risk was automatically set as being present. You cannot
+#. change this."
 #: euphorie/client/browser/templates/webhelpers.pt:411
 msgid "explanation_risk_always_present"
 msgstr ""
@@ -2317,7 +2454,10 @@ msgstr "Mažiausiai kartą per dieną"
 msgid "frequency_regularly"
 msgstr "Reguliariai"
 
-#. Default: "You are currently evaluating OiRA as a guest user. You will not be able to save your progress or download any reports. To save your work, please sign in or register by clicking the \"Sign in\" link at the top right of the page."
+#. Default: "You are currently evaluating OiRA as a guest user. You will not
+#. be able to save your progress or download any reports. To save your work,
+#. please sign in or register by clicking the \"Sign in\" link at the top
+#. right of the page."
 #: euphorie/client/templates/tooltips.pt:3
 msgid "guest_login_warning"
 msgstr ""
@@ -2326,7 +2466,8 @@ msgstr ""
 "prisijunkite arba registruokitės spustelėdami viršutiniame dešiniajame "
 "puslapio kampe esančią nuorodą \"Registruokitės\"."
 
-#. Default: "You are about to print the report... please complete the optional form and then proceed."
+#. Default: "You are about to print the report... please complete the optional
+#. form and then proceed."
 #: euphorie/client/templates/report_company.pt:18
 msgid "hader_company_details"
 msgstr ""
@@ -2388,7 +2529,8 @@ msgstr "Išsamios ataskaitos Word formatu (.docx) pavyzdys"
 msgid "header_example_report_risks"
 msgstr "Rizikos peržiūros ataskaitos PDF formatu pavyzdys"
 
-#. Default: "Example of an action plan in Office Open XML Workbook format (.xlsx)"
+#. Default: "Example of an action plan in Office Open XML Workbook format
+#. (.xlsx)"
 #: euphorie/client/browser/templates/register.pt:43
 msgid "header_example_report_xlsx"
 msgstr "Veiksmų plano Office Open XML darbaknygės formatu (.xlsx) pavyzdys"
@@ -2497,7 +2639,8 @@ msgstr "Nenaudojami meniu langai"
 msgid "header_osh_session_menu"
 msgstr "Sesijos meniu"
 
-#. Default: "Risks that have been identified, evaluated and have an Action Plan"
+#. Default: "Risks that have been identified, evaluated and have an Action
+#. Plan"
 #: euphorie/client/docx/views.py:211
 msgid "header_present_risks"
 msgstr ""
@@ -2582,7 +2725,8 @@ msgstr "Kokia tikimybė, kad ši rizika atsiras?"
 msgid "header_risks"
 msgstr "Rizikos"
 
-#. Default: "Hazards/problems that have been managed or are not present in your organisation"
+#. Default: "Hazards/problems that have been managed or are not present in
+#. your organisation"
 #: euphorie/client/docx/views.py:223
 msgid "header_risks_not_present"
 msgstr ""
@@ -2648,7 +2792,8 @@ msgstr "Terminai ir sąlygos"
 msgid "header_training"
 msgstr ""
 
-#. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
+#. Default: "Hazards/problems that have been \"parked\" and are still to be
+#. dealt with"
 #: euphorie/client/docx/views.py:219
 msgid "header_unanswered_risks"
 msgstr ""
@@ -2858,7 +3003,9 @@ msgstr ""
 "Šiuo tekstu turėtų būti paaiškinta, kaip reikia prisiregistruoti ir "
 "prisijungti."
 
-#. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
+#. Default: "Please answer the following questions. As a result of your
+#. answers the system will calculate the priority of the risk. You will be
+#. able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:457
 msgid "help_calculated_evaluation"
 msgstr ""
@@ -2866,7 +3013,8 @@ msgstr ""
 "sistemoje bus atlikti su rizikos dydžiu susiję skaičiavimai. Vėliau rizikos "
 "dydį galėsite pakeisti"
 
-#. Default: "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
+#. Default: "A code identifying this sector. Classification codes are defined
+#. by national standards bodies and based on revision 2 of the NACE standard."
 #: euphorie/content/survey.py:100
 msgid "help_classification_code"
 msgstr ""
@@ -2874,12 +3022,15 @@ msgstr ""
 "nustatyti pagal nacionalinių standartizacijos organizacijų reikalavimus ir "
 "NACE standarto 2 redakciją."
 
-#. Default: "Upload a file that contains additional information, like a PDF, Word document or spreadsheet. Optionally provide a descriptive caption for your file."
+#. Default: "Upload a file that contains additional information, like a PDF,
+#. Word document or spreadsheet. Optionally provide a descriptive caption for
+#. your file."
 #: euphorie/content/module.py:111 euphorie/content/risk.py:286
 msgid "help_content_upload"
 msgstr ""
 
-#. Default: "Start to write a new OiRA Tool. You will be asked whether you want to start off with a copy of an existing OiRA Tool."
+#. Default: "Start to write a new OiRA Tool. You will be asked whether you
+#. want to start off with a copy of an existing OiRA Tool."
 #: euphorie/deployment/tiles/templates/versions.pt:71
 msgid "help_create_new_version"
 msgstr ""
@@ -2891,14 +3042,16 @@ msgstr ""
 msgid "help_default_frequency"
 msgstr "Nurodyti, kaip dažnai rizika pasireiškia normaliose situacijose."
 
-#. Default: "You can help the end-user by selecting a default priority. He/she can still change the priority."
+#. Default: "You can help the end-user by selecting a default priority. He/she
+#. can still change the priority."
 #: euphorie/content/risk.py:203
 msgid "help_default_priority"
 msgstr ""
 "Naudotojui galite padėti pasirinkti eksperto priskirtą prioritetą. Jis / ji "
 "prioritetą vis dar gali pakeisti."
 
-#. Default: "Indicate how likely occurence of this risk is in a normal situation."
+#. Default: "Indicate how likely occurence of this risk is in a normal
+#. situation."
 #: euphorie/client/browser/risk.py:174 euphorie/content/risk.py:387
 msgid "help_default_probability"
 msgstr "Nurodyti, kokia rizikos pasireiškimo normaliose situacijose tikimybė."
@@ -2914,7 +3067,8 @@ msgid "help_evaluation"
 msgstr ""
 "Šiuo tekstu turėtų būti paaiškinta, kaip reikia vertinti nustatytas rizikas."
 
-#. Default: "Select 'estimated' if calcuation is not necessary or not possible."
+#. Default: "Select 'estimated' if calcuation is not necessary or not
+#. possible."
 #: euphorie/content/risk.py:172
 msgid "help_evaluation_method"
 msgstr ""
@@ -2925,7 +3079,10 @@ msgstr ""
 msgid "help_evaluation_optional"
 msgstr "Ši parinktis leidžia naudotojui praleisti vertinimo etapą."
 
-#. Default: "Use this field to define (common) measures that the user might have already implemented. Separate measures with a line break (Enter). The user will be able to deselect those measures that are not applicable to theirsituation."
+#. Default: "Use this field to define (common) measures that the user might
+#. have already implemented. Separate measures with a line break (Enter). The
+#. user will be able to deselect those measures that are not applicable to
+#. theirsituation."
 #: euphorie/content/risk.py:107
 msgid "help_existing_measures"
 msgstr ""
@@ -2991,29 +3148,36 @@ msgid "help_identification"
 msgstr ""
 "Šiuo tekstu turėtų būti paaiškinta, kaip yra atliekamas rizikos nustatymas."
 
-#. Default: "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters."
+#. Default: "Upload an image. Make sure your image is of format png, jpg or
+#. gif and does not contain any special characters."
 #: euphorie/content/module.py:79 euphorie/content/risk.py:226
 #: euphorie/content/sector.py:80
 msgid "help_image_upload"
 msgstr ""
-"Įkelkite atvaizdą, kurio formatas būtinai turi būti „.png“, „.jpg“ arba „."
-"gif“. Jame negali būti jokių specialiųjų simbolių."
+"Įkelkite atvaizdą, kurio formatas būtinai turi būti „.png“, „.jpg“ arba "
+"„.gif“. Jame negali būti jokių specialiųjų simbolių."
 
-#. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk."
+#. Default: "Describe your general approach to eliminate or (if the risk is
+#. not avoidable) reduce the risk."
 #: euphorie/content/solution.py:50
 msgid "help_measure_action_plan"
 msgstr ""
 "Apibūdinkite taikomą rizikos šalinimo arba (jei rizikos išvengti neįmanoma) "
 "sumažinimo metodą."
 
-#. Default: "Describe the specific action(s) required to implement this approach (to eliminate or to reduce the risk)."
+#. Default: "Describe the specific action(s) required to implement this
+#. approach (to eliminate or to reduce the risk)."
 #: euphorie/content/solution.py:64
 msgid "help_measure_prevention_plan"
 msgstr ""
 "Nurodykite konkrečius veiksmus, kuriuos reikia atlikti, norint šį metodą "
 "(rizikos šalinimo arba sumažinimo) pritaikyti."
 
-#. Default: "Describe the level of expertise needed to implement the measure, for instance \"common sense (no OSH knowledge required)\", \"no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required\", or \"OSH expert\". You can also describe here any other additional requirement (if any)."
+#. Default: "Describe the level of expertise needed to implement the measure,
+#. for instance \"common sense (no OSH knowledge required)\", \"no specific
+#. OSH expertise, but minimum OSH knowledge or training and/or consultation of
+#. OSH guidance required\", or \"OSH expert\". You can also describe here any
+#. other additional requirement (if any)."
 #: euphorie/content/solution.py:77
 msgid "help_measure_requirements"
 msgstr ""
@@ -3023,7 +3187,8 @@ msgstr ""
 "konsultacijos apie DSS reikia\" arba \"DSS ekspertas\". Čia taip pat galite "
 "nurodyti bet kokius kitus papildomus reikalavimus (jei yra)."
 
-#. Default: "Include any relevant information that may be helpful for the end-user."
+#. Default: "Include any relevant information that may be helpful for the end-
+#. user."
 #: euphorie/content/module.py:52 euphorie/content/page.py:20
 #: euphorie/content/solution.py:36
 msgid "help_module_description"
@@ -3031,12 +3196,15 @@ msgstr ""
 "Įtraukite bet kokią susijusią informaciją, kuri galėtų būti naudinga "
 "naudotojui."
 
-#. Default: "Allows the end-user to skip this module and everything inside it."
+#. Default: "Allows the end-user to skip this module and everything inside
+#. it."
 #: euphorie/content/module.py:62
 msgid "help_module_optional"
 msgstr "Leidžia naudotojui praleisti šį modulį ir viską, kas yra jame."
 
-#. Default: "The question to ask the end-user if this module is optional. It must be formulated so that it is answerable with YES (the end-user will have to tick a box) or NO"
+#. Default: "The question to ask the end-user if this module is optional. It
+#. must be formulated so that it is answerable with YES (the end-user will
+#. have to tick a box) or NO"
 #: euphorie/content/module.py:71
 msgid "help_module_question"
 msgstr ""
@@ -3054,7 +3222,8 @@ msgstr "Šiuo tekstu turėtų būti paaiškinti du profilio klausimų tipai."
 msgid "help_preview_url"
 msgstr "Peržiūrėti galėsite šiuo adresu ${url}."
 
-#. Default: "This is the inverse of the affirmative statement (e.g. The building is not well maintained.)"
+#. Default: "This is the inverse of the affirmative statement (e.g. The
+#. building is not well maintained.)"
 #: euphorie/content/risk.py:85
 msgid "help_problem_description"
 msgstr ""
@@ -3071,21 +3240,25 @@ msgstr "Išleisti pasirinktą OiRA priemonę su naujausiais pakeitimais."
 msgid "help_publish_url"
 msgstr "Išleistą OiRA priemonę galima peržiūrėti adresu ${url}."
 
-#. Default: "This text should describe how the report can either be saved or printed."
+#. Default: "This text should describe how the report can either be saved or
+#. printed."
 #: euphorie/content/help.py:76
 msgid "help_reports"
 msgstr ""
 "Šiuo tekstu turėtų būti paaiškinta, kaip reikia išsaugoti arba atspausdinti "
 "ataskaitą."
 
-#. Default: "Describe the risk. Include any relevant information that may be helpful for the end-user."
+#. Default: "Describe the risk. Include any relevant information that may be
+#. helpful for the end-user."
 #: euphorie/content/risk.py:94
 msgid "help_risk_description"
 msgstr ""
 "Apibūdinkite riziką. Įtraukite bet kokią susijusią informaciją, kuri galėtų "
 "būti naudinga naudotojui."
 
-#. Default: "\"Priority risk\" is one of the high risks in the sector. \"Risk\" is related to the workplace or to the work carried out. \"Policy\" refers to agreements, procedures, and management decisions."
+#. Default: "\"Priority risk\" is one of the high risks in the sector.
+#. \"Risk\" is related to the workplace or to the work carried out. \"Policy\"
+#. refers to agreements, procedures, and management decisions."
 #: euphorie/content/risk.py:139
 msgid "help_risk_type"
 msgstr ""
@@ -3094,14 +3267,18 @@ msgstr ""
 "\"Politika\" yra susijusi su susitarimais, procedūromis ir valdymo "
 "sprendimais."
 
-#. Default: "Give the name of the person responsible for the OiRA tools of this sector."
+#. Default: "Give the name of the person responsible for the OiRA tools of
+#. this sector."
 #: euphorie/content/templates/settings.pt:81
 msgid "help_sector_contactperson"
 msgstr ""
 "Pateikite už OiRA prietmones šioje ekonominėje veikloje atsakingo asmens "
 "pavardę"
 
-#. Default: "The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool."
+#. Default: "The logo will appear on the client side app that your user group
+#. will see. Make sure your image is of format png, jpg or gif and does not
+#. contain any special characters. The new logo will only become visible after
+#. you've saved your changes and published the OiRA tool."
 #: euphorie/content/templates/settings.pt:35
 msgid "help_sector_logo"
 msgstr ""
@@ -3111,12 +3288,14 @@ msgstr ""
 "formato ir jame nėra jokių specialiųjų simbolių. Naujasis logotipas taps "
 "matomu tik išsaugojus pakeitimus."
 
-#. Default: "This is the password that you need to log on to this editor environment."
+#. Default: "This is the password that you need to log on to this editor
+#. environment."
 #: euphorie/content/templates/settings.pt:68
 msgid "help_sector_password"
 msgstr "Šiuo slaptažodžiu turite jungtis prie rengyklės aplinkos."
 
-#. Default: "If you do not specify a title it will be taken from the input file."
+#. Default: "If you do not specify a title it will be taken from the input
+#. file."
 #: euphorie/content/upload.py:95
 msgid "help_sector_title"
 msgstr "Pavadinimo nenurodžius, jis bus paimtas iš pradinio failo."
@@ -3127,40 +3306,47 @@ msgid "help_sessions"
 msgstr ""
 "Šiuo tekstu turėtų būti paaiškintos pagrindinės OiRA priemonės funkcijos."
 
-#. Default: "Offer a `not applicable' option in addition to the standard yes/no options."
+#. Default: "Offer a `not applicable' option in addition to the standard
+#. yes/no options."
 #: euphorie/content/risk.py:132
 msgid "help_show_notapplicable"
 msgstr ""
 "Pateikti parinktį „netaikoma“ vietoje standartinių taip / ne parinkčių."
 
-#. Default: "This information will appear in the Action plan step and should include an overview of general solution(s) related to this module."
+#. Default: "This information will appear in the Action plan step and should
+#. include an overview of general solution(s) related to this module."
 #: euphorie/content/module.py:91
 msgid "help_solution_direction"
 msgstr ""
 "Ši informacija bus matoma prevencijos priemonių plane. Į ją reikia įtraukti "
 "su šiuo moduliu susijusių sprendimų apžvalgą."
 
-#. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
+#. Default: "This is a short affirmative statement about a possible risk (e.g.
+#. The building is well maintained.)"
 #: euphorie/content/risk.py:75
 msgid "help_statement"
 msgstr ""
 "Tai trumpas teigiamos formos teiginys dėl galimos rizikos (pvz., pastatas "
 "yra gerai prižiūrimas)."
 
-#. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
+#. Default: "This OiRA Tool is obsolete; it has been retired or replaced with
+#. another OiRA Tool."
 #: euphorie/content/survey.py:280 euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
-"This survey is obsolete; it has been retired or replaced with another survey."
+"This survey is obsolete; it has been retired or replaced with another "
+"survey."
 
-#. Default: "This is the title of this OiRA Tool version. This name is never shown to users."
+#. Default: "This is the title of this OiRA Tool version. This name is never
+#. shown to users."
 #: euphorie/content/survey.py:64
 msgid "help_survey_title"
 msgstr ""
 "Tai OiRA priemonės versijos pavadinimas. Šio pavadinimo naudotojai niekada "
 "nemato."
 
-#. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool overview in the clients."
+#. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool
+#. overview in the clients."
 #: euphorie/content/survey.py:271 euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
@@ -3177,7 +3363,8 @@ msgstr "Pavadinimo nenurodžius, jis bus paimtas iš pradinio failo."
 msgid "home_link"
 msgstr ""
 
-#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${reset_your_password}."
+#. Default: "Your login name and/or password were entered incorrectly. Please
+#. check and try again or ${reset_your_password}."
 #: euphorie/client/browser/templates/login_form.pt:25
 msgid "incorrect_login"
 msgstr ""
@@ -3185,7 +3372,10 @@ msgstr ""
 "Patikrinkite ir mėginkite dar kartą arba ${request_an_email_reminder} su "
 "jūsų prisijungimo informacija."
 
-#. Default: "The menu toggle lets you hide and show the &lsquo;off canvas&rsquo; menu so it's only there when you need it. Hide the menu when you're concentrating on filling out a tool or show it when you're clicking between various parts of the application."
+#. Default: "The menu toggle lets you hide and show the &lsquo;off
+#. canvas&rsquo; menu so it's only there when you need it. Hide the menu when
+#. you're concentrating on filling out a tool or show it when you're clicking
+#. between various parts of the application."
 #: euphorie/client/templates/tooltips.pt:44
 msgid "info_osh_hamburger"
 msgstr ""
@@ -3194,14 +3384,18 @@ msgstr ""
 "visą dėmesį turite sutelkti į informacijos įrašymą OiRA priemonėje, arba "
 "įjunkite ją, kai naršote kitur."
 
-#. Default: "The new off canvas menu provides access to the core functions of the applications. Also on mobile!"
+#. Default: "The new off canvas menu provides access to the core functions of
+#. the applications. Also on mobile!"
 #: euphorie/client/templates/tooltips.pt:66
 msgid "info_osh_menu"
 msgstr ""
 "Nauja nenaudojamų meniu langų funkcija leidžia pasinaudoti pagrindinėmis "
 "funkcijomis. Galima naudotis ir mobiliajame telefone!"
 
-#. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
+#. Default: "From this menu you can start a new session of an OiRA tool, or
+#. pick up a previous session to continue working on it. If you do not have an
+#. account for the OiRA application yet, you can start a test session to try
+#. it out immediately."
 #: euphorie/client/templates/tooltips.pt:82
 msgid "info_osh_session_menu"
 msgstr ""
@@ -3209,31 +3403,36 @@ msgstr ""
 "sesiją ir ją tęsti. Jeigu dar neturite OiRA paskyros, galite pradėti "
 "bandomąją sesiją ir iš karto ją išbandyti."
 
-#. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
+#. Default: "The European Agency for Safety and Health at Work, European
+#. social partners, etc."
 #: euphorie/client/templates/report_company.pt:60
 msgid "info_referer_eu_institution"
 msgstr ""
-"iš Europos saugos ir sveikatos darbe agentūros, Europos socialinių partnerių "
-"ir kt."
+"iš Europos saugos ir sveikatos darbe agentūros, Europos socialinių partnerių"
+" ir kt."
 
-#. Default: "Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc."
+#. Default: "Ministry, Labour Inspectorate, National Institute for Safety and
+#. Health at Work, etc."
 #: euphorie/client/templates/report_company.pt:58
 msgid "info_referer_national_public_institution"
 msgstr ""
 "iš ministerijos, darbo inspekcijos, nacionalinės saugos ir sveikatos darbe "
 "įstaigos ir kt."
 
-#. Default: "You can register in one single step just by entering a valid email address."
+#. Default: "You can register in one single step just by entering a valid
+#. email address."
 #: euphorie/client/templates/tooltips.pt:32
 msgid "info_register1"
-msgstr "Registracija yra paprasta, pakanka įrašyti galiojantį e. pašto adresą."
+msgstr ""
+"Registracija yra paprasta, pakanka įrašyti galiojantį e. pašto adresą."
 
 #. Default: "Main benefits of having an account:"
 #: euphorie/client/templates/tooltips.pt:33
 msgid "info_register2"
 msgstr "Pagrindinė nauda turint paskyrą:"
 
-#. Default: "You may switch this on screen help feature on or off at any time by clicking on the ${questionmark} at the top right on the toolbar."
+#. Default: "You may switch this on screen help feature on or off at any time
+#. by clicking on the ${questionmark} at the top right on the toolbar."
 #: euphorie/client/templates/tooltips.pt:57
 msgid "info_screen_help"
 msgstr ""
@@ -3241,7 +3440,8 @@ msgstr ""
 "spustelėję įrankių juostos viršutinėje dešinėje pusėje esančią piktogramą "
 "${questionmark}."
 
-#. Default: "Select an earlier session to complete or review or ${start_session}."
+#. Default: "Select an earlier session to complete or review or
+#. ${start_session}."
 #: euphorie/client/browser/templates/sessions-dashboard.pt:29
 msgid "info_select_session"
 msgstr ""
@@ -3270,13 +3470,16 @@ msgstr ""
 "Pridėkite bet kokį papildomą turinį, kuris jūsų manymu yra naudingas "
 "naudotojui"
 
-#. Default: "Workers or workers' representatives with specific responsibility for the safety and health of workers shall take part in a balanced way or shall be consulted in advance and in good time by the employer with regard to risk assessment"
+#. Default: "Workers or workers' representatives with specific responsibility
+#. for the safety and health of workers shall take part in a balanced way or
+#. shall be consulted in advance and in good time by the employer with regard
+#. to risk assessment"
 #: euphorie/client/templates/default_introduction.pt:13
 msgid "intro_consultation_of_workers"
 msgstr ""
 "Darbuotojai arba jų atstovai, esantys atsakingi už darbuotojų saugumą, "
-"turėtų dalyvauti procesuose arba iš anksto informuoti darbdavio apie rizikos "
-"vertinimą"
+"turėtų dalyvauti procesuose arba iš anksto informuoti darbdavio apie rizikos"
+" vertinimą"
 
 #. Default: "Here you can manage the documentation for the ${client}."
 #: euphorie/content/templates/documentation_view.pt:15
@@ -3288,7 +3491,8 @@ msgstr "Čia galite tvarkyti ${client} dokumentus."
 msgid "intro_documenation_client"
 msgstr "internetinė programa"
 
-#. Default: "You can specify how the risks priority is evaluated. For more details see the online manual."
+#. Default: "You can specify how the risks priority is evaluated. For more
+#. details see the online manual."
 #: euphorie/content/risk.py:448
 msgid "intro_evaluation"
 msgstr ""
@@ -3300,22 +3504,28 @@ msgstr ""
 msgid "intro_identification"
 msgstr "${list-of-risks} galite atsispausdinti."
 
-#. Default: "The main image will get a more prominent position in the client than the other images."
+#. Default: "The main image will get a more prominent position in the client
+#. than the other images."
 #: euphorie/content/risk.py:219
 msgid "intro_main_image"
 msgstr "Pagrindinis atvaizdas programoje bus labiau akcentuotas nei kiti."
 
-#. Default: "Complicated? Not really. It just takes a bit of time. However, the RA is important. So important that it is a legal requirement. This is for good reason. If risks are not assessed or properly dealt with, a suitable risk management process cannot be started and appropriate preventive measures are unlikely to be found or put in place."
+#. Default: "Complicated? Not really. It just takes a bit of time. However,
+#. the RA is important. So important that it is a legal requirement. This is
+#. for good reason. If risks are not assessed or properly dealt with, a
+#. suitable risk management process cannot be started and appropriate
+#. preventive measures are unlikely to be found or put in place."
 #: euphorie/client/templates/default_introduction.pt:10
 msgid "intro_not_complicated"
 msgstr ""
-"Sudėtingas? Ne. Jis tik šiek tiek užtruko. Vis dėlto, RV yra svarbus etapas. "
-"Jį atlikti reikalauja teisės aktai. Viso to reikalaujama dėl gerų "
+"Sudėtingas? Ne. Jis tik šiek tiek užtruko. Vis dėlto, RV yra svarbus etapas."
+" Jį atlikti reikalauja teisės aktai. Viso to reikalaujama dėl gerų "
 "priežasčių. Jei rizikos nebus tinkamai įvertintos ar pašalintos, nebus "
 "galima pradėti tinkamo rizikos valdymo proceso bei rasti ir imtis tinkamų "
 "prevencinių priemonių."
 
-#. Default: "This risk assessment tool is mainly intended for micro (less than 10 workers) and small (less than 50 workers) enterprises/organisations."
+#. Default: "This risk assessment tool is mainly intended for micro (less than
+#. 10 workers) and small (less than 50 workers) enterprises/organisations."
 #: euphorie/client/templates/default_introduction.pt:16
 msgid "intro_oira_tool"
 msgstr ""
@@ -3323,7 +3533,9 @@ msgstr ""
 "darbuotojų) ir nedidelėms (mažiau nei 50 darbuotojų) įmonėms / "
 "organizacijoms."
 
-#. Default: "Are you sure you want to create a preview of this OiRA Tool? You can give the URL for the preview to others so they can test the OiRA Tool. To access the preview a standard OiRA client login is required."
+#. Default: "Are you sure you want to create a preview of this OiRA Tool? You
+#. can give the URL for the preview to others so they can test the OiRA Tool.
+#. To access the preview a standard OiRA client login is required."
 #: euphorie/client/templates/preview.pt:17
 msgid "intro_preview"
 msgstr ""
@@ -3332,7 +3544,11 @@ msgstr ""
 "Norint pamatyti peržiūrą, reikia turėti standartinį OiRA programos "
 "prisijungimą."
 
-#. Default: "It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool."
+#. Default: "It is possible for you to print out the contents of the tool to
+#. enable you to look for the information at the relevant workplace (by
+#. walking around and looking at what could cause harm, or by consulting the
+#. workers and/or their representatives about problems they have encountered).
+#. You can then introduce the information into the tool."
 #: euphorie/client/templates/identification.pt:17
 msgid "intro_print_identification_1"
 msgstr ""
@@ -3342,7 +3558,11 @@ msgstr ""
 "problemas, su kuriomis jie susidūrė). Po to informaciją galite įvesti į "
 "priemonę."
 
-#. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
+#. Default: "You may also wish to distribute the contents among the workers
+#. and/or their representatives and invite them to participate in identifying
+#. the hazards/problems, evaluating the risks and deciding on preventive
+#. action.Their feedback should be taken into account when filling in this
+#. tool."
 #: euphorie/client/templates/identification.pt:18
 msgid "intro_print_identification_2"
 msgstr ""
@@ -3350,7 +3570,9 @@ msgstr ""
 "bei pakviesti juos dalyvauti pavojų / problemų identifikavimo procese "
 "vertinant rizikas ir parenkant prevencijos priemones."
 
-#. Default: "Are you sure you want to publish this OiRA Tool? After publication the OiRA Tool will appear in the online client and be accessible by all users."
+#. Default: "Are you sure you want to publish this OiRA Tool? After
+#. publication the OiRA Tool will appear in the online client and be
+#. accessible by all users."
 #: euphorie/client/templates/publish.pt:17
 msgid "intro_publish_first_time"
 msgstr ""
@@ -3358,34 +3580,44 @@ msgstr ""
 "išleisite, ji atsiras internetinėje programoje ir bus pasiekiama visiems "
 "naudotojams."
 
-#. Default: "Are you sure you want to publish this OiRA Tool version? This will replace the current version."
+#. Default: "Are you sure you want to publish this OiRA Tool version? This
+#. will replace the current version."
 #: euphorie/client/templates/publish.pt:24
 msgid "intro_publish_other_survey_published"
 msgstr ""
 "Ar tikrai norite išleisti šią OiRA priemonės versiją? Ji pakeis dabartinę "
 "versiją."
 
-#. Default: "Are you sure you want to republish this OiRA Tool? This will make all changes made public."
+#. Default: "Are you sure you want to republish this OiRA Tool? This will make
+#. all changes made public."
 #: euphorie/client/templates/publish.pt:21
 msgid "intro_publish_survey_published"
 msgstr ""
 "Ar tikrai norite pakartotinai išleisti šią OiRA priemonę? Dėl to visi "
 "atlikti pakeitimai taps visiems matomi."
 
-#. Default: "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment mainly consists of two parts: a <em>list</em> with all the risks in your company and an <em>action plan</em> with details of how to deal with these risks. These two components allow you to limit the risks to your employees and your company, and therefore the financial risk."
+#. Default: "Including the risks to your employees and your equipment? What if
+#. there is an accident with one of the machines? What if an employee is
+#. exposed to hazardous substances? A risk assessment helps you to define
+#. these risks and tackle them head on. A risk assessment mainly consists of
+#. two parts: a <em>list</em> with all the risks in your company and an
+#. <em>action plan</em> with details of how to deal with these risks. These
+#. two components allow you to limit the risks to your employees and your
+#. company, and therefore the financial risk."
 #: euphorie/client/templates/default_introduction.pt:7
 msgid "intro_risk_aware"
 msgstr ""
 "Ar žinote visas rizikas, kurios kyla jūsų darbuotojams ir įrangai? Kas "
 "nutiktų, jei vienas iš įrenginių sugestų? Kas nutiktų, jei ant darbuotojo "
 "patektų pavojingos medžiagos? Rizikos vertinimo procedūra padeda nustatyti "
-"tokias rizikas ir su jomis susidoroti. Rizikos vertinimą įprastai sudaro dvi "
-"dalys: <dinaminis elementas> su visomis rizikomis, esančiomis jūsų "
+"tokias rizikas ir su jomis susidoroti. Rizikos vertinimą įprastai sudaro dvi"
+" dalys: <dinaminis elementas> su visomis rizikomis, esančiomis jūsų "
 "kompanijoje ir <dinaminis elementas> su informacija, kaip šias rizikas "
 "pašalinti. Šie du komponentai padeda pašalinti jūsų darbuotojams ir "
 "kompanijai kylančias rizikas (kartu ir finansinę riziką)."
 
-#. Default: "Select a sector for which you would like to view or copy an OiRA Tool."
+#. Default: "Select a sector for which you would like to view or copy an OiRA
+#. Tool."
 #: euphorie/content/templates/country_view.pt:15
 msgid "intro_select_sector"
 msgstr ""
@@ -3425,9 +3657,10 @@ msgstr "Ataskaita"
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:70
 msgid "is_risk_acceptable"
-msgstr ""
+msgstr "Ar rizika priimtina?"
 
-#. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
+#. Default: "Is this risk acceptable or under control? If applicable,
+#. ${link_add_measures}."
 #: euphorie/content/utils.py:102
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
@@ -3523,7 +3756,8 @@ msgstr "Klasifikacijos kodas"
 msgid "label_clone"
 msgstr ""
 
-#. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+#. Default: "Please leave any comments you may have on the question above in
+#. this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/module_customization.pt:28
 #: euphorie/client/browser/templates/risk_actionplan.pt:425
 #: euphorie/client/browser/templates/webhelpers.pt:877
@@ -3533,12 +3767,14 @@ msgstr ""
 "panaudoti prevencinių veiksmų plane."
 
 #. Default: "Your country"
-#: euphorie/client/company.py:28 euphorie/client/templates/report_company.pt:28
+#: euphorie/client/company.py:28
+#: euphorie/client/templates/report_company.pt:28
 msgid "label_company_country"
 msgstr "Jūsų šalis"
 
 #. Default: "The risk assessment was conducted by"
-#: euphorie/client/company.py:46 euphorie/client/templates/report_company.pt:46
+#: euphorie/client/company.py:46
+#: euphorie/client/templates/report_company.pt:46
 msgid "label_conductor"
 msgstr "Rizikos vertinimą atliko:"
 
@@ -3557,7 +3793,8 @@ msgstr "Kontaktinio asmens pavardė"
 msgid "label_contact_person"
 msgstr "Kontaktinis asmuo"
 
-#. Default: "If you do not have an account for the OiRA application yet, please ${register_link} to start for real ${tooltip_register}."
+#. Default: "If you do not have an account for the OiRA application yet,
+#. please ${register_link} to start for real ${tooltip_register}."
 #: euphorie/client/browser/templates/login.pt:65
 msgid "label_create_account"
 msgstr ""
@@ -3626,7 +3863,8 @@ msgid "label_email"
 msgstr "El. pašto adresas"
 
 #. Default: "Number of employees"
-#: euphorie/client/company.py:32 euphorie/client/templates/report_company.pt:37
+#: euphorie/client/company.py:32
+#: euphorie/client/templates/report_company.pt:37
 msgid "label_employee_numbers"
 msgstr "Darbuotojų skaičius"
 
@@ -3832,7 +4070,8 @@ msgid "label_module_question"
 msgstr "Klausimas"
 
 #. Default: "Did this OiRA tool meet your needs?"
-#: euphorie/client/company.py:97 euphorie/client/templates/report_company.pt:74
+#: euphorie/client/company.py:97
+#: euphorie/client/templates/report_company.pt:74
 msgid "label_needs_met"
 msgstr "Ar ši OiRA priemonė atitiko jūsų lūkesčius?"
 
@@ -3857,7 +4096,8 @@ msgstr "Toliau"
 
 #. Default: "No"
 #: euphorie/client/browser/templates/module_identification.pt:43
-#: euphorie/client/company.py:92 euphorie/client/templates/report_company.pt:69
+#: euphorie/client/company.py:92
+#: euphorie/client/templates/report_company.pt:69
 msgid "label_no"
 msgstr "Ne"
 
@@ -3962,14 +4202,17 @@ msgstr "Klausimas"
 msgid "label_published"
 msgstr "Išleistas"
 
-#. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
+#. Default: "Would you recommend this OiRA tool to an enterprise similar to
+#. yours?"
 #: euphorie/client/company.py:108
 #: euphorie/client/templates/report_company.pt:81
 msgid "label_recommend_tool"
-msgstr "Ar rekomenduotumėte šią OiRA priemonę kitoms panašios veiklos įmonėms?"
+msgstr ""
+"Ar rekomenduotumėte šią OiRA priemonę kitoms panašios veiklos įmonėms?"
 
 #. Default: "Through which channel did you learn about this tool?"
-#: euphorie/client/company.py:60 euphorie/client/templates/report_company.pt:54
+#: euphorie/client/company.py:60
+#: euphorie/client/templates/report_company.pt:54
 msgid "label_referer"
 msgstr "Kaip sužinojote apie šią priemonę?"
 
@@ -4014,7 +4257,8 @@ msgstr "Pašalinti šią priemonę"
 msgid "label_report"
 msgstr "Ataskaita"
 
-#. Default: "Please leave any extra comments that should be included in the report in this field."
+#. Default: "Please leave any extra comments that should be included in the
+#. report in this field."
 #: euphorie/client/templates/report.pt:31
 msgid "label_report_comment"
 msgstr "Šiame laukelyje įrašykite norimus komentarus"
@@ -4085,7 +4329,7 @@ msgstr "Rizika, kuriai nenumatyta (-os) priemonė (-ės)"
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:195
 msgid "label_save_and_add_new"
-msgstr ""
+msgstr "Išsaugoti ir nurodyti kitą riziką"
 
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/module_customization.pt:62
@@ -4119,7 +4363,8 @@ msgstr "Ekonominės veiklos pavadinimas."
 msgid "label_select_measure"
 msgstr "Pasirinkite vieną ar kelias iš pateiktų priemonių."
 
-#. Default: "Start a new session by choosing one of the following sectoral tools."
+#. Default: "Start a new session by choosing one of the following sectoral
+#. tools."
 #: euphorie/client/browser/templates/new-session-test.pt:20
 #: euphorie/client/browser/templates/new-session.pt:25
 #: euphorie/client/browser/templates/sessions-dashboard.pt:76
@@ -4288,13 +4533,15 @@ msgid "label_without_measures"
 msgstr "Priemonių nėra"
 
 #. Default: "Workers were invited to participate in the risk assessment"
-#: euphorie/client/company.py:87 euphorie/client/templates/report_company.pt:67
+#: euphorie/client/company.py:87
+#: euphorie/client/templates/report_company.pt:67
 msgid "label_workers_participated"
 msgstr "Darbuotojai buvo įtraukti į rizikos vertinimo procesą"
 
 #. Default: "Yes"
 #: euphorie/client/browser/templates/module_identification.pt:39
-#: euphorie/client/company.py:91 euphorie/client/templates/report_company.pt:68
+#: euphorie/client/company.py:91
+#: euphorie/client/templates/report_company.pt:68
 msgid "label_yes"
 msgstr "Taip"
 
@@ -4318,7 +4565,8 @@ msgstr "${label} Šiuo metu jūsų peržiūrima versija"
 msgid "legend_published"
 msgstr "${label} Šiuo metu naudojama versija"
 
-#. Default: "${label} = This version has changes that are currently unpublished. Click the update icon to bring all the changes live"
+#. Default: "${label} = This version has changes that are currently
+#. unpublished. Click the update icon to bring all the changes live"
 #: euphorie/deployment/tiles/templates/versions.pt:81
 msgid "legend_updated"
 msgstr ""
@@ -4352,7 +4600,8 @@ msgstr "priemonės turinys"
 msgid "list_test_session_benefits1"
 msgstr "Sužinokite, kaip paprasta atlikti rizikos vertinimą naudojantis OiRA."
 
-#. Default: "Identify potential risks in your business and the measures to reduce them."
+#. Default: "Identify potential risks in your business and the measures to
+#. reduce them."
 #: euphorie/client/templates/tooltips.pt:26
 msgid "list_test_session_benefits2"
 msgstr "Nustatykite jūsų įmonėje kylančias rizikas ir jų mažinimo priemones."
@@ -4362,19 +4611,21 @@ msgstr "Nustatykite jūsų įmonėje kylančias rizikas ir jų mažinimo priemon
 msgid "list_test_session_benefits3"
 msgstr "Naudokitės OiRA profesinio mokymo tikslais."
 
-#. Default: "${important} In a test session you cannot save your work. All progess will be lost unless you register."
+#. Default: "${important} In a test session you cannot save your work. All
+#. progess will be lost unless you register."
 #: euphorie/client/templates/tooltips.pt:13
 msgid "list_test_session_limitations1"
 msgstr ""
-"${important} Bandomosios sesios metu atlikto darbo išsaugoti negalite. Jeigu "
-"neužsiregistruosite, negalėsite išsaugoti visos įrašytos informacijos."
+"${important} Bandomosios sesios metu atlikto darbo išsaugoti negalite. Jeigu"
+" neužsiregistruosite, negalėsite išsaugoti visos įrašytos informacijos."
 
 #. Default: "You will not be able to print or download reports."
 #: euphorie/client/templates/tooltips.pt:16
 msgid "list_test_session_limitations2"
 msgstr "Negalėsite atsispausdinti arba atsisiųsti ataskaitų."
 
-#. Default: "During a test session you will have the possibility at any time to register by clicking on the \"Register\" link at the top."
+#. Default: "During a test session you will have the possibility at any time
+#. to register by clicking on the \"Register\" link at the top."
 #: euphorie/client/templates/tooltips.pt:17
 msgid "list_test_session_limitations3"
 msgstr ""
@@ -4385,13 +4636,16 @@ msgstr ""
 msgid "log in"
 msgstr "prisijungti"
 
-#. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
+#. Default: "You may get the best results if you upload a logo as a
+#. ${transparent} PNG file of at least 100 pixels in height. Uploading larger
+#. images is fine, the logo will be scaled down to the right size
+#. automatically."
 #: euphorie/content/templates/settings.pt:61
 msgid "logo_instructions"
 msgstr ""
 "Geriausių rezultatų pasieksite, jei logotipą įkelsite kaip ${transparent} "
-"PNG failą (bent 100 pikselių aukščio). Galima įkelti ir didesnius atvaizdus, "
-"tik tada atvaizdo mastelis bus pritaikytas automatiškai."
+"PNG failą (bent 100 pikselių aukščio). Galima įkelti ir didesnius atvaizdus,"
+" tik tada atvaizdo mastelis bus pritaikytas automatiškai."
 
 #. Default: "transparent"
 #: euphorie/content/templates/settings.pt:61
@@ -4423,14 +4677,16 @@ msgstr "Įkelti OiRA priemonę"
 msgid "menu_training"
 msgstr ""
 
-#. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
+#. Default: "Please choose a country of which you would like to view or copy
+#. an OiRA Tool."
 #: euphorie/content/templates/sectorcontainer_view.pt:15
 msgid "message_choose_country"
 msgstr ""
 "Pasirinkite šalį, kurios OiRA priemonę norėtumėte peržiūrėti arba "
 "nukopijuoti."
 
-#. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
+#. Default: "This is the only version of the OiRA Tool and can therefore not
+#. be deleted. Did you perhaps want to remove the OiRA Tool itself?"
 #: euphorie/content/survey.py:379
 msgid "message_delete_no_last_survey"
 msgstr ""
@@ -4443,7 +4699,8 @@ msgstr ""
 msgid "message_field_required"
 msgstr ""
 
-#. Default: "Please be aware that you have %s more login attempts before your account will be locked."
+#. Default: "Please be aware that you have %s more login attempts before your
+#. account will be locked."
 #: euphorie/content/user.py:224
 msgid "message_lock_warn"
 msgstr ""
@@ -4463,17 +4720,20 @@ msgstr "Priemonė yra įtraukta į jūsų veiksmų planą."
 msgid "message_measure_updated"
 msgstr "Priemonė jūsų veiksmų plane yra atnaujinta."
 
-#. Default: "${no_of_measures} measures have been removed from your action plan."
+#. Default: "${no_of_measures} measures have been removed from your action
+#. plan."
 #: euphorie/client/browser/risk.py:686
 msgid "message_measures_removed"
 msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
 
-#. Default: "${no_of_measures} measures have been removed from your action plan."
+#. Default: "${no_of_measures} measures have been removed from your action
+#. plan."
 #: euphorie/client/browser/risk.py:670
 msgid "message_measures_removed_3"
 msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
 
-#. Default: "${no_of_measures} measures have been removed from your action plan."
+#. Default: "${no_of_measures} measures have been removed from your action
+#. plan."
 #: euphorie/client/browser/risk.py:678
 msgid "message_measures_removed_3_4"
 msgstr "${no_of_measures} priemonės yra pašalintos iš jūsų veiksmų plano."
@@ -4493,22 +4753,26 @@ msgstr "${no_of_measures} priemonės yra įtrauktos į jūsų veiksmų planą."
 msgid "message_measures_saved_3_4"
 msgstr "${no_of_measures} priemonės yra įtrauktos į jūsų veiksmų planą."
 
-#. Default: "${no_of_measures} measures have been updated in your action plan."
+#. Default: "${no_of_measures} measures have been updated in your action
+#. plan."
 #: euphorie/client/browser/risk.py:656
 msgid "message_measures_updated"
 msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
 
-#. Default: "${no_of_measures} measures have been updated in your action plan."
+#. Default: "${no_of_measures} measures have been updated in your action
+#. plan."
 #: euphorie/client/browser/risk.py:640
 msgid "message_measures_updated_2"
 msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
 
-#. Default: "${no_of_measures} measures have been updated in your action plan."
+#. Default: "${no_of_measures} measures have been updated in your action
+#. plan."
 #: euphorie/client/browser/risk.py:648
 msgid "message_measures_updated_3_4"
 msgstr "${no_of_measures} priemonės veiksmų plane yra atnaujintos."
 
-#. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
+#. Default: "You cannot delete an OiRA Tool version that is published. Please
+#. unpublish it first."
 #: euphorie/content/survey.py:364
 msgid "message_no_delete_published_survey"
 msgstr ""
@@ -4526,13 +4790,15 @@ msgid "message_not_delete_published_sector"
 msgstr ""
 "Ekonominės veiklos, kurioje yra išleista OiRA priemonė, pašalinti negalima."
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at ${url}."
+#. Default: "Succesfully created a preview for the OiRA Tool. It can be
+#. accessed at ${url}."
 #: euphorie/client/publish.py:328
 msgid "message_preview_success"
 msgstr ""
 "Sėkmingai sukurta OiRA priemonės peržiūra. Ją galima rasti adresu ${url} ."
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at ${url}."
+#. Default: "Succesfully published the OiRA Tool. It can be accessed at
+#. ${url}."
 #: euphorie/client/publish.py:275
 msgid "message_publish_success"
 msgstr "OiRA priemonė sėkmingai išleista. Ją galima rasti adresu ${url}."
@@ -4689,13 +4955,17 @@ msgstr ""
 msgid "osc_search_placeholder"
 msgstr ""
 
-#. Default: "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
+#. Default: "Your password must contain at least 5 characters, including at
+#. least one capital letter, one number and one special character (e.g. $, #
+#. or @)."
 #: euphorie/content/passwordpolicy.py:49
 #: euphorie/content/templates/settings.pt:73
 msgid "password_policy_conditions"
 msgstr ""
 
-#. Default: "The official launch of the tool is planned for September 2011, once the objectives of the testing phase have been reached and once the OiRA website, the OiRA training scheme and OiRA help desk will be ready."
+#. Default: "The official launch of the tool is planned for September 2011,
+#. once the objectives of the testing phase have been reached and once the
+#. OiRA website, the OiRA training scheme and OiRA help desk will be ready."
 #: euphorie/client/templates/about.pt:112
 msgid "phase_launch"
 msgstr ""
@@ -4706,9 +4976,10 @@ msgstr ""
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:177
 msgid "placeholder_custom_risk_description"
-msgstr ""
+msgstr "Pateikite daugiau informacijos apie šią riziką."
 
-#. Default: "Describe a measure that is already in place but not yet listed here."
+#. Default: "Describe a measure that is already in place but not yet listed
+#. here."
 #: euphorie/content/utils.py:89
 msgid "placeholder_new_existing"
 msgstr "Aprašyti jau įdiegtą, bet čia nenurodytą priemonę."
@@ -4718,14 +4989,18 @@ msgstr "Aprašyti jau įdiegtą, bet čia nenurodytą priemonę."
 msgid "plan_report_company_header"
 msgstr "Kompanijos duomenys"
 
-#. Default: "By filling in the list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan. The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects might have been completed and perhaps new subjects need to be added."
+#. Default: "By filling in the list of questions, you have completed a risk
+#. assessment. This assessment is used to draw up an action plan. The progress
+#. of this action plan must be discussed annually and a small report must be
+#. written on the progress. Certain subjects might have been completed and
+#. perhaps new subjects need to be added."
 #: euphorie/client/report.py:655
 msgid "plan_report_intro_1"
 msgstr ""
 "Užpildę klausimų sąrašą užbaigsite rizikos vertinimą. Šis vertinimas "
 "naudojamas prevencinių veiksmų planui sudaryti. Šio plano taikymą reikia "
-"aptarti kasmet ir parengti nedideles progreso ataskaitas. Kai kurie objektai "
-"gali būti įvykdyti, o kai kuriuos gali reikėti įkelti."
+"aptarti kasmet ir parengti nedideles progreso ataskaitas. Kai kurie objektai"
+" gali būti įvykdyti, o kai kuriuos gali reikėti įkelti."
 
 #. Default: "Introduction"
 #: euphorie/client/report.py:653
@@ -4786,43 +5061,52 @@ msgstr "Vidutinė"
 msgid "probability_small"
 msgstr "Nedidelė"
 
-#. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+#. Default: "<p><strong>Important:</strong> In order to avoid duplicating
+#. risks, we strongly recommend you to go first through all the previous
+#. modules, if you have not done it yet.</p><p>If you don't need to add risks,
+#. please continue.</p>"
 #: euphorie/client/publish.py:161 euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Ar norėtumėte pridėti savo nustatytą riziką šioje priemonėje dabar?</"
-"p><p><strong>Svarbu:</strong> Siekdami išvengti dvigubo rizikos nurodymo, "
-"labai rekomenduojame pirmiausia susipažinti su visais ankstesniais "
-"moduliais, jeigu to dar nepadarėte.</p><p>Jei nenorite nurodyti kitos "
+"<p>Ar norėtumėte pridėti savo nustatytą riziką šioje priemonėje "
+"dabar?</p><p><strong>Svarbu:</strong> Siekdami išvengti dvigubo rizikos "
+"nurodymo, labai rekomenduojame pirmiausia susipažinti su visais ankstesniais"
+" moduliais, jeigu to dar nepadarėte.</p><p>Jei nenorite nurodyti kitos "
 "rizikos, tęskite toliau.</p>"
 
 #. Default: "an employers' organisation"
-#: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:55
+#: euphorie/client/company.py:65
+#: euphorie/client/templates/report_company.pt:55
 msgid "referer_employers_organisation"
 msgstr "iš darbdavio"
 
 #. Default: "an European institution/administration"
-#: euphorie/client/company.py:75 euphorie/client/templates/report_company.pt:59
+#: euphorie/client/company.py:75
+#: euphorie/client/templates/report_company.pt:59
 msgid "referer_eu_institution"
 msgstr "iš Europos institucijos / administracijos"
 
 #. Default: "health and safety experts"
-#: euphorie/client/company.py:78 euphorie/client/templates/report_company.pt:61
+#: euphorie/client/company.py:78
+#: euphorie/client/templates/report_company.pt:61
 msgid "referer_health_safety_expert"
 msgstr "iš sveikatos ir saugos ekspertų"
 
 #. Default: "a national public institution/administration"
-#: euphorie/client/company.py:71 euphorie/client/templates/report_company.pt:57
+#: euphorie/client/company.py:71
+#: euphorie/client/templates/report_company.pt:57
 msgid "referer_national_public_institution"
 msgstr "iš nacionalinės viešosios įstaigos / administracijos"
 
 #. Default: "other channel"
-#: euphorie/client/company.py:81 euphorie/client/templates/report_company.pt:62
+#: euphorie/client/company.py:81
+#: euphorie/client/templates/report_company.pt:62
 msgid "referer_other"
 msgstr "iš kitur"
 
 #. Default: "a trade union organisation"
-#: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:56
+#: euphorie/client/company.py:68
+#: euphorie/client/templates/report_company.pt:56
 msgid "referer_trade_union"
 msgstr "iš profesinės sąjungos"
 
@@ -4835,19 +5119,26 @@ msgstr "Neturite paskyros? Tuomet pirmiausia ${register_link}."
 msgid "reminder_email_footer"
 msgstr ""
 
-#. Default: "We are sorry, this is a trial version and the download feature cannot be used. Register in just one step and gain access to the following benefits:"
+#. Default: "We are sorry, this is a trial version and the download feature
+#. cannot be used. Register in just one step and gain access to the following
+#. benefits:"
 #: euphorie/client/browser/templates/register.pt:19
 msgid "report_guest_register_intro"
 msgstr ""
 "Atsiprašome, tačiau tai yra bandomoji versija ir joje negalima naudotis "
-"atsisiuntimo funkcija. Registracija trunka tik akimirką ir yra naudinga, nes:"
+"atsisiuntimo funkcija. Registracija trunka tik akimirką ir yra naudinga, "
+"nes:"
 
-#. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
+#. Default: "This document was based on the OiRA Tool '${title}' of revision
+#. date ${date}."
 #: euphorie/client/docx/compiler.py:674
 msgid "report_identification_revision"
 msgstr ""
 
-#. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
+#. Default: "Now that you have finished identifying all the risks in your
+#. organisation and created an action plan you can create a report which lists
+#. all your results. You can, if desired, add some extra comments that should
+#. be included in this report in the field below."
 #: euphorie/client/templates/report.pt:22
 msgid "report_intro"
 msgstr ""
@@ -4871,7 +5162,8 @@ msgstr "Šiai priemonei yra skirtas ${amount} biudžetas."
 msgid "report_measure_end_only"
 msgstr "Šios užduoties pabaiga yra ${end}."
 
-#. Default: "${responsible} is responsible for this task which starts on ${start} and ends on ${end}."
+#. Default: "${responsible} is responsible for this task which starts on
+#. ${start} and ends on ${end}."
 #: euphorie/client/report.py:904
 msgid "report_measure_full"
 msgstr ""
@@ -4894,13 +5186,15 @@ msgstr "Reikalingų žinių ir (arba) reikalavimų lygis:"
 msgid "report_measure_responsible"
 msgstr "${responsible} yra atsakingas už šią užduotį."
 
-#. Default: "${responsible} is responsible for this task which ends on ${end}."
+#. Default: "${responsible} is responsible for this task which ends on
+#. ${end}."
 #: euphorie/client/report.py:894
 msgid "report_measure_responsible_and_end"
 msgstr ""
 "${responsible} yra atsakingas už šią užduotį, kurios pabaiga yra ${end}."
 
-#. Default: "${responsible} is responsible for this task which starts on ${start}."
+#. Default: "${responsible} is responsible for this task which starts on
+#. ${start}."
 #: euphorie/client/report.py:884
 msgid "report_measure_responsible_and_start"
 msgstr ""
@@ -4941,7 +5235,8 @@ msgstr "vidutinio prioriteto rizika"
 msgid "report_survey_footer_risk_present"
 msgstr "Žvaigždute [*] pažymėta rizika yra aktuali."
 
-#. Default: "This report was based on the OiRA Tool '${title}' of revision date ${date}."
+#. Default: "This report was based on the OiRA Tool '${title}' of revision
+#. date ${date}."
 #: euphorie/client/docx/compiler.py:202 euphorie/client/report.py:267
 msgid "report_survey_revision"
 msgstr ""
@@ -5057,7 +5352,8 @@ msgstr "Rasta ${number} rezultatų."
 msgid "search_result_relevance"
 msgstr "Svarbumas: ${percentage}"
 
-#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#. Default: "Select or add any measures that are <strong>already in
+#. place</strong>."
 #: euphorie/content/utils.py:79
 msgid "select_add_existing_measure"
 msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
@@ -5116,14 +5412,16 @@ msgstr "Standartinis"
 msgid "survey_list_footer"
 msgstr "Taip pat galite ${add_link}."
 
-#. Default: "Base my new OiRA Tool on an existing OiRA Tool of my organisation"
+#. Default: "Base my new OiRA Tool on an existing OiRA Tool of my
+#. organisation"
 #: euphorie/content/templates/surveygroup_add.pt:20
 msgid "survey_source_local"
 msgstr ""
 "Pagrįsti mano naująją OiRA priemonę jau esama mano organizacijos OiRA "
 "priemone"
 
-#. Default: "Base my new OiRA Tool on an existing OiRA Tool of another organisation"
+#. Default: "Base my new OiRA Tool on an existing OiRA Tool of another
+#. organisation"
 #: euphorie/content/templates/surveygroup_add.pt:21
 msgid "survey_source_other"
 msgstr ""
@@ -5135,7 +5433,8 @@ msgstr ""
 msgid "survey_source_scratch"
 msgstr "Kurti visiškai naują OiRA priemonę"
 
-#. Default: "Want to try OiRA? You may ${tryout_link} or ${register_link} to start for real."
+#. Default: "Want to try OiRA? You may ${tryout_link} or ${register_link} to
+#. start for real."
 #: euphorie/client/browser/templates/login.pt:45
 msgid "teaser_try_oira"
 msgstr ""
@@ -5143,21 +5442,24 @@ msgstr ""
 "${tryout_link} arba registruokitės ${register_link} ir pradėkite naudotis "
 "priemone."
 
-#. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
+#. Default: "The terms and conditions have changed since your last visit.
+#. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/templates/conditions.pt:19
 msgid "terms_changed"
 msgstr ""
 "Nuo paskutiniojo apsilankymo, terminai ir sąlygos pasikeitė. Prieš tęsdami, "
 "atidžiai perskaitykite naujus terminus ir sąlygas."
 
-#. Default: "Read here about the ${benefits}${tooltip_benefits} and ${limitations}${tooltip_limitations} of a test session."
+#. Default: "Read here about the ${benefits}${tooltip_benefits} and
+#. ${limitations}${tooltip_limitations} of a test session."
 #: euphorie/client/browser/templates/new-session-test.pt:62
 msgid "testsession_benefits_limitations"
 msgstr ""
 "Čia galite rasti informacijos apie bandomąją sesiją "
 "${benefits}${tooltip_benefits} ir ${limitations}${tooltip_limitations}."
 
-#. Default: "Or ${register_link} instead. Find out why you should register${tooltip_register}."
+#. Default: "Or ${register_link} instead. Find out why you should
+#. register${tooltip_register}."
 #: euphorie/client/browser/templates/new-session-test.pt:65
 msgid "testsession_register"
 msgstr ""
@@ -5301,22 +5603,26 @@ msgstr "Turinys"
 msgid "tooltip_menu_toggle"
 msgstr ""
 
-#. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
+#. Default: "This risk is not present in your organisation, but since the
+#. sector organisation considers this one of the priority risks it must be
+#. included in this report."
 #: euphorie/client/browser/templates/webhelpers.pt:307
 #: euphorie/client/docx/compiler.py:257 euphorie/client/report.py:809
 msgid "top5_risk_not_present"
 msgstr ""
 "Ši rizika šiuo metu jūsų organizacijoje nekyla, bet kadangi ekonominėje "
-"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą "
-"ją būtina įtraukti."
+"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą"
+" ją būtina įtraukti."
 
-#. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
+#. Default: "This risk is not present in your organisation, but since the
+#. sector organisation considers this one of the priority risks it must be
+#. included in this report."
 #: euphorie/client/docx/compiler.py:265
 msgid "top5_risk_not_present_answer_yes"
 msgstr ""
 "Ši rizika šiuo metu jūsų organizacijoje nekyla, bet kadangi ekonominėje "
-"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą "
-"ją būtina įtraukti."
+"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą"
+" ją būtina įtraukti."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19
@@ -5375,14 +5681,17 @@ msgstr "Ištaisykite nurodytas klaidas."
 msgid "warn_risk_present"
 msgstr "Apie ankstesnį teiginį atsiliepėte neigiamai."
 
-#. Default: "By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable."
+#. Default: "By clicking on 'Delete account', your account will be permenantly
+#. deleted. This action is irreversable."
 #: euphorie/client/templates/account-delete.pt:18
 msgid "warning_account_delete_irreversible"
 msgstr ""
 "Paspaudę „Šalinti paskyrą“, savo paskyrą ištrinsite visam laikui. Šio "
 "veiksmo atšaukti negalima."
 
-#. Default: "Please note that by deleting your account, you will also delete all your sessions. Please make sure you download your reports from the Report step prior to deleting your account, if you want to keep any."
+#. Default: "Please note that by deleting your account, you will also delete
+#. all your sessions. Please make sure you download your reports from the
+#. Report step prior to deleting your account, if you want to keep any."
 #: euphorie/client/templates/account-delete.pt:19
 msgid "warning_account_delete_surveys"
 msgstr ""
@@ -5447,8 +5756,8 @@ msgstr "Taip"
 
 #~ msgid "reminder_email_intro"
 #~ msgstr ""
-#~ "Jūs pateikėte OiRA internetinės svetainės slaptažodžio priminimo "
-#~ "užklausą. Jūsų prisijungimo duomenys yra:"
+#~ "Jūs pateikėte OiRA internetinės svetainės slaptažodžio priminimo užklausą. "
+#~ "Jūsų prisijungimo duomenys yra:"
 
 #~ msgid "reminder_email_login"
 #~ msgstr "El. paštas"
@@ -5462,10 +5771,9 @@ msgstr "Taip"
 #~ msgid "session_title_tooltip"
 #~ msgstr ""
 #~ "Pradėję OiRA priemonės naudojimo seansą, jį sustabdyti galėsite prieš "
-#~ "pabaigą. Jį vėl pradėti galėsite vėliau, pasirinkę OiRA priemonės "
-#~ "naudojimo seanso pavadinimą. Suteikę skirtingus pavadinimus galite "
-#~ "išsaugoti daugiau nei vieną seansą. Neužmirškite OiRA priemonės naudojimo "
-#~ "seansui nurodyto el. pašto adreso, slaptažodžio ir pavadinimo. Paspaudę "
-#~ "išsiregistravimo mygtuką, būsite išregistruoti. Išregistruoti taip pat "
-#~ "būsite, jei uždarysite naršyklę. Saugumo sumetimais patariama "
-#~ "išsiregistruoti."
+#~ "pabaigą. Jį vėl pradėti galėsite vėliau, pasirinkę OiRA priemonės naudojimo "
+#~ "seanso pavadinimą. Suteikę skirtingus pavadinimus galite išsaugoti daugiau "
+#~ "nei vieną seansą. Neužmirškite OiRA priemonės naudojimo seansui nurodyto el."
+#~ " pašto adreso, slaptažodžio ir pavadinimo. Paspaudę išsiregistravimo "
+#~ "mygtuką, būsite išregistruoti. Išregistruoti taip pat būsite, jei uždarysite"
+#~ " naršyklę. Saugumo sumetimais patariama išsiregistruoti."
