@@ -4,8 +4,7 @@ Changelog
 10.1.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Technical: Use a limit(1) clause when fetching old values in copySessionData()
 
 10.1.4 (2019-03-13)
 -------------------
