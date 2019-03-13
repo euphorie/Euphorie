@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.4 (unreleased)
+10.1.4 (2019-03-13)
 -------------------
 
 - Translation fixes EL
