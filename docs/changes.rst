@@ -1,11 +1,19 @@
 Changelog
 =========
 
-10.1.4 (unreleased)
+10.1.5 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+10.1.4 (2019-03-13)
 -------------------
 
 - Translation fixes EL
 - Login (intro) page: hide several sections of text in French, by special request
+- French report (for measures in place): Fix typo
+- CMS - Sector overview: only show link to "add new tool" if the user has required permissions
 
 10.1.3 (2019-03-04)
 -------------------
