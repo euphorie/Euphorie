@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.5 (unreleased)
+10.1.5 (2019-03-13)
 -------------------
 
 - Technical: Use a limit(1) clause when fetching old values in copySessionData()
