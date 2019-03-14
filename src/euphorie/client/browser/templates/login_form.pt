@@ -23,9 +23,9 @@
           <p class="message warning" tal:condition="exists:view/error" i18n:translate="incorrect_login">
             Your login name and/or password were entered incorrectly. Please check and try again or
             <a class="reminder"
-               i18n:name="reset_your_password"
+               i18n:name="request_an_email_reminder"
                href="${view/reset_password_request_url}"
-               i18n:translate=""
+               i18n:translate="request_an_email_reminder"
             >reset your password</a>.
           </p>
           <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
