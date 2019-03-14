@@ -53,7 +53,11 @@
                    checked="${python:'checked' if survey['published'] else None}"
                    tal:attributes="onclick string:toggle_unpublish_button('${group/id}', '${not:survey/published}')"/>
 
-            <label><a href="${survey/url}">${survey/title}</a></label>
+            <label><a href="${survey/url}">${survey/title}</a>
+            <tal:published condition="python:survey['published']"><br>
+              <tal:i18n i18n:translate="label_published">Published</tal:i18n>: ${python:survey['publication_date'].strftime('%Y/%m/%d')}
+            </tal:published>
+            </label>
             <a class="floatAfter" href="${survey/url}/@@preview" i18n:translate="label_preview">Preview</a>
             <a class="floatAfter" href="${survey/url}" i18n:translate="button_edit">Edit</a>
             <a tal:condition="survey/modified" class="button icon upload floatAfter" href="${survey/url}/@@publish" i18n:translate="button_updated">Updated</a>
