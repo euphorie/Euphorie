@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-13 12:05+0000\n"
+"POT-Creation-Date: 2019-03-14 10:52+0000\n"
 "PO-Revision-Date: 2013-06-27 22:03+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Danish\n"
@@ -2903,7 +2903,7 @@ msgstr ""
 msgid "home_link"
 msgstr ""
 
-#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${reset_your_password}."
+#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
 msgid "incorrect_login"
 msgstr ""
@@ -4620,8 +4620,9 @@ msgstr ""
 msgid "report_timeline_title"
 msgstr ""
 
+#. Default: "reset your password"
 #: euphorie/client/browser/templates/login_form.pt:29
-msgid "reset your password"
+msgid "request_an_email_reminder"
 msgstr ""
 
 #. Default: "Risk is present."

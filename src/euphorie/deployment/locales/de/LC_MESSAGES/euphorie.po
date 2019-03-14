@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-11 10:59+0000\n"
+"POT-Creation-Date: 2019-03-14 10:52+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -218,7 +218,9 @@ msgstr "Sind die oben ausgewählten Schutzmaßnahmen ausreichend?"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr "Sind Sie sicher, dass Sie forfahren wollen? Dieser Vorgang kann nicht rückgängig gemacht werden."
+msgstr ""
+"Sind Sie sicher, dass Sie forfahren wollen? Dieser Vorgang kann nicht "
+"rückgängig gemacht werden."
 
 #: euphorie/client/browser/risk.py:605
 msgid ""
@@ -3271,7 +3273,7 @@ msgstr ""
 msgid "home_link"
 msgstr ""
 
-#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${reset_your_password}."
+#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
 msgid "incorrect_login"
 msgstr ""
@@ -3725,7 +3727,9 @@ msgstr "Löschen"
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
-msgstr "Sie sind dabei, die zusätzliche Gefährdung &ldquo;${risk-name}&rdquo; zu löschen."
+msgstr ""
+"Sie sind dabei, die zusätzliche Gefährdung &ldquo;${risk-name}&rdquo; zu "
+"löschen."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:121
@@ -5139,9 +5143,10 @@ msgstr "Gefährdung"
 msgid "report_timeline_title"
 msgstr "Zeitleiste"
 
+#. Default: "reset your password"
 #: euphorie/client/browser/templates/login_form.pt:29
-msgid "reset your password"
-msgstr ""
+msgid "request_an_email_reminder"
+msgstr "fordern Sie eine Erinnerungs-E-Mail"
 
 #. Default: "Risk is present."
 #: euphorie/client/docx/compiler.py:249
@@ -5684,6 +5689,3 @@ msgstr "Ja"
 
 #~ msgid "reminder_email_password"
 #~ msgstr "Passwort"
-
-#~ msgid "request_an_email_reminder"
-#~ msgstr "fordern Sie eine Erinnerungs-E-Mail"

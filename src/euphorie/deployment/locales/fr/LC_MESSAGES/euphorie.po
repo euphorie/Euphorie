@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-13 12:05+0000\n"
+"POT-Creation-Date: 2019-03-14 10:52+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -3283,7 +3283,7 @@ msgstr "Si vous ne spécifiez pas de titre, il sera pris dans l'entrée."
 msgid "home_link"
 msgstr ""
 
-#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${reset_your_password}."
+#. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
 msgid "incorrect_login"
 msgstr ""
@@ -5139,9 +5139,10 @@ msgstr "Risques"
 msgid "report_timeline_title"
 msgstr "Plan d'action"
 
+#. Default: "reset your password"
 #: euphorie/client/browser/templates/login_form.pt:29
-msgid "reset your password"
-msgstr ""
+msgid "request_an_email_reminder"
+msgstr "demandez un rappel"
 
 #. Default: "Risk is present."
 #: euphorie/client/docx/compiler.py:249
@@ -5665,6 +5666,3 @@ msgstr "Oui"
 
 #~ msgid "reminder_email_password"
 #~ msgstr "Mot de passe"
-
-#~ msgid "request_an_email_reminder"
-#~ msgstr "demandez un rappel"

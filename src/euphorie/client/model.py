@@ -721,8 +721,10 @@ class SurveySession(BaseObject):
             SurveyTreeItem.zodb_path == old_tree.zodb_path,
             SurveyTreeItem.profile_index == old_tree.profile_index
         )
-        skip_children = sql.select([old_tree.skip_children], in_old_tree)
-        postponed = sql.select([old_tree.postponed], in_old_tree)
+        skip_children = sql.select(
+            [old_tree.skip_children], in_old_tree).limit(1)
+        postponed = sql.select(
+            [old_tree.postponed], in_old_tree).limit(1)
         new_items = (
             session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session == self)
