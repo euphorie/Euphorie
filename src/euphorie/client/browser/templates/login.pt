@@ -22,6 +22,11 @@
                   came_from_param webhelpers/came_from_param;
                 "
     >
+    <style type="text/css">
+h4 {
+  margin-bottom: 1em;
+}
+    </style>
       <tal:block replace="tile:statusmessages" />
       <article class="rich">
         <h1 i18n:translate="header_welcome">Welcome</h1>
