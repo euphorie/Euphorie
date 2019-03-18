@@ -4,8 +4,8 @@ Changelog
 10.1.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fixes for IT and FR
+- CMS: show date of last publication for every published tool
 
 10.1.5 (2019-03-13)
 -------------------
