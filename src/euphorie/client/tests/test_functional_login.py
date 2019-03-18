@@ -41,7 +41,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
             )
         )
         # Therefore we land on the "start new session" page
-        self.assertTrue("This is a test session" in browser.contents)
+        self.assertTrue("Test session" in browser.contents)
         self.assertTrue("Start a new session" in browser.contents)
         appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
@@ -66,7 +66,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         # We pass in a valid survey path in came_from
         browser.open("{url}/@@tryout?came_from={url}".format(url=url))
         # Therefore we land on the start page of the survey
-        self.assertTrue("This is a test session" in browser.contents)
+        self.assertTrue("Test session" in browser.contents)
         self.assertTrue("<h1>Software development</h1>" in browser.contents)
         appconfig['euphorie']['allow_guest_accounts'] = allow_guest_accounts
 
