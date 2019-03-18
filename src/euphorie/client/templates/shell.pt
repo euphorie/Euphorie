@@ -104,7 +104,13 @@
                title="Show/hide menu">
                 Menu
             </a>
+
+            <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
+                <tal:testsession i18n:translate="info_testsession">Test session</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
+            </p>
           </tal:anon>
+
+
             <metal:include tal:define="id string:hamburger" use-macro="context/@@includes/macros/osh"/>
 
             <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
@@ -279,9 +285,6 @@
 
           </aside>
           <div id="main-content" class="${variation_class}">
-            <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
-                <tal:testsession i18n:translate="info_testsession">This is a test session. <tal:name i18n:name="link_sign_in"><a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" data-pat-modal="class: large" class="registration pat-modal" i18n:translate="link_sign_in">Sign in</a></tal:name> to save your data.</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
-            </p>
             <tal:statusmsg tal:repeat="message webhelpers/messages">
                 <p class="pat-notification" data-pat-notification="type: banner; class: ${message/type}; close-text: ${webhelpers/closetext}" id="${message/id}-body" tal:content="message/message | nothing">Status message</p>
                 </tal:statusmsg>
