@@ -2319,7 +2319,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Nyní si nástroj OiRA zkoušíte jako host. Nemůžete ukládat provedenou práci "
 "ani stahovat zprávy. Chcete-li si práci uložit, přihlaste se nebo "
-"zaregistrujte klepnutím na odkaz \"Přihlásit se\" v pravém horním rohu "
+"zaregistrujte klepnutím na odkaz \"${link_sign_in}\" v pravém horním rohu "
 "stránky."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3255,7 +3255,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Toto je testovací modul ${link_sign_in}, abyste mohli data uložit."
+msgstr "Testovací modul"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11

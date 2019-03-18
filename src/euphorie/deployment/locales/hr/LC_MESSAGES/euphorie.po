@@ -2334,7 +2334,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Trenutačno ste procjenjivali OiRA alat kao privremeni korisnik. Nećete moći "
 "spremiti svoj napredak ni preuzeti bilo kakvo izvješće. Kako biste spremili "
-"svoj rad prijavite se ili registrirajte klikom na poveznicu „Prijava” na "
+"svoj rad prijavite se ili registrirajte klikom na poveznicu „${link_sign_in}” na "
 "gornjoj desnoj strani web-mjesta."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3274,8 +3274,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr ""
-"Ovo je probna sesija. ${link_sign_in} kako biste spremili svoje podatke."
+msgstr "Ovo je probna sesija"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11

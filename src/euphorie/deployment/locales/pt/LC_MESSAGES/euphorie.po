@@ -2352,7 +2352,7 @@ msgstr ""
 "Neste momento está a avaliar a OiRA como utilizador convidado.  Não poderá "
 "registar o seu progresso nem descarregar quaisquer relatórios. Para guardar "
 "o seu trabalho, queira iniciar uma sessão ou registar-se clicando na ligação "
-"\"Registe-se\" no canto superior direito da página."
+"\"${link_sign_in}\" no canto superior direito da página."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -3297,7 +3297,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Esta é uma sessão de teste ${link_sign_in} para guardar os seus dados."
+msgstr "Sessão de teste"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4388,7 +4388,7 @@ msgstr "limitações"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Iniciar sessão"
+msgstr "Login"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

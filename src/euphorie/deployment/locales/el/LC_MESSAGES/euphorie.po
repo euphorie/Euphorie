@@ -2430,7 +2430,7 @@ msgstr ""
 "χρήση της δοκιμαστικής έκδοσης. Δεν θα μπορείτε να αποθηκεύσετε ό,τι έχετε "
 "κάνει ως τώρα ή να μεταφορτώσετε οποιαδήποτε έκθεση σχετικά με τη μελέτη "
 "Εκτίμησης Κινδύνου. Για να αποθηκεύσετε την εργασία σας συνδεθείτε ή "
-"εγγραφείτε, κάνοντας κλικ στον σύνδεσμο \"Σύνδεση\" στην πάνω δεξιά γωνία "
+"εγγραφείτε, κάνοντας κλικ στον σύνδεσμο \"${link_sign_in}\" στην πάνω δεξιά γωνία "
 "της σελίδας."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3406,8 +3406,7 @@ msgstr ""
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
 msgstr ""
-"Αυτή η έκδοση του εργαλείου είναι δοκιμαστική. ${link_sign_in} για να "
-"αποθηκεύσετε τα δεδομένα σας."
+"Αυτή η έκδοση του εργαλείου είναι δοκιμαστική."
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4515,7 +4514,7 @@ msgstr "περιορισμοί"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Συνδεθείτε"
+msgstr "Σύνδεση"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

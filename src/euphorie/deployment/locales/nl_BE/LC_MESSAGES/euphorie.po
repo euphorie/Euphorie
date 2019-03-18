@@ -2365,7 +2365,7 @@ msgstr ""
 "U evalueert OiRA momenteel als gastgebruiker. U kunt reeds ingevoerde "
 "gegevens niet opslaan en geen verslagen downloaden. Om op te opslaan wat u "
 "al hebt ingevoerd, moet u zich aanmelden of registreren door te klikken op "
-"de link \"Aanmelden\" rechts bovenaan op de pagina."
+"de link \"${link_sign_in}\" rechts bovenaan op de pagina."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -3322,7 +3322,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Dit is een proefsessie. ${link_sign_in} om uw gegevens op te slaan."
+msgstr "Dit is een proefsessie"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4416,7 +4416,7 @@ msgstr "beperkingen"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Meld u aan"
+msgstr "Inloggen"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

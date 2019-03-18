@@ -2391,7 +2391,7 @@ msgstr ""
 "Sie nutzen das OiRA Tool probeweise in einer Test-Sitzung. Sie werden daher "
 "weder Ihren Fortschritt abspeichern können, noch Berichte herunterladen. Um "
 "Ihre Arbeit abzuspeichern, melden Sie sich an oder registrieren Sie sich, "
-"indem Sie auf “Anmelden” rechts oben klicken."
+"indem Sie auf “${link_sign_in}” rechts oben klicken."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -2496,7 +2496,7 @@ msgstr "Lizenzen"
 #: euphorie/client/browser/templates/login_form.pt:17
 #: euphorie/client/templates/shell.pt:111
 msgid "header_login"
-msgstr "Login"
+msgstr "Anmelden"
 
 #. Default: "Main image"
 #: euphorie/content/risk.py:218
@@ -3360,7 +3360,7 @@ msgstr ""
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
 msgstr ""
-"Dies ist eine Test-Sitzung. ${link_sign_in} um Ihre Antworten zu speichern."
+"Test-Sitzung"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4467,7 +4467,7 @@ msgstr "Einschränkungen"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Loggen Sie sich ein"
+msgstr "Anmelden"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

@@ -2359,7 +2359,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Ara esteu avaluant l'OiRA com a usuari convidat. No podreu desar el que feu "
 "ni descarregar cap informe. Per desar la vostra feina, si us plau, inicieu "
-"sessió o registreu-vos fent clic a l'enllaç \"Iniciar sessió\" de la part "
+"sessió o registreu-vos fent clic a l'enllaç \"${link_sign_in}\" de la part "
 "superior dreta de la pàgina."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3318,7 +3318,7 @@ msgstr ""
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
 msgstr ""
-"Aquesta és una sessió de prova. ${link_sign_in} per desar les vostres dades."
+"Sessió de prova"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11

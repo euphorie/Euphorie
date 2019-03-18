@@ -2373,7 +2373,7 @@ msgstr ""
 "Bħalissa qed tevalwa OiRA bħala utent mistieden. Mhux ser tkun tista' "
 "tissejvja l-progress tiegħek jew tniżżel rapport. Biex tissejvja x-xogħol "
 "tiegħek, jekk jogħġbok idħol jew irreġistra billi tikklikkja fuq il-link "
-"\"Idħol\" min-naħa tal-lemin ta' fuq tal-paġna."
+"\"${link_sign_in}\" min-naħa tal-lemin ta' fuq tal-paġna."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -3323,8 +3323,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr ""
-"Din hija sessjoni ta' test. ${link_sign_in} biex tissejvja d-dejta tiegħek."
+msgstr "Din hija sessjoni ta' test"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4421,7 +4420,7 @@ msgstr "limitazzjonijiet"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Idħol"
+msgstr "Login"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

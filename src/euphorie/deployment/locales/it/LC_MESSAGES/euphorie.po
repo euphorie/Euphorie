@@ -2352,7 +2352,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Si sta al momento utilizzando OiRA come utente ospite. Non sarà possibile "
 "salvare i progressi né scaricare alcun report. Per salvare il lavoro, "
-"accedere o registrarsi facendo clic sul link \"Registrazione\" in alto a "
+"accedere o registrarsi facendo clic sul link \"${link_sign_in}\" in alto a "
 "destra della pagina."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3309,7 +3309,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Questa è una sessione di prova. ${link_sign_in} per salvare i dati."
+msgstr "Sessione di prova"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4413,7 +4413,7 @@ msgstr "limiti"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Registrazione"
+msgstr "Login"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

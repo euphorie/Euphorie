@@ -2324,7 +2324,7 @@ msgstr ""
 "Orodje OiRA trenutno ocenjujete kot gostujoči uporabnik. Svojega napredka ne "
 "boste mogli shraniti niti prenesti poročil. Da shranite svoje delo, se "
 "prijavite ali registrirajte s klikom na eno od povezav »Registriraj se« ali "
-"»Prijava«, ki je na strani zgoraj desno."
+"»${link_sign_in}«, ki je na strani zgoraj desno."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -3257,9 +3257,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr ""
-"To je poskusna seja. Če želite, da bodo vaši podatki shranjeni, se "
-"${link_sign_in}."
+msgstr "To je poskusna seja"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4345,7 +4343,7 @@ msgstr "omejitve"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Prijavite ali Registrirajte"
+msgstr "Prijava"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

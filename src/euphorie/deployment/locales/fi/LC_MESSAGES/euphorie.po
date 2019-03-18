@@ -2484,7 +2484,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Arvioit parhaillaan OiRAa vierailijana. Et pysty tallentamaan tietoja etkä "
 "lataamaan raportteja. Tallentaaksesi työn kirjaudu sisään tai rekisteröidy "
-"klikkaamalla \"Rekisteröityminen\" -linkkiä sivun oikeassa ylälaidassa."
+"klikkaamalla \"${link_sign_in}\" -linkkiä sivun oikeassa ylälaidassa."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
@@ -3575,9 +3575,8 @@ msgstr ""
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
-#, fuzzy
 msgid "info_testsession"
-msgstr "Tämä on kokeiluversio. ${link_sign_in} tallentaaksesi tiedot."
+msgstr "Tämä on kokeiluversio"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4836,7 +4835,6 @@ msgstr "rajoitukset"
 #. Default: "Sign in"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
-#, fuzzy
 msgid "link_sign_in"
 msgstr "Kirjaudu sisään"
 

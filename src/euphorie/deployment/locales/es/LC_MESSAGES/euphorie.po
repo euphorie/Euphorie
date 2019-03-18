@@ -2364,7 +2364,7 @@ msgid "guest_login_warning"
 msgstr ""
 "En este momento está evaluando OiRA como invitado. No podrá guardar sus "
 "progresos ni descargar informes. Para guardar su trabajo, identifíquese o "
-"regístrese haciendo clic en el enlace \\«Identifíquese\\» en la parte "
+"regístrese haciendo clic en el enlace «${link_sign_in}» en la parte "
 "superior derecha de la página."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3318,7 +3318,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Esta es una sesión de prueba. ${link_sign_in} para guardar sus datos."
+msgstr "Sesión de prueba"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11

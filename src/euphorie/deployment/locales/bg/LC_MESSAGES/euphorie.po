@@ -2372,7 +2372,7 @@ msgstr ""
 "Понастоящем използвате пробно OiRA като гост потребител. Не можете да "
 "запазите  информацията в резултат на вашата работа или да изтегляте доклади. "
 "За да запазите резултатите от вашата работа, влезте в системата или се "
-"регистрирайте, като кликнете върху връзката \"Вход\" в горния десен ъгъл на "
+"регистрирайте, като кликнете върху връзката \"${link_sign_in}\" в горния десен ъгъл на "
 "страницата."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3326,8 +3326,7 @@ msgstr ""
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
 msgstr ""
-"Това е тестова сесия. Ползвайте връзката ${link_sign_in}, за да запазите "
-"данните."
+"Тестова сесия"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11

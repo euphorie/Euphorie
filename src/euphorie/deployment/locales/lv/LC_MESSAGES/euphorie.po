@@ -2326,7 +2326,7 @@ msgid "guest_login_warning"
 msgstr ""
 "Pašlaik Jūs novērtējat OiRA kā viesis. Jūs nevarēsiet saglabāt darbu vai "
 "lejupielādēt kādus dokumentus. Lai saglabātu savu darbu, lūdzu, piesakieties "
-"vai reģistrējieties, noklikšķinot uz \"Pieteikties\" saites lapas augšā "
+"vai reģistrējieties, noklikšķinot uz \"${link_sign_in}\" saites lapas augšā "
 "labajā pusē."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
@@ -3267,7 +3267,7 @@ msgstr ""
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr "Šī ir testa sesija. ${link_sign_in} , lai saglabātu datus."
+msgstr "Šī ir testa sesija"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4352,7 +4352,7 @@ msgstr "ierobežojumiem"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "Pieteikties"
+msgstr "Pieteikšanās"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34

@@ -2300,13 +2300,13 @@ msgid "guest_login_warning"
 msgstr ""
 "Þú ert að prófa OiRA verkfærið. Þú getur ekki vistað áhættumatið né sótt "
 "skýrslur. Til að geta vistað áhættumat þarf að skrá sig inn eða stofna "
-"aðgang með því að smella á tengilinn \"Innskráning\" efst til hægri."
+"aðgang með því að smella á tengilinn \"${link_sign_in}\" efst til hægri."
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
 msgid "hader_company_details"
 msgstr ""
-"Skýrslan er tilbúin til prentunar.  Vinsamlegast taktu þátt í könnuninni hér "
+"Skýrslan er tilbúin til prentunar. Vinsamlegast taktu þátt í könnuninni hér "
 "að neðan."
 
 #. Default: "Additional content"
@@ -3230,9 +3230,7 @@ msgstr "Veldu áhættumat til að ljúka eða endurskoða eða ${start_session}.
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "info_testsession"
-msgstr ""
-"Hér er hægt að prófa verkfærið. Það verður að ${link_sign_in} til að gera "
-"áhættumat og vista það."
+msgstr "Prófa verkfærið"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
 #: euphorie/content/templates/survey_add.pt:11
@@ -4316,7 +4314,7 @@ msgstr "galla"
 #: euphorie/client/templates/plain.pt:195
 #: euphorie/client/templates/shell.pt:283
 msgid "link_sign_in"
-msgstr "stofna aðgang"
+msgstr "Innskráning"
 
 #. Default: "Start a new session"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
