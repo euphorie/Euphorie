@@ -587,7 +587,7 @@ class DocxCompilerFrance(DocxCompiler):
             paragraph.text = action['text']
             if action.get('prevention_plan', None):
                 paragraph = cell.add_paragraph(
-                    action['prevention_plan'],
+                    u"Action : {0}".format(action['prevention_plan']),
                     style="Measure Indent")
             if action.get('requirements', None):
                 paragraph = cell.add_paragraph(
