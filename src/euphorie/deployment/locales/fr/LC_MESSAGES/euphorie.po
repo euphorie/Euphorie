@@ -1261,7 +1261,7 @@ msgstr "Que dois-je faire?"
 
 #: euphorie/client/browser/templates/login.pt:72
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr "Qu’est-ce que OiRA (Online Interactive Risk Assessment)?"
+msgstr "Qu’est-ce que OiRA (Online interactive Risk Assessment)?"
 
 #: euphorie/client/browser/templates/login.pt:88
 msgid "Who is the OiRA tool for?"

@@ -1,11 +1,17 @@
 Changelog
 =========
 
-10.1.6 (unreleased)
+10.1.7 (unreleased)
 -------------------
 
 - Nothing changed yet.
 
+
+10.1.6 (2019-03-18)
+-------------------
+
+- Translation fixes for IT and FR
+- CMS: show date of last publication for every published tool
 
 10.1.5 (2019-03-13)
 -------------------
