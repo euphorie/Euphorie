@@ -467,7 +467,8 @@ class WebHelpers(BrowserView):
     def _survey(self):
         survey = getattr(self.request, 'survey', None)
         if survey is not None:
-            return survey
+            if ISurvey.providedBy(survey):
+                return survey
 
         if self.session is None:
             return None
