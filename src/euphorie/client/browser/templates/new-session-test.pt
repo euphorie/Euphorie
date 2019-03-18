@@ -13,7 +13,7 @@
             <h1 i18n:translate="label_new_session_test">New test session</h1>
             <form method="post"
               class="wizard-box panel-class-small pat-inject"
-              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;"
+              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; &amp;&amp; source: #toolbar; target: #toolbar"
               action="${request/URL}"
               tal:condition="view/allow_guest_accounts">
             <input type="hidden" name="action" value="new"/>
