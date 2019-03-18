@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.6 (unreleased)
+10.1.6 (2019-03-18)
 -------------------
 
 - Translation fixes for IT and FR
