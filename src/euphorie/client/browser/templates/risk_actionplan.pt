@@ -471,6 +471,7 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_action_plan"
               >${solution/action_plan}</textarea>
+              <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
               <br />
               <textarea class="preventionPlan"
                         name="measure.prevention_plan:utf8:ustring:records"
@@ -478,6 +479,8 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_prevention_plan"
               >${solution/prevention_plan}</textarea>
+              </tal:preventionPlan>
+              <tal:requirements condition="python: 'requirements' not in view.skip_fields">
               <br />
               <textarea class="requirements"
                         name="measure.requirements:utf8:ustring:records"
@@ -485,6 +488,7 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_requirements"
               >${solution/requirements}</textarea>
+              </tal:requirements>
             </label>
           </fieldset>
         </tal:loop>
