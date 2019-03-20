@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.7 (unreleased)
+10.1.7 (2019-03-20)
 -------------------
 
 - Bugfix for the Help tile: showing it must not depend on the CountryManager
