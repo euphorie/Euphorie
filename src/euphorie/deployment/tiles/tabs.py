@@ -58,9 +58,9 @@ class SiteRootTabsTile(TabsTile):
             "class": "current" if current == "sectors" else None,
         }]
         is_country_manager = self.is_country_manager()
+        country = self.get_current_country()
+        country_url = country and country.absolute_url() or ""
         if is_country_manager:
-            country = self.get_current_country()
-            country_url = country.absolute_url()
             self.tabs.append({
                 "id": "usermgmt",
                 "title": _("nav_usermanagement", default=u"User management"),
@@ -76,11 +76,11 @@ class SiteRootTabsTile(TabsTile):
                 "class": "current" if current == "documents" else None,
             })
 
-        if is_country_manager:
+        if country:
             self.tabs.append({
                 "id": "help",
                 "title": _("nav_help", default=u"Help"),
-                "url": "%s/help" % country.absolute_url(),
+                "url": "%s/help" % country_url,
                 "class": "current" if current == "help" else None,
             })
 
