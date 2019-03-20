@@ -6,6 +6,8 @@ Changelog
 
 - Bugfix for the Help tile: showing it must not depend on the CountryManager
   permission
+- In the Word report: top5 risks that have not been answered yet should get the
+  same text as postponed ones
 
 
 10.1.6 (2019-03-18)

@@ -248,12 +248,15 @@ class DocxCompiler(BaseOfficeCompiler):
                 if node.identification == 'no':
                     msg = _("risk_present",
                             default="Risk is present.")
-                elif node.postponed or not node.identification:
+                elif (
+                    (node.postponed or not node.identification) and
+                    not node.risk_type == "top5"
+                ):
                     msg = _(
                         "risk_unanswered",
                         default=u"This risk still needs to be inventorised.")
                 if node.risk_type == "top5":
-                    if node.postponed:
+                    if node.postponed or not node.identification:
                         msg = _(
                             "top5_risk_not_present",
                             default=u"This risk is not present in your "
