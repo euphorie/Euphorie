@@ -4,7 +4,8 @@ Changelog
 10.1.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Bugfix for the Help tile: showing it must not depend on the CountryManager
+  permission
 
 
 10.1.6 (2019-03-18)
