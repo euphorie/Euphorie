@@ -333,18 +333,32 @@ class DocxCompiler(BaseOfficeCompiler):
                     # We try to get at least some order in: First, the pre-
                     # defined measures that the user has confirmed, then the
                     # additional custom-defined ones.
-                    existing_measures = OrderedDict()
                     saved_measures = loads(node.existing_measures)
+                    # Backwards compat. We used to save dicts in JSON before we
+                    # switched to list of tuples.
+                    if isinstance(saved_measures, dict):
+                        saved_measures = [
+                            (k, v) for (k, v) in saved_measures.items()]
+
+                    saved_measure_texts = OrderedDict()
+                    for text, on in saved_measures:
+                        saved_measure_texts.update({text: on})
+
+                    existing_measures = []
+                    # Pick the pre-defined measures first
                     for text in defined_measures:
-                        if saved_measures.get(text):
-                            existing_measures.update(
-                                {htmllaundry.StripMarkup(text): 1})
-                            saved_measures.pop(text)
+                        active = saved_measure_texts.get(text)
+                        if active is not None:
+                            # Only add the measures that are active
+                            if active:
+                                existing_measures.append((text, 1))
+                            saved_measure_texts.pop(text)
+
                     # Finally, add the user-defined measures as well
-                    existing_measures.update({
-                        htmllaundry.StripMarkup(key): val for (key, val)
-                        in saved_measures.items()})
-                    measures = existing_measures.keys()
+                    for text, on in saved_measure_texts.items():
+                        existing_measures.append((text, on))
+
+                    measures = [item[0] for item in existing_measures if item[1]]
                 except:
                     measures = []
                 for (idx, measure) in enumerate(measures):
