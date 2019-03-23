@@ -53,6 +53,9 @@
         </p>
         <article class="pat-rich">
           <h1>${context/title}</h1>
+        <section tal:condition="context/description">
+          <p>${context/description}</p>
+        </section>
         </article>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
