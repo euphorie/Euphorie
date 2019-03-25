@@ -133,14 +133,22 @@ class OfficeDocumentView(BrowserView):
                 measures = existing_measures.keys()
             except:
                 measures = []
+            if (
+                sql_risk.identification == 'no' or
+                getattr(risk, 'type', None) == 'top5'
+            ):
+                actions = [
+                    _get_action_plan(action)
+                    for action in sql_risk.action_plans
+                ]
+            else:
+                actions = []
+
             risks.append({
                 u'title': sql_risk.title.strip(),
                 u'description': risk_description,
                 u'comment': _escape_text(sql_risk.comment),
-                u'actions': [
-                    _get_action_plan(action)
-                    for action in sql_risk.action_plans
-                ],
+                u'actions': actions,
                 u'measures': measures,
                 u'epilogue': u'',
                 u'justifiable': sql_risk.identification,
