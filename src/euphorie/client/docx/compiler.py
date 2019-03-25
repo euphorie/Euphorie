@@ -587,15 +587,22 @@ class DocxCompilerFrance(DocxCompiler):
             if idx != 0:
                 paragraph = cell.add_paragraph()
             paragraph.style = "Measure List"
-            paragraph.text = action['text']
+            paragraph.text = _simple_breaks(action['text'])
             if action.get('prevention_plan', None):
-                paragraph = cell.add_paragraph(
-                    u"Action : {0}".format(action['prevention_plan']),
-                    style="Measure Indent")
+                paragraph = cell.add_paragraph(style="Measure Indent")
+                run = paragraph.add_run()
+                run.text = u"Actions : "
+                run.underline = True
+                run = paragraph.add_run()
+                run.text = _simple_breaks(action['prevention_plan'])
             if action.get('requirements', None):
-                paragraph = cell.add_paragraph(
-                    action['requirements'],
-                    style="Measure Indent")
+                paragraph = cell.add_paragraph(style="Measure Indent")
+                run = paragraph.add_run()
+                run.text = u"Compétences requises : "
+                run.underline = True
+                run = paragraph.add_run()
+                run.text = _simple_breaks(action['requirements']),
+
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
                     u"Responsable: {}".format(action['responsible']),
