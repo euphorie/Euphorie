@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.8 (unreleased)
+10.1.8 (2019-03-26)
 -------------------
 
 - Label changes in French report
