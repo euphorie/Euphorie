@@ -1,11 +1,16 @@
 Changelog
 =========
 
-10.1.8 (unreleased)
+10.1.9 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Translation change PT
 
+10.1.8 (2019-03-26)
+-------------------
+
+- Label changes in French report
+- Fix bug on statistics page
 
 10.1.7 (2019-03-20)
 -------------------
