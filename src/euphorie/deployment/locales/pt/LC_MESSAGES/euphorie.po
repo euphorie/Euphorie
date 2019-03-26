@@ -3515,7 +3515,7 @@ msgstr "Conteúdo da página"
 #. Default: "Skip"
 #: euphorie/client/browser/templates/risk_identification.pt:56
 msgid "label_button_skip"
-msgstr "Pular"
+msgstr "Avançar"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:232

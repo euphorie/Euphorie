@@ -248,12 +248,15 @@ class DocxCompiler(BaseOfficeCompiler):
                 if node.identification == 'no':
                     msg = _("risk_present",
                             default="Risk is present.")
-                elif node.postponed or not node.identification:
+                elif (
+                    (node.postponed or not node.identification) and
+                    not node.risk_type == "top5"
+                ):
                     msg = _(
                         "risk_unanswered",
                         default=u"This risk still needs to be inventorised.")
                 if node.risk_type == "top5":
-                    if node.postponed:
+                    if node.postponed or not node.identification:
                         msg = _(
                             "top5_risk_not_present",
                             default=u"This risk is not present in your "
@@ -584,15 +587,22 @@ class DocxCompilerFrance(DocxCompiler):
             if idx != 0:
                 paragraph = cell.add_paragraph()
             paragraph.style = "Measure List"
-            paragraph.text = action['text']
+            paragraph.text = _simple_breaks(action['text'])
             if action.get('prevention_plan', None):
-                paragraph = cell.add_paragraph(
-                    u"Action : {0}".format(action['prevention_plan']),
-                    style="Measure Indent")
+                paragraph = cell.add_paragraph(style="Measure Indent")
+                run = paragraph.add_run()
+                run.text = u"Actions : "
+                run.underline = True
+                run = paragraph.add_run()
+                run.text = _simple_breaks(action['prevention_plan'])
             if action.get('requirements', None):
-                paragraph = cell.add_paragraph(
-                    action['requirements'],
-                    style="Measure Indent")
+                paragraph = cell.add_paragraph(style="Measure Indent")
+                run = paragraph.add_run()
+                run.text = u"Compétences requises : "
+                run.underline = True
+                run = paragraph.add_run()
+                run.text = _simple_breaks(action['requirements']),
+
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
                     u"Responsable: {}".format(action['responsible']),
