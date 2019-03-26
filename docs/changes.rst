@@ -4,8 +4,7 @@ Changelog
 10.1.9 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation change PT
 
 10.1.8 (2019-03-26)
 -------------------
