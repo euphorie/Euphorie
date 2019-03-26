@@ -4,8 +4,8 @@ Changelog
 10.1.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Label changes in French report
+- Fix bug on statistics page
 
 10.1.7 (2019-03-20)
 -------------------
