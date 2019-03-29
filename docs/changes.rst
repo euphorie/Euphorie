@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Translation change PT
+- Make change of account email address more robust against side-effects
 
 10.1.8 (2019-03-26)
 -------------------
