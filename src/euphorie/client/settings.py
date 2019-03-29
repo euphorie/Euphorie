@@ -267,6 +267,7 @@ class NewEmail(form.SchemaForm):
         (data, errors) = self.extractData()
         if errors:
             return
+        url = self.context.absolute_url()
 
         user = getSecurityManager().getUser()
         if not user.verify_password(data["password"]):
@@ -274,7 +275,7 @@ class NewEmail(form.SchemaForm):
                 "password", Invalid(_(u"Invalid password"))
             )
 
-        settings_url = "%s/account-settings" % self.context.absolute_url()
+        settings_url = "%s/account-settings" % url
         if (
             not data["loginname"]
             or data["loginname"].strip() == user.loginname
@@ -308,7 +309,7 @@ class NewEmail(form.SchemaForm):
             ),
             "warning",
         )
-        self.request.response.redirect(settings_url)
+        self.request.response.redirect("%s/" % url)
 
     @button.buttonAndHandler(
         _("button_cancel", default=u"Cancel"), name='cancel'
@@ -327,16 +328,21 @@ class ChangeEmail(grok.View):
     grok.template("error")
 
     def update(self):
+        url = "%s/" % aq_inner(self.context).absolute_url()
+        flash = IStatusMessage(self.request).addStatusMessage
         key = self.request.get("key")
         if key is None:
+            flash(_(u"This request could not be processed."), "warning")
+            self.request.response.redirect(url)
             return
 
         request = Session.query(AccountChangeRequest).get(key)
         if request is None:
+            flash(_(u"This request could not be processed."), "warning")
+            self.request.response.redirect(url)
             return
 
         request.account.loginname = request.value
         Session.delete(request)
-        flash = IStatusMessage(self.request).addStatusMessage
         flash(_("Your email address has been updated."), "success")
-        self.request.response.redirect(aq_inner(self.context).absolute_url())
+        self.request.response.redirect(url)
