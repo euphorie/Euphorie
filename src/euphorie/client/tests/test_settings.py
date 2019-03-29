@@ -33,7 +33,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         ).value = "secret"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
-            browser.url, "http://nohost/plone/client/nl/account-settings"
+            browser.url, "http://nohost/plone/client/nl/"
         )
         self.assertTrue("Invalid password" in browser.contents)
 
@@ -207,7 +207,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         ).value = "discard@simplon.biz"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
-            browser.url, "http://nohost/plone/client/nl/account-settings"
+            browser.url, "http://nohost/plone/client/nl/"
         )
         self.assertTrue("Please confirm your new email" in browser.contents)
         self.assertTrue("discard@simplon.biz" in browser.contents)
