@@ -33,7 +33,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         ).value = "secret"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
-            browser.url, "http://nohost/plone/client/nl/"
+            browser.url, "http://nohost/plone/client/nl/account-settings"
         )
         self.assertTrue("Invalid password" in browser.contents)
 
@@ -280,7 +280,7 @@ class ChangeEmailTests(EuphorieFunctionalTestCase):
         browser.open(
             "http://nohost/plone/client/confirm-change?key=XXXXXXXXXXXXXXXX"
         )
-        self.assertEqual(browser.url, "http://nohost/plone/client")
+        self.assertEqual(browser.url, "http://nohost/plone/client/")
         self.assertEqual(
             Session.query(Account.loginname).first()[0], "new-login"
         )
