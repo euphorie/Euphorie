@@ -207,7 +207,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         ).value = "discard@simplon.biz"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(
-            browser.url, "http://nohost/plone/client/nl/account-settings"
+            browser.url, "http://nohost/plone/client/nl/"
         )
         self.assertTrue("Please confirm your new email" in browser.contents)
         self.assertTrue("discard@simplon.biz" in browser.contents)
@@ -280,7 +280,7 @@ class ChangeEmailTests(EuphorieFunctionalTestCase):
         browser.open(
             "http://nohost/plone/client/confirm-change?key=XXXXXXXXXXXXXXXX"
         )
-        self.assertEqual(browser.url, "http://nohost/plone/client")
+        self.assertEqual(browser.url, "http://nohost/plone/client/")
         self.assertEqual(
             Session.query(Account.loginname).first()[0], "new-login"
         )

@@ -1,10 +1,17 @@
 Changelog
 =========
 
-10.1.9 (unreleased)
+10.1.10 (unreleased)
+--------------------
+
+- Nothing changed yet.
+
+
+10.1.9 (2019-03-29)
 -------------------
 
 - Translation change PT
+- Make change of account email address more robust against side-effects
 
 10.1.8 (2019-03-26)
 -------------------
