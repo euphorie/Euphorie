@@ -4,7 +4,8 @@ Changelog
 10.1.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- top5 risks: do not show the option to change the severity in Action Plan, they
+  are always "high".
 
 
 10.1.9 (2019-03-29)
