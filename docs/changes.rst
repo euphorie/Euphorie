@@ -6,6 +6,7 @@ Changelog
 
 - top5 risks: do not show the option to change the severity in Action Plan, they
   are always "high".
+- Translation fixes (PT, IS)
 
 
 10.1.9 (2019-03-29)
