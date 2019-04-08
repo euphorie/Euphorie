@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.10 (unreleased)
+10.1.10 (2019-04-08)
 --------------------
 
 - top5 risks: do not show the option to change the severity in Action Plan, they
