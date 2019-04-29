@@ -94,9 +94,10 @@ class ExportSurvey(grok.View):
         etree.SubElement(node, "evaluation-optional").text = \
                 "true" if survey.evaluation_optional else "false"
         if IToolCategory.providedBy(survey):
+            tool_category = IToolCategory(survey).tool_category or []
             etree.SubElement(node, "tool-category").text = ", ".join([
                 x.replace(",", COMMA_REPLACEMENT)
-                for x in IToolCategory(survey).tool_category
+                for x in tool_category
             ])
 
         for child in survey.values():
