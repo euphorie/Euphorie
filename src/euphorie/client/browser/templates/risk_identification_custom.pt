@@ -39,7 +39,7 @@
     <!-- Identification -->
 
     <fieldset id="add-measure-in-place"
-      class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-autosubmit pat-inject pat-subform"
+      class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
       data-pat-clone="template: #measure-template; remove-confirmation: Are you sure you want to remove this existing measure?"
       data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:view.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
       data-pat-autosubmit="1000ms"
@@ -60,7 +60,7 @@
                      type="checkbox"
               />
                 <textarea cols="50"
-                          class="pat-autosubmit"
+                          class=""
                           data-pat-autosubmit="1000ms"
                           name="present-measure-${repeat/measure/index}"
                           placeholder="${view/placeholder_add_extra}"
@@ -82,7 +82,7 @@
                    type="checkbox"
             />
             <textarea cols="50"
-                      class="pat-autosubmit"
+                      class=""
                       data-pat-autosubmit="1000ms"
                       name="new-measure-#{1}"
                       placeholder="${view/placeholder_add_extra}"
@@ -118,7 +118,7 @@
                type="checkbox"
         />
         <textarea cols="50"
-                  class="pat-autosubmit"
+                  class=""
                   data-pat-autosubmit="1000ms"
                   name="new-measure-#{1}"
                   placeholder="${view/placeholder_add_extra}"
@@ -192,7 +192,7 @@
       <legend>
         Information
       </legend>
-      <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-autosubmit pat-inject' or None}"
+      <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-inject' or None}"
         data-pat-autosubmit="1000ms"
         data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
         <textarea rows="8"
