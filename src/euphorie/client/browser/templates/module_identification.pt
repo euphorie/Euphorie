@@ -56,12 +56,11 @@
             </section>
         </tal:additional_files>
 
-
+    </article>
+</div>
         <p class="button-bar" id="nav-bar">
             <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
         </p>
-    </article>
-</div>
 </form>
 </metal:slot>
 </body>
