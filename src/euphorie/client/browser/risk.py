@@ -165,6 +165,10 @@ class IdentificationView(BrowserView):
             if self.is_custom_risk:
                 template = ViewPageTemplateFile(
                     'templates/risk_identification_custom.pt').__get__(self, "")  # noqa
+                next = FindNextQuestion(
+                    self.context,
+                    filter=self.question_filter)
+                self.has_next_risk = next or False
             else:
                 template = self.template
             return template()
