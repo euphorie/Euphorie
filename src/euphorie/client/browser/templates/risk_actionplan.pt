@@ -74,9 +74,11 @@
             >
               <fieldset tal:define="
                           value data/priority;
+                          readonly python:context.risk_type in ['top5']
                         "
               >
-                <label i18n:translate="risk_priority">This is a
+                <input type="hidden" name="priority" value="${python:value}" tal:condition="readonly" />
+                <label i18n:translate="risk_priority" tal:condition="not:readonly">This is a
                   <select name="priority"
                           i18n:name="priority_value"
                   >
@@ -94,6 +96,10 @@
                     >high</option>
                   </select>
                   priority risk.</label>
+                <label i18n:translate="risk_priority" tal:condition="readonly">
+                  This is a <strong i18n:name="priority_value" i18n:translate="">risk_priority_${value}</strong>
+                  priority risk.
+                </label>
               </fieldset>
               <metal:call use-macro="webhelpers/macros/risk_info_actionplan" />
             </tal:priority>

@@ -441,8 +441,8 @@ class ActionPlanView(BrowserView):
                     continue
                 if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
                     match = u"%s: %s" % (
-                        solution.description.strip(),
-                        solution.prevention_plan.strip()
+                        getattr(solution, "description", "").strip(),
+                        getattr(solution, "prevention_plan", "").strip()
                     )
                 else:
                     match = solution.description.strip()
