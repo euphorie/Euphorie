@@ -605,7 +605,7 @@ msgstr "Úrbætur framkvæmdar af"
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:14
 msgid "Module"
-msgstr ""
+msgstr "Flokkur"
 
 #: euphorie/client/templates/report_landing.pt:60
 msgid "Monitor and assess whether necessary measures have been introduced."
@@ -2394,7 +2394,7 @@ msgstr "Tilvísanir í önnur gögn s.s. lög, reglur og önnur opinber gögn"
 #. Default: "Legend"
 #: euphorie/deployment/tiles/templates/versions.pt:76
 msgid "header_legend"
-msgstr ""
+msgstr "Skýringartexti"
 
 #. Default: "Licenses"
 #: euphorie/client/templates/about.pt:168
@@ -2527,7 +2527,7 @@ msgstr "Hve mörgum spurningum var svarað í hverjum flokki"
 #: euphorie/client/browser/templates/register.pt:75
 #: euphorie/client/templates/shell.pt:112
 msgid "header_register"
-msgstr "Stofna aðgang"
+msgstr "Skráning"
 
 #. Default: "Reporting"
 #: euphorie/client/browser/templates/register.pt:19
@@ -3269,7 +3269,7 @@ msgstr "biðlari á netinu "
 #. Default: "You can specify how the risks priority is evaluated. For more details see the online manual."
 #: euphorie/content/risk.py:448
 msgid "intro_evaluation"
-msgstr ""
+msgstr "Þú getur ákveðið hér hvernig forgangsflokkur áhættu er metin. Nánari upplýsingar eru í notendahandbók á netinu."
 
 #. Default: "You can print the ${list-of-risks}."
 #: euphorie/client/templates/identification.pt:21
@@ -3303,7 +3303,7 @@ msgstr ""
 #: euphorie/client/templates/preview.pt:17
 msgid "intro_preview"
 msgstr ""
-"Ertu viss um að þú viljir búa til prufueintak af þessu OiRA verkfæri? Þú "
+"Vinsamlegast staðfestu að þú viljir búa til prufueintak af þessu OiRA verkfæri? Þú "
 "getur látið aðra fá vefslóð (URL) verkfærisins þannig að þeir geti prófað "
 "það. Nauðsynlegt er að skrá sig inn með venjulegri OiRA innskráningu til að "
 "fá aðgang að forskoðuninni."
@@ -3555,17 +3555,17 @@ msgstr ""
 #. Default: "Default severity"
 #: euphorie/content/templates/risk_view.pt:68
 msgid "label_default_effect"
-msgstr "Gefnar afleiðingar"
+msgstr "Sjálfgefnar líkur"
 
 #. Default: "Default frequency"
 #: euphorie/content/risk.py:359 euphorie/content/templates/risk_view.pt:59
 msgid "label_default_frequency"
-msgstr ""
+msgstr "Sjálfgefnar líkur"
 
 #. Default: "Default priority"
 #: euphorie/content/risk.py:202 euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
-msgstr "sjálfgefin áhættuflokkur"
+msgstr "Sjálfgefin áhættuflokkur"
 
 #. Default: "Default probability"
 #: euphorie/content/risk.py:385 euphorie/content/templates/risk_view.pt:64
@@ -3575,7 +3575,7 @@ msgstr ""
 #. Default: "Default severity"
 #: euphorie/content/risk.py:337 euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
-msgstr ""
+msgstr "Sjálfgefin alvarleiki"
 
 #. Default: "Delete"
 #: euphorie/client/browser/templates/more_menu.pt:22
@@ -3958,7 +3958,7 @@ msgstr "Eftir hvaða leiðum fréttir þú af verkfærinu?"
 #: euphorie/client/browser/templates/login.pt:46
 #: euphorie/client/browser/templates/new-session-test.pt:70
 msgid "label_register"
-msgstr "Stofna aðgang"
+msgstr "Skráning"
 
 #. Default: "It's free."
 #: euphorie/client/browser/templates/register.pt:22
@@ -4544,12 +4544,12 @@ msgstr ""
 #. Default: "This ${number} is mandatory."
 #: euphorie/content/templates/module_view.pt:24
 msgid "module_mandatory"
-msgstr "Ekki er hægt að sleppa þessum ${number}."
+msgstr "þessi ${number} er ekki valkvæður."
 
 #. Default: "This ${number} is optional."
 #: euphorie/content/templates/module_view.pt:28
 msgid "module_optional"
-msgstr "Þessi ${number} er valkvæð. "
+msgstr "Þessi ${number} er valkvæður."
 
 #. Default: "Documents"
 #: euphorie/deployment/tiles/tabs.py:74
@@ -5003,12 +5003,12 @@ msgstr "Meðal"
 #. Default: "Show '${na}'"
 #: euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na"
-msgstr ""
+msgstr "Val um “${na}”?"
 
 #. Default: "not applicable"
 #: euphorie/content/templates/risk_view.pt:43
 msgid "risk_show_na_na"
-msgstr ""
+msgstr "á ekki við"
 
 #. Default: "Measure ${number}"
 #: euphorie/content/templates/risk_view.pt:86
@@ -5139,8 +5139,7 @@ msgstr "Búa til nýtt OiRA verkfæri frá grunni"
 #: euphorie/client/browser/templates/login.pt:46
 msgid "teaser_try_oira"
 msgstr ""
-"Viltu prófa OiRA? Þú getur ${tryout_link} eða byrjað ${register_link} á "
-"áhættumatinu."
+"Viltu prófa OiRA? Þú getur ${tryout_link} (nafnlaust, án skráningar) eða skráð aðgang ${register_link} og unnið við áhættumatið (og vistað á þínu svæði)."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/templates/conditions.pt:19

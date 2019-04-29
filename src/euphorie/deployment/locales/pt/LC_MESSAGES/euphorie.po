@@ -3976,7 +3976,7 @@ msgstr "Repetir a palavra-passe"
 #. Default: "Pre-fill"
 #: euphorie/client/browser/templates/risk_actionplan.pt:147
 msgid "label_prefill"
-msgstr "Preenchimento prévio"
+msgstr "Sugestões"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:99

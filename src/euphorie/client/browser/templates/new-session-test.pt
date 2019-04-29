@@ -46,7 +46,8 @@
                 </tal:categories>
               </fieldset>
 
-              <label class="tool-list-many" tal:condition="python:view.template_count > threshold">
+              <fieldset class="vertical" tal:condition="python:view.template_count > threshold">
+              <label class="tool-list-many">
                 <select name="survey">
                   <metal:templates define-macro="templates_many">
                     <tal:surveys define="surveys root/survey_templates">
@@ -62,6 +63,7 @@
                   </tal:categories>
                 </select>
               </label>
+              </fieldset>
 
                 <p>
                     <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>

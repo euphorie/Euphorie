@@ -47,7 +47,8 @@
                 </tal:categories>
               </fieldset>
 
-              <label class="tool-list-many" tal:condition="python:view.template_count > threshold">
+              <fieldset class="vertical" tal:condition="python:view.template_count > threshold">
+              <label class="tool-list-many">
                 <select name="survey">
                   <metal:templates define-macro="templates_many">
                     <tal:surveys define="surveys root/survey_templates">
@@ -63,8 +64,10 @@
                   </tal:categories>
                 </select>
               </label>
+              </fieldset>
             </div>
-            </div>
+          </div>
+
             <div class="buttons panel-footer">
               <div class="container">
                 <button type="submit" name="next" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>

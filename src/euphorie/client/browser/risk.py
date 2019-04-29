@@ -578,8 +578,8 @@ class ActionPlanView(BrowserView):
                     continue
                 if measures_full_text:
                     match = u"%s: %s" % (
-                        solution.description.strip(),
-                        solution.prevention_plan.strip()
+                        getattr(solution, "description", "").strip(),
+                        getattr(solution, "prevention_plan", "").strip()
                     )
                 else:
                     match = solution.description.strip()

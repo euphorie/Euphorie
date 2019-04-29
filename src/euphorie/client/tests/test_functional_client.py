@@ -103,7 +103,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
             "http://nohost/plone/client/nl/sector-title/"
             "survey-title/actionplan/1/1"
         )
-        self.assertEqual(browser.getControl(name="priority").value, ["high"])
+        self.assertEqual(browser.getControl(name="priority").value, "high")
 
     def test_top5_skipped_in_evaluation(self):
         # Test for http://code.simplon.biz/tracker/euphorie/ticket/105
