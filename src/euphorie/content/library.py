@@ -160,8 +160,13 @@ def assign_ids(context, tree):
         (parent, item) = todo.popleft()
         uid_handler.register(item)
         if INameFromUniqueId.providedBy(item):
+            if parent is not None:
+                contents = parent.ZopeFind(parent, search_sub=1)
+                ids = [int(child[1].id) for child in contents]
+            else:
+                ids = None
             old_id = item.id
-            new_id = get_next_id(context)
+            new_id = get_next_id(context, ids)
             item._setId(new_id)
             if parent is not None:
                 # We need to reset the child in its folder to make sure
