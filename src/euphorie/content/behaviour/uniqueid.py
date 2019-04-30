@@ -42,7 +42,7 @@ class INameFromUniqueId(Interface):
             required=True)
 
 
-def get_next_id(context):
+def get_next_id(context, ids=None):
     for root in aq_chain(context):
         if IIdGenerationRoot.providedBy(root):
             break
@@ -51,9 +51,11 @@ def get_next_id(context):
     storage = IAnnotations(root, None)
     if storage is None:
         raise ValueError('Id generation root is not annotatable')
-    next = storage.get('euphorie.content.behaviour.id', 1)
-    storage['euphorie.content.behaviour.id'] = next + 1
-    return str(next)
+    current_max = storage.get('euphorie.content.behaviour.id', 1)
+    if ids:
+        current_max = max(current_max, max(ids))
+    storage['euphorie.content.behaviour.id'] = current_max + 1
+    return str(current_max)
 
 
 class UniqueNameChooser(NormalizingNameChooser):
