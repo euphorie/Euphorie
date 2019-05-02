@@ -204,8 +204,20 @@ class AddForm(dexterity.AddForm):
                 .format(datetime.date.today())
         copy.id = today.isoformat()
         copy.title = title
-        target.evaluation_algorithm = aq_parent(source).evaluation_algorithm
+        source_algorithm = aq_parent(source).evaluation_algorithm
+        target_algorithm = self.request.form.get(
+            'form.widgets.evaluation_algorithm', [u'kinney']).pop()
+        target.evaluation_algorithm = target_algorithm
         target._setObject(copy.id, copy)
+        if source_algorithm != target_algorithm:
+            from euphorie.content.risk import IRisk
+            from euphorie.content.risk import EnsureInterface
+            risks = [
+                item for (id, item) in target.ZopeFind(target, search_sub=1)
+                if IRisk.providedBy(item)
+            ]
+            for risk in risks:
+                EnsureInterface(risk)
 
         if hasattr(copy, "published"):
             delattr(copy, "published")

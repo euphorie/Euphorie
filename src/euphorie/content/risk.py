@@ -580,10 +580,6 @@ def evaluation_algorithm(context):
     """
     from euphorie.content.surveygroup import ISurveyGroup  # XXX Circular
     for parent in aq_chain(aq_inner(context)):
-        if IFrenchEvaluation.providedBy(parent):
-            return u"french"
-        elif IKinneyEvaluation.providedBy(parent):
-            return u"kinney"
         if ISurveyGroup.providedBy(parent):
             return parent.evaluation_algorithm
     return u"kinney"
