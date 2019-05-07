@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.11 (unreleased)
+10.1.11 (2019-05-07)
 --------------------
 
 - Handle a bug that sometimes made it impossible to copy contents from the library
