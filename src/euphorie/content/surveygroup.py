@@ -206,7 +206,7 @@ class AddForm(dexterity.AddForm):
         copy.title = title
         source_algorithm = aq_parent(source).evaluation_algorithm
         target_algorithm = self.request.form.get(
-            'form.widgets.evaluation_algorithm', [u'kinney']).pop()
+            'form.widgets.evaluation_algorithm', [source_algorithm]).pop()
         target.evaluation_algorithm = target_algorithm
         target._setObject(copy.id, copy)
         if source_algorithm != target_algorithm:
