@@ -5382,7 +5382,7 @@ msgstr "Status van ${survey_title}"
 #: euphorie/client/browser/templates/webhelpers.pt:40
 #: euphorie/client/browser/webhelpers.py:319
 msgid "title_tool"
-msgstr "OiRA"
+msgstr "Risico Inventarisatie en Evaluatie (RI&E)"
 
 #. Default: "Tool category"
 #: euphorie/content/behaviors/toolcategory.py:14
