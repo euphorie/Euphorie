@@ -77,7 +77,7 @@
         </tal:sector>
       </tal:country>
 
-      <fieldset class="dependsOn-source-equals-scratch comprehensive radioList" tal:define="widget nocall:view/widgets/evaluation_algorithm">
+      <fieldset class="comprehensive radioList" tal:define="widget nocall:view/widgets/evaluation_algorithm">
         <legend>${widget/label} <sup tal:condition="widget/required" class="required">*</sup></legend> <dfn class="infoPanel" i18n:attributes="title" title="Information" tal:define="description widget/field/description" tal:condition="description" tal:content="description"/>
           <label><input type="radio" name="${widget/name}:list" value="kinney"
             checked="${python:'checked' if 'kinney' in widget.value else None}"/><tal:i18n

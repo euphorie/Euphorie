@@ -1,11 +1,18 @@
 Changelog
 =========
 
-10.1.11 (unreleased)
+10.1.12 (unreleased)
 --------------------
 
 - Nothing changed yet.
 
+
+10.1.11 (2019-05-07)
+--------------------
+
+- Handle a bug that sometimes made it impossible to copy contents from the library
+- When a new OiRA tool is created by copying, it is now possible to set the
+  evaluation algorithm
 
 10.1.10 (2019-04-08)
 --------------------

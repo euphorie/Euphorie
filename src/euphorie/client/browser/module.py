@@ -109,7 +109,7 @@ class IdentificationView(BrowserView, Mixin):
                 context.postponed = True
             SessionManager.session.touch()
 
-        if reply["next"] == "previous":
+        if reply.get("next") == "previous":
             next = FindPreviousQuestion(context, filter=self.question_filter)
             if next is None:
                 # We ran out of questions, step back to intro page
