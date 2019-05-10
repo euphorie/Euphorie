@@ -53,7 +53,7 @@ def get_next_id(context, ids=None):
         raise ValueError('Id generation root is not annotatable')
     current_max = storage.get('euphorie.content.behaviour.id', 1)
     if ids:
-        current_max = max(current_max, max(ids))
+        current_max = max(current_max, max(ids) + 1)
     storage['euphorie.content.behaviour.id'] = current_max + 1
     return str(current_max)
 
