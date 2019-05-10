@@ -371,7 +371,7 @@ class _StatusHelper(object):
         self.tocdata = toc
         return modules
 
-    def getRisks(self, module_paths):
+    def getRisks(self, module_paths, skip_unanswered=False):
         """ Return a list of risk dicts for risks that belong to the modules
             with paths as specified in module_paths.
         """
@@ -488,6 +488,12 @@ class _StatusHelper(object):
         filtered_risks = []
         for (module, risk) in risks.all():
             if risk.identification != 'n/a':
+                if (
+                    skip_unanswered and
+                    risk.identification is None and
+                    not risk.postponed
+                ):
+                    continue
                 module_path = _module_path(module.path)
                 # And, since we might have truncated the path to represent
                 # the top-level module, we also need to get the corresponding
