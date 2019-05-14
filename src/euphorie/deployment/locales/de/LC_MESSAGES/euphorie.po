@@ -3741,7 +3741,7 @@ msgstr "Beschreibung"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:30
 msgid "label_duplicate"
-msgstr ""
+msgstr "Duplizieren"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
