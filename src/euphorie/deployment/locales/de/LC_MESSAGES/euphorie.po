@@ -193,7 +193,7 @@ msgstr "Kopieren Sie Inhalte aus der Bibliothek"
 
 #: euphorie/content/library.py:208
 msgid "Added a copy of \"${title}\" to your OiRA tool."
-msgstr ""
+msgstr "Eine Kopie von “${title}” wurde zu Ihrem OiRA-Tool hinzugefügt."
 
 #: euphorie/client/browser/module.py:208
 msgid "Added risks have been removed."
@@ -1936,7 +1936,7 @@ msgstr "einem externen Berater oder Dienstleister"
 #. Default: "Search in context"
 #: euphorie/deployment/tiles/templates/search.pt:9
 msgid "context_search"
-msgstr ""
+msgstr "Aktuellen Kontext durchsuchen"
 
 #. Default: "There are no country managers for this country."
 #: euphorie/content/templates/user_mgmt.pt:58
@@ -2009,6 +2009,7 @@ msgstr ""
 #: euphorie/content/profilequestion.py:58
 msgid "description_use_location_question"
 msgstr ""
+"Wenn dieser Teil aktiviert ist, dann wird der Endnutzer dazu aufgefordert, alle Standorte anzugeben, für welche das vorliegende Modul relevant ist. Das Modul wird dann pro angegebenem Standort wiederholt. Falls Sie diese Möglichkeit zur Wiederholung nicht wünschen, deaktivieren Sie die Checkbox."
 
 #. Default: "After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services."
 #: euphorie/client/templates/about.pt:108
@@ -4356,7 +4357,7 @@ msgstr "Name der OiRA-Tool-Version"
 #. Default: "Ask the user about (multiple) locations?"
 #: euphorie/content/profilequestion.py:56
 msgid "label_use_location_question"
-msgstr ""
+msgstr "Frage nach mehrfacher Anwendbarkeit anzeigen?"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
@@ -5235,7 +5236,7 @@ msgstr "Standard"
 #. Default: "You can also ${add_link}."
 #: euphorie/content/templates/sector_view.pt:32
 msgid "survey_list_footer"
-msgstr ""
+msgstr "Sie können auch ${add_link}."
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of my organisation"
 #: euphorie/content/templates/surveygroup_add.pt:20
