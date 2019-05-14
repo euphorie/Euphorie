@@ -254,7 +254,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:67
 msgid "Available OiRA tools"
-msgstr ""
+msgstr "Vorhandene OiRA Tools"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 msgid "Back"
@@ -658,7 +658,7 @@ msgstr "Aufforderung bei mehreren Standorten"
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:24
 msgid "My risk assessments"
-msgstr ""
+msgstr "Meine Gefährdungsbeurteilungen"
 
 #: euphorie/content/templates/user_mgmt.pt:65
 msgid "Name"
@@ -3337,7 +3337,7 @@ msgstr ""
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/sessions-dashboard.pt:29
 msgid "info_select_session"
-msgstr ""
+msgstr "Wählen Sie eine frühere Sitzung zum Bearbeitung oder zur Ansicht aus oder ${start_session}."
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
