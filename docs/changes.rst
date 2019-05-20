@@ -4,8 +4,8 @@ Changelog
 10.1.12 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Improve Library fix from last release
+- Italy special: never show evaluation statement in Action Plan or report
 
 10.1.11 (2019-05-07)
 --------------------
