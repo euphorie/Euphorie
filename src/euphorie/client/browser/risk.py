@@ -300,6 +300,9 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
+    # Skip evaluation?
+    # The default value is False, can be overwritten by certain conditions
+    skip_evaluation = False
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -422,7 +425,14 @@ class ActionPlanView(BrowserView):
         self.tree = getTreeData(
             self.request, context,
             filter=self.question_filter, phase="actionplan")
-        if self.context.is_custom_risk:
+
+        # Italian special
+        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+            self.skip_evaluation = True
+            measures_full_text = True
+        else:
+            measures_full_text = False
+        if self.is_custom_risk:
             self.risk.description = u""
             number_images = 0
         else:
@@ -437,7 +447,7 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+                if measures_full_text:
                     match = u"%s: %s" % (
                         getattr(solution, "description", "").strip(),
                         getattr(solution, "prevention_plan", "").strip()

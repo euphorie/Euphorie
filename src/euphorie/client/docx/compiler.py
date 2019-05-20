@@ -176,6 +176,8 @@ class DocxCompiler(BaseOfficeCompiler):
             'use_existing_measures', False)
         self.tool_type = get_tool_type(self.context)
         self.tti = getUtility(IToolTypesInfo)
+        self.italy_special = IItalyReportPhaseSkinLayer.providedBy(
+            self.request)
 
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text
@@ -274,7 +276,11 @@ class DocxCompiler(BaseOfficeCompiler):
                 if msg:
                     doc.add_paragraph(self.t(msg), style="RiskPriority")
 
-            if node.priority and extra.get('show_priority', True):
+            if (
+                node.priority and
+                extra.get('show_priority', True) and
+                not self.italy_special
+            ):
                 if node.priority == "low":
                     level = _("risk_priority_low", default=u"low")
                 elif node.priority == "medium":
@@ -290,7 +296,7 @@ class DocxCompiler(BaseOfficeCompiler):
 
             print_description = True
             # In the report for Italy, don't print the description
-            if IItalyReportPhaseSkinLayer.providedBy(self.request):
+            if self.italy_special:
                 print_description = False
             if not getattr(node, 'identification', None) == 'no':
                 if not extra.get('always_print_description', None) is True:
@@ -325,7 +331,7 @@ class DocxCompiler(BaseOfficeCompiler):
                 self.tool_type in self.tti.types_existing_measures and
                 not extra.get('skip_existing_measures', False)
             ):
-                if IItalyReportPhaseSkinLayer.providedBy(self.request):
+                if self.italy_special:
                     skip_planned_measures = True
                 if zodb_node is None:
                     defined_measures = []
