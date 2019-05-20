@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.12 (unreleased)
+10.1.12 (2019-05-20)
 --------------------
 
 - Improve Library fix from last release
