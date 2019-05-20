@@ -77,6 +77,7 @@
                           readonly python:context.risk_type in ['top5'];
                           skip_evaluation view/skip_evaluation;
                         "
+                        tal:condition="not:view/skip_evaluation"
               >
                 <input type="hidden" name="priority" value="${python:value}" tal:condition="python:readonly and not skip_evaluation" />
                 <label i18n:translate="risk_priority" tal:condition="python:not readonly and not skip_evaluation">This is a
