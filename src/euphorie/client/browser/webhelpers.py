@@ -165,6 +165,15 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def is_new_session(self):
+        if self.request.get('new_session'):
+            return True
+        if self.session is not None:
+            return self.session.children().count() == 0
+        return False
+
+    @property
+    @memoize
     def guest_session_id(self):
         return self.is_guest_account and self.session_id or None
 

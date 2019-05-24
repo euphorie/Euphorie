@@ -1,11 +1,17 @@
 Changelog
 =========
 
-10.1.12 (unreleased)
+10.1.13 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Prevent premature activation of tool navigation when a session has not been
+  initialised yet.
 
+10.1.12 (2019-05-20)
+--------------------
+
+- Improve Library fix from last release
+- Italy special: never show evaluation statement in Action Plan or report
 
 10.1.11 (2019-05-07)
 --------------------
