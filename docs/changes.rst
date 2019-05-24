@@ -4,8 +4,8 @@ Changelog
 10.1.13 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Prevent premature activation of tool navigation when a session has not been
+  initialised yet.
 
 10.1.12 (2019-05-20)
 --------------------
