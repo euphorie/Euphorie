@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.1.13 (unreleased)
+10.1.13 (2019-06-18)
 --------------------
 
 - Prevent premature activation of tool navigation when a session has not been
