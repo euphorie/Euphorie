@@ -6,6 +6,8 @@ Changelog
 
 - Prevent premature activation of tool navigation when a session has not been
   initialised yet.
+- Translation changes
+- Fix error that prevented deleting a session
 
 10.1.12 (2019-05-20)
 --------------------
