@@ -25,7 +25,6 @@ from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope.event import notify
@@ -522,12 +521,9 @@ class ConfirmationDeleteSession(BrowserView):
             self.session_id = int(self.request.get("id"))
         except (ValueError, TypeError):
             raise KeyError("Invalid session id")
-        user = getSecurityManager().getUser()
-        session = (
-            object_session(user)
-            .query(SurveySession)
-            .filter(SurveySession.id == self.session_id).first()
-        )
+        session = Session.query(SurveySession).filter(
+                SurveySession.id == self.session_id
+        ).one()
         if session is None:
             raise KeyError("Unknown session id")
         if not self.webhelpers.can_delete_session(session):
