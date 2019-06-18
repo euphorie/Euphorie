@@ -2799,7 +2799,7 @@ msgstr "Γιατί το έργο OiRA"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:866
 msgid "heading_comments"
-msgstr "Σχόλια"
+msgstr "Σχόλια / Υφιστάμενα μέτρα (αν υπάρχουν)"
 
 #. Default: "High priority risks"
 #: euphorie/client/templates/measures_overview.pt:85
