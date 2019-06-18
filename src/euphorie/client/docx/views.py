@@ -114,6 +114,7 @@ class OfficeDocumentView(BrowserView):
                 defined_measures = risk.get_pre_defined_measures(self.request)
             else:
                 risk_description = defined_measures = ""
+                risk = None
             measures = sql_risk.existing_measures or []
             risk_description = _sanitize_html(risk_description)
             try:
@@ -133,7 +134,7 @@ class OfficeDocumentView(BrowserView):
                 measures = existing_measures.keys()
             except:
                 measures = []
-            if (
+            if risk and (
                 sql_risk.identification == 'no' or
                 getattr(risk, 'type', None) == 'top5'
             ):
