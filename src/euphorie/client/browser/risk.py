@@ -248,6 +248,8 @@ class IdentificationView(BrowserView):
         try:
             saved_existing_measures = loads(
                 self.context.existing_measures or "")
+            if not isinstance(saved_existing_measures, dict):
+                saved_existing_measures = {}
             existing_measures = OrderedDict()
             # All the pre-defined measures are always shown, either
             # activated or deactivated
