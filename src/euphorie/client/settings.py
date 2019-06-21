@@ -109,6 +109,12 @@ class AccountSettings(form.SchemaForm):
         user.password = data["new_password"]
         flash(_(u"Your password was successfully changed."), "success")
 
+    @button.buttonAndHandler(
+        _("button_cancel", default=u"Cancel"), name='cancel'
+    )
+    def handleCancel(self, action):
+        self.request.response.redirect(self.request.client.absolute_url())
+
 
 class DeleteAccount(form.SchemaForm):
     """"View name: @@account-delete"""
@@ -154,9 +160,7 @@ class DeleteAccount(form.SchemaForm):
         _("button_cancel", default=u"Cancel"), name='cancel'
     )
     def handleCancel(self, action):
-        settings_url = "%s/account-settings" % \
-                aq_inner(self.context).absolute_url()
-        self.request.response.redirect(settings_url)
+        self.request.response.redirect(self.request.client.absolute_url())
 
 
 class NewEmail(form.SchemaForm):
@@ -315,9 +319,7 @@ class NewEmail(form.SchemaForm):
         _("button_cancel", default=u"Cancel"), name='cancel'
     )
     def handleCancel(self, action):
-        settings_url = "%s/account-settings" % \
-                aq_inner(self.context).absolute_url()
-        self.request.response.redirect(settings_url)
+        self.request.response.redirect(self.request.client.absolute_url())
 
 
 class ChangeEmail(grok.View):
