@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.0.0 (unreleased)
+11.0.0 (2019-06-28)
 -------------------
 
 New major release:
