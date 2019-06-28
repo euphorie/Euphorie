@@ -5424,8 +5424,7 @@ msgstr ""
 #: euphorie/client/docx/compiler.py:257 euphorie/client/report.py:811
 msgid "top5_risk_not_present"
 msgstr ""
-"Inserisci o seleziona dall’elenco precompilato le misure di miglioramento da "
-"programmare che verranno visualizzate nel piano di azione."
+"Per questo rischio non sono state previste misure di miglioramento in fase di identificazione."
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
 #: euphorie/client/docx/compiler.py:265
@@ -5490,7 +5489,7 @@ msgstr "Stabilire gli errori indicati"
 #: euphorie/client/report.py:561
 #: euphorie/client/templates/report_identification.pt:83
 msgid "warn_risk_present"
-msgstr "Per questo rischio non sono state previste misure di miglioramento in fase di identificazione."
+msgstr "Inserisci o seleziona dall’elenco precompilato le misure di miglioramento da programmare che verranno visualizzate nel piano di azione."
 
 #. Default: "By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable."
 #: euphorie/client/templates/account-delete.pt:18
