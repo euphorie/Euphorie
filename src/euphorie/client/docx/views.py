@@ -148,7 +148,7 @@ class OfficeDocumentView(BrowserView):
                 measures = [item[0] for item in existing_measures if item[1]]
             except:
                 measures = []
-            if (
+            if risk and (
                 sql_risk.identification == 'no' or
                 getattr(risk, 'type', None) == 'top5'
             ):

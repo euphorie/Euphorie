@@ -216,9 +216,8 @@ msgstr ""
 #: euphorie/content/utils.py:93
 msgid "Are the measures that are selected above sufficient?"
 msgstr ""
-"Di default il tool prevede la programmazione delle misure di miglioramento "
-"(da aggiungere nella fase “misure/programma”). Indica se è confermato per "
-"questo specifico rischio."
+"Oltre alle misure obbligatorie già adottate sono previste misure di "
+"miglioramento?"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
@@ -3929,32 +3928,28 @@ msgstr "No"
 #: euphorie/client/templates/status.pt:121
 msgid "label_no_risk"
 msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+"Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: "No risks"
 #: euphorie/client/templates/risks_overview.pt:263
 #: euphorie/client/templates/status.pt:125
 msgid "label_no_risks_2"
 msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+"Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: "No risks"
 #: euphorie/client/templates/risks_overview.pt:267
 #: euphorie/client/templates/status.pt:129
 msgid "label_no_risks_3_4"
 msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+"Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: "No risks"
 #: euphorie/client/templates/risks_overview.pt:271
 #: euphorie/client/templates/status.pt:133
 msgid "label_no_risks_5_or_more"
 msgstr ""
-"Adempimenti/rischi con misure obbligatorie adottate e eventuali misure di "
-"miglioramento"
+"Adempimenti/rischi solo con misure obbligatorie adottate"
 
 #. Default: "Not applicable"
 #: euphorie/content/utils.py:69
@@ -3965,8 +3960,8 @@ msgstr "Non applicabile"
 #: euphorie/content/utils.py:98
 msgid "label_not_sufficient"
 msgstr ""
-"Si, il rischio è gestito con le misure già attuate e sono previste ulteriori "
-"migliorie"
+"Si, il rischio è gestito con le misure già adottate e sono previste "
+"ulteriori misure di miglioramento"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:48
@@ -4113,49 +4108,49 @@ msgstr "Tipo di rischio"
 #: euphorie/client/templates/risks_overview.pt:280
 #: euphorie/client/templates/status.pt:142
 msgid "label_risk_with_measure"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento"
 
 #. Default: "Risk without measure"
 #: euphorie/client/templates/risks_overview.pt:301
 #: euphorie/client/templates/status.pt:163
 msgid "label_risk_without_measure"
-msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento non ancora inserite"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/templates/risks_overview.pt:284
 #: euphorie/client/templates/status.pt:146
 msgid "label_risks_with_measure_2"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/templates/risks_overview.pt:288
 #: euphorie/client/templates/status.pt:150
 msgid "label_risks_with_measure_3_4"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/templates/risks_overview.pt:292
 #: euphorie/client/templates/status.pt:154
 msgid "label_risks_with_measure_5_or_more"
-msgstr "Adempimenti/rischi solo con misure obbligatorie adottate"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento"
 
 #. Default: "Risks without measure"
 #: euphorie/client/templates/risks_overview.pt:305
 #: euphorie/client/templates/status.pt:167
 msgid "label_risks_without_measure_2"
-msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento non ancora inserite"
 
 #. Default: "Risks without measure"
 #: euphorie/client/templates/risks_overview.pt:309
 #: euphorie/client/templates/status.pt:171
 msgid "label_risks_without_measure_3_4"
-msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento non ancora inserite"
 
 #. Default: "Risks without measure"
 #: euphorie/client/templates/risks_overview.pt:313
 #: euphorie/client/templates/status.pt:175
 msgid "label_risks_without_measure_5_or_more"
-msgstr "Adempimenti/rischi solo con misure obbligatorie, non ancora inserite"
+msgstr "Adempimenti/rischi con misure obbligatorie adottate e per i quali sono previste misure di miglioramento non ancora inserite"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:218
@@ -4193,8 +4188,8 @@ msgstr "Titolo del settore."
 #: euphorie/client/browser/templates/risk_actionplan.pt:158
 msgid "label_select_measure"
 msgstr ""
-"Selezionare TUTTE le misure obbligatorie adottate e le eventuali misure di "
-"miglioramento."
+"ATTENZIONE: le misure obbligatorie devono essere state tutte adottate e quindi "
+"selezionate in fase di identificazione pertanto non dovrebbero comparire in questo elenco."
 
 #. Default: "Start a new session by choosing one of the following sectoral tools."
 #: euphorie/client/browser/templates/new-session-test.pt:25
@@ -4380,8 +4375,8 @@ msgstr "Sì"
 #: euphorie/content/utils.py:95
 msgid "label_yes_sufficient"
 msgstr ""
-"No, il rischio è gestito con le misure già attuate e non sono previste "
-"ulteriori migliorie"
+"No, il rischio è gestito con le misure già adottate e non sono previste "
+"ulteriori misure di miglioramento"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:35
@@ -5429,9 +5424,8 @@ msgstr ""
 #: euphorie/client/docx/compiler.py:257 euphorie/client/report.py:811
 msgid "top5_risk_not_present"
 msgstr ""
-"Nonostante il rischio sia gestito correttamente, è comunque necessario "
-"elencare le misure obbligatorie adottate e le eventuali misure di "
-"miglioramento."
+"Inserisci o seleziona dall’elenco precompilato le misure di miglioramento da "
+"programmare che verranno visualizzate nel piano di azione."
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
 #: euphorie/client/docx/compiler.py:265
@@ -5496,7 +5490,7 @@ msgstr "Stabilire gli errori indicati"
 #: euphorie/client/report.py:561
 #: euphorie/client/templates/report_identification.pt:83
 msgid "warn_risk_present"
-msgstr "Avete risposto in modo negativo all'affermazione in alto."
+msgstr "Per questo rischio non sono state previste misure di miglioramento in fase di identificazione."
 
 #. Default: "By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable."
 #: euphorie/client/templates/account-delete.pt:18

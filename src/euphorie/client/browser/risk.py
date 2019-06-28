@@ -473,6 +473,8 @@ class ActionPlanView(BrowserView):
     def use_problem_description(self):
         if self.is_custom_risk:
             return False
+        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+            return False
         risk = self.request.survey.restrictedTraverse(
             self.context.zodb_path.split("/"))
         text = risk.problem_description
