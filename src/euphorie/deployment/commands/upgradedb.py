@@ -245,7 +245,7 @@ def main():
         hash_passwords()
     if euphorie_version < parse_version('10.0.4'):
         add_brand_to_group()
-    if euphorie_version < parse_version('10.2.0'):
+    if euphorie_version < parse_version('11.0.1'):
         add_custom_description_to_risk()
 
 if __name__ == "__main__":

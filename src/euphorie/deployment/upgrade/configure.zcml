@@ -356,7 +356,7 @@
     >
 
     <genericsetup:upgradeStep
-      title="Update tests for custom risks modules"
+      title="Update texts for custom risks modules"
       handler=".v23.update_custom_risks_module_texts"/>
 
 
