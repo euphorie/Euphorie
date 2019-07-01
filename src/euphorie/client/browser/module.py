@@ -189,6 +189,15 @@ class ActionPlanView(BrowserView):
         return HasText(getattr(module, "solution_direction", None))
 
     def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not (
+            self.context.restrictedTraverse('webhelpers').can_edit_session()
+        ):
+
+            return self.request.response.redirect(
+                self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+            )
         if redirectOnSurveyUpdate(self.request):
             return
         if self.request.environ["REQUEST_METHOD"] == "POST":

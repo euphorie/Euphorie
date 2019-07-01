@@ -29,6 +29,7 @@ from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
+from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -62,7 +63,20 @@ class IdentificationView(BrowserView):
     # default value is False, can be overwritten by certain conditions
     skip_evaluation = False
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return self.context.restrictedTraverse('webhelpers')
+
     def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not (
+            self.webhelpers.can_edit_session()
+        ):
+            return self.request.response.redirect(
+                self.webhelpers.survey_url() + '/@@start'
+            )
         if redirectOnSurveyUpdate(self.request):
             return
 
@@ -417,6 +431,11 @@ class ActionPlanView(BrowserView):
     # What extra style to use for buttons like "Add measure". Default is None.
     style_buttons = None
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return self.context.restrictedTraverse('webhelpers')
+
     def get_existing_measures(self):
         if not self.use_existing_measures:
             return {}
@@ -491,6 +510,14 @@ class ActionPlanView(BrowserView):
         return datetime.date(year, month, day)
 
     def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not (
+            self.webhelpers.can_edit_session()
+        ):
+            return self.request.response.redirect(
+                self.webhelpers.survey_url() + '/@@start'
+            )
         if redirectOnSurveyUpdate(self.request):
             return
         context = aq_inner(self.context)
