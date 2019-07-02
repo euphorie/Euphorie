@@ -63,6 +63,18 @@ class IdentificationView(BrowserView):
     # default value is False, can be overwritten by certain conditions
     skip_evaluation = False
 
+    monitored_properties = {
+        "identification": None,
+        "postponed": None,
+        "frequency": None,
+        "severity": None,
+        "priority": None,
+        "comment": u"",
+        "existing_measures": u"[]",
+        "training_notes": None,
+        "custom_description": None,
+    }
+
     @property
     @memoize
     def webhelpers(self):
@@ -105,6 +117,17 @@ class IdentificationView(BrowserView):
             # Don't persist anything if the user skipped the question
             if reply.get("next", None) == 'skip':
                 return self.proceed_to_next(reply)
+            old_values = {}
+            for prop, default in self.monitored_properties.items():
+                if prop == "existing_measures":
+                    val = dumps([
+                        entry for entry in loads(
+                            getattr(self.context, prop, default)
+                        ) if entry[1]
+                    ])
+                else:
+                    val = getattr(self.context, prop, default)
+                old_values[prop] = val
             answer = reply.get("answer", None)
             # If answer is not present in the request, do not attempt to set
             # any answer-related data, since the request might have come
@@ -170,7 +193,24 @@ class IdentificationView(BrowserView):
             if reply.get("title"):
                 self.context.title = reply.get("title")
 
-            SessionManager.session.touch()
+            # Check if there was a change. If yes, touch the session
+            changed = False
+            for prop, default in self.monitored_properties.items():
+                if prop == "existing_measures":
+                    val = dumps([
+                        entry for entry in loads(
+                            getattr(self.context, prop, default)
+                        ) if entry[1]
+                    ])
+                else:
+                    val = getattr(self.context, prop, None)
+                if (
+                    val and val != old_values[prop]
+                ):
+                    changed = True
+                    break
+            if changed:
+                SessionManager.session.touch()
 
             return self.proceed_to_next(reply)
 
@@ -567,11 +607,12 @@ class ActionPlanView(BrowserView):
             context.comment = reply.get("comment")
             context.priority = reply.get("priority")
 
-            new_plans = self.extract_plans_from_request()
+            new_plans, changes = self.extract_plans_from_request()
             for plan in context.action_plans:
                 session.delete(plan)
             context.action_plans.extend(new_plans)
-            SessionManager.session.touch()
+            if changes:
+                SessionManager.session.touch()
 
             if reply["next"] == "previous":
                 url = previous_url
@@ -723,11 +764,13 @@ class ActionPlanView(BrowserView):
                     )
                 )
         removed = len(existing_plans)
+        changes = True
         if added == 0 and updated == 0 and removed == 0:
             IStatusMessage(self.request).add(
                 _(u"No changes were made to measures in your action plan."),
                 type='info'
             )
+            changes = False
         if added == 1:
             IStatusMessage(self.request).add(
                 _(u"message_measure_saved", default=u"A measure has been added to your action plan."),
@@ -817,7 +860,7 @@ class ActionPlanView(BrowserView):
                     mapping={'no_of_measures': str(removed)}),
                 type='success'
             )
-        return new_plans
+        return (new_plans, changes)
 
 
 def calculate_priority(db_risk, risk):
