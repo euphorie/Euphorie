@@ -13,12 +13,14 @@
   <tal:block replace="tile:statusmessages" />
   <div id="content-pane">
     <article id="screen-intro">
-      <h1>
-        OiRA
-      </h1>
-      <p class="byline">
-        ${view/tool_byline}
-      </p>
+      <header class="title-group">
+        <h1>
+          OiRA
+        </h1>
+        <p class="byline">
+          ${view/tool_byline}
+        </p>
+      </header>
     </article>
     <div class="row pat-masonry"
          id="dashboard"
@@ -26,94 +28,106 @@
     >
       <div class="grid-sizer"></div>
 
-      <div class="portlet span-3" tal:condition="python:len(my_sessions)>0">
+      <div class="portlet span-3" id="portlet-my-ras"  tal:condition="python:len(my_sessions)>0">
         <div class="content">
-          <h2 class="portlet-title"
-              i18n:translate=""
-          >My risk assessments</h2>
-          <article>
-          <p i18n:translate="info_select_session">Select an earlier session to complete or review or
-            <a href="${webhelpers/session_overview_url}/new-session.html#document-content"
-               i18n:name="start_session"
-               i18n:translate="link_start_session"
-               class="pat-modal icon-plus-circle">start a new session</a>.
-          </p>
-        </article>
-          <ul class="ras">
-            <li tal:repeat="session my_sessions"
-              class="ra">
-
-              <a href="${request/getURL}?action=continue&amp;session=${session/id}"
-                class="pat-inject follow"
-                data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
-              >
-                <h4 class="name field">${session/title}</h4>
-                <p class="date field">
-                  <span class="last-saved">
-                    <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                    <time class="pat-display-time"
-                        datetime="${value}"
-                        data-pat-display-time="from-now: true; locale: ${language}"
-                        tal:define="value session/modified/isoformat|nothing;"
-                    >${value}</time>
-                  </span>
+          <article class="portlet-intro">
+            <header class="portlet-title-group">
+              <h2 class="portlet-title"
+                  i18n:translate=""
+              >My risk assessments</h2>
+            </header>
+          </article>
+          <div class="portlet-body" id="portlet-body-my-ras">
+              <article class="pat-rich">
+                <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+                  <a href="${webhelpers/session_overview_url}/new-session.html#document-content"
+                     i18n:name="start_session"
+                     i18n:translate="link_start_session"
+                     class="pat-modal icon-plus-circle">start a new session</a>.
                 </p>
-              </a>
+              </article>
+            <ul class="ras">
+              <li tal:repeat="session my_sessions"
+                class="ra">
 
-              <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                 href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
-                 data-pat-tooltip="source: ajax; position-list: tr"
-                 i18n:translate=""
-              >More</a>
-            </li>
-          </ul>
+                <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                  class="pat-inject follow"
+                  data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+                >
+                  <h4 class="name field">${session/title}</h4>
+                  <p class="date field">
+                    <span class="last-saved">
+                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                      <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/modified/isoformat|nothing;"
+                      >${value}</time>
+                    </span>
+                  </p>
+                </a>
+
+                <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+                   href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                   data-pat-tooltip="source: ajax; position-list: tr"
+                   i18n:translate=""
+                >More</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="portlet span-3">
+      <div class="portlet span-3" id="portlet-available-tools">
         <div class="content">
-          <h2 class="portlet-title"
-              i18n:translate=""
-          >
-            Available OiRA tools
-          </h2>
-          <form class="pat-inject"
-                action="${here/absolute_url}/@@new-session.html"
-          >
-            <article class="pat-rich">
-              <p i18n:translate="label_select_new_session">
-                Start a new session by choosing one of the following sectoral tools.
-              </p>
-            </article>
+          <article class="portlet-intro">
+            <header class="portlet-title-group">
+              <h2 class="portlet-title"
+                  i18n:translate=""
+              >
+                Available OiRA tools
+              </h2>
+            </header>
+          </article>
+          <div class="portlet-body" id="portlet-body-available-tools">
+            <form class="pat-inject"
+                  action="${here/absolute_url}/@@new-session.html"
+            >
+              <article class="pat-rich">
+                <p i18n:translate="label_select_new_session">
+                  Start a new session by choosing one of the following sectoral tools.
+                </p>
+              </article>
 
-            <fieldset class="tool-list">
-              <fieldset class="department">
-                <fieldset class="tools pat-checklist radio">
-                  <label class="tool"
-                         tal:repeat="survey view/surveys"
-                  >
-                    <input name="survey"
-                           type="radio"
-                           value="${survey/id}"
-                    />
-                    <strong class="field name">${survey/title}</strong>
-                  </label>
+              <fieldset class="tool-list">
+                <fieldset class="department">
+                  <fieldset class="tools pat-checklist radio">
+                    <label class="tool"
+                           tal:repeat="survey view/surveys"
+                    >
+                      <input name="survey"
+                             type="radio"
+                             value="${survey/id}"
+                      />
+                      <strong class="field name">${survey/title}</strong>
+                    </label>
+                  </fieldset>
                 </fieldset>
               </fieldset>
-            </fieldset>
 
-            <p class="button-bar">
-              <button class="small pat-button pat-depends"
-                      type="submit"
-                      data-pat-depends="condition: survey; action: enable"
-                      i18n:translate="button_start_session"
-              >Start session</button>
-            </p>
+              <p class="button-bar">
+                <button class="small pat-button pat-depends"
+                        type="submit"
+                        data-pat-depends="condition: survey; action: enable"
+                        i18n:translate="button_start_session"
+                >Start session</button>
+              </p>
 
-            <input name="action"
-                   type="hidden"
-                   value="new"
-            />
-          </form>
+              <input name="action"
+                     type="hidden"
+                     value="new"
+              />
+            </form>
+          </div>
         </div>
       </div>
 
