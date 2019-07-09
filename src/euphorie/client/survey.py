@@ -35,6 +35,7 @@ from euphorie.client.navigation import QuestionURL
 from euphorie.client.profile import extractProfile
 from euphorie.client.session import SessionManager
 from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone import api
@@ -110,6 +111,7 @@ class Identification(grok.View):
     grok.layer(IIdentificationPhaseSkinLayer)
     grok.template("identification")
     grok.name("index_html")
+    variation_class = "variation-risk-assessment"
 
     question_filter = None
 
@@ -159,6 +161,7 @@ class ActionPlan(grok.View):
     grok.layer(IActionPlanPhaseSkinLayer)
     grok.template("actionplan")
     grok.name("index_html")
+    variation_class = "variation-risk-assessment"
 
     # The question filter will find modules AND risks
     question_filter = model.ACTION_PLAN_FILTER
@@ -324,7 +327,7 @@ class _StatusHelper(object):
             # top-level module, always include it in the toc
             if len(path) == 3:
                 title = titles[path]
-                if title == 'title_other_risks':
+                if title == 'title_other_risks' or title == u"Other risks":
                     title = title_custom_risks
                 toc[path] = {
                     'path': path,
@@ -368,7 +371,7 @@ class _StatusHelper(object):
         self.tocdata = toc
         return modules
 
-    def getRisks(self, module_paths):
+    def getRisks(self, module_paths, skip_unanswered=False):
         """ Return a list of risk dicts for risks that belong to the modules
             with paths as specified in module_paths.
         """
@@ -423,18 +426,22 @@ class _StatusHelper(object):
                     elem.zodb_path.split('/')
                 )
                 if getattr(zodb_elem, 'optional', False):
-                    if elem.postponed in (True, None) or elem.skip_children:
+                    if (
+                        (
+                            elem.postponed in (True, None) or
+                            elem.skip_children
+                        ) and not ICustomRisksModule.providedBy(zodb_elem)
+                    ):
                         return
                 children = [
-                    x for x in s_paths if x.path.startswith(elem.path)
-                    and len(x.path) == len(elem.path) + 3
+                    x for x in s_paths if x.path.startswith(elem.path) and
+                    len(x.path) == len(elem.path) + 3
                 ]
                 if children:
                     for child in children:
                         use_node(child)
                 else:
                     use_nodes.append(elem.path)
-
             for elem in top_nodes:
                 use_node(elem)
             ret = []
@@ -481,6 +488,12 @@ class _StatusHelper(object):
         filtered_risks = []
         for (module, risk) in risks.all():
             if risk.identification != 'n/a':
+                if (
+                    skip_unanswered and
+                    risk.identification is None and
+                    not risk.postponed
+                ):
+                    continue
                 module_path = _module_path(module.path)
                 # And, since we might have truncated the path to represent
                 # the top-level module, we also need to get the corresponding
@@ -509,6 +522,7 @@ class Status(grok.View, _StatusHelper):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.template("status")
+    variation_class = "variation-risk-assessment"
 
     def __init__(self, context, request):
         super(Status, self).__init__(context, request)
@@ -603,9 +617,11 @@ class Status(grok.View, _StatusHelper):
                 del modules[key]
                 del self.tocdata[key]
         self.percentage_ok = (
-            not len(filtered_risks) and 100
-            or int((total_ok + total_with_measures) /
-                   Decimal(len(filtered_risks)) * 100)
+            not len(filtered_risks) and 100 or
+            int(
+                (total_ok + total_with_measures) /
+                Decimal(len(filtered_risks)) * 100
+            )
         )
         self.status = modules.values()
         self.status.sort(key=lambda m: m["path"])

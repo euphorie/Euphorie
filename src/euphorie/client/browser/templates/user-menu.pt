@@ -9,18 +9,43 @@
       metal:use-macro="context/@@shell/macros/shell">
 
 <body i18n:domain="euphorie">
-  <metal:slot fill-slot="content">
+  <metal:slot fill-slot="content"
+    tal:define="
+        base_url view/base_url;
+      ">
       <ul class="menu">
-        <li>
+        <li class="menu-item-sidebar">
+            <a id="burger"
+              href="${base_url}/session-browser-sidebar#osc"
+              class="icon-menu pat-switch close-panel"
+              data-pat-switch="selector: body; remove: osc-s-off; add: osc-s-on"
+              title="Show/hide menu"
+              i18n:translate="">Browse risk assessments</a>
+        </li>
+
+        <li class="menu-item-on-screen-help">
+            <button id="osh-toggle"
+                i18n:translate=""
+                class="icon-circles osh-toggle pat-toggle close-panel"
+                data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
+        </li>
+        <li class="menu-item-help">
+            <a href="${base_url}/help"
+                i18n:translate="navigation_help"
+                class="icon-help-circle close-panel"
+                target="Help"
+                >Help</a>
+        </li>
+        <li class="menu-item-change-password">
             <a class="icon-key" href="${view/country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
         </li>
-        <li>
+        <li class="menu-item-change-email-address">
             <a class="icon-mail" href="${view/country_url}/new-email" i18n:translate="">Change email address</a>
         </li>
-        <li>
+        <li class="menu-item-delete-account">
             <a class="icon-cancel-circled" href="${view/country_url}/account-delete" i18n:translate="">Delete account</a>
         </li>
-        <li>
+        <li class="menu-item-logout">
           <a class="icon-logout" href="${view/country_url}/logout" i18n:translate="navigation_logout">Logout</a>
         </li>
       </ul>

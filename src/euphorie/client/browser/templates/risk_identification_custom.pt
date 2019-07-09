@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content" tal:define="risk nocall:view/risk">
+<tal:block replace="tile:statusmessages"/>
+  <form enctype="multipart/form-data"
+        accept-charset="UTF-8"
+        method="POST"
+        action="${context/absolute_url}"
+        class="pat-inject"
+        data-pat-inject="history: record;">
+    <div id="content-pane">
+    <nav class="page-actions">
+      <a href="${context/absolute_url}/confirmation-delete-risk#document-content"
+         class="iconified icon-trash pat-modal"
+         data-pat-inject="source: #document-content; target: #document-content"
+         title="Delete risk">Delete risk</a>
+    </nav>
+
+    <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
+      data-pat-autosubmit="1000ms"
+      data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content; target: #slide-content' if view.use_training_module else None}">
+      <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
+      <textarea name="title" autofocus="autofocus"
+        class="pat-content-mirror" placeholder="Describe the risk..."
+        i18n:attributes="placeholder"
+        data-pat-content-mirror="target: #risk-title-main">${here/title}</textarea>
+    </fieldset>
+
+    <!-- Identification -->
+
+    <fieldset id="add-measure-in-place"
+      class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
+      data-pat-clone="template: #measure-template; remove-confirmation: Are you sure you want to remove this existing measure?"
+      data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:view.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
+      data-pat-autosubmit="1000ms"
+      tal:define="
+                existing_measures view/get_existing_measures;
+              ">
+
+        <tal:existing-measures condition="view/show_existing_measures">
+
+          <tal:measures define="
+                          measures view/get_existing_measures;
+                        "
+                        repeat="measure measures"
+          >
+            <label>
+              <input checked="${python:measure[1] and 'checked' or None}"
+                     name="measure-${repeat/measure/index}"
+                     type="checkbox"
+              />
+                <textarea cols="50"
+                          class=""
+                          data-pat-autosubmit="1000ms"
+                          name="present-measure-${repeat/measure/index}"
+                          placeholder="${view/placeholder_add_extra}"
+                          rows="3"
+                >${python:measure[0]}</textarea>
+            </label>
+          </tal:measures>
+          <input type="hidden" name="handle_measures_in_place" value="1" />
+
+          <label class="clone"
+                 id="measure-template"
+                 hidden="hidden"
+          >
+            <input class="pat-autofocus"
+                   autofocus="autofocus"
+                   checked="checked"
+                   disabled="disabled"
+                   name="use-new-measure-#{1}"
+                   type="checkbox"
+            />
+            <textarea cols="50"
+                      class=""
+                      data-pat-autosubmit="1000ms"
+                      name="new-measure-#{1}"
+                      placeholder="${view/placeholder_add_extra}"
+                      rows="3"
+            ></textarea>
+            <button class="icon-trash iconified remove-clone"
+                    title="${view/button_remove_extra}"
+            >Remove</button>
+          </label>
+        </tal:existing-measures>
+
+    </fieldset>
+
+    <div class="button-bar cloning"
+    >
+      <button class="add-clone small pat-button icon-plus-circle"
+              id="add-measure-button"
+              title="${view/button_add_extra}"
+              type="button"
+      >${view/button_add_extra}</button>
+    </div>
+
+    <tal:no-measure condition="not:view/show_existing_measures">
+      <label class="clone"
+             id="measure-template"
+             hidden="hidden"
+      >
+        <input class="pat-autofocus"
+               autofocus="autofocus"
+               checked="checked"
+               disabled="disabled"
+               name="use-new-measure-#{1}"
+               type="checkbox"
+        />
+        <textarea cols="50"
+                  class=""
+                  data-pat-autosubmit="1000ms"
+                  name="new-measure-#{1}"
+                  placeholder="${view/placeholder_add_extra}"
+                  rows="3"
+        ></textarea>
+        <input type="hidden" name="handle_measures_in_place" value="1" />
+        <button class="icon-trash iconified remove-clone"
+                title="${view/button_remove_extra}"
+        >Remove</button>
+      </label>
+    </tal:no-measure>
+
+    <fieldset class="pat-checklist radio">
+      <legend>
+        <span class="measures-sufficient" tal:content="structure view/intro_questions"></span>
+        <span class="risk-present" tal:content="structure view/intro_extra"></span>
+      </legend>
+      <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+               name="answer"
+               type="radio"
+               value="yes"
+        />${view/answer_yes}</label>
+      <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+               name="answer"
+               type="radio"
+               value="no"
+        />${view/answer_no}</label>
+    </fieldset>
+
+
+    <!-- END Identificaton -->
+
+    <!-- Evaluation -->
+
+      <fieldset class="pat-well notice pat-depends vertical evaluation"
+                id="evaluation"
+                data-pat-depends="condition: answer=no; transition: slide"
+                tal:condition="not:view/skip_evaluation"
+      >
+      <p class="problem-description"><strong>${here/title}</strong></p>
+        <fieldset class="pat-checklist radio"
+                  tal:define="
+                    value context/priority;
+                  "
+        >
+          <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
+          <label><input checked="${python:'checked' if value=='low' else None}"
+                   name="priority"
+                   type="radio"
+                   value="low"
+            />
+            <tal:span i18n:translate="priority_low">Low</tal:span></label>
+          <label><input checked="${python:'checked' if value=='medium' else None}"
+                   name="priority"
+                   type="radio"
+                   value="medium"
+            />
+            <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+          <label><input checked="${python:'checked' if value=='high' else None}"
+                   name="priority"
+                   type="radio"
+                   value="high"
+            />
+            <tal:span i18n:translate="priority_high">High</tal:span></label>
+        </fieldset>
+      </fieldset>
+    <!-- END Evaluation -->
+
+    <!-- Information -->
+    <fieldset class="pat-collapsible open risk-module">
+      <legend>
+        Information
+      </legend>
+      <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-inject' or None}"
+        data-pat-autosubmit="1000ms"
+        data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
+        <textarea rows="8"
+          name="custom_description"
+          placeholder="Provide some further information on this risk."
+          i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
+        <input type="hidden" name="handle_custom_description" value="1" />
+      </fieldset>
+    </fieldset>
+    <!-- END Information -->
+
+    <!-- Training -->
+    <metal:call tal:define="template view/slide_template" use-macro="context/training_slide/macros/training_slide" />
+    <!-- END Training -->
+
+    <!-- Comments -->
+    <metal:call tal:define="default_state string:closed" use-macro="webhelpers/macros/risk_comments" />
+    <!-- END Comments -->
+  </div>
+
+  <p class="button-bar" id="nav-bar">
+      <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
+      <button
+        tal:condition="not:view/has_next_risk"
+        type="submit"
+        name="next"
+        value="add_custom_risk"
+        class="pat-button continue"
+        i18n:translate="label_save_and_add_new">Save and add new risk</button>
+      <button
+        tal:condition="view/has_next_risk"
+        class="pat-button continue"
+        type="submit"
+        name="next"
+        value="next"
+        i18n:translate="label_save_and_continue">Save and continue</button>
+      <button class="pat-button float-after" type="submit" name="next" value="actionplan" i18n:translate="label_save_and_finish">Save and finish</button>
+  </p>
+
+</form>
+</metal:slot>
+</body>
+</html>

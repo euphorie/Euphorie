@@ -12,7 +12,7 @@
 
   <body>
     <metal:content fill-slot="content">
-
+    <div id="content-pane">
       <article class="pat-rich">
           <h1>${view/label}</h1>
           <p class="pat-message warning" i18n:translate="warning_account_delete_irreversible">By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable.</p>
@@ -30,6 +30,7 @@
           </div>
         </fieldset>
       </form>
+    </div>
     </metal:content>
   </body>
 </html>

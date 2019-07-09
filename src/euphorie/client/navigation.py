@@ -118,6 +118,7 @@ def getTreeData(request, context, phase="identification", filter=None):
 
     def morph(obj):
         number = obj.number
+        # The custom risks don't have a real number, but an Omega instead
         if obj.zodb_path.find('custom-risks') > -1:
             num_elems = number.split('.')
             number = u".".join([u"Ω"] + num_elems[1:])
@@ -134,7 +135,8 @@ def getTreeData(request, context, phase="identification", filter=None):
                 'type': obj.type,
                 'leaf_module': False,
                 'depth': obj.depth,
-                'url': base_url + "/".join(obj.short_path)
+                'url': base_url + "/".join(obj.short_path),
+                'css_id': '',
                 }
         cls = []
         for key in ["active", "current", "current_parent"]:
@@ -165,6 +167,7 @@ def getTreeData(request, context, phase="identification", filter=None):
         info = morph(obj)
         if obj.type != 'risk' and obj.zodb_path.find('custom-risks') > -1:
             info['title'] = title_custom_risks
+            info['css_id'] = "other-risks"
         children.append(info)
     result["children"] = children
 
@@ -175,7 +178,12 @@ def getTreeData(request, context, phase="identification", filter=None):
         # Only a "Yes" answer will set skip_children to False
         module = request.survey.restrictedTraverse(
             context.zodb_path.split("/"))
-        if (
+        # In the custom risks module, we never skip children
+        # Due to historical reasons, some custom modules might be set to
+        # postponed. Here, we ignore that setting.
+        if ICustomRisksModule.providedBy(module):
+            context.skip_children = False
+        elif (
             getattr(module, 'optional', False) and
             context.postponed in (True, None)
         ):
@@ -212,6 +220,7 @@ def getTreeData(request, context, phase="identification", filter=None):
             info = morph(obj)
             if obj.zodb_path.find('custom-risks') > -1:
                 info['title'] = title_custom_risks
+                info['css_id'] = "other-risks"
             siblings.append(info)
         myparent = first(lambda x: x["active"], siblings)
         myparent["children"] = result["children"]

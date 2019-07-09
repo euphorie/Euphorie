@@ -12,6 +12,7 @@
 
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
+    <div id="content-pane">
       <article class="pat-rich">
         <h1>${view/label}</h1>
       </article>
@@ -22,9 +23,11 @@
 
           <div class="group button-bar" tal:define="actions view/actions/values|nothing" tal:condition="actions">
             <button class="pat-button" name="form.buttons.save" type="submit" i18n:translate="Save changes">Save changes</button>
+            <button class="pat-button" name="form.buttons.cancel" type="submit" i18n:translate="Cancel">Cancel</button>
           </div>
         </fieldset>
       </form>
+    </div>
     </metal:content>
   </body>
 </html>

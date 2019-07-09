@@ -1,10 +1,18 @@
 Changelog
 =========
 
-10.1.14 (unreleased)
---------------------
+11.0.1 (unreleased)
+-------------------
 
 - Nothing changed yet.
+
+
+11.0.0 (2019-06-28)
+-------------------
+
+New major release:
+- Upgraded UI. The tool navigation is now completely in one column
+- Custom risks ("Omega"): reworked and extended to match regular risks
 
 
 10.1.13 (2019-06-18)

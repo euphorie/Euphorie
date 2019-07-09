@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+<metal:slot fill-slot="content" tal:define="module nocall:view/module">
+  <div id="content-pane">
+    <article class="pat-rich">
+        <tal:block replace="tile:statusmessages"/>
+
+
+        <p tal:content="structure module/description">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+            ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.</p>
+
+        <form method="post" action="${context/absolute_url}"
+            class="pat-inject"
+            data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks">
+                <p>
+                    <button class="pat-button" type="submit" name="next" value="add_custom_risk" i18n:translate="button_add_custom_risk">Add a custom risk</button>
+                </p>
+        </form>
+
+
+        <tal:question tal:replace="structure module/question">question</tal:question>
+      </article>
+
+      <p class="buttonBar" id="nav-bar">
+              <!-- <a class="pat-button back">Previous</a> -->
+              <a href="${webhelpers/survey_url}/actionplan"
+              class="pat-button pat-inject"
+              data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc"
+              i18n:translate="">Continue to action plan</a>
+      </p>
+
+
+  </div>
+</metal:slot>
+</body>
+</html>
+

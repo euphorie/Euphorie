@@ -38,7 +38,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -86,7 +86,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
@@ -134,7 +134,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm().submit()
+        browser.getForm(action='new-session').submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()

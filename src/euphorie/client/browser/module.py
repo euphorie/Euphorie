@@ -1,6 +1,5 @@
 # coding=utf-8
 from Acquisition import aq_inner
-from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
@@ -13,10 +12,9 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from logging import getLogger
 from Products.Five import BrowserView
-from Products.statusmessages.interfaces import IStatusMessage
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import sql
 from z3c.saconfig import Session
-from zope.i18n import translate
 
 logger = getLogger(__name__)
 
@@ -38,9 +36,10 @@ class Mixin(object):
 class IdentificationView(BrowserView, Mixin):
     """The introduction page for a module.
     """
-
+    variation_class = "variation-risk-assessment"
     phase = "identification"
     question_filter = None
+    template = ViewPageTemplateFile('templates/module_identification.pt')
 
     def __call__(self):
         # Render the page only if the user has edit rights,
@@ -69,16 +68,16 @@ class IdentificationView(BrowserView, Mixin):
                         self.request.survey, next, phase=self.phase)
                 return self.request.response.redirect(url)
 
-            elif ICustomRisksModule.providedBy(module) \
-                    and not self.context.skip_children \
-                    and len(self.get_custom_risks()):
-                url = "%s/customization/%d" % (
-                    self.request.survey.absolute_url(),
-                    int(self.context.path))
-                return self.request.response.redirect(url)
+            # elif ICustomRisksModule.providedBy(module) \
+            #         and not self.context.skip_children \
+            #         and len(self.get_custom_risks()):
+            #     url = "%s/customization/%d" % (
+            #         self.request.survey.absolute_url(),
+            #         int(self.context.path))
+            #     return self.request.response.redirect(url)
 
             self.tree = getTreeData(
-                self.request, context, filter=model.NO_CUSTOM_RISKS_FILTER)
+                self.request, context, filter=self.question_filter)
             self.title = module.title
             self.module = module
             number_files = 0
@@ -88,7 +87,13 @@ class IdentificationView(BrowserView, Mixin):
             self.has_files = number_files > 0
             self.next_is_actionplan = not FindNextQuestion(
                 context, filter=self.question_filter)
-            return self.index()
+            if ICustomRisksModule.providedBy(module):
+                template = ViewPageTemplateFile(
+                    'templates/module_identification_custom.pt'
+                ).__get__(self, "")
+            else:
+                template = self.template
+            return template()
 
     def save_and_continue(self, module):
         """ We received a POST request.
@@ -113,13 +118,11 @@ class IdentificationView(BrowserView, Mixin):
                 return
         else:
             if ICustomRisksModule.providedBy(module):
-                if not context.skip_children:
-                    # The user will now be allowed to create custom
-                    # (user-defined) risks.
-                    url = "%s/customization/%d" % (
-                        self.request.survey.absolute_url(),
-                        int(self.context.path))
-                    return self.request.response.redirect(url)
+                if reply["next"] == "add_custom_risk":
+                    risk_id = self.add_custom_risk()
+                    url = "%s/%d" % (self.context.absolute_url(), risk_id)
+                    self.request.response.redirect(url)
+                    return
                 else:
                     # We ran out of questions, proceed to the evaluation
                     url = "%s/actionplan" % self.request.survey.absolute_url()
@@ -133,137 +136,41 @@ class IdentificationView(BrowserView, Mixin):
         url = QuestionURL(self.request.survey, next, phase="identification")
         self.request.response.redirect(url)
 
+    def add_custom_risk(self):
 
-class CustomizationView(BrowserView, Mixin):
-    """Module without a connection to a real module in the backend, container
-    for custom risks.
-    """
-
-    phase = "customization"
-    question_filter = None
-
-    def __call__(self):
-        if redirectOnSurveyUpdate(self.request):
-            return
-
-        context = aq_inner(self.context)
-        survey = self.request.survey
-        self.module = survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
-        self.title = context.title
-        self.tree = getTreeData(
-            self.request, self.context, phase="identification",
-            filter=model.NO_CUSTOM_RISKS_FILTER)
-
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.message_required = translate(_(
-            u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang)
-
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            if reply.get("next") == "next":
-                self.add_custom_risks(reply)
-                url = "%s/actionplan" % self.request.survey.absolute_url()
-                return self.request.response.redirect(url)
-
-        return self.index()
-
-    def give_customization_feedback(self, added, updated, removed):
-        if removed == 0 and added == 0 and updated == 0:
-            IStatusMessage(self.request).add(
-                _(u"No changes were made to your added risks."),
-                type='warning'
-            )
-            return
-
-        if added > 1:
-            IStatusMessage(self.request).add(
-                _(u"Your new added risks have been created."),
-                type='success'
-            )
-        elif added == 1:
-            IStatusMessage(self.request).add(
-                _(u"A new added risk has been created."),
-                type='success'
-            )
-        if updated > 1:
-            IStatusMessage(self.request).add(
-                _(u"Existing added risks have been updated."),
-                type='success'
-            )
-        elif updated == 1:
-            IStatusMessage(self.request).add(
-                _(u"An existing added risk has been updated."),
-                type='success'
-            )
-        if removed == 1:
-            IStatusMessage(self.request).add(
-                _(u"An added risk has been removed."), type='success')
-        elif removed > 1:
-            IStatusMessage(self.request).add(
-                _(u"Added risks have been removed."), type='success')
-
-    def add_custom_risks(self, form):
         session = SessionManager.session
-        existing_risks = {}
-        for risk_dict in form.get('risk', []):
-            if risk_dict.get('id'):
-                existing_risks[risk_dict['id']] = risk_dict
-        # Remove risks not in the form any more.
-        excluded = [int(k) for k in existing_risks.keys()]
-        removed = len(self.context.removeChildren(excluded=excluded))
-
         sql_risks = self.context.children()
-        added = 0
-        updated = 0
-        counter = 0
-        for risk_values in form.get('risk', []):
-            if (
-                not risk_values.get("description") or
-                not risk_values.get("priority")
-            ):
-                continue
-            counter += 1
-            if risk_values.get('id') in existing_risks:
-                # Update an existing risk
-                risk = sql_risks.filter_by(id=risk_values.get('id')).all()[0]
-                if risk.title != risk_values['description'] or \
-                        risk.priority != risk_values['priority'] or \
-                        risk.comment != risk_values.get('comment'):
+        if sql_risks.count():
+            counter_id = max(
+                [int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
+        else:
+            counter_id = 1
 
-                    risk.comment = risk_values.get('comment')
-                    risk.priority = risk_values['priority']
-                    risk.title = risk_values['description']
-                    updated += 1
-            else:
-                # Add a new risk
-                risk = model.Risk(
-                    comment=risk_values.get('comment'),
-                    priority=risk_values['priority'],
-                    risk_id=None,
-                    risk_type='risk',  # XXX Could it also be top5 or policy?
-                    skip_evaluation=True,
-                    title=risk_values['description'],
-                    identification="no"
-                )
-                risk.is_custom_risk = True
-                risk.skip_children = False
-                risk.postponed = False
-                risk.has_description = None
-                risk.zodb_path = "/".join(
-                    [session.zodb_path] +
-                    [self.context.zodb_path] +
-                    # There's a constraint for unique zodb_path per session
-                    ['%d' % counter]
-                )
-                risk.profile_index = 0  # XXX: not sure what this is for
-                self.context.addChild(risk)
-                added += 1
-        self.give_customization_feedback(added, updated, removed)
+        # Add a new risk
+        risk = model.Risk(
+            comment="",
+            priority=None,
+            risk_id=None,
+            risk_type='risk',
+            skip_evaluation=True,
+            title="",
+            identification=None,
+            training_notes="",
+            custom_description="",
+        )
+        risk.is_custom_risk = True
+        risk.skip_children = False
+        risk.postponed = False
+        risk.has_description = None
+        risk.zodb_path = "/".join(
+            [session.zodb_path] +
+            [self.context.zodb_path] +
+            # There's a constraint for unique zodb_path per session
+            ['%d' % counter_id]
+        )
+        risk.profile_index = 0  # XXX: not sure what this is for
+        self.context.addChild(risk)
+        return counter_id
 
 
 class ActionPlanView(BrowserView):
@@ -271,7 +178,7 @@ class ActionPlanView(BrowserView):
     plan.
 
     """
-
+    variation_class = "variation-risk-assessment"
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
 
@@ -282,6 +189,15 @@ class ActionPlanView(BrowserView):
         return HasText(getattr(module, "solution_direction", None))
 
     def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not (
+            self.context.restrictedTraverse('webhelpers').can_edit_session()
+        ):
+
+            return self.request.response.redirect(
+                self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+            )
         if redirectOnSurveyUpdate(self.request):
             return
         if self.request.environ["REQUEST_METHOD"] == "POST":

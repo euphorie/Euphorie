@@ -17,16 +17,15 @@
 
   <body>
     <metal:slot fill-slot="content">
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
 
       <div class="pat-well pat-message notice"
            tal:condition="webhelpers/allow_social_sharing"
       >
-        <article class="pat-rich">
           <p i18n:translate="">
             Did you like this tool? Share it with your colleagues and friends!
           </p>
-        </article>
         <p class="sharing-icons">
           <a class="pat-button twitter icon-twitter"
              href="http://twitter.com/share?url=${webhelpers/survey_url}"
@@ -189,6 +188,7 @@
       </div>
 
       <tal:block replace="tile:client-analytics" />
+    </div>
     </metal:slot>
   </body>
 </html>

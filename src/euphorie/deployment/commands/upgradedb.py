@@ -177,6 +177,23 @@ def add_last_publisher_id_to_session():
     execute(statement)
 
 
+def add_custom_description_to_risk():
+    ''' A new 'custom_description' column has been added to the 'risk' table
+    '''
+    print("add custom description to risk")
+    for column in inspector.get_columns('risk'):
+        if 'custom_description' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE risk
+            ADD COLUMN custom_description text;
+        '''
+    )
+    execute(statement)
+
+
 def hash_passwords():
     ''' We want the passwords stored in the account table to be encrypted
     '''
@@ -218,8 +235,7 @@ def hash_passwords():
 def main():
     # It is always a good idea to run this one
     create_missing_tables()
-    # should be 10.0.1 - raising temporarily for the TNO migration
-    if euphorie_version < parse_version('10.1.3'):
+    if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_brand_to_session()
         add_group_id_to_session()
@@ -227,9 +243,10 @@ def main():
         add_last_modifier_id_to_session()
         add_last_publisher_id_to_session()
         hash_passwords()
-    # should be 10.0.2 - raising temporarily for the TNO migration
-    if euphorie_version < parse_version('10.1.3'):
+    if euphorie_version < parse_version('10.0.4'):
         add_brand_to_group()
+    if euphorie_version < parse_version('11.0.1'):
+        add_custom_description_to_risk()
 
 if __name__ == "__main__":
     main()

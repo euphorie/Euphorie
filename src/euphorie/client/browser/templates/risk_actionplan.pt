@@ -49,6 +49,7 @@
                                      message-min: ${view/message_positive_number};
                                      message-required: This field is required;"
         >
+         <div id="content-pane">
           <article class="rich pat-well warning"
                    id="${view/risk_number}"
           >
@@ -73,12 +74,13 @@
             >
               <fieldset tal:define="
                           value data/priority;
-                          readonly python:context.risk_type in ['top5']
+                          readonly python:context.risk_type in ['top5'];
+                          skip_evaluation view/skip_evaluation;
                         "
                         tal:condition="not:view/skip_evaluation"
               >
-                <input type="hidden" name="priority" value="${python:value}" tal:condition="readonly" />
-                <label i18n:translate="risk_priority" tal:condition="not:readonly">This is a
+                <input type="hidden" name="priority" value="${python:value}" tal:condition="python:readonly and not skip_evaluation" />
+                <label i18n:translate="risk_priority" tal:condition="python:not readonly and not skip_evaluation">This is a
                   <select name="priority"
                           i18n:name="priority_value"
                   >
@@ -96,7 +98,7 @@
                     >high</option>
                   </select>
                   priority risk.</label>
-                <label i18n:translate="risk_priority" tal:condition="readonly">
+                <label i18n:translate="risk_priority" tal:condition="python:readonly and not skip_evaluation">
                   This is a <strong i18n:name="priority_value" i18n:translate="">risk_priority_${value}</strong>
                   priority risk.
                 </label>
@@ -125,7 +127,7 @@
                   ${repeat/measure/number}</h2>
                 <h4 i18n:translate="label_description">Description</h4>
                 <p>
-                  <tal:measure replace="structure measure" />
+                  <tal:measure replace="structure python:measure[0]" />
                 </p>
               </div>
             </tal:existing_measures>
@@ -138,7 +140,8 @@
                  tal:repeat="actionplan action_plans"
             >
 
-              <h2><tal:span i18n:translate="Measure">Measure</tal:span>
+              <h2><tal:span condition="not:view/use_existing_measures" i18n:translate="Measure">Measure</tal:span>
+                <tal:span condition="view/use_existing_measures" i18n:translate="Additional Measure">Additional Measure</tal:span>
                 ${repeat/actionplan/number}</h2>
               <input name="measure.id:records"
                      type="hidden"
@@ -170,7 +173,7 @@
                       >
                         <em class="iconified icon-plus-circle"
                             i18n:translate="button_add"
-                        >Add</em>${measure/description}</a>
+                        >Add</em><tal:measure replace="structure measure/description" /></a>
                     </li>
                   </ol>
                 </div>
@@ -192,6 +195,7 @@
                             tal:content="actionplan/action_plan|nothing"
                             i18n:attributes="placeholder label_measure_action_plan"
                   ></textarea>
+                  <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
                   <br />
                   <textarea class="preventionPlan"
                             name="measure.prevention_plan:utf8:ustring:records"
@@ -200,6 +204,8 @@
                             tal:content="actionplan/prevention_plan|nothing"
                             i18n:attributes="placeholder label_measure_prevention_plan"
                   ></textarea>
+                  </tal:preventionPlan>
+                  <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                   <br />
                   <textarea class="requirements"
                             name="measure.requirements:utf8:ustring:records"
@@ -208,6 +214,7 @@
                             tal:content="actionplan/requirements|nothing"
                             i18n:attributes="placeholder label_measure_requirements"
                   ></textarea>
+                  </tal:requirements>
                 </label>
               </fieldset>
 
@@ -228,7 +235,8 @@
                          value="${actionplan/responsible|nothing}"
                   />
                 </label>
-                <label class="${python:'error' if exists('errors/budget') else None}">
+                <label tal:condition="python: 'budget' not in view.skip_fields"
+                    class="${python:'error' if exists('errors/budget') else None}">
                   <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
                   <em class="message error"
                       tal:condition="exists:errors/budget"
@@ -264,7 +272,8 @@
                   />
                 </label>
 
-                <label tal:define="
+                <label tal:condition="python: 'planning_end' not in view.skip_fields"
+                      tal:define="
                          date_error exists:errors/planning_end_date;
                        "
                 >
@@ -284,11 +293,11 @@
           </div>
 
           <div class="button-bar">
-            <button class="add-clone pat-button icon-plus-circle"
+            <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
                     id="addMeasureButton"
                     title="Add another measure"
                     type="button"
-                    i18n:translate="label_add"
+                    i18n:translate="label_add_measure"
             >Add another measure</button>
           </div>
 
@@ -349,6 +358,7 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_action_plan"
                 ></textarea>
+                <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
                 <br />
                 <textarea class="preventionPlan"
                           name="measure.prevention_plan:utf8:ustring:records"
@@ -356,6 +366,8 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_prevention_plan"
                 ></textarea>
+                </tal:preventionPlan>
+                <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                 <br />
                 <textarea class="requirements"
                           name="measure.requirements:utf8:ustring:records"
@@ -363,6 +375,7 @@
                           rows="3"
                           i18n:attributes="placeholder label_measure_requirements"
                 ></textarea>
+                </tal:requirements>
               </label>
             </fieldset>
 
@@ -378,7 +391,7 @@
                        type="text"
                 />
               </label>
-              <label class="currency">
+              <label class="currency" tal:condition="python: 'budget' not in view.skip_fields">
                 <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
@@ -403,7 +416,7 @@
                        data-pat-validation="type: date; not-after: #planning-end-#{1}; message-date: ${view/message_date_before}"
                 />
               </label>
-              <label>
+              <label tal:condition="python: 'planning_end' not in view.skip_fields">
                 <tal:label i18n:translate="label_action_plan_end">Planning end</tal:label>
                 <input class="pat-date-picker"
                        id="planning-end-#{1}"
@@ -427,7 +440,8 @@
             ></textarea>
           </fieldset>
 
-          <div class="button-bar"
+          </div>
+          <p class="button-bar"
                id="nav-bar"
           >
             <button class="pat-button back"
@@ -436,15 +450,17 @@
                     value="previous"
                     i18n:translate="label_previous"
             >Previous</button>
-            <button class="pat-button continue ${python: view.next_is_report and 'pat-switch' or ''}"
+            <button class="pat-button continue"
                     name="next"
                     type="submit"
                     value="next"
-                    data-pat-switch="${python:view.next_is_report and 'selector: body; remove: sidebar-on; add: sidebar-off' or ''}"
                     i18n:translate="label_save_and_continue"
             >Save and continue</button>
-          </div>
+          </p>
         </form>
+      </tal:def>
+
+
 
         <tal:loop repeat="solution view/solutions|python:[]">
           <fieldset class="vertical"
@@ -462,6 +478,7 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_action_plan"
               >${solution/action_plan}</textarea>
+              <tal:preventionPlan condition="python: 'prevention_plan' not in view.skip_fields">
               <br />
               <textarea class="preventionPlan"
                         name="measure.prevention_plan:utf8:ustring:records"
@@ -469,6 +486,8 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_prevention_plan"
               >${solution/prevention_plan}</textarea>
+              </tal:preventionPlan>
+              <tal:requirements condition="python: 'requirements' not in view.skip_fields">
               <br />
               <textarea class="requirements"
                         name="measure.requirements:utf8:ustring:records"
@@ -476,11 +495,10 @@
                         rows="3"
                         i18n:attributes="placeholder label_measure_requirements"
               >${solution/requirements}</textarea>
+              </tal:requirements>
             </label>
           </fieldset>
         </tal:loop>
-      </tal:def>
-
     </metal:slot>
   </body>
 </html>

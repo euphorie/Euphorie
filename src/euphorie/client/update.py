@@ -11,7 +11,7 @@ import collections
 grok.templatedir("templates")
 
 
-def getSurveyTree(survey):
+def getSurveyTree(survey, profile=None):
     """Return a list of all modules, profile questions and risks in
     a survey. Each entry is represented by a dict with a `zodb_path`
     and `type` key.
@@ -32,6 +32,9 @@ def getSurveyTree(survey):
             has_description = HasText(node.description) or node.optional
         else:
             has_description = HasText(node.description)
+        if profile and node.portal_type == 'euphorie.profilequestion':
+            if not profile.get(node.id):
+                continue
         nodes.append({
             'zodb_path': '/'.join(node.getPhysicalPath()[base_length:]),
             'type': node.portal_type[9:],
@@ -79,13 +82,13 @@ def getSessionTree(session):
     return [Node(item) for item in query]
 
 
-def treeChanges(session, survey):
+def treeChanges(session, survey, profile=None):
     """Determine a list of changes in a survey for an existing session. The
     list of changes is returned as a list of tuples listing the ZODB path,
     the object type (one of `profile`, `module` or `risk`) and the change type
     (one of `add`, `remove` or 'modified').
     """
-    surveytree = getSurveyTree(survey)
+    surveytree = getSurveyTree(survey, profile)
     sestree = set(getSessionTree(session))
     results = set()
     for entry in surveytree:

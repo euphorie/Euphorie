@@ -9,13 +9,18 @@
       metal:use-macro="context/@@shell/macros/shell">
 <body>
     <metal:slot fill-slot="content">
-        <div id="document-content" class="pat-modal large" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
+        <div id="document-content" class="pat-modal small" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">
             <h1 i18n:translate="label_new_session_test">New test session</h1>
-            <form method="post" action="${request/URL}" class="wizard-box" tal:condition="view/allow_guest_accounts">
+            <form method="post"
+              class="wizard-box panel-class-small pat-inject"
+              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; &amp;&amp; source: #toolbar; target: #toolbar"
+              action="${request/URL}"
+              tal:condition="view/allow_guest_accounts">
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body"
               tal:define="root view/get_survey_templates_tree_root;
                           threshold view/tools_threshold">
+              <div class="container">
                 <article class="pat-rich">
                     <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools:</p>
                 </article>
@@ -41,7 +46,8 @@
                 </tal:categories>
               </fieldset>
 
-              <label class="tool-list-many" tal:condition="python:view.template_count > threshold">
+              <fieldset class="vertical" tal:condition="python:view.template_count > threshold">
+              <label class="tool-list-many">
                 <select name="survey">
                   <metal:templates define-macro="templates_many">
                     <tal:surveys define="surveys root/survey_templates">
@@ -57,6 +63,7 @@
                   </tal:categories>
                 </select>
               </label>
+              </fieldset>
 
                 <p>
                     <tal:span i18n:translate="testsession_benefits_limitations">Read here about the <strong i18n:name="benefits" i18n:translate="benefits">benefits</strong><sup i18n:name="tooltip_benefits"><a href="${base_url}/tooltips#test-session-benefits" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> and <strong i18n:name="limitations" i18n:translate="limitations">limitations</strong><sup i18n:name="tooltip_limitations"><a href="${base_url}/tooltips#test-session-limitations" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup> of a test session.</tal:span>
@@ -64,10 +71,13 @@
                 <p>
                     <tal:span i18n:translate="testsession_register">Or <a href="${view/register_url}" i18n:name="register_link"><strong i18n:translate="label_register">register</strong></a> instead. Find out why you should register<sup i18n:name="tooltip_register"><a href="${base_url}/tooltips#why-register" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info">Info</a></sup>.</tal:span>
                 </p>
+              </div>
             </div>
             <div class="buttons panel-footer">
-                <button type="submit" class="pat-button " i18n:translate="button_start_session">Start session</button>
+              <div class="container">
+                <button type="submit" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
+              </div>
             </div>
             </form>
             <tal:not_allowed condition="not:view/allow_guest_accounts">

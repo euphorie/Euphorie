@@ -11,7 +11,8 @@
 
 <body>
 <metal:slot fill-slot="content">
-<article class="rich" tal:define="extra_text view/extra_text">
+<div id="content-pane">
+<article class="pat-rich" tal:define="extra_text view/extra_text">
     <h1>${context/title}</h1>
     <tal:block replace="tile:statusmessages"/>
     <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
@@ -24,10 +25,11 @@
 <p class="button-bar">
     <a class="pat-button pat-inject" data-pat-inject="source: #content; target: #content; && source: #navigation; target: #navigation;" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
 </p>
+</div>
 </metal:slot>
 
 <metal:slot fill-slot="splash_message_slot">
-    <div tal:condition="python:tool_notification is not None" class="splash-message">
+    <div tal:condition="python:tool_notification is not None" class="splash-message" id="splash-message">
         <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />
         <article class="pat-rich content">
             <p>

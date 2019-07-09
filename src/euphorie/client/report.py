@@ -330,6 +330,7 @@ class ReportView(grok.View):
     grok.layer(IReportPhaseSkinLayer)
     grok.template("report")
     grok.name("index_html")
+    variation_class = "variation-risk-assessment"
 
     def update(self):
         if redirectOnSurveyUpdate(self.request):
@@ -365,6 +366,7 @@ class ReportLanding(grok.View):
     grok.layer(IReportPhaseSkinLayer)
     grok.template("report_landing")
     grok.name("view")
+    variation_class = "variation-risk-assessment"
 
 
 class IdentificationReport(grok.View):

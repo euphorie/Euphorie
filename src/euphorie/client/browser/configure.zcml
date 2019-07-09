@@ -105,7 +105,7 @@
 
   <browser:page
       name="session-browser-sidebar"
-      for="euphorie.client.country.IClientCountry"
+      for="*"
       permission="zope2.View"
       class=".country.SessionBrowserNavigator"
       template="templates/session-browser-sidebar.pt"
@@ -146,17 +146,7 @@
       for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class=".module.IdentificationView"
-      template="templates/module_identification.pt"
       layer="euphorie.client.interfaces.IIdentificationPhaseSkinLayer"
-      />
-
-  <browser:page
-      name="index_html"
-      for="euphorie.client.model.Module"
-      permission="euphorie.client.ViewSurvey"
-      class=".module.CustomizationView"
-      template="templates/module_customization.pt"
-      layer="euphorie.client.interfaces.ICustomizationPhaseSkinLayer"
       />
 
   <browser:page
@@ -240,6 +230,24 @@
       template="templates/confirmation-delete-session.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
+
+  <browser:page
+      name="confirmation-delete-risk"
+      for="euphorie.client.model.Risk"
+      permission="zope2.View"
+      class=".risk.ConfirmationDeleteRisk"
+      template="templates/confirmation-delete-risk.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="delete-risk"
+      for="*"
+      permission="zope2.View"
+      class=".risk.DeleteRisk"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 
   <browser:page
       name="user-menu.html"

@@ -21,6 +21,7 @@ class TrainingView(BrowserView):
     """ The view that shows the main-menu Training module
     Currently not active in default Euphorie
     """
+    variation_class = "variation-risk-assessment"
 
     def __call__(self):
         if redirectOnSurveyUpdate(self.request):

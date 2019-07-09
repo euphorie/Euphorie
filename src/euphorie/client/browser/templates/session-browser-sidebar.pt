@@ -4,20 +4,22 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      metal:use-macro="context/@@shell/macros/shell"
-      tal:define="
-        webhelpers nocall:here/webhelpers;
-        root_group view/get_root_group;
+      i18n:domain="euphorie"
+>
+<metal:aside-browser define-macro="aside-browser" meta:interpolation="true" i18n:domain="euphorie">
+  <aside id="osc"
+        tal:define="
+        my_view nocall:context/session-browser-sidebar;
+        webhelpers nocall:context/webhelpers;
+        root_group my_view/get_root_group;
         root_parent root_group/parent|nothing;
-        language view/portal/plone_portal_state/language;
+        language my_view/portal/plone_portal_state/language;
         absolute_url here/absolute_url;
         zodb_path request/zodb_path|nothing;
         styles_override webhelpers/styles_override;
-      "
-      i18n:domain="euphorie"
->
-
-  <metal:slot fill-slot="aside-header">
+      ">
+  <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
+  <metal:slot define-slot="aside-header">
     <header id="osc-header">
       <tal:in-group condition="nocall: root_group">
         <a class="back-button pat-inject"
@@ -41,9 +43,9 @@
     </header>
   </metal:slot>
 
-  <metal:slot fill-slot="aside-navigator">
+  <metal:slot define-slot="aside-sessions">
     <div id="navigation"
-         tal:define="groups view/leaf_groups;">
+         tal:define="groups my_view/leaf_groups;">
       <style type="text/css" tal:condition="styles_override">
           ${styles_override}
       </style>
@@ -53,7 +55,6 @@
         <form class="search-form pat-autosubmit pat-inject"
               data-pat-autosubmit="500ms"
               action="${absolute_url}/@@${view/__name__}#browser"
-              tal:condition="groups/count"
         >
           <fieldset>
             <label>
@@ -86,7 +87,7 @@
           </li>
           <li class="item type-tool"
               tal:define="
-                tools python:view.get_tools_tree(zodb_path);
+                tools python:my_view.get_tools_tree(zodb_path);
               "
               tal:repeat="tool tools"
           >
@@ -107,13 +108,13 @@
               >
                 <h4 class="name field">
                   <a class="session-name pat-inject pat-switch"
-                     href="${request/getURL}?action=continue&amp;session=${session/id}"
+                     href="${tool/absolute_url}?action=continue&amp;session=${session/id}"
                      data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
                      data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
                   >${session/title}</a>
                   <span class="icons field">
                     <a class="iconified icon-ellipsis pat-tooltip inactive"
-                       href="${absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                       href="${tool/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
                        i18n:translate=""
                     >More</a>
@@ -150,15 +151,15 @@
             </ul>
           </tal:tool>
           </li>
-          <li tal:condition="not:view/has_content">
+          <li tal:condition="not:my_view/has_content">
             <p class="pat-message notice"
-               tal:condition="not:view/searchable_text"
+               tal:condition="not:my_view/searchable_text"
                i18n:translate=""
             >
               No risk assessments are available for this selection.
             </p>
             <p class="pat-message notice"
-               tal:condition="view/searchable_text"
+               tal:condition="my_view/searchable_text"
                i18n:translate="osc_search_no_results_for_search"
             >
               No risk assessments were found for this selection.
@@ -169,5 +170,6 @@
       </div>
     </div>
   </metal:slot>
-
+</aside>
+</metal:aside-browser>
 </html>

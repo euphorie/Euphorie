@@ -27,6 +27,7 @@
             method="POST"
             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
       >
+      <div id="content-pane">
         <nav class="page-actions">
           <metal:actions define-slot="page-actions">
             <a class="icon-share iconified pat-tooltip"
@@ -50,6 +51,12 @@
              i18n:translate=""
           >download section</a>.
         </p>
+        <article class="pat-rich">
+          <h1>${context/title}</h1>
+        <section tal:condition="context/description">
+          <p>${context/description}</p>
+        </section>
+        </article>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
                   tal:condition="can_edit"
@@ -92,7 +99,7 @@
         </metal:widgets>
         </dl>
 
-        <article class="rich">
+        <article class="pat-rich">
           <figure class="postit external-reference"
                   tal:condition="context/external_site_logo | nothing"
           >
@@ -119,18 +126,20 @@
             </figcaption>
           </figure>
 
-          <h1>${context/title}</h1>
-          <tal:block condition="not:view/has_introduction">
-            <metal:introduction use-macro="default_introduction/macros/default_introduction" />
-          </tal:block>
-          <p tal:condition="view/has_introduction"
-             tal:replace="structure context/introduction"
-          >
-              Introduction text for this sector.
-          </p>
+          <section>
+            <tal:block condition="not:view/has_introduction">
+              <metal:introduction use-macro="default_introduction/macros/default_introduction" />
+            </tal:block>
+            <p tal:condition="view/has_introduction"
+               tal:replace="structure context/introduction"
+            >
+                Introduction text for this sector.
+            </p>
+          </section>
 
         </article>
 
+      </div>
         <div class="button-bar"
              id="nav-bar"
              tal:condition="can_edit"
@@ -142,7 +151,6 @@
                   i18n:translate="label_start_survey"
           >Start</button>
         </div>
-
       </form>
 
       <div id="sharing-menu"
@@ -180,14 +188,14 @@
           </li>
         </ul>
       </div>
-      <metal:css use-macro="context/appendix/macros/appendix" />
 
     </metal:slot>
 
     <metal:slot fill-slot="splash_message_slot">
-      <div class="splash-message"
-           tal:condition="python:tool_notification is not None"
-      >
+    <!-- SPLASH SLOT -->
+      <div class="splash-message" id="splash-message">
+      <tal:splash condition="python:tool_notification is not None">
+
         <hr class="trigger pat-switch"
             data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session"
         />
@@ -204,6 +212,7 @@
             <p>OiRA Team</p>
           </tal:content>
         </article>
+      </tal:splash>
       </div>
     </metal:slot>
 

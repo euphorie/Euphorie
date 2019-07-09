@@ -726,22 +726,41 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             }
             inherit = (inherit!==false);
             var stack = inherit ? [[this._defaults($el)]] : [[{}]];
-            var $possible_config_providers = inherit ? $el.parents().andSelf() : $el,
-                final_length = 1;
+            var $possible_config_providers;
+            var final_length = 1
+            /*
+             * XXX this is a workaround for:
+             * - https://github.com/Patternslib/Patterns/issues/393
+             *
+             * Prevents the parser to pollute the pat-modal configuration
+             * with data-pat-inject elements define in a `.pat-modal` parent element.
+             *
+             *  Probably this function should be completely revisited, see:
+             * - https://github.com/Patternslib/Patterns/issues/627
+             *
+             */
+            if (!inherit || ($el.hasClass('pat-modal') && this.attribute === 'data-pat-inject')) {
+                $possible_config_providers = $el;
+            } else {
+                $possible_config_providers = $el.parents("[" + this.attribute + "]").andSelf();
+            }
 
             _.each($possible_config_providers, function (provider) {
-                var data = $(provider).attr(this.attribute), frame, _parse;
-                if (data) {
-                    _parse = this._parse.bind(this);
-                    if (data.match(/&&/))
-                        frame = data.split(/\s*&&\s*/).map(_parse);
-                    else
-                        frame = [_parse(data)];
-                    final_length = Math.max(frame.length, final_length);
-                    stack.push(frame);
+                var data, frame, _parse;
+                data = $(provider).attr(this.attribute)
+                if (!data) {
+                    return;
                 }
+                _parse = this._parse.bind(this);
+                if (data.match(/&&/))
+                    frame = data.split(/\s*&&\s*/).map(_parse);
+                else
+                    frame = [_parse(data)];
+                final_length = Math.max(frame.length, final_length);
+                stack.push(frame);
             }.bind(this));
-            if (typeof options==="object") {
+
+            if (typeof options === "object") {
                 if (Array.isArray(options)) {
                     stack.push(options);
                     final_length = Math.max(options.length, final_length);
@@ -3123,6 +3142,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
              */
             var cfgs = $(this).data("pat-inject"),
                 $el = $(this);
+            if ($el.is("form"))
+                $(cfgs).each(function(i, v) {v.params = $.param($el.serializeArray());});
             ev && ev.preventDefault();
             $el.trigger("patterns-inject-triggered");
             inject.execute(cfgs, $el);
@@ -3137,6 +3158,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 opts = {url: formaction},
                 $cfg_node = $button.closest("[data-pat-inject]"),
                 cfgs = inject.extractConfig($cfg_node, opts);
+
+            $(cfgs).each(function(i, v) {v.params = $.param($form.serializeArray());});
 
             ev.preventDefault();
             $form.trigger("patterns-inject-triggered");
@@ -3370,7 +3393,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             }
         },
 
-        _performInjection: function ($el, $source, cfg, trigger) {
+        _performInjection: function ($el, $source, cfg, trigger, title) {
             /* Called after the XHR has succeeded and we have a new $source
              * element to inject.
              */
@@ -3396,12 +3419,18 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             // Now the injection actually happens.
             if (inject._inject(trigger, $src, $target, cfg)) { inject._afterInjection($el, $injected, cfg); }
             // History support. if subform is submitted, append form params
+            var glue = '?'; 
             if ((cfg.history === "record") && ("pushState" in history)) {
                 if (cfg.params) {
-                    history.pushState({'url': cfg.url + '?' + cfg.params}, "", cfg.url + '?' + cfg.params);
+                    if (cfg.url.indexOf('?') > -1) 
+                        glue = '&';
+                    history.pushState({'url': cfg.url + glue + cfg.params}, "", cfg.url + glue + cfg.params);
                 } else {
                     history.pushState({'url': cfg.url}, "", cfg.url);
                 }
+                // Also inject title element if we have one
+                if (title)
+                    inject._inject(trigger, title, $("title"), {action: 'element'});
             }
         },
 
@@ -3444,10 +3473,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             });
             inject.stopBubblingFromRemovedElement($el, cfgs, ev);
             sources$ = inject.callTypeHandler(cfgs[0].dataType, "sources", $el, [cfgs, data, ev]);
+            /* pick the title source for dedicated handling later
+              Title - if present - is always appended at the end. */
+            var title;
+            if (sources$ && 
+                sources$[sources$.length-1] &&
+                sources$[sources$.length-1][0] && 
+                sources$[sources$.length-1][0].nodeName == "TITLE") {
+                title = sources$[sources$.length-1];
+            }        
             cfgs.forEach(function(cfg, idx) {
                 function perform_inject() {
                     cfg.$target.each(function() {
-                        inject._performInjection.apply(this, [$el, sources$[idx], cfg, ev.target]);
+                        inject._performInjection.apply(this, [$el, sources$[idx], cfg, ev.target, title]);
                     });
                 }
                 if (cfg.processDelay) {
@@ -3693,11 +3731,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             url = url || "";
 
             // remove script tags and head and replace body by a div
+            var title = html.match(/\<title\>(.*)\<\/title\>/);
             var clean_html = html
                     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
                     .replace(/<head\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/head>/gi, "")
                     .replace(/<body([^>]*?)>/gi, "<div id=\"__original_body\">")
                     .replace(/<\/body([^>]*?)>/gi, "</div>");
+            if (title && title.length == 2) {
+                clean_html = title[0] + clean_html;
+            }
             try {
                 clean_html = inject._rebaseHTML(url, clean_html);
             } catch (e) {
@@ -3865,6 +3907,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             "html": {
                 sources: function(cfgs, data) {
                     var sources = cfgs.map(function(cfg) { return cfg.source; });
+                    sources.push("title");
                     return inject._sourcesFromHtml(data, cfgs[0].url, sources);
                 }
             }
@@ -22382,28 +22425,30 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             // if working without injection, destroy right away.
             $(document).off(".pat-modal");
             $el.remove();
-            $('body').removeClass("modal-active");                
-            $('body').removeClass("modal-panel");                
+            $('body').removeClass("modal-active");
+            $('body').removeClass("modal-panel");
         },
         destroy_inject: function() {
             var $el = this.$el;
             if ($el.find('form').hasClass('pat-inject') ) {
                 // if pat-inject in modal form, listen to patterns-inject-triggered and destroy first
                 // once that has been triggered
-                $('body').on( "patterns-inject-triggered", function() {
+                function destroy_handler() {
                     $(document).off(".pat-modal");
                     $el.remove();
-                    $('body').removeClass("modal-active");                
-                    $('body').removeClass("modal-panel");                
-                });
+                    $('body').removeClass("modal-active");
+                    $('body').removeClass("modal-panel");
+                    $('body').off("patterns-inject-triggered", destroy_handler);
+                }
+                $('body').on( "patterns-inject-triggered", destroy_handler);
             } else {
                 // if working without injection, destroy right away.
                 $(document).off(".pat-modal");
                 $el.remove();
-                $('body').removeClass("modal-active");                
-                $('body').removeClass("modal-panel");                
+                $('body').removeClass("modal-active");
+                $('body').removeClass("modal-panel");
             }
-        }   
+        }
     });
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -43623,7 +43668,7 @@ if ('IntersectionObserver' in window &&
 
 /**
  * An IntersectionObserver registry. This registry exists to hold a strong
- * reference to IntersectionObserver instances currently observering a target
+ * reference to IntersectionObserver instances currently observing a target
  * element. Without this registry, instances without another reference may be
  * garbage collected.
  */
@@ -43652,7 +43697,9 @@ function IntersectionObserverEntry(entry) {
 
   // Sets intersection ratio.
   if (targetArea) {
-    this.intersectionRatio = intersectionArea / targetArea;
+    // Round the intersection ratio to avoid floating point math issues:
+    // https://github.com/w3c/IntersectionObserver/issues/324
+    this.intersectionRatio = Number((intersectionArea / targetArea).toFixed(4));
   } else {
     // If area is zero and is intersecting, sets to 1, otherwise to 0
     this.intersectionRatio = this.isIntersecting ? 1 : 0;
@@ -43840,7 +43887,7 @@ IntersectionObserver.prototype._parseRootMargin = function(opt_rootMargin) {
 
 /**
  * Starts polling for intersection changes if the polling is not already
- * happening, and if the page's visibilty state is visible.
+ * happening, and if the page's visibility state is visible.
  * @private
  */
 IntersectionObserver.prototype._monitorIntersections = function() {
@@ -44142,7 +44189,7 @@ function now() {
 
 
 /**
- * Throttles a function and delays its executiong, so it's only called at most
+ * Throttles a function and delays its execution, so it's only called at most
  * once within a given time period.
  * @param {Function} fn The function to throttle.
  * @param {number} timeout The amount of time that must pass before the
@@ -44273,7 +44320,7 @@ function getEmptyRect() {
 }
 
 /**
- * Checks to see if a parent element contains a child elemnt (including inside
+ * Checks to see if a parent element contains a child element (including inside
  * shadow DOM).
  * @param {Node} parent The parent element.
  * @param {Node} child The child element.
@@ -44333,6 +44380,8 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
         parser.addArgument('format', 'YYYY-MM-DD');
         parser.addArgument('week-numbers', [], ['show', 'hide']);
         parser.addArgument('i18n'); // URL pointing to JSON resource with i18n values
+        parser.addArgument('first-day', 0);
+
         /* JSON format for i18n
         * { "previousMonth": "Previous Month",
         *   "nextMonth"    : "Next Month",
@@ -44358,6 +44407,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
                 var config = {
                     field: this.$el[0],
                     format: this.options.format,
+                    firstDay: this.options.firstDay,
                     showWeekNumber: this.options.weekNumbers === 'show',
                     toString: function (date, format) {
                         var date = moment(date).format(format);
@@ -56071,13 +56121,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 .on("pat-update",
                     utils.debounce(this.quicklayout.bind(this), 200));
 
-            const callback = utils.debounce(this.quicklayout.bind(this), 100);
-            const observer = new MutationObserver(callback);
-            const config = {
-              childList: true,
-              subtree: true,
-              characterData: true,
-              attributes: true
+            var callback = utils.debounce(this.quicklayout.bind(this), 100);
+            var observer = new MutationObserver(callback);
+            var config = {
+                childList: true,
+                subtree: true,
+                characterData: false,
+                attributes: true
             };
             observer.observe(document.body, config);
         },
@@ -56439,7 +56489,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
             // add close icon if requested
             if (options.controls.indexOf("icons") >= 0) {
-                $el.append("<button type='button' class=.close-panel'>" + closetext + "</button>");
+                $el.append("<button type='button' class='close-panel'>" + closetext + "</button>");
             }
 
             // add close button if requested

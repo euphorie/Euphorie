@@ -260,7 +260,7 @@ def set_session_profile(survey, survey_session, profile):
         return survey_session
 
     current_profile = extractProfile(survey, survey_session)
-    if current_profile == profile and not treeChanges(survey_session, survey):
+    if current_profile == profile and not treeChanges(survey_session, survey, profile):
         # At this stage, we actually do not need to touch the session.
         # It is enough that it gets touched when a Risk is edited, or if the
         # tree gets rebuilt due to changes.
@@ -327,6 +327,7 @@ class Profile(grok.View):
     grok.template("profile")
 
     id_patt = re.compile("pq([0-9]*)\.present")
+    variation_class = "variation-risk-assessment"
 
     def getDesiredProfile(self):
         """Get the requested profile from the request.

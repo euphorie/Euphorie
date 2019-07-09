@@ -12,6 +12,7 @@
 
   <body>
     <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
+    <div id="content-pane">
       <article class="pat-rich">
         <h1>${view/label}</h1>
         <p class="pat-message notice" i18n:translate="">Please bear in mind that by changing the email address, your login name will also change.</p>
@@ -27,7 +28,7 @@
           </p>
         </fieldset>
       </form>
-
+    </div>
     </metal:content>
   </body>
 </html>

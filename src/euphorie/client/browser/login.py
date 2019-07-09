@@ -54,6 +54,8 @@ EMAIL_RE = re.compile(
 class Login(BrowserView):
     """View name: @@login"""
 
+    variation_class = "variation-dashboard"
+
     def setLanguage(self, came_from):
         qs = urlparse.urlparse(came_from)[4]
         params = cgi.parse_qs(qs)

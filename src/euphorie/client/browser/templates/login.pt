@@ -27,6 +27,7 @@ h4 {
   margin-bottom: 1em;
 }
     </style>
+    <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
       <article class="rich">
         <h1 i18n:translate="header_welcome">Welcome</h1>
@@ -136,6 +137,7 @@ h4 {
 
         <tal:block replace="tile:client-analytics" />
       </article>
+    </div>
     </metal:slot>
   </body>
 </html>

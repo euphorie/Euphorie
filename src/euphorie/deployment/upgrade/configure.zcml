@@ -348,4 +348,19 @@
       import_profile="euphorie.deployment.upgrade:to_0022"
       />
 
+
+  <genericsetup:upgradeSteps
+    source="22"
+    destination="23"
+    profile="euphorie.deployment:default"
+    >
+
+    <genericsetup:upgradeStep
+      title="Update texts for custom risks modules"
+      handler=".v23.update_custom_risks_module_texts"/>
+
+
+
+  </genericsetup:upgradeSteps>
+
 </configure>

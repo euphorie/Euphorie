@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      meta:interpolation="true"
+      metal:define-macro="shell"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  client nocall:request/client;
+                  base_url client/++resource++euphorie.resources;
+                  page_section webhelpers/get_phase;
+                  came_from webhelpers/came_from;
+                  came_from_param python:came_from and 'came_from=%s' % came_from or '';
+                  tools context/@@tools">
+
+<head>
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+
+    <tal:block condition="webhelpers/debug_mode">
+        <script type="text/javascript" src="${base_url}/bundle.js"></script>
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: this must be minified -->
+        <script type="text/javascript" src="${base_url}/bundle.min.js"></script>
+    </tal:block>
+
+    <tal:block condition="webhelpers/debug_mode">
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+    <tal:block condition="not:webhelpers/debug_mode">
+        <!-- TODO: needs to be minified -->
+        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
+    </tal:block>
+
+
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+    <metal:styleslot define-slot="style_slot" />
+</head>
+
+<body class="osh-off osc-off osc-s-off"
+  i18n:domain="euphorie"
+  tal:define="
+    is_anonymous webhelpers/anonymous;
+    is_outside_of_survey webhelpers/is_outside_of_survey;
+    survey_url webhelpers/survey_url;
+    base_url webhelpers/base_url">
+
+
+            <metal:block define-slot="content"/>
+
+
+</body>
+</html>
