@@ -4,7 +4,7 @@ Changelog
 11.0.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Bugfix on Action Plan: don't choke if a solution is None
 
 
 11.0.0 (2019-06-28)
