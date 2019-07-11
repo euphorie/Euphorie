@@ -548,12 +548,12 @@ class Risk(dexterity.Container):
             description = item.description and item.description.strip() or ""
             prevention_plan = (
                 item.prevention_plan and item.prevention_plan.strip() or "")
+            measure = description
             if webhelpers.country in ("it", ):
-                measures.append(
-                    u"%s: %s" % (description, prevention_plan)
-                )
-            else:
-                measures.append(description)
+                if prevention_plan:
+                    measure = u"%s: %s" % (measure, prevention_plan)
+            measures.append(measure)
+
         return measures
 
 

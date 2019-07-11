@@ -765,13 +765,14 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
+                description = (
+                    getattr(solution, "description", "") or "").strip()
+                prevention_plan = (
+                    getattr(solution, "prevention_plan", "") or "").strip()
+                match = description
                 if measures_full_text:
-                    match = u"%s: %s" % (
-                        (getattr(solution, "description", "") or "").strip(),
-                        (getattr(solution, "prevention_plan", "") or "").strip(),
-                    )
-                else:
-                    match = solution.description.strip()
+                    if prevention_plan:
+                        match = u"%s: %s" % (match, prevention_plan)
                 if match not in existing_measures:
                     solutions.append(
                         {
