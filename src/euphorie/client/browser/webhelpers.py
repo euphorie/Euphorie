@@ -279,15 +279,6 @@ class WebHelpers(BrowserView):
     @memoize
     def styles_override(self):
         css = ""
-        if self.country == "it":
-            css = """
-#steps .topics .legend li.answered.risk::before {
-    background: purple;
-}
-#steps .topics .questions li.answered.risk a::before {
-    background: purple;
-}
-"""
         return css
 
     @property
