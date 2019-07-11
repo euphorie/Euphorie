@@ -60,6 +60,10 @@ class IdentificationView(BrowserView):
 
     # default value is False, can be overwritten by certain conditions
     skip_evaluation = False
+    # In what circumstances will the Evaluation panel be shown, provided that
+    # evaluation is not skipped in general? The following default can be
+    # overwritten in certain conditions
+    evaluation_condition = "condition: answer=no"
 
     # default value is True, can be overwritten by certain conditions
     show_explanation_on_always_present_risks = True
@@ -348,7 +352,12 @@ class IdentificationView(BrowserView):
 
         # Italian special
         if self.webhelpers.country == "it":
-            self.skip_evaluation = True
+            if self.risk and (
+                self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+            ):
+                self.skip_evaluation = True
+            else:
+                self.evaluation_condition = "condition: answer=no or answer=yes"
 
     @property
     @memoize
@@ -750,14 +759,18 @@ class ActionPlanView(BrowserView):
         self.title = context.parent.title
 
         # Italian special
+        if self.is_custom_risk:
+            self.risk.description = u""
+            self.risk.evaluation_method = u""
         if self.italy_special:
-            self.skip_evaluation = True
+            if self.risk and (
+                self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+            ):
+                self.skip_evaluation = True
             measures_full_text = True
         else:
             measures_full_text = False
-        if self.is_custom_risk:
-            self.risk.description = u""
-        else:
+        if not self.is_custom_risk:
             existing_measures = [
                 txt.strip() for (txt, active) in self.get_existing_measures() if active
             ]

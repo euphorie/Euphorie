@@ -428,7 +428,7 @@
   <metal:risk_evaluation define-macro="risk_evaluation">
     <fieldset class="pat-well notice pat-depends vertical evaluation"
               id="evaluation"
-              data-pat-depends="condition: answer=no; transition: slide"
+              data-pat-depends="${view/evaluation_condition}; transition: slide"
               tal:define="
                 evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method;
               "
