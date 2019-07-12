@@ -61,7 +61,7 @@ jekyll: prototype
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
 
-## resources-install: bundle jekyll
+## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
 resources-install:
 	cp prototype/bundles/bundle* src/euphorie/client/resources
 	cp -R prototype/bundles/chunks/* src/euphorie/client/resources/bundles/chunks/
@@ -71,6 +71,8 @@ resources-install:
 
 .po.mo:
 	msgfmt -c --statistics -o $@ $<
+
+theme: bundle jekyll resources-install
 
 .PHONY: all clean docs jenkins pot
 .SUFFIXES:
