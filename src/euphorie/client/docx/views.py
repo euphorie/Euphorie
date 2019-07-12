@@ -97,8 +97,6 @@ class OfficeDocumentView(BrowserView):
         )
         risks = []
         for sql_risk in sql_risks:
-            if sql_risk.identification == 'n/a':
-                continue
             if not sql_risk.is_custom_risk:
                 risk = self.context.aq_parent.restrictedTraverse(
                     sql_risk.zodb_path.split("/"))
@@ -158,6 +156,7 @@ class OfficeDocumentView(BrowserView):
                 u'measures': measures,
                 u'epilogue': u'',
                 u'justifiable': sql_risk.identification,
+                u'number': sql_risk.number,
 
             })
         return risks
