@@ -297,7 +297,7 @@
           <p class="negation"
              tal:condition="not:is_custom_risk"
           >
-            <em><strong class="icon warning">⚠</strong>
+            <em><strong class="icon warning" tal:condition="not:view/italy_special">⚠</strong>
               <tal:span i18n:translate="warn_risk_present">
                 You responded negative to the above statement.</tal:span>
             </em>
