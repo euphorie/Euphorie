@@ -4028,7 +4028,7 @@ msgstr "Ne s'applique pas"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:98
 msgid "label_not_sufficient"
-msgstr "Non, d’autres mesures sont nécessaires"
+msgstr "Non, des mesures sont à ajouter au plan d'actions"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:48
