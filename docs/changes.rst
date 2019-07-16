@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.0.2 (unreleased)
+11.0.2 (2019-07-16)
 -------------------
 
 - Translation updates
