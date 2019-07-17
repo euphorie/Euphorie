@@ -115,7 +115,7 @@
                   >${session/title}</a>
                 </span>
                 <span class="last-saved meta field">
-                  <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                  <tal:i18n i18n:translate="">last saved</tal:i18n>
                   <time class="pat-display-time"
                         datetime="${value}"
                         data-pat-display-time="from-now: true; locale: ${language}"
@@ -126,7 +126,7 @@
                 ></span>
                 <span class="date meta field" tal:condition="session/published">
                   <span class="label">
-                    <tal:i18n i18n:translate="label_published">Published</tal:i18n>
+                    <tal:i18n i18n:translate="label_published">published</tal:i18n>
                     <time class="pat-display-time"
                           datetime="${value}"
                           data-pat-display-time="from-now: true; locale: ${language}"
