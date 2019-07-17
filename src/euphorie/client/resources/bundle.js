@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/bundles/";
+/******/ 	__webpack_require__.p = "++resource++euphorie.resources/bundles/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -56212,7 +56212,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 .on("pat-update",
                     utils.debounce(this.quicklayout.bind(this), 200));
 
-            var callback = utils.debounce(this.quicklayout.bind(this), 100);
+            var callback = utils.debounce(this.quicklayout.bind(this), 400);
             var observer = new MutationObserver(callback);
             /* Explicitly not including style. We assume style is set dynamically only by scripts and we do all our controlled changes through classes.
                That way we avoid masonry to react on its own style calculation */
@@ -56220,8 +56220,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 childList: true,
                 subtree: true,
                 characterData: false,
-                attributes: true,
-                attributeFilter: ['class', 'cols', 'controls', 'height', 'width', 'maxlength', 'rows', 'size', 'wrap']
+                attributeOldValue: true,
+                attributeFilter: ['class']
             };
             observer.observe(document.body, config);
         },
