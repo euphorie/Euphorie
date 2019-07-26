@@ -58,6 +58,24 @@
       />
 
   <browser:page
+      name="profile"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Profile"
+      template="templates/profile.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="update"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Profile"
+      template="templates/updated.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_date"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"

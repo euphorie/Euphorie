@@ -5,6 +5,9 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
+from euphorie.client.profile import extractProfile
+from euphorie.client.profile import set_session_profile
+from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
@@ -16,6 +19,8 @@ from zope import schema
 from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
+
+import re
 
 
 class IStartFormSchema(model.Schema):
@@ -83,7 +88,36 @@ class Start(AutoExtensibleForm, EditForm):
     @property
     @memoize
     def session(self):
-        return self.webhelpers.session_by_id(self.context.session_id)
+        return self.context.session
+
+    @property
+    @memoize
+    def can_view_session(self):
+        account = self.webhelpers.get_current_account()
+        if not account:
+            return False
+        session = self.session
+        return session in account.sessions or session in account.acquired_sessions
+
+    @property
+    @memoize
+    def can_edit_session(self):
+        return self.can_view_session
+
+    @property
+    @memoize
+    def can_publish_session(self):
+        return self.can_edit_session
+
+    @property
+    @memoize
+    def can_delete_session(self):
+        return self.can_edit_session
+
+    def is_new_session(self):
+        if self.request.get('new_session'):
+            return True
+        return self.session.children().count() == 0
 
     @property
     @memoize
@@ -130,13 +164,154 @@ class Start(AutoExtensibleForm, EditForm):
         # Optimize: if the form was auto-submitted, we know that we want to
         # show the "start" page again
         if "form.button.submit" not in self.request:
+            return
+        self.request.response.redirect("%s/@@profile" % self.context.absolute_url())
+
+
+class Profile(AutoExtensibleForm, EditForm):
+    """Determine the profile for the current survey and build the session tree.
+
+    All profile questions in the survey are shown to the user in one screen.
+    The user can then determine the profile for his organisation. If there
+    are no profile questions user is directly forwarded to the inventory
+    phase.
+
+    This view assumes there already is an active session for the current
+    survey.
+    """
+
+    id_patt = re.compile("pq([0-9]*)\.present")
+    variation_class = "variation-risk-assessment"
+    next_view_name = "@@start"
+
+    @property
+    def template(self):
+        return self.index
+
+    def getDesiredProfile(self):
+        """Get the requested profile from the request.
+
+        The profile is returned as a dictionary. The id of the profile
+        questions are used as keys. For optional profile questions the value is
+        a boolean.  For repetable profile questions the value is a list of
+        titles as provided by the user. This format is compatible with
+        :py:func:`extractProfile`.
+
+        :rtype: dictionary with profile answers
+        """
+        profile = {}
+        for (id, answer) in self.request.form.items():
+            match = self.id_patt.match(id)
+            if match:
+                id = match.group(1)
+            question = self.context.get(id)
+            if not IProfileQuestion.providedBy(question):
+                continue
+            if getattr(question, 'use_location_question', True):
+                # Ignore questions found via the id pattern if they profile
+                # is repeatable
+                if match:
+                    continue
+                if not self.request.form.get("pq{0}.present".format(id), ''
+                                             ) == 'yes':
+                    continue
+                if isinstance(answer, list):
+                    profile[id] = filter(None, (a.strip() for a in answer))
+                    if not self.request.form.get(
+                        "pq{0}.multiple".format(id), ''
+                    ) == 'yes':
+                        profile[id] = profile[id][:1]
+                else:
+                    profile[id] = answer
+            else:
+                profile[id] = answer in (True, 'yes')
+        return profile
+
+    def setupSession(self):
+        """Setup the session for the context survey. This will rebuild the
+        session tree if the profile has changed.
+        """
+        survey = self.context.aq_parent
+        new_profile = self.getDesiredProfile()
+        return set_session_profile(survey, self.session, new_profile)
+
+    @property
+    @memoize
+    def profile_questions(self):
+        """Return information for all profile questions in this survey.
+
+        The data is returned as a list of dictionaries with the following
+        keys:
+
+        - ``id``: object id of the question
+        - ``title``: title of the question
+        - ``question``: question about the general occurance
+        - ``label_multiple_present``: question about single or multiple
+          occurance
+        - ``label_single_occurance``: label for single occurance
+        - ``label_multiple_occurances``: label for multiple occurance
+        """
+        return [{
+            'id': child.id,
+            'title': child.title,
+            'question': child.question or child.title,
+            'use_location_question': getattr(child, 'use_location_question', True),
+            'label_multiple_present': getattr(
+                child, 'label_multiple_present',
+                _(u'Does this happen in multiple places?')
+            ),
+            'label_single_occurance': getattr(
+                child, 'label_single_occurance',
+                _(u'Enter the name of the location')
+            ),
+            'label_multiple_occurances': getattr(
+                child, 'label_multiple_occurances',
+                _(u'Enter the names of each location')
+            ),
+        } for child in self.context.ProfileQuestions()]
+
+    @property
+    def session(self):
+        return self.context.session
+
+    @property
+    @memoize
+    def current_profile(self):
+        return extractProfile(self.context.aq_parent, self.session)
+
+    def update(self):
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        self.message_required = translate(
+            _(
+                u"message_field_required",
+                default=u"Please fill out this field."
+            ),
+            target_language=lang
+        )
+        if (not self.profile_questions or self.request.method == "POST"):
+            new_session = self.setupSession()
             self.request.response.redirect(
-                "%s/@@start" % self.context.absolute_url()
+                "{base_url}/++session++{session_id}/{target}".format(
+                    base_url=self.context.aq_parent.absolute_url(),
+                    session_id=new_session.id,
+                    target=self.next_view_name,
+                )
             )
-        else:
-            self.request.response.redirect(
-                "%s/@@profile" % self.context.absolute_url()
-            )
+
+
+class Update(Profile):
+    """Update a survey session after a survey has been republished. If a
+    the survey has a profile the user is asked to confirm the current
+    profile before continuing.
+
+    The behaviour is exactly the same as the normal start page for a session
+    (see the :py:class:`Profile` view), but uses a different template with more
+    detailed instructions for the user.
+    """
+    next_view_name = "@@identification"
 
 
 class PublicationMenu(BrowserView):
@@ -188,8 +363,3 @@ class PublicationMenu(BrowserView):
         session.last_publisher = None
         self.notify_modified(session)
         return self.redirect()
-
-    @memoize
-    def session(self, sessionid):
-        return self.webhelpers.session_by_id(sessionid)
-        # return SessionManager.session

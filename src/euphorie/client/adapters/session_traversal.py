@@ -26,6 +26,9 @@ class TraversedSurveySession(Implicit, Traversable):
         self.__of__(parent)
         self.session_id = int(session_id)
 
+    def getId(self):
+        return "++session++{session_id}".format(session_id=self.session_id)
+
     @memoizedproperty
     def session(self):
         return (

@@ -110,7 +110,7 @@
                   <a class="session-name pat-inject pat-switch"
                      href="${tool/absolute_url}/++session++${session/id}/@@start"
                      data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
-                     data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
+                     data-pat-inject="source: #osc; target: #osc; history:record &amp;&amp; source: #content; target: #content;"
                   >${session/title}</a>
                   <span class="icons field">
                     <a class="iconified icon-ellipsis pat-tooltip inactive"

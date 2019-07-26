@@ -42,7 +42,7 @@
           <ul class="ras">
             <li tal:repeat="session my_sessions"
               class="ra">
-              <a href="${here/absolute_url}/${python:session.zodb_path.rpartition('/')[-1]}/++session++${session/id}/@@start"
+              <a href="${here/absolute_url}/${python:session.zodb_path.partition('/')[-1]}/++session++${session/id}/@@start"
                 class="pat-inject follow"
                 data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
               >

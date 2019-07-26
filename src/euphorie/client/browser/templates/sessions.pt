@@ -83,7 +83,7 @@
                       "
                   >
                     <span class="name field">
-                      <a href="${here/absolute_url}/${python:session.zodb_path.rpartition('/')[-1]}/++session++${session/id}/@@start"
+                      <a href="${here/absolute_url}/${python:session.zodb_path.partition('/')[-1]}/++session++${session/id}/@@start"
                         >${session/title}</a>,
                       <span class="last-saved">
                        <tal:i18n i18n:translate="">Last saved</tal:i18n>

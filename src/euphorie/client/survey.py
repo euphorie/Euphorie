@@ -93,59 +93,6 @@ class Resume(grok.View):
         )
 
 
-class Identification(grok.View):
-    """Survey identification start page.
-
-    This view shows the introduction text for the identification phase. This
-    includes an option to print a report with all questions.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
-    for the *identification* component of the URL.
-
-    View name: @@index_html
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IIdentificationPhaseSkinLayer)
-    grok.template("identification")
-    grok.name("index_html")
-    variation_class = "variation-risk-assessment"
-
-    question_filter = None
-
-    def update(self):
-        self.next_url = None
-        if redirectOnSurveyUpdate(self.request):
-            return
-        self.survey = survey = aq_parent(aq_inner(self.context))
-        question = FindFirstQuestion(filter=self.question_filter)
-        if question is not None:
-            self.next_url = QuestionURL(
-                survey, question, phase="identification"
-            )
-            self.tree = getTreeData(self.request, question)
-
-    @property
-    def extra_text(self):
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        have_extra = settings.get('extra_text_identification', False)
-        if not have_extra:
-            return None
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
-        # translating the date under plone locales, we reduce to generic "nl".
-        # For the specific oira translation, we rewrite to "nl_BE"
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"extra_text_identification", default=u""), target_language=lang
-        )
-
-
 class ActionPlan(grok.View):
     """Survey action plan start page.
 

@@ -164,15 +164,6 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def is_new_session(self):
-        if self.request.get('new_session'):
-            return True
-        if self.session is not None:
-            return self.session.children().count() == 0
-        return False
-
-    @property
-    @memoize
     def guest_session_id(self):
         return self.is_guest_account and self.session_id or None
 
@@ -490,22 +481,13 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def _survey(self):
+        # XXX is this different from the _tool?
         survey = getattr(self.request, 'survey', None)
-        if survey is not None:
-            if ISurvey.providedBy(survey):
-                return survey
-
-        if self.session is None:
-            return None
-
-        try:
-            return self.request.client.restrictedTraverse(
-                self.session.zodb_path.split('/'))
-        except KeyError as e:
-            # This can happen when a survey has been unpublished while the
-            # current user still has it in his session.
-            logger.error(e)
-            return None
+        if survey:
+            logger.error("We should not have this anymore")
+        for parent in aq_chain(aq_inner(self.context)):
+            if ISurvey.providedBy(parent):
+                return parent
 
     @memoize
     def survey_url(self, phase=None):
@@ -696,32 +678,6 @@ class WebHelpers(BrowserView):
         if not session:
             return False
         return self.get_current_account() == session.account
-
-    @memoize
-    def can_view_session(self, session=None):
-        account = self.get_current_account()
-        if not account:
-            return False
-        if session is None:
-            session = self.session
-        if session is None and self.request.get('sessionid'):
-            session = self.session_by_id(self.request.get('sessionid'))
-        return (
-            session in account.sessions or
-            session in account.acquired_sessions
-        )
-
-    @memoize
-    def can_edit_session(self, session=None):
-        return self.can_view_session(session=session)
-
-    @memoize
-    def can_publish_session(self, session=None):
-        return self.can_edit_session(session=session)
-
-    @memoize
-    def can_delete_session(self, session=None, sessionid=''):
-        return self.can_edit_session(session=session)
 
     @memoize
     def can_duplicate_session(self, session=None, sessionid=''):
