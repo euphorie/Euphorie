@@ -161,7 +161,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def session(self):
-        return getattr(SessionManager, 'session', None)
+        raise Exception("Use the traversed session")
 
     @property
     @memoize

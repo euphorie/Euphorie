@@ -30,7 +30,6 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
-
   <browser:page
       name="training"
       for="euphorie.content.survey.ISurvey"
@@ -51,7 +50,7 @@
 
   <browser:page
       name="start"
-      for="euphorie.content.survey.ISurvey"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".survey.Start"
       template="templates/start.pt"

@@ -6,10 +6,10 @@
       metal:define-macro="master"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
-        webhelpers nocall:context/@@webhelpers;
+        webhelpers nocall:view/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
-        session webhelpers/session;
-        can_edit webhelpers/can_edit_session;
+        session view/session;
+        can_edit view/can_edit_session;
         has_profile view/has_profile;
       "
       i18n:domain="euphorie"

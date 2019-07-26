@@ -75,8 +75,20 @@ class Start(AutoExtensibleForm, EditForm):
 
     @property
     @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.context.aq_parent
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.session_by_id(self.context.session_id)
+
+    @property
+    @memoize
     def has_profile(self):
-        return len(self.context.ProfileQuestions())
+        return len(self.survey.ProfileQuestions())
 
     @memoize
     def has_introduction(self):
@@ -101,7 +113,7 @@ class Start(AutoExtensibleForm, EditForm):
         data, errors = self.extractData()
         if errors:
             return
-        session = self.webhelpers.session
+        session = self.session
         changed = False
         for key in data:
             value = data[key]

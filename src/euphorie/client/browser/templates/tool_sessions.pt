@@ -42,7 +42,7 @@
               <ul class="ras">
                   <li tal:repeat="session sessions"
                       class="ra">
-                    <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                    <a href="${here/absolute_url}/++session++${session/id}/@@start"
                       class="pat-inject follow"
                       data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record"
                     >

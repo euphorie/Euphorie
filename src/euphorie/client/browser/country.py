@@ -17,6 +17,7 @@ from euphorie.client.model import Risk
 from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
+from euphorie.client.session import create_survey_session
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
 from logging import getLogger
@@ -330,9 +331,13 @@ class SessionsView(BrowserView):
         if not title:
             title = survey.Title()
 
-        SessionManager.start(title=title, survey=survey, account=account)
+        survey_session = create_survey_session(title, survey, account)
         self.request.response.redirect(
-            "%s/start?initial_view=1&new_session=1" % survey.absolute_url()
+            "{base_url}/++session++{session_id}/@@start"
+            "?initial_view=1&new_session=1".format(
+                base_url=survey.absolute_url(),
+                session_id=survey_session.id,
+            )
         )
 
     def _ContinueSurvey(self, info):
@@ -627,7 +632,7 @@ class CloneSession(BrowserView):
         api.portal.show_message(
             _("The risk assessment has been cloned"), self.request, "success"
         )
-        target = "{contexturl}/@@view?action=continue&new_clone=1&session={sessionid}".format(  # noqa: E501
+        target = "{contexturl}/++session++{sessionid}/@@start&new_clone=1".format(
             contexturl=self.context.absolute_url(), sessionid=new_session.id
         )
         self.request.response.redirect(target)

@@ -42,8 +42,7 @@
           <ul class="ras">
             <li tal:repeat="session my_sessions"
               class="ra">
-
-              <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+              <a href="${here/absolute_url}/${python:session.zodb_path.rpartition('/')[-1]}/++session++${session/id}/@@start"
                 class="pat-inject follow"
                 data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
               >
@@ -76,9 +75,7 @@
           >
             Available OiRA tools
           </h2>
-          <form class="pat-inject"
-                action="${here/absolute_url}/@@new-session.html"
-          >
+          <form action="${here/absolute_url}/@@new-session.html">
             <article class="pat-rich">
               <p i18n:translate="label_select_new_session">
                 Start a new session by choosing one of the following sectoral tools.
