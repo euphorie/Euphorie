@@ -17,6 +17,7 @@
         name="Euphorie"
         />
 
+    <include package=".adapters" />
     <include package=".api" />
     <include package=".browser" />
     <include package=".subscribers" />
