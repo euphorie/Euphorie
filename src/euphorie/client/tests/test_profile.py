@@ -3,7 +3,7 @@ from euphorie.client import model
 from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
-from euphorie.client.profile import Profile
+from euphorie.client.browser.survey import Profile
 from euphorie.client.session import create_survey_session
 from euphorie.client.tests.test_update import TreeTests
 from euphorie.content.profilequestion import IProfileQuestion

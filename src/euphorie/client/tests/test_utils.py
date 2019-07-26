@@ -91,39 +91,6 @@ class TestURLs(EuphorieIntegrationTestCase):
         self.assertTrue(view._base_url().startswith(country.absolute_url()))
 
 
-class WebhelperUnitTests(unittest.TestCase):
-
-    def patch_view(self, name, is_property=False):
-        dotted = '.'.join((WebHelpers.__module__, WebHelpers.__name__, name))
-        if is_property:
-            new_callable = mock.PropertyMock
-        else:
-            new_callable = None
-        return mock.patch(dotted, new_callable=new_callable)
-
-    def test_is_owner(self):
-        # If no session is set is_owner return False
-        # Allow memoize
-        gsm = getGlobalSiteManager()
-        gsm.registerAdapter(
-            AttributeAnnotations, (MockRequest, ), IAnnotations
-        )
-
-        view = WebHelpers(None, MockRequest())
-        self.assertEqual(view.session, None)
-        self.assertFalse(view.is_owner())
-        # Otherwise we will return True is the session account is equal
-        # to the current account
-        with self.patch_view('session', is_property=True) as mocked_session:
-            session = MockSession('account_1')
-            mocked_session.return_value = session
-            view.get_current_account = lambda: 'account_2'
-            self.assertFalse(view.is_owner())
-            view.get_current_account = lambda: 'account_1'
-            view.request.purge_memoize()
-            self.assertTrue(view.is_owner())
-
-
 class WebhelperTests(EuphorieIntegrationTestCase):
 
     def _createView(self, agent=None):
