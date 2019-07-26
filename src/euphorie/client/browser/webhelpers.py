@@ -18,7 +18,6 @@ from euphorie.client.session import SessionManager
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
-from euphorie.decorators import reify
 from euphorie.ghost import PathGhost
 from logging import getLogger
 from os import path
@@ -267,7 +266,8 @@ class WebHelpers(BrowserView):
     def logoMode(self):
         return 'alien' if 'alien' in self.extra_css else 'native'
 
-    @reify
+    @property
+    @memoize
     def styles_override(self):
         css = ""
         if IItaly.providedBy(self.request):
@@ -281,7 +281,8 @@ class WebHelpers(BrowserView):
 """
         return css
 
-    @reify
+    @property
+    @memoize
     def extra_css(self):
         sector = self.sector
         if sector is None:
@@ -315,7 +316,8 @@ class WebHelpers(BrowserView):
 
         return ' ' + ' '.join(parts)
 
-    @reify
+    @property
+    @memoize
     def sector_title(self):
         """Return the title to use for the current sector. If the current
         context is not in a sector return the agency name instead.
@@ -330,12 +332,14 @@ class WebHelpers(BrowserView):
                 default=u'OiRA - Online interactive Risk Assessment',
             )
 
-    @reify
+    @property
+    @memoize
     def client_url(self):
         """Return the absolute URL for the client."""
         return self.request.client.absolute_url()
 
-    @reify
+    @property
+    @memoize
     def country_or_client_url(self):
         """Return the country URL, but fall back to the client URL in case
         the country URL is None.
@@ -363,7 +367,8 @@ class WebHelpers(BrowserView):
             return self.client_url
         return self._base_url()
 
-    @reify
+    @property
+    @memoize
     def base_url(self):
         if self.anonymous:
             base_url = self.country_url
@@ -372,17 +377,20 @@ class WebHelpers(BrowserView):
             return self.client_url
         return self._base_url()
 
-    @reify
+    @property
+    @memoize
     def resources_url(self):
         return "{}/{}".format(
             self.client_url, self.resources_name)
 
-    @reify
+    @property
+    @memoize
     def js_resources_url(self):
         return "{}/{}".format(
             self.client_url, self.js_resources_name)
 
-    @reify
+    @property
+    @memoize
     def is_outside_of_survey(self):
         if self._base_url() != self.survey_url():
             return True
@@ -393,7 +401,8 @@ class WebHelpers(BrowserView):
             return True
         return False
 
-    @reify
+    @property
+    @memoize
     def get_survey_title(self):
         survey = self._survey
         if not survey:
@@ -426,27 +435,31 @@ class WebHelpers(BrowserView):
 
         return param
 
-    @reify
+    @property
+    @memoize
     def help_url(self):
         """Return the URL to the current online help page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
         return '%s/help' % self._base_url()
 
-    @reify
+    @property
+    @memoize
     def about_url(self):
         """Return the URL to the current online about page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
         return '%s/about' % self._base_url()
 
-    @reify
+    @property
+    @memoize
     def authenticated(self):
         """Check if the current user is authenticated."""
         user = getSecurityManager().getUser()
         return user is not None and user.getUserName() != 'Anonymous User'
 
-    @reify
+    @property
+    @memoize
     def country_url(self):
         """Return the absolute URL for country page."""
         sector = self.sector
@@ -459,12 +472,14 @@ class WebHelpers(BrowserView):
 
         return None
 
-    @reify
+    @property
+    @memoize
     def session_overview_url(self):
         """Return the absolute URL for the session overview."""
         return self.country_url
 
-    @reify
+    @property
+    @memoize
     def sector_url(self):
         """Return the URL for the current survey."""
         sector = self.sector
@@ -472,7 +487,8 @@ class WebHelpers(BrowserView):
             return None
         return sector.absolute_url()
 
-    @reify
+    @property
+    @memoize
     def _survey(self):
         survey = getattr(self.request, 'survey', None)
         if survey is not None:
@@ -521,12 +537,14 @@ class WebHelpers(BrowserView):
         elems.reverse()
         return "/".join(elems)
 
-    @reify
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
 
-    @reify
+    @property
+    @memoize
     def appendix_documents(self):
         """Return a list of items to be shown in the appendix."""
         documents = api.portal.get().documents
@@ -553,7 +571,8 @@ class WebHelpers(BrowserView):
                  'title': page.Title()}
                 for page in appendix.values()]
 
-    @reify
+    @property
+    @memoize
     def is_iphone(self):
         """Check if the current request is from an iPhone or similar device
         (such as an iPod touch).
@@ -566,7 +585,8 @@ class WebHelpers(BrowserView):
         months = calendar.monthContexts['format'].months[length]
         return sorted(months.items())
 
-    @reify
+    @property
+    @memoize
     def get_sector_logo(self):
         sector = self.sector
         if sector is None:
