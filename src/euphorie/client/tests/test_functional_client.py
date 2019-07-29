@@ -31,9 +31,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         commit()
         self.request.response.setHeader('X-Theme-Disabled', '1')
         browser = self.get_browser()
-        url = self.portal.client.nl["sector-title"][
-            "survey-title"
-        ].absolute_url()  # noqa: E501
+        url = self.portal.client.nl["sector-title"]["survey-title"].absolute_url()
         browser.open(url)
         registerUserInClient(browser)
         # Create a new survey session
