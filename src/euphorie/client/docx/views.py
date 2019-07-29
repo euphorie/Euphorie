@@ -30,13 +30,6 @@ class OfficeDocumentView(BrowserView):
     _compiler = None
     _content_type = ''
 
-    @property
-    @memoize
-    def session(self):
-        ''' Return the session for this context/request
-        '''
-        return SessionManager.session
-
     def get_data(self, for_download=False):
         ''' Return the data for the compiler
         '''
@@ -60,7 +53,7 @@ class OfficeDocumentView(BrowserView):
             survey.
         """
         query = Session.query(model.SurveyTreeItem).filter(
-            model.SurveyTreeItem.session == self.session).filter(
+            model.SurveyTreeItem.session == self.context.session).filter(
             sql.not_(model.SKIPPED_PARENTS)).filter(
                 sql.or_(
                     model.MODULE_WITH_RISK_OR_TOP5_FILTER,
@@ -75,7 +68,7 @@ class OfficeDocumentView(BrowserView):
         '''
         sql_modules = Session.query(model.Module).filter(
             and_(
-                model.SurveyTreeItem.session == self.session,
+                model.SurveyTreeItem.session == self.context.session,
                 # model.Module.zodb_path != u'custom-risks',
             )
         ).order_by(
@@ -146,7 +139,7 @@ class OfficeDocumentView(BrowserView):
                     existing_measures.append((text, on))
 
                 measures = [item[0] for item in existing_measures if item[1]]
-            except:
+            except Exception:
                 measures = []
             if risk and (
                 sql_risk.identification == 'no' or
@@ -251,7 +244,7 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     def get_sorted_nodes(self):
         nodes = self.get_session_nodes()
-        session = SessionManager.session
+        session = self.context.session
 
         actioned_nodes = utils.get_actioned_nodes(nodes)
         unactioned_nodes = utils.get_unactioned_nodes(nodes)
@@ -275,10 +268,10 @@ class ActionPlanDocxView(OfficeDocumentView):
     def get_data(self, for_download=False):
         ''' Gets the data structure in a format suitable for `DocxCompiler`
         '''
-
+        session = self.context.session
         data = {
-            'title': self.session.title,
-            'heading': self.get_heading(self.session.title),
+            'title': session.title,
+            'heading': self.get_heading(session.title),
             'section_headings': self.get_section_headings(),
             'nodes': self.get_sorted_nodes(),
             'survey_title': self.request.survey.title,
@@ -294,7 +287,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         filename = _(
             "filename_report_actionplan",
             default=u"Action plan ${title}",
-            mapping={'title': self.session.title}
+            mapping={'title': self.context.session.title}
         )
         filename = translate(filename, context=self.request)
         return filename.encode('utf8') + '.docx'
@@ -312,7 +305,7 @@ class IdentificationReportDocxView(OfficeDocumentView):
             survey.
         """
         query = Session.query(model.SurveyTreeItem).filter(
-            model.SurveyTreeItem.session == self.session).filter(
+            model.SurveyTreeItem.session == self.context.session).filter(
                 sql.not_(model.SKIPPED_PARENTS)
             ).order_by(model.SurveyTreeItem.path)
 
@@ -323,9 +316,9 @@ class IdentificationReportDocxView(OfficeDocumentView):
         '''
 
         data = {
-            'title': self.session.title,
+            'title': self.context.session.title,
             'heading': '',
-            'section_headings': [self.session.title],
+            'section_headings': [self.context.session.title],
             'nodes': [self.get_session_nodes()],
         }
         return data
@@ -337,6 +330,6 @@ class IdentificationReportDocxView(OfficeDocumentView):
         filename = _(
             "filename_report_identification",
             default=u"Identification report ${title}",
-            mapping=dict(title=self.session.title))
+            mapping=dict(title=self.context.session.title))
         filename = translate(filename, context=self.request)
         return filename.encode('utf8') + '.docx'

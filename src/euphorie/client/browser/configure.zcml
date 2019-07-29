@@ -76,6 +76,15 @@
       />
 
   <browser:page
+      name="identification"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Identification"
+      template="templates/identification.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_date"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"

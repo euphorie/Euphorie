@@ -192,7 +192,8 @@ class DocxCompiler(BaseOfficeCompiler):
             if not nodes:
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
-        survey = request.survey
+
+        survey = self.context.aq_parent
 
         header = self.template.sections[self.sections_offset].header
         header_table = header.tables[0]
@@ -221,7 +222,7 @@ class DocxCompiler(BaseOfficeCompiler):
         doc = self.template
         doc.add_paragraph(heading, style="Heading 1")
 
-        survey = self.request.survey
+        survey = self.context.aq_parent
         for node in nodes:
             zodb_node = None
             if node.zodb_path == 'custom-risks':
@@ -735,7 +736,7 @@ class IdentificationReportCompiler(DocxCompiler):
     def set_session_title_row(self, data):
 
         request = self.request
-        survey = request.survey
+        survey = self.context.aq_parent
 
         # Remove existing paragraphs
         for paragraph in self.template.paragraphs:

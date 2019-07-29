@@ -5,6 +5,8 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
+from euphorie.client.navigation import FindFirstQuestion
+from euphorie.client.navigation import getTreeData
 from euphorie.client.profile import extractProfile
 from euphorie.client.profile import set_session_profile
 from euphorie.content.profilequestion import IProfileQuestion
@@ -14,10 +16,12 @@ from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from plone.supermodel import model
 from Products.Five import BrowserView
+from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
+from zope.component import getUtility
 from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -314,6 +318,65 @@ class Update(Profile):
     detailed instructions for the user.
     """
     next_view_name = "@@identification"
+
+
+class Identification(BrowserView):
+    """Survey identification start page.
+
+    This view shows the introduction text for the identification phase. This
+    includes an option to print a report with all questions.
+
+    This view is registered for :py:class:`PathGhost` instead of
+    :py:obj:`euphorie.content.survey.ISurvey` since the
+    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
+    for the *identification* component of the URL.
+
+    View name: @@identification
+    """
+    variation_class = "variation-risk-assessment"
+
+    question_filter = None
+
+    @property
+    def next_url(self):
+        # XXX
+        pass
+
+    @property
+    def tree(self):
+        question = FindFirstQuestion(filter=self.question_filter)
+        return getTreeData(self.request, question)
+
+    def XXXupdate(self):
+        pass
+        # self.next_url = None
+        # if redirectOnSurveyUpdate(self.request):
+        #     return
+        # self.survey = survey = aq_parent(aq_inner(self.context))
+        # question = FindFirstQuestion(filter=self.question_filter)
+        # if question is not None:
+        #     self.next_url = QuestionURL(
+        #         survey, question, phase="identification"
+        #     )
+        #     self.tree = getTreeData(self.request, question)
+
+    @property
+    def extra_text(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        have_extra = settings.get('extra_text_identification', False)
+        if not have_extra:
+            return None
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
+        # translating the date under plone locales, we reduce to generic "nl".
+        # For the specific oira translation, we rewrite to "nl_BE"
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return translate(
+            _(u"extra_text_identification", default=u""), target_language=lang
+        )
 
 
 class DeleteSession(BrowserView):
