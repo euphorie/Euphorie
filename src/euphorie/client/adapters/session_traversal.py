@@ -5,6 +5,8 @@ from euphorie.client.model import SurveySession
 from euphorie.content.survey import ISurvey
 from OFS.Traversable import Traversable
 from plone.memoize.instance import memoizedproperty
+from sqlalchemy.orm.exc import NoResultFound
+from zExceptions import NotFound
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -31,11 +33,14 @@ class TraversedSurveySession(Implicit, Traversable):
 
     @memoizedproperty
     def session(self):
-        return (
-            Session.query(SurveySession)
-            .filter(SurveySession.id == self.session_id)
-            .one()
-        )
+        try:
+            return (
+                Session.query(SurveySession)
+                .filter(SurveySession.id == self.session_id)
+                .one()
+            )
+        except NoResultFound:
+            raise NotFound
 
 
 @adapter(ISurvey, IBrowserRequest)

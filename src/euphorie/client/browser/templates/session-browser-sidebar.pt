@@ -114,7 +114,7 @@
                   >${session/title}</a>
                   <span class="icons field">
                     <a class="iconified icon-ellipsis pat-tooltip inactive"
-                       href="${tool/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                       href="${tool/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
                        i18n:translate=""
                     >More</a>

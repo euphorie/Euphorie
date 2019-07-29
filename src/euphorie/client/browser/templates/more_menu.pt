@@ -10,16 +10,16 @@
     >
       <ul class="menu"
           tal:define="
+            sessionid view/session/id;
             webhelpers view/webhelpers;
-            sessionid request/sessionid|webhelpers/session_id;
-            can_delete python:webhelpers.can_delete_session(sessionid=sessionid);
+            can_delete view/can_delete_session;
             can_duplicate python:webhelpers.can_duplicate_session(sessionid=sessionid);
-            delete_url string:${webhelpers/country_url}/@@confirmation-delete-session?id=${sessionid}#document-content;
-            clone_url string:${webhelpers/country_url}/@@confirmation-clone-session?id=${sessionid}#document-content;
+            delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
+            clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
           "
       >
         <li>
-          <a class="icon-trash pat-modal ${python: not can_delete and 'disabled' or ''}"
+          <a class="close-panel icon-trash pat-modal ${python: not can_delete and 'disabled' or ''}"
              href="${python:can_delete and delete_url or None}"
              title="Delete this session"
              i18n:attributes="title"
@@ -27,7 +27,7 @@
           >Delete</a>
         </li>
         <li tal:condition="webhelpers/use_clone_feature">
-          <a class="pat-modal icon-clone ${python: not can_duplicate and 'disabled' or ''}"
+          <a class="close-panel pat-modal icon-clone ${python: not can_duplicate and 'disabled' or ''}"
              href="${python: can_duplicate and clone_url or None}"
              title="By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
              i18n:attributes="title"

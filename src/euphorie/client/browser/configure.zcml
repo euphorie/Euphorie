@@ -215,7 +215,7 @@
   <!-- More menu / badge -->
   <browser:page
       name="more_badge"
-      for="euphorie.content.survey.ISurvey"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       template="templates/more_badge.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
@@ -223,7 +223,7 @@
 
   <browser:page
       name="more_menu"
-      for="euphorie.content.survey.ISurvey"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".survey.Start"
       template="templates/more_menu.pt"
@@ -241,10 +241,18 @@
 
   <browser:page
       name="confirmation-delete-session"
-      for="euphorie.client.country.IClientCountry"
-      permission="zope2.View"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
       class=".country.ConfirmationDeleteSession"
       template="templates/confirmation-delete-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="delete-session"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.DeleteSession"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

@@ -44,31 +44,6 @@ class ClientCountry(dexterity.Container):
     country_type = None
 
 
-class DeleteSession(grok.View):
-    """View name: @@delete-session
-    """
-    grok.context(IClientCountry)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("delete-session")
-
-    def render(self):
-        session = Session()
-        ss = session.query(SurveySession).get(self.request.form["id"])
-        if ss is not None:
-            flash = IStatusMessage(self.request).addStatusMessage
-            flash(
-                _(
-                    u"Session `${name}` has been deleted.",
-                    mapping={
-                        "name": getattr(ss, 'title')
-                    }
-                ), "success"
-            )
-            session.delete(ss)
-        self.request.response.redirect(self.context.absolute_url())
-
-
 class RenameSessionSchema(form.Schema):
     title = schema.TextLine(required=False)
 

@@ -15,6 +15,8 @@ from plone.memoize.view import memoize_contextless
 from plone.supermodel import model
 from Products.Five import BrowserView
 from z3c.form.form import EditForm
+from z3c.saconfig import Session
+from zExceptions import Unauthorized
 from zope import schema
 from zope.event import notify
 from zope.i18n import translate
@@ -312,6 +314,29 @@ class Update(Profile):
     detailed instructions for the user.
     """
     next_view_name = "@@identification"
+
+
+class DeleteSession(BrowserView):
+    """View name: @@delete-session
+    """
+
+    def __call__(self):
+        start_view = api.content.get_view("start", self.context, self.request)
+        if not start_view.can_delete_session:
+            raise Unauthorized()
+
+        Session.delete(self.context.session)
+        api.portal.show_message(
+                _(
+                    u"Session `${name}` has been deleted.",
+                    mapping={
+                        "name": self.context.session.title
+                    }
+                ),
+                self.request,
+                "success"
+        )
+        self.request.response.redirect(self.context.aq_parent.absolute_url())
 
 
 class PublicationMenu(BrowserView):

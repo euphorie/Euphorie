@@ -498,18 +498,9 @@ class ConfirmationDeleteSession(BrowserView):
     @property
     @memoize_contextless
     def session_title(self):
-        try:
-            self.session_id = int(self.request.get("id"))
-        except (ValueError, TypeError):
-            raise KeyError("Invalid session id")
-        session = (
-            Session.query(SurveySession)
-            .filter(SurveySession.id == self.session_id)
-            .one()
-        )
-        if session is None:
-            raise KeyError("Unknown session id")
-        if not self.webhelpers.can_delete_session(session):
+        session = self.context.session
+        start_view = api.content.get_view("start", self.context, self.request)
+        if not start_view.can_delete_session:
             raise Unauthorized()
         return session.title
 
