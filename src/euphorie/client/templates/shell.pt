@@ -156,7 +156,7 @@
                     "
                 >
                   <a class="preparation pat-switch pat-inject"
-                     href="${survey_url}/start#content"
+                     href="${here/absolute_url}/@@start#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -175,7 +175,7 @@
                     "
                 >
                   <a class="identification pat-switch pat-inject"
-                     href="${survey_url}/identification#content"
+                     href="${here/absolute_url}/@@identification#content"
                      data-pat-inject="history: record;"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -202,7 +202,7 @@
                 >
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
                   <a class="action-plan pat-switch pat-inject"
-                     href="${survey_url}/actionplan#content"
+                     href="${here/absolute_url}/@@actionplan#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -227,7 +227,7 @@
                 >
                   <!-- TODO: check if guest -->
                   <a class="report pat-switch pat-inject"
-                     href="${survey_url}/report#content"
+                     href="${here/absolute_url}/@@report#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -248,7 +248,7 @@
                     tal:condition="webhelpers/use_training_module"
                 >
                   <a class="training pat-inject pat-switch"
-                     href="${survey_url}/training#content"
+                     href="${here/absolute_url}/@@training#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -269,7 +269,7 @@
                     "
                 >
                   <a class="status pat-switch pat-inject"
-                     href="${survey_url}/status#content"
+                     href="${here/absolute_url}/@@status#content"
                      data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
