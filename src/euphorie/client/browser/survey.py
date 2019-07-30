@@ -5,10 +5,10 @@ from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
-from euphorie.client.navigation import FindFirstQuestion
+from euphorie.client.model import SKIPPED_PARENTS
+from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import getTreeData
 from euphorie.client.profile import extractProfile
-from euphorie.client.profile import set_session_profile
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
@@ -16,6 +16,7 @@ from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from plone.supermodel import model
 from Products.Five import BrowserView
+from sqlalchemy import sql
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
@@ -32,8 +33,8 @@ import re
 class IStartFormSchema(model.Schema):
     title = schema.TextLine(
         title=_(
-            "label_session_title",
-            default=u"Enter a title for your Risk Assessment"),
+            "label_session_title", default=u"Enter a title for your Risk Assessment"
+        ),
         required=True,
     )
 
@@ -54,7 +55,8 @@ class SurveySessionsView(SessionsView):
         my_sessions = sorted(
             [x for x in sessions if x.zodb_path == my_path],
             key=lambda s: s.modified,
-            reverse=True)
+            reverse=True,
+        )
         return my_sessions
 
 
@@ -67,6 +69,7 @@ class Start(AutoExtensibleForm, EditForm):
 
     View name: @@start
     """
+
     ignoreContext = True
     schema = IStartFormSchema
     variation_class = "variation-risk-assessment"
@@ -78,11 +81,7 @@ class Start(AutoExtensibleForm, EditForm):
     @property
     @memoize
     def webhelpers(self):
-        return api.content.get_view(
-            'webhelpers',
-            self.context,
-            self.request,
-        )
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
     @memoize
@@ -121,7 +120,7 @@ class Start(AutoExtensibleForm, EditForm):
         return self.can_edit_session
 
     def is_new_session(self):
-        if self.request.get('new_session'):
+        if self.request.get("new_session"):
             return True
         return self.session.children().count() == 0
 
@@ -137,16 +136,13 @@ class Start(AutoExtensibleForm, EditForm):
 
     def update(self):
         super(Start, self).update()
-        lang = getattr(self.request, 'LANGUAGE', 'en')
+        lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         self.message_required = translate(
-            _(
-                u"message_field_required",
-                default=u"Please fill out this field."
-            ),
-            target_language=lang
+            _(u"message_field_required", default=u"Please fill out this field."),
+            target_language=lang,
         )
         if self.request.environ["REQUEST_METHOD"] != "POST":
             return
@@ -165,7 +161,7 @@ class Start(AutoExtensibleForm, EditForm):
             api.portal.show_message(
                 _("Session data successfully updated"),
                 request=self.request,
-                type='success',
+                type="success",
             )
         # Optimize: if the form was auto-submitted, we know that we want to
         # show the "start" page again
@@ -188,7 +184,7 @@ class Profile(AutoExtensibleForm, EditForm):
 
     id_patt = re.compile("pq([0-9]*)\.present")
     variation_class = "variation-risk-assessment"
-    next_view_name = "@@start"
+    next_view_name = "@@identification"
 
     @property
     def template(self):
@@ -213,33 +209,34 @@ class Profile(AutoExtensibleForm, EditForm):
             question = self.context.get(id)
             if not IProfileQuestion.providedBy(question):
                 continue
-            if getattr(question, 'use_location_question', True):
+            if getattr(question, "use_location_question", True):
                 # Ignore questions found via the id pattern if they profile
                 # is repeatable
                 if match:
                     continue
-                if not self.request.form.get("pq{0}.present".format(id), ''
-                                             ) == 'yes':
+                if not self.request.form.get("pq{0}.present".format(id), "") == "yes":
                     continue
                 if isinstance(answer, list):
                     profile[id] = filter(None, (a.strip() for a in answer))
-                    if not self.request.form.get(
-                        "pq{0}.multiple".format(id), ''
-                    ) == 'yes':
+                    if (
+                        not self.request.form.get("pq{0}.multiple".format(id), "")
+                        == "yes"
+                    ):
                         profile[id] = profile[id][:1]
                 else:
                     profile[id] = answer
             else:
-                profile[id] = answer in (True, 'yes')
+                profile[id] = answer in (True, "yes")
         return profile
 
     def setupSession(self):
         """Setup the session for the context survey. This will rebuild the
         session tree if the profile has changed.
         """
-        survey = self.context.aq_parent
-        new_profile = self.getDesiredProfile()
-        return set_session_profile(survey, self.session, new_profile)
+        return self.session  # XXX this has to be checked
+        # survey = self.context.aq_parent
+        # new_profile = self.getDesiredProfile()
+        # return set_session_profile(survey, self.session, new_profile)
 
     @property
     @memoize
@@ -257,24 +254,30 @@ class Profile(AutoExtensibleForm, EditForm):
         - ``label_single_occurance``: label for single occurance
         - ``label_multiple_occurances``: label for multiple occurance
         """
-        return [{
-            'id': child.id,
-            'title': child.title,
-            'question': child.question or child.title,
-            'use_location_question': getattr(child, 'use_location_question', True),
-            'label_multiple_present': getattr(
-                child, 'label_multiple_present',
-                _(u'Does this happen in multiple places?')
-            ),
-            'label_single_occurance': getattr(
-                child, 'label_single_occurance',
-                _(u'Enter the name of the location')
-            ),
-            'label_multiple_occurances': getattr(
-                child, 'label_multiple_occurances',
-                _(u'Enter the names of each location')
-            ),
-        } for child in self.context.ProfileQuestions()]
+        return [
+            {
+                "id": child.id,
+                "title": child.title,
+                "question": child.question or child.title,
+                "use_location_question": getattr(child, "use_location_question", True),
+                "label_multiple_present": getattr(
+                    child,
+                    "label_multiple_present",
+                    _(u"Does this happen in multiple places?"),
+                ),
+                "label_single_occurance": getattr(
+                    child,
+                    "label_single_occurance",
+                    _(u"Enter the name of the location"),
+                ),
+                "label_multiple_occurances": getattr(
+                    child,
+                    "label_multiple_occurances",
+                    _(u"Enter the names of each location"),
+                ),
+            }
+            for child in self.context.ProfileQuestions()
+        ]
 
     @property
     def session(self):
@@ -286,18 +289,15 @@ class Profile(AutoExtensibleForm, EditForm):
         return extractProfile(self.context.aq_parent, self.session)
 
     def update(self):
-        lang = getattr(self.request, 'LANGUAGE', 'en')
+        lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         self.message_required = translate(
-            _(
-                u"message_field_required",
-                default=u"Please fill out this field."
-            ),
-            target_language=lang
+            _(u"message_field_required", default=u"Please fill out this field."),
+            target_language=lang,
         )
-        if (not self.profile_questions or self.request.method == "POST"):
+        if not self.profile_questions or self.request.method == "POST":
             new_session = self.setupSession()
             self.request.response.redirect(
                 "{base_url}/++session++{session_id}/{target}".format(
@@ -317,6 +317,7 @@ class Update(Profile):
     (see the :py:class:`Profile` view), but uses a different template with more
     detailed instructions for the user.
     """
+
     next_view_name = "@@identification"
 
 
@@ -333,41 +334,47 @@ class Identification(BrowserView):
 
     View name: @@identification
     """
+
     variation_class = "variation-risk-assessment"
 
     question_filter = None
 
     @property
     def next_url(self):
-        # XXX
-        pass
+        return "{context_url}/{question_path}/@@{view}".format(
+            context_url=self.context.absolute_url(),
+            question_path=self.first_question.id,
+            view=self.__name__,
+        )
+
+    @property
+    @memoize
+    def first_question(self):
+        session = self.context.session
+        query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session == session)
+            .filter(sql.not_(SKIPPED_PARENTS))
+        )
+        if self.question_filter:
+            query = query.filter(self.question_filter)
+        return query.order_by(SurveyTreeItem.path).first()
 
     @property
     def tree(self):
-        question = FindFirstQuestion(filter=self.question_filter)
-        return getTreeData(self.request, question)
-
-    def XXXupdate(self):
-        pass
-        # self.next_url = None
-        # if redirectOnSurveyUpdate(self.request):
-        #     return
-        # self.survey = survey = aq_parent(aq_inner(self.context))
-        # question = FindFirstQuestion(filter=self.question_filter)
-        # if question is not None:
-        #     self.next_url = QuestionURL(
-        #         survey, question, phase="identification"
-        #     )
-        #     self.tree = getTreeData(self.request, question)
+        question = self.first_question
+        if not question:
+            return
+        return getTreeData(self.request, question, survey=self.context.aq_parent)
 
     @property
     def extra_text(self):
         appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        have_extra = settings.get('extra_text_identification', False)
+        settings = appconfig.get("euphorie")
+        have_extra = settings.get("extra_text_identification", False)
         if not have_extra:
             return None
-        lang = getattr(self.request, 'LANGUAGE', 'en')
+        lang = getattr(self.request, "LANGUAGE", "en")
         # Special handling for Flemish, for which LANGUAGE is "nl-be". For
         # translating the date under plone locales, we reduce to generic "nl".
         # For the specific oira translation, we rewrite to "nl_BE"
@@ -390,48 +397,39 @@ class DeleteSession(BrowserView):
 
         Session.delete(self.context.session)
         api.portal.show_message(
-                _(
-                    u"Session `${name}` has been deleted.",
-                    mapping={
-                        "name": self.context.session.title
-                    }
-                ),
-                self.request,
-                "success"
+            _(
+                u"Session `${name}` has been deleted.",
+                mapping={"name": self.context.session.title},
+            ),
+            self.request,
+            "success",
         )
         self.request.response.redirect(self.context.aq_parent.absolute_url())
 
 
 class PublicationMenu(BrowserView):
-
     @property
     @memoize
     def webhelpers(self):
-        return api.content.get_view(
-            'webhelpers',
-            self.context,
-            self.request,
-        )
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
     @memoize_contextless
     def portal(self):
-        ''' The currenttly authenticated account
-        '''
+        """ The currenttly authenticated account
+        """
         return api.portal.get()
 
     def notify_modified(self, session):
         notify(ObjectModifiedEvent(session))
 
     def redirect(self):
-        target = (
-            self.request.get('HTTP_REFERER') or self.context.absolute_url()
-        )
+        target = self.request.get("HTTP_REFERER") or self.context.absolute_url()
         return self.request.response.redirect(target)
 
     def reset_date(self, sessionid):
-        ''' Reset the session date to now
-        '''
+        """ Reset the session date to now
+        """
         session = self.session(sessionid)
         session.published = datetime.now()
         session.last_publisher = get_current_account()
@@ -439,13 +437,13 @@ class PublicationMenu(BrowserView):
         return self.redirect()
 
     def set_date(self, sessionid):
-        ''' Set the session date to now
-        '''
+        """ Set the session date to now
+        """
         return self.reset_date(sessionid)
 
     def unset_date(self, sessionid):
-        ''' Unset the session date
-        '''
+        """ Unset the session date
+        """
         session = self.session(sessionid)
         session.published = None
         session.last_publisher = None

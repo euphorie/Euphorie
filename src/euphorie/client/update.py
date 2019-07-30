@@ -161,17 +161,3 @@ def wasSurveyUpdated(session, survey):
         return False
 
     return True
-
-
-def redirectOnSurveyUpdate(request):
-    """Utility method for views to check if a survey has been updated,
-    and if so redirect the user to the update confirmation page is
-    generated. The return value is `True` if an update is required and
-    `False` otherwise."""
-    survey = request.survey
-    dbsession = SessionManager.session
-    if not wasSurveyUpdated(dbsession, survey):
-        return False
-
-    request.response.redirect("%s/update?initial_view=1" % survey.absolute_url())
-    return True

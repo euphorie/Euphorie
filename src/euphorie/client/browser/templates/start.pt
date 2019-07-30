@@ -108,7 +108,7 @@
                tal:omit-tag="not:context/external_site_url | nothing"
             >
               <tal:img define="
-                scales context/@@images;
+                scales context/aq_parent/@@images;
                 scale python: scales.scale('external_site_logo', scale='large')">
                 <img src="${scale/url}" />
               </tal:img>

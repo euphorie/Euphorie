@@ -21,7 +21,6 @@ from euphorie.client.company import CompanySchema
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
-from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.survey import get_tool_type
@@ -333,7 +332,7 @@ class ReportView(grok.View):
     variation_class = "variation-risk-assessment"
 
     def update(self):
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
         self.session = SessionManager.session
 
@@ -458,7 +457,7 @@ class IdentificationReport(grok.View):
 
     def update(self):
         self.session = SessionManager.session
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
         self.nodes = self.getNodes()
 

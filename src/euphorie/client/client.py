@@ -88,7 +88,7 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
         setRequest(request)
-        request.client = self.context
+        request.client = self.context  # XXX: remove me
 
         if name == 'api':
             return access_api(request).__of__(self.context)

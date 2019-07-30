@@ -3,7 +3,6 @@ from euphorie.client.session import SessionManager
 from logging import getLogger
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from euphorie.client.update import redirectOnSurveyUpdate
 
 logger = getLogger(__name__)
 
@@ -24,7 +23,7 @@ class TrainingView(BrowserView):
     variation_class = "variation-risk-assessment"
 
     def __call__(self):
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
         pptx_view = self.context.restrictedTraverse('pptx', None)
         if pptx_view:

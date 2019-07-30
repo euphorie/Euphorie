@@ -5,7 +5,6 @@ Risk
 
 Views for the identification and action plan phases.
 """
-
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -19,7 +18,6 @@ from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.navigation import QuestionURL
 from euphorie.client.session import SessionManager
-from euphorie.client.update import redirectOnSurveyUpdate
 from euphorie.client.utils import HasText
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
@@ -29,6 +27,7 @@ from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
+from plone import api
 from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
@@ -41,7 +40,9 @@ from z3c.saconfig import Session
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.i18n import translate
+
 import datetime
+
 
 IMAGE_CLASS = {
     0: '',
@@ -78,18 +79,21 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def webhelpers(self):
-        return self.context.restrictedTraverse('webhelpers')
+        return api.content.get_view(
+            "webhelpers", self.context.aq_parent, self.request,
+        )
 
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        if not (
-            self.webhelpers.can_edit_session()
-        ):
+        start_view = api.content.get_view(
+            "start", self.context.aq_parent, self.request,
+        )
+        if not start_view.can_edit_session:
             return self.request.response.redirect(
-                self.webhelpers.survey_url() + '/@@start'
+                "{session_url}/@@start".format(self.context.aq_parent.absolute_url())
             )
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
 
         if self.is_custom_risk:
@@ -98,8 +102,7 @@ class IdentificationView(BrowserView):
             # path = "/".join(self.context.zodb_path.split('/')[:-1])
             self.risk = None
         else:
-            self.risk = self.request.survey.restrictedTraverse(
-                self.context.zodb_path.split("/"))
+            self.risk = self.context.tree_item
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
@@ -227,9 +230,19 @@ class IdentificationView(BrowserView):
                 template = self.template
             return template()
 
+    @property
+    def tree(self):
+        return getTreeData(
+            self.request,
+            self.context.tree_item,
+            survey=self.context.aq_parent.aq_parent
+        )
+
+    @property
+    def title(self):
+        return self.context.tree_item.parent.title
+
     def _prepare_risk(self):
-        self.tree = getTreeData(self.request, self.context)
-        self.title = self.context.parent.title
         has_risk_description = (
             (self.risk and HasText(self.risk.description)) or
             getattr(self.context, 'custom_description', '')
@@ -312,14 +325,15 @@ class IdentificationView(BrowserView):
                 self.context.existing_measures = safe_unicode(
                     dumps(existing_measures))
 
-        if getattr(self.request.survey, 'enable_custom_evaluation_descriptions', False):
-            if self.request.survey.evaluation_algorithm != 'french':
+        survey = self.context.aq_parent.aq_parent
+        if getattr(survey, 'enable_custom_evaluation_descriptions', False):
+            if survey.evaluation_algorithm != 'french':
                 custom_dp = getattr(
-                    self.request.survey, 'description_probability', '') or ''
+                    survey, 'description_probability', '') or ''
                 self.description_probability = custom_dp.strip() or self.description_probability
-            custom_df = getattr(self.request.survey, 'description_frequency', '') or ''
+            custom_df = getattr(survey, 'description_frequency', '') or ''
             self.description_frequency = custom_df.strip() or self.description_frequency
-            custom_ds = getattr(self.request.survey, 'description_severity', '') or ''
+            custom_ds = getattr(survey, 'description_severity', '') or ''
             self.description_severity = custom_ds.strip() or self.description_severity
 
         # compute training side template
@@ -333,6 +347,7 @@ class IdentificationView(BrowserView):
             self.skip_evaluation = True
 
     def proceed_to_next(self, reply):
+        survey = self.context.aq_parent.aq_parent
         if reply.get("next", None) == "previous":
             next = FindPreviousQuestion(
                 self.context,
@@ -340,7 +355,7 @@ class IdentificationView(BrowserView):
             if next is None:
                 # We ran out of questions, step back to intro page
                 url = "%s/identification" % \
-                    self.request.survey.absolute_url()
+                    survey.absolute_url()
                 self.request.response.redirect(url)
                 return
         elif reply.get("next", None) in ("next", "skip"):
@@ -349,7 +364,7 @@ class IdentificationView(BrowserView):
                 filter=self.question_filter)
             if next is None:
                 # We ran out of questions, proceed to the action plan
-                url = "%s/actionplan" % self.request.survey.absolute_url()
+                url = "%s/actionplan" % survey.absolute_url()
                 self.request.response.redirect(url)
                 return
 
@@ -363,7 +378,7 @@ class IdentificationView(BrowserView):
             )
             if not sql_module_q.count():
                 url = QuestionURL(
-                    self.request.survey, self.context, phase="identification")
+                    survey, self.context, phase="identification")
                 self.request.response.redirect(url)
                 return
             sql_module = sql_module_q.one()
@@ -374,14 +389,14 @@ class IdentificationView(BrowserView):
             self.request.response.redirect(url)
             return
         elif reply.get("next", None) == "actionplan":
-            url = "%s/actionplan" % self.request.survey.absolute_url()
+            url = "%s/actionplan" % survey.absolute_url()
             self.request.response.redirect(url)
             return
         # stay on current risk
         else:
             next = self.context
 
-        url = QuestionURL(self.request.survey, next, phase="identification")
+        url = QuestionURL(survey, next, phase="identification")
         self.request.response.redirect(url)
 
     def get_existing_measures(self):
@@ -427,14 +442,13 @@ class IdentificationView(BrowserView):
 
     @property
     def use_problem_description(self):
-        risk = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
+        risk = self.context.tree_item
         text = risk.problem_description
         return bool(text and text.strip())
 
     @property
     def is_custom_risk(self):
-        return getattr(self.context, 'is_custom_risk', False)
+        return self.context.tree_item.is_custom_risk
 
     def evaluation_algorithm(self, risk):
         return evaluation_algorithm(risk)
@@ -526,7 +540,7 @@ class ActionPlanView(BrowserView):
 
     @property
     def is_custom_risk(self):
-        return getattr(self.context, 'is_custom_risk', False)
+        return self.context.tree_item.is_custom_risk
 
     @property
     def use_problem_description(self):
@@ -534,8 +548,7 @@ class ActionPlanView(BrowserView):
             return False
         if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
             return False
-        risk = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
+        risk = self.context.tree_item
         text = risk.problem_description
         return bool(text and text.strip())
 
@@ -558,15 +571,14 @@ class ActionPlanView(BrowserView):
             return self.request.response.redirect(
                 self.webhelpers.survey_url() + '/@@start'
             )
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
         context = aq_inner(self.context)
 
         if self.context.is_custom_risk:
             self.risk = self.context
         else:
-            self.risk = self.request.survey.restrictedTraverse(
-                context.zodb_path.split("/"))
+            self.risk = self.context.tree_item
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
@@ -581,27 +593,34 @@ class ActionPlanView(BrowserView):
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
         # need to switch off the sidebar
-        next = FindNextQuestion(
+        next_question = FindNextQuestion(
             context, filter=self.risk_filter)
-        if next is None:
+        if next_question is None:
             # We ran out of questions, proceed to the report
-            url = "%s/report" % self.request.survey.absolute_url()
+            url = "{session_url}/@@report".format(
+                session_url=self.context.aq_parent.absolute_url(),
+            )
             self.next_is_report = True
         else:
-            url = QuestionURL(
-                self.request.survey, next, phase="actionplan")
+            url = "{session_url}/{tree_item_id}/@@actionplan".format(
+                tree_item_id=next_question.id,
+                session_url=self.context.aq_parent.absolute_url(),
+            )
 
         previous = FindPreviousQuestion(
             context, filter=self.risk_filter)
         if previous is None:
-            # We ran out of questions, step back to identification phase
-            previous_url = "%s/identification" % self.request.survey.absolute_url()
-            self.previous_is_identification = True
+            previous_url = "{session_url}/@@identification".format(
+                session_url=self.context.aq_parent.absolute_url(),
+            )
         else:
-            previous_url = QuestionURL(
-                self.request.survey, previous, phase="actionplan")
+            previous_url = "{session_url}/{tree_item_id}/@@actionplan".format(
+                tree_item_id=previous.id,
+                session_url=self.context.aq_parent.absolute_url(),
+            )
+            self.previous_is_identification = True
 
-        if self.request.environ["REQUEST_METHOD"] == "POST":
+        if self.request.method == "POST":
             reply = self.request.form
             session = Session()
             context.comment = reply.get("comment")

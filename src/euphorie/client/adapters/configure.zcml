@@ -8,4 +8,9 @@
       factory=".session_traversal.SessionTraversal"
       />
 
+  <adapter
+      factory=".tree_item_traversal.TraversedSessionPublishTraverser"
+      provides="zope.publisher.interfaces.IPublishTraverse"
+    />
+
 </configure>

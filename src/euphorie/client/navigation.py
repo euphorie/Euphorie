@@ -18,29 +18,29 @@ from euphorie.content.interfaces import ICustomRisksModule
 
 
 def QuestionURL(survey, question, phase):
-    return "%s/%s/%s" % (survey.absolute_url(), phase,
-                         "/".join(question.short_path))
+    return "%s/%s/%s" % (survey.absolute_url(), phase, "/".join(question.short_path))
 
 
 def FindFirstQuestion(dbsession=None, filter=None):
     if dbsession is None:
         dbsession = SessionManager.session
-    query = Session.query(model.SurveyTreeItem)\
-            .filter(model.SurveyTreeItem.session == dbsession)\
-            .filter(sql.not_(model.SKIPPED_PARENTS))
+    query = (
+        Session.query(model.SurveyTreeItem)
+        .filter(model.SurveyTreeItem.session == dbsession)
+        .filter(sql.not_(model.SKIPPED_PARENTS))
+    )
     if filter is not None:
         query = query.filter(filter)
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
 def FindNextQuestion(after, dbsession=None, filter=None):
-    if dbsession is None:
-        dbsession = SessionManager.session
-
-    query = Session.query(model.SurveyTreeItem)\
-            .filter(model.SurveyTreeItem.session == dbsession)\
-            .filter(model.SurveyTreeItem.path > after.path)\
-            .filter(sql.not_(model.SKIPPED_PARENTS))
+    query = (
+        Session.query(model.SurveyTreeItem)
+        .filter(model.SurveyTreeItem.session == dbsession)
+        .filter(model.SurveyTreeItem.path > after.path)
+        .filter(sql.not_(model.SKIPPED_PARENTS))
+    )
     # Skip modules without a description.
     if filter is None:
         filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
@@ -54,10 +54,12 @@ def FindPreviousQuestion(after, dbsession=None, filter=None):
     if dbsession is None:
         dbsession = SessionManager.session
 
-    query = Session.query(model.SurveyTreeItem)\
-            .filter(model.SurveyTreeItem.session == dbsession)\
-            .filter(model.SurveyTreeItem.path < after.path)\
-            .filter(sql.not_(model.SKIPPED_PARENTS))
+    query = (
+        Session.query(model.SurveyTreeItem)
+        .filter(model.SurveyTreeItem.session == dbsession)
+        .filter(model.SurveyTreeItem.path < after.path)
+        .filter(sql.not_(model.SKIPPED_PARENTS))
+    )
     # Skip modules without a description.
     if filter is None:
         filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
@@ -78,7 +80,7 @@ def first(func, iter):
         return None
 
 
-def getTreeData(request, context, phase="identification", filter=None):
+def getTreeData(request, context, phase="identification", filter=None, survey=None):
     """Assemble data for a navigation tree
 
     This function returns a nested dictionary structure reflecting the
@@ -114,30 +116,32 @@ def getTreeData(request, context, phase="identification", filter=None):
         root = parent
     parents.reverse()
 
-    base_url = "%s/%s/" % (request.survey.absolute_url(), phase)
-
     def morph(obj):
         number = obj.number
         # The custom risks don't have a real number, but an Omega instead
-        if obj.zodb_path.find('custom-risks') > -1:
-            num_elems = number.split('.')
+        if obj.zodb_path.find("custom-risks") > -1:
+            num_elems = number.split(".")
             number = u".".join([u"Ω"] + num_elems[1:])
-        info = {'id': obj.id,
-                'number': number,
-                'title': obj.title,
-                'active': (
-                    obj.path != context.path and
-                    context.path.startswith(obj.path)),
-                'current': (obj.path == context.path),
-                'current_parent': (obj.path == context.path[:-3]),
-                'path': context.path,
-                'children': [],
-                'type': obj.type,
-                'leaf_module': False,
-                'depth': obj.depth,
-                'url': base_url + "/".join(obj.short_path),
-                'css_id': '',
-                }
+        info = {
+            "id": obj.id,
+            "number": number,
+            "title": obj.title,
+            "active": (obj.path != context.path and context.path.startswith(obj.path)),
+            "current": (obj.path == context.path),
+            "current_parent": (obj.path == context.path[:-3]),
+            "path": context.path,
+            "children": [],
+            "type": obj.type,
+            "leaf_module": False,
+            "depth": obj.depth,
+            "url": "{survey_url}/++session++{session_id}/{obj_id}/@@{phase}".format(
+                survey_url=survey.absolute_url(),
+                session_id=obj.session_id,
+                obj_id=obj.id,
+                phase=phase,
+            ),
+            "css_id": "",
+        }
         cls = []
         for key in ["active", "current", "current_parent"]:
             if info[key]:
@@ -156,18 +160,20 @@ def getTreeData(request, context, phase="identification", filter=None):
 
     # Result is always pointing to the level *above* the current level.
     # At the end it will be the virtual tree root
-    result = {'children': [],
-              'leaf_module': False,
-              'current': False,
-              'id': None,
-              'title': None}
+    result = {
+        "children": [],
+        "leaf_module": False,
+        "current": False,
+        "id": None,
+        "title": None,
+    }
     result["class"] = None
     children = []
     for obj in context.siblings(filter=filter):
         info = morph(obj)
-        if obj.type != 'risk' and obj.zodb_path.find('custom-risks') > -1:
-            info['title'] = title_custom_risks
-            info['css_id'] = "other-risks"
+        if obj.type != "risk" and obj.zodb_path.find("custom-risks") > -1:
+            info["title"] = title_custom_risks
+            info["css_id"] = "other-risks"
         children.append(info)
     result["children"] = children
 
@@ -176,17 +182,13 @@ def getTreeData(request, context, phase="identification", filter=None):
         # As long as the optional question has not been answered, skip
         # showing its children.
         # Only a "Yes" answer will set skip_children to False
-        module = request.survey.restrictedTraverse(
-            context.zodb_path.split("/"))
+        module = survey.restrictedTraverse(context.zodb_path.split("/"))
         # In the custom risks module, we never skip children
         # Due to historical reasons, some custom modules might be set to
         # postponed. Here, we ignore that setting.
         if ICustomRisksModule.providedBy(module):
             context.skip_children = False
-        elif (
-            getattr(module, 'optional', False) and
-            context.postponed in (True, None)
-        ):
+        elif getattr(module, "optional", False) and context.postponed in (True, None):
             context.skip_children = True
         if not context.skip_children:
             # For modules which do not skip children, include the list of
@@ -198,15 +200,19 @@ def getTreeData(request, context, phase="identification", filter=None):
                 # XXX: The check for SurveySession is due to Euphorie tests which don't
                 # have a proper canonical ZODB survey object and don't test the
                 # following OiRA-specific code.
-                if obj.depth == 2 \
-                        and not getattr(obj, 'is_custom_risk', False) \
-                        and not isinstance(request.survey, SurveySession):
-                    module = request.survey.restrictedTraverse(obj.zodb_path.split('/'))
-                    if IProfileQuestion.providedBy(module) and \
-                            not ICustomRisksModule.providedBy(aq_parent(module)):
-                        info['type'] = u'location'
-                        info['children'] = [
-                            morph(sub) for sub in obj.children(filter=filter)]
+                if (
+                    obj.depth == 2
+                    and not getattr(obj, "is_custom_risk", False)
+                    and not isinstance(survey, SurveySession)
+                ):
+                    module = survey.restrictedTraverse(obj.zodb_path.split("/"))
+                    if IProfileQuestion.providedBy(
+                        module
+                    ) and not ICustomRisksModule.providedBy(aq_parent(module)):
+                        info["type"] = u"location"
+                        info["children"] = [
+                            morph(sub) for sub in obj.children(filter=filter)
+                        ]
                 children.append(info)
             me["children"] = children
             types = set([c["type"] for c in me["children"]])
@@ -218,9 +224,9 @@ def getTreeData(request, context, phase="identification", filter=None):
         siblings = []
         for obj in parent.siblings(model.Module, filter=filter):
             info = morph(obj)
-            if obj.zodb_path.find('custom-risks') > -1:
-                info['title'] = title_custom_risks
-                info['css_id'] = "other-risks"
+            if obj.zodb_path.find("custom-risks") > -1:
+                info["title"] = title_custom_risks
+                info["css_id"] = "other-risks"
             siblings.append(info)
         myparent = first(lambda x: x["active"], siblings)
         myparent["children"] = result["children"]
@@ -233,10 +239,11 @@ def getTreeData(request, context, phase="identification", filter=None):
             parent = parents.pop()
             new = morph(parent)
             if isinstance(parent, model.Module) and parent.depth == 2:
-                module = request.survey.restrictedTraverse(parent.zodb_path.split('/'))
-                if IProfileQuestion.providedBy(module) and \
-                        not ICustomRisksModule.providedBy(aq_parent(module)):
-                    new['type'] = u'location'
+                module = survey.restrictedTraverse(parent.zodb_path.split("/"))
+                if IProfileQuestion.providedBy(
+                    module
+                ) and not ICustomRisksModule.providedBy(aq_parent(module)):
+                    new["type"] = u"location"
             new["children"] = result["children"]
             result["children"] = [new]
 
@@ -245,8 +252,8 @@ def getTreeData(request, context, phase="identification", filter=None):
         roots = []
         for obj in parent.siblings(model.Module, filter=filter):
             info = morph(obj)
-            if obj.zodb_path.find('custom-risks') > -1:
-                info['title'] = title_custom_risks
+            if obj.zodb_path.find("custom-risks") > -1:
+                info["title"] = title_custom_risks
             roots.append(info)
 
         myroot = first(lambda x: x["active"], roots)

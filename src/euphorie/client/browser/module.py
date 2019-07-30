@@ -5,16 +5,18 @@ from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.navigation import QuestionURL
-from euphorie.client.session import SessionManager
-from euphorie.client.update import redirectOnSurveyUpdate
+from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from logging import getLogger
+from plone import api
+from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import sql
 from z3c.saconfig import Session
+
 
 logger = getLogger(__name__)
 
@@ -22,7 +24,7 @@ logger = getLogger(__name__)
 class Mixin(object):
 
     def get_custom_risks(self):
-        session = SessionManager.session
+        session = self.context.aq_parent.session
         query = Session.query(model.Risk).filter(
             sql.and_(
                 model.Risk.is_custom_risk == 't',
@@ -41,59 +43,94 @@ class IdentificationView(BrowserView, Mixin):
     question_filter = None
     template = ViewPageTemplateFile('templates/module_identification.pt')
 
+    @property
+    def tree(self):
+        return getTreeData(
+            self.request,
+            self.context.tree_item,
+            survey=self.context.aq_parent.aq_parent
+        )
+
+    @property
+    @memoize
+    def next_question(self):
+        """ Try to understand what the next question will be
+        """
+        return FindNextQuestion(
+            self.context.tree_item,
+            dbsession=self.context.aq_parent.session,
+            filter=self.question_filter,
+        )
+
+    @property
+    @memoize
+    def next_question_url(self):
+        """ Return the URL to the next question
+        """
+        if not self.next_question:
+            return ""
+        return "{parent_url}/{next_question_id}/@@{view}".format(
+            parent_url=self.context.aq_parent.absolute_url(),
+            next_question_id=self.next_question.id,
+            view=self.__name__,
+        )
+
+    @property
+    @memoize
+    def next_phase_url(self):
+        """ Return the URL to the next question
+        """
+        return "{parent_url}/@@actionplan".format(
+            parent_url=self.context.aq_parent.absolute_url(),
+        )
+
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        if not (
-            self.context.restrictedTraverse('webhelpers').can_edit_session()
-        ):
-
+        start_view = api.content.get_view(
+            "start",
+            self.context.aq_parent,
+            self.request,
+        )
+        if not start_view.can_edit_session:
             return self.request.response.redirect(
-                self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+                self.context.aq_parent.absolute_url() + '/@@start'
             )
-        if redirectOnSurveyUpdate(self.request):
+
+        survey = self.context.aq_parent.aq_parent
+
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
+
         context = aq_inner(self.context)
-        module = self.request.survey.restrictedTraverse(
-            context.zodb_path.split("/"))
+        # XXX maybe just module = context.tree_item
+        module = survey.restrictedTraverse(context.tree_item.zodb_path.split("/"))
         if self.request.environ["REQUEST_METHOD"] == "POST":
-            self.save_and_continue(module)
-        else:
-            if IProfileQuestion.providedBy(module) and context.depth == 2:
-                next = FindNextQuestion(context, filter=self.question_filter)
-                if next is None:
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
-                else:
-                    url = QuestionURL(
-                        self.request.survey, next, phase=self.phase)
-                return self.request.response.redirect(url)
+            return self.save_and_continue(module)
 
-            # elif ICustomRisksModule.providedBy(module) \
-            #         and not self.context.skip_children \
-            #         and len(self.get_custom_risks()):
-            #     url = "%s/customization/%d" % (
-            #         self.request.survey.absolute_url(),
-            #         int(self.context.path))
-            #     return self.request.response.redirect(url)
+        if IProfileQuestion.providedBy(module) and context.depth == 2:
 
-            self.tree = getTreeData(
-                self.request, context, filter=self.question_filter)
-            self.title = module.title
-            self.module = module
-            number_files = 0
-            for i in range(1, 5):
-                number_files += getattr(
-                    self.module, 'file{0}'.format(i), None) and 1 or 0
-            self.has_files = number_files > 0
-            self.next_is_actionplan = not FindNextQuestion(
-                context, filter=self.question_filter)
-            if ICustomRisksModule.providedBy(module):
-                template = ViewPageTemplateFile(
-                    'templates/module_identification_custom.pt'
-                ).__get__(self, "")
+            if self.next_question is None:
+                url = self.next_phase_url
             else:
-                template = self.template
-            return template()
+                url = self.next_question_url
+            return self.request.response.redirect(url)
+
+        self.title = module.title
+        self.module = module
+        number_files = 0
+        for i in range(1, 5):
+            number_files += getattr(
+                self.module, 'file{0}'.format(i), None) and 1 or 0
+        self.has_files = number_files > 0
+        self.next_is_actionplan = not self.next_question
+        if ICustomRisksModule.providedBy(module):
+            template = ViewPageTemplateFile(
+                'templates/module_identification_custom.pt'
+            ).__get__(self, "")
+        else:
+            template = self.template
+        return template()
 
     def save_and_continue(self, module):
         """ We received a POST request.
@@ -107,38 +144,35 @@ class IdentificationView(BrowserView, Mixin):
                 context.postponed = False
             else:
                 context.postponed = True
-            SessionManager.session.touch()
+            self.aq_parent.session.touch()
 
         if reply.get("next") == "previous":
-            next = FindPreviousQuestion(context, filter=self.question_filter)
-            if next is None:
+            if self.next_question is None:
                 # We ran out of questions, step back to intro page
-                url = "%s/identification" % self.request.survey.absolute_url()
+                url = "%s/@@identification" % self.context.aq_parent.absolute_url()
                 self.request.response.redirect(url)
                 return
         else:
             if ICustomRisksModule.providedBy(module):
                 if reply["next"] == "add_custom_risk":
                     risk_id = self.add_custom_risk()
-                    url = "%s/%d" % (self.context.absolute_url(), risk_id)
-                    self.request.response.redirect(url)
-                    return
-                else:
-                    # We ran out of questions, proceed to the evaluation
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
+                    url = "{parent_url}/{risk_id}/@@identification".format(
+                        parent_url=self.context.aq_parent.absolute_url(),
+                        risk_id=risk_id,
+                    )
                     return self.request.response.redirect(url)
-            next = FindNextQuestion(context, filter=self.question_filter)
-            if next is None:
-                # We ran out of questions, proceed to the evaluation
-                url = "%s/actionplan" % self.request.survey.absolute_url()
-                return self.request.response.redirect(url)
+                else:
+                    # We ran out of questions, proceed to the action plan
+                    return self.request.response.redirect(self.next_phase_url)
+            if self.next_question is None:
+                # We ran out of questions, proceed to the action plan
+                return self.request.response.redirect(self.next_phase_url)
 
-        url = QuestionURL(self.request.survey, next, phase="identification")
-        self.request.response.redirect(url)
+        self.request.response.redirect(self.next_question_url)
 
     def add_custom_risk(self):
 
-        session = SessionManager.session
+        session = self.context.aq_parent.session
         sql_risks = self.context.children()
         if sql_risks.count():
             counter_id = max(
@@ -198,7 +232,7 @@ class ActionPlanView(BrowserView):
             return self.request.response.redirect(
                 self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
             )
-        if redirectOnSurveyUpdate(self.request):
+        if self.webhelpers.redirectOnSurveyUpdate():
             return
         if self.request.environ["REQUEST_METHOD"] == "POST":
             return self._update()

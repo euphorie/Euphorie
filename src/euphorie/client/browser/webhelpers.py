@@ -7,6 +7,7 @@ from Acquisition import aq_parent
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import config
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.client import IClient
 from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
@@ -15,6 +16,7 @@ from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SESSION_COOKIE
 from euphorie.client.session import SessionManager
+from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
@@ -161,6 +163,30 @@ class WebHelpers(BrowserView):
     @memoize
     def session(self):
         raise Exception("Use the traversed session")
+
+    @property
+    @memoize
+    def traversed_session(self):
+        for obj in self.context.aq_chain:
+            if ITraversedSurveySession.providedBy(obj):
+                return obj
+
+    def redirectOnSurveyUpdate(self):
+        """Utility method for views to check if a survey has been updated,
+        and if so redirect the user to the update confirmation page is
+        generated. The return value is `True` if an update is required and
+        `False` otherwise."""
+        traversed_session = self.traversed_session
+        session = traversed_session.session
+        survey = traversed_session.aq_parent
+        if not wasSurveyUpdated(session, survey):
+            return False
+        self.request.response.redirect(
+            "{session_url}/@@update?initial_view=1".format(
+                traversed_session.absolute_url()
+            )
+        )
+        return True
 
     @property
     @memoize

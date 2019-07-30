@@ -1,5 +1,6 @@
 # coding=utf-8
 from Acquisition import Implicit
+from euphorie.client.adapters.base import ITraversedSQLObject
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
 from euphorie.content.survey import ISurvey
@@ -9,12 +10,11 @@ from sqlalchemy.orm.exc import NoResultFound
 from zExceptions import NotFound
 from zope.component import adapter
 from zope.interface import implementer
-from zope.interface import Interface
 from zope.publisher.interfaces.browser import IBrowserRequest
 from zope.traversing.namespace import SimpleHandler
 
 
-class ITraversedSurveySession(Interface):
+class ITraversedSurveySession(ITraversedSQLObject):
     """ Interface for TraversedSurveySessions
     """
 

@@ -50,7 +50,7 @@
 
   <browser:page
       name="start"
-      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
       permission="euphorie.client.ViewSurvey"
       class=".survey.Start"
       template="templates/start.pt"
@@ -77,7 +77,7 @@
 
   <browser:page
       name="identification"
-      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
       permission="euphorie.client.ViewSurvey"
       class=".survey.Identification"
       template="templates/identification.pt"
@@ -168,11 +168,20 @@
 
   <!-- Module -->
   <browser:page
-      name="index_html"
-      for="euphorie.client.model.Module"
+      name="identification"
+      for="euphorie.client.adapters.tree_item_traversal.ITraversedModule"
       permission="euphorie.client.ViewSurvey"
       class=".module.IdentificationView"
-      layer="euphorie.client.interfaces.IIdentificationPhaseSkinLayer"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Risk -->
+  <browser:page
+      name="identification"
+      for="euphorie.client.adapters.tree_item_traversal.ITraversedRisk"
+      permission="euphorie.client.ViewSurvey"
+      class=".risk.IdentificationView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
@@ -182,15 +191,6 @@
       class=".module.ActionPlanView"
       template="templates/module_actionplan.pt"
       layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"
-      />
-
-  <!-- Risk -->
-  <browser:page
-      name="index_html"
-      for="euphorie.client.model.Risk"
-      permission="euphorie.client.ViewSurvey"
-      class=".risk.IdentificationView"
-      layer="euphorie.client.interfaces.IIdentificationPhaseSkinLayer"
       />
 
   <browser:page
