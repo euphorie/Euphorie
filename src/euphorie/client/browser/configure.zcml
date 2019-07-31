@@ -94,6 +94,15 @@
       />
 
   <browser:page
+      name="report"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Report"
+      template="templates/report.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_date"
       for="euphorie.content.survey.ISurvey"
       permission="euphorie.client.ViewSurvey"

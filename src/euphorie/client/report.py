@@ -8,12 +8,10 @@ The screens and logic to create the different reports.
 
 from .. import MessageFactory as _
 from ..ghost import PathGhost
-from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from collections import defaultdict
 from cStringIO import StringIO
 from datetime import datetime
-from euphorie.client import config
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
@@ -55,7 +53,6 @@ import htmllaundry
 import logging
 import lxml.html
 import random
-import urllib
 
 
 PloneLocalesFactory = MessageFactory("plonelocales")
@@ -312,46 +309,6 @@ def add_risk_presence_footnote(document, section, request):
                  default=u"Risks marked with [*] are present."))
     footer = Paragraph(document.StyleSheet.ParagraphStyles.Footer, footer)
     section.Footer.append(footer)
-
-
-class ReportView(grok.View):
-    """Intro page for report phase.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
-    for the *identifcation* component of the URL.
-
-    View name: @@index_html
-    """
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("report")
-    grok.name("index_html")
-    variation_class = "variation-risk-assessment"
-
-    def update(self):
-        if self.webhelpers.redirectOnSurveyUpdate():
-            return
-        self.session = SessionManager.session
-
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            self.session.report_comment = self.request.form.get("comment")
-
-            url = "%s/report/company" % self.request.survey.absolute_url()
-            if getattr(self.session, 'company', None) is not None and \
-                    getattr(self.session.company, 'country') is not None:
-                url = "%s/report/view" % self.request.survey.absolute_url()
-
-            user = getSecurityManager().getUser()
-            if getattr(user, 'account_type', None) == config.GUEST_ACCOUNT:
-                url = "%s/@@register?report_blurb=1&came_from=%s" % (
-                    self.request.survey.absolute_url(),
-                    urllib.quote(url, '')
-                )
-            self.request.response.redirect(url)
-            return
 
 
 class ReportLanding(grok.View):

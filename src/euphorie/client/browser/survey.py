@@ -1,7 +1,9 @@
 # coding=utf-8
+from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from datetime import datetime
 from euphorie import MessageFactory as _
+from euphorie.client import config
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import ACTION_PLAN_FILTER
@@ -31,6 +33,7 @@ from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
 
 import re
+import urllib
 
 
 class IStartFormSchema(model.Schema):
@@ -459,6 +462,7 @@ class ActionPlan(BrowserView):
 
     This view shows the introduction text for the action plan phase.
     """
+
     variation_class = "variation-risk-assessment"
 
     # The question filter will find modules AND risks
@@ -496,8 +500,7 @@ class ActionPlan(BrowserView):
         if question is None:
             return
         return "{session_url}/{id}/@@actionplan".format(
-            session_url=self.context.absolute_url(),
-            id=question.id,
+            session_url=self.context.absolute_url(), id=question.id
         )
 
     def __call__(self):
@@ -512,3 +515,42 @@ class ActionPlan(BrowserView):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         return super(ActionPlan, self).__call__()
+
+
+class Report(BrowserView):
+    """Intro page for report phase.
+
+    View name: @@report
+    """
+
+    variation_class = "variation-risk-assessment"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    def __call__(self):
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+
+        session = self.context.session
+        if self.request.method == "POST":
+            session.report_comment = self.request.form.get("comment")
+
+            url = "%s/report/company" % self.context.absolute_url()
+            if (
+                getattr(session, "company", None) is not None
+                and getattr(session.company, "country") is not None
+            ):
+                url = "%s/report/view" % self.context.absolute_url()
+
+            user = getSecurityManager().getUser()
+            if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
+                url = "%s/@@register?report_blurb=1&came_from=%s" % (
+                    self.request.survey.absolute_url(),
+                    urllib.quote(url, ""),
+                )
+            return self.request.response.redirect(url)
+
+        return super(Report, self).__call__()

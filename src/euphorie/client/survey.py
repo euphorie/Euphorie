@@ -44,8 +44,7 @@ from z3c.saconfig import Session
 from zope.component import adapts
 from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
-from zope.interface import directlyProvidedBy
-from zope.interface import directlyProvides
+from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import decimal
@@ -674,14 +673,10 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
             if IClientCountry.providedBy(obj):
                 if obj.id in self.countries:
                     special = True
-                    directlyProvides(
-                        request,
-                        self.countries[obj.id][name],
-                        *directlyProvidedBy(request)
-                    )
+                    alsoProvides(request, self.countries[obj.id][name])
                     break
         if not special:
-            directlyProvides(request, self.phases[name], *directlyProvidedBy(request))
+            alsoProvides(request, self.phases[name])
         self.context = PathGhost(name).__of__(self.context)
 
         session = SessionManager.session

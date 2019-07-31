@@ -34,7 +34,7 @@
             cols="70" rows="5"
             placeholder="Please leave any extra comments that should be included in the report in this field."
             i18n:attributes="placeholder label_report_comment"
-            tal:content="view/session/report_comment">
+            tal:content="here/session/report_comment">
         </textarea>
     </fieldset>
     <p class="buttonBar">
