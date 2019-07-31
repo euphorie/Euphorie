@@ -45,13 +45,13 @@
         <ul class="page-toc">
           <li tal:repeat="module view/toc">
             <tal:no_locations condition="not:module/locations">
-              <a href="${here/absolute_url}/status#${module/path}">${module/title}</a>
+              <a href="${here/absolute_url}/@@status#${module/path}">${module/title}</a>
             </tal:no_locations>
             <tal:locations condition="module/locations">
                     ${python:module['title']}
               <ul>
                 <li tal:repeat="location module/locations">
-                  <a href="${here/absolute_url}/status#${location/path}">${location/title}</a>
+                  <a href="${here/absolute_url}/@@status#${location/path}">${location/title}</a>
                 </li>
               </ul>
             </tal:locations>

@@ -1,25 +1,33 @@
 # coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
+from collections import defaultdict
 from datetime import datetime
+from decimal import Decimal
 from euphorie import MessageFactory as _
 from euphorie.client import config
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import ACTION_PLAN_FILTER
+from euphorie.client.model import ActionPlan
 from euphorie.client.model import get_current_account
+from euphorie.client.model import Module
+from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SKIPPED_PARENTS
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.profile import extractProfile
+from euphorie.client.survey import _StatusHelper
+from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from plone.supermodel import model
+from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
 from sqlalchemy import sql
 from z3c.appconfig.interfaces import IAppConfig
@@ -457,7 +465,7 @@ class PublicationMenu(BrowserView):
         return self.redirect()
 
 
-class ActionPlan(BrowserView):
+class ActionPlanView(BrowserView):
     """Survey action plan start page.
 
     This view shows the introduction text for the action plan phase.
@@ -554,3 +562,307 @@ class Report(BrowserView):
             return self.request.response.redirect(url)
 
         return super(Report, self).__call__()
+
+
+class Status(BrowserView, _StatusHelper):
+    """Show survey status information.
+    """
+
+    variation_class = "variation-risk-assessment"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    def session(self):
+        return self.context.session
+
+    def update(self):
+        def default_risks_by_status():
+            return {
+                "present": {"high": [], "medium": [], "low": []},
+                "possible": {"postponed": [], "todo": []},
+            }
+
+        self.risks_by_status = defaultdict(default_risks_by_status)
+        now = datetime.now()
+        lang = date_lang = getattr(self.request, "LANGUAGE", "en")
+        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
+        # translating the date under plone locales, we reduce to generic "nl".
+        # For the specific oira translation, we rewrite to "nl_BE"
+        if "-" in lang:
+            date_lang = lang.split("-")[0]
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        self.date = u"{0} {1} {2}".format(
+            now.strftime("%d"),
+            translate(
+                PloneLocalesMessageFactory(
+                    "month_{0}".format(now.strftime("%b").lower()),
+                    default=now.strftime("%B"),
+                ),
+                target_language=date_lang,
+            ),
+            now.strftime("%Y"),
+        )
+        self.label_page = translate(
+            _(u"label_page", default=u"Page"), target_language=lang
+        )
+        self.label_page_of = translate(
+            _(u"label_page_of", default=u"of"), target_language=lang
+        )
+        session = self.context.session
+        if session.title != (
+            callable(getattr(self.context, "Title", None))
+            and self.context.Title()
+            or ""
+        ):
+            self.session_title = session.title
+        else:
+            self.session_title = None
+
+    def getStatus(self):
+        """ Gather a list of the modules and locations in this survey as well
+            as data around their state of completion.
+        """
+        session = Session()
+        total_ok = 0
+        total_with_measures = 0
+        modules = self.getModules()
+        filtered_risks = self.getRisks([m["path"] for m in modules.values()])
+        for (module, risk) in filtered_risks:
+            module_path = module.path
+            has_measures = False
+            if risk.identification in ["yes", "n/a"]:
+                total_ok += 1
+                modules[module_path]["ok"] += 1
+            elif risk.identification == "no":
+                measures = session.query(ActionPlan.id).filter(
+                    ActionPlan.risk_id == risk.id
+                )
+                if measures.count():
+                    has_measures = True
+                    modules[module_path]["risk_with_measures"] += 1
+                    total_with_measures += 1
+                else:
+                    modules[module_path]["risk_without_measures"] += 1
+            elif risk.postponed:
+                modules[module_path]["postponed"] += 1
+            else:
+                modules[module_path]["todo"] += 1
+
+            self.add_to_risk_list(risk, module_path, has_measures=has_measures)
+
+        for key, m in modules.items():
+            if (
+                m["ok"]
+                + m["postponed"]
+                + m["risk_with_measures"]
+                + m["risk_without_measures"]
+                + m["todo"]
+                == 0
+            ):
+                del modules[key]
+                del self.tocdata[key]
+        self.percentage_ok = (
+            not len(filtered_risks)
+            and 100
+            or int(
+                (total_ok + total_with_measures) / Decimal(len(filtered_risks)) * 100
+            )
+        )
+        self.status = modules.values()
+        self.status.sort(key=lambda m: m["path"])
+        self.toc = self.tocdata.values()
+        self.toc.sort(key=lambda m: m["path"])
+
+    def add_to_risk_list(self, risk, module_path, has_measures=False):
+        if self.is_skipped_from_risk_list(risk):
+            return
+
+        risk_title = self.get_risk_title(risk)
+
+        url = "{session_url}/{risk_id}/@@actionplan".format(
+            session_url=self.context.absolute_url(),
+            risk_id=risk.id,
+        )
+        if risk.identification != "no":
+            status = risk.postponed and "postponed" or "todo"
+            self.risks_by_status[module_path]["possible"][status].append(
+                {"title": risk_title, "path": url}
+            )
+        else:
+            self.risks_by_status[module_path]["present"][risk.priority or "low"].append(
+                {"title": risk_title, "path": url, "has_measures": has_measures}
+            )
+
+    def get_risk_title(self, risk):
+        if risk.is_custom_risk:
+            risk_title = risk.title
+        else:
+            risk_obj = self.context.aq_parent.restrictedTraverse(
+                risk.zodb_path.split("/")
+            )
+            if not risk_obj:
+                return
+            if risk.identification == "no":
+                risk_title = risk_obj.problem_description
+            else:
+                risk_title = risk.title
+        return risk_title
+
+    def is_skipped_from_risk_list(self, risk):
+        if risk.priority == "high":
+            if risk.identification != "no":
+                if risk.risk_type not in ["top5"]:
+                    return True
+        else:
+            return True
+
+    def __call__(self):
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+        self.update()
+        self.getStatus()
+        return super(Status, self).__call__()
+
+
+class RisksOverview(Status):
+    """ Implements the "Overview of Risks" report, see #10967
+    """
+
+    def is_skipped_from_risk_list(self, risk):
+        if risk.identification == "yes":
+            return True
+
+
+class MeasuresOverview(Status):
+    """ Implements the "Overview of Measures" report, see #10967
+    """
+
+    def update(self):
+        super(MeasuresOverview, self).update()
+        lang = getattr(self.request, "LANGUAGE", "en")
+        if "-" in lang:
+            lang = lang.split("-")[0]
+        now = datetime.now()
+        next_month = datetime(now.year, (now.month + 1) % 12 or 12, 1)
+        month_after_next = datetime(now.year, (now.month + 2) % 12 or 12, 1)
+        self.months = []
+        self.months.append(now.strftime("%b"))
+        self.months.append(next_month.strftime("%b"))
+        self.months.append(month_after_next.strftime("%b"))
+        self.monthstrings = [
+            translate(
+                PloneLocalesMessageFactory(
+                    "month_{0}_abbr".format(month.lower()), default=month
+                ),
+                target_language=lang,
+            )
+            for month in self.months
+        ]
+
+        query = (
+            Session.query(Module, Risk, ActionPlan)
+            .filter(
+                sql.and_(
+                    Module.session == self.session,
+                    Module.profile_index > -1,
+                )
+            )
+            .filter(sql.not_(SKIPPED_PARENTS))
+            .filter(
+                sql.or_(
+                    Module_WITH_RISK_OR_TOP5_FILTER,
+                    Risk_PRESENT_OR_TOP5_FILTER,
+                )
+            )
+            .join(
+                (
+                    Risk,
+                    sql.and_(
+                        Risk.path.startswith(Module.path),
+                        Risk.depth == Module.depth + 1,
+                        Risk.session == self.session,
+                    ),
+                )
+            )
+            .join((ActionPlan, ActionPlan.risk_id == Risk.id))
+            .order_by(
+                sql.case(
+                    value=Risk.priority, whens={"high": 0, "medium": 1}, else_=2
+                ),
+                Risk.path,
+            )
+        )
+        measures = [
+            t
+            for t in query.all()
+            if (
+                (
+                    t[-1].planning_start is not None
+                    and t[-1].planning_start.strftime("%b") in self.months
+                )
+                and (
+                    t[-1].planning_end is not None
+                    or t[-1].responsible is not None
+                    or t[-1].prevention_plan is not None
+                    or t[-1].requirements is not None
+                    or t[-1].budget is not None
+                    or t[-1].action_plan is not None
+                )
+            )
+        ]
+
+        modulesdict = defaultdict(lambda: defaultdict(list))
+        for module, risk, action in measures:
+            if "custom-risks" not in risk.zodb_path:
+                risk_obj = self.request.survey.restrictedTraverse(
+                    risk.zodb_path.split("/")
+                )
+                title = risk_obj and risk_obj.problem_description or risk.title
+            else:
+                title = risk.title
+            modulesdict[module][risk.priority].append(
+                {
+                    "title": title,
+                    "description": action.action_plan,
+                    "months": [
+                        action.planning_start and action.planning_start.month == m.month
+                        for m in [now, next_month, month_after_next]
+                    ],
+                }
+            )
+
+        main_modules = {}
+        for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
+            module_obj = self.request.survey.restrictedTraverse(
+                module.zodb_path.split("/")
+            )
+            if (
+                IProfileQuestion.providedBy(module_obj)
+                or ICustomRisksModule.providedBy(module_obj)
+                or module.depth >= 3
+            ):
+                path = module.path[:6]
+            else:
+                path = module.path[:3]
+            if path in main_modules:
+                for prio in risks.keys():
+                    if prio in main_modules[path]["risks"]:
+                        main_modules[path]["risks"][prio].extend(risks[prio])
+                    else:
+                        main_modules[path]["risks"][prio] = risks[prio]
+            else:
+                title = module.title
+                number = module.number
+                if "custom-risks" in module.zodb_path:
+                    num_elems = number.split(".")
+                    number = u".".join([u"Ω"] + num_elems[1:])
+                main_modules[path] = {"name": title, "number": number, "risks": risks}
+
+        self.modules = []
+        for key in sorted(main_modules.keys()):
+            self.modules.append(main_modules[key])

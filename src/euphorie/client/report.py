@@ -28,6 +28,7 @@ from lxml import etree
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from plonetheme.nuplone.utils import formatDate
+from Products.CMFPlone import PloneLocalesMessageFactory
 from rtfng.document.base import RawCode
 from rtfng.document.character import TEXT
 from rtfng.document.paragraph import Cell
@@ -47,15 +48,11 @@ from z3c.saconfig import Session
 from zExceptions import NotFound
 from zope.component import getUtility
 from zope.i18n import translate
-from zope.i18nmessageid import MessageFactory
 
 import htmllaundry
 import logging
 import lxml.html
 import random
-
-
-PloneLocalesFactory = MessageFactory("plonelocales")
 
 
 log = logging.getLogger(__name__)
@@ -1098,124 +1095,3 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
             'Content-Type', 'application/vnd.openxmlformats-'
             'officedocument.spreadsheetml.sheet')
         return save_virtual_workbook(book)
-
-
-class RisksOverview(survey.Status):
-    """ Implements the "Overview of Risks" report, see #10967
-    """
-    grok.context(PathGhost)
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("risks_overview")
-    grok.name("risks_overview")
-
-    def is_skipped_from_risk_list(self, risk):
-        if risk.identification == 'yes':
-            return True
-
-
-class MeasuresOverview(survey.Status):
-    """ Implements the "Overview of Measures" report, see #10967
-    """
-    grok.context(PathGhost)
-    grok.layer(IReportPhaseSkinLayer)
-    grok.template("measures_overview")
-    grok.require('euphorie.client.ViewSurvey')
-    grok.name("measures_overview")
-
-    def update(self):
-        self.session = SessionManager.session
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            lang = lang.split("-")[0]
-        now = datetime.now()
-        next_month = datetime(now.year, (now.month + 1) % 12 or 12, 1)
-        month_after_next = datetime(now.year, (now.month + 2) % 12 or 12, 1)
-        self.months = []
-        self.months.append(now.strftime('%b'))
-        self.months.append(next_month.strftime('%b'))
-        self.months.append(month_after_next.strftime('%b'))
-        self.monthstrings = [
-            translate(
-                PloneLocalesFactory(
-                    "month_{0}_abbr".format(month.lower()),
-                    default=month,
-                ),
-                target_language=lang,
-            )
-            for month in self.months
-        ]
-
-        query = Session.query(model.Module, model.Risk, model.ActionPlan)\
-            .filter(sql.and_(model.Module.session == self.session,
-                             model.Module.profile_index > -1))\
-            .filter(sql.not_(model.SKIPPED_PARENTS))\
-            .filter(sql.or_(model.MODULE_WITH_RISK_OR_TOP5_FILTER,
-                            model.RISK_PRESENT_OR_TOP5_FILTER))\
-            .join((model.Risk,
-                   sql.and_(model.Risk.path.startswith(model.Module.path),
-                            model.Risk.depth == model.Module.depth+1,
-                            model.Risk.session == self.session)))\
-            .join((model.ActionPlan,
-                   model.ActionPlan.risk_id == model.Risk.id))\
-            .order_by(
-                sql.case(
-                    value=model.Risk.priority,
-                    whens={'high': 0, 'medium': 1},
-                    else_=2),
-                model.Risk.path)
-        measures = [t for t in query.all() if (
-            (t[-1].planning_start is not None
-                and t[-1].planning_start.strftime('%b') in self.months) and
-            (
-                t[-1].planning_end is not None or
-                t[-1].responsible is not None or
-                t[-1].prevention_plan is not None or
-                t[-1].requirements is not None or
-                t[-1].budget is not None or
-                t[-1].action_plan is not None
-            )
-        )]
-
-        modulesdict = defaultdict(lambda: defaultdict(list))
-        for module, risk, action in measures:
-            if 'custom-risks' not in risk.zodb_path:
-                risk_obj = self.request.survey.restrictedTraverse(risk.zodb_path.split('/'))
-                title = risk_obj and risk_obj.problem_description or risk.title
-            else:
-                title = risk.title
-            modulesdict[module][risk.priority].append(
-                {'title': title,
-                 'description': action.action_plan,
-                 'months': [action.planning_start and
-                            action.planning_start.month == m.month
-                            for m in [now, next_month, month_after_next]],
-                 })
-
-        main_modules = {}
-        for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
-            module_obj = self.request.survey.restrictedTraverse(module.zodb_path.split('/'))
-            if (
-                IProfileQuestion.providedBy(module_obj) or
-                ICustomRisksModule.providedBy(module_obj) or
-                module.depth >= 3
-            ):
-                path = module.path[:6]
-            else:
-                path = module.path[:3]
-            if path in main_modules:
-                for prio in risks.keys():
-                    if prio in main_modules[path]['risks']:
-                        main_modules[path]['risks'][prio].extend(risks[prio])
-                    else:
-                        main_modules[path]['risks'][prio] = risks[prio]
-            else:
-                title = module.title
-                number = module.number
-                if 'custom-risks' in module.zodb_path:
-                    num_elems = number.split('.')
-                    number = u".".join([u"Ω"] + num_elems[1:])
-                main_modules[path] = {'name': title, 'number': number, 'risks': risks}
-
-        self.modules = []
-        for key in sorted(main_modules.keys()):
-            self.modules.append(main_modules[key])

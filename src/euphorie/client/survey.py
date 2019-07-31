@@ -2,13 +2,9 @@
 Survey views
 ------------
 """
-from .. import MessageFactory as _
 from ..ghost import PathGhost
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from collections import defaultdict
-from datetime import datetime
-from decimal import Decimal
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
@@ -42,16 +38,12 @@ from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.component import adapts
-from zope.i18n import translate
-from zope.i18nmessageid import MessageFactory
 from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import decimal
 import logging
 
-
-PloneLocalesFactory = MessageFactory("plonelocales")
 
 log = logging.getLogger(__name__)
 
@@ -164,7 +156,7 @@ class _StatusHelper(object):
         session_id = self.session.id
         if not session_id:
             return []
-        profile = extractProfile(self.request.survey, SessionManager.session)
+        profile = extractProfile(self.context.aq_parent, self.context.session)
         module_query = self.module_query(
             sessionid=session_id, optional_modules=profile.keys()
         )
@@ -190,7 +182,7 @@ class _StatusHelper(object):
         sql_session = self.sql_session
         session_id = self.session.id
         module_paths = self.getModulePaths()
-        base_url = "%s/identification" % self.request.survey.absolute_url()
+        base_url = "%s/@@identification" % self.context.absolute_url()
         parent_node = orm.aliased(model.Module)
         titles = dict(
             sql_session.query(model.Module.path, model.Module.title)
@@ -317,7 +309,9 @@ class _StatusHelper(object):
                 # showing its children.
                 # Only a "Yes" answer on the module will be considered as "do
                 # not skip children"
-                zodb_elem = request.survey.restrictedTraverse(elem.zodb_path.split("/"))
+                zodb_elem = self.context.aq_parent.restrictedTraverse(
+                    elem.zodb_path.split("/")
+                )
                 if getattr(zodb_elem, "optional", False):
                     if (
                         elem.postponed in (True, None) or elem.skip_children
@@ -413,164 +407,6 @@ class _StatusHelper(object):
                 if obj.id in self.COUNTRIES_WITHOUT_HIGH_RISKS:
                     return False
         return True
-
-
-class Status(grok.View, _StatusHelper):
-    """Show survey status information.
-    """
-
-    grok.context(ISurvey)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.template("status")
-    variation_class = "variation-risk-assessment"
-
-    def __init__(self, context, request):
-        super(Status, self).__init__(context, request)
-
-        def default_risks_by_status():
-            return {
-                "present": {"high": [], "medium": [], "low": []},
-                "possible": {"postponed": [], "todo": []},
-            }
-
-        self.risks_by_status = defaultdict(default_risks_by_status)
-        now = datetime.now()
-        lang = date_lang = getattr(self.request, "LANGUAGE", "en")
-        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
-        # translating the date under plone locales, we reduce to generic "nl".
-        # For the specific oira translation, we rewrite to "nl_BE"
-        if "-" in lang:
-            date_lang = lang.split("-")[0]
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.date = u"{0} {1} {2}".format(
-            now.strftime("%d"),
-            translate(
-                PloneLocalesFactory(
-                    "month_{0}".format(now.strftime("%b").lower()),
-                    default=now.strftime("%B"),
-                ),
-                target_language=date_lang,
-            ),
-            now.strftime("%Y"),
-        )
-        self.label_page = translate(
-            _(u"label_page", default=u"Page"), target_language=lang
-        )
-        self.label_page_of = translate(
-            _(u"label_page_of", default=u"of"), target_language=lang
-        )
-        self.session = SessionManager.session
-        if self.session is not None and self.session.title != (
-            callable(getattr(self.context, "Title", None))
-            and self.context.Title()
-            or ""
-        ):
-            self.session_title = self.session.title
-        else:
-            self.session_title = None
-
-    def getStatus(self):
-        """ Gather a list of the modules and locations in this survey as well
-            as data around their state of completion.
-        """
-        session = Session()
-        self.session = SessionManager.session
-        total_ok = 0
-        total_with_measures = 0
-        modules = self.getModules()
-        filtered_risks = self.getRisks([m["path"] for m in modules.values()])
-        for (module, risk) in filtered_risks:
-            module_path = module.path
-            has_measures = False
-            if risk.identification in ["yes", "n/a"]:
-                total_ok += 1
-                modules[module_path]["ok"] += 1
-            elif risk.identification == "no":
-                measures = session.query(model.ActionPlan.id).filter(
-                    model.ActionPlan.risk_id == risk.id
-                )
-                if measures.count():
-                    has_measures = True
-                    modules[module_path]["risk_with_measures"] += 1
-                    total_with_measures += 1
-                else:
-                    modules[module_path]["risk_without_measures"] += 1
-            elif risk.postponed:
-                modules[module_path]["postponed"] += 1
-            else:
-                modules[module_path]["todo"] += 1
-
-            self.add_to_risk_list(risk, module_path, has_measures=has_measures)
-
-        for key, m in modules.items():
-            if (
-                m["ok"]
-                + m["postponed"]
-                + m["risk_with_measures"]
-                + m["risk_without_measures"]
-                + m["todo"]
-                == 0
-            ):
-                del modules[key]
-                del self.tocdata[key]
-        self.percentage_ok = (
-            not len(filtered_risks)
-            and 100
-            or int(
-                (total_ok + total_with_measures) / Decimal(len(filtered_risks)) * 100
-            )
-        )
-        self.status = modules.values()
-        self.status.sort(key=lambda m: m["path"])
-        self.toc = self.tocdata.values()
-        self.toc.sort(key=lambda m: m["path"])
-
-    def add_to_risk_list(self, risk, module_path, has_measures=False):
-        if self.is_skipped_from_risk_list(risk):
-            return
-
-        risk_title = self.get_risk_title(risk)
-
-        base_url = "%s/actionplan" % self.request.survey.absolute_url()
-        url = "%s/%s" % (base_url, "/".join(self.slicePath(risk.path)))
-
-        if risk.identification != "no":
-            status = risk.postponed and "postponed" or "todo"
-            self.risks_by_status[module_path]["possible"][status].append(
-                {"title": risk_title, "path": url}
-            )
-        else:
-            self.risks_by_status[module_path]["present"][risk.priority or "low"].append(
-                {"title": risk_title, "path": url, "has_measures": has_measures}
-            )
-
-    def get_risk_title(self, risk):
-        if risk.is_custom_risk:
-            risk_title = risk.title
-        else:
-            risk_obj = self.request.survey.restrictedTraverse(risk.zodb_path.split("/"))
-            if not risk_obj:
-                return
-            if risk.identification == "no":
-                risk_title = risk_obj.problem_description
-            else:
-                risk_title = risk.title
-        return risk_title
-
-    def is_skipped_from_risk_list(self, risk):
-        if risk.priority == "high":
-            if risk.identification != "no":
-                if risk.risk_type not in ["top5"]:
-                    return True
-        else:
-            return True
-
-    def update(self):
-        if self.webhelpers.redirectOnSurveyUpdate():
-            return
-        self.getStatus()
 
 
 def find_sql_context(session_id, zodb_path):

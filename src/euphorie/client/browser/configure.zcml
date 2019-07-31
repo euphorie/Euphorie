@@ -88,7 +88,7 @@
       name="actionplan"
       for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.ActionPlan"
+      class=".survey.ActionPlanView"
       template="templates/actionplan.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -99,6 +99,33 @@
       permission="euphorie.client.ViewSurvey"
       class=".survey.Report"
       template="templates/report.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="status"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.Status"
+      template="templates/status.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="risks_overview"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.RisksOverview"
+      template="templates/risks_overview.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="measures_overview"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.MeasuresOverview"
+      template="templates/measures_overview.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
