@@ -101,7 +101,7 @@ class OfficeDocumentView(BrowserView):
             if sql_risk.identification == 'n/a':
                 continue
             if not sql_risk.is_custom_risk:
-                risk = self.request.survey.restrictedTraverse(
+                risk = self.context.aq_parent.restrictedTraverse(
                     sql_risk.zodb_path.split("/"))
                 risk_description = risk.description
                 defined_measures = risk.get_pre_defined_measures(self.request)
@@ -274,7 +274,7 @@ class ActionPlanDocxView(OfficeDocumentView):
             'heading': self.get_heading(session.title),
             'section_headings': self.get_section_headings(),
             'nodes': self.get_sorted_nodes(),
-            'survey_title': self.request.survey.title,
+            'survey_title': self.context.aq_parent.title,
             'modules': self.get_modules()
         }
 

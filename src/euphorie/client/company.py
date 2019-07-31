@@ -5,19 +5,20 @@ Company
 View and update the company survey.
 """
 
-from five import grok
-from zope import schema
-from zope.interface import directlyProvides
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.vocabulary import SimpleTerm
-from z3c.form import button
-from z3c.form.form import applyChanges
-from plone.directives import form
 from .. import MessageFactory as _
 from ..ghost import PathGhost
 from euphorie.client import model
-from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.adapters.session_traversal import ITraversedSQLObject
+from five import grok
+from plone.directives import form
+from z3c.form import button
+from z3c.form.form import applyChanges
+from zope import schema
+from zope.interface import directlyProvides
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+
 
 grok.templatedir("templates")
 
@@ -127,20 +128,24 @@ class Company(form.SchemaForm):
 
     View name: @@company
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
+    grok.layer(IClientSkinLayer)
     grok.template("report_company")
-    grok.name("company")
+    grok.name("report_company")
     variation_class = "variation-risk-assessment"
 
     schema = CompanySchema
     company = None
 
+    @property
+    def session(self):
+        return self.context.session
+
     def _assertCompany(self):
         if self.company is not None:
             return
-        session = SessionManager.session
+        session = self.session
         if session.company is None:
             session.company = model.Company()
         directlyProvides(session.company, CompanySchema)
@@ -155,7 +160,6 @@ class Company(form.SchemaForm):
 
     def update(self):
         super(Company, self).update()
-        self.session = SessionManager.session
         self._assertCompany()
 
     def getContent(self):
@@ -173,7 +177,7 @@ class Company(form.SchemaForm):
             self.status = self.formErrorsMessage
             return
         self.applyChanges(data)
-        url = "%s/report" % self.request.survey.absolute_url()
+        url = "%s/@@report" % self.context.absolute_url()
         self.request.response.redirect(url)
 
     @button.buttonAndHandler(u"Next")
@@ -183,7 +187,7 @@ class Company(form.SchemaForm):
             self.status = self.formErrorsMessage
             return
         self.applyChanges(data)
-        url = "%s/report/view" % self.request.survey.absolute_url()
+        url = "%s/@@report_view" % self.context.absolute_url()
         self.request.response.redirect(url)
 
     @button.buttonAndHandler(u"Skip")
@@ -200,5 +204,5 @@ class Company(form.SchemaForm):
             'recommend_tool': None,
         }
         self.applyChanges(data)
-        url = "%s/report/view" % self.request.survey.absolute_url()
+        url = "%s/report_view" % self.context.absolute_url()
         self.request.response.redirect(url)

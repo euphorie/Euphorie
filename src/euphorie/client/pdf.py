@@ -1,8 +1,8 @@
 # coding=utf-8
-from StringIO import StringIO
-from euphorie.ghost import PathGhost
+from euphorie.client.adapters.session_traversal import ITraversedSQLObject
+from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
-from euphorie.client.interfaces import IReportPhaseSkinLayer
+from StringIO import StringIO
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 
@@ -11,6 +11,7 @@ import httplib
 import logging
 import xmlrpclib
 import zipfile
+
 
 log = logging.getLogger(__name__)
 
@@ -26,28 +27,29 @@ class PdfView(grok.View):
     This requires that we render the view, add the contents to a ZIP
     file, and send it to the smartprintng server via an xmlrpc call.
     """
-    grok.context(PathGhost)
-    grok.layer(IReportPhaseSkinLayer)
+
+    grok.context(ITraversedSQLObject)
+    grok.layer(IClientSkinLayer)
     grok.require("euphorie.client.ViewSurvey")
-    grok.name('pdf')
+    grok.name("pdf")
 
     def render(self):
         context = self.context
-        view_name = self.request.get('view', 'view')
+        view_name = self.request.get("view", "view")
         view = context.restrictedTraverse(view_name)
         pdf = self.view_to_pdf(view)
 
-        context.REQUEST.RESPONSE.setHeader('Content-Type', 'application/pdf')
+        context.REQUEST.RESPONSE.setHeader("Content-Type", "application/pdf")
         context.REQUEST.RESPONSE.setHeader(
-            'Content-Disposition', 'inline;filename=%s.pdf' % context.getId())
+            "Content-Disposition", "inline;filename=%s.pdf" % context.getId()
+        )
         return pdf
 
     def view_to_pdf(self, view):
         content = view()
         html = self.untidy_html(content)
         zip_content = self.string_to_zip(
-            filename=self.context.getId() + ".html",
-            content=html,
+            filename=self.context.getId() + ".html", content=html
         )
         return self.zip_to_pdf(zip_content)
 
@@ -59,7 +61,7 @@ class PdfView(grok.View):
         """
         html_index = content.find("<html")
         everything_before_html = content[:html_index]
-        everything_after_html = content[content.find(">", html_index) + 1:]
+        everything_after_html = content[content.find(">", html_index) + 1 :]
         content = everything_before_html + "<html>" + everything_after_html
         return content.encode("utf-8")
 
@@ -84,15 +86,15 @@ class PdfView(grok.View):
             log.error("Can't connect to smartprintng server")
             return
 
-        convert2ZIP = proxy(
-            print_url + "/convertZIP", transport=timeout_transport)
+        convert2ZIP = proxy(print_url + "/convertZIP", transport=timeout_transport)
         encoded_pdf = convert2ZIP.dummy(
-            "", base64.encodestring(zip_content), "pdf-prince")
+            "", base64.encodestring(zip_content), "pdf-prince"
+        )
         pdf = base64.decodestring(encoded_pdf)
         # There might be bogus content before the %PDF marker:
         # brute-force remove it, because it prevents the PDF from being
         # opened in some versions of Acrobat
-        idx = pdf.find('%PDF')
+        idx = pdf.find("%PDF")
         if idx > 0:
             pdf = pdf[idx:]
         return pdf

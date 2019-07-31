@@ -12,6 +12,7 @@ from euphorie.client.model import ACTION_PLAN_FILTER
 from euphorie.client.model import ActionPlan
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Module
+from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
 from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SKIPPED_PARENTS
@@ -522,7 +523,7 @@ class ActionPlanView(BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
-        return super(ActionPlan, self).__call__()
+        return super(ActionPlanView, self).__call__()
 
 
 class Report(BrowserView):
@@ -546,12 +547,12 @@ class Report(BrowserView):
         if self.request.method == "POST":
             session.report_comment = self.request.form.get("comment")
 
-            url = "%s/@@report/company" % self.context.absolute_url()
+            url = "%s/@@report_company" % self.context.absolute_url()
             if (
                 getattr(session, "company", None) is not None
                 and getattr(session.company, "country") is not None
             ):
-                url = "%s/report/view" % self.context.absolute_url()
+                url = "%s/report_view" % self.context.absolute_url()
 
             user = getSecurityManager().getUser()
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
@@ -775,8 +776,8 @@ class MeasuresOverview(Status):
             .filter(sql.not_(SKIPPED_PARENTS))
             .filter(
                 sql.or_(
-                    Module_WITH_RISK_OR_TOP5_FILTER,
-                    Risk_PRESENT_OR_TOP5_FILTER,
+                    MODULE_WITH_RISK_OR_TOP5_FILTER,
+                    RISK_PRESENT_OR_TOP5_FILTER,
                 )
             )
             .join(

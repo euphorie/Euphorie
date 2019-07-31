@@ -7,20 +7,15 @@ The screens and logic to create the different reports.
 """
 
 from .. import MessageFactory as _
-from ..ghost import PathGhost
 from Acquisition import aq_inner
-from collections import defaultdict
 from cStringIO import StringIO
-from datetime import datetime
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
+from euphorie.client.adapters.session_traversal import ITraversedSQLObject
 from euphorie.client.company import CompanySchema
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
-from euphorie.content.interfaces import ICustomRisksModule
-from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
@@ -28,7 +23,6 @@ from lxml import etree
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from plonetheme.nuplone.utils import formatDate
-from Products.CMFPlone import PloneLocalesMessageFactory
 from rtfng.document.base import RawCode
 from rtfng.document.character import TEXT
 from rtfng.document.paragraph import Cell
@@ -102,7 +96,7 @@ def createDocument(survey_session):
     pagenumber_style = ParagraphStyle("PageNumber", style.Copy())
     pagenumber_style.SetBasedOn(stylesheet.ParagraphStyles.Footer)
     pagenumber_style.SetParagraphPropertySet(
-            ParagraphPropertySet(alignment=ParagraphPropertySet.RIGHT))
+        ParagraphPropertySet(alignment=ParagraphPropertySet.RIGHT))
     stylesheet.ParagraphStyles.append(pagenumber_style)
 
     style.textProps.italic = False
@@ -314,11 +308,11 @@ class ReportLanding(grok.View):
     This replaces the standard online view of the report with a page
     offering the RTF and XLSX download options.
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
+    grok.layer(IClientSkinLayer)
     grok.template("report_landing")
-    grok.name("view")
+    grok.name("report_view")
     variation_class = "variation-risk-assessment"
 
 
@@ -329,14 +323,14 @@ class IdentificationReport(grok.View):
     identification and evaluation results. It does not include action plan
     information.
 
-    This view is registered for :py:class:`PathGhost` instead of
+    This view is registered for :py:class:`ITraversedSQLObject` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
     for the *identifcation* component of the URL.
 
     View name: @@report
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
     grok.template("report_identification")
@@ -347,7 +341,7 @@ class IdentificationReport(grok.View):
         return random.choice([True, False])
 
     def report_title(self):
-        return SessionManager.session.title
+        return self.context.session.title
 
     def title(self, node, zodbnode):
         if node.type != "risk" or \
@@ -402,15 +396,18 @@ class IdentificationReport(grok.View):
         """Return an orderer list of all relevant tree items for the current
         survey.
         """
-        dbsession = SessionManager.session
+        dbsession = self.context.session
         query = Session.query(model.SurveyTreeItem)\
             .filter(model.SurveyTreeItem.session == dbsession)\
             .filter(sql.not_(model.SKIPPED_PARENTS))\
             .order_by(model.SurveyTreeItem.path)
         return query.all()
 
+    @property
+    def session(self):
+        return self.context.session
+
     def update(self):
-        self.session = SessionManager.session
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         self.nodes = self.getNodes()
@@ -433,13 +430,8 @@ class IdentificationReportDownload(grok.View):
     The identification report lists all risks and modules along with their
     identification and evaluation results. It does not include action plan
     information.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
-    for the *identifcation* component of the URL.
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
 
@@ -566,19 +558,19 @@ class ActionPlanReportDownload(grok.View):
     The action plan report lists all present risks, including their action plan
     information.
 
-    This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
-    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
-    for the *inventory* component of the URL.
 
     View name: @@download
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IReportPhaseSkinLayer)
-    grok.name("download")
+    grok.layer(IClientSkinLayer)
+    grok.name("report_download")
+
+    @property
+    def session(self):
+        return self.context.session
 
     def update(self):
-        self.session = SessionManager.session
         if self.session.company is None:
             self.session.company = model.Company()
         appconfig = getUtility(IAppConfig)
@@ -924,19 +916,16 @@ class ActionPlanReportDownload(grok.View):
 class ActionPlanTimeline(grok.View, survey._StatusHelper):
     """Generate an excel file listing all measures.
 
-    This view is registered for :obj:`PathGhost` instead of :obj:`ISurvey`
-    since the :py:class:`SurveyPublishTraverser` generates a `PathGhost` object
-    for the *inventory* component of the URL.
-
     View name: @@timeline
     """
-    grok.context(PathGhost)
+    grok.context(ITraversedSQLObject)
     grok.require('euphorie.client.ViewSurvey')
-    grok.layer(IReportPhaseSkinLayer)
+    grok.layer(IClientSkinLayer)
     grok.name('timeline')
 
-    def update(self):
-        self.session = SessionManager.session
+    @property
+    def session(self):
+        return self.context.session
 
     def get_measures(self):
         """Find all data that should be included in the report.
@@ -1039,7 +1028,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         book = Workbook()
         sheet = book.worksheets[0]
         sheet.title = t(_('report_timeline_title', default=u'Timeline'))
-        survey = self.request.survey
+        survey = self.context.aq_parent
 
         for (column, (ntype, key, title)) in enumerate(self.columns):
             sheet.cell(row=0, column=column).value = t(title)

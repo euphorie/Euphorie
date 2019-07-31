@@ -702,16 +702,7 @@ class WebHelpers(BrowserView):
     def resume(self, session):
         ''' Resume a session for the current user if he is allowed to
         '''
-        if not self.can_view_session(session):
-            raise ValueError('Can only resume session for current user.')
-
-        self.request.other["euphorie.session"] = session
-        setCookie(
-            self.request.response,
-            self.getSecret(),
-            SESSION_COOKIE,
-            session.id,
-        )
+        raise Exception("Obsolete, we traverse to sessions now")
 
     def as_md(self, text):
         """ Return a text with Carriage Returns formatted as a Markdown.

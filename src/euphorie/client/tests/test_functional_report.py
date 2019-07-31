@@ -25,7 +25,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Force creation of the company data
-        browser.open("%s/@@report/company" % survey_url)
+        browser.open("%s/@@report_company" % survey_url)
         # Download the report
         browser.handleErrors = False
         browser.open("%s/report/download" % survey_url)
@@ -68,7 +68,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.handleErrors = False
         browser.open(
             "http://nohost/plone/client/nl/ict/"
-            "software-development/report/view"
+            "software-development/report_view"
         )
         # No errors = success
 
@@ -90,7 +90,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Check the company data
-        browser.open("%s/@@report/company" % survey_url)
+        browser.open("%s/@@report_company" % survey_url)
         self.assertEqual(
             browser.getControl(name="form.widgets.country").value, ["nl"]
         )
@@ -112,7 +112,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.button.submit").click()
         browser.getLink("Start Risk Identification").click()
         # Enter some company data
-        browser.open("%s/@@report/company" % survey_url)
+        browser.open("%s/@@report_company" % survey_url)
         browser.getControl(name="form.widgets.country").value = ["be"]
         browser.getControl(name="form.widgets.employees").value = ["50-249"]
         browser.getControl(name="form.widgets.conductor").value = ["staff"]
@@ -122,9 +122,9 @@ class ReportTests(EuphorieFunctionalTestCase):
         ]
         browser.getControl(name="form.buttons.next").click()
         # Make sure all fields validated
-        self.assertEqual(browser.url, "%s/report/view" % survey_url)
+        self.assertEqual(browser.url, "%s/report_view" % survey_url)
         # Verify entered data
-        browser.open("%s/@@report/company" % survey_url)
+        browser.open("%s/@@report_company" % survey_url)
         self.assertEqual(
             browser.getControl(name="form.widgets.country").value, ["be"]
         )
