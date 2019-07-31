@@ -546,7 +546,7 @@ class Report(BrowserView):
         if self.request.method == "POST":
             session.report_comment = self.request.form.get("comment")
 
-            url = "%s/report/company" % self.context.absolute_url()
+            url = "%s/@@report/company" % self.context.absolute_url()
             if (
                 getattr(session, "company", None) is not None
                 and getattr(session.company, "country") is not None
