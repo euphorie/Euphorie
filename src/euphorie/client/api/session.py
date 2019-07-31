@@ -104,7 +104,10 @@ class IdentificationReport(grok.View):
     grok.name('report-identification')
 
     def render(self):
-        view = IdentificationReportDownload(self.request.survey, self.request)
+        traversed_session = self.request.survey.restrictedTraverse(
+            "++session++{}".format(self.context.id)
+        )
+        view = IdentificationReportDownload(traversed_session, self.request)
         return view.render()
 
 

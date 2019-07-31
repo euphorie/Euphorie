@@ -435,8 +435,9 @@ class IdentificationReportDownload(grok.View):
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
 
-    def update(self):
-        self.session = SessionManager.session
+    @property
+    def session(self):
+        return self.context.session
 
     def getNodes(self):
         """Return an orderer list of all relevant tree items for the current
