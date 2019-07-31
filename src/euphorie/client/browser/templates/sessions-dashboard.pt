@@ -42,7 +42,7 @@
           <ul class="ras">
             <li tal:repeat="session my_sessions"
               class="ra">
-              <a href="${here/absolute_url}/${python:session.zodb_path.partition('/')[-1]}/++session++${session/id}/@@start"
+              <a href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
                 class="pat-inject follow"
                 data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
               >
@@ -60,7 +60,7 @@
               </a>
 
               <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                 href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
+                 href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
                  data-pat-tooltip="source: ajax; position-list: tr"
                  i18n:translate=""
               >More</a>
