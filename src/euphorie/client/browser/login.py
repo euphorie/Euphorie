@@ -89,7 +89,7 @@ class Login(BrowserView):
         account = getSecurityManager().getUser()
         session = Session.query(model.SurveySession).get(session_id)
         session.account_id = account.id
-        SessionManager.resume(session)
+        return session
 
     def __call__(self):
         context = aq_inner(self.context)

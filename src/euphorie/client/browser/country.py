@@ -343,7 +343,6 @@ class SessionsView(BrowserView):
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(model.SurveySession).get(info["session"])
-        SessionManager.resume(session)
         survey = self.request.client.restrictedTraverse(
             six.binary_type(session.zodb_path)
         )
@@ -351,7 +350,9 @@ class SessionsView(BrowserView):
         if info.get("new_clone", None):
             extra = "&new_clone=1"
         self.request.response.redirect(
-            "%s/resume?initial_view=1%s" % (survey.absolute_url(), extra)
+            "%s/++session++%s/@@resume?initial_view=1%s" % (
+                survey.absolute_url(), session.id, extra
+            )
         )
 
     def tool_byline(self):
