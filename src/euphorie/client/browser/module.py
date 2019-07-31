@@ -44,10 +44,15 @@ class IdentificationView(BrowserView, Mixin):
     template = ViewPageTemplateFile('templates/module_identification.pt')
 
     @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
     def tree(self):
         return getTreeData(
             self.request,
-            self.context.tree_item,
+            self.context,
             survey=self.context.aq_parent.aq_parent
         )
 
@@ -57,7 +62,7 @@ class IdentificationView(BrowserView, Mixin):
         """ Try to understand what the next question will be
         """
         return FindNextQuestion(
-            self.context.tree_item,
+            self.context,
             dbsession=self.context.aq_parent.session,
             filter=self.question_filter,
         )
@@ -103,8 +108,7 @@ class IdentificationView(BrowserView, Mixin):
             return
 
         context = aq_inner(self.context)
-        # XXX maybe just module = context.tree_item
-        module = survey.restrictedTraverse(context.tree_item.zodb_path.split("/"))
+        module = survey.restrictedTraverse(context.zodb_path.split("/"))
         if self.request.environ["REQUEST_METHOD"] == "POST":
             return self.save_and_continue(module)
 
@@ -217,18 +221,40 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
 
     @property
+    @memoize
+    def webhelpers(self):
+        return self.context.restrictedTraverse('webhelpers')
+
+    @property
     def use_solution_direction(self):
-        module = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
-        return HasText(getattr(module, "solution_direction", None))
+        return HasText(getattr(self.module, "solution_direction", None))
+
+    @property
+    @memoize
+    def module(self):
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
+
+    @property
+    def tree(self):
+        return getTreeData(
+            self.request,
+            self.context,
+            filter=self.question_filter,
+            phase=self.phase,
+            survey=self.context.aq_parent,
+        )
 
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        if not (
-            self.context.restrictedTraverse('webhelpers').can_edit_session()
-        ):
-
+        start_view = api.content.get_view(
+            "start",
+            self.context.aq_parent,
+            self.request,
+        )
+        if not start_view.can_edit_session:
             return self.request.response.redirect(
                 self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
             )
@@ -238,47 +264,51 @@ class ActionPlanView(BrowserView):
             return self._update()
 
         context = aq_inner(self.context)
-        module = self.request.survey.restrictedTraverse(
-            self.context.zodb_path.split("/"))
-        self.module = module
         if (
-            (IProfileQuestion.providedBy(module) and context.depth == 2) or
+            (IProfileQuestion.providedBy(self.module) and context.depth == 2) or
             (
-                ICustomRisksModule.providedBy(module) and
+                ICustomRisksModule.providedBy(self.module) and
                 self.phase == 'actionplan'
             )
         ):
-            next = FindNextQuestion(context, filter=self.question_filter)
-            if next is None:
+            next_question = FindNextQuestion(context, filter=self.question_filter)
+            if next_question is None:
                 if self.phase == 'identification':
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
+                    url = "%s/@@actionplan" % self.context.aq_parent.absolute_url()
                 elif self.phase == 'evaluation':
-                    url = "%s/actionplan" % self.request.survey.absolute_url()
+                    url = "%s/actionplan" % self.context.aq_parent.absolute_url()
                 elif self.phase == 'actionplan':
-                    url = "%s/report" % self.request.survey.absolute_url()
+                    url = "%s/@@report" % self.context.aq_parent.absolute_url()
             else:
-                url = QuestionURL(self.request.survey, next, phase=self.phase)
+                url = "{session_url}/{id}/@@actionplan".format(
+                    session_url=self.context.aq_parent.absolute_url(),
+                    id=next_question.id,
+                )
             return self.request.response.redirect(url)
-        else:
-            return self._update()
 
-    def _update(self):
-        survey = self.request.survey
         self.title = self.context.title
-        self.tree = getTreeData(
-            self.request, self.context, filter=self.question_filter,
-            phase=self.phase)
         previous = FindPreviousQuestion(
             self.context, filter=self.question_filter)
         if previous is None:
-            self.previous_url = "%s/%s" % (
-                self.request.survey.absolute_url(), self.phase)
+            self.previous_url = "%s/@@%s" % (
+                self.context.aq_parent.absolute_url(), self.phase
+            )
         else:
-            self.previous_url = QuestionURL(survey, previous, phase=self.phase)
+            self.previous_url = "{session_url}/{id}/@@{phase}".format(
+                session_url=self.context.aq_parent.absolute_url(),
+                id=previous.id,
+                pahse=self.phase,
+            )
 
-        next = FindNextQuestion(self.context, filter=self.question_filter)
-        if next is None:
-            self.next_url = "%s/report" % self.request.survey.absolute_url()
+        next_question = FindNextQuestion(self.context, filter=self.question_filter)
+        if next_question is None:
+            self.next_url = "%s/@@report" % (
+                self.context.aq_parent.absolute_url()
+            )
         else:
-            self.next_url = QuestionURL(survey, next, phase=self.phase)
+            self.next_url = "{session_url}/{id}/@@{phase}".format(
+                session_url=self.context.aq_parent.absolute_url(),
+                id=next_question.id,
+                pahse=self.phase,
+            )
         return self.index()

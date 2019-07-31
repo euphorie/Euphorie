@@ -7,7 +7,6 @@ from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.report import ActionPlanReportDownload
 from euphorie.client.report import ActionPlanTimeline
 from euphorie.client.report import IdentificationReportDownload
-from euphorie.client.survey import ActionPlan as BaseActionPlan
 from euphorie.client.survey import build_tree_aq_chain
 from euphorie.client.survey import find_sql_context
 from euphorie.client.utils import HasText
@@ -90,8 +89,12 @@ class ActionPlan(Identification):
 
     phase = 'actionplan'
     next_phase = None
-    question_filter = BaseActionPlan.question_filter
     check_update = True
+
+    @property
+    def question_filter(self):
+        from euphorie.client.browser.survey import ActionPlan as BaseActionPlan
+        return BaseActionPlan.question_filter
 
 
 class IdentificationReport(grok.View):

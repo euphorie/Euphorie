@@ -6,7 +6,6 @@ from .. import MessageFactory as _
 from ..ghost import PathGhost
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from Acquisition import aq_parent
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
@@ -29,9 +28,6 @@ from euphorie.client.interfaces import IItalyEvaluationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
-from euphorie.client.navigation import FindFirstQuestion
-from euphorie.client.navigation import getTreeData
-from euphorie.client.navigation import QuestionURL
 from euphorie.client.profile import extractProfile
 from euphorie.client.session import SessionManager
 from euphorie.content.interfaces import ICustomRisksModule
@@ -88,57 +84,6 @@ class Resume(grok.View):
 
         self.request.response.redirect(
             "%s/start?initial_view=1" % survey.absolute_url()
-        )
-
-
-class ActionPlan(grok.View):
-    """Survey action plan start page.
-
-    This view shows the introduction text for the action plan phase.
-
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a
-    :py:class:`PathGhost` object for the *actionplan* component of the URL.
-    """
-
-    grok.context(PathGhost)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IActionPlanPhaseSkinLayer)
-    grok.template("actionplan")
-    grok.name("index_html")
-    variation_class = "variation-risk-assessment"
-
-    # The question filter will find modules AND risks
-    question_filter = model.ACTION_PLAN_FILTER
-    # The risk filter will only find risks
-    risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-
-    def update(self):
-        if self.webhelpers.redirectOnSurveyUpdate():
-            return
-        self.survey = survey = aq_parent(aq_inner(self.context))
-        # We fetch the first actual risk, so that we can jump directly to it.
-        question = FindFirstQuestion(filter=self.risk_filter)
-        if question is not None:
-            # We also fetch the first module, so that we can properly build the
-            # tree: Open at the first module, but with no risk being selected
-            module = FindFirstQuestion(filter=self.question_filter)
-            self.next_url = QuestionURL(survey, question, phase="actionplan")
-            self.tree = getTreeData(
-                self.request, module, filter=self.question_filter, phase="actionplan"
-            )
-        else:
-            self.next_url = None
-
-    def __call__(self):
-        """ Render the page only if the user has edit rights,
-        otherwise redirect to the start page of the session.
-        """
-        if self.context.restrictedTraverse("webhelpers").can_edit_session():
-            return super(ActionPlan, self).__call__()
-        return self.request.response.redirect(
-            self.context.aq_parent.absolute_url() + "/@@start"
         )
 
 

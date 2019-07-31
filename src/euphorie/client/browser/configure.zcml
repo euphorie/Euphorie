@@ -50,7 +50,7 @@
 
   <browser:page
       name="start"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="*"
       permission="euphorie.client.ViewSurvey"
       class=".survey.Start"
       template="templates/start.pt"
@@ -81,6 +81,15 @@
       permission="euphorie.client.ViewSurvey"
       class=".survey.Identification"
       template="templates/identification.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="actionplan"
+      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      permission="euphorie.client.ViewSurvey"
+      class=".survey.ActionPlan"
+      template="templates/actionplan.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -169,7 +178,7 @@
   <!-- Module -->
   <browser:page
       name="identification"
-      for="euphorie.client.adapters.tree_item_traversal.ITraversedModule"
+      for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class=".module.IdentificationView"
       layer="euphorie.client.interfaces.IClientSkinLayer"
@@ -178,28 +187,28 @@
   <!-- Risk -->
   <browser:page
       name="identification"
-      for="euphorie.client.adapters.tree_item_traversal.ITraversedRisk"
+      for="euphorie.client.model.Risk"
       permission="euphorie.client.ViewSurvey"
       class=".risk.IdentificationView"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
-      name="index_html"
+      name="actionplan"
       for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class=".module.ActionPlanView"
       template="templates/module_actionplan.pt"
-      layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
-      name="index_html"
+      name="actionplan"
       for="euphorie.client.model.Risk"
       permission="euphorie.client.ViewSurvey"
       class=".risk.ActionPlanView"
       template="templates/risk_actionplan.pt"
-      layer="euphorie.client.interfaces.IActionPlanPhaseSkinLayer"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <!-- Password -->

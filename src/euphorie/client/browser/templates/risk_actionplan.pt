@@ -37,7 +37,7 @@
 
         <!-- Disable validation on the action plan, since an empty budget field falsely gets claimed as being required! -->
         <form class="Xpat-validation pat-inject pat-scroll"
-              action="${context/absolute_url}"
+              action="${context/aq_parent/absolute_url}/${here/id}/@@actionplan"
               method="post"
               data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
               data-pat-scroll="selector: #content; trigger: auto; offset: 0"

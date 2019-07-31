@@ -81,25 +81,41 @@ class TraversedSessionPublishTraverser(DefaultPublishTraverse):
     """
 
     def publishTraverse(self, request, tree_item_id):
+        """ Return a traversable SQL object
+        """
+        # XXX Check if there is a polymorphic method that does that with one
+        # query
         try:
+            # First look for a generic tree item
             item = (
                 Session.query(SurveyTreeItem)
                 .filter(
                     and_(
-                        Module.id == tree_item_id,
-                        Module.session == self.context.session,
+                        SurveyTreeItem.id == tree_item_id,
+                        SurveyTreeItem.session == self.context.session,
                     )
                 )
                 .one()
             )
         except NoResultFound:
             raise NotFound
+
+        # if found look for the proper item type
         if item.type == "module":
-            tree_item = TraversedModule(self.context, item)
+            sql_klass = Module
         elif item.type == "risk":
-            tree_item = TraversedRisk(self.context, item)
+            sql_klass = Risk
         else:
-            raise Exception("Error when traversing to tree item %s" % tree_item_id)
-        # XXX why? this should not be necessary because it is already done in the
-        # __init__but apparently it is :/
+            raise Exception("Error unknown tree item %s" % tree_item_id)
+
+        tree_item = (
+            Session.query(sql_klass)
+            .filter(
+                and_(
+                    sql_klass.id == tree_item_id,
+                )
+            )
+            .one()
+        )
+
         return tree_item.__of__(self.context)

@@ -4,9 +4,12 @@ from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
+from euphorie.client.model import ACTION_PLAN_FILTER
 from euphorie.client.model import get_current_account
+from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
 from euphorie.client.model import SKIPPED_PARENTS
 from euphorie.client.model import SurveyTreeItem
+from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.profile import extractProfile
 from euphorie.content.profilequestion import IProfileQuestion
@@ -449,3 +452,63 @@ class PublicationMenu(BrowserView):
         session.last_publisher = None
         self.notify_modified(session)
         return self.redirect()
+
+
+class ActionPlan(BrowserView):
+    """Survey action plan start page.
+
+    This view shows the introduction text for the action plan phase.
+    """
+    variation_class = "variation-risk-assessment"
+
+    # The question filter will find modules AND risks
+    question_filter = ACTION_PLAN_FILTER
+    # The risk filter will only find risks
+    risk_filter = RISK_PRESENT_OR_TOP5_FILTER
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    def tree(self):
+        return getTreeData(
+            self.request,
+            self.first_question,
+            filter=self.question_filter,
+            phase=self.__name__,
+            survey=self.context.aq_parent,
+        )
+
+    @property
+    @memoize
+    def first_question(self):
+        return FindFirstQuestion(
+            dbsession=self.context.session, filter=self.risk_filter
+        )
+
+    @property
+    @memoize
+    def next_url(self):
+        # We fetch the first actual risk, so that we can jump directly to it.
+        question = self.first_question
+        if question is None:
+            return
+        return "{session_url}/{id}/@@actionplan".format(
+            session_url=self.context.absolute_url(),
+            id=question.id,
+        )
+
+    def __call__(self):
+        """ Render the page only if the user has edit rights,
+        otherwise redirect to the start page of the session.
+        """
+        start_view = api.content.get_view("start", self.context, self.request)
+        if not start_view.can_edit_session:
+            return self.request.response.redirect(
+                self.context.absolute_url() + "/@@start"
+            )
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+        return super(ActionPlan, self).__call__()
