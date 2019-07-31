@@ -105,7 +105,6 @@ class IdentificationReport(grok.View):
 
     def render(self):
         view = IdentificationReportDownload(self.request.survey, self.request)
-        view.session = self.context
         return view.render()
 
 
@@ -116,8 +115,12 @@ class ActionPlanReport(grok.View):
     grok.name('report-actionplan')
 
     def render(self):
-        view = ActionPlanReportDownload(self.request.survey, self.request)
-        view.session = self.context
+        # XXX This is awkward, see below
+        traversed_session = self.request.survey.restrictedTraverse(
+            "++session++{}".format(self.context.id)
+        )
+        view = ActionPlanReportDownload(traversed_session, self.request)
+        # XXX Why not just self.context?
         if view.session.company is None:
             view.session.company = Company()
         return view.render()
