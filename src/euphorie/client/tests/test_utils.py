@@ -2,6 +2,7 @@
 from euphorie.client import utils
 from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.country import ClientCountry
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.sector import ClientSector
 from euphorie.client.tests.utils import testRequest
 from euphorie.client.utils import locals
@@ -9,12 +10,10 @@ from euphorie.content.survey import Survey
 from euphorie.testing import EuphorieIntegrationTestCase
 from OFS.SimpleItem import SimpleItem
 from PIL.ImageColor import getrgb
-from zope.annotation import IAnnotations
-from zope.annotation.attribute import AttributeAnnotations
-from zope.component import getGlobalSiteManager
+from plone import api
+from zope.interface import alsoProvides
 
 import colorsys
-import mock
 import unittest
 
 
@@ -66,29 +65,22 @@ class TestURLs(EuphorieIntegrationTestCase):
         survey.language = 'en'
         sector._setOb('survey', survey)
 
+    def _get_view(self, context):
+        request = self.request.clone()
+        alsoProvides(request, IClientSkinLayer)
+        return api.content.get_view("webhelpers", context, request)
+
     def testBaseURL(self):
         country = self.client['en']
         survey = self.client['en']['sector']['survey']
 
-        request = testRequest()
-        request.client = self.client
-        view = WebHelpers(self.client, request)
-        self.assertTrue(
-            view._base_url().startswith(self.client.absolute_url())
-        )
-        self.assertFalse(view._base_url().startswith(country.absolute_url()))
+        view = self._get_view(self.client)
+        self.assertEqual(view._base_url(), self.client.absolute_url())
+        view = self._get_view(country)
+        self.assertEqual(view._base_url(), country.absolute_url())
 
-        view = WebHelpers(country, testRequest())
-        self.assertTrue(view._base_url().startswith(country.absolute_url()))
-
-        request = testRequest()
-        view = WebHelpers(survey, testRequest())
-        view._survey = survey
-        self.assertTrue(view._base_url().startswith(survey.absolute_url()))
-
-        view = WebHelpers(country, testRequest())
-        self.assertFalse(view._base_url().startswith(survey.absolute_url()))
-        self.assertTrue(view._base_url().startswith(country.absolute_url()))
+        view = self._get_view(survey)
+        self.assertEqual(view._base_url(), survey.absolute_url())
 
 
 class WebhelperTests(EuphorieIntegrationTestCase):

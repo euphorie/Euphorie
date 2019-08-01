@@ -83,11 +83,6 @@ class WebHelpers(BrowserView):
     bundle_name = "bundle.js"
     bundle_name_min = "bundle.min.js"
 
-    def __init__(self, context, request):
-        super(WebHelpers, self).__init__(context, request)
-        if self.anonymous:
-            setattr(self.request, 'survey', self._tool)
-
     @property
     @memoize
     def _my_context(self):
@@ -351,9 +346,16 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def client(self):
+        for obj in self.context.aq_chain:
+            if IClient.providedBy(obj):
+                return obj
+
+    @property
+    @memoize
     def client_url(self):
         """Return the absolute URL for the client."""
-        return self.request.client.absolute_url()
+        return self.client and self.client.absolute_url()
 
     @property
     @memoize
@@ -376,13 +378,6 @@ class WebHelpers(BrowserView):
         if base_url is not None:
             return base_url
         return self.client_url
-
-        if self.anonymous:
-            base_url = self.country_url
-            if base_url is not None:
-                return base_url
-            return self.client_url
-        return self._base_url()
 
     @property
     @memoize
