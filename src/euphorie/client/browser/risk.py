@@ -235,7 +235,6 @@ class IdentificationView(BrowserView):
         return getTreeData(
             self.request,
             self.context,
-            survey=self.context.aq_parent.aq_parent,
         )
 
     @property
@@ -593,7 +592,6 @@ class ActionPlanView(BrowserView):
             self.context,
             filter=self.question_filter,
             phase="actionplan",
-            survey=self.context.aq_parent,
         )
 
     @property

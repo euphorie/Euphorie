@@ -6,7 +6,6 @@ View and update the company survey.
 """
 
 from .. import MessageFactory as _
-from ..ghost import PathGhost
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.adapters.session_traversal import ITraversedSQLObject
@@ -121,12 +120,7 @@ class CompanySchema(form.Schema):
 class Company(form.SchemaForm):
     """Update the company details.
 
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a `PathGhost` object for
-    the *inventory* component of the URL.
-
-    View name: @@company
+    View name: @@report_company
     """
     grok.context(ITraversedSQLObject)
     grok.require("euphorie.client.ViewSurvey")

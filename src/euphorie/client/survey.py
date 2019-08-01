@@ -2,7 +2,6 @@
 Survey views
 ------------
 """
-from ..ghost import PathGhost
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.client import model
@@ -25,7 +24,6 @@ from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.profile import extractProfile
-from euphorie.client.session import SessionManager
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.survey import ISurvey
 from five import grok
@@ -38,7 +36,6 @@ from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.component import adapts
-from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import decimal
@@ -409,58 +406,6 @@ class _StatusHelper(object):
         return True
 
 
-def find_sql_context(session_id, zodb_path):
-    """Find the closest SQL tree node for a candidate path.
-
-    The path has to be given as a list of path entries. The session
-    timestamp is only used as part of a cache key for this method.
-
-    The return value is the id of the SQL tree node. All consumed
-    entries will be removed from the zodb_path list.
-    """
-    # Pop all integer elements from the URL
-    path = ""
-    head = []
-    while zodb_path:
-        next = zodb_path.pop()
-        if len(next) > 3:
-            zodb_path.append(next)
-            break
-
-        try:
-            path += "%03d" % int(next)
-            head.append(next)
-        except ValueError:
-            zodb_path.append(next)
-            break
-
-    # Try and find a SQL tree node that matches our URL
-    query = (
-        Session.query(model.SurveyTreeItem.id)
-        .filter(model.SurveyTreeItem.session_id == session_id)
-        .filter(model.SurveyTreeItem.path == sql.bindparam("path"))
-    )
-    while path:
-        node = query.params(path=path).first()
-        if node is not None:
-            return node[0]
-        path = path[:-3]
-        zodb_path.append(head.pop())
-
-
-def build_tree_aq_chain(root, tree_id):
-    """Build an acquisition context for a tree node.
-    """
-    tail = Session.query(model.SurveyTreeItem).get(tree_id)
-    walker = root
-    path = tail.path
-    while len(path) > 3:
-        id = str(int(path[:3]))
-        path = path[3:]
-        walker = PathGhost(id).__of__(walker)
-    return tail.__of__(walker)
-
-
 class SurveyPublishTraverser(DefaultPublishTraverse):
     """Publish traverser to setup the survey skin layers.
 
@@ -499,27 +444,4 @@ class SurveyPublishTraverser(DefaultPublishTraverse):
         utils.setLanguage(request, self.context, self.context.language)
         if name not in self.phases:
             return super(SurveyPublishTraverser, self).publishTraverse(request, name)
-
-        # Decorate the request with the right skin layer and add to the aq path
-
-        # Some countries need to be marked specially. Check if this needs to be
-        # done, and decorate the reques accordingly if yes.
-        special = False
-        for obj in aq_chain(aq_inner(self.context)):
-            if IClientCountry.providedBy(obj):
-                if obj.id in self.countries:
-                    special = True
-                    alsoProvides(request, self.countries[obj.id][name])
-                    break
-        if not special:
-            alsoProvides(request, self.phases[name])
-        self.context = PathGhost(name).__of__(self.context)
-
-        session = SessionManager.session
-        tree_id = find_sql_context(session.id, request["TraversalRequestNameStack"])
-        if tree_id is not None:
-            return build_tree_aq_chain(self.context, tree_id)
-
-        # No SQL based traversal possible, return the existing context with the
-        # new skin layer applied
-        return self.context
+        raise Exception("This is obsolete")

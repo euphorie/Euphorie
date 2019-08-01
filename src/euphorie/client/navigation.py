@@ -7,14 +7,15 @@ Assemble data for a navigation tree.
 """
 
 from Acquisition import aq_parent
-from sqlalchemy import sql
-from z3c.saconfig import Session
-from euphorie.client.session import SessionManager
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.model import SurveySession
-from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.client.session import SessionManager
 from euphorie.content.interfaces import ICustomRisksModule
+from euphorie.content.profilequestion import IProfileQuestion
+from plone import api
+from sqlalchemy import sql
+from z3c.saconfig import Session
 
 
 def QuestionURL(survey, question, phase):
@@ -80,7 +81,7 @@ def first(func, iter):
         return None
 
 
-def getTreeData(request, context, phase="identification", filter=None, survey=None):
+def getTreeData(request, context, phase="identification", filter=None):
     """Assemble data for a navigation tree
 
     This function returns a nested dictionary structure reflecting the
@@ -106,6 +107,10 @@ def getTreeData(request, context, phase="identification", filter=None, survey=No
     - children: a list of child nodes (in the right order)
     - url: URL for this item
     """
+    webhelpers = api.content.get_view("webhelpers", context, request)
+    survey = webhelpers._survey
+    traversed_session = webhelpers.traversed_session
+
     query = Session.query(model.SurveyTreeItem)
     title_custom_risks = utils.get_translated_custom_risks_title(request)
     root = context
@@ -134,10 +139,9 @@ def getTreeData(request, context, phase="identification", filter=None, survey=No
             "type": obj.type,
             "leaf_module": False,
             "depth": obj.depth,
-            "url": "{survey_url}/++session++{session_id}/{obj_id}/@@{phase}".format(
-                survey_url=survey.absolute_url(),
-                session_id=obj.session_id,
-                obj_id=obj.id,
+            "url": "{session_url}/{obj_path}/@@{phase}".format(
+                session_url=traversed_session.absolute_url(),
+                obj_path="/".join(obj.short_path),
                 phase=phase,
             ),
             "css_id": "",

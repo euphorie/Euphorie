@@ -342,11 +342,6 @@ class Identification(BrowserView):
     This view shows the introduction text for the identification phase. This
     includes an option to print a report with all questions.
 
-    This view is registered for :py:class:`PathGhost` instead of
-    :py:obj:`euphorie.content.survey.ISurvey` since the
-    :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
-    for the *identification* component of the URL.
-
     View name: @@identification
     """
 
@@ -358,7 +353,7 @@ class Identification(BrowserView):
     def next_url(self):
         return "{context_url}/{question_path}/@@{view}".format(
             context_url=self.context.absolute_url(),
-            question_path=self.first_question.id,
+            question_path="/".join(self.first_question.short_path),
             view=self.__name__,
         )
 
@@ -423,7 +418,6 @@ class DeleteSession(BrowserView):
 
 
 class PublicationMenu(BrowserView):
-
     @property
     @memoize
     def webhelpers(self):
@@ -508,9 +502,9 @@ class ActionPlanView(BrowserView):
         # We fetch the first actual risk, so that we can jump directly to it.
         question = self.first_question
         if question is None:
-            return
-        return "{session_url}/{id}/@@actionplan".format(
-            session_url=self.context.absolute_url(), id=question.id
+            return ""
+        return "{session_url}/{path}/@@actionplan".format(
+            session_url=self.context.absolute_url(), path="/".join(question.short_path)
         )
 
     def __call__(self):
@@ -687,8 +681,7 @@ class Status(BrowserView, _StatusHelper):
         risk_title = self.get_risk_title(risk)
 
         url = "{session_url}/{risk_id}/@@actionplan".format(
-            session_url=self.context.absolute_url(),
-            risk_id=risk.id,
+            session_url=self.context.absolute_url(), risk_id=risk.id
         )
         if risk.identification != "no":
             status = risk.postponed and "postponed" or "todo"
@@ -768,18 +761,10 @@ class MeasuresOverview(Status):
 
         query = (
             Session.query(Module, Risk, ActionPlan)
-            .filter(
-                sql.and_(
-                    Module.session == self.session,
-                    Module.profile_index > -1,
-                )
-            )
+            .filter(sql.and_(Module.session == self.session, Module.profile_index > -1))
             .filter(sql.not_(SKIPPED_PARENTS))
             .filter(
-                sql.or_(
-                    MODULE_WITH_RISK_OR_TOP5_FILTER,
-                    RISK_PRESENT_OR_TOP5_FILTER,
-                )
+                sql.or_(MODULE_WITH_RISK_OR_TOP5_FILTER, RISK_PRESENT_OR_TOP5_FILTER)
             )
             .join(
                 (
@@ -793,9 +778,7 @@ class MeasuresOverview(Status):
             )
             .join((ActionPlan, ActionPlan.risk_id == Risk.id))
             .order_by(
-                sql.case(
-                    value=Risk.priority, whens={"high": 0, "medium": 1}, else_=2
-                ),
+                sql.case(value=Risk.priority, whens={"high": 0, "medium": 1}, else_=2),
                 Risk.path,
             )
         )

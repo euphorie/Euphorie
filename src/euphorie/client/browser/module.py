@@ -53,7 +53,6 @@ class IdentificationView(BrowserView, Mixin):
         return getTreeData(
             self.request,
             self.context,
-            survey=self.context.aq_parent.aq_parent
         )
 
     @property
@@ -74,9 +73,9 @@ class IdentificationView(BrowserView, Mixin):
         """
         if not self.next_question:
             return ""
-        return "{parent_url}/{next_question_id}/@@{view}".format(
+        return "{parent_url}/{next_question_path}/@@{view}".format(
             parent_url=self.context.aq_parent.absolute_url(),
-            next_question_id=self.next_question.id,
+            next_question_path="/".join(self.next_question.short_path),
             view=self.__name__,
         )
 
@@ -243,7 +242,6 @@ class ActionPlanView(BrowserView):
             self.context,
             filter=self.question_filter,
             phase=self.phase,
-            survey=self.context.aq_parent,
         )
 
     def __call__(self):

@@ -3,16 +3,18 @@ from euphorie.client.api import JsonView
 from euphorie.client.api.interfaces import IClientAPISkinLayer
 from euphorie.client.model import Company
 from euphorie.client.model import SurveySession
+from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.report import ActionPlanReportDownload
 from euphorie.client.report import ActionPlanTimeline
 from euphorie.client.report import IdentificationReportDownload
-from euphorie.client.survey import build_tree_aq_chain
-from euphorie.client.survey import find_sql_context
 from euphorie.client.utils import HasText
 from euphorie.content.survey import ISurvey
+from euphorie.ghost import PathGhost
 from five import grok
+from sqlalchemy import sql
 from sqlalchemy.orm import object_session
+from z3c.saconfig import Session
 from zope.component import adapts
 from zope.component import queryMultiAdapter
 from zope.interface import Interface
@@ -139,6 +141,62 @@ class TimelineReport(grok.View):
         view = ActionPlanTimeline(self.request.survey, self.request)
         view.session = self.context
         return view.render()
+
+
+def find_sql_context(session_id, zodb_path):
+    """Find the closest SQL tree node for a candidate path.
+
+    The path has to be given as a list of path entries. The session
+    timestamp is only used as part of a cache key for this method.
+
+    The return value is the id of the SQL tree node. All consumed
+    entries will be removed from the zodb_path list.
+
+    XXX This uses the path ghost and is obsolete
+    """
+    # Pop all integer elements from the URL
+    path = ""
+    head = []
+    while zodb_path:
+        next = zodb_path.pop()
+        if len(next) > 3:
+            zodb_path.append(next)
+            break
+
+        try:
+            path += "%03d" % int(next)
+            head.append(next)
+        except ValueError:
+            zodb_path.append(next)
+            break
+
+    # Try and find a SQL tree node that matches our URL
+    query = (
+        Session.query(SurveyTreeItem)
+        .filter(SurveyTreeItem.session_id == session_id)
+        .filter(SurveyTreeItem.path == sql.bindparam("path"))
+    )
+    while path:
+        node = query.params(path=path).first()
+        if node is not None:
+            return node
+        path = path[:-3]
+        zodb_path.append(head.pop())
+
+
+def build_tree_aq_chain(root, tree_id):
+    """Build an acquisition context for a tree node.
+
+    XXX This uses the path ghost and is obsolete
+    """
+    tail = Session.query(SurveyTreeItem).get(tree_id)
+    walker = root
+    path = tail.path
+    while len(path) > 3:
+        id = str(int(path[:3]))
+        path = path[3:]
+        walker = PathGhost(id).__of__(walker)
+    return tail.__of__(walker)
 
 
 class SurveySessionPublishTraverse(DefaultPublishTraverse):

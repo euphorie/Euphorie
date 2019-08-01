@@ -11,14 +11,9 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="module nocall:view/module">
-    <tal:comment condition="nothing">
-      XXX The action URL should be ${here/absolute_url}/@@${view/__name__}
-      but the getId method of the Module is customized so that it makes a wrong
-      absolute_url
-    </tal:comment>
     <form accept-charset="UTF-8" method="post"
           enctype="multipart/form-data"
-          action="${here/aq_parent/absolute_url}/${here/id}/@@${view/__name__}"
+          action="${here/absolute_url}/@@${view/__name__}"
           class="pat-inject pat-scroll"
           data-pat-inject="${python: 'history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc' if view.next_is_actionplan else 'history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content'}" data-pat-scroll="selector: #content; trigger: auto; offset: 0">
     <div id="content-pane">

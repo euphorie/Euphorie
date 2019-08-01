@@ -4,8 +4,8 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_parent
 from euphorie.client import model
-from euphorie.client.survey import build_tree_aq_chain
-from euphorie.client.survey import find_sql_context
+from euphorie.client.api.session import build_tree_aq_chain
+from euphorie.client.api.session import find_sql_context
 from euphorie.ghost import PathGhost
 from euphorie.testing import EuphorieIntegrationTestCase
 from z3c.saconfig import Session

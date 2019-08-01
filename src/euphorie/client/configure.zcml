@@ -89,6 +89,14 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for=".model.BaseObject"
+        class=".model.DefaultView"
+        layer=".interfaces.IClientSkinLayer"
+        permission="zope2.View"
+        name="index_html"
+        />
+
     <genericsetup:registerProfile
         name="default"
         title="Euphorie online client"

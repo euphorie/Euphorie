@@ -9,14 +9,15 @@ We have two possible objects:
 - euphorie.client.model.Risk (type `risk`)
 
 """
+from Acquisition import Implicit
 from euphorie.client.adapters.base import ITraversedSQLObject
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
-from Acquisition import Implicit
+from euphorie.client.model import Module
+from euphorie.client.model import Risk
 from euphorie.client.model import Session
-from euphorie.client.model import SurveyTreeItem, Module, Risk
+from euphorie.client.model import SurveyTreeItem
 from OFS.Traversable import Traversable
 from sqlalchemy import and_
-from sqlalchemy.orm.exc import NoResultFound
 from zExceptions import NotFound
 from zope.component import adapter
 from zope.interface import implementer
@@ -47,11 +48,7 @@ class TraversedTreeItem(Implicit, Traversable):
         self.__of__(parent)
         self.tree_item = (
             Session.query(SurveyTreeItem)
-            .filter(
-                and_(
-                    self.sql_klass.id == tree_item.id,
-                )
-            )
+            .filter(and_(self.sql_klass.id == tree_item.id))
             .one()
         )
 
@@ -79,43 +76,26 @@ class TraversedRisk(TraversedTreeItem):
 class TraversedSessionPublishTraverser(DefaultPublishTraverse):
     """ Traverser for the Survey session children
     """
+    def _make_path(self, pathid):
+        return pathid.zfill(3)
 
-    def publishTraverse(self, request, tree_item_id):
+    def publishTraverse(self, request, pathid):
         """ Return a traversable SQL object
         """
-        # XXX Check if there is a polymorphic method that does that with one
-        # query
-        try:
-            # First look for a generic tree item
-            item = (
-                Session.query(SurveyTreeItem)
-                .filter(
-                    and_(
-                        SurveyTreeItem.id == tree_item_id,
-                        SurveyTreeItem.session == self.context.session,
-                    )
-                )
-                .one()
-            )
-        except NoResultFound:
-            raise NotFound
-
-        # if found look for the proper item type
-        if item.type == "module":
-            sql_klass = Module
-        elif item.type == "risk":
-            sql_klass = Risk
-        else:
-            raise Exception("Error unknown tree item %s" % tree_item_id)
-
-        tree_item = (
-            Session.query(sql_klass)
-            .filter(
-                and_(
-                    sql_klass.id == tree_item_id,
-                )
-            )
-            .one()
+        query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session == self.context.session)
+            .filter(SurveyTreeItem.path == self._make_path(pathid))
         )
+        sqlobj = query.one()
+        if sqlobj is None:
+            raise NotFound
+        return sqlobj.__of__(self.context)
 
-        return tree_item.__of__(self.context)
+
+@adapter(SurveyTreeItem, IBrowserRequest)
+class SurveyTreeItemPublishTraverser(TraversedSessionPublishTraverser):
+    """ Traverser for the Survey session children
+    """
+    def _make_path(self, pathid):
+        return self.context.path + pathid.zfill(3)
