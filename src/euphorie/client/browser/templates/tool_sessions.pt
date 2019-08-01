@@ -58,10 +58,9 @@
                         </span>
                       </p>
                     </a>
-
                     <a class="publication-menu iconified icon-${python:session.published and 'published' or 'unpublished'} pat-tooltip"
                        tal:condition="webhelpers/use_publication_feature"
-                       href="${here/absolute_url}/@@publication_menu?sessionid=${session/id}#publication-menu"
+                       href="${here/absolute_url}/++session++${session/id}/@@publication_menu#publication-menu"
                        data-pat-tooltip="source: ajax; position-list: tr">Published <time class="  pat-display-time" data-pat-display-time="from-now: true" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
                     <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
                        href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"

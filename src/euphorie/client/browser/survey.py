@@ -423,6 +423,7 @@ class DeleteSession(BrowserView):
 
 
 class PublicationMenu(BrowserView):
+
     @property
     @memoize
     def webhelpers(self):
@@ -435,34 +436,34 @@ class PublicationMenu(BrowserView):
         """
         return api.portal.get()
 
-    def notify_modified(self, session):
-        notify(ObjectModifiedEvent(session))
+    def notify_modified(self):
+        notify(ObjectModifiedEvent(self.context.session))
 
     def redirect(self):
         target = self.request.get("HTTP_REFERER") or self.context.absolute_url()
         return self.request.response.redirect(target)
 
-    def reset_date(self, sessionid):
+    def reset_date(self):
         """ Reset the session date to now
         """
-        session = self.session(sessionid)
+        session = self.context.session
         session.published = datetime.now()
         session.last_publisher = get_current_account()
-        self.notify_modified(session)
+        self.notify_modified()
         return self.redirect()
 
-    def set_date(self, sessionid):
+    def set_date(self):
         """ Set the session date to now
         """
-        return self.reset_date(sessionid)
+        return self.reset_date()
 
-    def unset_date(self, sessionid):
+    def unset_date(self):
         """ Unset the session date
         """
-        session = self.session(sessionid)
+        session = self.context.session
         session.published = None
         session.last_publisher = None
-        self.notify_modified(session)
+        self.notify_modified()
         return self.redirect()
 
 

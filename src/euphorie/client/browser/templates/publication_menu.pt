@@ -9,8 +9,8 @@
          hidden="hidden"
          tal:define="
            webhelpers nocall:view/webhelpers;
-           sessionid request/sessionid|webhelpers/session_id;
-           session python:view.session(sessionid);
+           start_view nocall:here/@@start;
+           session view/context/session;
            last_modifier session/last_modifier|nothing;
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
            language view/portal/plone_portal_state/language;
@@ -35,14 +35,14 @@
           <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
         </p>
       </div>
-      <tal:can_publish condition="python:webhelpers.can_publish_session(session)">
+      <tal:can_publish condition="python:start_view.can_publish_session">
         <ul class="menu"
             tal:switch="session/review_state"
         >
           <tal:case case="string:private">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/set_date?sessionid=${sessionid}#content"
+                    action="${here/absolute_url}/@@publication_date/set_date#content"
               >
                 <button class="icon-publish"
                         type="submit"
@@ -54,7 +54,7 @@
           <tal:case case="string:published">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/unset_date?sessionid=${sessionid}#content"
+                    action="${here/absolute_url}/@@publication_date/unset_date#content"
               >
                 <button class="icon-cancel-circled"
                         type="submit"
@@ -64,7 +64,7 @@
             </li>
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/reset_date?sessionid=${sessionid}#content"
+                    action="${here/absolute_url}/@@publication_date/reset_date#content"
               >
                 <button class="icon-arrows-cw"
                         type="submit"
