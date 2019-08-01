@@ -1,19 +1,21 @@
 # coding=utf-8
 from cStringIO import StringIO
 from euphorie.client import model
+from euphorie.client.adapters.session_traversal import TraversedSurveySession
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Account
 from euphorie.client.model import SurveySession
-from euphorie.client.report import ActionPlanTimeline
 from euphorie.client.report import HtmlToRtf
 from euphorie.client.report import IdentificationReport
-from euphorie.client.tests.utils import testRequest
-from euphorie.client.utils import setRequest
 from euphorie.content.risk import Risk
 from euphorie.testing import EuphorieIntegrationTestCase
+from ExtensionClass import Base
+from plone import api
 from rtfng.document.section import Section
 from rtfng.Elements import Document
 from rtfng.Renderer import Renderer
 from z3c.saconfig import Session
+from zope.interface import alsoProvides
 
 import datetime
 import mock
@@ -188,20 +190,40 @@ class HtmlToRtfTests(unittest.TestCase):
 
 class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
-    def ActionPlanTimeline(self, *a, **kw):
-        return ActionPlanTimeline(*a, **kw)
+    def _get_timeline(self, context=None, request=None):
+        """ Return the timeline view
+        """
 
-    def _create_session(self, dbsession, loginname='jane'):
+        class DummySurvey(mock.Mock, Base):
+            pass
+
+        if request is None:
+            request = self.request.clone()
+            alsoProvides(request, IClientSkinLayer)
+        if context is None:
+            survey = DummySurvey()
+            session = self._create_session()
+            context = TraversedSurveySession(
+                survey,
+                session.id,
+            ).__of__(survey)
+        return api.content.get_view("timeline", context, request)
+
+    def _create_session(self, dbsession=None, loginname='jane'):
+        if dbsession is None:
+            dbsession = Session()
         session = SurveySession(
             account=Account(loginname=loginname, password=u'john'),
             zodb_path='survey'
         )
         dbsession.add(session)
+        dbsession.flush()
         return session
 
     def test_get_measures_with_correct_module(self):
-        dbsession = Session()
-        session = self._create_session(dbsession)
+        view = self._get_timeline()
+        session = view.context.session
+
         # This first module should be ignored, it doesn't contain any risks
         session.addChild(model.Module(
             zodb_path='1',
@@ -228,19 +250,18 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 identification='no'
             )
         )
-        request = testRequest()
-        request.survey = mock.Mock()
-        request.survey.restrictedTraverse = lambda x: object
-        request.survey.ProfileQuestions = lambda: []
-        view = self.ActionPlanTimeline(None, request)
-        view.session = session
+        survey = view.context.aq_parent
+        survey.restrictedTraverse = lambda x: object
+        survey.ProfileQuestions = lambda: []
+
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][0].module_id, u'2')
 
     def test_get_measures_return_risks_without_measures(self):
-        dbsession = Session()
-        session = self._create_session(dbsession)
+        view = self._get_timeline()
+        session = view.context.session
+
         module = session.addChild(
             model.Module(
                 session=session,
@@ -256,22 +277,20 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 identification='no'
             )
         )
-        request = testRequest()
-        request.survey = mock.Mock()
-        request.survey.restrictedTraverse = lambda x: object
-        request.survey.ProfileQuestions = lambda: []
-        setRequest(request)
-        view = self.ActionPlanTimeline(None, request)
-        view.session = session
+        survey = view.context.aq_parent
+        survey.restrictedTraverse = lambda x: object
+        survey.ProfileQuestions = lambda: []
+
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][2], None)
 
     def test_get_measures_filter_on_session(self):
-        dbsession = Session()
-        sessions = []
-        for login in ['jane', 'john']:
-            session = self._create_session(dbsession, loginname=login)
+        view = self._get_timeline()
+        sessions = [
+            view.context.session, self._create_session(loginname="john"),
+        ]
+        for session in sessions:
             module = session.addChild(
                 model.Module(
                     session=session,
@@ -287,24 +306,21 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                     identification='no',
                     action_plans=[
                         model.ActionPlan(
-                            action_plan=u'Measure 1 for %s' % login)
+                            action_plan=u'Measure 1 for %s' % session.account.loginname
+                        )
                     ]))
-            sessions.append(session)
 
-        request = testRequest()
-        request.survey = mock.Mock()
-        request.survey.restrictedTraverse = lambda x: object
-        request.survey.ProfileQuestions = lambda: []
-        setRequest(request)
-        view = self.ActionPlanTimeline(None, request)
-        view.session = sessions[0]
+        survey = view.context.aq_parent
+        survey.restrictedTraverse = lambda x: object
+        survey.ProfileQuestions = lambda: []
+
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
         self.assertEqual(measures[0][2].action_plan, 'Measure 1 for jane')
 
     def test_get_measures_order_by_start_date(self):
-        dbsession = Session()
-        session = self._create_session(dbsession)
+        view = self._get_timeline()
+        session = view.context.session
         module = session.addChild(
             model.Module(
                 session=session,
@@ -331,32 +347,26 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             )
         )
 
-        request = testRequest()
-        request.survey = mock.Mock()
-        request.survey.restrictedTraverse = lambda x: object
-        request.survey.ProfileQuestions = lambda: []
-        setRequest(request)
-        view = self.ActionPlanTimeline(None, request)
-        view.session = session
+        survey = view.context.aq_parent
+        survey.restrictedTraverse = lambda x: object
+        survey.ProfileQuestions = lambda: []
+
         measures = view.get_measures()
         self.assertEqual(len(measures), 2)
         self.assertEqual([row[2].action_plan for row in measures],
                          [u'Plan 1', u'Plan 2'])
 
     def test_priority_name_known_priority(self):
-        view = self.ActionPlanTimeline(None, None)
+        view = self._get_timeline()
         self.assertEqual(view.priority_name('high'), u'High')
 
     def test_priority_name_known_unpriority(self):
-        view = self.ActionPlanTimeline(None, None)
+        view = self._get_timeline()
         self.assertEqual(view.priority_name('dummy'), 'dummy')
 
     def test_create_workbook_empty_session(self):
         # If there are no risks only the header row should be generated.
-        request = testRequest()
-        request.survey = None
-        setRequest(request)
-        view = self.ActionPlanTimeline(None, request)
+        view = self._get_timeline()
         view.getModulePaths = lambda: []
         book = view.create_workbook()
         self.assertEqual(len(book.worksheets), 1)
@@ -364,8 +374,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         self.assertEqual(len(sheet.rows), 1)
 
     def test_create_workbook_plan_information(self):
-        dbsession = Session()
-        session = self._create_session(dbsession)
+        view = self._get_timeline()
         module = model.Module(
             zodb_path='1',
             title=u'Top-level Module title',
@@ -384,13 +393,11 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             planning_start=datetime.date(2011, 12, 15),
             budget=500
         )
-        request = testRequest()
-        request.survey = mock.Mock()
+        survey = view.context.aq_parent
         zodb_node = mock.Mock()
         zodb_node.problem_description = u'This is wrong.'
-        request.survey.restrictedTraverse.return_value = zodb_node
-        view = self.ActionPlanTimeline(None, request)
-        view.session = session
+        survey.restrictedTraverse.return_value = zodb_node
+
         view.get_measures = lambda: [(module, risk, plan)]
         wb = view.create_workbook()
         sheet = wb.worksheets[0]
@@ -422,8 +429,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         self.assertEqual(sheet.cell('L2').value, u'Risk comment')
 
     def test_create_workbook_no_problem_description(self):
-        dbsession = Session()
-        session = self._create_session(dbsession)
+        view = self._get_timeline()
         module = model.Module(
             zodb_path='1',
             path='001',
@@ -437,32 +443,28 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             identification='no',
             path='001002003',
             comment=u'Risk comment')
-        request = testRequest()
-        request.survey = mock.Mock()
-        request.survey.ProfileQuestions = lambda: []
+        survey = view.context.aq_parent
+        survey.ProfileQuestions = lambda: []
         zodb_node = mock.Mock()
         zodb_node.title = u'Risk title.'
         zodb_node.problem_description = u'  '
-        request.survey.restrictedTraverse.return_value = zodb_node
-        setRequest(request)
-        view = self.ActionPlanTimeline(None, request)
-        view.session = session
+        survey.restrictedTraverse.return_value = zodb_node
         view.getRisks = lambda x: [(module, risk)]
         sheet = view.create_workbook().worksheets[0]
         self.assertEqual(sheet.cell('J2').value, u'Risk title')
 
     def test_render_value(self):
-        request = testRequest()
-        request.survey = None
-        view = self.ActionPlanTimeline(None, request)
-        view.session = SurveySession(title=u'Acme')
+        view = self._get_timeline()
+        view.context.session.title = u"Acmè"
+        survey = view.context.aq_parent
+        survey.ProfileQuestions = lambda: []
         view.render()
-        response = request.response
+        response = view.request.response
         self.assertEqual(
             response.headers['content-type'], 'application/vnd.openxmlformats-'
             'officedocument.spreadsheetml.sheet'
         )
         self.assertEqual(
             response.headers['content-disposition'],
-            'attachment; filename="Timeline for Acme.xlsx"'
+            'attachment; filename="Timeline for Acmè.xlsx"'
         )

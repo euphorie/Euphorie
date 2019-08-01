@@ -9,6 +9,7 @@ The screens and logic to create the different reports.
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from cStringIO import StringIO
+from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
@@ -958,24 +959,11 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         # sort by 1. planning start, 2. path
         # Since we want to sort by date, and we can have None values (that
         # should be sorted to the end), we need our own compare function
-        def cmp_dates(x, y):
-            a = getattr(x[2], 'planning_start', None)
-            b = getattr(y[2], 'planning_start', None)
-            if a is None:
-                if b is None:
-                    return 0
-                return 1
-            elif b is None:
-                return -1
-            else:
-                if a > b:
-                    return 1
-                elif a < b:
-                    return -1
-                return 0
-
         by_path_measure_data = sorted(measure_data, key=lambda x: x[1].path)
-        return sorted(by_path_measure_data, cmp=cmp_dates)
+        return sorted(
+            by_path_measure_data,
+            key=lambda x: getattr(x[2], 'planning_start', date.min),
+        )
 
     priority_names = {
         'low': _(u'label_timeline_priority_low', default=u'Low'),
