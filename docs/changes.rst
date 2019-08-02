@@ -4,8 +4,10 @@ Changelog
 11.0.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Use autosuggest for many-tools
+- New markup structure for the dashboard
+- When a module is optional, don't use a floating nav-bar, so that the filter
+  questsion cannot be missed.
 
 11.0.2 (2019-07-16)
 -------------------
