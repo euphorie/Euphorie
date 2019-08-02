@@ -54,12 +54,14 @@
 .icon-clock:before { content: '\e834'; } /* '' */
 .icon-archive-front:before { content: '\e835'; } /* '' */
 .icon-archive:before { content: '\e837'; } /* '' */
+.icon-picture:before { content: '\e842'; } /* '' */
 .icon-bank:before { content: '\e84c'; } /* '' */
 .icon-ellipsis:before { content: '\e865'; } /* '' */
 .icon-building:before { content: '\e86e'; } /* '' */
 .icon-history:before { content: '\e885'; } /* '' */
 .icon-cancel:before { content: '\e899'; } /* '' */
 .icon-arrows-cw:before { content: '\e89c'; } /* '' */
+.icon-picture-1:before { content: '\e89f'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-menu-1:before { content: '\f0c9'; } /* '' */
 .icon-ellipsis-vertical:before { content: '\f142'; } /* '' */
