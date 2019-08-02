@@ -156,23 +156,47 @@
   </metal:slot>
 
     <metal:slot fill-slot="aside-header">
-      <header id="osc-header">
-          <tal:if condition="python:is_anonymous and webhelpers.allow_guest_accounts">
-              <a tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" id="button-new-session"
-                  data-pat-modal="class: large" class="pat-modal icon-plus-circle" i18n:attributes="title " title="Start test session" i18n:translate="">Start test session</a>
-              <a tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session" id="button-new-session" class="icon-plus-circle" i18n:translate="">Start test session</a>
-          </tal:if>
+      <form id="osc-header" class="pat-inject pat-autosubmit" action="${absolute_url}/@@${view/__name__}#browser">
+        <tal:in_group condition="python: root_group and root_parent">
+          <a class="back-button pat-inject"
+             href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
+             data-pat-inject="source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
+             i18n:translate=""
+          >Back</a>
+          <h2 class="column-title">${root_group/fullname}</h2>
+        </tal:in_group>
 
-          <tal:if condition="not:is_anonymous">
-              <tal:if condition="not:is_outside_of_survey">
-                  <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_session_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
-                     data-pat-inject="source: #osc-header; target: #osc-header && source: #osc; target: #osc"
-                     class="back-button pat-inject">Back</a>
-              </tal:if>
-              <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
-                  data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus-circle" title="Start a new session" i18n:attributes="title link_start_session" i18n:translate="New">New</a>
-          </tal:if>
-      </header>
+        <!--
+        <tal:root condition="python: not root_group or not root_parent">
+          <label class="pat-select bare">
+            <select>
+              <option i18n:translate="">Group by department</option>
+              <option i18n:translate="">Group by tool</option>
+              <option>Group by publication date</option>
+              <option>Group by modification date</option>
+              <option>Group by user</option>
+              <option>Group by country</option>
+              <option>Group by sector</option>
+            </select>
+          </label>
+        </tal:root>
+        -->
+
+        <a class="no-label pat-modal iconified icon-plus"
+           id="button-new-session-quick"
+           href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
+           title="Start a new session"
+           data-pat-modal="class: large"
+           i18n:attributes="title link_start_session"
+           i18n:translate="New"
+        >New</a>
+        <button id="button-osc-expand"
+                class="no-label iconified icon-resize-full pat-toggle"
+                data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
+                i18n:attributes="title"
+                title="Expand sidebar" i18n:translate="">Expand sidebar</button>
+
+      </form>
     </metal:slot>
 
 
