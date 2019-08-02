@@ -13,7 +13,7 @@ from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
-from euphorie.client.adapters.session_traversal import ITraversedSQLObject
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.company import CompanySchema
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
@@ -309,7 +309,7 @@ class ReportLanding(grok.View):
     This replaces the standard online view of the report with a page
     offering the RTF and XLSX download options.
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.template("report_landing")
@@ -324,14 +324,14 @@ class IdentificationReport(grok.View):
     identification and evaluation results. It does not include action plan
     information.
 
-    This view is registered for :py:class:`ITraversedSQLObject` instead of
+    This view is registered for :py:class:`ITraversedSurveySession` instead of
     :py:obj:`euphorie.content.survey.ISurvey` since the
     :py:class:`SurveyPublishTraverser` generates a :py:class:`PathGhost` object
     for the *identifcation* component of the URL.
 
     View name: @@report
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
     grok.template("report_identification")
@@ -432,7 +432,7 @@ class IdentificationReportDownload(grok.View):
     identification and evaluation results. It does not include action plan
     information.
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IIdentificationPhaseSkinLayer)
 
@@ -563,7 +563,7 @@ class ActionPlanReportDownload(grok.View):
 
     View name: @@download
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.name("report_download")
@@ -920,7 +920,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
 
     View name: @@timeline
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require('euphorie.client.ViewSurvey')
     grok.layer(IClientSkinLayer)
     grok.name('timeline')

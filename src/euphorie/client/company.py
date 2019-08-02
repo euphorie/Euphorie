@@ -8,7 +8,7 @@ View and update the company survey.
 from .. import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.adapters.session_traversal import ITraversedSQLObject
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from five import grok
 from plone.directives import form
 from z3c.form import button
@@ -122,7 +122,7 @@ class Company(form.SchemaForm):
 
     View name: @@report_company
     """
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
     grok.template("report_company")

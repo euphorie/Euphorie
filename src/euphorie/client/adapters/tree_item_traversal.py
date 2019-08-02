@@ -9,67 +9,13 @@ We have two possible objects:
 - euphorie.client.model.Risk (type `risk`)
 
 """
-from Acquisition import Implicit
-from euphorie.client.adapters.base import ITraversedSQLObject
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
-from euphorie.client.model import Module
-from euphorie.client.model import Risk
 from euphorie.client.model import Session
 from euphorie.client.model import SurveyTreeItem
-from OFS.Traversable import Traversable
-from sqlalchemy import and_
 from zExceptions import NotFound
 from zope.component import adapter
-from zope.interface import implementer
 from zope.publisher.interfaces.browser import IBrowserRequest
 from ZPublisher.BaseRequest import DefaultPublishTraverse
-
-
-class ITraversedSurveyTreeItem(ITraversedSQLObject):
-    """ Base interface for SurveyTreeItem SQL objects
-    """
-
-
-class ITraversedModule(ITraversedSurveyTreeItem):
-    """ Interface for Module objects coming from the SQL DB
-    """
-
-
-class ITraversedRisk(ITraversedSurveyTreeItem):
-    """ Interface for Module objects coming from the SQL DB
-    """
-
-
-class TraversedTreeItem(Implicit, Traversable):
-    sql_klass = SurveyTreeItem
-
-    def __init__(self, parent, tree_item):
-        self.aq_parent = parent
-        self.__of__(parent)
-        self.tree_item = (
-            Session.query(SurveyTreeItem)
-            .filter(and_(self.sql_klass.id == tree_item.id))
-            .one()
-        )
-
-    def getId(self):
-        return str(self.tree_item.id)
-
-
-@implementer(ITraversedModule)
-class TraversedModule(TraversedTreeItem):
-    """ A traversable module object
-    """
-
-    sql_klass = Module
-
-
-@implementer(ITraversedRisk)
-class TraversedRisk(TraversedTreeItem):
-    """ A traversable risk object
-    """
-
-    sql_klass = Risk
 
 
 @adapter(ITraversedSurveySession, IBrowserRequest)

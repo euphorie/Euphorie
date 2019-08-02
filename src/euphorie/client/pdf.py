@@ -1,5 +1,5 @@
 # coding=utf-8
-from euphorie.client.adapters.session_traversal import ITraversedSQLObject
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
 from StringIO import StringIO
@@ -28,7 +28,7 @@ class PdfView(grok.View):
     file, and send it to the smartprintng server via an xmlrpc call.
     """
 
-    grok.context(ITraversedSQLObject)
+    grok.context(ITraversedSurveySession)
     grok.layer(IClientSkinLayer)
     grok.require("euphorie.client.ViewSurvey")
     grok.name("pdf")

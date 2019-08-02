@@ -50,9 +50,9 @@
 
   <browser:page
       name="start"
-      for="*"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Start"
+      class=".session.Start"
       template="templates/start.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -61,7 +61,7 @@
       name="profile"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Profile"
+      class=".session.Profile"
       template="templates/profile.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -70,79 +70,79 @@
       name="update"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Profile"
+      class=".session.Update"
       template="templates/updated.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="identification"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Identification"
+      class=".session.Identification"
       template="templates/identification.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="actionplan"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.ActionPlanView"
+      class=".session.ActionPlanView"
       template="templates/actionplan.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="report"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Report"
+      class=".session.Report"
       template="templates/report.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="status"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Status"
+      class=".session.Status"
       template="templates/status.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="risks_overview"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.RisksOverview"
+      class=".session.RisksOverview"
       template="templates/risks_overview.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="measures_overview"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.MeasuresOverview"
+      class=".session.MeasuresOverview"
       template="templates/measures_overview.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="publication_date"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.PublicationMenu"
+      class=".session.PublicationMenu"
       allowed_attributes="set_date reset_date unset_date"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="publication_menu"
-      for="euphorie.client.adapters.session_traversal.ITraversedSQLObject"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.PublicationMenu"
+      class=".session.PublicationMenu"
       template="templates/publication_menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -261,16 +261,7 @@
       name="more_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.Start"
-      template="templates/more_menu.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
-      name="more_menu"
-      for="euphorie.client.country.IClientCountry"
-      permission="euphorie.client.ViewSurvey"
-      class=".survey.Start"
+      class=".session.Start"
       template="templates/more_menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -288,7 +279,7 @@
       name="delete-session"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".survey.DeleteSession"
+      class=".session.DeleteSession"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
