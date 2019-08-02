@@ -503,9 +503,6 @@ class WebHelpers(BrowserView):
     @memoize
     def _survey(self):
         # XXX is this different from the _tool?
-        survey = getattr(self.request, 'survey', None)
-        if survey:
-            logger.error("We should not have this anymore")
         for parent in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(parent):
                 return parent

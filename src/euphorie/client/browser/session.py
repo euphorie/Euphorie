@@ -68,7 +68,7 @@ class SessionMixin(object):
     def survey(self):
         """ This is the survey dexterity object
         """
-        return self.context.aq_parent
+        return self.webhelpers._survey
 
     @property
     @memoize
@@ -423,11 +423,6 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
 
     @property
     @memoize_contextless
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", api.portal.get(), self.request)
-
-    @property
-    @memoize_contextless
     def session_title(self):
         if not self.can_delete_session:
             raise Unauthorized()
@@ -440,10 +435,6 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
 
 
 class PublicationMenu(SessionMixin, BrowserView):
-    @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
     @memoize_contextless

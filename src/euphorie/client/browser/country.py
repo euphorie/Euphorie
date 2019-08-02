@@ -18,7 +18,6 @@ from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import create_survey_session
-from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
 from logging import getLogger
 from plone import api

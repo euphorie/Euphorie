@@ -8,3 +8,6 @@ We now have a properly traversable object that can be used to fetch stuff in a m
 - clean up the aside-navigator in shell.pt
 - is the inventory phase something?
 - better use alsoProvides rather than directlyProvides + the old interfaces
+- @@training view needs to be ported to the traversed session
+- check webhelpers._my_context (probably can be removed)
+- check webhelpers._survey and webhelpers._tool (probably only one should stay)
