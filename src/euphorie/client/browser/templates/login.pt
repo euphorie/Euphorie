@@ -29,7 +29,7 @@ h4 {
     </style>
     <div id="content-pane">
       <tal:block replace="tile:statusmessages" />
-      <article class="rich">
+      <article class="rich pat-rich">
         <h1 i18n:translate="header_welcome">Welcome</h1>
 
         <p tal:condition="view/allow_guest_accounts"
