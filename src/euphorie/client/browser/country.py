@@ -451,6 +451,33 @@ class SessionBrowserNavigator(SessionsView):
 
         return ordered_tools
 
+    def get_sessions_tree(self, zodb_path=None):
+        """ Return a dict like structure to render the leaf sessions,
+        something like:
+
+        {
+            <SurveySession>: Tool,
+            ...
+        }
+        Optionally, we can pass in zodb_path, to filter for tools that match
+        this path
+        """
+        sessions = self.leaf_sessions()
+        if not sessions.count():
+            return {}
+        sessions = sorted(
+            [x for x in sessions if x], key=lambda s: s.modified, reverse=True)
+        ordered_sessions = OrderedDict()
+        for session in sessions:
+            # XXX
+            # Filter by zodb_path for specific tools
+            # if zodb_path and session.zodb_path != zodb_path:
+            #     continue
+            tool = self.get_survey_by_path(session.zodb_path)
+            ordered_sessions[session] = tool
+
+        return ordered_sessions
+
     @memoize
     def leaf_groups(self, groupid=None):
         """ Nothing to do in main OiRA - to be filled in customer-specific
@@ -476,7 +503,7 @@ class SessionBrowserNavigator(SessionsView):
         """
         if self.leaf_groups().count():
             return True
-        if len(self.get_tools_tree()):
+        if len(self.get_sessions_tree()):
             return True
         return False
 

@@ -104,8 +104,8 @@
             >
               <strong class="object-name">${group/fullname}</strong></a>
           </li>
-          <tal:tool repeat="tool tools" define="tools python:my_view.get_tools_tree(zodb_path)">
-            <tal:session condition="nocall:tool" repeat="session python:tools[tool]">
+          <tal:session repeat="session sessions" define="sessions python:my_view.get_sessions_tree(zodb_path)">
+            <tal:tool condition="nocall:tool" define="tool python:sessions[session]">
               <li class="object item type-risk-assessment">
                 <span class="object-name field">
                   <a class="session-name pat-inject pat-switch"
@@ -115,7 +115,7 @@
                   >${session/title}</a>
                 </span>
                 <span class="last-saved meta field">
-                  <tal:i18n i18n:translate="">last saved</tal:i18n>
+                  <tal:i18n i18n:translate="">Last saved</tal:i18n>
                   <time class="pat-display-time"
                         datetime="${value}"
                         data-pat-display-time="from-now: true; locale: ${language}"
@@ -153,8 +153,8 @@
                    i18n:translate=""
                 >More</a>
               </li>
-            </tal:session>
-          </tal:tool>
+            </tal:tool>
+          </tal:session>
           <li tal:condition="not:my_view/has_content">
             <p class="pat-message notice"
                tal:condition="not:my_view/searchable_text"
