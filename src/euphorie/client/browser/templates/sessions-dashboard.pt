@@ -191,6 +191,7 @@
            i18n:translate="New"
         >New</a>
         <button id="button-osc-expand"
+                tal:condition="webhelpers/use_publication_feature"
                 class="no-label iconified icon-resize-full pat-toggle"
                 data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
                 i18n:attributes="title"
