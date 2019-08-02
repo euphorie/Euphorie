@@ -37,18 +37,6 @@
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
             explicabo.</tal:description>
 
-        <fieldset class="pat-checklist radio" tal:condition="module/optional">
-            <legend tal:content="structure module/question">question</legend>
-            <label>
-                <input type="radio" name="skip_children:boolean" value="False" checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"/>
-                <tal:span i18n:translate="label_yes">Yes</tal:span>
-            </label>
-            <label>
-                <input type="radio" name="skip_children:boolean" value="True" checked="${python:'checked' if (context.postponed is False and context.skip_children) else None}" />
-                <tal:span i18n:translate="label_no">No</tal:span>
-            </label>
-        </fieldset>
-
         <!-- additional files -->
         <tal:additional_files condition="view/has_files" define="risk nocall:module">
             <section class="caption pat-well">
@@ -56,9 +44,28 @@
             </section>
         </tal:additional_files>
 
+        <fieldset class="vertical" tal:condition="module/optional">
+            <fieldset class="pat-checklist radio">
+                <legend tal:content="structure module/question">question</legend>
+                <label>
+                    <input type="radio" name="skip_children:boolean" value="False" checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"/>
+                    <tal:span i18n:translate="label_yes">Yes</tal:span>
+                </label>
+                <label>
+                    <input type="radio" name="skip_children:boolean" value="True" checked="${python:'checked' if (context.postponed is False and context.skip_children) else None}" />
+                    <tal:span i18n:translate="label_no">No</tal:span>
+                </label>
+            </fieldset>
+        </fieldset>
+
+        <p class="button-bar" tal:condition="module/optional">
+            <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
+        </p>
+
+
     </article>
 </div>
-        <p class="button-bar" id="nav-bar">
+        <p class="button-bar" id="nav-bar" tal:condition="not:module/optional">
             <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
         </p>
 </form>
