@@ -401,8 +401,7 @@ class DeleteSession(SessionMixin, BrowserView):
     """
 
     def __call__(self):
-        start_view = api.content.get_view("start", self.context, self.request)
-        if not start_view.can_delete_session:
+        if not self.can_delete_session:
             raise Unauthorized()
 
         Session.delete(self.context.session)
@@ -415,6 +414,29 @@ class DeleteSession(SessionMixin, BrowserView):
             "success",
         )
         self.request.response.redirect(self.context.aq_parent.absolute_url())
+
+
+class ConfirmationDeleteSession(SessionMixin, BrowserView):
+    """View name: @@confirmation-delete-session
+    """
+    no_splash = True
+
+    @property
+    @memoize_contextless
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", api.portal.get(), self.request)
+
+    @property
+    @memoize_contextless
+    def session_title(self):
+        if not self.can_delete_session:
+            raise Unauthorized()
+        return self.context.session.title
+
+    def __call__(self, *args, **kwargs):
+        """ Before rendering check if we can find session title
+        """
+        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
 
 
 class PublicationMenu(SessionMixin, BrowserView):

@@ -270,7 +270,7 @@
       name="confirmation-delete-session"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".country.ConfirmationDeleteSession"
+      class=".session.ConfirmationDeleteSession"
       template="templates/confirmation-delete-session.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

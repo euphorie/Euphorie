@@ -14,7 +14,7 @@
                   language portal_state/language;
                   dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
-                  no_splash view/no_splash|python:False;
+                  no_splash view/no_splash|nothing;
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
@@ -142,7 +142,7 @@
             >
               <tal:if_not_anon define="
                                  tree view/tree|nothing;
-                                 session_start_view nocall:here/@@start;
+                                 session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
                                  can_edit session_start_view/can_edit_session;
                                  new_session session_start_view/is_new_session;
                                "

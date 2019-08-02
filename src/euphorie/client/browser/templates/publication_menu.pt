@@ -9,7 +9,6 @@
          hidden="hidden"
          tal:define="
            webhelpers nocall:view/webhelpers;
-           start_view nocall:here/@@start;
            session view/context/session;
            last_modifier session/last_modifier|nothing;
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
@@ -35,7 +34,7 @@
           <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
         </p>
       </div>
-      <tal:can_publish condition="python:start_view.can_publish_session">
+      <tal:can_publish condition="python:view.can_publish_session">
         <ul class="menu"
             tal:switch="session/review_state"
         >

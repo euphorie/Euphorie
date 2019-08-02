@@ -18,10 +18,6 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 
 
-def QuestionURL(survey, question, phase):
-    return "%s/%s/%s" % (survey.absolute_url(), phase, "/".join(question.short_path))
-
-
 def FindFirstQuestion(dbsession=None, filter=None):
     if dbsession is None:
         dbsession = SessionManager.session

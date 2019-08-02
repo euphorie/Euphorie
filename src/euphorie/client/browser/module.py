@@ -4,8 +4,6 @@ from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
-from euphorie.client.navigation import QuestionURL
-from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
@@ -22,26 +20,30 @@ logger = getLogger(__name__)
 
 
 class Mixin(object):
-
     def get_custom_risks(self):
         session = self.context.aq_parent.session
-        query = Session.query(model.Risk).filter(
-            sql.and_(
-                model.Risk.is_custom_risk == 't',
-                model.Risk.path.startswith(model.Module.path),
-                model.Risk.session_id == session.id
+        query = (
+            Session.query(model.Risk)
+            .filter(
+                sql.and_(
+                    model.Risk.is_custom_risk == "t",
+                    model.Risk.path.startswith(model.Module.path),
+                    model.Risk.session_id == session.id,
+                )
             )
-        ).order_by(model.Risk.id)
+            .order_by(model.Risk.id)
+        )
         return query.all()
 
 
 class IdentificationView(BrowserView, Mixin):
     """The introduction page for a module.
     """
+
     variation_class = "variation-risk-assessment"
     phase = "identification"
     question_filter = None
-    template = ViewPageTemplateFile('templates/module_identification.pt')
+    template = ViewPageTemplateFile("templates/module_identification.pt")
 
     @property
     @memoize
@@ -50,10 +52,7 @@ class IdentificationView(BrowserView, Mixin):
 
     @property
     def tree(self):
-        return getTreeData(
-            self.request,
-            self.context,
-        )
+        return getTreeData(self.request, self.context)
 
     @property
     @memoize
@@ -85,20 +84,18 @@ class IdentificationView(BrowserView, Mixin):
         """ Return the URL to the next question
         """
         return "{parent_url}/@@actionplan".format(
-            parent_url=self.context.aq_parent.absolute_url(),
+            parent_url=self.context.aq_parent.absolute_url()
         )
 
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         start_view = api.content.get_view(
-            "start",
-            self.context.aq_parent,
-            self.request,
+            "start", self.webhelpers.traversed_session, self.request
         )
         if not start_view.can_edit_session:
             return self.request.response.redirect(
-                self.context.aq_parent.absolute_url() + '/@@start'
+                self.context.aq_parent.absolute_url() + "/@@start"
             )
 
         survey = self.context.aq_parent.aq_parent
@@ -123,13 +120,12 @@ class IdentificationView(BrowserView, Mixin):
         self.module = module
         number_files = 0
         for i in range(1, 5):
-            number_files += getattr(
-                self.module, 'file{0}'.format(i), None) and 1 or 0
+            number_files += getattr(self.module, "file{0}".format(i), None) and 1 or 0
         self.has_files = number_files > 0
         self.next_is_actionplan = not self.next_question
         if ICustomRisksModule.providedBy(module):
             template = ViewPageTemplateFile(
-                'templates/module_identification_custom.pt'
+                "templates/module_identification_custom.pt"
             ).__get__(self, "")
         else:
             template = self.template
@@ -178,8 +174,7 @@ class IdentificationView(BrowserView, Mixin):
         session = self.context.aq_parent.session
         sql_risks = self.context.children()
         if sql_risks.count():
-            counter_id = max(
-                [int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
+            counter_id = max([int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
         else:
             counter_id = 1
 
@@ -188,7 +183,7 @@ class IdentificationView(BrowserView, Mixin):
             comment="",
             priority=None,
             risk_id=None,
-            risk_type='risk',
+            risk_type="risk",
             skip_evaluation=True,
             title="",
             identification=None,
@@ -200,10 +195,11 @@ class IdentificationView(BrowserView, Mixin):
         risk.postponed = False
         risk.has_description = None
         risk.zodb_path = "/".join(
-            [session.zodb_path] +
-            [self.context.zodb_path] +
+            [session.zodb_path]
+            + [self.context.zodb_path]
+            +
             # There's a constraint for unique zodb_path per session
-            ['%d' % counter_id]
+            ["%d" % counter_id]
         )
         risk.profile_index = 0  # XXX: not sure what this is for
         self.context.addChild(risk)
@@ -215,6 +211,7 @@ class ActionPlanView(BrowserView):
     plan.
 
     """
+
     variation_class = "variation-risk-assessment"
     phase = "actionplan"
     question_filter = model.ACTION_PLAN_FILTER
@@ -222,7 +219,7 @@ class ActionPlanView(BrowserView):
     @property
     @memoize
     def webhelpers(self):
-        return self.context.restrictedTraverse('webhelpers')
+        return self.context.restrictedTraverse("webhelpers")
 
     @property
     def use_solution_direction(self):
@@ -238,23 +235,18 @@ class ActionPlanView(BrowserView):
     @property
     def tree(self):
         return getTreeData(
-            self.request,
-            self.context,
-            filter=self.question_filter,
-            phase=self.phase,
+            self.request, self.context, filter=self.question_filter, phase=self.phase
         )
 
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         start_view = api.content.get_view(
-            "start",
-            self.context.aq_parent,
-            self.request,
+            "start", self.webhelpers.traversed_session, self.request
         )
         if not start_view.can_edit_session:
             return self.request.response.redirect(
-                self.context.aq_parent.aq_parent.absolute_url() + '/@@start'
+                self.context.aq_parent.aq_parent.absolute_url() + "/@@start"
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
@@ -262,51 +254,44 @@ class ActionPlanView(BrowserView):
             return self._update()
 
         context = aq_inner(self.context)
-        if (
-            (IProfileQuestion.providedBy(self.module) and context.depth == 2) or
-            (
-                ICustomRisksModule.providedBy(self.module) and
-                self.phase == 'actionplan'
-            )
+        if (IProfileQuestion.providedBy(self.module) and context.depth == 2) or (
+            ICustomRisksModule.providedBy(self.module) and self.phase == "actionplan"
         ):
             next_question = FindNextQuestion(context, filter=self.question_filter)
             if next_question is None:
-                if self.phase == 'identification':
-                    url = "%s/@@actionplan" % self.context.aq_parent.absolute_url()
-                elif self.phase == 'evaluation':
-                    url = "%s/actionplan" % self.context.aq_parent.absolute_url()
-                elif self.phase == 'actionplan':
-                    url = "%s/@@report" % self.context.aq_parent.absolute_url()
+                if self.phase == ("identification", "evaluation"):
+                    url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
+                elif self.phase == "actionplan":
+                    url = self.webhelpers.traversed_session.absolute_url() + "/@@report"
             else:
-                url = "{session_url}/{id}/@@actionplan".format(
-                    session_url=self.context.aq_parent.absolute_url(),
-                    id=next_question.id,
+                url = "{session_url}/{path}/@@actionplan".format(
+                    session_url=self.webhelpers.traversed_session.absolute_url(),
+                    path="/".join(next_question.short_path),
                 )
             return self.request.response.redirect(url)
 
         self.title = self.context.title
-        previous = FindPreviousQuestion(
-            self.context, filter=self.question_filter)
+        previous = FindPreviousQuestion(self.context, filter=self.question_filter)
         if previous is None:
             self.previous_url = "%s/@@%s" % (
                 self.context.aq_parent.absolute_url(), self.phase
             )
         else:
-            self.previous_url = "{session_url}/{id}/@@{phase}".format(
-                session_url=self.context.aq_parent.absolute_url(),
-                id=previous.id,
+            self.previous_url = "{session_url}/{path}/@@{phase}".format(
+                session_url=self.webhelpers.traversed_session.absolute_url(),
+                path="/".join(previous.short_path),
                 pahse=self.phase,
             )
 
         next_question = FindNextQuestion(self.context, filter=self.question_filter)
         if next_question is None:
-            self.next_url = "%s/@@report" % (
-                self.context.aq_parent.absolute_url()
+            self.next_url = (
+                self.webhelpers.traversed_session.absolute_url() + "/@@report"
             )
         else:
             self.next_url = "{session_url}/{id}/@@{phase}".format(
-                session_url=self.context.aq_parent.absolute_url(),
-                id=next_question.id,
+                session_url=self.webhelpers.traversed_session.absolute_url(),
+                path="/".join(next_question.short_path),
                 pahse=self.phase,
             )
         return self.index()

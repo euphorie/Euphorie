@@ -16,7 +16,6 @@ from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
@@ -36,26 +35,20 @@ from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.i18n import translate
 
 import datetime
 
 
-IMAGE_CLASS = {
-    0: '',
-    1: 'twelve',
-    2: 'six',
-    3: 'four',
-    4: 'three',
-}
+IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 
 
 class IdentificationView(BrowserView):
     """A view for displaying a question in the identification phase
     """
-    template = ViewPageTemplateFile('templates/risk_identification.pt')
+
+    template = ViewPageTemplateFile("templates/risk_identification.pt")
     variation_class = "variation-risk-assessment"
 
     question_filter = None
@@ -78,8 +71,18 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def webhelpers(self):
-        return api.content.get_view(
-            "webhelpers", self.context.aq_parent, self.request,
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def next_question(self):
+        return FindNextQuestion(
+            self.context, dbsession=self.session, filter=self.question_filter
         )
 
     @property
@@ -95,39 +98,40 @@ class IdentificationView(BrowserView):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         start_view = api.content.get_view(
-            "start", self.context.aq_parent, self.request,
+            "start", self.webhelpers.traversed_session, self.request
         )
         if not start_view.can_edit_session:
             return self.request.response.redirect(
-                "{session_url}/@@start".format(self.context.aq_parent.absolute_url())
+                "{session_url}/@@start".format(self.webhelpers.traversed_session.absolute_url())
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
         appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
+        settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
         self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
-            asBool(settings.get('use_existing_measures', False)) and
-            self.my_tool_type in self.tti.types_existing_measures
+            asBool(settings.get("use_existing_measures", False))
+            and self.my_tool_type in self.tti.types_existing_measures
         )
-        self.use_training_module = asBool(
-            settings.get('use_training_module', False))
+        self.use_training_module = asBool(settings.get("use_training_module", False))
 
         if self.request.method == "POST":
             reply = self.request.form
             # Don't persist anything if the user skipped the question
-            if reply.get("next", None) == 'skip':
+            if reply.get("next", None) == "skip":
                 return self.proceed_to_next(reply)
             old_values = {}
             for prop, default in self.monitored_properties.items():
                 if prop == "existing_measures":
-                    val = dumps([
-                        entry for entry in loads(
-                            getattr(self.context, prop, default)
-                        ) if entry[1]
-                    ])
+                    val = dumps(
+                        [
+                            entry
+                            for entry in loads(getattr(self.context, prop, default))
+                            if entry[1]
+                        ]
+                    )
                 else:
                     val = getattr(self.context, prop, default)
                 old_values[prop] = val
@@ -137,43 +141,35 @@ class IdentificationView(BrowserView):
             # from a sub-form.
             if answer:
                 self.context.comment = reply.get("comment")
-                self.context.postponed = (answer == "postponed")
+                self.context.postponed = answer == "postponed"
                 if self.context.postponed:
                     self.context.identification = None
                 else:
                     self.context.identification = answer
-                    if getattr(self.risk, "type", "") in ('top5', 'policy'):
-                        self.context.priority = 'high'
-                    elif getattr(
-                        self.risk, "evaluation_method", ""
-                    ) == 'calculated':
+                    if getattr(self.risk, "type", "") in ("top5", "policy"):
+                        self.context.priority = "high"
+                    elif getattr(self.risk, "evaluation_method", "") == "calculated":
                         self.calculatePriority(self.risk, reply)
-                    elif (
-                        self.risk is None or
-                        self.risk.evaluation_method == "direct"
-                    ):
+                    elif self.risk is None or self.risk.evaluation_method == "direct":
                         self.context.priority = reply.get("priority")
 
-            if (
-                self.use_existing_measures and
-                reply.get('handle_measures_in_place')
-            ):
+            if self.use_existing_measures and reply.get("handle_measures_in_place"):
                 measures = self.get_existing_measures()
                 new_measures = []
                 seen = []
                 for i, entry in enumerate(measures):
-                    on = int(bool(reply.get('measure-{}'.format(i))))
+                    on = int(bool(reply.get("measure-{}".format(i))))
                     new_measures.append((entry[0], on))
                     if on:
                         seen.append(i)
                 for k, val in reply.items():
                     if (
-                        k.startswith('new-measure') and
-                        isinstance(val, str) and
-                        val.strip() != ''
+                        k.startswith("new-measure")
+                        and isinstance(val, str)
+                        and val.strip() != ""
                     ):
                         new_measures.append((val, 1))
-                    elif k.startswith('present-measure') and val.strip() != '':
+                    elif k.startswith("present-measure") and val.strip() != "":
                         idx = k.rsplit("-", 1)[-1]
                         try:
                             idx = int(idx)
@@ -184,9 +180,10 @@ class IdentificationView(BrowserView):
 
                 # Only save the measures that are active
                 self.context.existing_measures = safe_unicode(
-                    dumps([entry for entry in new_measures if entry[1]]))
+                    dumps([entry for entry in new_measures if entry[1]])
+                )
 
-            if self.use_training_module and reply.get('handle_training_notes'):
+            if self.use_training_module and reply.get("handle_training_notes"):
                 self.context.training_notes = reply.get("training_notes")
 
             # This only happens on custom risks
@@ -200,20 +197,20 @@ class IdentificationView(BrowserView):
             changed = False
             for prop, default in self.monitored_properties.items():
                 if prop == "existing_measures":
-                    val = dumps([
-                        entry for entry in loads(
-                            getattr(self.context, prop, default)
-                        ) if entry[1]
-                    ])
+                    val = dumps(
+                        [
+                            entry
+                            for entry in loads(getattr(self.context, prop, default))
+                            if entry[1]
+                        ]
+                    )
                 else:
                     val = getattr(self.context, prop, None)
-                if (
-                    val and val != old_values[prop]
-                ):
+                if val and val != old_values[prop]:
                     changed = True
                     break
             if changed:
-                self.aq_parent.session.touch()
+                self.session.touch()
 
             return self.proceed_to_next(reply)
 
@@ -221,10 +218,11 @@ class IdentificationView(BrowserView):
             self._prepare_risk()
             if self.is_custom_risk:
                 template = ViewPageTemplateFile(
-                    'templates/risk_identification_custom.pt').__get__(self, "")  # noqa
-                next = FindNextQuestion(
-                    self.context,
-                    filter=self.question_filter)
+                    "templates/risk_identification_custom.pt"
+                ).__get__(
+                    self, ""
+                )  # noqa
+                next = FindNextQuestion(self.context, filter=self.question_filter)
                 self.has_next_risk = next or False
             else:
                 template = self.template
@@ -232,40 +230,32 @@ class IdentificationView(BrowserView):
 
     @property
     def tree(self):
-        return getTreeData(
-            self.request,
-            self.context,
-        )
+        return getTreeData(self.request, self.context)
 
     @property
     def title(self):
-        return self.context.tree_item.parent.title
+        return self.session.title
 
     def _prepare_risk(self):
         has_risk_description = (
-            (self.risk and HasText(self.risk.description)) or
-            getattr(self.context, 'custom_description', '')
-        )
-        self.show_info = (
-            getattr(self.risk, "image", None) or
-            (
-                self.risk is None or
-                HasText(self.risk.description)
-            )
+            self.risk and HasText(self.risk.description)
+        ) or getattr(self.context, "custom_description", "")
+        self.show_info = getattr(self.risk, "image", None) or (
+            self.risk is None or HasText(self.risk.description)
         )
 
-        number_images = getattr(self.risk, 'image', None) and 1 or 0
+        number_images = getattr(self.risk, "image", None) and 1 or 0
         if number_images:
             for i in range(2, 5):
-                number_images += getattr(
-                    self.risk, 'image{0}'.format(i), None) and 1 or 0
+                number_images += (
+                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                )
         self.has_images = number_images > 0
         self.number_images = number_images
         self.image_class = IMAGE_CLASS[number_images]
         number_files = 0
         for i in range(1, 5):
-            number_files += getattr(
-                self.risk, 'file{0}'.format(i), None) and 1 or 0
+            number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
         self.has_files = number_files > 0
         self.has_legal = HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
@@ -273,36 +263,38 @@ class IdentificationView(BrowserView):
         self.risk_number = self.context.number
 
         self.description_probability = _(
-            u"help_default_probability", default=u"Indicate how "
-            u"likely occurence of this risk is in a normal situation.")
+            u"help_default_probability",
+            default=u"Indicate how "
+            u"likely occurence of this risk is in a normal situation.",
+        )
         self.description_frequency = _(
-            u"help_default_frequency", default=u"Indicate how often this "
-            u"risk occurs in a normal situation.")
+            u"help_default_frequency",
+            default=u"Indicate how often this " u"risk occurs in a normal situation.",
+        )
         self.description_severity = _(
-            u"help_default_severity", default=u"Indicate the "
-            u"severity if this risk occurs.")
+            u"help_default_severity",
+            default=u"Indicate the " u"severity if this risk occurs.",
+        )
 
         tool_types = self.tti()
         tt_default = self.tti.default_tool_type
-        tool_type_data = tool_types.get(
-            self.my_tool_type, tool_types[tt_default])
-        default_type_data = tool_types['classic']
+        tool_type_data = tool_types.get(self.my_tool_type, tool_types[tt_default])
+        default_type_data = tool_types["classic"]
         self.show_existing_measures = False
 
         # Fill some labels with default texts
-        self.answer_yes = default_type_data['answer_yes']
-        self.answer_no = default_type_data['answer_no']
-        self.answer_na = default_type_data['answer_na']
+        self.answer_yes = default_type_data["answer_yes"]
+        self.answer_no = default_type_data["answer_no"]
+        self.answer_na = default_type_data["answer_na"]
         self.intro_extra = ""
         if self.is_custom_risk:
-            self.intro_extra = tool_type_data.get('custom_intro_extra', '')
+            self.intro_extra = tool_type_data.get("custom_intro_extra", "")
             if self.use_existing_measures:
-                self.answer_yes = tool_type_data['answer_yes']
-                self.answer_no = tool_type_data['answer_no']
-        self.button_add_extra = tool_type_data.get('button_add_extra', '')
-        self.intro_questions = tool_type_data.get('intro_questions', '')
-        self.placeholder_add_extra = tool_type_data.get(
-                'placeholder_add_extra', '')
+                self.answer_yes = tool_type_data["answer_yes"]
+                self.answer_no = tool_type_data["answer_no"]
+        self.button_add_extra = tool_type_data.get("button_add_extra", "")
+        self.intro_questions = tool_type_data.get("intro_questions", "")
+        self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
         self.button_remove_extra = ""
         if self.use_existing_measures:
             measures = self.get_existing_measures()
@@ -311,33 +303,31 @@ class IdentificationView(BrowserView):
             # In this case, also change some labels
             if len(measures):
                 self.show_existing_measures = True
-                self.intro_extra = tool_type_data.get('intro_extra', '')
-                self.button_remove_extra = tool_type_data.get(
-                    'button_remove_extra', '')
-                self.answer_yes = tool_type_data['answer_yes']
-                self.answer_no = tool_type_data['answer_no']
-                self.answer_na = tool_type_data['answer_na']
+                self.intro_extra = tool_type_data.get("intro_extra", "")
+                self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
+                self.answer_yes = tool_type_data["answer_yes"]
+                self.answer_no = tool_type_data["answer_no"]
+                self.answer_na = tool_type_data["answer_na"]
             if not self.context.existing_measures:
-                existing_measures = [
-                    (text, 0) for text in measures
-                ]
-                self.context.existing_measures = safe_unicode(
-                    dumps(existing_measures))
+                existing_measures = [(text, 0) for text in measures]
+                self.context.existing_measures = safe_unicode(dumps(existing_measures))
 
         survey = self.context.aq_parent.aq_parent
-        if getattr(survey, 'enable_custom_evaluation_descriptions', False):
-            if survey.evaluation_algorithm != 'french':
-                custom_dp = getattr(
-                    survey, 'description_probability', '') or ''
-                self.description_probability = custom_dp.strip() or self.description_probability
-            custom_df = getattr(survey, 'description_frequency', '') or ''
+        if getattr(survey, "enable_custom_evaluation_descriptions", False):
+            if survey.evaluation_algorithm != "french":
+                custom_dp = getattr(survey, "description_probability", "") or ""
+                self.description_probability = (
+                    custom_dp.strip() or self.description_probability
+                )
+            custom_df = getattr(survey, "description_frequency", "") or ""
             self.description_frequency = custom_df.strip() or self.description_frequency
-            custom_ds = getattr(survey, 'description_severity', '') or ''
+            custom_ds = getattr(survey, "description_severity", "") or ""
             self.description_severity = custom_ds.strip() or self.description_severity
 
         # compute training side template
         self.slide_template = (
-            (has_risk_description or number_images) and "template-two-column"
+            (has_risk_description or number_images)
+            and "template-two-column"
             or "template-default"
         )
 
@@ -350,16 +340,7 @@ class IdentificationView(BrowserView):
     def previous_question(self):
         return FindPreviousQuestion(
             self.context,
-            dbsession=self.context.aq_parent.session,
-            filter=self.question_filter,
-        )
-
-    @property
-    @memoize
-    def next_question(self):
-        return FindNextQuestion(
-            self.context,
-            dbsession=self.context.aq_parent.session,
+            dbsession=self.session,
             filter=self.question_filter,
         )
 
@@ -369,51 +350,48 @@ class IdentificationView(BrowserView):
             if target is None:
                 # We ran out of questions, step back to intro page
                 url = "{session_url}/@@identification".format(
-                    session_url=self.context.aq_parent.absolute_url()
+                    session_url=self.webhelpers.traversed_session.absolute_url()
                 )
                 return self.request.response.redirect(url)
         elif reply.get("next") in ("next", "skip"):
             target = self.next_question
             if target is None:
                 # We ran out of questions, proceed to the action plan
-                url = "{session_url}/@@actionplan".format(
-                    session_url=self.context.aq_parent.absolute_url()
-                )
+                url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
                 return self.request.response.redirect(url)
 
         elif reply.get("next") == "add_custom_risk":
-            module = aq_parent(self.context)
-            sql_module = Session.query(model.Module).filter(
-                and_(
-                    model.SurveyTreeItem.session == SessionManager.session,
-                    model.Module.zodb_path == u'custom-risks',
+            sql_module = (
+                Session.query(model.Module)
+                .filter(
+                    and_(
+                        model.SurveyTreeItem.session == self.session,
+                        model.Module.zodb_path == u"custom-risks",
+                    )
                 )
-            ).first()
+                .first()
+            )
             if not sql_module:
-                url = "{session_url}/{id}/@@identification".format(
-                    session_url=self.context.aq_parent.absolute_url(),
-                    id=self.context.id,
-                )
+                url = self.context.absolute_url() + "/@@identification"
                 return self.request.response.redirect(url)
 
             view = api.content.get_view("identification", sql_module, self.request)
             risk_id = view.add_custom_risk()
-            url = "{session_url}/{id}/@@identification".format(
-                session_url=self.context.aq_parent.absolute_url(),
-                id=risk_id,
+            risk = Session.query(self.__class__).get(risk_id)
+            url = "{session_url}/{path}/@@identification".format(
+                session_url=self.webhelpers.traversed_session.absolute_url(),
+                path="/".join(risk.short_path),
             )
             return self.request.response.redirect(url)
         elif reply.get("next", None) == "actionplan":
-            url = "{session_url}/@@actionplan".format(
-                session_url=self.context.aq_parent.absolute_url(),
-            )
+            url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
             return self.request.response.redirect(url)
         # stay on current risk
         else:
             target = self.context
-        url = "{session_url}/{id}/@@identification".format(
-            session_url=self.context.aq_parent.absolute_url(),
-            id=target.id,
+        url = ("{session_url}/{path}/@@identification").format(
+            session_url=self.webhelpers.traversed_session.absolute_url(),
+            path="/".join(target.short_path),
         )
         return self.request.response.redirect(url)
 
@@ -428,16 +406,15 @@ class IdentificationView(BrowserView):
         if not self.risk:
             defined_measures = []
         else:
-            defined_measures = (
-                self.risk.get_pre_defined_measures(self.request) or "")
+            defined_measures = self.risk.get_pre_defined_measures(self.request) or ""
         try:
-            saved_existing_measures = loads(
-                self.context.existing_measures or "")
+            saved_existing_measures = loads(self.context.existing_measures or "")
             # Backwards compat. We used to save dicts before we
             # switched to list of tuples.
             if isinstance(saved_existing_measures, dict):
                 saved_existing_measures = [
-                    (k, v) for (k, v) in saved_existing_measures.items()]
+                    (k, v) for (k, v) in saved_existing_measures.items()
+                ]
 
             saved_measure_texts = OrderedDict()
             for text, on in saved_existing_measures:
@@ -458,11 +435,8 @@ class IdentificationView(BrowserView):
             for text, on in saved_measure_texts.items():
                 existing_measures.append((text, on))
         except ValueError:
-            existing_measures = [
-                (text, 0) for text in defined_measures
-            ]
-            self.context.existing_measures = safe_unicode(
-                dumps(existing_measures))
+            existing_measures = [(text, 0) for text in defined_measures]
+            self.context.existing_measures = safe_unicode(dumps(existing_measures))
         return existing_measures
 
     @property
@@ -512,7 +486,12 @@ class ActionPlanView(BrowserView):
     @property
     @memoize
     def webhelpers(self):
-        return self.context.restrictedTraverse('webhelpers')
+        return self.context.restrictedTraverse("webhelpers")
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.traversed_session.session
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -520,17 +499,19 @@ class ActionPlanView(BrowserView):
         if not self.risk or not IRisk.providedBy(self.risk):
             defined_measures = []
         else:
-            defined_measures = (
-                self.risk.get_pre_defined_measures(self.request) or "")
+            defined_measures = self.risk.get_pre_defined_measures(self.request) or ""
         try:
             saved_existing_measures = (
-                self.context.existing_measures and
-                loads(self.context.existing_measures) or [])
+                self.context.existing_measures
+                and loads(self.context.existing_measures)
+                or []
+            )
             # Backwards compat. We used to save dicts before we
             # switched to list of tuples.
             if isinstance(saved_existing_measures, dict):
                 saved_existing_measures = [
-                    (k, v) for (k, v) in saved_existing_measures.items()]
+                    (k, v) for (k, v) in saved_existing_measures.items()
+                ]
 
             saved_measure_texts = OrderedDict()
             for text, on in saved_existing_measures:
@@ -551,11 +532,8 @@ class ActionPlanView(BrowserView):
                 if active:
                     existing_measures.append((text, active))
         except ValueError:
-            existing_measures = [
-                (text, 0) for text in defined_measures
-            ]
-            self.context.existing_measures = safe_unicode(
-                dumps(existing_measures))
+            existing_measures = [(text, 0) for text in defined_measures]
+            self.context.existing_measures = safe_unicode(dumps(existing_measures))
         return existing_measures
 
     @property
@@ -588,10 +566,7 @@ class ActionPlanView(BrowserView):
     @property
     def tree(self):
         return getTreeData(
-            self.request,
-            self.context,
-            filter=self.question_filter,
-            phase="actionplan",
+            self.request, self.context, filter=self.question_filter, phase="actionplan"
         )
 
     @property
@@ -606,22 +581,24 @@ class ActionPlanView(BrowserView):
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        start_view = api.content.get_view("start", self.context, self.request)
+        start_view = api.content.get_view(
+            "start", self.webhelpers.traversed_session, self.request
+        )
         if not start_view.can_edit_session:
             return self.request.response.redirect(
-                self.webhelpers.survey_url() + '/@@start'
+                self.webhelpers.survey_url() + "/@@start"
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         context = aq_inner(self.context)
 
         appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
+        settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
         self.my_tool_type = get_tool_type(self.context)
         self.use_existing_measures = (
-            asBool(settings.get('use_existing_measures', False)) and
-            self.my_tool_type in self.tti.types_existing_measures
+            asBool(settings.get("use_existing_measures", False))
+            and self.my_tool_type in self.tti.types_existing_measures
         )
 
         self.next_is_report = self.previous_is_identification = False
@@ -629,29 +606,31 @@ class ActionPlanView(BrowserView):
         # if the next step might be the report phase, in which case we
         # need to switch off the sidebar
         next_question = FindNextQuestion(
-            context, filter=self.risk_filter)
+            context, dbsession=self.session, filter=self.risk_filter
+        )
         if next_question is None:
             # We ran out of questions, proceed to the report
             url = "{session_url}/@@report".format(
-                session_url=self.context.aq_parent.absolute_url(),
+                session_url=self.webhelpers.traversed_session.absolute_url()
             )
             self.next_is_report = True
         else:
-            url = "{session_url}/{tree_item_id}/@@actionplan".format(
-                tree_item_id=next_question.id,
-                session_url=self.context.aq_parent.absolute_url(),
+            url = "{session_url}/{path}/@@actionplan".format(
+                path="/".join(next_question.short_path),
+                session_url=self.webhelpers.traversed_session.absolute_url(),
             )
 
         previous = FindPreviousQuestion(
-            context, filter=self.risk_filter)
+            context, dbsession=self.session, filter=self.risk_filter
+        )
         if previous is None:
             previous_url = "{session_url}/@@identification".format(
-                session_url=self.context.aq_parent.absolute_url(),
+                session_url=self.webhelpers.traversed_session.absolute_url()
             )
         else:
-            previous_url = "{session_url}/{tree_item_id}/@@actionplan".format(
-                tree_item_id=previous.id,
-                session_url=self.context.aq_parent.absolute_url(),
+            previous_url = "{session_url}/{path}/@@actionplan".format(
+                path="/".join(previous.short_path),
+                session_url=self.webhelpers.traversed_session.absolute_url(),
             )
             self.previous_is_identification = True
 
@@ -666,7 +645,7 @@ class ActionPlanView(BrowserView):
                 session.delete(plan)
             context.action_plans.extend(new_plans)
             if changes:
-                SessionManager.session.touch()
+                self.session.touch()
 
             if reply["next"] == "previous":
                 url = previous_url
@@ -689,14 +668,15 @@ class ActionPlanView(BrowserView):
             self.risk.description = u""
             number_images = 0
         else:
-            number_images = getattr(self.risk, 'image', None) and 1 or 0
+            number_images = getattr(self.risk, "image", None) and 1 or 0
             if number_images:
                 for i in range(2, 5):
-                    number_images += getattr(
-                        self.risk, 'image{0}'.format(i), None) and 1 or 0
+                    number_images += (
+                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                    )
             existing_measures = [
-                txt.strip() for (txt, active) in self.get_existing_measures()
-                if active]
+                txt.strip() for (txt, active) in self.get_existing_measures() if active
+            ]
             solutions = []
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
@@ -704,7 +684,7 @@ class ActionPlanView(BrowserView):
                 if measures_full_text:
                     match = u"%s: %s" % (
                         (getattr(solution, "description", "") or "").strip(),
-                        (getattr(solution, "prevention_plan", "") or "").strip()
+                        (getattr(solution, "prevention_plan", "") or "").strip(),
                     )
                 else:
                     match = solution.description.strip()
@@ -723,31 +703,46 @@ class ActionPlanView(BrowserView):
         self.has_images = number_images > 0
         self.image_class = IMAGE_CLASS[number_images]
         self.risk_number = self.context.number
-        lang = getattr(self.request, 'LANGUAGE', 'en')
+        lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.delete_confirmation = translate(_(
-            u"Are you sure you want to delete this measure? This action can "
-            u"not be reverted."),
-            target_language=lang)
-        self.override_confirmation = translate(_(
-            u"The current text in the fields 'Action plan', 'Prevention plan' and "
-            u"'Requirements' of this measure will be overwritten. This action cannot be "
-            u"reverted. Are you sure you want to continue?"),
-            target_language=lang)
-        self.message_date_before = translate(_(
-            u"error_validation_before_end_date",
-            default=u"This date must be on or before the end date."),
-            target_language=lang)
-        self.message_date_after = translate(_(
-            u"error_validation_after_start_date",
-            default=u"This date must be on or after the start date."),
-            target_language=lang)
-        self.message_positive_number = translate(_(
-            u"error_validation_positive_whole_number",
-            default=u"This value must be a positive whole number."),
-            target_language=lang)
+        self.delete_confirmation = translate(
+            _(
+                u"Are you sure you want to delete this measure? This action can "
+                u"not be reverted."
+            ),
+            target_language=lang,
+        )
+        self.override_confirmation = translate(
+            _(
+                u"The current text in the fields 'Action plan', 'Prevention plan' and "
+                u"'Requirements' of this measure will be overwritten. This action cannot be "
+                u"reverted. Are you sure you want to continue?"
+            ),
+            target_language=lang,
+        )
+        self.message_date_before = translate(
+            _(
+                u"error_validation_before_end_date",
+                default=u"This date must be on or before the end date.",
+            ),
+            target_language=lang,
+        )
+        self.message_date_after = translate(
+            _(
+                u"error_validation_after_start_date",
+                default=u"This date must be on or after the start date.",
+            ),
+            target_language=lang,
+        )
+        self.message_positive_number = translate(
+            _(
+                u"error_validation_positive_whole_number",
+                default=u"This value must be a positive whole number.",
+            ),
+            target_language=lang,
+        )
         return self.index()
 
     def extract_plans_from_request(self):
@@ -761,46 +756,54 @@ class ActionPlanView(BrowserView):
             existing_plans[str(plan.id)] = plan
         form = self.request.form
         form["action_plans"] = []
-        for i in range(0, len(form.get('measure', []))):
-            measure = dict([p for p in form['measure'][i].items()
-                            if p[1].strip()])
-            form['action_plans'].append(measure)
+        for i in range(0, len(form.get("measure", []))):
+            measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
+            form["action_plans"].append(measure)
             if len(measure):
                 budget = measure.get("budget")
-                budget = budget and budget.split(',')[0].split('.')[0]
-                p_start = measure.get('planning_start')
+                budget = budget and budget.split(",")[0].split(".")[0]
+                p_start = measure.get("planning_start")
                 if p_start:
                     try:
-                        datetime.datetime.strptime(p_start, '%Y-%m-%d')
+                        datetime.datetime.strptime(p_start, "%Y-%m-%d")
                     except ValueError:
                         p_start = None
-                p_end = measure.get('planning_end')
+                p_end = measure.get("planning_end")
                 if p_end:
                     try:
-                        datetime.datetime.strptime(p_end, '%Y-%m-%d')
+                        datetime.datetime.strptime(p_end, "%Y-%m-%d")
                     except ValueError:
                         p_end = None
-                if measure.get('id', '-1') in existing_plans:
-                    plan = existing_plans[measure.get('id')]
+                if measure.get("id", "-1") in existing_plans:
+                    plan = existing_plans[measure.get("id")]
                     if (
-                        measure.get("action_plan") != plan.action_plan or
-                        measure.get("prevention_plan") != plan.prevention_plan or  # noqa
-                        measure.get("requirements") != plan.requirements or
-                        measure.get("responsible") != plan .responsible or (
-                            plan.budget and (budget != str(plan.budget)) or
-                            plan.budget is None and budget
-                        ) or (
-                            (plan.planning_start and
-                                p_start != plan.planning_start.strftime('%Y-%m-%d')) or  # noqa
-                            (plan.planning_start is None and p_start)
-                        ) or (
-                            (plan.planning_end and
-                                p_end != plan.planning_end.strftime('%Y-%m-%d')) or  # noqa
-                            (plan.planning_end is None and p_end)
+                        measure.get("action_plan") != plan.action_plan
+                        or measure.get("prevention_plan") != plan.prevention_plan
+                        or measure.get("requirements") != plan.requirements  # noqa
+                        or measure.get("responsible") != plan.responsible
+                        or (
+                            plan.budget
+                            and (budget != str(plan.budget))
+                            or plan.budget is None
+                            and budget
+                        )
+                        or (
+                            (
+                                plan.planning_start
+                                and p_start != plan.planning_start.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_start is None and p_start)  # noqa
+                        )
+                        or (
+                            (
+                                plan.planning_end
+                                and p_end != plan.planning_end.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_end is None and p_end)  # noqa
                         )
                     ):
                         updated += 1
-                    del existing_plans[measure.get('id')]
+                    del existing_plans[measure.get("id")]
                 else:
                     added += 1
                 new_plans.append(
@@ -818,98 +821,115 @@ class ActionPlanView(BrowserView):
         changes = True
         if added == 0 and updated == 0 and removed == 0:
             IStatusMessage(self.request).add(
-                _(u"No changes were made to measures in your action plan."),
-                type='info'
+                _(u"No changes were made to measures in your action plan."), type="info"
             )
             changes = False
         if added == 1:
             IStatusMessage(self.request).add(
-                _(u"message_measure_saved", default=u"A measure has been added to your action plan."),
-                type='success'
+                _(
+                    u"message_measure_saved",
+                    default=u"A measure has been added to your action plan.",
+                ),
+                type="success",
             )
         elif added == 2:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_saved_2",
                     default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={'no_of_measures': str(added)}),
-                type='success'
+                    mapping={"no_of_measures": str(added)},
+                ),
+                type="success",
             )
         elif added in (3, 4):
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_saved_3_4",
                     default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={'no_of_measures': str(added)}),
-                type='success'
+                    mapping={"no_of_measures": str(added)},
+                ),
+                type="success",
             )
         elif added > 4:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_saved",
                     default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={'no_of_measures': str(added)}),
-                type='success'
+                    mapping={"no_of_measures": str(added)},
+                ),
+                type="success",
             )
 
         if updated == 1:
             IStatusMessage(self.request).add(
-                _(u"message_measure_updated", default=u"A measure has been updated in your action plan."),
-                type='success'
+                _(
+                    u"message_measure_updated",
+                    default=u"A measure has been updated in your action plan.",
+                ),
+                type="success",
             )
         elif updated == 2:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_updated_2",
                     default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={'no_of_measures': str(updated)}),
-                type='success'
+                    mapping={"no_of_measures": str(updated)},
+                ),
+                type="success",
             )
         elif updated in (3, 4):
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_updated_3_4",
                     default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={'no_of_measures': str(updated)}),
-                type='success'
+                    mapping={"no_of_measures": str(updated)},
+                ),
+                type="success",
             )
         elif updated > 4:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_updated",
                     default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={'no_of_measures': str(updated)}),
-                type='success'
+                    mapping={"no_of_measures": str(updated)},
+                ),
+                type="success",
             )
 
         if removed == 1:
             IStatusMessage(self.request).add(
-                _(u"message_measure_removed", default=u"A measure has been removed from your action plan."),
-                type='success'
+                _(
+                    u"message_measure_removed",
+                    default=u"A measure has been removed from your action plan.",
+                ),
+                type="success",
             )
         elif removed == 2:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_removed_3",
                     default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={'no_of_measures': str(removed)}),
-                type='success'
+                    mapping={"no_of_measures": str(removed)},
+                ),
+                type="success",
             )
         elif removed in (3, 4):
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_removed_3_4",
                     default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={'no_of_measures': str(removed)}),
-                type='success'
+                    mapping={"no_of_measures": str(removed)},
+                ),
+                type="success",
             )
         elif removed > 4:
             IStatusMessage(self.request).add(
                 _(
                     u"message_measures_removed",
                     default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={'no_of_measures': str(removed)}),
-                type='success'
+                    mapping={"no_of_measures": str(removed)},
+                ),
+                type="success",
             )
         return (new_plans, changes)
 
@@ -920,39 +940,41 @@ def calculate_priority(db_risk, risk):
     This method can be used for risks using a calculated evaluation method
     to determine the priority absed on the subquestions.
     """
-    assert risk.evaluation_method == 'calculated'
-    if risk.type in ['top5', 'policy']:
-        db_risk.priority = 'high'
-    elif evaluation_algorithm(risk) == 'french':
+    assert risk.evaluation_method == "calculated"
+    if risk.type in ["top5", "policy"]:
+        db_risk.priority = "high"
+    elif evaluation_algorithm(risk) == "french":
         priority = db_risk.frequency * db_risk.effect
         if priority < 10:
-            db_risk.priority = 'low'
+            db_risk.priority = "low"
         elif priority <= 45:
-            db_risk.priority = 'medium'
+            db_risk.priority = "medium"
         else:
-            db_risk.priority = 'high'
+            db_risk.priority = "high"
     else:
         priority = db_risk.frequency * db_risk.effect * db_risk.probability
         if priority <= 15:
-            db_risk.priority = 'low'
+            db_risk.priority = "low"
         elif priority <= 50:
-            db_risk.priority = 'medium'
+            db_risk.priority = "medium"
         else:
-            db_risk.priority = 'high'
+            db_risk.priority = "high"
     return db_risk.priority
 
 
 def evaluation_algorithm(risk):
     for parent in aq_chain(aq_inner(risk)):
         if ISurvey.providedBy(parent):
-            return getattr(parent, 'evaluation_algorithm', u'kinney')
+            return getattr(parent, "evaluation_algorithm", u"kinney")
     else:
-        return u'kinney'
+        return u"kinney"
 
 
 class ConfirmationDeleteRisk(BrowserView):
     """View name: @@confirmation-delete-risk
     """
+
+    no_splash = True
 
     @property
     def risk_title(self):
@@ -964,14 +986,12 @@ class ConfirmationDeleteRisk(BrowserView):
 
     @property
     def form_action(self):
-        return "{0}/@@delete-risk".format(
-            aq_parent(self.context).absolute_url())
+        return "{0}/@@delete-risk".format(aq_parent(self.context).absolute_url())
 
     def __call__(self, *args, **kwargs):
-        ''' Before rendering check if we can find session title
-        '''
+        """ Before rendering check if we can find session title
+        """
         self.risk_title
-        self.no_splash = True
         return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
 
 
@@ -980,7 +1000,7 @@ class DeleteRisk(BrowserView):
     """
 
     def __call__(self):
-        risk_id = self.request.form.get('risk_id', None)
+        risk_id = self.request.form.get("risk_id", None)
         if risk_id:
             try:
                 risk_id = int(risk_id)
@@ -988,8 +1008,10 @@ class DeleteRisk(BrowserView):
                 pass
             else:
                 keep_ids = [
-                    risk.id for risk in self.context.children().all()
-                    if risk.id != risk_id]
+                    risk.id
+                    for risk in self.context.children().all()
+                    if risk.id != risk_id
+                ]
                 self.context.removeChildren(excluded=keep_ids)
 
         self.request.response.redirect(self.context.absolute_url())

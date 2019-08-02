@@ -487,32 +487,6 @@ class SessionBrowserNavigator(SessionsView):
         return False
 
 
-class ConfirmationDeleteSession(BrowserView):
-    """View name: @@confirmation-delete-session
-    """
-
-    @property
-    @memoize_contextless
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", api.portal.get(), self.request)
-
-    @property
-    @memoize_contextless
-    def session_title(self):
-        session = self.context.session
-        start_view = api.content.get_view("start", self.context, self.request)
-        if not start_view.can_delete_session:
-            raise Unauthorized()
-        return session.title
-
-    def __call__(self, *args, **kwargs):
-        """ Before rendering check if we can find session title
-        """
-        self.session_title
-        self.no_splash = True
-        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
-
-
 def sql_clone(obj, skip={}, session=None):
     """ Clone a sql object avoiding the properties in the skip parameter
 
