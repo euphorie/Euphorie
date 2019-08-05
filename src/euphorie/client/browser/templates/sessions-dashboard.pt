@@ -13,12 +13,14 @@
   <tal:block replace="tile:statusmessages" />
   <div id="content-pane">
     <article id="screen-intro">
-      <h1>
-        OiRA
-      </h1>
-      <p class="byline">
-        ${view/tool_byline}
-      </p>
+      <header class="title-group">
+        <h1>
+          OiRA
+        </h1>
+        <p class="byline">
+          ${view/tool_byline}
+        </p>
+      </header>
     </article>
     <div class="row pat-masonry"
          id="dashboard"
@@ -26,94 +28,106 @@
     >
       <div class="grid-sizer"></div>
 
-      <div class="portlet span-3" tal:condition="python:len(my_sessions)>0">
+      <div class="portlet span-3" id="portlet-my-ras"  tal:condition="python:len(my_sessions)>0">
         <div class="content">
-          <h2 class="portlet-title"
-              i18n:translate=""
-          >My risk assessments</h2>
-          <article>
-          <p i18n:translate="info_select_session">Select an earlier session to complete or review or
-            <a href="${webhelpers/session_overview_url}/new-session.html#document-content"
-               i18n:name="start_session"
-               i18n:translate="link_start_session"
-               class="pat-modal icon-plus-circle">start a new session</a>.
-          </p>
-        </article>
-          <ul class="ras">
-            <li tal:repeat="session my_sessions"
-              class="ra">
-
-              <a href="${request/getURL}?action=continue&amp;session=${session/id}"
-                class="pat-inject follow"
-                data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
-              >
-                <h4 class="name field">${session/title}</h4>
-                <p class="date field">
-                  <span class="last-saved">
-                    <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                    <time class="pat-display-time"
-                        datetime="${value}"
-                        data-pat-display-time="from-now: true; locale: ${language}"
-                        tal:define="value session/modified/isoformat|nothing;"
-                    >${value}</time>
-                  </span>
+          <article class="portlet-intro">
+            <header class="portlet-title-group">
+              <h2 class="portlet-title"
+                  i18n:translate=""
+              >My risk assessments</h2>
+            </header>
+          </article>
+          <div class="portlet-body" id="portlet-body-my-ras">
+              <article class="pat-rich">
+                <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+                  <a href="${webhelpers/session_overview_url}/new-session.html#document-content"
+                     i18n:name="start_session"
+                     i18n:translate="link_start_session"
+                     class="pat-modal icon-plus-circle">start a new session</a>.
                 </p>
-              </a>
+              </article>
+            <ul class="ras">
+              <li tal:repeat="session my_sessions"
+                class="ra">
 
-              <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                 href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
-                 data-pat-tooltip="source: ajax; position-list: tr"
-                 i18n:translate=""
-              >More</a>
-            </li>
-          </ul>
+                <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                  class="pat-inject follow"
+                  data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+                >
+                  <h4 class="name field">${session/title}</h4>
+                  <p class="date field">
+                    <span class="last-saved">
+                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                      <time class="pat-display-time"
+                          datetime="${value}"
+                          data-pat-display-time="from-now: true; locale: ${language}"
+                          tal:define="value session/modified/isoformat|nothing;"
+                      >${value}</time>
+                    </span>
+                  </p>
+                </a>
+
+                <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+                   href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                   data-pat-tooltip="source: ajax; position-list: tr"
+                   i18n:translate=""
+                >More</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="portlet span-3">
+      <div class="portlet span-3" id="portlet-available-tools">
         <div class="content">
-          <h2 class="portlet-title"
-              i18n:translate=""
-          >
-            Available OiRA tools
-          </h2>
-          <form class="pat-inject"
-                action="${here/absolute_url}/@@new-session.html"
-          >
-            <article class="pat-rich">
-              <p i18n:translate="label_select_new_session">
-                Start a new session by choosing one of the following sectoral tools.
-              </p>
-            </article>
+          <article class="portlet-intro">
+            <header class="portlet-title-group">
+              <h2 class="portlet-title"
+                  i18n:translate=""
+              >
+                Available OiRA tools
+              </h2>
+            </header>
+          </article>
+          <div class="portlet-body" id="portlet-body-available-tools">
+            <form class="pat-inject"
+                  action="${here/absolute_url}/@@new-session.html"
+            >
+              <article class="pat-rich">
+                <p i18n:translate="label_select_new_session">
+                  Start a new session by choosing one of the following sectoral tools.
+                </p>
+              </article>
 
-            <fieldset class="tool-list">
-              <fieldset class="department">
-                <fieldset class="tools pat-checklist radio">
-                  <label class="tool"
-                         tal:repeat="survey view/surveys"
-                  >
-                    <input name="survey"
-                           type="radio"
-                           value="${survey/id}"
-                    />
-                    <strong class="field name">${survey/title}</strong>
-                  </label>
+              <fieldset class="tool-list">
+                <fieldset class="department">
+                  <fieldset class="tools pat-checklist radio">
+                    <label class="tool"
+                           tal:repeat="survey view/surveys"
+                    >
+                      <input name="survey"
+                             type="radio"
+                             value="${survey/id}"
+                      />
+                      <strong class="field name">${survey/title}</strong>
+                    </label>
+                  </fieldset>
                 </fieldset>
               </fieldset>
-            </fieldset>
 
-            <p class="button-bar">
-              <button class="small pat-button pat-depends"
-                      type="submit"
-                      data-pat-depends="condition: survey; action: enable"
-                      i18n:translate="button_start_session"
-              >Start session</button>
-            </p>
+              <p class="button-bar">
+                <button class="small pat-button pat-depends"
+                        type="submit"
+                        data-pat-depends="condition: survey; action: enable"
+                        i18n:translate="button_start_session"
+                >Start session</button>
+              </p>
 
-            <input name="action"
-                   type="hidden"
-                   value="new"
-            />
-          </form>
+              <input name="action"
+                     type="hidden"
+                     value="new"
+              />
+            </form>
+          </div>
         </div>
       </div>
 
@@ -142,23 +156,48 @@
   </metal:slot>
 
     <metal:slot fill-slot="aside-header">
-      <header id="osc-header">
-          <tal:if condition="python:is_anonymous and webhelpers.allow_guest_accounts">
-              <a tal:condition="is_outside_of_survey" href="${base_url}/new-session-test.html?${came_from_param}#document-content" id="button-new-session"
-                  data-pat-modal="class: large" class="pat-modal icon-plus-circle" i18n:attributes="title " title="Start test session" i18n:translate="">Start test session</a>
-              <a tal:condition="not:is_outside_of_survey" href="${base_url}/@@tryout?${came_from_param}#document-content" title="Start a new test session" id="button-new-session" class="icon-plus-circle" i18n:translate="">Start test session</a>
-          </tal:if>
+      <form id="osc-header" class="pat-inject pat-autosubmit" action="${absolute_url}/@@${view/__name__}#browser">
+        <tal:in_group condition="python: root_group and root_parent">
+          <a class="back-button pat-inject"
+             href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
+             data-pat-inject="source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
+             i18n:translate=""
+          >Back</a>
+          <h2 class="column-title">${root_group/fullname}</h2>
+        </tal:in_group>
 
-          <tal:if condition="not:is_anonymous">
-              <tal:if condition="not:is_outside_of_survey">
-                  <a href="${webhelpers/country_url}/session-browser-sidebar?groupid=${webhelpers/get_session_group_id}&zodb_path=${webhelpers/survey_zodb_path}"
-                     data-pat-inject="source: #osc-header; target: #osc-header && source: #osc; target: #osc"
-                     class="back-button pat-inject">Back</a>
-              </tal:if>
-              <a href="${webhelpers/session_overview_url}/new-session.html#document-content" id="button-new-session-quick"
-                  data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus-circle" title="Start a new session" i18n:attributes="title link_start_session" i18n:translate="New">New</a>
-          </tal:if>
-      </header>
+        <!--
+        <tal:root condition="python: not root_group or not root_parent">
+          <label class="pat-select bare">
+            <select>
+              <option i18n:translate="">Group by department</option>
+              <option i18n:translate="">Group by tool</option>
+              <option>Group by publication date</option>
+              <option>Group by modification date</option>
+              <option>Group by user</option>
+              <option>Group by country</option>
+              <option>Group by sector</option>
+            </select>
+          </label>
+        </tal:root>
+        -->
+
+        <a class="no-label pat-modal iconified icon-plus"
+           id="button-new-session-quick"
+           href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
+           title="Start a new session"
+           data-pat-modal="class: large"
+           i18n:attributes="title link_start_session"
+           i18n:translate="New"
+        >New</a>
+        <button id="button-osc-expand"
+                tal:condition="webhelpers/use_publication_feature"
+                class="no-label iconified icon-resize-full pat-toggle"
+                data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
+                i18n:attributes="title"
+                title="Expand sidebar" i18n:translate="">Expand sidebar</button>
+
+      </form>
     </metal:slot>
 
 
