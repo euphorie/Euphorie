@@ -198,5 +198,5 @@ class Company(form.SchemaForm):
             'recommend_tool': None,
         }
         self.applyChanges(data)
-        url = "%s/report_view" % self.context.absolute_url()
+        url = "%s/@@report_view" % self.context.absolute_url()
         self.request.response.redirect(url)

@@ -550,7 +550,7 @@ class Report(SessionMixin, BrowserView):
                 getattr(session, "company", None) is not None
                 and getattr(session.company, "country") is not None
             ):
-                url = "%s/report_view" % self.context.absolute_url()
+                url = "%s/@@report_view" % self.context.absolute_url()
 
             user = getSecurityManager().getUser()
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
