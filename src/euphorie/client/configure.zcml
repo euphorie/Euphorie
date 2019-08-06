@@ -18,7 +18,6 @@
         />
 
     <include package=".adapters" />
-    <include package=".api" />
     <include package=".browser" />
     <include package=".subscribers" />
     <include package=".docx" />

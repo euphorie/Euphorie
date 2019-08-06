@@ -4,11 +4,63 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_parent
 from euphorie.client import model
-from euphorie.client.api.session import build_tree_aq_chain
-from euphorie.client.api.session import find_sql_context
+from euphorie.client.model import SurveyTreeItem
 from euphorie.ghost import PathGhost
 from euphorie.testing import EuphorieIntegrationTestCase
+from sqlalchemy import sql
 from z3c.saconfig import Session
+
+
+def build_tree_aq_chain(root, tree_id):
+    """Build an acquisition context for a tree node.
+    XXX This uses the path ghost and is obsolete
+    """
+    tail = Session.query(SurveyTreeItem).get(tree_id)
+    walker = root
+    path = tail.path
+    while len(path) > 3:
+        id = str(int(path[:3]))
+        path = path[3:]
+        walker = PathGhost(id).__of__(walker)
+    return tail.__of__(walker)
+
+
+def find_sql_context(session_id, zodb_path):
+    """Find the closest SQL tree node for a candidate path.
+    The path has to be given as a list of path entries. The session
+    timestamp is only used as part of a cache key for this method.
+    The return value is the id of the SQL tree node. All consumed
+    entries will be removed from the zodb_path list.
+    XXX This uses the path ghost and is obsolete
+    """
+    # Pop all integer elements from the URL
+    path = ""
+    head = []
+    while zodb_path:
+        next = zodb_path.pop()
+        if len(next) > 3:
+            zodb_path.append(next)
+            break
+
+        try:
+            path += "%03d" % int(next)
+            head.append(next)
+        except ValueError:
+            zodb_path.append(next)
+            break
+
+    # Try and find a SQL tree node that matches our URL
+    query = (
+        Session.query(SurveyTreeItem)
+        .filter(SurveyTreeItem.session_id == session_id)
+        .filter(SurveyTreeItem.path == sql.bindparam("path"))
+    )
+    while path:
+        node = query.params(path=path).first()
+        if node is not None:
+            return node
+        path = path[:-3]
+        zodb_path.append(head.pop())
 
 
 class find_sql_context_tests(EuphorieIntegrationTestCase):

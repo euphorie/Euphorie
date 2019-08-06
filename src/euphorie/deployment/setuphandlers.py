@@ -1,5 +1,4 @@
 # coding=utf-8
-from euphorie.client.api.entry import API
 from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
 from plone import api
@@ -124,10 +123,6 @@ def setupInitialContent(site):
         site.invokeFactory("euphorie.client", "client", title="Client")
         # wt.doActionFor(site.client, "publish")
         log.info("Added Euphorie client instance")
-
-    client = site.client
-    if 'api' not in client:
-        client['api'] = API('api')
 
     if "documents" not in present:
         site.invokeFactory("euphorie.folder", "documents", title=u"Documents")

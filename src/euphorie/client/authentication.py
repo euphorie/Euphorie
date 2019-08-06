@@ -7,8 +7,6 @@ User account plugins and authentication.
 
 from . import model
 from ..content.api.authentication import authenticate_token as authenticate_cms_token
-from .api.authentication import authenticate_token as authenticate_client_token
-from .api.interfaces import IClientAPISkinLayer
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_parent
@@ -118,9 +116,7 @@ class EuphorieAccountPlugin(BasePlugin):
         token = credentials.get('api-token')
         if not token:
             return None
-        account = authenticate_client_token(token)
-        if account is None:
-            account = authenticate_cms_token(self, token)
+        account = authenticate_cms_token(self, token)
         return account
 
     @security.private
@@ -146,7 +142,6 @@ class EuphorieAccountPlugin(BasePlugin):
     def authenticateCredentials(self, credentials):
         if not (
             IClientSkinLayer.providedBy(self.REQUEST) or
-            IClientAPISkinLayer.providedBy(self.REQUEST) or
             ICMSAPISkinLayer.providedBy(self.REQUEST)
         ):
             return None
