@@ -40,18 +40,17 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.open(
-            "http://nohost/plone/client/nl/sector-title/"
-            "survey-title/identification/1/1"
+            "%s/1/1/@@identification" % session_url
         )
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
         browser.open(
-            "http://nohost/plone/client/nl/sector-title/"
-            "survey-title/actionplan/1/1"
+            "%s/1/1/@@actionplan" % session_url
         )
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
@@ -88,18 +87,17 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk
         browser.open(
-            "http://nohost/plone/client/nl/sector-title/"
-            "survey-title/identification/1/1"
+            "%s/1/1/@@identification" % session_url
         )
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
         browser.open(
-            "http://nohost/plone/client/nl/sector-title/"
-            "survey-title/actionplan/1/1"
+            "%s/1/1/@@actionplan" % session_url
         )
         self.assertEqual(browser.getControl(name="priority").value, "high")
 
@@ -136,11 +134,11 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Identify the top-5 risk
         browser.open(
-            "http://nohost/plone/client/nl/sector-title/"
-            "survey-title/identification/1/1"
+            "%s/1/1/@@identification" % session_url
         )
         browser.getControl(name="answer").value = ["no"]
         # No evaluation is necessary

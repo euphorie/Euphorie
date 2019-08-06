@@ -54,6 +54,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Update the risk
         risk = Session.query(model.Risk).first()
@@ -67,8 +68,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Render the report
         browser.handleErrors = False
         browser.open(
-            "http://nohost/plone/client/nl/ict/"
-            "software-development/report_view"
+            "%s/@@report_view" % session_url
         )
         # No errors = success
 
@@ -88,9 +88,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Check the company data
-        browser.open("%s/@@report_company" % survey_url)
+        browser.open("%s/@@report_company" % session_url)
         self.assertEqual(
             browser.getControl(name="form.widgets.country").value, ["nl"]
         )
@@ -110,9 +111,10 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Enter some company data
-        browser.open("%s/@@report_company" % survey_url)
+        browser.open("%s/@@report_company" % session_url)
         browser.getControl(name="form.widgets.country").value = ["be"]
         browser.getControl(name="form.widgets.employees").value = ["50-249"]
         browser.getControl(name="form.widgets.conductor").value = ["staff"]
@@ -122,9 +124,9 @@ class ReportTests(EuphorieFunctionalTestCase):
         ]
         browser.getControl(name="form.buttons.next").click()
         # Make sure all fields validated
-        self.assertEqual(browser.url, "%s/report_view" % survey_url)
+        self.assertEqual(browser.url, "%s/@@report_view" % session_url)
         # Verify entered data
-        browser.open("%s/@@report_company" % survey_url)
+        browser.open("%s/@@report_company" % session_url)
         self.assertEqual(
             browser.getControl(name="form.widgets.country").value, ["be"]
         )
