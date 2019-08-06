@@ -375,18 +375,18 @@
 
   <browser:page
       name="clone-session"
-      for="euphorie.client.country.IClientCountry"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
-      class=".country.CloneSession"
+      class=".session.CloneSession"
       attribute="clone"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="confirmation-clone-session"
-      for="euphorie.client.country.IClientCountry"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
-      class=".country.CloneSession"
+      class=".session.CloneSession"
       template="templates/confirmation-clone-session.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

@@ -1,6 +1,7 @@
 # coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
+from Acquisition import aq_parent
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
@@ -43,6 +44,21 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 import re
 import urllib
+
+
+def sql_clone(obj, skip={}, session=None):
+    """ Clone a sql object avoiding the properties in the skip parameter
+
+    The skip parameter is optional but you probably want to always pass the
+    primary key
+    """
+    # Never copy the _sa_instance_state attribute
+    skip.add("_sa_instance_state")
+    params = {key: value for key, value in obj.__dict__.iteritems() if key not in skip}
+    clone = obj.__class__(**params)
+    if session:
+        session.add(clone)
+    return clone
 
 
 class IStartFormSchema(model.Schema):
@@ -413,7 +429,7 @@ class DeleteSession(SessionMixin, BrowserView):
             self.request,
             "success",
         )
-        self.request.response.redirect(self.context.aq_parent.absolute_url())
+        self.request.response.redirect(self.webhelpers.client_url)
 
 
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
@@ -432,6 +448,92 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
         """ Before rendering check if we can find session title
         """
         return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
+
+
+class CloneSession(SessionMixin, BrowserView):
+    """View name: @@confirmation-clone-session
+    """
+
+    def get_cloned_session(self):
+        sql_session = Session
+        old_session = self.session
+        new_session = sql_clone(
+            old_session,
+            skip={
+                "id",
+                "created",
+                "modified",
+                "last_modifier_id",
+                "company",
+                "published",
+                "group_id",
+            },
+            session=sql_session,
+        )
+        lang = getattr(self.request, "LANGUAGE", "en")
+        new_session.title = u"{}: {}".format(
+            translate(_("prefix_cloned_title", default=u"COPY"), target_language=lang),
+            new_session.title,
+        )
+        account = self.webhelpers.get_current_account()
+        new_session.group = account.group
+        new_session.modified = new_session.created = datetime.now()
+        new_session.account = account
+        if old_session.company:
+            new_session.company = sql_clone(
+                old_session.company, skip={"id", "session"}, session=sql_session
+            )
+
+        risk_module_skipped_attributes = {
+            "id",
+            "session",
+            "sql_module_id",
+            "parent_id",
+            "session_id",
+            "sql_risk_id",
+            "risk_id",
+        }
+        module_mapping = {}
+
+        old_modules = sql_session.query(Module).filter(
+            SurveyTreeItem.session == old_session
+        )
+        for old_module in old_modules:
+            new_module = sql_clone(
+                old_module, skip=risk_module_skipped_attributes, session=sql_session
+            )
+            module_mapping[old_module.id] = new_module
+            new_module.session = new_session
+
+        old_risks = sql_session.query(Risk).filter(
+            SurveyTreeItem.session == old_session
+        )
+        for old_risk in old_risks:
+            new_risk = sql_clone(
+                old_risk, skip=risk_module_skipped_attributes, session=sql_session
+            )
+            new_risk.parent_id = module_mapping[old_risk.parent_id].id
+            new_risk.session = new_session
+
+            for old_plan in old_risk.action_plans:
+                new_plan = sql_clone(
+                    old_plan, skip={"id", "risk_id"}, session=sql_session
+                )
+                new_plan.risk = new_risk
+        notify(ObjectModifiedEvent(new_session))
+        return new_session
+
+    def clone(self):
+        """ Clone this session and redirect to the start view
+        """
+        new_session = self.get_cloned_session()
+        api.portal.show_message(
+            _("The risk assessment has been cloned"), self.request, "success"
+        )
+        target = "{contexturl}/++session++{sessionid}/@@start?new_clone=1".format(
+            contexturl=aq_parent(self.context).absolute_url(), sessionid=new_session.id
+        )
+        self.request.response.redirect(target)
 
 
 class PublicationMenu(SessionMixin, BrowserView):

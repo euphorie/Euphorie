@@ -17,10 +17,6 @@
               action="${context/absolute_url}/@@clone-session"
               method="post"
         >
-          <input name="id"
-                 type="hidden"
-                 value="${view/session/id}"
-          />
           <div class="panel-body">
             <div class="container">
               <article class="pat-rich">
