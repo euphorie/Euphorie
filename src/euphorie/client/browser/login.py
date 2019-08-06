@@ -166,7 +166,7 @@ class LoginForm(Login):
     """View name: @@login_form"""
 
 
-class Tryout(Login):
+class Tryout(SessionsView, Login):
     """Create a guest account
 
     View name: @@tryout
@@ -198,15 +198,11 @@ class Tryout(Login):
             survey = None
         if not ISurvey.providedBy(survey):
             return self.request.response.redirect(came_from)
-        title = survey.Title()
-        SessionManager.start(title=title, survey=survey, account=account)
-        survey_url = survey.absolute_url()
-        v_url = urlparse.urlsplit(survey_url + '/resume').path
-        trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect("%s/start" % survey_url)
+        info = dict(action="new", survey=came_from)
+        self._NewSurvey(info, account)
 
 
-class CreateTestSession(SessionsView, Tryout):
+class CreateTestSession(Tryout):
     """Create a guest session
 
     View name: @@new-session-test.html
