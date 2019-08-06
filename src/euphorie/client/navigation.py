@@ -77,7 +77,7 @@ def first(func, iter):
         return None
 
 
-def getTreeData(request, context, phase="identification", filter=None):
+def getTreeData(request, context, phase="identification", filter=None, survey=None):
     """Assemble data for a navigation tree
 
     This function returns a nested dictionary structure reflecting the
@@ -103,9 +103,14 @@ def getTreeData(request, context, phase="identification", filter=None):
     - children: a list of child nodes (in the right order)
     - url: URL for this item
     """
-    webhelpers = api.content.get_view("webhelpers", context, request)
-    survey = webhelpers._survey
-    traversed_session = webhelpers.traversed_session
+    if not survey:
+        # Standard, real-world case
+        webhelpers = api.content.get_view("webhelpers", context, request)
+        survey = webhelpers._survey
+        traversed_session = webhelpers.traversed_session
+    else:
+        # Only in tests
+        traversed_session = survey
 
     query = Session.query(model.SurveyTreeItem)
     title_custom_risks = utils.get_translated_custom_risks_title(request)

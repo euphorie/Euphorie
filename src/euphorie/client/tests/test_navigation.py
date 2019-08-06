@@ -311,7 +311,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
 
     def testMinimalTree(self):
         self.createSqlData()
-        data = navigation.getTreeData(self.request, self.q1)
+        data = navigation.getTreeData(self.request, self.q1, survey=self.survey)
         self.failUnless(isinstance(data, dict))
         children = data["children"]
         self.assertEqual(len(children), 1)
@@ -325,7 +325,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
         self.assertEqual(mod1["leaf_module"], True)
         self.assertEqual(mod1["active"], True)
         self.assertEqual(mod1["class"], "active current_parent")
-        self.assertEqual(mod1["url"], "http://nohost/identification/1")
+        self.assertEqual(mod1["url"], "http://nohost/1/@@identification")
         self.assertEqual(len(mod1["children"]), 1)
         q1 = mod1["children"][0]
         self.assertEqual(q1["id"], self.q1.id)
@@ -335,12 +335,12 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
         self.assertEqual(q1["current"], True)
         self.assertEqual(q1["active"], False)
         self.assertEqual(q1["class"], "current")
-        self.assertEqual(q1["url"], "http://nohost/identification/1/1")
+        self.assertEqual(q1["url"], "http://nohost/1/1/@@identification")
         self.assertEqual(len(q1["children"]), 0)
 
     def testIncludeRisksChildrenOfModule(self):
         self.createSqlData()
-        data = navigation.getTreeData(self.request, self.mod1)
+        data = navigation.getTreeData(self.request, self.mod1, survey=self.survey)
         mod1_data = data["children"][0]
         self.assertEqual(len(mod1_data["children"]), 1)
         self.assertEqual(mod1_data["leaf_module"], True)
@@ -348,7 +348,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
     def testIncludeRisksChildrenOfModuleUnlessSkipped(self):
         self.createSqlData()
         self.mod1.skip_children = True
-        data = navigation.getTreeData(self.request, self.mod1)
+        data = navigation.getTreeData(self.request, self.mod1, survey=self.survey)
         mod1_data = data["children"][0]
         self.assertEqual(len(mod1_data["children"]), 0)
         self.assertEqual(mod1_data["leaf_module"], False)
@@ -367,7 +367,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
                 title=u"question 1.1.1", risk_id="111", zodb_path="a/b/c"
             )
         )
-        data = navigation.getTreeData(self.request, q111)
+        data = navigation.getTreeData(self.request, q111, survey=self.survey)
         mod1_data = data["children"][0]
         self.assertEqual(len(mod1_data["children"]), 2)
         self.assertEqual(mod1_data["children"][0]["id"], mod11.id)
@@ -394,7 +394,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
         self.mod1.addChild(
             model.Risk(title=u"question 1.2", risk_id="12", zodb_path="a/b")
         )
-        data = navigation.getTreeData(self.request, q111)
+        data = navigation.getTreeData(self.request, q111, survey=self.survey)
         mod1_data = data["children"][0]
         self.assertEqual(len(mod1_data["children"]), 1)
         self.assertEqual(mod1_data["children"][0]["id"], mod11.id)
@@ -413,7 +413,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
         mod2 = self.survey.addChild(
             model.Module(title=u"module 2", module_id="2", zodb_path="b")
         )
-        data = navigation.getTreeData(self.request, q111)
+        data = navigation.getTreeData(self.request, q111, survey=self.survey)
         self.assertEqual(len(data["children"]), 2)
         self.assertEqual(data["children"][0]["id"], self.mod1.id)
         self.assertEqual(data["children"][0]["current"], False)
