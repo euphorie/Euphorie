@@ -6,35 +6,6 @@ from euphorie.testing import EuphorieFunctionalTestCase
 
 class ReportTests(EuphorieFunctionalTestCase):
 
-    def testUnicodeReportFilename(self):
-        from euphorie.content.tests.utils import BASIC_SURVEY
-        # Test for http://code.simplon.biz/tracker/euphorie/ticket/156
-        self.loginAsPortalOwner()
-        addSurvey(self.portal, BASIC_SURVEY)
-        survey_url = self.portal.client.nl["ict"][
-            "software-development"
-        ].absolute_url()  # noqa: E501
-        browser = self.get_browser()
-        browser.open(survey_url)
-        registerUserInClient(browser)
-        # Create a new survey session
-        browser.getControl(name="survey").value = ["ict/software-development"]
-        browser.getForm(action='new-session').submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
-        # Start the survey
-        browser.getControl(name="form.button.submit").click()
-        browser.getLink("Start Risk Identification").click()
-        # Force creation of the company data
-        browser.open("%s/@@report_company" % survey_url)
-        # Download the report
-        browser.handleErrors = False
-        browser.open("%s/report/download" % survey_url)
-        self.assertEqual(browser.headers.type, "application/rtf")
-        self.assertEqual(
-            browser.headers.get("Content-Disposition"),
-            'attachment; filename="Action plan Sessi\xc3\xb8n.rtf"'
-        )
-
     def testInvalidDateDoesNotBreakRendering(self):
         import datetime
         from euphorie.content.tests.utils import BASIC_SURVEY
