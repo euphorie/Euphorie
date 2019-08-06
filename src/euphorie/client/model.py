@@ -298,7 +298,7 @@ class Group(BaseObject):
         title = self.short_name or self.group_id
         if self.responsible_fullname:
             title += u', {}'.format(self.responsible_fullname)
-        title += u' ({})'.format(self.group_id)
+        # title += u' ({})'.format(self.group_id)
         return title
 
     @property

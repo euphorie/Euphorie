@@ -49,7 +49,7 @@
 
               <fieldset class="vertical" tal:condition="python:view.template_count > threshold">
               <label class="tool-list-many">
-                <select name="survey">
+                <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0">
                   <metal:templates define-macro="templates_many">
                     <tal:surveys define="surveys root/survey_templates">
                       <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
