@@ -117,11 +117,17 @@ class SessionManagerFactoryTests(TreeTests):
             finally:
                 setSecurityManager(sm)
 
-    def test_resume_enforce_same_account(self):
-        mgr = self.SessionManagerFactory()
-        victim = model.Account(loginname="test", password=u"test")
-        attacker = model.Account(loginname="evil", password=u"layer")
-        session = model.SurveySession(account=victim)
-        with self._get_view('webhelpers', self.portal):
-            with api.env.adopt_user(user=attacker):
-                self.assertRaises(ValueError, mgr.resume, session)
+
+    # XXX
+    #
+    # This test uses the session manager and is obsolete.
+    # Replacement??
+    #
+    # def test_resume_enforce_same_account(self):
+    #     mgr = self.SessionManagerFactory()
+    #     victim = model.Account(loginname="test", password=u"test")
+    #     attacker = model.Account(loginname="evil", password=u"layer")
+    #     session = model.SurveySession(account=victim)
+    #     with self._get_view('webhelpers', self.portal):
+    #         with api.env.adopt_user(user=attacker):
+    #             self.assertRaises(ValueError, mgr.resume, session)
