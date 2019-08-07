@@ -469,8 +469,9 @@ class Profile_getDesiredProfile_Tests(TreeTests):
 
 class Profile_setupSession_Tests(TreeTests):
 
-    def makeView(self, survey):
-        session = self.createSurveySession()
+    def makeView(self, survey, session=None):
+        if not session:
+            session = self.createSurveySession()
         return api.content.get_view(
             "profile",
             survey.restrictedTraverse("++session++%s" % session.id),
@@ -564,7 +565,8 @@ class Profile_setupSession_Tests(TreeTests):
                     'euphorie.client.model.SurveySession.copySessionData',
                     return_value=None,
                 ):
-                    view.setupSession()
+                    new_session = view.setupSession()
+                view = self.makeView(survey, new_session)
                 self.failUnless(view.session is not session)
                 self.assertEqual(view.session.hasTree(), False)
 
@@ -586,7 +588,8 @@ class Profile_setupSession_Tests(TreeTests):
                     'euphorie.client.model.SurveySession.copySessionData',
                     return_value=None,
                 ):
-                    view.setupSession()
+                    new_session = view.setupSession()
+                view = self.makeView(survey, new_session)
                 self.failUnless(view.session is not session)
                 self.assertEqual(view.session.hasTree(), False)
 
