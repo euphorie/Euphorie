@@ -96,21 +96,21 @@ class find_sql_context_tests(EuphorieIntegrationTestCase):
         self.createSqlData()
         zodb_path = ['1']
         result = self.find_sql_context(self.survey.id, zodb_path)
-        self.assertEqual(result, self.mod1.id)
+        self.assertEqual(result.id, self.mod1.id)
         self.assertEqual(zodb_path, [])
 
     def test_two_step_path(self):
         self.createSqlData()
         zodb_path = ['1', '1']
         result = self.find_sql_context(self.survey.id, zodb_path)
-        self.assertEqual(result, self.q1.id)
+        self.assertEqual(result.id, self.q1.id)
         self.assertEqual(zodb_path, [])
 
     def test_keep_non_numeric_elements(self):
         self.createSqlData()
         zodb_path = ['oops', '1']
         result = self.find_sql_context(self.survey.id, zodb_path)
-        self.assertEqual(result, self.mod1.id)
+        self.assertEqual(result.id, self.mod1.id)
         self.assertEqual(zodb_path, ["oops"])
 
     def test_keep_sessions_apart(self):
