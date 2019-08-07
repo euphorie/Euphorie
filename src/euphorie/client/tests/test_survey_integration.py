@@ -21,6 +21,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
         survey = addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password='secret')
         survey_session = model.SurveySession(
+            id=123,
             title=u'Dummy session',
             created=datetime(2012, 4, 22, 23, 5, 12),
             modified=datetime(2012, 4, 23, 11, 50, 30),
@@ -33,9 +34,12 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
         model.Session.add(survey_session)
         survey = self.portal.client.nl.ict['software-development']
 
+        session_id = "++session++%d" % survey_session.id
+        traversed_survey_session = survey.restrictedTraverse(session_id)
+
         with api.env.adopt_user(user=survey_session.account):
             with self._get_view(
-                'publication_date', survey, survey_session
+                'publication_date', traversed_survey_session, survey_session
             ) as view:
                 # The view is not callable but
                 # has traversable allowed attributes
@@ -51,7 +55,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 # If no referer is set,
                 # the methods will redirect to the context url
                 self.assertEqual(
-                    view.set_date(survey_session.id), survey.absolute_url())
+                    view.set_date(), "{url}/{session_id}".format(url=survey.absolute_url(), session_id=session_id))
                 self.assertEqual(
                     survey_session.last_publisher, survey_session.account
                 )
@@ -65,7 +69,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 # We need to wait at least one second because the datetime
                 # is stored with that accuracy
                 sleep(1)
-                self.assertEqual(view.reset_date(survey_session.id), 'foo')
+                self.assertEqual(view.reset_date(), 'foo')
                 self.assertTrue(survey_session.modified > old_modified)
                 self.assertEqual(
                     survey_session.last_publisher, survey_session.account
@@ -75,18 +79,18 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 )
                 self.assertTrue(survey_session.published > old_published)
                 # Calling unset_date will restore the publication info
-                self.assertEqual(view.unset_date(survey_session.id), 'foo')
+                self.assertEqual(view.unset_date(), 'foo')
                 self.assertEqual(survey_session.last_publisher, None)
                 self.assertEqual(survey_session.published, None)
                 self.assertEqual(survey_session.review_state, 'private')
 
             # We also have a menu view
             with self._get_view(
-                'publication_menu', survey, survey_session
+                'publication_menu', traversed_survey_session, survey_session
             ) as view:
                 soup = html.fromstring(view())
                 self.assertListEqual(
-                    ['publication_date/set_date?sessionid=1#content'],
+                    ['publication_date/set_date#content'],
                     [
                         el.attrib['action'].rpartition('@@')[-1]
                         for el in soup.cssselect('form')
@@ -97,8 +101,8 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 soup = html.fromstring(view())
                 self.assertListEqual(
                     [
-                        'publication_date/unset_date?sessionid=1#content',
-                        'publication_date/reset_date?sessionid=1#content',
+                        'publication_date/unset_date#content',
+                        'publication_date/reset_date#content',
                     ],
                     [
                         el.attrib['action'].rpartition('@@')[-1]
