@@ -74,6 +74,10 @@ class SessionMixin(object):
     """ Mostly properties we want to reuse for the views in the context of a session
     """
 
+    def update(self):
+        super(SessionMixin, self).update()
+        utils.setLanguage(self.request, self.survey, self.survey.language)
+
     @property
     @memoize
     def webhelpers(self):
