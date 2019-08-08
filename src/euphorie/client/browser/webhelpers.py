@@ -429,7 +429,7 @@ class WebHelpers(BrowserView):
     def get_phase(self):
         head, tail = path.split(self.request.PATH_INFO)
         while tail:
-            tail = tail.replace('@', '')
+            tail = tail.replace('@', '').split("_")[0]
             if tail in NAME_TO_PHASE:
                 return NAME_TO_PHASE[tail]
             head, tail = path.split(head)
