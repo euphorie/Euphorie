@@ -222,7 +222,7 @@ class IdentificationView(BrowserView):
                 ).__get__(
                     self, ""
                 )  # noqa
-                next = FindNextQuestion(self.context, filter=self.question_filter)
+                next = FindNextQuestion(self.context, self.context.session, filter=self.question_filter)
                 self.has_next_risk = next or False
             else:
                 template = self.template
