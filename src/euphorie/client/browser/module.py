@@ -256,14 +256,12 @@ class ActionPlanView(BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            return self._update()
 
         context = aq_inner(self.context)
         if (IProfileQuestion.providedBy(self.module) and context.depth == 2) or (
             ICustomRisksModule.providedBy(self.module) and self.phase == "actionplan"
         ):
-            next_question = FindNextQuestion(context, filter=self.question_filter)
+            next_question = FindNextQuestion(context, self.context.session, filter=self.question_filter)
             if next_question is None:
                 if self.phase == ("identification", "evaluation"):
                     url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
@@ -277,7 +275,7 @@ class ActionPlanView(BrowserView):
             return self.request.response.redirect(url)
 
         self.title = self.context.title
-        previous = FindPreviousQuestion(self.context, filter=self.question_filter)
+        previous = FindPreviousQuestion(self.context, self.context.session, filter=self.question_filter)
         if previous is None:
             self.previous_url = "%s/@@%s" % (
                 self.context.aq_parent.absolute_url(), self.phase
@@ -286,18 +284,17 @@ class ActionPlanView(BrowserView):
             self.previous_url = "{session_url}/{path}/@@{phase}".format(
                 session_url=self.webhelpers.traversed_session.absolute_url(),
                 path="/".join(previous.short_path),
-                pahse=self.phase,
+                phase=self.phase,
             )
-
-        next_question = FindNextQuestion(self.context, filter=self.question_filter)
+        next_question = FindNextQuestion(self.context, self.context.session, filter=self.question_filter)
         if next_question is None:
             self.next_url = (
                 self.webhelpers.traversed_session.absolute_url() + "/@@report"
             )
         else:
-            self.next_url = "{session_url}/{id}/@@{phase}".format(
+            self.next_url = "{session_url}/{path}/@@{phase}".format(
                 session_url=self.webhelpers.traversed_session.absolute_url(),
                 path="/".join(next_question.short_path),
-                pahse=self.phase,
+                phase=self.phase,
             )
         return self.index()

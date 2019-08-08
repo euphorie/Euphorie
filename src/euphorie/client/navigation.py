@@ -32,6 +32,8 @@ def FindFirstQuestion(dbsession=None, filter=None):
 
 
 def FindNextQuestion(after, dbsession=None, filter=None):
+    if dbsession is None:
+        dbsession = SessionManager.session
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
