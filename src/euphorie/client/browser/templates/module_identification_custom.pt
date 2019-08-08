@@ -22,7 +22,7 @@
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
             explicabo.</p>
 
-        <form method="post" action="${context/absolute_url}"
+        <form method="post" action="${context/absolute_url}/@@identification"
             class="pat-inject"
             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks">
                 <p>
