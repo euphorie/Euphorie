@@ -377,10 +377,13 @@ class IdentificationView(BrowserView):
 
             view = api.content.get_view("identification", sql_module, self.request)
             risk_id = view.add_custom_risk()
-            risk = Session.query(self.__class__).get(risk_id)
-            url = "{session_url}/{path}/@@identification".format(
+            # Construct the path to the newly added risk: We know that there
+            # is only one custom module, so we can take its id directly. And
+            # to that we can append the risk id.
+            url = "{session_url}/{module}/{risk}/@@identification".format(
                 session_url=self.webhelpers.traversed_session.absolute_url(),
-                path="/".join(risk.short_path),
+                module=sql_module.getId(),
+                risk=risk_id,
             )
             return self.request.response.redirect(url)
         elif reply.get("next", None) == "actionplan":

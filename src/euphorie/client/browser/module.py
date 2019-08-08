@@ -176,8 +176,7 @@ class IdentificationView(BrowserView, Mixin):
         self.request.response.redirect(self.next_question_url)
 
     def add_custom_risk(self):
-
-        session = self.context.aq_parent.session
+        session = self.context.session
         sql_risks = self.context.children()
         if sql_risks.count():
             counter_id = max([int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
@@ -201,9 +200,8 @@ class IdentificationView(BrowserView, Mixin):
         risk.postponed = False
         risk.has_description = None
         risk.zodb_path = "/".join(
-            [session.zodb_path]
-            + [self.context.zodb_path]
-            +
+            [session.zodb_path] +
+            [self.context.zodb_path] +
             # There's a constraint for unique zodb_path per session
             ["%d" % counter_id]
         )
