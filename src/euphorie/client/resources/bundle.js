@@ -55527,6 +55527,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         subtree: true,
         characterData: false,
         attributeOldValue: true,
+        attributes: true,
         attributeFilter: ['class']
       };
       observer.observe(document.body, config);
