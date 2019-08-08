@@ -395,13 +395,6 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
-    @property
-    @memoize
-    def risk(self):
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
-        )
-
     def get_existing_measures(self):
         if not self.risk:
             defined_measures = []
