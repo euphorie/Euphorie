@@ -15,7 +15,7 @@
   <form enctype="multipart/form-data"
         accept-charset="UTF-8"
         method="POST"
-        action="${context/absolute_url}"
+        action="${context/absolute_url}/@@identification"
         class="pat-inject"
         data-pat-inject="history: record;">
     <div id="content-pane">
