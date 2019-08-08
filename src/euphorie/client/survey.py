@@ -406,42 +406,42 @@ class _StatusHelper(object):
         return True
 
 
-class SurveyPublishTraverser(DefaultPublishTraverse):
-    """Publish traverser to setup the survey skin layers.
+# class SurveyPublishTraverser(DefaultPublishTraverse):
+#     """Publish traverser to setup the survey skin layers.
 
-    This traverser marks the request with IClientSkinLayer. We can not use
-    BeforeTraverseEvent sine in Zope 2 that is only fired for site objects.
-    """
+#     This traverser marks the request with IClientSkinLayer. We can not use
+#     BeforeTraverseEvent sine in Zope 2 that is only fired for site objects.
+#     """
 
-    adapts(ISurvey, IClientSkinLayer)
+#     adapts(ISurvey, IClientSkinLayer)
 
-    phases = {
-        "identification": IIdentificationPhaseSkinLayer,
-        "customization": ICustomizationPhaseSkinLayer,
-        "evaluation": IEvaluationPhaseSkinLayer,
-        "actionplan": IActionPlanPhaseSkinLayer,
-        "report": IReportPhaseSkinLayer,
-    }
+#     phases = {
+#         "identification": IIdentificationPhaseSkinLayer,
+#         "customization": ICustomizationPhaseSkinLayer,
+#         "evaluation": IEvaluationPhaseSkinLayer,
+#         "actionplan": IActionPlanPhaseSkinLayer,
+#         "report": IReportPhaseSkinLayer,
+#     }
 
-    countries = {
-        "it": {
-            "identification": IItalyIdentificationPhaseSkinLayer,
-            "customization": IItalyCustomizationPhaseSkinLayer,
-            "evaluation": IItalyEvaluationPhaseSkinLayer,
-            "actionplan": IItalyActionPlanPhaseSkinLayer,
-            "report": IItalyReportPhaseSkinLayer,
-        },
-        "fr": {
-            "identification": IFranceIdentificationPhaseSkinLayer,
-            "customization": IFranceCustomizationPhaseSkinLayer,
-            "evaluation": IFranceEvaluationPhaseSkinLayer,
-            "actionplan": IFranceActionPlanPhaseSkinLayer,
-            "report": IFranceReportPhaseSkinLayer,
-        },
-    }
+#     countries = {
+#         "it": {
+#             "identification": IItalyIdentificationPhaseSkinLayer,
+#             "customization": IItalyCustomizationPhaseSkinLayer,
+#             "evaluation": IItalyEvaluationPhaseSkinLayer,
+#             "actionplan": IItalyActionPlanPhaseSkinLayer,
+#             "report": IItalyReportPhaseSkinLayer,
+#         },
+#         "fr": {
+#             "identification": IFranceIdentificationPhaseSkinLayer,
+#             "customization": IFranceCustomizationPhaseSkinLayer,
+#             "evaluation": IFranceEvaluationPhaseSkinLayer,
+#             "actionplan": IFranceActionPlanPhaseSkinLayer,
+#             "report": IFranceReportPhaseSkinLayer,
+#         },
+#     }
 
-    def publishTraverse(self, request, name):
-        utils.setLanguage(request, self.context, self.context.language)
-        if name not in self.phases:
-            return super(SurveyPublishTraverser, self).publishTraverse(request, name)
-        raise Exception("This is obsolete")
+#     def publishTraverse(self, request, name):
+#         utils.setLanguage(request, self.context, self.context.language)
+#         if name not in self.phases:
+#             return super(SurveyPublishTraverser, self).publishTraverse(request, name)
+#         raise Exception("This is obsolete")
