@@ -7,6 +7,7 @@ from euphorie.client.navigation import getTreeData
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
@@ -14,7 +15,6 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import sql
 from z3c.saconfig import Session
-
 
 logger = getLogger(__name__)
 
@@ -34,6 +34,13 @@ class Mixin(object):
             .order_by(model.Risk.id)
         )
         return query.all()
+
+    @property
+    @memoize
+    def traversed_session(self):
+        for obj in self.context.aq_chain:
+            if ITraversedSurveySession.providedBy(obj):
+                return obj
 
 
 class IdentificationView(BrowserView, Mixin):
@@ -73,7 +80,7 @@ class IdentificationView(BrowserView, Mixin):
         if not self.next_question:
             return ""
         return "{parent_url}/{next_question_path}/@@{view}".format(
-            parent_url=self.context.aq_parent.absolute_url(),
+            parent_url=self.traversed_session.absolute_url(),
             next_question_path="/".join(self.next_question.short_path),
             view=self.__name__,
         )
@@ -98,13 +105,12 @@ class IdentificationView(BrowserView, Mixin):
                 self.context.aq_parent.absolute_url() + "/@@start"
             )
 
-        survey = self.context.aq_parent.aq_parent
-
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
         context = aq_inner(self.context)
-        module = survey.restrictedTraverse(context.zodb_path.split("/"))
+
+        module = self.traversed_session.restrictedTraverse(context.zodb_path.split("/"))
         if self.request.environ["REQUEST_METHOD"] == "POST":
             return self.save_and_continue(module)
 
