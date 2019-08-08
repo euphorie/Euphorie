@@ -162,7 +162,7 @@ class IdentificationView(BrowserView, Mixin):
                 if reply["next"] == "add_custom_risk":
                     risk_id = self.add_custom_risk()
                     url = "{parent_url}/{risk_id}/@@identification".format(
-                        parent_url=self.context.aq_parent.absolute_url(),
+                        parent_url=self.context.absolute_url(),
                         risk_id=risk_id,
                     )
                     return self.request.response.redirect(url)
