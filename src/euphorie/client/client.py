@@ -14,8 +14,7 @@ from plone.directives import dexterity
 from plone.directives import form
 from Products.membrane.interfaces.user import IMembraneUserObject
 from zope.component import adapts
-from zope.interface import directlyProvidedBy
-from zope.interface import directlyProvides
+from zope.interface import alsoProvides
 from zope.interface import implements
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IBrowserSkinType
@@ -89,8 +88,6 @@ class ClientPublishTraverser(DefaultPublishTraverse):
         setRequest(request)
         request.client = self.context  # XXX: remove me
 
-        ifaces = [iface for iface in directlyProvidedBy(request)
-                if not IBrowserSkinType.providedBy(iface)]
-        directlyProvides(request, IClientSkinLayer, ifaces)
+        alsoProvides(request, IClientSkinLayer)
         return super(ClientPublishTraverser, self)\
                 .publishTraverse(request, name)
