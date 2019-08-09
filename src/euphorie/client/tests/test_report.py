@@ -1,191 +1,192 @@
 # coding=utf-8
-from cStringIO import StringIO
+# from cStringIO import StringIO
 from euphorie.client import model
 from euphorie.client.adapters.session_traversal import TraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Account
 from euphorie.client.model import SurveySession
-from euphorie.client.report import HtmlToRtf
-from euphorie.client.report import IdentificationReport
-from euphorie.content.risk import Risk
+# from euphorie.client.report import HtmlToRtf
+# from euphorie.client.report import IdentificationReport
+# from euphorie.content.risk import Risk
 from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
-from rtfng.document.section import Section
-from rtfng.Elements import Document
-from rtfng.Renderer import Renderer
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
 import mock
-import unittest
+# import unittest
 
 
-class IdentificationReportTests(unittest.TestCase):
+# XXX Change these tests to test client.docx.views.IdentificationReportDocxView instead
 
-    def IdentificationReport(self, *a, **kw):
-        return IdentificationReport(*a, **kw)
+# class IdentificationReportTests(unittest.TestCase):
 
-    def test_title_not_a_risk(self):
-        node = mock.Mock()
-        node.type = 'module'
-        node.title = u'My title'
-        view = self.IdentificationReport(None, None)
-        self.assertEqual(view.title(node, None), u'My title')
+#     def IdentificationReport(self, *a, **kw):
+#         return IdentificationReport(*a, **kw)
 
-    def test_title_unanswered_risk(self):
-        node = mock.Mock()
-        node.type = 'risk'
-        node.identification = None
-        node.title = u'My title'
-        view = self.IdentificationReport(None, None)
-        self.assertEqual(view.title(node, None), u'My title')
+#     def test_title_not_a_risk(self):
+#         node = mock.Mock()
+#         node.type = 'module'
+#         node.title = u'My title'
+#         view = self.IdentificationReport(None, None)
+#         self.assertEqual(view.title(node, None), u'My title')
 
-    def test_title_empty_problem_description(self):
-        node = mock.Mock()
-        node.type = 'risk'
-        node.identification = u'no'
-        node.title = u'My title'
-        zodb_node = mock.Mock()
-        zodb_node.problem_description = u'   '
-        view = self.IdentificationReport(None, None)
-        self.assertEqual(view.title(node, zodb_node), u'My title')
+#     def test_title_unanswered_risk(self):
+#         node = mock.Mock()
+#         node.type = 'risk'
+#         node.identification = None
+#         node.title = u'My title'
+#         view = self.IdentificationReport(None, None)
+#         self.assertEqual(view.title(node, None), u'My title')
 
-    def test_title_risk_present_and_with_problem_description(self):
-        node = mock.Mock()
-        node.type = 'risk'
-        node.identification = u'no'
-        node.title = u'My title'
-        zodb_node = mock.Mock()
-        zodb_node.problem_description = u'Bad situation'
-        view = self.IdentificationReport(None, None)
-        self.assertEqual(view.title(node, zodb_node), u'Bad situation')
+#     def test_title_empty_problem_description(self):
+#         node = mock.Mock()
+#         node.type = 'risk'
+#         node.identification = u'no'
+#         node.title = u'My title'
+#         zodb_node = mock.Mock()
+#         zodb_node.problem_description = u'   '
+#         view = self.IdentificationReport(None, None)
+#         self.assertEqual(view.title(node, zodb_node), u'My title')
 
-
-class ShowNegateWarningTests(unittest.TestCase):
-
-    def _call(self, node, zodbnode):
-        report = IdentificationReport(None, None)
-        return report.show_negate_warning(node, zodbnode)
-
-    def test_show_Unanswered(self):
-        # https//code.simplon.biz/tracker/tno-euphorie/ticket/75
-        zodbnode = Risk()
-        zodbnode.problem_description = None
-        node = model.Risk(type="risk")
-        self.assertEqual(self._call(node, zodbnode), False)
-
-    def test_RiskNotPresent(self):
-        zodbnode = Risk()
-        zodbnode.problem_description = None
-        node = model.Risk(type="risk", identification="yes")
-        self.assertEqual(self._call(node, zodbnode), False)
-
-    def test_RiskNotApplicable(self):
-        zodbnode = Risk()
-        zodbnode.problem_description = None
-        node = model.Risk(type="risk", identification="n/a")
-        self.assertEqual(self._call(node, zodbnode), False)
-
-    def test_Present(self):
-        zodbnode = Risk()
-        zodbnode.problem_description = None
-        node = model.Risk(type="risk", identification="no")
-        self.assertEqual(self._call(node, zodbnode), True)
-
-    def test_HasProblemDescription(self):
-        zodbnode = Risk()
-        zodbnode.problem_description = u"Negative"
-        node = model.Risk(type="risk", identification="no")
-        self.assertEqual(self._call(node, zodbnode), False)
-
-    def test_HasEmptyProblemDescription(self):
-        zodbnode = Risk()
-        zodbnode.problem_description = u"   "
-        node = model.Risk(type="risk", identification="no")
-        self.assertEqual(self._call(node, zodbnode), True)
+#     def test_title_risk_present_and_with_problem_description(self):
+#         node = mock.Mock()
+#         node.type = 'risk'
+#         node.identification = u'no'
+#         node.title = u'My title'
+#         zodb_node = mock.Mock()
+#         zodb_node.problem_description = u'Bad situation'
+#         view = self.IdentificationReport(None, None)
+#         self.assertEqual(view.title(node, zodb_node), u'Bad situation')
 
 
-class HtmlToRtfTests(unittest.TestCase):
+# class ShowNegateWarningTests(unittest.TestCase):
 
-    def HtmlToRtf(self, *a, **kw):
-        return HtmlToRtf(*a, **kw)
+#     def _call(self, node, zodbnode):
+#         report = IdentificationReport(None, None)
+#         return report.show_negate_warning(node, zodbnode)
 
-    def render(self, output):
-        document = Document()
-        section = Section()
-        for o in output:
-            section.append(o)
-        document.Sections.append(section)
-        renderer = Renderer()
-        renderer.Write(document, StringIO())  # Setup instance variables
-        renderer._doc = document
-        renderer._fout = StringIO()
-        renderer._CurrentStyle = ""
-        renderer._WriteSection(section, True, False)
-        return renderer._fout.getvalue()
+#     def test_show_Unanswered(self):
+#         # https//code.simplon.biz/tracker/tno-euphorie/ticket/75
+#         zodbnode = Risk()
+#         zodbnode.problem_description = None
+#         node = model.Risk(type="risk")
+#         self.assertEqual(self._call(node, zodbnode), False)
 
-    def testEmptyInput(self):
-        self.assertEqual(self.HtmlToRtf(u"", u"<stylesheet>"), [])
+#     def test_RiskNotPresent(self):
+#         zodbnode = Risk()
+#         zodbnode.problem_description = None
+#         node = model.Risk(type="risk", identification="yes")
+#         self.assertEqual(self._call(node, zodbnode), False)
 
-    def testInvalidHtmlFallback(self):
-        self.assertTrue(
-            "text\\par" in
-            self.render(self.HtmlToRtf(u"<p>text</p>", u"<stylesheet>"))
-        )
+#     def test_RiskNotApplicable(self):
+#         zodbnode = Risk()
+#         zodbnode.problem_description = None
+#         node = model.Risk(type="risk", identification="n/a")
+#         self.assertEqual(self._call(node, zodbnode), False)
 
-    def testBasicParagraph(self):
-        self.assertTrue(
-            "Simple text\\par" in self.render(
-                self.HtmlToRtf(u"<p>Simple text</p>", u"<stylesheet>")
-            ), []
-        )
+#     def test_Present(self):
+#         zodbnode = Risk()
+#         zodbnode.problem_description = None
+#         node = model.Risk(type="risk", identification="no")
+#         self.assertEqual(self._call(node, zodbnode), True)
 
-    def testItalicInText(self):
-        self.assertTrue(
-            "Simple {\\i text}\\par" in self.render(
-                self.
-                HtmlToRtf(u"<p>Simple <em>text</em></p>", u"<stylesheet>")
-            )
-        )
+#     def test_HasProblemDescription(self):
+#         zodbnode = Risk()
+#         zodbnode.problem_description = u"Negative"
+#         node = model.Risk(type="risk", identification="no")
+#         self.assertEqual(self._call(node, zodbnode), False)
 
-    def testBoldAndItalicText(self):
-        self.assertTrue(
-            "Very {\\i very }{\\b\\i bold}\\par" in self.render(
-                self.HtmlToRtf(
-                    u"<p>Very <em>very <strong>bold</strong></em></p>",
-                    u"<stylesheet>"
-                )
-            )
-        )
+#     def test_HasEmptyProblemDescription(self):
+#         zodbnode = Risk()
+#         zodbnode.problem_description = u"   "
+#         node = model.Risk(type="risk", identification="no")
+#         self.assertEqual(self._call(node, zodbnode), True)
 
-    def testEmphasisInText(self):
-        self.assertTrue(
-            "{\\i text}" in
-            self.render(self.HtmlToRtf(u"<em>text</em>", u"<stylesheet>"))
-        )
 
-    def testInlineEntity(self):
-        self.assertTrue(
-            "Simple & clean\\par" in self.render(
-                self.HtmlToRtf(u"<p>Simple &amp; clean</p>", u"<stylesheet>")
-            )
-        )
+# XXX Change these test to check client.docx.html._HtmlToWord instead
 
-    def testInlineEntityDigit(self):
-        self.assertTrue(
-            "Simple \r clean\\par" in self.render(
-                self.HtmlToRtf(u"<p>Simple &#13; clean</p>", u"<stylesheet>")
-            )
-        )
+# class HtmlToRtfTests(unittest.TestCase):
 
-    def test_link_in_text(self):
-        # This demonstrates TNO Euphorie ticket 186
-        html = '<p>Check the <a rel="nofollow">manual</a> for more info.</p>'
-        rendering = self.render(self.HtmlToRtf(html, '<stylesheet>'))
-        self.assertTrue('Check the manual for more info.' in rendering)
-        self.assertEqual(rendering.count('more info'), 1)
+#     def HtmlToRtf(self, *a, **kw):
+#         return HtmlToRtf(*a, **kw)
+
+#     def render(self, output):
+#         document = Document()
+#         section = Section()
+#         for o in output:
+#             section.append(o)
+#         document.Sections.append(section)
+#         renderer = Renderer()
+#         renderer.Write(document, StringIO())  # Setup instance variables
+#         renderer._doc = document
+#         renderer._fout = StringIO()
+#         renderer._CurrentStyle = ""
+#         renderer._WriteSection(section, True, False)
+#         return renderer._fout.getvalue()
+
+#     def testEmptyInput(self):
+#         self.assertEqual(self.HtmlToRtf(u"", u"<stylesheet>"), [])
+
+#     def testInvalidHtmlFallback(self):
+#         self.assertTrue(
+#             "text\\par" in
+#             self.render(self.HtmlToRtf(u"<p>text</p>", u"<stylesheet>"))
+#         )
+
+#     def testBasicParagraph(self):
+#         self.assertTrue(
+#             "Simple text\\par" in self.render(
+#                 self.HtmlToRtf(u"<p>Simple text</p>", u"<stylesheet>")
+#             ), []
+#         )
+
+#     def testItalicInText(self):
+#         self.assertTrue(
+#             "Simple {\\i text}\\par" in self.render(
+#                 self.
+#                 HtmlToRtf(u"<p>Simple <em>text</em></p>", u"<stylesheet>")
+#             )
+#         )
+
+#     def testBoldAndItalicText(self):
+#         self.assertTrue(
+#             "Very {\\i very }{\\b\\i bold}\\par" in self.render(
+#                 self.HtmlToRtf(
+#                     u"<p>Very <em>very <strong>bold</strong></em></p>",
+#                     u"<stylesheet>"
+#                 )
+#             )
+#         )
+
+#     def testEmphasisInText(self):
+#         self.assertTrue(
+#             "{\\i text}" in
+#             self.render(self.HtmlToRtf(u"<em>text</em>", u"<stylesheet>"))
+#         )
+
+#     def testInlineEntity(self):
+#         self.assertTrue(
+#             "Simple & clean\\par" in self.render(
+#                 self.HtmlToRtf(u"<p>Simple &amp; clean</p>", u"<stylesheet>")
+#             )
+#         )
+
+#     def testInlineEntityDigit(self):
+#         self.assertTrue(
+#             "Simple \r clean\\par" in self.render(
+#                 self.HtmlToRtf(u"<p>Simple &#13; clean</p>", u"<stylesheet>")
+#             )
+#         )
+
+#     def test_link_in_text(self):
+#         # This demonstrates TNO Euphorie ticket 186
+#         html = '<p>Check the <a rel="nofollow">manual</a> for more info.</p>'
+#         rendering = self.render(self.HtmlToRtf(html, '<stylesheet>'))
+#         self.assertTrue('Check the manual for more info.' in rendering)
+#         self.assertEqual(rendering.count('more info'), 1)
 
 
 class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
